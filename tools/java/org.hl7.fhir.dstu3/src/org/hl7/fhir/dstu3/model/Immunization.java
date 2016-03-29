@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -2282,30 +2282,24 @@ public class Immunization extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>reaction</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>Additional information on reaction</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Immunization.reaction.detail</b><br>
+   * Description: <b>Vaccination  (non)-Administration Date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Immunization.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="reaction", path="Immunization.reaction.detail", description="Additional information on reaction", type="reference" )
-  public static final String SP_REACTION = "reaction";
+  @SearchParamDefinition(name="date", path="Immunization.date", description="Vaccination  (non)-Administration Date", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>reaction</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>Additional information on reaction</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Immunization.reaction.detail</b><br>
+   * Description: <b>Vaccination  (non)-Administration Date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Immunization.date</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REACTION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REACTION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Immunization:reaction</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_REACTION = new ca.uhn.fhir.model.api.Include("Immunization:reaction").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
    * Search parameter: <b>requester</b>
@@ -2334,70 +2328,24 @@ public class Immunization extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTER = new ca.uhn.fhir.model.api.Include("Immunization:requester").toLocked();
 
  /**
-   * Search parameter: <b>dose-sequence</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Dose number within series</b><br>
-   * Type: <b>number</b><br>
-   * Path: <b>Immunization.vaccinationProtocol.doseSequence</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="dose-sequence", path="Immunization.vaccinationProtocol.doseSequence", description="Dose number within series", type="number" )
-  public static final String SP_DOSE_SEQUENCE = "dose-sequence";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>dose-sequence</b>
-   * <p>
-   * Description: <b>Dose number within series</b><br>
-   * Type: <b>number</b><br>
-   * Path: <b>Immunization.vaccinationProtocol.doseSequence</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.NumberClientParam DOSE_SEQUENCE = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_DOSE_SEQUENCE);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>Immunization event status</b><br>
+   * Description: <b>Business identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Immunization.status</b><br>
+   * Path: <b>Immunization.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="Immunization.status", description="Immunization event status", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="identifier", path="Immunization.identifier", description="Business identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Immunization event status</b><br>
+   * Description: <b>Business identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Immunization.status</b><br>
+   * Path: <b>Immunization.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>location</b>
-   * <p>
-   * Description: <b>The service delivery location or facility in which the vaccine was / was to be administered</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Immunization.location</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="location", path="Immunization.location", description="The service delivery location or facility in which the vaccine was / was to be administered", type="reference" )
-  public static final String SP_LOCATION = "location";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>location</b>
-   * <p>
-   * Description: <b>The service delivery location or facility in which the vaccine was / was to be administered</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Immunization.location</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam LOCATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_LOCATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Immunization:location</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("Immunization:location").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>reason</b>
@@ -2418,178 +2366,6 @@ public class Immunization extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam REASON = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REASON);
-
- /**
-   * Search parameter: <b>reaction-date</b>
-   * <p>
-   * Description: <b>When reaction started</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Immunization.reaction.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="reaction-date", path="Immunization.reaction.date", description="When reaction started", type="date" )
-  public static final String SP_REACTION_DATE = "reaction-date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>reaction-date</b>
-   * <p>
-   * Description: <b>When reaction started</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Immunization.reaction.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam REACTION_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_REACTION_DATE);
-
- /**
-   * Search parameter: <b>notgiven</b>
-   * <p>
-   * Description: <b>Administrations which were not given</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Immunization.wasNotGiven</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="notgiven", path="Immunization.wasNotGiven", description="Administrations which were not given", type="token" )
-  public static final String SP_NOTGIVEN = "notgiven";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>notgiven</b>
-   * <p>
-   * Description: <b>Administrations which were not given</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Immunization.wasNotGiven</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam NOTGIVEN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_NOTGIVEN);
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>Vaccination  (non)-Administration Date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Immunization.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="Immunization.date", description="Vaccination  (non)-Administration Date", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>Vaccination  (non)-Administration Date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Immunization.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>reason-not-given</b>
-   * <p>
-   * Description: <b>Explanation of reason vaccination was not administered</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Immunization.explanation.reasonNotGiven</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="reason-not-given", path="Immunization.explanation.reasonNotGiven", description="Explanation of reason vaccination was not administered", type="token" )
-  public static final String SP_REASON_NOT_GIVEN = "reason-not-given";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>reason-not-given</b>
-   * <p>
-   * Description: <b>Explanation of reason vaccination was not administered</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Immunization.explanation.reasonNotGiven</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam REASON_NOT_GIVEN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REASON_NOT_GIVEN);
-
- /**
-   * Search parameter: <b>vaccine-code</b>
-   * <p>
-   * Description: <b>Vaccine Product Administered</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Immunization.vaccineCode</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="vaccine-code", path="Immunization.vaccineCode", description="Vaccine Product Administered", type="token" )
-  public static final String SP_VACCINE_CODE = "vaccine-code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>vaccine-code</b>
-   * <p>
-   * Description: <b>Vaccine Product Administered</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Immunization.vaccineCode</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VACCINE_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VACCINE_CODE);
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>The patient for the vaccination record</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Immunization.patient</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="Immunization.patient", description="The patient for the vaccination record", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>The patient for the vaccination record</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Immunization.patient</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Immunization:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Immunization:patient").toLocked();
-
- /**
-   * Search parameter: <b>lot-number</b>
-   * <p>
-   * Description: <b>Vaccine Lot Number</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Immunization.lotNumber</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="lot-number", path="Immunization.lotNumber", description="Vaccine Lot Number", type="string" )
-  public static final String SP_LOT_NUMBER = "lot-number";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>lot-number</b>
-   * <p>
-   * Description: <b>Vaccine Lot Number</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Immunization.lotNumber</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam LOT_NUMBER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_LOT_NUMBER);
-
- /**
-   * Search parameter: <b>manufacturer</b>
-   * <p>
-   * Description: <b>Vaccine Manufacturer</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Immunization.manufacturer</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="manufacturer", path="Immunization.manufacturer", description="Vaccine Manufacturer", type="reference" )
-  public static final String SP_MANUFACTURER = "manufacturer";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>manufacturer</b>
-   * <p>
-   * Description: <b>Vaccine Manufacturer</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Immunization.manufacturer</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MANUFACTURER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MANUFACTURER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Immunization:manufacturer</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_MANUFACTURER = new ca.uhn.fhir.model.api.Include("Immunization:manufacturer").toLocked();
 
  /**
    * Search parameter: <b>performer</b>
@@ -2618,24 +2394,248 @@ public class Immunization extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("Immunization:performer").toLocked();
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>reaction</b>
    * <p>
-   * Description: <b>Business identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Immunization.identifier</b><br>
+   * Description: <b>Additional information on reaction</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Immunization.reaction.detail</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Immunization.identifier", description="Business identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="reaction", path="Immunization.reaction.detail", description="Additional information on reaction", type="reference" )
+  public static final String SP_REACTION = "reaction";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>reaction</b>
    * <p>
-   * Description: <b>Business identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Immunization.identifier</b><br>
+   * Description: <b>Additional information on reaction</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Immunization.reaction.detail</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REACTION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REACTION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Immunization:reaction</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REACTION = new ca.uhn.fhir.model.api.Include("Immunization:reaction").toLocked();
+
+ /**
+   * Search parameter: <b>lot-number</b>
+   * <p>
+   * Description: <b>Vaccine Lot Number</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Immunization.lotNumber</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="lot-number", path="Immunization.lotNumber", description="Vaccine Lot Number", type="string" )
+  public static final String SP_LOT_NUMBER = "lot-number";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>lot-number</b>
+   * <p>
+   * Description: <b>Vaccine Lot Number</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Immunization.lotNumber</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam LOT_NUMBER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_LOT_NUMBER);
+
+ /**
+   * Search parameter: <b>notgiven</b>
+   * <p>
+   * Description: <b>Administrations which were not given</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Immunization.wasNotGiven</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="notgiven", path="Immunization.wasNotGiven", description="Administrations which were not given", type="token" )
+  public static final String SP_NOTGIVEN = "notgiven";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>notgiven</b>
+   * <p>
+   * Description: <b>Administrations which were not given</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Immunization.wasNotGiven</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam NOTGIVEN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_NOTGIVEN);
+
+ /**
+   * Search parameter: <b>manufacturer</b>
+   * <p>
+   * Description: <b>Vaccine Manufacturer</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Immunization.manufacturer</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="manufacturer", path="Immunization.manufacturer", description="Vaccine Manufacturer", type="reference" )
+  public static final String SP_MANUFACTURER = "manufacturer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>manufacturer</b>
+   * <p>
+   * Description: <b>Vaccine Manufacturer</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Immunization.manufacturer</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MANUFACTURER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MANUFACTURER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Immunization:manufacturer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_MANUFACTURER = new ca.uhn.fhir.model.api.Include("Immunization:manufacturer").toLocked();
+
+ /**
+   * Search parameter: <b>dose-sequence</b>
+   * <p>
+   * Description: <b>Dose number within series</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>Immunization.vaccinationProtocol.doseSequence</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="dose-sequence", path="Immunization.vaccinationProtocol.doseSequence", description="Dose number within series", type="number" )
+  public static final String SP_DOSE_SEQUENCE = "dose-sequence";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>dose-sequence</b>
+   * <p>
+   * Description: <b>Dose number within series</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>Immunization.vaccinationProtocol.doseSequence</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.NumberClientParam DOSE_SEQUENCE = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_DOSE_SEQUENCE);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>The patient for the vaccination record</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Immunization.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="Immunization.patient", description="The patient for the vaccination record", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>The patient for the vaccination record</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Immunization.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Immunization:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Immunization:patient").toLocked();
+
+ /**
+   * Search parameter: <b>vaccine-code</b>
+   * <p>
+   * Description: <b>Vaccine Product Administered</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Immunization.vaccineCode</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="vaccine-code", path="Immunization.vaccineCode", description="Vaccine Product Administered", type="token" )
+  public static final String SP_VACCINE_CODE = "vaccine-code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>vaccine-code</b>
+   * <p>
+   * Description: <b>Vaccine Product Administered</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Immunization.vaccineCode</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VACCINE_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VACCINE_CODE);
+
+ /**
+   * Search parameter: <b>reason-not-given</b>
+   * <p>
+   * Description: <b>Explanation of reason vaccination was not administered</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Immunization.explanation.reasonNotGiven</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="reason-not-given", path="Immunization.explanation.reasonNotGiven", description="Explanation of reason vaccination was not administered", type="token" )
+  public static final String SP_REASON_NOT_GIVEN = "reason-not-given";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>reason-not-given</b>
+   * <p>
+   * Description: <b>Explanation of reason vaccination was not administered</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Immunization.explanation.reasonNotGiven</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam REASON_NOT_GIVEN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REASON_NOT_GIVEN);
+
+ /**
+   * Search parameter: <b>location</b>
+   * <p>
+   * Description: <b>The service delivery location or facility in which the vaccine was / was to be administered</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Immunization.location</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="location", path="Immunization.location", description="The service delivery location or facility in which the vaccine was / was to be administered", type="reference" )
+  public static final String SP_LOCATION = "location";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>location</b>
+   * <p>
+   * Description: <b>The service delivery location or facility in which the vaccine was / was to be administered</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Immunization.location</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam LOCATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_LOCATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Immunization:location</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("Immunization:location").toLocked();
+
+ /**
+   * Search parameter: <b>reaction-date</b>
+   * <p>
+   * Description: <b>When reaction started</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Immunization.reaction.date</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="reaction-date", path="Immunization.reaction.date", description="When reaction started", type="date" )
+  public static final String SP_REACTION_DATE = "reaction-date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>reaction-date</b>
+   * <p>
+   * Description: <b>When reaction started</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Immunization.reaction.date</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam REACTION_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_REACTION_DATE);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>Immunization event status</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Immunization.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="Immunization.status", description="Immunization event status", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>Immunization event status</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Immunization.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

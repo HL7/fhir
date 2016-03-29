@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -423,6 +423,26 @@ public class DecisionSupportRule extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Logical identifier for the module (e.g. CMS-143)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DecisionSupportRule.moduleMetadata.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="DecisionSupportRule.moduleMetadata.identifier", description="Logical identifier for the module (e.g. CMS-143)", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Logical identifier for the module (e.g. CMS-143)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DecisionSupportRule.moduleMetadata.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
    * Search parameter: <b>topic</b>
    * <p>
    * Description: <b>Topics associated with the module</b><br>
@@ -441,46 +461,6 @@ public class DecisionSupportRule extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
-
- /**
-   * Search parameter: <b>title</b>
-   * <p>
-   * Description: <b>Text search against the title</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>DecisionSupportRule.moduleMetadata.title</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="title", path="DecisionSupportRule.moduleMetadata.title", description="Text search against the title", type="string" )
-  public static final String SP_TITLE = "title";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>title</b>
-   * <p>
-   * Description: <b>Text search against the title</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>DecisionSupportRule.moduleMetadata.title</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>Status of the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DecisionSupportRule.moduleMetadata.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="DecisionSupportRule.moduleMetadata.status", description="Status of the module", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>Status of the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DecisionSupportRule.moduleMetadata.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
  /**
    * Search parameter: <b>description</b>
@@ -503,24 +483,24 @@ public class DecisionSupportRule extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>title</b>
    * <p>
-   * Description: <b>Logical identifier for the module (e.g. CMS-143)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DecisionSupportRule.moduleMetadata.identifier</b><br>
+   * Description: <b>Text search against the title</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DecisionSupportRule.moduleMetadata.title</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="DecisionSupportRule.moduleMetadata.identifier", description="Logical identifier for the module (e.g. CMS-143)", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="title", path="DecisionSupportRule.moduleMetadata.title", description="Text search against the title", type="string" )
+  public static final String SP_TITLE = "title";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
    * <p>
-   * Description: <b>Logical identifier for the module (e.g. CMS-143)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DecisionSupportRule.moduleMetadata.identifier</b><br>
+   * Description: <b>Text search against the title</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DecisionSupportRule.moduleMetadata.title</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
 
  /**
    * Search parameter: <b>version</b>
@@ -541,6 +521,26 @@ public class DecisionSupportRule extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam VERSION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_VERSION);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>Status of the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DecisionSupportRule.moduleMetadata.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="DecisionSupportRule.moduleMetadata.status", description="Status of the module", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>Status of the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DecisionSupportRule.moduleMetadata.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

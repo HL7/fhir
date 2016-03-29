@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -377,25 +377,32 @@ public class ClaimResponse extends DomainResource {
         /**
          * Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
          */
-        @Child(name = "code", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "category", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Adjudication category such as co-pay, eligible, benefit, etc.", formalDefinition="Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc." )
-        protected Coding code;
+        protected Coding category;
+
+        /**
+         * Adjudication reason such as limit reached.
+         */
+        @Child(name = "reason", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Adjudication reason", formalDefinition="Adjudication reason such as limit reached." )
+        protected Coding reason;
 
         /**
          * Monetary amount associated with the code.
          */
-        @Child(name = "amount", type = {Money.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "amount", type = {Money.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Monetary amount", formalDefinition="Monetary amount associated with the code." )
         protected Money amount;
 
         /**
          * A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        @Child(name = "value", type = {DecimalType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "value", type = {DecimalType.class}, order=4, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Non-monetary value", formalDefinition="A non-monetary value for example a percentage. Mutually exclusive to the amount element above." )
         protected DecimalType value;
 
-        private static final long serialVersionUID = -949880587L;
+        private static final long serialVersionUID = -1926987562L;
 
     /**
      * Constructor
@@ -407,32 +414,56 @@ public class ClaimResponse extends DomainResource {
     /**
      * Constructor
      */
-      public ItemAdjudicationComponent(Coding code) {
+      public ItemAdjudicationComponent(Coding category) {
         super();
-        this.code = code;
+        this.category = category;
       }
 
         /**
-         * @return {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
+         * @return {@link #category} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public Coding getCode() { 
-          if (this.code == null)
+        public Coding getCategory() { 
+          if (this.category == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ItemAdjudicationComponent.code");
+              throw new Error("Attempt to auto-create ItemAdjudicationComponent.category");
             else if (Configuration.doAutoCreate())
-              this.code = new Coding(); // cc
-          return this.code;
+              this.category = new Coding(); // cc
+          return this.category;
         }
 
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
+        public boolean hasCategory() { 
+          return this.category != null && !this.category.isEmpty();
         }
 
         /**
-         * @param value {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
+         * @param value {@link #category} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public ItemAdjudicationComponent setCode(Coding value) { 
-          this.code = value;
+        public ItemAdjudicationComponent setCategory(Coding value) { 
+          this.category = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #reason} (Adjudication reason such as limit reached.)
+         */
+        public Coding getReason() { 
+          if (this.reason == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemAdjudicationComponent.reason");
+            else if (Configuration.doAutoCreate())
+              this.reason = new Coding(); // cc
+          return this.reason;
+        }
+
+        public boolean hasReason() { 
+          return this.reason != null && !this.reason.isEmpty();
+        }
+
+        /**
+         * @param value {@link #reason} (Adjudication reason such as limit reached.)
+         */
+        public ItemAdjudicationComponent setReason(Coding value) { 
+          this.reason = value;
           return this;
         }
 
@@ -529,15 +560,18 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("code", "Coding", "Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("category", "Coding", "Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, category));
+          childrenList.add(new Property("reason", "Coding", "Adjudication reason such as limit reached.", 0, java.lang.Integer.MAX_VALUE, reason));
           childrenList.add(new Property("amount", "Money", "Monetary amount associated with the code.", 0, java.lang.Integer.MAX_VALUE, amount));
           childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
-          this.code = castToCoding(value); // Coding
+        if (name.equals("category"))
+          this.category = castToCoding(value); // Coding
+        else if (name.equals("reason"))
+          this.reason = castToCoding(value); // Coding
         else if (name.equals("amount"))
           this.amount = castToMoney(value); // Money
         else if (name.equals("value"))
@@ -548,9 +582,13 @@ public class ClaimResponse extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("code")) {
-          this.code = new Coding();
-          return this.code;
+        if (name.equals("category")) {
+          this.category = new Coding();
+          return this.category;
+        }
+        else if (name.equals("reason")) {
+          this.reason = new Coding();
+          return this.reason;
         }
         else if (name.equals("amount")) {
           this.amount = new Money();
@@ -566,7 +604,8 @@ public class ClaimResponse extends DomainResource {
       public ItemAdjudicationComponent copy() {
         ItemAdjudicationComponent dst = new ItemAdjudicationComponent();
         copyValues(dst);
-        dst.code = code == null ? null : code.copy();
+        dst.category = category == null ? null : category.copy();
+        dst.reason = reason == null ? null : reason.copy();
         dst.amount = amount == null ? null : amount.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
@@ -579,8 +618,8 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof ItemAdjudicationComponent))
           return false;
         ItemAdjudicationComponent o = (ItemAdjudicationComponent) other;
-        return compareDeep(code, o.code, true) && compareDeep(amount, o.amount, true) && compareDeep(value, o.value, true)
-          ;
+        return compareDeep(category, o.category, true) && compareDeep(reason, o.reason, true) && compareDeep(amount, o.amount, true)
+           && compareDeep(value, o.value, true);
       }
 
       @Override
@@ -594,8 +633,8 @@ public class ClaimResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (amount == null || amount.isEmpty())
-           && (value == null || value.isEmpty());
+        return super.isEmpty() && (category == null || category.isEmpty()) && (reason == null || reason.isEmpty())
+           && (amount == null || amount.isEmpty()) && (value == null || value.isEmpty());
       }
 
   public String fhirType() {
@@ -859,25 +898,32 @@ public class ClaimResponse extends DomainResource {
         /**
          * Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
          */
-        @Child(name = "code", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "category", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Adjudication category such as co-pay, eligible, benefit, etc.", formalDefinition="Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc." )
-        protected Coding code;
+        protected Coding category;
+
+        /**
+         * Adjudication reason such as limit reached.
+         */
+        @Child(name = "reason", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Adjudication reason", formalDefinition="Adjudication reason such as limit reached." )
+        protected Coding reason;
 
         /**
          * Monetary amount associated with the code.
          */
-        @Child(name = "amount", type = {Money.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "amount", type = {Money.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Monetary amount", formalDefinition="Monetary amount associated with the code." )
         protected Money amount;
 
         /**
          * A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        @Child(name = "value", type = {DecimalType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "value", type = {DecimalType.class}, order=4, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Non-monetary value", formalDefinition="A non-monetary value for example a percentage. Mutually exclusive to the amount element above." )
         protected DecimalType value;
 
-        private static final long serialVersionUID = -949880587L;
+        private static final long serialVersionUID = -1926987562L;
 
     /**
      * Constructor
@@ -889,32 +935,56 @@ public class ClaimResponse extends DomainResource {
     /**
      * Constructor
      */
-      public DetailAdjudicationComponent(Coding code) {
+      public DetailAdjudicationComponent(Coding category) {
         super();
-        this.code = code;
+        this.category = category;
       }
 
         /**
-         * @return {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
+         * @return {@link #category} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public Coding getCode() { 
-          if (this.code == null)
+        public Coding getCategory() { 
+          if (this.category == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailAdjudicationComponent.code");
+              throw new Error("Attempt to auto-create DetailAdjudicationComponent.category");
             else if (Configuration.doAutoCreate())
-              this.code = new Coding(); // cc
-          return this.code;
+              this.category = new Coding(); // cc
+          return this.category;
         }
 
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
+        public boolean hasCategory() { 
+          return this.category != null && !this.category.isEmpty();
         }
 
         /**
-         * @param value {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
+         * @param value {@link #category} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public DetailAdjudicationComponent setCode(Coding value) { 
-          this.code = value;
+        public DetailAdjudicationComponent setCategory(Coding value) { 
+          this.category = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #reason} (Adjudication reason such as limit reached.)
+         */
+        public Coding getReason() { 
+          if (this.reason == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DetailAdjudicationComponent.reason");
+            else if (Configuration.doAutoCreate())
+              this.reason = new Coding(); // cc
+          return this.reason;
+        }
+
+        public boolean hasReason() { 
+          return this.reason != null && !this.reason.isEmpty();
+        }
+
+        /**
+         * @param value {@link #reason} (Adjudication reason such as limit reached.)
+         */
+        public DetailAdjudicationComponent setReason(Coding value) { 
+          this.reason = value;
           return this;
         }
 
@@ -1011,15 +1081,18 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("code", "Coding", "Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("category", "Coding", "Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, category));
+          childrenList.add(new Property("reason", "Coding", "Adjudication reason such as limit reached.", 0, java.lang.Integer.MAX_VALUE, reason));
           childrenList.add(new Property("amount", "Money", "Monetary amount associated with the code.", 0, java.lang.Integer.MAX_VALUE, amount));
           childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
-          this.code = castToCoding(value); // Coding
+        if (name.equals("category"))
+          this.category = castToCoding(value); // Coding
+        else if (name.equals("reason"))
+          this.reason = castToCoding(value); // Coding
         else if (name.equals("amount"))
           this.amount = castToMoney(value); // Money
         else if (name.equals("value"))
@@ -1030,9 +1103,13 @@ public class ClaimResponse extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("code")) {
-          this.code = new Coding();
-          return this.code;
+        if (name.equals("category")) {
+          this.category = new Coding();
+          return this.category;
+        }
+        else if (name.equals("reason")) {
+          this.reason = new Coding();
+          return this.reason;
         }
         else if (name.equals("amount")) {
           this.amount = new Money();
@@ -1048,7 +1125,8 @@ public class ClaimResponse extends DomainResource {
       public DetailAdjudicationComponent copy() {
         DetailAdjudicationComponent dst = new DetailAdjudicationComponent();
         copyValues(dst);
-        dst.code = code == null ? null : code.copy();
+        dst.category = category == null ? null : category.copy();
+        dst.reason = reason == null ? null : reason.copy();
         dst.amount = amount == null ? null : amount.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
@@ -1061,8 +1139,8 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof DetailAdjudicationComponent))
           return false;
         DetailAdjudicationComponent o = (DetailAdjudicationComponent) other;
-        return compareDeep(code, o.code, true) && compareDeep(amount, o.amount, true) && compareDeep(value, o.value, true)
-          ;
+        return compareDeep(category, o.category, true) && compareDeep(reason, o.reason, true) && compareDeep(amount, o.amount, true)
+           && compareDeep(value, o.value, true);
       }
 
       @Override
@@ -1076,8 +1154,8 @@ public class ClaimResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (amount == null || amount.isEmpty())
-           && (value == null || value.isEmpty());
+        return super.isEmpty() && (category == null || category.isEmpty()) && (reason == null || reason.isEmpty())
+           && (amount == null || amount.isEmpty()) && (value == null || value.isEmpty());
       }
 
   public String fhirType() {
@@ -1283,25 +1361,32 @@ public class ClaimResponse extends DomainResource {
         /**
          * Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
          */
-        @Child(name = "code", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "category", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Adjudication category such as co-pay, eligible, benefit, etc.", formalDefinition="Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc." )
-        protected Coding code;
+        protected Coding category;
+
+        /**
+         * Adjudication reason such as limit reached.
+         */
+        @Child(name = "reason", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Adjudication reason", formalDefinition="Adjudication reason such as limit reached." )
+        protected Coding reason;
 
         /**
          * Monetary amount associated with the code.
          */
-        @Child(name = "amount", type = {Money.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "amount", type = {Money.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Monetary amount", formalDefinition="Monetary amount associated with the code." )
         protected Money amount;
 
         /**
          * A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        @Child(name = "value", type = {DecimalType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "value", type = {DecimalType.class}, order=4, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Non-monetary value", formalDefinition="A non-monetary value for example a percentage. Mutually exclusive to the amount element above." )
         protected DecimalType value;
 
-        private static final long serialVersionUID = -949880587L;
+        private static final long serialVersionUID = -1926987562L;
 
     /**
      * Constructor
@@ -1313,32 +1398,56 @@ public class ClaimResponse extends DomainResource {
     /**
      * Constructor
      */
-      public SubdetailAdjudicationComponent(Coding code) {
+      public SubdetailAdjudicationComponent(Coding category) {
         super();
-        this.code = code;
+        this.category = category;
       }
 
         /**
-         * @return {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
+         * @return {@link #category} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public Coding getCode() { 
-          if (this.code == null)
+        public Coding getCategory() { 
+          if (this.category == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SubdetailAdjudicationComponent.code");
+              throw new Error("Attempt to auto-create SubdetailAdjudicationComponent.category");
             else if (Configuration.doAutoCreate())
-              this.code = new Coding(); // cc
-          return this.code;
+              this.category = new Coding(); // cc
+          return this.category;
         }
 
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
+        public boolean hasCategory() { 
+          return this.category != null && !this.category.isEmpty();
         }
 
         /**
-         * @param value {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
+         * @param value {@link #category} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public SubdetailAdjudicationComponent setCode(Coding value) { 
-          this.code = value;
+        public SubdetailAdjudicationComponent setCategory(Coding value) { 
+          this.category = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #reason} (Adjudication reason such as limit reached.)
+         */
+        public Coding getReason() { 
+          if (this.reason == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SubdetailAdjudicationComponent.reason");
+            else if (Configuration.doAutoCreate())
+              this.reason = new Coding(); // cc
+          return this.reason;
+        }
+
+        public boolean hasReason() { 
+          return this.reason != null && !this.reason.isEmpty();
+        }
+
+        /**
+         * @param value {@link #reason} (Adjudication reason such as limit reached.)
+         */
+        public SubdetailAdjudicationComponent setReason(Coding value) { 
+          this.reason = value;
           return this;
         }
 
@@ -1435,15 +1544,18 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("code", "Coding", "Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("category", "Coding", "Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, category));
+          childrenList.add(new Property("reason", "Coding", "Adjudication reason such as limit reached.", 0, java.lang.Integer.MAX_VALUE, reason));
           childrenList.add(new Property("amount", "Money", "Monetary amount associated with the code.", 0, java.lang.Integer.MAX_VALUE, amount));
           childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
-          this.code = castToCoding(value); // Coding
+        if (name.equals("category"))
+          this.category = castToCoding(value); // Coding
+        else if (name.equals("reason"))
+          this.reason = castToCoding(value); // Coding
         else if (name.equals("amount"))
           this.amount = castToMoney(value); // Money
         else if (name.equals("value"))
@@ -1454,9 +1566,13 @@ public class ClaimResponse extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("code")) {
-          this.code = new Coding();
-          return this.code;
+        if (name.equals("category")) {
+          this.category = new Coding();
+          return this.category;
+        }
+        else if (name.equals("reason")) {
+          this.reason = new Coding();
+          return this.reason;
         }
         else if (name.equals("amount")) {
           this.amount = new Money();
@@ -1472,7 +1588,8 @@ public class ClaimResponse extends DomainResource {
       public SubdetailAdjudicationComponent copy() {
         SubdetailAdjudicationComponent dst = new SubdetailAdjudicationComponent();
         copyValues(dst);
-        dst.code = code == null ? null : code.copy();
+        dst.category = category == null ? null : category.copy();
+        dst.reason = reason == null ? null : reason.copy();
         dst.amount = amount == null ? null : amount.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
@@ -1485,8 +1602,8 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof SubdetailAdjudicationComponent))
           return false;
         SubdetailAdjudicationComponent o = (SubdetailAdjudicationComponent) other;
-        return compareDeep(code, o.code, true) && compareDeep(amount, o.amount, true) && compareDeep(value, o.value, true)
-          ;
+        return compareDeep(category, o.category, true) && compareDeep(reason, o.reason, true) && compareDeep(amount, o.amount, true)
+           && compareDeep(value, o.value, true);
       }
 
       @Override
@@ -1500,8 +1617,8 @@ public class ClaimResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (amount == null || amount.isEmpty())
-           && (value == null || value.isEmpty());
+        return super.isEmpty() && (category == null || category.isEmpty()) && (reason == null || reason.isEmpty())
+           && (amount == null || amount.isEmpty()) && (value == null || value.isEmpty());
       }
 
   public String fhirType() {
@@ -1932,25 +2049,32 @@ public class ClaimResponse extends DomainResource {
         /**
          * Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
          */
-        @Child(name = "code", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "category", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Adjudication category such as co-pay, eligible, benefit, etc.", formalDefinition="Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc." )
-        protected Coding code;
+        protected Coding category;
+
+        /**
+         * Adjudication reason such as limit reached.
+         */
+        @Child(name = "reason", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Adjudication reason", formalDefinition="Adjudication reason such as limit reached." )
+        protected Coding reason;
 
         /**
          * Monetary amount associated with the code.
          */
-        @Child(name = "amount", type = {Money.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "amount", type = {Money.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Monetary amount", formalDefinition="Monetary amount associated with the code." )
         protected Money amount;
 
         /**
          * A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        @Child(name = "value", type = {DecimalType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "value", type = {DecimalType.class}, order=4, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Non-monetary value", formalDefinition="A non-monetary value for example a percentage. Mutually exclusive to the amount element above." )
         protected DecimalType value;
 
-        private static final long serialVersionUID = -949880587L;
+        private static final long serialVersionUID = -1926987562L;
 
     /**
      * Constructor
@@ -1962,32 +2086,56 @@ public class ClaimResponse extends DomainResource {
     /**
      * Constructor
      */
-      public AddedItemAdjudicationComponent(Coding code) {
+      public AddedItemAdjudicationComponent(Coding category) {
         super();
-        this.code = code;
+        this.category = category;
       }
 
         /**
-         * @return {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
+         * @return {@link #category} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public Coding getCode() { 
-          if (this.code == null)
+        public Coding getCategory() { 
+          if (this.category == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create AddedItemAdjudicationComponent.code");
+              throw new Error("Attempt to auto-create AddedItemAdjudicationComponent.category");
             else if (Configuration.doAutoCreate())
-              this.code = new Coding(); // cc
-          return this.code;
+              this.category = new Coding(); // cc
+          return this.category;
         }
 
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
+        public boolean hasCategory() { 
+          return this.category != null && !this.category.isEmpty();
         }
 
         /**
-         * @param value {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
+         * @param value {@link #category} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public AddedItemAdjudicationComponent setCode(Coding value) { 
-          this.code = value;
+        public AddedItemAdjudicationComponent setCategory(Coding value) { 
+          this.category = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #reason} (Adjudication reason such as limit reached.)
+         */
+        public Coding getReason() { 
+          if (this.reason == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AddedItemAdjudicationComponent.reason");
+            else if (Configuration.doAutoCreate())
+              this.reason = new Coding(); // cc
+          return this.reason;
+        }
+
+        public boolean hasReason() { 
+          return this.reason != null && !this.reason.isEmpty();
+        }
+
+        /**
+         * @param value {@link #reason} (Adjudication reason such as limit reached.)
+         */
+        public AddedItemAdjudicationComponent setReason(Coding value) { 
+          this.reason = value;
           return this;
         }
 
@@ -2084,15 +2232,18 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("code", "Coding", "Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("category", "Coding", "Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, category));
+          childrenList.add(new Property("reason", "Coding", "Adjudication reason such as limit reached.", 0, java.lang.Integer.MAX_VALUE, reason));
           childrenList.add(new Property("amount", "Money", "Monetary amount associated with the code.", 0, java.lang.Integer.MAX_VALUE, amount));
           childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
-          this.code = castToCoding(value); // Coding
+        if (name.equals("category"))
+          this.category = castToCoding(value); // Coding
+        else if (name.equals("reason"))
+          this.reason = castToCoding(value); // Coding
         else if (name.equals("amount"))
           this.amount = castToMoney(value); // Money
         else if (name.equals("value"))
@@ -2103,9 +2254,13 @@ public class ClaimResponse extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("code")) {
-          this.code = new Coding();
-          return this.code;
+        if (name.equals("category")) {
+          this.category = new Coding();
+          return this.category;
+        }
+        else if (name.equals("reason")) {
+          this.reason = new Coding();
+          return this.reason;
         }
         else if (name.equals("amount")) {
           this.amount = new Money();
@@ -2121,7 +2276,8 @@ public class ClaimResponse extends DomainResource {
       public AddedItemAdjudicationComponent copy() {
         AddedItemAdjudicationComponent dst = new AddedItemAdjudicationComponent();
         copyValues(dst);
-        dst.code = code == null ? null : code.copy();
+        dst.category = category == null ? null : category.copy();
+        dst.reason = reason == null ? null : reason.copy();
         dst.amount = amount == null ? null : amount.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
@@ -2134,8 +2290,8 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof AddedItemAdjudicationComponent))
           return false;
         AddedItemAdjudicationComponent o = (AddedItemAdjudicationComponent) other;
-        return compareDeep(code, o.code, true) && compareDeep(amount, o.amount, true) && compareDeep(value, o.value, true)
-          ;
+        return compareDeep(category, o.category, true) && compareDeep(reason, o.reason, true) && compareDeep(amount, o.amount, true)
+           && compareDeep(value, o.value, true);
       }
 
       @Override
@@ -2149,8 +2305,8 @@ public class ClaimResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (amount == null || amount.isEmpty())
-           && (value == null || value.isEmpty());
+        return super.isEmpty() && (category == null || category.isEmpty()) && (reason == null || reason.isEmpty())
+           && (amount == null || amount.isEmpty()) && (value == null || value.isEmpty());
       }
 
   public String fhirType() {
@@ -2375,25 +2531,32 @@ public class ClaimResponse extends DomainResource {
         /**
          * Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
          */
-        @Child(name = "code", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "category", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Adjudication category such as co-pay, eligible, benefit, etc.", formalDefinition="Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc." )
-        protected Coding code;
+        protected Coding category;
+
+        /**
+         * Adjudication reason such as limit reached.
+         */
+        @Child(name = "reason", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Adjudication reason", formalDefinition="Adjudication reason such as limit reached." )
+        protected Coding reason;
 
         /**
          * Monetary amount associated with the code.
          */
-        @Child(name = "amount", type = {Money.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "amount", type = {Money.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Monetary amount", formalDefinition="Monetary amount associated with the code." )
         protected Money amount;
 
         /**
          * A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        @Child(name = "value", type = {DecimalType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "value", type = {DecimalType.class}, order=4, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Non-monetary value", formalDefinition="A non-monetary value for example a percentage. Mutually exclusive to the amount element above." )
         protected DecimalType value;
 
-        private static final long serialVersionUID = -949880587L;
+        private static final long serialVersionUID = -1926987562L;
 
     /**
      * Constructor
@@ -2405,32 +2568,56 @@ public class ClaimResponse extends DomainResource {
     /**
      * Constructor
      */
-      public AddedItemDetailAdjudicationComponent(Coding code) {
+      public AddedItemDetailAdjudicationComponent(Coding category) {
         super();
-        this.code = code;
+        this.category = category;
       }
 
         /**
-         * @return {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
+         * @return {@link #category} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public Coding getCode() { 
-          if (this.code == null)
+        public Coding getCategory() { 
+          if (this.category == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create AddedItemDetailAdjudicationComponent.code");
+              throw new Error("Attempt to auto-create AddedItemDetailAdjudicationComponent.category");
             else if (Configuration.doAutoCreate())
-              this.code = new Coding(); // cc
-          return this.code;
+              this.category = new Coding(); // cc
+          return this.category;
         }
 
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
+        public boolean hasCategory() { 
+          return this.category != null && !this.category.isEmpty();
         }
 
         /**
-         * @param value {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
+         * @param value {@link #category} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public AddedItemDetailAdjudicationComponent setCode(Coding value) { 
-          this.code = value;
+        public AddedItemDetailAdjudicationComponent setCategory(Coding value) { 
+          this.category = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #reason} (Adjudication reason such as limit reached.)
+         */
+        public Coding getReason() { 
+          if (this.reason == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AddedItemDetailAdjudicationComponent.reason");
+            else if (Configuration.doAutoCreate())
+              this.reason = new Coding(); // cc
+          return this.reason;
+        }
+
+        public boolean hasReason() { 
+          return this.reason != null && !this.reason.isEmpty();
+        }
+
+        /**
+         * @param value {@link #reason} (Adjudication reason such as limit reached.)
+         */
+        public AddedItemDetailAdjudicationComponent setReason(Coding value) { 
+          this.reason = value;
           return this;
         }
 
@@ -2527,15 +2714,18 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("code", "Coding", "Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("category", "Coding", "Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, category));
+          childrenList.add(new Property("reason", "Coding", "Adjudication reason such as limit reached.", 0, java.lang.Integer.MAX_VALUE, reason));
           childrenList.add(new Property("amount", "Money", "Monetary amount associated with the code.", 0, java.lang.Integer.MAX_VALUE, amount));
           childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
-          this.code = castToCoding(value); // Coding
+        if (name.equals("category"))
+          this.category = castToCoding(value); // Coding
+        else if (name.equals("reason"))
+          this.reason = castToCoding(value); // Coding
         else if (name.equals("amount"))
           this.amount = castToMoney(value); // Money
         else if (name.equals("value"))
@@ -2546,9 +2736,13 @@ public class ClaimResponse extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("code")) {
-          this.code = new Coding();
-          return this.code;
+        if (name.equals("category")) {
+          this.category = new Coding();
+          return this.category;
+        }
+        else if (name.equals("reason")) {
+          this.reason = new Coding();
+          return this.reason;
         }
         else if (name.equals("amount")) {
           this.amount = new Money();
@@ -2564,7 +2758,8 @@ public class ClaimResponse extends DomainResource {
       public AddedItemDetailAdjudicationComponent copy() {
         AddedItemDetailAdjudicationComponent dst = new AddedItemDetailAdjudicationComponent();
         copyValues(dst);
-        dst.code = code == null ? null : code.copy();
+        dst.category = category == null ? null : category.copy();
+        dst.reason = reason == null ? null : reason.copy();
         dst.amount = amount == null ? null : amount.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
@@ -2577,8 +2772,8 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof AddedItemDetailAdjudicationComponent))
           return false;
         AddedItemDetailAdjudicationComponent o = (AddedItemDetailAdjudicationComponent) other;
-        return compareDeep(code, o.code, true) && compareDeep(amount, o.amount, true) && compareDeep(value, o.value, true)
-          ;
+        return compareDeep(category, o.category, true) && compareDeep(reason, o.reason, true) && compareDeep(amount, o.amount, true)
+           && compareDeep(value, o.value, true);
       }
 
       @Override
@@ -2592,8 +2787,8 @@ public class ClaimResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (amount == null || amount.isEmpty())
-           && (value == null || value.isEmpty());
+        return super.isEmpty() && (category == null || category.isEmpty()) && (reason == null || reason.isEmpty())
+           && (amount == null || amount.isEmpty()) && (value == null || value.isEmpty());
       }
 
   public String fhirType() {
@@ -3142,14 +3337,9 @@ public class ClaimResponse extends DomainResource {
         /**
          * Reference to the program or plan identification, underwriter or payor.
          */
-        @Child(name = "coverage", type = {Coverage.class}, order=3, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "coverage", type = {Identifier.class, Coverage.class}, order=3, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Insurance information", formalDefinition="Reference to the program or plan identification, underwriter or payor." )
-        protected Reference coverage;
-
-        /**
-         * The actual object that is the target of the reference (Reference to the program or plan identification, underwriter or payor.)
-         */
-        protected Coverage coverageTarget;
+        protected Type coverage;
 
         /**
          * The contract number of a business agreement which describes the terms and conditions.
@@ -3159,23 +3349,16 @@ public class ClaimResponse extends DomainResource {
         protected StringType businessArrangement;
 
         /**
-         * The relationship of the patient to the subscriber.
-         */
-        @Child(name = "relationship", type = {Coding.class}, order=5, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Patient relationship to subscriber", formalDefinition="The relationship of the patient to the subscriber." )
-        protected Coding relationship;
-
-        /**
          * A list of references from the Insurer to which these services pertain.
          */
-        @Child(name = "preAuthRef", type = {StringType.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "preAuthRef", type = {StringType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Pre-Authorization/Determination Reference", formalDefinition="A list of references from the Insurer to which these services pertain." )
         protected List<StringType> preAuthRef;
 
         /**
          * The Coverages adjudication details.
          */
-        @Child(name = "claimResponse", type = {ClaimResponse.class}, order=7, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "claimResponse", type = {ClaimResponse.class}, order=6, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Adjudication results", formalDefinition="The Coverages adjudication details." )
         protected Reference claimResponse;
 
@@ -3184,14 +3367,7 @@ public class ClaimResponse extends DomainResource {
          */
         protected ClaimResponse claimResponseTarget;
 
-        /**
-         * The style (standard) and version of the original material which was converted into this resource.
-         */
-        @Child(name = "originalRuleset", type = {Coding.class}, order=8, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
-        protected Coding originalRuleset;
-
-        private static final long serialVersionUID = 621250924L;
+        private static final long serialVersionUID = -1151494539L;
 
     /**
      * Constructor
@@ -3203,12 +3379,11 @@ public class ClaimResponse extends DomainResource {
     /**
      * Constructor
      */
-      public CoverageComponent(PositiveIntType sequence, BooleanType focal, Reference coverage, Coding relationship) {
+      public CoverageComponent(PositiveIntType sequence, BooleanType focal, Type coverage) {
         super();
         this.sequence = sequence;
         this.focal = focal;
         this.coverage = coverage;
-        this.relationship = relationship;
       }
 
         /**
@@ -3304,13 +3479,34 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #coverage} (Reference to the program or plan identification, underwriter or payor.)
          */
-        public Reference getCoverage() { 
-          if (this.coverage == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CoverageComponent.coverage");
-            else if (Configuration.doAutoCreate())
-              this.coverage = new Reference(); // cc
+        public Type getCoverage() { 
           return this.coverage;
+        }
+
+        /**
+         * @return {@link #coverage} (Reference to the program or plan identification, underwriter or payor.)
+         */
+        public Identifier getCoverageIdentifier() throws FHIRException { 
+          if (!(this.coverage instanceof Identifier))
+            throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.coverage.getClass().getName()+" was encountered");
+          return (Identifier) this.coverage;
+        }
+
+        public boolean hasCoverageIdentifier() { 
+          return this.coverage instanceof Identifier;
+        }
+
+        /**
+         * @return {@link #coverage} (Reference to the program or plan identification, underwriter or payor.)
+         */
+        public Reference getCoverageReference() throws FHIRException { 
+          if (!(this.coverage instanceof Reference))
+            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.coverage.getClass().getName()+" was encountered");
+          return (Reference) this.coverage;
+        }
+
+        public boolean hasCoverageReference() { 
+          return this.coverage instanceof Reference;
         }
 
         public boolean hasCoverage() { 
@@ -3320,28 +3516,8 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #coverage} (Reference to the program or plan identification, underwriter or payor.)
          */
-        public CoverageComponent setCoverage(Reference value) { 
+        public CoverageComponent setCoverage(Type value) { 
           this.coverage = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #coverage} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to the program or plan identification, underwriter or payor.)
-         */
-        public Coverage getCoverageTarget() { 
-          if (this.coverageTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CoverageComponent.coverage");
-            else if (Configuration.doAutoCreate())
-              this.coverageTarget = new Coverage(); // aa
-          return this.coverageTarget;
-        }
-
-        /**
-         * @param value {@link #coverage} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to the program or plan identification, underwriter or payor.)
-         */
-        public CoverageComponent setCoverageTarget(Coverage value) { 
-          this.coverageTarget = value;
           return this;
         }
 
@@ -3391,30 +3567,6 @@ public class ClaimResponse extends DomainResource {
               this.businessArrangement = new StringType();
             this.businessArrangement.setValue(value);
           }
-          return this;
-        }
-
-        /**
-         * @return {@link #relationship} (The relationship of the patient to the subscriber.)
-         */
-        public Coding getRelationship() { 
-          if (this.relationship == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CoverageComponent.relationship");
-            else if (Configuration.doAutoCreate())
-              this.relationship = new Coding(); // cc
-          return this.relationship;
-        }
-
-        public boolean hasRelationship() { 
-          return this.relationship != null && !this.relationship.isEmpty();
-        }
-
-        /**
-         * @param value {@link #relationship} (The relationship of the patient to the subscriber.)
-         */
-        public CoverageComponent setRelationship(Coding value) { 
-          this.relationship = value;
           return this;
         }
 
@@ -3516,40 +3668,14 @@ public class ClaimResponse extends DomainResource {
           return this;
         }
 
-        /**
-         * @return {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
-         */
-        public Coding getOriginalRuleset() { 
-          if (this.originalRuleset == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CoverageComponent.originalRuleset");
-            else if (Configuration.doAutoCreate())
-              this.originalRuleset = new Coding(); // cc
-          return this.originalRuleset;
-        }
-
-        public boolean hasOriginalRuleset() { 
-          return this.originalRuleset != null && !this.originalRuleset.isEmpty();
-        }
-
-        /**
-         * @param value {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
-         */
-        public CoverageComponent setOriginalRuleset(Coding value) { 
-          this.originalRuleset = value;
-          return this;
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequence", "positiveInt", "A service line item.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("focal", "boolean", "The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.", 0, java.lang.Integer.MAX_VALUE, focal));
-          childrenList.add(new Property("coverage", "Reference(Coverage)", "Reference to the program or plan identification, underwriter or payor.", 0, java.lang.Integer.MAX_VALUE, coverage));
+          childrenList.add(new Property("coverage[x]", "Identifier|Reference(Coverage)", "Reference to the program or plan identification, underwriter or payor.", 0, java.lang.Integer.MAX_VALUE, coverage));
           childrenList.add(new Property("businessArrangement", "string", "The contract number of a business agreement which describes the terms and conditions.", 0, java.lang.Integer.MAX_VALUE, businessArrangement));
-          childrenList.add(new Property("relationship", "Coding", "The relationship of the patient to the subscriber.", 0, java.lang.Integer.MAX_VALUE, relationship));
           childrenList.add(new Property("preAuthRef", "string", "A list of references from the Insurer to which these services pertain.", 0, java.lang.Integer.MAX_VALUE, preAuthRef));
           childrenList.add(new Property("claimResponse", "Reference(ClaimResponse)", "The Coverages adjudication details.", 0, java.lang.Integer.MAX_VALUE, claimResponse));
-          childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
         }
 
       @Override
@@ -3558,18 +3684,14 @@ public class ClaimResponse extends DomainResource {
           this.sequence = castToPositiveInt(value); // PositiveIntType
         else if (name.equals("focal"))
           this.focal = castToBoolean(value); // BooleanType
-        else if (name.equals("coverage"))
-          this.coverage = castToReference(value); // Reference
+        else if (name.equals("coverage[x]"))
+          this.coverage = (Type) value; // Type
         else if (name.equals("businessArrangement"))
           this.businessArrangement = castToString(value); // StringType
-        else if (name.equals("relationship"))
-          this.relationship = castToCoding(value); // Coding
         else if (name.equals("preAuthRef"))
           this.getPreAuthRef().add(castToString(value));
         else if (name.equals("claimResponse"))
           this.claimResponse = castToReference(value); // Reference
-        else if (name.equals("originalRuleset"))
-          this.originalRuleset = castToCoding(value); // Coding
         else
           super.setProperty(name, value);
       }
@@ -3582,16 +3704,16 @@ public class ClaimResponse extends DomainResource {
         else if (name.equals("focal")) {
           throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.focal");
         }
-        else if (name.equals("coverage")) {
+        else if (name.equals("coverageIdentifier")) {
+          this.coverage = new Identifier();
+          return this.coverage;
+        }
+        else if (name.equals("coverageReference")) {
           this.coverage = new Reference();
           return this.coverage;
         }
         else if (name.equals("businessArrangement")) {
           throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.businessArrangement");
-        }
-        else if (name.equals("relationship")) {
-          this.relationship = new Coding();
-          return this.relationship;
         }
         else if (name.equals("preAuthRef")) {
           throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.preAuthRef");
@@ -3599,10 +3721,6 @@ public class ClaimResponse extends DomainResource {
         else if (name.equals("claimResponse")) {
           this.claimResponse = new Reference();
           return this.claimResponse;
-        }
-        else if (name.equals("originalRuleset")) {
-          this.originalRuleset = new Coding();
-          return this.originalRuleset;
         }
         else
           return super.addChild(name);
@@ -3615,14 +3733,12 @@ public class ClaimResponse extends DomainResource {
         dst.focal = focal == null ? null : focal.copy();
         dst.coverage = coverage == null ? null : coverage.copy();
         dst.businessArrangement = businessArrangement == null ? null : businessArrangement.copy();
-        dst.relationship = relationship == null ? null : relationship.copy();
         if (preAuthRef != null) {
           dst.preAuthRef = new ArrayList<StringType>();
           for (StringType i : preAuthRef)
             dst.preAuthRef.add(i.copy());
         };
         dst.claimResponse = claimResponse == null ? null : claimResponse.copy();
-        dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
         return dst;
       }
 
@@ -3634,9 +3750,8 @@ public class ClaimResponse extends DomainResource {
           return false;
         CoverageComponent o = (CoverageComponent) other;
         return compareDeep(sequence, o.sequence, true) && compareDeep(focal, o.focal, true) && compareDeep(coverage, o.coverage, true)
-           && compareDeep(businessArrangement, o.businessArrangement, true) && compareDeep(relationship, o.relationship, true)
-           && compareDeep(preAuthRef, o.preAuthRef, true) && compareDeep(claimResponse, o.claimResponse, true)
-           && compareDeep(originalRuleset, o.originalRuleset, true);
+           && compareDeep(businessArrangement, o.businessArrangement, true) && compareDeep(preAuthRef, o.preAuthRef, true)
+           && compareDeep(claimResponse, o.claimResponse, true);
       }
 
       @Override
@@ -3653,8 +3768,7 @@ public class ClaimResponse extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (focal == null || focal.isEmpty())
            && (coverage == null || coverage.isEmpty()) && (businessArrangement == null || businessArrangement.isEmpty())
-           && (relationship == null || relationship.isEmpty()) && (preAuthRef == null || preAuthRef.isEmpty())
-           && (claimResponse == null || claimResponse.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
+           && (preAuthRef == null || preAuthRef.isEmpty()) && (claimResponse == null || claimResponse.isEmpty())
           ;
       }
 
@@ -3675,14 +3789,9 @@ public class ClaimResponse extends DomainResource {
     /**
      * Original request resource referrence.
      */
-    @Child(name = "request", type = {Claim.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "request", type = {Identifier.class, Claim.class}, order=1, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Id of resource triggering adjudication", formalDefinition="Original request resource referrence." )
-    protected Reference request;
-
-    /**
-     * The actual object that is the target of the reference (Original request resource referrence.)
-     */
-    protected Claim requestTarget;
+    protected Type request;
 
     /**
      * The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
@@ -3708,38 +3817,23 @@ public class ClaimResponse extends DomainResource {
     /**
      * The Insurer who produced this adjudicated response.
      */
-    @Child(name = "organization", type = {Organization.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "organization", type = {Identifier.class, Organization.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Insurer", formalDefinition="The Insurer who produced this adjudicated response." )
-    protected Reference organization;
-
-    /**
-     * The actual object that is the target of the reference (The Insurer who produced this adjudicated response.)
-     */
-    protected Organization organizationTarget;
+    protected Type organization;
 
     /**
      * The practitioner who is responsible for the services rendered to the patient.
      */
-    @Child(name = "requestProvider", type = {Practitioner.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "requestProvider", type = {Identifier.class, Practitioner.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Responsible practitioner", formalDefinition="The practitioner who is responsible for the services rendered to the patient." )
-    protected Reference requestProvider;
-
-    /**
-     * The actual object that is the target of the reference (The practitioner who is responsible for the services rendered to the patient.)
-     */
-    protected Practitioner requestProviderTarget;
+    protected Type requestProvider;
 
     /**
      * The organization which is responsible for the services rendered to the patient.
      */
-    @Child(name = "requestOrganization", type = {Organization.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "requestOrganization", type = {Identifier.class, Organization.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Responsible organization", formalDefinition="The organization which is responsible for the services rendered to the patient." )
-    protected Reference requestOrganization;
-
-    /**
-     * The actual object that is the target of the reference (The organization which is responsible for the services rendered to the patient.)
-     */
-    protected Organization requestOrganizationTarget;
+    protected Type requestOrganization;
 
     /**
      * Transaction status: error, complete.
@@ -3867,7 +3961,7 @@ public class ClaimResponse extends DomainResource {
     @Description(shortDefinition="Insurance or medical plan", formalDefinition="Financial instrument by which payment information for health care." )
     protected List<CoverageComponent> coverage;
 
-    private static final long serialVersionUID = 2021598689L;
+    private static final long serialVersionUID = 1381594471L;
 
   /**
    * Constructor
@@ -3919,13 +4013,34 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #request} (Original request resource referrence.)
      */
-    public Reference getRequest() { 
-      if (this.request == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClaimResponse.request");
-        else if (Configuration.doAutoCreate())
-          this.request = new Reference(); // cc
+    public Type getRequest() { 
       return this.request;
+    }
+
+    /**
+     * @return {@link #request} (Original request resource referrence.)
+     */
+    public Identifier getRequestIdentifier() throws FHIRException { 
+      if (!(this.request instanceof Identifier))
+        throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.request.getClass().getName()+" was encountered");
+      return (Identifier) this.request;
+    }
+
+    public boolean hasRequestIdentifier() { 
+      return this.request instanceof Identifier;
+    }
+
+    /**
+     * @return {@link #request} (Original request resource referrence.)
+     */
+    public Reference getRequestReference() throws FHIRException { 
+      if (!(this.request instanceof Reference))
+        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.request.getClass().getName()+" was encountered");
+      return (Reference) this.request;
+    }
+
+    public boolean hasRequestReference() { 
+      return this.request instanceof Reference;
     }
 
     public boolean hasRequest() { 
@@ -3935,28 +4050,8 @@ public class ClaimResponse extends DomainResource {
     /**
      * @param value {@link #request} (Original request resource referrence.)
      */
-    public ClaimResponse setRequest(Reference value) { 
+    public ClaimResponse setRequest(Type value) { 
       this.request = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original request resource referrence.)
-     */
-    public Claim getRequestTarget() { 
-      if (this.requestTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClaimResponse.request");
-        else if (Configuration.doAutoCreate())
-          this.requestTarget = new Claim(); // aa
-      return this.requestTarget;
-    }
-
-    /**
-     * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original request resource referrence.)
-     */
-    public ClaimResponse setRequestTarget(Claim value) { 
-      this.requestTarget = value;
       return this;
     }
 
@@ -4060,13 +4155,34 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #organization} (The Insurer who produced this adjudicated response.)
      */
-    public Reference getOrganization() { 
-      if (this.organization == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClaimResponse.organization");
-        else if (Configuration.doAutoCreate())
-          this.organization = new Reference(); // cc
+    public Type getOrganization() { 
       return this.organization;
+    }
+
+    /**
+     * @return {@link #organization} (The Insurer who produced this adjudicated response.)
+     */
+    public Identifier getOrganizationIdentifier() throws FHIRException { 
+      if (!(this.organization instanceof Identifier))
+        throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.organization.getClass().getName()+" was encountered");
+      return (Identifier) this.organization;
+    }
+
+    public boolean hasOrganizationIdentifier() { 
+      return this.organization instanceof Identifier;
+    }
+
+    /**
+     * @return {@link #organization} (The Insurer who produced this adjudicated response.)
+     */
+    public Reference getOrganizationReference() throws FHIRException { 
+      if (!(this.organization instanceof Reference))
+        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.organization.getClass().getName()+" was encountered");
+      return (Reference) this.organization;
+    }
+
+    public boolean hasOrganizationReference() { 
+      return this.organization instanceof Reference;
     }
 
     public boolean hasOrganization() { 
@@ -4076,41 +4192,42 @@ public class ClaimResponse extends DomainResource {
     /**
      * @param value {@link #organization} (The Insurer who produced this adjudicated response.)
      */
-    public ClaimResponse setOrganization(Reference value) { 
+    public ClaimResponse setOrganization(Type value) { 
       this.organization = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Insurer who produced this adjudicated response.)
-     */
-    public Organization getOrganizationTarget() { 
-      if (this.organizationTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClaimResponse.organization");
-        else if (Configuration.doAutoCreate())
-          this.organizationTarget = new Organization(); // aa
-      return this.organizationTarget;
-    }
-
-    /**
-     * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Insurer who produced this adjudicated response.)
-     */
-    public ClaimResponse setOrganizationTarget(Organization value) { 
-      this.organizationTarget = value;
       return this;
     }
 
     /**
      * @return {@link #requestProvider} (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public Reference getRequestProvider() { 
-      if (this.requestProvider == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClaimResponse.requestProvider");
-        else if (Configuration.doAutoCreate())
-          this.requestProvider = new Reference(); // cc
+    public Type getRequestProvider() { 
       return this.requestProvider;
+    }
+
+    /**
+     * @return {@link #requestProvider} (The practitioner who is responsible for the services rendered to the patient.)
+     */
+    public Identifier getRequestProviderIdentifier() throws FHIRException { 
+      if (!(this.requestProvider instanceof Identifier))
+        throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.requestProvider.getClass().getName()+" was encountered");
+      return (Identifier) this.requestProvider;
+    }
+
+    public boolean hasRequestProviderIdentifier() { 
+      return this.requestProvider instanceof Identifier;
+    }
+
+    /**
+     * @return {@link #requestProvider} (The practitioner who is responsible for the services rendered to the patient.)
+     */
+    public Reference getRequestProviderReference() throws FHIRException { 
+      if (!(this.requestProvider instanceof Reference))
+        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.requestProvider.getClass().getName()+" was encountered");
+      return (Reference) this.requestProvider;
+    }
+
+    public boolean hasRequestProviderReference() { 
+      return this.requestProvider instanceof Reference;
     }
 
     public boolean hasRequestProvider() { 
@@ -4120,41 +4237,42 @@ public class ClaimResponse extends DomainResource {
     /**
      * @param value {@link #requestProvider} (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public ClaimResponse setRequestProvider(Reference value) { 
+    public ClaimResponse setRequestProvider(Type value) { 
       this.requestProvider = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #requestProvider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
-     */
-    public Practitioner getRequestProviderTarget() { 
-      if (this.requestProviderTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClaimResponse.requestProvider");
-        else if (Configuration.doAutoCreate())
-          this.requestProviderTarget = new Practitioner(); // aa
-      return this.requestProviderTarget;
-    }
-
-    /**
-     * @param value {@link #requestProvider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
-     */
-    public ClaimResponse setRequestProviderTarget(Practitioner value) { 
-      this.requestProviderTarget = value;
       return this;
     }
 
     /**
      * @return {@link #requestOrganization} (The organization which is responsible for the services rendered to the patient.)
      */
-    public Reference getRequestOrganization() { 
-      if (this.requestOrganization == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClaimResponse.requestOrganization");
-        else if (Configuration.doAutoCreate())
-          this.requestOrganization = new Reference(); // cc
+    public Type getRequestOrganization() { 
       return this.requestOrganization;
+    }
+
+    /**
+     * @return {@link #requestOrganization} (The organization which is responsible for the services rendered to the patient.)
+     */
+    public Identifier getRequestOrganizationIdentifier() throws FHIRException { 
+      if (!(this.requestOrganization instanceof Identifier))
+        throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.requestOrganization.getClass().getName()+" was encountered");
+      return (Identifier) this.requestOrganization;
+    }
+
+    public boolean hasRequestOrganizationIdentifier() { 
+      return this.requestOrganization instanceof Identifier;
+    }
+
+    /**
+     * @return {@link #requestOrganization} (The organization which is responsible for the services rendered to the patient.)
+     */
+    public Reference getRequestOrganizationReference() throws FHIRException { 
+      if (!(this.requestOrganization instanceof Reference))
+        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.requestOrganization.getClass().getName()+" was encountered");
+      return (Reference) this.requestOrganization;
+    }
+
+    public boolean hasRequestOrganizationReference() { 
+      return this.requestOrganization instanceof Reference;
     }
 
     public boolean hasRequestOrganization() { 
@@ -4164,28 +4282,8 @@ public class ClaimResponse extends DomainResource {
     /**
      * @param value {@link #requestOrganization} (The organization which is responsible for the services rendered to the patient.)
      */
-    public ClaimResponse setRequestOrganization(Reference value) { 
+    public ClaimResponse setRequestOrganization(Type value) { 
       this.requestOrganization = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #requestOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
-     */
-    public Organization getRequestOrganizationTarget() { 
-      if (this.requestOrganizationTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClaimResponse.requestOrganization");
-        else if (Configuration.doAutoCreate())
-          this.requestOrganizationTarget = new Organization(); // aa
-      return this.requestOrganizationTarget;
-    }
-
-    /**
-     * @param value {@link #requestOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
-     */
-    public ClaimResponse setRequestOrganizationTarget(Organization value) { 
-      this.requestOrganizationTarget = value;
       return this;
     }
 
@@ -4779,13 +4877,13 @@ public class ClaimResponse extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The Response business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("request", "Reference(Claim)", "Original request resource referrence.", 0, java.lang.Integer.MAX_VALUE, request));
+        childrenList.add(new Property("request[x]", "Identifier|Reference(Claim)", "Original request resource referrence.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("ruleset", "Coding", "The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.", 0, java.lang.Integer.MAX_VALUE, ruleset));
         childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
         childrenList.add(new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, created));
-        childrenList.add(new Property("organization", "Reference(Organization)", "The Insurer who produced this adjudicated response.", 0, java.lang.Integer.MAX_VALUE, organization));
-        childrenList.add(new Property("requestProvider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestProvider));
-        childrenList.add(new Property("requestOrganization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestOrganization));
+        childrenList.add(new Property("organization[x]", "Identifier|Reference(Organization)", "The Insurer who produced this adjudicated response.", 0, java.lang.Integer.MAX_VALUE, organization));
+        childrenList.add(new Property("requestProvider[x]", "Identifier|Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestProvider));
+        childrenList.add(new Property("requestOrganization[x]", "Identifier|Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestOrganization));
         childrenList.add(new Property("outcome", "code", "Transaction status: error, complete.", 0, java.lang.Integer.MAX_VALUE, outcome));
         childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, java.lang.Integer.MAX_VALUE, disposition));
         childrenList.add(new Property("payeeType", "Coding", "Party to be reimbursed: Subscriber, provider, other.", 0, java.lang.Integer.MAX_VALUE, payeeType));
@@ -4810,20 +4908,20 @@ public class ClaimResponse extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("request"))
-          this.request = castToReference(value); // Reference
+        else if (name.equals("request[x]"))
+          this.request = (Type) value; // Type
         else if (name.equals("ruleset"))
           this.ruleset = castToCoding(value); // Coding
         else if (name.equals("originalRuleset"))
           this.originalRuleset = castToCoding(value); // Coding
         else if (name.equals("created"))
           this.created = castToDateTime(value); // DateTimeType
-        else if (name.equals("organization"))
-          this.organization = castToReference(value); // Reference
-        else if (name.equals("requestProvider"))
-          this.requestProvider = castToReference(value); // Reference
-        else if (name.equals("requestOrganization"))
-          this.requestOrganization = castToReference(value); // Reference
+        else if (name.equals("organization[x]"))
+          this.organization = (Type) value; // Type
+        else if (name.equals("requestProvider[x]"))
+          this.requestProvider = (Type) value; // Type
+        else if (name.equals("requestOrganization[x]"))
+          this.requestOrganization = (Type) value; // Type
         else if (name.equals("outcome"))
           this.outcome = new RemittanceOutcomeEnumFactory().fromType(value); // Enumeration<RemittanceOutcome>
         else if (name.equals("disposition"))
@@ -4869,7 +4967,11 @@ public class ClaimResponse extends DomainResource {
         if (name.equals("identifier")) {
           return addIdentifier();
         }
-        else if (name.equals("request")) {
+        else if (name.equals("requestIdentifier")) {
+          this.request = new Identifier();
+          return this.request;
+        }
+        else if (name.equals("requestReference")) {
           this.request = new Reference();
           return this.request;
         }
@@ -4884,15 +4986,27 @@ public class ClaimResponse extends DomainResource {
         else if (name.equals("created")) {
           throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.created");
         }
-        else if (name.equals("organization")) {
+        else if (name.equals("organizationIdentifier")) {
+          this.organization = new Identifier();
+          return this.organization;
+        }
+        else if (name.equals("organizationReference")) {
           this.organization = new Reference();
           return this.organization;
         }
-        else if (name.equals("requestProvider")) {
+        else if (name.equals("requestProviderIdentifier")) {
+          this.requestProvider = new Identifier();
+          return this.requestProvider;
+        }
+        else if (name.equals("requestProviderReference")) {
           this.requestProvider = new Reference();
           return this.requestProvider;
         }
-        else if (name.equals("requestOrganization")) {
+        else if (name.equals("requestOrganizationIdentifier")) {
+          this.requestOrganization = new Identifier();
+          return this.requestOrganization;
+        }
+        else if (name.equals("requestOrganizationReference")) {
           this.requestOrganization = new Reference();
           return this.requestOrganization;
         }
@@ -5081,118 +5195,6 @@ public class ClaimResponse extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>organization</b>
-   * <p>
-   * Description: <b>The organization who generated this resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClaimResponse.organization</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="organization", path="ClaimResponse.organization", description="The organization who generated this resource", type="reference" )
-  public static final String SP_ORGANIZATION = "organization";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>organization</b>
-   * <p>
-   * Description: <b>The organization who generated this resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClaimResponse.organization</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ClaimResponse:organization</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("ClaimResponse:organization").toLocked();
-
- /**
-   * Search parameter: <b>created</b>
-   * <p>
-   * Description: <b>The creation date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ClaimResponse.created</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="created", path="ClaimResponse.created", description="The creation date", type="date" )
-  public static final String SP_CREATED = "created";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>created</b>
-   * <p>
-   * Description: <b>The creation date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ClaimResponse.created</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
-
- /**
-   * Search parameter: <b>request</b>
-   * <p>
-   * Description: <b>The claim reference</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClaimResponse.request</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="request", path="ClaimResponse.request", description="The claim reference", type="reference" )
-  public static final String SP_REQUEST = "request";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>request</b>
-   * <p>
-   * Description: <b>The claim reference</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClaimResponse.request</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUEST = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUEST);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ClaimResponse:request</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUEST = new ca.uhn.fhir.model.api.Include("ClaimResponse:request").toLocked();
-
- /**
-   * Search parameter: <b>paymentdate</b>
-   * <p>
-   * Description: <b>The expected paymentDate</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ClaimResponse.paymentDate</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="paymentdate", path="ClaimResponse.paymentDate", description="The expected paymentDate", type="date" )
-  public static final String SP_PAYMENTDATE = "paymentdate";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>paymentdate</b>
-   * <p>
-   * Description: <b>The expected paymentDate</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ClaimResponse.paymentDate</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam PAYMENTDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_PAYMENTDATE);
-
- /**
-   * Search parameter: <b>outcome</b>
-   * <p>
-   * Description: <b>The processing outcome</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ClaimResponse.outcome</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="outcome", path="ClaimResponse.outcome", description="The processing outcome", type="token" )
-  public static final String SP_OUTCOME = "outcome";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>outcome</b>
-   * <p>
-   * Description: <b>The processing outcome</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ClaimResponse.outcome</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam OUTCOME = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_OUTCOME);
-
- /**
    * Search parameter: <b>identifier</b>
    * <p>
    * Description: <b>The identity of the insurer</b><br>
@@ -5231,6 +5233,158 @@ public class ClaimResponse extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DISPOSITION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DISPOSITION);
+
+ /**
+   * Search parameter: <b>paymentdate</b>
+   * <p>
+   * Description: <b>The expected paymentDate</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ClaimResponse.paymentDate</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="paymentdate", path="ClaimResponse.paymentDate", description="The expected paymentDate", type="date" )
+  public static final String SP_PAYMENTDATE = "paymentdate";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>paymentdate</b>
+   * <p>
+   * Description: <b>The expected paymentDate</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ClaimResponse.paymentDate</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam PAYMENTDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_PAYMENTDATE);
+
+ /**
+   * Search parameter: <b>organizationidentifier</b>
+   * <p>
+   * Description: <b>The organization who generated this resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClaimResponse.organizationIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="organizationidentifier", path="ClaimResponse.organizationIdentifier", description="The organization who generated this resource", type="token" )
+  public static final String SP_ORGANIZATIONIDENTIFIER = "organizationidentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>organizationidentifier</b>
+   * <p>
+   * Description: <b>The organization who generated this resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClaimResponse.organizationIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONIDENTIFIER);
+
+ /**
+   * Search parameter: <b>created</b>
+   * <p>
+   * Description: <b>The creation date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ClaimResponse.created</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="created", path="ClaimResponse.created", description="The creation date", type="date" )
+  public static final String SP_CREATED = "created";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>created</b>
+   * <p>
+   * Description: <b>The creation date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ClaimResponse.created</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
+
+ /**
+   * Search parameter: <b>requestidentifier</b>
+   * <p>
+   * Description: <b>The claim reference</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClaimResponse.requestIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="requestidentifier", path="ClaimResponse.requestIdentifier", description="The claim reference", type="token" )
+  public static final String SP_REQUESTIDENTIFIER = "requestidentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>requestidentifier</b>
+   * <p>
+   * Description: <b>The claim reference</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClaimResponse.requestIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam REQUESTIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REQUESTIDENTIFIER);
+
+ /**
+   * Search parameter: <b>organizationreference</b>
+   * <p>
+   * Description: <b>The organization who generated this resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClaimResponse.organizationReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="organizationreference", path="ClaimResponse.organizationReference", description="The organization who generated this resource", type="reference" )
+  public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>
+   * <p>
+   * Description: <b>The organization who generated this resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClaimResponse.organizationReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATIONREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATIONREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ClaimResponse:organizationreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("ClaimResponse:organizationreference").toLocked();
+
+ /**
+   * Search parameter: <b>requestreference</b>
+   * <p>
+   * Description: <b>The claim reference</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClaimResponse.requestReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="requestreference", path="ClaimResponse.requestReference", description="The claim reference", type="reference" )
+  public static final String SP_REQUESTREFERENCE = "requestreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>requestreference</b>
+   * <p>
+   * Description: <b>The claim reference</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClaimResponse.requestReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ClaimResponse:requestreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTREFERENCE = new ca.uhn.fhir.model.api.Include("ClaimResponse:requestreference").toLocked();
+
+ /**
+   * Search parameter: <b>outcome</b>
+   * <p>
+   * Description: <b>The processing outcome</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClaimResponse.outcome</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="outcome", path="ClaimResponse.outcome", description="The processing outcome", type="token" )
+  public static final String SP_OUTCOME = "outcome";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>outcome</b>
+   * <p>
+   * Description: <b>The processing outcome</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClaimResponse.outcome</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam OUTCOME = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_OUTCOME);
 
 
 }

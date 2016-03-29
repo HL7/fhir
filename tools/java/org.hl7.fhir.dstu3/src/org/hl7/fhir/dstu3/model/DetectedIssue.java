@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1051,104 +1051,6 @@ public class DetectedIssue extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>author</b>
-   * <p>
-   * Description: <b>The provider or device that identified the issue</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DetectedIssue.author</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="author", path="DetectedIssue.author", description="The provider or device that identified the issue", type="reference" )
-  public static final String SP_AUTHOR = "author";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>author</b>
-   * <p>
-   * Description: <b>The provider or device that identified the issue</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DetectedIssue.author</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DetectedIssue:author</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("DetectedIssue:author").toLocked();
-
- /**
-   * Search parameter: <b>category</b>
-   * <p>
-   * Description: <b>Issue Category, e.g. drug-drug, duplicate therapy, etc.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DetectedIssue.category</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="category", path="DetectedIssue.category", description="Issue Category, e.g. drug-drug, duplicate therapy, etc.", type="token" )
-  public static final String SP_CATEGORY = "category";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>category</b>
-   * <p>
-   * Description: <b>Issue Category, e.g. drug-drug, duplicate therapy, etc.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DetectedIssue.category</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
-
- /**
-   * Search parameter: <b>implicated</b>
-   * <p>
-   * Description: <b>Problem resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DetectedIssue.implicated</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="implicated", path="DetectedIssue.implicated", description="Problem resource", type="reference" )
-  public static final String SP_IMPLICATED = "implicated";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>implicated</b>
-   * <p>
-   * Description: <b>Problem resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DetectedIssue.implicated</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam IMPLICATED = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_IMPLICATED);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DetectedIssue:implicated</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_IMPLICATED = new ca.uhn.fhir.model.api.Include("DetectedIssue:implicated").toLocked();
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Associated patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DetectedIssue.patient</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="DetectedIssue.patient", description="Associated patient", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Associated patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DetectedIssue.patient</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DetectedIssue:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("DetectedIssue:patient").toLocked();
-
- /**
    * Search parameter: <b>date</b>
    * <p>
    * Description: <b>When identified</b><br>
@@ -1187,6 +1089,104 @@ public class DetectedIssue extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Associated patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DetectedIssue.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="DetectedIssue.patient", description="Associated patient", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Associated patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DetectedIssue.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DetectedIssue:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("DetectedIssue:patient").toLocked();
+
+ /**
+   * Search parameter: <b>author</b>
+   * <p>
+   * Description: <b>The provider or device that identified the issue</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DetectedIssue.author</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="author", path="DetectedIssue.author", description="The provider or device that identified the issue", type="reference" )
+  public static final String SP_AUTHOR = "author";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>author</b>
+   * <p>
+   * Description: <b>The provider or device that identified the issue</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DetectedIssue.author</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DetectedIssue:author</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("DetectedIssue:author").toLocked();
+
+ /**
+   * Search parameter: <b>implicated</b>
+   * <p>
+   * Description: <b>Problem resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DetectedIssue.implicated</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="implicated", path="DetectedIssue.implicated", description="Problem resource", type="reference" )
+  public static final String SP_IMPLICATED = "implicated";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>implicated</b>
+   * <p>
+   * Description: <b>Problem resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DetectedIssue.implicated</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam IMPLICATED = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_IMPLICATED);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DetectedIssue:implicated</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_IMPLICATED = new ca.uhn.fhir.model.api.Include("DetectedIssue:implicated").toLocked();
+
+ /**
+   * Search parameter: <b>category</b>
+   * <p>
+   * Description: <b>Issue Category, e.g. drug-drug, duplicate therapy, etc.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DetectedIssue.category</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="category", path="DetectedIssue.category", description="Issue Category, e.g. drug-drug, duplicate therapy, etc.", type="token" )
+  public static final String SP_CATEGORY = "category";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <p>
+   * Description: <b>Issue Category, e.g. drug-drug, duplicate therapy, etc.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DetectedIssue.category</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -2024,6 +2024,144 @@ public class Task extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>owner</b>
+   * <p>
+   * Description: <b>Search by task owner</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Task.owner</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="owner", path="Task.owner", description="Search by task owner", type="reference" )
+  public static final String SP_OWNER = "owner";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>owner</b>
+   * <p>
+   * Description: <b>Search by task owner</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Task.owner</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam OWNER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_OWNER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Task:owner</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_OWNER = new ca.uhn.fhir.model.api.Include("Task:owner").toLocked();
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Search for a task instance by its business identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Task.identifier", description="Search for a task instance by its business identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Search for a task instance by its business identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>creator</b>
+   * <p>
+   * Description: <b>Search by task creator</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Task.creator</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="creator", path="Task.creator", description="Search by task creator", type="reference" )
+  public static final String SP_CREATOR = "creator";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>creator</b>
+   * <p>
+   * Description: <b>Search by task creator</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Task.creator</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CREATOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CREATOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Task:creator</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CREATOR = new ca.uhn.fhir.model.api.Include("Task:creator").toLocked();
+
+ /**
+   * Search parameter: <b>performer</b>
+   * <p>
+   * Description: <b>Search by recommended type of performer (e.g., Requester, Performer, Scheduler).</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.performerType</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="performer", path="Task.performerType", description="Search by recommended type of performer (e.g., Requester, Performer, Scheduler).", type="token" )
+  public static final String SP_PERFORMER = "performer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>performer</b>
+   * <p>
+   * Description: <b>Search by recommended type of performer (e.g., Requester, Performer, Scheduler).</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.performerType</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PERFORMER);
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>Search by task subject</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Task.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="Task.subject", description="Search by task subject", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>Search by task subject</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Task.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Task:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Task:subject").toLocked();
+
+ /**
+   * Search parameter: <b>created</b>
+   * <p>
+   * Description: <b>Search by creation date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Task.created</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="created", path="Task.created", description="Search by creation date", type="date" )
+  public static final String SP_CREATED = "created";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>created</b>
+   * <p>
+   * Description: <b>Search by creation date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Task.created</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
+
+ /**
    * Search parameter: <b>subtask</b>
    * <p>
    * Description: <b>Search by subtasks</b><br>
@@ -2048,6 +2186,106 @@ public class Task extends DomainResource {
    * the path value of "<b>Task:subtask</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBTASK = new ca.uhn.fhir.model.api.Include("Task:subtask").toLocked();
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>Search by task type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="Task.type", description="Search by task type", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>Search by task type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>priority</b>
+   * <p>
+   * Description: <b>Search by task priority</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.priority</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="priority", path="Task.priority", description="Search by task priority", type="token" )
+  public static final String SP_PRIORITY = "priority";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>priority</b>
+   * <p>
+   * Description: <b>Search by task priority</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.priority</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRIORITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRIORITY);
+
+ /**
+   * Search parameter: <b>suspended</b>
+   * <p>
+   * Description: <b>Search by suspension status</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.suspended</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="suspended", path="Task.suspended", description="Search by suspension status", type="token" )
+  public static final String SP_SUSPENDED = "suspended";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>suspended</b>
+   * <p>
+   * Description: <b>Search by suspension status</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.suspended</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SUSPENDED = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SUSPENDED);
+
+ /**
+   * Search parameter: <b>failure</b>
+   * <p>
+   * Description: <b>Search by failure reason</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.failureReason</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="failure", path="Task.failureReason", description="Search by failure reason", type="token" )
+  public static final String SP_FAILURE = "failure";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>failure</b>
+   * <p>
+   * Description: <b>Search by failure reason</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.failureReason</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FAILURE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FAILURE);
+
+ /**
+   * Search parameter: <b>modified</b>
+   * <p>
+   * Description: <b>Search by last modification date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Task.lastModified</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="modified", path="Task.lastModified", description="Search by last modification date", type="date" )
+  public static final String SP_MODIFIED = "modified";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>modified</b>
+   * <p>
+   * Description: <b>Search by last modification date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Task.lastModified</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam MODIFIED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_MODIFIED);
 
  /**
    * Search parameter: <b>definition</b>
@@ -2088,244 +2326,6 @@ public class Task extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>Search by task subject</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subject", path="Task.subject", description="Search by task subject", type="reference" )
-  public static final String SP_SUBJECT = "subject";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
-   * <p>
-   * Description: <b>Search by task subject</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Task:subject</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Task:subject").toLocked();
-
- /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>Search by task type</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="Task.type", description="Search by task type", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>Search by task type</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>suspended</b>
-   * <p>
-   * Description: <b>Search by suspension status</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.suspended</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="suspended", path="Task.suspended", description="Search by suspension status", type="token" )
-  public static final String SP_SUSPENDED = "suspended";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>suspended</b>
-   * <p>
-   * Description: <b>Search by suspension status</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.suspended</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SUSPENDED = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SUSPENDED);
-
- /**
-   * Search parameter: <b>creator</b>
-   * <p>
-   * Description: <b>Search by task creator</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.creator</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="creator", path="Task.creator", description="Search by task creator", type="reference" )
-  public static final String SP_CREATOR = "creator";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>creator</b>
-   * <p>
-   * Description: <b>Search by task creator</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.creator</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CREATOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CREATOR);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Task:creator</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CREATOR = new ca.uhn.fhir.model.api.Include("Task:creator").toLocked();
-
- /**
-   * Search parameter: <b>modified</b>
-   * <p>
-   * Description: <b>Search by last modification date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Task.lastModified</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="modified", path="Task.lastModified", description="Search by last modification date", type="date" )
-  public static final String SP_MODIFIED = "modified";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>modified</b>
-   * <p>
-   * Description: <b>Search by last modification date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Task.lastModified</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam MODIFIED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_MODIFIED);
-
- /**
-   * Search parameter: <b>failure</b>
-   * <p>
-   * Description: <b>Search by failure reason</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.failureReason</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="failure", path="Task.failureReason", description="Search by failure reason", type="token" )
-  public static final String SP_FAILURE = "failure";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>failure</b>
-   * <p>
-   * Description: <b>Search by failure reason</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.failureReason</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FAILURE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FAILURE);
-
- /**
-   * Search parameter: <b>created</b>
-   * <p>
-   * Description: <b>Search by creation date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Task.created</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="created", path="Task.created", description="Search by creation date", type="date" )
-  public static final String SP_CREATED = "created";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>created</b>
-   * <p>
-   * Description: <b>Search by creation date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Task.created</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
-
- /**
-   * Search parameter: <b>priority</b>
-   * <p>
-   * Description: <b>Search by task priority</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.priority</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="priority", path="Task.priority", description="Search by task priority", type="token" )
-  public static final String SP_PRIORITY = "priority";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>priority</b>
-   * <p>
-   * Description: <b>Search by task priority</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.priority</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRIORITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRIORITY);
-
- /**
-   * Search parameter: <b>owner</b>
-   * <p>
-   * Description: <b>Search by task owner</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.owner</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="owner", path="Task.owner", description="Search by task owner", type="reference" )
-  public static final String SP_OWNER = "owner";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>owner</b>
-   * <p>
-   * Description: <b>Search by task owner</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.owner</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam OWNER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_OWNER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Task:owner</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_OWNER = new ca.uhn.fhir.model.api.Include("Task:owner").toLocked();
-
- /**
-   * Search parameter: <b>performer</b>
-   * <p>
-   * Description: <b>Search by recommended type of performer (e.g., Requester, Performer, Scheduler).</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.performerType</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="performer", path="Task.performerType", description="Search by recommended type of performer (e.g., Requester, Performer, Scheduler).", type="token" )
-  public static final String SP_PERFORMER = "performer";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>performer</b>
-   * <p>
-   * Description: <b>Search by recommended type of performer (e.g., Requester, Performer, Scheduler).</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.performerType</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PERFORMER);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Search for a task instance by its business identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Task.identifier", description="Search for a task instance by its business identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Search for a task instance by its business identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -50,25 +50,21 @@ public class ImagingExcerpt extends DomainResource {
 
     public enum DWebType {
         /**
-         * null
+         * Web Access to DICOM Persistent Objects - RESTful Services
          */
         WADORS, 
         /**
-         * null
+         * Web Access to DICOM Persistent Objects - URI
          */
         WADOURI, 
         /**
-         * null
+         * IHE - Invoke Image Display Profile
          */
         IID, 
         /**
-         * null
+         * Web Access to DICOM Persistent Objects - Web Services
          */
         WADOWS, 
-        /**
-         * null
-         */
-        AE, 
         /**
          * added to help the parsers
          */
@@ -84,8 +80,6 @@ public class ImagingExcerpt extends DomainResource {
           return IID;
         if ("WADO-WS".equals(codeString))
           return WADOWS;
-        if ("AE".equals(codeString))
-          return AE;
         throw new FHIRException("Unknown DWebType code '"+codeString+"'");
         }
         public String toCode() {
@@ -94,7 +88,6 @@ public class ImagingExcerpt extends DomainResource {
             case WADOURI: return "WADO-URI";
             case IID: return "IID";
             case WADOWS: return "WADO-WS";
-            case AE: return "AE";
             default: return "?";
           }
         }
@@ -104,17 +97,15 @@ public class ImagingExcerpt extends DomainResource {
             case WADOURI: return "http://hl7.org/fhir/dWebType";
             case IID: return "http://hl7.org/fhir/dWebType";
             case WADOWS: return "http://hl7.org/fhir/dWebType";
-            case AE: return "http://hl7.org/fhir/dWebType";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case WADORS: return "";
-            case WADOURI: return "";
-            case IID: return "";
-            case WADOWS: return "";
-            case AE: return "";
+            case WADORS: return "Web Access to DICOM Persistent Objects - RESTful Services";
+            case WADOURI: return "Web Access to DICOM Persistent Objects - URI";
+            case IID: return "IHE - Invoke Image Display Profile";
+            case WADOWS: return "Web Access to DICOM Persistent Objects - Web Services";
             default: return "?";
           }
         }
@@ -124,7 +115,6 @@ public class ImagingExcerpt extends DomainResource {
             case WADOURI: return "WADO-URI";
             case IID: return "IID";
             case WADOWS: return "WADO-WS";
-            case AE: return "AE";
             default: return "?";
           }
         }
@@ -143,8 +133,6 @@ public class ImagingExcerpt extends DomainResource {
           return DWebType.IID;
         if ("WADO-WS".equals(codeString))
           return DWebType.WADOWS;
-        if ("AE".equals(codeString))
-          return DWebType.AE;
         throw new IllegalArgumentException("Unknown DWebType code '"+codeString+"'");
         }
         public Enumeration<DWebType> fromType(Base code) throws FHIRException {
@@ -161,8 +149,6 @@ public class ImagingExcerpt extends DomainResource {
           return new Enumeration<DWebType>(this, DWebType.IID);
         if ("WADO-WS".equals(codeString))
           return new Enumeration<DWebType>(this, DWebType.WADOWS);
-        if ("AE".equals(codeString))
-          return new Enumeration<DWebType>(this, DWebType.AE);
         throw new FHIRException("Unknown DWebType code '"+codeString+"'");
         }
     public String toCode(DWebType code) {
@@ -174,8 +160,6 @@ public class ImagingExcerpt extends DomainResource {
         return "IID";
       if (code == DWebType.WADOWS)
         return "WADO-WS";
-      if (code == DWebType.AE)
-        return "AE";
       return "?";
       }
     public String toSystem(DWebType code) {
@@ -561,7 +545,7 @@ public class ImagingExcerpt extends DomainResource {
          * Access type for DICOM web.
          */
         @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="WADO-RS | WADO-URI | IID | WADO-WS | AE", formalDefinition="Access type for DICOM web." )
+        @Description(shortDefinition="WADO-RS | WADO-URI | IID | WADO-WS", formalDefinition="Access type for DICOM web." )
         protected Enumeration<DWebType> type;
 
         /**
@@ -1558,7 +1542,7 @@ public class ImagingExcerpt extends DomainResource {
          * Access type for DICOM web.
          */
         @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="WADO-RS | WADO-URI | IID | WADO-WS | AE", formalDefinition="Access type for DICOM web." )
+        @Description(shortDefinition="WADO-RS | WADO-URI | IID | WADO-WS", formalDefinition="Access type for DICOM web." )
         protected Enumeration<DWebType> type;
 
         /**
@@ -1761,13 +1745,20 @@ public class ImagingExcerpt extends DomainResource {
         protected OidType uid;
 
         /**
+         * Methods of accessing using DICOM web technologies.
+         */
+        @Child(name = "dicom", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Dicom web access", formalDefinition="Methods of accessing using DICOM web technologies." )
+        protected List<InstanceDicomComponent> dicom;
+
+        /**
          * The specific frame reference within a multi-frame object.
          */
-        @Child(name = "frameNumbers", type = {UnsignedIntType.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "frameNumbers", type = {UnsignedIntType.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Frame reference number", formalDefinition="The specific frame reference within a multi-frame object." )
         protected List<UnsignedIntType> frameNumbers;
 
-        private static final long serialVersionUID = 1514271861L;
+        private static final long serialVersionUID = 1372440557L;
 
     /**
      * Constructor
@@ -1876,6 +1867,46 @@ public class ImagingExcerpt extends DomainResource {
         }
 
         /**
+         * @return {@link #dicom} (Methods of accessing using DICOM web technologies.)
+         */
+        public List<InstanceDicomComponent> getDicom() { 
+          if (this.dicom == null)
+            this.dicom = new ArrayList<InstanceDicomComponent>();
+          return this.dicom;
+        }
+
+        public boolean hasDicom() { 
+          if (this.dicom == null)
+            return false;
+          for (InstanceDicomComponent item : this.dicom)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #dicom} (Methods of accessing using DICOM web technologies.)
+         */
+    // syntactic sugar
+        public InstanceDicomComponent addDicom() { //3
+          InstanceDicomComponent t = new InstanceDicomComponent();
+          if (this.dicom == null)
+            this.dicom = new ArrayList<InstanceDicomComponent>();
+          this.dicom.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public InstanceComponent addDicom(InstanceDicomComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.dicom == null)
+            this.dicom = new ArrayList<InstanceDicomComponent>();
+          this.dicom.add(t);
+          return this;
+        }
+
+        /**
          * @return {@link #frameNumbers} (The specific frame reference within a multi-frame object.)
          */
         public List<UnsignedIntType> getFrameNumbers() { 
@@ -1933,6 +1964,7 @@ public class ImagingExcerpt extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("sopClass", "oid", "SOP class UID of the selected instance.", 0, java.lang.Integer.MAX_VALUE, sopClass));
           childrenList.add(new Property("uid", "oid", "SOP Instance UID of the selected instance.", 0, java.lang.Integer.MAX_VALUE, uid));
+          childrenList.add(new Property("dicom", "", "Methods of accessing using DICOM web technologies.", 0, java.lang.Integer.MAX_VALUE, dicom));
           childrenList.add(new Property("frameNumbers", "unsignedInt", "The specific frame reference within a multi-frame object.", 0, java.lang.Integer.MAX_VALUE, frameNumbers));
         }
 
@@ -1942,6 +1974,8 @@ public class ImagingExcerpt extends DomainResource {
           this.sopClass = castToOid(value); // OidType
         else if (name.equals("uid"))
           this.uid = castToOid(value); // OidType
+        else if (name.equals("dicom"))
+          this.getDicom().add((InstanceDicomComponent) value);
         else if (name.equals("frameNumbers"))
           this.getFrameNumbers().add(castToUnsignedInt(value));
         else
@@ -1956,6 +1990,9 @@ public class ImagingExcerpt extends DomainResource {
         else if (name.equals("uid")) {
           throw new FHIRException("Cannot call addChild on a primitive type ImagingExcerpt.uid");
         }
+        else if (name.equals("dicom")) {
+          return addDicom();
+        }
         else if (name.equals("frameNumbers")) {
           throw new FHIRException("Cannot call addChild on a primitive type ImagingExcerpt.frameNumbers");
         }
@@ -1968,6 +2005,11 @@ public class ImagingExcerpt extends DomainResource {
         copyValues(dst);
         dst.sopClass = sopClass == null ? null : sopClass.copy();
         dst.uid = uid == null ? null : uid.copy();
+        if (dicom != null) {
+          dst.dicom = new ArrayList<InstanceDicomComponent>();
+          for (InstanceDicomComponent i : dicom)
+            dst.dicom.add(i.copy());
+        };
         if (frameNumbers != null) {
           dst.frameNumbers = new ArrayList<UnsignedIntType>();
           for (UnsignedIntType i : frameNumbers)
@@ -1983,8 +2025,8 @@ public class ImagingExcerpt extends DomainResource {
         if (!(other instanceof InstanceComponent))
           return false;
         InstanceComponent o = (InstanceComponent) other;
-        return compareDeep(sopClass, o.sopClass, true) && compareDeep(uid, o.uid, true) && compareDeep(frameNumbers, o.frameNumbers, true)
-          ;
+        return compareDeep(sopClass, o.sopClass, true) && compareDeep(uid, o.uid, true) && compareDeep(dicom, o.dicom, true)
+           && compareDeep(frameNumbers, o.frameNumbers, true);
       }
 
       @Override
@@ -2000,11 +2042,204 @@ public class ImagingExcerpt extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (sopClass == null || sopClass.isEmpty()) && (uid == null || uid.isEmpty())
-           && (frameNumbers == null || frameNumbers.isEmpty());
+           && (dicom == null || dicom.isEmpty()) && (frameNumbers == null || frameNumbers.isEmpty())
+          ;
       }
 
   public String fhirType() {
     return "ImagingExcerpt.study.series.instance";
+
+  }
+
+  }
+
+    @Block()
+    public static class InstanceDicomComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Access type for DICOM web.
+         */
+        @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="WADO-RS | WADO-URI | IID | WADO-WS", formalDefinition="Access type for DICOM web." )
+        protected Enumeration<DWebType> type;
+
+        /**
+         * The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.
+         */
+        @Child(name = "url", type = {UriType.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Retrieve study URL", formalDefinition="The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol." )
+        protected UriType url;
+
+        private static final long serialVersionUID = 1661664416L;
+
+    /**
+     * Constructor
+     */
+      public InstanceDicomComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public InstanceDicomComponent(Enumeration<DWebType> type, UriType url) {
+        super();
+        this.type = type;
+        this.url = url;
+      }
+
+        /**
+         * @return {@link #type} (Access type for DICOM web.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         */
+        public Enumeration<DWebType> getTypeElement() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create InstanceDicomComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Enumeration<DWebType>(new DWebTypeEnumFactory()); // bb
+          return this.type;
+        }
+
+        public boolean hasTypeElement() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        /**
+         * @param value {@link #type} (Access type for DICOM web.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         */
+        public InstanceDicomComponent setTypeElement(Enumeration<DWebType> value) { 
+          this.type = value;
+          return this;
+        }
+
+        /**
+         * @return Access type for DICOM web.
+         */
+        public DWebType getType() { 
+          return this.type == null ? null : this.type.getValue();
+        }
+
+        /**
+         * @param value Access type for DICOM web.
+         */
+        public InstanceDicomComponent setType(DWebType value) { 
+            if (this.type == null)
+              this.type = new Enumeration<DWebType>(new DWebTypeEnumFactory());
+            this.type.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #url} (The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         */
+        public UriType getUrlElement() { 
+          if (this.url == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create InstanceDicomComponent.url");
+            else if (Configuration.doAutoCreate())
+              this.url = new UriType(); // bb
+          return this.url;
+        }
+
+        public boolean hasUrlElement() { 
+          return this.url != null && !this.url.isEmpty();
+        }
+
+        public boolean hasUrl() { 
+          return this.url != null && !this.url.isEmpty();
+        }
+
+        /**
+         * @param value {@link #url} (The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         */
+        public InstanceDicomComponent setUrlElement(UriType value) { 
+          this.url = value;
+          return this;
+        }
+
+        /**
+         * @return The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.
+         */
+        public String getUrl() { 
+          return this.url == null ? null : this.url.getValue();
+        }
+
+        /**
+         * @param value The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.
+         */
+        public InstanceDicomComponent setUrl(String value) { 
+            if (this.url == null)
+              this.url = new UriType();
+            this.url.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("type", "code", "Access type for DICOM web.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("url", "uri", "The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.", 0, java.lang.Integer.MAX_VALUE, url));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("type"))
+          this.type = new DWebTypeEnumFactory().fromType(value); // Enumeration<DWebType>
+        else if (name.equals("url"))
+          this.url = castToUri(value); // UriType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("type")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ImagingExcerpt.type");
+        }
+        else if (name.equals("url")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ImagingExcerpt.url");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public InstanceDicomComponent copy() {
+        InstanceDicomComponent dst = new InstanceDicomComponent();
+        copyValues(dst);
+        dst.type = type == null ? null : type.copy();
+        dst.url = url == null ? null : url.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof InstanceDicomComponent))
+          return false;
+        InstanceDicomComponent o = (InstanceDicomComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(url, o.url, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof InstanceDicomComponent))
+          return false;
+        InstanceDicomComponent o = (InstanceDicomComponent) other;
+        return compareValues(type, o.type, true) && compareValues(url, o.url, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (type == null || type.isEmpty()) && (url == null || url.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "ImagingExcerpt.study.series.instance.dicom";
 
   }
 
@@ -2501,6 +2736,46 @@ public class ImagingExcerpt extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>UID of key DICOM object selection</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ImagingExcerpt.uid</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="ImagingExcerpt.uid", description="UID of key DICOM object selection", type="uri" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>UID of key DICOM object selection</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ImagingExcerpt.uid</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>authoring-time</b>
+   * <p>
+   * Description: <b>Time of key DICOM object selection authoring</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImagingExcerpt.authoringTime</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="authoring-time", path="ImagingExcerpt.authoringTime", description="Time of key DICOM object selection authoring", type="date" )
+  public static final String SP_AUTHORING_TIME = "authoring-time";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>authoring-time</b>
+   * <p>
+   * Description: <b>Time of key DICOM object selection authoring</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImagingExcerpt.authoringTime</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam AUTHORING_TIME = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_AUTHORING_TIME);
+
+ /**
    * Search parameter: <b>selected-study</b>
    * <p>
    * Description: <b>Study selected in key DICOM object selection</b><br>
@@ -2547,26 +2822,6 @@ public class ImagingExcerpt extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("ImagingExcerpt:author").toLocked();
 
  /**
-   * Search parameter: <b>title</b>
-   * <p>
-   * Description: <b>Title of key DICOM object selection</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingExcerpt.title</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="title", path="ImagingExcerpt.title", description="Title of key DICOM object selection", type="token" )
-  public static final String SP_TITLE = "title";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>title</b>
-   * <p>
-   * Description: <b>Title of key DICOM object selection</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingExcerpt.title</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TITLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TITLE);
-
- /**
    * Search parameter: <b>patient</b>
    * <p>
    * Description: <b>Subject of key DICOM object selection</b><br>
@@ -2593,44 +2848,24 @@ public class ImagingExcerpt extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ImagingExcerpt:patient").toLocked();
 
  /**
-   * Search parameter: <b>authoring-time</b>
+   * Search parameter: <b>title</b>
    * <p>
-   * Description: <b>Time of key DICOM object selection authoring</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImagingExcerpt.authoringTime</b><br>
+   * Description: <b>Title of key DICOM object selection</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingExcerpt.title</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="authoring-time", path="ImagingExcerpt.authoringTime", description="Time of key DICOM object selection authoring", type="date" )
-  public static final String SP_AUTHORING_TIME = "authoring-time";
+  @SearchParamDefinition(name="title", path="ImagingExcerpt.title", description="Title of key DICOM object selection", type="token" )
+  public static final String SP_TITLE = "title";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>authoring-time</b>
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
    * <p>
-   * Description: <b>Time of key DICOM object selection authoring</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImagingExcerpt.authoringTime</b><br>
+   * Description: <b>Title of key DICOM object selection</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingExcerpt.title</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam AUTHORING_TIME = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_AUTHORING_TIME);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>UID of key DICOM object selection</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImagingExcerpt.uid</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="ImagingExcerpt.uid", description="UID of key DICOM object selection", type="uri" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>UID of key DICOM object selection</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImagingExcerpt.uid</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TITLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TITLE);
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -510,6 +510,32 @@ public class Linkage extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>item</b>
+   * <p>
+   * Description: <b>Matches on any item in the Linkage</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Linkage.item.resource</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="item", path="Linkage.item.resource", description="Matches on any item in the Linkage", type="reference" )
+  public static final String SP_ITEM = "item";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>item</b>
+   * <p>
+   * Description: <b>Matches on any item in the Linkage</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Linkage.item.resource</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ITEM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ITEM);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Linkage:item</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ITEM = new ca.uhn.fhir.model.api.Include("Linkage:item").toLocked();
+
+ /**
    * Search parameter: <b>author</b>
    * <p>
    * Description: <b>Author of the Linkage</b><br>
@@ -560,32 +586,6 @@ public class Linkage extends DomainResource {
    * the path value of "<b>Linkage:source</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("Linkage:source").toLocked();
-
- /**
-   * Search parameter: <b>item</b>
-   * <p>
-   * Description: <b>Matches on any item in the Linkage</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Linkage.item.resource</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="item", path="Linkage.item.resource", description="Matches on any item in the Linkage", type="reference" )
-  public static final String SP_ITEM = "item";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>item</b>
-   * <p>
-   * Description: <b>Matches on any item in the Linkage</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Linkage.item.resource</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ITEM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ITEM);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Linkage:item</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ITEM = new ca.uhn.fhir.model.api.Include("Linkage:item").toLocked();
 
 
 }

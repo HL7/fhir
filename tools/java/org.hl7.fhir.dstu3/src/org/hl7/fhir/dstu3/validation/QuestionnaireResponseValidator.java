@@ -319,8 +319,8 @@ public class QuestionnaireResponseValidator extends BaseValidator {
 							boolean found = false;
 							for (ValueSetExpansionContainsComponent next : valueSet.getExpansion().getContains()) {
 								if (coding.getCode().equals(next.getCode()) && coding.getSystem().equals(next.getSystem())) {
-										found = true;
-										break;
+									found = true;
+									break;
 								}
 							}
 

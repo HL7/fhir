@@ -127,7 +127,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		valueSets.put(vs.getUrl(), vs);
 		if (!vs.getUrl().equals(url))
 			valueSets.put(url, vs);
-		}
+	}
 
 	private void seeCodeSystem(String url, CodeSystem cs) throws DefinitionException {
 		codeSystems.put(cs.getUrl(), cs);

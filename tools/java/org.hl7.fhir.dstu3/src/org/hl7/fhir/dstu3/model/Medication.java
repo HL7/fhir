@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1288,24 +1288,24 @@ public class Medication extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>form</b>
+   * Search parameter: <b>ingredient-code</b>
    * <p>
-   * Description: <b>powder | tablets | carton +</b><br>
+   * Description: <b>The product contained</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Medication.product.form</b><br>
+   * Path: <b>Medication.product.ingredient.itemCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="form", path="Medication.product.form", description="powder | tablets | carton +", type="token" )
-  public static final String SP_FORM = "form";
+  @SearchParamDefinition(name="ingredient-code", path="Medication.product.ingredient.itemCodeableConcept", description="The product contained", type="token" )
+  public static final String SP_INGREDIENT_CODE = "ingredient-code";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>form</b>
+   * <b>Fluent Client</b> search parameter constant for <b>ingredient-code</b>
    * <p>
-   * Description: <b>powder | tablets | carton +</b><br>
+   * Description: <b>The product contained</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Medication.product.form</b><br>
+   * Path: <b>Medication.product.ingredient.itemCodeableConcept</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FORM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FORM);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam INGREDIENT_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_INGREDIENT_CODE);
 
  /**
    * Search parameter: <b>container</b>
@@ -1326,78 +1326,6 @@ public class Medication extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTAINER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTAINER);
-
- /**
-   * Search parameter: <b>manufacturer</b>
-   * <p>
-   * Description: <b>Manufacturer of the item</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Medication.manufacturer</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="manufacturer", path="Medication.manufacturer", description="Manufacturer of the item", type="reference" )
-  public static final String SP_MANUFACTURER = "manufacturer";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>manufacturer</b>
-   * <p>
-   * Description: <b>Manufacturer of the item</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Medication.manufacturer</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MANUFACTURER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MANUFACTURER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Medication:manufacturer</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_MANUFACTURER = new ca.uhn.fhir.model.api.Include("Medication:manufacturer").toLocked();
-
- /**
-   * Search parameter: <b>package-item-code</b>
-   * <p>
-   * Description: <b>The item in the package</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Medication.package.content.itemCodeableConcept</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="package-item-code", path="Medication.package.content.itemCodeableConcept", description="The item in the package", type="token" )
-  public static final String SP_PACKAGE_ITEM_CODE = "package-item-code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>package-item-code</b>
-   * <p>
-   * Description: <b>The item in the package</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Medication.package.content.itemCodeableConcept</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PACKAGE_ITEM_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PACKAGE_ITEM_CODE);
-
- /**
-   * Search parameter: <b>ingredient</b>
-   * <p>
-   * Description: <b>The product contained</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Medication.product.ingredient.itemReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="ingredient", path="Medication.product.ingredient.itemReference", description="The product contained", type="reference" )
-  public static final String SP_INGREDIENT = "ingredient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>ingredient</b>
-   * <p>
-   * Description: <b>The product contained</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Medication.product.ingredient.itemReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INGREDIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INGREDIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Medication:ingredient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_INGREDIENT = new ca.uhn.fhir.model.api.Include("Medication:ingredient").toLocked();
 
  /**
    * Search parameter: <b>package-item</b>
@@ -1446,24 +1374,96 @@ public class Medication extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
-   * Search parameter: <b>ingredient-code</b>
+   * Search parameter: <b>ingredient</b>
    * <p>
    * Description: <b>The product contained</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Medication.product.ingredient.itemCodeableConcept</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Medication.product.ingredient.itemReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="ingredient-code", path="Medication.product.ingredient.itemCodeableConcept", description="The product contained", type="token" )
-  public static final String SP_INGREDIENT_CODE = "ingredient-code";
+  @SearchParamDefinition(name="ingredient", path="Medication.product.ingredient.itemReference", description="The product contained", type="reference" )
+  public static final String SP_INGREDIENT = "ingredient";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>ingredient-code</b>
+   * <b>Fluent Client</b> search parameter constant for <b>ingredient</b>
    * <p>
    * Description: <b>The product contained</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Medication.product.ingredient.itemCodeableConcept</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Medication.product.ingredient.itemReference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam INGREDIENT_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_INGREDIENT_CODE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INGREDIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INGREDIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Medication:ingredient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INGREDIENT = new ca.uhn.fhir.model.api.Include("Medication:ingredient").toLocked();
+
+ /**
+   * Search parameter: <b>form</b>
+   * <p>
+   * Description: <b>powder | tablets | carton +</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Medication.product.form</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="form", path="Medication.product.form", description="powder | tablets | carton +", type="token" )
+  public static final String SP_FORM = "form";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>form</b>
+   * <p>
+   * Description: <b>powder | tablets | carton +</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Medication.product.form</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FORM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FORM);
+
+ /**
+   * Search parameter: <b>package-item-code</b>
+   * <p>
+   * Description: <b>The item in the package</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Medication.package.content.itemCodeableConcept</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="package-item-code", path="Medication.package.content.itemCodeableConcept", description="The item in the package", type="token" )
+  public static final String SP_PACKAGE_ITEM_CODE = "package-item-code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>package-item-code</b>
+   * <p>
+   * Description: <b>The item in the package</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Medication.package.content.itemCodeableConcept</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PACKAGE_ITEM_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PACKAGE_ITEM_CODE);
+
+ /**
+   * Search parameter: <b>manufacturer</b>
+   * <p>
+   * Description: <b>Manufacturer of the item</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Medication.manufacturer</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="manufacturer", path="Medication.manufacturer", description="Manufacturer of the item", type="reference" )
+  public static final String SP_MANUFACTURER = "manufacturer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>manufacturer</b>
+   * <p>
+   * Description: <b>Manufacturer of the item</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Medication.manufacturer</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MANUFACTURER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MANUFACTURER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Medication:manufacturer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_MANUFACTURER = new ca.uhn.fhir.model.api.Include("Medication:manufacturer").toLocked();
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -3957,64 +3957,64 @@ public class ValueSet extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>expansion</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>Uniquely identifies this expansion</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ValueSet.expansion.identifier</b><br>
+   * Description: <b>The value set publication date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ValueSet.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="expansion", path="ValueSet.expansion.identifier", description="Uniquely identifies this expansion", type="uri" )
-  public static final String SP_EXPANSION = "expansion";
+  @SearchParamDefinition(name="date", path="ValueSet.date", description="The value set publication date", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>expansion</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>Uniquely identifies this expansion</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ValueSet.expansion.identifier</b><br>
+   * Description: <b>The value set publication date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ValueSet.date</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam EXPANSION = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_EXPANSION);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>reference</b>
    * <p>
-   * Description: <b>The status of the value set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ValueSet.status</b><br>
+   * Description: <b>A code system included or excluded in the value set or an imported value set</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ValueSet.compose.include.system</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="ValueSet.status", description="The status of the value set", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="reference", path="ValueSet.compose.include.system", description="A code system included or excluded in the value set or an imported value set", type="uri" )
+  public static final String SP_REFERENCE = "reference";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>reference</b>
    * <p>
-   * Description: <b>The status of the value set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ValueSet.status</b><br>
+   * Description: <b>A code system included or excluded in the value set or an imported value set</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ValueSet.compose.include.system</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam REFERENCE = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_REFERENCE);
 
  /**
-   * Search parameter: <b>description</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Text search in the description of the value set</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ValueSet.description</b><br>
+   * Description: <b>The identifier for the value set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="description", path="ValueSet.description", description="Text search in the description of the value set", type="string" )
-  public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="identifier", path="ValueSet.identifier", description="The identifier for the value set", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Text search in the description of the value set</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ValueSet.description</b><br>
+   * Description: <b>The identifier for the value set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>name</b>
@@ -4057,64 +4057,64 @@ public class ValueSet extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
-   * Search parameter: <b>date</b>
+   * Search parameter: <b>publisher</b>
    * <p>
-   * Description: <b>The value set publication date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ValueSet.date</b><br>
+   * Description: <b>Name of the publisher of the value set</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ValueSet.publisher</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="ValueSet.date", description="The value set publication date", type="date" )
-  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="publisher", path="ValueSet.publisher", description="Name of the publisher of the value set", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
    * <p>
-   * Description: <b>The value set publication date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ValueSet.date</b><br>
+   * Description: <b>Name of the publisher of the value set</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ValueSet.publisher</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>description</b>
    * <p>
-   * Description: <b>The identifier for the value set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ValueSet.identifier</b><br>
+   * Description: <b>Text search in the description of the value set</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ValueSet.description</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="ValueSet.identifier", description="The identifier for the value set", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="description", path="ValueSet.description", description="Text search in the description of the value set", type="string" )
+  public static final String SP_DESCRIPTION = "description";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
    * <p>
-   * Description: <b>The identifier for the value set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ValueSet.identifier</b><br>
+   * Description: <b>Text search in the description of the value set</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ValueSet.description</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
-   * Search parameter: <b>reference</b>
+   * Search parameter: <b>version</b>
    * <p>
-   * Description: <b>A code system included or excluded in the value set or an imported value set</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ValueSet.compose.include.system</b><br>
+   * Description: <b>The version identifier of the value set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.version</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="reference", path="ValueSet.compose.include.system", description="A code system included or excluded in the value set or an imported value set", type="uri" )
-  public static final String SP_REFERENCE = "reference";
+  @SearchParamDefinition(name="version", path="ValueSet.version", description="The version identifier of the value set", type="token" )
+  public static final String SP_VERSION = "version";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>reference</b>
+   * <b>Fluent Client</b> search parameter constant for <b>version</b>
    * <p>
-   * Description: <b>A code system included or excluded in the value set or an imported value set</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ValueSet.compose.include.system</b><br>
+   * Description: <b>The version identifier of the value set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.version</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam REFERENCE = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_REFERENCE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
 
  /**
    * Search parameter: <b>url</b>
@@ -4137,44 +4137,44 @@ public class ValueSet extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
-   * Search parameter: <b>publisher</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>Name of the publisher of the value set</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ValueSet.publisher</b><br>
+   * Description: <b>The status of the value set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="publisher", path="ValueSet.publisher", description="Name of the publisher of the value set", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="status", path="ValueSet.status", description="The status of the value set", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>Name of the publisher of the value set</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ValueSet.publisher</b><br>
+   * Description: <b>The status of the value set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
  /**
-   * Search parameter: <b>version</b>
+   * Search parameter: <b>expansion</b>
    * <p>
-   * Description: <b>The version identifier of the value set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ValueSet.version</b><br>
+   * Description: <b>Uniquely identifies this expansion</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ValueSet.expansion.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="ValueSet.version", description="The version identifier of the value set", type="token" )
-  public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="expansion", path="ValueSet.expansion.identifier", description="Uniquely identifies this expansion", type="uri" )
+  public static final String SP_EXPANSION = "expansion";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>version</b>
+   * <b>Fluent Client</b> search parameter constant for <b>expansion</b>
    * <p>
-   * Description: <b>The version identifier of the value set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ValueSet.version</b><br>
+   * Description: <b>Uniquely identifies this expansion</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ValueSet.expansion.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam EXPANSION = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_EXPANSION);
 
 
 }

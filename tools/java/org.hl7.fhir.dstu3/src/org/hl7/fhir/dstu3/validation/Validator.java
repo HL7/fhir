@@ -166,7 +166,7 @@ public class Validator {
 
 
 
-  private List<ValidationMessage> outputs() {
+	private List<ValidationMessage> outputs() {
     return engine.getOutputs();
   }
 

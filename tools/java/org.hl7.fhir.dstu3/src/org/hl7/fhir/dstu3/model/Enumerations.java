@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2562,6 +2562,10 @@ public class Enumerations {
          */
         PRACTITIONER, 
         /**
+         * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
+         */
+        PRACTITIONERROLE, 
+        /**
          * An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
          */
         PROCEDURE, 
@@ -2960,6 +2964,8 @@ public class Enumerations {
           return PERSON;
         if ("Practitioner".equals(codeString))
           return PRACTITIONER;
+        if ("PractitionerRole".equals(codeString))
+          return PRACTITIONERROLE;
         if ("Procedure".equals(codeString))
           return PROCEDURE;
         if ("ProcedureRequest".equals(codeString))
@@ -3160,6 +3166,7 @@ public class Enumerations {
             case PAYMENTRECONCILIATION: return "PaymentReconciliation";
             case PERSON: return "Person";
             case PRACTITIONER: return "Practitioner";
+            case PRACTITIONERROLE: return "PractitionerRole";
             case PROCEDURE: return "Procedure";
             case PROCEDUREREQUEST: return "ProcedureRequest";
             case PROCESSREQUEST: return "ProcessRequest";
@@ -3332,6 +3339,7 @@ public class Enumerations {
             case PAYMENTRECONCILIATION: return "http://hl7.org/fhir/resource-types";
             case PERSON: return "http://hl7.org/fhir/resource-types";
             case PRACTITIONER: return "http://hl7.org/fhir/resource-types";
+            case PRACTITIONERROLE: return "http://hl7.org/fhir/resource-types";
             case PROCEDURE: return "http://hl7.org/fhir/resource-types";
             case PROCEDUREREQUEST: return "http://hl7.org/fhir/resource-types";
             case PROCESSREQUEST: return "http://hl7.org/fhir/resource-types";
@@ -3504,6 +3512,7 @@ public class Enumerations {
             case PAYMENTRECONCILIATION: return "This resource provides payment details and claim references supporting a bulk payment.";
             case PERSON: return "Demographics and administrative information about a person independent of a specific health-related context.";
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
+            case PRACTITIONERROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
             case PROCEDUREREQUEST: return "A request for a procedure to be performed. May be a proposal or an order.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
@@ -3676,6 +3685,7 @@ public class Enumerations {
             case PAYMENTRECONCILIATION: return "PaymentReconciliation";
             case PERSON: return "Person";
             case PRACTITIONER: return "Practitioner";
+            case PRACTITIONERROLE: return "PractitionerRole";
             case PROCEDURE: return "Procedure";
             case PROCEDUREREQUEST: return "ProcedureRequest";
             case PROCESSREQUEST: return "ProcessRequest";
@@ -3991,6 +4001,8 @@ public class Enumerations {
           return FHIRAllTypes.PERSON;
         if ("Practitioner".equals(codeString))
           return FHIRAllTypes.PRACTITIONER;
+        if ("PractitionerRole".equals(codeString))
+          return FHIRAllTypes.PRACTITIONERROLE;
         if ("Procedure".equals(codeString))
           return FHIRAllTypes.PROCEDURE;
         if ("ProcedureRequest".equals(codeString))
@@ -4333,6 +4345,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.PERSON);
         if ("Practitioner".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.PRACTITIONER);
+        if ("PractitionerRole".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.PRACTITIONERROLE);
         if ("Procedure".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.PROCEDURE);
         if ("ProcedureRequest".equals(codeString))
@@ -4670,6 +4684,8 @@ public class Enumerations {
         return "Person";
       if (code == FHIRAllTypes.PRACTITIONER)
         return "Practitioner";
+      if (code == FHIRAllTypes.PRACTITIONERROLE)
+        return "PractitionerRole";
       if (code == FHIRAllTypes.PROCEDURE)
         return "Procedure";
       if (code == FHIRAllTypes.PROCEDUREREQUEST)
@@ -5289,6 +5305,10 @@ public class Enumerations {
          */
         PRACTITIONER, 
         /**
+         * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
+         */
+        PRACTITIONERROLE, 
+        /**
          * An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
          */
         PROCEDURE, 
@@ -5679,6 +5699,8 @@ public class Enumerations {
           return PERSON;
         if ("Practitioner".equals(codeString))
           return PRACTITIONER;
+        if ("PractitionerRole".equals(codeString))
+          return PRACTITIONERROLE;
         if ("Procedure".equals(codeString))
           return PROCEDURE;
         if ("ProcedureRequest".equals(codeString))
@@ -5875,6 +5897,7 @@ public class Enumerations {
             case PAYMENTRECONCILIATION: return "PaymentReconciliation";
             case PERSON: return "Person";
             case PRACTITIONER: return "Practitioner";
+            case PRACTITIONERROLE: return "PractitionerRole";
             case PROCEDURE: return "Procedure";
             case PROCEDUREREQUEST: return "ProcedureRequest";
             case PROCESSREQUEST: return "ProcessRequest";
@@ -6045,6 +6068,7 @@ public class Enumerations {
             case PAYMENTRECONCILIATION: return "http://hl7.org/fhir/resource-types";
             case PERSON: return "http://hl7.org/fhir/resource-types";
             case PRACTITIONER: return "http://hl7.org/fhir/resource-types";
+            case PRACTITIONERROLE: return "http://hl7.org/fhir/resource-types";
             case PROCEDURE: return "http://hl7.org/fhir/resource-types";
             case PROCEDUREREQUEST: return "http://hl7.org/fhir/resource-types";
             case PROCESSREQUEST: return "http://hl7.org/fhir/resource-types";
@@ -6215,6 +6239,7 @@ public class Enumerations {
             case PAYMENTRECONCILIATION: return "This resource provides payment details and claim references supporting a bulk payment.";
             case PERSON: return "Demographics and administrative information about a person independent of a specific health-related context.";
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
+            case PRACTITIONERROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
             case PROCEDUREREQUEST: return "A request for a procedure to be performed. May be a proposal or an order.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
@@ -6385,6 +6410,7 @@ public class Enumerations {
             case PAYMENTRECONCILIATION: return "PaymentReconciliation";
             case PERSON: return "Person";
             case PRACTITIONER: return "Practitioner";
+            case PRACTITIONERROLE: return "PractitionerRole";
             case PROCEDURE: return "Procedure";
             case PROCEDUREREQUEST: return "ProcedureRequest";
             case PROCESSREQUEST: return "ProcessRequest";
@@ -6698,6 +6724,8 @@ public class Enumerations {
           return FHIRDefinedType.PERSON;
         if ("Practitioner".equals(codeString))
           return FHIRDefinedType.PRACTITIONER;
+        if ("PractitionerRole".equals(codeString))
+          return FHIRDefinedType.PRACTITIONERROLE;
         if ("Procedure".equals(codeString))
           return FHIRDefinedType.PROCEDURE;
         if ("ProcedureRequest".equals(codeString))
@@ -7036,6 +7064,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PERSON);
         if ("Practitioner".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PRACTITIONER);
+        if ("PractitionerRole".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PRACTITIONERROLE);
         if ("Procedure".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PROCEDURE);
         if ("ProcedureRequest".equals(codeString))
@@ -7369,6 +7399,8 @@ public class Enumerations {
         return "Person";
       if (code == FHIRDefinedType.PRACTITIONER)
         return "Practitioner";
+      if (code == FHIRDefinedType.PRACTITIONERROLE)
+        return "PractitionerRole";
       if (code == FHIRDefinedType.PROCEDURE)
         return "Procedure";
       if (code == FHIRDefinedType.PROCEDUREREQUEST)
@@ -8201,6 +8233,10 @@ public class Enumerations {
          */
         PRACTITIONER, 
         /**
+         * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
+         */
+        PRACTITIONERROLE, 
+        /**
          * An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
          */
         PROCEDURE, 
@@ -8489,6 +8525,8 @@ public class Enumerations {
           return PERSON;
         if ("Practitioner".equals(codeString))
           return PRACTITIONER;
+        if ("PractitionerRole".equals(codeString))
+          return PRACTITIONERROLE;
         if ("Procedure".equals(codeString))
           return PROCEDURE;
         if ("ProcedureRequest".equals(codeString))
@@ -8634,6 +8672,7 @@ public class Enumerations {
             case PAYMENTRECONCILIATION: return "PaymentReconciliation";
             case PERSON: return "Person";
             case PRACTITIONER: return "Practitioner";
+            case PRACTITIONERROLE: return "PractitionerRole";
             case PROCEDURE: return "Procedure";
             case PROCEDUREREQUEST: return "ProcedureRequest";
             case PROCESSREQUEST: return "ProcessRequest";
@@ -8753,6 +8792,7 @@ public class Enumerations {
             case PAYMENTRECONCILIATION: return "http://hl7.org/fhir/resource-types";
             case PERSON: return "http://hl7.org/fhir/resource-types";
             case PRACTITIONER: return "http://hl7.org/fhir/resource-types";
+            case PRACTITIONERROLE: return "http://hl7.org/fhir/resource-types";
             case PROCEDURE: return "http://hl7.org/fhir/resource-types";
             case PROCEDUREREQUEST: return "http://hl7.org/fhir/resource-types";
             case PROCESSREQUEST: return "http://hl7.org/fhir/resource-types";
@@ -8872,6 +8912,7 @@ public class Enumerations {
             case PAYMENTRECONCILIATION: return "This resource provides payment details and claim references supporting a bulk payment.";
             case PERSON: return "Demographics and administrative information about a person independent of a specific health-related context.";
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
+            case PRACTITIONERROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
             case PROCEDUREREQUEST: return "A request for a procedure to be performed. May be a proposal or an order.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
@@ -8991,6 +9032,7 @@ public class Enumerations {
             case PAYMENTRECONCILIATION: return "PaymentReconciliation";
             case PERSON: return "Person";
             case PRACTITIONER: return "Practitioner";
+            case PRACTITIONERROLE: return "PractitionerRole";
             case PROCEDURE: return "Procedure";
             case PROCEDUREREQUEST: return "ProcedureRequest";
             case PROCESSREQUEST: return "ProcessRequest";
@@ -9202,6 +9244,8 @@ public class Enumerations {
           return ResourceType.PERSON;
         if ("Practitioner".equals(codeString))
           return ResourceType.PRACTITIONER;
+        if ("PractitionerRole".equals(codeString))
+          return ResourceType.PRACTITIONERROLE;
         if ("Procedure".equals(codeString))
           return ResourceType.PROCEDURE;
         if ("ProcedureRequest".equals(codeString))
@@ -9438,6 +9482,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.PERSON);
         if ("Practitioner".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.PRACTITIONER);
+        if ("PractitionerRole".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.PRACTITIONERROLE);
         if ("Procedure".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.PROCEDURE);
         if ("ProcedureRequest".equals(codeString))
@@ -9669,6 +9715,8 @@ public class Enumerations {
         return "Person";
       if (code == ResourceType.PRACTITIONER)
         return "Practitioner";
+      if (code == ResourceType.PRACTITIONERROLE)
+        return "PractitionerRole";
       if (code == ResourceType.PROCEDURE)
         return "Procedure";
       if (code == ResourceType.PROCEDUREREQUEST)

@@ -105,7 +105,7 @@ public class ValidationEngine {
   private List<ValidationMessage> outputs;  
   private OperationOutcome outcome;
 	private boolean noSchematron;
-  private StructureDefinition profile;
+	private StructureDefinition profile;
   private Bundle logical;
 	private Questionnaire questionnaire;
 	private String profileURI;
@@ -156,29 +156,29 @@ public class ValidationEngine {
     // ok all loaded
     System.out.println("  .. validate (xml)");
 
-    // 1. schema validation
+    // 1. schema validation 
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
     Document doc;
     
     if (logical == null) {
-      factory.setValidating(false);
-      factory.setSchema(schema);
-      DocumentBuilder builder = factory.newDocumentBuilder();
-      builder.setErrorHandler(new ValidationErrorHandler(outputs, "XML Source"));
+    factory.setValidating(false);
+    factory.setSchema(schema);
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    builder.setErrorHandler(new ValidationErrorHandler(outputs, "XML Source"));
       doc = builder.parse(new ByteArrayInputStream(source));
 
-      if (!noSchematron) {
-        // 2. schematron validation
-        if (schCache == null) {
-          String sch = "fhir-invariants.sch";
-          schCache = Utilities.saxonTransform(definitions, definitions.get(sch), definitions.get("iso_svrl_for_xslt2.xsl"));
-        }
-        byte[] out = Utilities.saxonTransform(definitions, source, schCache);
-        processSchematronOutput(out);
-      }
+    if (!noSchematron) {
+    	// 2. schematron validation
+			if (schCache == null) {
+    	String sch = "fhir-invariants.sch";
+			  schCache = Utilities.saxonTransform(definitions, definitions.get(sch), definitions.get("iso_svrl_for_xslt2.xsl"));
+			}
+			byte[] out = Utilities.saxonTransform(definitions, source, schCache);
+    	processSchematronOutput(out);
     }
-    
+    }
+
 		// 3. internal validation. reparse without schema to "help", and use a special parser that keeps location data for us
     factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
@@ -205,7 +205,7 @@ public class ValidationEngine {
 		InstanceValidator validator = new InstanceValidator(context);
 		validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
 		validator.getExtensionDomains().addAll(extensionDomains);
-		
+
 		if (logical != null)
       outputs.addAll(validator.validateLogical(doc, logical));
 		else if (profile != null)
@@ -448,15 +448,15 @@ public class ValidationEngine {
 		return b;
 	}
 
-  public void loadProfile(String profile) throws DefinitionException, Exception {
-    if (!Utilities.noString(profile)) { 
-      System.out.println("  .. load profile "+profile);
-      if (getContext().hasResource(StructureDefinition.class, profile))
-        setProfile(getContext().fetchResource(StructureDefinition.class, profile));
-      else
-        setProfile(readProfile(loadResourceCnt(profile, "profile")));
-    }
-  }
+	public void loadProfile(String profile) throws DefinitionException, Exception {
+		if (!Utilities.noString(profile)) { 
+	    System.out.println("  .. load profile "+profile);
+			if (getContext().hasResource(StructureDefinition.class, profile))
+				setProfile(getContext().fetchResource(StructureDefinition.class, profile));
+			else
+				setProfile(readProfile(loadResourceCnt(profile, "profile")));
+		}
+	}
 
   public void loadLogical(String logical) throws DefinitionException, Exception {
     if (!Utilities.noString(logical)) { 
@@ -475,10 +475,10 @@ public class ValidationEngine {
 		}
 	}
 
-  private StructureDefinition readProfile(byte[] content) throws Exception {
-    IParser xml = context.newXmlParser();
-    return (StructureDefinition) xml.parse(new ByteArrayInputStream(content));
-  }
+	private StructureDefinition readProfile(byte[] content) throws Exception {
+		IParser xml = context.newXmlParser();
+		return (StructureDefinition) xml.parse(new ByteArrayInputStream(content));
+	}
 
   private Bundle readLogical(byte[] content) throws Exception {
     IParser xml = context.newXmlParser();

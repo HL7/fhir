@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -452,6 +452,93 @@ public class Measure extends DomainResource {
       }
     }
 
+    public enum MeasureDataUsage {
+        /**
+         * The data is intended to be provided as additional information alongside the measure results
+         */
+        SUPPLEMENTALDATA, 
+        /**
+         * The data is intended to be used to calculate and apply a risk adjustment model for the measure
+         */
+        RISKADJUSTMENTFACTOR, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static MeasureDataUsage fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("supplemental-data".equals(codeString))
+          return SUPPLEMENTALDATA;
+        if ("risk-adjustment-factor".equals(codeString))
+          return RISKADJUSTMENTFACTOR;
+        throw new FHIRException("Unknown MeasureDataUsage code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case SUPPLEMENTALDATA: return "supplemental-data";
+            case RISKADJUSTMENTFACTOR: return "risk-adjustment-factor";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case SUPPLEMENTALDATA: return "http://hl7.org/fhir/measure-data-usage";
+            case RISKADJUSTMENTFACTOR: return "http://hl7.org/fhir/measure-data-usage";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case SUPPLEMENTALDATA: return "The data is intended to be provided as additional information alongside the measure results";
+            case RISKADJUSTMENTFACTOR: return "The data is intended to be used to calculate and apply a risk adjustment model for the measure";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case SUPPLEMENTALDATA: return "Supplemental Data";
+            case RISKADJUSTMENTFACTOR: return "Risk Adjustment Factor";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class MeasureDataUsageEnumFactory implements EnumFactory<MeasureDataUsage> {
+    public MeasureDataUsage fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("supplemental-data".equals(codeString))
+          return MeasureDataUsage.SUPPLEMENTALDATA;
+        if ("risk-adjustment-factor".equals(codeString))
+          return MeasureDataUsage.RISKADJUSTMENTFACTOR;
+        throw new IllegalArgumentException("Unknown MeasureDataUsage code '"+codeString+"'");
+        }
+        public Enumeration<MeasureDataUsage> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("supplemental-data".equals(codeString))
+          return new Enumeration<MeasureDataUsage>(this, MeasureDataUsage.SUPPLEMENTALDATA);
+        if ("risk-adjustment-factor".equals(codeString))
+          return new Enumeration<MeasureDataUsage>(this, MeasureDataUsage.RISKADJUSTMENTFACTOR);
+        throw new FHIRException("Unknown MeasureDataUsage code '"+codeString+"'");
+        }
+    public String toCode(MeasureDataUsage code) {
+      if (code == MeasureDataUsage.SUPPLEMENTALDATA)
+        return "supplemental-data";
+      if (code == MeasureDataUsage.RISKADJUSTMENTFACTOR)
+        return "risk-adjustment-factor";
+      return "?";
+      }
+    public String toSystem(MeasureDataUsage code) {
+      return code.getSystem();
+      }
+    }
+
     @Block()
     public static class MeasureGroupComponent extends BackboneElement implements IBaseBackboneElement {
         /**
@@ -483,10 +570,10 @@ public class Measure extends DomainResource {
         protected List<MeasureGroupPopulationComponent> population;
 
         /**
-         * The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.
+         * The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library, or a valid FHIR Resource Path.
          */
         @Child(name = "stratifier", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Stratifier criteria for the measure", formalDefinition="The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path." )
+        @Description(shortDefinition="Stratifier criteria for the measure", formalDefinition="The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library, or a valid FHIR Resource Path." )
         protected List<MeasureGroupStratifierComponent> stratifier;
 
         private static final long serialVersionUID = 1287622059L;
@@ -669,7 +756,7 @@ public class Measure extends DomainResource {
         }
 
         /**
-         * @return {@link #stratifier} (The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.)
+         * @return {@link #stratifier} (The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library, or a valid FHIR Resource Path.)
          */
         public List<MeasureGroupStratifierComponent> getStratifier() { 
           if (this.stratifier == null)
@@ -687,7 +774,7 @@ public class Measure extends DomainResource {
         }
 
         /**
-         * @return {@link #stratifier} (The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.)
+         * @return {@link #stratifier} (The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library, or a valid FHIR Resource Path.)
          */
     // syntactic sugar
         public MeasureGroupStratifierComponent addStratifier() { //3
@@ -714,7 +801,7 @@ public class Measure extends DomainResource {
           childrenList.add(new Property("name", "string", "Optional name or short description of this group.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("description", "string", "The human readable description of this population group.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("population", "", "A population criteria for the measure.", 0, java.lang.Integer.MAX_VALUE, population));
-          childrenList.add(new Property("stratifier", "", "The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.", 0, java.lang.Integer.MAX_VALUE, stratifier));
+          childrenList.add(new Property("stratifier", "", "The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library, or a valid FHIR Resource Path.", 0, java.lang.Integer.MAX_VALUE, stratifier));
         }
 
       @Override
@@ -1418,13 +1505,27 @@ public class Measure extends DomainResource {
         protected Identifier identifier;
 
         /**
+         * An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation.
+         */
+        @Child(name = "usage", type = {CodeType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="supplemental-data | risk-adjustment-factor", formalDefinition="An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation." )
+        protected List<Enumeration<MeasureDataUsage>> usage;
+
+        /**
+         * The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element.
+         */
+        @Child(name = "criteria", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Supplemental data criteria", formalDefinition="The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element." )
+        protected StringType criteria;
+
+        /**
          * The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.
          */
-        @Child(name = "path", type = {StringType.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "path", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Path to the supplemental data element", formalDefinition="The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path." )
         protected StringType path;
 
-        private static final long serialVersionUID = -1932995494L;
+        private static final long serialVersionUID = 1666728717L;
 
     /**
      * Constructor
@@ -1436,10 +1537,9 @@ public class Measure extends DomainResource {
     /**
      * Constructor
      */
-      public MeasureSupplementalDataComponent(Identifier identifier, StringType path) {
+      public MeasureSupplementalDataComponent(Identifier identifier) {
         super();
         this.identifier = identifier;
-        this.path = path;
       }
 
         /**
@@ -1463,6 +1563,109 @@ public class Measure extends DomainResource {
          */
         public MeasureSupplementalDataComponent setIdentifier(Identifier value) { 
           this.identifier = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #usage} (An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation.)
+         */
+        public List<Enumeration<MeasureDataUsage>> getUsage() { 
+          if (this.usage == null)
+            this.usage = new ArrayList<Enumeration<MeasureDataUsage>>();
+          return this.usage;
+        }
+
+        public boolean hasUsage() { 
+          if (this.usage == null)
+            return false;
+          for (Enumeration<MeasureDataUsage> item : this.usage)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #usage} (An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation.)
+         */
+    // syntactic sugar
+        public Enumeration<MeasureDataUsage> addUsageElement() {//2 
+          Enumeration<MeasureDataUsage> t = new Enumeration<MeasureDataUsage>(new MeasureDataUsageEnumFactory());
+          if (this.usage == null)
+            this.usage = new ArrayList<Enumeration<MeasureDataUsage>>();
+          this.usage.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #usage} (An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation.)
+         */
+        public MeasureSupplementalDataComponent addUsage(MeasureDataUsage value) { //1
+          Enumeration<MeasureDataUsage> t = new Enumeration<MeasureDataUsage>(new MeasureDataUsageEnumFactory());
+          t.setValue(value);
+          if (this.usage == null)
+            this.usage = new ArrayList<Enumeration<MeasureDataUsage>>();
+          this.usage.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #usage} (An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation.)
+         */
+        public boolean hasUsage(MeasureDataUsage value) { 
+          if (this.usage == null)
+            return false;
+          for (Enumeration<MeasureDataUsage> v : this.usage)
+            if (v.equals(value)) // code
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #criteria} (The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element.). This is the underlying object with id, value and extensions. The accessor "getCriteria" gives direct access to the value
+         */
+        public StringType getCriteriaElement() { 
+          if (this.criteria == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MeasureSupplementalDataComponent.criteria");
+            else if (Configuration.doAutoCreate())
+              this.criteria = new StringType(); // bb
+          return this.criteria;
+        }
+
+        public boolean hasCriteriaElement() { 
+          return this.criteria != null && !this.criteria.isEmpty();
+        }
+
+        public boolean hasCriteria() { 
+          return this.criteria != null && !this.criteria.isEmpty();
+        }
+
+        /**
+         * @param value {@link #criteria} (The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element.). This is the underlying object with id, value and extensions. The accessor "getCriteria" gives direct access to the value
+         */
+        public MeasureSupplementalDataComponent setCriteriaElement(StringType value) { 
+          this.criteria = value;
+          return this;
+        }
+
+        /**
+         * @return The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element.
+         */
+        public String getCriteria() { 
+          return this.criteria == null ? null : this.criteria.getValue();
+        }
+
+        /**
+         * @param value The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element.
+         */
+        public MeasureSupplementalDataComponent setCriteria(String value) { 
+          if (Utilities.noString(value))
+            this.criteria = null;
+          else {
+            if (this.criteria == null)
+              this.criteria = new StringType();
+            this.criteria.setValue(value);
+          }
           return this;
         }
 
@@ -1505,15 +1708,21 @@ public class Measure extends DomainResource {
          * @param value The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.
          */
         public MeasureSupplementalDataComponent setPath(String value) { 
+          if (Utilities.noString(value))
+            this.path = null;
+          else {
             if (this.path == null)
               this.path = new StringType();
             this.path.setValue(value);
+          }
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "An identifier for the supplemental data.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("usage", "code", "An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation.", 0, java.lang.Integer.MAX_VALUE, usage));
+          childrenList.add(new Property("criteria", "string", "The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element.", 0, java.lang.Integer.MAX_VALUE, criteria));
           childrenList.add(new Property("path", "string", "The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.", 0, java.lang.Integer.MAX_VALUE, path));
         }
 
@@ -1521,6 +1730,10 @@ public class Measure extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("usage"))
+          this.getUsage().add(new MeasureDataUsageEnumFactory().fromType(value));
+        else if (name.equals("criteria"))
+          this.criteria = castToString(value); // StringType
         else if (name.equals("path"))
           this.path = castToString(value); // StringType
         else
@@ -1533,6 +1746,12 @@ public class Measure extends DomainResource {
           this.identifier = new Identifier();
           return this.identifier;
         }
+        else if (name.equals("usage")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.usage");
+        }
+        else if (name.equals("criteria")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.criteria");
+        }
         else if (name.equals("path")) {
           throw new FHIRException("Cannot call addChild on a primitive type Measure.path");
         }
@@ -1544,6 +1763,12 @@ public class Measure extends DomainResource {
         MeasureSupplementalDataComponent dst = new MeasureSupplementalDataComponent();
         copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
+        if (usage != null) {
+          dst.usage = new ArrayList<Enumeration<MeasureDataUsage>>();
+          for (Enumeration<MeasureDataUsage> i : usage)
+            dst.usage.add(i.copy());
+        };
+        dst.criteria = criteria == null ? null : criteria.copy();
         dst.path = path == null ? null : path.copy();
         return dst;
       }
@@ -1555,7 +1780,8 @@ public class Measure extends DomainResource {
         if (!(other instanceof MeasureSupplementalDataComponent))
           return false;
         MeasureSupplementalDataComponent o = (MeasureSupplementalDataComponent) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(path, o.path, true);
+        return compareDeep(identifier, o.identifier, true) && compareDeep(usage, o.usage, true) && compareDeep(criteria, o.criteria, true)
+           && compareDeep(path, o.path, true);
       }
 
       @Override
@@ -1565,12 +1791,13 @@ public class Measure extends DomainResource {
         if (!(other instanceof MeasureSupplementalDataComponent))
           return false;
         MeasureSupplementalDataComponent o = (MeasureSupplementalDataComponent) other;
-        return compareValues(path, o.path, true);
+        return compareValues(usage, o.usage, true) && compareValues(criteria, o.criteria, true) && compareValues(path, o.path, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (path == null || path.isEmpty())
-          ;
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (usage == null || usage.isEmpty())
+           && (criteria == null || criteria.isEmpty()) && (path == null || path.isEmpty());
       }
 
   public String fhirType() {
@@ -1684,10 +1911,10 @@ public class Measure extends DomainResource {
     protected List<MeasureGroupComponent> group;
 
     /**
-     * Supplemental data to be supplied with the measure report.
+     * The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path.
      */
     @Child(name = "supplementalData", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Supplemental data", formalDefinition="Supplemental data to be supplied with the measure report." )
+    @Description(shortDefinition="Supplemental data", formalDefinition="The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path." )
     protected List<MeasureSupplementalDataComponent> supplementalData;
 
     private static final long serialVersionUID = -1000974672L;
@@ -2369,7 +2596,7 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return {@link #supplementalData} (Supplemental data to be supplied with the measure report.)
+     * @return {@link #supplementalData} (The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path.)
      */
     public List<MeasureSupplementalDataComponent> getSupplementalData() { 
       if (this.supplementalData == null)
@@ -2387,7 +2614,7 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return {@link #supplementalData} (Supplemental data to be supplied with the measure report.)
+     * @return {@link #supplementalData} (The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path.)
      */
     // syntactic sugar
     public MeasureSupplementalDataComponent addSupplementalData() { //3
@@ -2424,7 +2651,7 @@ public class Measure extends DomainResource {
         childrenList.add(new Property("guidance", "markdown", "Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure.", 0, java.lang.Integer.MAX_VALUE, guidance));
         childrenList.add(new Property("set", "string", "The measure set, e.g. Preventive Care and Screening.", 0, java.lang.Integer.MAX_VALUE, set));
         childrenList.add(new Property("group", "", "A group of population criteria for the measure.", 0, java.lang.Integer.MAX_VALUE, group));
-        childrenList.add(new Property("supplementalData", "", "Supplemental data to be supplied with the measure report.", 0, java.lang.Integer.MAX_VALUE, supplementalData));
+        childrenList.add(new Property("supplementalData", "", "The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path.", 0, java.lang.Integer.MAX_VALUE, supplementalData));
       }
 
       @Override
@@ -2608,6 +2835,26 @@ public class Measure extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Logical identifier for the module (e.g. CMS-143)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.moduleMetadata.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Measure.moduleMetadata.identifier", description="Logical identifier for the module (e.g. CMS-143)", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Logical identifier for the module (e.g. CMS-143)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.moduleMetadata.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
    * Search parameter: <b>topic</b>
    * <p>
    * Description: <b>Topics associated with the module</b><br>
@@ -2626,46 +2873,6 @@ public class Measure extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
-
- /**
-   * Search parameter: <b>title</b>
-   * <p>
-   * Description: <b>Text search against the title</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Measure.moduleMetadata.title</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="title", path="Measure.moduleMetadata.title", description="Text search against the title", type="string" )
-  public static final String SP_TITLE = "title";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>title</b>
-   * <p>
-   * Description: <b>Text search against the title</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Measure.moduleMetadata.title</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>Status of the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Measure.moduleMetadata.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="Measure.moduleMetadata.status", description="Status of the module", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>Status of the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Measure.moduleMetadata.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
  /**
    * Search parameter: <b>description</b>
@@ -2688,24 +2895,24 @@ public class Measure extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>title</b>
    * <p>
-   * Description: <b>Logical identifier for the module (e.g. CMS-143)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Measure.moduleMetadata.identifier</b><br>
+   * Description: <b>Text search against the title</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.moduleMetadata.title</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Measure.moduleMetadata.identifier", description="Logical identifier for the module (e.g. CMS-143)", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="title", path="Measure.moduleMetadata.title", description="Text search against the title", type="string" )
+  public static final String SP_TITLE = "title";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
    * <p>
-   * Description: <b>Logical identifier for the module (e.g. CMS-143)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Measure.moduleMetadata.identifier</b><br>
+   * Description: <b>Text search against the title</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.moduleMetadata.title</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
 
  /**
    * Search parameter: <b>version</b>
@@ -2726,6 +2933,26 @@ public class Measure extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam VERSION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_VERSION);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>Status of the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.moduleMetadata.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="Measure.moduleMetadata.status", description="Status of the module", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>Status of the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.moduleMetadata.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

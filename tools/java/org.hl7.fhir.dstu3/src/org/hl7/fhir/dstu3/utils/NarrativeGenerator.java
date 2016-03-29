@@ -42,7 +42,6 @@ import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.NotImplementedException;
-
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
@@ -2118,7 +2117,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (allCS != null)
         ref = getCsRef(allCS);
       if (ref == null) 
-        p.addTag("code").addText(vs.getExpansion().getContains().get(0).getSystem());
+      p.addTag("code").addText(vs.getExpansion().getContains().get(0).getSystem());
       else
         p.addTag("a").setAttribute("href", ref).addTag("code").addText(vs.getExpansion().getContains().get(0).getSystem());
     }
@@ -2484,16 +2483,16 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
 	private boolean generateComposition(XhtmlNode x, ValueSet vs, boolean header) {
 	  boolean hasExtensions = false;
-      if (header) {
-        XhtmlNode h = x.addTag("h2");
-        h.addText(vs.getName());
-        XhtmlNode p = x.addTag("p");
-        smartAddText(p, vs.getDescription());
-        if (vs.hasCopyrightElement())
-          generateCopyright(x, vs);
-      }
+    if (header) {
+      XhtmlNode h = x.addTag("h2");
+      h.addText(vs.getName());
       XhtmlNode p = x.addTag("p");
-      p.addText("This value set includes codes from the following code systems:");
+      smartAddText(p, vs.getDescription());
+      if (vs.hasCopyrightElement())
+        generateCopyright(x, vs);
+    }
+    XhtmlNode p = x.addTag("p");
+    p.addText("This value set includes codes from the following code systems:");
 
     XhtmlNode ul = x.addTag("ul");
     XhtmlNode li;
@@ -2511,23 +2510,23 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return hasExtensions;
   }
 
-	private void AddVsRef(String value, XhtmlNode li) {
+  private void AddVsRef(String value, XhtmlNode li) {
 
-	  ValueSet vs = context.fetchResource(ValueSet.class, value);
-	  if (vs != null) {
-	    String ref = (String) vs.getUserData("path");
-	    ref = adjustForPath(ref);
-	    XhtmlNode a = li.addTag("a");
-	    a.setAttribute("href", ref == null ? "??" : ref.replace("\\", "/"));
-	    a.addText(value);
-	  } else {
-	    CodeSystem cs = context.fetchCodeSystem(value);
-	    if (cs != null) {
-	      String ref = (String) cs.getUserData("path");
-	      ref = adjustForPath(ref);
-	      XhtmlNode a = li.addTag("a");
-	      a.setAttribute("href", ref == null ? "??" : ref.replace("\\", "/"));
-	      a.addText(value);   
+    ValueSet vs = context.fetchResource(ValueSet.class, value);
+    if (vs != null) {
+      String ref = (String) vs.getUserData("path");
+      ref = adjustForPath(ref);
+      XhtmlNode a = li.addTag("a");
+      a.setAttribute("href", ref == null ? "??" : ref.replace("\\", "/"));
+      a.addText(value);
+    } else {
+    	CodeSystem cs = context.fetchCodeSystem(value);
+    	if (cs != null) {
+        String ref = (String) cs.getUserData("path");
+        ref = adjustForPath(ref);
+        XhtmlNode a = li.addTag("a");
+        a.setAttribute("href", ref == null ? "??" : ref.replace("\\", "/"));
+        a.addText(value);   
 	    } else if (value.equals("http://snomed.info/sct") || value.equals("http://snomed.info/id")) {
 	      XhtmlNode a = li.addTag("a");
 	      a.setAttribute("href", value);
@@ -2537,8 +2536,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	      if (value.startsWith("http://hl7.org") && !Utilities.existsInList(value, "http://hl7.org/fhir/sid/icd-10-us"))
 	        throw new Error("Unable to resolve value set "+value);
 	      li.addText(value);
-	    }
-	  }
+    }
+  }
 	}
 
   private String adjustForPath(String ref) {
@@ -2679,7 +2678,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return getCsRef(cs);
   }
   
-  private <T extends Resource> String getCsRef(T cs) {
+  private  <T extends Resource> String getCsRef(T cs) {
     String ref = (String) cs.getUserData("filename");
     if (ref == null)
       return "v2/0136/index.html";  // fix me - csvs!

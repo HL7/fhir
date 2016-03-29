@@ -357,7 +357,7 @@ public class ToolingExtensions {
     if (oid.startsWith("urn:oid:urn:oid:"))
       throw new FHIRFormatError("Error in OID format");
     if (!hasExtension(define, EXT_OID))
-      define.getExtension().add(Factory.newExtension(EXT_OID, Factory.newUri(oid), false));       
+    define.getExtension().add(Factory.newExtension(EXT_OID, Factory.newUri(oid), false));       
     else if (!oid.equals(readStringExtension(define, EXT_OID)))
       throw new Error("Attempt to assign multiple OIDs to a code system");
   }
@@ -367,7 +367,7 @@ public class ToolingExtensions {
     if (oid.startsWith("urn:oid:urn:oid:"))
       throw new FHIRFormatError("Error in OID format");
     if (!hasExtension(vs, EXT_OID))
-      vs.getExtension().add(Factory.newExtension(EXT_OID, Factory.newUri(oid), false));       
+    vs.getExtension().add(Factory.newExtension(EXT_OID, Factory.newUri(oid), false));       
     else if (!oid.equals(readStringExtension(vs, EXT_OID)))
       throw new Error("Attempt to assign multiple OIDs to value set "+vs.getName()+" ("+vs.getUrl()+"). Has "+readStringExtension(vs, EXT_OID)+", trying to add "+oid);
   }

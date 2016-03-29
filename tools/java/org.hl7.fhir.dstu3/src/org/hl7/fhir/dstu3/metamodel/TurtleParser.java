@@ -39,8 +39,8 @@ public class TurtleParser extends ParserBase {
 			subject = section.triple("<"+base+"/"+e.getType()+"/"+id+">", "a", "fhir:"+e.getType());
 		else
 		  subject = section.triple("_", "a", "fhir:"+e.getType());
-    subject.predicate("fhir:root", "true");
-		
+		subject.predicate("a", "owl:Ontology");
+
 		for (Element child : e.getChildren()) {
 			composeElement(subject, child);
 		}
@@ -84,10 +84,10 @@ public class TurtleParser extends ParserBase {
     if (en == null) 
       en = element.getProperty().getDefinition().getPath();
 		boolean doType = false;
-		if (en.endsWith("[x]")) {
-			en = en.substring(0, en.length()-3);
-			doType = true;				
-		}
+			if (en.endsWith("[x]")) {
+				en = en.substring(0, en.length()-3);
+				doType = true;				
+			}
 
 	  Complex t = ctxt.predicate("fhir:"+en);
 	  if (doType || element.getProperty().getDefinition().getType().size() > 1)

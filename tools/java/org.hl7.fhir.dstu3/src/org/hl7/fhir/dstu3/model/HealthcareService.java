@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -2295,6 +2295,26 @@ public class HealthcareService extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>External identifiers for this item</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>HealthcareService.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="HealthcareService.identifier", description="External identifiers for this item", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>External identifiers for this item</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>HealthcareService.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
    * Search parameter: <b>servicecategory</b>
    * <p>
    * Description: <b>Service Category of the Healthcare Service</b><br>
@@ -2313,6 +2333,26 @@ public class HealthcareService extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SERVICECATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SERVICECATEGORY);
+
+ /**
+   * Search parameter: <b>servicetype</b>
+   * <p>
+   * Description: <b>The type of service provided by this healthcare service</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>HealthcareService.serviceType.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="servicetype", path="HealthcareService.serviceType.type", description="The type of service provided by this healthcare service", type="token" )
+  public static final String SP_SERVICETYPE = "servicetype";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>servicetype</b>
+   * <p>
+   * Description: <b>The type of service provided by this healthcare service</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>HealthcareService.serviceType.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SERVICETYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SERVICETYPE);
 
  /**
    * Search parameter: <b>organization</b>
@@ -2339,52 +2379,6 @@ public class HealthcareService extends DomainResource {
    * the path value of "<b>HealthcareService:organization</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("HealthcareService:organization").toLocked();
-
- /**
-   * Search parameter: <b>servicetype</b>
-   * <p>
-   * Description: <b>The type of service provided by this healthcare service</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>HealthcareService.serviceType.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="servicetype", path="HealthcareService.serviceType.type", description="The type of service provided by this healthcare service", type="token" )
-  public static final String SP_SERVICETYPE = "servicetype";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>servicetype</b>
-   * <p>
-   * Description: <b>The type of service provided by this healthcare service</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>HealthcareService.serviceType.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SERVICETYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SERVICETYPE);
-
- /**
-   * Search parameter: <b>location</b>
-   * <p>
-   * Description: <b>The location of the Healthcare Service</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>HealthcareService.location</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="location", path="HealthcareService.location", description="The location of the Healthcare Service", type="reference" )
-  public static final String SP_LOCATION = "location";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>location</b>
-   * <p>
-   * Description: <b>The location of the Healthcare Service</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>HealthcareService.location</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam LOCATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_LOCATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>HealthcareService:location</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("HealthcareService:location").toLocked();
 
  /**
    * Search parameter: <b>name</b>
@@ -2427,6 +2421,32 @@ public class HealthcareService extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PROGRAMNAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PROGRAMNAME);
 
  /**
+   * Search parameter: <b>location</b>
+   * <p>
+   * Description: <b>The location of the Healthcare Service</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>HealthcareService.location</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="location", path="HealthcareService.location", description="The location of the Healthcare Service", type="reference" )
+  public static final String SP_LOCATION = "location";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>location</b>
+   * <p>
+   * Description: <b>The location of the Healthcare Service</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>HealthcareService.location</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam LOCATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_LOCATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>HealthcareService:location</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("HealthcareService:location").toLocked();
+
+ /**
    * Search parameter: <b>characteristic</b>
    * <p>
    * Description: <b>One of the HealthcareService's characteristics</b><br>
@@ -2445,26 +2465,6 @@ public class HealthcareService extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CHARACTERISTIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CHARACTERISTIC);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>External identifiers for this item</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>HealthcareService.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="HealthcareService.identifier", description="External identifiers for this item", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>External identifiers for this item</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>HealthcareService.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

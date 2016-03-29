@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1561,24 +1561,50 @@ public class DeviceMetric extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>category</b>
+   * Search parameter: <b>parent</b>
    * <p>
-   * Description: <b>The category of the metric</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DeviceMetric.category</b><br>
+   * Description: <b>The parent DeviceMetric resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DeviceMetric.parent</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="category", path="DeviceMetric.category", description="The category of the metric", type="token" )
-  public static final String SP_CATEGORY = "category";
+  @SearchParamDefinition(name="parent", path="DeviceMetric.parent", description="The parent DeviceMetric resource", type="reference" )
+  public static final String SP_PARENT = "parent";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <b>Fluent Client</b> search parameter constant for <b>parent</b>
    * <p>
-   * Description: <b>The category of the metric</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DeviceMetric.category</b><br>
+   * Description: <b>The parent DeviceMetric resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DeviceMetric.parent</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DeviceMetric:parent</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARENT = new ca.uhn.fhir.model.api.Include("DeviceMetric:parent").toLocked();
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>The identifier of the metric</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DeviceMetric.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="DeviceMetric.identifier", description="The identifier of the metric", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>The identifier of the metric</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DeviceMetric.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>source</b>
@@ -1607,32 +1633,6 @@ public class DeviceMetric extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("DeviceMetric:source").toLocked();
 
  /**
-   * Search parameter: <b>parent</b>
-   * <p>
-   * Description: <b>The parent DeviceMetric resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DeviceMetric.parent</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="parent", path="DeviceMetric.parent", description="The parent DeviceMetric resource", type="reference" )
-  public static final String SP_PARENT = "parent";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>parent</b>
-   * <p>
-   * Description: <b>The parent DeviceMetric resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DeviceMetric.parent</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DeviceMetric:parent</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARENT = new ca.uhn.fhir.model.api.Include("DeviceMetric:parent").toLocked();
-
- /**
    * Search parameter: <b>type</b>
    * <p>
    * Description: <b>The component type</b><br>
@@ -1653,24 +1653,24 @@ public class DeviceMetric extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>category</b>
    * <p>
-   * Description: <b>The identifier of the metric</b><br>
+   * Description: <b>The category of the metric</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>DeviceMetric.identifier</b><br>
+   * Path: <b>DeviceMetric.category</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="DeviceMetric.identifier", description="The identifier of the metric", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="category", path="DeviceMetric.category", description="The category of the metric", type="token" )
+  public static final String SP_CATEGORY = "category";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>category</b>
    * <p>
-   * Description: <b>The identifier of the metric</b><br>
+   * Description: <b>The category of the metric</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>DeviceMetric.identifier</b><br>
+   * Path: <b>DeviceMetric.category</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
 
 }

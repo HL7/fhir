@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -4813,44 +4813,44 @@ public class StructureMap extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>The current status of the profile</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>StructureMap.status</b><br>
+   * Description: <b>The profile publication date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>StructureMap.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="StructureMap.status", description="The current status of the profile", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="date", path="StructureMap.date", description="The profile publication date", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>The current status of the profile</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>StructureMap.status</b><br>
+   * Description: <b>The profile publication date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>StructureMap.date</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>description</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Text search in the description of the profile</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureMap.description</b><br>
+   * Description: <b>The identifier of the profile</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureMap.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="description", path="StructureMap.description", description="Text search in the description of the profile", type="string" )
-  public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="identifier", path="StructureMap.identifier", description="The identifier of the profile", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Text search in the description of the profile</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureMap.description</b><br>
+   * Description: <b>The identifier of the profile</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureMap.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>name</b>
@@ -4893,6 +4893,46 @@ public class StructureMap extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
+   * Search parameter: <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the profile</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureMap.publisher</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="publisher", path="StructureMap.publisher", description="Name of the publisher of the profile", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the profile</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureMap.publisher</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the profile</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureMap.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="StructureMap.description", description="Text search in the description of the profile", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the profile</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureMap.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
    * Search parameter: <b>experimental</b>
    * <p>
    * Description: <b>Whether the map is defined purely for experimental reasons</b><br>
@@ -4913,44 +4953,24 @@ public class StructureMap extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam EXPERIMENTAL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EXPERIMENTAL);
 
  /**
-   * Search parameter: <b>date</b>
+   * Search parameter: <b>version</b>
    * <p>
-   * Description: <b>The profile publication date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>StructureMap.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="StructureMap.date", description="The profile publication date", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>The profile publication date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>StructureMap.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>The identifier of the profile</b><br>
+   * Description: <b>The version identifier of the profile</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>StructureMap.identifier</b><br>
+   * Path: <b>StructureMap.version</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="StructureMap.identifier", description="The identifier of the profile", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="version", path="StructureMap.version", description="The version identifier of the profile", type="token" )
+  public static final String SP_VERSION = "version";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>version</b>
    * <p>
-   * Description: <b>The identifier of the profile</b><br>
+   * Description: <b>The version identifier of the profile</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>StructureMap.identifier</b><br>
+   * Path: <b>StructureMap.version</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
 
  /**
    * Search parameter: <b>url</b>
@@ -4973,44 +4993,24 @@ public class StructureMap extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
-   * Search parameter: <b>publisher</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>Name of the publisher of the profile</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureMap.publisher</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="publisher", path="StructureMap.publisher", description="Name of the publisher of the profile", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
-   * <p>
-   * Description: <b>Name of the publisher of the profile</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureMap.publisher</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
-
- /**
-   * Search parameter: <b>version</b>
-   * <p>
-   * Description: <b>The version identifier of the profile</b><br>
+   * Description: <b>The current status of the profile</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>StructureMap.version</b><br>
+   * Path: <b>StructureMap.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="StructureMap.version", description="The version identifier of the profile", type="token" )
-  public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="status", path="StructureMap.status", description="The current status of the profile", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>version</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>The version identifier of the profile</b><br>
+   * Description: <b>The current status of the profile</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>StructureMap.version</b><br>
+   * Path: <b>StructureMap.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

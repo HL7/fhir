@@ -2,7 +2,7 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 public enum ResourceType {
     Account,
@@ -91,6 +91,7 @@ public enum ResourceType {
     PaymentReconciliation,
     Person,
     Practitioner,
+    PractitionerRole,
     Procedure,
     ProcedureRequest,
     ProcessRequest,
@@ -293,6 +294,8 @@ public enum ResourceType {
       return "person";
     case Practitioner:
       return "practitioner";
+    case PractitionerRole:
+      return "practitionerrole";
     case Procedure:
       return "procedure";
     case ProcedureRequest:
@@ -523,6 +526,8 @@ public enum ResourceType {
       return Person;
     if ("Practitioner".equals(code))
       return Practitioner;
+    if ("PractitionerRole".equals(code))
+      return PractitionerRole;
     if ("Procedure".equals(code))
       return Procedure;
     if ("ProcedureRequest".equals(code))

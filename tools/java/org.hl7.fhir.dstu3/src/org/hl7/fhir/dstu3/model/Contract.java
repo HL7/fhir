@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1022,13 +1022,13 @@ public class Contract extends DomainResource {
         protected CodeableConcept subType;
 
         /**
-         * The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.
+         * The matter of concern in the context of this provision of the agrement.
          */
         @Child(name = "topic", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Topic of this Contract Term", formalDefinition="The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services." )
+        @Description(shortDefinition="Context of the Contract term", formalDefinition="The matter of concern in the context of this provision of the agrement." )
         protected List<Reference> topic;
         /**
-         * The actual objects that are the target of the reference (The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.)
+         * The actual objects that are the target of the reference (The matter of concern in the context of this provision of the agrement.)
          */
         protected List<Resource> topicTarget;
 
@@ -1230,7 +1230,7 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @return {@link #topic} (The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.)
+         * @return {@link #topic} (The matter of concern in the context of this provision of the agrement.)
          */
         public List<Reference> getTopic() { 
           if (this.topic == null)
@@ -1248,7 +1248,7 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @return {@link #topic} (The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.)
+         * @return {@link #topic} (The matter of concern in the context of this provision of the agrement.)
          */
     // syntactic sugar
         public Reference addTopic() { //3
@@ -1270,7 +1270,7 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @return {@link #topic} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.)
+         * @return {@link #topic} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The matter of concern in the context of this provision of the agrement.)
          */
         public List<Resource> getTopicTarget() { 
           if (this.topicTarget == null)
@@ -1534,7 +1534,7 @@ public class Contract extends DomainResource {
           childrenList.add(new Property("applies", "Period", "Relevant time or time-period when this Contract Provision is applicable.", 0, java.lang.Integer.MAX_VALUE, applies));
           childrenList.add(new Property("type", "CodeableConcept", "Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("subType", "CodeableConcept", "Subtype of this Contract Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment.", 0, java.lang.Integer.MAX_VALUE, subType));
-          childrenList.add(new Property("topic", "Reference(Any)", "The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.", 0, java.lang.Integer.MAX_VALUE, topic));
+          childrenList.add(new Property("topic", "Reference(Any)", "The matter of concern in the context of this provision of the agrement.", 0, java.lang.Integer.MAX_VALUE, topic));
           childrenList.add(new Property("action", "CodeableConcept", "Action stipulated by this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, action));
           childrenList.add(new Property("actionReason", "CodeableConcept", "Reason or purpose for the action stipulated by this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, actionReason));
           childrenList.add(new Property("agent", "", "An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.", 0, java.lang.Integer.MAX_VALUE, agent));
@@ -2835,13 +2835,25 @@ public class Contract extends DomainResource {
     protected Period applies;
 
     /**
-     * Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or "granted".  Examples include obligations, rights, and valued items such as goods and services.
+     * The target entity impacted by or of interest to parties to the agreement.
      */
-    @Child(name = "topic", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Topic of this Contract", formalDefinition="Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or \"granted\".  Examples include obligations, rights, and valued items such as goods and services." )
+    @Child(name = "subject", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Contract Target Entity", formalDefinition="The target entity impacted by or of interest to parties to the agreement." )
+    protected List<Reference> subject;
+    /**
+     * The actual objects that are the target of the reference (The target entity impacted by or of interest to parties to the agreement.)
+     */
+    protected List<Resource> subjectTarget;
+
+
+    /**
+     * The matter of concern in the context of this agreement.
+     */
+    @Child(name = "topic", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Context of the Contract", formalDefinition="The matter of concern in the context of this agreement." )
     protected List<Reference> topic;
     /**
-     * The actual objects that are the target of the reference (Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or "granted".  Examples include obligations, rights, and valued items such as goods and services.)
+     * The actual objects that are the target of the reference (The matter of concern in the context of this agreement.)
      */
     protected List<Resource> topicTarget;
 
@@ -2849,7 +2861,7 @@ public class Contract extends DomainResource {
     /**
      * A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of contracts and policies.
      */
-    @Child(name = "authority", type = {Organization.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "authority", type = {Organization.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Authority under which this Contract has standing", formalDefinition="A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of contracts and policies." )
     protected List<Reference> authority;
     /**
@@ -2861,7 +2873,7 @@ public class Contract extends DomainResource {
     /**
      * Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources.
      */
-    @Child(name = "domain", type = {Location.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "domain", type = {Location.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Domain in which this Contract applies", formalDefinition="Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources." )
     protected List<Reference> domain;
     /**
@@ -2873,88 +2885,88 @@ public class Contract extends DomainResource {
     /**
      * Type of Contract such as an insurance policy, real estate contract, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc.
      */
-    @Child(name = "type", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Contract Tyoe", formalDefinition="Type of Contract such as an insurance policy, real estate contract, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc." )
+    @Child(name = "type", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Contract Type", formalDefinition="Type of Contract such as an insurance policy, real estate contract, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc." )
     protected CodeableConcept type;
 
     /**
      * More specific type or specialization of an overarching or more general contract such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent.
      */
-    @Child(name = "subType", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "subType", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Contract Subtype", formalDefinition="More specific type or specialization of an overarching or more general contract such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent." )
     protected List<CodeableConcept> subType;
 
     /**
      * Action stipulated by this Contract.
      */
-    @Child(name = "action", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "action", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Action", formalDefinition="Action stipulated by this Contract." )
     protected List<CodeableConcept> action;
 
     /**
      * Reason for action stipulated by this Contract.
      */
-    @Child(name = "actionReason", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "actionReason", type = {CodeableConcept.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Action Reason", formalDefinition="Reason for action stipulated by this Contract." )
     protected List<CodeableConcept> actionReason;
 
     /**
      * An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
      */
-    @Child(name = "agent", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "agent", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Agent", formalDefinition="An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place." )
     protected List<AgentComponent> agent;
 
     /**
      * Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.
      */
-    @Child(name = "signer", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "signer", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Signer", formalDefinition="Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness." )
     protected List<SignatoryComponent> signer;
 
     /**
      * Contract Valued Item List.
      */
-    @Child(name = "valuedItem", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "valuedItem", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Valued Item", formalDefinition="Contract Valued Item List." )
     protected List<ValuedItemComponent> valuedItem;
 
     /**
      * One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups.
      */
-    @Child(name = "term", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "term", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Term List", formalDefinition="One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups." )
     protected List<TermComponent> term;
 
     /**
      * Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the "source of truth" and which would be the basis for legal action related to enforcement of this Contract.
      */
-    @Child(name = "binding", type = {Attachment.class, Composition.class, DocumentReference.class, QuestionnaireResponse.class}, order=14, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "binding", type = {Attachment.class, Composition.class, DocumentReference.class, QuestionnaireResponse.class}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Binding Contract", formalDefinition="Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the \"source of truth\" and which would be the basis for legal action related to enforcement of this Contract." )
     protected Type binding;
 
     /**
      * The "patient friendly language" versionof the Contract in whole or in parts. "Patient friendly language" means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement.
      */
-    @Child(name = "friendly", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "friendly", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Friendly Language", formalDefinition="The \"patient friendly language\" versionof the Contract in whole or in parts. \"Patient friendly language\" means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement." )
     protected List<FriendlyLanguageComponent> friendly;
 
     /**
      * List of Legal expressions or representations of this Contract.
      */
-    @Child(name = "legal", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "legal", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Legal Language", formalDefinition="List of Legal expressions or representations of this Contract." )
     protected List<LegalLanguageComponent> legal;
 
     /**
      * List of Computable Policy Rule Language Representations of this Contract.
      */
-    @Child(name = "rule", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "rule", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Computable Contract Language", formalDefinition="List of Computable Policy Rule Language Representations of this Contract." )
     protected List<ComputableLanguageComponent> rule;
 
-    private static final long serialVersionUID = -980517187L;
+    private static final long serialVersionUID = -1116217303L;
 
   /**
    * Constructor
@@ -3061,7 +3073,56 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #topic} (Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or "granted".  Examples include obligations, rights, and valued items such as goods and services.)
+     * @return {@link #subject} (The target entity impacted by or of interest to parties to the agreement.)
+     */
+    public List<Reference> getSubject() { 
+      if (this.subject == null)
+        this.subject = new ArrayList<Reference>();
+      return this.subject;
+    }
+
+    public boolean hasSubject() { 
+      if (this.subject == null)
+        return false;
+      for (Reference item : this.subject)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #subject} (The target entity impacted by or of interest to parties to the agreement.)
+     */
+    // syntactic sugar
+    public Reference addSubject() { //3
+      Reference t = new Reference();
+      if (this.subject == null)
+        this.subject = new ArrayList<Reference>();
+      this.subject.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public Contract addSubject(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.subject == null)
+        this.subject = new ArrayList<Reference>();
+      this.subject.add(t);
+      return this;
+    }
+
+    /**
+     * @return {@link #subject} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The target entity impacted by or of interest to parties to the agreement.)
+     */
+    public List<Resource> getSubjectTarget() { 
+      if (this.subjectTarget == null)
+        this.subjectTarget = new ArrayList<Resource>();
+      return this.subjectTarget;
+    }
+
+    /**
+     * @return {@link #topic} (The matter of concern in the context of this agreement.)
      */
     public List<Reference> getTopic() { 
       if (this.topic == null)
@@ -3079,7 +3140,7 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #topic} (Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or "granted".  Examples include obligations, rights, and valued items such as goods and services.)
+     * @return {@link #topic} (The matter of concern in the context of this agreement.)
      */
     // syntactic sugar
     public Reference addTopic() { //3
@@ -3101,7 +3162,7 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #topic} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or "granted".  Examples include obligations, rights, and valued items such as goods and services.)
+     * @return {@link #topic} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The matter of concern in the context of this agreement.)
      */
     public List<Resource> getTopicTarget() { 
       if (this.topicTarget == null)
@@ -3705,7 +3766,8 @@ public class Contract extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Unique identifier for this Contract.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("issued", "dateTime", "When this  Contract was issued.", 0, java.lang.Integer.MAX_VALUE, issued));
         childrenList.add(new Property("applies", "Period", "Relevant time or time-period when this Contract is applicable.", 0, java.lang.Integer.MAX_VALUE, applies));
-        childrenList.add(new Property("topic", "Reference(Any)", "Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or \"granted\".  Examples include obligations, rights, and valued items such as goods and services.", 0, java.lang.Integer.MAX_VALUE, topic));
+        childrenList.add(new Property("subject", "Reference(Any)", "The target entity impacted by or of interest to parties to the agreement.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("topic", "Reference(Any)", "The matter of concern in the context of this agreement.", 0, java.lang.Integer.MAX_VALUE, topic));
         childrenList.add(new Property("authority", "Reference(Organization)", "A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of contracts and policies.", 0, java.lang.Integer.MAX_VALUE, authority));
         childrenList.add(new Property("domain", "Reference(Location)", "Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources.", 0, java.lang.Integer.MAX_VALUE, domain));
         childrenList.add(new Property("type", "CodeableConcept", "Type of Contract such as an insurance policy, real estate contract, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -3730,6 +3792,8 @@ public class Contract extends DomainResource {
           this.issued = castToDateTime(value); // DateTimeType
         else if (name.equals("applies"))
           this.applies = castToPeriod(value); // Period
+        else if (name.equals("subject"))
+          this.getSubject().add(castToReference(value));
         else if (name.equals("topic"))
           this.getTopic().add(castToReference(value));
         else if (name.equals("authority"))
@@ -3776,6 +3840,9 @@ public class Contract extends DomainResource {
         else if (name.equals("applies")) {
           this.applies = new Period();
           return this.applies;
+        }
+        else if (name.equals("subject")) {
+          return addSubject();
         }
         else if (name.equals("topic")) {
           return addTopic();
@@ -3843,6 +3910,11 @@ public class Contract extends DomainResource {
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.issued = issued == null ? null : issued.copy();
         dst.applies = applies == null ? null : applies.copy();
+        if (subject != null) {
+          dst.subject = new ArrayList<Reference>();
+          for (Reference i : subject)
+            dst.subject.add(i.copy());
+        };
         if (topic != null) {
           dst.topic = new ArrayList<Reference>();
           for (Reference i : topic)
@@ -3925,12 +3997,12 @@ public class Contract extends DomainResource {
           return false;
         Contract o = (Contract) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(issued, o.issued, true) && compareDeep(applies, o.applies, true)
-           && compareDeep(topic, o.topic, true) && compareDeep(authority, o.authority, true) && compareDeep(domain, o.domain, true)
-           && compareDeep(type, o.type, true) && compareDeep(subType, o.subType, true) && compareDeep(action, o.action, true)
-           && compareDeep(actionReason, o.actionReason, true) && compareDeep(agent, o.agent, true) && compareDeep(signer, o.signer, true)
-           && compareDeep(valuedItem, o.valuedItem, true) && compareDeep(term, o.term, true) && compareDeep(binding, o.binding, true)
-           && compareDeep(friendly, o.friendly, true) && compareDeep(legal, o.legal, true) && compareDeep(rule, o.rule, true)
-          ;
+           && compareDeep(subject, o.subject, true) && compareDeep(topic, o.topic, true) && compareDeep(authority, o.authority, true)
+           && compareDeep(domain, o.domain, true) && compareDeep(type, o.type, true) && compareDeep(subType, o.subType, true)
+           && compareDeep(action, o.action, true) && compareDeep(actionReason, o.actionReason, true) && compareDeep(agent, o.agent, true)
+           && compareDeep(signer, o.signer, true) && compareDeep(valuedItem, o.valuedItem, true) && compareDeep(term, o.term, true)
+           && compareDeep(binding, o.binding, true) && compareDeep(friendly, o.friendly, true) && compareDeep(legal, o.legal, true)
+           && compareDeep(rule, o.rule, true);
       }
 
       @Override
@@ -3945,9 +4017,9 @@ public class Contract extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (issued == null || issued.isEmpty())
-           && (applies == null || applies.isEmpty()) && (topic == null || topic.isEmpty()) && (authority == null || authority.isEmpty())
-           && (domain == null || domain.isEmpty()) && (type == null || type.isEmpty()) && (subType == null || subType.isEmpty())
-           && (action == null || action.isEmpty()) && (actionReason == null || actionReason.isEmpty())
+           && (applies == null || applies.isEmpty()) && (subject == null || subject.isEmpty()) && (topic == null || topic.isEmpty())
+           && (authority == null || authority.isEmpty()) && (domain == null || domain.isEmpty()) && (type == null || type.isEmpty())
+           && (subType == null || subType.isEmpty()) && (action == null || action.isEmpty()) && (actionReason == null || actionReason.isEmpty())
            && (agent == null || agent.isEmpty()) && (signer == null || signer.isEmpty()) && (valuedItem == null || valuedItem.isEmpty())
            && (term == null || term.isEmpty()) && (binding == null || binding.isEmpty()) && (friendly == null || friendly.isEmpty())
            && (legal == null || legal.isEmpty()) && (rule == null || rule.isEmpty());
@@ -3959,154 +4031,24 @@ public class Contract extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>topic</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The identity of the topic of the contract</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.topic</b><br>
+   * Description: <b>The identity of the contract</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Contract.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="topic", path="Contract.topic", description="The identity of the topic of the contract", type="reference" )
-  public static final String SP_TOPIC = "topic";
+  @SearchParamDefinition(name="identifier", path="Contract.identifier", description="The identity of the contract", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The identity of the topic of the contract</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.topic</b><br>
+   * Description: <b>The identity of the contract</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Contract.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TOPIC);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:topic</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_TOPIC = new ca.uhn.fhir.model.api.Include("Contract:topic").toLocked();
-
- /**
-   * Search parameter: <b>authority</b>
-   * <p>
-   * Description: <b>The authority of the contract</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.authority</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="authority", path="Contract.authority", description="The authority of the contract", type="reference" )
-  public static final String SP_AUTHORITY = "authority";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>authority</b>
-   * <p>
-   * Description: <b>The authority of the contract</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.authority</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHORITY = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHORITY);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:authority</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHORITY = new ca.uhn.fhir.model.api.Include("Contract:authority").toLocked();
-
- /**
-   * Search parameter: <b>signer</b>
-   * <p>
-   * Description: <b>Contract Signatory Party</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.signer.party</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="signer", path="Contract.signer.party", description="Contract Signatory Party", type="reference" )
-  public static final String SP_SIGNER = "signer";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>signer</b>
-   * <p>
-   * Description: <b>Contract Signatory Party</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.signer.party</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SIGNER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SIGNER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:signer</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SIGNER = new ca.uhn.fhir.model.api.Include("Contract:signer").toLocked();
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>The identity of the topic of the contract (if a patient)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.topic</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="Contract.topic", description="The identity of the topic of the contract (if a patient)", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>The identity of the topic of the contract (if a patient)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.topic</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Contract:patient").toLocked();
-
- /**
-   * Search parameter: <b>issued</b>
-   * <p>
-   * Description: <b>The date/time the contract was issued</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Contract.issued</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="issued", path="Contract.issued", description="The date/time the contract was issued", type="date" )
-  public static final String SP_ISSUED = "issued";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>issued</b>
-   * <p>
-   * Description: <b>The date/time the contract was issued</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Contract.issued</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam ISSUED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ISSUED);
-
- /**
-   * Search parameter: <b>domain</b>
-   * <p>
-   * Description: <b>The domain of the contract</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.domain</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="domain", path="Contract.domain", description="The domain of the contract", type="reference" )
-  public static final String SP_DOMAIN = "domain";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>domain</b>
-   * <p>
-   * Description: <b>The domain of the contract</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.domain</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DOMAIN = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DOMAIN);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:domain</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_DOMAIN = new ca.uhn.fhir.model.api.Include("Contract:domain").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>agent</b>
@@ -4135,24 +4077,206 @@ public class Contract extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_AGENT = new ca.uhn.fhir.model.api.Include("Contract:agent").toLocked();
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>ttopic</b>
    * <p>
-   * Description: <b>The identity of the contract</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Contract.identifier</b><br>
+   * Description: <b>The identity of the topic of the contract terms</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.term.topic</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Contract.identifier", description="The identity of the contract", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="ttopic", path="Contract.term.topic", description="The identity of the topic of the contract terms", type="reference" )
+  public static final String SP_TTOPIC = "ttopic";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>ttopic</b>
    * <p>
-   * Description: <b>The identity of the contract</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Contract.identifier</b><br>
+   * Description: <b>The identity of the topic of the contract terms</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.term.topic</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TTOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TTOPIC);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Contract:ttopic</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_TTOPIC = new ca.uhn.fhir.model.api.Include("Contract:ttopic").toLocked();
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>The identity of the subject of the contract (if a patient)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="Contract.subject", description="The identity of the subject of the contract (if a patient)", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>The identity of the subject of the contract (if a patient)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Contract:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Contract:patient").toLocked();
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>The identity of the subject of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="Contract.subject", description="The identity of the subject of the contract", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>The identity of the subject of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Contract:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Contract:subject").toLocked();
+
+ /**
+   * Search parameter: <b>authority</b>
+   * <p>
+   * Description: <b>The authority of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.authority</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="authority", path="Contract.authority", description="The authority of the contract", type="reference" )
+  public static final String SP_AUTHORITY = "authority";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>authority</b>
+   * <p>
+   * Description: <b>The authority of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.authority</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHORITY = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHORITY);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Contract:authority</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHORITY = new ca.uhn.fhir.model.api.Include("Contract:authority").toLocked();
+
+ /**
+   * Search parameter: <b>domain</b>
+   * <p>
+   * Description: <b>The domain of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.domain</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="domain", path="Contract.domain", description="The domain of the contract", type="reference" )
+  public static final String SP_DOMAIN = "domain";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>domain</b>
+   * <p>
+   * Description: <b>The domain of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.domain</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DOMAIN = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DOMAIN);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Contract:domain</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DOMAIN = new ca.uhn.fhir.model.api.Include("Contract:domain").toLocked();
+
+ /**
+   * Search parameter: <b>topic</b>
+   * <p>
+   * Description: <b>The identity of the topic of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.topic</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="topic", path="Contract.topic", description="The identity of the topic of the contract", type="reference" )
+  public static final String SP_TOPIC = "topic";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <p>
+   * Description: <b>The identity of the topic of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.topic</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TOPIC);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Contract:topic</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_TOPIC = new ca.uhn.fhir.model.api.Include("Contract:topic").toLocked();
+
+ /**
+   * Search parameter: <b>issued</b>
+   * <p>
+   * Description: <b>The date/time the contract was issued</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Contract.issued</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="issued", path="Contract.issued", description="The date/time the contract was issued", type="date" )
+  public static final String SP_ISSUED = "issued";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>issued</b>
+   * <p>
+   * Description: <b>The date/time the contract was issued</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Contract.issued</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam ISSUED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ISSUED);
+
+ /**
+   * Search parameter: <b>signer</b>
+   * <p>
+   * Description: <b>Contract Signatory Party</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.signer.party</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="signer", path="Contract.signer.party", description="Contract Signatory Party", type="reference" )
+  public static final String SP_SIGNER = "signer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>signer</b>
+   * <p>
+   * Description: <b>Contract Signatory Party</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.signer.party</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SIGNER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SIGNER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Contract:signer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SIGNER = new ca.uhn.fhir.model.api.Include("Contract:signer").toLocked();
 
 
 }

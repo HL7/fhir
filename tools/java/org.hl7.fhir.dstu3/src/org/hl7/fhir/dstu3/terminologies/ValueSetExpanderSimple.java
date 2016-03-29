@@ -149,11 +149,11 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
         int i = codes.size();
         addCodes(context.expandVS(inc), params);
         if (codes.size() > i)
-          return;
+      return;
       } catch (Exception e) {
         // ok, we'll try locally
       }
-    }
+	  }
 	    
 	  CodeSystem cs = context.fetchCodeSystem(inc.getSystem());
 	  if (cs == null)
