@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -5195,44 +5195,70 @@ public class ClaimResponse extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>created</b>
    * <p>
-   * Description: <b>The identity of the insurer</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ClaimResponse.identifier</b><br>
+   * Description: <b>The creation date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ClaimResponse.created</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="ClaimResponse.identifier", description="The identity of the insurer", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="created", path="ClaimResponse.created", description="The creation date", type="date" )
+  public static final String SP_CREATED = "created";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>created</b>
    * <p>
-   * Description: <b>The identity of the insurer</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ClaimResponse.identifier</b><br>
+   * Description: <b>The creation date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ClaimResponse.created</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
 
  /**
-   * Search parameter: <b>disposition</b>
+   * Search parameter: <b>requestidentifier</b>
    * <p>
-   * Description: <b>The contents of the disposition message</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ClaimResponse.disposition</b><br>
+   * Description: <b>The claim reference</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClaimResponse.requestIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="disposition", path="ClaimResponse.disposition", description="The contents of the disposition message", type="string" )
-  public static final String SP_DISPOSITION = "disposition";
+  @SearchParamDefinition(name="requestidentifier", path="ClaimResponse.requestIdentifier", description="The claim reference", type="token" )
+  public static final String SP_REQUESTIDENTIFIER = "requestidentifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>disposition</b>
+   * <b>Fluent Client</b> search parameter constant for <b>requestidentifier</b>
    * <p>
-   * Description: <b>The contents of the disposition message</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ClaimResponse.disposition</b><br>
+   * Description: <b>The claim reference</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClaimResponse.requestIdentifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DISPOSITION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DISPOSITION);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam REQUESTIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REQUESTIDENTIFIER);
+
+ /**
+   * Search parameter: <b>requestreference</b>
+   * <p>
+   * Description: <b>The claim reference</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClaimResponse.requestReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="requestreference", path="ClaimResponse.requestReference", description="The claim reference", type="reference" )
+  public static final String SP_REQUESTREFERENCE = "requestreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>requestreference</b>
+   * <p>
+   * Description: <b>The claim reference</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClaimResponse.requestReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ClaimResponse:requestreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTREFERENCE = new ca.uhn.fhir.model.api.Include("ClaimResponse:requestreference").toLocked();
 
  /**
    * Search parameter: <b>paymentdate</b>
@@ -5275,46 +5301,6 @@ public class ClaimResponse extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONIDENTIFIER);
 
  /**
-   * Search parameter: <b>created</b>
-   * <p>
-   * Description: <b>The creation date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ClaimResponse.created</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="created", path="ClaimResponse.created", description="The creation date", type="date" )
-  public static final String SP_CREATED = "created";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>created</b>
-   * <p>
-   * Description: <b>The creation date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ClaimResponse.created</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
-
- /**
-   * Search parameter: <b>requestidentifier</b>
-   * <p>
-   * Description: <b>The claim reference</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ClaimResponse.requestIdentifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="requestidentifier", path="ClaimResponse.requestIdentifier", description="The claim reference", type="token" )
-  public static final String SP_REQUESTIDENTIFIER = "requestidentifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>requestidentifier</b>
-   * <p>
-   * Description: <b>The claim reference</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ClaimResponse.requestIdentifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam REQUESTIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REQUESTIDENTIFIER);
-
- /**
    * Search parameter: <b>organizationreference</b>
    * <p>
    * Description: <b>The organization who generated this resource</b><br>
@@ -5341,32 +5327,6 @@ public class ClaimResponse extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("ClaimResponse:organizationreference").toLocked();
 
  /**
-   * Search parameter: <b>requestreference</b>
-   * <p>
-   * Description: <b>The claim reference</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClaimResponse.requestReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="requestreference", path="ClaimResponse.requestReference", description="The claim reference", type="reference" )
-  public static final String SP_REQUESTREFERENCE = "requestreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>requestreference</b>
-   * <p>
-   * Description: <b>The claim reference</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClaimResponse.requestReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ClaimResponse:requestreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTREFERENCE = new ca.uhn.fhir.model.api.Include("ClaimResponse:requestreference").toLocked();
-
- /**
    * Search parameter: <b>outcome</b>
    * <p>
    * Description: <b>The processing outcome</b><br>
@@ -5385,6 +5345,46 @@ public class ClaimResponse extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam OUTCOME = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_OUTCOME);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>The identity of the insurer</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClaimResponse.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="ClaimResponse.identifier", description="The identity of the insurer", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>The identity of the insurer</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClaimResponse.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>disposition</b>
+   * <p>
+   * Description: <b>The contents of the disposition message</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ClaimResponse.disposition</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="disposition", path="ClaimResponse.disposition", description="The contents of the disposition message", type="string" )
+  public static final String SP_DISPOSITION = "disposition";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>disposition</b>
+   * <p>
+   * Description: <b>The contents of the disposition message</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ClaimResponse.disposition</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DISPOSITION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DISPOSITION);
 
 
 }

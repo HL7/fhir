@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1607,206 +1607,6 @@ Work addresses are not typically entered in this property as they are usually ro
    }
 
  /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>A practitioner's Identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.identifier, Practitioner.practitionerRole.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Practitioner.identifier | Practitioner.practitionerRole.identifier", description="A practitioner's Identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>A practitioner's Identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.identifier, Practitioner.practitionerRole.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>given</b>
-   * <p>
-   * Description: <b>A portion of the given name</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Practitioner.name.given</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="given", path="Practitioner.name.given", description="A portion of the given name", type="string" )
-  public static final String SP_GIVEN = "given";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>given</b>
-   * <p>
-   * Description: <b>A portion of the given name</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Practitioner.name.given</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam GIVEN = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_GIVEN);
-
- /**
-   * Search parameter: <b>specialty</b>
-   * <p>
-   * Description: <b>The practitioner has this specialty at an organization</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.practitionerRole.specialty</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="specialty", path="Practitioner.practitionerRole.specialty", description="The practitioner has this specialty at an organization", type="token" )
-  public static final String SP_SPECIALTY = "specialty";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>specialty</b>
-   * <p>
-   * Description: <b>The practitioner has this specialty at an organization</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.practitionerRole.specialty</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SPECIALTY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SPECIALTY);
-
- /**
-   * Search parameter: <b>address</b>
-   * <p>
-   * Description: <b>An address in any kind of address/part</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Practitioner.address</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="address", path="Practitioner.address", description="An address in any kind of address/part", type="string" )
-  public static final String SP_ADDRESS = "address";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>address</b>
-   * <p>
-   * Description: <b>An address in any kind of address/part</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Practitioner.address</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS);
-
- /**
-   * Search parameter: <b>role</b>
-   * <p>
-   * Description: <b>The practitioner can perform this role at for the organization</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.practitionerRole.role</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="role", path="Practitioner.practitionerRole.role", description="The practitioner can perform this role at for the organization", type="token" )
-  public static final String SP_ROLE = "role";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>role</b>
-   * <p>
-   * Description: <b>The practitioner can perform this role at for the organization</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.practitionerRole.role</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ROLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ROLE);
-
- /**
-   * Search parameter: <b>address-state</b>
-   * <p>
-   * Description: <b>A state specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Practitioner.address.state</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="address-state", path="Practitioner.address.state", description="A state specified in an address", type="string" )
-  public static final String SP_ADDRESS_STATE = "address-state";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-state</b>
-   * <p>
-   * Description: <b>A state specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Practitioner.address.state</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_STATE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_STATE);
-
- /**
-   * Search parameter: <b>gender</b>
-   * <p>
-   * Description: <b>Gender of the practitioner</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.gender</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="gender", path="Practitioner.gender", description="Gender of the practitioner", type="token" )
-  public static final String SP_GENDER = "gender";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>gender</b>
-   * <p>
-   * Description: <b>Gender of the practitioner</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.gender</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam GENDER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_GENDER);
-
- /**
-   * Search parameter: <b>address-postalcode</b>
-   * <p>
-   * Description: <b>A postalCode specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Practitioner.address.postalCode</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="address-postalcode", path="Practitioner.address.postalCode", description="A postalCode specified in an address", type="string" )
-  public static final String SP_ADDRESS_POSTALCODE = "address-postalcode";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-postalcode</b>
-   * <p>
-   * Description: <b>A postalCode specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Practitioner.address.postalCode</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_POSTALCODE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_POSTALCODE);
-
- /**
-   * Search parameter: <b>address-country</b>
-   * <p>
-   * Description: <b>A country specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Practitioner.address.country</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="address-country", path="Practitioner.address.country", description="A country specified in an address", type="string" )
-  public static final String SP_ADDRESS_COUNTRY = "address-country";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-country</b>
-   * <p>
-   * Description: <b>A country specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Practitioner.address.country</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_COUNTRY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_COUNTRY);
-
- /**
-   * Search parameter: <b>phonetic</b>
-   * <p>
-   * Description: <b>A portion of either family or given name using some kind of phonetic matching algorithm</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Practitioner.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="phonetic", path="Practitioner.name", description="A portion of either family or given name using some kind of phonetic matching algorithm", type="string" )
-  public static final String SP_PHONETIC = "phonetic";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>phonetic</b>
-   * <p>
-   * Description: <b>A portion of either family or given name using some kind of phonetic matching algorithm</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Practitioner.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PHONETIC = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PHONETIC);
-
- /**
    * Search parameter: <b>phone</b>
    * <p>
    * Description: <b>A value in a phone contact</b><br>
@@ -1827,90 +1627,24 @@ Work addresses are not typically entered in this property as they are usually ro
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PHONE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PHONE);
 
  /**
-   * Search parameter: <b>organization</b>
+   * Search parameter: <b>phonetic</b>
    * <p>
-   * Description: <b>The identity of the organization the practitioner represents / acts on behalf of</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Practitioner.practitionerRole.organization</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="organization", path="Practitioner.practitionerRole.organization", description="The identity of the organization the practitioner represents / acts on behalf of", type="reference" )
-  public static final String SP_ORGANIZATION = "organization";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>organization</b>
-   * <p>
-   * Description: <b>The identity of the organization the practitioner represents / acts on behalf of</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Practitioner.practitionerRole.organization</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Practitioner:organization</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("Practitioner:organization").toLocked();
-
- /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>A portion of either family or given name</b><br>
+   * Description: <b>A portion of either family or given name using some kind of phonetic matching algorithm</b><br>
    * Type: <b>string</b><br>
    * Path: <b>Practitioner.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="name", path="Practitioner.name", description="A portion of either family or given name", type="string" )
-  public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="phonetic", path="Practitioner.name", description="A portion of either family or given name using some kind of phonetic matching algorithm", type="string" )
+  public static final String SP_PHONETIC = "phonetic";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <b>Fluent Client</b> search parameter constant for <b>phonetic</b>
    * <p>
-   * Description: <b>A portion of either family or given name</b><br>
+   * Description: <b>A portion of either family or given name using some kind of phonetic matching algorithm</b><br>
    * Type: <b>string</b><br>
    * Path: <b>Practitioner.name</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
-   * Search parameter: <b>address-use</b>
-   * <p>
-   * Description: <b>A use code specified in an address</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.address.use</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="address-use", path="Practitioner.address.use", description="A use code specified in an address", type="token" )
-  public static final String SP_ADDRESS_USE = "address-use";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-use</b>
-   * <p>
-   * Description: <b>A use code specified in an address</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.address.use</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ADDRESS_USE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ADDRESS_USE);
-
- /**
-   * Search parameter: <b>telecom</b>
-   * <p>
-   * Description: <b>The value in any kind of contact</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.telecom, Practitioner.practitionerRole.telecom</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="telecom", path="Practitioner.telecom | Practitioner.practitionerRole.telecom", description="The value in any kind of contact", type="token" )
-  public static final String SP_TELECOM = "telecom";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>telecom</b>
-   * <p>
-   * Description: <b>The value in any kind of contact</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.telecom, Practitioner.practitionerRole.telecom</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TELECOM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TELECOM);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PHONETIC = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PHONETIC);
 
  /**
    * Search parameter: <b>location</b>
@@ -1939,24 +1673,70 @@ Work addresses are not typically entered in this property as they are usually ro
   public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("Practitioner:location").toLocked();
 
  /**
-   * Search parameter: <b>family</b>
+   * Search parameter: <b>communication</b>
    * <p>
-   * Description: <b>A portion of the family name</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Practitioner.name.family</b><br>
+   * Description: <b>One of the languages that the practitioner can communicate with</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.communication</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="family", path="Practitioner.name.family", description="A portion of the family name", type="string" )
-  public static final String SP_FAMILY = "family";
+  @SearchParamDefinition(name="communication", path="Practitioner.communication", description="One of the languages that the practitioner can communicate with", type="token" )
+  public static final String SP_COMMUNICATION = "communication";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>family</b>
+   * <b>Fluent Client</b> search parameter constant for <b>communication</b>
    * <p>
-   * Description: <b>A portion of the family name</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Practitioner.name.family</b><br>
+   * Description: <b>One of the languages that the practitioner can communicate with</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.communication</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam FAMILY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_FAMILY);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam COMMUNICATION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_COMMUNICATION);
+
+ /**
+   * Search parameter: <b>address-country</b>
+   * <p>
+   * Description: <b>A country specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Practitioner.address.country</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="address-country", path="Practitioner.address.country", description="A country specified in an address", type="string" )
+  public static final String SP_ADDRESS_COUNTRY = "address-country";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>address-country</b>
+   * <p>
+   * Description: <b>A country specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Practitioner.address.country</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_COUNTRY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_COUNTRY);
+
+ /**
+   * Search parameter: <b>organization</b>
+   * <p>
+   * Description: <b>The identity of the organization the practitioner represents / acts on behalf of</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Practitioner.practitionerRole.organization</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="organization", path="Practitioner.practitionerRole.organization", description="The identity of the organization the practitioner represents / acts on behalf of", type="reference" )
+  public static final String SP_ORGANIZATION = "organization";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>organization</b>
+   * <p>
+   * Description: <b>The identity of the organization the practitioner represents / acts on behalf of</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Practitioner.practitionerRole.organization</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Practitioner:organization</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("Practitioner:organization").toLocked();
 
  /**
    * Search parameter: <b>address-city</b>
@@ -1979,24 +1759,44 @@ Work addresses are not typically entered in this property as they are usually ro
   public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_CITY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_CITY);
 
  /**
-   * Search parameter: <b>communication</b>
+   * Search parameter: <b>address-state</b>
    * <p>
-   * Description: <b>One of the languages that the practitioner can communicate with</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.communication</b><br>
+   * Description: <b>A state specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Practitioner.address.state</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="communication", path="Practitioner.communication", description="One of the languages that the practitioner can communicate with", type="token" )
-  public static final String SP_COMMUNICATION = "communication";
+  @SearchParamDefinition(name="address-state", path="Practitioner.address.state", description="A state specified in an address", type="string" )
+  public static final String SP_ADDRESS_STATE = "address-state";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>communication</b>
+   * <b>Fluent Client</b> search parameter constant for <b>address-state</b>
    * <p>
-   * Description: <b>One of the languages that the practitioner can communicate with</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.communication</b><br>
+   * Description: <b>A state specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Practitioner.address.state</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam COMMUNICATION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_COMMUNICATION);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_STATE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_STATE);
+
+ /**
+   * Search parameter: <b>given</b>
+   * <p>
+   * Description: <b>A portion of the given name</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Practitioner.name.given</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="given", path="Practitioner.name.given", description="A portion of the given name", type="string" )
+  public static final String SP_GIVEN = "given";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>given</b>
+   * <p>
+   * Description: <b>A portion of the given name</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Practitioner.name.given</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam GIVEN = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_GIVEN);
 
  /**
    * Search parameter: <b>email</b>
@@ -2017,6 +1817,206 @@ Work addresses are not typically entered in this property as they are usually ro
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam EMAIL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EMAIL);
+
+ /**
+   * Search parameter: <b>address</b>
+   * <p>
+   * Description: <b>An address in any kind of address/part</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Practitioner.address</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="address", path="Practitioner.address", description="An address in any kind of address/part", type="string" )
+  public static final String SP_ADDRESS = "address";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>address</b>
+   * <p>
+   * Description: <b>An address in any kind of address/part</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Practitioner.address</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS);
+
+ /**
+   * Search parameter: <b>address-use</b>
+   * <p>
+   * Description: <b>A use code specified in an address</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.address.use</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="address-use", path="Practitioner.address.use", description="A use code specified in an address", type="token" )
+  public static final String SP_ADDRESS_USE = "address-use";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>address-use</b>
+   * <p>
+   * Description: <b>A use code specified in an address</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.address.use</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ADDRESS_USE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ADDRESS_USE);
+
+ /**
+   * Search parameter: <b>family</b>
+   * <p>
+   * Description: <b>A portion of the family name</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Practitioner.name.family</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="family", path="Practitioner.name.family", description="A portion of the family name", type="string" )
+  public static final String SP_FAMILY = "family";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>family</b>
+   * <p>
+   * Description: <b>A portion of the family name</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Practitioner.name.family</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam FAMILY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_FAMILY);
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>A portion of either family or given name</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Practitioner.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="Practitioner.name", description="A portion of either family or given name", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>A portion of either family or given name</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Practitioner.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>telecom</b>
+   * <p>
+   * Description: <b>The value in any kind of contact</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.telecom, Practitioner.practitionerRole.telecom</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="telecom", path="Practitioner.telecom | Practitioner.practitionerRole.telecom", description="The value in any kind of contact", type="token" )
+  public static final String SP_TELECOM = "telecom";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>telecom</b>
+   * <p>
+   * Description: <b>The value in any kind of contact</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.telecom, Practitioner.practitionerRole.telecom</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TELECOM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TELECOM);
+
+ /**
+   * Search parameter: <b>role</b>
+   * <p>
+   * Description: <b>The practitioner can perform this role at for the organization</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.practitionerRole.role</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="role", path="Practitioner.practitionerRole.role", description="The practitioner can perform this role at for the organization", type="token" )
+  public static final String SP_ROLE = "role";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>role</b>
+   * <p>
+   * Description: <b>The practitioner can perform this role at for the organization</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.practitionerRole.role</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ROLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ROLE);
+
+ /**
+   * Search parameter: <b>gender</b>
+   * <p>
+   * Description: <b>Gender of the practitioner</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.gender</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="gender", path="Practitioner.gender", description="Gender of the practitioner", type="token" )
+  public static final String SP_GENDER = "gender";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>gender</b>
+   * <p>
+   * Description: <b>Gender of the practitioner</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.gender</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam GENDER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_GENDER);
+
+ /**
+   * Search parameter: <b>specialty</b>
+   * <p>
+   * Description: <b>The practitioner has this specialty at an organization</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.practitionerRole.specialty</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="specialty", path="Practitioner.practitionerRole.specialty", description="The practitioner has this specialty at an organization", type="token" )
+  public static final String SP_SPECIALTY = "specialty";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>specialty</b>
+   * <p>
+   * Description: <b>The practitioner has this specialty at an organization</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.practitionerRole.specialty</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SPECIALTY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SPECIALTY);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>A practitioner's Identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.identifier, Practitioner.practitionerRole.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Practitioner.identifier | Practitioner.practitionerRole.identifier", description="A practitioner's Identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>A practitioner's Identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.identifier, Practitioner.practitionerRole.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>address-postalcode</b>
+   * <p>
+   * Description: <b>A postalCode specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Practitioner.address.postalCode</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="address-postalcode", path="Practitioner.address.postalCode", description="A postalCode specified in an address", type="string" )
+  public static final String SP_ADDRESS_POSTALCODE = "address-postalcode";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>address-postalcode</b>
+   * <p>
+   * Description: <b>A postalCode specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Practitioner.address.postalCode</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_POSTALCODE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_POSTALCODE);
 
 
 }

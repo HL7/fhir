@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -2391,26 +2391,6 @@ public class ImagingStudy extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Other identifiers for the Study</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="ImagingStudy.identifier", description="Other identifiers for the Study", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Other identifiers for the Study</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
    * Search parameter: <b>uid</b>
    * <p>
    * Description: <b>The instance unique identifier</b><br>
@@ -2431,84 +2411,24 @@ public class ImagingStudy extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.UriClientParam UID = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_UID);
 
  /**
-   * Search parameter: <b>study</b>
+   * Search parameter: <b>series</b>
    * <p>
-   * Description: <b>The study identifier for the image</b><br>
+   * Description: <b>The identifier of the series of images</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>ImagingStudy.uid</b><br>
+   * Path: <b>ImagingStudy.series.uid</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="study", path="ImagingStudy.uid", description="The study identifier for the image", type="uri" )
-  public static final String SP_STUDY = "study";
+  @SearchParamDefinition(name="series", path="ImagingStudy.series.uid", description="The identifier of the series of images", type="uri" )
+  public static final String SP_SERIES = "series";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>study</b>
+   * <b>Fluent Client</b> search parameter constant for <b>series</b>
    * <p>
-   * Description: <b>The study identifier for the image</b><br>
+   * Description: <b>The identifier of the series of images</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>ImagingStudy.uid</b><br>
+   * Path: <b>ImagingStudy.series.uid</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam STUDY = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_STUDY);
-
- /**
-   * Search parameter: <b>dicom-class</b>
-   * <p>
-   * Description: <b>The type of the instance</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImagingStudy.series.instance.sopClass</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="dicom-class", path="ImagingStudy.series.instance.sopClass", description="The type of the instance", type="uri" )
-  public static final String SP_DICOM_CLASS = "dicom-class";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>dicom-class</b>
-   * <p>
-   * Description: <b>The type of the instance</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImagingStudy.series.instance.sopClass</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam DICOM_CLASS = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DICOM_CLASS);
-
- /**
-   * Search parameter: <b>modality</b>
-   * <p>
-   * Description: <b>The modality of the series</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.series.modality</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="modality", path="ImagingStudy.series.modality", description="The modality of the series", type="token" )
-  public static final String SP_MODALITY = "modality";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>modality</b>
-   * <p>
-   * Description: <b>The modality of the series</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.series.modality</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam MODALITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_MODALITY);
-
- /**
-   * Search parameter: <b>bodysite</b>
-   * <p>
-   * Description: <b>The body site studied</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.series.bodySite</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="bodysite", path="ImagingStudy.series.bodySite", description="The body site studied", type="token" )
-  public static final String SP_BODYSITE = "bodysite";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>bodysite</b>
-   * <p>
-   * Description: <b>The body site studied</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.series.bodySite</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BODYSITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BODYSITE);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam SERIES = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SERIES);
 
  /**
    * Search parameter: <b>patient</b>
@@ -2537,66 +2457,6 @@ public class ImagingStudy extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ImagingStudy:patient").toLocked();
 
  /**
-   * Search parameter: <b>series</b>
-   * <p>
-   * Description: <b>The identifier of the series of images</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImagingStudy.series.uid</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="series", path="ImagingStudy.series.uid", description="The identifier of the series of images", type="uri" )
-  public static final String SP_SERIES = "series";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>series</b>
-   * <p>
-   * Description: <b>The identifier of the series of images</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImagingStudy.series.uid</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam SERIES = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SERIES);
-
- /**
-   * Search parameter: <b>started</b>
-   * <p>
-   * Description: <b>When the study was started</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImagingStudy.started</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="started", path="ImagingStudy.started", description="When the study was started", type="date" )
-  public static final String SP_STARTED = "started";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>started</b>
-   * <p>
-   * Description: <b>When the study was started</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImagingStudy.started</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam STARTED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_STARTED);
-
- /**
-   * Search parameter: <b>accession</b>
-   * <p>
-   * Description: <b>The accession identifier for the study</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.accession</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="accession", path="ImagingStudy.accession", description="The accession identifier for the study", type="token" )
-  public static final String SP_ACCESSION = "accession";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>accession</b>
-   * <p>
-   * Description: <b>The accession identifier for the study</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.accession</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACCESSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACCESSION);
-
- /**
    * Search parameter: <b>order</b>
    * <p>
    * Description: <b>The order for the image</b><br>
@@ -2621,6 +2481,146 @@ public class ImagingStudy extends DomainResource {
    * the path value of "<b>ImagingStudy:order</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORDER = new ca.uhn.fhir.model.api.Include("ImagingStudy:order").toLocked();
+
+ /**
+   * Search parameter: <b>bodysite</b>
+   * <p>
+   * Description: <b>The body site studied</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.series.bodySite</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="bodysite", path="ImagingStudy.series.bodySite", description="The body site studied", type="token" )
+  public static final String SP_BODYSITE = "bodysite";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>bodysite</b>
+   * <p>
+   * Description: <b>The body site studied</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.series.bodySite</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BODYSITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BODYSITE);
+
+ /**
+   * Search parameter: <b>accession</b>
+   * <p>
+   * Description: <b>The accession identifier for the study</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.accession</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="accession", path="ImagingStudy.accession", description="The accession identifier for the study", type="token" )
+  public static final String SP_ACCESSION = "accession";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>accession</b>
+   * <p>
+   * Description: <b>The accession identifier for the study</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.accession</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACCESSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACCESSION);
+
+ /**
+   * Search parameter: <b>study</b>
+   * <p>
+   * Description: <b>The study identifier for the image</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ImagingStudy.uid</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="study", path="ImagingStudy.uid", description="The study identifier for the image", type="uri" )
+  public static final String SP_STUDY = "study";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>study</b>
+   * <p>
+   * Description: <b>The study identifier for the image</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ImagingStudy.uid</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam STUDY = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_STUDY);
+
+ /**
+   * Search parameter: <b>modality</b>
+   * <p>
+   * Description: <b>The modality of the series</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.series.modality</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="modality", path="ImagingStudy.series.modality", description="The modality of the series", type="token" )
+  public static final String SP_MODALITY = "modality";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>modality</b>
+   * <p>
+   * Description: <b>The modality of the series</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.series.modality</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam MODALITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_MODALITY);
+
+ /**
+   * Search parameter: <b>started</b>
+   * <p>
+   * Description: <b>When the study was started</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImagingStudy.started</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="started", path="ImagingStudy.started", description="When the study was started", type="date" )
+  public static final String SP_STARTED = "started";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>started</b>
+   * <p>
+   * Description: <b>When the study was started</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImagingStudy.started</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam STARTED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_STARTED);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Other identifiers for the Study</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="ImagingStudy.identifier", description="Other identifiers for the Study", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Other identifiers for the Study</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>dicom-class</b>
+   * <p>
+   * Description: <b>The type of the instance</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ImagingStudy.series.instance.sopClass</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="dicom-class", path="ImagingStudy.series.instance.sopClass", description="The type of the instance", type="uri" )
+  public static final String SP_DICOM_CLASS = "dicom-class";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>dicom-class</b>
+   * <p>
+   * Description: <b>The type of the instance</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ImagingStudy.series.instance.sopClass</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam DICOM_CLASS = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DICOM_CLASS);
 
 
 }

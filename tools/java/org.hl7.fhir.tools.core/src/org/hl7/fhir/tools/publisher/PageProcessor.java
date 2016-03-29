@@ -477,7 +477,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           tabs.add("tabs-"+com[1]);
         src = s1+orgDT(com[1], xmlForDt(com[1], file), treeForDt(com[1]), umlForDt(com[1], com[2]), umlForDt(com[1], com[2]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], file))+s3;
       } else if (com.length == 2 && com[0].equals("dt.constraints")) 
-        src = s1+genConstraints(com[1])+s3;
+        src = s1+genConstraints(com[1], genlevel(level))+s3;
       else if (com.length == 2 && com[0].equals("dt.restrictions")) 
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
@@ -2490,10 +2490,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return new XhtmlComposer().compose(gen.generate(e, prefix));
   }
     
-  private String genResourceConstraints(ResourceDefn res) throws Exception {
+  private String genResourceConstraints(ResourceDefn res, String prefix) throws Exception {
     ElementDefn e = res.getRoot();
     Map<String, String> invs = new HashMap<String, String>();
-    generateConstraints(res.getName(), e, invs, true);
+    generateConstraints(res.getName(), e, invs, true, prefix);
     List<String> ids = new ArrayList<String>();
     for (String n : invs.keySet()) {
       ids.add(n);
@@ -2527,10 +2527,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "";
   }
 
-  private String genConstraints(String name) throws Exception {
+  private String genConstraints(String name, String prefix) throws Exception {
     ElementDefn e = definitions.getElementDefn(name);
     Map<String, String> invs = new HashMap<String, String>();
-    generateConstraints(name, e, invs, true);
+    generateConstraints(name, e, invs, true, prefix);
     List<String> ids = new ArrayList<String>();
     for (String n : invs.keySet()) {
       ids.add(n);
@@ -2546,15 +2546,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "";
   }
 
-  private void generateConstraints(String path, ElementDefn e, Map<String, String> invs, boolean base) {  
+  private void generateConstraints(String path, ElementDefn e, Map<String, String> invs, boolean base, String prefix) {  
     for (Invariant inv : e.getInvariants().values()) {
       if (base)
-        invs.put(inv.getId(), "<li><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (xpath: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
+        invs.put(inv.getId(), "<li><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (<a href=\""+prefix+"fluentpath.html\">expression</a>: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>)</li>");
       else
-        invs.put(inv.getId(), "<li><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: On "+path+": "+Utilities.escapeXml(inv.getEnglish())+" (xpath on "+presentPath(path)+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
+        invs.put(inv.getId(), "<li><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: On "+path+": "+Utilities.escapeXml(inv.getEnglish())+" (<a href=\""+prefix+"fluentpath.html\">expression</a> on "+presentPath(path)+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>)</li>");
     }
     for (ElementDefn c : e.getElements()) {
-      generateConstraints(path + "." + c.getName(), c, invs, false);
+      generateConstraints(path + "." + c.getName(), c, invs, false, prefix);
     }    
   }
 
@@ -3483,7 +3483,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           tabs.add("tabs-"+com[1]);
         src = s1+xmlForDt(com[1], null)+tsForDt(com[1])+s3;
       } else if (com.length == 2 && com[0].equals("dt.constraints")) 
-        src = s1+genConstraints(com[1])+s3;
+        src = s1+genConstraints(com[1], "")+s3;
       else if (com.length == 2 && com[0].equals("dt.restrictions")) 
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
@@ -3875,7 +3875,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           tabs.add("tabs-"+com[1]);
         src = s1+xmlForDt(com[1], null)+tsForDt(com[1])+s3;
       } else if (com.length == 2 && com[0].equals("dt.constraints")) 
-        src = s1+genConstraints(com[1])+s3;
+        src = s1+genConstraints(com[1], genlevel(level))+s3;
       else if (com.length == 2 && com[0].equals("dt.restrictions")) 
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
@@ -4413,7 +4413,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("tx"))
         src = s1+tx+s3;
       else if (com[0].equals("inv"))
-        src = s1+genResourceConstraints(resource)+s3;
+        src = s1+genResourceConstraints(resource, genlevel(level))+s3;
       else if (com[0].equals("resource-table"))
         src = s1+genResourceTable(resource, genlevel(level))+s3;
       else if (com[0].equals("plural"))

@@ -98,7 +98,7 @@
   Context = MedicationAdministration
   English = Reason not given is only permitted if wasNotGiven is true
   XPath = not(exists(f:reasonNotGiven) and f:wasNotGiven/@value=false())
-  Expression = reasonNotGiven.empty() or wasNotGiven = \'true\'
+  Expression = reasonNotGiven.empty() or wasNotGiven = true
 
  -- Row 3 -----------------------------------
   Id = 3

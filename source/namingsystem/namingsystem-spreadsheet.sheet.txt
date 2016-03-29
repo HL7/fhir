@@ -76,9 +76,9 @@
  -- Row 1 -----------------------------------
   Id = 1
   Context = NamingSystem
-  English = Root systems cannot have uuid or sid identifiers
-  XPath = not(f:kind/@value=\'root\' and f:uniqueId/f:type/@value=(\'uuid\', \'ruid\'))
-  Expression = kind != \'root\' or uniqueId in (\'uuid\' | \'ruid\')
+  English = Root systems cannot have uuid identifiers
+  XPath = not(f:kind/@value=\'root\' and f:uniqueId/f:type/@value=\'uuid\')
+  Expression = kind != \'root\' or uniqueId.type = \'uuid\'
 
  -- Row 2 -----------------------------------
   Id = 2

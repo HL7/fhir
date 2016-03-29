@@ -29,10 +29,11 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
@@ -45,6 +46,502 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  */
 @ResourceDef(name="PractitionerRole", profile="http://hl7.org/fhir/Profile/PractitionerRole")
 public class PractitionerRole extends DomainResource {
+
+    @Block()
+    public static class PractitionerRoleAvailableTimeComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Indicates which days of the week are available between the start and end Times.
+         */
+        @Child(name = "daysOfWeek", type = {CodeType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="mon | tue | wed | thu | fri | sat | sun", formalDefinition="Indicates which days of the week are available between the start and end Times." )
+        protected List<CodeType> daysOfWeek;
+
+        /**
+         * Is this always available? (hence times are irrelevant) e.g. 24 hour service.
+         */
+        @Child(name = "allDay", type = {BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Always available? e.g. 24 hour service", formalDefinition="Is this always available? (hence times are irrelevant) e.g. 24 hour service." )
+        protected BooleanType allDay;
+
+        /**
+         * The opening time of day. Note: If the AllDay flag is set, then this time is ignored.
+         */
+        @Child(name = "availableStartTime", type = {TimeType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Opening time of day (ignored if allDay = true)", formalDefinition="The opening time of day. Note: If the AllDay flag is set, then this time is ignored." )
+        protected TimeType availableStartTime;
+
+        /**
+         * The closing time of day. Note: If the AllDay flag is set, then this time is ignored.
+         */
+        @Child(name = "availableEndTime", type = {TimeType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Closing time of day (ignored if allDay = true)", formalDefinition="The closing time of day. Note: If the AllDay flag is set, then this time is ignored." )
+        protected TimeType availableEndTime;
+
+        private static final long serialVersionUID = 2079379177L;
+
+    /**
+     * Constructor
+     */
+      public PractitionerRoleAvailableTimeComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #daysOfWeek} (Indicates which days of the week are available between the start and end Times.)
+         */
+        public List<CodeType> getDaysOfWeek() { 
+          if (this.daysOfWeek == null)
+            this.daysOfWeek = new ArrayList<CodeType>();
+          return this.daysOfWeek;
+        }
+
+        public boolean hasDaysOfWeek() { 
+          if (this.daysOfWeek == null)
+            return false;
+          for (CodeType item : this.daysOfWeek)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #daysOfWeek} (Indicates which days of the week are available between the start and end Times.)
+         */
+    // syntactic sugar
+        public CodeType addDaysOfWeekElement() {//2 
+          CodeType t = new CodeType();
+          if (this.daysOfWeek == null)
+            this.daysOfWeek = new ArrayList<CodeType>();
+          this.daysOfWeek.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #daysOfWeek} (Indicates which days of the week are available between the start and end Times.)
+         */
+        public PractitionerRoleAvailableTimeComponent addDaysOfWeek(String value) { //1
+          CodeType t = new CodeType();
+          t.setValue(value);
+          if (this.daysOfWeek == null)
+            this.daysOfWeek = new ArrayList<CodeType>();
+          this.daysOfWeek.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #daysOfWeek} (Indicates which days of the week are available between the start and end Times.)
+         */
+        public boolean hasDaysOfWeek(String value) { 
+          if (this.daysOfWeek == null)
+            return false;
+          for (CodeType v : this.daysOfWeek)
+            if (v.equals(value)) // code
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #allDay} (Is this always available? (hence times are irrelevant) e.g. 24 hour service.). This is the underlying object with id, value and extensions. The accessor "getAllDay" gives direct access to the value
+         */
+        public BooleanType getAllDayElement() { 
+          if (this.allDay == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PractitionerRoleAvailableTimeComponent.allDay");
+            else if (Configuration.doAutoCreate())
+              this.allDay = new BooleanType(); // bb
+          return this.allDay;
+        }
+
+        public boolean hasAllDayElement() { 
+          return this.allDay != null && !this.allDay.isEmpty();
+        }
+
+        public boolean hasAllDay() { 
+          return this.allDay != null && !this.allDay.isEmpty();
+        }
+
+        /**
+         * @param value {@link #allDay} (Is this always available? (hence times are irrelevant) e.g. 24 hour service.). This is the underlying object with id, value and extensions. The accessor "getAllDay" gives direct access to the value
+         */
+        public PractitionerRoleAvailableTimeComponent setAllDayElement(BooleanType value) { 
+          this.allDay = value;
+          return this;
+        }
+
+        /**
+         * @return Is this always available? (hence times are irrelevant) e.g. 24 hour service.
+         */
+        public boolean getAllDay() { 
+          return this.allDay == null || this.allDay.isEmpty() ? false : this.allDay.getValue();
+        }
+
+        /**
+         * @param value Is this always available? (hence times are irrelevant) e.g. 24 hour service.
+         */
+        public PractitionerRoleAvailableTimeComponent setAllDay(boolean value) { 
+            if (this.allDay == null)
+              this.allDay = new BooleanType();
+            this.allDay.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #availableStartTime} (The opening time of day. Note: If the AllDay flag is set, then this time is ignored.). This is the underlying object with id, value and extensions. The accessor "getAvailableStartTime" gives direct access to the value
+         */
+        public TimeType getAvailableStartTimeElement() { 
+          if (this.availableStartTime == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PractitionerRoleAvailableTimeComponent.availableStartTime");
+            else if (Configuration.doAutoCreate())
+              this.availableStartTime = new TimeType(); // bb
+          return this.availableStartTime;
+        }
+
+        public boolean hasAvailableStartTimeElement() { 
+          return this.availableStartTime != null && !this.availableStartTime.isEmpty();
+        }
+
+        public boolean hasAvailableStartTime() { 
+          return this.availableStartTime != null && !this.availableStartTime.isEmpty();
+        }
+
+        /**
+         * @param value {@link #availableStartTime} (The opening time of day. Note: If the AllDay flag is set, then this time is ignored.). This is the underlying object with id, value and extensions. The accessor "getAvailableStartTime" gives direct access to the value
+         */
+        public PractitionerRoleAvailableTimeComponent setAvailableStartTimeElement(TimeType value) { 
+          this.availableStartTime = value;
+          return this;
+        }
+
+        /**
+         * @return The opening time of day. Note: If the AllDay flag is set, then this time is ignored.
+         */
+        public String getAvailableStartTime() { 
+          return this.availableStartTime == null ? null : this.availableStartTime.getValue();
+        }
+
+        /**
+         * @param value The opening time of day. Note: If the AllDay flag is set, then this time is ignored.
+         */
+        public PractitionerRoleAvailableTimeComponent setAvailableStartTime(String value) { 
+          if (value == null)
+            this.availableStartTime = null;
+          else {
+            if (this.availableStartTime == null)
+              this.availableStartTime = new TimeType();
+            this.availableStartTime.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #availableEndTime} (The closing time of day. Note: If the AllDay flag is set, then this time is ignored.). This is the underlying object with id, value and extensions. The accessor "getAvailableEndTime" gives direct access to the value
+         */
+        public TimeType getAvailableEndTimeElement() { 
+          if (this.availableEndTime == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PractitionerRoleAvailableTimeComponent.availableEndTime");
+            else if (Configuration.doAutoCreate())
+              this.availableEndTime = new TimeType(); // bb
+          return this.availableEndTime;
+        }
+
+        public boolean hasAvailableEndTimeElement() { 
+          return this.availableEndTime != null && !this.availableEndTime.isEmpty();
+        }
+
+        public boolean hasAvailableEndTime() { 
+          return this.availableEndTime != null && !this.availableEndTime.isEmpty();
+        }
+
+        /**
+         * @param value {@link #availableEndTime} (The closing time of day. Note: If the AllDay flag is set, then this time is ignored.). This is the underlying object with id, value and extensions. The accessor "getAvailableEndTime" gives direct access to the value
+         */
+        public PractitionerRoleAvailableTimeComponent setAvailableEndTimeElement(TimeType value) { 
+          this.availableEndTime = value;
+          return this;
+        }
+
+        /**
+         * @return The closing time of day. Note: If the AllDay flag is set, then this time is ignored.
+         */
+        public String getAvailableEndTime() { 
+          return this.availableEndTime == null ? null : this.availableEndTime.getValue();
+        }
+
+        /**
+         * @param value The closing time of day. Note: If the AllDay flag is set, then this time is ignored.
+         */
+        public PractitionerRoleAvailableTimeComponent setAvailableEndTime(String value) { 
+          if (value == null)
+            this.availableEndTime = null;
+          else {
+            if (this.availableEndTime == null)
+              this.availableEndTime = new TimeType();
+            this.availableEndTime.setValue(value);
+          }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("daysOfWeek", "code", "Indicates which days of the week are available between the start and end Times.", 0, java.lang.Integer.MAX_VALUE, daysOfWeek));
+          childrenList.add(new Property("allDay", "boolean", "Is this always available? (hence times are irrelevant) e.g. 24 hour service.", 0, java.lang.Integer.MAX_VALUE, allDay));
+          childrenList.add(new Property("availableStartTime", "time", "The opening time of day. Note: If the AllDay flag is set, then this time is ignored.", 0, java.lang.Integer.MAX_VALUE, availableStartTime));
+          childrenList.add(new Property("availableEndTime", "time", "The closing time of day. Note: If the AllDay flag is set, then this time is ignored.", 0, java.lang.Integer.MAX_VALUE, availableEndTime));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("daysOfWeek"))
+          this.getDaysOfWeek().add(castToCode(value));
+        else if (name.equals("allDay"))
+          this.allDay = castToBoolean(value); // BooleanType
+        else if (name.equals("availableStartTime"))
+          this.availableStartTime = castToTime(value); // TimeType
+        else if (name.equals("availableEndTime"))
+          this.availableEndTime = castToTime(value); // TimeType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("daysOfWeek")) {
+          throw new FHIRException("Cannot call addChild on a primitive type PractitionerRole.daysOfWeek");
+        }
+        else if (name.equals("allDay")) {
+          throw new FHIRException("Cannot call addChild on a primitive type PractitionerRole.allDay");
+        }
+        else if (name.equals("availableStartTime")) {
+          throw new FHIRException("Cannot call addChild on a primitive type PractitionerRole.availableStartTime");
+        }
+        else if (name.equals("availableEndTime")) {
+          throw new FHIRException("Cannot call addChild on a primitive type PractitionerRole.availableEndTime");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public PractitionerRoleAvailableTimeComponent copy() {
+        PractitionerRoleAvailableTimeComponent dst = new PractitionerRoleAvailableTimeComponent();
+        copyValues(dst);
+        if (daysOfWeek != null) {
+          dst.daysOfWeek = new ArrayList<CodeType>();
+          for (CodeType i : daysOfWeek)
+            dst.daysOfWeek.add(i.copy());
+        };
+        dst.allDay = allDay == null ? null : allDay.copy();
+        dst.availableStartTime = availableStartTime == null ? null : availableStartTime.copy();
+        dst.availableEndTime = availableEndTime == null ? null : availableEndTime.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof PractitionerRoleAvailableTimeComponent))
+          return false;
+        PractitionerRoleAvailableTimeComponent o = (PractitionerRoleAvailableTimeComponent) other;
+        return compareDeep(daysOfWeek, o.daysOfWeek, true) && compareDeep(allDay, o.allDay, true) && compareDeep(availableStartTime, o.availableStartTime, true)
+           && compareDeep(availableEndTime, o.availableEndTime, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof PractitionerRoleAvailableTimeComponent))
+          return false;
+        PractitionerRoleAvailableTimeComponent o = (PractitionerRoleAvailableTimeComponent) other;
+        return compareValues(daysOfWeek, o.daysOfWeek, true) && compareValues(allDay, o.allDay, true) && compareValues(availableStartTime, o.availableStartTime, true)
+           && compareValues(availableEndTime, o.availableEndTime, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (daysOfWeek == null || daysOfWeek.isEmpty()) && (allDay == null || allDay.isEmpty())
+           && (availableStartTime == null || availableStartTime.isEmpty()) && (availableEndTime == null || availableEndTime.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "PractitionerRole.availableTime";
+
+  }
+
+  }
+
+    @Block()
+    public static class PractitionerRoleNotAvailableComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The reason that can be presented to the user as to why this time is not available.
+         */
+        @Child(name = "description", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Reason presented to the user explaining why time not available", formalDefinition="The reason that can be presented to the user as to why this time is not available." )
+        protected StringType description;
+
+        /**
+         * Service is not available (seasonally or for a public holiday) from this date.
+         */
+        @Child(name = "during", type = {Period.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Service not availablefrom this date", formalDefinition="Service is not available (seasonally or for a public holiday) from this date." )
+        protected Period during;
+
+        private static final long serialVersionUID = 310849929L;
+
+    /**
+     * Constructor
+     */
+      public PractitionerRoleNotAvailableComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public PractitionerRoleNotAvailableComponent(StringType description) {
+        super();
+        this.description = description;
+      }
+
+        /**
+         * @return {@link #description} (The reason that can be presented to the user as to why this time is not available.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public StringType getDescriptionElement() { 
+          if (this.description == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PractitionerRoleNotAvailableComponent.description");
+            else if (Configuration.doAutoCreate())
+              this.description = new StringType(); // bb
+          return this.description;
+        }
+
+        public boolean hasDescriptionElement() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        public boolean hasDescription() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        /**
+         * @param value {@link #description} (The reason that can be presented to the user as to why this time is not available.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public PractitionerRoleNotAvailableComponent setDescriptionElement(StringType value) { 
+          this.description = value;
+          return this;
+        }
+
+        /**
+         * @return The reason that can be presented to the user as to why this time is not available.
+         */
+        public String getDescription() { 
+          return this.description == null ? null : this.description.getValue();
+        }
+
+        /**
+         * @param value The reason that can be presented to the user as to why this time is not available.
+         */
+        public PractitionerRoleNotAvailableComponent setDescription(String value) { 
+            if (this.description == null)
+              this.description = new StringType();
+            this.description.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #during} (Service is not available (seasonally or for a public holiday) from this date.)
+         */
+        public Period getDuring() { 
+          if (this.during == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PractitionerRoleNotAvailableComponent.during");
+            else if (Configuration.doAutoCreate())
+              this.during = new Period(); // cc
+          return this.during;
+        }
+
+        public boolean hasDuring() { 
+          return this.during != null && !this.during.isEmpty();
+        }
+
+        /**
+         * @param value {@link #during} (Service is not available (seasonally or for a public holiday) from this date.)
+         */
+        public PractitionerRoleNotAvailableComponent setDuring(Period value) { 
+          this.during = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("description", "string", "The reason that can be presented to the user as to why this time is not available.", 0, java.lang.Integer.MAX_VALUE, description));
+          childrenList.add(new Property("during", "Period", "Service is not available (seasonally or for a public holiday) from this date.", 0, java.lang.Integer.MAX_VALUE, during));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("during"))
+          this.during = castToPeriod(value); // Period
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("description")) {
+          throw new FHIRException("Cannot call addChild on a primitive type PractitionerRole.description");
+        }
+        else if (name.equals("during")) {
+          this.during = new Period();
+          return this.during;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public PractitionerRoleNotAvailableComponent copy() {
+        PractitionerRoleNotAvailableComponent dst = new PractitionerRoleNotAvailableComponent();
+        copyValues(dst);
+        dst.description = description == null ? null : description.copy();
+        dst.during = during == null ? null : during.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof PractitionerRoleNotAvailableComponent))
+          return false;
+        PractitionerRoleNotAvailableComponent o = (PractitionerRoleNotAvailableComponent) other;
+        return compareDeep(description, o.description, true) && compareDeep(during, o.during, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof PractitionerRoleNotAvailableComponent))
+          return false;
+        PractitionerRoleNotAvailableComponent o = (PractitionerRoleNotAvailableComponent) other;
+        return compareValues(description, o.description, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (description == null || description.isEmpty()) && (during == null || during.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "PractitionerRole.notAvailable";
+
+  }
+
+  }
 
     /**
      * Business Identifiers that are specific to a role/location.
@@ -75,7 +572,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * The organization where the Practitioner performs the roles associated.
      */
-    @Child(name = "organization", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "organization", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Organization where the roles are available", formalDefinition="The organization where the Practitioner performs the roles associated." )
     protected Reference organization;
 
@@ -101,7 +598,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * The location(s) at which this practitioner provides care.
      */
-    @Child(name = "location", type = {Location.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "location", type = {Location.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="The location(s) at which this practitioner provides care", formalDefinition="The location(s) at which this practitioner provides care." )
     protected List<Reference> location;
     /**
@@ -136,7 +633,28 @@ public class PractitionerRole extends DomainResource {
     @Description(shortDefinition="The period during which the practitioner is authorized to perform in these role(s)", formalDefinition="The period during which the person is authorized to act as a practitioner in these role(s) for the organization." )
     protected Period period;
 
-    private static final long serialVersionUID = 911842677L;
+    /**
+     * A collection of times that the Service Site is available.
+     */
+    @Child(name = "availableTime", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Times the Service Site is available", formalDefinition="A collection of times that the Service Site is available." )
+    protected List<PractitionerRoleAvailableTimeComponent> availableTime;
+
+    /**
+     * The HealthcareService is not available during this period of time due to the provided reason.
+     */
+    @Child(name = "notAvailable", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Not available during this time due to provided reason", formalDefinition="The HealthcareService is not available during this period of time due to the provided reason." )
+    protected List<PractitionerRoleNotAvailableComponent> notAvailable;
+
+    /**
+     * A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.
+     */
+    @Child(name = "availabilityExceptions", type = {StringType.class}, order=12, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Description of availability exceptions", formalDefinition="A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times." )
+    protected StringType availabilityExceptions;
+
+    private static final long serialVersionUID = -408504135L;
 
   /**
    * Constructor
@@ -584,6 +1102,135 @@ public class PractitionerRole extends DomainResource {
       return this;
     }
 
+    /**
+     * @return {@link #availableTime} (A collection of times that the Service Site is available.)
+     */
+    public List<PractitionerRoleAvailableTimeComponent> getAvailableTime() { 
+      if (this.availableTime == null)
+        this.availableTime = new ArrayList<PractitionerRoleAvailableTimeComponent>();
+      return this.availableTime;
+    }
+
+    public boolean hasAvailableTime() { 
+      if (this.availableTime == null)
+        return false;
+      for (PractitionerRoleAvailableTimeComponent item : this.availableTime)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #availableTime} (A collection of times that the Service Site is available.)
+     */
+    // syntactic sugar
+    public PractitionerRoleAvailableTimeComponent addAvailableTime() { //3
+      PractitionerRoleAvailableTimeComponent t = new PractitionerRoleAvailableTimeComponent();
+      if (this.availableTime == null)
+        this.availableTime = new ArrayList<PractitionerRoleAvailableTimeComponent>();
+      this.availableTime.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public PractitionerRole addAvailableTime(PractitionerRoleAvailableTimeComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.availableTime == null)
+        this.availableTime = new ArrayList<PractitionerRoleAvailableTimeComponent>();
+      this.availableTime.add(t);
+      return this;
+    }
+
+    /**
+     * @return {@link #notAvailable} (The HealthcareService is not available during this period of time due to the provided reason.)
+     */
+    public List<PractitionerRoleNotAvailableComponent> getNotAvailable() { 
+      if (this.notAvailable == null)
+        this.notAvailable = new ArrayList<PractitionerRoleNotAvailableComponent>();
+      return this.notAvailable;
+    }
+
+    public boolean hasNotAvailable() { 
+      if (this.notAvailable == null)
+        return false;
+      for (PractitionerRoleNotAvailableComponent item : this.notAvailable)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #notAvailable} (The HealthcareService is not available during this period of time due to the provided reason.)
+     */
+    // syntactic sugar
+    public PractitionerRoleNotAvailableComponent addNotAvailable() { //3
+      PractitionerRoleNotAvailableComponent t = new PractitionerRoleNotAvailableComponent();
+      if (this.notAvailable == null)
+        this.notAvailable = new ArrayList<PractitionerRoleNotAvailableComponent>();
+      this.notAvailable.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public PractitionerRole addNotAvailable(PractitionerRoleNotAvailableComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.notAvailable == null)
+        this.notAvailable = new ArrayList<PractitionerRoleNotAvailableComponent>();
+      this.notAvailable.add(t);
+      return this;
+    }
+
+    /**
+     * @return {@link #availabilityExceptions} (A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.). This is the underlying object with id, value and extensions. The accessor "getAvailabilityExceptions" gives direct access to the value
+     */
+    public StringType getAvailabilityExceptionsElement() { 
+      if (this.availabilityExceptions == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create PractitionerRole.availabilityExceptions");
+        else if (Configuration.doAutoCreate())
+          this.availabilityExceptions = new StringType(); // bb
+      return this.availabilityExceptions;
+    }
+
+    public boolean hasAvailabilityExceptionsElement() { 
+      return this.availabilityExceptions != null && !this.availabilityExceptions.isEmpty();
+    }
+
+    public boolean hasAvailabilityExceptions() { 
+      return this.availabilityExceptions != null && !this.availabilityExceptions.isEmpty();
+    }
+
+    /**
+     * @param value {@link #availabilityExceptions} (A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.). This is the underlying object with id, value and extensions. The accessor "getAvailabilityExceptions" gives direct access to the value
+     */
+    public PractitionerRole setAvailabilityExceptionsElement(StringType value) { 
+      this.availabilityExceptions = value;
+      return this;
+    }
+
+    /**
+     * @return A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.
+     */
+    public String getAvailabilityExceptions() { 
+      return this.availabilityExceptions == null ? null : this.availabilityExceptions.getValue();
+    }
+
+    /**
+     * @param value A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.
+     */
+    public PractitionerRole setAvailabilityExceptions(String value) { 
+      if (Utilities.noString(value))
+        this.availabilityExceptions = null;
+      else {
+        if (this.availabilityExceptions == null)
+          this.availabilityExceptions = new StringType();
+        this.availabilityExceptions.setValue(value);
+      }
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Business Identifiers that are specific to a role/location.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -596,6 +1243,9 @@ public class PractitionerRole extends DomainResource {
         childrenList.add(new Property("healthcareService", "Reference(HealthcareService)", "The list of healthcare services that this worker provides for this role's Organization/Location(s).", 0, java.lang.Integer.MAX_VALUE, healthcareService));
         childrenList.add(new Property("telecom", "ContactPoint", "Contact details that are specific to the role/location/service.", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("period", "Period", "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.", 0, java.lang.Integer.MAX_VALUE, period));
+        childrenList.add(new Property("availableTime", "", "A collection of times that the Service Site is available.", 0, java.lang.Integer.MAX_VALUE, availableTime));
+        childrenList.add(new Property("notAvailable", "", "The HealthcareService is not available during this period of time due to the provided reason.", 0, java.lang.Integer.MAX_VALUE, notAvailable));
+        childrenList.add(new Property("availabilityExceptions", "string", "A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.", 0, java.lang.Integer.MAX_VALUE, availabilityExceptions));
       }
 
       @Override
@@ -620,6 +1270,12 @@ public class PractitionerRole extends DomainResource {
           this.getTelecom().add(castToContactPoint(value));
         else if (name.equals("period"))
           this.period = castToPeriod(value); // Period
+        else if (name.equals("availableTime"))
+          this.getAvailableTime().add((PractitionerRoleAvailableTimeComponent) value);
+        else if (name.equals("notAvailable"))
+          this.getNotAvailable().add((PractitionerRoleNotAvailableComponent) value);
+        else if (name.equals("availabilityExceptions"))
+          this.availabilityExceptions = castToString(value); // StringType
         else
           super.setProperty(name, value);
       }
@@ -658,6 +1314,15 @@ public class PractitionerRole extends DomainResource {
         else if (name.equals("period")) {
           this.period = new Period();
           return this.period;
+        }
+        else if (name.equals("availableTime")) {
+          return addAvailableTime();
+        }
+        else if (name.equals("notAvailable")) {
+          return addNotAvailable();
+        }
+        else if (name.equals("availabilityExceptions")) {
+          throw new FHIRException("Cannot call addChild on a primitive type PractitionerRole.availabilityExceptions");
         }
         else
           return super.addChild(name);
@@ -705,6 +1370,17 @@ public class PractitionerRole extends DomainResource {
             dst.telecom.add(i.copy());
         };
         dst.period = period == null ? null : period.copy();
+        if (availableTime != null) {
+          dst.availableTime = new ArrayList<PractitionerRoleAvailableTimeComponent>();
+          for (PractitionerRoleAvailableTimeComponent i : availableTime)
+            dst.availableTime.add(i.copy());
+        };
+        if (notAvailable != null) {
+          dst.notAvailable = new ArrayList<PractitionerRoleNotAvailableComponent>();
+          for (PractitionerRoleNotAvailableComponent i : notAvailable)
+            dst.notAvailable.add(i.copy());
+        };
+        dst.availabilityExceptions = availabilityExceptions == null ? null : availabilityExceptions.copy();
         return dst;
       }
 
@@ -722,7 +1398,9 @@ public class PractitionerRole extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(practitioner, o.practitioner, true)
            && compareDeep(organization, o.organization, true) && compareDeep(role, o.role, true) && compareDeep(specialty, o.specialty, true)
            && compareDeep(location, o.location, true) && compareDeep(healthcareService, o.healthcareService, true)
-           && compareDeep(telecom, o.telecom, true) && compareDeep(period, o.period, true);
+           && compareDeep(telecom, o.telecom, true) && compareDeep(period, o.period, true) && compareDeep(availableTime, o.availableTime, true)
+           && compareDeep(notAvailable, o.notAvailable, true) && compareDeep(availabilityExceptions, o.availabilityExceptions, true)
+          ;
       }
 
       @Override
@@ -732,7 +1410,8 @@ public class PractitionerRole extends DomainResource {
         if (!(other instanceof PractitionerRole))
           return false;
         PractitionerRole o = (PractitionerRole) other;
-        return compareValues(active, o.active, true);
+        return compareValues(active, o.active, true) && compareValues(availabilityExceptions, o.availabilityExceptions, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -740,119 +1419,15 @@ public class PractitionerRole extends DomainResource {
            && (practitioner == null || practitioner.isEmpty()) && (organization == null || organization.isEmpty())
            && (role == null || role.isEmpty()) && (specialty == null || specialty.isEmpty()) && (location == null || location.isEmpty())
            && (healthcareService == null || healthcareService.isEmpty()) && (telecom == null || telecom.isEmpty())
-           && (period == null || period.isEmpty());
+           && (period == null || period.isEmpty()) && (availableTime == null || availableTime.isEmpty())
+           && (notAvailable == null || notAvailable.isEmpty()) && (availabilityExceptions == null || availabilityExceptions.isEmpty())
+          ;
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.PractitionerRole;
    }
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>A practitioner's Identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="PractitionerRole.identifier", description="A practitioner's Identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>A practitioner's Identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>specialty</b>
-   * <p>
-   * Description: <b>The practitioner has this specialty at an organization</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.specialty</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="specialty", path="PractitionerRole.specialty", description="The practitioner has this specialty at an organization", type="token" )
-  public static final String SP_SPECIALTY = "specialty";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>specialty</b>
-   * <p>
-   * Description: <b>The practitioner has this specialty at an organization</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.specialty</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SPECIALTY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SPECIALTY);
-
- /**
-   * Search parameter: <b>role</b>
-   * <p>
-   * Description: <b>The practitioner can perform this role at for the organization</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.role</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="role", path="PractitionerRole.role", description="The practitioner can perform this role at for the organization", type="token" )
-  public static final String SP_ROLE = "role";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>role</b>
-   * <p>
-   * Description: <b>The practitioner can perform this role at for the organization</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.role</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ROLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ROLE);
-
- /**
-   * Search parameter: <b>practitioner</b>
-   * <p>
-   * Description: <b>Practitioner that is able to provide the defined services for the organation</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>PractitionerRole.practitioner</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="practitioner", path="PractitionerRole.practitioner", description="Practitioner that is able to provide the defined services for the organation", type="reference" )
-  public static final String SP_PRACTITIONER = "practitioner";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>practitioner</b>
-   * <p>
-   * Description: <b>Practitioner that is able to provide the defined services for the organation</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>PractitionerRole.practitioner</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRACTITIONER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRACTITIONER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>PractitionerRole:practitioner</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRACTITIONER = new ca.uhn.fhir.model.api.Include("PractitionerRole:practitioner").toLocked();
-
- /**
-   * Search parameter: <b>phone</b>
-   * <p>
-   * Description: <b>A value in a phone contact</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.telecom(system=phone)</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="phone", path="PractitionerRole.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
-  public static final String SP_PHONE = "phone";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>phone</b>
-   * <p>
-   * Description: <b>A value in a phone contact</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.telecom(system=phone)</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PHONE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PHONE);
 
  /**
    * Search parameter: <b>organization</b>
@@ -881,24 +1456,50 @@ public class PractitionerRole extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("PractitionerRole:organization").toLocked();
 
  /**
-   * Search parameter: <b>telecom</b>
+   * Search parameter: <b>phone</b>
    * <p>
-   * Description: <b>The value in any kind of contact</b><br>
+   * Description: <b>A value in a phone contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.telecom</b><br>
+   * Path: <b>PractitionerRole.telecom(system=phone)</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="telecom", path="PractitionerRole.telecom", description="The value in any kind of contact", type="token" )
-  public static final String SP_TELECOM = "telecom";
+  @SearchParamDefinition(name="phone", path="PractitionerRole.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
+  public static final String SP_PHONE = "phone";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>telecom</b>
+   * <b>Fluent Client</b> search parameter constant for <b>phone</b>
    * <p>
-   * Description: <b>The value in any kind of contact</b><br>
+   * Description: <b>A value in a phone contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.telecom</b><br>
+   * Path: <b>PractitionerRole.telecom(system=phone)</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TELECOM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TELECOM);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PHONE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PHONE);
+
+ /**
+   * Search parameter: <b>practitioner</b>
+   * <p>
+   * Description: <b>Practitioner that is able to provide the defined services for the organation</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>PractitionerRole.practitioner</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="practitioner", path="PractitionerRole.practitioner", description="Practitioner that is able to provide the defined services for the organation", type="reference" )
+  public static final String SP_PRACTITIONER = "practitioner";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>practitioner</b>
+   * <p>
+   * Description: <b>Practitioner that is able to provide the defined services for the organation</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>PractitionerRole.practitioner</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRACTITIONER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRACTITIONER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>PractitionerRole:practitioner</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRACTITIONER = new ca.uhn.fhir.model.api.Include("PractitionerRole:practitioner").toLocked();
 
  /**
    * Search parameter: <b>location</b>
@@ -945,6 +1546,86 @@ public class PractitionerRole extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam EMAIL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EMAIL);
+
+ /**
+   * Search parameter: <b>telecom</b>
+   * <p>
+   * Description: <b>The value in any kind of contact</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PractitionerRole.telecom</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="telecom", path="PractitionerRole.telecom", description="The value in any kind of contact", type="token" )
+  public static final String SP_TELECOM = "telecom";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>telecom</b>
+   * <p>
+   * Description: <b>The value in any kind of contact</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PractitionerRole.telecom</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TELECOM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TELECOM);
+
+ /**
+   * Search parameter: <b>role</b>
+   * <p>
+   * Description: <b>The practitioner can perform this role at for the organization</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PractitionerRole.role</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="role", path="PractitionerRole.role", description="The practitioner can perform this role at for the organization", type="token" )
+  public static final String SP_ROLE = "role";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>role</b>
+   * <p>
+   * Description: <b>The practitioner can perform this role at for the organization</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PractitionerRole.role</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ROLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ROLE);
+
+ /**
+   * Search parameter: <b>specialty</b>
+   * <p>
+   * Description: <b>The practitioner has this specialty at an organization</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PractitionerRole.specialty</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="specialty", path="PractitionerRole.specialty", description="The practitioner has this specialty at an organization", type="token" )
+  public static final String SP_SPECIALTY = "specialty";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>specialty</b>
+   * <p>
+   * Description: <b>The practitioner has this specialty at an organization</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PractitionerRole.specialty</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SPECIALTY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SPECIALTY);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>A practitioner's Identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PractitionerRole.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="PractitionerRole.identifier", description="A practitioner's Identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>A practitioner's Identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PractitionerRole.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

@@ -4430,7 +4430,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If the structure is not abstract, or there's a constrained type, then there SHALL be a base</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">base or abstract = 'true' or constrainedType</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">base or abstract = true or constrainedType</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">(f:abstract/@value=true()) or not(exists(f:constrainedType)) or exists(f:base)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

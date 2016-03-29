@@ -135,7 +135,7 @@
   Context = Procedure
   English = Reason not performed is only permitted if notPerformed indicator is true
   XPath = not(exists(f:reasonNotPerformed)) or f:notPerformed/@value=true()
-  Expression = reasonNotPerformed.empty() or notPerformed = \'true\'
+  Expression = reasonNotPerformed.empty() or notPerformed = true
 
 === Sheet Data Elements =====================================
 

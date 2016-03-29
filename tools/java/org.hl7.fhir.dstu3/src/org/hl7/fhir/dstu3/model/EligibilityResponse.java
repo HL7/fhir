@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1671,24 +1671,50 @@ public class EligibilityResponse extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>requestprovideridentifier</b>
+   * Search parameter: <b>requestorganizationreference</b>
    * <p>
-   * Description: <b>The EligibilityRequest provider</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EligibilityResponse.requestProviderIdentifier</b><br>
+   * Description: <b>The EligibilityRequest organization</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EligibilityResponse.requestOrganizationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requestprovideridentifier", path="EligibilityResponse.requestProviderIdentifier", description="The EligibilityRequest provider", type="token" )
-  public static final String SP_REQUESTPROVIDERIDENTIFIER = "requestprovideridentifier";
+  @SearchParamDefinition(name="requestorganizationreference", path="EligibilityResponse.requestOrganizationReference", description="The EligibilityRequest organization", type="reference" )
+  public static final String SP_REQUESTORGANIZATIONREFERENCE = "requestorganizationreference";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>requestprovideridentifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>requestorganizationreference</b>
    * <p>
-   * Description: <b>The EligibilityRequest provider</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EligibilityResponse.requestProviderIdentifier</b><br>
+   * Description: <b>The EligibilityRequest organization</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EligibilityResponse.requestOrganizationReference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam REQUESTPROVIDERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REQUESTPROVIDERIDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTORGANIZATIONREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTORGANIZATIONREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EligibilityResponse:requestorganizationreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("EligibilityResponse:requestorganizationreference").toLocked();
+
+ /**
+   * Search parameter: <b>created</b>
+   * <p>
+   * Description: <b>The creation date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>EligibilityResponse.created</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="created", path="EligibilityResponse.created", description="The creation date", type="date" )
+  public static final String SP_CREATED = "created";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>created</b>
+   * <p>
+   * Description: <b>The creation date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>EligibilityResponse.created</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
 
  /**
    * Search parameter: <b>requestorganizationidentifier</b>
@@ -1709,6 +1735,164 @@ public class EligibilityResponse extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam REQUESTORGANIZATIONIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REQUESTORGANIZATIONIDENTIFIER);
+
+ /**
+   * Search parameter: <b>requestprovideridentifier</b>
+   * <p>
+   * Description: <b>The EligibilityRequest provider</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EligibilityResponse.requestProviderIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="requestprovideridentifier", path="EligibilityResponse.requestProviderIdentifier", description="The EligibilityRequest provider", type="token" )
+  public static final String SP_REQUESTPROVIDERIDENTIFIER = "requestprovideridentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>requestprovideridentifier</b>
+   * <p>
+   * Description: <b>The EligibilityRequest provider</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EligibilityResponse.requestProviderIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam REQUESTPROVIDERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REQUESTPROVIDERIDENTIFIER);
+
+ /**
+   * Search parameter: <b>requestidentifier</b>
+   * <p>
+   * Description: <b>The EligibilityRequest reference</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EligibilityResponse.requestIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="requestidentifier", path="EligibilityResponse.requestIdentifier", description="The EligibilityRequest reference", type="token" )
+  public static final String SP_REQUESTIDENTIFIER = "requestidentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>requestidentifier</b>
+   * <p>
+   * Description: <b>The EligibilityRequest reference</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EligibilityResponse.requestIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam REQUESTIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REQUESTIDENTIFIER);
+
+ /**
+   * Search parameter: <b>requestreference</b>
+   * <p>
+   * Description: <b>The EligibilityRequest reference</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EligibilityResponse.requestReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="requestreference", path="EligibilityResponse.requestReference", description="The EligibilityRequest reference", type="reference" )
+  public static final String SP_REQUESTREFERENCE = "requestreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>requestreference</b>
+   * <p>
+   * Description: <b>The EligibilityRequest reference</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EligibilityResponse.requestReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EligibilityResponse:requestreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTREFERENCE = new ca.uhn.fhir.model.api.Include("EligibilityResponse:requestreference").toLocked();
+
+ /**
+   * Search parameter: <b>organizationidentifier</b>
+   * <p>
+   * Description: <b>The organization which generated this resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EligibilityResponse.organizationIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="organizationidentifier", path="EligibilityResponse.organizationIdentifier", description="The organization which generated this resource", type="token" )
+  public static final String SP_ORGANIZATIONIDENTIFIER = "organizationidentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>organizationidentifier</b>
+   * <p>
+   * Description: <b>The organization which generated this resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EligibilityResponse.organizationIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONIDENTIFIER);
+
+ /**
+   * Search parameter: <b>requestproviderreference</b>
+   * <p>
+   * Description: <b>The EligibilityRequest provider</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EligibilityResponse.requestProviderReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="requestproviderreference", path="EligibilityResponse.requestProviderReference", description="The EligibilityRequest provider", type="reference" )
+  public static final String SP_REQUESTPROVIDERREFERENCE = "requestproviderreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>requestproviderreference</b>
+   * <p>
+   * Description: <b>The EligibilityRequest provider</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EligibilityResponse.requestProviderReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTPROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTPROVIDERREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EligibilityResponse:requestproviderreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTPROVIDERREFERENCE = new ca.uhn.fhir.model.api.Include("EligibilityResponse:requestproviderreference").toLocked();
+
+ /**
+   * Search parameter: <b>organizationreference</b>
+   * <p>
+   * Description: <b>The organization which generated this resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EligibilityResponse.organizationReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="organizationreference", path="EligibilityResponse.organizationReference", description="The organization which generated this resource", type="reference" )
+  public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>
+   * <p>
+   * Description: <b>The organization which generated this resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EligibilityResponse.organizationReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATIONREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATIONREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EligibilityResponse:organizationreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("EligibilityResponse:organizationreference").toLocked();
+
+ /**
+   * Search parameter: <b>outcome</b>
+   * <p>
+   * Description: <b>The processing outcome</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EligibilityResponse.outcome</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="outcome", path="EligibilityResponse.outcome", description="The processing outcome", type="token" )
+  public static final String SP_OUTCOME = "outcome";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>outcome</b>
+   * <p>
+   * Description: <b>The processing outcome</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EligibilityResponse.outcome</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam OUTCOME = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_OUTCOME);
 
  /**
    * Search parameter: <b>identifier</b>
@@ -1749,190 +1933,6 @@ public class EligibilityResponse extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DISPOSITION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DISPOSITION);
-
- /**
-   * Search parameter: <b>organizationidentifier</b>
-   * <p>
-   * Description: <b>The organization which generated this resource</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EligibilityResponse.organizationIdentifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="organizationidentifier", path="EligibilityResponse.organizationIdentifier", description="The organization which generated this resource", type="token" )
-  public static final String SP_ORGANIZATIONIDENTIFIER = "organizationidentifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>organizationidentifier</b>
-   * <p>
-   * Description: <b>The organization which generated this resource</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EligibilityResponse.organizationIdentifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONIDENTIFIER);
-
- /**
-   * Search parameter: <b>created</b>
-   * <p>
-   * Description: <b>The creation date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>EligibilityResponse.created</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="created", path="EligibilityResponse.created", description="The creation date", type="date" )
-  public static final String SP_CREATED = "created";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>created</b>
-   * <p>
-   * Description: <b>The creation date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>EligibilityResponse.created</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
-
- /**
-   * Search parameter: <b>requestidentifier</b>
-   * <p>
-   * Description: <b>The EligibilityRequest reference</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EligibilityResponse.requestIdentifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="requestidentifier", path="EligibilityResponse.requestIdentifier", description="The EligibilityRequest reference", type="token" )
-  public static final String SP_REQUESTIDENTIFIER = "requestidentifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>requestidentifier</b>
-   * <p>
-   * Description: <b>The EligibilityRequest reference</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EligibilityResponse.requestIdentifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam REQUESTIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REQUESTIDENTIFIER);
-
- /**
-   * Search parameter: <b>organizationreference</b>
-   * <p>
-   * Description: <b>The organization which generated this resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.organizationReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="organizationreference", path="EligibilityResponse.organizationReference", description="The organization which generated this resource", type="reference" )
-  public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>
-   * <p>
-   * Description: <b>The organization which generated this resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.organizationReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATIONREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATIONREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EligibilityResponse:organizationreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("EligibilityResponse:organizationreference").toLocked();
-
- /**
-   * Search parameter: <b>requestproviderreference</b>
-   * <p>
-   * Description: <b>The EligibilityRequest provider</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.requestProviderReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="requestproviderreference", path="EligibilityResponse.requestProviderReference", description="The EligibilityRequest provider", type="reference" )
-  public static final String SP_REQUESTPROVIDERREFERENCE = "requestproviderreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>requestproviderreference</b>
-   * <p>
-   * Description: <b>The EligibilityRequest provider</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.requestProviderReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTPROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTPROVIDERREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EligibilityResponse:requestproviderreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTPROVIDERREFERENCE = new ca.uhn.fhir.model.api.Include("EligibilityResponse:requestproviderreference").toLocked();
-
- /**
-   * Search parameter: <b>requestorganizationreference</b>
-   * <p>
-   * Description: <b>The EligibilityRequest organization</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.requestOrganizationReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="requestorganizationreference", path="EligibilityResponse.requestOrganizationReference", description="The EligibilityRequest organization", type="reference" )
-  public static final String SP_REQUESTORGANIZATIONREFERENCE = "requestorganizationreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>requestorganizationreference</b>
-   * <p>
-   * Description: <b>The EligibilityRequest organization</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.requestOrganizationReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTORGANIZATIONREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTORGANIZATIONREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EligibilityResponse:requestorganizationreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("EligibilityResponse:requestorganizationreference").toLocked();
-
- /**
-   * Search parameter: <b>requestreference</b>
-   * <p>
-   * Description: <b>The EligibilityRequest reference</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.requestReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="requestreference", path="EligibilityResponse.requestReference", description="The EligibilityRequest reference", type="reference" )
-  public static final String SP_REQUESTREFERENCE = "requestreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>requestreference</b>
-   * <p>
-   * Description: <b>The EligibilityRequest reference</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.requestReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EligibilityResponse:requestreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTREFERENCE = new ca.uhn.fhir.model.api.Include("EligibilityResponse:requestreference").toLocked();
-
- /**
-   * Search parameter: <b>outcome</b>
-   * <p>
-   * Description: <b>The processing outcome</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EligibilityResponse.outcome</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="outcome", path="EligibilityResponse.outcome", description="The processing outcome", type="token" )
-  public static final String SP_OUTCOME = "outcome";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>outcome</b>
-   * <p>
-   * Description: <b>The processing outcome</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EligibilityResponse.outcome</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam OUTCOME = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_OUTCOME);
 
 
 }

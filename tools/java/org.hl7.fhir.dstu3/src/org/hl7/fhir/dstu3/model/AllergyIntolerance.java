@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -2171,6 +2171,66 @@ public class AllergyIntolerance extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>active | unconfirmed | confirmed | inactive | resolved | refuted | entered-in-error</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AllergyIntolerance.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="AllergyIntolerance.status", description="active | unconfirmed | confirmed | inactive | resolved | refuted | entered-in-error", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>active | unconfirmed | confirmed | inactive | resolved | refuted | entered-in-error</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AllergyIntolerance.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+
+ /**
+   * Search parameter: <b>onset</b>
+   * <p>
+   * Description: <b>Date(/time) when manifestations showed</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>AllergyIntolerance.reaction.onset</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="onset", path="AllergyIntolerance.reaction.onset", description="Date(/time) when manifestations showed", type="date" )
+  public static final String SP_ONSET = "onset";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>onset</b>
+   * <p>
+   * Description: <b>Date(/time) when manifestations showed</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>AllergyIntolerance.reaction.onset</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam ONSET = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ONSET);
+
+ /**
+   * Search parameter: <b>last-date</b>
+   * <p>
+   * Description: <b>Date(/time) of last known occurrence of a reaction</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>AllergyIntolerance.lastOccurence</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="last-date", path="AllergyIntolerance.lastOccurence", description="Date(/time) of last known occurrence of a reaction", type="date" )
+  public static final String SP_LAST_DATE = "last-date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>last-date</b>
+   * <p>
+   * Description: <b>Date(/time) of last known occurrence of a reaction</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>AllergyIntolerance.lastOccurence</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam LAST_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_LAST_DATE);
+
+ /**
    * Search parameter: <b>severity</b>
    * <p>
    * Description: <b>mild | moderate | severe (of event as a whole)</b><br>
@@ -2189,6 +2249,26 @@ public class AllergyIntolerance extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SEVERITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SEVERITY);
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>allergy | intolerance - Underlying mechanism (if known)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AllergyIntolerance.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="AllergyIntolerance.type", description="allergy | intolerance - Underlying mechanism (if known)", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>allergy | intolerance - Underlying mechanism (if known)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AllergyIntolerance.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
    * Search parameter: <b>date</b>
@@ -2211,70 +2291,30 @@ public class AllergyIntolerance extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>reporter</b>
    * <p>
-   * Description: <b>External ids for this item</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AllergyIntolerance.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="AllergyIntolerance.identifier", description="External ids for this item", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>External ids for this item</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AllergyIntolerance.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>manifestation</b>
-   * <p>
-   * Description: <b>Clinical symptoms/signs associated with the Event</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AllergyIntolerance.reaction.manifestation</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="manifestation", path="AllergyIntolerance.reaction.manifestation", description="Clinical symptoms/signs associated with the Event", type="token" )
-  public static final String SP_MANIFESTATION = "manifestation";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>manifestation</b>
-   * <p>
-   * Description: <b>Clinical symptoms/signs associated with the Event</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AllergyIntolerance.reaction.manifestation</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam MANIFESTATION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_MANIFESTATION);
-
- /**
-   * Search parameter: <b>recorder</b>
-   * <p>
-   * Description: <b>Who recorded the sensitivity</b><br>
+   * Description: <b>Source of the information about the allergy</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>AllergyIntolerance.recorder</b><br>
+   * Path: <b>AllergyIntolerance.reporter</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="recorder", path="AllergyIntolerance.recorder", description="Who recorded the sensitivity", type="reference" )
-  public static final String SP_RECORDER = "recorder";
+  @SearchParamDefinition(name="reporter", path="AllergyIntolerance.reporter", description="Source of the information about the allergy", type="reference" )
+  public static final String SP_REPORTER = "reporter";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>recorder</b>
+   * <b>Fluent Client</b> search parameter constant for <b>reporter</b>
    * <p>
-   * Description: <b>Who recorded the sensitivity</b><br>
+   * Description: <b>Source of the information about the allergy</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>AllergyIntolerance.recorder</b><br>
+   * Path: <b>AllergyIntolerance.reporter</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RECORDER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RECORDER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REPORTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REPORTER);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>AllergyIntolerance:recorder</b>".
+   * the path value of "<b>AllergyIntolerance:reporter</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_RECORDER = new ca.uhn.fhir.model.api.Include("AllergyIntolerance:recorder").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REPORTER = new ca.uhn.fhir.model.api.Include("AllergyIntolerance:reporter").toLocked();
 
  /**
    * Search parameter: <b>substance</b>
@@ -2317,90 +2357,24 @@ public class AllergyIntolerance extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CRITICALITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CRITICALITY);
 
  /**
-   * Search parameter: <b>reporter</b>
+   * Search parameter: <b>category</b>
    * <p>
-   * Description: <b>Source of the information about the allergy</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>AllergyIntolerance.reporter</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="reporter", path="AllergyIntolerance.reporter", description="Source of the information about the allergy", type="reference" )
-  public static final String SP_REPORTER = "reporter";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>reporter</b>
-   * <p>
-   * Description: <b>Source of the information about the allergy</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>AllergyIntolerance.reporter</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REPORTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REPORTER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>AllergyIntolerance:reporter</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_REPORTER = new ca.uhn.fhir.model.api.Include("AllergyIntolerance:reporter").toLocked();
-
- /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>allergy | intolerance - Underlying mechanism (if known)</b><br>
+   * Description: <b>food | medication | environment | other - Category of Substance</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>AllergyIntolerance.type</b><br>
+   * Path: <b>AllergyIntolerance.category</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="type", path="AllergyIntolerance.type", description="allergy | intolerance - Underlying mechanism (if known)", type="token" )
-  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="category", path="AllergyIntolerance.category", description="food | medication | environment | other - Category of Substance", type="token" )
+  public static final String SP_CATEGORY = "category";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <b>Fluent Client</b> search parameter constant for <b>category</b>
    * <p>
-   * Description: <b>allergy | intolerance - Underlying mechanism (if known)</b><br>
+   * Description: <b>food | medication | environment | other - Category of Substance</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>AllergyIntolerance.type</b><br>
+   * Path: <b>AllergyIntolerance.category</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>onset</b>
-   * <p>
-   * Description: <b>Date(/time) when manifestations showed</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>AllergyIntolerance.reaction.onset</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="onset", path="AllergyIntolerance.reaction.onset", description="Date(/time) when manifestations showed", type="date" )
-  public static final String SP_ONSET = "onset";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>onset</b>
-   * <p>
-   * Description: <b>Date(/time) when manifestations showed</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>AllergyIntolerance.reaction.onset</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam ONSET = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ONSET);
-
- /**
-   * Search parameter: <b>route</b>
-   * <p>
-   * Description: <b>How the subject was exposed to the substance</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AllergyIntolerance.reaction.exposureRoute</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="route", path="AllergyIntolerance.reaction.exposureRoute", description="How the subject was exposed to the substance", type="token" )
-  public static final String SP_ROUTE = "route";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>route</b>
-   * <p>
-   * Description: <b>How the subject was exposed to the substance</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AllergyIntolerance.reaction.exposureRoute</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ROUTE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ROUTE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
  /**
    * Search parameter: <b>patient</b>
@@ -2429,64 +2403,90 @@ public class AllergyIntolerance extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("AllergyIntolerance:patient").toLocked();
 
  /**
-   * Search parameter: <b>category</b>
+   * Search parameter: <b>recorder</b>
    * <p>
-   * Description: <b>food | medication | environment | other - Category of Substance</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AllergyIntolerance.category</b><br>
+   * Description: <b>Who recorded the sensitivity</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>AllergyIntolerance.recorder</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="category", path="AllergyIntolerance.category", description="food | medication | environment | other - Category of Substance", type="token" )
-  public static final String SP_CATEGORY = "category";
+  @SearchParamDefinition(name="recorder", path="AllergyIntolerance.recorder", description="Who recorded the sensitivity", type="reference" )
+  public static final String SP_RECORDER = "recorder";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <b>Fluent Client</b> search parameter constant for <b>recorder</b>
    * <p>
-   * Description: <b>food | medication | environment | other - Category of Substance</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AllergyIntolerance.category</b><br>
+   * Description: <b>Who recorded the sensitivity</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>AllergyIntolerance.recorder</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RECORDER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RECORDER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>AllergyIntolerance:recorder</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_RECORDER = new ca.uhn.fhir.model.api.Include("AllergyIntolerance:recorder").toLocked();
 
  /**
-   * Search parameter: <b>last-date</b>
+   * Search parameter: <b>route</b>
    * <p>
-   * Description: <b>Date(/time) of last known occurrence of a reaction</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>AllergyIntolerance.lastOccurence</b><br>
+   * Description: <b>How the subject was exposed to the substance</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AllergyIntolerance.reaction.exposureRoute</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="last-date", path="AllergyIntolerance.lastOccurence", description="Date(/time) of last known occurrence of a reaction", type="date" )
-  public static final String SP_LAST_DATE = "last-date";
+  @SearchParamDefinition(name="route", path="AllergyIntolerance.reaction.exposureRoute", description="How the subject was exposed to the substance", type="token" )
+  public static final String SP_ROUTE = "route";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>last-date</b>
+   * <b>Fluent Client</b> search parameter constant for <b>route</b>
    * <p>
-   * Description: <b>Date(/time) of last known occurrence of a reaction</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>AllergyIntolerance.lastOccurence</b><br>
+   * Description: <b>How the subject was exposed to the substance</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AllergyIntolerance.reaction.exposureRoute</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam LAST_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_LAST_DATE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ROUTE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ROUTE);
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>active | unconfirmed | confirmed | inactive | resolved | refuted | entered-in-error</b><br>
+   * Description: <b>External ids for this item</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>AllergyIntolerance.status</b><br>
+   * Path: <b>AllergyIntolerance.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="AllergyIntolerance.status", description="active | unconfirmed | confirmed | inactive | resolved | refuted | entered-in-error", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="identifier", path="AllergyIntolerance.identifier", description="External ids for this item", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>active | unconfirmed | confirmed | inactive | resolved | refuted | entered-in-error</b><br>
+   * Description: <b>External ids for this item</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>AllergyIntolerance.status</b><br>
+   * Path: <b>AllergyIntolerance.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>manifestation</b>
+   * <p>
+   * Description: <b>Clinical symptoms/signs associated with the Event</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AllergyIntolerance.reaction.manifestation</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="manifestation", path="AllergyIntolerance.reaction.manifestation", description="Clinical symptoms/signs associated with the Event", type="token" )
+  public static final String SP_MANIFESTATION = "manifestation";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>manifestation</b>
+   * <p>
+   * Description: <b>Clinical symptoms/signs associated with the Event</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AllergyIntolerance.reaction.manifestation</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam MANIFESTATION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_MANIFESTATION);
 
 
 }

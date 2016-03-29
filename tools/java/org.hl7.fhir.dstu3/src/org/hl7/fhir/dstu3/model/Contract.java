@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -4031,76 +4031,82 @@ public class Contract extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>topic</b>
    * <p>
-   * Description: <b>The identity of the contract</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Contract.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Contract.identifier", description="The identity of the contract", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>The identity of the contract</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Contract.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>agent</b>
-   * <p>
-   * Description: <b>Agent to the Contact</b><br>
+   * Description: <b>The identity of the topic of the contract</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.agent.actor</b><br>
+   * Path: <b>Contract.topic</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="agent", path="Contract.agent.actor", description="Agent to the Contact", type="reference" )
-  public static final String SP_AGENT = "agent";
+  @SearchParamDefinition(name="topic", path="Contract.topic", description="The identity of the topic of the contract", type="reference" )
+  public static final String SP_TOPIC = "topic";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>agent</b>
+   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
    * <p>
-   * Description: <b>Agent to the Contact</b><br>
+   * Description: <b>The identity of the topic of the contract</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.agent.actor</b><br>
+   * Path: <b>Contract.topic</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AGENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AGENT);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TOPIC);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:agent</b>".
+   * the path value of "<b>Contract:topic</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AGENT = new ca.uhn.fhir.model.api.Include("Contract:agent").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_TOPIC = new ca.uhn.fhir.model.api.Include("Contract:topic").toLocked();
 
  /**
-   * Search parameter: <b>ttopic</b>
+   * Search parameter: <b>authority</b>
    * <p>
-   * Description: <b>The identity of the topic of the contract terms</b><br>
+   * Description: <b>The authority of the contract</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.term.topic</b><br>
+   * Path: <b>Contract.authority</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="ttopic", path="Contract.term.topic", description="The identity of the topic of the contract terms", type="reference" )
-  public static final String SP_TTOPIC = "ttopic";
+  @SearchParamDefinition(name="authority", path="Contract.authority", description="The authority of the contract", type="reference" )
+  public static final String SP_AUTHORITY = "authority";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>ttopic</b>
+   * <b>Fluent Client</b> search parameter constant for <b>authority</b>
    * <p>
-   * Description: <b>The identity of the topic of the contract terms</b><br>
+   * Description: <b>The authority of the contract</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.term.topic</b><br>
+   * Path: <b>Contract.authority</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TTOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TTOPIC);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHORITY = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHORITY);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:ttopic</b>".
+   * the path value of "<b>Contract:authority</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_TTOPIC = new ca.uhn.fhir.model.api.Include("Contract:ttopic").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHORITY = new ca.uhn.fhir.model.api.Include("Contract:authority").toLocked();
+
+ /**
+   * Search parameter: <b>signer</b>
+   * <p>
+   * Description: <b>Contract Signatory Party</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.signer.party</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="signer", path="Contract.signer.party", description="Contract Signatory Party", type="reference" )
+  public static final String SP_SIGNER = "signer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>signer</b>
+   * <p>
+   * Description: <b>Contract Signatory Party</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.signer.party</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SIGNER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SIGNER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Contract:signer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SIGNER = new ca.uhn.fhir.model.api.Include("Contract:signer").toLocked();
 
  /**
    * Search parameter: <b>patient</b>
@@ -4155,30 +4161,24 @@ public class Contract extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Contract:subject").toLocked();
 
  /**
-   * Search parameter: <b>authority</b>
+   * Search parameter: <b>issued</b>
    * <p>
-   * Description: <b>The authority of the contract</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.authority</b><br>
+   * Description: <b>The date/time the contract was issued</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Contract.issued</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="authority", path="Contract.authority", description="The authority of the contract", type="reference" )
-  public static final String SP_AUTHORITY = "authority";
+  @SearchParamDefinition(name="issued", path="Contract.issued", description="The date/time the contract was issued", type="date" )
+  public static final String SP_ISSUED = "issued";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>authority</b>
+   * <b>Fluent Client</b> search parameter constant for <b>issued</b>
    * <p>
-   * Description: <b>The authority of the contract</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.authority</b><br>
+   * Description: <b>The date/time the contract was issued</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Contract.issued</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHORITY = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHORITY);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:authority</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHORITY = new ca.uhn.fhir.model.api.Include("Contract:authority").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam ISSUED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ISSUED);
 
  /**
    * Search parameter: <b>domain</b>
@@ -4207,76 +4207,76 @@ public class Contract extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_DOMAIN = new ca.uhn.fhir.model.api.Include("Contract:domain").toLocked();
 
  /**
-   * Search parameter: <b>topic</b>
+   * Search parameter: <b>ttopic</b>
    * <p>
-   * Description: <b>The identity of the topic of the contract</b><br>
+   * Description: <b>The identity of the topic of the contract terms</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.topic</b><br>
+   * Path: <b>Contract.term.topic</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="topic", path="Contract.topic", description="The identity of the topic of the contract", type="reference" )
-  public static final String SP_TOPIC = "topic";
+  @SearchParamDefinition(name="ttopic", path="Contract.term.topic", description="The identity of the topic of the contract terms", type="reference" )
+  public static final String SP_TTOPIC = "ttopic";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <b>Fluent Client</b> search parameter constant for <b>ttopic</b>
    * <p>
-   * Description: <b>The identity of the topic of the contract</b><br>
+   * Description: <b>The identity of the topic of the contract terms</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.topic</b><br>
+   * Path: <b>Contract.term.topic</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TOPIC);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TTOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TTOPIC);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:topic</b>".
+   * the path value of "<b>Contract:ttopic</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_TOPIC = new ca.uhn.fhir.model.api.Include("Contract:topic").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_TTOPIC = new ca.uhn.fhir.model.api.Include("Contract:ttopic").toLocked();
 
  /**
-   * Search parameter: <b>issued</b>
+   * Search parameter: <b>agent</b>
    * <p>
-   * Description: <b>The date/time the contract was issued</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Contract.issued</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="issued", path="Contract.issued", description="The date/time the contract was issued", type="date" )
-  public static final String SP_ISSUED = "issued";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>issued</b>
-   * <p>
-   * Description: <b>The date/time the contract was issued</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Contract.issued</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam ISSUED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ISSUED);
-
- /**
-   * Search parameter: <b>signer</b>
-   * <p>
-   * Description: <b>Contract Signatory Party</b><br>
+   * Description: <b>Agent to the Contact</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.signer.party</b><br>
+   * Path: <b>Contract.agent.actor</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="signer", path="Contract.signer.party", description="Contract Signatory Party", type="reference" )
-  public static final String SP_SIGNER = "signer";
+  @SearchParamDefinition(name="agent", path="Contract.agent.actor", description="Agent to the Contact", type="reference" )
+  public static final String SP_AGENT = "agent";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>signer</b>
+   * <b>Fluent Client</b> search parameter constant for <b>agent</b>
    * <p>
-   * Description: <b>Contract Signatory Party</b><br>
+   * Description: <b>Agent to the Contact</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.signer.party</b><br>
+   * Path: <b>Contract.agent.actor</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SIGNER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SIGNER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AGENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AGENT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:signer</b>".
+   * the path value of "<b>Contract:agent</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SIGNER = new ca.uhn.fhir.model.api.Include("Contract:signer").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AGENT = new ca.uhn.fhir.model.api.Include("Contract:agent").toLocked();
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>The identity of the contract</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Contract.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Contract.identifier", description="The identity of the contract", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>The identity of the contract</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Contract.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

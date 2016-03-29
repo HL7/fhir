@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -271,7 +272,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		public List<Base> listChildrenByName(String child_name) {
 			List<Base> list = new ArrayList<Base>();
 			List<WrapperElement> children = new ArrayList<WrapperElement>();
-			wrapper.getNamedChildrenWithWildcard(child_name, children);
+			wrapper.getNamedChildrenWithTails(child_name, children, services.typeTails());
 			for (WrapperElement child : children) {
 				ElementDefinitionOutcome definition;
 				try {
@@ -2611,10 +2612,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 	private void checkInvariants(List<ValidationMessage> errors, String path, StructureDefinition profile, ElementDefinition ed, String typename, String typeProfile, WrapperElement resource, WrapperElement element) throws FHIRException, FHIRException {
 		for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
-			if (inv.hasExtension("http://hl7.org/fhir/StructureDefinition/structuredefinition-expression")) {
+			if (inv.hasExpression()) {
 				ResourceOnWrapper res = new ResourceOnWrapper(context, resource, resource.getProfile());
 				BaseOnWrapper e = new BaseOnWrapper(context, element, profile, ed, typename, typeProfile);
-				String expr = inv.getExtensionString("http://hl7.org/fhir/StructureDefinition/structuredefinition-expression");
+				String expr = inv.getExpression();
 				FHIRPathEngine fpe = new FHIRPathEngine(context);
 		    boolean ok = fpe.evaluateToBoolean(res, e, expr);
 				if (!ok) {
@@ -2852,13 +2853,21 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 				list.add(new DOMWrapperElement(e));
 		}
 
-		@Override
-		public void getNamedChildrenWithWildcard(String name, List<WrapperElement> list) {
-			List<Element> el = new ArrayList<Element>();
-			XMLUtil.getNamedChildrenWithWildcard(element, name, el);
-			for (Element e : el)
-				list.add(new DOMWrapperElement(e));
-		}
+    @Override
+    public void getNamedChildrenWithWildcard(String name, List<WrapperElement> list) {
+      List<Element> el = new ArrayList<Element>();
+      XMLUtil.getNamedChildrenWithWildcard(element, name, el);
+      for (Element e : el)
+        list.add(new DOMWrapperElement(e));
+    }
+
+    @Override
+    public void getNamedChildrenWithTails(String name, List<WrapperElement> list, Set<String> typeTails) {
+      List<Element> el = new ArrayList<Element>();
+      XMLUtil.getNamedChildrenWithTails(element, name, el, typeTails);
+      for (Element e : el)
+        list.add(new DOMWrapperElement(e));
+    }
 
 		@Override
 		public String getNamedChildValue(String name) {
@@ -3078,10 +3087,19 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		public void getNamedChildrenWithWildcard(String name, List<WrapperElement> list) {
 		  for (JsonWrapperElement j : children) {
 		    String n = j.name;
-		    if (n.equals(name) || (name.endsWith("[x]") && n.startsWith(name.substring(0, name.length() - 3))))
+		    if (n.equals(name) || (name.endsWith("[x]") && n.startsWith(name.substring(0, name.length() - 3)) || n.startsWith(name)))
 		      list.add(j);
 		  }
 		}
+
+    @Override
+    public void getNamedChildrenWithTails(String name, List<WrapperElement> list, Set<String> typeTails) {
+      for (JsonWrapperElement j : children) {
+        String n = j.name;
+        if (n.equals(name) || (!n.equals("responseCode") && (n.startsWith(name) && typeTails.contains(n.substring(name.length())))))
+          list.add(j);
+      }
+    }
 
 		@Override
 		public String getNamedChildValue(String name) {
@@ -3332,7 +3350,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 		public abstract void getNamedChildren(String name, List<WrapperElement> list);
 
-		public abstract void getNamedChildrenWithWildcard(String name, List<WrapperElement> list);
+    public abstract void getNamedChildrenWithWildcard(String name, List<WrapperElement> list);
+
+    public abstract void getNamedChildrenWithTails(String name, List<WrapperElement> list, Set<String> typeTails);
 
 		public abstract String getNamedChildValue(String name);
 
@@ -3343,6 +3363,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		public abstract String getResourceType();
 
     public abstract boolean hasText();
+    
 		public abstract String getText();
 
 		public abstract boolean hasAttribute(String name);

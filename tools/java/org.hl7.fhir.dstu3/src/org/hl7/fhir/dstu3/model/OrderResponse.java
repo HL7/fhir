@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -769,24 +769,30 @@ public class OrderResponse extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>date</b>
+   * Search parameter: <b>fulfillment</b>
    * <p>
-   * Description: <b>When the response was made</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>OrderResponse.date</b><br>
+   * Description: <b>Details of the outcome of performing the order</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OrderResponse.fulfillment</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="OrderResponse.date", description="When the response was made", type="date" )
-  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="fulfillment", path="OrderResponse.fulfillment", description="Details of the outcome of performing the order", type="reference" )
+  public static final String SP_FULFILLMENT = "fulfillment";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <b>Fluent Client</b> search parameter constant for <b>fulfillment</b>
    * <p>
-   * Description: <b>When the response was made</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>OrderResponse.date</b><br>
+   * Description: <b>Details of the outcome of performing the order</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OrderResponse.fulfillment</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam FULFILLMENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_FULFILLMENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>OrderResponse:fulfillment</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_FULFILLMENT = new ca.uhn.fhir.model.api.Include("OrderResponse:fulfillment").toLocked();
 
  /**
    * Search parameter: <b>request</b>
@@ -815,26 +821,6 @@ public class OrderResponse extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUEST = new ca.uhn.fhir.model.api.Include("OrderResponse:request").toLocked();
 
  /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Identifiers assigned to this order by the orderer or by the receiver</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OrderResponse.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="OrderResponse.identifier", description="Identifiers assigned to this order by the orderer or by the receiver", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Identifiers assigned to this order by the orderer or by the receiver</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OrderResponse.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
    * Search parameter: <b>code</b>
    * <p>
    * Description: <b>pending | review | rejected | error | accepted | cancelled | replaced | aborted | completed</b><br>
@@ -855,30 +841,44 @@ public class OrderResponse extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
-   * Search parameter: <b>fulfillment</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>Details of the outcome of performing the order</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>OrderResponse.fulfillment</b><br>
+   * Description: <b>When the response was made</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>OrderResponse.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="fulfillment", path="OrderResponse.fulfillment", description="Details of the outcome of performing the order", type="reference" )
-  public static final String SP_FULFILLMENT = "fulfillment";
+  @SearchParamDefinition(name="date", path="OrderResponse.date", description="When the response was made", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>fulfillment</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>Details of the outcome of performing the order</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>OrderResponse.fulfillment</b><br>
+   * Description: <b>When the response was made</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>OrderResponse.date</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam FULFILLMENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_FULFILLMENT);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>OrderResponse:fulfillment</b>".
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Identifiers assigned to this order by the orderer or by the receiver</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OrderResponse.identifier</b><br>
+   * </p>
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_FULFILLMENT = new ca.uhn.fhir.model.api.Include("OrderResponse:fulfillment").toLocked();
+  @SearchParamDefinition(name="identifier", path="OrderResponse.identifier", description="Identifiers assigned to this order by the orderer or by the receiver", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Identifiers assigned to this order by the orderer or by the receiver</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OrderResponse.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>who</b>

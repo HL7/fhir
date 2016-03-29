@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1109,44 +1109,30 @@ public class RiskAssessment extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>date</b>
+   * Search parameter: <b>patient</b>
    * <p>
-   * Description: <b>When was assessment made?</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>RiskAssessment.date</b><br>
+   * Description: <b>Who/what does assessment apply to?</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>RiskAssessment.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="RiskAssessment.date", description="When was assessment made?", type="date" )
-  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="patient", path="RiskAssessment.subject", description="Who/what does assessment apply to?", type="reference" )
+  public static final String SP_PATIENT = "patient";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
-   * Description: <b>When was assessment made?</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>RiskAssessment.date</b><br>
+   * Description: <b>Who/what does assessment apply to?</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>RiskAssessment.subject</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
 
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Unique identifier for the assessment</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>RiskAssessment.identifier</b><br>
-   * </p>
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>RiskAssessment:patient</b>".
    */
-  @SearchParamDefinition(name="identifier", path="RiskAssessment.identifier", description="Unique identifier for the assessment", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Unique identifier for the assessment</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>RiskAssessment.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("RiskAssessment:patient").toLocked();
 
  /**
    * Search parameter: <b>condition</b>
@@ -1173,6 +1159,32 @@ public class RiskAssessment extends DomainResource {
    * the path value of "<b>RiskAssessment:condition</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_CONDITION = new ca.uhn.fhir.model.api.Include("RiskAssessment:condition").toLocked();
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>Who/what does assessment apply to?</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>RiskAssessment.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="RiskAssessment.subject", description="Who/what does assessment apply to?", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>Who/what does assessment apply to?</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>RiskAssessment.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>RiskAssessment:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("RiskAssessment:subject").toLocked();
 
  /**
    * Search parameter: <b>performer</b>
@@ -1221,58 +1233,6 @@ public class RiskAssessment extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam METHOD = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_METHOD);
 
  /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>Who/what does assessment apply to?</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>RiskAssessment.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subject", path="RiskAssessment.subject", description="Who/what does assessment apply to?", type="reference" )
-  public static final String SP_SUBJECT = "subject";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
-   * <p>
-   * Description: <b>Who/what does assessment apply to?</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>RiskAssessment.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>RiskAssessment:subject</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("RiskAssessment:subject").toLocked();
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Who/what does assessment apply to?</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>RiskAssessment.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="RiskAssessment.subject", description="Who/what does assessment apply to?", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Who/what does assessment apply to?</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>RiskAssessment.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>RiskAssessment:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("RiskAssessment:patient").toLocked();
-
- /**
    * Search parameter: <b>encounter</b>
    * <p>
    * Description: <b>Where was assessment performed?</b><br>
@@ -1297,6 +1257,46 @@ public class RiskAssessment extends DomainResource {
    * the path value of "<b>RiskAssessment:encounter</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("RiskAssessment:encounter").toLocked();
+
+ /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>When was assessment made?</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>RiskAssessment.date</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date", path="RiskAssessment.date", description="When was assessment made?", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>When was assessment made?</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>RiskAssessment.date</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Unique identifier for the assessment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>RiskAssessment.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="RiskAssessment.identifier", description="Unique identifier for the assessment", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Unique identifier for the assessment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>RiskAssessment.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

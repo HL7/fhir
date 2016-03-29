@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -3419,46 +3419,6 @@ public class Sequence extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>coordinate</b>
-   * <p>
-   * Description: <b>Genomic coordinate of the sequence. For example, a search for sequence in region 1:123-345 can be represented as `coordinate=1$lt345$gt123`</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="coordinate", path="", description="Genomic coordinate of the sequence. For example, a search for sequence in region 1:123-345 can be represented as `coordinate=1$lt345$gt123`", type="composite", compositeOf={"chromosome", "start"} )
-  public static final String SP_COORDINATE = "coordinate";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>coordinate</b>
-   * <p>
-   * Description: <b>Genomic coordinate of the sequence. For example, a search for sequence in region 1:123-345 can be represented as `coordinate=1$lt345$gt123`</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam> COORDINATE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam>(SP_COORDINATE);
-
- /**
-   * Search parameter: <b>species</b>
-   * <p>
-   * Description: <b>The organism from which sample of the sequence was extracted.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Sequence.species</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="species", path="Sequence.species", description="The organism from which sample of the sequence was extracted.", type="token" )
-  public static final String SP_SPECIES = "species";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>species</b>
-   * <p>
-   * Description: <b>The organism from which sample of the sequence was extracted.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Sequence.species</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SPECIES = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SPECIES);
-
- /**
    * Search parameter: <b>patient</b>
    * <p>
    * Description: <b>The subject that the observation is about</b><br>
@@ -3485,24 +3445,44 @@ public class Sequence extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Sequence:patient").toLocked();
 
  /**
-   * Search parameter: <b>chromosome</b>
+   * Search parameter: <b>species</b>
    * <p>
-   * Description: <b>Chromosome of the sequence</b><br>
+   * Description: <b>The organism from which sample of the sequence was extracted.</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Sequence.referenceSeq.chromosome</b><br>
+   * Path: <b>Sequence.species</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="chromosome", path="Sequence.referenceSeq.chromosome", description="Chromosome of the sequence", type="token" )
-  public static final String SP_CHROMOSOME = "chromosome";
+  @SearchParamDefinition(name="species", path="Sequence.species", description="The organism from which sample of the sequence was extracted.", type="token" )
+  public static final String SP_SPECIES = "species";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>chromosome</b>
+   * <b>Fluent Client</b> search parameter constant for <b>species</b>
    * <p>
-   * Description: <b>Chromosome of the sequence</b><br>
+   * Description: <b>The organism from which sample of the sequence was extracted.</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Sequence.referenceSeq.chromosome</b><br>
+   * Path: <b>Sequence.species</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CHROMOSOME = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CHROMOSOME);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SPECIES = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SPECIES);
+
+ /**
+   * Search parameter: <b>coordinate</b>
+   * <p>
+   * Description: <b>Genomic coordinate of the sequence. For example, a search for sequence in region 1:123-345 can be represented as `coordinate=1$lt345$gt123`</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="coordinate", path="", description="Genomic coordinate of the sequence. For example, a search for sequence in region 1:123-345 can be represented as `coordinate=1$lt345$gt123`", type="composite", compositeOf={"chromosome", "start"} )
+  public static final String SP_COORDINATE = "coordinate";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>coordinate</b>
+   * <p>
+   * Description: <b>Genomic coordinate of the sequence. For example, a search for sequence in region 1:123-345 can be represented as `coordinate=1$lt345$gt123`</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam> COORDINATE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam>(SP_COORDINATE);
 
  /**
    * Search parameter: <b>start</b>
@@ -3525,26 +3505,6 @@ public class Sequence extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.NumberClientParam START = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_START);
 
  /**
-   * Search parameter: <b>end</b>
-   * <p>
-   * Description: <b>End position (0-based exclusive) of the sequence</b><br>
-   * Type: <b>number</b><br>
-   * Path: <b>Sequence.variation.end</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="end", path="Sequence.variation.end", description="End position (0-based exclusive) of the sequence", type="number" )
-  public static final String SP_END = "end";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>end</b>
-   * <p>
-   * Description: <b>End position (0-based exclusive) of the sequence</b><br>
-   * Type: <b>number</b><br>
-   * Path: <b>Sequence.variation.end</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.NumberClientParam END = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_END);
-
- /**
    * Search parameter: <b>type</b>
    * <p>
    * Description: <b>The type of the variant: Amino acid / cDNA transcript / RNA variation.</b><br>
@@ -3563,6 +3523,46 @@ public class Sequence extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>chromosome</b>
+   * <p>
+   * Description: <b>Chromosome of the sequence</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Sequence.referenceSeq.chromosome</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="chromosome", path="Sequence.referenceSeq.chromosome", description="Chromosome of the sequence", type="token" )
+  public static final String SP_CHROMOSOME = "chromosome";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>chromosome</b>
+   * <p>
+   * Description: <b>Chromosome of the sequence</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Sequence.referenceSeq.chromosome</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CHROMOSOME = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CHROMOSOME);
+
+ /**
+   * Search parameter: <b>end</b>
+   * <p>
+   * Description: <b>End position (0-based exclusive) of the sequence</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>Sequence.variation.end</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="end", path="Sequence.variation.end", description="End position (0-based exclusive) of the sequence", type="number" )
+  public static final String SP_END = "end";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>end</b>
+   * <p>
+   * Description: <b>End position (0-based exclusive) of the sequence</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>Sequence.variation.end</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.NumberClientParam END = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_END);
 
 
 }

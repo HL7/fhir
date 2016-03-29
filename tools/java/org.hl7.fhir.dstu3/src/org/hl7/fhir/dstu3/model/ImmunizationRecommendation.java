@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1325,44 +1325,30 @@ public class ImmunizationRecommendation extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>date</b>
+   * Search parameter: <b>information</b>
    * <p>
-   * Description: <b>Date recommendation created</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.date</b><br>
+   * Description: <b>Patient observations supporting recommendation</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.supportingPatientInformation</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="ImmunizationRecommendation.recommendation.date", description="Date recommendation created", type="date" )
-  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="information", path="ImmunizationRecommendation.recommendation.supportingPatientInformation", description="Patient observations supporting recommendation", type="reference" )
+  public static final String SP_INFORMATION = "information";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <b>Fluent Client</b> search parameter constant for <b>information</b>
    * <p>
-   * Description: <b>Date recommendation created</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.date</b><br>
+   * Description: <b>Patient observations supporting recommendation</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.supportingPatientInformation</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INFORMATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INFORMATION);
 
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Business identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImmunizationRecommendation.identifier</b><br>
-   * </p>
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ImmunizationRecommendation:information</b>".
    */
-  @SearchParamDefinition(name="identifier", path="ImmunizationRecommendation.identifier", description="Business identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Business identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImmunizationRecommendation.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INFORMATION = new ca.uhn.fhir.model.api.Include("ImmunizationRecommendation:information").toLocked();
 
  /**
    * Search parameter: <b>dose-sequence</b>
@@ -1411,72 +1397,6 @@ public class ImmunizationRecommendation extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ImmunizationRecommendation:patient").toLocked();
 
  /**
-   * Search parameter: <b>vaccine-type</b>
-   * <p>
-   * Description: <b>Vaccine recommendation applies to</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.vaccineCode</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="vaccine-type", path="ImmunizationRecommendation.recommendation.vaccineCode", description="Vaccine recommendation applies to", type="token" )
-  public static final String SP_VACCINE_TYPE = "vaccine-type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>vaccine-type</b>
-   * <p>
-   * Description: <b>Vaccine recommendation applies to</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.vaccineCode</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VACCINE_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VACCINE_TYPE);
-
- /**
-   * Search parameter: <b>dose-number</b>
-   * <p>
-   * Description: <b>Recommended dose number</b><br>
-   * Type: <b>number</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.doseNumber</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="dose-number", path="ImmunizationRecommendation.recommendation.doseNumber", description="Recommended dose number", type="number" )
-  public static final String SP_DOSE_NUMBER = "dose-number";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>dose-number</b>
-   * <p>
-   * Description: <b>Recommended dose number</b><br>
-   * Type: <b>number</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.doseNumber</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.NumberClientParam DOSE_NUMBER = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_DOSE_NUMBER);
-
- /**
-   * Search parameter: <b>information</b>
-   * <p>
-   * Description: <b>Patient observations supporting recommendation</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.supportingPatientInformation</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="information", path="ImmunizationRecommendation.recommendation.supportingPatientInformation", description="Patient observations supporting recommendation", type="reference" )
-  public static final String SP_INFORMATION = "information";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>information</b>
-   * <p>
-   * Description: <b>Patient observations supporting recommendation</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.supportingPatientInformation</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INFORMATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INFORMATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ImmunizationRecommendation:information</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_INFORMATION = new ca.uhn.fhir.model.api.Include("ImmunizationRecommendation:information").toLocked();
-
- /**
    * Search parameter: <b>support</b>
    * <p>
    * Description: <b>Past immunizations supporting recommendation</b><br>
@@ -1503,6 +1423,26 @@ public class ImmunizationRecommendation extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUPPORT = new ca.uhn.fhir.model.api.Include("ImmunizationRecommendation:support").toLocked();
 
  /**
+   * Search parameter: <b>vaccine-type</b>
+   * <p>
+   * Description: <b>Vaccine recommendation applies to</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.vaccineCode</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="vaccine-type", path="ImmunizationRecommendation.recommendation.vaccineCode", description="Vaccine recommendation applies to", type="token" )
+  public static final String SP_VACCINE_TYPE = "vaccine-type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>vaccine-type</b>
+   * <p>
+   * Description: <b>Vaccine recommendation applies to</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.vaccineCode</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VACCINE_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VACCINE_TYPE);
+
+ /**
    * Search parameter: <b>status</b>
    * <p>
    * Description: <b>Vaccine administration status</b><br>
@@ -1521,6 +1461,66 @@ public class ImmunizationRecommendation extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+
+ /**
+   * Search parameter: <b>dose-number</b>
+   * <p>
+   * Description: <b>Recommended dose number</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.doseNumber</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="dose-number", path="ImmunizationRecommendation.recommendation.doseNumber", description="Recommended dose number", type="number" )
+  public static final String SP_DOSE_NUMBER = "dose-number";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>dose-number</b>
+   * <p>
+   * Description: <b>Recommended dose number</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.doseNumber</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.NumberClientParam DOSE_NUMBER = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_DOSE_NUMBER);
+
+ /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>Date recommendation created</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.date</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date", path="ImmunizationRecommendation.recommendation.date", description="Date recommendation created", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>Date recommendation created</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.date</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Business identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImmunizationRecommendation.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="ImmunizationRecommendation.identifier", description="Business identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Business identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImmunizationRecommendation.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

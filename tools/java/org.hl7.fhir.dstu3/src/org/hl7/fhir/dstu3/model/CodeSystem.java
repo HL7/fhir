@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -3437,46 +3437,6 @@ public class CodeSystem extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>The code system publication date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>CodeSystem.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="CodeSystem.date", description="The code system publication date", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>The code system publication date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>CodeSystem.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>The identifier for the code system</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="CodeSystem.identifier", description="The identifier for the code system", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>The identifier for the code system</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
    * Search parameter: <b>system</b>
    * <p>
    * Description: <b>The system for any codes defined by this code system (same as 'url')</b><br>
@@ -3497,24 +3457,44 @@ public class CodeSystem extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.UriClientParam SYSTEM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SYSTEM);
 
  /**
-   * Search parameter: <b>code</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>A code defined in the code system</b><br>
+   * Description: <b>The status of the code system</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.concept.code</b><br>
+   * Path: <b>CodeSystem.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="CodeSystem.concept.code", description="A code defined in the code system", type="token" )
-  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="status", path="CodeSystem.status", description="The status of the code system", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>A code defined in the code system</b><br>
+   * Description: <b>The status of the code system</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.concept.code</b><br>
+   * Path: <b>CodeSystem.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+
+ /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the code system</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>CodeSystem.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="CodeSystem.description", description="Text search in the description of the code system", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the code system</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>CodeSystem.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
    * Search parameter: <b>name</b>
@@ -3557,46 +3537,6 @@ public class CodeSystem extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
-   * Search parameter: <b>publisher</b>
-   * <p>
-   * Description: <b>Name of the publisher of the code system</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>CodeSystem.publisher</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="publisher", path="CodeSystem.publisher", description="Name of the publisher of the code system", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
-   * <p>
-   * Description: <b>Name of the publisher of the code system</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>CodeSystem.publisher</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
-
- /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the code system</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>CodeSystem.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="CodeSystem.description", description="Text search in the description of the code system", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the code system</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>CodeSystem.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
    * Search parameter: <b>language</b>
    * <p>
    * Description: <b>A language in which a designation is provided</b><br>
@@ -3617,24 +3557,64 @@ public class CodeSystem extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam LANGUAGE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_LANGUAGE);
 
  /**
-   * Search parameter: <b>version</b>
+   * Search parameter: <b>code</b>
    * <p>
-   * Description: <b>The version identifier of the code system</b><br>
+   * Description: <b>A code defined in the code system</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.version</b><br>
+   * Path: <b>CodeSystem.concept.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="CodeSystem.version", description="The version identifier of the code system", type="token" )
-  public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="code", path="CodeSystem.concept.code", description="A code defined in the code system", type="token" )
+  public static final String SP_CODE = "code";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>version</b>
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
-   * Description: <b>The version identifier of the code system</b><br>
+   * Description: <b>A code defined in the code system</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.version</b><br>
+   * Path: <b>CodeSystem.concept.code</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>The code system publication date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>CodeSystem.date</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date", path="CodeSystem.date", description="The code system publication date", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>The code system publication date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>CodeSystem.date</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>The identifier for the code system</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="CodeSystem.identifier", description="The identifier for the code system", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>The identifier for the code system</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>url</b>
@@ -3657,24 +3637,44 @@ public class CodeSystem extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>publisher</b>
    * <p>
-   * Description: <b>The status of the code system</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.status</b><br>
+   * Description: <b>Name of the publisher of the code system</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>CodeSystem.publisher</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="CodeSystem.status", description="The status of the code system", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="publisher", path="CodeSystem.publisher", description="Name of the publisher of the code system", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
    * <p>
-   * Description: <b>The status of the code system</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.status</b><br>
+   * Description: <b>Name of the publisher of the code system</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>CodeSystem.publisher</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>version</b>
+   * <p>
+   * Description: <b>The version identifier of the code system</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.version</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="version", path="CodeSystem.version", description="The version identifier of the code system", type="token" )
+  public static final String SP_VERSION = "version";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>version</b>
+   * <p>
+   * Description: <b>The version identifier of the code system</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.version</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
 
 
 }

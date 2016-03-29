@@ -87,7 +87,7 @@
   Context = ValueSet.expansion.contains
   English = Must have a code if not abstract
   XPath = exists(f:code) or (f:abstract/@value = true())
-  Expression = code or abstract = \'true\'
+  Expression = code or abstract = true
 
  -- Row 6 -----------------------------------
   Id = 10

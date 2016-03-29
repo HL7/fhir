@@ -1,6 +1,7 @@
 package org.hl7.fhir.dstu3.utils;
 
 import java.util.List;
+import java.util.Set;
 
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.ParserType;
@@ -286,6 +287,9 @@ public interface IWorkerContext {
    * @return
    */
   public String getAbbreviation(String name);
+
+  // return a set of types that have tails
+  public Set<String> typeTails();
 
 
 }

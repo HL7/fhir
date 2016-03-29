@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1330,24 +1330,44 @@ public class ProcessRequest extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>action</b>
    * <p>
-   * Description: <b>The business identifier of the ProcessRequest</b><br>
+   * Description: <b>The action requested by this resource</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcessRequest.identifier</b><br>
+   * Path: <b>ProcessRequest.action</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="ProcessRequest.identifier", description="The business identifier of the ProcessRequest", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="action", path="ProcessRequest.action", description="The action requested by this resource", type="token" )
+  public static final String SP_ACTION = "action";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>action</b>
    * <p>
-   * Description: <b>The business identifier of the ProcessRequest</b><br>
+   * Description: <b>The action requested by this resource</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcessRequest.identifier</b><br>
+   * Path: <b>ProcessRequest.action</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTION);
+
+ /**
+   * Search parameter: <b>providerreference</b>
+   * <p>
+   * Description: <b>The provider who regenerated this request</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ProcessRequest.providerReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="providerreference", path="ProcessRequest.providerReference", description="The provider who regenerated this request", type="token" )
+  public static final String SP_PROVIDERREFERENCE = "providerreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
+   * <p>
+   * Description: <b>The provider who regenerated this request</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ProcessRequest.providerReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PROVIDERREFERENCE);
 
  /**
    * Search parameter: <b>organizationidentifier</b>
@@ -1376,26 +1396,6 @@ public class ProcessRequest extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.model.api.Include("ProcessRequest:organizationidentifier").toLocked();
 
  /**
-   * Search parameter: <b>action</b>
-   * <p>
-   * Description: <b>The action requested by this resource</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ProcessRequest.action</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="action", path="ProcessRequest.action", description="The action requested by this resource", type="token" )
-  public static final String SP_ACTION = "action";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>action</b>
-   * <p>
-   * Description: <b>The action requested by this resource</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ProcessRequest.action</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTION);
-
- /**
    * Search parameter: <b>organizationreference</b>
    * <p>
    * Description: <b>The organization who generated this request</b><br>
@@ -1416,24 +1416,24 @@ public class ProcessRequest extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONREFERENCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONREFERENCE);
 
  /**
-   * Search parameter: <b>providerreference</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The provider who regenerated this request</b><br>
+   * Description: <b>The business identifier of the ProcessRequest</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcessRequest.providerReference</b><br>
+   * Path: <b>ProcessRequest.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="providerreference", path="ProcessRequest.providerReference", description="The provider who regenerated this request", type="token" )
-  public static final String SP_PROVIDERREFERENCE = "providerreference";
+  @SearchParamDefinition(name="identifier", path="ProcessRequest.identifier", description="The business identifier of the ProcessRequest", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The provider who regenerated this request</b><br>
+   * Description: <b>The business identifier of the ProcessRequest</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcessRequest.providerReference</b><br>
+   * Path: <b>ProcessRequest.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PROVIDERREFERENCE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>provideridentifier</b>

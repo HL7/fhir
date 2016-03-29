@@ -3948,7 +3948,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">MedicationAdministration</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Reason not given is only permitted if wasNotGiven is true</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">reasonNotGiven.empty() or wasNotGiven = 'true'</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">reasonNotGiven.empty() or wasNotGiven = true</Data></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(f:reasonNotGiven) and f:wasNotGiven/@value=false())</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">

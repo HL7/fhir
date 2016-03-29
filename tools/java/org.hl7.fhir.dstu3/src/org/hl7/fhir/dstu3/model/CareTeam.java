@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -764,6 +764,124 @@ public class CareTeam extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Who care team is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CareTeam.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="CareTeam.subject", description="Who care team is for", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Who care team is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CareTeam.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CareTeam:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("CareTeam:patient").toLocked();
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>active | suspended | inactive | entered in error</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CareTeam.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="CareTeam.status", description="active | suspended | inactive | entered in error", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>active | suspended | inactive | entered in error</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CareTeam.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>Who care team is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CareTeam.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="CareTeam.subject", description="Who care team is for", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>Who care team is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CareTeam.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CareTeam:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("CareTeam:subject").toLocked();
+
+ /**
+   * Search parameter: <b>participant</b>
+   * <p>
+   * Description: <b>Who is involved</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CareTeam.participant.member</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="participant", path="CareTeam.participant.member", description="Who is involved", type="reference" )
+  public static final String SP_PARTICIPANT = "participant";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>participant</b>
+   * <p>
+   * Description: <b>Who is involved</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CareTeam.participant.member</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARTICIPANT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARTICIPANT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CareTeam:participant</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTICIPANT = new ca.uhn.fhir.model.api.Include("CareTeam:participant").toLocked();
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>Type of team</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CareTeam.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="CareTeam.type", description="Type of team", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>Type of team</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CareTeam.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
    * Search parameter: <b>date</b>
    * <p>
    * Description: <b>Time period team covers</b><br>
@@ -802,124 +920,6 @@ public class CareTeam extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Who care team is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CareTeam.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="CareTeam.subject", description="Who care team is for", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Who care team is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CareTeam.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CareTeam:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("CareTeam:patient").toLocked();
-
- /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>Who care team is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CareTeam.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subject", path="CareTeam.subject", description="Who care team is for", type="reference" )
-  public static final String SP_SUBJECT = "subject";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
-   * <p>
-   * Description: <b>Who care team is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CareTeam.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CareTeam:subject</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("CareTeam:subject").toLocked();
-
- /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>Type of team</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CareTeam.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="CareTeam.type", description="Type of team", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>Type of team</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CareTeam.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>participant</b>
-   * <p>
-   * Description: <b>Who is involved</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CareTeam.participant.member</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="participant", path="CareTeam.participant.member", description="Who is involved", type="reference" )
-  public static final String SP_PARTICIPANT = "participant";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>participant</b>
-   * <p>
-   * Description: <b>Who is involved</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CareTeam.participant.member</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARTICIPANT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARTICIPANT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CareTeam:participant</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTICIPANT = new ca.uhn.fhir.model.api.Include("CareTeam:participant").toLocked();
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>active | suspended | inactive | entered in error</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CareTeam.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="CareTeam.status", description="active | suspended | inactive | entered in error", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>active | suspended | inactive | entered in error</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CareTeam.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

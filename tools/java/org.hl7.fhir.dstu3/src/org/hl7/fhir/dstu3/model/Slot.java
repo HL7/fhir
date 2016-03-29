@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -898,24 +898,24 @@ public class Slot extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SCHEDULE = new ca.uhn.fhir.model.api.Include("Slot:schedule").toLocked();
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>A Slot Identifier</b><br>
+   * Description: <b>The free/busy status of the appointment</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Slot.identifier</b><br>
+   * Path: <b>Slot.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Slot.identifier", description="A Slot Identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="status", path="Slot.status", description="The free/busy status of the appointment", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>A Slot Identifier</b><br>
+   * Description: <b>The free/busy status of the appointment</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Slot.identifier</b><br>
+   * Path: <b>Slot.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
  /**
    * Search parameter: <b>start</b>
@@ -958,24 +958,24 @@ public class Slot extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SLOT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SLOT_TYPE);
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The free/busy status of the appointment</b><br>
+   * Description: <b>A Slot Identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Slot.status</b><br>
+   * Path: <b>Slot.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="Slot.status", description="The free/busy status of the appointment", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="identifier", path="Slot.identifier", description="A Slot Identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The free/busy status of the appointment</b><br>
+   * Description: <b>A Slot Identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Slot.status</b><br>
+   * Path: <b>Slot.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

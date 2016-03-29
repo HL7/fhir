@@ -289,6 +289,7 @@
   Short Label = food | medication | environment | other - Category of Substance
   Definition = Category of the identified Substance
   Comments = This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the Substance where coding systems are used, and is effectively redundant in that situation.
+  v2 Mapping = AL1-2
   RIM Mapping = value < IntoleranceValue (Agent)
   w5 = class
 
@@ -302,6 +303,7 @@
   Short Label = low | high | unable-to-assess
   Definition = Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance
   Comments = The default criticality value for any propensity to an adverse reaction should be \'Low Risk\', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the Substance. \'High Risk\' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)
+  v2 Mapping = AL1-4
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV, value <= SeverityObservation (Severity Level)]
   w5 = grade
 
@@ -434,6 +436,7 @@
   Short Label = Clinical symptoms/signs associated with the Event
   Definition = Clinical symptoms and/or signs that are observed or associated with the adverse reaction event
   Comments = Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash or no reaction. It is preferable that manifestation should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.  Terminologies commonly used include, but are not limited to, SNOMED CT or ICD10.
+  v2 Mapping = AL1-5
   RIM Mapping = code
 
  -- Row 19 -----------------------------------
@@ -453,6 +456,7 @@
   Type = dateTime
   Short Label = Date(/time) when manifestations showed
   Definition = Record of the date and/or time of the onset of the Reaction
+  v2 Mapping = AL1-6
   RIM Mapping = effectiveTime.low
 
  -- Row 21 -----------------------------------

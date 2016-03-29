@@ -4570,7 +4570,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Must have a code if not abstract</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">code or abstract = 'true'</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">code or abstract = true</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">exists(f:code) or (f:abstract/@value = true())</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

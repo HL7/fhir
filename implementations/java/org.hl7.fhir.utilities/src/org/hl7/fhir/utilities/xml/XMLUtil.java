@@ -35,6 +35,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -387,9 +388,18 @@ public class XMLUtil {
         children.add(c);
       c = getNextSibling(c);
     }
-	  
   }
 
+	public static void getNamedChildrenWithTails(Element focus, String name, List<Element> children, Set<String> typeTails) {
+    Element c = getFirstChild(focus);
+    while (c != null) {
+      String n = c.getLocalName() != null ? c.getLocalName() : c.getNodeName(); 
+      if (n.equals(name) || (!n.equals("responseCode") && (n.startsWith(name) && typeTails.contains(n.substring(name.length())))))
+        children.add(c);
+      c = getNextSibling(c);
+    }
+  }
+	
   public static boolean hasNamedChild(Element e, String name) {
     Element c = getFirstChild(e);
     while (c != null && !name.equals(c.getLocalName()) && !name.equals(c.getNodeName()))

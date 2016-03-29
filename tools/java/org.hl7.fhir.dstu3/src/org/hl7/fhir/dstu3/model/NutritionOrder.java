@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -2803,44 +2803,90 @@ public class NutritionOrder extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>patient</b>
    * <p>
-   * Description: <b>Return nutrition orders with this external identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.identifier</b><br>
+   * Description: <b>The identity of the person who requires the diet, formula or nutritional supplement</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>NutritionOrder.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="NutritionOrder.identifier", description="Return nutrition orders with this external identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="patient", path="NutritionOrder.patient", description="The identity of the person who requires the diet, formula or nutritional supplement", type="reference" )
+  public static final String SP_PATIENT = "patient";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
-   * Description: <b>Return nutrition orders with this external identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.identifier</b><br>
+   * Description: <b>The identity of the person who requires the diet, formula or nutritional supplement</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>NutritionOrder.patient</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>NutritionOrder:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("NutritionOrder:patient").toLocked();
 
  /**
-   * Search parameter: <b>datetime</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>Return nutrition orders requested on this date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>NutritionOrder.dateTime</b><br>
+   * Description: <b>Status of the nutrition order.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="datetime", path="NutritionOrder.dateTime", description="Return nutrition orders requested on this date", type="date" )
-  public static final String SP_DATETIME = "datetime";
+  @SearchParamDefinition(name="status", path="NutritionOrder.status", description="Status of the nutrition order.", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>datetime</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>Return nutrition orders requested on this date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>NutritionOrder.dateTime</b><br>
+   * Description: <b>Status of the nutrition order.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATETIME = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATETIME);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+
+ /**
+   * Search parameter: <b>supplement</b>
+   * <p>
+   * Description: <b>Type of supplement product requested</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.supplement.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="supplement", path="NutritionOrder.supplement.type", description="Type of supplement product requested", type="token" )
+  public static final String SP_SUPPLEMENT = "supplement";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>supplement</b>
+   * <p>
+   * Description: <b>Type of supplement product requested</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.supplement.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SUPPLEMENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SUPPLEMENT);
+
+ /**
+   * Search parameter: <b>oraldiet</b>
+   * <p>
+   * Description: <b>Type of diet that can be consumed orally (i.e., take via the mouth).</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.oralDiet.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="oraldiet", path="NutritionOrder.oralDiet.type", description="Type of diet that can be consumed orally (i.e., take via the mouth).", type="token" )
+  public static final String SP_ORALDIET = "oraldiet";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>oraldiet</b>
+   * <p>
+   * Description: <b>Type of diet that can be consumed orally (i.e., take via the mouth).</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.oralDiet.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORALDIET = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORALDIET);
 
  /**
    * Search parameter: <b>provider</b>
@@ -2869,72 +2915,6 @@ public class NutritionOrder extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDER = new ca.uhn.fhir.model.api.Include("NutritionOrder:provider").toLocked();
 
  /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>The identity of the person who requires the diet, formula or nutritional supplement</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>NutritionOrder.patient</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="NutritionOrder.patient", description="The identity of the person who requires the diet, formula or nutritional supplement", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>The identity of the person who requires the diet, formula or nutritional supplement</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>NutritionOrder.patient</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>NutritionOrder:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("NutritionOrder:patient").toLocked();
-
- /**
-   * Search parameter: <b>supplement</b>
-   * <p>
-   * Description: <b>Type of supplement product requested</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.supplement.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="supplement", path="NutritionOrder.supplement.type", description="Type of supplement product requested", type="token" )
-  public static final String SP_SUPPLEMENT = "supplement";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>supplement</b>
-   * <p>
-   * Description: <b>Type of supplement product requested</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.supplement.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SUPPLEMENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SUPPLEMENT);
-
- /**
-   * Search parameter: <b>formula</b>
-   * <p>
-   * Description: <b>Type of enteral or infant formula</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.enteralFormula.baseFormulaType</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="formula", path="NutritionOrder.enteralFormula.baseFormulaType", description="Type of enteral or infant formula", type="token" )
-  public static final String SP_FORMULA = "formula";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>formula</b>
-   * <p>
-   * Description: <b>Type of enteral or infant formula</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.enteralFormula.baseFormulaType</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FORMULA = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FORMULA);
-
- /**
    * Search parameter: <b>encounter</b>
    * <p>
    * Description: <b>Return nutrition orders with this encounter identifier</b><br>
@@ -2961,44 +2941,24 @@ public class NutritionOrder extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("NutritionOrder:encounter").toLocked();
 
  /**
-   * Search parameter: <b>oraldiet</b>
+   * Search parameter: <b>datetime</b>
    * <p>
-   * Description: <b>Type of diet that can be consumed orally (i.e., take via the mouth).</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.oralDiet.type</b><br>
+   * Description: <b>Return nutrition orders requested on this date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>NutritionOrder.dateTime</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="oraldiet", path="NutritionOrder.oralDiet.type", description="Type of diet that can be consumed orally (i.e., take via the mouth).", type="token" )
-  public static final String SP_ORALDIET = "oraldiet";
+  @SearchParamDefinition(name="datetime", path="NutritionOrder.dateTime", description="Return nutrition orders requested on this date", type="date" )
+  public static final String SP_DATETIME = "datetime";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>oraldiet</b>
+   * <b>Fluent Client</b> search parameter constant for <b>datetime</b>
    * <p>
-   * Description: <b>Type of diet that can be consumed orally (i.e., take via the mouth).</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.oralDiet.type</b><br>
+   * Description: <b>Return nutrition orders requested on this date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>NutritionOrder.dateTime</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORALDIET = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORALDIET);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>Status of the nutrition order.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="NutritionOrder.status", description="Status of the nutrition order.", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>Status of the nutrition order.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATETIME = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATETIME);
 
  /**
    * Search parameter: <b>additive</b>
@@ -3019,6 +2979,46 @@ public class NutritionOrder extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ADDITIVE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ADDITIVE);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Return nutrition orders with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="NutritionOrder.identifier", description="Return nutrition orders with this external identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Return nutrition orders with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>formula</b>
+   * <p>
+   * Description: <b>Type of enteral or infant formula</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.enteralFormula.baseFormulaType</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="formula", path="NutritionOrder.enteralFormula.baseFormulaType", description="Type of enteral or infant formula", type="token" )
+  public static final String SP_FORMULA = "formula";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>formula</b>
+   * <p>
+   * Description: <b>Type of enteral or infant formula</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.enteralFormula.baseFormulaType</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FORMULA = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FORMULA);
 
 
 }

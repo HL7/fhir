@@ -91,7 +91,7 @@
   Context = StructureDefinition
   English = If the structure is not abstract, or there\'s a constrained type, then there SHALL be a base
   XPath = (f:abstract/@value=true()) or not(exists(f:constrainedType)) or exists(f:base)
-  Expression = base or abstract = \'true\' or constrainedType
+  Expression = base or abstract = true or constrainedType
 
  -- Row 5 -----------------------------------
   Id = 5

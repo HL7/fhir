@@ -69,16 +69,16 @@
  -- Row 1 -----------------------------------
   Id = 1
   Context = Immunization
-  English = If immunization was not administred (wasNotGiven=true) then there SHALL be no reaction nor explanation.reason present
+  English = If immunization was not administered (wasNotGiven=true) then there SHALL be no reaction nor explanation.reason present
   XPath = not(f:wasNotGiven/@value=true() and (count(f:reaction) > 0 or exists(f:explanation/f:reason)))
-  Expression = (wasNotGiven = \'true\').not() or (reaction.empty() and explanation.reason.empty())
+  Expression = (wasNotGiven = true).not() or (reaction.empty() and explanation.reason.empty())
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Immunization
   English = If immunization was administered (wasNotGiven=false) then explanation.reasonNotGiven SHALL be absent.
   XPath = not(f:wasNotGiven/@value=false() and exists(f:explanation/f:reasonNotGiven))
-  Expression = (wasNotGiven = \'true\') or explanation.reasonNotGiven.empty()
+  Expression = (wasNotGiven = true) or explanation.reasonNotGiven.empty()
 
 === Sheet Data Elements =====================================
 

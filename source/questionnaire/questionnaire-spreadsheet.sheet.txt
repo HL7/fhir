@@ -206,14 +206,14 @@
   Context = Questionnaire.item.enableWhen
   English = enableWhen must contain either an \'answer\' or an \'answered\' element
   XPath = count(*[starts-with(local-name(.), \'answer\')]|answered) = 1
-  Expression = answered or answer[x]
+  Expression = answered or answer
 
  -- Row 8 -----------------------------------
   Id = 8
   Context = Questionnaire.item
   English = Default values can\'t be specified for groups or display items
   XPath = not(f:type/@value=(\'group\', \'display\') and f:*[starts-with(local-name(.), \'initial\')])
-  Expression = (type!=\'group\' and type!=\'display\') or initial[x].empty()
+  Expression = (type!=\'group\' and type!=\'display\') or initial.empty()
   Severity = error
 
  -- Row 9 -----------------------------------
@@ -229,7 +229,7 @@
   Context = Questionnaire.item
   English = Maximum length can only be declared for simple question types
   XPath = f:type/@value=(\'boolean\', \'decimal\', \'integer\', \'open-choice\', \'string\', \'text\', \'url\') or not(f:maxLength)
-  Expression = type in (\'boolean\' | \'decimal\' | \'integer\' | \'string\' | \'text\' | \'url\') or maxLength.empty()
+  Expression = (type in (\'boolean\' | \'decimal\' | \'integer\' | \'string\' | \'text\' | \'url\')) or maxLength.empty()
   Severity = error
 
 === Sheet Data Elements =====================================

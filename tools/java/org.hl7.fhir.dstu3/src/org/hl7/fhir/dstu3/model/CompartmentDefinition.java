@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1457,64 +1457,24 @@ public class CompartmentDefinition extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>date</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>Publication Date(/time)</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>CompartmentDefinition.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="CompartmentDefinition.date", description="Publication Date(/time)", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>Publication Date(/time)</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>CompartmentDefinition.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>code</b>
-   * <p>
-   * Description: <b>Patient | Encounter | RelatedPerson | Practitioner | Device</b><br>
+   * Description: <b>draft | active | retired</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>CompartmentDefinition.code</b><br>
+   * Path: <b>CompartmentDefinition.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="CompartmentDefinition.code", description="Patient | Encounter | RelatedPerson | Practitioner | Device", type="token" )
-  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="status", path="CompartmentDefinition.status", description="draft | active | retired", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>Patient | Encounter | RelatedPerson | Practitioner | Device</b><br>
+   * Description: <b>draft | active | retired</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>CompartmentDefinition.code</b><br>
+   * Path: <b>CompartmentDefinition.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
-
- /**
-   * Search parameter: <b>resource</b>
-   * <p>
-   * Description: <b>Name of resource type</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CompartmentDefinition.resource.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="resource", path="CompartmentDefinition.resource.code", description="Name of resource type", type="token" )
-  public static final String SP_RESOURCE = "resource";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>resource</b>
-   * <p>
-   * Description: <b>Name of resource type</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CompartmentDefinition.resource.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RESOURCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RESOURCE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
  /**
    * Search parameter: <b>name</b>
@@ -1537,6 +1497,66 @@ public class CompartmentDefinition extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
 
  /**
+   * Search parameter: <b>resource</b>
+   * <p>
+   * Description: <b>Name of resource type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CompartmentDefinition.resource.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="resource", path="CompartmentDefinition.resource.code", description="Name of resource type", type="token" )
+  public static final String SP_RESOURCE = "resource";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>resource</b>
+   * <p>
+   * Description: <b>Name of resource type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CompartmentDefinition.resource.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RESOURCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RESOURCE);
+
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>Patient | Encounter | RelatedPerson | Practitioner | Device</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CompartmentDefinition.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="CompartmentDefinition.code", description="Patient | Encounter | RelatedPerson | Practitioner | Device", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>Patient | Encounter | RelatedPerson | Practitioner | Device</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CompartmentDefinition.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>Publication Date(/time)</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>CompartmentDefinition.date</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date", path="CompartmentDefinition.date", description="Publication Date(/time)", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>Publication Date(/time)</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>CompartmentDefinition.date</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
    * Search parameter: <b>url</b>
    * <p>
    * Description: <b>Absolute URL used to reference this compartment definition</b><br>
@@ -1555,26 +1575,6 @@ public class CompartmentDefinition extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>draft | active | retired</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CompartmentDefinition.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="CompartmentDefinition.status", description="draft | active | retired", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>draft | active | retired</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CompartmentDefinition.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

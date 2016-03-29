@@ -1,0 +1,21 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/service-category",
+  "outcomes": [
+    {
+      "hash": "#|http://example.org/service-category|null|gp|General Practice",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|null|null|17|General Practice",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "17",
+        "definition": null,
+        "display": "General Practice"
+      }
+    }
+  ]
+}

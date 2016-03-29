@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -737,70 +737,30 @@ public class Order extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>date</b>
+   * Search parameter: <b>detail</b>
    * <p>
-   * Description: <b>When the order was made</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Order.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="Order.date", description="When the order was made", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>When the order was made</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Order.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Instance id from source, target, and/or  others</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Order.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Order.identifier", description="Instance id from source, target, and/or  others", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Instance id from source, target, and/or  others</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Order.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>Patient this order is about</b><br>
+   * Description: <b>What action is being ordered</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Order.subject</b><br>
+   * Path: <b>Order.detail</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="Order.subject", description="Patient this order is about", type="reference" )
-  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="detail", path="Order.detail", description="What action is being ordered", type="reference" )
+  public static final String SP_DETAIL = "detail";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <b>Fluent Client</b> search parameter constant for <b>detail</b>
    * <p>
-   * Description: <b>Patient this order is about</b><br>
+   * Description: <b>What action is being ordered</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Order.subject</b><br>
+   * Path: <b>Order.detail</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DETAIL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DETAIL);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Order:subject</b>".
+   * the path value of "<b>Order:detail</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Order:subject").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DETAIL = new ca.uhn.fhir.model.api.Include("Order:detail").toLocked();
 
  /**
    * Search parameter: <b>patient</b>
@@ -855,30 +815,30 @@ public class Order extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("Order:source").toLocked();
 
  /**
-   * Search parameter: <b>detail</b>
+   * Search parameter: <b>subject</b>
    * <p>
-   * Description: <b>What action is being ordered</b><br>
+   * Description: <b>Patient this order is about</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Order.detail</b><br>
+   * Path: <b>Order.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="detail", path="Order.detail", description="What action is being ordered", type="reference" )
-  public static final String SP_DETAIL = "detail";
+  @SearchParamDefinition(name="subject", path="Order.subject", description="Patient this order is about", type="reference" )
+  public static final String SP_SUBJECT = "subject";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>detail</b>
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
    * <p>
-   * Description: <b>What action is being ordered</b><br>
+   * Description: <b>Patient this order is about</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Order.detail</b><br>
+   * Path: <b>Order.subject</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DETAIL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DETAIL);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Order:detail</b>".
+   * the path value of "<b>Order:subject</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_DETAIL = new ca.uhn.fhir.model.api.Include("Order:detail").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Order:subject").toLocked();
 
  /**
    * Search parameter: <b>when</b>
@@ -945,6 +905,46 @@ public class Order extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam WHENCODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_WHENCODE);
+
+ /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>When the order was made</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Order.date</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date", path="Order.date", description="When the order was made", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>When the order was made</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Order.date</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Instance id from source, target, and/or  others</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Order.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Order.identifier", description="Instance id from source, target, and/or  others", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Instance id from source, target, and/or  others</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Order.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

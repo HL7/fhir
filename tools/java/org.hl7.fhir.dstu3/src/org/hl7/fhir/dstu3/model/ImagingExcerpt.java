@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -2736,46 +2736,6 @@ public class ImagingExcerpt extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>UID of key DICOM object selection</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImagingExcerpt.uid</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="ImagingExcerpt.uid", description="UID of key DICOM object selection", type="uri" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>UID of key DICOM object selection</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImagingExcerpt.uid</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>authoring-time</b>
-   * <p>
-   * Description: <b>Time of key DICOM object selection authoring</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImagingExcerpt.authoringTime</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="authoring-time", path="ImagingExcerpt.authoringTime", description="Time of key DICOM object selection authoring", type="date" )
-  public static final String SP_AUTHORING_TIME = "authoring-time";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>authoring-time</b>
-   * <p>
-   * Description: <b>Time of key DICOM object selection authoring</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImagingExcerpt.authoringTime</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam AUTHORING_TIME = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_AUTHORING_TIME);
-
- /**
    * Search parameter: <b>selected-study</b>
    * <p>
    * Description: <b>Study selected in key DICOM object selection</b><br>
@@ -2822,6 +2782,26 @@ public class ImagingExcerpt extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("ImagingExcerpt:author").toLocked();
 
  /**
+   * Search parameter: <b>title</b>
+   * <p>
+   * Description: <b>Title of key DICOM object selection</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingExcerpt.title</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="title", path="ImagingExcerpt.title", description="Title of key DICOM object selection", type="token" )
+  public static final String SP_TITLE = "title";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <p>
+   * Description: <b>Title of key DICOM object selection</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingExcerpt.title</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TITLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TITLE);
+
+ /**
    * Search parameter: <b>patient</b>
    * <p>
    * Description: <b>Subject of key DICOM object selection</b><br>
@@ -2848,24 +2828,44 @@ public class ImagingExcerpt extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ImagingExcerpt:patient").toLocked();
 
  /**
-   * Search parameter: <b>title</b>
+   * Search parameter: <b>authoring-time</b>
    * <p>
-   * Description: <b>Title of key DICOM object selection</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingExcerpt.title</b><br>
+   * Description: <b>Time of key DICOM object selection authoring</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImagingExcerpt.authoringTime</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="title", path="ImagingExcerpt.title", description="Title of key DICOM object selection", type="token" )
-  public static final String SP_TITLE = "title";
+  @SearchParamDefinition(name="authoring-time", path="ImagingExcerpt.authoringTime", description="Time of key DICOM object selection authoring", type="date" )
+  public static final String SP_AUTHORING_TIME = "authoring-time";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <b>Fluent Client</b> search parameter constant for <b>authoring-time</b>
    * <p>
-   * Description: <b>Title of key DICOM object selection</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingExcerpt.title</b><br>
+   * Description: <b>Time of key DICOM object selection authoring</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImagingExcerpt.authoringTime</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TITLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TITLE);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam AUTHORING_TIME = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_AUTHORING_TIME);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>UID of key DICOM object selection</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ImagingExcerpt.uid</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="ImagingExcerpt.uid", description="UID of key DICOM object selection", type="uri" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>UID of key DICOM object selection</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ImagingExcerpt.uid</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_IDENTIFIER);
 
 
 }

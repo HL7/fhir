@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 28, 2016 15:19-0600 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1656,170 +1656,24 @@ public class Condition extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>severity</b>
+   * Search parameter: <b>date-recorded</b>
    * <p>
-   * Description: <b>The severity of the condition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.severity</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="severity", path="Condition.severity", description="The severity of the condition", type="token" )
-  public static final String SP_SEVERITY = "severity";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>severity</b>
-   * <p>
-   * Description: <b>The severity of the condition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.severity</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SEVERITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SEVERITY);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>A unique identifier of the condition record</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Condition.identifier", description="A unique identifier of the condition record", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>A unique identifier of the condition record</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>clinicalstatus</b>
-   * <p>
-   * Description: <b>The clinical status of the condition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.clinicalStatus</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="clinicalstatus", path="Condition.clinicalStatus", description="The clinical status of the condition", type="token" )
-  public static final String SP_CLINICALSTATUS = "clinicalstatus";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>clinicalstatus</b>
-   * <p>
-   * Description: <b>The clinical status of the condition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.clinicalStatus</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CLINICALSTATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CLINICALSTATUS);
-
- /**
-   * Search parameter: <b>onset-info</b>
-   * <p>
-   * Description: <b>Other onsets (boolean, age, range, string)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Condition.onset[x]</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="onset-info", path="Condition.onset[x]", description="Other onsets (boolean, age, range, string)", type="string" )
-  public static final String SP_ONSET_INFO = "onset-info";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>onset-info</b>
-   * <p>
-   * Description: <b>Other onsets (boolean, age, range, string)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Condition.onset[x]</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ONSET_INFO = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ONSET_INFO);
-
- /**
-   * Search parameter: <b>code</b>
-   * <p>
-   * Description: <b>Code for the condition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code", path="Condition.code", description="Code for the condition", type="token" )
-  public static final String SP_CODE = "code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
-   * <p>
-   * Description: <b>Code for the condition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
-
- /**
-   * Search parameter: <b>evidence</b>
-   * <p>
-   * Description: <b>Manifestation/symptom</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.evidence.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="evidence", path="Condition.evidence.code", description="Manifestation/symptom", type="token" )
-  public static final String SP_EVIDENCE = "evidence";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>evidence</b>
-   * <p>
-   * Description: <b>Manifestation/symptom</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.evidence.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EVIDENCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EVIDENCE);
-
- /**
-   * Search parameter: <b>encounter</b>
-   * <p>
-   * Description: <b>Encounter when condition first asserted</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Condition.encounter</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="encounter", path="Condition.encounter", description="Encounter when condition first asserted", type="reference" )
-  public static final String SP_ENCOUNTER = "encounter";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
-   * <p>
-   * Description: <b>Encounter when condition first asserted</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Condition.encounter</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Condition:encounter</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("Condition:encounter").toLocked();
-
- /**
-   * Search parameter: <b>onset</b>
-   * <p>
-   * Description: <b>Date related onsets (dateTime and Period)</b><br>
+   * Description: <b>A date, when the Condition statement was documented</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>Condition.onset[x]</b><br>
+   * Path: <b>Condition.dateRecorded</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="onset", path="Condition.onset[x]", description="Date related onsets (dateTime and Period)", type="date" )
-  public static final String SP_ONSET = "onset";
+  @SearchParamDefinition(name="date-recorded", path="Condition.dateRecorded", description="A date, when the Condition statement was documented", type="date" )
+  public static final String SP_DATE_RECORDED = "date-recorded";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>onset</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date-recorded</b>
    * <p>
-   * Description: <b>Date related onsets (dateTime and Period)</b><br>
+   * Description: <b>A date, when the Condition statement was documented</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>Condition.onset[x]</b><br>
+   * Path: <b>Condition.dateRecorded</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam ONSET = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ONSET);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE_RECORDED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE_RECORDED);
 
  /**
    * Search parameter: <b>asserter</b>
@@ -1848,24 +1702,150 @@ public class Condition extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ASSERTER = new ca.uhn.fhir.model.api.Include("Condition:asserter").toLocked();
 
  /**
-   * Search parameter: <b>date-recorded</b>
+   * Search parameter: <b>onset</b>
    * <p>
-   * Description: <b>A date, when the Condition statement was documented</b><br>
+   * Description: <b>Date related onsets (dateTime and Period)</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>Condition.dateRecorded</b><br>
+   * Path: <b>Condition.onset[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date-recorded", path="Condition.dateRecorded", description="A date, when the Condition statement was documented", type="date" )
-  public static final String SP_DATE_RECORDED = "date-recorded";
+  @SearchParamDefinition(name="onset", path="Condition.onset[x]", description="Date related onsets (dateTime and Period)", type="date" )
+  public static final String SP_ONSET = "onset";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>date-recorded</b>
+   * <b>Fluent Client</b> search parameter constant for <b>onset</b>
    * <p>
-   * Description: <b>A date, when the Condition statement was documented</b><br>
+   * Description: <b>Date related onsets (dateTime and Period)</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>Condition.dateRecorded</b><br>
+   * Path: <b>Condition.onset[x]</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE_RECORDED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE_RECORDED);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam ONSET = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ONSET);
+
+ /**
+   * Search parameter: <b>evidence</b>
+   * <p>
+   * Description: <b>Manifestation/symptom</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.evidence.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="evidence", path="Condition.evidence.code", description="Manifestation/symptom", type="token" )
+  public static final String SP_EVIDENCE = "evidence";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>evidence</b>
+   * <p>
+   * Description: <b>Manifestation/symptom</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.evidence.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EVIDENCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EVIDENCE);
+
+ /**
+   * Search parameter: <b>body-site</b>
+   * <p>
+   * Description: <b>Anatomical location, if relevant</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.bodySite</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="body-site", path="Condition.bodySite", description="Anatomical location, if relevant", type="token" )
+  public static final String SP_BODY_SITE = "body-site";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>body-site</b>
+   * <p>
+   * Description: <b>Anatomical location, if relevant</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.bodySite</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BODY_SITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BODY_SITE);
+
+ /**
+   * Search parameter: <b>onset-info</b>
+   * <p>
+   * Description: <b>Other onsets (boolean, age, range, string)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Condition.onset[x]</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="onset-info", path="Condition.onset[x]", description="Other onsets (boolean, age, range, string)", type="string" )
+  public static final String SP_ONSET_INFO = "onset-info";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>onset-info</b>
+   * <p>
+   * Description: <b>Other onsets (boolean, age, range, string)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Condition.onset[x]</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ONSET_INFO = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ONSET_INFO);
+
+ /**
+   * Search parameter: <b>severity</b>
+   * <p>
+   * Description: <b>The severity of the condition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.severity</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="severity", path="Condition.severity", description="The severity of the condition", type="token" )
+  public static final String SP_SEVERITY = "severity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>severity</b>
+   * <p>
+   * Description: <b>The severity of the condition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.severity</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SEVERITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SEVERITY);
+
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>Code for the condition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="Condition.code", description="Code for the condition", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>Code for the condition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>encounter</b>
+   * <p>
+   * Description: <b>Encounter when condition first asserted</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Condition.encounter</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="encounter", path="Condition.encounter", description="Encounter when condition first asserted", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
+   * <p>
+   * Description: <b>Encounter when condition first asserted</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Condition.encounter</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Condition:encounter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("Condition:encounter").toLocked();
 
  /**
    * Search parameter: <b>stage</b>
@@ -1886,6 +1866,26 @@ public class Condition extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STAGE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STAGE);
+
+ /**
+   * Search parameter: <b>category</b>
+   * <p>
+   * Description: <b>The category of the condition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.category</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="category", path="Condition.category", description="The category of the condition", type="token" )
+  public static final String SP_CATEGORY = "category";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <p>
+   * Description: <b>The category of the condition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.category</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
  /**
    * Search parameter: <b>patient</b>
@@ -1914,44 +1914,44 @@ public class Condition extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Condition:patient").toLocked();
 
  /**
-   * Search parameter: <b>category</b>
+   * Search parameter: <b>clinicalstatus</b>
    * <p>
-   * Description: <b>The category of the condition</b><br>
+   * Description: <b>The clinical status of the condition</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Condition.category</b><br>
+   * Path: <b>Condition.clinicalStatus</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="category", path="Condition.category", description="The category of the condition", type="token" )
-  public static final String SP_CATEGORY = "category";
+  @SearchParamDefinition(name="clinicalstatus", path="Condition.clinicalStatus", description="The clinical status of the condition", type="token" )
+  public static final String SP_CLINICALSTATUS = "clinicalstatus";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <b>Fluent Client</b> search parameter constant for <b>clinicalstatus</b>
    * <p>
-   * Description: <b>The category of the condition</b><br>
+   * Description: <b>The clinical status of the condition</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Condition.category</b><br>
+   * Path: <b>Condition.clinicalStatus</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CLINICALSTATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CLINICALSTATUS);
 
  /**
-   * Search parameter: <b>body-site</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Anatomical location, if relevant</b><br>
+   * Description: <b>A unique identifier of the condition record</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Condition.bodySite</b><br>
+   * Path: <b>Condition.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="body-site", path="Condition.bodySite", description="Anatomical location, if relevant", type="token" )
-  public static final String SP_BODY_SITE = "body-site";
+  @SearchParamDefinition(name="identifier", path="Condition.identifier", description="A unique identifier of the condition record", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>body-site</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Anatomical location, if relevant</b><br>
+   * Description: <b>A unique identifier of the condition record</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Condition.bodySite</b><br>
+   * Path: <b>Condition.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BODY_SITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BODY_SITE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }
