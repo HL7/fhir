@@ -4,7 +4,7 @@
     {
       "hash": "#|http://www.ihe.net/xds/connectathon/healthcareFacilityTypeCodes|null|Outpatient|Outpatient",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Facility Type Code Value Set"
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }

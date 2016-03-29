@@ -2,11 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/measure-population",
   "outcomes": [
     {
-      "hash": "|null|null|denominator-exclusions|null",
-      "severity": "error",
-      "message": "Unknown Code denominator-exclusions in http://hl7.org/fhir/ValueSet/measure-population"
-    },
-    {
       "hash": "|null|null|denominator-exclusion|null",
       "severity": null,
       "message": null,

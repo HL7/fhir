@@ -7,7 +7,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "MEDPREC",
         "definition": null,
         "display": "medical precaution"
       }

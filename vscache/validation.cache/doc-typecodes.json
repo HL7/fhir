@@ -7,7 +7,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "11488-4",
         "definition": null,
         "display": "Consult note"
       }
@@ -18,7 +18,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "28655-9",
         "definition": null,
         "display": "Physician attending Discharge summary"
       }
@@ -29,7 +29,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "34133-9",
         "definition": null,
         "display": "Summary of episode note"
       }

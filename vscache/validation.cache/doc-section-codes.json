@@ -3,14 +3,8 @@
   "outcomes": [
     {
       "hash": "#|http://loinc.org|null|10157-6|History of family member diseases",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "History of family member diseases Narrative"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|10157-6|History of family member diseases Narrative",
@@ -18,21 +12,15 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "10157-6",
         "definition": null,
         "display": "History of family member diseases Narrative"
       }
     },
     {
       "hash": "#|http://loinc.org|null|10160-0|History of Medication Use",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "History of medication use Narrative"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|10183-2|Hospital discharge medications Narrative",
@@ -40,7 +28,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "10183-2",
         "definition": null,
         "display": "Hospital discharge medications Narrative"
       }
@@ -48,7 +36,7 @@
     {
       "hash": "#|http://loinc.org|null|10190-7|Mental status",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Document Section Codes"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|11348-0|History of past illness Narrative",
@@ -56,43 +44,25 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "11348-0",
         "definition": null,
         "display": "History of past illness Narrative"
       }
     },
     {
       "hash": "#|http://loinc.org|null|11369-6|History of immunization",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "History of immunization Narrative"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|11450-4|Problem list",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Problem list - Reported"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|18776-5|Plan of treatment",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Plan of treatment (narrative)"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|29299-5|Reason for visit Narrative",
@@ -100,98 +70,50 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "29299-5",
         "definition": null,
         "display": "Reason for visit Narrative"
       }
     },
     {
       "hash": "#|http://loinc.org|null|29762-2|Social history",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Social history Narrative"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|30954-2|Relevant diagnostic tests and laboratory data",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Relevant diagnostic tests/laboratory data Narrative"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|42348-3|Advance directives",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Advance directives (narrative)"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|46240-8|Encounters",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "History of hospitalizations+History of outpatient visits Narrative"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|46264-8|Medical equipment",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "History of medical device use"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|47420-5|Functional status assessment",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Functional status assessment note"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|47519-4|History of procedures",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "History of Procedures Document"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|48765-2|Allergies and adverse reactions",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Allergies and adverse reactions Document"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|48765-2|Allergies and adverse reactions Document",
@@ -199,26 +121,20 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "48765-2",
         "definition": null,
         "display": "Allergies and adverse reactions Document"
       }
     },
     {
       "hash": "#|http://loinc.org|null|48768-6|Payers",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Payment sources Document"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|61144-2|Diet and nutrition",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Document Section Codes"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|8716-3|Vital signs",
@@ -226,7 +142,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "8716-3",
         "definition": null,
         "display": "Vital signs"
       }

@@ -4,74 +4,48 @@
     {
       "hash": "#|http://example.org/specialty|null|gp|General Practice",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://ihe.net/connectathon/practiceSettingCodes|null|General Medicine|General Medicine",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|172676009|Myringotomy and insertion of short-term tympanic ventilation tube (procedure)",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|172676009|Myringotomy and insertion of tympanic ventilation tube",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|394587001|Psychiatry",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Psychiatry (qualifier value)"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|394913002|Psychotherapy",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Psychotherapy (specialty) (qualifier value)"
-      }
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|47505003|Posttraumatic stress disorder",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://www.ihe.net/xds/connectathon/practiceSettingCodes|null|General Medicine|General Medicine",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|null|null|385893007|null",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|null|null|408480009|Clinical immunology",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
-    },
-    {
-      "hash": "#|null|null|45|Physiotherapy",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
-    },
-    {
-      "hash": "#|null|null|52|General Discussion",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "408480009",
+        "definition": null,
+        "display": "Clinical immunology"
+      }
     }
   ]
 }

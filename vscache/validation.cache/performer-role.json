@@ -7,7 +7,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "310512001",
         "definition": null,
         "display": "Medical oncologist"
       }
@@ -15,7 +15,7 @@
     {
       "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.000|Arts",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Procedure Performer Role Codes"
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }

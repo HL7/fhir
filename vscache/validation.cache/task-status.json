@@ -2,20 +2,15 @@
   "url": "http://hl7.org/fhir/ValueSet/task-status",
   "outcomes": [
     {
-      "hash": "|null|null|created|null",
+      "hash": "|null|null|draft|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "created",
+        "code": "draft",
         "definition": null,
-        "display": "Created"
+        "display": "Draft"
       }
-    },
-    {
-      "hash": "|null|null|draft|null",
-      "severity": "error",
-      "message": "Unknown Code draft in http://hl7.org/fhir/ValueSet/task-status"
     }
   ]
 }

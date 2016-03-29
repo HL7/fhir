@@ -4,17 +4,17 @@
     {
       "hash": "#|http://snomed.info/sct|null|412414007|infant formula + iron",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Enteral Formula Type Codes"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed/sct|null|6547210000124112|Diabetic specialty enteral formula",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Enteral Formula Type Codes"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://usextension/snomed.info/sct|null|659311000124118|Adult high protein formula",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Enteral Formula Type Codes"
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }

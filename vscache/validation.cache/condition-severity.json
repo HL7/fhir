@@ -7,9 +7,9 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "24484000",
         "definition": null,
-        "display": "Severe (severity modifier)"
+        "display": "Severe"
       }
     },
     {
@@ -18,7 +18,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "255604002",
         "definition": null,
         "display": "Mild"
       }
@@ -26,12 +26,12 @@
     {
       "hash": "#|http://snomed.info/sct|null|371923003|Mild to moderate",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Diagnosis Severity"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|371924009|Moderate to severe",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Diagnosis Severity"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|6736007|Moderate",
@@ -39,7 +39,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "6736007",
         "definition": null,
         "display": "Moderate"
       }

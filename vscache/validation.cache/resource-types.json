@@ -414,17 +414,6 @@
       }
     },
     {
-      "hash": "|null|null|DomainResource|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "DomainResource",
-        "definition": null,
-        "display": "DomainResource"
-      }
-    },
-    {
       "hash": "|null|null|EligibilityRequest|null",
       "severity": null,
       "message": null,
@@ -943,8 +932,14 @@
     },
     {
       "hash": "|null|null|PractitionerRole|null",
-      "severity": "error",
-      "message": "Unknown Code PractitionerRole in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "PractitionerRole",
+        "definition": null,
+        "display": "PractitionerRole"
+      }
     },
     {
       "hash": "|null|null|Practitioner|null",

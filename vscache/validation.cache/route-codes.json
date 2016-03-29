@@ -4,7 +4,7 @@
     {
       "hash": "#|http://snomed.info/sct|null|260548002|Oral",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Route Codes"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|26643006|Oral Route",
@@ -12,15 +12,15 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "26643006",
         "definition": null,
-        "display": "Oral use"
+        "display": "Oral route"
       }
     },
     {
       "hash": "#|http://snomed.info/sct|null|321667001|Respiratory tract",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Route Codes"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|34206005|Subcutaneous route",
@@ -28,41 +28,35 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "34206005",
         "definition": null,
-        "display": "SC use"
+        "display": "Subcutaneous route"
       }
     },
     {
       "hash": "#|http://snomed.info/sct|null|386359008|Administration of drug or medicament via oral route",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Route Codes"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|394899003|oral administration of treatment",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Route Codes"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|422237004|Inhalation",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Route Codes"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|47625008|Intravenous route",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Intravenous use"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|null|null|26643006|Oral route (qualifier value)",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Route Codes"
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }

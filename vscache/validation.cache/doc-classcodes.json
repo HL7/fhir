@@ -3,8 +3,14 @@
   "outcomes": [
     {
       "hash": "#|http://loinc.org|null|LP173421-1|Report",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set FHIR Document Class Codes"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "LP173421-1",
+        "definition": null,
+        "display": "Report"
+      }
     }
   ]
 }

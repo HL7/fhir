@@ -3,13 +3,25 @@
   "outcomes": [
     {
       "hash": "|null|null|d|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set UnitsOfTime"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "d",
+        "definition": null,
+        "display": "day"
+      }
     },
     {
       "hash": "|null|null|h|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set UnitsOfTime"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "h",
+        "definition": null,
+        "display": "hour"
+      }
     }
   ]
 }

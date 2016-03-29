@@ -13,17 +13,6 @@
       }
     },
     {
-      "hash": "#|http://acme.lab|null|BT|Body temperature#|http://loinc.org|null|8310-5|Body temperature#|http://snomed.info/sct|null|56342008|Temperature taking",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Body temperature"
-      }
-    },
-    {
       "hash": "#|http://acme.org/lab/codes/organisms|null|Staaur|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set LOINC Codes"
@@ -809,17 +798,6 @@
         "code": null,
         "definition": null,
         "display": "C reactive protein [Mass/volume] in Serum or Plasma by High sensitivity method"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|3141-9|Weight Measured#|http://snomed.info/sct|null|27113001|Body weight#|http://acme.org/devices/clinical-codes|null|body-weight|Body Weight",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Body weight Measured"
       }
     },
     {

@@ -4,7 +4,7 @@
     {
       "hash": "|http://snomed.info/sct|null|3457005|Referral",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set PurposeOfUse"
+      "message": "Unknown Code 3457005 in http://hl7.org/fhir/ValueSet/v3-PurposeOfUse"
     }
   ]
 }

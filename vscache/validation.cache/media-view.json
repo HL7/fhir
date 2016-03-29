@@ -3,14 +3,8 @@
   "outcomes": [
     {
       "hash": "#|http://snomed.info/sct|null|399067008|Lateral projection",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Lateral projection (qualifier value)"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }

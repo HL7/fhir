@@ -7,9 +7,9 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "442971000124100",
         "definition": null,
-        "display": "Adult high energy formula (product)"
+        "display": "Adult high energy formula"
       }
     },
     {
@@ -18,9 +18,9 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "442971000124100",
         "definition": null,
-        "display": "Adult high energy formula (product)"
+        "display": "Adult high energy formula"
       }
     },
     {
@@ -29,9 +29,9 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "442991000124104",
         "definition": null,
-        "display": "Adult high protein formula (product)"
+        "display": "Adult high protein formula"
       }
     },
     {
@@ -40,9 +40,9 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "443051000124104",
         "definition": null,
-        "display": "Adult diabetic specialty formula (product)"
+        "display": "Adult diabetes specialty formula"
       }
     }
   ]

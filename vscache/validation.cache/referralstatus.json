@@ -22,28 +22,6 @@
         "definition": null,
         "display": "Cancelled"
       }
-    },
-    {
-      "hash": "|null|null|rejected|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "rejected",
-        "definition": null,
-        "display": "Rejected"
-      }
-    },
-    {
-      "hash": "|null|null|requested|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "requested",
-        "definition": null,
-        "display": "Requested"
-      }
     }
   ]
 }

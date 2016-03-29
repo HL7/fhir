@@ -2,11 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/all-types",
   "outcomes": [
     {
-      "hash": "|null|null|*|null",
-      "severity": "error",
-      "message": "Unknown Code * in http://hl7.org/fhir/ValueSet/all-types"
-    },
-    {
       "hash": "|null|null|Any|null",
       "severity": null,
       "message": null,
@@ -170,11 +165,6 @@
         "definition": null,
         "display": "MedicationOrder"
       }
-    },
-    {
-      "hash": "|null|null|MedicationPrescription|null",
-      "severity": "error",
-      "message": "Unknown Code MedicationPrescription in http://hl7.org/fhir/ValueSet/all-types"
     },
     {
       "hash": "|null|null|MedicationStatement|null",
@@ -364,11 +354,6 @@
       }
     },
     {
-      "hash": "|null|null|datetime|null",
-      "severity": "error",
-      "message": "Unknown Code datetime in http://hl7.org/fhir/ValueSet/all-types"
-    },
-    {
       "hash": "|null|null|date|null",
       "severity": null,
       "message": null,
@@ -411,11 +396,6 @@
         "definition": null,
         "display": "string"
       }
-    },
-    {
-      "hash": "|null|null|token|null",
-      "severity": "error",
-      "message": "Unknown Code token in http://hl7.org/fhir/ValueSet/all-types"
     },
     {
       "hash": "|null|null|uri|null",

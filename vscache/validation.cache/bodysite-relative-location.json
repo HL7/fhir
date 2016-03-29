@@ -4,7 +4,7 @@
     {
       "hash": "#|http://snomed.info/sct|null|255549009|Anterior",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Bodysite Location Modifier"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|261183002|Upper",
@@ -12,7 +12,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "261183002",
         "definition": null,
         "display": "Upper"
       }
@@ -23,9 +23,9 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "419161000",
         "definition": null,
-        "display": "Unilateral left (qualifier value)"
+        "display": "Unilateral left"
       }
     }
   ]

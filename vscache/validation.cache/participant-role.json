@@ -2,49 +2,44 @@
   "url": "http://hl7.org/fhir/ValueSet/participant-role",
   "outcomes": [
     {
-      "hash": "#|http://example.org/EpisodeOfCare/Role|null|AO|Assessment Worker",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Participant Roles"
-    },
-    {
       "hash": "#|http://example.org/local|null|doc|null",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Participant Roles"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://example.org/local|null|nur|null",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Participant Roles"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://example.org/mysys|null|lmc|null",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Participant Roles"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://example.org/mysys|null|obs|null",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Participant Roles"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|229774002|Carer",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Participant Roles"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|278110001|Radiographic imaging",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Participant Roles"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|28995006|Treated with",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Participant Roles"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|425268008|Review of care plan",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Participant Roles"
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }

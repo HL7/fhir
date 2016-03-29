@@ -7,7 +7,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "BAP",
         "definition": null,
         "display": "Plates, Blood Agar"
       }
@@ -18,7 +18,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "LNV",
         "definition": null,
         "display": "Line, Venous"
       }

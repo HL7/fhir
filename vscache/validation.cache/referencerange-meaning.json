@@ -7,7 +7,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "normal",
         "definition": null,
         "display": "Normal Range"
       }
