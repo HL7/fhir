@@ -5158,7 +5158,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">datetime</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Last Received On</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">The date the results of this measure were last received</Data></Cell>

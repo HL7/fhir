@@ -107,7 +107,7 @@
 	</dataRequirement>
 	
 	<dataRequirement>
-		<type value="MedicationPrescription"/>
+		<type value="MedicationOrder"/>
 		<codeFilter>
 			<path value="status"/>
 			<valueCode value="active"/>

@@ -848,7 +848,7 @@ public class ProfileGenerator {
       for (ContactPoint ts : tc.getTelecom())
         t.getTelecom().add(ts.copy());
     }
-    if (p.hasBaseType())
+    if (p.getDerivation() == TypeDerivationRule.CONSTRAINT)
       sp.setBase(p.getBaseType());
     else
       sp.setBase(p.getName());
@@ -1653,12 +1653,12 @@ public class ProfileGenerator {
       TypeRef tr = new TypeParser().parse(p.getFhirType(), false, null, null, false).get(0);
       if (definitions.getConstraints().containsKey(tr.getName())) {
         ProfiledType pt = definitions.getConstraints().get(tr.getName());
-        pp.setType(pt.getBaseType());
+        pp.setType(pt.getBaseType().equals("*") ? "Type" : pt.getBaseType());
         pp.setProfile(new Reference().setReference("http://hl7.org/fhir/StructureDefinition/"+pt.getName()));
       } else { 
         if (p.getSearchType() != null)
           pp.setSearchType(SearchParamType.fromCode(p.getSearchType()));
-        pp.setType(tr.getName());
+        pp.setType(tr.getName().equals("*") ? "Type" : tr.getName());
         if (tr.getParams().size() == 1 && !tr.getParams().get(0).equals("Any"))
           pp.setProfile(new Reference().setReference("http://hl7.org/fhir/StructureDefinition/"+tr.getParams().get(0)));
       } 

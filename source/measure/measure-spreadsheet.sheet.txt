@@ -492,7 +492,7 @@
   Name = evaluate-measure.lastReceivedOn
   Use = in
   Documentation = The date the results of this measure were last received
-  Type = datetime
+  Type = dateTime
   Title = Last Received On
   Footer = This parameter is only valid for patient-level reports and is used to indicate when the last time a result for this patient was received. This information can be used to limit the set of resources returned for a patient-level report
   Min = 0

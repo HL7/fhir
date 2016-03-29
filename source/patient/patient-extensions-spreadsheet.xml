@@ -3919,7 +3919,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">This is a standard extension rather than a core property as many systems do not record the time component, and can cause issues if zones interfere and cause miss-interpretation of the date value. Consideration was made to use Instant, however that was too strict. Further consideration was to use Time, and another extension for Zone, but that would be a pain for implementers, so datetime was settled upon</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">This is a standard extension rather than a core property as many systems do not record the time component, and can cause issues if zones interfere and cause miss-interpretation of the date value. Consideration was made to use Instant, however that was too strict. Further consideration was to use Time, and another extension for Zone, but that would be a pain for implementers, so dateTime was settled upon</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

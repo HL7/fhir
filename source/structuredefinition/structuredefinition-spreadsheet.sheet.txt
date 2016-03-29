@@ -714,7 +714,8 @@
   Name = questionnaire.profile
   Use = in
   Documentation = The [[[StructureDefinition]]] is provided directly as part of the request. Servers may choose not to accept profiles in this fashion
-  Type = token
+  Type = string
+  Search Type = token
   Min = 0
   Max = 1
 
