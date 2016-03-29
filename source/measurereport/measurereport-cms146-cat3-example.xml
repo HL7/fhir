@@ -49,7 +49,7 @@
 			<count value="500"/>
 		</population>
 		<population>
-			<type value="denominator-exclusions"/>
+			<type value="denominator-exclusion"/>
 			<count value="100"/>
 		</population>
 		<stratifier>
@@ -69,7 +69,7 @@
 					<count value="250"/>
 				</population>
 				<population>
-					<type value="denominator-exclusions"/>
+					<type value="denominator-exclusion"/>
 					<count value="50"/>
 				</population>
 			</group>
@@ -88,7 +88,7 @@
 					<count value="250"/>
 				</population>
 				<population>
-					<type value="denominator-exclusions"/>
+					<type value="denominator-exclusion"/>
 					<count value="50"/>
 				</population>
 			</group>
@@ -110,7 +110,7 @@
 					<count value="250"/>
 				</population>
 				<population>
-					<type value="denominator-exclusions"/>
+					<type value="denominator-exclusion"/>
 					<count value="50"/>
 				</population>
 			</group>
@@ -129,7 +129,7 @@
 					<count value="250"/>
 				</population>
 				<population>
-					<type value="denominator-exclusions"/>
+					<type value="denominator-exclusion"/>
 					<count value="50"/>
 				</population>
 			</group>
@@ -151,7 +151,7 @@
 					<count value="250"/>
 				</population>
 				<population>
-					<type value="denominator-exclusions"/>
+					<type value="denominator-exclusion"/>
 					<count value="50"/>
 				</population>
 			</group>
@@ -170,7 +170,7 @@
 					<count value="250"/>
 				</population>
 				<population>
-					<type value="denominator-exclusions"/>
+					<type value="denominator-exclusion"/>
 					<count value="50"/>
 				</population>
 			</group>
@@ -189,7 +189,7 @@
 					<count value="0"/>
 				</population>
 				<population>
-					<type value="denominator-exclusions"/>
+					<type value="denominator-exclusion"/>
 					<count value="0"/>
 				</population>
 			</group>
@@ -208,7 +208,7 @@
 					<count value="0"/>
 				</population>
 				<population>
-					<type value="denominator-exclusions"/>
+					<type value="denominator-exclusion"/>
 					<count value="0"/>
 				</population>
 			</group>

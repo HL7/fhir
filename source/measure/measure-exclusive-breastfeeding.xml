@@ -38,7 +38,7 @@
 		  <criteria value="Denominator1"/>
 	  </population>
 	  <population>
-		  <type value="denominator-exclusions"/>
+		  <type value="denominator-exclusion"/>
 		  <identifier><value value="denominator-exclusions-1-identifier"/></identifier>
 		  <criteria value="DenominatorExclusions1"/>
 	  </population>
@@ -61,7 +61,7 @@
 		  <criteria value="Denominator2"/>
 	  </population>
 	  <population>
-		  <type value="denominator-exclusions"/>
+		  <type value="denominator-exclusion"/>
 		  <identifier><value value="denominator-exclusions-2-identifier"/></identifier>
 		  <criteria value="DenominatorExclusions2"/>
 	  </population>

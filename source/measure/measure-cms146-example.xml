@@ -56,7 +56,7 @@
 			<criteria value="CMS146.InDenominator"/>
 		</population>
 		<population>
-			<type value="denominator-exclusions"/>
+			<type value="denominator-exclusion"/>
 			<identifier><value value="denominator-exclusions-identifier"/></identifier>
 			<criteria value="CMS146.InDenominatorExclusions"/>
 		</population>
