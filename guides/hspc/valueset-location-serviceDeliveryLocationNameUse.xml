@@ -16,7 +16,7 @@
   <description value="The set of values that describe how usage of the service delivery location name."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/ValueSet/v3-EntityNameUse"/>
+      <system value="http://hl7.org/fhir/v3/EntityNameUse"/>
       <concept>
         <code value="L"/>
         <display value="Legal Name"/>

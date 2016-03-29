@@ -6,7 +6,7 @@
 	<description value="A value set of HL7 Code indication the level of confidentiality an act." />
 	<compose>
 		<include>
-			<system value="http://hl7.org/fhir/ValueSet/v3-Confidentiality"/>
+			<system value="http://hl7.org/fhir/v3/Confidentiality"/>
 			<concept>
 				<code value="N"/>
 			</concept>

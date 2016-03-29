@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:0fe9dbaa-dd66-4fc2-a5ce-684aff8d8dda","timestamp":"2016-03-29T20:13:32Z","contains":[{"system":"http://hl7.org/fhir/observation-hspc-dataOriginationMode","code":"14610118","display":"Stated"}]}}

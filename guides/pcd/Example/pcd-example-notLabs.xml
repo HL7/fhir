@@ -63,7 +63,7 @@
 	 </type>
 	 <subType>
        <coding>
-	     <system value="http://hl7.org/fhir/ValueSet/resource-types"/>
+	     <system value="http://hl7.org/fhir/resource-types"/>
 	     <code value="Order"/>
 	   </coding>
 	 </subType>
@@ -80,7 +80,7 @@
 	 </type>
 	 <subType>
        <coding>
-	     <system value="http://hl7.org/fhir/ValueSet/resource-types"/>
+	     <system value="http://hl7.org/fhir/resource-types"/>
 	     <code value="OrderResponse"/>
 	   </coding>
 	 </subType>

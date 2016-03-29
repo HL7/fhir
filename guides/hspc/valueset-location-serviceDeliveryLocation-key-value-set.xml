@@ -16,7 +16,7 @@
   <description value="This value set defines the set of codes used to identify the service delivery location."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/ValueSet/v3-EntityCode"/>
+      <system value="http://hl7.org/fhir/v3/EntityCode"/>
       <concept>
         <code value="WING"/>
         <display value="Wing Location"/>

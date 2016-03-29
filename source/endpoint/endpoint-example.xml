@@ -24,7 +24,7 @@
   <payloadFormat value="application/xml+fhir"/>
   <payloadType>
     <coding>
-        <system value="http://hl7.org/fhir/ValueSet/resource-types" />
+        <system value="http://hl7.org/fhir/resource-types" />
         <code value="CarePlan" />
     </coding>
   </payloadType>

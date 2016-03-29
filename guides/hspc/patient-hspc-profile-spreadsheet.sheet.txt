@@ -227,7 +227,6 @@
   Element = Patient.address.type
   Profile Name = addressType
   Card. = 0..1
-  Binding = AddressType
 
  -- Row 11 -----------------------------------
   Element = !Patient.maritalStatus

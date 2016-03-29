@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:40dad6fd-19f1-4883-bfb4-0dbe4544d9fe","timestamp":"2016-03-29T20:06:19Z","contains":[{"system":"http://hl7.org/fhir/hspc-departureTransportationMode","code":"14586425","display":"Left w/ Law Enforcement"}]}}

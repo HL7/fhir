@@ -13,7 +13,7 @@
   <description value="This value set includes a smattering of Benefit type codes."/>
   <copyright value="This is an example set."/>
   <codeSystem>
-    <system value="http://hl7.org/fhir/ValueSet/benefit-type"/>
+    <system value="http://hl7.org/fhir/benefit-type"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="deductable"/>

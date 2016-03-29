@@ -13,7 +13,7 @@
   <description value="A set of value that describe different kinds of addresses."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/ValueSet/v3-EntityNameUse"/>
+      <system value="http://hl7.org/fhir/v3/EntityNameUse"/>
       <concept>
         <code value="IDE"/>
         <display value="Ideographic"/>

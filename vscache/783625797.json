@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:5c5c80b9-a3e7-4203-a4a6-80967985cfc1","timestamp":"2016-03-29T20:06:19Z","contains":[{"system":"http://hl7.org/fhir/hspc-fetalestimationmethod","code":"103241","display":"Last known menstrual period"},{"system":"http://hl7.org/fhir/hspc-fetalestimationmethod","code":"205940","display":"Uterine size"}]}}

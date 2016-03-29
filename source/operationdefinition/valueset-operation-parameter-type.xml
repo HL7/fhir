@@ -18,7 +18,7 @@
   <!--    FHIR data types & Resources    -->
     <import value="http://hl7.org/fhir/ValueSet/defined-types"/>
     <include>
-      <system value="http://hl7.org/fhir/ValueSet/special-types"/>
+      <system value="http://hl7.org/fhir/special-types"/>
     </include>
   </compose>
 </ValueSet>

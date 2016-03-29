@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:d714500c-22d6-4966-9619-9f17066d136f","timestamp":"2016-03-29T20:07:46Z","contains":[{"system":"http://hl7.org/fhir/hspc-allergyintolerancetype","code":"521059339","display":"Intolerance"}]}}

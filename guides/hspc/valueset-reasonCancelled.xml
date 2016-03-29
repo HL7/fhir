@@ -12,7 +12,7 @@
   <extensible value="true"/>
   <compose>
     <include>
-		<system value="http://hl7.org/fhir/ValueSet/v3-ActReason"/>
+		<system value="http://hl7.org/fhir/v3/ActReason"/>
 		<concept>	
 			<code value="BLK"/>
 			<display value="Unexpected Block (of Schedule)"/>

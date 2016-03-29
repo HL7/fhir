@@ -16,7 +16,7 @@
   <description value="The set of values that describe the manner an individual uses a name."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/ValueSet/v3-EntityNameUse"/>
+      <system value="http://hl7.org/fhir/v3/EntityNameUse"/>
       <concept>
         <code value="L"/>
         <display value="Legal Name"/>
@@ -27,7 +27,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/ValueSet/v3-EntityNameuseR2"/>
+      <system value="http://hl7.org/fhir/v3/EntityNameUseR2"/>
       <concept>
         <code value="M"/>
         <display value="maiden name"/>

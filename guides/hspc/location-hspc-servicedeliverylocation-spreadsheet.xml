@@ -7125,7 +7125,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s164"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-EntityStatus</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityStatus</Data></Cell>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"><Data ss:Type="String">Active</Data></Cell>
     <Cell ss:StyleID="s166"/>
@@ -7136,7 +7136,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s168"><Data ss:Type="String">inactive</Data></Cell>
     <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-EntityStatus</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityStatus</Data></Cell>
     <Cell ss:StyleID="s169"/>
     <Cell ss:StyleID="s169"><Data ss:Type="String">Inactive</Data></Cell>
     <Cell ss:StyleID="s169"/>

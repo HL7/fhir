@@ -12,7 +12,7 @@
   <extensible value="true"/>
   <compose>
     <include>
-		<system value="http://hl7.org/fhir/ValueSet/v3-ActCode"/>
+		<system value="http://hl7.org/fhir/v3/ActCode"/>
 		<concept>	
 			<code value="BR"/>
 			<display value="breikost(GE)"/>

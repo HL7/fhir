@@ -28,7 +28,7 @@
 	<description value="Percentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode."/>
 	<topic>
 		<coding>
-		  <system value="http://hl7.org/fhir/ValueSet/c80-doc-typecodes" />
+		  <system value="http://hl7.org/fhir/c80-doc-typecodes" />
 		  <code value="57024-2" />
 		</coding>
 	</topic>

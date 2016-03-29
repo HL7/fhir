@@ -13,7 +13,7 @@
   <description value="The codes that describe the individual&#39;s gender."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/ValueSet/v3-AdministrativeGender"/>
+      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
       <concept>
         <code value="M"/>
         <display value="Male"/>

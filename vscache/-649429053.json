@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:b85a8f66-5501-4e75-9e00-3f45ab5ec8d3","timestamp":"2016-03-29T20:13:33Z","contains":[{"system":"http://hl7.org/fhir/hspc-substancecategory","code":"527731710","display":"Environmental"}]}}

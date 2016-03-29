@@ -10,18 +10,18 @@
   <LastAuthor>Nathan Davis</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-11-30T18:20:52Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>3675</WindowHeight>
-  <WindowWidth>9600</WindowWidth>
+  <WindowHeight>17610</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>740</TabRatio>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1471,8 +1471,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">AddressType</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2115,6 +2114,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2135,8 +2135,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4549,7 +4549,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4569,8 +4568,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5262,7 +5261,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s166"><Data ss:Type="String">M</Data></Cell>
     <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-AdministrativeGender</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/AdministrativeGender</Data></Cell>
     <Cell ss:StyleID="s169"/>
     <Cell ss:StyleID="s169"><Data ss:Type="String">Male</Data></Cell>
     <Cell ss:StyleID="s169"/>
@@ -5273,7 +5272,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s171"><Data ss:Type="String">F</Data></Cell>
     <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-AdministrativeGender</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/AdministrativeGender</Data></Cell>
     <Cell ss:StyleID="s172"/>
     <Cell ss:StyleID="s172"><Data ss:Type="String">Female</Data></Cell>
     <Cell ss:StyleID="s172"/>
@@ -5284,7 +5283,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s171"><Data ss:Type="String">UN</Data></Cell>
     <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-AdministrativeGender</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/AdministrativeGender</Data></Cell>
     <Cell ss:StyleID="s172"/>
     <Cell ss:StyleID="s172"><Data ss:Type="String">Undifferentiated</Data></Cell>
     <Cell ss:StyleID="s172"/>

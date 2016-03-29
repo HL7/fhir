@@ -47,7 +47,7 @@
      <reference value="Practitioner/example"/>
    </providerReference>
    <service>
-     <system value="http://hl7.org/fhir/ValueSet/service-uscls"/>
+     <system value="http://hl7.org/fhir/service-uscls"/>
      <code value="1200"/>
    </service>
    <servicedDate value="2014-08-16"/>
