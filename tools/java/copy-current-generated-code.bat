@@ -1,13 +1,14 @@
 REM Dirmerge is a utility that scans source, and copies to dest. if the file already exists in source, it checks if they are different, and if they are, brings up winmerge if the genmark is not found
 
-C:\work\org.hl7.fhir\build\tools\bin\dirmerge C:\work\org.hl7.fhir\build\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\formats C:\work\org.hl7.fhir\build\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\formats java "// Generated on"
-C:\work\org.hl7.fhir\build\tools\bin\dirmerge C:\work\org.hl7.fhir\build\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\model C:\work\org.hl7.fhir\build\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\model java "// Generated on"
-C:\work\org.hl7.fhir\build\tools\bin\dirmerge C:\work\org.hl7.fhir\build\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\model\valuesets C:\work\org.hl7.fhir\build\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\model\valuesets java "// Generated on"
-C:\work\org.hl7.fhir\build\tools\bin\dirmerge C:\work\org.hl7.fhir\build\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\utils C:\work\org.hl7.fhir\build\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\utils java
-C:\work\org.hl7.fhir\build\tools\bin\dirmerge C:\work\org.hl7.fhir\build\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\validation C:\work\org.hl7.fhir\build\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\validation java
-C:\work\org.hl7.fhir\build\tools\bin\dirmerge C:\work\org.hl7.fhir\build\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\terminologies C:\work\org.hl7.fhir\build\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\terminologies java
-C:\work\org.hl7.fhir\build\tools\bin\dirmerge C:\work\org.hl7.fhir\build\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\test C:\work\org.hl7.fhir\build\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\test java
-C:\work\org.hl7.fhir\build\tools\bin\dirmerge C:\work\org.hl7.fhir\build\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\client C:\work\org.hl7.fhir\build\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\client java
-C:\work\org.hl7.fhir\build\tools\bin\dirmerge C:\work\org.hl7.fhir\build\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\metamodel C:\work\org.hl7.fhir\build\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\metamodel java "// Generated on"
+..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\formats ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\formats java "// Generated on"
+..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\model ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\model java "// Generated on"
+..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\model\valuesets ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\model\valuesets java "// Generated on"
+..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\utils ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\utils java
+..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\validation ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\validation java
+..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\terminologies ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\terminologies java
+..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\test ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\test java
+..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\client ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\client java
+..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\metamodel ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\metamodel java "// Generated on"
 
 
+pause
