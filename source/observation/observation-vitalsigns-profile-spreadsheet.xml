@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Microsoft Office User</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-03-28T08:17:59Z</LastSaved>
+  <LastSaved>2016-03-29T00:23:28Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1082,7 +1082,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">summary-BodyWeight</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&gt;&lt;/i&gt;://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'3141-9'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  `Observation.valueQuantity.code` = **'kg', 'g', or '[lb_av]'**</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&gt;&lt;/i&gt;://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'59574-4'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  `Observation.valueQuantity.code` = **'kg', 'g', or '[lb_av]'**</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-18]C[1]"><Data ss:Type="String">summary-RespRate</Data></Cell>
@@ -1106,7 +1106,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-18]C[1]"><Data ss:Type="String">summary-HeadCircum</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&gt;&lt;/i&gt;://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'8287-5'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'cm', or '[in_i]'**&#13;</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&gt;&lt;/i&gt;://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'9843-4'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'cm', or '[in_i]'**&#13;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-18]C[1]"><Data ss:Type="String">summary-OxygenSat</Data></Cell>
@@ -1145,7 +1145,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>20</TopRowBottomPane>
+   <TopRowBottomPane>29</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1162,7 +1162,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>28</ActiveRow>
+     <ActiveRow>35</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
