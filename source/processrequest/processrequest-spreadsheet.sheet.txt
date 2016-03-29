@@ -184,25 +184,25 @@
 
  -- Row 2 -----------------------------------
   Name = organizationidentifier
-  Type = reference
+  Type = token
   Description = The organization who generated this request
   Path = ProcessRequest.organizationIdentifier
 
  -- Row 3 -----------------------------------
   Name = organizationreference
-  Type = token
+  Type = reference
   Description = The organization who generated this request
   Path = ProcessRequest.organizationReference
 
  -- Row 4 -----------------------------------
   Name = provideridentifier
-  Type = reference
+  Type = token
   Description = The provider who regenerated this request
   Path = ProcessRequest.providerIdentifier
 
  -- Row 5 -----------------------------------
   Name = providerreference
-  Type = token
+  Type = reference
   Description = The provider who regenerated this request
   Path = ProcessRequest.providerReference
 

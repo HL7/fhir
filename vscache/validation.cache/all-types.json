@@ -161,6 +161,17 @@
       }
     },
     {
+      "hash": "|null|null|MedicationOrder|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MedicationOrder",
+        "definition": null,
+        "display": "MedicationOrder"
+      }
+    },
+    {
       "hash": "|null|null|MedicationPrescription|null",
       "severity": "error",
       "message": "Unknown Code MedicationPrescription in http://hl7.org/fhir/ValueSet/all-types"
@@ -295,6 +306,17 @@
         "code": "Resource",
         "definition": null,
         "display": "Resource"
+      }
+    },
+    {
+      "hash": "|null|null|Type|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Type",
+        "definition": null,
+        "display": "Type"
       }
     },
     {

@@ -7,6 +7,17 @@
       "message": "Unknown Code denominator-exclusions in http://hl7.org/fhir/ValueSet/measure-population"
     },
     {
+      "hash": "|null|null|denominator-exclusion|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "denominator-exclusion",
+        "definition": null,
+        "display": "Denominator Exclusion"
+      }
+    },
+    {
       "hash": "|null|null|denominator|null",
       "severity": null,
       "message": null,
