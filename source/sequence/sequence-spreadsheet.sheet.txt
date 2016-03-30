@@ -495,7 +495,7 @@
 
  -- Row 11 -----------------------------------
   Element = Sequence.referenceSeq.referenceSeqId
-  Card. = 0..1
+  Card. = 1..1
   Type = CodeableConcept
   Binding = sequenceReference
   Short Label = Reference identifier

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <Sequence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\sequence.xsd">
     <id value="example"/>
     <type value="DNA"/>
@@ -13,12 +13,11 @@
         <text value="Homo sapiens"/>
     </species>
     <referenceSeq>
-        <chromosome>
-            <coding>
-                <code value="7"/>
-            </coding>
-        </chromosome>
-        <genomeBuild value="GRCh37"/>
+        <referenceSeqId>
+          <coding>
+            <code value="NC_000007.14"/>
+          </coding>
+        </referenceSeqId>
         <windowStart value="55227970"/>
         <windowEnd value="55227980"/>
     </referenceSeq>
@@ -33,4 +32,4 @@
         <name value="ga4gh"/>
         <variantId value="A1A2"/>
     </repository>
-</Sequence> 
+</Sequence>
