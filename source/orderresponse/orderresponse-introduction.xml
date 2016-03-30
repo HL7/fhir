@@ -4,6 +4,12 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
+<b>NOTE:</b> This resource is slated to be eliminated in favor of the <a href="task.html">Task</a>
+resource as part of the FHIR Workflow refactoring.  Readers of this resource are encouraged to
+review the Task resource and consider using it instead and/or to provide feedback if they feel
+it will be inadequate to satisfy the use-cases associated with this resource.
+</p>		
+<p>
 The response to an order indicates the outcome of processing the order itself - whether it 
 was accepted or rejected, or is still in process. The order response resource does not itself convey 
 or represent information that arises as a result of performing the actual order, but it may have 

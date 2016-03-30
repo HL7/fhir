@@ -4,6 +4,14 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
+<b>NOTE:</b> This resource is slated to be refactored and reduced in scope as some of its functionality
+is taken over by the <a href="task.html">Task</a>
+resource as part of the FHIR Workflow refactoring.  Readers of this resource are encouraged to
+review the Task resource and consider using it instead and/or to provide feedback if they feel
+it will be inadequate to satisfy the use-cases associated with this resource and to express
+opinions about which purposes they feel ProcessRequest and ProcessResponse should be retained for.
+</p>		
+<p>
 The ProcessRequest resource allows for the specification of an action to be performed on an existing resporce or resources and the 
 provides the additional supporting information to support that action. The actions currently defined are: cancel, poll, 
 reprocess, and status. 
@@ -37,6 +45,7 @@ support a 'Get Operation', for the retrieval of pended, held, resources.
 A simple Poll request, one which doesn't specify: request, include, exclude or period; would return
 any pended resource. Specific types of business behaviors may be supported by providing values for the
 filtering elements, for example:
+</p>
 <ul>
 <li>Get any pended resource - no filters specified</li>
 <li>Get deferred response to a Claim - specify the Claim in the 'request'</li>
@@ -44,10 +53,8 @@ filtering elements, for example:
 <li>Get an Explanation of Benefit - specify 'ExplanationOfBenefit' as an 'include'</li>
 <li>Get a payment reconciliation - specify a 'period' which contains the expected reconciliation 
 creation date, and specify 'PaymentReconciliation' as an 'include'</li> 
-</ul> 
-</p>
+</ul>
 
-<p>
 
 <p>
 <b>Reprocess</b> indicates the resource which is to be reprocessed, for example a claim to be readjudicated or a specemin or diagnostic image to be re-examined, 
@@ -69,7 +76,6 @@ This is a formal request for Payors which require such and/or transports which d
 </p>
 
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-</p>
 </div>
 
 <!-- (recommended): 

@@ -4,6 +4,14 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
+<b>NOTE:</b> This resource is slated to be refactored and reduced in scope as some of its functionality
+is taken over by the <a href="task.html">Task</a>
+resource as part of the FHIR Workflow refactoring.  Readers of this resource are encouraged to
+review the Task resource and consider using it instead and/or to provide feedback if they feel
+it will be inadequate to satisfy the use-cases associated with this resource and to express
+opinions about which purposes they feel ProcessRequest and ProcessResponse should be retained for.
+</p>		
+<p>
 The ProcessResponse resource indicates the resource for which the processing status is requested and 
 provides simple acknowledgement and status information of application level errors. It may also be used to 
 convey additional processing requirements in a text form.
