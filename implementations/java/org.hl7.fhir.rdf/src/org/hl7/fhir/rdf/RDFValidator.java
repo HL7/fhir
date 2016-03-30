@@ -49,14 +49,14 @@ public class RDFValidator {
   
   public void validate(String filename) throws Exception {
     Model m = RDFDataMgr.loadModel(filename);
-    System.out.println(Integer.toString(m.getGraph().size())+" triples in RDF file "+filename);
+//    System.out.println(Integer.toString(m.getGraph().size())+" triples in RDF file "+filename);
     model = model == null ? m : model.union(m);
-    FileOutputStream strm = new FileOutputStream(Utilities.changeFileExt(filename, ".rdf.xml"));
-    try {
-      RDFDataMgr.write(strm, m, RDFFormat.RDFXML_PLAIN);
-    } finally {
-      strm.close();
-    }
+//    FileOutputStream strm = new FileOutputStream(Utilities.changeFileExt(filename, ".rdf.xml"));
+//    try {
+//      RDFDataMgr.write(strm, m, RDFFormat.RDFXML_PLAIN);
+//    } finally {
+//      strm.close();
+//    }
   }
   
   public List<ValidationMessage> assertion(String sparql, String id, String rowType, String message, String description, IssueSeverity level) {

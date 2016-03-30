@@ -161,7 +161,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     StringBuilder s = new StringBuilder();
     ValueSet vs = new ValueSet();
     ValueSetUtilities.makeShareable(vs);
-    vs.setUserData("filename", Utilities.path("v3", id, "index.html"));
+    vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
     vs.setId("v3-"+FormatUtilities.makeId(id));
     vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
     vs.setName("v3 Code System " + id);
@@ -170,7 +170,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     vs.setStatus(ConformanceResourceStatus.ACTIVE);
     
     vs.setId("v3-" + FormatUtilities.makeId(id));
-    vs.setUserData("path", "v3" + "/" + id + "/" + "index.html");
+    vs.setUserData("path", "v3" + "/" + id + "/" + "vs.html");
     
     vs.setUserData("filename", "valueset-"+id);
     vs.setUserData("committee", "vocab");
@@ -181,19 +181,20 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
       vs.setDateElement(new DateTimeType(r.getAttribute("releaseDate")));
       vs.setVersion(r.getAttribute("releaseDate"));
     }
-    if (csOid != null)
-      s.append("<p>OID for code system: " + csOid + "</p>\r\n");
+//    if (csOid != null)
+//      s.append("<p>OID for code system: " + csOid + "</p>\r\n");
     if (vsOid != null) {
-      s.append("<p>OID for value set: " + vsOid + " (this is the value set that includes the entire code system)</p>\r\n");
+//      s.append("<p>OID for value set: " + vsOid + " (this is the value set that includes the entire code system)</p>\r\n");
       ToolingExtensions.setOID(vs, "urn:oid:"+vsOid);
+      
     }
     r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"), "text");
     if (r == null)
       r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "definition"), "text");
     if (r != null) {
-      s.append("<h2>Description</h2>\r\n");
-      s.append("<p>").append(nodeToString(r)).append("</p>\r\n");
-      s.append("<hr/>\r\n");
+//      s.append("<h2>Description</h2>\r\n");
+//      s.append("<p>").append(nodeToString(r)).append("</p>\r\n");
+//      s.append("<hr/>\r\n");
       vs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(r));
     } else
       vs.setDescription("**** MISSING DEFINITIONS ****");
@@ -201,13 +202,15 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     CodeSystem cs = new CodeSystem();
     cs.setUrl("http://hl7.org/fhir/v3/" + id);
     cs.setId("v3-"+FormatUtilities.makeId(id));
-    cs.setUserData("path", "v3" + "/" + id + "/" + "index.html");
     ToolingExtensions.setOID(cs, "urn:oid:"+csOid);
     CodeSystemConvertor.populate(cs, vs);
+    cs.setUserData("path", "v3" + "/" + id + "/" + "cs.html");
+    cs.setUserData("filename", "v3" + "/" + id + "/" + "cs.html");
     vs.getCompose().addInclude().setSystem(cs.getUrl());
     vs.setExperimental(false);
     cs.setCaseSensitive(true);
     cs.setContent(CodeSystemContentMode.COMPLETE);
+    cs.setValueSet(vs.getUrl());
 
     List<CodeInfo> codes = new ArrayList<CodeInfo>();
     // first, collate all the codes
@@ -332,7 +335,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
           } else
             throw new Exception("unhandled value set specifier in ini file");
 
-          vs.setUserData("path", "v3" + "/" + id + "/" + "index.html");
+          vs.setUserData("path", "v3" + "/" + id + "/" + "vs.html");
           ToolingExtensions.setOID(vs, "urn:oid:"+e.getAttribute("id"));
           if (vs.hasDate())
             vs.getMeta().setLastUpdatedElement(new InstantType(vs.getDate()));
@@ -372,7 +375,8 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
   private ValueSet buildV3ValueSetAsCodeSystem(String id, Element e, String csname) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
     ValueSetUtilities.makeShareable(vs);
-    vs.setUserData("filename", Utilities.path("v3", id, "index.html"));
+    vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
+    vs.setUserData("path", Utilities.path("v3", id, "vs.html"));
     vs.setId("v3-"+FormatUtilities.makeId(id));
     vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
     vs.setName(id);
@@ -418,7 +422,8 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
   private ValueSet buildV3ValueSet(String id, String dt, Element e, Map<String, CodeSystem> codesystems, IniFile vsini) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
     ValueSetUtilities.makeShareable(vs);
-    vs.setUserData("filename", Utilities.path("v3", id, "index.html"));
+    vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
+    vs.setUserData("path", Utilities.path("v3", id, "vs.html"));
     vs.setId("v3-"+FormatUtilities.makeId(id));
     vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
     vs.setName(id);
@@ -543,13 +548,20 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
             String id = e.getAttribute("name");
             Utilities.createDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
             Utilities.clearDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
-            String src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template-cs.html");
             ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v3-"+FormatUtilities.makeId(id));
+            CodeSystem cs = (CodeSystem) vs.getUserData("cs");
 
-            String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + id + File.separator + "index.html", vs, null, null, "V3 CodeSystem", null);
-            sf = sects.addSectionNumbers(Utilities.path("v3", id, "index.html"), "template-v3", sf, Utilities.oidTail(e.getAttribute("codeSystemId")), 2, null, null);
-            TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + id + File.separator + "index.html");
-            page.getEpub().registerExternal("v3" + File.separator + id + File.separator + "index.html");
+            String src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template-cs.html");
+            String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + id + File.separator + "cs.html", cs, null, null, "V3 CodeSystem", null);
+            sf = sects.addSectionNumbers(Utilities.path("v3", id, "cs.html"), "template-v3", sf, Utilities.oidTail(e.getAttribute("codeSystemId")), 2, null, null);
+            TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + id + File.separator + "cs.html");
+            page.getEpub().registerExternal("v3" + File.separator + id + File.separator + "cs.html");
+
+            src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template-vs.html");
+            sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + id + File.separator + "vs.html", vs, null, null, "V3 ValueSet", null);
+            sf = sects.addSectionNumbers(Utilities.path("v3", id, "vs.html"), "template-v3", sf, Utilities.oidTail(e.getAttribute("codeSystemId")), 2, null, null);
+            TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + id + File.separator + "vs.html");
+            page.getEpub().registerExternal("v3" + File.separator + id + File.separator + "vs.html");
           }
         }
       }
@@ -560,10 +572,10 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
           Utilities.clearDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
           String src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template-vs.html");
           ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v3-"+FormatUtilities.makeId(id));
-          String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + id + File.separator + "index.html", vs, null, "V3 ValueSet", null);
-          sf = sects.addSectionNumbers(Utilities.path("v3", id, "index.html"), "template-v3", sf, Utilities.oidTail(e.getAttribute("id")), 2, null, null);
-          TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + id + File.separator + "index.html");
-          page.getEpub().registerExternal("v3" + File.separator + id + File.separator + "index.html");
+          String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + id + File.separator + "vs.html", vs, null, "V3 ValueSet", null);
+          sf = sects.addSectionNumbers(Utilities.path("v3", id, "vs.html"), "template-v3", sf, Utilities.oidTail(e.getAttribute("id")), 2, null, null);
+          TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + id + File.separator + "vs.html");
+          page.getEpub().registerExternal("v3" + File.separator + id + File.separator + "vs.html");
         }
       }
       e = XMLUtil.getNextSibling(e);

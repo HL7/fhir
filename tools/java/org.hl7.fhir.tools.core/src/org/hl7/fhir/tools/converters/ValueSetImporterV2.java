@@ -612,6 +612,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     CodeSystem cs = new CodeSystem();
     ValueSetUtilities.makeShareable(cs);
     CodeSystemConvertor.populate(cs, vs);
+    cs.setUserData("spec.vs.cs", vs);
     cs.setContent(CodeSystemContentMode.COMPLETE);
 
     OIDEntry oe = oids.get(id+"-"+version);
@@ -714,15 +715,15 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     page.getValueSets().put(vp.vs.getUrl(), vp.vs);
   }
 
-  public String getIndex(Document v2src) throws IOException {
+  public String getIndex(Document v2src, boolean cs) throws IOException {
     loadOIds();
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>URI</b></td><td><b>ID</b></td><td><b>Comments</b></td></tr>\r\n");
+    s.append(" <tr><td><b>URI</b> (all prefixed with http://hl7.org/fhir/v2/)</td><td><b>ID</b></td><td><b>OID</b></td></tr>\r\n");
     Element e = XMLUtil.getFirstChild(v2src.getDocumentElement());
     while (e != null) {
       String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
-      if (tables.containsKey(id) || vsImports.containsKey(id)) {
+      if (tables.containsKey(id) || (!cs && vsImports.containsKey(id))) {
         String name = "";
         // we use the latest description of the table
         Element c = XMLUtil.getFirstChild(e);
@@ -731,12 +732,12 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
           c = XMLUtil.getNextSibling(c);
         }
         if (tables.containsKey(id) && !tables.get(id).versionPoints.isEmpty()) {
-          s.append(" <tr><td>http://hl7.org/fhir/v2/").append(id).append("</td><td>").append(name).append("</td><td>").append("Version Dependent. Use one of:<ul>");
+          s.append(" <tr><td>").append(id).append("</td><td>").append(name).append("Version Dependent. Use one of:<ul>");
           for (String v : tables.get(id).versionPoints)
             s.append(" <li><a href=\"v2/").append(id).append("/").append(v).append("/index.html\">").append(v).append("+</a></li>");
-          s.append("</ul></td></tr>\r\n");
+          s.append("</ul></td><td></td></tr>\r\n");
         } else
-          s.append(" <tr><td><a href=\"v2/").append(id).append("/index.html\">http://hl7.org/fhir/v2/").append(id).append("</a></td><td>").append(name).append("</td><td></td></tr>\r\n");
+          s.append(" <tr><td><a href=\"v2/").append(id).append("/index.html\">").append(id).append("</a></td><td>").append(name).append("</td><td></td></tr>\r\n");
       }
       e = XMLUtil.getNextSibling(e);
     }
@@ -783,7 +784,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
       } else if (vsImports.containsKey(id)) {
         Utilities.createDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
         Utilities.clearDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
-        String src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template-tbl.html");
+        String src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template-vs.html");
         ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v2-"+id);
         String sf = page.processPageIncludes(id + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + "index.html", vs, null, "V2 Table", null);
         sf = sects.addSectionNumbers("v2" + File.separator + id + File.separator +  "index.html", "template-v2", sf, iid, 2, null, null);

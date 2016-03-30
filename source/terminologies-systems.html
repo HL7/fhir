@@ -330,7 +330,7 @@ and they are not registered in the HL7 OID registry, the default URN for the cod
 
 <table class="grid">
  <tr>
-   <th width="80">URI</th>
+   <th width="80">URI (all prefixed with http://hl7.org/fhir/)</th>
    <th width="80">Description</th>
    <th width="80">OID</th>
  </tr>
@@ -342,30 +342,20 @@ and they are not registered in the HL7 OID registry, the default URN for the cod
   </div>
   <div id="tabs-v3">
   
-<table class="grid">
- <tr>
-   <th width="80">URI</th>
-   <th width="80">Description</th>
-   <th width="80">OID</th>
- </tr>
 <%v3Index-cs%>
-</table>
+
   </div>
   <div id="tabs-v2">
   
-<table class="grid">
- <tr>
-   <th width="80">URI</th>
-   <th width="80">Description</th>
-   <th width="80">OID</th>
- </tr>
-
  <%v2Index%>
  
-</table>
   </div>
 </div>
 </div>
+
+	[%file newfooter%]
+    
+    
 
 <script src="external/jquery/jquery.js"> </script>
 <script src="jquery-ui.min.js"> </script>
@@ -394,8 +384,5 @@ $( '#tabs' ).tabs({
      });
 </script>
 
-
-	[%file newfooter%]
-    
 </body>
 </html>
