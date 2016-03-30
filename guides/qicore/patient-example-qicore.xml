@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Patient xmlns="http://hl7.org/fhir">
-  <id value="patient-example"/>
+  <id value="patient-example-qicore"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
+
       <table>
-        
+
         <tbody>
-          
+
           <tr>
-            
+
             <td>Name</td>
-            
-            <td>Todd G. 
+
+            <td>Todd G.
               <b>Lerr</b>, Jr.
             </td>
-          
+
           </tr>
-          
+
           <tr>
-            
+
             <td>Address</td>
-            
+
             <td>123 North 102nd Street, Apt 4d, Harrisburg, PA 17102</td>
-          
+
           </tr>
-          
+
           <tr>
-            
+
             <td>Contacts</td>
-            
+
             <td>Home: unknown. Work: (555) 555 1212</td>
-          
+
           </tr>
-        
+
         </tbody>
-      
+
       </table>
-    
+
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">

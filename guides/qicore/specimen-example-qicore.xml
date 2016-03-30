@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Specimen xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir //Mac/Home/Documents/FHIRBuild/schema/specimen.xsd" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<id value="specimen-example"/>
+	<id value="specimen-example-qicore"/>
 	<type>
 		<coding>
 			<system value="http://snomed.info/sct"/>

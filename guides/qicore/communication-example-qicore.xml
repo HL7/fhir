@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
 <Communication   xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/communication.xsd">
-  <id value="communication-example"/>
+  <id value="communication-example-qicore"/>
   <text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Patient has very high serum potassium</div>

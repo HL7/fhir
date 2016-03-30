@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
-  <id value="procedure-example"/>
+  <id value="procedure-example-qicore"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/procedure-approachBodySite">
     <valueReference>
       <reference value="BodySite/example" />

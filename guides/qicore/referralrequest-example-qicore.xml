@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ReferralRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/referralrequest.xsd">
- <id value="referralrequest-example"/>
+ <id value="referralrequest-example-qicore"/>
   <text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Referral to Dr Dave for Beverly weaver to have grommets inserted in her r) ear</div>

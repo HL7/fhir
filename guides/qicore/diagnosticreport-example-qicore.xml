@@ -4,20 +4,20 @@
 <!--     Placeholder copied from base resource example.  To be updated for QICore.      -->
 <!--     lab report example: a CBC     -->
 <DiagnosticReport xmlns="http://hl7.org/fhir">
-  <id value="diagnosticreport-example"/>
+  <id value="diagnosticreport-example-qicore"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
-      
-      
+
+
+
+
       <h3>CBC Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2011 11:45</h3>
 
-            
-      
-      
-      
+
+
+
+
       <pre>
 Test                  Units       Value       Reference Range
 Haemoglobin           g/L         176         135 - 180
@@ -38,19 +38,19 @@ Eosinophils           x10*9/L     0.92++      0.04 - 0.40
 Basophils             %           20
 Basophils             x10*9/L     0.92+++     &lt;0.21
       </pre>
-          
-      
-      
-      
+
+
+
+
       <p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>
-      
-    
-    
-    
+
+
+
+
     </div>
   </text>
   <contained>
-  <!--    
+  <!--
   all the data items (= Observations) are contained
   in this diagnostic report. It would be equally
     valid - and normal - for them to be separate trackable

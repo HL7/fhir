@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FamilyMemberHistory xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/familymemberhistory.xsd">
-  <id value="familymemberhistory-example"/>
+  <id value="familymemberhistory-example-qicore"/>
   <text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Father died of a heart attack aged 74</div>
@@ -46,7 +46,7 @@
     </onsetQuantity>
     <note>
       <text value="Was fishing at the time. At least he went doing someting he loved." />
-    </note> 
+    </note>
   </condition>
 
 </FamilyMemberHistory>

@@ -2,7 +2,7 @@
 <!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
 <!-- This example is used with contraindication-example-dup, so don't make changes that would cause it to no longer be a duplicate -->
 <ImagingStudy xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\imagingstudy.xsd">
-  <id value="imagingstudy-example"/>
+  <id value="imagingstudy-example-qicore"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM</div>
@@ -40,7 +40,7 @@
     <modality>
       <system value="http://nema.org/dicom/dicm"/>
       <code value="CT"/>
-    </modality> 
+    </modality>
     <description value="CT Surview 180"/>
     <numberOfInstances value="1"/>
     <bodySite>
