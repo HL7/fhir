@@ -101,12 +101,12 @@ public class JsonLDParser extends ParserBase {
       en = en.substring(0, en.length()-3);
       doType = true;        
     }
+    if (doType)
+      en = en + Utilities.capitalize(list.get(0).getType());
 
     openArray(en);
     for (Element item : list) { 
       open(null);
-      if (doType)
-        prop("type", item.getType());
       if (item.getProperty().isPrimitive() || ParserBase.isPrimitive(item.getType())) {
         if (item.hasValue())
           primitiveValue(item);
@@ -142,11 +142,11 @@ public class JsonLDParser extends ParserBase {
       en = en.substring(0, en.length()-3);
       doType = true;        
     }
+    if (doType)
+      en = en + Utilities.capitalize(element.getType());
 
     if (element.hasChildren() || element.hasComments() || element.hasValue()) {
 			open(en);
-			if (doType)
-        prop("type", element.getType());
 			  
 	    if (element.getProperty().isPrimitive() || ParserBase.isPrimitive(element.getType())) {
 	      if (element.hasValue())

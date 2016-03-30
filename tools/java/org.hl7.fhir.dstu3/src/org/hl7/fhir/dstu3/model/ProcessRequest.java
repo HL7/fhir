@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 29, 2016 15:58+1100 for FHIR v1.3.0
+// Generated on Thu, Mar 31, 2016 05:42+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1353,67 +1353,73 @@ public class ProcessRequest extends DomainResource {
    * Search parameter: <b>providerreference</b>
    * <p>
    * Description: <b>The provider who regenerated this request</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>reference</b><br>
    * Path: <b>ProcessRequest.providerReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="providerreference", path="ProcessRequest.providerReference", description="The provider who regenerated this request", type="token" )
+  @SearchParamDefinition(name="providerreference", path="ProcessRequest.providerReference", description="The provider who regenerated this request", type="reference" )
   public static final String SP_PROVIDERREFERENCE = "providerreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
    * <p>
    * Description: <b>The provider who regenerated this request</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>reference</b><br>
    * Path: <b>ProcessRequest.providerReference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PROVIDERREFERENCE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDERREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ProcessRequest:providerreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDERREFERENCE = new ca.uhn.fhir.model.api.Include("ProcessRequest:providerreference").toLocked();
 
  /**
    * Search parameter: <b>organizationidentifier</b>
    * <p>
    * Description: <b>The organization who generated this request</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>ProcessRequest.organizationIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationidentifier", path="ProcessRequest.organizationIdentifier", description="The organization who generated this request", type="reference" )
+  @SearchParamDefinition(name="organizationidentifier", path="ProcessRequest.organizationIdentifier", description="The organization who generated this request", type="token" )
   public static final String SP_ORGANIZATIONIDENTIFIER = "organizationidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organizationidentifier</b>
    * <p>
    * Description: <b>The organization who generated this request</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>ProcessRequest.organizationIdentifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATIONIDENTIFIER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcessRequest:organizationidentifier</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.model.api.Include("ProcessRequest:organizationidentifier").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONIDENTIFIER);
 
  /**
    * Search parameter: <b>organizationreference</b>
    * <p>
    * Description: <b>The organization who generated this request</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>reference</b><br>
    * Path: <b>ProcessRequest.organizationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationreference", path="ProcessRequest.organizationReference", description="The organization who generated this request", type="token" )
+  @SearchParamDefinition(name="organizationreference", path="ProcessRequest.organizationReference", description="The organization who generated this request", type="reference" )
   public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>
    * <p>
    * Description: <b>The organization who generated this request</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>reference</b><br>
    * Path: <b>ProcessRequest.organizationReference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONREFERENCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONREFERENCE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATIONREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATIONREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ProcessRequest:organizationreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("ProcessRequest:organizationreference").toLocked();
 
  /**
    * Search parameter: <b>identifier</b>
@@ -1439,27 +1445,21 @@ public class ProcessRequest extends DomainResource {
    * Search parameter: <b>provideridentifier</b>
    * <p>
    * Description: <b>The provider who regenerated this request</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>ProcessRequest.providerIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="provideridentifier", path="ProcessRequest.providerIdentifier", description="The provider who regenerated this request", type="reference" )
+  @SearchParamDefinition(name="provideridentifier", path="ProcessRequest.providerIdentifier", description="The provider who regenerated this request", type="token" )
   public static final String SP_PROVIDERIDENTIFIER = "provideridentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>provideridentifier</b>
    * <p>
    * Description: <b>The provider who regenerated this request</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>ProcessRequest.providerIdentifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDERIDENTIFIER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDERIDENTIFIER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcessRequest:provideridentifier</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDERIDENTIFIER = new ca.uhn.fhir.model.api.Include("ProcessRequest:provideridentifier").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PROVIDERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PROVIDERIDENTIFIER);
 
 
 }

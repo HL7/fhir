@@ -10,6 +10,7 @@ import org.hl7.fhir.dstu3.formats.RdfGenerator.Complex;
 import org.hl7.fhir.dstu3.formats.RdfGenerator.Section;
 import org.hl7.fhir.dstu3.formats.RdfGenerator.Subject;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
+import org.hl7.fhir.utilities.Utilities;
 
 public class TurtleParser extends ParserBase {
 
@@ -31,6 +32,7 @@ public class TurtleParser extends ParserBase {
 		ttl.prefix("fhir", "http://hl7.org/fhir/");
 		ttl.prefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
 		ttl.prefix("owl", "http://www.w3.org/2002/07/owl#");
+		ttl.prefix("xs", "http://www.w3.org/2001/XMLSchema#");
 		
 		Section section = ttl.section("resource");
 		Subject subject;
@@ -39,7 +41,7 @@ public class TurtleParser extends ParserBase {
 			subject = section.triple("<"+base+"/"+e.getType()+"/"+id+">", "a", "fhir:"+e.getType());
 		else
 		  subject = section.triple("_", "a", "fhir:"+e.getType());
-		subject.predicate("a", "owl:Ontology");
+		subject.predicate("fhir:nodeRole", "fhir:treeRoot");
 
 		for (Element child : e.getChildren()) {
 			composeElement(subject, child);
@@ -52,7 +54,7 @@ public class TurtleParser extends ParserBase {
     if (ref != null && (ref.startsWith("http://") || ref.startsWith("https://")))
       t.predicate("fhir:reference", "<"+ref+">");
     else if (base != null && ref != null && ref.contains("/")) {
-      t.predicate("fhir:reference", "<"+base+"/"+ref+">");
+      t.predicate("fhir:reference", "<"+Utilities.appendForwardSlash(base)+ref+">");
     }
   }
   
@@ -88,12 +90,12 @@ public class TurtleParser extends ParserBase {
 				en = en.substring(0, en.length()-3);
 				doType = true;				
 			}
+	   if (doType || element.getProperty().getDefinition().getType().size() > 1)
+	     en = en + Utilities.capitalize(element.getType());
 
 	  Complex t = ctxt.predicate("fhir:"+en);
-	  if (doType || element.getProperty().getDefinition().getType().size() > 1)
-	  	t.predicate("a", "fhir:"+element.getType());
 	  if (element.hasValue())
-	  	t.predicate("fhir:value", ttlLiteral(element.getValue()));
+	  	t.predicate("fhir:value", ttlLiteral(element.getValue(), element.getType()));
 	  if (element.hasIndex())
 	  	t.predicate("fhir:index", Integer.toString(element.getIndex()));
 
@@ -109,8 +111,39 @@ public class TurtleParser extends ParserBase {
 		}
 	}
 	
-	protected String ttlLiteral(String value) {
-		return "\"" +RdfGenerator.escape(value, true) + "\"";
+	protected String ttlLiteral(String value, String type) {
+	  String xst = "";
+	  if (type.equals("boolean"))
+	    xst = "^^xs:boolean";
+	  else if (type.equals("integer") || type.equals("unsignedInt") || type.equals("positiveInt"))
+      xst = "^^xs:int";
+    else if (type.equals("decimal"))
+      xst = "^^xs:decimal";
+    else if (type.equals("base64Binary"))
+      xst = "^^xs:base64Binary";
+    else if (type.equals("instant"))
+      xst = "^^xs:dateTime";
+    else if (type.equals("time"))
+      xst = "^^xs:time";
+    else if (type.equals("date") || type.equals("dateTime") ) {
+      String v = value;
+      if (v.length() > 10) {
+        int i = value.substring(10).indexOf("-");
+        if (i == -1)
+          i = value.substring(10).indexOf("+");
+        v = i == -1 ? value : value.substring(0,  10+i);
+      }
+      if (v.length() > 10)
+        xst = "^^xs:dateTime";
+      else if (v.length() == 10)
+        xst = "^^xs:date";
+      else if (v.length() == 7)
+        xst = "^^xs:gYearMonth";
+      else if (v.length() == 4)
+        xst = "^^xs:gYear";
+    }
+	  
+		return "\"" +RdfGenerator.escape(value, true) + "\""+xst;
 	}
 
 }

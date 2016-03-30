@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 29, 2016 15:58+1100 for FHIR v1.3.0
+// Generated on Thu, Mar 31, 2016 05:42+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -837,21 +837,27 @@ public class PaymentNotice extends DomainResource {
    * Search parameter: <b>providerreference</b>
    * <p>
    * Description: <b>The reference to the provider</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>reference</b><br>
    * Path: <b>PaymentNotice.providerReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="providerreference", path="PaymentNotice.providerReference", description="The reference to the provider", type="token" )
+  @SearchParamDefinition(name="providerreference", path="PaymentNotice.providerReference", description="The reference to the provider", type="reference" )
   public static final String SP_PROVIDERREFERENCE = "providerreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
    * <p>
    * Description: <b>The reference to the provider</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>reference</b><br>
    * Path: <b>PaymentNotice.providerReference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PROVIDERREFERENCE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDERREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>PaymentNotice:providerreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDERREFERENCE = new ca.uhn.fhir.model.api.Include("PaymentNotice:providerreference").toLocked();
 
  /**
    * Search parameter: <b>requestreference</b>
@@ -929,21 +935,27 @@ public class PaymentNotice extends DomainResource {
    * Search parameter: <b>organizationreference</b>
    * <p>
    * Description: <b>The organization who generated this resource</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>reference</b><br>
    * Path: <b>PaymentNotice.organizationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationreference", path="PaymentNotice.organizationReference", description="The organization who generated this resource", type="token" )
+  @SearchParamDefinition(name="organizationreference", path="PaymentNotice.organizationReference", description="The organization who generated this resource", type="reference" )
   public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>
    * <p>
    * Description: <b>The organization who generated this resource</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>reference</b><br>
    * Path: <b>PaymentNotice.organizationReference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONREFERENCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONREFERENCE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATIONREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATIONREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>PaymentNotice:organizationreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("PaymentNotice:organizationreference").toLocked();
 
  /**
    * Search parameter: <b>responseidentifier</b>

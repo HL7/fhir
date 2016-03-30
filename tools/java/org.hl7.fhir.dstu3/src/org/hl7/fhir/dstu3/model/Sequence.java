@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 29, 2016 15:58+1100 for FHIR v1.3.0
+// Generated on Thu, Mar 31, 2016 05:42+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -170,7 +170,7 @@ public class Sequence extends DomainResource {
         /**
          * Reference identifier of reference sequence submitted to NCBI. It must match the type in the Sequence.type field. For example, the prefix, “NG_” identifies reference sequence for genes, “NM_” for messenger RNA transcripts, and “NP_” for amino acid sequences.
          */
-        @Child(name = "referenceSeqId", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "referenceSeqId", type = {CodeableConcept.class}, order=3, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Reference identifier", formalDefinition="Reference identifier of reference sequence submitted to NCBI. It must match the type in the Sequence.type field. For example, the prefix, “NG_” identifies reference sequence for genes, “NM_” for messenger RNA transcripts, and “NP_” for amino acid sequences." )
         protected CodeableConcept referenceSeqId;
 
@@ -219,8 +219,9 @@ public class Sequence extends DomainResource {
     /**
      * Constructor
      */
-      public SequenceReferenceSeqComponent(IntegerType windowStart, IntegerType windowEnd) {
+      public SequenceReferenceSeqComponent(CodeableConcept referenceSeqId, IntegerType windowStart, IntegerType windowEnd) {
         super();
+        this.referenceSeqId = referenceSeqId;
         this.windowStart = windowStart;
         this.windowEnd = windowEnd;
       }

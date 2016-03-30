@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 29, 2016 15:58+1100 for FHIR v1.3.0
+// Generated on Thu, Mar 31, 2016 05:42+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1197,27 +1197,21 @@ public class Coverage extends DomainResource {
    * Search parameter: <b>planholderidentifier</b>
    * <p>
    * Description: <b>Reference to the planholder</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>Coverage.planholderIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="planholderidentifier", path="Coverage.planholderIdentifier", description="Reference to the planholder", type="reference" )
+  @SearchParamDefinition(name="planholderidentifier", path="Coverage.planholderIdentifier", description="Reference to the planholder", type="token" )
   public static final String SP_PLANHOLDERIDENTIFIER = "planholderidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>planholderidentifier</b>
    * <p>
    * Description: <b>Reference to the planholder</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>Coverage.planholderIdentifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PLANHOLDERIDENTIFIER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PLANHOLDERIDENTIFIER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Coverage:planholderidentifier</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PLANHOLDERIDENTIFIER = new ca.uhn.fhir.model.api.Include("Coverage:planholderidentifier").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PLANHOLDERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PLANHOLDERIDENTIFIER);
 
  /**
    * Search parameter: <b>type</b>
@@ -1243,27 +1237,21 @@ public class Coverage extends DomainResource {
    * Search parameter: <b>issueridentifier</b>
    * <p>
    * Description: <b>The identity of the insurer</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>Coverage.issuerIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="issueridentifier", path="Coverage.issuerIdentifier", description="The identity of the insurer", type="reference" )
+  @SearchParamDefinition(name="issueridentifier", path="Coverage.issuerIdentifier", description="The identity of the insurer", type="token" )
   public static final String SP_ISSUERIDENTIFIER = "issueridentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>issueridentifier</b>
    * <p>
    * Description: <b>The identity of the insurer</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>Coverage.issuerIdentifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ISSUERIDENTIFIER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ISSUERIDENTIFIER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Coverage:issueridentifier</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ISSUERIDENTIFIER = new ca.uhn.fhir.model.api.Include("Coverage:issueridentifier").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ISSUERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ISSUERIDENTIFIER);
 
  /**
    * Search parameter: <b>subplan</b>
@@ -1355,27 +1343,21 @@ public class Coverage extends DomainResource {
    * Search parameter: <b>beneficiaryidentifier</b>
    * <p>
    * Description: <b>Covered party</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>Coverage.beneficiaryIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="beneficiaryidentifier", path="Coverage.beneficiaryIdentifier", description="Covered party", type="reference" )
+  @SearchParamDefinition(name="beneficiaryidentifier", path="Coverage.beneficiaryIdentifier", description="Covered party", type="token" )
   public static final String SP_BENEFICIARYIDENTIFIER = "beneficiaryidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>beneficiaryidentifier</b>
    * <p>
    * Description: <b>Covered party</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>Coverage.beneficiaryIdentifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam BENEFICIARYIDENTIFIER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_BENEFICIARYIDENTIFIER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Coverage:beneficiaryidentifier</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_BENEFICIARYIDENTIFIER = new ca.uhn.fhir.model.api.Include("Coverage:beneficiaryidentifier").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BENEFICIARYIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BENEFICIARYIDENTIFIER);
 
  /**
    * Search parameter: <b>group</b>
