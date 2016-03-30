@@ -110,9 +110,6 @@ public class FHIRToolingClient {
 			port = System.getProperty(portKey);
 		}
 		
-		System.out.println("PROXY HOST " + host);
-		System.out.println("PROXY PORT " + port);
-		
 		if(host!=null && port!=null) {
 			this.configureProxy(host, Integer.parseInt(port));
 		}
