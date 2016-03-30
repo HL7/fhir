@@ -1356,6 +1356,7 @@
   Element = Observation.valueRange
   Card. = 0..1
   Must Support = Y
+  Type = Range
   Short Label = Quantitative Range test result
   Definition = This is the actual quantitative (range) result.
   Comments = Note: this profile is not to be used to represent out of range measurements  - use USLabObsQuantity Profile.
