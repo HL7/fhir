@@ -243,15 +243,6 @@
     </resource>
     <resource>
       <example value="true"/>
-      <name value="QICore Medication"/>
-      <description value="Example of QICore Medication"/>
-      <sourceUri value="medication-example-qicore.xml"/>
-      <exampleFor>
-        <reference value="StructureDefinition/qicore-medication"/>
-      </exampleFor>
-    </resource>
-    <resource>
-      <example value="true"/>
       <name value="QICore MedicationDispense"/>
       <description value="Example of QICore MedicationDispense"/>
       <sourceUri value="medicationdispense-example-qicore.xml"/>
