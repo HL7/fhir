@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="Provides a directory or list of resources that match a specific filter and are ordered in a specified order. A directory is read-only and is not necessarily immutable.Note that the name of the link to&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;DirectoryEntry is called &quot;entries&quot; rather than &quot;entry&quot;. This allows subclasses to use &quot;entry&quot; without type collisions in the Z."/>
-   <fhirVersion value="1.3.0"/>
+   <fhirVersion value="1.4.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <baseDefinition value="{http://www.omg.org/spec/CTS2/1.1/Core}Message"/>

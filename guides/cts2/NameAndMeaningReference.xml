@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="A NameAndMeaningReference consists of a local identifier that references a unique meaning within the context of a given domain in a CTS2 service instance and a globally unique URI that&#xa;&#x9;&#x9;&#x9;&#x9;identifies the intended meaning of the identifier. "/>
-   <fhirVersion value="1.3.0"/>
+   <fhirVersion value="1.4.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <snapshot>

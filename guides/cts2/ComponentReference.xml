@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="A reference to a CTS2 model element. ComponentReference may reference a model attribute, a Property or a special element such as match strength."/>
-   <fhirVersion value="1.3.0"/>
+   <fhirVersion value="1.4.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <snapshot>

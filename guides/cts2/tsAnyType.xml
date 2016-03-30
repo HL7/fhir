@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="An opaque inner type that can contain any well-formed, but arbitrary information."/>
-   <fhirVersion value="1.3.0"/>
+   <fhirVersion value="1.4.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <snapshot>

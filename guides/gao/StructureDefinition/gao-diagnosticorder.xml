@@ -21,7 +21,7 @@
     value="Profiles the diagnostic order to ensure that the services ordered can be identified and evaluated for appropraiteness"/>
   <requirements
     value="The diagnostic order resource is required to identify the diagnostic service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
-  <fhirVersion value="1.3.0" />
+  <fhirVersion value="1.4.0" />
   <kind value="resource"/>
   <abstract value="false"/>
   <baseType value="DiagnosticOrder"/>
