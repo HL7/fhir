@@ -77,7 +77,9 @@ public class FHIRToolingClient {
 	
 	public static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ssK";
 	public static final String DATE_FORMAT = "yyyy-MM-dd";
-
+	public static final String hostKey = "http.proxyHost";
+	public static final String portKey = "http.proxyPort";
+	
 	private String base;
 	private ResourceAddress resourceAddress;
 	private ResourceFormat preferredResourceFormat;
@@ -88,11 +90,32 @@ public class FHIRToolingClient {
 	//Pass enpoint for client - URI
 	public FHIRToolingClient(String baseServiceUrl) throws URISyntaxException {
 		preferredResourceFormat = ResourceFormat.RESOURCE_XML;
+		detectProxy();
     initialize(baseServiceUrl);
 	}
 	
 	public void configureProxy(String proxyHost, int proxyPort) {
 		proxy = new HttpHost(proxyHost, proxyPort);
+	}
+	
+	public void detectProxy() {
+		String host = System.getenv(hostKey);
+		String port = System.getenv(portKey);
+
+		if(host==null) {
+			host = System.getProperty(hostKey);
+		}
+		
+		if(port==null) {
+			port = System.getProperty(portKey);
+		}
+		
+		System.out.println("PROXY HOST " + host);
+		System.out.println("PROXY PORT " + port);
+		
+		if(host!=null && port!=null) {
+			this.configureProxy(host, Integer.parseInt(port));
+		}
 	}
 	
 	public void initialize(String baseServiceUrl)  throws URISyntaxException {

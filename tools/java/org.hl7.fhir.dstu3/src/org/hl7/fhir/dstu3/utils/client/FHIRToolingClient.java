@@ -4,30 +4,30 @@ package org.hl7.fhir.dstu3.utils.client;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
 import java.net.URI;
@@ -48,35 +48,37 @@ import org.hl7.fhir.dstu3.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.utilities.Utilities;
 
 /**
- * Very Simple RESTful client. This is purely for use in the standalone 
+ * Very Simple RESTful client. This is purely for use in the standalone
  * tools jar packages. It doesn't support many features, only what the tools
  * need.
- * 
+ *
  * To use, initialize class and set base service URI as follows:
- * 
+ *
  * <pre><code>
  * FHIRSimpleClient fhirClient = new FHIRSimpleClient();
  * fhirClient.initialize("http://my.fhir.domain/myServiceRoot");
  * </code></pre>
- * 
+ *
  * Default Accept and Content-Type headers are application/xml+fhir and application/j+fhir.
- * 
+ *
  * These can be changed by invoking the following setter functions:
- * 
+ *
  * <pre><code>
  * setPreferredResourceFormat()
  * setPreferredFeedFormat()
  * </code></pre>
- * 
- * TODO Review all sad paths. 
- * 
+ *
+ * TODO Review all sad paths.
+ *
  * @author Claude Nanjo
  *
  */
 public class FHIRToolingClient {
-	
+
 	public static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ssK";
 	public static final String DATE_FORMAT = "yyyy-MM-dd";
+  public static final String hostKey = "http.proxyHost";
+	public static final String portKey = "http.proxyPort";
 
 	private String base;
 	private ResourceAddress resourceAddress;
@@ -84,24 +86,45 @@ public class FHIRToolingClient {
 	private HttpHost proxy;
 	private int maxResultSetSize = -1;//_count
 	private Conformance conf;
-	
+
 	//Pass enpoint for client - URI
 	public FHIRToolingClient(String baseServiceUrl) throws URISyntaxException {
 		preferredResourceFormat = ResourceFormat.RESOURCE_XML;
+    detectProxy();
     initialize(baseServiceUrl);
 	}
-	
+
 	public void configureProxy(String proxyHost, int proxyPort) {
 		proxy = new HttpHost(proxyHost, proxyPort);
 	}
-	
+
+  public void detectProxy() {
+		String host = System.getenv(hostKey);
+		String port = System.getenv(portKey);
+
+		if(host==null) {
+			host = System.getProperty(hostKey);
+		}
+
+		if(port==null) {
+			port = System.getProperty(portKey);
+		}
+
+		System.out.println("PROXY HOST " + host);
+		System.out.println("PROXY PORT " + port);
+
+		if(host!=null && port!=null) {
+			this.configureProxy(host, Integer.parseInt(port));
+		}
+	}
+
 	public void initialize(String baseServiceUrl)  throws URISyntaxException {
 	  base = baseServiceUrl;
 		resourceAddress = new ResourceAddress(baseServiceUrl);
 		this.maxResultSetSize = -1;
 		checkConformance();
 	}
-	
+
 	private void checkConformance() {
 	  try {
       conf = getConformanceStatementQuick();
@@ -112,25 +135,25 @@ public class FHIRToolingClient {
   public String getPreferredResourceFormat() {
     return preferredResourceFormat.getHeader();
   }
-  
+
 	public void setPreferredResourceFormat(ResourceFormat resourceFormat) {
 		preferredResourceFormat = resourceFormat;
 	}
-	
+
 	public int getMaximumRecordCount() {
 		return maxResultSetSize;
 	}
-	
+
 	public void setMaximumRecordCount(int maxResultSetSize) {
 		this.maxResultSetSize = maxResultSetSize;
 	}
-	
+
 	public Conformance getConformanceStatement() throws EFhirClientException {
 		if (conf != null)
 			return conf;
 		return getConformanceStatement(false);
 	}
-	
+
 	public Conformance getConformanceStatement(boolean useOptionsVerb) {
 		Conformance conformance = null;
 		try {
@@ -144,13 +167,13 @@ public class FHIRToolingClient {
 		}
 		return conformance;
 	}
-	
+
   public Conformance getConformanceStatementQuick() throws EFhirClientException {
     if (conf != null)
       return conf;
     return getConformanceStatementQuick(false);
   }
-  
+
   public Conformance getConformanceStatementQuick(boolean useOptionsVerb) {
     Conformance conformance = null;
     try {
@@ -164,7 +187,7 @@ public class FHIRToolingClient {
     }
     return conformance;
   }
-  
+
 	public <T extends Resource> T read(Class<T> resourceClass, String id) {//TODO Change this to AddressableResource
 		ResourceRequest<T> result = null;
 		try {
@@ -197,8 +220,8 @@ public class FHIRToolingClient {
 		}
 		return result.getPayload();
 	}
-	
-//	
+
+//
 //	public <T extends Resource> T update(Class<T> resourceClass, T resource, String id) {
 //		ResourceRequest<T> result = null;
 //		try {
@@ -228,7 +251,7 @@ public class FHIRToolingClient {
 //		return result.getPayload();
 //	}
 
-//	
+//
 //	public <T extends Resource> boolean delete(Class<T> resourceClass, String id) {
 //		try {
 //			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id), proxy);
@@ -238,7 +261,7 @@ public class FHIRToolingClient {
 //
 //	}
 
-//	
+//
 //	public <T extends Resource> OperationOutcome create(Class<T> resourceClass, T resource) {
 //	  ResourceRequest<T> resourceRequest = null;
 //	  try {
@@ -254,7 +277,7 @@ public class FHIRToolingClient {
 //	  OperationOutcome operationOutcome = null;;
 //	  try {
 //	    operationOutcome = (OperationOutcome)resourceRequest.getPayload();
-//	    ResourceAddress.ResourceVersionedIdentifier resVersionedIdentifier = 
+//	    ResourceAddress.ResourceVersionedIdentifier resVersionedIdentifier =
 //	        ResourceAddress.parseCreateLocation(resourceRequest.getLocation());
 //	    OperationOutcomeIssueComponent issue = operationOutcome.addIssue();
 //	    issue.setSeverity(IssueSeverity.INFORMATION);
@@ -269,10 +292,10 @@ public class FHIRToolingClient {
 //	    issue.setUserData(ResourceRequest.class.toString(),
 //	        resourceRequest.getPayload());
 //	    return operationOutcome;
-//	  }	
+//	  }
 //	}
 
-//	
+//
 //	public <T extends Resource> Bundle history(Calendar lastUpdate, Class<T> resourceClass, String id) {
 //		Bundle history = null;
 //		try {
@@ -283,7 +306,7 @@ public class FHIRToolingClient {
 //		return history;
 //	}
 
-//	
+//
 //	public <T extends Resource> Bundle history(Date lastUpdate, Class<T> resourceClass, String id) {
 //		Bundle history = null;
 //		try {
@@ -294,7 +317,7 @@ public class FHIRToolingClient {
 //		return history;
 //	}
 //
-//	
+//
 //	public <T extends Resource> Bundle history(Calendar lastUpdate, Class<T> resourceClass) {
 //		Bundle history = null;
 //		try {
@@ -304,8 +327,8 @@ public class FHIRToolingClient {
 //		}
 //		return history;
 //	}
-//	
-//	
+//
+//
 //	public <T extends Resource> Bundle history(Date lastUpdate, Class<T> resourceClass) {
 //		Bundle history = null;
 //		try {
@@ -315,8 +338,8 @@ public class FHIRToolingClient {
 //		}
 //		return history;
 //	}
-//	
-//	
+//
+//
 //	public <T extends Resource> Bundle history(Class<T> resourceClass) {
 //		Bundle history = null;
 //		try {
@@ -326,8 +349,8 @@ public class FHIRToolingClient {
 //		}
 //		return history;
 //	}
-//	
-//	
+//
+//
 //	public <T extends Resource> Bundle history(Class<T> resourceClass, String id) {
 //		Bundle history = null;
 //		try {
@@ -338,7 +361,7 @@ public class FHIRToolingClient {
 //		return history;
 //	}
 //
-//	
+//
 //	public <T extends Resource> Bundle history(Date lastUpdate) {
 //		Bundle history = null;
 //		try {
@@ -349,7 +372,7 @@ public class FHIRToolingClient {
 //		return history;
 //	}
 //
-//	
+//
 //	public <T extends Resource> Bundle history(Calendar lastUpdate) {
 //		Bundle history = null;
 //		try {
@@ -360,7 +383,7 @@ public class FHIRToolingClient {
 //		return history;
 //	}
 //
-//	
+//
 //	public <T extends Resource> Bundle history() {
 //		Bundle history = null;
 //		try {
@@ -371,7 +394,7 @@ public class FHIRToolingClient {
 //		return history;
 //	}
 //
-//	
+//
 //	public <T extends Resource> Bundle search(Class<T> resourceClass, Map<String, String> parameters) {
 //		Bundle searchResults = null;
 //		try {
@@ -381,8 +404,8 @@ public class FHIRToolingClient {
 //		}
 //		return searchResults;
 //	}
-//	
-//  
+//
+//
 //  public <T extends Resource> Bundle searchPost(Class<T> resourceClass, T resource, Map<String, String> parameters) {
 //    Bundle searchResults = null;
 //    try {
@@ -392,8 +415,8 @@ public class FHIRToolingClient {
 //    }
 //    return searchResults;
 //  }
-	
-	
+
+
   public <T extends Resource> Parameters operateType(Class<T> resourceClass, String name, Parameters params) {
   	boolean complex = false;
   	for (ParametersParameterComponent p : params.getParameter())
@@ -408,12 +431,12 @@ public class FHIRToolingClient {
    		ResourceRequest<T> result;
   		if (complex)
   			result = ClientUtils.issuePostRequest(resourceAddress.resolveOperationURLFromClass(resourceClass, name, ps), ClientUtils.getResourceAsByteArray(params, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), proxy);
-  		else 
+  		else
   			result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveOperationURLFromClass(resourceClass, name, ps), getPreferredResourceFormat(), proxy);
   			result.addErrorStatus(410);//gone
   			result.addErrorStatus(404);//unknown
   			result.addSuccessStatus(200);//Only one for now
-  			if(result.isUnsuccessfulRequest()) 
+  			if(result.isUnsuccessfulRequest())
   				throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload());
   		if (result.getPayload() instanceof Parameters)
   			return (Parameters) result.getPayload();
@@ -423,12 +446,12 @@ public class FHIRToolingClient {
   			return p_out;
   		}
   		} catch (Exception e) {
-  			handleException("Error performing operation '"+name+"' with parameters " + ps, e);  		
+  			handleException("Error performing operation '"+name+"' with parameters " + ps, e);
   		}
   		return null;
   }
 
-  
+
 	public Bundle transaction(Bundle batch) {
 		Bundle transactionResult = null;
 		try {
@@ -438,9 +461,9 @@ public class FHIRToolingClient {
 		}
 		return transactionResult;
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	
+
 	public <T extends Resource> OperationOutcome validate(Class<T> resourceClass, T resource, String id) {
 		ResourceRequest<T> result = null;
 		try {
@@ -456,9 +479,9 @@ public class FHIRToolingClient {
 		}
 		return (OperationOutcome)result.getPayload();
 	}
-	
+
 	/* change to meta operations
-	
+
 	public List<Coding> getAllTags() {
 		TagListRequest result = null;
 		try {
@@ -468,8 +491,8 @@ public class FHIRToolingClient {
 		}
 		return result.getPayload();
 	}
-	
-	
+
+
 	public <T extends Resource> List<Coding> getAllTagsForResourceType(Class<T> resourceClass) {
 		TagListRequest result = null;
 		try {
@@ -479,8 +502,8 @@ public class FHIRToolingClient {
 		}
 		return result.getPayload();
 	}
-	
-	
+
+
 	public <T extends Resource> List<Coding> getTagsForReference(Class<T> resource, String id) {
 		TagListRequest result = null;
 		try {
@@ -490,8 +513,8 @@ public class FHIRToolingClient {
 		}
 		return result.getPayload();
 	}
-	
-	
+
+
 	public <T extends Resource> List<Coding> getTagsForResourceVersion(Class<T> resource, String id, String versionId) {
 		TagListRequest result = null;
 		try {
@@ -501,8 +524,8 @@ public class FHIRToolingClient {
 		}
 		return result.getPayload();
 	}
-	
-//	
+
+//
 //	public <T extends Resource> boolean deleteTagsForReference(Class<T> resourceClass, String id) {
 //		try {
 //			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetTagsForReference(resourceClass, id), proxy);
@@ -512,8 +535,8 @@ public class FHIRToolingClient {
 //		}
 //
 //	}
-//	
-//	
+//
+//
 //	public <T extends Resource> boolean deleteTagsForResourceVersion(Class<T> resourceClass, String id, List<Coding> tags, String version) {
 //		try {
 //			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetTagsForResourceVersion(resourceClass, id, version), proxy);
@@ -522,8 +545,8 @@ public class FHIRToolingClient {
 //			throw new EFhirClientException("An error has occurred while trying to delete this resource", e);
 //		}
 //	}
-	
-	
+
+
 	public <T extends Resource> List<Coding> createTags(List<Coding> tags, Class<T> resourceClass, String id) {
 		TagListRequest request = null;
 		try {
@@ -538,8 +561,8 @@ public class FHIRToolingClient {
 		}
 		return request.getPayload();
 	}
-	
-	
+
+
 	public <T extends Resource> List<Coding> createTags(List<Coding> tags, Class<T> resourceClass, String id, String version) {
 		TagListRequest request = null;
 		try {
@@ -555,7 +578,7 @@ public class FHIRToolingClient {
 		return request.getPayload();
 	}
 
-	
+
 	public <T extends Resource> List<Coding> deleteTags(List<Coding> tags, Class<T> resourceClass, String id, String version) {
 		TagListRequest request = null;
 		try {
@@ -574,7 +597,7 @@ public class FHIRToolingClient {
 
 	/**
 	 * Helper method to prevent nesting of previously thrown EFhirClientExceptions
-	 * 
+	 *
 	 * @param e
 	 * @throws EFhirClientException
 	 */
@@ -585,11 +608,11 @@ public class FHIRToolingClient {
 			throw new EFhirClientException(message, e);
 		}
 	}
-	
+
 	/**
 	 * Helper method to determine whether desired resource representation
 	 * is Json or XML.
-	 * 
+	 *
 	 * @param format
 	 * @return
 	 */
@@ -600,7 +623,7 @@ public class FHIRToolingClient {
 		}
 		return isJson;
 	}
-		
+
   public Bundle fetchFeed(String url) {
 		Bundle feed = null;
 		try {
@@ -610,10 +633,10 @@ public class FHIRToolingClient {
 		}
 		return feed;
   }
-  
+
   public ValueSet expandValueset(ValueSet source) {
     List<Header> headers = null;
-    ResourceRequest<Resource> result = ClientUtils.issuePostRequest(resourceAddress.resolveOperationUri(ValueSet.class, "expand"), 
+    ResourceRequest<Resource> result = ClientUtils.issuePostRequest(resourceAddress.resolveOperationUri(ValueSet.class, "expand"),
         ClientUtils.getResourceAsByteArray(source, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
     result.addErrorStatus(410);//gone
     result.addErrorStatus(404);//unknown
@@ -627,7 +650,7 @@ public class FHIRToolingClient {
     return (ValueSet) result.getPayload();
   }
 
-  
+
   public Parameters lookupCode(Map<String, String> params) {
     ResourceRequest<Resource> result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveOperationUri(ValueSet.class, "lookup", params), getPreferredResourceFormat(), proxy);
     result.addErrorStatus(410);//gone
@@ -643,7 +666,7 @@ public class FHIRToolingClient {
   }
   public ValueSet expandValueset(ValueSet source, Map<String, String> params) {
     List<Header> headers = null;
-    ResourceRequest<Resource> result = ClientUtils.issuePostRequest(resourceAddress.resolveOperationUri(ValueSet.class, "expand", params), 
+    ResourceRequest<Resource> result = ClientUtils.issuePostRequest(resourceAddress.resolveOperationUri(ValueSet.class, "expand", params),
         ClientUtils.getResourceAsByteArray(source, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
     result.addErrorStatus(410);//gone
     result.addErrorStatus(404);//unknown
@@ -656,8 +679,8 @@ public class FHIRToolingClient {
     }
     return (ValueSet) result.getPayload();
   }
-  
-  
+
+
   public String getAddress() {
     return base;
   }
