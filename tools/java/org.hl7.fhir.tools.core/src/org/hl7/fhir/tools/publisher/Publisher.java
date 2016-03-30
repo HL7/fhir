@@ -3457,9 +3457,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     String narrative = null;
     String n = e.getTitle();
 
-    if (examplesProcessed.contains(n))
+    if (examplesProcessed.contains(prefix+n))
       return;
-    examplesProcessed.add(n);
+    examplesProcessed.add(prefix+n);
     
     // strip the xsi: stuff. seems to need double processing in order to
     // delete namespace crap

@@ -15,6 +15,7 @@
     <referenceSeq>
         <referenceSeqId>
           <coding>
+            <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
             <code value="NC_000007.14"/>
           </coding>
         </referenceSeqId>
