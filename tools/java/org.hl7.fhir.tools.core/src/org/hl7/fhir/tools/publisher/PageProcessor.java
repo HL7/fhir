@@ -942,19 +942,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"none\">\r\n");
-    b.append(" <tr><td><b>Path</b></td><td><b>Type Name</b></td></tr>\r\n");
+    b.append(" <tr><td><b>Path</b></td></tr>\r\n");
     for (String rn : definitions.sortedResourceNames()) {
       boolean first = true;
       for (String pn : classes) {
         if (pn.startsWith(rn+".")) {
           String path = pn.substring(0, pn.indexOf(":"));
-          String name = pn.substring(pn.indexOf(":")+1);
           String pl = "<a href=\""+rn.toLowerCase()+"-definitions.html#"+path+"\">"+path+"</a>";
           if (first) {
             b.append(" <tr style=\"background-color: #eeeeee\"><td colspan=\"2\"><a href=\""+rn.toLowerCase()+".html\">"+rn+"</a></td></tr>\r\n");
             first = false;
           } 
-           b.append(" <tr><td>"+pl+"</td><td><span style=\"opacity: 0.5\">"+rn+".</span>"+name+"</td></tr>\r\n");
+           b.append(" <tr><td>"+pl+"</td></tr>\r\n");
         }
       }
     }

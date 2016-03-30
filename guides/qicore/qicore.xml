@@ -129,9 +129,9 @@
       <name value="QICore AllergyIntolerance"/>
       <description value="Example of QICore AllergyIntolerance"/>
       <sourceUri value="allergyintolerance-example.xml"/>
-<!--      <exampleFor>
+      <exampleFor>
         <reference value="StructureDefinition/qicore-allergyintolerance"/>
-      </exampleFor> breaking the build? -->
+      </exampleFor> 
     </resource>
     <resource>
       <example value="true"/>
