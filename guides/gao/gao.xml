@@ -205,9 +205,9 @@
         value="A 50-year-old male is ordered a CT of the Head for his headache by an identified practitioner."/>
       <acronym value="example-gao-response-parameters-CT-Head-Outside-Of-Guidelines"/>
       <sourceUri value="Example/example-gao-response-parameters-CT-Head-Outside-Of-Guidelines.xml"/>
-      <exampleFor>
+<!--      <exampleFor>
         <reference value="gao-order-evaluate"/>
-      </exampleFor>
+      </exampleFor> -->
     </resource>
     <resource>
       <example value="true"/>
@@ -218,9 +218,9 @@
       <sourceUri
         value="Example/example-gao-response-parameters-CT-Head-Outside-w-Alt.xml"
       />
-      <exampleFor>
+<!--      <exampleFor>
         <reference value="gao-order-evaluate"/>
-      </exampleFor>
+      </exampleFor> -->
     </resource>
     <resource>
       <example value="true"/>
@@ -229,9 +229,9 @@
         value="A 50-year-old male is ordered a CT of the Head for his headache by an identified practitioner."/>
       <acronym value="example-gao-response-parameters-CT-Head-No-Guidelines"/>
       <sourceUri value="Example/example-gao-response-parameters-CT-Head-No-Guidelines.xml"/>
-      <exampleFor>
+<!--      <exampleFor>
         <reference value="gao-order-evaluate"/>
-      </exampleFor>
+      </exampleFor> -->
     </resource>
     <resource>
       <example value="true"/>
@@ -240,9 +240,9 @@
         value="A 50-year-old male is ordered an MRI of the the Head for his headache by an identified practitioner."/>
       <acronym value="example-gao-request-parameters-MRI-head"/>
       <sourceUri value="Example/example-gao-request-parameters-MRI-head.xml"/>
-      <exampleFor>
+<!--      <exampleFor>
         <reference value="gao-order-evaluate"/>
-      </exampleFor>
+      </exampleFor> -->
     </resource>
     <resource>
       <example value="true"/>
@@ -251,9 +251,9 @@
         value="A 50-year-old male is ordered a CT of the Head for his headache by an identified practitioner."/>
       <acronym value="example-gao-request-parameters-CT-head"/>
       <sourceUri value="Example/example-gao-request-parameters-CT-head.xml"/>
-      <exampleFor>
+<!--      <exampleFor>
         <reference value="gao-order-evaluate"/>
-      </exampleFor>
+      </exampleFor> -->
     </resource>
     <resource>
       <example value="true"/>
@@ -262,7 +262,7 @@
       <acronym value="example-gao-practitioner"/>
       <sourceUri value="Example/example-gao-practitioner.xml"/>
       <exampleFor>
-        <reference value="gao-practitioner"/>
+        <reference value="StructureDefinition/gao-practitioner"/>
       </exampleFor>
     </resource>
     <resource>
@@ -272,7 +272,7 @@
       <acronym value="example-gao-patient"/>
       <sourceUri value="Example/example-gao-patient.xml"/>
       <exampleFor>
-        <reference value="gao-patient"/>
+        <reference value="StructureDefinition/gao-patient"/>
       </exampleFor>
     </resource>
     <resource>
@@ -283,7 +283,7 @@
       <acronym value="example-gao-order"/>
       <sourceUri value="Example/example-gao-order.xml"/>
       <exampleFor>
-        <reference value="gao-order"/>
+        <reference value="StructureDefinition/gao-order"/>
       </exampleFor>
     </resource>
   </package>

@@ -1415,7 +1415,7 @@ public class ProfileUtilities {
     String s = tail(element.getPath());
     List<ElementDefinition> children = getChildren(all, element);
     boolean isExtension = (s.equals("extension") || s.equals("modifierExtension"));
-    if (!snapshot && extensions != null && extensions != isExtension)
+    if (!snapshot && isExtension && extensions != null && extensions != isExtension)
       return;
 
     if (!onlyInformationIsMapping(all, element)) {

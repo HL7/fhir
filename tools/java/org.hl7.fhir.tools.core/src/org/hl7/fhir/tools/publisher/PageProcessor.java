@@ -620,7 +620,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       } else if (com[0].equals("search-header")) { 
           src = s1+searchHeader(level)+s3;
       } else if (com[0].equals("profileheader")) {
-        src = s1+profileHeader(((StructureDefinition) resource).getId().toLowerCase(), com[1], false)+s3;
+        src = s1+profileHeader(((StructureDefinition) resource).getId().toLowerCase(), com[1], hasExamples((StructureDefinition) resource, ig))+s3;
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("pageheader"))
@@ -925,6 +925,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private boolean hasExamples(StructureDefinition resource, ImplementationGuideDefn ig) {
+    return false;
   }
 
   private String vscommittee(Resource resource) {
@@ -2786,7 +2790,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //    return b.toString();
 //  }
 
-  private String profileHeader(String n, String mode, boolean isDict) {
+  private String profileHeader(String n, String mode, boolean hasExamples) {
     StringBuilder b = new StringBuilder();
 
     if (n.endsWith(".xml"))
@@ -2795,6 +2799,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<ul class=\"nav nav-tabs\">");
     
     b.append(makeHeaderTab("Content", n+".html", mode==null || "base".equals(mode)));
+    if (hasExamples)
+      b.append(makeHeaderTab("Examples", n+"-examples.html", mode==null || "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
 //    if (!isDict && !n.equals("elementdefinition-de")) // todo: do this properly
@@ -4993,7 +4999,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       s.append("  <tr><td colspan=\"2\"><b>"+Utilities.escapeXml(ig.getName())+"</b></td></tr>\r\n");
     s.append("  <tr>\r\n");
     String ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+ap.getId().toLowerCase()+".html";
-    if ("profile".equals(ap.metadata("navigation")) && ap.getProfiles().size() == 1)
+    if (("profile".equals(ap.metadata("navigation")) || !ig.isCore()) && ap.getProfiles().size() == 1)
       ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+ap.getProfiles().get(0).getId()+".html";
     s.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
     s.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
@@ -5390,7 +5396,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("profileheader"))
-        src = s1+profileHeader(fileid, com.length > 1 ? com[1] : "", isDict)+s3;
+        src = s1+profileHeader(fileid, com.length > 1 ? com[1] : "", hasExamples(pack))+s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("settitle")) {
@@ -5512,7 +5518,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("summary"))
         src = s1+generateHumanSummary(pack, profile.getResource(), genlevel(level))+s3;
       else if (com[0].equals("profile-examples"))
-        src = s1+s3;      
+        src = s1+generateProfileExamples(pack, profile)+s3;      
       else if (com[0].equals("profile-extensions-table"))
         src = s1+"<p><i>Todo</i></p>"+s3;
       else if (com[0].equals("definitionsonthispage"))
@@ -5536,6 +5542,24 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
+  }
+
+  private String generateProfileExamples(Profile pack, ConstraintStructure profile) {
+    if (pack.getExamples().size() == 0)
+      return "";
+    StringBuilder s = new StringBuilder();
+    s.append("<p>Example List:</p>\r\n<table class=\"list\">\r\n");
+    for (Example e: pack.getExamples()) {
+      if (e.isRegistered())
+        produceExampleListEntry(s, e, null, null);
+    }
+    s.append("<tr><td colspan=\"4\">&nbsp;</td></tr></table>\r\n");
+    return s.toString();
+
+  }
+
+  private boolean hasExamples(Profile pack) {
+    return pack.getExamples().size() > 0;
   }
 
   private String genProfileDoco(Profile ap, String doco) {

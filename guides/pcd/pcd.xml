@@ -26,7 +26,7 @@
       <description value="Consent to share except to withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.) " />
       <sourceUri value="Example/pcd-example-notLabs.xml" />
       <exampleFor>
-        <reference value="StructureDefinition/consentdirective.profile.xml" />
+        <reference value="StructureDefinition/consentdirective" />
       </exampleFor>
     </resource>
     <resource>
@@ -35,7 +35,7 @@
       <description value="Consent to share except to withhold or withdraw consent for disclosure of a specific record (e.g. LAB) " />
       <sourceUri value="Example/pcd-example-notThis.xml" />
       <exampleFor>
-        <reference value="StructureDefinition/consentdirective.profile.xml" />
+        <reference value="StructureDefinition/consentdirective" />
       </exampleFor>
     </resource>
     <resource>
@@ -44,7 +44,7 @@
       <description value="Consent to share except to withhold or withdraw consent for disclosure to an organization." />
       <sourceUri value="Example/pcd-example-notOrg.xml" />
       <exampleFor>
-        <reference value="StructureDefinition/consentdirective.profile.xml" />
+        <reference value="StructureDefinition/consentdirective" />
       </exampleFor>
     </resource>
     <resource>
@@ -53,7 +53,7 @@
       <description value="Consent to share except to withhold or withdraw consent for disclosure to an individual." />
       <sourceUri value="Example/pcd-example-notThem.xml" />
       <exampleFor>
-        <reference value="StructureDefinition/consentdirective.profile.xml" />
+        <reference value="StructureDefinition/consentdirective" />
       </exampleFor>
     </resource>
     <resource>
@@ -62,7 +62,7 @@
       <description value="Consent to share except to withhold or withdraw consent for disclosure of records authored by a specific organization." />
       <sourceUri value="Example/pcd-example-notAuthor.xml" />
       <exampleFor>
-        <reference value="StructureDefinition/consentdirective.profile.xml" />
+        <reference value="StructureDefinition/consentdirective" />
       </exampleFor>
     </resource>
   </package>

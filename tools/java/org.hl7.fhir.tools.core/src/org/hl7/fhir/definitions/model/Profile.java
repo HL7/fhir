@@ -161,9 +161,12 @@ public class Profile {
     return null;
   }
   public boolean coversResource(ResourceDefn resource) {
-    for (ConstraintStructure item : profiles)
+    for (ConstraintStructure item : profiles) {
       if (item.getDefn() != null && item.getDefn().getName().equals(resource.getName()))
         return true;
+      if (item.getDefn() == null && item.getResource() != null && item.getResource().getBaseType().equals(resource.getName()))
+        return true;
+    }
     return false;
   }
   public List<Operation> getOperations() {

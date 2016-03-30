@@ -3442,6 +3442,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     return form;
   }
 
+  private Set<String> examplesProcessed = new HashSet<String>();
   private void processExample(Example e, String resourceName, StructureDefinition profile, Profile pack, ImplementationGuideDefn ig) throws Exception {
     if (e.getType() == ExampleType.Tool)
       return;
@@ -3456,6 +3457,10 @@ public class Publisher implements URIResolver, SectionNumberer {
     String narrative = null;
     String n = e.getTitle();
 
+    if (examplesProcessed.contains(n))
+      return;
+    examplesProcessed.add(n);
+    
     // strip the xsi: stuff. seems to need double processing in order to
     // delete namespace crap
     xdoc = e.getXml();
@@ -4043,11 +4048,12 @@ public class Publisher implements URIResolver, SectionNumberer {
     TextFile.stringToFile(src, page.getFolders().dstDir + prefix +title + ".html");
     new ProfileUtilities(page.getWorkerContext(), page.getValidationErrors(), page).generateSchematrons(new FileOutputStream(page.getFolders().dstDir + prefix +title + ".sch"), profile.getResource());
 
-//    src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-examples.html");
-//    src = page.processProfileIncludes(profile.getId(), pack, profile, xml, tx, src, intro, notes, title + ".html");
-//    page.getEpub().registerFile(title + "-examples.html", "Examples for StructureDefinition " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
-//    TextFile.stringToFile(src, page.getFolders().dstDir + title + "-examples.html");
-
+    if (pack.getExamples().size() > 0) {
+      src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-examples.html");
+      src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId(), intro, notes, ig, false);
+      page.getEpub().registerFile(title + "-examples.html", "Examples for StructureDefinition " + profile.getResource().getName(), EPubManager.XHTML_TYPE, true);
+      TextFile.stringToFile(src, page.getFolders().dstDir + prefix +title + "-examples.html");
+    }
     src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-definitions.html");
     src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId(), intro, notes, ig, false);
     if (st != null)
@@ -4482,11 +4488,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??", "", "", ig, true);
     page.getEpub().registerFile(file + "-mappings.html", "Mappings for StructureDefinition " + p.getName(), EPubManager.XHTML_TYPE, true);
     TextFile.stringToFile(src, page.getFolders().dstDir + file + "-mappings.html");
-
-//    src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-examples.html");
-//    src = page.processProfileIncludes(profile.getId(), pack, profile, xml, tx, src, intro, notes, title + ".html");
-//    page.getEpub().registerFile(title + "-examples.html", "Examples for StructureDefinition " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
-//    TextFile.stringToFile(src, page.getFolders().dstDir + title + "-examples.html");
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-definitions.html");
     src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??", "", "", ig, true);

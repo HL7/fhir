@@ -2,6 +2,7 @@ package org.hl7.fhir.definitions.parsers;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -108,6 +109,8 @@ public class IgParser {
     }
     processPage(ig.getPage(), igd);
 
+    List<Example> exr = new ArrayList<Example>();
+    
     for (ImplementationGuidePackageComponent p : ig.getPackage()) {
       if (!p.hasName())
         throw new Exception("no name on package in IG "+ig.getName());
@@ -137,6 +140,11 @@ public class IgParser {
             throw new Exception("no name on resource in package "+p.getName()+" in IG "+ig.getName());
           Example example = new Example(r.getName(), id, r.getDescription(), fn, false, ExampleType.XmlFile, false);
           example.setIg(igd.getCode());
+          if (r.hasExampleFor()) {
+            example.setExampleFor(r.getExampleFor().getReference());
+            example.setRegistered(true);
+            exr.add(example);
+          }
           igd.getExamples().add(example);
           r.setUserData(ToolResourceUtilities.NAME_RES_EXAMPLE, example);
           r.setSource(new UriType(example.getId()+".html"));
@@ -177,6 +185,7 @@ public class IgParser {
           } else {
             Profile pr = new Profile(igd.getCode());
             pr.setSource(fn.getAbsolutePath());
+            pr.setTitle(sd.getName());
             if (!sd.hasId())
               sd.setId(tail(sd.getUrl()));
             sd.setUrl("http://hl7.org/fhir/StructureDefinition/"+sd.getId());
@@ -255,6 +264,24 @@ public class IgParser {
       }
       ToolingExtensions.removeExtension(p, ToolResourceUtilities.EXT_PROFILE_SPREADSHEET);
       ToolingExtensions.removeExtension(p, ToolResourceUtilities.EXT_LOGICAL_SPREADSHEET);
+    }
+    for (Example ex : exr) {
+      Profile tp = null;
+      for (Profile pr : igd.getProfiles()) {
+        if (("StructureDefinition/"+pr.getId()).equals(ex.getExampleFor())) {
+          tp = pr;
+          break;
+        } else for (ConstraintStructure cc : pr.getProfiles()) {
+          if (("StructureDefinition/"+cc.getId()).equals(ex.getExampleFor())) {
+            tp = pr;
+            break;
+          }
+        }
+      }
+      if (tp != null)
+        tp.getExamples().add(ex);
+      else
+        throw new Exception("no profile found matching exampleFor = "+ex.getExampleFor());
     }
     igd.numberPages();
     

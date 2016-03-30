@@ -105,14 +105,10 @@ signatures.html
 					<page title="CPT" filename="cpt.html"/>
 					<page title="NDC" filename="ndc.html"/>
 					<pages type="codesystem" filename="template-codesystem.html"/>
+					<pages type="v2-table" filename="template-v2.html"/>
 				</page>
 				<page title="Value Sets" filename="terminologies-valuesets.html">
 					<pages type="valueset" filename="template-valueset.html"/>
-				</page>
-				<page title="V2 Tables" filename="terminologies-v2.html" source="v2/template.html">
-					<pages type="v2-table" filename="template-v2.html"/>
-				</page>
-				<page title="V3 Namespaces" filename="terminologies-v3.html" source="v3/template.html">
 					<pages type="v3-vocab" filename="template-v3.html"/>
 				</page>
 				<page title="Concept Maps" filename="terminologies-conceptmaps.html"/>

@@ -69,7 +69,7 @@
 			<description value="FHIR Gender with mapping to C-CDA"/>
 			<sourceUri value="dataelement-sdc-profile-example.xml"/>
 			<exampleFor>
-				<reference value="dataelement-sdc-profile-spreadsheet.xml"/>
+				<reference value="StructureDefinition/sdc-element"/>
 			</exampleFor>
 		</resource>
 		<resource>
@@ -78,7 +78,7 @@
 			<description value="Set of several examples - medication, AHRQ and NCI forms"/>
 			<sourceUri value="questionnaire-sdc-profile-example.xml"/>
 			<exampleFor>
-				<reference value="questionnaire-sdc-profile-spreadsheet.xml"/>
+				<reference value="StructureDefinition/sdc-questionnaire"/>
 			</exampleFor>
 		</resource>
 		<resource>
@@ -87,7 +87,7 @@
 			<description value="Cancer pathology questionnaire with flow-control extensions"/>
 			<sourceUri value="questionnaire-sdc-profile-example-cap.xml"/>
 			<exampleFor>
-				<reference value="questionnaire-sdc-profile-spreadsheet.xml"/>
+				<reference value="StructureDefinition/sdc-questionnaire"/>
 			</exampleFor>
 		</resource>
 		<resource>
@@ -96,7 +96,7 @@
 			<description value="LOINC perspective on the AHRQ form found in the SDC - Combination set of questionnaires"/>
 			<sourceUri value="questionnaire-sdc-profile-example-loinc.xml"/>
 			<exampleFor>
-				<reference value="questionnaire-sdc-profile-spreadsheet.xml"/>
+				<reference value="StructureDefinition/sdc-questionnaire"/>
 			</exampleFor>
 		</resource>
 		<resource>
@@ -105,7 +105,7 @@
 			<description value="LOINC US Surgeon General family history including data elements &amp; value sets.  Note: This example isn't strictly valid against SDC as data elements do not have definitions and don't include mappings to SDC-approved specificaitons for auto-population"/>
 			<sourceUri value="questionnaire-sdc-profile-example-ussg-fht.xml"/>
 			<exampleFor>
-				<reference value="questionnaire-sdc-profile-spreadsheet.xml"/>
+				<reference value="StructureDefinition/sdc-questionnaire"/>
 			</exampleFor>
 		</resource>
 		<resource>
@@ -114,7 +114,7 @@
 			<description value="Responses to the questionnaire found in the SDC - Combination list of questionnaires"/>
 			<sourceUri value="questionnaireresponse-sdc-profile-example.xml"/>
 			<exampleFor>
-				<reference value="questionnaireresponse-sdc-profile-spreadsheet.xml"/>
+				<reference value="StructureDefinition/sdc-response"/>
 			</exampleFor>
 		</resource>
 		<resource>
@@ -123,7 +123,7 @@
 			<description value="Example response to the SDC-LOINC USSG Family History questionnaire"/>
 			<sourceUri value="questionnaireresponse-sdc-example-ussg-fht-answers.xml"/>
 			<exampleFor>
-				<reference value="questionnaireresponse-sdc-profile-spreadsheet.xml"/>
+				<reference value="StructureDefinition/sdc-response"/>
 			</exampleFor>
 		</resource>
 		<resource>
@@ -132,7 +132,7 @@
 			<description value="The answer list for question 1 on the AHRQ &#39;Medication or Other Substance&#39; form"/>
 			<sourceUri value="valueset-sdc-profile-example.xml"/>
 			<exampleFor>
-				<reference value="valueset-sdc-profile-spreadsheet.xml"/>
+				<reference value="StructureDefinition/sdc-valueset"/>
 			</exampleFor>
 		</resource>
 	</package>

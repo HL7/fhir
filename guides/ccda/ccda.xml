@@ -194,9 +194,9 @@
           <description value="Example CCD"/>
           <acronym value="ccd-example"/>
           <sourceUri value="Example/ccd-example.xml"/>
-          <exampleFor>
+          <!-- <exampleFor>
             <reference value="http://hl7.org/fhir/StructureDefinition/ccda-ccd-composition"/>
-          </exampleFor>
+          </exampleFor> -->
     </resource>
     <resource>
       <example value="false"/>

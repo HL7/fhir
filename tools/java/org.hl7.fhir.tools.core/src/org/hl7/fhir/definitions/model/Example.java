@@ -53,6 +53,7 @@ public class Example {
   private String resourceName;
   private Set<Example> inbounds = new HashSet<Example>();
   private String ig;
+  private String exampleFor;
   
   
   public enum ExampleType {
@@ -204,6 +205,17 @@ public class Example {
 
   public void setIg(String ig) {
     this.ig = ig;
+  }
+
+
+  public void setExampleFor(String value) {
+    this.exampleFor = value;
+    
+  }
+
+
+  public String getExampleFor() {
+    return exampleFor;
   }
   
   
