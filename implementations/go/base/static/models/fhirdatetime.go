@@ -20,7 +20,7 @@ type FHIRDateTime struct {
 func (f *FHIRDateTime) UnmarshalJSON(data []byte) (err error) {
 	if len(data) <= 12 {
 		f.Precision = Precision("date")
-		f.Time, err = time.Parse("\"2006-01-02\"", string(data))
+		f.Time, err = time.ParseInLocation("\"2006-01-02\"", string(data), time.Local)
 	} else {
 		f.Precision = Precision("timestamp")
 		f.Time = time.Time{}

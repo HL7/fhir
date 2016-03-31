@@ -142,9 +142,11 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "search", "search_param_types.go")), new File(dirs.get("searchDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "search", "url_query_parser.go")), new File(dirs.get("searchDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "batch_controller.go")), new File(dirs.get("serverDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "bind.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "config.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "data_access.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "mongo_data_access.go")), new File(dirs.get("serverDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "request_logger.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "resource_controller.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server_setup.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "smart_auth.go")), new File(dirs.get("serverDir")));

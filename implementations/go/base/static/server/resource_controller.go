@@ -84,7 +84,7 @@ func (rc *ResourceController) ShowHandler(c *gin.Context) {
 
 func (rc *ResourceController) CreateHandler(c *gin.Context) {
 	resource := models.NewStructForResourceName(rc.Name)
-	err := c.Bind(resource)
+	err := FHIRBind(c, resource)
 	if err != nil {
 		oo := models.NewOperationOutcome("fatal", "exception", err.Error())
 		c.JSON(http.StatusBadRequest, oo)
@@ -108,7 +108,7 @@ func (rc *ResourceController) CreateHandler(c *gin.Context) {
 
 func (rc *ResourceController) UpdateHandler(c *gin.Context) {
 	resource := models.NewStructForResourceName(rc.Name)
-	err := c.Bind(resource)
+	err := FHIRBind(c, resource)
 	if err != nil {
 		oo := models.NewOperationOutcome("fatal", "exception", err.Error())
 		c.JSON(http.StatusBadRequest, oo)

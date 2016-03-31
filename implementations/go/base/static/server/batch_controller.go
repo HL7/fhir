@@ -28,7 +28,7 @@ func NewBatchController(dal DataAccessLayer) *BatchController {
 // Post processes and incoming batch request
 func (b *BatchController) Post(c *gin.Context) {
 	bundle := &models.Bundle{}
-	err := c.Bind(bundle)
+	err := FHIRBind(c, bundle)
 	if err != nil {
 		c.AbortWithError(http.StatusInternalServerError, err)
 		return
