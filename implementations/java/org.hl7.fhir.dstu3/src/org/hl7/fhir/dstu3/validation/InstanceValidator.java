@@ -1650,7 +1650,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
        element.getNamedChildren("item", items);
        for (WrapperElement item : items) {
          NodeStack ns = stack.push(item, -1, null, null);
-         rule(errors, IssueType.STRUCTURE, answers.get(1).line(), answers.get(1).col(), stack.getLiteralPath(), false, "Items not of type group should not have items");
+         rule(errors, IssueType.STRUCTURE, answers.get(0).line(), answers.get(0).col(), stack.getLiteralPath(), false, "Items not of type group should not have items - Item with linkId {0} of type {1} has {2} item(s)", qItem.getLinkId(), qItem.getType(), items.size());
        }
 	  }
 	}
@@ -1908,7 +1908,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			List<StringType> list = new ArrayList<StringType>();
 	    for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
 	    	try {
-    			list.add(components.getValueStringType());
+	    		if (components.getValue() != null) {
+	    			list.add(components.getValueStringType());
+	    		}
     		} catch (FHIRException e) {
     			// If it's the wrong type, just keep going
     		}
@@ -1941,7 +1943,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			List<Coding> list = new ArrayList<Coding>();
 	    for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
 	    	try {
-    			list.add(components.getValueCoding());
+	    		if (components.getValue() != null) {
+	    			list.add(components.getValueCoding());
+	    		}
     		} catch (FHIRException e) {
     			// If it's the wrong type, just keep going
     		}
