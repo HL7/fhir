@@ -22,6 +22,7 @@
       </pre>
     </div>
   </text>
+  <url value="http://hl7.org/fhir/Questionnaire/bb"/>
   <status value="draft"/>
   <date value="2013-02-19"/>
   <publisher value="New South Wales Department of Health"/>
@@ -90,6 +91,10 @@
         <item>
           <linkId value="vitaminKgivenDoses"/>
           <type value="group"/>
+          <enableWhen>
+            <question value="vitaminKgiven"/>
+            <answered value="true"/>
+          </enableWhen>
           <item>
             <linkId value="vitaminiKDose1"/>
             <text value="1st dose"/>

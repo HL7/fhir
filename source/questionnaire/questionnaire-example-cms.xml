@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/questionnaire.xsd">
   <id value="questionnaire-example-cms"/>
+  <url value="http://hl7.org/fhir/Questionnaire/questionnaire-example-cms"/>
   <identifier>
     <!-- There should be a system, but not sure what URI will choose to use -->
     <use value="official"/>
@@ -25,27 +26,18 @@
       <type value="display"/>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0010"/>
-      </extension>
       <linkId value="M0010"/>
       <text value="C M S Certification Number"/>
       <type value="string"/>
       <required value="true"/>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0014"/>
-      </extension>
       <linkId value="M0014"/>
       <text value="Branch State"/>
       <type value="string"/>
       <required value="true"/>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0018"/>
-      </extension>
       <linkId value="M0018"/>
       <text value="National Provider Identifier (N P I) for the attending physician who has signed the plan of care"/>
       <type value="string"/>
@@ -61,18 +53,12 @@
       </item>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0020"/>
-      </extension>
       <linkId value="M0020"/>
       <text value="Patient I D Number"/>
       <type value="string"/>
       <required value="true"/>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0030"/>
-      </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
         <valueString value="month / day / year"/>
       </extension>
@@ -82,9 +68,6 @@
       <required value="true"/>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0030"/>
-      </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
         <valueString value="month / day / year"/>
       </extension>
@@ -104,9 +87,6 @@
       </item>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0040"/>
-      </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
         <valueString value="First  M I  Last  Suffix"/>
       </extension>
@@ -116,18 +96,12 @@
       <required value="true"/>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0050"/>
-      </extension>
       <linkId value="M0050"/>
       <text value="Patient State of Residence"/>
       <type value="string"/>
       <required value="true"/>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0060"/>
-      </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
         <valueString value="nnnnn-nnnn"/>
       </extension>
@@ -137,9 +111,6 @@
       <required value="true"/>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0063"/>
-      </extension>
       <linkId value="M0063"/>
       <text value="Medicare Number"/>
       <type value="string"/>
@@ -155,9 +126,6 @@
       </item>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0064"/>
-      </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
         <valueString value="nnn-nn-nnnn"/>
       </extension>
@@ -176,9 +144,6 @@
       </item>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0065"/>
-      </extension>
       <linkId value="M0065"/>
       <text value="Medicaid Number"/>
       <type value="string"/>
@@ -194,9 +159,6 @@
       </item>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0066"/>
-      </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
         <valueString value="month / day / year"/>
       </extension>
@@ -206,9 +168,6 @@
       <required value="true"/>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0069"/>
-      </extension>
       <linkId value="M0069"/>
       <text value="Gender"/>
       <type value="choice"/>
@@ -227,9 +186,6 @@
       </option>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0140"/>
-      </extension>
       <linkId value="M0140"/>
       <text value="Race/Ethnicity"/>
       <type value="choice"/>
@@ -273,9 +229,6 @@
       </option>
     </item>
     <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-        <valueString value="M0150"/>
-      </extension>
       <linkId value="M0150"/>
       <text value="Current Payment Sources for Home Care"/>
       <type value="choice"/>
@@ -361,6 +314,9 @@
       </option>
       <item>
         <type value="string"/>
+        <enableWhen>
+          <question value="M0150"/>
+        </enableWhen>
         <required value="true"/>
       </item>
     </item>

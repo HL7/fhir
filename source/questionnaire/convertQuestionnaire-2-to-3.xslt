@@ -21,7 +21,7 @@
         <url value="{$base}/Questionnaire/{id/@value}"/>
       </xsl:if>
       <xsl:apply-templates select="identifier|version|status|date|publisher|telecom"/>
-      <xsl:for-each select="extension[@url='http://hl7.org/fhir/questionnare-category']/valueCodeableConcept">
+      <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/questionnare-category']/valueCodeableConcept">
         <useContext>
           <xsl:apply-templates select="@*|node()"/>
         </useContext>
@@ -34,15 +34,15 @@
 	<xsl:template match="item">
     <xsl:copy>
       <xsl:apply-templates select="id|extension|modifierExtension|linkId|concept"/>
-      <xsl:for-each select="extension[@url='http://hl7.org/fhir/questionnare-label']/valueString">
+      <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/questionnare-label']/valueString">
         <prefix>
           <xsl:apply-templates select="@*|node()"/>
         </prefix>
       </xsl:for-each>
       <xsl:apply-templates select="text|type"/>
-      <xsl:for-each select="extension[@url='http://hl7.org/fhir/questionnaire-enableWhen']">
+      <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen']">
         <enableWhen>
-          <xsl:apply-templates select="@*|extension[not(@url=('question', 'answered', 'answer'))]"/>
+          <xsl:apply-templates select="@*[not(local-name(.)='url')]|extension[not(@url=('question', 'answered', 'answer'))]"/>
           <xsl:for-each select="extension[@url='question']/valueString">
             <question>
               <xsl:apply-templates select="@*|node()"/>
@@ -64,18 +64,18 @@
         </enableWhen>
       </xsl:for-each>
       <xsl:apply-templates select="required|repeats"/>
-      <xsl:for-each select="extension[@url='http://hl7.org/fhir/questionnare-readOnly']/valueBoolean">
+      <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/questionnare-readOnly']/valueBoolean">
         <readOnly>
           <xsl:apply-templates select="@*|node()"/>
         </readOnly>
       </xsl:for-each>
-      <xsl:for-each select="extension[@url='http://hl7.org/fhir/questionnare-maxLength']/valueInteger">
+      <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/questionnare-maxLength']/valueInteger">
         <maxLength>
           <xsl:apply-templates select="@*|node()"/>
         </maxLength>
       </xsl:for-each>
       <xsl:apply-templates select="options|option"/>
-      <xsl:for-each select="extension[@url='http://hl7.org/fhir/questionnare-defaultValue']">
+      <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/questionnare-defaultValue']">
         <xsl:for-each select="*[starts-with(local-name(.), 'value')]">
           <xsl:variable name="name" select="concat('initial', substring-after(local-name(.), 'value'))"/>
           <xsl:element name="{$name}" namespace="http://hl7.org/fhir">
@@ -146,7 +146,7 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl">
       <valueCodeableConcept>
         <coding>
-          <system value="http://hl7.org/fhir/questionnaire-item-control"/>
+          <system value="http://hl7.org/fhir/StructureDefinition/questionnaire-item-control"/>
           <code value="{valueCode/@value}"/>
         </coding>
       </valueCodeableConcept>
@@ -158,7 +158,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/questionnaire-display-category"/>
+              <system value="http://hl7.org/fhir/StructureDefinition/questionnaire-display-category"/>
               <code value="instructions"/>
             </coding>
           </valueCodeableConcept>
@@ -176,7 +176,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/questionnaire-display-category"/>
+              <system value="http://hl7.org/fhir/StructureDefinition/questionnaire-display-category"/>
               <code value="security"/>
             </coding>
           </valueCodeableConcept>
@@ -194,7 +194,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/questionnaire-display-category"/>
+              <system value="http://hl7.org/fhir/StructureDefinition/questionnaire-display-category"/>
               <code value="units"/>
             </coding>
           </valueCodeableConcept>

@@ -16,6 +16,7 @@
       3.b) Do you drink alcohol?</pre>
     </div>
   </text>
+  <url value="http://hl7.org/fhir/Questionnaire/f201"/>
   <status value="published"/>
   <date value="2010"/>
   <concept>

@@ -112,6 +112,7 @@
       </compose>
     </ValueSet>
   </contained>
+  <url value="http://hl7.org/fhir/Questionnaire/gcs"/>
   <status value="draft"/>
   <date value="2015-08-03"/>
   <publisher value="FHIR Project team"/>
