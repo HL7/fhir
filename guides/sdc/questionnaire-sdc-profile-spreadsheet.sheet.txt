@@ -361,7 +361,7 @@
   IHE SDC mapping = parent::list_item/parent::list_field/parent::question
 
  -- Row 48 -----------------------------------
-  Element = Questionnaire.item.enableWhen.answered
+  Element = Questionnaire.item.enableWhen.hasAnswer
   Card. = !0..1
   Must Support = y
   Type = !boolean

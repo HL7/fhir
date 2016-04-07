@@ -206,7 +206,7 @@
   Context = Questionnaire.item.enableWhen
   English = enableWhen must contain either an \'answer\' or an \'answered\' element
   XPath = count(*[starts-with(local-name(.), \'answer\')]|answered) = 1
-  Expression = answered or answer
+  Expression = hasAnswer or answer
 
  -- Row 8 -----------------------------------
   Id = 8
@@ -447,7 +447,7 @@
   RIM Mapping = N/A - MIF rather than RIM level
 
  -- Row 21 -----------------------------------
-  Element = Questionnaire.item.enableWhen.answered
+  Element = Questionnaire.item.enableWhen.hasAnswer
   Card. = 0..1
   Inv. = 7
   Type = boolean

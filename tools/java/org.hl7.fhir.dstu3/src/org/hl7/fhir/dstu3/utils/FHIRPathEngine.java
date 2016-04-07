@@ -272,6 +272,19 @@ public class FHIRPathEngine {
 		return convertToBoolean(evaluate(null, resource, base, path));
 	}
 
+  /**
+   * evaluate a path and return true or false (e.g. for an invariant)
+   * 
+   * @param base - the object against which the path is being evaluated
+   * @param path - the FHIR Path statement to use
+   * @return
+   * @throws PathEngineException 
+   * @
+   */
+  public boolean evaluateToBoolean(Resource resource, Base base, ExpressionNode node) throws PathEngineException {
+    return convertToBoolean(evaluate(null, resource, base, node));
+  }
+
 	/**
 	 * evaluate a path and a string containing the outcome (for display)
 	 * 

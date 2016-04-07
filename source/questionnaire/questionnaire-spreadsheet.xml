@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12795</WindowHeight>
+  <WindowHeight>14010</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1716,7 +1716,7 @@
     <Cell ss:Index="23" ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="210">
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Questionnaire.item.enableWhen.answered</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Questionnaire.item.enableWhen.hasAnswer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -4133,13 +4133,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>20</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>14</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4147,7 +4146,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4155,8 +4153,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>22</ActiveCol>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4281,7 +4279,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Questionnaire.item.enableWhen</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">enableWhen must contain either an 'answer' or an 'answered' element</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">answered or answer</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">hasAnswer or answer</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">count(*[starts-with(local-name(.), 'answer')]|answered) = 1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -4679,6 +4677,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4699,7 +4698,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>8</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
