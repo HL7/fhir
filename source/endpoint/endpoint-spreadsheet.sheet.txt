@@ -15,6 +15,12 @@
   Definition = The type of the subscription.
   Conformance = required
 
+ -- Row 3 -----------------------------------
+  Binding Name = http-verb
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/http-verb
+  Conformance = required
+
 === Sheet endpoint-status =====================================
 
  -- Row 1 -----------------------------------
@@ -51,6 +57,7 @@
   Type = DomainResource
   Short Label = The technical details of an endpoint that can be used for electronic services
   Definition = The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.
+  w5 = infrastructure.exchange
 
  -- Row 2 -----------------------------------
   Element = Endpoint.status
@@ -59,8 +66,8 @@
   Summary = Y
   Type = code
   Binding = EndpointStatus
-  Short Label = active | suspended | inactive
-  Definition = active | suspended | inactive
+  Short Label = active | suspended | error | off
+  Definition = active | suspended | error | off
   w5 = status
 
  -- Row 3 -----------------------------------
@@ -88,15 +95,16 @@
   Binding = SubscriptionChannelType
   Short Label = rest-hook | websocket | email | sms | message
   Definition = The type of channel to send notifications on
+  To Do = Just as with subscription, should harmonize with http://hl7.org/fhir/ValueSet/message-transport
   w5 = class
 
  -- Row 6 -----------------------------------
   Element = Endpoint.method
   Card. = 0..*
   Summary = Y
-  Type = code
-  Short Label = POST | PUT | GET
-  Definition = POST | PUT | GET
+  Type = Coding
+  Binding = http-verb
+  Short Label = The http verb to be used when calling this endpoint
   Comments = This is the HTTP method that must be used when using the connection
   To Do = Should this be single, or multiple cardinality?
 

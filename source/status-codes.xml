@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12795</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>8880</WindowHeight>
+  <WindowWidth>22824</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <RefModeR1C1/>
@@ -189,16 +189,21 @@
   <Style ss:ID="s86" ss:Parent="s62">
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s87">
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="73" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="74" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.400000000000006"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:Width="314.25"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.25"/>
+   <Column ss:StyleID="s63" ss:Width="314.39999999999998"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.400000000000006"/>
    <Column ss:Index="7" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:Index="9" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.75"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.25"/>
+   <Column ss:Index="9" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.6"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.4"/>
    <Column ss:Index="35" ss:StyleID="s63" ss:Width="45"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Path</Data></Cell>
@@ -229,7 +234,7 @@
     <Cell><Data ss:Type="String">c25</Data></Cell>
     <Cell><Data ss:Type="String">c26</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="39.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="40.050000000000004">
     <Cell><Data ss:Type="String" x:Ticked="1">@codes</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">entered-in-error, marked deleted</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">proposed</Data></Cell>
@@ -257,7 +262,7 @@
     <Cell><Data ss:Type="String">busy-unavailable</Data></Cell>
     <Cell><Data ss:Type="String">free</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="39.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="40.050000000000004">
     <Cell><Data ss:Type="String" x:Ticked="1">@code</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">proposed</Data></Cell>
@@ -285,7 +290,7 @@
     <Cell><Data ss:Type="String">busy-unavailable</Data></Cell>
     <Cell><Data ss:Type="String">free</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="23.0625">
+   <Row ss:AutoFitHeight="0" ss:Height="22.95">
     <Cell><Data ss:Type="String" x:Ticked="1">@definition</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">The record was created in error, and should not be treated as valid (note: in many cases, for record integrity, the information cannot be removed from the record)</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -305,7 +310,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="23.0625">
+   <Row ss:AutoFitHeight="0" ss:Height="22.95">
     <Cell><Data ss:Type="String" x:Ticked="1">Account.status</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s67"/>
@@ -898,6 +903,25 @@
     <Cell ss:Index="17" ss:StyleID="s69"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Endpoint.status</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">off</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s69"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EpisodeOfCare.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -1111,7 +1135,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
     <Cell><Data ss:Type="String">Location.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -1130,7 +1154,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">inactive</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
     <Cell><Data ss:Type="String">MeasureReport.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -1149,7 +1173,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
     <Cell><Data ss:Type="String">MedicationAdministration.status</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
@@ -1687,9 +1711,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>47</TopRowBottomPane>
+   <TopRowBottomPane>24</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1697,6 +1721,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1704,8 +1729,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>71</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>34</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
