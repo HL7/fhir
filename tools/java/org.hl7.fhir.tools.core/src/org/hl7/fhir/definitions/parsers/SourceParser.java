@@ -66,6 +66,7 @@ import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
@@ -210,6 +211,7 @@ public class SourceParser {
     for (String n : ini.getPropertyNames("resources"))
       loadResource(n, definitions.getResources(), false);
 
+    processSearchExpressions();
     processContainerExamples();
     logger.log("Load Extras", LogMessageType.Process);
     loadCompartments();
@@ -260,6 +262,49 @@ public class SourceParser {
       }
     }
   }
+
+  private void processSearchExpressions() throws Exception {
+    for (ResourceDefn rd : definitions.getBaseResources().values())
+      processSearchExpressions(rd);      
+    for (ResourceDefn rd : definitions.getResources().values())
+      processSearchExpressions(rd);          
+  }
+
+  private void processSearchExpressions(ResourceDefn rd) throws Exception {
+    for (SearchParameterDefn sp : rd.getSearchParams().values())
+      if (Utilities.noString(sp.getExpression()))
+        sp.setExpression(convertToExpression(rd, sp.getPaths()));    
+  }
+
+  private String convertToExpression(ResourceDefn rd, List<String> pn) throws Exception {
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (String p : pn) {
+      ElementDefn ed;
+      if (p.startsWith(rd.getName()+"."))
+        ed = rd.getRoot().getElementByName(p, true, definitions, "search parameter generation", true);
+      else
+        throw new Exception("huh?");
+      if (ed == null)
+        throw new Exception("not found: "+p);
+      
+      if (ed.getName().endsWith("[x]"))
+        if (p.endsWith("[x]"))
+          p = p.substring(0, p.length()-3);
+        else {
+          int lp = p.lastIndexOf(".")+ed.getName().length()-2;
+          p = p.substring(0, lp)+".as("+p.substring(lp)+")";
+        }
+      if (first)
+        first = false;
+      else
+        b.append(" | ");
+      b.append(p);
+    }
+    return b.toString();
+  }
+
+
 
   private void processContainerExamples() throws Exception {
     for (ResourceDefn defn : definitions.getResources().values()) 
@@ -742,9 +787,9 @@ public class SourceParser {
     for (EventDefn e : sparser.getEvents())
       processEvent(e, root.getRoot());
 
-    if (map != null) {
+    definitions.getKnownResources().put(root.getName(), new DefinedCode(root.getName(), root.getRoot().getDefinition(), n));
+        if (map != null) {
       map.put(root.getName(), root);
-      definitions.getKnownResources().put(root.getName(), new DefinedCode(root.getName(), root.getRoot().getDefinition(), n));
     }
     root.setStatus(ini.getStringProperty("status", n));
     if (Utilities.noString(root.getStatus()) && ini.getBooleanProperty("draft-resources", root.getName()))

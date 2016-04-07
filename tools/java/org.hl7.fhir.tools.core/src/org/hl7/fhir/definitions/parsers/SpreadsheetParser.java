@@ -284,7 +284,7 @@ public class SpreadsheetParser {
 				// This has been disabled for now, per Lloyd McKenzie's request via Skype - jamesagnew
             //throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no Expression statement (in FHIRPath format)");
           } else {
-            fpUsages.add(new FHIRPathUsage(inv.getContext(), isResource ? resource.getName() : null, inv.getContext(), null, inv.getExpression(), inv.getXpath()));
+            fpUsages.add(new FHIRPathUsage(inv.getContext(), isResource ? resource.getName() : "DomainResource", inv.getContext(), null, inv.getExpression(), inv.getXpath()));
           }
 		    }
 		  }
@@ -373,7 +373,7 @@ public class SpreadsheetParser {
 	{
 		for (TypeRef ref : root.getTypes()) {
 			if (ref.isElementReference()) {
-				ElementDefn referredElement = parent.getRoot().getElementByName(ref.getName().substring(1));
+				ElementDefn referredElement = parent.getRoot().getElementByName(definitions, ref.getName().substring(1), true, false);
 
 				if (referredElement == null)
 					throw new Exception("Element reference " + ref.getName()+ " cannot be found in type " + parent.getName());
@@ -391,7 +391,7 @@ public class SpreadsheetParser {
 	public ResourceDefn parseResource() throws Exception {
 	  isProfile = false;
 	  ResourceDefn root = parseCommonTypeColumns(true);
-
+ 
 	  readInheritedMappings(root, loadSheet("Inherited Mappings"));
 	  readEvents(loadSheet("Events"));
 	  readSearchParams(root, loadSheet("Search"), false);
@@ -823,7 +823,7 @@ public class SpreadsheetParser {
                 e = definitions.getElementDefn("Extension");
               pn.add(p);
             } else if (!p.startsWith("!") && !p.startsWith("Extension{") && root2 != null ) {
-              e = root2.getRoot().getElementForPath(p, definitions, "search param", true); 
+              e = root2.getRoot().getElementForPath(p, definitions, "search param", true, true); 
             }
             if (Utilities.noString(d) && e != null)
               d = e.getShortDefn();
@@ -920,7 +920,7 @@ public class SpreadsheetParser {
               String p = pi.trim();
               ElementDefn e = null;
               if (!Utilities.noString(p) && !p.startsWith("!") && !p.startsWith("Extension{") && definitions != null ) {
-                e = root2.getRoot().getElementForPath(trimIndexes(p), definitions, "search param", true); 
+                e = root2.getRoot().getElementForPath(trimIndexes(p), definitions, "search param", true, true); 
               }
               if (Utilities.noString(d) && e != null)
                 d = e.getShortDefn();
@@ -961,10 +961,8 @@ public class SpreadsheetParser {
 
             sp = new SearchParameterDefn(n, d, t, pu);
             sp.getPaths().addAll(pn);
-            if (Utilities.noString(sheet.getColumn(row, "Expression")))
-              sp.setExpression(pipeSeparate(pn));
-            else
-              sp.setExpression(pipeSeparate(sheet.getColumn(row, "Expression").split("\\^")));
+            if (!Utilities.noString(sheet.getColumn(row, "Expression")))
+              sp.setExpression(sheet.getColumn(row, "Expression"));
             if (!Utilities.noString(sheet.getColumn(row, "Target Types"))) {
               sp.setManualTypes(sheet.getColumn(row, "Target Types").split("\\,"));
             }
@@ -974,32 +972,6 @@ public class SpreadsheetParser {
       }
     }
 	}
-
-	private String pipeSeparate(String[] paths) {
-    StringBuilder b = new StringBuilder();
-    boolean first = true;
-    for (String p : paths) {
-      if (first)
-        first = false;
-      else
-        b.append(" | ");
-      b.append(p);
-    }
-    return b.toString();
-  }
-
-  private String pipeSeparate(List<String> paths) {
-	  StringBuilder b = new StringBuilder();
-    boolean first = true;
-    for (String p : paths) {
-      if (first)
-        first = false;
-      else
-        b.append(" | ");
-      b.append(p);
-    }
-    return b.toString();
-  }
 
 	private String trimIndexes(String p) {
     while (p.contains("("))
@@ -1436,7 +1408,7 @@ public class SpreadsheetParser {
         if (sheet.getColumn(row, "Code").startsWith("!"))
           row++;
         else
-          row = processExtension(resource.getRoot().getElementByName("extensions"), sheet, row, definitions, ap.metadata("extension.uri"), ap, issues, invariants);
+          row = processExtension(resource.getRoot().getElementByName(definitions, "extensions", true, false), sheet, row, definitions, ap.metadata("extension.uri"), ap, issues, invariants);
       }
     }
     sheet = loadSheet(n+"-Search");
@@ -2220,7 +2192,7 @@ public class SpreadsheetParser {
 	      if (en.charAt(en.length() - 1) == '*') 
 	        throw new Exception("no-list wrapper found at " + source);
 
-	      ElementDefn t = res.getElementByName(en, true, definitions, "find context");
+	      ElementDefn t = res.getElementByName(en, true, definitions, "find context", false);
 
 	      if (t == null) {
           throw new Exception("Reference to undefined Element "+ pathname+ " found at " + source);
@@ -2246,7 +2218,7 @@ public class SpreadsheetParser {
 			if (en.charAt(en.length() - 1) == '*') {
 				throw new Exception("no list wrapper found " + getLocation(row));
 			}
-			ElementDefn t = res.getElementByName(en);
+			ElementDefn t = res.getElementByName(definitions, en, false, false);
 
 			boolean isUnpickingElement = t != null && (i == path.length - 1)
 					&& !t.getProfileName().equals("")

@@ -38,7 +38,7 @@ public class XPathQueryGenerator {
       String path[] = splitPath(ppath);
       if (path[path.length -1].endsWith("[x]")) {
         ElementDefn defn = definitions.getElementDefn(path[0]);
-        ElementDefn ed = defn.getElementForPath(ppath, definitions, "Search parameter xpath generation", true);
+        ElementDefn ed = defn.getElementForPath(ppath, definitions, "Search parameter xpath generation", true, false);
         for (TypeRef tr : ed.getTypes()) {
           buildPath(b, path, ed.getName().substring(0, ed.getName().length()-3)+Utilities.capitalize(tr.getName()));          
         }

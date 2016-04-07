@@ -858,7 +858,7 @@ public class ProfileGenerator {
     sp.setType(getSearchParamType(spd.getType()));
     sp.setDescription(spd.getDescription());
     if (!Utilities.noString(spd.getExpression())) 
-      sp.setExpression(spd.getExpression().replace("[x]", ""));
+      sp.setExpression(spd.getExpression());
     String xpath = new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths());
     if (xpath != null) {
       if (xpath.contains("[x]"))
@@ -1331,7 +1331,7 @@ public class ProfileGenerator {
   }
 
   private void makeExtensionSlice(String extensionName, StructureDefinition p, StructureDefinitionSnapshotComponent c, ElementDefn e, String path) throws URISyntaxException, Exception {
-    ElementDefinition ex = createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName(extensionName));
+    ElementDefinition ex = createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName(definitions, extensionName, false, false));
     c.getElement().add(ex);
     ex.getBase().setPath(path+".extension");
     ex.getBase().setMin(0);

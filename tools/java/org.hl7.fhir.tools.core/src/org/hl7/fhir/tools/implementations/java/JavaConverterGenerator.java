@@ -367,7 +367,7 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
     write("      return null;\r\n");
     write("    org.hl7.fhir.dstu2.model."+tn+" tgt = new org.hl7.fhir.dstu2.model."+tn+"();\r\n");
     write("    copy"+parentType+"(src, tgt);\r\n");
-    es = processElements(root, ed, es, "21");
+    es = processElements(root, ed, es, "3");
     write("    return tgt;\r\n");
     write("  }\r\n\r\n");
     
@@ -468,7 +468,7 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
     write("  private static void copy"+tn+"(org.hl7.fhir.dstu3.model."+tn+" src, org.hl7.fhir.dstu2.model."+tn+" tgt) {\r\n");
     if (!Utilities.noString(parent))
       write("    copy"+parent+"(src, tgt);\r\n");
-    es = processElements(n, n, es, "21");
+    es = processElements(n, n, es, "3");
     write("  }\r\n");
     write(es);
   }
@@ -647,7 +647,7 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
       String en = path[i];
       if (en.length() == 0)
         throw new Exception("Improper path "+pathname);
-      ElementDefn t = res.getElementByName(en);
+      ElementDefn t = res.getElementByName(definitions, en, true, false);
       if (t == null) {
         throw new Exception("unable to resolve "+pathname);
       }

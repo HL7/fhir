@@ -2618,12 +2618,20 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 				BaseOnWrapper e = new BaseOnWrapper(context, element, profile, ed, typename, typeProfile);
 				String expr = inv.getExpression();
 				FHIRPathEngine fpe = new FHIRPathEngine(context);
-		    boolean ok = fpe.evaluateToBoolean(res, e, expr);
+				String msg;
+				boolean ok;
+				try {
+		      ok = fpe.evaluateToBoolean(res, e, expr);
+		      msg = fpe.forLog();
+				} catch (Exception ex) {
+				  ok = false;
+				  msg = ex.getMessage(); 
+				}
 				if (!ok) {
 					if (inv.getSeverity() == ConstraintSeverity.ERROR)
-						rule(errors, IssueType.INVARIANT, element.line(), element.col(), path, ok, inv.getHuman()+fpe.forLog());
+						rule(errors, IssueType.INVARIANT, element.line(), element.col(), path, ok, inv.getHuman()+" ("+msg+") ["+expr+"]");
 					else if (inv.getSeverity() == ConstraintSeverity.WARNING)
-						warning(errors, IssueType.INVARIANT, element.line(), element.line(), path, ok, inv.getHuman()+fpe.forLog());
+						warning(errors, IssueType.INVARIANT, element.line(), element.line(), path, ok, inv.getHuman()+" ("+msg+") ["+expr+"]");
 				}
 			}
 		}

@@ -573,7 +573,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       String en = path[i];
       if (en.length() == 0)
         throw new Exception("Improper path "+pathname);
-      ElementDefn t = res.getElementByName(en);
+      ElementDefn t = res.getElementByName(definitions, en, true, false);
       if (t == null) {
         throw new Exception("unable to resolve "+pathname);
       }

@@ -26,9 +26,5 @@ public class FHIRPathTests {
     //me.parseMap(ctxt, "Composition.section.title; if (value) Composition.section.title; rf := Composition.section.title; var c := Coding[code := '123']");
 //    me.parseMap(ctxt, "c := Coding[code := '123']");
   }
-
-  private void check(String path) throws Exception {
-    new FHIRPathEngine(null).check(null, null, null, path, false);   
-  }
   
 }

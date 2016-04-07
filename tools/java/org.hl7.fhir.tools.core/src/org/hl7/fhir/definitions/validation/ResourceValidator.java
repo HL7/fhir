@@ -207,22 +207,22 @@ public class ResourceValidator extends BaseValidator {
     int vsWarnings = checkElement(errors, rd.getName(), rd.getRoot(), rd, null, s == null || !s.equalsIgnoreCase("n/a"), false, hasSummary(rd.getRoot()), vsWarns);
     
     if (!resourceIsTechnical(name)) { // these are exempt because identification is tightly managed
-      ElementDefn id = rd.getRoot().getElementByName("identifier");
+      ElementDefn id = rd.getRoot().getElementByName(definitions, "identifier", true, false);
       if (id == null) 
         suppressedwarning(errors, IssueType.STRUCTURE, rd.getName(), false, "All resources should have an identifier");
       else 
         rule(errors, IssueType.STRUCTURE, rd.getName(), id.typeCode().equals("Identifier"), "If a resource has an element named identifier, it must have a type 'Identifier'");
     }
-    rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getRoot().getElementByName("text") == null, "Element named \"text\" not allowed");
-    rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getRoot().getElementByName("contained") == null, "Element named \"contained\" not allowed");
-    if (rd.getRoot().getElementByName("subject") != null && rd.getRoot().getElementByName("subject").typeCode().startsWith("Reference"))
+    rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getRoot().getElementByName(definitions, "text", true, false) == null, "Element named \"text\" not allowed");
+    rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getRoot().getElementByName(definitions, "contained", true, false) == null, "Element named \"contained\" not allowed");
+    if (rd.getRoot().getElementByName(definitions, "subject", true, false) != null && rd.getRoot().getElementByName(definitions, "subject", true, false).typeCode().startsWith("Reference"))
       rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("subject"), "A resource that contains a subject reference must have a search parameter 'subject'");
-    if (rd.getRoot().getElementByName("patient") != null && rd.getRoot().getElementByName("patient").typeCode().startsWith("Reference"))
+    if (rd.getRoot().getElementByName(definitions, "patient", true, false) != null && rd.getRoot().getElementByName(definitions, "patient", true, false).typeCode().startsWith("Reference"))
       rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("patient"), "A resource that contains a patient reference must have a search parameter 'patient'");
-    if (rd.getRoot().getElementByName("identifier") != null) {
+    if (rd.getRoot().getElementByName(definitions, "identifier", true, false) != null) {
       hint(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("identifier"), "A resource that contains an identifier must have a search parameter 'identifier'");
     }
-    if (rd.getRoot().getElementByName("url") != null) {
+    if (rd.getRoot().getElementByName(definitions, "url", true, false) != null) {
       hint(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("url"), "A resource that contains a url element must have a search parameter 'url'");
     }
     for (org.hl7.fhir.definitions.model.SearchParameterDefn p : rd.getSearchParams().values()) {
@@ -245,7 +245,7 @@ public class ResourceValidator extends BaseValidator {
         for (String path : p.getPaths()) {
           ElementDefn e;
           String pp = trimIndexes(path);
-          e = rd.getRoot().getElementForPath(pp, definitions, "Resolving Search Parameter Path", true);
+          e = rd.getRoot().getElementForPath(pp, definitions, "Resolving Search Parameter Path", true, false);
           List<TypeRef> tlist;
           if (pp.endsWith("."+e.getName()))
             tlist = e.getTypes();
@@ -274,7 +274,7 @@ public class ResourceValidator extends BaseValidator {
           for (String path : p.getPaths()) {
             ElementDefn e;
             String pp = trimIndexes(path);
-            e = rd.getRoot().getElementForPath(pp, definitions, "Resolving Search Parameter Path", true);
+            e = rd.getRoot().getElementForPath(pp, definitions, "Resolving Search Parameter Path", true, false);
             for (TypeRef t : e.getTypes()) {
               if (t.getName().equals("Reference")) {
                 for (String pn : t.getParams()) {
@@ -320,7 +320,7 @@ public class ResourceValidator extends BaseValidator {
     String[] names = proposedOrder.split("\\,"); 
     List<String> items = new ArrayList<String>();
     for (String n : names) {
-      ElementDefn e = parent.getRoot().getElementByName(n);
+      ElementDefn e = parent.getRoot().getElementByName(definitions, n, true, false);
       if (e == null)
         throw new Error("Unable to resolve element in proposed order: "+n);
       if (!Utilities.noString(e.getW5()))
@@ -392,7 +392,7 @@ public class ResourceValidator extends BaseValidator {
   }
 
   private boolean hasActivFalse(ResourceDefn parent) {
-    ElementDefn e = parent.getRoot().getElementByName("active");
+    ElementDefn e = parent.getRoot().getElementByName(definitions, "active", true, false);
     if (e != null) {
       if (e.typeCode().equals("boolean"))
         return true;
@@ -401,7 +401,7 @@ public class ResourceValidator extends BaseValidator {
   }
 
   private boolean hasStatus(ResourceDefn parent, String code) {
-    ElementDefn e = parent.getRoot().getElementByName("status");
+    ElementDefn e = parent.getRoot().getElementByName(definitions, "status", true, false);
     if (e != null) {
       if (e.hasBinding() && e.getBinding().getValueSet() != null) {
         ValueSet vs = e.getBinding().getValueSet();

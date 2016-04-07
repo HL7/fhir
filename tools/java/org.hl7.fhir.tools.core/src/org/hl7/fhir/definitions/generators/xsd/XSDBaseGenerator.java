@@ -700,7 +700,7 @@ public class XSDBaseGenerator {
       else if ("div".equals(e.getName()) && e.typeCode().equals("xhtml"))
         write("<xs:element ref=\"xhtml:div\" ");
       else if (e.usesCompositeType()) {
-        ElementDefn ref = root.getElementByName(e.typeCode().substring(1));
+        ElementDefn ref = root.getElementByName(definitions, e.typeCode().substring(1), true, false);
         String rtn = this.types.get(ref);
         if (rtn == null)
           throw new Exception("logic error in schema generator (null composite reference in "+types.toString()+")");

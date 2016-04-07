@@ -803,7 +803,7 @@ public class SvgGenerator extends BaseGenerator {
   }
 
   private ClassItem getItemForPath(ResourceDefn resource, String path) throws Exception {
-    ElementDefn e = resource.getRoot().getElementForPath(path, definitions, "SVG diagram", false);
+    ElementDefn e = resource.getRoot().getElementForPath(path, definitions, "SVG diagram", false, false);
     return classes.get(e);
   }
 

@@ -148,12 +148,12 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
         if (s.definition.typeCode().equals("Resource") && (s.path.endsWith(".entry.resource") || s.path.endsWith(".contained")) && definitions.isResource(node.getNodeName())) // account for extra element
           return new ExampleAdornerState(State.Element, s.path, definitions.getResourceByName(node.getNodeName()).getRoot(), "", "");
         String p = s.path+"."+node.getNodeName();
-        ElementDefn e = s.getDefinition().getElementByName(node.getLocalName(), true, definitions, "adorn example");
+        ElementDefn e = s.getDefinition().getElementByName(node.getLocalName(), true, definitions, "adorn example", false);
         if (e == null && definitions.hasElementDefn(s.getDefinition().typeCode())) {
           // well, we see if it's inherited...
           ElementDefn t = definitions.getElementDefn(s.getDefinition().typeCode());
           while (t != null && e == null) {
-            e = t.getElementByName(node.getLocalName(), true, definitions, "adorn example");
+            e = t.getElementByName(node.getLocalName(), true, definitions, "adorn example", false);
             if (e != null)
               p = t.getName()+"."+e.getName();
             else if (definitions.hasElementDefn(t.typeCode()))
@@ -245,11 +245,11 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
       ElementDefn t = s.definition;
       if (t.typeCode().equals("Resource") && (s.path.endsWith(".entry.resource") || s.path.endsWith(".contained")) && definitions.isResource(node.getNodeName()))
         return null;        
-      ElementDefn child = t.getElementByName(node.getNodeName(), true, definitions, "adorn example");
+      ElementDefn child = t.getElementByName(node.getNodeName(), true, definitions, "adorn example", false);
       String p = child == null ? null : s.path+"."+child.getName();
       while (child == null && t != null && definitions.hasElementDefn(t.typeCode())) {
         t = definitions.getElementDefn(t.typeCode());
-        child = t.getElementByName(node.getNodeName(), true, definitions, "adorn example");
+        child = t.getElementByName(node.getNodeName(), true, definitions, "adorn example", false);
         if (child != null) {
           p = t.getName()+"."+child.getName();
         }

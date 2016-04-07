@@ -118,7 +118,7 @@ public class ValueSetGenerator {
         
     List<String> codes = new ArrayList<String>();
     codes.addAll(definitions.getKnownResources().keySet());
-    codes.addAll(definitions.getBaseResources().keySet());
+    //codes.addAll(definitions.getBaseResources().keySet());
     Collections.sort(codes);
     for (String s : codes) {
       DefinedCode rd = definitions.getKnownResources().get(s);

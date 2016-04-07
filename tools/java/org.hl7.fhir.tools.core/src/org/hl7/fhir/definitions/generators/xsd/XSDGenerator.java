@@ -278,7 +278,7 @@ public class XSDGenerator  {
 			if ("extension".equals(e.getName()))
 				write("<xs:element name=\""+e.getName()+"\" type=\"Extension\" ");
 			else if (e.usesCompositeType()/* && types.containsKey(root.getElementByName(e.typeCode().substring(1)))*/) {
-				ElementDefn ref = root.getElementByName(e.typeCode().substring(1));
+				ElementDefn ref = root.getElementByName(definitions, e.typeCode().substring(1), true, false);
 				String rtn = types.get(ref);
 				if (rtn == null)
 				  throw new Exception("logic error in schema generator (null composite reference in "+types.toString()+")");

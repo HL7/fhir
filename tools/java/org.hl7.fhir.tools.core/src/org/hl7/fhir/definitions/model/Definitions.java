@@ -531,9 +531,9 @@ public class Definitions {
       if (primitives.containsKey(value))
         return;
       String[] parts = value.split("\\.");
-      if (hasType(parts[0]) && getElementByPath(parts, "check extension context") != null)
+      if (hasType(parts[0]) && getElementByPath(parts, "check extension context", true) != null)
         return;
-      if (hasResource(parts[0])  && getElementByPath(parts, "check extension context") != null)
+      if (hasResource(parts[0])  && getElementByPath(parts, "check extension context", true) != null)
         return;
       throw new Error("The data type context '"+value+"' is not valid @ "+context);
       
@@ -545,7 +545,7 @@ public class Definitions {
       String[] parts = value.split("\\.");
       if (sortedResourceNames().contains(value))
         return;
-      if (getElementByPath(parts, "check extension context") != null)
+      if (getElementByPath(parts, "check extension context", true) != null)
         return;
       
       throw new Error("The resource context '"+value+"' is not valid @ "+context);
@@ -554,7 +554,7 @@ public class Definitions {
     
   }
 
-  private Object getElementByPath(String[] parts, String purpose) throws Exception {
+  public ElementDefn getElementByPath(String[] parts, String purpose, boolean followType) throws Exception {
     ElementDefn e;
     try {
       e = getElementDefn(parts[0]);
@@ -565,7 +565,7 @@ public class Definitions {
     while (e != null && i < parts.length) {
       if (e.getAcceptableGenericTypes().isEmpty() && hasType(e.typeCode()))
         e = getElementDefn(e.typeCode());
-      e = e.getElementByName(parts[i], true, this, purpose);
+      e = e.getElementByName(parts[i], true, this, purpose, followType);
       i++;
     }
     return e;

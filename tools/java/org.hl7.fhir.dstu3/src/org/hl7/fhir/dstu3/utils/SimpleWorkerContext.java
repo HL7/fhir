@@ -342,6 +342,13 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     return new HashSet<String>(Arrays.asList("Integer","UnsignedInt","PositiveInt","Decimal","DateTime","Date","Time","Instant","String","Uri","Oid","Uuid","Id","Boolean","Code","Markdown","Base64Binary","Coding","CodeableConcept","Attachment","Identifier","Quantity","SampledData","Range","Period","Ratio","HumanName","Address","ContactPoint","Timing","Reference","Annotation","Signature","Meta"));
   }
 
+  @Override
+  public List<StructureDefinition> allStructures() {
+    List<StructureDefinition> result = new ArrayList<StructureDefinition>();
+    result.addAll(structures.values());
+    return result;
+  }
+
 
 
 }

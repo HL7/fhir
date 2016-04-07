@@ -255,24 +255,24 @@ public class ElementDefn {
     this.maxLength = maxLength;
   }
 
-  public ElementDefn getElementByName(String name, boolean throughChoice, Definitions definitions, String purpose) throws Exception {
+  public ElementDefn getElementByName(String name, boolean throughChoice, Definitions definitions, String purpose, boolean followType) throws Exception {
     String n = name.contains(".") ? name.substring(0, name.indexOf(".")) : name;
     String t = name.contains(".") ? name.substring(name.indexOf(".") + 1) : null;
     if (n.equals(this.name) && t != null)
-      return getElementByName(t);
+      return getElementByName(definitions, t, throughChoice, followType);
     
     ElementDefn focus = this;
     
     if (typeCode().startsWith("@")) {
       String s = typeCode().substring(1);
       focus = definitions.getElementDefn(s.substring(0, s.indexOf(".")));
-      focus = focus.getElementForPath(s, definitions, purpose, throughChoice);
+      focus = focus.getElementForPath(s, definitions, purpose, throughChoice, followType);
     }
       
     for (int i = focus.elements.size() - 1; i >= 0; i--) {
       ElementDefn e = focus.elements.get(i);
       if (nameMatches(n, e, throughChoice, definitions))
-        return t == null ? e : e.getElementByName(t);
+        return t == null ? e : e.getElementByName(definitions, t, throughChoice, followType);
     }
     return null;
   }
@@ -301,24 +301,36 @@ public class ElementDefn {
     }
   }
 
-	public ElementDefn getElementByName(String name) {
+	public ElementDefn getElementByName(Definitions definitions, String name, boolean throughChoice, boolean followType) {
 		String n = name.contains(".") ? name.substring(0, name.indexOf("."))
 				: name;
 		String t = name.contains(".") ? name.substring(name.indexOf(".") + 1)
 				: null;
 		if (n.equals(this.name) && t != null)
-			return getElementByName(t);
+			return getElementByName(definitions, t, throughChoice, followType);
 
 		for (int i = elements.size() - 1; i >= 0; i--) {
 			ElementDefn e = elements.get(i);
-			if (nameMatches(n, e, false, null))
-				return t == null ? e : e.getElementByName(t);
-//			if (e.getName().length() > name.length()
-//					&& e.getName().substring(0, name.length())
-//							.equalsIgnoreCase(name)
-//					&& e.getElements().size() == 1
-//					&& e.getElements().get(0).getName().equalsIgnoreCase(name))
-//				return e.getElements().get(0);
+			if (nameMatches(n, e, throughChoice, null))
+				return t == null ? e : e.getElementByName(definitions, t, throughChoice, followType);
+		}
+		// ok, didn't find it. do we have a reference or a type to follow?
+		if (followType && !Utilities.noString(typeCode())) {
+		  if (typeCode().startsWith("@")) {
+        try {
+          ElementDefn ed = definitions.getElementByPath(typeCode().substring(1).split("\\."), "resolution", true);
+          return ed.getElementByName(definitions, n, throughChoice, followType);
+        } catch (Exception e) {
+          return null;
+        }
+		  } else {
+		    try {
+		      TypeDefn type = definitions.getElementDefn(typeCode());
+		      return type.getElementByName(definitions, name, throughChoice, followType);
+		    } catch (Exception e) {
+		      return null;
+		    }
+		  }
 		}
 		return null;
 	}
@@ -560,7 +572,7 @@ public class ElementDefn {
 	}
 
 	
-	public ElementDefn getElementForPath(String pathname, Definitions definitions, String purpose, boolean throughChoice) throws Exception {
+	public ElementDefn getElementForPath(String pathname, Definitions definitions, String purpose, boolean throughChoice, boolean followType) throws Exception {
 		String[] path = pathname.split("\\.");
 
 		if (!path[0].equals(getName()))
@@ -578,13 +590,13 @@ public class ElementDefn {
 			ElementDefn t = null;
 
 			if (res.typeCode().startsWith("@")) {
-			  res = this.getElementForPath(res.typeCode().substring(1), definitions, purpose, throughChoice);
+			  res = this.getElementForPath(res.typeCode().substring(1), definitions, purpose, throughChoice, followType);
 			} else if (definitions.dataTypeIsSharedInfo(res.typeCode())) {
 				res = definitions.getElementDefn(res.typeCode());
 			} else if (definitions.hasType(res.typeCode())) {
 				res = definitions.getElementDefn(res.typeCode());
 			}
-			t = res.getElementByName(en, throughChoice, definitions, purpose);
+			t = res.getElementByName(en, throughChoice, definitions, purpose, followType);
 			if (t == null) {
 				throw new Exception("unable to resolve " + pathname+" for purpose "+purpose);
 			}

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 06:21+1100 for FHIR v1.4.0
+// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -2775,7 +2775,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       if (this.representation == null)
         return false;
       for (Enumeration<PropertyRepresentation> v : this.representation)
-        if (v.equals(value)) // code
+        if (v.getValue().equals(value)) // code
           return true;
       return false;
     }

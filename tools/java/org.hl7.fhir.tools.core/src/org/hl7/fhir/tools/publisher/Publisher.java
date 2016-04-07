@@ -827,7 +827,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       b.append(p.getResource() + " (" + p.getContext() + "): " + p.getExpression()+"\r\n");
       try {
         if (!"n/a".equals(p.getExpression())) {
-          fp.check(null, p.getResource(), p.getContext(), p.getExpression(), p.getXpath() != null && (p.getXpath().startsWith("@value") || (p.getXpath().contains("@value") && !p.getXpath().contains("/@value"))));
+          fp.check(null, p.getResource(), p.getContext(), p.getExpression()); 
         }
       } catch (Exception e) {
         BaseValidator.rule(page.getValidationErrors(), Source.Publisher, IssueType.STRUCTURE, p.getLocation(), false, "Expression '"+p.getExpression()+"' has illegal path ("+e.getMessage()+")"); 
@@ -5063,7 +5063,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       validator.validate(issues, root, profile);
     for (ValidationMessage m : issues) {
       if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING)) {
-        m.setMessage(n+": "+m.getMessage());
+        m.setMessage(n+":: "+m.getLocation()+": "+m.getMessage());
         page.getValidationErrors().add(m);
       }
       if (m.getLevel() == IssueSeverity.WARNING)
