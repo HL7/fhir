@@ -455,35 +455,35 @@
   Context = Conformance
   English = The set of documents must be unique by the combination of profile & mode
   XPath = count(f:document[f:mode/@value=\'producer\'])=count(distinct-values(f:document[f:mode/@value=\'producer\']/f:profile/f:reference/@value)) and count(f:document[f:mode/@value=\'consumer\'])=count(distinct-values(f:document[f:mode/@value=\'consumer\']/f:profile/f:reference/@value))
-  Expression = document.select(profile+mode).distinct()
+  Expression = document.select(profile&mode).isDistinct()
 
  -- Row 5 -----------------------------------
   Id = 8
   Context = Conformance
   English = There can only be one REST declaration per mode
   XPath = count(f:rest)=count(distinct-values(f:rest/f:mode/@value))
-  Expression = rest.select(mode).distinct()
+  Expression = rest.select(mode).isDistinct()
 
  -- Row 6 -----------------------------------
   Id = 9
   Context = Conformance.rest
   English = A given resource can only be described once per RESTful mode
   XPath = count(f:resource)=count(distinct-values(f:resource/f:type/@value))
-  Expression = resource.select(type).distinct()
+  Expression = resource.select(type).isDistinct()
 
  -- Row 7 -----------------------------------
   Id = !10
   Context = Conformance.rest
   English = A given operation can only be described once per RESTful mode
   XPath = count(f:operation)=count(distinct-values(f:operation/f:name/@value))
-  Expression = operation.select(name).distinct()
+  Expression = operation.select(name).isDistinct()
 
  -- Row 8 -----------------------------------
   Id = 12
   Context = Conformance.rest.resource
   English = Search parameter names must be unique in the context of a resource
   XPath = count(f:searchParam)=count(distinct-values(f:searchParam/f:name/@value))
-  Expression = searchParam.select(name).distinct()
+  Expression = searchParam.select(name).isDistinct()
 
  -- Row 9 -----------------------------------
   Id = 13

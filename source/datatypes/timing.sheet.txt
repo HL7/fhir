@@ -211,17 +211,17 @@
 
  -- Row 4 -----------------------------------
   Id = 4
-  Context = Timing.repeat.duration
+  Context = Timing.repeat
   English = duration SHALL be a non-negative value
-  XPath = @value >= 0 or not(@value)
-  Expression = duration >= 0
+  XPath = f:duration/@value >= 0 or not(f:duration/@value)
+  Expression = duration.exists() implies duration >= 0
 
  -- Row 5 -----------------------------------
   Id = 5
-  Context = Timing.repeat.period
+  Context = Timing.repeat
   English = period SHALL be a non-negative value
-  XPath = @value >= 0 or not(@value)
-  Expression = period >= 0
+  XPath = f:period/@value >= 0 or not(f:period/@value)
+  Expression = period.exists() implies period >= 0
 
  -- Row 6 -----------------------------------
   Id = 6

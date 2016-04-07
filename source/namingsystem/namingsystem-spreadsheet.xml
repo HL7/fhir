@@ -3830,7 +3830,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">NamingSystem</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Can't have more than one preferred identifier for a type</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">uniqueId.where(preferred = true).select(type).distinct()</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">uniqueId.where(preferred = true).select(type).isDistinct()</Data></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(for $type in distinct-values(f:uniqueId/f:type/@value) return if (count(f:uniqueId[f:type/@value=$type and f:preferred/@value=true()])&gt;1) then $type else ()))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">

@@ -165,7 +165,7 @@
   Context = ElementDefinition.max
   English = Max SHALL be a number or \"*\"
   XPath = @value=\'*\' or (normalize-space(@value)!=\'\' and normalize-space(translate(@value, \'0123456789\',\'\'))=\'\')
-  Expression = max.empty() or (max = \'*\') or (max.toInteger() >= 0)
+  Expression = empty() or ($this = \'*\') or (toInteger() >= 0)
 
  -- Row 4 -----------------------------------
   Id = 4
@@ -228,14 +228,14 @@
   Context = ElementDefinition
   English = Types must be unique by the combination of code and profile
   XPath = not(exists(for $type in f:type return $type/preceding-sibling::f:type[f:code/@value=$type/f:code/@value and f:profile/@value = $type/f:profile/@value]))
-  Expression = type.select(code+profile).distinct()
+  Expression = type.select(code&profile).isDistinct()
 
  -- Row 13 -----------------------------------
   Id = 14
   Context = ElementDefinition
   English = Constraints must be unique by key
   XPath = count(f:constraint) = count(distinct-values(f:constraint/f:key/@value))
-  Expression = constraint.select(key).distinct()
+  Expression = constraint.select(key).isDistinct()
 
  -- Row 14 -----------------------------------
   Id = 15
@@ -316,10 +316,10 @@
   Definition = A code that provides the meaning for the element according to a particular terminology.
   Requirements = Links the meaning of an element to an external terminology
   Comments = The data element definition and other constraints SHALL be a proper constraint on the meaning (as defined in the code system, including relationships) of any code listed here.  Where multiple codes exist in a terminology that could correspond to the data element, the most granular code(s) should be selected, so long as they are not more restrictive than the data element itself.
+  LOINC Code = LOINC_NUM
   v2 Mapping = OM1.7
   RIM Mapping = ./code (root or translation)
   11179 Mapping = (Data_Element).data_element_concept.identifier
-  LOINC Code = LOINC_NUM
 
  -- Row 7 -----------------------------------
   Element = ElementDefinition.slicing
@@ -392,10 +392,10 @@
   Definition = Provides a complete explanation of the meaning of the data element for human readability.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource
   Requirements = To allow a user to state the usage of an element in a particular context
   Comments = It is easy for a different definition to change the meaning of an element and this can have nasty downstream consequences. Please be careful when providing definitions
+  LOINC Code = TERM DEFINITION/DESCRIPTION(S)
   v2 Mapping = OM1.6, OM1.41
   RIM Mapping = ./text
   11179 Mapping = (Designatable_Item).definition.text  acceptability=preferred in default context
-  LOINC Code = TERM DEFINITION/DESCRIPTION(S)
 
  -- Row 14 -----------------------------------
   Element = ElementDefinition.comments
@@ -404,10 +404,10 @@
   Short Label = Comments about the use of this element
   Definition = Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.
   Comments = If it is possible to capture usage rules using constraints, that mechanism should be used in preference to this element
+  LOINC Code = COMMENTS
   v2 Mapping = NTE, OM.32, OM1.33, OM1.39
   RIM Mapping = ./inboundRelationship[typeCode=SUBJ]/source[classCode=LIST, moodCode=EVN]/code
   11179 Mapping = (Administered_Item).explanatory_comment
-  LOINC Code = COMMENTS
 
  -- Row 15 -----------------------------------
   Element = ElementDefinition.requirements
@@ -416,9 +416,9 @@
   Short Label = Why this resource has been created
   Definition = This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element.
   Comments = This element does not describe the usage of the element (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
+  LOINC Code = R/O/C
   RIM Mapping = ./inboundRelationship[typeCode=META]/source[classCode=ACT, moodCode=EVN, isCriterionInd=true]/reasonCode/originalText
   11179 Mapping = (Registered_item).document_reference[document_type=requirements].notation
-  LOINC Code = R/O/C
 
  -- Row 16 -----------------------------------
   Element = ElementDefinition.alias
@@ -428,10 +428,10 @@
   Short Label = Other names
   Definition = Identifies additional names by which this element might also be known
   Requirements = Allows for better easier recognition of the element by multiple communities, including international communities
+  LOINC Code = RELATED NAMES (only some of these apply)
   v2 Mapping = OM1.8, OM1.52
   RIM Mapping = Not currently expressible
   11179 Mapping = (Designatable_Item).designation.sign  acceptability!=preferred or context is other than default
-  LOINC Code = RELATED NAMES (only some of these apply)
 
  -- Row 17 -----------------------------------
   Element = ElementDefinition.min
@@ -511,10 +511,10 @@
   Definition = The data type or resource that the value of this element is permitted to be
   Comments = The Type of the element can be left blank, in which case the type is inherited from the resource. The type can only be listed in this field if it is an allowed option in the base resource
   IHE DEX mapping = valueDomain.dataType
+  LOINC Code = HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)
   v2 Mapping = OM1.3, OMC.9
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain.data+Q14type
-  LOINC Code = HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)
 
  -- Row 25 -----------------------------------
   Element = ElementDefinition.type.code
@@ -524,10 +524,10 @@
   Short Label = Name of Data type or Resource
   Definition = Name of Data type or Resource that is a(or the) type used for this element
   Comments = If the element is a reference to another resource, this element contains \"Reference\", and the profile element refers to the profile of the allowed target of the resource, which may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/StructureDefinition/Patient). There would be one pair of type/code for each allowed target resource type
+  LOINC Code = HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)
   v2 Mapping = OM1.3
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain.data+Q14type
-  LOINC Code = HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)
 
  -- Row 26 -----------------------------------
   Element = ElementDefinition.type.profile
@@ -608,9 +608,9 @@
   Short Label = Example value (as defined for type)
   Definition = A sample value for this element demonstrating the type of information that would typically be captured.
   Comments = This will most commonly be present for data where it\'s not implicitly obvious from either the data type or value set what the values might be.  (I.e. Example values for dates or quantities would generally be unnecessary.)  If the example value is fully populated, the publication tool can generate an instance automatically.
+  LOINC Code = EXMPL_ANSWERS
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .example
-  LOINC Code = EXMPL_ANSWERS
 
  -- Row 34 -----------------------------------
   Element = ElementDefinition.minValue[x]
@@ -747,10 +747,10 @@
   Inv. = 11
   Short Label = ValueSet details if this is coded
   Definition = Binds to a value set if this element is coded (code, Coding, CodeableConcept)
+  LOINC Code = ANSWER LIST, NORMATIVE ANSWER LIST
   v2 Mapping = OM3, OMC.11
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain
-  LOINC Code = ANSWER LIST, NORMATIVE ANSWER LIST
 
  -- Row 49 -----------------------------------
   Element = ElementDefinition.binding.strength
@@ -761,9 +761,9 @@
   Short Label = required | extensible | preferred | example
   Definition = Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances
   Comments = For further discussion, see [[[Using Terminologies]]]
+  LOINC Code = N/A
   v2 Mapping = N/A
   RIM Mapping = N/A (MIF territory)
-  LOINC Code = N/A
 
  -- Row 50 -----------------------------------
   Element = ElementDefinition.binding.description
@@ -784,9 +784,9 @@
   Definition = Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used
   Comments = For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not
   IHE DEX mapping = valueDomain.valueSet
+  LOINC Code = CODE_TABLE
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = points to explicit list or expression that evaluates to list of (Enumerated_Value_Domain).member
-  LOINC Code = CODE_TABLE
 
  -- Row 52 -----------------------------------
   Element = ElementDefinition.mapping

@@ -12,6 +12,12 @@
     <display value="Bacterial sepsis (disorder)"/>
     <display value="Bacterial septicemia (disorder)"/>
   </concept>
+  <concept id="10024003" display="Structure of base of lung">
+    <display value="Base of lung"/>
+    <display value="Base of lung, NOS"/>
+    <display value="Structure of base of lung"/>
+    <display value="Structure of base of lung (body structure)"/>
+  </concept>
   <concept id="10200004" display="Liver structure (body structure)">
     <display value="Liver"/>
   </concept>
@@ -534,6 +540,11 @@
   </concept>
   <concept id="14410001" display="T3 category (finding)">
     <display value="T3 category"/>
+  </concept>
+  <concept id="14559000" display="Structure of apex of left lung">
+    <display value="Apex of left lung"/>
+    <display value="Structure of apex of left lung"/>
+    <display value="Structure of apex of left lung (body structure)"/>
   </concept>
   <concept id="14745005" display="Hepatitis A virus vaccine (product)">
     <display value="Hepatitis A virus vaccine (product)"/>
@@ -1223,6 +1234,14 @@
   <concept id="24506003" display="Esophagogastrectomy (procedure)">
     <display value="Oesophagogastrectomy"/>
   </concept>
+  <concept id="24612001" display="Wheeze - rhonchi">
+    <display value="Rhonchi"/>
+    <display value="Rhonchi, NOS"/>
+    <display value="Rhonchus, NOS"/>
+    <display value="Rhonchus"/>
+    <display value="Wheeze - rhonchi"/>
+    <display value="Wheeze - rhonchi (finding)"/>
+  </concept>
   <concept id="24642003" display="Psychiatry procedure or service (procedure)">
     <display value="Psychiatry procedure or service"/>
     <display value="Psychiatry procedure or service, NOS"/>
@@ -1780,6 +1799,13 @@
     <display value="APR - Abdominoperineal resection of rectum and end colostomy"/>
     <display value="Abdominoperineal resection of rectum (procedure)"/>
   </concept>
+  <concept id="266005" display="Structure of right lower lobe of lung">
+    <display value="Right lower lobe of lung"/>
+    <display value="Right lower lobe of lung, NOS"/>
+    <display value="Structure of right lower lobe of lung"/>
+    <display value="Lower lobe of right lung"/>
+    <display value="Structure of right lower lobe of lung (body structure)"/>
+  </concept>
   <concept id="26643006" display="Oral route (qualifier value)">
     <display value="Oral use"/>
     <display value="Per oral route"/>
@@ -2301,6 +2327,11 @@
     <display value="FH myocardial infarction male first degree age known"/>
     <display value="FH myocardial infarction male first degree age known (context-dependent category)"/>
   </concept>
+  <concept id="31572008" display="Inspiratory wheezing">
+    <display value="Inspiratory wheeze"/>
+    <display value="Inspiratory wheezing"/>
+    <display value="Inspiratory wheezing (finding)"/>
+  </concept>
   <concept id="31628002" display="Hospital-based outpatient family medicine clinic (environment)">
     <display value="Hospital-based outpatient family medicine clinic"/>
     <display value="Hospital-based outpatient family medicine clinic (environment)"/>
@@ -2788,6 +2819,11 @@
   <concept id="37550003" display="Hospital-based outpatient dermatology clinic">
     <display value="Hospital-based outpatient dermatology clinic"/>
     <display value="Hospital-based outpatient dermatology clinic (environment)"/>
+  </concept>
+  <concept id="37636003" display="Pleural friction rub">
+    <display value="Pleural friction rub"/>
+    <display value="Pleural rub"/>
+    <display value="Pleural friction rub (finding)"/>
   </concept>
   <concept id="37931006" display="Auscultation (procedure)">
     <display value="Auscultation - examination"/>
@@ -3721,6 +3757,13 @@
     <display value="Fluticasone + salmeterol"/>
     <display value="Fluticasone + Salmeterol"/>
   </concept>
+  <concept id="41224006" display="Structure of left lower lobe of lung">
+    <display value="Structure of left lower lobe of lung"/>
+    <display value="Lower lobe of left lung"/>
+    <display value="Left lower lobe of lung"/>
+    <display value="Left lower lobe of lung, NOS"/>
+    <display value="Structure of left lower lobe of lung (body structure)"/>
+  </concept>
   <concept id="412414007" display="Infant formula + iron (product)">
     <display value="Infant formula + iron (product)"/>
     <display value="Infant formula + iron"/>
@@ -4017,6 +4060,13 @@
     <display value="Ischemic stroke (disorder)"/>
     <display value="Ischemic stroke"/>
     <display value="Ischaemic stroke"/>
+  </concept>
+  <concept id="42400003" display="Structure of right upper lobe of lung">
+    <display value="Upper lobe of right lung"/>
+    <display value="Structure of right upper lobe of lung"/>
+    <display value="Right upper lobe of lung"/>
+    <display value="Right upper lobe of lung, NOS"/>
+    <display value="Structure of right upper lobe of lung (body structure)"/>
   </concept>
   <concept id="424272000" display="Inadequate immune status (finding)">
     <display value="Inadequate immune status (finding)"/>
@@ -4565,6 +4615,13 @@
     <display value="Cerebrospinal fluid specimen obtained via ventriculoperitoneal shunt (specimen)"/>
     <display value="Cerebrospinal fluid specimen obtained via ventriculoperitoneal shunt"/>
   </concept>
+  <concept id="44714003" display="Structure of left upper lobe of lung">
+    <display value="Upper lobe of left lung"/>
+    <display value="Structure of left upper lobe of lung"/>
+    <display value="Left upper lobe of lung"/>
+    <display value="Left upper lobe of lung, NOS"/>
+    <display value="Structure of left upper lobe of lung (body structure)"/>
+  </concept>
   <concept id="447346005" display="Cardiopulmonary exercise test (procedure)">
     <display value="Cardiopulmonary exercise test (procedure)"/>
     <display value="Cardiopulmonary exercise test"/>
@@ -4697,6 +4754,12 @@
     <display value="Posttraumatic stress disorder"/>
     <display value="Posttraumatic stress disorder, NOS"/>
   </concept>
+  <concept id="47525004" display="Coarse respiratory crackles">
+    <display value="Coarse respiratory crackles"/>
+    <display value="Coarse respiratory crepitations"/>
+    <display value="Coarse respiratory crackles (finding)"/>
+    <display value="Coarse rales"/>
+  </concept>
   <concept id="47625008" display="Intravenous route (qualifier value)">
     <display value="Intravenous use"/>
     <display value="IV use"/>
@@ -4725,6 +4788,11 @@
     <display value="Right colic flexure"/>
     <display value="Hepatic flexure of colon"/>
   </concept>
+  <concept id="48348007" display="Normal breath sounds (finding)">
+    <display value="Normal breath sounds (finding)"/>
+    <display value="Normal breath sounds"/>
+    <display value="Normal respiratory sounds"/>
+  </concept>
   <concept id="48387007" display="Surgical tracheostomy">
     <display value="Trachy"/>
     <display value="Surgical tracheostomy"/>
@@ -4735,6 +4803,13 @@
     <display value="Tracheotomy, NOS"/>
     <display value="Tracheostomy"/>
     <display value="Tracheotomy"/>
+  </concept>
+  <concept id="48409008" display="Respiratory crackles">
+    <display value="Respiratory crackles"/>
+    <display value="Rales"/>
+    <display value="Respiratory crepitations"/>
+    <display value="Respiratory crackles (finding)"/>
+    <display value="Crepitant rales"/>
   </concept>
   <concept id="485005" display="Transverse colon structure (body structure)">
     <display value="TC - Transverse colon"/>
@@ -4803,6 +4878,11 @@
     <display value="Free-standing mental health clinic (environment)"/>
     <display value="Free-standing mental health clinic"/>
     <display value="Free-standing psychiatric clinic"/>
+  </concept>
+  <concept id="51785002" display="Structure of base of right lung">
+    <display value="Structure of base of right lung"/>
+    <display value="Structure of base of right lung (body structure)"/>
+    <display value="Base of right lung"/>
   </concept>
   <concept id="52101004" display="Present (qualifier value)">
     <display value="Present (qualifier value)"/>
@@ -4885,6 +4965,15 @@
     <display value="Feeling irritable"/>
     <display value="Fussiness"/>
     <display value="Irritability"/>
+  </concept>
+  <concept id="56018004" display="Wheezing (finding)">
+    <display value="Wheezy"/>
+    <display value="Wheezing (finding)"/>
+    <display value="Wheezing"/>
+    <display value="Wheezing, NOS"/>
+    <display value="Asthmatic breath sounds"/>
+    <display value="Asthmatic breathing"/>
+    <display value="Wheeze"/>
   </concept>
   <concept id="56189001" display="Hospital-based outpatient obstetrical clinic (environment)">
     <display value="Hospital-based outpatient obstetrical clinic (environment)"/>
@@ -4988,6 +5077,11 @@
     <display value="Sigmoid colon structure (body structure)"/>
     <display value="Sigmoid colon"/>
   </concept>
+  <concept id="60859004" display="Structure of base of left lung">
+    <display value="Base of left lung"/>
+    <display value="Structure of base of left lung"/>
+    <display value="Structure of base of left lung (body structure)"/>
+  </concept>
   <concept id="609589008" display="Refused by parents of subject (qualifier value)">
     <display value="Refused by parents of subject (qualifier value)"/>
     <display value="Refused by parents of subject"/>
@@ -5003,6 +5097,17 @@
   <concept id="62482003" display="Low (qualifier value)">
     <display value="Low"/>
     <display value="Low (qualifier value)"/>
+  </concept>
+  <concept id="62640008" display="Fine respiratory crackles">
+    <display value="Fine rales"/>
+    <display value="Fine respiratory crepitations"/>
+    <display value="Fine respiratory crackles"/>
+    <display value="Fine respiratory crackles (finding)"/>
+  </concept>
+  <concept id="62884005" display="Structure of apex of right lung">
+    <display value="Apex of right lung"/>
+    <display value="Structure of apex of right lung"/>
+    <display value="Structure of apex of right lung (body structure)"/>
   </concept>
   <concept id="64033007" display="Kidney structure (body structure)">
     <display value="Kidney"/>
@@ -5074,6 +5179,12 @@
     <display value="OM - Otitis media"/>
     <display value="Otitis media (disorder)"/>
   </concept>
+  <concept id="65503000" display="Absent breath sounds">
+    <display value="Absent breath sounds"/>
+    <display value="Absent respiratory sounds"/>
+    <display value="Suppressed breath sounds"/>
+    <display value="Absent breath sounds (finding)"/>
+  </concept>
   <concept id="66051006" display="Pyloric antrum structure (body structure)">
     <display value="Pyloric antrum"/>
     <display value="Antrum of stomach"/>
@@ -5126,6 +5237,12 @@
     <display value="Lavage"/>
     <display value="Irrigation (procedure)"/>
     <display value="Administration that washes with a stream of liquid"/>
+  </concept>
+  <concept id="68235000" display="Nasal congestion">
+    <display value="Nasal congestion"/>
+    <display value="Stuffed-up nose"/>
+    <display value="Congested nose"/>
+    <display value="Nasal congestion (finding)"/>
   </concept>
   <concept id="6827000" display="Local community health center">
     <display value="Local community health center"/>
@@ -5185,6 +5302,11 @@
     <display value="Bed transporter"/>
     <display value="Bed transporter (physical object)"/>
   </concept>
+  <concept id="70407001" display="Stridor">
+    <display value="Stridor"/>
+    <display value="Stridulous breathing"/>
+    <display value="Stridor (finding)"/>
+  </concept>
   <concept id="7087005" display="Intermittent (qualifier value)">
     <display value="Intermittent (qualifier value)"/>
     <display value="Intermittent"/>
@@ -5236,6 +5358,14 @@
     <display value="Prepaid healthcare organisation"/>
     <display value="Health maintenance organisation"/>
     <display value="Health maintenance organization (environment)"/>
+  </concept>
+  <concept id="72481006" display="Structure of right middle lobe of lung">
+    <display value="Right middle lobe of lung"/>
+    <display value="Right middle lobe of lung, NOS"/>
+    <display value="Intermediate lobe of right lung"/>
+    <display value="Structure of right middle lobe of lung"/>
+    <display value="Middle lobe of right lung"/>
+    <display value="Structure of right middle lobe of lung (body structure)"/>
   </concept>
   <concept id="72495009" display="Mucinous adenocarcinoma (morphologic abnormality)">
     <display value="Mucinous adenocarcinoma"/>
@@ -5388,6 +5518,14 @@
   <concept id="79420006" display="NX category (finding)">
     <display value="NX category"/>
   </concept>
+  <concept id="79451004" display="Bronchial breathing">
+    <display value="BB - Bronchial breathing"/>
+    <display value="Bronchial breathing"/>
+    <display value="Tubular breathing"/>
+    <display value="Bronchial breath sounds"/>
+    <display value="Tubular breath sounds"/>
+    <display value="Bronchial breathing (finding)"/>
+  </concept>
   <concept id="79491001" display="Hospital-based radiology facility (environment)">
     <display value="Hospital-based radiology facility"/>
     <display value="Hospital-based radiology facility (environment)"/>
@@ -5533,6 +5671,12 @@
     <display value="Biopsy (procedure)"/>
     <display value="Removal of tissue for diagnostic examination"/>
   </concept>
+  <concept id="86598002" display="Structure of apex of lung">
+    <display value="Apex of lung"/>
+    <display value="Apex of lung, NOS"/>
+    <display value="Structure of apex of lung"/>
+    <display value="Structure of apex of lung (body structure)"/>
+  </concept>
   <concept id="86915006" display="Muscularis propria (body structure)">
     <display value="Muscularis propria"/>
   </concept>
@@ -5652,5 +5796,10 @@
     <display value="Nursing procedure, NOS"/>
     <display value="Nursing care treatments and procedures"/>
     <display value="Nursing procedure (procedure)"/>
+  </concept>
+  <concept id="9763007" display="Expiratory wheezing">
+    <display value="Expiratory wheezing"/>
+    <display value="Expiratory wheeze"/>
+    <display value="Expiratory wheezing (finding)"/>
   </concept>
 </snomed>

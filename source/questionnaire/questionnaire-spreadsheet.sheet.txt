@@ -171,7 +171,7 @@
   Context = Questionnaire
   English = The link ids for groups and questions must be unique within the questionnaire
   XPath = count(descendant::f:linkId/@value)=count(distinct-values(descendant::f:linkId/@value))
-  Expression = descendants().linkId.distinct()
+  Expression = descendents().linkId.isDistinct()
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -192,7 +192,7 @@
   Context = Questionnaire.item
   English = Only \'choice\' items can have options
   XPath = f:type/@value=(\'choice\',\'open-choice\') or not(f:option or f:options)
-  Expression = (type!=\'choice\' and type!=\'open-choice\') or (options.empty() and option.empty())
+  Expression = (type =\'choice\' or type = \'open-choice\') or (options.empty() and option.empty())
 
  -- Row 6 -----------------------------------
   Id = 6
@@ -430,6 +430,7 @@
   Element = Questionnaire.item.enableWhen
   Card. = 0..*
   Is Modifier = Y
+  UML = down
   Short Label = Only allow data when:
   Definition = If present, indicates that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true
   Requirements = Allows questionnaires to adapt based on answers to other questions; e.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions

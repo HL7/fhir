@@ -29,10 +29,10 @@
 
  -- Row 2 -----------------------------------
   Id = 2
-  Context = RiskAssessment.prediction.probabilityDecimal
+  Context = RiskAssessment.prediction
   English = Must be <= 100
-  XPath = @value <= 100
-  Expression = probabilityDecimal <= 100
+  XPath = not(f:probabilityDecimal) or f:probabilityDecimal/@value <= 100
+  Expression = probability is decimal implies probability.as(decimal) <= 100
 
 === Sheet Data Elements =====================================
 

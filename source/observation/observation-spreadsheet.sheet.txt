@@ -175,7 +175,7 @@
   Context = Observation
   English = Component code SHALL not be same as observation code
   XPath = not(exists(f:component/f:code)) or count(for $coding in f:code/f:coding return parent::*/f:component/f:code/f:coding[f:code/@value=$coding/f:code/@value and f:system/@value=$coding/f:system/@value])=0
-  Expression = component.where(code = $context.code).empty()
+  Expression = component.where(code = $this.code).empty()
 
 === Sheet Data Elements =====================================
 

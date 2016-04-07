@@ -140,7 +140,7 @@
   Context = StructureDefinition
   English = In any snapshot or differential, all the elements except the first have to have a path that starts with the path of the first + \".\"
   XPath = string-join(for $elementName in f:*[self::f:snapshot or self::f:differential]/f:element[position()>1]/f:path/@value return if (starts-with($elementName, concat($elementName/ancestor::f:element/parent::f:*/f:element[1]/f:path/@value, \'.\'))) then \'\' else $elementName,\'\')=\'\'
-  Expression = snapshot.element.tail().all(path.startsWith($context.snapshot.element.first().path+\'.\')) and differential.element.tail().all(path.startsWith($context.differential.element.first().path+\'.\'))
+  Expression = snapshot.element.tail().all(path.startsWith(%resource.snapshot.element.first().path&\'.\')) and differential.element.tail().all(path.startsWith(%resource.differential.element.first().path+\'.\'))
 
  -- Row 9 -----------------------------------
   Id = 9

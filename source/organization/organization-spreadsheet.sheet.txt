@@ -34,14 +34,14 @@
   Context = Organization.address
   English = An address of an organization can never be of use \'home\'
   XPath = count(f:use[@value=\'home\']) = 0
-  Expression = address.where(use = \'home\').empty()
+  Expression = select(use = \'home\').empty()
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = Organization.telecom
   English = The telecom of an organization can never be of use \'home\'
   XPath = count(f:use[@value=\'home\']) = 0
-  Expression = telecom.where(use = \'home\').empty()
+  Expression = select(use = \'home\').empty()
 
 === Sheet Data Elements =====================================
 
