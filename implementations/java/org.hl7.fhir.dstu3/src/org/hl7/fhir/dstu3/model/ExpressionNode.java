@@ -1,14 +1,18 @@
 package org.hl7.fhir.dstu3.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hl7.fhir.dstu3.model.ExpressionNode.CollectionStatus;
+import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ExpressionNode {
 
-	public enum Kind {
+  public enum Kind {
 		Name, Function, Constant, Group
 	}
 	public static class SourceLocation {
@@ -135,7 +139,7 @@ public class ExpressionNode {
 
 	public enum Operation {
 		Equals, Equivalent, NotEquals, NotEquivalent, LessThen, Greater, LessOrEqual, GreaterOrEqual, Is, As, Union, Or, And, Xor, Implies, 
-		Times, DivideBy, Plus, Minus, Div, Mod, In;
+		Times, DivideBy, Plus, Minus, Div, Mod, In, Contains;
 
 		public static Operation fromCode(String name) {
 			if (Utilities.noString(name))
@@ -184,6 +188,8 @@ public class ExpressionNode {
         return Operation.Mod;
       if (name.equals("in"))
         return Operation.In;
+      if (name.equals("contains"))
+        return Operation.Contains;
 			return null;
 
 		}
@@ -211,10 +217,93 @@ public class ExpressionNode {
       case Div : return "div";
       case Mod : return "mod";
       case In : return "in";
+      case Contains : return "contains";
 			default: return "??";
 			}
 		}
 	}
+
+  public enum CollectionStatus {
+    SINGLETON, ORDERED, UNORDERED
+  }
+
+  public static class TypeDetails {
+    private Set<String> types = new HashSet<String>();
+    private CollectionStatus collectionStatus;
+    public TypeDetails(CollectionStatus collectionStatus, String... names) {
+      super();
+      this.collectionStatus = collectionStatus;
+      for (String n : names)
+        this.types.add(n);
+    }
+    public TypeDetails(CollectionStatus collectionStatus, Set<String> names) {
+      super();
+      this.collectionStatus = collectionStatus;
+      for (String n : names)
+        this.types.add(n);
+    }
+    public void addType(String n) {
+      this.types.add(n);      
+    }
+    public void addTypes(Collection<String> n) {
+      this.types.addAll(n);      
+    }
+    public boolean hasType(String... tn) {
+      for (String t: tn)
+      if (types.contains(t))
+        return true;
+      return false;
+    }
+    public void update(TypeDetails source) {
+      types.addAll(source.types);
+      if (collectionStatus == null)
+        collectionStatus = source.collectionStatus;
+      else if (source.collectionStatus == CollectionStatus.UNORDERED)
+        collectionStatus = source.collectionStatus;
+      else
+        collectionStatus = CollectionStatus.ORDERED;
+    }
+    public TypeDetails union(TypeDetails right) {
+      TypeDetails result = new TypeDetails(null);
+      if (right.collectionStatus == CollectionStatus.UNORDERED || collectionStatus == CollectionStatus.UNORDERED)
+        result.collectionStatus = CollectionStatus.UNORDERED;
+      else 
+        result.collectionStatus = CollectionStatus.ORDERED;
+      result.types.addAll(types);
+      result.types.addAll(right.types);
+      return result;
+    }
+    
+    public boolean hasNoTypes() {
+      return types.isEmpty();
+    }
+    public Set<String> getTypes() {
+      return types;
+    }
+    public TypeDetails toSingleton() {
+      TypeDetails result = new TypeDetails(CollectionStatus.SINGLETON);
+      result.types.addAll(types);
+      return result;
+    }
+    public CollectionStatus getCollectionStatus() {
+      return collectionStatus;
+    }
+    public boolean hasType(Set<String> tn) {
+      for (String t: tn)
+      if (types.contains(t))
+        return true;
+      return false;
+    }
+    public String describe() {
+      return types.toString();
+    }
+    public String getType() {
+      for (String t : types)
+        return t;
+      return null;
+    }
+    
+  }
 
 
 	//the expression will have one of either name or constant
@@ -233,8 +322,8 @@ public class ExpressionNode {
 	private SourceLocation end;
 	private SourceLocation opStart;
 	private SourceLocation opEnd;
-	private Set<String> types;
-	private Set<String> opTypes;
+	private TypeDetails types;
+	private TypeDetails opTypes;
 
 
 	public ExpressionNode(int uniqueId) {
@@ -290,13 +379,11 @@ public class ExpressionNode {
 	public List<ExpressionNode> getParameters() {
 		return parameters;
 	}
-	public boolean checkName(boolean mappingExtensions) {
+	public boolean checkName() {
 		if (!name.startsWith("$"))
 			return true;
-		else if (mappingExtensions && name.equals("$value"))
-			return true;
 		else
-			return name.equals("$context") || name.equals("$resource") || name.equals("$parent");  
+			return name.equals("$this");// || name.equals("$resource") || name.equals("$parent");  
 	}
 
 	public Kind getKind() {
@@ -473,19 +560,19 @@ public class ExpressionNode {
 		return Integer.toString(start.line)+", "+Integer.toString(start.column);
 	}
 
-	public Set<String> getTypes() {
+	public TypeDetails getTypes() {
 		return types;
 	}
 
-	public void setTypes(Set<String> types) {
+	public void setTypes(TypeDetails types) {
 		this.types = types;
 	}
 
-	public Set<String> getOpTypes() {
+	public TypeDetails getOpTypes() {
 		return opTypes;
 	}
 
-	public void setOpTypes(Set<String> opTypes) {
+	public void setOpTypes(TypeDetails opTypes) {
 		this.opTypes = opTypes;
 	}
 	

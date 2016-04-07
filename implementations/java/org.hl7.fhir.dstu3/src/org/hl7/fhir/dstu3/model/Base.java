@@ -141,10 +141,11 @@ private Map<String, Object> userData;
   public List<Base> listChildrenByName(String name) {
     List<Property> children = new ArrayList<Property>();
     listChildren(children);
+    List<Base> result = new ArrayList<Base>();
     for (Property c : children)
-      if (c.getName().equals(name) || (c.getName().endsWith("[x]") && name.startsWith(c.getName())))
-        return c.getValues();
-    return new ArrayList<Base>();
+      if (name.equals("*") || c.getName().equals(name) || (c.getName().endsWith("[x]") && c.getName().startsWith(name)))
+        result.addAll(c.getValues());
+    return result;
   }
 
 	public boolean isEmpty() {
