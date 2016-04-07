@@ -93,7 +93,7 @@
           <type value="group"/>
           <enableWhen>
             <question value="vitaminKgiven"/>
-            <hasAnswer value="true"/> 
+            <answered value="true"/>
           </enableWhen>
           <item>
             <linkId value="vitaminiKDose1"/>

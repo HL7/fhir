@@ -21,7 +21,7 @@
         <url value="{$base}/Questionnaire/{id/@value}"/>
       </xsl:if>
       <xsl:apply-templates select="identifier|version|status|date|publisher|telecom"/>
-      <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/questionnare-category']/valueCodeableConcept">
+      <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-category']/valueCodeableConcept">
         <useContext>
           <xsl:apply-templates select="@*|node()"/>
         </useContext>
