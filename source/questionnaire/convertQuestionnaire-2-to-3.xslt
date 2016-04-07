@@ -49,9 +49,9 @@
             </question>
           </xsl:for-each>
           <xsl:for-each select="extension[@url='answered']/valueBoolean">
-            <answered>
+            <hasAnswer>
               <xsl:apply-templates select="@*|node()"/>
-            </answered>
+            </hasAnswer>
           </xsl:for-each>
           <xsl:for-each select="extension[@url='answer']">
             <xsl:for-each select="*[starts-with(local-name(.), 'value')]">
