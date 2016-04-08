@@ -23,13 +23,13 @@
   </informationSource>
   <dateAsserted value="2015-02-22"/>
   <wasNotTaken value="false"/>
-  <reasonForUseCodeableConcept>
+  <reasonForUseCode>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="65363002"/>
       <display value="Otitis Media"/>
     </coding>
-  </reasonForUseCodeableConcept>
+  </reasonForUseCode>
   <note>
     <text value="Patient indicates they miss the occasional dose" />
   </note>
