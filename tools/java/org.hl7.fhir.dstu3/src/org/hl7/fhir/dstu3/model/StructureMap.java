@@ -477,6 +477,9 @@ public class StructureMap extends DomainResource {
          * reference(source : object) - return a string that references the provided tree properly
          */
         REFERENCE, 
+        DATEOP, 
+        UUID, 
+        POINTER,
         /**
          * added to help the parsers
          */
@@ -498,8 +501,14 @@ public class StructureMap extends DomainResource {
           return APPEND;
         if ("translate".equals(codeString))
           return TRANSLATE;
+        if ("dateOp".equals(codeString))
+          return DATEOP;
         if ("reference".equals(codeString))
           return REFERENCE;
+        if ("uuid".equals(codeString))
+          return REFERENCE;
+        if ("pointer".equals(codeString))
+          return POINTER;
         throw new FHIRException("Unknown StructureMapTransform code '"+codeString+"'");
         }
         public String toCode() {
@@ -512,6 +521,9 @@ public class StructureMap extends DomainResource {
             case APPEND: return "append";
             case TRANSLATE: return "translate";
             case REFERENCE: return "reference";
+            case DATEOP: return "dateOp";
+            case UUID: return "uuid";
+            case POINTER: return "pointer";
             default: return "?";
           }
         }
@@ -524,7 +536,10 @@ public class StructureMap extends DomainResource {
             case CAST: return "http://hl7.org/fhir/map-transform";
             case APPEND: return "http://hl7.org/fhir/map-transform";
             case TRANSLATE: return "http://hl7.org/fhir/map-transform";
+            case DATEOP: return "http://hl7.org/fhir/map-transform";
             case REFERENCE: return "http://hl7.org/fhir/map-transform";
+            case UUID: return "http://hl7.org/fhir/map-transform";
+            case POINTER: return "http://hl7.org/fhir/map-transform";
             default: return "?";
           }
         }
@@ -538,6 +553,9 @@ public class StructureMap extends DomainResource {
             case APPEND: return "append(source...) - source is element or string";
             case TRANSLATE: return "translate(source, uri_of_map) - use the translate operation";
             case REFERENCE: return "reference(source : object) - return a string that references the provided tree properly";
+            case UUID: return "uuid";
+            case POINTER: return "uuid";
+            case DATEOP: return "reference(source : object) - return a string that references the provided tree properly";
             default: return "?";
           }
         }
@@ -551,6 +569,9 @@ public class StructureMap extends DomainResource {
             case APPEND: return "append";
             case TRANSLATE: return "translate";
             case REFERENCE: return "reference";
+            case DATEOP: return "dateOp";
+            case POINTER: return "dateOp";
+            case UUID: return "uuid";
             default: return "?";
           }
         }

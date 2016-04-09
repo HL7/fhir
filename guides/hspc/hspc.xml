@@ -190,6 +190,11 @@
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="diagnosticReport-hspc-radiologyreport-spreadsheet.xml"/>
     </extension>
+    <!--
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-breathSounds-profile-spreadsheet.xml"/>
+    </extension>
+    -->
     <name value="base"/>
     <resource>
       <example value="false"/>

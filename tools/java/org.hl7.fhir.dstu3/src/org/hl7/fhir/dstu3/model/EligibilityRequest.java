@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1029,7 +1029,7 @@ public class EligibilityRequest extends DomainResource {
    * Path: <b>EligibilityRequest.patientIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patientidentifier", path="EligibilityRequest.patientIdentifier", description="The reference to the patient", type="token" )
+  @SearchParamDefinition(name="patientidentifier", path="EligibilityRequest.patient.as(Identifier)", description="The reference to the patient", type="token" )
   public static final String SP_PATIENTIDENTIFIER = "patientidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patientidentifier</b>
@@ -1069,7 +1069,7 @@ public class EligibilityRequest extends DomainResource {
    * Path: <b>EligibilityRequest.facilityidentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="facilityidentifier", path="EligibilityRequest.facilityidentifier", description="Facility responsible for the goods and services", type="token" )
+  @SearchParamDefinition(name="facilityidentifier", path="EligibilityRequest.facility.as(identifier)", description="Facility responsible for the goods and services", type="token" )
   public static final String SP_FACILITYIDENTIFIER = "facilityidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>facilityidentifier</b>
@@ -1089,7 +1089,7 @@ public class EligibilityRequest extends DomainResource {
    * Path: <b>EligibilityRequest.facilityReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="facilityreference", path="EligibilityRequest.facilityReference", description="Facility responsible for the goods and services", type="reference" )
+  @SearchParamDefinition(name="facilityreference", path="EligibilityRequest.facility.as(Reference)", description="Facility responsible for the goods and services", type="reference" )
   public static final String SP_FACILITYREFERENCE = "facilityreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>facilityreference</b>
@@ -1115,7 +1115,7 @@ public class EligibilityRequest extends DomainResource {
    * Path: <b>EligibilityRequest.providerReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="providerreference", path="EligibilityRequest.providerReference", description="The reference to the provider", type="reference" )
+  @SearchParamDefinition(name="providerreference", path="EligibilityRequest.provider.as(Reference)", description="The reference to the provider", type="reference" )
   public static final String SP_PROVIDERREFERENCE = "providerreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
@@ -1141,7 +1141,7 @@ public class EligibilityRequest extends DomainResource {
    * Path: <b>EligibilityRequest.organizationidentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationidentifier", path="EligibilityRequest.organizationidentifier", description="The reference to the providing organization", type="token" )
+  @SearchParamDefinition(name="organizationidentifier", path="EligibilityRequest.organization.as(identifier)", description="The reference to the providing organization", type="token" )
   public static final String SP_ORGANIZATIONIDENTIFIER = "organizationidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organizationidentifier</b>
@@ -1161,7 +1161,7 @@ public class EligibilityRequest extends DomainResource {
    * Path: <b>EligibilityRequest.organizationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationreference", path="EligibilityRequest.organizationReference", description="The reference to the providing organization", type="reference" )
+  @SearchParamDefinition(name="organizationreference", path="EligibilityRequest.organization.as(Reference)", description="The reference to the providing organization", type="reference" )
   public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>
@@ -1187,7 +1187,7 @@ public class EligibilityRequest extends DomainResource {
    * Path: <b>EligibilityRequest.patientReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patientreference", path="EligibilityRequest.patientReference", description="The reference to the patient", type="reference" )
+  @SearchParamDefinition(name="patientreference", path="EligibilityRequest.patient.as(Reference)", description="The reference to the patient", type="reference" )
   public static final String SP_PATIENTREFERENCE = "patientreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patientreference</b>
@@ -1233,7 +1233,7 @@ public class EligibilityRequest extends DomainResource {
    * Path: <b>EligibilityRequest.provideridentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="provideridentifier", path="EligibilityRequest.provideridentifier", description="The reference to the provider", type="token" )
+  @SearchParamDefinition(name="provideridentifier", path="EligibilityRequest.provider.as(identifier)", description="The reference to the provider", type="token" )
   public static final String SP_PROVIDERIDENTIFIER = "provideridentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>provideridentifier</b>

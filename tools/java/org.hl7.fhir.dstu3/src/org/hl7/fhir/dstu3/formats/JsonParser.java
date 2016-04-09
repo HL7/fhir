@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -6610,6 +6610,68 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
+  protected Endpoint parseEndpoint(JsonObject json) throws IOException, FHIRFormatError {
+    Endpoint res = new Endpoint();
+    parseDomainResourceProperties(json, res);
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Endpoint.EndpointStatus.NULL, new Endpoint.EndpointStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
+    if (json.has("managingOrganization"))
+      res.setManagingOrganization(parseReference(json.getAsJsonObject("managingOrganization")));
+    if (json.has("contact")) {
+      JsonArray array = json.getAsJsonArray("contact");
+      for (int i = 0; i < array.size(); i++) {
+        res.getContact().add(parseContactPoint(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("connectionType"))
+      res.setConnectionTypeElement(parseCode(json.get("connectionType").getAsString()));
+    if (json.has("_connectionType"))
+      parseElementProperties(json.getAsJsonObject("_connectionType"), res.getConnectionTypeElement());
+    if (json.has("method")) {
+      JsonArray array = json.getAsJsonArray("method");
+      for (int i = 0; i < array.size(); i++) {
+        res.getMethod().add(parseCoding(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("period"))
+      res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
+    Type address = parseType("address", json);
+    if (address != null)
+      res.setAddress(address);
+    if (json.has("payloadFormat"))
+      res.setPayloadFormatElement(parseString(json.get("payloadFormat").getAsString()));
+    if (json.has("_payloadFormat"))
+      parseElementProperties(json.getAsJsonObject("_payloadFormat"), res.getPayloadFormatElement());
+    if (json.has("payloadType")) {
+      JsonArray array = json.getAsJsonArray("payloadType");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPayloadType().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("header")) {
+      JsonArray array = json.getAsJsonArray("header");
+      for (int i = 0; i < array.size(); i++) {
+        res.getHeader().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_header")) {
+      JsonArray array = json.getAsJsonArray("_header");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getHeader().size())
+          res.getHeader().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getHeader().get(i));
+      }
+    };
+    if (json.has("publicKey"))
+      res.setPublicKeyElement(parseString(json.get("publicKey").getAsString()));
+    if (json.has("_publicKey"))
+      parseElementProperties(json.getAsJsonObject("_publicKey"), res.getPublicKeyElement());
+    return res;
+  }
+
   protected EnrollmentRequest parseEnrollmentRequest(JsonObject json) throws IOException, FHIRFormatError {
     EnrollmentRequest res = new EnrollmentRequest();
     parseDomainResourceProperties(json, res);
@@ -12878,10 +12940,10 @@ public class JsonParser extends JsonParserBase {
       res.setQuestionElement(parseString(json.get("question").getAsString()));
     if (json.has("_question"))
       parseElementProperties(json.getAsJsonObject("_question"), res.getQuestionElement());
-    if (json.has("answered"))
-      res.setAnsweredElement(parseBoolean(json.get("answered").getAsBoolean()));
-    if (json.has("_answered"))
-      parseElementProperties(json.getAsJsonObject("_answered"), res.getAnsweredElement());
+    if (json.has("hasAnswer"))
+      res.setHasAnswerElement(parseBoolean(json.get("hasAnswer").getAsBoolean()));
+    if (json.has("_hasAnswer"))
+      parseElementProperties(json.getAsJsonObject("_hasAnswer"), res.getHasAnswerElement());
     Type answer = parseType("answer", json);
     if (answer != null)
       res.setAnswer(answer);
@@ -15595,6 +15657,8 @@ public class JsonParser extends JsonParserBase {
       return parseEligibilityResponse(json);
     else if (t.equals("Encounter"))
       return parseEncounter(json);
+    else if (t.equals("Endpoint"))
+      return parseEndpoint(json);
     else if (t.equals("EnrollmentRequest"))
       return parseEnrollmentRequest(json);
     else if (t.equals("EnrollmentResponse"))
@@ -16110,6 +16174,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"EligibilityResponse"))
       return true;
     if (json.has(prefix+"Encounter"))
+      return true;
+    if (json.has(prefix+"Endpoint"))
       return true;
     if (json.has(prefix+"EnrollmentRequest"))
       return true;
@@ -24473,6 +24539,72 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
+  protected void composeEndpoint(String name, Endpoint element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeEndpointInner(element);
+    }
+  }
+
+  protected void composeEndpointInner(Endpoint element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new Endpoint.EndpointStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new Endpoint.EndpointStatusEnumFactory(), false);
+      }
+      if (element.hasManagingOrganization()) {
+        composeReference("managingOrganization", element.getManagingOrganization());
+      }
+      if (element.hasContact()) {
+        openArray("contact");
+        for (ContactPoint e : element.getContact()) 
+          composeContactPoint(null, e);
+        closeArray();
+      };
+      if (element.hasConnectionTypeElement()) {
+        composeCodeCore("connectionType", element.getConnectionTypeElement(), false);
+        composeCodeExtras("connectionType", element.getConnectionTypeElement(), false);
+      }
+      if (element.hasMethod()) {
+        openArray("method");
+        for (Coding e : element.getMethod()) 
+          composeCoding(null, e);
+        closeArray();
+      };
+      if (element.hasPeriod()) {
+        composePeriod("period", element.getPeriod());
+      }
+      if (element.hasAddress()) {
+        composeType("address", element.getAddress());
+      }
+      if (element.hasPayloadFormatElement()) {
+        composeStringCore("payloadFormat", element.getPayloadFormatElement(), false);
+        composeStringExtras("payloadFormat", element.getPayloadFormatElement(), false);
+      }
+      if (element.hasPayloadType()) {
+        openArray("payloadType");
+        for (CodeableConcept e : element.getPayloadType()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasHeader()) {
+        openArray("header");
+        for (StringType e : element.getHeader()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getHeader())) {
+          openArray("_header");
+          for (StringType e : element.getHeader()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasPublicKeyElement()) {
+        composeStringCore("publicKey", element.getPublicKeyElement(), false);
+        composeStringExtras("publicKey", element.getPublicKeyElement(), false);
+      }
+  }
+
   protected void composeEnrollmentRequest(String name, EnrollmentRequest element) throws IOException {
     if (element != null) {
       prop("resourceType", name);
@@ -32255,9 +32387,9 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("question", element.getQuestionElement(), false);
         composeStringExtras("question", element.getQuestionElement(), false);
       }
-      if (element.hasAnsweredElement()) {
-        composeBooleanCore("answered", element.getAnsweredElement(), false);
-        composeBooleanExtras("answered", element.getAnsweredElement(), false);
+      if (element.hasHasAnswerElement()) {
+        composeBooleanCore("hasAnswer", element.getHasAnswerElement(), false);
+        composeBooleanExtras("hasAnswer", element.getHasAnswerElement(), false);
       }
       if (element.hasAnswer()) {
         composeType("answer", element.getAnswer());
@@ -35587,6 +35719,8 @@ public class JsonParser extends JsonParserBase {
       composeEligibilityResponse("EligibilityResponse", (EligibilityResponse)resource);
     else if (resource instanceof Encounter)
       composeEncounter("Encounter", (Encounter)resource);
+    else if (resource instanceof Endpoint)
+      composeEndpoint("Endpoint", (Endpoint)resource);
     else if (resource instanceof EnrollmentRequest)
       composeEnrollmentRequest("EnrollmentRequest", (EnrollmentRequest)resource);
     else if (resource instanceof EnrollmentResponse)
@@ -35820,6 +35954,8 @@ public class JsonParser extends JsonParserBase {
       composeEligibilityResponse(name, (EligibilityResponse)resource);
     else if (resource instanceof Encounter)
       composeEncounter(name, (Encounter)resource);
+    else if (resource instanceof Endpoint)
+      composeEndpoint(name, (Endpoint)resource);
     else if (resource instanceof EnrollmentRequest)
       composeEnrollmentRequest(name, (EnrollmentRequest)resource);
     else if (resource instanceof EnrollmentResponse)

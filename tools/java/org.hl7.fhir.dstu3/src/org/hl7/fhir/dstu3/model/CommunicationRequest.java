@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1365,7 +1365,7 @@ public class CommunicationRequest extends DomainResource {
    * Path: <b>CommunicationRequest.scheduledDateTime</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="time", path="CommunicationRequest.scheduledDateTime", description="When scheduled", type="date" )
+  @SearchParamDefinition(name="time", path="CommunicationRequest.scheduled.as(DateTime)", description="When scheduled", type="date" )
   public static final String SP_TIME = "time";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>time</b>

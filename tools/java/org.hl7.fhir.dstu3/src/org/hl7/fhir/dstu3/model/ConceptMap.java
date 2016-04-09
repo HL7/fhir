@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -2571,7 +2571,7 @@ public class ConceptMap extends DomainResource {
    * Path: <b>ConceptMap.sourceUri</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="source-uri", path="ConceptMap.sourceUri", description="Identifies the source of the concepts which are being mapped", type="reference" )
+  @SearchParamDefinition(name="source-uri", path="ConceptMap.source.as(Uri)", description="Identifies the source of the concepts which are being mapped", type="reference" )
   public static final String SP_SOURCE_URI = "source-uri";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>source-uri</b>
@@ -2597,7 +2597,7 @@ public class ConceptMap extends DomainResource {
    * Path: <b>ConceptMap.sourceReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="source", path="ConceptMap.sourceReference", description="Identifies the source of the concepts which are being mapped", type="reference" )
+  @SearchParamDefinition(name="source", path="ConceptMap.source.as(Reference)", description="Identifies the source of the concepts which are being mapped", type="reference" )
   public static final String SP_SOURCE = "source";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>source</b>
@@ -2683,7 +2683,7 @@ public class ConceptMap extends DomainResource {
    * Path: <b>ConceptMap.target[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="target", path="ConceptMap.target[x]", description="Provides context to the mappings", type="reference" )
+  @SearchParamDefinition(name="target", path="ConceptMap.target", description="Provides context to the mappings", type="reference" )
   public static final String SP_TARGET = "target";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>target</b>

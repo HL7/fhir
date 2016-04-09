@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1361,7 +1361,7 @@ public class Medication extends DomainResource {
    * Path: <b>Medication.package.content.itemCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="package-item-code", path="Medication.package.content.itemCodeableConcept", description="The item in the package", type="token" )
+  @SearchParamDefinition(name="package-item-code", path="Medication.package.content.item.as(CodeableConcept)", description="The item in the package", type="token" )
   public static final String SP_PACKAGE_ITEM_CODE = "package-item-code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>package-item-code</b>
@@ -1381,7 +1381,7 @@ public class Medication extends DomainResource {
    * Path: <b>Medication.product.ingredient.itemReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="ingredient", path="Medication.product.ingredient.itemReference", description="The product contained", type="reference" )
+  @SearchParamDefinition(name="ingredient", path="Medication.product.ingredient.item.as(Reference)", description="The product contained", type="reference" )
   public static final String SP_INGREDIENT = "ingredient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>ingredient</b>
@@ -1407,7 +1407,7 @@ public class Medication extends DomainResource {
    * Path: <b>Medication.package.content.itemReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="package-item", path="Medication.package.content.itemReference", description="The item in the package", type="reference" )
+  @SearchParamDefinition(name="package-item", path="Medication.package.content.item.as(Reference)", description="The item in the package", type="reference" )
   public static final String SP_PACKAGE_ITEM = "package-item";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>package-item</b>
@@ -1453,7 +1453,7 @@ public class Medication extends DomainResource {
    * Path: <b>Medication.product.ingredient.itemCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="ingredient-code", path="Medication.product.ingredient.itemCodeableConcept", description="The product contained", type="token" )
+  @SearchParamDefinition(name="ingredient-code", path="Medication.product.ingredient.item.as(CodeableConcept)", description="The product contained", type="token" )
   public static final String SP_INGREDIENT_CODE = "ingredient-code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>ingredient-code</b>

@@ -1,0 +1,16 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/endpoint-status",
+  "outcomes": [
+    {
+      "hash": "|null|null|active|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "active",
+        "definition": null,
+        "display": "Active"
+      }
+    }
+  ]
+}

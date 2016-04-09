@@ -2,7 +2,7 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 public enum ResourceType {
     Account,
@@ -45,6 +45,7 @@ public enum ResourceType {
     EligibilityRequest,
     EligibilityResponse,
     Encounter,
+    Endpoint,
     EnrollmentRequest,
     EnrollmentResponse,
     EpisodeOfCare,
@@ -202,6 +203,8 @@ public enum ResourceType {
       return "eligibilityresponse";
     case Encounter:
       return "encounter";
+    case Endpoint:
+      return "endpoint";
     case EnrollmentRequest:
       return "enrollmentrequest";
     case EnrollmentResponse:
@@ -434,6 +437,8 @@ public enum ResourceType {
       return EligibilityResponse;
     if ("Encounter".equals(code))
       return Encounter;
+    if ("Endpoint".equals(code))
+      return Endpoint;
     if ("EnrollmentRequest".equals(code))
       return EnrollmentRequest;
     if ("EnrollmentResponse".equals(code))

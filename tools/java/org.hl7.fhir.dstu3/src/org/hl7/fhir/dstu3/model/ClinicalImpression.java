@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1887,7 +1887,7 @@ public class ClinicalImpression extends DomainResource {
    * Path: <b>ClinicalImpression.triggerReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="trigger", path="ClinicalImpression.triggerReference", description="Request or event that necessitated this assessment", type="reference" )
+  @SearchParamDefinition(name="trigger", path="ClinicalImpression.trigger.as(Reference)", description="Request or event that necessitated this assessment", type="reference" )
   public static final String SP_TRIGGER = "trigger";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>trigger</b>
@@ -1985,7 +1985,7 @@ public class ClinicalImpression extends DomainResource {
    * Path: <b>ClinicalImpression.triggerCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="trigger-code", path="ClinicalImpression.triggerCodeableConcept", description="Request or event that necessitated this assessment", type="token" )
+  @SearchParamDefinition(name="trigger-code", path="ClinicalImpression.trigger.as(CodeableConcept)", description="Request or event that necessitated this assessment", type="token" )
   public static final String SP_TRIGGER_CODE = "trigger-code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>trigger-code</b>

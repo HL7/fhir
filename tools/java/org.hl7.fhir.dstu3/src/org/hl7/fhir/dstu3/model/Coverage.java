@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1175,7 +1175,7 @@ public class Coverage extends DomainResource {
    * Path: <b>Coverage.beneficiaryReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="beneficiaryreference", path="Coverage.beneficiaryReference", description="Covered party", type="reference" )
+  @SearchParamDefinition(name="beneficiaryreference", path="Coverage.beneficiary.as(Reference)", description="Covered party", type="reference" )
   public static final String SP_BENEFICIARYREFERENCE = "beneficiaryreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>beneficiaryreference</b>
@@ -1201,7 +1201,7 @@ public class Coverage extends DomainResource {
    * Path: <b>Coverage.planholderIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="planholderidentifier", path="Coverage.planholderIdentifier", description="Reference to the planholder", type="token" )
+  @SearchParamDefinition(name="planholderidentifier", path="Coverage.planholder.as(Identifier)", description="Reference to the planholder", type="token" )
   public static final String SP_PLANHOLDERIDENTIFIER = "planholderidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>planholderidentifier</b>
@@ -1241,7 +1241,7 @@ public class Coverage extends DomainResource {
    * Path: <b>Coverage.issuerIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="issueridentifier", path="Coverage.issuerIdentifier", description="The identity of the insurer", type="token" )
+  @SearchParamDefinition(name="issueridentifier", path="Coverage.issuer.as(Identifier)", description="The identity of the insurer", type="token" )
   public static final String SP_ISSUERIDENTIFIER = "issueridentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>issueridentifier</b>
@@ -1281,7 +1281,7 @@ public class Coverage extends DomainResource {
    * Path: <b>Coverage.issuerReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="issuerreference", path="Coverage.issuerReference", description="The identity of the insurer", type="reference" )
+  @SearchParamDefinition(name="issuerreference", path="Coverage.issuer.as(Reference)", description="The identity of the insurer", type="reference" )
   public static final String SP_ISSUERREFERENCE = "issuerreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>issuerreference</b>
@@ -1347,7 +1347,7 @@ public class Coverage extends DomainResource {
    * Path: <b>Coverage.beneficiaryIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="beneficiaryidentifier", path="Coverage.beneficiaryIdentifier", description="Covered party", type="token" )
+  @SearchParamDefinition(name="beneficiaryidentifier", path="Coverage.beneficiary.as(Identifier)", description="Covered party", type="token" )
   public static final String SP_BENEFICIARYIDENTIFIER = "beneficiaryidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>beneficiaryidentifier</b>
@@ -1387,7 +1387,7 @@ public class Coverage extends DomainResource {
    * Path: <b>Coverage.planholderReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="planholderreference", path="Coverage.planholderReference", description="Reference to the planholder", type="reference" )
+  @SearchParamDefinition(name="planholderreference", path="Coverage.planholder.as(Reference)", description="Reference to the planholder", type="reference" )
   public static final String SP_PLANHOLDERREFERENCE = "planholderreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>planholderreference</b>

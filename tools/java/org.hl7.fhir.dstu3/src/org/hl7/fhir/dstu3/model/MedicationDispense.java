@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -2043,7 +2043,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
    * Path: <b>MedicationDispense.medicationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="medication", path="MedicationDispense.medicationReference", description="Return dispenses of this medicine resource", type="reference" )
+  @SearchParamDefinition(name="medication", path="MedicationDispense.medication.as(Reference)", description="Return dispenses of this medicine resource", type="reference" )
   public static final String SP_MEDICATION = "medication";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>medication</b>
@@ -2219,7 +2219,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
    * Path: <b>MedicationDispense.medicationCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="MedicationDispense.medicationCodeableConcept", description="Return dispenses of this medicine code", type="token" )
+  @SearchParamDefinition(name="code", path="MedicationDispense.medication.as(CodeableConcept)", description="Return dispenses of this medicine code", type="token" )
   public static final String SP_CODE = "code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>code</b>

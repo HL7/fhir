@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1620,9 +1620,9 @@ public class Questionnaire extends DomainResource {
         /**
          * If present, indicates that this item should be enabled only if the specified question is answered or not answered.
          */
-        @Child(name = "answered", type = {BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "hasAnswer", type = {BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Enable when answered or not", formalDefinition="If present, indicates that this item should be enabled only if the specified question is answered or not answered." )
-        protected BooleanType answered;
+        protected BooleanType hasAnswer;
 
         /**
          * If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer.
@@ -1631,7 +1631,7 @@ public class Questionnaire extends DomainResource {
         @Description(shortDefinition="Value question must have", formalDefinition="If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer." )
         protected Type answer;
 
-        private static final long serialVersionUID = 903205698L;
+        private static final long serialVersionUID = -300241115L;
 
     /**
      * Constructor
@@ -1694,47 +1694,47 @@ public class Questionnaire extends DomainResource {
         }
 
         /**
-         * @return {@link #answered} (If present, indicates that this item should be enabled only if the specified question is answered or not answered.). This is the underlying object with id, value and extensions. The accessor "getAnswered" gives direct access to the value
+         * @return {@link #hasAnswer} (If present, indicates that this item should be enabled only if the specified question is answered or not answered.). This is the underlying object with id, value and extensions. The accessor "getHasAnswer" gives direct access to the value
          */
-        public BooleanType getAnsweredElement() { 
-          if (this.answered == null)
+        public BooleanType getHasAnswerElement() { 
+          if (this.hasAnswer == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create QuestionnaireItemEnableWhenComponent.answered");
+              throw new Error("Attempt to auto-create QuestionnaireItemEnableWhenComponent.hasAnswer");
             else if (Configuration.doAutoCreate())
-              this.answered = new BooleanType(); // bb
-          return this.answered;
+              this.hasAnswer = new BooleanType(); // bb
+          return this.hasAnswer;
         }
 
-        public boolean hasAnsweredElement() { 
-          return this.answered != null && !this.answered.isEmpty();
+        public boolean hasHasAnswerElement() { 
+          return this.hasAnswer != null && !this.hasAnswer.isEmpty();
         }
 
-        public boolean hasAnswered() { 
-          return this.answered != null && !this.answered.isEmpty();
+        public boolean hasHasAnswer() { 
+          return this.hasAnswer != null && !this.hasAnswer.isEmpty();
         }
 
         /**
-         * @param value {@link #answered} (If present, indicates that this item should be enabled only if the specified question is answered or not answered.). This is the underlying object with id, value and extensions. The accessor "getAnswered" gives direct access to the value
+         * @param value {@link #hasAnswer} (If present, indicates that this item should be enabled only if the specified question is answered or not answered.). This is the underlying object with id, value and extensions. The accessor "getHasAnswer" gives direct access to the value
          */
-        public QuestionnaireItemEnableWhenComponent setAnsweredElement(BooleanType value) { 
-          this.answered = value;
+        public QuestionnaireItemEnableWhenComponent setHasAnswerElement(BooleanType value) { 
+          this.hasAnswer = value;
           return this;
         }
 
         /**
          * @return If present, indicates that this item should be enabled only if the specified question is answered or not answered.
          */
-        public boolean getAnswered() { 
-          return this.answered == null || this.answered.isEmpty() ? false : this.answered.getValue();
+        public boolean getHasAnswer() { 
+          return this.hasAnswer == null || this.hasAnswer.isEmpty() ? false : this.hasAnswer.getValue();
         }
 
         /**
          * @param value If present, indicates that this item should be enabled only if the specified question is answered or not answered.
          */
-        public QuestionnaireItemEnableWhenComponent setAnswered(boolean value) { 
-            if (this.answered == null)
-              this.answered = new BooleanType();
-            this.answered.setValue(value);
+        public QuestionnaireItemEnableWhenComponent setHasAnswer(boolean value) { 
+            if (this.hasAnswer == null)
+              this.hasAnswer = new BooleanType();
+            this.hasAnswer.setValue(value);
           return this;
         }
 
@@ -1929,7 +1929,7 @@ public class Questionnaire extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("question", "string", "The linkId for the question whose answer (or lack of answer) governs whether this item is enabled.", 0, java.lang.Integer.MAX_VALUE, question));
-          childrenList.add(new Property("answered", "boolean", "If present, indicates that this item should be enabled only if the specified question is answered or not answered.", 0, java.lang.Integer.MAX_VALUE, answered));
+          childrenList.add(new Property("hasAnswer", "boolean", "If present, indicates that this item should be enabled only if the specified question is answered or not answered.", 0, java.lang.Integer.MAX_VALUE, hasAnswer));
           childrenList.add(new Property("answer[x]", "boolean|decimal|integer|date|dateTime|instant|time|string|uri|Attachment|Coding|Quantity|Reference(Any)", "If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer.", 0, java.lang.Integer.MAX_VALUE, answer));
         }
 
@@ -1937,8 +1937,8 @@ public class Questionnaire extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("question"))
           this.question = castToString(value); // StringType
-        else if (name.equals("answered"))
-          this.answered = castToBoolean(value); // BooleanType
+        else if (name.equals("hasAnswer"))
+          this.hasAnswer = castToBoolean(value); // BooleanType
         else if (name.equals("answer[x]"))
           this.answer = (Type) value; // Type
         else
@@ -1950,8 +1950,8 @@ public class Questionnaire extends DomainResource {
         if (name.equals("question")) {
           throw new FHIRException("Cannot call addChild on a primitive type Questionnaire.question");
         }
-        else if (name.equals("answered")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Questionnaire.answered");
+        else if (name.equals("hasAnswer")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Questionnaire.hasAnswer");
         }
         else if (name.equals("answerBoolean")) {
           this.answer = new BooleanType();
@@ -2013,7 +2013,7 @@ public class Questionnaire extends DomainResource {
         QuestionnaireItemEnableWhenComponent dst = new QuestionnaireItemEnableWhenComponent();
         copyValues(dst);
         dst.question = question == null ? null : question.copy();
-        dst.answered = answered == null ? null : answered.copy();
+        dst.hasAnswer = hasAnswer == null ? null : hasAnswer.copy();
         dst.answer = answer == null ? null : answer.copy();
         return dst;
       }
@@ -2025,7 +2025,7 @@ public class Questionnaire extends DomainResource {
         if (!(other instanceof QuestionnaireItemEnableWhenComponent))
           return false;
         QuestionnaireItemEnableWhenComponent o = (QuestionnaireItemEnableWhenComponent) other;
-        return compareDeep(question, o.question, true) && compareDeep(answered, o.answered, true) && compareDeep(answer, o.answer, true)
+        return compareDeep(question, o.question, true) && compareDeep(hasAnswer, o.hasAnswer, true) && compareDeep(answer, o.answer, true)
           ;
       }
 
@@ -2036,11 +2036,11 @@ public class Questionnaire extends DomainResource {
         if (!(other instanceof QuestionnaireItemEnableWhenComponent))
           return false;
         QuestionnaireItemEnableWhenComponent o = (QuestionnaireItemEnableWhenComponent) other;
-        return compareValues(question, o.question, true) && compareValues(answered, o.answered, true);
+        return compareValues(question, o.question, true) && compareValues(hasAnswer, o.hasAnswer, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (question == null || question.isEmpty()) && (answered == null || answered.isEmpty())
+        return super.isEmpty() && (question == null || question.isEmpty()) && (hasAnswer == null || hasAnswer.isEmpty())
            && (answer == null || answer.isEmpty());
       }
 

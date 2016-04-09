@@ -447,6 +447,11 @@
       }
     },
     {
+      "hash": "|null|null|Endpoint|null",
+      "severity": "error",
+      "message": "Unknown Code Endpoint in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
       "hash": "|null|null|EnrollmentRequest|null",
       "severity": null,
       "message": null,

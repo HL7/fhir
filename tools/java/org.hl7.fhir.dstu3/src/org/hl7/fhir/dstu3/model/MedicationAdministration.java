@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1509,7 +1509,7 @@ public class MedicationAdministration extends DomainResource {
    * Path: <b>MedicationAdministration.medicationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="medication", path="MedicationAdministration.medicationReference", description="Return administrations of this medication resource", type="reference" )
+  @SearchParamDefinition(name="medication", path="MedicationAdministration.medication.as(Reference)", description="Return administrations of this medication resource", type="reference" )
   public static final String SP_MEDICATION = "medication";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>medication</b>
@@ -1535,7 +1535,7 @@ public class MedicationAdministration extends DomainResource {
    * Path: <b>MedicationAdministration.effectiveTime[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="effectivetime", path="MedicationAdministration.effectiveTime[x]", description="Date administration happened (or did not happen)", type="date" )
+  @SearchParamDefinition(name="effectivetime", path="MedicationAdministration.effectiveTime", description="Date administration happened (or did not happen)", type="date" )
   public static final String SP_EFFECTIVETIME = "effectivetime";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>effectivetime</b>
@@ -1679,7 +1679,7 @@ public class MedicationAdministration extends DomainResource {
    * Path: <b>MedicationAdministration.medicationCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="MedicationAdministration.medicationCodeableConcept", description="Return administrations of this medication code", type="token" )
+  @SearchParamDefinition(name="code", path="MedicationAdministration.medication.as(CodeableConcept)", description="Return administrations of this medication code", type="token" )
   public static final String SP_CODE = "code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>code</b>

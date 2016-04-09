@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -5009,6 +5009,40 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "Encounter", "status", element.getStatusElement(), -1);
     if (element.hasPeriod())
       composePeriod(t, "Encounter", "period", element.getPeriod(), -1);
+  }
+
+  protected void composeEndpoint(Complex parent, String parentType, String name, Endpoint element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "Endpoint", name, element, index);
+    if (element.hasStatusElement())
+      composeEnum(t, "Endpoint", "status", element.getStatusElement(), -1);
+    if (element.hasManagingOrganization())
+      composeReference(t, "Endpoint", "managingOrganization", element.getManagingOrganization(), -1);
+    for (int i = 0; i < element.getContact().size(); i++)
+      composeContactPoint(t, "Endpoint", "contact", element.getContact().get(i), i);
+    if (element.hasConnectionTypeElement())
+      composeCode(t, "Endpoint", "connectionType", element.getConnectionTypeElement(), -1);
+    for (int i = 0; i < element.getMethod().size(); i++)
+      composeCoding(t, "Endpoint", "method", element.getMethod().get(i), i);
+    if (element.hasPeriod())
+      composePeriod(t, "Endpoint", "period", element.getPeriod(), -1);
+    if (element.hasAddress())
+      composeType(t, "Endpoint", "address", element.getAddress(), -1);
+    if (element.hasPayloadFormatElement())
+      composeString(t, "Endpoint", "payloadFormat", element.getPayloadFormatElement(), -1);
+    for (int i = 0; i < element.getPayloadType().size(); i++)
+      composeCodeableConcept(t, "Endpoint", "payloadType", element.getPayloadType().get(i), i);
+    for (int i = 0; i < element.getHeader().size(); i++)
+      composeString(t, "Endpoint", "header", element.getHeader().get(i), i);
+    if (element.hasPublicKeyElement())
+      composeString(t, "Endpoint", "publicKey", element.getPublicKeyElement(), -1);
   }
 
   protected void composeEnrollmentRequest(Complex parent, String parentType, String name, EnrollmentRequest element, int index) {
@@ -10005,8 +10039,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "enableWhen", name, element, index);
     if (element.hasQuestionElement())
       composeString(t, "Questionnaire", "question", element.getQuestionElement(), -1);
-    if (element.hasAnsweredElement())
-      composeBoolean(t, "Questionnaire", "answered", element.getAnsweredElement(), -1);
+    if (element.hasHasAnswerElement())
+      composeBoolean(t, "Questionnaire", "hasAnswer", element.getHasAnswerElement(), -1);
     if (element.hasAnswer())
       composeType(t, "Questionnaire", "answer", element.getAnswer(), -1);
   }
@@ -12197,6 +12231,8 @@ public class RdfParser extends RdfParserBase {
       composeEligibilityResponse(parent, null, "EligibilityResponse", (EligibilityResponse)resource, -1);
     else if (resource instanceof Encounter)
       composeEncounter(parent, null, "Encounter", (Encounter)resource, -1);
+    else if (resource instanceof Endpoint)
+      composeEndpoint(parent, null, "Endpoint", (Endpoint)resource, -1);
     else if (resource instanceof EnrollmentRequest)
       composeEnrollmentRequest(parent, null, "EnrollmentRequest", (EnrollmentRequest)resource, -1);
     else if (resource instanceof EnrollmentResponse)

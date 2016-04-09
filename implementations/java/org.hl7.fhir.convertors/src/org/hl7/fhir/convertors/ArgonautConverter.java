@@ -580,7 +580,7 @@ public class ArgonautConverter extends ConverterBase {
 
 		for (Element e : cda.getChildren(ap, "name")) {
 			HumanName name = convert.makeNameFromEN(e);
-			perf.setName(name);
+			perf.addName(name);
 			b.append(NarrativeGenerator.displayHumanName(name));
 			b.append(" ");
 		}
@@ -604,7 +604,7 @@ public class ArgonautConverter extends ConverterBase {
 
 		Element e = cda.getChild(ae, "representedOrganization");
 		if (e != null)
-			perf.addPractitionerRole().setManagingOrganization(new Reference().setReference("Organization/"+processOrganization(e, cda, convert, context).getId()));
+			perf.addPractitionerRole().setOrganization(new Reference().setReference("Organization/"+processOrganization(e, cda, convert, context).getId()));
 		perf.setUserData("display", b.toString());
 		return perf;
 	}

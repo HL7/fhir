@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1709,7 +1709,7 @@ public class Condition extends DomainResource {
    * Path: <b>Condition.onset[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="onset", path="Condition.onset[x]", description="Date related onsets (dateTime and Period)", type="date" )
+  @SearchParamDefinition(name="onset", path="Condition.onset", description="Date related onsets (dateTime and Period)", type="date" )
   public static final String SP_ONSET = "onset";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>onset</b>
@@ -1769,7 +1769,7 @@ public class Condition extends DomainResource {
    * Path: <b>Condition.onset[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="onset-info", path="Condition.onset[x]", description="Other onsets (boolean, age, range, string)", type="string" )
+  @SearchParamDefinition(name="onset-info", path="Condition.onset", description="Other onsets (boolean, age, range, string)", type="string" )
   public static final String SP_ONSET_INFO = "onset-info";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>onset-info</b>

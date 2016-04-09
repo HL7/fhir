@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -2643,7 +2643,7 @@ public class Observation extends DomainResource {
    * Path: <b>Observation.effective[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="Observation.effective[x]", description="Obtained date/time. If the obtained element is a period, a date that falls in the period", type="date" )
+  @SearchParamDefinition(name="date", path="Observation.effective", description="Obtained date/time. If the obtained element is a period, a date that falls in the period", type="date" )
   public static final String SP_DATE = "date";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>date</b>
@@ -2663,7 +2663,7 @@ public class Observation extends DomainResource {
    * Path: <b>Observation.component.valueQuantity</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="component-value-quantity", path="Observation.component.valueQuantity", description="The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
+  @SearchParamDefinition(name="component-value-quantity", path="Observation.component.value.as(Quantity)", description="The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
   public static final String SP_COMPONENT_VALUE_QUANTITY = "component-value-quantity";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>component-value-quantity</b>
@@ -2755,7 +2755,7 @@ public class Observation extends DomainResource {
    * Path: <b>Observation.component.valueCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="component-value-concept", path="Observation.component.valueCodeableConcept", description="The value of the component observation, if the value is a CodeableConcept", type="token" )
+  @SearchParamDefinition(name="component-value-concept", path="Observation.component.value.as(CodeableConcept)", description="The value of the component observation, if the value is a CodeableConcept", type="token" )
   public static final String SP_COMPONENT_VALUE_CONCEPT = "component-value-concept";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>component-value-concept</b>
@@ -2855,7 +2855,7 @@ public class Observation extends DomainResource {
    * Path: <b>Observation.valueQuantity</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="value-quantity", path="Observation.valueQuantity", description="The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
+  @SearchParamDefinition(name="value-quantity", path="Observation.value.as(Quantity)", description="The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
   public static final String SP_VALUE_QUANTITY = "value-quantity";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>value-quantity</b>
@@ -2875,7 +2875,7 @@ public class Observation extends DomainResource {
    * Path: <b>Observation.valueDateTime, Observation.valuePeriod</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="value-date", path="Observation.valueDateTime | Observation.valuePeriod", description="The value of the observation, if the value is a date or period of time", type="date" )
+  @SearchParamDefinition(name="value-date", path="Observation.value.as(DateTime) | Observation.value.as(Period)", description="The value of the observation, if the value is a date or period of time", type="date" )
   public static final String SP_VALUE_DATE = "value-date";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>value-date</b>
@@ -2895,7 +2895,7 @@ public class Observation extends DomainResource {
    * Path: <b>Observation.valueString</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="value-string", path="Observation.valueString", description="The value of the observation, if the value is a string, and also searches in CodeableConcept.text", type="string" )
+  @SearchParamDefinition(name="value-string", path="Observation.value.as(String)", description="The value of the observation, if the value is a string, and also searches in CodeableConcept.text", type="string" )
   public static final String SP_VALUE_STRING = "value-string";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>value-string</b>
@@ -2955,7 +2955,7 @@ public class Observation extends DomainResource {
    * Path: <b>Observation.valueCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="value-concept", path="Observation.valueCodeableConcept", description="The value of the observation, if the value is a CodeableConcept", type="token" )
+  @SearchParamDefinition(name="value-concept", path="Observation.value.as(CodeableConcept)", description="The value of the observation, if the value is a CodeableConcept", type="token" )
   public static final String SP_VALUE_CONCEPT = "value-concept";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>value-concept</b>
@@ -3253,7 +3253,7 @@ public class Observation extends DomainResource {
    * Path: <b>Observation.component.valueString</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="component-value-string", path="Observation.component.valueString", description="The value of the component observation, if the value is a string, and also searches in CodeableConcept.text", type="string" )
+  @SearchParamDefinition(name="component-value-string", path="Observation.component.value.as(String)", description="The value of the component observation, if the value is a string, and also searches in CodeableConcept.text", type="string" )
   public static final String SP_COMPONENT_VALUE_STRING = "component-value-string";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>component-value-string</b>

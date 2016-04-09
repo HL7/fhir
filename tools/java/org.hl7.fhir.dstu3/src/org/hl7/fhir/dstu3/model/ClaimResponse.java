@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -5222,7 +5222,7 @@ public class ClaimResponse extends DomainResource {
    * Path: <b>ClaimResponse.requestIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requestidentifier", path="ClaimResponse.requestIdentifier", description="The claim reference", type="token" )
+  @SearchParamDefinition(name="requestidentifier", path="ClaimResponse.request.as(Identifier)", description="The claim reference", type="token" )
   public static final String SP_REQUESTIDENTIFIER = "requestidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requestidentifier</b>
@@ -5242,7 +5242,7 @@ public class ClaimResponse extends DomainResource {
    * Path: <b>ClaimResponse.requestReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requestreference", path="ClaimResponse.requestReference", description="The claim reference", type="reference" )
+  @SearchParamDefinition(name="requestreference", path="ClaimResponse.request.as(Reference)", description="The claim reference", type="reference" )
   public static final String SP_REQUESTREFERENCE = "requestreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requestreference</b>
@@ -5288,7 +5288,7 @@ public class ClaimResponse extends DomainResource {
    * Path: <b>ClaimResponse.organizationIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationidentifier", path="ClaimResponse.organizationIdentifier", description="The organization who generated this resource", type="token" )
+  @SearchParamDefinition(name="organizationidentifier", path="ClaimResponse.organization.as(Identifier)", description="The organization who generated this resource", type="token" )
   public static final String SP_ORGANIZATIONIDENTIFIER = "organizationidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organizationidentifier</b>
@@ -5308,7 +5308,7 @@ public class ClaimResponse extends DomainResource {
    * Path: <b>ClaimResponse.organizationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationreference", path="ClaimResponse.organizationReference", description="The organization who generated this resource", type="reference" )
+  @SearchParamDefinition(name="organizationreference", path="ClaimResponse.organization.as(Reference)", description="The organization who generated this resource", type="reference" )
   public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>

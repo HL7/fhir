@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1279,7 +1279,7 @@ public class Goal extends DomainResource {
    * Path: <b>Goal.targetDate</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="targetdate", path="Goal.targetDate", description="Reach goal on or before", type="date" )
+  @SearchParamDefinition(name="targetdate", path="Goal.target.as(Date)", description="Reach goal on or before", type="date" )
   public static final String SP_TARGETDATE = "targetdate";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>targetdate</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1600,7 +1600,7 @@ public class PaymentReconciliation extends DomainResource {
    * Path: <b>PaymentReconciliation.requestOrganizationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requestorganizationreference", path="PaymentReconciliation.requestOrganizationReference", description="The organization who generated this resource", type="reference" )
+  @SearchParamDefinition(name="requestorganizationreference", path="PaymentReconciliation.requestOrganization.as(Reference)", description="The organization who generated this resource", type="reference" )
   public static final String SP_REQUESTORGANIZATIONREFERENCE = "requestorganizationreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requestorganizationreference</b>
@@ -1646,7 +1646,7 @@ public class PaymentReconciliation extends DomainResource {
    * Path: <b>PaymentReconciliation.requestOrganizationIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requestorganizationidentifier", path="PaymentReconciliation.requestOrganizationIdentifier", description="The organization who generated this resource", type="token" )
+  @SearchParamDefinition(name="requestorganizationidentifier", path="PaymentReconciliation.requestOrganization.as(Identifier)", description="The organization who generated this resource", type="token" )
   public static final String SP_REQUESTORGANIZATIONIDENTIFIER = "requestorganizationidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requestorganizationidentifier</b>
@@ -1666,7 +1666,7 @@ public class PaymentReconciliation extends DomainResource {
    * Path: <b>PaymentReconciliation.requestProviderIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requestprovideridentifier", path="PaymentReconciliation.requestProviderIdentifier", description="The reference to the provider who sumbitted the claim", type="token" )
+  @SearchParamDefinition(name="requestprovideridentifier", path="PaymentReconciliation.requestProvider.as(Identifier)", description="The reference to the provider who sumbitted the claim", type="token" )
   public static final String SP_REQUESTPROVIDERIDENTIFIER = "requestprovideridentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requestprovideridentifier</b>
@@ -1686,7 +1686,7 @@ public class PaymentReconciliation extends DomainResource {
    * Path: <b>PaymentReconciliation.requestIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requestidentifier", path="PaymentReconciliation.requestIdentifier", description="The reference to the claim", type="token" )
+  @SearchParamDefinition(name="requestidentifier", path="PaymentReconciliation.request.as(Identifier)", description="The reference to the claim", type="token" )
   public static final String SP_REQUESTIDENTIFIER = "requestidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requestidentifier</b>
@@ -1706,7 +1706,7 @@ public class PaymentReconciliation extends DomainResource {
    * Path: <b>PaymentReconciliation.requestReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requestreference", path="PaymentReconciliation.requestReference", description="The reference to the claim", type="reference" )
+  @SearchParamDefinition(name="requestreference", path="PaymentReconciliation.request.as(Reference)", description="The reference to the claim", type="reference" )
   public static final String SP_REQUESTREFERENCE = "requestreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requestreference</b>
@@ -1732,7 +1732,7 @@ public class PaymentReconciliation extends DomainResource {
    * Path: <b>PaymentReconciliation.organizationIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationidentifier", path="PaymentReconciliation.organizationIdentifier", description="The organization who generated this resource", type="token" )
+  @SearchParamDefinition(name="organizationidentifier", path="PaymentReconciliation.organization.as(Identifier)", description="The organization who generated this resource", type="token" )
   public static final String SP_ORGANIZATIONIDENTIFIER = "organizationidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organizationidentifier</b>
@@ -1752,7 +1752,7 @@ public class PaymentReconciliation extends DomainResource {
    * Path: <b>PaymentReconciliation.requestProviderReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requestproviderreference", path="PaymentReconciliation.requestProviderReference", description="The reference to the provider who sumbitted the claim", type="reference" )
+  @SearchParamDefinition(name="requestproviderreference", path="PaymentReconciliation.requestProvider.as(Reference)", description="The reference to the provider who sumbitted the claim", type="reference" )
   public static final String SP_REQUESTPROVIDERREFERENCE = "requestproviderreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requestproviderreference</b>
@@ -1778,7 +1778,7 @@ public class PaymentReconciliation extends DomainResource {
    * Path: <b>PaymentReconciliation.organizationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationreference", path="PaymentReconciliation.organizationReference", description="The organization who generated this resource", type="reference" )
+  @SearchParamDefinition(name="organizationreference", path="PaymentReconciliation.organization.as(Reference)", description="The organization who generated this resource", type="reference" )
   public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>

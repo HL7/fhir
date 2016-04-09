@@ -11,14 +11,25 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.exceptions.PathEngineException;
 import org.hl7.fhir.dstu3.formats.JsonParser;
+import org.hl7.fhir.dstu3.model.Appointment;
 import org.hl7.fhir.dstu3.model.Base;
+import org.hl7.fhir.dstu3.model.Bundle;
+import org.hl7.fhir.dstu3.model.DecimalType;
+import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
 import org.hl7.fhir.dstu3.model.Observation;
 import org.hl7.fhir.dstu3.model.Patient;
 import org.hl7.fhir.dstu3.model.Questionnaire;
+import org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemComponent;
+import org.hl7.fhir.dstu3.model.Range;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.RiskAssessment;
+import org.hl7.fhir.dstu3.model.SimpleQuantity;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -30,6 +41,7 @@ public class FluentPathTests {
 
   static private SimpleWorkerContext context;
   static private Patient patient;
+  static private Appointment appointment;
   static private Observation observation;
   static private ValueSet valueset;
   static private Questionnaire questionnaire;
@@ -38,6 +50,12 @@ public class FluentPathTests {
     if (patient == null)
       patient = (Patient) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/patient-example.json"));
     return patient;
+  }
+
+  private Appointment appointment() throws FHIRFormatError, FileNotFoundException, IOException {
+    if (appointment == null)
+      appointment = (Appointment) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/appointment-example-request.json"));
+    return appointment;
   }
 
   private Questionnaire questionnaire() throws FHIRFormatError, FileNotFoundException, IOException {
@@ -64,7 +82,7 @@ public class FluentPathTests {
       context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
     FHIRPathEngine fp = new FHIRPathEngine(context);
 
-    fp.check(null, resource.getResourceType().toString(), resource.getResourceType().toString(), expression, true);
+    fp.check(null, resource.getResourceType().toString(), resource.getResourceType().toString(), expression);
     ExpressionNode node = fp.parse(expression);
     List<Base> outcome = fp.evaluate(resource, node);
     if (fp.hasLog())
@@ -90,9 +108,24 @@ public class FluentPathTests {
       context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
     FHIRPathEngine fp = new FHIRPathEngine(context);
 
-    fp.check(null, resource.getResourceType().toString(), resource.getResourceType().toString(), expression, true);
+    fp.check(null, null, resource.getResourceType().toString(), expression);
     ExpressionNode node = fp.parse(expression);
-    List<Base> outcome = fp.evaluate(resource, node);
+    List<Base> outcome = fp.evaluate(null, null, resource, node);
+    if (fp.hasLog())
+      System.out.println(fp.takeLog());
+
+    Assert.assertTrue("Wrong answer", fp.convertToBoolean(outcome) == value);
+  }
+
+  @SuppressWarnings("deprecation")
+  private void testBoolean(Resource resource, Base focus, String focusType, String expression, boolean value) throws FileNotFoundException, IOException, FHIRException {
+    if (context == null)
+      context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
+    FHIRPathEngine fp = new FHIRPathEngine(context);
+
+    fp.check(null, resource == null ? null : resource.getResourceType().toString(), focusType, expression);
+    ExpressionNode node = fp.parse(expression);
+    List<Base> outcome = fp.evaluate(null, resource, focus, node);
     if (fp.hasLog())
       System.out.println(fp.takeLog());
 
@@ -105,9 +138,9 @@ public class FluentPathTests {
     FHIRPathEngine fp = new FHIRPathEngine(context);
 
     try {
-      fp.check(null, resource.getResourceType().toString(), resource.getResourceType().toString(), expression, true);
+      fp.check(null, null, resource.getResourceType().toString(), expression);
       ExpressionNode node = fp.parse(expression);
-      fp.evaluate(resource, node);
+      fp.evaluate(null, null, resource, node);
       if (fp.hasLog())
         System.out.println(fp.takeLog());
       Assert.assertTrue("Fail expected", false);
@@ -766,7 +799,17 @@ public class FluentPathTests {
     testBoolean(patient(), "1.2 + 1.8 = 3.0", true);    
     testBoolean(patient(), "'a'+'b' = 'ab'", true);
   }
+
+  @Test
+  public void testConcatenate() throws FileNotFoundException, IOException, FHIRException {
+    testBoolean(patient(), "1 & 1 = '11'", true);
+    testBoolean(patient(), "1 & 'a' = '1a'", true);
+    testBoolean(patient(), "{} & 'b' = 'b'", true);    
+    testBoolean(patient(), "(1 | 2 | 3) & 'b' = '1,2,3b'", true);    
+    testBoolean(patient(), "'a'&'b' = 'ab'", true);
+  }
   
+
   @Test
   public void testMinus() throws FileNotFoundException, FHIRFormatError, IOException, FHIRException {
     testBoolean(patient(), "1 - 1 = 0", true);
@@ -826,5 +869,73 @@ public class FluentPathTests {
     testBoolean(patient(), "Patient.birthDate.extension('http://hl7.org/fhir/StructureDefinition/patient-birthTime1').empty()", true);
   }
   
+  @Test
+  public void testDollarResource() throws FileNotFoundException, FHIRFormatError, IOException, FHIRException {
+    testBoolean(patient(), patient().getManagingOrganization(), "Reference", "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))", true);
+    testBoolean(patient(), patient(), "Patient", "contained.select(('#'+id in %resource.descendents().reference).not()).empty()", true);
+    testWrong(patient(), "contained.select(('#'+id in %resource.descendents().reference).not()).empty()");
+  }
+  
+  @Test
+  public void testTyping() throws FileNotFoundException, IOException, FHIRException {
+    ElementDefinition ed = new ElementDefinition();
+    ed.getBinding().setValueSet(new UriType("http://test.org"));
+    testBoolean(null, ed.getBinding().getValueSet(), "ElementDefinition.binding.valueSetUri", "startsWith('http:') or startsWith('https') or startsWith('urn:')", true);
+  }
+  
+  @Test
+  public void testDecimalRA() throws FileNotFoundException, IOException, FHIRException {
+    RiskAssessment r = new RiskAssessment();
+    SimpleQuantity sq = new SimpleQuantity();
+    sq.setValue(0.2);
+    sq.setUnit("%");
+    sq.setCode("%");
+    sq.setSystem("http://unitsofmeasure.org");
+    SimpleQuantity sq1 = new SimpleQuantity();
+    sq1.setValue(0.4);
+    sq1.setUnit("%");
+    sq1.setCode("%");
+    sq1.setSystem("http://unitsofmeasure.org");
+    r.addPrediction().setProbability(new Range().setLow(sq).setHigh(sq1));
+    testBoolean(r, r.getPrediction().get(0).getProbability(), "RiskAssessment.prediction.probabilityRange", 
+        "(low.empty() or ((low.code = '%') and (low.system = %ucum))) and (high.empty() or ((high.code = '%') and (high.system = %ucum)))", true);
+    testBoolean(r, r.getPrediction().get(0), "RiskAssessment.prediction", "probability is decimal implies probability.as(decimal) <= 100", true);
+    r.getPrediction().get(0).setProbability(new DecimalType(80));
+    testBoolean(r, r.getPrediction().get(0), "RiskAssessment.prediction", "probability.as(decimal) <= 100", true);
+  }
+  
+  
+  @Test
+  public void testAppointment() throws FileNotFoundException, IOException, FHIRException {
+    testBoolean(appointment(), "(start and end) or status = 'proposed' or status = 'cancelled'", true);
+    testBoolean(appointment(), "start.empty() xor end.exists()", true);
+  }
+  
+  @Test
+  public void testQuestionnaire() throws FileNotFoundException, IOException, FHIRException {
+    Questionnaire q = (Questionnaire) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/questionnaire-example-gcs.json"));
+    for (QuestionnaireItemComponent qi : q.getItem()) {
+      testQItem(qi);
+    }
+  }
+
+  private void testQItem(QuestionnaireItemComponent qi) throws FileNotFoundException, IOException, FHIRException {
+    testBoolean(null, qi, "Questionnaire.item", "(type = 'choice' or type = 'open-choice') or (options.empty() and option.empty())", true);
+  }
+   
+  @Test
+  public void testExtensionDefinitions() throws FileNotFoundException, IOException, FHIRException {
+    Bundle b = (Bundle) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/extension-definitions.json"));
+    for (BundleEntryComponent be : b.getEntry()) {
+      testStructureDefinition((StructureDefinition) be.getResource());
+    }
+  }
+
+  private void testStructureDefinition(StructureDefinition sd) throws FileNotFoundException, IOException, FHIRException {
+    testBoolean(sd, sd, "StructureDefinition", "snapshot.element.tail().all(path.startsWith(%resource.snapshot.element.first().path&'.')) and differential.element.tail().all(path.startsWith(%resource.differential.element.first().path&'.'))", true);
+    
+  }
+
+
 }
 

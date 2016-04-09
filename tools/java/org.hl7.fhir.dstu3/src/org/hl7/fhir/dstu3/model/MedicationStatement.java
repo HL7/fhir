@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1620,7 +1620,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
    * Path: <b>MedicationStatement.medicationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="medication", path="MedicationStatement.medicationReference", description="Return administrations of this medication reference", type="reference" )
+  @SearchParamDefinition(name="medication", path="MedicationStatement.medication.as(Reference)", description="Return administrations of this medication reference", type="reference" )
   public static final String SP_MEDICATION = "medication";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>medication</b>
@@ -1718,7 +1718,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
    * Path: <b>MedicationStatement.medicationCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="MedicationStatement.medicationCodeableConcept", description="Return administrations of this medication code", type="token" )
+  @SearchParamDefinition(name="code", path="MedicationStatement.medication.as(CodeableConcept)", description="Return administrations of this medication code", type="token" )
   public static final String SP_CODE = "code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>code</b>
@@ -1758,7 +1758,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
    * Path: <b>MedicationStatement.effective[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="effective", path="MedicationStatement.effective[x]", description="Date when patient was taking (or not taking) the medication", type="date" )
+  @SearchParamDefinition(name="effective", path="MedicationStatement.effective", description="Date when patient was taking (or not taking) the medication", type="date" )
   public static final String SP_EFFECTIVE = "effective";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>effective</b>

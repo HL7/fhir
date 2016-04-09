@@ -646,7 +646,7 @@ public class Convert {
 	  Element p = cda.getChild(pivl, "period");
 	  t.getRepeat().setBounds(makePeriodFromIVL(ivl));
 	  t.getRepeat().setPeriod(new BigDecimal(p.getAttribute("value")));
-	  t.getRepeat().setPeriodUnits(convertTimeUnit(p.getAttribute("unit")));
+	  t.getRepeat().setPeriodUnit(convertTimeUnit(p.getAttribute("unit")));
 	  return t;
   }
 

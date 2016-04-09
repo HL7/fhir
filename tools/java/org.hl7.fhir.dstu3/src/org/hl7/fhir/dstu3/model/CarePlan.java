@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -3217,7 +3217,7 @@ public class CarePlan extends DomainResource {
    * Path: <b>CarePlan.activity.detail.scheduled[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="activitydate", path="CarePlan.activity.detail.scheduled[x]", description="Specified date occurs within period specified by CarePlan.activity.timingSchedule", type="date" )
+  @SearchParamDefinition(name="activitydate", path="CarePlan.activity.detail.scheduled", description="Specified date occurs within period specified by CarePlan.activity.timingSchedule", type="date" )
   public static final String SP_ACTIVITYDATE = "activitydate";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>activitydate</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -5876,6 +5876,43 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
+  protected Endpoint parseEndpoint(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError {
+    Endpoint res = new Endpoint();
+    parseDomainResourceAttributes(xpp, res);
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
+        res.setStatusElement(parseEnumeration(xpp, Endpoint.EndpointStatus.NULL, new Endpoint.EndpointStatusEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("managingOrganization")) {
+        res.setManagingOrganization(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("contact")) {
+        res.getContact().add(parseContactPoint(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("connectionType")) {
+        res.setConnectionTypeElement(parseCode(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("method")) {
+        res.getMethod().add(parseCoding(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("period")) {
+        res.setPeriod(parsePeriod(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "address")) {
+        res.setAddress(parseType("address", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("payloadFormat")) {
+        res.setPayloadFormatElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("payloadType")) {
+        res.getPayloadType().add(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("header")) {
+        res.getHeader().add(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("publicKey")) {
+        res.setPublicKeyElement(parseString(xpp));
+      } else if (!parseDomainResourceContent(eventType, xpp, res))
+        unknownContent(xpp);
+      eventType = nextNoWhitespace(xpp);
+    }
+    next(xpp);
+    parseElementClose(res);
+    return res;
+  }
+
   protected EnrollmentRequest parseEnrollmentRequest(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError {
     EnrollmentRequest res = new EnrollmentRequest();
     parseDomainResourceAttributes(xpp, res);
@@ -11478,8 +11515,8 @@ public class XmlParser extends XmlParserBase {
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("question")) {
         res.setQuestionElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("answered")) {
-        res.setAnsweredElement(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("hasAnswer")) {
+        res.setHasAnswerElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "answer")) {
         res.setAnswer(parseType("answer", xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -13947,6 +13984,8 @@ public class XmlParser extends XmlParserBase {
       return parseEligibilityResponse(xpp);
     else if (xpp.getName().equals("Encounter"))
       return parseEncounter(xpp);
+    else if (xpp.getName().equals("Endpoint"))
+      return parseEndpoint(xpp);
     else if (xpp.getName().equals("EnrollmentRequest"))
       return parseEnrollmentRequest(xpp);
     else if (xpp.getName().equals("EnrollmentResponse"))
@@ -14475,6 +14514,8 @@ public class XmlParser extends XmlParserBase {
       return parseEligibilityResponse(xpp);
     else if (type.equals("Encounter"))
       return parseEncounter(xpp);
+    else if (type.equals("Endpoint"))
+      return parseEndpoint(xpp);
     else if (type.equals("EnrollmentRequest"))
       return parseEnrollmentRequest(xpp);
     else if (type.equals("EnrollmentResponse"))
@@ -14796,6 +14837,8 @@ public class XmlParser extends XmlParserBase {
     if (xpp.getName().equals(prefix+"EligibilityResponse"))
       return true;
     if (xpp.getName().equals(prefix+"Encounter"))
+      return true;
+    if (xpp.getName().equals(prefix+"Endpoint"))
       return true;
     if (xpp.getName().equals(prefix+"EnrollmentRequest"))
       return true;
@@ -21154,6 +21197,51 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
+  protected void composeEndpoint(String name, Endpoint element) throws IOException {
+    if (element != null) {
+      composeDomainResourceAttributes(element);
+      xml.enter(FHIR_NS, name);
+      composeDomainResourceElements(element);
+      if (element.hasStatusElement())
+        composeEnumeration("status", element.getStatusElement(), new Endpoint.EndpointStatusEnumFactory());
+      if (element.hasManagingOrganization()) {
+        composeReference("managingOrganization", element.getManagingOrganization());
+      }
+      if (element.hasContact()) { 
+        for (ContactPoint e : element.getContact()) 
+          composeContactPoint("contact", e);
+      }
+      if (element.hasConnectionTypeElement()) {
+        composeCode("connectionType", element.getConnectionTypeElement());
+      }
+      if (element.hasMethod()) { 
+        for (Coding e : element.getMethod()) 
+          composeCoding("method", e);
+      }
+      if (element.hasPeriod()) {
+        composePeriod("period", element.getPeriod());
+      }
+      if (element.hasAddress()) {
+        composeType("address", element.getAddress());
+      }      if (element.hasPayloadFormatElement()) {
+        composeString("payloadFormat", element.getPayloadFormatElement());
+      }
+      if (element.hasPayloadType()) { 
+        for (CodeableConcept e : element.getPayloadType()) 
+          composeCodeableConcept("payloadType", e);
+      }
+      if (element.hasHeader()) { 
+        for (StringType e : element.getHeader()) 
+          composeString("header", e);
+      }
+      if (element.hasPublicKeyElement()) {
+        composeString("publicKey", element.getPublicKeyElement());
+      }
+      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
+    }
+  }
+
   protected void composeEnrollmentRequest(String name, EnrollmentRequest element) throws IOException {
     if (element != null) {
       composeDomainResourceAttributes(element);
@@ -27168,8 +27256,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasQuestionElement()) {
         composeString("question", element.getQuestionElement());
       }
-      if (element.hasAnsweredElement()) {
-        composeBoolean("answered", element.getAnsweredElement());
+      if (element.hasHasAnswerElement()) {
+        composeBoolean("hasAnswer", element.getHasAnswerElement());
       }
       if (element.hasAnswer()) {
         composeType("answer", element.getAnswer());
@@ -29754,6 +29842,8 @@ public class XmlParser extends XmlParserBase {
       composeEligibilityResponse("EligibilityResponse", (EligibilityResponse)resource);
     else if (resource instanceof Encounter)
       composeEncounter("Encounter", (Encounter)resource);
+    else if (resource instanceof Endpoint)
+      composeEndpoint("Endpoint", (Endpoint)resource);
     else if (resource instanceof EnrollmentRequest)
       composeEnrollmentRequest("EnrollmentRequest", (EnrollmentRequest)resource);
     else if (resource instanceof EnrollmentResponse)
@@ -29987,6 +30077,8 @@ public class XmlParser extends XmlParserBase {
       composeEligibilityResponse(name, (EligibilityResponse)resource);
     else if (resource instanceof Encounter)
       composeEncounter(name, (Encounter)resource);
+    else if (resource instanceof Endpoint)
+      composeEndpoint(name, (Endpoint)resource);
     else if (resource instanceof EnrollmentRequest)
       composeEnrollmentRequest(name, (EnrollmentRequest)resource);
     else if (resource instanceof EnrollmentResponse)

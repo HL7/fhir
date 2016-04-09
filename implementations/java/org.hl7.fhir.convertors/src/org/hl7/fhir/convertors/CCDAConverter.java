@@ -245,7 +245,7 @@ public class CCDAConverter {
 	}
 
 	protected void makeDocument() throws Exception {
-		composition = (Composition) ResourceFactory.createReference("Composition");
+		composition = (Composition) ResourceFactory.createResource("Composition");
 		addReference(composition, "Composition", makeUUIDReference());
 
 		Element title = cda.getChild(doc, "title");
@@ -291,7 +291,7 @@ public class CCDAConverter {
 		Element pr = cda.getChild(rt, "patientRole");
 		Element p = cda.getChild(pr, "patient");
 
-		Patient pat = (Patient) ResourceFactory.createReference("Patient");
+		Patient pat = (Patient) ResourceFactory.createResource("Patient");
 		for (Element e : cda.getChildren(pr, "id"))
 			pat.getIdentifier().add(convert.makeIdentifierFromII(e));
 
@@ -356,7 +356,7 @@ public class CCDAConverter {
 		Element aa = cda.getChild(auth, "assignedAuthor");
 		Element ap = cda.getChild(aa, "assignedPerson");
 
-		Practitioner  pr = (Practitioner) ResourceFactory.createReference("Practitioner");
+		Practitioner  pr = (Practitioner) ResourceFactory.createResource("Practitioner");
 		for (Element e : cda.getChildren(aa, "id"))
 			pr.getIdentifier().add(convert.makeIdentifierFromII(e));
 		for (Element e : cda.getChildren(aa, "addr"))
@@ -366,7 +366,7 @@ public class CCDAConverter {
 			pr.getTelecom().add(convert.makeContactFromTEL(e));
 		for (Element e : cda.getChildren(ap, "name"))
 			if (pr.getName() != null)
-				pr.setName(convert.makeNameFromEN(e));
+				pr.addName(convert.makeNameFromEN(e));
 
 		return addReference(pr, "Author", makeUUIDReference());
 	}
@@ -378,7 +378,7 @@ public class CCDAConverter {
 
 
 	protected CompositionAttesterComponent makeAttester(Element a1, CompositionAttestationMode mode, String title) throws Exception {
-		Practitioner  pr = (Practitioner) ResourceFactory.createReference("Practitioner");
+		Practitioner  pr = (Practitioner) ResourceFactory.createResource("Practitioner");
 		Element ass = cda.getChild(a1, "assignedEntity");
 		for (Element e : cda.getChildren(ass, "id"))
 			pr.getIdentifier().add(convert.makeIdentifierFromII(e));
@@ -390,7 +390,7 @@ public class CCDAConverter {
 		Element ap = cda.getChild(ass, "assignedPerson");
 		for (Element e : cda.getChildren(ap, "name"))
 			if (pr.getName() == null) // just take the first
-				pr.setName(convert.makeNameFromEN(e));
+				pr.addName(convert.makeNameFromEN(e));
 
 
 		CompositionAttesterComponent att = new CompositionAttesterComponent();
@@ -653,7 +653,7 @@ public class CCDAConverter {
 			addToContactList(p.getTelecom(), convert.makeContactFromTEL(e));
 		for (Element e : cda.getChildren(cda.getChild(assignedEntity, "assignedPerson"), "name")) 
 			if (p.getName() == null) 
-				p.setName(convert.makeNameFromEN(e));
+				p.addName(convert.makeNameFromEN(e));
 		// todo: 
 		//	representedOrganization
 		return ref;
@@ -998,17 +998,17 @@ public class CCDAConverter {
 
 	protected AllergyIntoleranceCriticality readCriticality(String severity) {
 		if ("255604002".equals(severity)) // Mild 
-			return AllergyIntoleranceCriticality.CRITL; 
+			return AllergyIntoleranceCriticality.LOW; 
 		if ("371923003".equals(severity)) //  Mild to moderate 
-			return AllergyIntoleranceCriticality.CRITL; 
+			return AllergyIntoleranceCriticality.LOW; 
 		if ("6736007".equals(severity)) // Moderate
-			return AllergyIntoleranceCriticality.CRITL; 
+			return AllergyIntoleranceCriticality.LOW; 
 		if ("371924009".equals(severity)) // Moderate to severe
-			return AllergyIntoleranceCriticality.CRITH; 
+			return AllergyIntoleranceCriticality.HIGH; 
 		if ("24484000".equals(severity)) // Severe
-			return AllergyIntoleranceCriticality.CRITH; 
+			return AllergyIntoleranceCriticality.HIGH; 
 		if ("399166001".equals(severity)) // Fatal
-			return AllergyIntoleranceCriticality.CRITH; 
+			return AllergyIntoleranceCriticality.HIGH; 
 		return null;
 	}
 

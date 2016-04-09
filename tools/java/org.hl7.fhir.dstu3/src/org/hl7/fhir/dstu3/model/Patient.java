@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -2419,7 +2419,7 @@ public class Patient extends DomainResource {
    * Path: <b>Patient.deceasedDateTime</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="death-date", path="Patient.deceasedDateTime", description="The date of death has been provided and satisfies this search value", type="date" )
+  @SearchParamDefinition(name="death-date", path="Patient.deceased.as(DateTime)", description="The date of death has been provided and satisfies this search value", type="date" )
   public static final String SP_DEATH_DATE = "death-date";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>death-date</b>
@@ -2519,7 +2519,7 @@ public class Patient extends DomainResource {
    * Path: <b>Patient.deceased[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="deceased", path="Patient.deceased[x]", description="This patient has been marked as deceased, or as a death date entered", type="token" )
+  @SearchParamDefinition(name="deceased", path="Patient.deceased", description="This patient has been marked as deceased, or as a death date entered", type="token" )
   public static final String SP_DECEASED = "deceased";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>deceased</b>

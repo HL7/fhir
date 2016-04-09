@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -821,7 +821,7 @@ public class PaymentNotice extends DomainResource {
    * Path: <b>PaymentNotice.requestIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requestidentifier", path="PaymentNotice.requestIdentifier", description="The Claim", type="token" )
+  @SearchParamDefinition(name="requestidentifier", path="PaymentNotice.request.as(Identifier)", description="The Claim", type="token" )
   public static final String SP_REQUESTIDENTIFIER = "requestidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requestidentifier</b>
@@ -841,7 +841,7 @@ public class PaymentNotice extends DomainResource {
    * Path: <b>PaymentNotice.providerReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="providerreference", path="PaymentNotice.providerReference", description="The reference to the provider", type="reference" )
+  @SearchParamDefinition(name="providerreference", path="PaymentNotice.provider.as(Reference)", description="The reference to the provider", type="reference" )
   public static final String SP_PROVIDERREFERENCE = "providerreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
@@ -867,7 +867,7 @@ public class PaymentNotice extends DomainResource {
    * Path: <b>PaymentNotice.requestReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requestreference", path="PaymentNotice.requestReference", description="The Claim", type="reference" )
+  @SearchParamDefinition(name="requestreference", path="PaymentNotice.request.as(Reference)", description="The Claim", type="reference" )
   public static final String SP_REQUESTREFERENCE = "requestreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requestreference</b>
@@ -893,7 +893,7 @@ public class PaymentNotice extends DomainResource {
    * Path: <b>PaymentNotice.responseReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="responsereference", path="PaymentNotice.responseReference", description="The ClaimResponse", type="reference" )
+  @SearchParamDefinition(name="responsereference", path="PaymentNotice.response.as(Reference)", description="The ClaimResponse", type="reference" )
   public static final String SP_RESPONSEREFERENCE = "responsereference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>responsereference</b>
@@ -919,7 +919,7 @@ public class PaymentNotice extends DomainResource {
    * Path: <b>PaymentNotice.organizationIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationidentifier", path="PaymentNotice.organizationIdentifier", description="The organization who generated this resource", type="token" )
+  @SearchParamDefinition(name="organizationidentifier", path="PaymentNotice.organization.as(Identifier)", description="The organization who generated this resource", type="token" )
   public static final String SP_ORGANIZATIONIDENTIFIER = "organizationidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organizationidentifier</b>
@@ -939,7 +939,7 @@ public class PaymentNotice extends DomainResource {
    * Path: <b>PaymentNotice.organizationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationreference", path="PaymentNotice.organizationReference", description="The organization who generated this resource", type="reference" )
+  @SearchParamDefinition(name="organizationreference", path="PaymentNotice.organization.as(Reference)", description="The organization who generated this resource", type="reference" )
   public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>
@@ -965,7 +965,7 @@ public class PaymentNotice extends DomainResource {
    * Path: <b>PaymentNotice.responseIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="responseidentifier", path="PaymentNotice.responseIdentifier", description="The ClaimResponse", type="token" )
+  @SearchParamDefinition(name="responseidentifier", path="PaymentNotice.response.as(Identifier)", description="The ClaimResponse", type="token" )
   public static final String SP_RESPONSEIDENTIFIER = "responseidentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>responseidentifier</b>
@@ -1005,7 +1005,7 @@ public class PaymentNotice extends DomainResource {
    * Path: <b>PaymentNotice.providerIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="provideridentifier", path="PaymentNotice.providerIdentifier", description="The reference to the provider", type="token" )
+  @SearchParamDefinition(name="provideridentifier", path="PaymentNotice.provider.as(Identifier)", description="The reference to the provider", type="token" )
   public static final String SP_PROVIDERIDENTIFIER = "provideridentifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>provideridentifier</b>

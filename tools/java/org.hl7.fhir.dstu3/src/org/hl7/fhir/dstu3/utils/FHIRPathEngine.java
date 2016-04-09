@@ -41,6 +41,7 @@ import org.hl7.fhir.dstu3.model.TemporalPrecisionEnum;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.TimeType;
 import org.hl7.fhir.dstu3.model.Type;
+import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.exceptions.UcumException;
 import org.hl7.fhir.utilities.Table;
 import org.hl7.fhir.utilities.Utilities;
@@ -133,16 +134,30 @@ public class FHIRPathEngine {
 	 * @throws PathEngineException 
 	 * @throws Exception
 	 */
-	public ExpressionNode parse(String path) throws PathEngineException {
-		Lexer lexer = new Lexer(path);
+	public ExpressionNode parse(String path) throws FHIRLexerException {
+		FHIRLexer lexer = new FHIRLexer(path);
 		if (lexer.done())
 			throw lexer.error("Path cannot be empty");
 		ExpressionNode result = parseExpression(lexer, true);
 		if (!lexer.done())
-			throw lexer.error("Premature ExpressionNode termination at unexpected token \""+lexer.current+"\"");
+			throw lexer.error("Premature ExpressionNode termination at unexpected token \""+lexer.getCurrent()+"\"");
 		result.check();
 		return result;    
 	}
+
+  /**
+   * Parse a path that is part of some other syntax
+   *  
+   * @param path
+   * @return
+   * @throws PathEngineException 
+   * @throws Exception
+   */
+  public ExpressionNode parse(FHIRLexer lexer) throws FHIRLexerException {
+    ExpressionNode result = parseExpression(lexer, true);
+    result.check();
+    return result;    
+  }
 
 	/**
 	 * check that paths referred to in the ExpressionNode are valid
@@ -157,7 +172,7 @@ public class FHIRPathEngine {
 	 * @throws PathEngineException 
 	 * @if the path is not valid
 	 */
-  public TypeDetails check(Object appContext, String resourceType, String context, String path) throws PathEngineException, DefinitionException {
+  public TypeDetails check(Object appContext, String resourceType, String context, String path) throws FHIRLexerException, PathEngineException, DefinitionException {
 		ExpressionNode expr = parse(path);
 		// if context is a path that refers to a type, do that conversion now 
 		if (!allTypes.containsKey(context))
@@ -215,7 +230,7 @@ public class FHIRPathEngine {
 	 * @throws PathEngineException 
 	 * @
 	 */
-	public List<Base> evaluate(Base base, String path) throws PathEngineException {
+	public List<Base> evaluate(Base base, String path) throws FHIRLexerException, PathEngineException {
 		ExpressionNode exp = parse(path);
 		List<Base> list = new ArrayList<Base>();
 		if (base != null)
@@ -250,7 +265,7 @@ public class FHIRPathEngine {
 	 * @throws PathEngineException 
 	 * @
 	 */
-	public List<Base> evaluate(Object appContext, Resource resource, Base base, String path) throws PathEngineException {
+	public List<Base> evaluate(Object appContext, Resource resource, Base base, String path) throws FHIRLexerException, PathEngineException {
 		ExpressionNode exp = parse(path);
 		List<Base> list = new ArrayList<Base>();
 		if (base != null)
@@ -268,7 +283,7 @@ public class FHIRPathEngine {
 	 * @throws PathEngineException 
 	 * @
 	 */
-	public boolean evaluateToBoolean(Resource resource, Base base, String path) throws PathEngineException {
+	public boolean evaluateToBoolean(Resource resource, Base base, String path) throws FHIRLexerException, PathEngineException {
 		return convertToBoolean(evaluate(null, resource, base, path));
 	}
 
@@ -294,7 +309,7 @@ public class FHIRPathEngine {
 	 * @throws PathEngineException 
 	 * @
 	 */
-	public String evaluateToString(Base base, String path) throws PathEngineException {
+	public String evaluateToString(Base base, String path) throws FHIRLexerException, PathEngineException {
 		return convertToString(evaluate(base, path));
 	}
 
@@ -356,191 +371,6 @@ public class FHIRPathEngine {
 		  return "";
 		}
 	
-	private class Lexer {
-		private String path;
-		private int cursor;
-		private int currentStart;
-		private String current;
-		private SourceLocation currentLocation;
-		private SourceLocation currentStartLocation;
-		private int id;
-
-		public Lexer(String source) throws PathEngineException {
-			this.path = source;
-			currentLocation = new SourceLocation(1, 1);
-			next();
-		}
-		public String getCurrent() {
-			return current;
-		}
-		public SourceLocation getCurrentLocation() {
-			return currentLocation;
-		}
-
-		public boolean isConstant() {
-      return current.charAt(0) == '\'' || current.charAt(0) == '@' || current.charAt(0) == '%' || current.charAt(0) == '-' || (current.charAt(0) >= '0' && current.charAt(0) <= '9') || current.equals("true") || current.equals("false") || current.equals("{}");
-		}
-
-		public String take() throws PathEngineException {
-			String s = current;
-			next();
-			return s;
-		}
-
-		public boolean isToken() {
-			if (Utilities.noString(current))
-				return false;
-
-			if (current.startsWith("$"))
-				return true;
-
-			if (current.equals("*") || current.equals("**"))
-				return true;
-
-			if ((current.charAt(0) >= 'A' && current.charAt(0) <= 'Z') || (current.charAt(0) >= 'a' && current.charAt(0) <= 'z')) {
-				for (int i = 1; i < current.length(); i++) 
-					if (!( (current.charAt(1) >= 'A' && current.charAt(1) <= 'Z') || (current.charAt(1) >= 'a' && current.charAt(1) <= 'z') ||
-              (current.charAt(1) >= '0' && current.charAt(1) <= '9')))
-						return false;
-				return true;
-			}
-			return false;
-		}
-
-		public PathEngineException error(String msg) {
-			return error(msg, currentLocation.toString());
-		}
-
-		private PathEngineException error(String msg, String location) {
-			return new PathEngineException("Error in "+path+" at "+location+": "+msg);
-		}
-
-		public void next() throws PathEngineException {
-			current = null;
-			boolean last13 = false;
-			while (cursor < path.length() && Character.isWhitespace(path.charAt(cursor))) {
-				if (path.charAt(cursor) == '\r') {
-					currentLocation.setLine(currentLocation.getLine() + 1);
-					currentLocation.setColumn(1);
-					last13 = true;
-				} else if (!last13 && (path.charAt(cursor) == '\n')) {
-					currentLocation.setLine(currentLocation.getLine() + 1);
-					currentLocation.setColumn(1);
-					last13 = false;
-				} else {
-					last13 = false;
-					currentLocation.setColumn(currentLocation.getColumn() + 1);
-				}
-				cursor++;
-			}
-			currentStart = cursor;
-			currentStartLocation = currentLocation;
-			if (cursor < path.length()) {
-				char ch = path.charAt(cursor);
-				if (ch == '!' || ch == '>' || ch == '<' || ch == ':')  {
-					cursor++;
-          if (cursor < path.length() && (path.charAt(cursor) == '=' || path.charAt(cursor) == '~')) 
-						cursor++;
-					current = path.substring(currentStart, cursor);
-				} else if (ch >= '0' && ch <= '9') {
-						cursor++;
-          boolean dotted = false;
-          while (cursor < path.length() && ((path.charAt(cursor) >= '0' && path.charAt(cursor) <= '9') || (path.charAt(cursor) == '.') && !dotted)) {
-            if (path.charAt(cursor) == '.')
-              dotted = true;
-            cursor++;
-          }
-          if (path.charAt(cursor-1) == '.')
-            cursor--;
-					current = path.substring(currentStart, cursor);
-				}  else if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
-					while (cursor < path.length() && ((path.charAt(cursor) >= 'A' && path.charAt(cursor) <= 'Z') || (path.charAt(cursor) >= 'a' && path.charAt(cursor) <= 'z') || 
-              (path.charAt(cursor) >= '0' && path.charAt(cursor) <= '9') || path.charAt(cursor) == '_')) 
-						cursor++;
-					current = path.substring(currentStart, cursor);
-				} else if (ch == '%') {
-					cursor++;
-          if (cursor < path.length() && (path.charAt(cursor) == '"')) {
-            cursor++;
-            while (cursor < path.length() && (path.charAt(cursor) != '"'))
-              cursor++;
-            cursor++;
-          } else
-					while (cursor < path.length() && ((path.charAt(cursor) >= 'A' && path.charAt(cursor) <= 'Z') || (path.charAt(cursor) >= 'a' && path.charAt(cursor) <= 'z') || 
-							(path.charAt(cursor) >= '0' && path.charAt(cursor) <= '9') || path.charAt(cursor) == ':' || path.charAt(cursor) == '-'))
-						cursor++;
-					current = path.substring(currentStart, cursor);
-				} else if (ch == '$') {
-					cursor++;
-					while (cursor < path.length() && (path.charAt(cursor) >= 'a' && path.charAt(cursor) <= 'z'))
-						cursor++;
-					current = path.substring(currentStart, cursor);
-        } else if (ch == '{') {
-          cursor++;
-          ch = path.charAt(cursor);
-          if (ch == '}')
-            cursor++;
-          current = path.substring(currentStart, cursor);
-        } else if (ch == '"'){
-          cursor++;
-          boolean escape = false;
-          while (cursor < path.length() && (escape || path.charAt(cursor) != '"')) {
-            if (escape)
-              escape = false;
-            else 
-              escape = (path.charAt(cursor) == '\\');
-            cursor++;
-          }
-          if (cursor == path.length())
-            throw error("Unterminated string");
-          cursor++;
-          current = path.substring(currentStart+1, cursor-1);
-        } else if (ch == '\''){
-					cursor++;
-					char ech = ch;
-					boolean escape = false;
-					while (cursor < path.length() && (escape || path.charAt(cursor) != ech)) {
-						if (escape)
-							escape = false;
-						else 
-							escape = (path.charAt(cursor) == '\\');
-						cursor++;
-					}
-					if (cursor == path.length())
-						throw error("Unterminated string");
-					cursor++;
-					current = path.substring(currentStart, cursor);
-					if (ech == '\'')
-						current = "\'"+current.substring(1, current.length() - 1)+"\'";
-        } else if (ch == '@'){
-          cursor++;
-          while (cursor < path.length() && isDateChar(path.charAt(cursor)))
-            cursor++;          
-          current = path.substring(currentStart, cursor);
-				} else { // if CharInSet(ch, ['.', ',', '(', ')', '=', '$']) then
-					cursor++;
-					current = path.substring(currentStart, cursor);
-				}
-			}
-		}
-
-
-    private boolean isDateChar(char ch) {
-      return ch == '-' || ch == ':' || ch == 'T' || ch == '+' || ch == 'Z' || Character.isDigit(ch);
-    }
-		public boolean isOp() {
-			return ExpressionNode.Operation.fromCode(current) != null;
-		}
-		public boolean done() {
-			return currentStart >= path.length();
-		}
-		public int nextId() {
-			id++;
-			return id;
-		}
-
-	}
-
 	private class ExecutionContext {
 		private Object appInfo;
 		private Resource resource;
@@ -578,16 +408,16 @@ public class FHIRPathEngine {
 		}
 	}
 
-	private ExpressionNode parseExpression(Lexer lexer, boolean proximal) throws PathEngineException {
+	private ExpressionNode parseExpression(FHIRLexer lexer, boolean proximal) throws FHIRLexerException {
 		ExpressionNode result = new ExpressionNode(lexer.nextId());
-		SourceLocation c = lexer.currentStartLocation;
+		SourceLocation c = lexer.getCurrentStartLocation();
 		result.setStart(lexer.getCurrentLocation());
     // special:
     if (lexer.getCurrent().equals("-")) {
       lexer.take();
-      lexer.current = "-"+lexer.current;
+      lexer.setCurrent("-"+lexer.getCurrent());
     }
-		if (lexer.isConstant()) {
+		if (lexer.isConstant(false)) {
 			checkConstant(lexer.getCurrent(), lexer);
 			result.setConstant(lexer.take());
 			result.setKind(Kind.Constant);
@@ -601,9 +431,12 @@ public class FHIRPathEngine {
 			result.setEnd(lexer.getCurrentLocation());
 			lexer.next();
 		} else {
-			if (!lexer.isToken()) 
+			if (!lexer.isToken() && !lexer.getCurrent().startsWith("\"")) 
 				throw lexer.error("Found "+lexer.getCurrent()+" expecting a token name");
-			result.setName(lexer.take());
+			if (lexer.getCurrent().startsWith("\""))
+        result.setName(lexer.readConstant("Path Name"));
+			else
+			  result.setName(lexer.take());
 			result.setEnd(lexer.getCurrentLocation());
       if (!result.checkName())
 				throw lexer.error("Found "+result.getName()+" expecting a valid token name");
@@ -628,19 +461,19 @@ public class FHIRPathEngine {
 				result.setKind(Kind.Name);
 		}
 		ExpressionNode focus = result;
-    if ("[".equals(lexer.current)) {
+    if ("[".equals(lexer.getCurrent())) {
       lexer.next();
       ExpressionNode item = new ExpressionNode(lexer.nextId());
       item.setKind(Kind.Function);
       item.setFunction(ExpressionNode.Function.Item);
       item.getParameters().add(parseExpression(lexer, true));
-      if (!lexer.current.equals("]"))
+      if (!lexer.getCurrent().equals("]"))
         throw lexer.error("The token "+lexer.getCurrent()+" is not expected here - a \"]\" expected");
       lexer.next();
       result.setInner(item);
       focus = item;
     }
-		if (".".equals(lexer.current)) {
+		if (".".equals(lexer.getCurrent())) {
 			lexer.next();
 			focus.setInner(parseExpression(lexer, false));
 		}
@@ -648,8 +481,8 @@ public class FHIRPathEngine {
 		if (proximal) {
 			while (lexer.isOp()) {
 				focus.setOperation(ExpressionNode.Operation.fromCode(lexer.getCurrent()));
-				focus.setOpStart(lexer.currentStartLocation);
-				focus.setOpEnd(lexer.currentLocation);
+				focus.setOpStart(lexer.getCurrentStartLocation());
+				focus.setOpEnd(lexer.getCurrentLocation());
 				lexer.next();
 				focus.setOpNext(parseExpression(lexer, false));
 				focus = focus.getOpNext();
@@ -659,7 +492,7 @@ public class FHIRPathEngine {
 		return result;
 	}
 
-	private ExpressionNode organisePrecedence(Lexer lexer, ExpressionNode node) {
+	private ExpressionNode organisePrecedence(FHIRLexer lexer, ExpressionNode node) {
     node = gatherPrecedence(lexer, node, EnumSet.of(Operation.Times, Operation.DivideBy, Operation.Div, Operation.Mod)); 
     node = gatherPrecedence(lexer, node, EnumSet.of(Operation.Plus, Operation.Minus, Operation.Concatenate)); 
     node = gatherPrecedence(lexer, node, EnumSet.of(Operation.Union)); 
@@ -672,7 +505,7 @@ public class FHIRPathEngine {
 		return node;
 	}
 
-	private ExpressionNode gatherPrecedence(Lexer lexer, ExpressionNode start, EnumSet<Operation> ops) {
+	private ExpressionNode gatherPrecedence(FHIRLexer lexer, ExpressionNode start, EnumSet<Operation> ops) {
 		//	  work : boolean;
 		//	  focus, node, group : ExpressionNode;
 
@@ -746,7 +579,7 @@ public class FHIRPathEngine {
 	}
 
 
-	private ExpressionNode newGroup(Lexer lexer, ExpressionNode next) {
+	private ExpressionNode newGroup(FHIRLexer lexer, ExpressionNode next) {
 		ExpressionNode result = new ExpressionNode(lexer.nextId());
 		result.setKind(Kind.Group);
 		result.setGroup(next);
@@ -754,7 +587,7 @@ public class FHIRPathEngine {
 		return result;
 	}
 
-	private void checkConstant(String s, Lexer lexer) throws PathEngineException {
+	private void checkConstant(String s, FHIRLexer lexer) throws FHIRLexerException {
 		if (s.startsWith("\'") && s.endsWith("\'")) {
       int i = 1;
       while (i < s.length()-1) {
@@ -789,19 +622,19 @@ public class FHIRPathEngine {
 	//      raise lexer.error('The function "'+exp.name+'" requires '+inttostr(c)+' parameters', offset);
 	//  end;
 
-	private boolean checkParamCount(Lexer lexer, SourceLocation location, ExpressionNode exp, int count) throws PathEngineException {
+	private boolean checkParamCount(FHIRLexer lexer, SourceLocation location, ExpressionNode exp, int count) throws FHIRLexerException {
 		if (exp.getParameters().size() != count)
 			throw lexer.error("The function \""+exp.getName()+"\" requires "+Integer.toString(count)+" parameters", location.toString());
 		return true;
 	}
 
-	private boolean checkParamCount(Lexer lexer, SourceLocation location, ExpressionNode exp, int countMin, int countMax) throws PathEngineException {
+	private boolean checkParamCount(FHIRLexer lexer, SourceLocation location, ExpressionNode exp, int countMin, int countMax) throws FHIRLexerException {
 		if (exp.getParameters().size() < countMin || exp.getParameters().size() > countMax)
 			throw lexer.error("The function \""+exp.getName()+"\" requires between "+Integer.toString(countMin)+" and "+Integer.toString(countMax)+" parameters", location.toString());
 		return true;
 	}
 
-	private boolean checkParameters(Lexer lexer, SourceLocation location, ExpressionNode exp) throws PathEngineException {
+	private boolean checkParameters(FHIRLexer lexer, SourceLocation location, ExpressionNode exp) throws FHIRLexerException {
 		switch (exp.getFunction()) {
     case Empty: return checkParamCount(lexer, location, exp, 0);
     case Not: return checkParamCount(lexer, location, exp, 0);

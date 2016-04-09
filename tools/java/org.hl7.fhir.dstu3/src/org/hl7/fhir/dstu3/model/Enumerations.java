@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2362,7 +2362,7 @@ public class Enumerations {
          */
         DOCUMENTREFERENCE, 
         /**
-         * --- Abstract Type! ---A resource that includes narrative, extensions, and contained resources.
+         * A resource that includes narrative, extensions, and contained resources.
          */
         DOMAINRESOURCE, 
         /**
@@ -2377,6 +2377,10 @@ public class Enumerations {
          * An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
          */
         ENCOUNTER, 
+        /**
+         * The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.
+         */
+        ENDPOINT, 
         /**
          * This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
          */
@@ -2606,7 +2610,7 @@ public class Enumerations {
          */
         RELATEDPERSON, 
         /**
-         * --- Abstract Type! ---This is the base resource type for everything.
+         * This is the base resource type for everything.
          */
         RESOURCE, 
         /**
@@ -2872,6 +2876,8 @@ public class Enumerations {
           return ELIGIBILITYRESPONSE;
         if ("Encounter".equals(codeString))
           return ENCOUNTER;
+        if ("Endpoint".equals(codeString))
+          return ENDPOINT;
         if ("EnrollmentRequest".equals(codeString))
           return ENROLLMENTREQUEST;
         if ("EnrollmentResponse".equals(codeString))
@@ -3120,6 +3126,7 @@ public class Enumerations {
             case ELIGIBILITYREQUEST: return "EligibilityRequest";
             case ELIGIBILITYRESPONSE: return "EligibilityResponse";
             case ENCOUNTER: return "Encounter";
+            case ENDPOINT: return "Endpoint";
             case ENROLLMENTREQUEST: return "EnrollmentRequest";
             case ENROLLMENTRESPONSE: return "EnrollmentResponse";
             case EPISODEOFCARE: return "EpisodeOfCare";
@@ -3293,6 +3300,7 @@ public class Enumerations {
             case ELIGIBILITYREQUEST: return "http://hl7.org/fhir/resource-types";
             case ELIGIBILITYRESPONSE: return "http://hl7.org/fhir/resource-types";
             case ENCOUNTER: return "http://hl7.org/fhir/resource-types";
+            case ENDPOINT: return "http://hl7.org/fhir/resource-types";
             case ENROLLMENTREQUEST: return "http://hl7.org/fhir/resource-types";
             case ENROLLMENTRESPONSE: return "http://hl7.org/fhir/resource-types";
             case EPISODEOFCARE: return "http://hl7.org/fhir/resource-types";
@@ -3462,10 +3470,11 @@ public class Enumerations {
             case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
             case DOCUMENTREFERENCE: return "A reference to a document .";
-            case DOMAINRESOURCE: return "--- Abstract Type! ---A resource that includes narrative, extensions, and contained resources.";
+            case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
             case ELIGIBILITYREQUEST: return "This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.";
             case ELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an Eligibility resource.";
             case ENCOUNTER: return "An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.";
+            case ENDPOINT: return "The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.";
             case ENROLLMENTREQUEST: return "This resource provides the insurance enrollment details to the insurer regarding a specified coverage.";
             case ENROLLMENTRESPONSE: return "This resource provides enrollment and plan details from the processing of an Enrollment resource.";
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
@@ -3523,7 +3532,7 @@ public class Enumerations {
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.";
             case REFERRALREQUEST: return "Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.";
             case RELATEDPERSON: return "Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.";
-            case RESOURCE: return "--- Abstract Type! ---This is the base resource type for everything.";
+            case RESOURCE: return "This is the base resource type for everything.";
             case RISKASSESSMENT: return "An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.";
             case SCHEDULE: return "A container for slot(s) of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
@@ -3639,6 +3648,7 @@ public class Enumerations {
             case ELIGIBILITYREQUEST: return "EligibilityRequest";
             case ELIGIBILITYRESPONSE: return "EligibilityResponse";
             case ENCOUNTER: return "Encounter";
+            case ENDPOINT: return "Endpoint";
             case ENROLLMENTREQUEST: return "EnrollmentRequest";
             case ENROLLMENTRESPONSE: return "EnrollmentResponse";
             case EPISODEOFCARE: return "EpisodeOfCare";
@@ -3909,6 +3919,8 @@ public class Enumerations {
           return FHIRAllTypes.ELIGIBILITYRESPONSE;
         if ("Encounter".equals(codeString))
           return FHIRAllTypes.ENCOUNTER;
+        if ("Endpoint".equals(codeString))
+          return FHIRAllTypes.ENDPOINT;
         if ("EnrollmentRequest".equals(codeString))
           return FHIRAllTypes.ENROLLMENTREQUEST;
         if ("EnrollmentResponse".equals(codeString))
@@ -4253,6 +4265,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ELIGIBILITYRESPONSE);
         if ("Encounter".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ENCOUNTER);
+        if ("Endpoint".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ENDPOINT);
         if ("EnrollmentRequest".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ENROLLMENTREQUEST);
         if ("EnrollmentResponse".equals(codeString))
@@ -4592,6 +4606,8 @@ public class Enumerations {
         return "EligibilityResponse";
       if (code == FHIRAllTypes.ENCOUNTER)
         return "Encounter";
+      if (code == FHIRAllTypes.ENDPOINT)
+        return "Endpoint";
       if (code == FHIRAllTypes.ENROLLMENTREQUEST)
         return "EnrollmentRequest";
       if (code == FHIRAllTypes.ENROLLMENTRESPONSE)
@@ -5105,7 +5121,7 @@ public class Enumerations {
          */
         DOCUMENTREFERENCE, 
         /**
-         * --- Abstract Type! ---A resource that includes narrative, extensions, and contained resources.
+         * A resource that includes narrative, extensions, and contained resources.
          */
         DOMAINRESOURCE, 
         /**
@@ -5120,6 +5136,10 @@ public class Enumerations {
          * An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
          */
         ENCOUNTER, 
+        /**
+         * The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.
+         */
+        ENDPOINT, 
         /**
          * This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
          */
@@ -5349,7 +5369,7 @@ public class Enumerations {
          */
         RELATEDPERSON, 
         /**
-         * --- Abstract Type! ---This is the base resource type for everything.
+         * This is the base resource type for everything.
          */
         RESOURCE, 
         /**
@@ -5607,6 +5627,8 @@ public class Enumerations {
           return ELIGIBILITYRESPONSE;
         if ("Encounter".equals(codeString))
           return ENCOUNTER;
+        if ("Endpoint".equals(codeString))
+          return ENDPOINT;
         if ("EnrollmentRequest".equals(codeString))
           return ENROLLMENTREQUEST;
         if ("EnrollmentResponse".equals(codeString))
@@ -5851,6 +5873,7 @@ public class Enumerations {
             case ELIGIBILITYREQUEST: return "EligibilityRequest";
             case ELIGIBILITYRESPONSE: return "EligibilityResponse";
             case ENCOUNTER: return "Encounter";
+            case ENDPOINT: return "Endpoint";
             case ENROLLMENTREQUEST: return "EnrollmentRequest";
             case ENROLLMENTRESPONSE: return "EnrollmentResponse";
             case EPISODEOFCARE: return "EpisodeOfCare";
@@ -6022,6 +6045,7 @@ public class Enumerations {
             case ELIGIBILITYREQUEST: return "http://hl7.org/fhir/resource-types";
             case ELIGIBILITYRESPONSE: return "http://hl7.org/fhir/resource-types";
             case ENCOUNTER: return "http://hl7.org/fhir/resource-types";
+            case ENDPOINT: return "http://hl7.org/fhir/resource-types";
             case ENROLLMENTREQUEST: return "http://hl7.org/fhir/resource-types";
             case ENROLLMENTRESPONSE: return "http://hl7.org/fhir/resource-types";
             case EPISODEOFCARE: return "http://hl7.org/fhir/resource-types";
@@ -6189,10 +6213,11 @@ public class Enumerations {
             case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
             case DOCUMENTREFERENCE: return "A reference to a document .";
-            case DOMAINRESOURCE: return "--- Abstract Type! ---A resource that includes narrative, extensions, and contained resources.";
+            case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
             case ELIGIBILITYREQUEST: return "This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.";
             case ELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an Eligibility resource.";
             case ENCOUNTER: return "An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.";
+            case ENDPOINT: return "The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.";
             case ENROLLMENTREQUEST: return "This resource provides the insurance enrollment details to the insurer regarding a specified coverage.";
             case ENROLLMENTRESPONSE: return "This resource provides enrollment and plan details from the processing of an Enrollment resource.";
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
@@ -6250,7 +6275,7 @@ public class Enumerations {
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.";
             case REFERRALREQUEST: return "Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.";
             case RELATEDPERSON: return "Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.";
-            case RESOURCE: return "--- Abstract Type! ---This is the base resource type for everything.";
+            case RESOURCE: return "This is the base resource type for everything.";
             case RISKASSESSMENT: return "An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.";
             case SCHEDULE: return "A container for slot(s) of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
@@ -6364,6 +6389,7 @@ public class Enumerations {
             case ELIGIBILITYREQUEST: return "EligibilityRequest";
             case ELIGIBILITYRESPONSE: return "EligibilityResponse";
             case ENCOUNTER: return "Encounter";
+            case ENDPOINT: return "Endpoint";
             case ENROLLMENTREQUEST: return "EnrollmentRequest";
             case ENROLLMENTRESPONSE: return "EnrollmentResponse";
             case EPISODEOFCARE: return "EpisodeOfCare";
@@ -6632,6 +6658,8 @@ public class Enumerations {
           return FHIRDefinedType.ELIGIBILITYRESPONSE;
         if ("Encounter".equals(codeString))
           return FHIRDefinedType.ENCOUNTER;
+        if ("Endpoint".equals(codeString))
+          return FHIRDefinedType.ENDPOINT;
         if ("EnrollmentRequest".equals(codeString))
           return FHIRDefinedType.ENROLLMENTREQUEST;
         if ("EnrollmentResponse".equals(codeString))
@@ -6972,6 +7000,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ELIGIBILITYRESPONSE);
         if ("Encounter".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ENCOUNTER);
+        if ("Endpoint".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ENDPOINT);
         if ("EnrollmentRequest".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ENROLLMENTREQUEST);
         if ("EnrollmentResponse".equals(codeString))
@@ -7307,6 +7337,8 @@ public class Enumerations {
         return "EligibilityResponse";
       if (code == FHIRDefinedType.ENCOUNTER)
         return "Encounter";
+      if (code == FHIRDefinedType.ENDPOINT)
+        return "Endpoint";
       if (code == FHIRDefinedType.ENROLLMENTREQUEST)
         return "EnrollmentRequest";
       if (code == FHIRDefinedType.ENROLLMENTRESPONSE)
@@ -8033,7 +8065,7 @@ public class Enumerations {
          */
         DOCUMENTREFERENCE, 
         /**
-         * --- Abstract Type! ---A resource that includes narrative, extensions, and contained resources.
+         * A resource that includes narrative, extensions, and contained resources.
          */
         DOMAINRESOURCE, 
         /**
@@ -8048,6 +8080,10 @@ public class Enumerations {
          * An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
          */
         ENCOUNTER, 
+        /**
+         * The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.
+         */
+        ENDPOINT, 
         /**
          * This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
          */
@@ -8277,7 +8313,7 @@ public class Enumerations {
          */
         RELATEDPERSON, 
         /**
-         * --- Abstract Type! ---This is the base resource type for everything.
+         * This is the base resource type for everything.
          */
         RESOURCE, 
         /**
@@ -8433,6 +8469,8 @@ public class Enumerations {
           return ELIGIBILITYRESPONSE;
         if ("Encounter".equals(codeString))
           return ENCOUNTER;
+        if ("Endpoint".equals(codeString))
+          return ENDPOINT;
         if ("EnrollmentRequest".equals(codeString))
           return ENROLLMENTREQUEST;
         if ("EnrollmentResponse".equals(codeString))
@@ -8626,6 +8664,7 @@ public class Enumerations {
             case ELIGIBILITYREQUEST: return "EligibilityRequest";
             case ELIGIBILITYRESPONSE: return "EligibilityResponse";
             case ENCOUNTER: return "Encounter";
+            case ENDPOINT: return "Endpoint";
             case ENROLLMENTREQUEST: return "EnrollmentRequest";
             case ENROLLMENTRESPONSE: return "EnrollmentResponse";
             case EPISODEOFCARE: return "EpisodeOfCare";
@@ -8746,6 +8785,7 @@ public class Enumerations {
             case ELIGIBILITYREQUEST: return "http://hl7.org/fhir/resource-types";
             case ELIGIBILITYRESPONSE: return "http://hl7.org/fhir/resource-types";
             case ENCOUNTER: return "http://hl7.org/fhir/resource-types";
+            case ENDPOINT: return "http://hl7.org/fhir/resource-types";
             case ENROLLMENTREQUEST: return "http://hl7.org/fhir/resource-types";
             case ENROLLMENTRESPONSE: return "http://hl7.org/fhir/resource-types";
             case EPISODEOFCARE: return "http://hl7.org/fhir/resource-types";
@@ -8862,10 +8902,11 @@ public class Enumerations {
             case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
             case DOCUMENTREFERENCE: return "A reference to a document .";
-            case DOMAINRESOURCE: return "--- Abstract Type! ---A resource that includes narrative, extensions, and contained resources.";
+            case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
             case ELIGIBILITYREQUEST: return "This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.";
             case ELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an Eligibility resource.";
             case ENCOUNTER: return "An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.";
+            case ENDPOINT: return "The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.";
             case ENROLLMENTREQUEST: return "This resource provides the insurance enrollment details to the insurer regarding a specified coverage.";
             case ENROLLMENTRESPONSE: return "This resource provides enrollment and plan details from the processing of an Enrollment resource.";
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
@@ -8923,7 +8964,7 @@ public class Enumerations {
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.";
             case REFERRALREQUEST: return "Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.";
             case RELATEDPERSON: return "Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.";
-            case RESOURCE: return "--- Abstract Type! ---This is the base resource type for everything.";
+            case RESOURCE: return "This is the base resource type for everything.";
             case RISKASSESSMENT: return "An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.";
             case SCHEDULE: return "A container for slot(s) of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
@@ -8986,6 +9027,7 @@ public class Enumerations {
             case ELIGIBILITYREQUEST: return "EligibilityRequest";
             case ELIGIBILITYRESPONSE: return "EligibilityResponse";
             case ENCOUNTER: return "Encounter";
+            case ENDPOINT: return "Endpoint";
             case ENROLLMENTREQUEST: return "EnrollmentRequest";
             case ENROLLMENTRESPONSE: return "EnrollmentResponse";
             case EPISODEOFCARE: return "EpisodeOfCare";
@@ -9152,6 +9194,8 @@ public class Enumerations {
           return ResourceType.ELIGIBILITYRESPONSE;
         if ("Encounter".equals(codeString))
           return ResourceType.ENCOUNTER;
+        if ("Endpoint".equals(codeString))
+          return ResourceType.ENDPOINT;
         if ("EnrollmentRequest".equals(codeString))
           return ResourceType.ENROLLMENTREQUEST;
         if ("EnrollmentResponse".equals(codeString))
@@ -9390,6 +9434,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.ELIGIBILITYRESPONSE);
         if ("Encounter".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.ENCOUNTER);
+        if ("Endpoint".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.ENDPOINT);
         if ("EnrollmentRequest".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.ENROLLMENTREQUEST);
         if ("EnrollmentResponse".equals(codeString))
@@ -9623,6 +9669,8 @@ public class Enumerations {
         return "EligibilityResponse";
       if (code == ResourceType.ENCOUNTER)
         return "Encounter";
+      if (code == ResourceType.ENDPOINT)
+        return "Endpoint";
       if (code == ResourceType.ENROLLMENTREQUEST)
         return "EnrollmentRequest";
       if (code == ResourceType.ENROLLMENTRESPONSE)

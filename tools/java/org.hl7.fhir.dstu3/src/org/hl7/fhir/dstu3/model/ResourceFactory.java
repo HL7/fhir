@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 31, 2016 10:57+1100 for FHIR v1.4.0
+// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
@@ -194,6 +194,8 @@ public class ResourceFactory extends Factory {
             return new MeasureReport();
         if ("ImagingStudy".equals(name))
             return new ImagingStudy();
+        if ("Endpoint".equals(name))
+            return new Endpoint();
         if ("Provenance".equals(name))
             return new Provenance();
         if ("Device".equals(name))
@@ -256,10 +258,10 @@ public class ResourceFactory extends Factory {
             return new Specimen();
         if ("EnrollmentResponse".equals(name))
             return new EnrollmentResponse();
-        if ("SupplyRequest".equals(name))
-            return new SupplyRequest();
         if ("Patient".equals(name))
             return new Patient();
+        if ("SupplyRequest".equals(name))
+            return new SupplyRequest();
         if ("DiagnosticOrder".equals(name))
             return new DiagnosticOrder();
         else

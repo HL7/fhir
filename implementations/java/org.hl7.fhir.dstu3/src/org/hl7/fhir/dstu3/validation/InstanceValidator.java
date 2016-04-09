@@ -32,6 +32,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingCompon
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
+import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.HumanName;
 import org.hl7.fhir.dstu3.model.Identifier;
@@ -366,6 +367,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	// configuration items
 	private CheckDisplayOption checkDisplay;
 	private IWorkerContext context;
+	private FHIRPathEngine fpe; 
 
 	private List<String> extensionDomains = new ArrayList<String>();
 
@@ -379,6 +381,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	public InstanceValidator(IWorkerContext theContext) {
 		super();
 		this.context = theContext;
+    fpe = new FHIRPathEngine(context);
 		source = Source.InstanceValidator;
 	}
 
@@ -2632,14 +2635,26 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			if (inv.hasExpression()) {
 				ResourceOnWrapper res = new ResourceOnWrapper(context, resource, resource.getProfile());
 				BaseOnWrapper e = new BaseOnWrapper(context, element, profile, ed, typename, typeProfile);
-				String expr = inv.getExpression();
-				FHIRPathEngine fpe = new FHIRPathEngine(context);
-		    boolean ok = fpe.evaluateToBoolean(res, e, expr);
+				ExpressionNode n = (ExpressionNode) inv.getUserData("validator.expression.cache");
+				if (n == null) {
+				  n = fpe.parse(inv.getExpression());
+				  inv.setUserData("validator.expression.cache", n);
+				}
+				
+				String msg;
+				boolean ok;
+				try {
+		      ok = fpe.evaluateToBoolean(res, e, n);
+		      msg = fpe.forLog();
+				} catch (Exception ex) {
+				  ok = false;
+				  msg = ex.getMessage(); 
+				}
 				if (!ok) {
 					if (inv.getSeverity() == ConstraintSeverity.ERROR)
-						rule(errors, IssueType.INVARIANT, element.line(), element.col(), path, ok, inv.getHuman()+fpe.forLog());
+						rule(errors, IssueType.INVARIANT, element.line(), element.col(), path, ok, inv.getHuman()+" ("+msg+") ["+inv.getExpression()+"]");
 					else if (inv.getSeverity() == ConstraintSeverity.WARNING)
-						warning(errors, IssueType.INVARIANT, element.line(), element.line(), path, ok, inv.getHuman()+fpe.forLog());
+						warning(errors, IssueType.INVARIANT, element.line(), element.line(), path, ok, inv.getHuman()+" ("+msg+") ["+inv.getExpression()+"]");
 				}
 			}
 		}
