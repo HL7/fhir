@@ -12,4 +12,4 @@ any.nf: for src.nullFlavor as nf make
    ex.url = "http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor",
    ex.value = nf  // nothing more after this
 
-end-group   
+endgroup   

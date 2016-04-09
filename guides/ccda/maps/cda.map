@@ -19,7 +19,7 @@ setup: for src make
   tgt.id = uuid(), 
   tgt.entry as e, 
   e.resource = create("Composition") as cmp, 
-  cmp.id = guid(),
+  cmp.id = uuid(),
   e.fullUrl = pointer(cmp)
   
 // we ignore for src.id. that's the CDA id we can't use 
@@ -28,7 +28,7 @@ code:  for src.code            as s make cmp.type as t then CD2CodeableConcept(s
 title: for src.title           as s make cmp.title = s 
 date:  for src.effectiveTime   as s make cmp.date = s
 conf:  for src.confidentiality as s make cmp.confidentiality as t then CD2CodeableConcept(s, t)
-lang:  for src.languageCode    as s make then lang2(s, tgt)
+lang:  for src.languageCode    as s then lang2(s, tgt)
 lang2: for s.code              as s make cmp.language = s
 setid: for s.setId             as s make cmp.identifier as t then II2Identifier(s, t)
 
@@ -38,10 +38,10 @@ rct: for src.recordTarget as r then pat(r, tgt)
 pat: for t.patientRole as s make 
   tgt.entry as p, 
   p.resource = create("Patient") as pat, 
-  pat.id = guid(),
+  pat.id = uuid(),
   e.fullUrl = pointer(pat) then PatientRole(s, pat)
   
-end-group   
+endgroup   
 
 group PatientRole
   input src : PatientRole as source;
@@ -52,7 +52,7 @@ paddr: for src.addr    as s make tgt.address as t then AD2Address(s, t)
 ptel:  for src.telecom as s make tgt.telecom as t then TEL2Telecom(s, t)
 pat:   for src.patient as p then Patient(p, tgt)
 
-end-group 
+endgroup 
 
 group Patient
   input src : Patient as source;
@@ -63,10 +63,10 @@ pname: for src.name                     as s make tgt.name as t then EN2HumanNam
 sex:   for src.administrativeGenderCode as s make tgt.gender = translate(s, "http://hl7.org/fhir/ConceptMap/v3-administrative-gender", "code")
 dob:   for src.birthTime                as s make tgt.birthDate = truncate(s, 10)
 ms:    for src.maritalStatusCode        as s make tgt.maritalStatus as t then CD2CodeableConcept(s, t)
-rel:   for src.religiousAffiliationCode as s make tgt.extension as e, e.url = "http://hl7.org/fhir/StructureDefinition/us-core-religion", e.value = create("CodeableConcept") CD2CodeableConcept(s, e)
-race:  for src.raceCode                 as s make tgt.extension as e, e.url = "http://hl7.org/fhir/StructureDefinition/us-core-race", e.value = create("CodeableConcept") CD2CodeableConcept(s, e)
-eth:   for src.ethnicGroupCode          as s make tgt.extension as e, e.url = "http://hl7.org/fhir/StructureDefinition/us-core-ethnicity", e.value = create("CodeableConcept") CD2CodeableConcept(s, e)
+rel:   for src.religiousAffiliationCode as s make tgt.extension as e, e.url = "http://hl7.org/fhir/StructureDefinition/us-core-religion", e.value = create("CodeableConcept") then CD2CodeableConcept(s, e)
+race:  for src.raceCode                 as s make tgt.extension as e, e.url = "http://hl7.org/fhir/StructureDefinition/us-core-race", e.value = create("CodeableConcept") then CD2CodeableConcept(s, e)
+eth:   for src.ethnicGroupCode          as s make tgt.extension as e, e.url = "http://hl7.org/fhir/StructureDefinition/us-core-ethnicity", e.value = create("CodeableConcept") then CD2CodeableConcept(s, e)
 
-end-group 
+endgroup 
 
   

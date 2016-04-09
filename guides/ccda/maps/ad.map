@@ -12,14 +12,14 @@ group ADToAdress  extends ANY2Element
 
   
 ad.use: for src.use as v make tgt.use = translate(v, "http://hl7.org/fhir/ConceptMap/v3-address-use", code) // todo: that map is the wrong way around
-ad.dal: for src.deliveryAddressLine as v make tgt.line = v {first}
+ad.dal: for src.deliveryAddressLine as v make tgt.line = v first
 ad.sal: for src.streetAddressLine as v make tgt.line = v 
-ad.city: for src.city as v make tgt.city = v {only-one} // more than one, an error
-ad.county: for src.county as v make tgt.district = v {only-one} // more than one, an error
-ad.state: for src.state as v make tgt.state = v {only-one} // more than one, an error
-ad.postalCode: for src.postalCode as v make tgt.postalCode = v {only-one} // more than one, an error
-ad.country: for src.country as v make tgt.country = v {only-one} // more than one, an error
-ad.period: for src.useablePeriod as s_up where useablePeriod.asType("IVL_TS") make tgt.period as t_p then by IVL_TS2Period(s_up, t_p) 
+ad.city: for src.city only_one as v make tgt.city = v  // more than one, an error
+ad.county: for src.county as v make tgt.district = v only_one // more than one, an error
+ad.state: for src.state as v make tgt.state = v only_one // more than one, an error
+ad.postalCode: for src.postalCode as v make tgt.postalCode = v only_one // more than one, an error
+ad.country: for src.country as v make tgt.country = v only_one // more than one, an error
+ad.period: for src.useablePeriod as s_up where useablePeriod.is("IVL_TS") make tgt.period as t_p then IVL_TS2Period(s_up, t_p) 
 
 // mapping these items presents conceptual difficulties:
 //   delimiter, houseNumber, houseNumberNumeric, direction, streetName, streetNameBase, streetNameType, additionalLocator, unitID, unitType, careOf, censusTract, deliveryInstallationType, deliveryInstallationArea, deliveryInstallationQualifier, deliveryMode, deliveryModeIdentifier, buildingNumberSuffix, postBox, precinct, other

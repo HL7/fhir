@@ -9,9 +9,9 @@ group ED2Attachment extends ANY2Element
   input src : ED as source;
   input tgt : Attachment as target;
 
-ed.b64: for src.data as data where representation = "B64" make tgt.data = copy(data)
-ed.plain: for src.data as data where not representation = "B64" make tgt.data = escape(data, "plain", "base64")
-ed.ct1: for src.mediaType as mt where src.charset.empty make tgt.contentType = copy(mt)
+ed.b64: for src.data as data1 where representation = "B64" make tgt.data = data1
+ed.plain: for src.data as data2 where representation != "B64" make tgt.data = escape(data2, "plain", "base64")
+ed.ct1: for src.mediaType as mt where src.charset.empty make tgt.contentType = mt
 ed.ct1: for src.mediaType as mt, src.charset as cs make tgt.contentType = append(mt, "; charset=", cs)
 ed.lang: for src.language as lang make tgt.language = lang
 ed.comp: for src check compression.empty

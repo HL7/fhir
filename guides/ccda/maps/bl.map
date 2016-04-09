@@ -9,6 +9,6 @@ group BL2Boolean extends ANY2Element
   input src : BL as source;
   input tgt : boolean as target;
 
-bl.value: for src.value as bl make tgt.value = bl // todo: is this the best way?
+bl_value: for src.value as bl make tgt.value = bl // todo: is this the best way?
 
 endgroup

@@ -11,13 +11,13 @@ group CD2CodeableConcept // no: override this ... extends ANY2Element
 cd.base: 
    for src as s
    where codeSystem.empty().not()
-   make tgt.coding as t {first} then CV2Coding(s, t) // the first coding is the root CV
+   make tgt.coding as t first then CV2Coding(s, t) // the first coding is the root CV
 
 cd.other: 
    for src.translation as s 
    where system.empty().not() 
    check translation.originalText.empty() 
-   make tgt.coding as t then then CV2Coding(s, t) // other CVs, with a bonus side check: no nested original text allowed
+   make tgt.coding as t then CV2Coding(s, t) // other CVs, with a bonus side check: no nested original text allowed
 
 cd.text: 
    for src.originalText as text 
@@ -33,26 +33,26 @@ cd.nf:
 
 endgroup
 
-Group CV2Coding // base Coding rules 
+group CV2Coding // base Coding rules 
   input src : CV as source;
   input tgt : Coding as target;
   
 cd.code:    
-  for src.code 
-  make tgt.code = src.code
+  for src.code as sc
+  make tgt.code = sc
 
 cd.system:  
-  for src.codeSystem 
-  make tgt.system = translate(src.codeSystem, "http://hl7.org/fhir/ConceptMap/special-oid2uri", "code")
+  for src.codeSystem as sc1
+  make tgt.system = translate(sc1, "http://hl7.org/fhir/ConceptMap/special-oid2uri", "code")
      
 // codeSystemName is ignored
 cd.vers:    
-  for src.codeSystemVersion 
-  make tgt.version = src.codeSystemVersion
+  for src.codeSystemVersion as scv
+  make tgt.version = scv
     
 cd.display: 
-  for src.displayName 
-  make tgt.display = src.displayName
+  for src.displayName as sd
+  make tgt.display = sd
 
 endgroup
   
