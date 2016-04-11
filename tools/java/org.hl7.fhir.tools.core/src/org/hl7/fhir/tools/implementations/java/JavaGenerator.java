@@ -3,27 +3,27 @@ package org.hl7.fhir.tools.implementations.java;
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
-Redistribution and use in source and binary forms, with or without modification, 
+Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
 
- * Redistributions of source code must retain the above copyright notice, this 
+ * Redistributions of source code must retain the above copyright notice, this
    list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, 
-   this list of conditions and the following disclaimer in the documentation 
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
    and/or other materials provided with the distribution.
- * Neither the name of HL7 nor the names of its contributors may be used to 
-   endorse or promote products derived from this software without specific 
+ * Neither the name of HL7 nor the names of its contributors may be used to
+   endorse or promote products derived from this software without specific
    prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
  */
@@ -138,7 +138,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     jEnums.generate(genDate, version);
 
     for (String n : definitions.getBaseResources().keySet()) {
-      ResourceDefn root = definitions.getBaseResources().get(n); 
+      ResourceDefn root = definitions.getBaseResources().get(n);
       JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions);
       jrg.generate(root.getRoot(), javaClassName(root.getName()), JavaGenClass.Resource, null, genDate, version, root.isAbstract(), null);
       jrg.close();
@@ -148,7 +148,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     }
 
     for (String n : definitions.getResources().keySet()) {
-      ResourceDefn root = definitions.getResourceByName(n); 
+      ResourceDefn root = definitions.getResourceByName(n);
       JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions);
       jrg.generate(root.getRoot(), javaClassName(root.getName()), JavaGenClass.Resource, null, genDate, version, false, root.getSearchParams());
       jrg.close();
@@ -157,7 +157,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     }
 
     for (String n : definitions.getInfrastructure().keySet()) {
-      ElementDefn root = definitions.getInfrastructure().get(n); 
+      ElementDefn root = definitions.getInfrastructure().get(n);
       JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions);
       jgen.generate(root, javaClassName(root.getName()), JavaGenClass.Structure, null, genDate, version, false, null);
       jgen.close();
@@ -166,7 +166,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
         jFactoryGen.registerType(n,  root.getName());
     }
     for (String n : definitions.getTypes().keySet()) {
-      ElementDefn root = definitions.getTypes().get(n); 
+      ElementDefn root = definitions.getTypes().get(n);
       JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions);
       jgen.generate(root, javaClassName(root.getName()), JavaGenClass.Type, null, genDate, version, false, null);
       jgen.close();
@@ -183,17 +183,17 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
         jFactoryGen.registerType(n,  root.getName());
     }
     for (ProfiledType cd : definitions.getConstraints().values()) {
-      ElementDefn root = definitions.getTypes().get(cd.getBaseType()); 
+      ElementDefn root = definitions.getTypes().get(cd.getBaseType());
       JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(cd.getName())+".java"), definitions);
       jgen.setInheritedHash(hashes.get(cd.getBaseType()));
       jgen.generate(root, javaClassName(cd.getName()), JavaGenClass.Constraint, cd, genDate, version, false, null);
-      jFactoryGen.registerType(cd.getName(), cd.getName()); 
+      jFactoryGen.registerType(cd.getName(), cd.getName());
       hashes.put(cd.getName(), Long.toString(jgen.getHashSum()));
       jgen.close();
     }
 
     for (String n : definitions.getStructures().keySet()) {
-      ElementDefn root = definitions.getStructures().get(n); 
+      ElementDefn root = definitions.getStructures().get(n);
       JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions);
       jgen.generate(root, javaClassName(root.getName()), JavaGenClass.Type, null, genDate, version, false, null);
       jFactoryGen.registerType(n,  root.getName());
@@ -202,16 +202,16 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
     for (CodeSystem cs : definitions.getCodeSystems().values()) {
       if (!cs.hasId())
-        throw new Exception("No id on "+cs.getUrl()); 
+        throw new Exception("No id on "+cs.getUrl());
       if (cs.getUserData("java-generated") == null && !cs.getId().startsWith("v2-")) {
         String tns = tokenize(cs.getId());
-        JavaCodeSystemGenerator vsgen = new JavaCodeSystemGenerator(new FileOutputStream(Utilities.path(javaDir, "codesystems", tns+".java"))); 
+        JavaCodeSystemGenerator vsgen = new JavaCodeSystemGenerator(new FileOutputStream(Utilities.path(javaDir, "codesystems", tns+".java")));
         vsgen.generate(genDate, version, cs, tns);
         vsgen.close();
-        JavaCodeSystemFactoryGenerator vsfgen = new JavaCodeSystemFactoryGenerator(new FileOutputStream(Utilities.path(javaDir, "codesystems", tns+"EnumFactory.java"))); 
+        JavaCodeSystemFactoryGenerator vsfgen = new JavaCodeSystemFactoryGenerator(new FileOutputStream(Utilities.path(javaDir, "codesystems", tns+"EnumFactory.java")));
         vsfgen.generate(genDate, version, cs, tns);
         vsfgen.close();
-      }        
+      }
     }
     // delete old files to save people finding and deleting them
     deleteOldFile("XmlComposer");
@@ -220,15 +220,15 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     deleteOldFile("JsonBaseComposer");
 
     JavaParserXmlGenerator jParserGenX = new JavaParserXmlGenerator(new FileOutputStream(javaParserDir+"XmlParser.java"));
-    jParserGenX.generate(definitions, version, genDate);    
+    jParserGenX.generate(definitions, version, genDate);
     jParserGenX.generateComposer();
     jParserGenX.finish();
     JavaParserJsonGenerator jParserGenJ = new JavaParserJsonGenerator(new FileOutputStream(javaParserDir+"JsonParser.java"));
-    jParserGenJ.generateParser(definitions, version, genDate);    
+    jParserGenJ.generateParser(definitions, version, genDate);
     jParserGenJ.generateComposer();
     jParserGenJ.finish();
     JavaParserRdfGenerator jParserGenR = new JavaParserRdfGenerator(new FileOutputStream(javaParserDir+"RdfParser.java"));
-    jParserGenR.generate(definitions, version, genDate);    
+    jParserGenR.generate(definitions, version, genDate);
     jParserGenR.generateComposer();
     jParserGenR.finish();
     jFactoryGen.generate(version, genDate);
@@ -238,9 +238,10 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     jConv.close();
     TextFile.stringToFileNoPrefix(makeConstantsClass(version, svnRevision, genDate), implDir+"org.hl7.fhir.dstu3"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu3"+sl+"model"+sl+"Constants.java");
     ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
-    zip.addFiles(implDir+"org.hl7.fhir.dstu3"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu3"+sl+"model"+sl, "org/hl7/fhir/instance/model/", ".java", null);
+    zip.addFiles(implDir+"org.hl7.fhir.dstu3"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu3"+sl+"exceptions"+sl, "org/hl7/fhir/dstu3/exceptions/", ".java", null);
+    zip.addFiles(implDir+"org.hl7.fhir.dstu3"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu3"+sl+"formats"+sl, "org/hl7/fhir/dstu3/formats/", ".java", null);
+    zip.addFiles(implDir+"org.hl7.fhir.dstu3"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu3"+sl+"model"+sl, "org/hl7/fhir/dstu3/model/", ".java", null);
     //    zip.addFiles(implDir+"org.hl7.fhir.dstu3"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu3"+sl+"model"+sl+"annotations"+sl, "org/hl7/fhir/instance/model/annotations/", ".java", null);
-    zip.addFiles(implDir+"org.hl7.fhir.dstu3"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu3"+sl+"formats"+sl, "org/hl7/fhir/instance/formats/", ".java", null);
     zip.addFiles(implDir+"org.hl7.fhir.rdf"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"rdf"+sl, "org/hl7/fhir/rdf/", ".java", null);
     zip.addFiles(implDir+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl, "org/hl7/fhir/utilities/", ".java", null);
     zip.addFiles(implDir+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl+"xhtml"+sl, "org/hl7/fhir/utilities/xhtml/", ".java", null);
@@ -293,12 +294,12 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
   private void deleteOldFile(String name) {
     File f = new File(javaParserDir+name+".java");
-    if (f.exists()) 
+    if (f.exists())
       f.delete();
   }
 
   private String makeConstantsClass(String version, String svnRevision, Date genDate) {
-    String s = 
+    String s =
         "package org.hl7.fhir.dstu3.model;\r\n"+
             "\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n"+
             "// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n"+
@@ -314,7 +315,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
   private void generateResourceTypeEnum(String version, String svnRevision, Date genDate) throws Exception {
 
-    OutputStreamWriter output = new OutputStreamWriter(new FileOutputStream(javaDir+"ResourceType.java"), "UTF-8"); 
+    OutputStreamWriter output = new OutputStreamWriter(new FileOutputStream(javaDir+"ResourceType.java"), "UTF-8");
     output.write("package org.hl7.fhir.dstu3.model;\r\n");
     output.write("\r\n");
     output.write("import org.hl7.fhir.dstu3.exceptions.FHIRException;\r\n");
@@ -323,10 +324,10 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     output.write("public enum ResourceType {");
 
     List<String> names = new ArrayList<String>();
-    for (String n : definitions.getResources().keySet()) 
+    for (String n : definitions.getResources().keySet())
       names.add(n);
-    for (String n : definitions.getBaseResources().keySet()) 
-      if (!definitions.getBaseResources().get(n).isAbstract()) 
+    for (String n : definitions.getBaseResources().keySet())
+      if (!definitions.getBaseResources().get(n).isAbstract())
         names.add(n);
     Collections.sort(names);
 
@@ -365,7 +366,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   private String javaClassName(String name) {
     if (name.equals("List"))
       return "ListResource";
-    else 
+    else
       return name;
   }
 
@@ -461,7 +462,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, importsDir+sl+"Saxon-HE-9.5.1-5.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-lang3-3.3.2.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-logging-1.1.1.jar", names);
-    AddJarToJar(jar, importsDir+sl+"commons-logging-api-1.1.jar", names);    
+    AddJarToJar(jar, importsDir+sl+"commons-logging-api-1.1.jar", names);
     AddJarToJar(jar, importsDir+sl+"httpclient-4.2.3.jar", names);
     AddJarToJar(jar, importsDir+sl+"httpcore-4.2.2.jar", names);
     AddJarToJar(jar, importsDir+sl+"hapi-fhir-base-1.3.jar", names);
@@ -490,7 +491,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, importsDir+sl+"Saxon-HE-9.5.1-5.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-lang3-3.3.2.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-logging-1.1.1.jar", names);
-    AddJarToJar(jar, importsDir+sl+"commons-logging-api-1.1.jar", names);    
+    AddJarToJar(jar, importsDir+sl+"commons-logging-api-1.1.jar", names);
     AddJarToJar(jar, importsDir+sl+"httpclient-4.2.3.jar", names);
     AddJarToJar(jar, importsDir+sl+"httpcore-4.2.2.jar", names);
     AddJarToJar(jar, importsDir+sl+"hapi-fhir-base-1.3.jar", names);
@@ -529,7 +530,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   }
 
   private List<File> listFilesToCompile(Map<String, JavaClass> classes) throws IOException {
-    // first pass: determine dependencies 
+    // first pass: determine dependencies
     for (JavaClass jc : classes.values()) {
       if (jc.dependencies == null)
         jc.dependencies = determineDependencies(jc, classes);
@@ -543,7 +544,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     }
     List<File> list = new ArrayList<File>();
     for (JavaClass jc : classes.values()) {
-      // if (jc.doCompile) // - enable this to set up minimal compiling 
+      // if (jc.doCompile) // - enable this to set up minimal compiling
       list.add(jc.sourceFile);
     }
     return list;
@@ -585,7 +586,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
         if (imp.endsWith(".*")) {
           String mask = imp.substring(0, imp.length()-1);
           for (String s : classes.keySet()) {
-            if (s.startsWith(mask)) { 
+            if (s.startsWith(mask)) {
               list.add(classes.get(s));
               found = true;
             }
@@ -613,7 +614,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     // execute the jar file javatest.jar to check that it's version matches the version of the reference implemetnation bound in to the build tool
     // also serves as as check of the java
 //
-    String destFile = Utilities.path(System.getProperty("java.io.tmpdir"), "java-version.tmp"); 
+    String destFile = Utilities.path(System.getProperty("java.io.tmpdir"), "java-version.tmp");
     File file = new CSFile(destFile);
     if (file.exists())
       file.delete();
@@ -632,7 +633,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     String s;
     while ((s = stdError.readLine()) != null) {
       System.err.println(s);
-    }    
+    }
     builder.directory(new File(folders.dstDir));
 
     process.waitFor();
@@ -684,10 +685,10 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
           jar.putNextEntry(entry);
           jar.closeEntry();
         }
-      } 
+      }
       for (File f: file.listFiles())
         if (f.getName().endsWith(".class") || f.getName().endsWith(".jar") || f.isDirectory())
-          AddToJar(jar, f, rootLen, names);    
+          AddToJar(jar, f, rootLen, names);
     } else {
       String n = file.getPath().substring(rootLen).replace("\\", "/");
       if (!names.contains(n)) {
@@ -722,13 +723,13 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     // for debugging: do it in process
     if (IN_PROCESS) {
       ToolsHelper t = new ToolsHelper();
-      String[] cmds = new String[] {"json", sourceFile, destFile};    
+      String[] cmds = new String[] {"json", sourceFile, destFile};
       t.executeCanonicalXml(cmds);
     } else {
 
       // execute the jar file javatest.jar
       // it will produce either the specified output file, or [output file].err with an exception
-      // 
+      //
       File file = new CSFile(destFile);
       if (file.exists())
         file.delete();
@@ -752,12 +753,12 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       String s;
       while ((s = stdError.readLine()) != null) {
         System.err.println(s);
-      }    
+      }
 
       process.waitFor();
       if (new File(destFile+".err").exists())
         throw new Exception(TextFile.fileToString(destFile+".err"));
-    } 
+    }
   }
 
 
