@@ -1,5 +1,8 @@
 package org.hl7.fhir.dstu3.validation;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -1624,7 +1627,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	              break;
 	        case CHOICE:     
 	          String itemType=validateQuestionnaireResponseItemType(errors, answer, ns, "Coding", "date", "time", "integer", "string");
-	          if (itemType.equals("Coding")) validateAnswerCode(errors, answer, ns, qsrc, qItem);
+	          if (itemType.equals("Coding")) validateAnswerCode(errors, answer, ns, qsrc, qItem, false);
 	          else if (itemType.equals("date")) checkOption(errors, answer, ns, qsrc, qItem, "date");
 	          else if (itemType.equals("time")) checkOption(errors, answer, ns, qsrc, qItem, "time");
 	          else if (itemType.equals("integer")) checkOption(errors, answer, ns, qsrc, qItem, "integer");
@@ -1632,7 +1635,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             break;
 	        case OPENCHOICE: 
 	          itemType=validateQuestionnaireResponseItemType(errors, answer, ns, "Coding", "date", "time", "integer", "string");
-	          if (itemType.equals("Coding")) validateAnswerCode(errors, answer, ns, qsrc, qItem);
+	          if (itemType.equals("Coding")) validateAnswerCode(errors, answer, ns, qsrc, qItem, true);
 	          else if (itemType.equals("date")) checkOption(errors, answer, ns, qsrc, qItem, "date");
 	          else if (itemType.equals("time")) checkOption(errors, answer, ns, qsrc, qItem, "time");
 	          else if (itemType.equals("integer")) checkOption(errors, answer, ns, qsrc, qItem, "integer");
@@ -1641,14 +1644,16 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	        }
 	        validateQuestionannaireResponseItems(qsrc, qItem.getItem(), errors, answer, stack, inProgress);
 	    }
-	  if (qItem.getType() == QuestionnaireItemType.GROUP)
+	  if (qItem.getType() == null) {
+	    fail(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), false, "Definition for item "+qItem.getLinkId() + " does not contain a type");
+	  } else if (qItem.getType() == QuestionnaireItemType.GROUP) {
 	    validateQuestionannaireResponseItems(qsrc, qItem.getItem(), errors, element, stack, inProgress);
-	  else {
+	  } else {
 	    List<WrapperElement> items = new ArrayList<InstanceValidator.WrapperElement>();
       element.getNamedChildren("item", items);
       for (WrapperElement item : items) {
 	        NodeStack ns = stack.push(item, -1, null, null);
-	          rule(errors, IssueType.STRUCTURE, answers.get(1).line(), answers.get(1).col(), stack.getLiteralPath(), false, "Items not of type group should not have items");
+         rule(errors, IssueType.STRUCTURE, answers.get(0).line(), answers.get(0).col(), stack.getLiteralPath(), false, "Items not of type group should not have items - Item with linkId {0} of type {1} has {2} item(s)", qItem.getLinkId(), qItem.getType(), items.size());
 	      }
 	  }
 	}
@@ -1765,11 +1770,17 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	  rule(errors, IssueType.STRUCTURE, value.line(), value.col(), stack.getLiteralPath(), found, "The code "+system+"::"+code+" is not a valid option");
 	}*/
 
-	private void validateAnswerCode(List<ValidationMessage> errors, WrapperElement value, NodeStack stack, Questionnaire qSrc, Reference ref) {
+	private void validateAnswerCode(List<ValidationMessage> errors, WrapperElement value, NodeStack stack, Questionnaire qSrc, Reference ref, boolean theOpenChoice) {
 	  ValueSet vs = resolveBindingReference(qSrc, ref);
 	  if (warning(errors, IssueType.CODEINVALID, value.line(), value.col(), stack.getLiteralPath(), vs != null, "ValueSet " + describeReference(ref) + " not found"))  {
 	    try {
 	      Coding c = readAsCoding(value);
+	      if (isBlank(c.getCode()) && isBlank(c.getSystem()) && isNotBlank(c.getDisplay())) {
+	      	if (theOpenChoice) {
+	      		return;
+	      	}
+	      }
+	      
 	      ValidationResult res = context.validateCode(c, vs);
 	      if (!res.isOk())
 	        rule(errors, IssueType.CODEINVALID, value.line(), value.col(), stack.getLiteralPath(), false, "The value provided ("+c.getSystem()+"::"+c.getCode()+") is not in the options value set in the questionnaire");
@@ -1779,14 +1790,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	  }
 	}
 
-	private void validateAnswerCode( List<ValidationMessage> errors, WrapperElement answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem) {
+	private void validateAnswerCode( List<ValidationMessage> errors, WrapperElement answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean theOpenChoice) {
 	  WrapperElement v = answer.getNamedChild("valueCoding");
 	  NodeStack ns = stack.push(v, -1, null, null);
 	  if (qItem.getOption().size() > 0)
-	  	checkCodingOption(errors, answer, stack, qSrc, qItem, false);
+	  	checkCodingOption(errors, answer, stack, qSrc, qItem, theOpenChoice);
 //	    validateAnswerCode(errors, v, stack, qItem.getOption());
 	  else if (qItem.hasOptions())
-	    validateAnswerCode(errors, v, stack, qSrc, qItem.getOptions());
+	    validateAnswerCode(errors, v, stack, qSrc, qItem.getOptions(), theOpenChoice);
 	  else
 	    hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate options because no option or options are provided");
 	}
@@ -1900,7 +1911,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			List<StringType> list = new ArrayList<StringType>();
 	    for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
 	    	try {
+	    		if (components.getValue() != null) {
     			list.add(components.getValueStringType());
+	    		}
     		} catch (FHIRException e) {
     			// If it's the wrong type, just keep going
     		}
@@ -1919,8 +1932,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			  	rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The string "+v.getAttribute("value")+" is not a valid option");
 			  }
 	  	}
-	  } else
+	  } else {
 	    hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate string answer option because no option list is provided");
+	}
 	}
 
 	private void checkCodingOption( List<ValidationMessage> errors, WrapperElement answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
@@ -1932,7 +1946,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			List<Coding> list = new ArrayList<Coding>();
 	    for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
 	    	try {
+	    		if (components.getValue() != null) {
     			list.add(components.getValueCoding());
+	    		}
     		} catch (FHIRException e) {
     			// If it's the wrong type, just keep going
     		}

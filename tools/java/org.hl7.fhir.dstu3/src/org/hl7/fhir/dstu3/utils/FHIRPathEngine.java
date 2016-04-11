@@ -155,9 +155,9 @@ public class FHIRPathEngine {
    */
   public ExpressionNode parse(FHIRLexer lexer) throws FHIRLexerException {
     ExpressionNode result = parseExpression(lexer, true);
-    result.check();
-    return result;    
-  }
+		result.check();
+		return result;    
+	}
 
 	/**
 	 * check that paths referred to in the ExpressionNode are valid
@@ -172,8 +172,7 @@ public class FHIRPathEngine {
 	 * @throws PathEngineException 
 	 * @if the path is not valid
 	 */
-  public TypeDetails check(Object appContext, String resourceType, String context, String path) throws FHIRLexerException, PathEngineException, DefinitionException {
-		ExpressionNode expr = parse(path);
+  public TypeDetails check(Object appContext, String resourceType, String context, ExpressionNode expr) throws FHIRLexerException, PathEngineException, DefinitionException {
 		// if context is a path that refers to a type, do that conversion now 
 		if (!allTypes.containsKey(context))
 		  context = checkCanConvertToType(context);
@@ -182,6 +181,10 @@ public class FHIRPathEngine {
     return executeType(new ExecutionTypeContext(appContext, resourceType, ctxt), types, expr, true);
 	}
 
+  public TypeDetails check(Object appContext, String resourceType, String context, String expr) throws FHIRLexerException, PathEngineException, DefinitionException {
+  	return check(appContext, resourceType, context, parse(expr));
+  }
+  
 	private String checkCanConvertToType(String context) {
 	  String[] path = context.split("\\.");
 	  StructureDefinition sd = allTypes.get(path[0]);
@@ -287,7 +290,7 @@ public class FHIRPathEngine {
 		return convertToBoolean(evaluate(null, resource, base, path));
 	}
 
-  /**
+	/**
    * evaluate a path and return true or false (e.g. for an invariant)
    * 
    * @param base - the object against which the path is being evaluated
@@ -436,7 +439,7 @@ public class FHIRPathEngine {
 			if (lexer.getCurrent().startsWith("\""))
         result.setName(lexer.readConstant("Path Name"));
 			else
-			  result.setName(lexer.take());
+			result.setName(lexer.take());
 			result.setEnd(lexer.getCurrentLocation());
       if (!result.checkName())
 				throw lexer.error("Found "+result.getName()+" expecting a valid token name");

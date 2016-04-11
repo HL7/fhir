@@ -477,6 +477,11 @@
   Path = Procedure.subject
   Target Types = Patient
 
+ -- Row 9 -----------------------------------
+  Name = category
+  Type = token
+  Path = Procedure.category
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

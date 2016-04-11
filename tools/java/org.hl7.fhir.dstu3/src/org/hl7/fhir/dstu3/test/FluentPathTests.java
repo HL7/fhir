@@ -82,8 +82,9 @@ public class FluentPathTests {
       context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
     FHIRPathEngine fp = new FHIRPathEngine(context);
 
-    fp.check(null, resource.getResourceType().toString(), resource.getResourceType().toString(), expression);
     ExpressionNode node = fp.parse(expression);
+    System.out.println(node.toString());
+    fp.check(null, resource.getResourceType().toString(), resource.getResourceType().toString(), node);
     List<Base> outcome = fp.evaluate(resource, node);
     if (fp.hasLog())
       System.out.println(fp.takeLog());
@@ -108,8 +109,9 @@ public class FluentPathTests {
       context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
     FHIRPathEngine fp = new FHIRPathEngine(context);
 
-    fp.check(null, null, resource.getResourceType().toString(), expression);
     ExpressionNode node = fp.parse(expression);
+    System.out.println(node.toString());
+    fp.check(null, null, resource.getResourceType().toString(), node);
     List<Base> outcome = fp.evaluate(null, null, resource, node);
     if (fp.hasLog())
       System.out.println(fp.takeLog());
@@ -123,8 +125,9 @@ public class FluentPathTests {
       context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
     FHIRPathEngine fp = new FHIRPathEngine(context);
 
-    fp.check(null, resource == null ? null : resource.getResourceType().toString(), focusType, expression);
     ExpressionNode node = fp.parse(expression);
+    System.out.println(node.toString());
+    fp.check(null, resource == null ? null : resource.getResourceType().toString(), focusType, node);
     List<Base> outcome = fp.evaluate(null, resource, focus, node);
     if (fp.hasLog())
       System.out.println(fp.takeLog());
@@ -138,8 +141,9 @@ public class FluentPathTests {
     FHIRPathEngine fp = new FHIRPathEngine(context);
 
     try {
-      fp.check(null, null, resource.getResourceType().toString(), expression);
       ExpressionNode node = fp.parse(expression);
+      System.out.println(node.toString());
+      fp.check(null, null, resource.getResourceType().toString(), node);
       fp.evaluate(null, null, resource, node);
       if (fp.hasLog())
         System.out.println(fp.takeLog());

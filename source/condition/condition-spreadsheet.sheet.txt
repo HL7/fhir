@@ -111,14 +111,14 @@
   Context = Condition.stage
   English = Stage SHALL have summary or assessment
   XPath = exists(f:summary) or exists(f:assessment)
-  FHIRPath = summary or assessment
+  Expression = summary or assessment
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Condition.evidence
   English = evidence SHALL have code or details
   XPath = exists(f:code) or exists(f:detail)
-  FHIRPath = code or detail
+  Expression = code or detail
 
 === Sheet Data Elements =====================================
 
@@ -347,9 +347,9 @@
   RIM Mapping = .targetBodySiteCode
 
  -- Row 22 -----------------------------------
-  Element = Condition.notes
-  Card. = 0..1
-  Type = string
+  Element = Condition.note
+  Card. = 0..*
+  Type = Annotation
   Short Label = Additional information about the Condition
   Definition = Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis
   v2 Mapping = NTE child of PRB

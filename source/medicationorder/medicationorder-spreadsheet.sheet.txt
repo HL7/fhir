@@ -209,7 +209,7 @@
   Binding = OrderReason
   Short Label = Reason or indication for writing the prescription
   Definition = Can be the reason or the indication for writing the prescription.
-  Comments = This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonReference instead.
+  Comments = This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonReference.
   v2 Mapping = ORC-16-Order Control Code Reason /RXE-27-Give Indication/RXO-20-Indication / RXD-21-Indication / RXG-22-Indication / RXA-19-Indication
   RIM Mapping = reason.observation or reason.observation[code=ASSERTION].value
   w5 = why
@@ -220,6 +220,7 @@
   Type = Reference(Condition)
   Short Label = Condition that supports why the prescription is being written
   Definition = Condition that supports why the prescription is being written
+  Comments = This is a reference to a condition that is the reason for the medication order.  If only a code exists, use reasonCode.
   w5 = why
 
  -- Row 11 -----------------------------------
@@ -335,16 +336,6 @@
   RIM Mapping = doseQuantity
 
  -- Row 23 -----------------------------------
-  Element = MedicationOrder.dosageInstruction.rate[x]
-  Card. = 0..1
-  Type = Ratio|Range | SimpleQuantity
-  Short Label = Amount of medication per unit of time
-  Definition = Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of \'1\' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours
-  Comments = It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationOrder with an updated rate, or captured with a new MedicationOrder with the new rate.
-  v2 Mapping = RXE-22-Give Per (Time Unit)
-  RIM Mapping = rateQuantity
-
- -- Row 24 -----------------------------------
   Element = MedicationOrder.dosageInstruction.maxDosePerPeriod
   Card. = 0..1
   Type = Ratio
@@ -354,7 +345,25 @@
   v2 Mapping = RXE-4-Give Amount - Maximum / RXE-5-Give Units
   RIM Mapping = maxDoseQuantity
 
+ -- Row 24 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.maxDosePerAdministration
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Label = Upper limit on medication per administration
+  Definition = The maximum total quantity of a therapeutic substance that may be administered to a subject per administration.
+  Comments = This is intended for use as an adjunct to the dosage when there is an upper cap.  For example, a body surface area related dose with a maximum amount, such as 1.5 mg/m2 (maximum 2 mg) IV over 5 – 10 minutes would have doseQuantity of 1.5 mg/m2 and maxDosePerAdministration of 2 mg.
+
  -- Row 25 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.rate[x]
+  Card. = 0..1
+  Type = Ratio|Range | SimpleQuantity
+  Short Label = Amount of medication per unit of time
+  Definition = Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of \'1\' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours
+  Comments = It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationOrder with an updated rate, or captured with a new MedicationOrder with the new rate.
+  v2 Mapping = RXE-22-Give Per (Time Unit)
+  RIM Mapping = rateQuantity
+
+ -- Row 26 -----------------------------------
   Element = MedicationOrder.dispenseRequest
   Card. = 0..1
   UML = 400;240
@@ -362,7 +371,7 @@
   Definition = Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
   RIM Mapping = component.supplyEvent
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = MedicationOrder.dispenseRequest.medication[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Medication)
@@ -372,7 +381,7 @@
   v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code
   RIM Mapping = consumable.role
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = MedicationOrder.dispenseRequest.validityPeriod
   Card. = 0..1
   Type = Period
@@ -382,7 +391,7 @@
   Comments = It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations.
   RIM Mapping = effectiveTime
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = MedicationOrder.dispenseRequest.numberOfRepeatsAllowed
   Card. = 0..1
   Type = positiveInt
@@ -392,7 +401,7 @@
   v2 Mapping = RXE-12-Number of Refills
   RIM Mapping = repeatNumber
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = MedicationOrder.dispenseRequest.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -401,7 +410,7 @@
   v2 Mapping = RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system
   RIM Mapping = quantity
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = MedicationOrder.dispenseRequest.expectedSupplyDuration
   Card. = 0..1
   Type = Duration
@@ -410,7 +419,7 @@
   Comments = In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.
   RIM Mapping = expectedUseTime
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = MedicationOrder.substitution
   Card. = 0..1
   UML = 0;260
@@ -418,7 +427,7 @@
   Definition = Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber\'s intent. If nothing is specified substitution may be done.
   RIM Mapping = subjectOf.substitutionPersmission
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = MedicationOrder.substitution.type
   Card. = 1..1
   Type = CodeableConcept
@@ -428,7 +437,7 @@
   v2 Mapping = RXO-9-Allow Substitutions / RXE-9-Substitution Status
   RIM Mapping = code
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = MedicationOrder.substitution.reason
   Card. = 0..1
   Type = CodeableConcept
@@ -438,7 +447,7 @@
   v2 Mapping = RXE-9 Substition status
   RIM Mapping = reasonCode
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = MedicationOrder.priorPrescription
   Card. = 0..1
   Type = Reference(MedicationOrder)

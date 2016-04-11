@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.utils.StructureMapCompiler;
@@ -19,7 +20,9 @@ public class StructureMapTests {
   private void testParse(String path) throws FileNotFoundException, IOException, FHIRException {
     if (context == null)
       context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
-    new StructureMapCompiler(context).parse(TextFile.fileToString(Utilities.path("C:\\work\\org.hl7.fhir\\build", path)));
+    StructureMapCompiler scm = new StructureMapCompiler(context);
+    StructureMap map = scm.parse(TextFile.fileToString(Utilities.path("C:\\work\\org.hl7.fhir\\build", path)));
+    TextFile.stringToFile(scm.render(map), Utilities.path("C:\\work\\org.hl7.fhir\\build", path+".out"));
   }
   
   @Test

@@ -88,9 +88,16 @@
  -- Row 2 -----------------------------------
   Id = 2
   Context = MedicationStatement
-  English = Reason for use is only permitted if wasNotTaken is false
-  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUse\')]) and f:wasNotTaken/@value=true())
-  Expression = reasonForUse.empty() or wasNotTaken = false
+  English = Reason for use code is only permitted if wasNotTaken is false
+  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUseCode\')]) and f:wasNotTaken/@value=true())
+  Expression = reasonForUseCode.empty() or wasNotTaken = false
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = MedicationStatement
+  English = Reason for use reference is only permitted if wasNotTaken is false
+  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUseReference\')]) and f:wasNotTaken/@value=true())
+  Expression = reasonForUseReference.empty() or wasNotTaken = false
 
 === Sheet Data Elements =====================================
 
@@ -198,14 +205,24 @@
   RIM Mapping = SubstanceAdministration->Reason->Observation->Value
 
  -- Row 12 -----------------------------------
-  Element = MedicationStatement.reasonForUse[x]
-  Card. = 0..1
-  Type = CodeableConcept | Reference(Condition)
+  Element = MedicationStatement.reasonForUseCode
+  Card. = 0..*
+  Type = CodeableConcept
   Binding = MedicationReason
+  Short Label = Reason for why the medication is being/was taken
   Definition = A reason for why the medication is being/was taken.
+  Comments = This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonForUseReference.
   RIM Mapping = .reasonCode
 
  -- Row 13 -----------------------------------
+  Element = MedicationStatement.reasonForUseReference
+  Card. = 0..*
+  Type = Reference(Condition)
+  Short Label = Condition that supports why the medication is being/was taken
+  Definition = Condition that supports why the medication is being/was taken.
+  Comments = This is a reference to a condition that is the reason why the medication is being/was taken.  If only a code exists, use reasonForUseCode.
+
+ -- Row 14 -----------------------------------
   Element = MedicationStatement.note
   Card. = 0..*
   Type = Annotation
@@ -213,7 +230,7 @@
   Definition = Provides extra information about the medication statement that is not conveyed by the other attributes.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MedicationStatement.dosage
   Card. = 0..*
   UML = right
@@ -222,7 +239,7 @@
   RIM Mapping = SubstanceAdministration>Component>SubstanceAdministrationRequest
   Committee Notes = The RMIM has priority code on the act relationship.  How do we handle this?
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationStatement.dosage.text
   Card. = 0..1
   Type = string
@@ -230,7 +247,7 @@
   Definition = Free text dosage information as reported about a patient\'s medication use. When coded dosage information is present, the free text may still be present for display to humans.
   RIM Mapping = .text
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationStatement.dosage.timing
   Card. = 0..1
   Type = Timing
@@ -238,7 +255,7 @@
   Definition = The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"
   RIM Mapping = .effectiveTime
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationStatement.dosage.asNeeded[x]
   Card. = 0..1
   Type = boolean | CodeableConcept
@@ -247,7 +264,7 @@
   Definition = Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).  \n\nSpecifically if \'boolean\' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.
   RIM Mapping = boolean: .outboundRelationship[typeCode=PRCN].negationInd (inversed - so negationInd = true means asNeeded=false  CodeableConcept: .outboundRelationship[typCode=PRCN].target[classCode=OBS, moodCode=EVN, isCriterionInd=true, code=\"Assertion\"].value
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationStatement.dosage.site[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(BodySite)
@@ -256,7 +273,7 @@
   Definition = A coded specification of or a reference to the anatomic site where the medication first enters the body
   RIM Mapping = .approachSiteCode
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MedicationStatement.dosage.route
   Card. = 0..1
   Type = CodeableConcept
@@ -265,7 +282,7 @@
   Definition = A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
   RIM Mapping = .routeCode
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationStatement.dosage.method
   Card. = 0..1
   Type = CodeableConcept
@@ -275,7 +292,7 @@
   Comments = One of the reasons this attribute is not used often, is that the method is often pre-coordinated with the route and/or form of administration.  This means the codes used in route or form may pre-coordinate the method in the route code or the form code.  The implementation decision about what coding system to use for route or form code will determine how frequently the method code will be populated e.g. if route or form code pre-coordinate method code, then this attribute will not be populated often; if there is no pre-coordination then method code may  be used frequently.
   RIM Mapping = .methodCode
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MedicationStatement.dosage.quantity[x]
   Card. = 0..1
   Type = SimpleQuantity | Range
@@ -283,7 +300,7 @@
   Definition = The amount of therapeutic or other substance given at one administration event.
   RIM Mapping = .doseQuantity
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MedicationStatement.dosage.rate[x]
   Card. = 0..1
   Type = Ratio|Range
@@ -291,7 +308,7 @@
   Definition = Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of \'1\' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours
   RIM Mapping = .rateQuantity
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = MedicationStatement.dosage.maxDosePerPeriod
   Card. = 0..1
   Type = Ratio

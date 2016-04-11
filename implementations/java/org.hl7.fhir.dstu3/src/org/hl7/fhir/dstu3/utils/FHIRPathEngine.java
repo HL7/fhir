@@ -172,8 +172,7 @@ public class FHIRPathEngine {
 	 * @throws PathEngineException 
 	 * @if the path is not valid
 	 */
-  public TypeDetails check(Object appContext, String resourceType, String context, String path) throws FHIRLexerException, PathEngineException, DefinitionException {
-		ExpressionNode expr = parse(path);
+  public TypeDetails check(Object appContext, String resourceType, String context, ExpressionNode expr) throws FHIRLexerException, PathEngineException, DefinitionException {
 		// if context is a path that refers to a type, do that conversion now 
 		if (!allTypes.containsKey(context))
 		  context = checkCanConvertToType(context);
@@ -182,6 +181,10 @@ public class FHIRPathEngine {
     return executeType(new ExecutionTypeContext(appContext, resourceType, ctxt), types, expr, true);
 	}
 
+  public TypeDetails check(Object appContext, String resourceType, String context, String expr) throws FHIRLexerException, PathEngineException, DefinitionException {
+  	return check(appContext, resourceType, context, parse(expr));
+  }
+  
 	private String checkCanConvertToType(String context) {
 	  String[] path = context.split("\\.");
 	  StructureDefinition sd = allTypes.get(path[0]);

@@ -207,14 +207,14 @@
   Comments = This will typically be captured for statuses such as rejected, on-hold or cancelled, but could be present for others.
 
  -- Row 11 -----------------------------------
-  Element = Goal.author
+  Element = Goal.expressedBy
   Card. = 0..1
   Summary = Y
   Type = Reference(Patient|Practitioner|RelatedPerson)
   Short Label = Who\'s responsible for creating Goal?
   Definition = Indicates whose goal this is - patient goal, practitioner goal, etc.
   Comments = This is the individual reponsible for establishing the goal, not necessarily who recorded it.  (For that, use the Provenance resource.)
-  w5 = who.actor
+  w5 = who.source
 
  -- Row 12 -----------------------------------
   Element = Goal.priority

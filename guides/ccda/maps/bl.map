@@ -3,7 +3,7 @@ map "http://hl7.org/fhir/StructureMap/cda-bl" = "V3/FHIR Mappings: BL"
 uses "http://hl7.org/fhir/StructureDefinition/cda-BL" as source
 uses "http://hl7.org/fhir/StructureDefinition/boolean" as target
 
-imports "http://hl7.org/fhir/StructureMap/cda-any"; 
+imports "http://hl7.org/fhir/StructureMap/cda-any"
 
 group BL2Boolean extends ANY2Element
   input src : BL as source;

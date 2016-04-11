@@ -654,6 +654,11 @@
   Description = A combination of the type of relationship and the related plan
   Path = relatedcode & relatedplan
 
+ -- Row 14 -----------------------------------
+  Name = category
+  Type = token
+  Path = CarePlan.category
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

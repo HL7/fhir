@@ -134,9 +134,9 @@
  -- Row 5 -----------------------------------
   Element = CommunicationRequest.recipient
   Card. = 0..*
-  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
+  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group|CareTeam)
   Short Label = Message recipient
-  Definition = The entity (e.g. person, organization, clinical information system, or device) which is the intended target of the communication
+  Definition = The entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication
   w5 = who.focus
 
  -- Row 6 -----------------------------------
