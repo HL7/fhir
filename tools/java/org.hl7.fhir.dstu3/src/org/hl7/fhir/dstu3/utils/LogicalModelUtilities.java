@@ -7,21 +7,24 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.lang3.NotImplementedException;
+import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
+import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
 import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.Type;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IConstantResolver;
+import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext;
+import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext.FunctionDetails;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 
-public class LogicalModelUtilities implements IConstantResolver {
+public class LogicalModelUtilities implements IEvaluationContext {
 
   private IWorkerContext context;
   
@@ -175,6 +178,31 @@ public class LogicalModelUtilities implements IConstantResolver {
       return "CodeableConcept";
     else
       throw new NotImplementedException("Not done yet ("+name+")");
+  }
+
+  @Override
+  public boolean Log(String argument, List<Base> focus) {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
+
+  @Override
+  public FunctionDetails resolveFunction(String functionName) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public TypeDetails checkFunction(Object appInfo, String functionName, List<TypeDetails> parameters) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public List<Base> executeFunction(Object appInfo, String functionName, List<List<Base>> parameters) {
+    // TODO Auto-generated method stub
+    return null;
   }
   
 }

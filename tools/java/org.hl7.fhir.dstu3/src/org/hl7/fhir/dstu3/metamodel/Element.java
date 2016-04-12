@@ -157,5 +157,12 @@ public class Element {
 		return res;
 	}
 
+  public boolean hasType() {
+    if (type == null)
+      return property.hasType(name);
+    else
+      return true;
+  }
+
 	
 }

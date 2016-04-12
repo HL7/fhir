@@ -30,6 +30,7 @@ import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -169,6 +170,10 @@ public class CDAGenerator {
         processDataType(dt, n+"_TS", "TS");
         processDataType(dt, n+"_PQ", "PQ");
         processDataType(dt, n+"_INT", "INT");
+      } else if (n.equals("PIVL")) {
+        processDataType(dt, n+"_TS", null);
+      } else if (n.equals("EIVL")) {
+        processDataType(dt, n+"_TS", null);
       } else if (n.equals("RTO")) {
         processDataType(dt, n+"_PQ_PQ", "PQ");
       } else if (!"Binding".equals(dt.getAttribute("datatypeKind")))
@@ -190,6 +195,9 @@ public class CDAGenerator {
   }
 
   private void generateSnapShot(StructureDefinition dst, StructureDefinition src, String typeName) {
+    if (dst.hasSnapshot() && dst.getSnapshot().getElement().size() > 1)
+      return;
+    
     if (src.hasBaseDefinition()) {
       StructureDefinition dt = getDataType(src.getBaseDefinition());
       if (dt != null)
@@ -201,7 +209,13 @@ public class CDAGenerator {
       if (path.contains(".")) {
         path = typeName + path.substring(path.indexOf("."));
         ned.setPath(path);
-        dst.getSnapshot().getElement().add(ned);
+        boolean found = false;
+        for (ElementDefinition de : dst.getSnapshot().getElement()) {
+          if (de.getPath().equals(path)) 
+            found = true;
+        }
+        if (!found)
+          dst.getSnapshot().getElement().add(ned);
       } 
     }
   }
@@ -245,8 +259,8 @@ public class CDAGenerator {
     ed.setMax("*");
     ed.addRepresentation(PropertyRepresentation.TYPEATTR);
     ed.addType().setCode("IVL_TS");
-    ed.addType().setCode("EIVL");
-    ed.addType().setCode("PIVL");
+    ed.addType().setCode("EIVL_TS");
+    ed.addType().setCode("PIVL_TS");
     ed.addType().setCode("SXPR_TS");
     sd.getDifferential().getElement().add(ed);
     
@@ -330,7 +344,7 @@ public class CDAGenerator {
         sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/ANY");
       } else if (Utilities.existsInList(n, "SXCM_TS") ) {
         sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/TS");
-      } else if (n.equals("PIVL") || n.equals("EIVL") || n.equals("IVL_TS")) {
+      } else if (n.equals("PIVL_TS") || n.equals("EIVL_TS") || n.equals("IVL_TS")) {
         sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/SXCM_TS");
       } else if (derived != null) {
         sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+XMLUtil.getNamedChildAttribute(derived, "mif:targetDatatype", "name"));
@@ -423,6 +437,7 @@ public class CDAGenerator {
     ed.addRepresentation(PropertyRepresentation.XMLATTR);
     ed.setDefinition("The valueSet extension adds an attribute for elements with a CD dataType which indicates the particular value set constraining the coded concept");
     ed.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:sdtc"));
+    ed = new ElementDefinition();
     ed.setPath(n+".valueSetVersion");
     ed.setMin(0);
     ed.setMax("1");
@@ -529,9 +544,10 @@ public class CDAGenerator {
       ed.setMax("*");
       ed.addRepresentation(PropertyRepresentation.TYPEATTR);
       ed.addType().setCode("IVL_TS");
-      ed.addType().setCode("EIVL");
-      ed.addType().setCode("PIVL");
+      ed.addType().setCode("EIVL_TS");
+      ed.addType().setCode("PIVL_TS");
       ed.addType().setCode("SXPR_TS");
+      ed.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-defaultype").setValue(new StringType("SXPR_TS"));
     } else
       ed.addType().setCode(t);
     if (p == PropStatus.ATTRIBUTE)
@@ -870,9 +886,10 @@ public class CDAGenerator {
       ed.setMax("*");
       ed.addRepresentation(PropertyRepresentation.TYPEATTR);
       ed.addType().setCode("IVL_TS");
-      ed.addType().setCode("EIVL");
-      ed.addType().setCode("PIVL");
+      ed.addType().setCode("EIVL_TS");
+      ed.addType().setCode("PIVL_TS");
       ed.addType().setCode("SXPR_TS");
+      ed.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-defaultype").setValue(new StringType("SXPR_TS"));
     } else if ("ANY".equals(type)) {
       ed.addRepresentation(PropertyRepresentation.TYPEATTR);
       ed.addType().setCode("BL");
@@ -893,8 +910,8 @@ public class CDAGenerator {
       ed.addType().setCode("TS");
       ed.addType().setCode("IVL_PQ");
       ed.addType().setCode("IVL_TS");
-      ed.addType().setCode("PIVL");
-      ed.addType().setCode("EIVL");
+      ed.addType().setCode("PIVL_TS");
+      ed.addType().setCode("EIVL_TS");
       ed.addType().setCode("SXPR_TS");      
     } else 
       ed.addType().setCode(type);

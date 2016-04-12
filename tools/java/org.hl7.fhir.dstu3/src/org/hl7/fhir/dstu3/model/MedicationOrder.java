@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
+// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -257,20 +257,27 @@ public class MedicationOrder extends DomainResource {
         protected Type dose;
 
         /**
-         * Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.
-         */
-        @Child(name = "rate", type = {Ratio.class, Range.class, SimpleQuantity.class}, order=9, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Amount of medication per unit of time", formalDefinition="Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours." )
-        protected Type rate;
-
-        /**
          * The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.
          */
-        @Child(name = "maxDosePerPeriod", type = {Ratio.class}, order=10, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "maxDosePerPeriod", type = {Ratio.class}, order=9, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Upper limit on medication per unit of time", formalDefinition="The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours." )
         protected Ratio maxDosePerPeriod;
 
-        private static final long serialVersionUID = -1470136646L;
+        /**
+         * The maximum total quantity of a therapeutic substance that may be administered to a subject per administration.
+         */
+        @Child(name = "maxDosePerAdministration", type = {SimpleQuantity.class}, order=10, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Upper limit on medication per administration", formalDefinition="The maximum total quantity of a therapeutic substance that may be administered to a subject per administration." )
+        protected SimpleQuantity maxDosePerAdministration;
+
+        /**
+         * Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.
+         */
+        @Child(name = "rate", type = {Ratio.class, Range.class, SimpleQuantity.class}, order=11, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Amount of medication per unit of time", formalDefinition="Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours." )
+        protected Type rate;
+
+        private static final long serialVersionUID = 1530665967L;
 
     /**
      * Constructor
@@ -560,6 +567,54 @@ public class MedicationOrder extends DomainResource {
         }
 
         /**
+         * @return {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.)
+         */
+        public Ratio getMaxDosePerPeriod() { 
+          if (this.maxDosePerPeriod == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationOrderDosageInstructionComponent.maxDosePerPeriod");
+            else if (Configuration.doAutoCreate())
+              this.maxDosePerPeriod = new Ratio(); // cc
+          return this.maxDosePerPeriod;
+        }
+
+        public boolean hasMaxDosePerPeriod() { 
+          return this.maxDosePerPeriod != null && !this.maxDosePerPeriod.isEmpty();
+        }
+
+        /**
+         * @param value {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.)
+         */
+        public MedicationOrderDosageInstructionComponent setMaxDosePerPeriod(Ratio value) { 
+          this.maxDosePerPeriod = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #maxDosePerAdministration} (The maximum total quantity of a therapeutic substance that may be administered to a subject per administration.)
+         */
+        public SimpleQuantity getMaxDosePerAdministration() { 
+          if (this.maxDosePerAdministration == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationOrderDosageInstructionComponent.maxDosePerAdministration");
+            else if (Configuration.doAutoCreate())
+              this.maxDosePerAdministration = new SimpleQuantity(); // cc
+          return this.maxDosePerAdministration;
+        }
+
+        public boolean hasMaxDosePerAdministration() { 
+          return this.maxDosePerAdministration != null && !this.maxDosePerAdministration.isEmpty();
+        }
+
+        /**
+         * @param value {@link #maxDosePerAdministration} (The maximum total quantity of a therapeutic substance that may be administered to a subject per administration.)
+         */
+        public MedicationOrderDosageInstructionComponent setMaxDosePerAdministration(SimpleQuantity value) { 
+          this.maxDosePerAdministration = value;
+          return this;
+        }
+
+        /**
          * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
         public Type getRate() { 
@@ -617,30 +672,6 @@ public class MedicationOrder extends DomainResource {
           return this;
         }
 
-        /**
-         * @return {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.)
-         */
-        public Ratio getMaxDosePerPeriod() { 
-          if (this.maxDosePerPeriod == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderDosageInstructionComponent.maxDosePerPeriod");
-            else if (Configuration.doAutoCreate())
-              this.maxDosePerPeriod = new Ratio(); // cc
-          return this.maxDosePerPeriod;
-        }
-
-        public boolean hasMaxDosePerPeriod() { 
-          return this.maxDosePerPeriod != null && !this.maxDosePerPeriod.isEmpty();
-        }
-
-        /**
-         * @param value {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.)
-         */
-        public MedicationOrderDosageInstructionComponent setMaxDosePerPeriod(Ratio value) { 
-          this.maxDosePerPeriod = value;
-          return this;
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("text", "string", "Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.", 0, java.lang.Integer.MAX_VALUE, text));
@@ -651,8 +682,9 @@ public class MedicationOrder extends DomainResource {
           childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient's body.", 0, java.lang.Integer.MAX_VALUE, route));
           childrenList.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  For examples, Slow Push; Deep IV.", 0, java.lang.Integer.MAX_VALUE, method));
           childrenList.add(new Property("dose[x]", "Range|SimpleQuantity", "The amount of therapeutic or other substance given at one administration event.", 0, java.lang.Integer.MAX_VALUE, dose));
-          childrenList.add(new Property("rate[x]", "Ratio|Range|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, java.lang.Integer.MAX_VALUE, rate));
           childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
+          childrenList.add(new Property("maxDosePerAdministration", "SimpleQuantity", "The maximum total quantity of a therapeutic substance that may be administered to a subject per administration.", 0, java.lang.Integer.MAX_VALUE, maxDosePerAdministration));
+          childrenList.add(new Property("rate[x]", "Ratio|Range|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, java.lang.Integer.MAX_VALUE, rate));
         }
 
       @Override
@@ -673,10 +705,12 @@ public class MedicationOrder extends DomainResource {
           this.method = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("dose[x]"))
           this.dose = (Type) value; // Type
-        else if (name.equals("rate[x]"))
-          this.rate = (Type) value; // Type
         else if (name.equals("maxDosePerPeriod"))
           this.maxDosePerPeriod = castToRatio(value); // Ratio
+        else if (name.equals("maxDosePerAdministration"))
+          this.maxDosePerAdministration = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("rate[x]"))
+          this.rate = (Type) value; // Type
         else
           super.setProperty(name, value);
       }
@@ -726,6 +760,14 @@ public class MedicationOrder extends DomainResource {
           this.dose = new SimpleQuantity();
           return this.dose;
         }
+        else if (name.equals("maxDosePerPeriod")) {
+          this.maxDosePerPeriod = new Ratio();
+          return this.maxDosePerPeriod;
+        }
+        else if (name.equals("maxDosePerAdministration")) {
+          this.maxDosePerAdministration = new SimpleQuantity();
+          return this.maxDosePerAdministration;
+        }
         else if (name.equals("rateRatio")) {
           this.rate = new Ratio();
           return this.rate;
@@ -737,10 +779,6 @@ public class MedicationOrder extends DomainResource {
         else if (name.equals("rateSimpleQuantity")) {
           this.rate = new SimpleQuantity();
           return this.rate;
-        }
-        else if (name.equals("maxDosePerPeriod")) {
-          this.maxDosePerPeriod = new Ratio();
-          return this.maxDosePerPeriod;
         }
         else
           return super.addChild(name);
@@ -757,8 +795,9 @@ public class MedicationOrder extends DomainResource {
         dst.route = route == null ? null : route.copy();
         dst.method = method == null ? null : method.copy();
         dst.dose = dose == null ? null : dose.copy();
-        dst.rate = rate == null ? null : rate.copy();
         dst.maxDosePerPeriod = maxDosePerPeriod == null ? null : maxDosePerPeriod.copy();
+        dst.maxDosePerAdministration = maxDosePerAdministration == null ? null : maxDosePerAdministration.copy();
+        dst.rate = rate == null ? null : rate.copy();
         return dst;
       }
 
@@ -772,7 +811,8 @@ public class MedicationOrder extends DomainResource {
         return compareDeep(text, o.text, true) && compareDeep(additionalInstructions, o.additionalInstructions, true)
            && compareDeep(timing, o.timing, true) && compareDeep(asNeeded, o.asNeeded, true) && compareDeep(site, o.site, true)
            && compareDeep(route, o.route, true) && compareDeep(method, o.method, true) && compareDeep(dose, o.dose, true)
-           && compareDeep(rate, o.rate, true) && compareDeep(maxDosePerPeriod, o.maxDosePerPeriod, true);
+           && compareDeep(maxDosePerPeriod, o.maxDosePerPeriod, true) && compareDeep(maxDosePerAdministration, o.maxDosePerAdministration, true)
+           && compareDeep(rate, o.rate, true);
       }
 
       @Override
@@ -789,8 +829,8 @@ public class MedicationOrder extends DomainResource {
         return super.isEmpty() && (text == null || text.isEmpty()) && (additionalInstructions == null || additionalInstructions.isEmpty())
            && (timing == null || timing.isEmpty()) && (asNeeded == null || asNeeded.isEmpty()) && (site == null || site.isEmpty())
            && (route == null || route.isEmpty()) && (method == null || method.isEmpty()) && (dose == null || dose.isEmpty())
-           && (rate == null || rate.isEmpty()) && (maxDosePerPeriod == null || maxDosePerPeriod.isEmpty())
-          ;
+           && (maxDosePerPeriod == null || maxDosePerPeriod.isEmpty()) && (maxDosePerAdministration == null || maxDosePerAdministration.isEmpty())
+           && (rate == null || rate.isEmpty());
       }
 
   public String fhirType() {

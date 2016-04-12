@@ -30,6 +30,8 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class StructureMapCompiler {
 
+  public static final String MAP_WHERE_CHECK = "map.where.check";
+  public static final String MAP_WHERE_EXPRESSION = "map.where.expression";
   private IWorkerContext worker;
   private FHIRPathEngine fluent;
   
@@ -430,13 +432,13 @@ public class StructureMapCompiler {
     if (lexer.hasToken("where")) {
       lexer.take();
       ExpressionNode node = fluent.parse(lexer);
-      source.setUserData("map.where.expression", node);
+      source.setUserData(MAP_WHERE_EXPRESSION, node);
       source.setCondition(node.toString());
     }
     if (lexer.hasToken("check")) {
       lexer.take();
       ExpressionNode node = fluent.parse(lexer);
-      source.setUserData("map.where.check", node);
+      source.setUserData(MAP_WHERE_CHECK, node);
       source.setCheck(node.toString());
     }
   }

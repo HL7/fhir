@@ -48,6 +48,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
+import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -448,6 +449,12 @@ public class XMLUtil {
     DOMSource source = new DOMSource(doc);
     StreamResult streamResult =  new StreamResult(new File(filename));
     transformer.transform(source, streamResult);    
+  }
+
+  public static String getXsiType(org.w3c.dom.Element element) {
+    Attr a = element.getAttributeNodeNS("http://www.w3.org/2001/XMLSchema-instance", "type");
+    return (a == null ? null : a.getTextContent());
+    
   }
 
  	

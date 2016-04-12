@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
+// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -3349,8 +3349,8 @@ public class RdfParser extends RdfParserBase {
       composeConditionConditionEvidenceComponent(t, "Condition", "evidence", element.getEvidence().get(i), i);
     for (int i = 0; i < element.getBodySite().size(); i++)
       composeCodeableConcept(t, "Condition", "bodySite", element.getBodySite().get(i), i);
-    if (element.hasNotesElement())
-      composeString(t, "Condition", "notes", element.getNotesElement(), -1);
+    for (int i = 0; i < element.getNote().size(); i++)
+      composeAnnotation(t, "Condition", "note", element.getNote().get(i), i);
   }
 
   protected void composeConditionConditionStageComponent(Complex parent, String parentType, String name, Condition.ConditionStageComponent element, int index) {
@@ -6067,8 +6067,8 @@ public class RdfParser extends RdfParserBase {
       composeDate(t, "Goal", "statusDate", element.getStatusDateElement(), -1);
     if (element.hasStatusReason())
       composeCodeableConcept(t, "Goal", "statusReason", element.getStatusReason(), -1);
-    if (element.hasAuthor())
-      composeReference(t, "Goal", "author", element.getAuthor(), -1);
+    if (element.hasExpressedBy())
+      composeReference(t, "Goal", "expressedBy", element.getExpressedBy(), -1);
     if (element.hasPriority())
       composeCodeableConcept(t, "Goal", "priority", element.getPriority(), -1);
     for (int i = 0; i < element.getAddresses().size(); i++)
@@ -7977,10 +7977,12 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "MedicationOrder", "method", element.getMethod(), -1);
     if (element.hasDose())
       composeType(t, "MedicationOrder", "dose", element.getDose(), -1);
-    if (element.hasRate())
-      composeType(t, "MedicationOrder", "rate", element.getRate(), -1);
     if (element.hasMaxDosePerPeriod())
       composeRatio(t, "MedicationOrder", "maxDosePerPeriod", element.getMaxDosePerPeriod(), -1);
+    if (element.hasMaxDosePerAdministration())
+      composeQuantity(t, "MedicationOrder", "maxDosePerAdministration", element.getMaxDosePerAdministration(), -1);
+    if (element.hasRate())
+      composeType(t, "MedicationOrder", "rate", element.getRate(), -1);
   }
 
   protected void composeMedicationOrderMedicationOrderDispenseRequestComponent(Complex parent, String parentType, String name, MedicationOrder.MedicationOrderDispenseRequestComponent element, int index) {
@@ -8051,8 +8053,10 @@ public class RdfParser extends RdfParserBase {
       composeBoolean(t, "MedicationStatement", "wasNotTaken", element.getWasNotTakenElement(), -1);
     for (int i = 0; i < element.getReasonNotTaken().size(); i++)
       composeCodeableConcept(t, "MedicationStatement", "reasonNotTaken", element.getReasonNotTaken().get(i), i);
-    if (element.hasReasonForUse())
-      composeType(t, "MedicationStatement", "reasonForUse", element.getReasonForUse(), -1);
+    for (int i = 0; i < element.getReasonForUseCode().size(); i++)
+      composeCodeableConcept(t, "MedicationStatement", "reasonForUseCode", element.getReasonForUseCode().get(i), i);
+    for (int i = 0; i < element.getReasonForUseReference().size(); i++)
+      composeReference(t, "MedicationStatement", "reasonForUseReference", element.getReasonForUseReference().get(i), i);
     for (int i = 0; i < element.getNote().size(); i++)
       composeAnnotation(t, "MedicationStatement", "note", element.getNote().get(i), i);
     for (int i = 0; i < element.getDosage().size(); i++)

@@ -41,6 +41,8 @@ public class ExpressionNode {
 		}
 	}
   public enum Function {
+    Custom, 
+    
     Empty, Not, Exists, SubsetOf, SupersetOf, IsDistinct, Distinct, Count, Where, Select, All, Repeat, Item /*implicit from name[]*/, As, Is, Single,
     First, Last, Tail, Skip, Take, Iif, ToInteger, ToDecimal, ToString, Substring, StartsWith, EndsWith, Matches, ReplaceMatches, Contains, Replace, Length,  
     Children, Descendents, MemberOf, Trace, Today, Now, Resolve, Extension;
@@ -334,6 +336,55 @@ public class ExpressionNode {
 		this.uniqueId = Integer.toString(uniqueId);
 	}
 
+	public String toString() {
+		StringBuilder b = new StringBuilder();
+		switch (kind) {
+		case Name:
+			b.append(name);
+			break;
+		case Function:
+			if (function == Function.Item) 
+				b.append("[");
+			else {
+				b.append(name);
+				b.append("(");
+			}
+			boolean first = true;
+			for (ExpressionNode n : parameters) {
+				if (first)
+					first = false;
+				else
+					b.append(", ");
+				b.append(n.toString());
+			}
+			if (function == Function.Item) 
+				b.append("]");
+			else {
+				b.append(")");
+			}
+			break;
+		case Constant:
+  	  b.append(Utilities.escapeJava(constant));
+			break;
+		case Group:
+			b.append("(");
+			b.append(group.toString());
+			b.append(")");
+		}
+		if (inner != null) {
+			b.append(".");
+			b.append(inner.toString());
+		}
+		if (operation != null) {
+			b.append(" ");
+			b.append(operation.toCode());
+			b.append(" ");
+			b.append(opNext.toString());
+		}
+			
+		return b.toString();
+	}
+	
 	public String getName() {
 		return name;
 	}

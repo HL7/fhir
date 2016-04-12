@@ -1,10 +1,21 @@
 package org.hl7.fhir.dstu3.test;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
+import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
+import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.metamodel.Element;
+import org.hl7.fhir.dstu3.metamodel.Manager;
+import org.hl7.fhir.dstu3.metamodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
@@ -65,5 +76,21 @@ public class StructureMapTests {
     testParse("guides\\ccda\\maps\\cda.map");
   }
 
+  
 
+
+  @Test
+  public void testLoadCDA() throws FileNotFoundException, Exception {
+    for (String f : new File("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\CDA").list()) {
+      try {
+        StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new FileInputStream("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\CDA\\"+f));
+        ((SimpleWorkerContext) context).seeResource(sd.getUrl(), sd);
+      } catch (Exception e) {
+      }
+    }
+    
+    Element cda = Manager.parse(context, new FileInputStream("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\Example\\ccd.xml"), FhirFormat.XML, false);
+    Manager.compose(context, cda, new FileOutputStream("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\Example\\ccd.out.xml"), FhirFormat.XML, OutputStyle.PRETTY, null);
+//    
+  }
 }

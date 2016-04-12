@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
+// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -4009,8 +4009,8 @@ public class XmlParser extends XmlParserBase {
         res.getEvidence().add(parseConditionConditionEvidenceComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("bodySite")) {
         res.getBodySite().add(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("notes")) {
-        res.setNotesElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("note")) {
+        res.getNote().add(parseAnnotation(xpp));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -7054,8 +7054,8 @@ public class XmlParser extends XmlParserBase {
         res.setStatusDateElement(parseDate(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("statusReason")) {
         res.setStatusReason(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("author")) {
-        res.setAuthor(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("expressedBy")) {
+        res.setExpressedBy(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("priority")) {
         res.setPriority(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("addresses")) {
@@ -9204,10 +9204,12 @@ public class XmlParser extends XmlParserBase {
         res.setMethod(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "dose")) {
         res.setDose(parseType("dose", xpp));
-      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "rate")) {
-        res.setRate(parseType("rate", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("maxDosePerPeriod")) {
         res.setMaxDosePerPeriod(parseRatio(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("maxDosePerAdministration")) {
+        res.setMaxDosePerAdministration(parseSimpleQuantity(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "rate")) {
+        res.setRate(parseType("rate", xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -9287,8 +9289,10 @@ public class XmlParser extends XmlParserBase {
         res.setWasNotTakenElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reasonNotTaken")) {
         res.getReasonNotTaken().add(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "reasonForUse")) {
-        res.setReasonForUse(parseType("reasonForUse", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reasonForUseCode")) {
+        res.getReasonForUseCode().add(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reasonForUseReference")) {
+        res.getReasonForUseReference().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("note")) {
         res.getNote().add(parseAnnotation(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dosage")) {
@@ -19169,8 +19173,9 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getBodySite()) 
           composeCodeableConcept("bodySite", e);
       }
-      if (element.hasNotesElement()) {
-        composeString("notes", element.getNotesElement());
+      if (element.hasNote()) { 
+        for (Annotation e : element.getNote()) 
+          composeAnnotation("note", e);
       }
       composeElementClose(element);
       xml.exit(FHIR_NS, name);
@@ -22461,8 +22466,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasStatusReason()) {
         composeCodeableConcept("statusReason", element.getStatusReason());
       }
-      if (element.hasAuthor()) {
-        composeReference("author", element.getAuthor());
+      if (element.hasExpressedBy()) {
+        composeReference("expressedBy", element.getExpressedBy());
       }
       if (element.hasPriority()) {
         composeCodeableConcept("priority", element.getPriority());
@@ -24758,12 +24763,15 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasDose()) {
         composeType("dose", element.getDose());
-      }      if (element.hasRate()) {
-        composeType("rate", element.getRate());
       }      if (element.hasMaxDosePerPeriod()) {
         composeRatio("maxDosePerPeriod", element.getMaxDosePerPeriod());
       }
-      composeElementClose(element);
+      if (element.hasMaxDosePerAdministration()) {
+        composeSimpleQuantity("maxDosePerAdministration", element.getMaxDosePerAdministration());
+      }
+      if (element.hasRate()) {
+        composeType("rate", element.getRate());
+      }      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -24843,9 +24851,15 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getReasonNotTaken()) 
           composeCodeableConcept("reasonNotTaken", e);
       }
-      if (element.hasReasonForUse()) {
-        composeType("reasonForUse", element.getReasonForUse());
-      }      if (element.hasNote()) { 
+      if (element.hasReasonForUseCode()) { 
+        for (CodeableConcept e : element.getReasonForUseCode()) 
+          composeCodeableConcept("reasonForUseCode", e);
+      }
+      if (element.hasReasonForUseReference()) { 
+        for (Reference e : element.getReasonForUseReference()) 
+          composeReference("reasonForUseReference", e);
+      }
+      if (element.hasNote()) { 
         for (Annotation e : element.getNote()) 
           composeAnnotation("note", e);
       }

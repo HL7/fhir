@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
+// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -445,14 +445,14 @@ public class Goal extends DomainResource {
     /**
      * Indicates whose goal this is - patient goal, practitioner goal, etc.
      */
-    @Child(name = "author", type = {Patient.class, Practitioner.class, RelatedPerson.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "expressedBy", type = {Patient.class, Practitioner.class, RelatedPerson.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who's responsible for creating Goal?", formalDefinition="Indicates whose goal this is - patient goal, practitioner goal, etc." )
-    protected Reference author;
+    protected Reference expressedBy;
 
     /**
      * The actual object that is the target of the reference (Indicates whose goal this is - patient goal, practitioner goal, etc.)
      */
-    protected Resource authorTarget;
+    protected Resource expressedByTarget;
 
     /**
      * Identifies the mutually agreed level of importance associated with reaching/sustaining the goal.
@@ -487,7 +487,7 @@ public class Goal extends DomainResource {
     @Description(shortDefinition="What was end result of goal?", formalDefinition="Identifies the change (or lack of change) at the point where the goal was deepmed to be cancelled or achieved." )
     protected List<GoalOutcomeComponent> outcome;
 
-    private static final long serialVersionUID = 2029459056L;
+    private static final long serialVersionUID = -475818230L;
 
   /**
    * Constructor
@@ -878,41 +878,41 @@ public class Goal extends DomainResource {
     }
 
     /**
-     * @return {@link #author} (Indicates whose goal this is - patient goal, practitioner goal, etc.)
+     * @return {@link #expressedBy} (Indicates whose goal this is - patient goal, practitioner goal, etc.)
      */
-    public Reference getAuthor() { 
-      if (this.author == null)
+    public Reference getExpressedBy() { 
+      if (this.expressedBy == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Goal.author");
+          throw new Error("Attempt to auto-create Goal.expressedBy");
         else if (Configuration.doAutoCreate())
-          this.author = new Reference(); // cc
-      return this.author;
+          this.expressedBy = new Reference(); // cc
+      return this.expressedBy;
     }
 
-    public boolean hasAuthor() { 
-      return this.author != null && !this.author.isEmpty();
+    public boolean hasExpressedBy() { 
+      return this.expressedBy != null && !this.expressedBy.isEmpty();
     }
 
     /**
-     * @param value {@link #author} (Indicates whose goal this is - patient goal, practitioner goal, etc.)
+     * @param value {@link #expressedBy} (Indicates whose goal this is - patient goal, practitioner goal, etc.)
      */
-    public Goal setAuthor(Reference value) { 
-      this.author = value;
+    public Goal setExpressedBy(Reference value) { 
+      this.expressedBy = value;
       return this;
     }
 
     /**
-     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates whose goal this is - patient goal, practitioner goal, etc.)
+     * @return {@link #expressedBy} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates whose goal this is - patient goal, practitioner goal, etc.)
      */
-    public Resource getAuthorTarget() { 
-      return this.authorTarget;
+    public Resource getExpressedByTarget() { 
+      return this.expressedByTarget;
     }
 
     /**
-     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates whose goal this is - patient goal, practitioner goal, etc.)
+     * @param value {@link #expressedBy} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates whose goal this is - patient goal, practitioner goal, etc.)
      */
-    public Goal setAuthorTarget(Resource value) { 
-      this.authorTarget = value;
+    public Goal setExpressedByTarget(Resource value) { 
+      this.expressedByTarget = value;
       return this;
     }
 
@@ -1080,7 +1080,7 @@ public class Goal extends DomainResource {
         childrenList.add(new Property("status", "code", "Indicates whether the goal has been reached and is still considered relevant.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("statusDate", "date", "Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.", 0, java.lang.Integer.MAX_VALUE, statusDate));
         childrenList.add(new Property("statusReason", "CodeableConcept", "Captures the reason for the current status.", 0, java.lang.Integer.MAX_VALUE, statusReason));
-        childrenList.add(new Property("author", "Reference(Patient|Practitioner|RelatedPerson)", "Indicates whose goal this is - patient goal, practitioner goal, etc.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("expressedBy", "Reference(Patient|Practitioner|RelatedPerson)", "Indicates whose goal this is - patient goal, practitioner goal, etc.", 0, java.lang.Integer.MAX_VALUE, expressedBy));
         childrenList.add(new Property("priority", "CodeableConcept", "Identifies the mutually agreed level of importance associated with reaching/sustaining the goal.", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("addresses", "Reference(Condition|Observation|MedicationStatement|NutritionOrder|ProcedureRequest|RiskAssessment)", "The identified conditions and other health record elements that are intended to be addressed by the goal.", 0, java.lang.Integer.MAX_VALUE, addresses));
         childrenList.add(new Property("note", "Annotation", "Any comments related to the goal.", 0, java.lang.Integer.MAX_VALUE, note));
@@ -1107,8 +1107,8 @@ public class Goal extends DomainResource {
           this.statusDate = castToDate(value); // DateType
         else if (name.equals("statusReason"))
           this.statusReason = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("author"))
-          this.author = castToReference(value); // Reference
+        else if (name.equals("expressedBy"))
+          this.expressedBy = castToReference(value); // Reference
         else if (name.equals("priority"))
           this.priority = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("addresses"))
@@ -1162,9 +1162,9 @@ public class Goal extends DomainResource {
           this.statusReason = new CodeableConcept();
           return this.statusReason;
         }
-        else if (name.equals("author")) {
-          this.author = new Reference();
-          return this.author;
+        else if (name.equals("expressedBy")) {
+          this.expressedBy = new Reference();
+          return this.expressedBy;
         }
         else if (name.equals("priority")) {
           this.priority = new CodeableConcept();
@@ -1208,7 +1208,7 @@ public class Goal extends DomainResource {
         dst.status = status == null ? null : status.copy();
         dst.statusDate = statusDate == null ? null : statusDate.copy();
         dst.statusReason = statusReason == null ? null : statusReason.copy();
-        dst.author = author == null ? null : author.copy();
+        dst.expressedBy = expressedBy == null ? null : expressedBy.copy();
         dst.priority = priority == null ? null : priority.copy();
         if (addresses != null) {
           dst.addresses = new ArrayList<Reference>();
@@ -1242,7 +1242,7 @@ public class Goal extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(subject, o.subject, true) && compareDeep(start, o.start, true)
            && compareDeep(target, o.target, true) && compareDeep(category, o.category, true) && compareDeep(description, o.description, true)
            && compareDeep(status, o.status, true) && compareDeep(statusDate, o.statusDate, true) && compareDeep(statusReason, o.statusReason, true)
-           && compareDeep(author, o.author, true) && compareDeep(priority, o.priority, true) && compareDeep(addresses, o.addresses, true)
+           && compareDeep(expressedBy, o.expressedBy, true) && compareDeep(priority, o.priority, true) && compareDeep(addresses, o.addresses, true)
            && compareDeep(note, o.note, true) && compareDeep(outcome, o.outcome, true);
       }
 
@@ -1262,8 +1262,9 @@ public class Goal extends DomainResource {
            && (start == null || start.isEmpty()) && (target == null || target.isEmpty()) && (category == null || category.isEmpty())
            && (description == null || description.isEmpty()) && (status == null || status.isEmpty())
            && (statusDate == null || statusDate.isEmpty()) && (statusReason == null || statusReason.isEmpty())
-           && (author == null || author.isEmpty()) && (priority == null || priority.isEmpty()) && (addresses == null || addresses.isEmpty())
-           && (note == null || note.isEmpty()) && (outcome == null || outcome.isEmpty());
+           && (expressedBy == null || expressedBy.isEmpty()) && (priority == null || priority.isEmpty())
+           && (addresses == null || addresses.isEmpty()) && (note == null || note.isEmpty()) && (outcome == null || outcome.isEmpty())
+          ;
       }
 
   @Override

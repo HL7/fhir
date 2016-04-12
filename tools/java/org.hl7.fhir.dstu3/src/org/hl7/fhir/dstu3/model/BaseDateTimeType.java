@@ -19,6 +19,8 @@ import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 
+import ca.uhn.fhir.parser.DataFormatException;
+
 public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 
 	private static final long serialVersionUID = 1L;
@@ -85,7 +87,7 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 	/**
 	 * Constructor
 	 * 
-	 * @throws IllegalArgumentException
+	 * @throws DataFormatException
 	 *             If the specified precision is not allowed for this type
 	 */
 	public BaseDateTimeType(Date theDate, TemporalPrecisionEnum thePrecision) {
@@ -93,6 +95,14 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 		if (isPrecisionAllowed(thePrecision) == false) {
 			throw new IllegalArgumentException("Invalid date/time string (datatype " + getClass().getSimpleName() + " does not support " + thePrecision + " precision): " + theDate);
 		}
+	}
+
+	/**
+	 * Constructor
+	 */
+	public BaseDateTimeType(Date theDate, TemporalPrecisionEnum thePrecision, TimeZone theTimeZone) {
+		this(theDate, thePrecision);
+		setTimeZone(theTimeZone);
 	}
 
 	/**
@@ -109,11 +119,47 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 	}
 
 	/**
-	 * Constructor
+	 * Adds the given amount to the field specified by theField
+	 * 
+	 * @param theField
+	 *            The field, uses constants from {@link Calendar} such as {@link Calendar#YEAR}
+	 * @param theValue
+	 *            The number to add (or subtract for a negative number)
 	 */
-	public BaseDateTimeType(Date theDate, TemporalPrecisionEnum thePrecision, TimeZone theTimeZone) {
-		this(theDate, thePrecision);
-		setTimeZone(theTimeZone);
+	public void add(int theField, int theValue) {
+		switch (theField) {
+		case Calendar.YEAR:
+			setValue(DateUtils.addYears(getValue(), theValue), getPrecision());
+			break;
+		case Calendar.MONTH:
+			setValue(DateUtils.addMonths(getValue(), theValue), getPrecision());
+			break;
+		case Calendar.DATE:
+			setValue(DateUtils.addDays(getValue(), theValue), getPrecision());
+			break;
+		case Calendar.HOUR:
+			setValue(DateUtils.addHours(getValue(), theValue), getPrecision());
+			break;
+		case Calendar.MINUTE:
+			setValue(DateUtils.addMinutes(getValue(), theValue), getPrecision());
+			break;
+		case Calendar.SECOND:
+			setValue(DateUtils.addSeconds(getValue(), theValue), getPrecision());
+			break;
+		case Calendar.MILLISECOND:
+			setValue(DateUtils.addMilliseconds(getValue(), theValue), getPrecision());
+			break;
+		default:
+			throw new DataFormatException("Unknown field constant: " + theField);
+		}
+	}
+
+	public boolean after(DateTimeType theDateTimeType) {
+		return getValue().after(theDateTimeType.getValue());
+	}
+
+	public boolean before(DateTimeType theDateTimeType) {
+		return getValue().before(theDateTimeType.getValue());
 	}
 
 	private void clearTimeZone() {
@@ -181,6 +227,13 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 			return getDefaultPrecisionForDatatype();
 		}
 		return myPrecision;
+	}
+
+	/**
+	 * Returns the time in millis as represented by this Date/Time
+	 */
+	public long getTime() {
+		return getValue().getTime();
 	}
 
 	/**
@@ -277,9 +330,14 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 				clearTimeZone();
 				return ((ourYearMonthDayFormat).parse(theValue));
 			} else if (theValue.length() >= 16) { // date and time with possible time zone
+				char timeSeparator = theValue.charAt(10);
+				if (timeSeparator != 'T') {
+					throw new DataFormatException("Invalid date/time string: " + theValue);
+				}
+				
 				int firstColonIndex = theValue.indexOf(':');
 				if (firstColonIndex == -1) {
-					throw new IllegalArgumentException("Invalid date/time string: " + theValue);
+					throw new DataFormatException("Invalid date/time string: " + theValue);
 				}
 				
 				boolean hasSeconds = theValue.length() > firstColonIndex+3 ? theValue.charAt(firstColonIndex+3) == ':' : false; 
@@ -306,7 +364,7 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 							retVal = ourYearMonthDayTimeMilliFormat.parse(theValue);
 						}
 					} catch (ParseException p2) {
-						throw new IllegalArgumentException("Invalid data/time string (" + p2.getMessage() + "): " + theValue);
+						throw new DataFormatException("Invalid data/time string (" + p2.getMessage() + "): " + theValue);
 					}
 					setTimeZone(theValue, hasMillis);
 					setPrecision(TemporalPrecisionEnum.MILLI);
@@ -320,7 +378,7 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 							retVal = ourYearMonthDayTimeFormat.parse(theValue);
 						}
 					} catch (ParseException p2) {
-						throw new IllegalArgumentException("Invalid data/time string (" + p2.getMessage() + "): " + theValue);
+						throw new DataFormatException("Invalid data/time string (" + p2.getMessage() + "): " + theValue);
 					}
 
 					setTimeZone(theValue, hasMillis);
@@ -335,7 +393,7 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 							retVal = ourYearMonthDayTimeMinsFormat.parse(theValue);
 						}
 					} catch (ParseException p2) {
-						throw new IllegalArgumentException("Invalid data/time string (" + p2.getMessage() + "): " + theValue, p2);
+						throw new DataFormatException("Invalid data/time string (" + p2.getMessage() + "): " + theValue, p2);
 					}
 
 					setTimeZone(theValue, hasMillis);
@@ -344,10 +402,26 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 
 				return retVal;
 			} else {
-				throw new IllegalArgumentException("Invalid date/time string (invalid length): " + theValue);
+				throw new DataFormatException("Invalid date/time string (invalid length): " + theValue);
 			}
 		} catch (ParseException e) {
-			throw new IllegalArgumentException("Invalid date string (" + e.getMessage() + "): " + theValue);
+			throw new DataFormatException("Invalid date string (" + e.getMessage() + "): " + theValue);
+		}
+	}
+
+	/**
+	 * Sets the TimeZone offset in minutes relative to GMT
+	 */
+	public void setOffsetMinutes(int theZoneOffsetMinutes) {
+		int offsetAbs = Math.abs(theZoneOffsetMinutes);
+
+		int mins = offsetAbs % 60;
+		int hours = offsetAbs / 60;
+
+		if (theZoneOffsetMinutes < 0) {
+			setTimeZone(TimeZone.getTimeZone("GMT-" + hours + ":" + mins));
+		} else {
+			setTimeZone(TimeZone.getTimeZone("GMT+" + hours + ":" + mins));
 		}
 	}
 
@@ -360,9 +434,9 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 	 * <li>{@link Calendar#YEAR}
 	 * </ul>
 	 * 
-	 * @throws IllegalArgumentException
+	 * @throws DataFormatException
 	 */
-	public void setPrecision(TemporalPrecisionEnum thePrecision) throws IllegalArgumentException {
+	public void setPrecision(TemporalPrecisionEnum thePrecision) throws DataFormatException {
 		if (thePrecision == null) {
 			throw new NullPointerException("Precision may not be null");
 		}
@@ -420,9 +494,9 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 	 *            The date value
 	 * @param thePrecision
 	 *            The precision
-	 * @throws IllegalArgumentException
+	 * @throws DataFormatException
 	 */
-	public void setValue(Date theValue, TemporalPrecisionEnum thePrecision) throws IllegalArgumentException {
+	public void setValue(Date theValue, TemporalPrecisionEnum thePrecision) throws DataFormatException {
 		if (myTimeZoneZulu == false && myTimeZone == null) {
 			myTimeZone = TimeZone.getDefault();
 		}
@@ -431,24 +505,61 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 	}
 
 	@Override
-	public void setValueAsString(String theValue) throws IllegalArgumentException {
+	public void setValueAsString(String theValue) throws DataFormatException {
 		clearTimeZone();
 		super.setValueAsString(theValue);
 	}
 
+
+	protected void setValueAsV3String(String theV3String) {
+		if (StringUtils.isBlank(theV3String)) {
+			setValue(null);
+		} else {
+			StringBuilder b = new StringBuilder();
+			String timeZone = null;
+			for (int i = 0; i < theV3String.length(); i++) {
+				char nextChar = theV3String.charAt(i);
+				if (nextChar == '+' || nextChar == '-' || nextChar == 'Z') {
+					timeZone = (theV3String.substring(i));
+					break;
+				}
+				
+				// assertEquals("2013-02-02T20:13:03-05:00", DateAndTime.parseV3("20130202201303-0500").toString());
+				if (i == 4 || i == 6) {
+					b.append('-');
+				} else if (i == 8) {
+					b.append('T');
+				} else if (i == 10 || i == 12) {
+					b.append(':');
+				}
+				
+				b.append(nextChar);
+			}
+
+			if (b.length() == 16)
+				b.append(":00"); // schema rule, must have seconds
+			if (timeZone != null && b.length() > 10) {
+				if (timeZone.length() ==5) {
+					b.append(timeZone.substring(0, 3));
+					b.append(':');
+					b.append(timeZone.substring(3));
+				}else {
+					b.append(timeZone);
+				}
+	}
+
+			setValueAsString(b.toString());
+		}
+	}
+
 	/**
-	 * For unit tests only
+	 * Returns a view of this date/time as a Calendar object
 	 */
-	static List<FastDateFormat> getFormatters() {
-		return ourFormatters;
-	}
-
-	public boolean before(DateTimeType theDateTimeType) {
-		return getValue().before(theDateTimeType.getValue());
-	}
-
-	public boolean after(DateTimeType theDateTimeType) {
-		return getValue().after(theDateTimeType.getValue());
+	public Calendar toCalendar() {
+		Calendar retVal = Calendar.getInstance();
+		retVal.setTime(getValue());
+		retVal.setTimeZone(getTimeZone());
+		return retVal;
 	}
 
     /**
@@ -499,115 +610,11 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
         }
     }
 
-
 	/**
-	 * Returns a view of this date/time as a Calendar object
+	 * For unit tests only
 	 */
-	public Calendar toCalendar() {
-		Calendar retVal = Calendar.getInstance();
-		retVal.setTime(getValue());
-		retVal.setTimeZone(getTimeZone());
-		return retVal;
-	}
-
-	/**
-	 * Sets the TimeZone offset in minutes relative to GMT
-	 */
-	public void setOffsetMinutes(int theZoneOffsetMinutes) {
-		int offsetAbs = Math.abs(theZoneOffsetMinutes);
-
-		int mins = offsetAbs % 60;
-		int hours = offsetAbs / 60;
-
-		if (theZoneOffsetMinutes < 0) {
-			setTimeZone(TimeZone.getTimeZone("GMT-" + hours + ":" + mins));
-		} else {
-			setTimeZone(TimeZone.getTimeZone("GMT+" + hours + ":" + mins));
-		}
-	}
-
-	/**
-	 * Returns the time in millis as represented by this Date/Time
-	 */
-	public long getTime() {
-		return getValue().getTime();
-	}
-
-	/**
-	 * Adds the given amount to the field specified by theField
-	 * 
-	 * @param theField
-	 *            The field, uses constants from {@link Calendar} such as {@link Calendar#YEAR}
-	 * @param theValue
-	 *            The number to add (or subtract for a negative number)
-	 */
-	public void add(int theField, int theValue) {
-		switch (theField) {
-		case Calendar.YEAR:
-			setValue(DateUtils.addYears(getValue(), theValue), getPrecision());
-			break;
-		case Calendar.MONTH:
-			setValue(DateUtils.addMonths(getValue(), theValue), getPrecision());
-			break;
-		case Calendar.DATE:
-			setValue(DateUtils.addDays(getValue(), theValue), getPrecision());
-			break;
-		case Calendar.HOUR:
-			setValue(DateUtils.addHours(getValue(), theValue), getPrecision());
-			break;
-		case Calendar.MINUTE:
-			setValue(DateUtils.addMinutes(getValue(), theValue), getPrecision());
-			break;
-		case Calendar.SECOND:
-			setValue(DateUtils.addSeconds(getValue(), theValue), getPrecision());
-			break;
-		case Calendar.MILLISECOND:
-			setValue(DateUtils.addMilliseconds(getValue(), theValue), getPrecision());
-			break;
-		default:
-			throw new IllegalArgumentException("Unknown field constant: " + theField);
-		}
-	}
-
-	protected void setValueAsV3String(String theV3String) {
-		if (StringUtils.isBlank(theV3String)) {
-			setValue(null);
-		} else {
-			StringBuilder b = new StringBuilder();
-			String timeZone = null;
-			for (int i = 0; i < theV3String.length(); i++) {
-				char nextChar = theV3String.charAt(i);
-				if (nextChar == '+' || nextChar == '-' || nextChar == 'Z') {
-					timeZone = (theV3String.substring(i));
-					break;
-				}
-				
-				// assertEquals("2013-02-02T20:13:03-05:00", DateAndTime.parseV3("20130202201303-0500").toString());
-				if (i == 4 || i == 6) {
-					b.append('-');
-				} else if (i == 8) {
-					b.append('T');
-				} else if (i == 10 || i == 12) {
-					b.append(':');
-				}
-				
-				b.append(nextChar);
-			}
-
-			if (b.length() == 16)
-				b.append(":00"); // schema rule, must have seconds
-			if (timeZone != null && b.length() > 10) {
-				if (timeZone.length() ==5) {
-					b.append(timeZone.substring(0, 3));
-					b.append(':');
-					b.append(timeZone.substring(3));
-				}else {
-					b.append(timeZone);
-				}
-			}
-			
-			setValueAsString(b.toString());
-		}
+	static List<FastDateFormat> getFormatters() {
+		return ourFormatters;
 	}
 
 }

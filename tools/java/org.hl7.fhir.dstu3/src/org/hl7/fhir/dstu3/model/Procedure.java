@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
+// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1827,6 +1827,26 @@ public class Procedure extends DomainResource {
   public ResourceType getResourceType() {
     return ResourceType.Procedure;
    }
+
+ /**
+   * Search parameter: <b>category</b>
+   * <p>
+   * Description: <b>Classification of the procedure</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Procedure.category</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="category", path="Procedure.category", description="Classification of the procedure", type="token" )
+  public static final String SP_CATEGORY = "category";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <p>
+   * Description: <b>Classification of the procedure</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Procedure.category</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
  /**
    * Search parameter: <b>patient</b>

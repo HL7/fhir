@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Fri, Apr 8, 2016 05:57+1000 for FHIR v1.4.0
+// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -4439,10 +4439,12 @@ public class JsonParser extends JsonParserBase {
         res.getBodySite().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("notes"))
-      res.setNotesElement(parseString(json.get("notes").getAsString()));
-    if (json.has("_notes"))
-      parseElementProperties(json.getAsJsonObject("_notes"), res.getNotesElement());
+    if (json.has("note")) {
+      JsonArray array = json.getAsJsonArray("note");
+      for (int i = 0; i < array.size(); i++) {
+        res.getNote().add(parseAnnotation(array.get(i).getAsJsonObject()));
+      }
+    };
     return res;
   }
 
@@ -7872,8 +7874,8 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_statusDate"), res.getStatusDateElement());
     if (json.has("statusReason"))
       res.setStatusReason(parseCodeableConcept(json.getAsJsonObject("statusReason")));
-    if (json.has("author"))
-      res.setAuthor(parseReference(json.getAsJsonObject("author")));
+    if (json.has("expressedBy"))
+      res.setExpressedBy(parseReference(json.getAsJsonObject("expressedBy")));
     if (json.has("priority"))
       res.setPriority(parseCodeableConcept(json.getAsJsonObject("priority")));
     if (json.has("addresses")) {
@@ -10280,11 +10282,13 @@ public class JsonParser extends JsonParserBase {
     Type dose = parseType("dose", json);
     if (dose != null)
       res.setDose(dose);
+    if (json.has("maxDosePerPeriod"))
+      res.setMaxDosePerPeriod(parseRatio(json.getAsJsonObject("maxDosePerPeriod")));
+    if (json.has("maxDosePerAdministration"))
+      res.setMaxDosePerAdministration(parseSimpleQuantity(json.getAsJsonObject("maxDosePerAdministration")));
     Type rate = parseType("rate", json);
     if (rate != null)
       res.setRate(rate);
-    if (json.has("maxDosePerPeriod"))
-      res.setMaxDosePerPeriod(parseRatio(json.getAsJsonObject("maxDosePerPeriod")));
     return res;
   }
 
@@ -10360,9 +10364,18 @@ public class JsonParser extends JsonParserBase {
         res.getReasonNotTaken().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
-    Type reasonForUse = parseType("reasonForUse", json);
-    if (reasonForUse != null)
-      res.setReasonForUse(reasonForUse);
+    if (json.has("reasonForUseCode")) {
+      JsonArray array = json.getAsJsonArray("reasonForUseCode");
+      for (int i = 0; i < array.size(); i++) {
+        res.getReasonForUseCode().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("reasonForUseReference")) {
+      JsonArray array = json.getAsJsonArray("reasonForUseReference");
+      for (int i = 0; i < array.size(); i++) {
+        res.getReasonForUseReference().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("note")) {
       JsonArray array = json.getAsJsonArray("note");
       for (int i = 0; i < array.size(); i++) {
@@ -21882,10 +21895,12 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      if (element.hasNotesElement()) {
-        composeStringCore("notes", element.getNotesElement(), false);
-        composeStringExtras("notes", element.getNotesElement(), false);
-      }
+      if (element.hasNote()) {
+        openArray("note");
+        for (Annotation e : element.getNote()) 
+          composeAnnotation(null, e);
+        closeArray();
+      };
   }
 
   protected void composeConditionConditionStageComponent(String name, Condition.ConditionStageComponent element) throws IOException {
@@ -26147,8 +26162,8 @@ public class JsonParser extends JsonParserBase {
       if (element.hasStatusReason()) {
         composeCodeableConcept("statusReason", element.getStatusReason());
       }
-      if (element.hasAuthor()) {
-        composeReference("author", element.getAuthor());
+      if (element.hasExpressedBy()) {
+        composeReference("expressedBy", element.getExpressedBy());
       }
       if (element.hasPriority()) {
         composeCodeableConcept("priority", element.getPriority());
@@ -29124,11 +29139,14 @@ public class JsonParser extends JsonParserBase {
       if (element.hasDose()) {
         composeType("dose", element.getDose());
       }
-      if (element.hasRate()) {
-        composeType("rate", element.getRate());
-      }
       if (element.hasMaxDosePerPeriod()) {
         composeRatio("maxDosePerPeriod", element.getMaxDosePerPeriod());
+      }
+      if (element.hasMaxDosePerAdministration()) {
+        composeSimpleQuantity("maxDosePerAdministration", element.getMaxDosePerAdministration());
+      }
+      if (element.hasRate()) {
+        composeType("rate", element.getRate());
       }
   }
 
@@ -29229,9 +29247,18 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      if (element.hasReasonForUse()) {
-        composeType("reasonForUse", element.getReasonForUse());
-      }
+      if (element.hasReasonForUseCode()) {
+        openArray("reasonForUseCode");
+        for (CodeableConcept e : element.getReasonForUseCode()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasReasonForUseReference()) {
+        openArray("reasonForUseReference");
+        for (Reference e : element.getReasonForUseReference()) 
+          composeReference(null, e);
+        closeArray();
+      };
       if (element.hasNote()) {
         openArray("note");
         for (Annotation e : element.getNote()) 
