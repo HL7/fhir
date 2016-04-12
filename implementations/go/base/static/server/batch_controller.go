@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"reflect"
+	"regexp"
 	"sort"
 	"strings"
 
@@ -60,29 +61,72 @@ func (b *BatchController) Post(c *gin.Context) {
 				c.AbortWithError(http.StatusBadRequest, errors.New("Batch POST must have a resource body"))
 				return
 			}
+		case "PUT":
+			if bundle.Entry[i].Resource == nil {
+				c.AbortWithError(http.StatusBadRequest, errors.New("Batch PUT must have a resource body"))
+				return
+			}
 		}
 		entries[i] = &bundle.Entry[i]
 	}
 
 	sort.Sort(byRequestMethod(entries))
 
-	// Now loop through the entries, assigning new IDs to those that are POST and fixing any references
-	// to reference the new ID.
+	// Now loop through the entries, assigning new IDs to those that are POST or Conditional PUT and fixing any
+	// references to reference the new ID.
 	refMap := make(map[string]models.Reference)
 	newIDs := make([]string, len(entries))
 	for i, entry := range entries {
 		if entry.Request.Method == "POST" {
+			// Create a new ID and add it to the reference map
 			id := bson.NewObjectId().Hex()
 			newIDs[i] = id
 			refMap[entry.FullUrl] = models.Reference{
-				Reference:    fmt.Sprintf("%s/%s", entry.Request.Url, id),
+				Reference:    entry.Request.Url + "/" + id,
 				Type:         entry.Request.Url,
 				ReferencedID: id,
 				External:     new(bool),
 			}
+
+			// Rewrite the FullUrl using the new ID
 			entry.FullUrl = responseURL(c.Request, entry.Request.Url, id).String()
+		} else if entry.Request.Method == "PUT" && isConditional(entry) {
+			// We need to process conditionals referencing temp IDs in a second pass, so skip them here
+			if strings.Contains(entry.Request.Url, "urn:uuid:") {
+				continue
+			}
+
+			if err := b.resolveConditionalPut(c.Request, i, entry, newIDs, refMap); err != nil {
+				c.AbortWithError(http.StatusInternalServerError, err)
+				return
+			}
 		}
 	}
+
+	// Second pass to take care of conditionals referencing temporary IDs.  Known limitation: if a conditional
+	// references a temp ID also defined by a conditional, we error out if it hasn't been resolved yet -- too many
+	// rabbit holes.
+	for i, entry := range entries {
+		if entry.Request.Method == "PUT" && isConditional(entry) {
+			// Use a regex to swap out the temp IDs with the new IDs
+			for oldID, ref := range refMap {
+				re := regexp.MustCompile("([=,])" + oldID + "(&|,|$)")
+				entry.Request.Url = re.ReplaceAllString(entry.Request.Url, "${1}"+ref.Reference+"${2}")
+			}
+
+			if strings.Contains(entry.Request.Url, "urn:uuid:") {
+				c.AbortWithError(http.StatusNotImplemented,
+					errors.New("Cannot resolve conditionals referencing other conditionals"))
+				return
+			}
+
+			if err := b.resolveConditionalPut(c.Request, i, entry, newIDs, refMap); err != nil {
+				c.AbortWithError(http.StatusInternalServerError, err)
+				return
+			}
+		}
+	}
+
 	// Update all the references to the entries (to reflect newly assigned IDs)
 	updateAllReferences(entries, refMap)
 
@@ -90,8 +134,7 @@ func (b *BatchController) Post(c *gin.Context) {
 	for i, entry := range entries {
 		switch entry.Request.Method {
 		case "DELETE":
-			rURL := entry.Request.Url
-			if strings.Contains(rURL, "/") && !strings.Contains(rURL, "?") {
+			if !isConditional(entry) {
 				// It's a normal DELETE
 				parts := strings.SplitN(entry.Request.Url, "/", 2)
 				if len(parts) != 2 {
@@ -130,6 +173,31 @@ func (b *BatchController) Post(c *gin.Context) {
 			if meta, ok := models.GetResourceMeta(entry.Resource); ok {
 				entry.Response.LastModified = meta.LastUpdated
 			}
+		case "PUT":
+			// Because we pre-process conditional PUTs, we know this is always a normal PUT operation
+			entry.FullUrl = responseURL(c.Request, entry.Request.Url).String()
+			parts := strings.SplitN(entry.Request.Url, "/", 2)
+			if len(parts) != 2 {
+				c.AbortWithError(http.StatusInternalServerError,
+					fmt.Errorf("Couldn't identify resource and id to put from %s", entry.Request.Url))
+				return
+			}
+			createdNew, err := b.DAL.Put(parts[1], entry.Resource)
+			if err != nil {
+				c.AbortWithError(http.StatusInternalServerError, err)
+				return
+			}
+			entry.Request = nil
+			entry.Response = new(models.BundleEntryResponseComponent)
+			entry.Response.Location = entry.FullUrl
+			if createdNew {
+				entry.Response.Status = "201"
+			} else {
+				entry.Response.Status = "200"
+			}
+			if meta, ok := models.GetResourceMeta(entry.Resource); ok {
+				entry.Response.LastModified = meta.LastUpdated
+			}
 		}
 	}
 
@@ -145,6 +213,43 @@ func (b *BatchController) Post(c *gin.Context) {
 
 	c.Header("Access-Control-Allow-Origin", "*")
 	c.JSON(http.StatusOK, bundle)
+}
+
+func (b *BatchController) resolveConditionalPut(request *http.Request, entryIndex int, entry *models.BundleEntryComponent, newIDs []string, refMap map[string]models.Reference) error {
+	// Do a preflight to either get the existing ID, get a new ID, or detect multiple matches (not allowed)
+	parts := strings.SplitN(entry.Request.Url, "?", 2)
+	query := search.Query{Resource: parts[0], Query: parts[1]}
+
+	var id string
+	if IDs, err := b.DAL.FindIDs(query); err == nil {
+		switch len(IDs) {
+		case 0:
+			id = bson.NewObjectId().Hex()
+		case 1:
+			id = IDs[0]
+		default:
+			return ErrMultipleMatches
+		}
+	} else {
+		return err
+	}
+
+	// Rewrite the PUT as a normal (non-conditional) PUT
+	entry.Request.Url = query.Resource + "/" + id
+
+	// Add the new ID to the reference map
+	newIDs[entryIndex] = id
+	refMap[entry.FullUrl] = models.Reference{
+		Reference:    entry.Request.Url,
+		Type:         query.Resource,
+		ReferencedID: id,
+		External:     new(bool),
+	}
+
+	// Rewrite the FullUrl using the new ID
+	entry.FullUrl = responseURL(request, entry.Request.Url, id).String()
+
+	return nil
 }
 
 func updateAllReferences(entries []*models.BundleEntryComponent, refMap map[string]models.Reference) {
@@ -195,6 +300,15 @@ func findRefsInValue(val reflect.Value) []*models.Reference {
 	}
 
 	return refs
+}
+
+func isConditional(entry *models.BundleEntryComponent) bool {
+	if entry.Request == nil {
+		return false
+	} else if entry.Request.Method != "PUT" && entry.Request.Method != "DELETE" {
+		return false
+	}
+	return !strings.Contains(entry.Request.Url, "/") || strings.Contains(entry.Request.Url, "?")
 }
 
 // Support sorting by request method, as defined in the spec

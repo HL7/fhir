@@ -181,6 +181,8 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         serverWriter.write("import \"github.com/gin-gonic/gin\"");
         serverWriter.newLine();
         serverWriter.newLine();
+        serverWriter.write("// RegisterController registers the CRUD routes (and middleware) for a FHIR resource");
+        serverWriter.newLine();
         serverWriter.write("func RegisterController(name string, e *gin.Engine, m []gin.HandlerFunc, dal DataAccessLayer, config Config) {");
         serverWriter.newLine();
         serverWriter.write("\trc := NewResourceController(name, dal)");
@@ -206,6 +208,8 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         serverWriter.newLine();
         serverWriter.write("\trcBase.POST(\"\", rc.CreateHandler)");
         serverWriter.newLine();
+        serverWriter.write("\trcBase.PUT(\"\", rc.ConditionalUpdateHandler)");
+        serverWriter.newLine();
         serverWriter.write("\trcBase.DELETE(\"\", rc.ConditionalDeleteHandler)");
         serverWriter.newLine();
         serverWriter.newLine();
@@ -219,6 +223,8 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         serverWriter.newLine();
         serverWriter.write("}");
         serverWriter.newLine();
+        serverWriter.newLine();
+        serverWriter.write("// RegisterRoutes registers the routes for each of the FHIR resources");
         serverWriter.newLine();
         serverWriter.write("func RegisterRoutes(e *gin.Engine, config map[string][]gin.HandlerFunc, dal DataAccessLayer, serverConfig Config) {");
         serverWriter.newLine();

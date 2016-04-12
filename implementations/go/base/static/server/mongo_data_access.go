@@ -72,6 +72,24 @@ func (dal *mongoDataAccessLayer) Put(id string, resource interface{}) (createdNe
 	return createdNew, convertMongoErr(err)
 }
 
+func (dal *mongoDataAccessLayer) ConditionalPut(query search.Query, resource interface{}) (id string, createdNew bool, err error) {
+	if IDs, err := dal.FindIDs(query); err == nil {
+		switch len(IDs) {
+		case 0:
+			id = bson.NewObjectId().Hex()
+		case 1:
+			id = IDs[0]
+		default:
+			return "", false, ErrMultipleMatches
+		}
+	} else {
+		return "", false, err
+	}
+
+	createdNew, err = dal.Put(id, resource)
+	return id, createdNew, err
+}
+
 func (dal *mongoDataAccessLayer) Delete(id, resourceType string) error {
 	bsonID, err := convertIDToBsonID(id)
 	if err != nil {
@@ -165,6 +183,38 @@ func (dal *mongoDataAccessLayer) Search(baseURL url.URL, searchQuery search.Quer
 	bundle.Link = generatePagingLinks(baseURL, searchQuery, total)
 
 	return &bundle, nil
+}
+
+func (dal *mongoDataAccessLayer) FindIDs(searchQuery search.Query) (IDs []string, err error) {
+	// First create a new query with the unsupported query options filtered out
+	oldParams := searchQuery.URLQueryParameters(false)
+	newParams := search.URLQueryParameters{}
+	for _, param := range oldParams.All() {
+		switch param.Key {
+		case search.ContainedParam, search.ContainedTypeParam, search.ElementsParam, search.IncludeParam,
+			search.RevIncludeParam, search.SummaryParam:
+			continue
+		default:
+			newParams.Add(param.Key, param.Value)
+		}
+	}
+	newQuery := search.Query{Resource: searchQuery.Resource, Query: newParams.Encode()}
+
+	// Now search on that query, unmarshaling to a temporary struct and converting results to []string
+	searcher := search.NewMongoSearcher(dal.Database)
+	mgoQuery := searcher.CreateQuery(newQuery).Select(bson.M{"_id": 1})
+	results := []struct {
+		ID string `bson:"_id"`
+	}{}
+	if err := mgoQuery.All(&results); err != nil {
+		return nil, err
+	}
+	IDs = make([]string, len(results))
+	for i := range results {
+		IDs[i] = results[i].ID
+	}
+
+	return IDs, nil
 }
 
 // ResourcePlusRelatedResources is an interface to capture those structs that implement the functions for
