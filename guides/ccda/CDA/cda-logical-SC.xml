@@ -2,7 +2,7 @@
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="SC"/>
-  <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace">
+  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
     <valueUri value="urn:hl7-org:v3"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SC"/>
@@ -15,6 +15,7 @@
   <kind value="logical"/>
   <abstract value="false"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ST"/>
+  <derivation value="specialization"/>
   <snapshot>
     <element>
       <path value="SC"/>

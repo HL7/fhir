@@ -2,7 +2,7 @@
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="AD"/>
-  <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace">
+  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
     <valueUri value="urn:hl7-org:v3"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AD"/>
@@ -15,6 +15,7 @@
   <kind value="logical"/>
   <abstract value="false"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ANY"/>
+  <derivation value="specialization"/>
   <snapshot>
     <element>
       <path value="AD"/>
@@ -278,6 +279,9 @@
       </type>
     </element>
     <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaultype">
+        <valueString value="SXPR_TS"/>
+      </extension>
       <path value="AD.useablePeriod"/>
       <representation value="typeAttr"/>
       <label value="Useable Period"/>
@@ -288,10 +292,10 @@
         <code value="IVL_TS"/>
       </type>
       <type>
-        <code value="EIVL"/>
+        <code value="EIVL_TS"/>
       </type>
       <type>
-        <code value="PIVL"/>
+        <code value="PIVL_TS"/>
       </type>
       <type>
         <code value="SXPR_TS"/>
@@ -555,6 +559,9 @@
       </type>
     </element>
     <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaultype">
+        <valueString value="SXPR_TS"/>
+      </extension>
       <path value="AD.useablePeriod"/>
       <representation value="typeAttr"/>
       <label value="Useable Period"/>
@@ -565,10 +572,10 @@
         <code value="IVL_TS"/>
       </type>
       <type>
-        <code value="EIVL"/>
+        <code value="EIVL_TS"/>
       </type>
       <type>
-        <code value="PIVL"/>
+        <code value="PIVL_TS"/>
       </type>
       <type>
         <code value="SXPR_TS"/>

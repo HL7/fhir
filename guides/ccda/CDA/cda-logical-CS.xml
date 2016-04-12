@@ -2,7 +2,7 @@
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="CS"/>
-  <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace">
+  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
     <valueUri value="urn:hl7-org:v3"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CS"/>
@@ -15,6 +15,7 @@
   <kind value="logical"/>
   <abstract value="false"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CV"/>
+  <derivation value="specialization"/>
   <snapshot>
     <element>
       <path value="CS"/>
@@ -127,188 +128,14 @@
       </type>
     </element>
     <element>
-      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace">
-        <valueUri value="urn:hl7-org:sdtc"/>
-      </extension>
-      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
         <valueUri value="urn:hl7-org:sdtc"/>
       </extension>
       <path value="CS.valueSetVersion"/>
       <representation value="xmlAttr"/>
-      <representation value="xmlAttr"/>
       <definition value="The valueSetVersion extension adds an attribute for elements with a CD dataType which indicates the version of the particular value set constraining the coded concept."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element>
-      <path value="CS.code"/>
-      <representation value="xmlAttr"/>
-      <label value="Code"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element>
-      <path value="CS.codeSystem"/>
-      <representation value="xmlAttr"/>
-      <label value="Code System"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element>
-      <path value="CS.codeSystemName"/>
-      <representation value="xmlAttr"/>
-      <label value="Code System Name"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element>
-      <path value="CS.codeSystemVersion"/>
-      <representation value="xmlAttr"/>
-      <label value="Code System Version"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element>
-      <path value="CS.displayName"/>
-      <representation value="xmlAttr"/>
-      <label value="Display Name"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element>
-      <path value="CS.originalText"/>
-      <label value="Original Text"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="ED"/>
-      </type>
-    </element>
-    <element>
-      <path value="CS.translation"/>
-      <label value="Translation"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CD"/>
-      </type>
-    </element>
-    <element>
-      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace">
-        <valueUri value="urn:hl7-org:sdtc"/>
-      </extension>
-      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace">
-        <valueUri value="urn:hl7-org:sdtc"/>
-      </extension>
-      <path value="CS.valueSetVersion"/>
-      <representation value="xmlAttr"/>
-      <representation value="xmlAttr"/>
-      <definition value="The valueSetVersion extension adds an attribute for elements with a CD dataType which indicates the version of the particular value set constraining the coded concept."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element>
-      <path value="CS.code"/>
-      <representation value="xmlAttr"/>
-      <label value="Code"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element>
-      <path value="CS.codeSystem"/>
-      <representation value="xmlAttr"/>
-      <label value="Code System"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element>
-      <path value="CS.codeSystemName"/>
-      <representation value="xmlAttr"/>
-      <label value="Code System Name"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element>
-      <path value="CS.codeSystemVersion"/>
-      <representation value="xmlAttr"/>
-      <label value="Code System Version"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element>
-      <path value="CS.displayName"/>
-      <representation value="xmlAttr"/>
-      <label value="Display Name"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element>
-      <path value="CS.originalText"/>
-      <label value="Original Text"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="ED"/>
-      </type>
-    </element>
-    <element>
-      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace">
-        <valueUri value="urn:hl7-org:sdtc"/>
-      </extension>
-      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace">
-        <valueUri value="urn:hl7-org:sdtc"/>
-      </extension>
-      <path value="CS.valueSetVersion"/>
-      <representation value="xmlAttr"/>
-      <representation value="xmlAttr"/>
-      <definition value="The valueSetVersion extension adds an attribute for elements with a CD dataType which indicates the version of the particular value set constraining the coded concept."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
       <type>
         <code value="string"/>
       </type>

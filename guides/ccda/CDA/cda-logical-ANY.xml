@@ -2,7 +2,7 @@
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ANY"/>
-  <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace">
+  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
     <valueUri value="urn:hl7-org:v3"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ANY"/>
@@ -14,6 +14,7 @@
   <description value="Defines the basic properties of every data value. This is an abstract type, meaning that no value can be just a data value without belonging to any concrete type. Every concrete type is a specialization of this general abstract DataValue type."/>
   <kind value="logical"/>
   <abstract value="true"/>
+  <derivation value="specialization"/>
   <differential>
     <element>
       <path value="ANY"/>
