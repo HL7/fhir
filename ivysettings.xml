@@ -1,0 +1,12 @@
+<ivysettings>
+    <properties file="build.properties" />
+    <settings defaultResolver="local-chain"/>
+    <resolvers>
+        <ibiblio name="maven" m2compatible="true"/>
+        <ibiblio name="jcenter" root="http://jcenter.bintray.com/" m2compatible="true" />
+        <chain name="local-chain">
+            <resolver ref="maven"/>
+            <resolver ref="jcenter"/>
+        </chain>
+    </resolvers>
+</ivysettings>
