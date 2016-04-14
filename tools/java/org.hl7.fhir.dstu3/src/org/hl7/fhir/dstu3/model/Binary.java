@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -174,6 +174,26 @@ public class Binary extends BaseBinary implements IBaseBinary {
         super.listChildren(childrenList);
         childrenList.add(new Property("contentType", "code", "MimeType of the binary content represented as a standard MimeType (BCP 13).", 0, java.lang.Integer.MAX_VALUE, contentType));
         childrenList.add(new Property("content", "base64Binary", "The actual content, base64 encoded.", 0, java.lang.Integer.MAX_VALUE, content));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -389131437: return this.contentType == null ? new Base[0] : new Base[] {this.contentType}; // CodeType
+        case 951530617: return this.content == null ? new Base[0] : new Base[] {this.content}; // Base64BinaryType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -389131437: this.contentType = castToCode(value); // CodeType
+        case 951530617: this.content = castToBase64Binary(value); // Base64BinaryType
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

@@ -343,7 +343,7 @@
  -- Row 10 -----------------------------------
   Name = notes
   Type = string
-  Path = List.note
+  Path = List.note.text
 
  -- Row 11 -----------------------------------
   Name = encounter

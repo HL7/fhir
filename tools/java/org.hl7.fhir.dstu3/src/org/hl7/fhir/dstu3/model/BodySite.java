@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -356,6 +356,34 @@ public class BodySite extends DomainResource {
         childrenList.add(new Property("modifier", "CodeableConcept", "Modifier to refine the anatomical location.  These include modifiers for laterality, relative location, directionality, number, and plane.", 0, java.lang.Integer.MAX_VALUE, modifier));
         childrenList.add(new Property("description", "string", "Description of anatomical location.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("image", "Attachment", "Image or images used to identify a location.", 0, java.lang.Integer.MAX_VALUE, image));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -615513385: return this.modifier.toArray(new Base[this.modifier.size()]); // CodeableConcept
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 100313435: return this.image.toArray(new Base[this.image.size()]); // Attachment
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -791418107: this.patient = castToReference(value); // Reference
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
+        case -615513385: this.modifier.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1724546052: this.description = castToString(value); // StringType
+        case 100313435: this.image.add(castToAttachment(value)); // Attachment
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

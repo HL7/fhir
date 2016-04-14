@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -574,6 +574,26 @@ public class CarePlan extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<CarePlanRelationship>
+        case 3443497: return this.plan == null ? new Base[0] : new Base[] {this.plan}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code = new CarePlanRelationshipEnumFactory().fromType(value); // Enumeration<CarePlanRelationship>
+        case 3443497: this.plan = castToReference(value); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = new CarePlanRelationshipEnumFactory().fromType(value); // Enumeration<CarePlanRelationship>
@@ -734,6 +754,26 @@ public class CarePlan extends DomainResource {
           childrenList.add(new Property("role", "CodeableConcept", "Indicates specific responsibility of an individual within the care plan; e.g. \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("member", "Reference(Practitioner|RelatedPerson|Patient|Organization)", "The specific person or organization who is participating/expected to participate in the care plan.", 0, java.lang.Integer.MAX_VALUE, member));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3506294: return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
+        case -1077769574: return this.member == null ? new Base[0] : new Base[] {this.member}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3506294: this.role = castToCodeableConcept(value); // CodeableConcept
+        case -1077769574: this.member = castToReference(value); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1007,6 +1047,30 @@ public class CarePlan extends DomainResource {
           childrenList.add(new Property("reference", "Reference(Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticOrder|MedicationOrder|NutritionOrder|Order|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)", "The details of the proposed activity represented in a specific resource.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("detail", "", "A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 836386063: return this.actionResulting.toArray(new Base[this.actionResulting.size()]); // Reference
+        case -1001078227: return this.progress.toArray(new Base[this.progress.size()]); // Annotation
+        case -925155509: return this.reference == null ? new Base[0] : new Base[] {this.reference}; // Reference
+        case -1335224239: return this.detail == null ? new Base[0] : new Base[] {this.detail}; // CarePlanActivityDetailComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 836386063: this.actionResulting.add(castToReference(value)); // Reference
+        case -1001078227: this.progress.add(castToAnnotation(value)); // Annotation
+        case -925155509: this.reference = castToReference(value); // Reference
+        case -1335224239: this.detail = (CarePlanActivityDetailComponent) value; // CarePlanActivityDetailComponent
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1876,6 +1940,52 @@ public class CarePlan extends DomainResource {
           childrenList.add(new Property("quantity", "SimpleQuantity", "Identifies the quantity expected to be supplied, administered or consumed by the subject.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("description", "string", "This provides a textual description of constraints on the intended activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.", 0, java.lang.Integer.MAX_VALUE, description));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case 722137681: return this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
+        case -1146218137: return this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
+        case 3178259: return this.goal.toArray(new Base[this.goal.size()]); // Reference
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<CarePlanActivityStatus>
+        case 2051346646: return this.statusReason == null ? new Base[0] : new Base[] {this.statusReason}; // CodeableConcept
+        case 663275198: return this.prohibited == null ? new Base[0] : new Base[] {this.prohibited}; // BooleanType
+        case 1162627251: return this.scheduled == null ? new Base[0] : new Base[] {this.scheduled}; // Type
+        case 1901043637: return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
+        case 481140686: return this.performer.toArray(new Base[this.performer.size()]); // Reference
+        case 1753005361: return this.product == null ? new Base[0] : new Base[] {this.product}; // Type
+        case -768908335: return this.dailyAmount == null ? new Base[0] : new Base[] {this.dailyAmount}; // SimpleQuantity
+        case -1285004149: return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 50511102: this.category = castToCodeableConcept(value); // CodeableConcept
+        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
+        case 722137681: this.reasonCode.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1146218137: this.reasonReference.add(castToReference(value)); // Reference
+        case 3178259: this.goal.add(castToReference(value)); // Reference
+        case -892481550: this.status = new CarePlanActivityStatusEnumFactory().fromType(value); // Enumeration<CarePlanActivityStatus>
+        case 2051346646: this.statusReason = castToCodeableConcept(value); // CodeableConcept
+        case 663275198: this.prohibited = castToBoolean(value); // BooleanType
+        case 1162627251: this.scheduled = (Type) value; // Type
+        case 1901043637: this.location = castToReference(value); // Reference
+        case 481140686: this.performer.add(castToReference(value)); // Reference
+        case 1753005361: this.product = (Type) value; // Type
+        case -768908335: this.dailyAmount = castToSimpleQuantity(value); // SimpleQuantity
+        case -1285004149: this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+        case -1724546052: this.description = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -2931,6 +3041,54 @@ public class CarePlan extends DomainResource {
         childrenList.add(new Property("goal", "Reference(Goal)", "Describes the intended objective(s) of carrying out the care plan.", 0, java.lang.Integer.MAX_VALUE, goal));
         childrenList.add(new Property("activity", "", "Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.", 0, java.lang.Integer.MAX_VALUE, activity));
         childrenList.add(new Property("note", "Annotation", "General notes about the care plan not covered elsewhere.", 0, java.lang.Integer.MAX_VALUE, note));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<CarePlanStatus>
+        case 951530927: return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case -1406328437: return this.author.toArray(new Base[this.author.size()]); // Reference
+        case -615513399: return this.modified == null ? new Base[0] : new Base[] {this.modified}; // DateTimeType
+        case 50511102: return this.category.toArray(new Base[this.category.size()]); // CodeableConcept
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 874544034: return this.addresses.toArray(new Base[this.addresses.size()]); // Reference
+        case -1854767153: return this.support.toArray(new Base[this.support.size()]); // Reference
+        case 1112903156: return this.relatedPlan.toArray(new Base[this.relatedPlan.size()]); // CarePlanRelatedPlanComponent
+        case 767422259: return this.participant.toArray(new Base[this.participant.size()]); // CarePlanParticipantComponent
+        case 3178259: return this.goal.toArray(new Base[this.goal.size()]); // Reference
+        case -1655966961: return this.activity.toArray(new Base[this.activity.size()]); // CarePlanActivityComponent
+        case 3387378: return this.note == null ? new Base[0] : new Base[] {this.note}; // Annotation
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1867885268: this.subject = castToReference(value); // Reference
+        case -892481550: this.status = new CarePlanStatusEnumFactory().fromType(value); // Enumeration<CarePlanStatus>
+        case 951530927: this.context = castToReference(value); // Reference
+        case -991726143: this.period = castToPeriod(value); // Period
+        case -1406328437: this.author.add(castToReference(value)); // Reference
+        case -615513399: this.modified = castToDateTime(value); // DateTimeType
+        case 50511102: this.category.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1724546052: this.description = castToString(value); // StringType
+        case 874544034: this.addresses.add(castToReference(value)); // Reference
+        case -1854767153: this.support.add(castToReference(value)); // Reference
+        case 1112903156: this.relatedPlan.add((CarePlanRelatedPlanComponent) value); // CarePlanRelatedPlanComponent
+        case 767422259: this.participant.add((CarePlanParticipantComponent) value); // CarePlanParticipantComponent
+        case 3178259: this.goal.add(castToReference(value)); // Reference
+        case -1655966961: this.activity.add((CarePlanActivityComponent) value); // CarePlanActivityComponent
+        case 3387378: this.note = castToAnnotation(value); // Annotation
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

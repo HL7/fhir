@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -177,6 +177,28 @@ public class CareTeam extends DomainResource {
           childrenList.add(new Property("member", "Reference(Practitioner|RelatedPerson|Patient|Organization)", "The specific person or organization who is participating/expected to participate in the care team.", 0, java.lang.Integer.MAX_VALUE, member));
           childrenList.add(new Property("period", "Period", "Indicates when the specific member or organization did (or is intended to) come into effect and end.", 0, java.lang.Integer.MAX_VALUE, period));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3506294: return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
+        case -1077769574: return this.member == null ? new Base[0] : new Base[] {this.member}; // Reference
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3506294: this.role = castToCodeableConcept(value); // CodeableConcept
+        case -1077769574: this.member = castToReference(value); // Reference
+        case -991726143: this.period = castToPeriod(value); // Period
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -635,6 +657,38 @@ public class CareTeam extends DomainResource {
         childrenList.add(new Property("period", "Period", "Indicates when the team did (or is intended to) come into effect and end.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("participant", "", "Identifies all people and organizations who are expected to be involved in the care team.", 0, java.lang.Integer.MAX_VALUE, participant));
         childrenList.add(new Property("managingOrganization", "Reference(Organization)", "The organization responsible for the care team.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // CodeableConcept
+        case 3575610: return this.type.toArray(new Base[this.type.size()]); // CodeableConcept
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case 767422259: return this.participant.toArray(new Base[this.participant.size()]); // CareTeamParticipantComponent
+        case -2058947787: return this.managingOrganization == null ? new Base[0] : new Base[] {this.managingOrganization}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case -892481550: this.status = castToCodeableConcept(value); // CodeableConcept
+        case 3575610: this.type.add(castToCodeableConcept(value)); // CodeableConcept
+        case 3373707: this.name = castToString(value); // StringType
+        case -1867885268: this.subject = castToReference(value); // Reference
+        case -991726143: this.period = castToPeriod(value); // Period
+        case 767422259: this.participant.add((CareTeamParticipantComponent) value); // CareTeamParticipantComponent
+        case -2058947787: this.managingOrganization = castToReference(value); // Reference
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

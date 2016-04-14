@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1004,6 +1004,54 @@ public class Device extends DomainResource {
         childrenList.add(new Property("location", "Reference(Location)", "The place where the device can be found.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("url", "uri", "A network address on which the device may be contacted directly.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("note", "Annotation", "Descriptive information, usage information or implantation information that is not captured in an existing element.", 0, java.lang.Integer.MAX_VALUE, note));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1343558178: return this.udiCarrier == null ? new Base[0] : new Base[] {this.udiCarrier}; // Identifier
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DeviceStatus>
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case 462547450: return this.lotNumber == null ? new Base[0] : new Base[] {this.lotNumber}; // StringType
+        case -1969347631: return this.manufacturer == null ? new Base[0] : new Base[] {this.manufacturer}; // StringType
+        case 416714767: return this.manufactureDate == null ? new Base[0] : new Base[] {this.manufactureDate}; // DateTimeType
+        case -668811523: return this.expirationDate == null ? new Base[0] : new Base[] {this.expirationDate}; // DateTimeType
+        case 104069929: return this.model == null ? new Base[0] : new Base[] {this.model}; // StringType
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case 106164915: return this.owner == null ? new Base[0] : new Base[] {this.owner}; // Reference
+        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // ContactPoint
+        case 1901043637: return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case 3387378: return this.note.toArray(new Base[this.note.size()]); // Annotation
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1343558178: this.udiCarrier = castToIdentifier(value); // Identifier
+        case -892481550: this.status = new DeviceStatusEnumFactory().fromType(value); // Enumeration<DeviceStatus>
+        case 3575610: this.type = castToCodeableConcept(value); // CodeableConcept
+        case 462547450: this.lotNumber = castToString(value); // StringType
+        case -1969347631: this.manufacturer = castToString(value); // StringType
+        case 416714767: this.manufactureDate = castToDateTime(value); // DateTimeType
+        case -668811523: this.expirationDate = castToDateTime(value); // DateTimeType
+        case 104069929: this.model = castToString(value); // StringType
+        case 351608024: this.version = castToString(value); // StringType
+        case -791418107: this.patient = castToReference(value); // Reference
+        case 106164915: this.owner = castToReference(value); // Reference
+        case 951526432: this.contact.add(castToContactPoint(value)); // ContactPoint
+        case 1901043637: this.location = castToReference(value); // Reference
+        case 116079: this.url = castToUri(value); // UriType
+        case 3387378: this.note.add(castToAnnotation(value)); // Annotation
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

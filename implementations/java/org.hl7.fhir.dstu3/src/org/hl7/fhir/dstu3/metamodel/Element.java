@@ -3,6 +3,8 @@ package org.hl7.fhir.dstu3.metamodel;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hl7.fhir.dstu3.model.Base;
+
 /**
  * This class represents the reference model of FHIR
  * 
@@ -13,7 +15,7 @@ import java.util.List;
  * @author Grahame Grieve
  *
  */
-public class Element {
+public class Element extends Base {
 
 	private List<String> comments;// not relevant for production, but useful in documentation
 	private String name;
@@ -156,6 +158,23 @@ public class Element {
 		}
 		return res;
 	}
+
+  public boolean hasType() {
+    if (type == null)
+      return property.hasType(name);
+    else
+      return true;
+  }
+
+  @Override
+  public String fhirType() {
+    return getType();
+  }
+
+  @Override
+  protected void listChildren(List<org.hl7.fhir.dstu3.model.Property> result) {
+    
+  }
 
 	
 }

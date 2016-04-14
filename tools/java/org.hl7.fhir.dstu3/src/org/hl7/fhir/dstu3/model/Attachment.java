@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -510,6 +510,38 @@ public class Attachment extends Type implements ICompositeType {
         childrenList.add(new Property("hash", "base64Binary", "The calculated hash of the data using SHA-1. Represented using base64.", 0, java.lang.Integer.MAX_VALUE, hash));
         childrenList.add(new Property("title", "string", "A label or set of text to display in place of the data.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("creation", "dateTime", "The date that the attachment was first created.", 0, java.lang.Integer.MAX_VALUE, creation));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -389131437: return this.contentType == null ? new Base[0] : new Base[] {this.contentType}; // CodeType
+        case -1613589672: return this.language == null ? new Base[0] : new Base[] {this.language}; // CodeType
+        case 3076010: return this.data == null ? new Base[0] : new Base[] {this.data}; // Base64BinaryType
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case 3530753: return this.size == null ? new Base[0] : new Base[] {this.size}; // UnsignedIntType
+        case 3195150: return this.hash == null ? new Base[0] : new Base[] {this.hash}; // Base64BinaryType
+        case 110371416: return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
+        case 1820421855: return this.creation == null ? new Base[0] : new Base[] {this.creation}; // DateTimeType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -389131437: this.contentType = castToCode(value); // CodeType
+        case -1613589672: this.language = castToCode(value); // CodeType
+        case 3076010: this.data = castToBase64Binary(value); // Base64BinaryType
+        case 116079: this.url = castToUri(value); // UriType
+        case 3530753: this.size = castToUnsignedInt(value); // UnsignedIntType
+        case 3195150: this.hash = castToBase64Binary(value); // Base64BinaryType
+        case 110371416: this.title = castToString(value); // StringType
+        case 1820421855: this.creation = castToDateTime(value); // DateTimeType
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

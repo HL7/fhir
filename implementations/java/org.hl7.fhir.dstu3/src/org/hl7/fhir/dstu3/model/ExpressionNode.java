@@ -43,7 +43,8 @@ public class ExpressionNode {
   public enum Function {
     Empty, Not, Exists, SubsetOf, SupersetOf, IsDistinct, Distinct, Count, Where, Select, All, Repeat, Item /*implicit from name[]*/, As, Is, Single,
     First, Last, Tail, Skip, Take, Iif, ToInteger, ToDecimal, ToString, Substring, StartsWith, EndsWith, Matches, ReplaceMatches, Contains, Replace, Length,  
-    Children, Descendents, MemberOf, Trace, Today, Now, Resolve, Extension;
+    Children, Descendents, MemberOf, Trace, Today, Now, Resolve, Extension,
+    Custom;
 
     public static Function fromCode(String name) {
       if (name.equals("empty")) return Function.Empty;

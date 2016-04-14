@@ -42,6 +42,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.TimeType;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
+import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext.FunctionDetails;
 import org.hl7.fhir.exceptions.UcumException;
 import org.hl7.fhir.utilities.Table;
 import org.hl7.fhir.utilities.Utilities;
@@ -55,16 +56,63 @@ import org.hl7.fhir.utilities.ucum.Decimal;
 public class FHIRPathEngine {
 
 	private IWorkerContext worker;
-	private IConstantResolver constantResolver;
+  private IEvaluationContext hostServices;
 	private StringBuilder log = new StringBuilder();
   private Set<String> primitiveTypes = new HashSet<String>();
   private Map<String, StructureDefinition> allTypes = new HashMap<String, StructureDefinition>();
 
 	// if the fhir path expressions are allowed to use constants beyond those defined in the specification
 	// the application can implement them by providing a constant resolver 
-	public interface IConstantResolver {
+  public interface IEvaluationContext {
+    public class FunctionDetails {
+      private String description;
+      private int minParameters;
+      private int maxParameters;
+      public FunctionDetails(String description, int minParameters, int maxParameters) {
+        super();
+        this.description = description;
+        this.minParameters = minParameters;
+        this.maxParameters = maxParameters;
+      }
+      public String getDescription() {
+        return description;
+      }
+      public int getMinParameters() {
+        return minParameters;
+      }
+      public int getMaxParameters() {
+        return maxParameters;
+      }
+
+    }
+
 		public Type resolveConstant(Object appContext, String name);
 		public String resolveConstantType(Object appContext, String name);
+    public boolean Log(String argument, List<Base> focus);
+
+    // extensibility for functions
+    /**
+     * 
+     * @param functionName
+     * @return null if the function is not known
+     */
+    public FunctionDetails resolveFunction(String functionName);
+    
+    /**
+     * Check the function parameters, and throw an error if they are incorrect, or return the type for the function
+     * @param functionName
+     * @param parameters
+     * @return
+     */
+    public TypeDetails checkFunction(Object appContext, String functionName, List<TypeDetails> parameters) throws PathEngineException;
+    
+    /**
+     * @param appContext
+     * @param functionName
+     * @param parameters
+     * @return
+     */
+    public List<Base> executeFunction(Object appContext, String functionName, List<List<Base>> parameters);
 	}
 
 
@@ -96,13 +144,13 @@ public class FHIRPathEngine {
 	// if you don't override, it falls through to the using the base reference implementation 
 	// HAPI overrides to these to support extensing the base model
 
-	public IConstantResolver getConstantResolver() {
-		return constantResolver;
+  public IEvaluationContext getConstantResolver() {
+    return hostServices;
 	}
 
 
-	public void setConstantResolver(IConstantResolver constantResolver) {
-		this.constantResolver = constantResolver;
+  public void setConstantResolver(IEvaluationContext constantResolver) {
+    this.hostServices = constantResolver;
 	}
 
 
@@ -120,9 +168,9 @@ public class FHIRPathEngine {
 	 * @param result
 	 */
 	protected void getChildrenByName(Base item, String name, List<Base> result) {
-		for (Base v : item.listChildrenByName(name))
-			if (v != null)
-				result.add(v);
+    for (Base v : item.listChildrenByName(name))
+				if (v != null)
+					result.add(v);
 	}
 
 	// --- public API -------------------------------------------------------
@@ -359,13 +407,15 @@ public class FHIRPathEngine {
 	}
 
 
-	private void log(String name, String contents) {
+  private void log(String name, List<Base> contents) {
+    if (hostServices == null || !hostServices.Log(name, contents)) {
 		if (log.length() > 0)
 			log.append("; ");
 		log.append(name);
 		log.append(": ");
 		log.append(contents);
 	}
+  }
 	
 	public String forLog() {
 		if (log.length() > 0)
@@ -445,8 +495,13 @@ public class FHIRPathEngine {
 				throw lexer.error("Found "+result.getName()+" expecting a valid token name");
 			if ("(".equals(lexer.getCurrent())) {
 				Function f = Function.fromCode(result.getName());  
-				if (f == null)
+        FunctionDetails details = null;
+        if (f == null) {
+          details = hostServices.resolveFunction(result.getName());
+          if (details == null)
 					throw lexer.error("The name "+result.getName()+" is not a valid function name");
+          f = Function.Custom;
+        }
 				result.setKind(Kind.Function);
 				result.setFunction(f);
 				lexer.next();
@@ -459,7 +514,7 @@ public class FHIRPathEngine {
 				}
 				result.setEnd(lexer.getCurrentLocation());
 				lexer.next();
-				checkParameters(lexer, c, result);
+        checkParameters(lexer, c, result, details);
 			} else
 				result.setKind(Kind.Name);
 		}
@@ -637,7 +692,7 @@ public class FHIRPathEngine {
 		return true;
 	}
 
-	private boolean checkParameters(FHIRLexer lexer, SourceLocation location, ExpressionNode exp) throws FHIRLexerException {
+  private boolean checkParameters(FHIRLexer lexer, SourceLocation location, ExpressionNode exp, FunctionDetails details) throws FHIRLexerException {
 		switch (exp.getFunction()) {
     case Empty: return checkParamCount(lexer, location, exp, 0);
     case Not: return checkParamCount(lexer, location, exp, 0);
@@ -680,6 +735,7 @@ public class FHIRPathEngine {
     case Now: return checkParamCount(lexer, location, exp, 0);
     case Resolve: return checkParamCount(lexer, location, exp, 0);
     case Extension: return checkParamCount(lexer, location, exp, 1);
+    case Custom: return checkParamCount(lexer, location, exp, details.getMinParameters(), details.getMaxParameters());
 		}
 		return false;
 	}
@@ -726,7 +782,7 @@ public class FHIRPathEngine {
           work2 = executeTypeName(context, focus, next, false);
           work = operate(work, last.getOperation(), work2);
         } else {
-					work2 = execute(context, focus, next, false);
+          work2 = execute(context, focus, next, true);
 					work = operate(work, last.getOperation(), work2);
 				}
 					last = next;
@@ -873,10 +929,10 @@ public class FHIRPathEngine {
       return new StringType("http://hl7.org/fhir/"+s.substring(5, s.length()-1)+"");
     else if (s.startsWith("%\"ext-"))
       return new StringType("http://hl7.org/fhir/StructureDefinition/"+s.substring(6, s.length()-1));
-		else if (constantResolver == null)
+    else if (hostServices == null)
 			throw new PathEngineException("Unknown fixed constant '"+s+"'");
 		else
-			return constantResolver.resolveConstant(context.appInfo, s);
+      return hostServices.resolveConstant(context.appInfo, s);
 	}
 
 
@@ -1566,10 +1622,10 @@ public class FHIRPathEngine {
 			return "string";
     else if (s.startsWith("%\"ext-"))
 			return "string";
-		else if (constantResolver == null)
+    else if (hostServices == null)
 			throw new PathEngineException("Unknown fixed constant type for '"+s+"'");
 		else
-			return constantResolver.resolveConstantType(context.appInfo, s);
+      return hostServices.resolveConstantType(context.appInfo, s);
 	}
 
 	private List<Base> execute(ExecutionContext context, Base item, ExpressionNode exp, boolean atEntry) {
@@ -1752,6 +1808,9 @@ public class FHIRPathEngine {
       checkParamTypes(exp.getFunction().toCode(), paramTypes, new TypeDetails(CollectionStatus.SINGLETON, "string")); 
       return new TypeDetails(CollectionStatus.SINGLETON, "Extension"); 
     }
+    case Custom : {
+      return hostServices.checkFunction(context.appInfo, exp.getName(), paramTypes);
+    }
 		default:
 			break;
 		}
@@ -1860,6 +1919,12 @@ public class FHIRPathEngine {
     case Now : return funcNow(context, focus, exp);
     case Resolve : return funcResolve(context, focus, exp);
     case Extension : return funcExtension(context, focus, exp);
+    case Custom: { 
+      List<List<Base>> params = new ArrayList<List<Base>>();
+      for (ExpressionNode p : exp.getParameters()) 
+        params.add(execute(context, focus, p, true));
+      return hostServices.executeFunction(context.appInfo, exp.getName(), params);
+    }
 		default:
       throw new Error("not Implemented yet");
 		}
@@ -2175,7 +2240,7 @@ public class FHIRPathEngine {
     List<Base> nl = execute(context, focus, exp.getParameters().get(0), true);
 		String name = nl.get(0).primitiveValue();
 
-		log(name, convertToString(focus));
+    log(name, focus);
 		return focus;
 	}
 

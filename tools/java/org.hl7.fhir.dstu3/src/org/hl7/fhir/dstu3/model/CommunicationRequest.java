@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -350,6 +350,24 @@ public class CommunicationRequest extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("content[x]", "string|Attachment|Reference(Any)", "The communicated content (or for multi-part communications, one portion of the communication).", 0, java.lang.Integer.MAX_VALUE, content));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 264548711: return this.content == null ? new Base[0] : new Base[] {this.content}; // Type
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 264548711: this.content = (Type) value; // Type
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1129,6 +1147,50 @@ public class CommunicationRequest extends DomainResource {
         childrenList.add(new Property("requestedOn", "dateTime", "The time when the request was made.", 0, java.lang.Integer.MAX_VALUE, requestedOn));
         childrenList.add(new Property("subject", "Reference(Patient)", "The patient who is the focus of this communication request.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("priority", "CodeableConcept", "Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.", 0, java.lang.Integer.MAX_VALUE, priority));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
+        case -905962955: return this.sender == null ? new Base[0] : new Base[] {this.sender}; // Reference
+        case 820081177: return this.recipient.toArray(new Base[this.recipient.size()]); // Reference
+        case -786701938: return this.payload.toArray(new Base[this.payload.size()]); // CommunicationRequestPayloadComponent
+        case -1078030475: return this.medium.toArray(new Base[this.medium.size()]); // CodeableConcept
+        case 693933948: return this.requester == null ? new Base[0] : new Base[] {this.requester}; // Reference
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<CommunicationRequestStatus>
+        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case 1162627251: return this.scheduled == null ? new Base[0] : new Base[] {this.scheduled}; // Type
+        case -934964668: return this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
+        case 1150582253: return this.requestedOn == null ? new Base[0] : new Base[] {this.requestedOn}; // DateTimeType
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case 50511102: this.category = castToCodeableConcept(value); // CodeableConcept
+        case -905962955: this.sender = castToReference(value); // Reference
+        case 820081177: this.recipient.add(castToReference(value)); // Reference
+        case -786701938: this.payload.add((CommunicationRequestPayloadComponent) value); // CommunicationRequestPayloadComponent
+        case -1078030475: this.medium.add(castToCodeableConcept(value)); // CodeableConcept
+        case 693933948: this.requester = castToReference(value); // Reference
+        case -892481550: this.status = new CommunicationRequestStatusEnumFactory().fromType(value); // Enumeration<CommunicationRequestStatus>
+        case 1524132147: this.encounter = castToReference(value); // Reference
+        case 1162627251: this.scheduled = (Type) value; // Type
+        case -934964668: this.reason.add(castToCodeableConcept(value)); // CodeableConcept
+        case 1150582253: this.requestedOn = castToDateTime(value); // DateTimeType
+        case -1867885268: this.subject = castToReference(value); // Reference
+        case -1165461084: this.priority = castToCodeableConcept(value); // CodeableConcept
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

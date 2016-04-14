@@ -140,6 +140,24 @@
   Display = reference
   Definition = reference(source : object) - return a string that references the provided tree properly
 
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = dateOp
+  Display = dateOp
+  Definition = something
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Code = uuid
+  Display = uuid
+  Definition = something
+
+ -- Row 11 -----------------------------------
+  Id = 11
+  Code = pointer
+  Display = pointer
+  Definition = something
+
 === Sheet map-list-mode =====================================
 
  -- Row 1 -----------------------------------

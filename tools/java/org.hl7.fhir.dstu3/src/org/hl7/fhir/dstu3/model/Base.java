@@ -555,6 +555,16 @@ private Map<String, Object> userData;
 	protected boolean isMetadataBased() {
   	return false;
 	}
+
+	public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+		if (checkValid)
+			throw new FHIRException("Attempt to read invalid property "+Integer.toString(hash));
+  	return null; 
+	}
+
+	public void setProperty(int hash, Base value) throws FHIRException {
+		throw new FHIRException("Attempt to write to invalid property "+Integer.toString(hash));
+	}
 	
 
 }

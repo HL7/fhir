@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -350,6 +350,32 @@ public class Coding extends Type implements IBaseCoding, ICompositeType {
         childrenList.add(new Property("code", "code", "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("display", "string", "A representation of the meaning of the code in the system, following the rules of the system.", 0, java.lang.Integer.MAX_VALUE, display));
         childrenList.add(new Property("userSelected", "boolean", "Indicates that this coding was chosen by a user directly - i.e. off a pick list of available items (codes or displays).", 0, java.lang.Integer.MAX_VALUE, userSelected));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -887328209: return this.system == null ? new Base[0] : new Base[] {this.system}; // UriType
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case 1671764162: return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
+        case 423643014: return this.userSelected == null ? new Base[0] : new Base[] {this.userSelected}; // BooleanType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -887328209: this.system = castToUri(value); // UriType
+        case 351608024: this.version = castToString(value); // StringType
+        case 3059181: this.code = castToCode(value); // CodeType
+        case 1671764162: this.display = castToString(value); // StringType
+        case 423643014: this.userSelected = castToBoolean(value); // BooleanType
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

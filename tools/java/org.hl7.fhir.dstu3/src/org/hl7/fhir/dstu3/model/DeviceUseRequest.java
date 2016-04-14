@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1125,6 +1125,48 @@ public class DeviceUseRequest extends DomainResource {
         childrenList.add(new Property("subject", "Reference(Patient)", "The patient who will use the device.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("timing[x]", "Timing|Period|dateTime", "The timing schedule for the use of the device The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".", 0, java.lang.Integer.MAX_VALUE, timing));
         childrenList.add(new Property("priority", "code", "Characterizes how quickly the  use of device must be initiated. Includes concepts such as stat, urgent, routine.", 0, java.lang.Integer.MAX_VALUE, priority));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -806219817: return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // Type
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DeviceUseRequestStatus>
+        case -1335157162: return this.device == null ? new Base[0] : new Base[] {this.device}; // Reference
+        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -597168804: return this.indication.toArray(new Base[this.indication.size()]); // CodeableConcept
+        case 105008833: return this.notes.toArray(new Base[this.notes.size()]); // StringType
+        case 1825472528: return this.prnReason.toArray(new Base[this.prnReason.size()]); // CodeableConcept
+        case -391079124: return this.orderedOn == null ? new Base[0] : new Base[] {this.orderedOn}; // DateTimeType
+        case 735397551: return this.recordedOn == null ? new Base[0] : new Base[] {this.recordedOn}; // DateTimeType
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 164632566: return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
+        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<DeviceUseRequestPriority>
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -806219817: this.bodySite = (Type) value; // Type
+        case -892481550: this.status = new DeviceUseRequestStatusEnumFactory().fromType(value); // Enumeration<DeviceUseRequestStatus>
+        case -1335157162: this.device = castToReference(value); // Reference
+        case 1524132147: this.encounter = castToReference(value); // Reference
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case -597168804: this.indication.add(castToCodeableConcept(value)); // CodeableConcept
+        case 105008833: this.notes.add(castToString(value)); // StringType
+        case 1825472528: this.prnReason.add(castToCodeableConcept(value)); // CodeableConcept
+        case -391079124: this.orderedOn = castToDateTime(value); // DateTimeType
+        case 735397551: this.recordedOn = castToDateTime(value); // DateTimeType
+        case -1867885268: this.subject = castToReference(value); // Reference
+        case 164632566: this.timing = (Type) value; // Type
+        case -1165461084: this.priority = new DeviceUseRequestPriorityEnumFactory().fromType(value); // Enumeration<DeviceUseRequestPriority>
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

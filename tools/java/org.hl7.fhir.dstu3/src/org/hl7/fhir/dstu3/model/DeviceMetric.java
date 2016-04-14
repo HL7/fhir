@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -877,6 +877,28 @@ public class DeviceMetric extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<DeviceMetricCalibrationType>
+        case 109757585: return this.state == null ? new Base[0] : new Base[] {this.state}; // Enumeration<DeviceMetricCalibrationState>
+        case 3560141: return this.time == null ? new Base[0] : new Base[] {this.time}; // InstantType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610: this.type = new DeviceMetricCalibrationTypeEnumFactory().fromType(value); // Enumeration<DeviceMetricCalibrationType>
+        case 109757585: this.state = new DeviceMetricCalibrationStateEnumFactory().fromType(value); // Enumeration<DeviceMetricCalibrationState>
+        case 3560141: this.time = castToInstant(value); // InstantType
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new DeviceMetricCalibrationTypeEnumFactory().fromType(value); // Enumeration<DeviceMetricCalibrationType>
@@ -1424,6 +1446,42 @@ public class DeviceMetric extends DomainResource {
         childrenList.add(new Property("category", "code", "Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("measurementPeriod", "Timing", "Describes the measurement repetition time. This is not necessarily the same as the update period. The measurement repetition time can range from milliseconds up to hours. An example for a measurement repetition time in the range of milliseconds is the sampling rate of an ECG. An example for a measurement repetition time in the range of hours is a NIBP that is triggered automatically every hour. The update period may be different than the measurement repetition time, if the device does not update the published observed value with the same frequency as it was measured.", 0, java.lang.Integer.MAX_VALUE, measurementPeriod));
         childrenList.add(new Property("calibration", "", "Describes the calibrations that have been performed or that are required to be performed.", 0, java.lang.Integer.MAX_VALUE, calibration));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 3594628: return this.unit == null ? new Base[0] : new Base[] {this.unit}; // CodeableConcept
+        case -896505829: return this.source == null ? new Base[0] : new Base[] {this.source}; // Reference
+        case -995424086: return this.parent == null ? new Base[0] : new Base[] {this.parent}; // Reference
+        case -2103166364: return this.operationalStatus == null ? new Base[0] : new Base[] {this.operationalStatus}; // Enumeration<DeviceMetricOperationalStatus>
+        case 94842723: return this.color == null ? new Base[0] : new Base[] {this.color}; // Enumeration<DeviceMetricColor>
+        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // Enumeration<DeviceMetricCategory>
+        case -1300332387: return this.measurementPeriod == null ? new Base[0] : new Base[] {this.measurementPeriod}; // Timing
+        case 1421318634: return this.calibration.toArray(new Base[this.calibration.size()]); // DeviceMetricCalibrationComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610: this.type = castToCodeableConcept(value); // CodeableConcept
+        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
+        case 3594628: this.unit = castToCodeableConcept(value); // CodeableConcept
+        case -896505829: this.source = castToReference(value); // Reference
+        case -995424086: this.parent = castToReference(value); // Reference
+        case -2103166364: this.operationalStatus = new DeviceMetricOperationalStatusEnumFactory().fromType(value); // Enumeration<DeviceMetricOperationalStatus>
+        case 94842723: this.color = new DeviceMetricColorEnumFactory().fromType(value); // Enumeration<DeviceMetricColor>
+        case 50511102: this.category = new DeviceMetricCategoryEnumFactory().fromType(value); // Enumeration<DeviceMetricCategory>
+        case -1300332387: this.measurementPeriod = castToTiming(value); // Timing
+        case 1421318634: this.calibration.add((DeviceMetricCalibrationComponent) value); // DeviceMetricCalibrationComponent
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -630,6 +630,26 @@ Not to be used when the patient is currently at the location
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EncounterState>
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -892481550: this.status = new EncounterStateEnumFactory().fromType(value); // Enumeration<EncounterState>
+        case -991726143: this.period = castToPeriod(value); // Period
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("status"))
           this.status = new EncounterStateEnumFactory().fromType(value); // Enumeration<EncounterState>
@@ -838,6 +858,28 @@ Not to be used when the patient is currently at the location
           childrenList.add(new Property("period", "Period", "The period of time that the specified participant was present during the encounter. These can overlap or be sub-sets of the overall encounters period.", 0, java.lang.Integer.MAX_VALUE, period));
           childrenList.add(new Property("individual", "Reference(Practitioner|RelatedPerson)", "Persons involved in the encounter other than the patient.", 0, java.lang.Integer.MAX_VALUE, individual));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type.toArray(new Base[this.type.size()]); // CodeableConcept
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case -46292327: return this.individual == null ? new Base[0] : new Base[] {this.individual}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610: this.type.add(castToCodeableConcept(value)); // CodeableConcept
+        case -991726143: this.period = castToPeriod(value); // Period
+        case -46292327: this.individual = castToReference(value); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1464,6 +1506,44 @@ Not to be used when the patient is currently at the location
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -965394961: return this.preAdmissionIdentifier == null ? new Base[0] : new Base[] {this.preAdmissionIdentifier}; // Identifier
+        case -1008619738: return this.origin == null ? new Base[0] : new Base[] {this.origin}; // Reference
+        case 538887120: return this.admitSource == null ? new Base[0] : new Base[] {this.admitSource}; // CodeableConcept
+        case 2048045678: return this.admittingDiagnosis.toArray(new Base[this.admittingDiagnosis.size()]); // Reference
+        case 669348630: return this.reAdmission == null ? new Base[0] : new Base[] {this.reAdmission}; // CodeableConcept
+        case -1360641041: return this.dietPreference.toArray(new Base[this.dietPreference.size()]); // CodeableConcept
+        case 1583588345: return this.specialCourtesy.toArray(new Base[this.specialCourtesy.size()]); // CodeableConcept
+        case 47410321: return this.specialArrangement.toArray(new Base[this.specialArrangement.size()]); // CodeableConcept
+        case -1429847026: return this.destination == null ? new Base[0] : new Base[] {this.destination}; // Reference
+        case 528065941: return this.dischargeDisposition == null ? new Base[0] : new Base[] {this.dischargeDisposition}; // CodeableConcept
+        case -1985183665: return this.dischargeDiagnosis.toArray(new Base[this.dischargeDiagnosis.size()]); // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -965394961: this.preAdmissionIdentifier = castToIdentifier(value); // Identifier
+        case -1008619738: this.origin = castToReference(value); // Reference
+        case 538887120: this.admitSource = castToCodeableConcept(value); // CodeableConcept
+        case 2048045678: this.admittingDiagnosis.add(castToReference(value)); // Reference
+        case 669348630: this.reAdmission = castToCodeableConcept(value); // CodeableConcept
+        case -1360641041: this.dietPreference.add(castToCodeableConcept(value)); // CodeableConcept
+        case 1583588345: this.specialCourtesy.add(castToCodeableConcept(value)); // CodeableConcept
+        case 47410321: this.specialArrangement.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1429847026: this.destination = castToReference(value); // Reference
+        case 528065941: this.dischargeDisposition = castToCodeableConcept(value); // CodeableConcept
+        case -1985183665: this.dischargeDiagnosis.add(castToReference(value)); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("preAdmissionIdentifier"))
           this.preAdmissionIdentifier = castToIdentifier(value); // Identifier
@@ -1783,6 +1863,28 @@ Not to be used when the patient is currently at the location
           childrenList.add(new Property("status", "code", "The status of the participants' presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("period", "Period", "Time period during which the patient was present at the location.", 0, java.lang.Integer.MAX_VALUE, period));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 1901043637: return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EncounterLocationStatus>
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 1901043637: this.location = castToReference(value); // Reference
+        case -892481550: this.status = new EncounterLocationStatusEnumFactory().fromType(value); // Enumeration<EncounterLocationStatus>
+        case -991726143: this.period = castToPeriod(value); // Period
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -2838,6 +2940,60 @@ Not to be used when the patient is currently at the location
         childrenList.add(new Property("location", "", "List of locations where  the patient has been during this encounter.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("serviceProvider", "Reference(Organization)", "An organization that is in charge of maintaining the information of this Encounter (e.g. who maintains the report or the master service catalog item, etc.). This MAY be the same as the organization on the Patient record, however it could be different. This MAY not be not the Service Delivery Location's Organization.", 0, java.lang.Integer.MAX_VALUE, serviceProvider));
         childrenList.add(new Property("partOf", "Reference(Encounter)", "Another Encounter of which this encounter is a part of (administratively or in time).", 0, java.lang.Integer.MAX_VALUE, partOf));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EncounterState>
+        case -986695614: return this.statusHistory.toArray(new Base[this.statusHistory.size()]); // EncounterStatusHistoryComponent
+        case 94742904: return this.class_ == null ? new Base[0] : new Base[] {this.class_}; // Enumeration<EncounterClass>
+        case 3575610: return this.type.toArray(new Base[this.type.size()]); // CodeableConcept
+        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -1892140189: return this.episodeOfCare.toArray(new Base[this.episodeOfCare.size()]); // Reference
+        case -1258204701: return this.incomingReferral.toArray(new Base[this.incomingReferral.size()]); // Reference
+        case 767422259: return this.participant.toArray(new Base[this.participant.size()]); // EncounterParticipantComponent
+        case -1474995297: return this.appointment == null ? new Base[0] : new Base[] {this.appointment}; // Reference
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case -1106363674: return this.length == null ? new Base[0] : new Base[] {this.length}; // Duration
+        case -934964668: return this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
+        case -597168804: return this.indication.toArray(new Base[this.indication.size()]); // Reference
+        case 1057894634: return this.hospitalization == null ? new Base[0] : new Base[] {this.hospitalization}; // EncounterHospitalizationComponent
+        case 1901043637: return this.location.toArray(new Base[this.location.size()]); // EncounterLocationComponent
+        case 243182534: return this.serviceProvider == null ? new Base[0] : new Base[] {this.serviceProvider}; // Reference
+        case -995410646: return this.partOf == null ? new Base[0] : new Base[] {this.partOf}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case -892481550: this.status = new EncounterStateEnumFactory().fromType(value); // Enumeration<EncounterState>
+        case -986695614: this.statusHistory.add((EncounterStatusHistoryComponent) value); // EncounterStatusHistoryComponent
+        case 94742904: this.class_ = new EncounterClassEnumFactory().fromType(value); // Enumeration<EncounterClass>
+        case 3575610: this.type.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1165461084: this.priority = castToCodeableConcept(value); // CodeableConcept
+        case -791418107: this.patient = castToReference(value); // Reference
+        case -1892140189: this.episodeOfCare.add(castToReference(value)); // Reference
+        case -1258204701: this.incomingReferral.add(castToReference(value)); // Reference
+        case 767422259: this.participant.add((EncounterParticipantComponent) value); // EncounterParticipantComponent
+        case -1474995297: this.appointment = castToReference(value); // Reference
+        case -991726143: this.period = castToPeriod(value); // Period
+        case -1106363674: this.length = castToDuration(value); // Duration
+        case -934964668: this.reason.add(castToCodeableConcept(value)); // CodeableConcept
+        case -597168804: this.indication.add(castToReference(value)); // Reference
+        case 1057894634: this.hospitalization = (EncounterHospitalizationComponent) value; // EncounterHospitalizationComponent
+        case 1901043637: this.location.add((EncounterLocationComponent) value); // EncounterLocationComponent
+        case 243182534: this.serviceProvider = castToReference(value); // Reference
+        case -995410646: this.partOf = castToReference(value); // Reference
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

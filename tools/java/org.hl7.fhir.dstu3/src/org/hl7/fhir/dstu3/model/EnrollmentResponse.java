@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -570,6 +570,42 @@ public class EnrollmentResponse extends DomainResource {
         childrenList.add(new Property("organization", "Reference(Organization)", "The Insurer who produced this adjudicated response.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("requestProvider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestProvider));
         childrenList.add(new Property("requestOrganization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestOrganization));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 1095692943: return this.request == null ? new Base[0] : new Base[] {this.request}; // Reference
+        case -1106507950: return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // Enumeration<RemittanceOutcome>
+        case 583380919: return this.disposition == null ? new Base[0] : new Base[] {this.disposition}; // StringType
+        case 1548678118: return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
+        case 1089373397: return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
+        case 1028554472: return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
+        case 1178922291: return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
+        case 1601527200: return this.requestProvider == null ? new Base[0] : new Base[] {this.requestProvider}; // Reference
+        case 599053666: return this.requestOrganization == null ? new Base[0] : new Base[] {this.requestOrganization}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case 1095692943: this.request = castToReference(value); // Reference
+        case -1106507950: this.outcome = new RemittanceOutcomeEnumFactory().fromType(value); // Enumeration<RemittanceOutcome>
+        case 583380919: this.disposition = castToString(value); // StringType
+        case 1548678118: this.ruleset = castToCoding(value); // Coding
+        case 1089373397: this.originalRuleset = castToCoding(value); // Coding
+        case 1028554472: this.created = castToDateTime(value); // DateTimeType
+        case 1178922291: this.organization = castToReference(value); // Reference
+        case 1601527200: this.requestProvider = castToReference(value); // Reference
+        case 599053666: this.requestOrganization = castToReference(value); // Reference
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -751,6 +751,44 @@ public class Endpoint extends DomainResource {
         childrenList.add(new Property("payloadType", "CodeableConcept", "The payload type describes the acceptable content that can be communicated on the endpoint.", 0, java.lang.Integer.MAX_VALUE, payloadType));
         childrenList.add(new Property("header", "string", "Additional headers / information to send as part of the notification.", 0, java.lang.Integer.MAX_VALUE, header));
         childrenList.add(new Property("publicKey", "string", "The public part of the 'keys' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available.", 0, java.lang.Integer.MAX_VALUE, publicKey));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EndpointStatus>
+        case -2058947787: return this.managingOrganization == null ? new Base[0] : new Base[] {this.managingOrganization}; // Reference
+        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // ContactPoint
+        case 1270211384: return this.connectionType == null ? new Base[0] : new Base[] {this.connectionType}; // CodeType
+        case -1077554975: return this.method.toArray(new Base[this.method.size()]); // Coding
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case 1341051916: return this.address == null ? new Base[0] : new Base[] {this.address}; // Type
+        case -2140609755: return this.payloadFormat == null ? new Base[0] : new Base[] {this.payloadFormat}; // StringType
+        case 909929960: return this.payloadType.toArray(new Base[this.payloadType.size()]); // CodeableConcept
+        case -1221270899: return this.header.toArray(new Base[this.header.size()]); // StringType
+        case 1446899510: return this.publicKey == null ? new Base[0] : new Base[] {this.publicKey}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -892481550: this.status = new EndpointStatusEnumFactory().fromType(value); // Enumeration<EndpointStatus>
+        case -2058947787: this.managingOrganization = castToReference(value); // Reference
+        case 951526432: this.contact.add(castToContactPoint(value)); // ContactPoint
+        case 1270211384: this.connectionType = castToCode(value); // CodeType
+        case -1077554975: this.method.add(castToCoding(value)); // Coding
+        case -991726143: this.period = castToPeriod(value); // Period
+        case 1341051916: this.address = (Type) value; // Type
+        case -2140609755: this.payloadFormat = castToString(value); // StringType
+        case 909929960: this.payloadType.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1221270899: this.header.add(castToString(value)); // StringType
+        case 1446899510: this.publicKey = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

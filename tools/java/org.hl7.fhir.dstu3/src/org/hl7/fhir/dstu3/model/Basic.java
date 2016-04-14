@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -306,6 +306,32 @@ public class Basic extends DomainResource {
         childrenList.add(new Property("subject", "Reference(Any)", "Identifies the patient, practitioner, device or any other resource that is the \"focus\" of this resource.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("created", "date", "Identifies when the resource was first created.", 0, java.lang.Integer.MAX_VALUE, created));
         childrenList.add(new Property("author", "Reference(Practitioner|Patient|RelatedPerson)", "Indicates who was responsible for creating the resource instance.", 0, java.lang.Integer.MAX_VALUE, author));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 1028554472: return this.created == null ? new Base[0] : new Base[] {this.created}; // DateType
+        case -1406328437: return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
+        case -1867885268: this.subject = castToReference(value); // Reference
+        case 1028554472: this.created = castToDate(value); // DateType
+        case -1406328437: this.author = castToReference(value); // Reference
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

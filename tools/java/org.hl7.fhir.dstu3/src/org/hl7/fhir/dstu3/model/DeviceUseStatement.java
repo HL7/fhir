@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -547,6 +547,40 @@ public class DeviceUseStatement extends DomainResource {
         childrenList.add(new Property("recordedOn", "dateTime", "The time at which the statement was made/recorded.", 0, java.lang.Integer.MAX_VALUE, recordedOn));
         childrenList.add(new Property("subject", "Reference(Patient)", "The patient who used the device.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("timing[x]", "Timing|Period|dateTime", "How often the device was used.", 0, java.lang.Integer.MAX_VALUE, timing));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -806219817: return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // Type
+        case 2042879511: return this.whenUsed == null ? new Base[0] : new Base[] {this.whenUsed}; // Period
+        case -1335157162: return this.device == null ? new Base[0] : new Base[] {this.device}; // Reference
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -597168804: return this.indication.toArray(new Base[this.indication.size()]); // CodeableConcept
+        case 105008833: return this.notes.toArray(new Base[this.notes.size()]); // StringType
+        case 735397551: return this.recordedOn == null ? new Base[0] : new Base[] {this.recordedOn}; // DateTimeType
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 164632566: return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -806219817: this.bodySite = (Type) value; // Type
+        case 2042879511: this.whenUsed = castToPeriod(value); // Period
+        case -1335157162: this.device = castToReference(value); // Reference
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case -597168804: this.indication.add(castToCodeableConcept(value)); // CodeableConcept
+        case 105008833: this.notes.add(castToString(value)); // StringType
+        case 735397551: this.recordedOn = castToDateTime(value); // DateTimeType
+        case -1867885268: this.subject = castToReference(value); // Reference
+        case 164632566: this.timing = (Type) value; // Type
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

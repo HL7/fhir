@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -268,6 +268,26 @@ public class ClinicalImpression extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case 3242771: return this.item.toArray(new Base[this.item.size()]); // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
+        case 3242771: this.item.add(castToReference(value)); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = castToCodeableConcept(value); // CodeableConcept
@@ -447,6 +467,26 @@ public class ClinicalImpression extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3242771: return this.item == null ? new Base[0] : new Base[] {this.item}; // CodeableConcept
+        case 94434409: return this.cause == null ? new Base[0] : new Base[] {this.cause}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3242771: this.item = castToCodeableConcept(value); // CodeableConcept
+        case 94434409: this.cause = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("item"))
           this.item = castToCodeableConcept(value); // CodeableConcept
@@ -620,6 +660,26 @@ public class ClinicalImpression extends DomainResource {
           childrenList.add(new Property("item", "CodeableConcept", "Specific text of code for diagnosis.", 0, java.lang.Integer.MAX_VALUE, item));
           childrenList.add(new Property("reason", "string", "Grounds for elimination.", 0, java.lang.Integer.MAX_VALUE, reason));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3242771: return this.item == null ? new Base[0] : new Base[] {this.item}; // CodeableConcept
+        case -934964668: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3242771: this.item = castToCodeableConcept(value); // CodeableConcept
+        case -934964668: this.reason = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1644,6 +1704,56 @@ public class ClinicalImpression extends DomainResource {
         childrenList.add(new Property("prognosis", "string", "Estimate of likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosis));
         childrenList.add(new Property("plan", "Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticOrder|MedicationOrder|NutritionOrder|Order|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)", "Plan of action after assessment.", 0, java.lang.Integer.MAX_VALUE, plan));
         childrenList.add(new Property("action", "Reference(ReferralRequest|ProcedureRequest|Procedure|MedicationOrder|DiagnosticOrder|NutritionOrder|SupplyRequest|Appointment)", "Actions taken during assessment.", 0, java.lang.Integer.MAX_VALUE, action));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -373213113: return this.assessor == null ? new Base[0] : new Base[] {this.assessor}; // Reference
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ClinicalImpressionStatus>
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -1273775369: return this.previous == null ? new Base[0] : new Base[] {this.previous}; // Reference
+        case -309542241: return this.problem.toArray(new Base[this.problem.size()]); // Reference
+        case 1363514312: return this.trigger == null ? new Base[0] : new Base[] {this.trigger}; // Type
+        case -428294735: return this.investigations.toArray(new Base[this.investigations.size()]); // ClinicalImpressionInvestigationsComponent
+        case -989163880: return this.protocol == null ? new Base[0] : new Base[] {this.protocol}; // UriType
+        case -1857640538: return this.summary == null ? new Base[0] : new Base[] {this.summary}; // StringType
+        case -853173367: return this.finding.toArray(new Base[this.finding.size()]); // ClinicalImpressionFindingComponent
+        case -341328904: return this.resolved.toArray(new Base[this.resolved.size()]); // CodeableConcept
+        case 763913542: return this.ruledOut.toArray(new Base[this.ruledOut.size()]); // ClinicalImpressionRuledOutComponent
+        case -972050334: return this.prognosis == null ? new Base[0] : new Base[] {this.prognosis}; // StringType
+        case 3443497: return this.plan.toArray(new Base[this.plan.size()]); // Reference
+        case -1422950858: return this.action.toArray(new Base[this.action.size()]); // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -791418107: this.patient = castToReference(value); // Reference
+        case -373213113: this.assessor = castToReference(value); // Reference
+        case -892481550: this.status = new ClinicalImpressionStatusEnumFactory().fromType(value); // Enumeration<ClinicalImpressionStatus>
+        case 3076014: this.date = castToDateTime(value); // DateTimeType
+        case -1724546052: this.description = castToString(value); // StringType
+        case -1273775369: this.previous = castToReference(value); // Reference
+        case -309542241: this.problem.add(castToReference(value)); // Reference
+        case 1363514312: this.trigger = (Type) value; // Type
+        case -428294735: this.investigations.add((ClinicalImpressionInvestigationsComponent) value); // ClinicalImpressionInvestigationsComponent
+        case -989163880: this.protocol = castToUri(value); // UriType
+        case -1857640538: this.summary = castToString(value); // StringType
+        case -853173367: this.finding.add((ClinicalImpressionFindingComponent) value); // ClinicalImpressionFindingComponent
+        case -341328904: this.resolved.add(castToCodeableConcept(value)); // CodeableConcept
+        case 763913542: this.ruledOut.add((ClinicalImpressionRuledOutComponent) value); // ClinicalImpressionRuledOutComponent
+        case -972050334: this.prognosis = castToString(value); // StringType
+        case 3443497: this.plan.add(castToReference(value)); // Reference
+        case -1422950858: this.action.add(castToReference(value)); // Reference
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

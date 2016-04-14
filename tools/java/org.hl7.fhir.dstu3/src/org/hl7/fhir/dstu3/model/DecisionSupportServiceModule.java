@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -233,6 +233,30 @@ public class DecisionSupportServiceModule extends DomainResource {
         childrenList.add(new Property("trigger", "TriggerDefinition", "The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow.", 0, java.lang.Integer.MAX_VALUE, trigger));
         childrenList.add(new Property("parameter", "ParameterDefinition", "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.", 0, java.lang.Integer.MAX_VALUE, parameter));
         childrenList.add(new Property("dataRequirement", "DataRequirement", "Data requirements are a machine processable description of the data required by the module in order to perform a successful evaluation.", 0, java.lang.Integer.MAX_VALUE, dataRequirement));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 455891387: return this.moduleMetadata == null ? new Base[0] : new Base[] {this.moduleMetadata}; // ModuleMetadata
+        case -1059891784: return this.trigger.toArray(new Base[this.trigger.size()]); // TriggerDefinition
+        case 1954460585: return this.parameter.toArray(new Base[this.parameter.size()]); // ParameterDefinition
+        case 629147193: return this.dataRequirement.toArray(new Base[this.dataRequirement.size()]); // DataRequirement
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 455891387: this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
+        case -1059891784: this.trigger.add(castToTriggerDefinition(value)); // TriggerDefinition
+        case 1954460585: this.parameter.add(castToParameterDefinition(value)); // ParameterDefinition
+        case 629147193: this.dataRequirement.add(castToDataRequirement(value)); // DataRequirement
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

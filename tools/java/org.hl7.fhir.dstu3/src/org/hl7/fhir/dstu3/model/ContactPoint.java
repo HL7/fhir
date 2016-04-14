@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -583,6 +583,32 @@ public class ContactPoint extends Type implements ICompositeType {
         childrenList.add(new Property("use", "code", "Identifies the purpose for the contact point.", 0, java.lang.Integer.MAX_VALUE, use));
         childrenList.add(new Property("rank", "positiveInt", "Specifies a preferred order in which to use a set of contacts. Contacts are ranked with lower values coming before higher values.", 0, java.lang.Integer.MAX_VALUE, rank));
         childrenList.add(new Property("period", "Period", "Time period when the contact point was/is in use.", 0, java.lang.Integer.MAX_VALUE, period));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -887328209: return this.system == null ? new Base[0] : new Base[] {this.system}; // Enumeration<ContactPointSystem>
+        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
+        case 116103: return this.use == null ? new Base[0] : new Base[] {this.use}; // Enumeration<ContactPointUse>
+        case 3492908: return this.rank == null ? new Base[0] : new Base[] {this.rank}; // PositiveIntType
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -887328209: this.system = new ContactPointSystemEnumFactory().fromType(value); // Enumeration<ContactPointSystem>
+        case 111972721: this.value = castToString(value); // StringType
+        case 116103: this.use = new ContactPointUseEnumFactory().fromType(value); // Enumeration<ContactPointUse>
+        case 3492908: this.rank = castToPositiveInt(value); // PositiveIntType
+        case -991726143: this.period = castToPeriod(value); // Period
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

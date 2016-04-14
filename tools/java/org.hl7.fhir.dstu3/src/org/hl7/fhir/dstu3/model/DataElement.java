@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -318,6 +318,26 @@ public class DataElement extends DomainResource {
           childrenList.add(new Property("name", "string", "The name of an individual to contact regarding the data element.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("telecom", "ContactPoint", "Contact details for individual (if a name was provided) or the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707: this.name = castToString(value); // StringType
+        case -1429363305: this.telecom.add(castToContactPoint(value)); // ContactPoint
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -631,6 +651,30 @@ public class DataElement extends DomainResource {
           childrenList.add(new Property("name", "string", "A name for the specification that is being mapped to.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("comment", "string", "Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.", 0, java.lang.Integer.MAX_VALUE, comment));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -135761730: return this.identity == null ? new Base[0] : new Base[] {this.identity}; // IdType
+        case 116076: return this.uri == null ? new Base[0] : new Base[] {this.uri}; // UriType
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 950398559: return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -135761730: this.identity = castToId(value); // IdType
+        case 116076: this.uri = castToUri(value); // UriType
+        case 3373707: this.name = castToString(value); // StringType
+        case 950398559: this.comment = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1472,6 +1516,50 @@ public class DataElement extends DomainResource {
         childrenList.add(new Property("stringency", "code", "Identifies how precise the data element is in its definition.", 0, java.lang.Integer.MAX_VALUE, stringency));
         childrenList.add(new Property("mapping", "", "Identifies a specification (other than a terminology) that the elements which make up the DataElement have some correspondence with.", 0, java.lang.Integer.MAX_VALUE, mapping));
         childrenList.add(new Property("element", "ElementDefinition", "Defines the structure, type, allowed values and other constraining characteristics of the data element.", 0, java.lang.Integer.MAX_VALUE, element));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -404562712: return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
+        case 1447404028: return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // DataElementContactComponent
+        case -669707736: return this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
+        case 1522889671: return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
+        case -1572568464: return this.stringency == null ? new Base[0] : new Base[] {this.stringency}; // Enumeration<DataElementStringency>
+        case 837556430: return this.mapping.toArray(new Base[this.mapping.size()]); // DataElementMappingComponent
+        case -1662836996: return this.element.toArray(new Base[this.element.size()]); // ElementDefinition
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 116079: this.url = castToUri(value); // UriType
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case 351608024: this.version = castToString(value); // StringType
+        case -892481550: this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+        case -404562712: this.experimental = castToBoolean(value); // BooleanType
+        case 1447404028: this.publisher = castToString(value); // StringType
+        case 3076014: this.date = castToDateTime(value); // DateTimeType
+        case 3373707: this.name = castToString(value); // StringType
+        case 951526432: this.contact.add((DataElementContactComponent) value); // DataElementContactComponent
+        case -669707736: this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
+        case 1522889671: this.copyright = castToString(value); // StringType
+        case -1572568464: this.stringency = new DataElementStringencyEnumFactory().fromType(value); // Enumeration<DataElementStringency>
+        case 837556430: this.mapping.add((DataElementMappingComponent) value); // DataElementMappingComponent
+        case -1662836996: this.element.add(castToElementDefinition(value)); // ElementDefinition
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

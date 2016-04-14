@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -318,6 +318,28 @@ public class DetectedIssue extends DomainResource {
           childrenList.add(new Property("date", "dateTime", "Indicates when the mitigating action was documented.", 0, java.lang.Integer.MAX_VALUE, date));
           childrenList.add(new Property("author", "Reference(Practitioner)", "Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.", 0, java.lang.Integer.MAX_VALUE, author));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1422950858: return this.action == null ? new Base[0] : new Base[] {this.action}; // CodeableConcept
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -1406328437: return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1422950858: this.action = castToCodeableConcept(value); // CodeableConcept
+        case 3076014: this.date = castToDateTime(value); // DateTimeType
+        case -1406328437: this.author = castToReference(value); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -912,6 +934,42 @@ public class DetectedIssue extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Business identifier associated with the detected issue record.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("reference", "uri", "The literature, knowledge-base or similar reference that describes the propensity for the detected issue identified.", 0, java.lang.Integer.MAX_VALUE, reference));
         childrenList.add(new Property("mitigation", "", "Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the detected issue from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.", 0, java.lang.Integer.MAX_VALUE, mitigation));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
+        case 1478300413: return this.severity == null ? new Base[0] : new Base[] {this.severity}; // Enumeration<DetectedIssueSeverity>
+        case -810216884: return this.implicated.toArray(new Base[this.implicated.size()]); // Reference
+        case -1335224239: return this.detail == null ? new Base[0] : new Base[] {this.detail}; // StringType
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -1406328437: return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case -925155509: return this.reference == null ? new Base[0] : new Base[] {this.reference}; // UriType
+        case 1293793087: return this.mitigation.toArray(new Base[this.mitigation.size()]); // DetectedIssueMitigationComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -791418107: this.patient = castToReference(value); // Reference
+        case 50511102: this.category = castToCodeableConcept(value); // CodeableConcept
+        case 1478300413: this.severity = new DetectedIssueSeverityEnumFactory().fromType(value); // Enumeration<DetectedIssueSeverity>
+        case -810216884: this.implicated.add(castToReference(value)); // Reference
+        case -1335224239: this.detail = castToString(value); // StringType
+        case 3076014: this.date = castToDateTime(value); // DateTimeType
+        case -1406328437: this.author = castToReference(value); // Reference
+        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
+        case -925155509: this.reference = castToUri(value); // UriType
+        case 1293793087: this.mitigation.add((DetectedIssueMitigationComponent) value); // DetectedIssueMitigationComponent
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

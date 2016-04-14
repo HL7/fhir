@@ -7,9 +7,12 @@ package org.hl7.fhir.dstu3.utils;
 import java.util.List;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
+import org.hl7.fhir.dstu3.model.BooleanType;
+import org.hl7.fhir.dstu3.model.DecimalType;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.IdType;
+import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupComponent;
@@ -30,6 +33,8 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class StructureMapCompiler {
 
+  public static final String MAP_WHERE_CHECK = "map.where.check";
+  public static final String MAP_WHERE_EXPRESSION = "map.where.expression";
   private IWorkerContext worker;
   private FHIRPathEngine fluent;
   
@@ -430,13 +435,13 @@ public class StructureMapCompiler {
     if (lexer.hasToken("where")) {
       lexer.take();
       ExpressionNode node = fluent.parse(lexer);
-      source.setUserData("map.where.expression", node);
+      source.setUserData(MAP_WHERE_EXPRESSION, node);
       source.setCondition(node.toString());
     }
     if (lexer.hasToken("check")) {
       lexer.take();
       ExpressionNode node = fluent.parse(lexer);
-      source.setUserData("map.where.check", node);
+      source.setUserData(MAP_WHERE_CHECK, node);
       source.setCheck(node.toString());
     }
   }
@@ -483,7 +488,21 @@ public class StructureMapCompiler {
   }
 
   private void parseParameter(StructureMapGroupRuleTargetComponent target, FHIRLexer lexer) throws FHIRLexerException {
-    target.addParameter().setValue(new StringType(lexer.take()));    
+    if (!lexer.isConstant(true))
+      target.addParameter().setValue(new IdType(lexer.take()));
+    else if (lexer.isStringConstant())
+      target.addParameter().setValue(new StringType(lexer.readConstant("??")));
+    else {
+      String s = lexer.take();
+      if (Utilities.isInteger(s))
+        target.addParameter().setValue(new IntegerType(s));
+      else if (Utilities.isDecimal(s))
+        target.addParameter().setValue(new DecimalType(s));
+      else if (Utilities.existsInList(s, "true", "false"))
+        target.addParameter().setValue(new BooleanType(s.equals("true")));
+      else 
+        target.addParameter().setValue(new StringType(s));        
+    }
   }
   
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -350,6 +350,26 @@ public class DiagnosticReport extends DomainResource {
           childrenList.add(new Property("comment", "string", "A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.", 0, java.lang.Integer.MAX_VALUE, comment));
           childrenList.add(new Property("link", "Reference(Media)", "Reference to the image source.", 0, java.lang.Integer.MAX_VALUE, link));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 950398559: return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        case 3321850: return this.link == null ? new Base[0] : new Base[] {this.link}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 950398559: this.comment = castToString(value); // StringType
+        case 3321850: this.link = castToReference(value); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1343,6 +1363,56 @@ public class DiagnosticReport extends DomainResource {
         childrenList.add(new Property("conclusion", "string", "Concise and clinically contextualized narrative interpretation of the diagnostic report.", 0, java.lang.Integer.MAX_VALUE, conclusion));
         childrenList.add(new Property("codedDiagnosis", "CodeableConcept", "Codes for the conclusion.", 0, java.lang.Integer.MAX_VALUE, codedDiagnosis));
         childrenList.add(new Property("presentedForm", "Attachment", "Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.", 0, java.lang.Integer.MAX_VALUE, presentedForm));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DiagnosticReportStatus>
+        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case 247104889: return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
+        case -1179159893: return this.issued == null ? new Base[0] : new Base[] {this.issued}; // InstantType
+        case 481140686: return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
+        case 1095692943: return this.request.toArray(new Base[this.request.size()]); // Reference
+        case -2132868344: return this.specimen.toArray(new Base[this.specimen.size()]); // Reference
+        case -934426595: return this.result.toArray(new Base[this.result.size()]); // Reference
+        case -814900911: return this.imagingStudy.toArray(new Base[this.imagingStudy.size()]); // Reference
+        case 100313435: return this.image.toArray(new Base[this.image.size()]); // DiagnosticReportImageComponent
+        case -1731259873: return this.conclusion == null ? new Base[0] : new Base[] {this.conclusion}; // StringType
+        case -1364269926: return this.codedDiagnosis.toArray(new Base[this.codedDiagnosis.size()]); // CodeableConcept
+        case 230090366: return this.presentedForm.toArray(new Base[this.presentedForm.size()]); // Attachment
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case -892481550: this.status = new DiagnosticReportStatusEnumFactory().fromType(value); // Enumeration<DiagnosticReportStatus>
+        case 50511102: this.category = castToCodeableConcept(value); // CodeableConcept
+        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
+        case -1867885268: this.subject = castToReference(value); // Reference
+        case 1524132147: this.encounter = castToReference(value); // Reference
+        case 247104889: this.effective = (Type) value; // Type
+        case -1179159893: this.issued = castToInstant(value); // InstantType
+        case 481140686: this.performer = castToReference(value); // Reference
+        case 1095692943: this.request.add(castToReference(value)); // Reference
+        case -2132868344: this.specimen.add(castToReference(value)); // Reference
+        case -934426595: this.result.add(castToReference(value)); // Reference
+        case -814900911: this.imagingStudy.add(castToReference(value)); // Reference
+        case 100313435: this.image.add((DiagnosticReportImageComponent) value); // DiagnosticReportImageComponent
+        case -1731259873: this.conclusion = castToString(value); // StringType
+        case -1364269926: this.codedDiagnosis.add(castToCodeableConcept(value)); // CodeableConcept
+        case 230090366: this.presentedForm.add(castToAttachment(value)); // Attachment
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

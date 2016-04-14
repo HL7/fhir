@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -228,6 +228,28 @@ public class Annotation extends Type implements ICompositeType {
         childrenList.add(new Property("author[x]", "Reference(Practitioner|Patient|RelatedPerson)|string", "The individual responsible for making the annotation.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("time", "dateTime", "Indicates when this particular annotation was made.", 0, java.lang.Integer.MAX_VALUE, time));
         childrenList.add(new Property("text", "string", "The text of the annotation.", 0, java.lang.Integer.MAX_VALUE, text));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 1475597077: return this.author == null ? new Base[0] : new Base[] {this.author}; // Type
+        case 3560141: return this.time == null ? new Base[0] : new Base[] {this.time}; // DateTimeType
+        case 3556653: return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 1475597077: this.author = (Type) value; // Type
+        case 3560141: this.time = castToDateTime(value); // DateTimeType
+        case 3556653: this.text = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

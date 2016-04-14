@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -167,6 +167,26 @@ public class ConceptMap extends DomainResource {
           childrenList.add(new Property("name", "string", "The name of an individual to contact regarding the concept map.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("telecom", "ContactPoint", "Contact details for individual (if a name was provided) or the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707: this.name = castToString(value); // StringType
+        case -1429363305: this.telecom.add(castToContactPoint(value)); // ContactPoint
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -467,6 +487,30 @@ public class ConceptMap extends DomainResource {
           childrenList.add(new Property("code", "code", "Identity (code or path) or the element/item being mapped.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("target", "", "A concept from the target value set that this concept maps to.", 0, java.lang.Integer.MAX_VALUE, target));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -887328209: return this.system == null ? new Base[0] : new Base[] {this.system}; // UriType
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case -880905839: return this.target.toArray(new Base[this.target.size()]); // TargetElementComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -887328209: this.system = castToUri(value); // UriType
+        case 351608024: this.version = castToString(value); // StringType
+        case 3059181: this.code = castToCode(value); // CodeType
+        case -880905839: this.target.add((TargetElementComponent) value); // TargetElementComponent
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -949,6 +993,36 @@ public class ConceptMap extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -887328209: return this.system == null ? new Base[0] : new Base[] {this.system}; // UriType
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case -15828692: return this.equivalence == null ? new Base[0] : new Base[] {this.equivalence}; // Enumeration<ConceptMapEquivalence>
+        case -602415628: return this.comments == null ? new Base[0] : new Base[] {this.comments}; // StringType
+        case -1109214266: return this.dependsOn.toArray(new Base[this.dependsOn.size()]); // OtherElementComponent
+        case -309474065: return this.product.toArray(new Base[this.product.size()]); // OtherElementComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -887328209: this.system = castToUri(value); // UriType
+        case 351608024: this.version = castToString(value); // StringType
+        case 3059181: this.code = castToCode(value); // CodeType
+        case -15828692: this.equivalence = new ConceptMapEquivalenceEnumFactory().fromType(value); // Enumeration<ConceptMapEquivalence>
+        case -602415628: this.comments = castToString(value); // StringType
+        case -1109214266: this.dependsOn.add((OtherElementComponent) value); // OtherElementComponent
+        case -309474065: this.product.add((OtherElementComponent) value); // OtherElementComponent
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("system"))
           this.system = castToUri(value); // UriType
@@ -1235,6 +1309,28 @@ public class ConceptMap extends DomainResource {
           childrenList.add(new Property("system", "uri", "An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("code", "string", "Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.", 0, java.lang.Integer.MAX_VALUE, code));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1662836996: return this.element == null ? new Base[0] : new Base[] {this.element}; // UriType
+        case -887328209: return this.system == null ? new Base[0] : new Base[] {this.system}; // UriType
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1662836996: this.element = castToUri(value); // UriType
+        case -887328209: this.system = castToUri(value); // UriType
+        case 3059181: this.code = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -2171,6 +2267,54 @@ public class ConceptMap extends DomainResource {
         childrenList.add(new Property("source[x]", "uri|Reference(ValueSet|StructureDefinition)", "The source value set that specifies the concepts that are being mapped.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("target[x]", "uri|Reference(ValueSet|StructureDefinition)", "The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.", 0, java.lang.Integer.MAX_VALUE, target));
         childrenList.add(new Property("element", "", "Mappings for an individual concept in the source to one or more concepts in the target.", 0, java.lang.Integer.MAX_VALUE, element));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -404562712: return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
+        case 1447404028: return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
+        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // ConceptMapContactComponent
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -669707736: return this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
+        case -1619874672: return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // StringType
+        case 1522889671: return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
+        case -1698413947: return this.source == null ? new Base[0] : new Base[] {this.source}; // Type
+        case -815579825: return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
+        case -1662836996: return this.element.toArray(new Base[this.element.size()]); // SourceElementComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 116079: this.url = castToUri(value); // UriType
+        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
+        case 351608024: this.version = castToString(value); // StringType
+        case 3373707: this.name = castToString(value); // StringType
+        case -892481550: this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+        case -404562712: this.experimental = castToBoolean(value); // BooleanType
+        case 1447404028: this.publisher = castToString(value); // StringType
+        case 951526432: this.contact.add((ConceptMapContactComponent) value); // ConceptMapContactComponent
+        case 3076014: this.date = castToDateTime(value); // DateTimeType
+        case -1724546052: this.description = castToString(value); // StringType
+        case -669707736: this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1619874672: this.requirements = castToString(value); // StringType
+        case 1522889671: this.copyright = castToString(value); // StringType
+        case -1698413947: this.source = (Type) value; // Type
+        case -815579825: this.target = (Type) value; // Type
+        case -1662836996: this.element.add((SourceElementComponent) value); // SourceElementComponent
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

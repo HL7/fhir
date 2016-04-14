@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -660,6 +660,30 @@ public class DiagnosticOrder extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DiagnosticOrderStatus>
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // CodeableConcept
+        case 1792749467: return this.dateTime == null ? new Base[0] : new Base[] {this.dateTime}; // DateTimeType
+        case 92645877: return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -892481550: this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
+        case -1724546052: this.description = castToCodeableConcept(value); // CodeableConcept
+        case 1792749467: this.dateTime = castToDateTime(value); // DateTimeType
+        case 92645877: this.actor = castToReference(value); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("status"))
           this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
@@ -1001,6 +1025,32 @@ public class DiagnosticOrder extends DomainResource {
           childrenList.add(new Property("status", "code", "The status of this individual item within the order.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("event", "@DiagnosticOrder.event", "A summary of the events of interest that have occurred as this item of the request is processed.", 0, java.lang.Integer.MAX_VALUE, event));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -2132868344: return this.specimen.toArray(new Base[this.specimen.size()]); // Reference
+        case 1702620169: return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DiagnosticOrderStatus>
+        case 96891546: return this.event.toArray(new Base[this.event.size()]); // DiagnosticOrderEventComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
+        case -2132868344: this.specimen.add(castToReference(value)); // Reference
+        case 1702620169: this.bodySite = castToCodeableConcept(value); // CodeableConcept
+        case -892481550: this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
+        case 96891546: this.event.add((DiagnosticOrderEventComponent) value); // DiagnosticOrderEventComponent
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1769,6 +1819,46 @@ public class DiagnosticOrder extends DomainResource {
         childrenList.add(new Property("event", "", "A summary of the events of interest that have occurred as the request is processed; e.g. when the order was made, various processing steps (specimens received), when it was completed.", 0, java.lang.Integer.MAX_VALUE, event));
         childrenList.add(new Property("item", "", "The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.", 0, java.lang.Integer.MAX_VALUE, item));
         childrenList.add(new Property("note", "Annotation", "Any other notes associated with this patient, specimen or order (e.g. \"patient hates needles\").", 0, java.lang.Integer.MAX_VALUE, note));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DiagnosticOrderStatus>
+        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<DiagnosticOrderPriority>
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case -1207109509: return this.orderer == null ? new Base[0] : new Base[] {this.orderer}; // Reference
+        case -934964668: return this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
+        case -1248768647: return this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
+        case -2132868344: return this.specimen.toArray(new Base[this.specimen.size()]); // Reference
+        case 96891546: return this.event.toArray(new Base[this.event.size()]); // DiagnosticOrderEventComponent
+        case 3242771: return this.item.toArray(new Base[this.item.size()]); // DiagnosticOrderItemComponent
+        case 3387378: return this.note.toArray(new Base[this.note.size()]); // Annotation
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case -892481550: this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
+        case -1165461084: this.priority = new DiagnosticOrderPriorityEnumFactory().fromType(value); // Enumeration<DiagnosticOrderPriority>
+        case -1867885268: this.subject = castToReference(value); // Reference
+        case 1524132147: this.encounter = castToReference(value); // Reference
+        case -1207109509: this.orderer = castToReference(value); // Reference
+        case -934964668: this.reason.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1248768647: this.supportingInformation.add(castToReference(value)); // Reference
+        case -2132868344: this.specimen.add(castToReference(value)); // Reference
+        case 96891546: this.event.add((DiagnosticOrderEventComponent) value); // DiagnosticOrderEventComponent
+        case 3242771: this.item.add((DiagnosticOrderItemComponent) value); // DiagnosticOrderItemComponent
+        case 3387378: this.note.add(castToAnnotation(value)); // Annotation
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

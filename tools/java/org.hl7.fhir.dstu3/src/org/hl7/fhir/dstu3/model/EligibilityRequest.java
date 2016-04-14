@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -805,6 +805,54 @@ public class EligibilityRequest extends DomainResource {
         childrenList.add(new Property("serviced[x]", "date|Period", "The date or dates when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, serviced));
         childrenList.add(new Property("benefitCategory", "Coding", "Dental, Vision, Medical, Pharmacy, Rehab etc.", 0, java.lang.Integer.MAX_VALUE, benefitCategory));
         childrenList.add(new Property("benefitSubCategory", "Coding", "Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.", 0, java.lang.Integer.MAX_VALUE, benefitSubCategory));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 1548678118: return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
+        case 1089373397: return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
+        case 1028554472: return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
+        case -815579825: return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
+        case 2064698607: return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Type
+        case 1326483053: return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Type
+        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Coding
+        case -812909349: return this.enterer == null ? new Base[0] : new Base[] {this.enterer}; // Type
+        case -542224643: return this.facility == null ? new Base[0] : new Base[] {this.facility}; // Type
+        case -2061246629: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Type
+        case 227689880: return this.coverage == null ? new Base[0] : new Base[] {this.coverage}; // Type
+        case 259920682: return this.businessArrangement == null ? new Base[0] : new Base[] {this.businessArrangement}; // StringType
+        case -1927922223: return this.serviced == null ? new Base[0] : new Base[] {this.serviced}; // Type
+        case -1023390027: return this.benefitCategory == null ? new Base[0] : new Base[] {this.benefitCategory}; // Coding
+        case 1987878471: return this.benefitSubCategory == null ? new Base[0] : new Base[] {this.benefitSubCategory}; // Coding
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case 1548678118: this.ruleset = castToCoding(value); // Coding
+        case 1089373397: this.originalRuleset = castToCoding(value); // Coding
+        case 1028554472: this.created = castToDateTime(value); // DateTimeType
+        case -815579825: this.target = (Type) value; // Type
+        case 2064698607: this.provider = (Type) value; // Type
+        case 1326483053: this.organization = (Type) value; // Type
+        case -1165461084: this.priority = castToCoding(value); // Coding
+        case -812909349: this.enterer = (Type) value; // Type
+        case -542224643: this.facility = (Type) value; // Type
+        case -2061246629: this.patient = (Type) value; // Type
+        case 227689880: this.coverage = (Type) value; // Type
+        case 259920682: this.businessArrangement = castToString(value); // StringType
+        case -1927922223: this.serviced = (Type) value; // Type
+        case -1023390027: this.benefitCategory = castToCoding(value); // Coding
+        case 1987878471: this.benefitSubCategory = castToCoding(value); // Coding
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

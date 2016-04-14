@@ -3,6 +3,7 @@ package org.hl7.fhir.dstu3.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -554,6 +555,20 @@ private Map<String, Object> userData;
 
 	protected boolean isMetadataBased() {
   	return false;
+	}
+
+	public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+		if (checkValid)
+			throw new FHIRException("Attempt to read invalid property "+Integer.toString(hash));
+  	return null; 
+	}
+
+	public void setProperty(int hash, Base value) throws FHIRException {
+		throw new FHIRException("Attempt to write to invalid property "+Integer.toString(hash));
+	}
+
+	public Base makeProperty(int hash) throws FHIRException {
+		throw new FHIRException("Attempt to make an invalid property "+Integer.toString(hash));
 	}
 	
 

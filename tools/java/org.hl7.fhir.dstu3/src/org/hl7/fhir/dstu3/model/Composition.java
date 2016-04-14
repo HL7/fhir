@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -472,6 +472,28 @@ public class Composition extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3357091: return this.mode.toArray(new Base[this.mode.size()]); // Enumeration<CompositionAttestationMode>
+        case 3560141: return this.time == null ? new Base[0] : new Base[] {this.time}; // DateTimeType
+        case 106437350: return this.party == null ? new Base[0] : new Base[] {this.party}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3357091: this.mode.add(new CompositionAttestationModeEnumFactory().fromType(value)); // Enumeration<CompositionAttestationMode>
+        case 3560141: this.time = castToDateTime(value); // DateTimeType
+        case 106437350: this.party = castToReference(value); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("mode"))
           this.getMode().add(new CompositionAttestationModeEnumFactory().fromType(value));
@@ -701,6 +723,28 @@ public class Composition extends DomainResource {
           childrenList.add(new Property("period", "Period", "The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time.", 0, java.lang.Integer.MAX_VALUE, period));
           childrenList.add(new Property("detail", "Reference(Any)", "The description and/or reference of the event(s) being documented. For example, this could be used to document such a colonoscopy or an appendectomy.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code.toArray(new Base[this.code.size()]); // CodeableConcept
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case -1335224239: return this.detail.toArray(new Base[this.detail.size()]); // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code.add(castToCodeableConcept(value)); // CodeableConcept
+        case -991726143: this.period = castToPeriod(value); // Period
+        case -1335224239: this.detail.add(castToReference(value)); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1146,6 +1190,38 @@ public class Composition extends DomainResource {
           childrenList.add(new Property("emptyReason", "CodeableConcept", "If the section is empty, why the list is empty. An empty section typically has some text explaining the empty reason.", 0, java.lang.Integer.MAX_VALUE, emptyReason));
           childrenList.add(new Property("section", "@Composition.section", "A nested sub-section within this section.", 0, java.lang.Integer.MAX_VALUE, section));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 110371416: return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case 3556653: return this.text == null ? new Base[0] : new Base[] {this.text}; // Narrative
+        case 3357091: return this.mode == null ? new Base[0] : new Base[] {this.mode}; // CodeType
+        case -391079516: return this.orderedBy == null ? new Base[0] : new Base[] {this.orderedBy}; // CodeableConcept
+        case 96667762: return this.entry.toArray(new Base[this.entry.size()]); // Reference
+        case 1140135409: return this.emptyReason == null ? new Base[0] : new Base[] {this.emptyReason}; // CodeableConcept
+        case 1970241253: return this.section.toArray(new Base[this.section.size()]); // SectionComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 110371416: this.title = castToString(value); // StringType
+        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
+        case 3556653: this.text = castToNarrative(value); // Narrative
+        case 3357091: this.mode = castToCode(value); // CodeType
+        case -391079516: this.orderedBy = castToCodeableConcept(value); // CodeableConcept
+        case 96667762: this.entry.add(castToReference(value)); // Reference
+        case 1140135409: this.emptyReason = castToCodeableConcept(value); // CodeableConcept
+        case 1970241253: this.section.add((SectionComponent) value); // SectionComponent
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1968,6 +2044,50 @@ public class Composition extends DomainResource {
         childrenList.add(new Property("event", "", "The clinical service, such as a colonoscopy or an appendectomy, being documented.", 0, java.lang.Integer.MAX_VALUE, event));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "Describes the clinical encounter or type of care this documentation is associated with.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("section", "", "The root of the sections that make up the composition.", 0, java.lang.Integer.MAX_VALUE, section));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case 94742904: return this.class_ == null ? new Base[0] : new Base[] {this.class_}; // CodeableConcept
+        case 110371416: return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<CompositionStatus>
+        case -1923018202: return this.confidentiality == null ? new Base[0] : new Base[] {this.confidentiality}; // CodeType
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case -1406328437: return this.author.toArray(new Base[this.author.size()]); // Reference
+        case 542920370: return this.attester.toArray(new Base[this.attester.size()]); // CompositionAttesterComponent
+        case 1611297262: return this.custodian == null ? new Base[0] : new Base[] {this.custodian}; // Reference
+        case 96891546: return this.event.toArray(new Base[this.event.size()]); // CompositionEventComponent
+        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case 1970241253: return this.section.toArray(new Base[this.section.size()]); // SectionComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
+        case 3076014: this.date = castToDateTime(value); // DateTimeType
+        case 3575610: this.type = castToCodeableConcept(value); // CodeableConcept
+        case 94742904: this.class_ = castToCodeableConcept(value); // CodeableConcept
+        case 110371416: this.title = castToString(value); // StringType
+        case -892481550: this.status = new CompositionStatusEnumFactory().fromType(value); // Enumeration<CompositionStatus>
+        case -1923018202: this.confidentiality = castToCode(value); // CodeType
+        case -1867885268: this.subject = castToReference(value); // Reference
+        case -1406328437: this.author.add(castToReference(value)); // Reference
+        case 542920370: this.attester.add((CompositionAttesterComponent) value); // CompositionAttesterComponent
+        case 1611297262: this.custodian = castToReference(value); // Reference
+        case 96891546: this.event.add((CompositionEventComponent) value); // CompositionEventComponent
+        case 1524132147: this.encounter = castToReference(value); // Reference
+        case 1970241253: this.section.add((SectionComponent) value); // SectionComponent
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -278,6 +278,34 @@ public class EligibilityResponse extends DomainResource {
           childrenList.add(new Property("term", "Coding", "The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.", 0, java.lang.Integer.MAX_VALUE, term));
           childrenList.add(new Property("financial", "", "Benefits Used to date.", 0, java.lang.Integer.MAX_VALUE, financial));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
+        case 1365024606: return this.subCategory == null ? new Base[0] : new Base[] {this.subCategory}; // Coding
+        case 1843485230: return this.network == null ? new Base[0] : new Base[] {this.network}; // Coding
+        case 3594628: return this.unit == null ? new Base[0] : new Base[] {this.unit}; // Coding
+        case 3556460: return this.term == null ? new Base[0] : new Base[] {this.term}; // Coding
+        case 357555337: return this.financial.toArray(new Base[this.financial.size()]); // BenefitComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 50511102: this.category = castToCoding(value); // Coding
+        case 1365024606: this.subCategory = castToCoding(value); // Coding
+        case 1843485230: this.network = castToCoding(value); // Coding
+        case 3594628: this.unit = castToCoding(value); // Coding
+        case 3556460: this.term = castToCoding(value); // Coding
+        case 357555337: this.financial.add((BenefitComponent) value); // BenefitComponent
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -539,6 +567,28 @@ public class EligibilityResponse extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 952095881: return this.benefit == null ? new Base[0] : new Base[] {this.benefit}; // Type
+        case 787635980: return this.benefitUsed == null ? new Base[0] : new Base[] {this.benefitUsed}; // Type
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610: this.type = castToCoding(value); // Coding
+        case 952095881: this.benefit = (Type) value; // Type
+        case 787635980: this.benefitUsed = (Type) value; // Type
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCoding(value); // Coding
@@ -672,6 +722,24 @@ public class EligibilityResponse extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "Coding", "An error code,from a specified code system, which details why the eligibility check could not be performed.", 0, java.lang.Integer.MAX_VALUE, code));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // Coding
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code = castToCoding(value); // Coding
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1473,6 +1541,52 @@ public class EligibilityResponse extends DomainResource {
         childrenList.add(new Property("form", "Coding", "The form to be used for printing the content.", 0, java.lang.Integer.MAX_VALUE, form));
         childrenList.add(new Property("benefitBalance", "", "Benefits and optionally current balances by Category.", 0, java.lang.Integer.MAX_VALUE, benefitBalance));
         childrenList.add(new Property("error", "", "Mutually exclusive with Services Provided (Item).", 0, java.lang.Integer.MAX_VALUE, error));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 37106577: return this.request == null ? new Base[0] : new Base[] {this.request}; // Type
+        case -1106507950: return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // Enumeration<RemittanceOutcome>
+        case 583380919: return this.disposition == null ? new Base[0] : new Base[] {this.disposition}; // StringType
+        case 1548678118: return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
+        case 1089373397: return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
+        case 1028554472: return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
+        case 1326483053: return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Type
+        case -1694784800: return this.requestProvider == null ? new Base[0] : new Base[] {this.requestProvider}; // Type
+        case 818740190: return this.requestOrganization == null ? new Base[0] : new Base[] {this.requestOrganization}; // Type
+        case 1945431270: return this.inforce == null ? new Base[0] : new Base[] {this.inforce}; // BooleanType
+        case -566947566: return this.contract == null ? new Base[0] : new Base[] {this.contract}; // Reference
+        case 3148996: return this.form == null ? new Base[0] : new Base[] {this.form}; // Coding
+        case 596003397: return this.benefitBalance.toArray(new Base[this.benefitBalance.size()]); // BenefitsComponent
+        case 96784904: return this.error.toArray(new Base[this.error.size()]); // ErrorsComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case 37106577: this.request = (Type) value; // Type
+        case -1106507950: this.outcome = new RemittanceOutcomeEnumFactory().fromType(value); // Enumeration<RemittanceOutcome>
+        case 583380919: this.disposition = castToString(value); // StringType
+        case 1548678118: this.ruleset = castToCoding(value); // Coding
+        case 1089373397: this.originalRuleset = castToCoding(value); // Coding
+        case 1028554472: this.created = castToDateTime(value); // DateTimeType
+        case 1326483053: this.organization = (Type) value; // Type
+        case -1694784800: this.requestProvider = (Type) value; // Type
+        case 818740190: this.requestOrganization = (Type) value; // Type
+        case 1945431270: this.inforce = castToBoolean(value); // BooleanType
+        case -566947566: this.contract = castToReference(value); // Reference
+        case 3148996: this.form = castToCoding(value); // Coding
+        case 596003397: this.benefitBalance.add((BenefitsComponent) value); // BenefitsComponent
+        case 96784904: this.error.add((ErrorsComponent) value); // ErrorsComponent
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -123,6 +123,24 @@ public class DocumentManifest extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("p[x]", "Attachment|Reference(Any)", "The list of references to document content, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed.", 0, java.lang.Integer.MAX_VALUE, p));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3427856: return this.p == null ? new Base[0] : new Base[] {this.p}; // Type
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3427856: this.p = (Type) value; // Type
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -282,6 +300,26 @@ public class DocumentManifest extends DomainResource {
           childrenList.add(new Property("identifier", "Identifier", "Related identifier to this DocumentManifest.  For example, Order numbers, accession numbers, XDW workflow numbers.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("ref", "Reference(Any)", "Related Resource to this DocumentManifest. For example, Order, DiagnosticOrder,  Procedure, EligibilityRequest, etc.", 0, java.lang.Integer.MAX_VALUE, ref));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 112787: return this.ref == null ? new Base[0] : new Base[] {this.ref}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
+        case 112787: this.ref = castToReference(value); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -974,6 +1012,46 @@ public class DocumentManifest extends DomainResource {
         childrenList.add(new Property("description", "string", "Human-readable description of the source document. This is sometimes known as the \"title\".", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("content", "", "The list of Documents included in the manifest.", 0, java.lang.Integer.MAX_VALUE, content));
         childrenList.add(new Property("related", "", "Related identifiers or resources associated with the DocumentManifest.", 0, java.lang.Integer.MAX_VALUE, related));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 243769515: return this.masterIdentifier == null ? new Base[0] : new Base[] {this.masterIdentifier}; // Identifier
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 820081177: return this.recipient.toArray(new Base[this.recipient.size()]); // Reference
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case -1406328437: return this.author.toArray(new Base[this.author.size()]); // Reference
+        case 1028554472: return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
+        case -896505829: return this.source == null ? new Base[0] : new Base[] {this.source}; // UriType
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DocumentReferenceStatus>
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 951530617: return this.content.toArray(new Base[this.content.size()]); // DocumentManifestContentComponent
+        case 1090493483: return this.related.toArray(new Base[this.related.size()]); // DocumentManifestRelatedComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 243769515: this.masterIdentifier = castToIdentifier(value); // Identifier
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1867885268: this.subject = castToReference(value); // Reference
+        case 820081177: this.recipient.add(castToReference(value)); // Reference
+        case 3575610: this.type = castToCodeableConcept(value); // CodeableConcept
+        case -1406328437: this.author.add(castToReference(value)); // Reference
+        case 1028554472: this.created = castToDateTime(value); // DateTimeType
+        case -896505829: this.source = castToUri(value); // UriType
+        case -892481550: this.status = new DocumentReferenceStatusEnumFactory().fromType(value); // Enumeration<DocumentReferenceStatus>
+        case -1724546052: this.description = castToString(value); // StringType
+        case 951530617: this.content.add((DocumentManifestContentComponent) value); // DocumentManifestContentComponent
+        case 1090493483: this.related.add((DocumentManifestRelatedComponent) value); // DocumentManifestRelatedComponent
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

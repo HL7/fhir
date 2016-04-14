@@ -195,6 +195,8 @@ public class ArgonautConverter extends ConverterBase {
 				System.out.println("  "+p+": "+s.get(p));
 			}
 		}
+		
+		dumpCodes();
 	}
 
 	private List<String> sorted(Set<String> keys) {
@@ -717,6 +719,7 @@ public class ArgonautConverter extends ConverterBase {
 			proc.setEncounter(new Reference().setReference("Encounter/"+context.encounter.getId()));
 			list.addEntry().setItem(new Reference().setReference("Procedure/"+proc.getId()));
 			proc.setCode(inspectCode(convert.makeCodeableConceptFromCD(cda.getChild(p, "code")), null));
+			recordProcedureCode(proc.getCode());
 			for (Element e : cda.getChildren(p, "id"))
 				proc.getIdentifier().add(convert.makeIdentifierFromII(e));
 
@@ -810,6 +813,7 @@ public class ArgonautConverter extends ConverterBase {
 				}
 				Element po = cda.getChild(cda.getChild(pca, "entryRelationship"), "observation"); // problem observation
 				cond.setCode(inspectCode(convert.makeCodeableConceptFromCD(cda.getChild(po, "value")), null));
+				recordConditionCode(cond.getCode());
 				cond.setOnset(convert.makeDateTimeFromTS(cda.getChild(cda.getChild(po, "effectiveTime"), "low")));
 				Element pso = cda.getChild(cda.getChild(po, "entryRelationship"), "observation"); // problem status observation
 				String status = cda.getChild(pso, "value").getAttribute("code");
@@ -822,6 +826,7 @@ public class ArgonautConverter extends ConverterBase {
 		}
 		saveResource(list);
 	}
+
 
 	private ConditionVerificationStatus getVerificationStatusFromAct(Element child) {
 	  String s = child.getAttribute("code");
@@ -879,6 +884,7 @@ public class ArgonautConverter extends ConverterBase {
 					ai.setSubstance(new CodeableConcept().setText(n));
 				} else
 					ai.setSubstance(inspectCode(convert.makeCodeableConceptFromCD(pec), null));
+				recordAllergyCode(ai.getSubstance());
 				if (!reactions.isEmpty()) {
 					AllergyIntoleranceReactionComponent aie = ai.addReaction();
 					for (Element er : reactions) {
@@ -1366,5 +1372,51 @@ public class ArgonautConverter extends ConverterBase {
 
 	}
 
+  Map<String, Integer> procCodes = new HashMap<String, Integer>();
+  Map<String, Integer> condCodes = new HashMap<String, Integer>();
+  Map<String, Integer> allergyCodes = new HashMap<String, Integer>();
+  
+	private void recordProcedureCode(CodeableConcept code) {
+    for (Coding c : code.getCoding()) {
+    	count(c, procCodes);
+    }
+	}
 
+	private void count(Coding c, Map<String, Integer> map) {
+		String s = c.getSystem()+"::"+c.getCode();
+		if (map.containsKey(s))
+			map.put(s, map.get(s)+1);
+		else
+			map.put(s, 1);
+	}
+
+	private void recordConditionCode(CodeableConcept code) {
+    for (Coding c : code.getCoding()) {
+    	count(c, condCodes);
+    }
+	}
+
+	private void recordAllergyCode(CodeableConcept code) {
+    for (Coding c : code.getCoding()) {
+    	count(c, allergyCodes);
+    }
+	}
+
+	private void dumpCodes() {
+		dump("Procedure Codes", procCodes);
+		dump("Condition Codes", condCodes);
+		dump("Allergy Codes", allergyCodes);
+	}
+
+	private void dump(String string, Map<String, Integer> map) {
+	  System.out.println(string);
+	  System.out.println("");
+	  for (String s : map.keySet()) {
+	  	System.out.println(s+": "+map.get(s));
+	  }
+	  System.out.println("");
+	  System.out.println("");
+	}
+	
+	
 }

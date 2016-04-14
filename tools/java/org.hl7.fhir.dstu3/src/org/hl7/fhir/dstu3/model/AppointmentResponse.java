@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -496,6 +496,38 @@ public class AppointmentResponse extends DomainResource {
         childrenList.add(new Property("actor", "Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)", "A Person, Location/HealthcareService or Device that is participating in the appointment.", 0, java.lang.Integer.MAX_VALUE, actor));
         childrenList.add(new Property("participantStatus", "code", "Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.", 0, java.lang.Integer.MAX_VALUE, participantStatus));
         childrenList.add(new Property("comment", "string", "Additional comments about the appointment.", 0, java.lang.Integer.MAX_VALUE, comment));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1474995297: return this.appointment == null ? new Base[0] : new Base[] {this.appointment}; // Reference
+        case 109757538: return this.start == null ? new Base[0] : new Base[] {this.start}; // InstantType
+        case 100571: return this.end == null ? new Base[0] : new Base[] {this.end}; // InstantType
+        case 841294093: return this.participantType.toArray(new Base[this.participantType.size()]); // CodeableConcept
+        case 92645877: return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
+        case 996096261: return this.participantStatus == null ? new Base[0] : new Base[] {this.participantStatus}; // CodeType
+        case 950398559: return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1474995297: this.appointment = castToReference(value); // Reference
+        case 109757538: this.start = castToInstant(value); // InstantType
+        case 100571: this.end = castToInstant(value); // InstantType
+        case 841294093: this.participantType.add(castToCodeableConcept(value)); // CodeableConcept
+        case 92645877: this.actor = castToReference(value); // Reference
+        case 996096261: this.participantStatus = castToCode(value); // CodeType
+        case 950398559: this.comment = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

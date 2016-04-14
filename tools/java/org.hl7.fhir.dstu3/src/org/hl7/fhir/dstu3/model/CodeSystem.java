@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -439,6 +439,26 @@ public class CodeSystem extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707: this.name = castToString(value); // StringType
+        case -1429363305: this.telecom.add(castToContactPoint(value)); // ContactPoint
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -754,6 +774,30 @@ public class CodeSystem extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -500553564: return this.operator.toArray(new Base[this.operator.size()]); // CodeType
+        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code = castToCode(value); // CodeType
+        case -1724546052: this.description = castToString(value); // StringType
+        case -500553564: this.operator.add(castToCode(value)); // CodeType
+        case 111972721: this.value = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = castToCode(value); // CodeType
@@ -1019,6 +1063,28 @@ public class CodeSystem extends DomainResource {
           childrenList.add(new Property("description", "string", "A description of the property- why it is defined, and how it's value might be used.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("type", "code", "The type of the property value.", 0, java.lang.Integer.MAX_VALUE, type));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<PropertyType>
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code = castToCode(value); // CodeType
+        case -1724546052: this.description = castToString(value); // StringType
+        case 3575610: this.type = new PropertyTypeEnumFactory().fromType(value); // Enumeration<PropertyType>
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1425,6 +1491,34 @@ public class CodeSystem extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case 1671764162: return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
+        case -1014418093: return this.definition == null ? new Base[0] : new Base[] {this.definition}; // StringType
+        case -900931593: return this.designation.toArray(new Base[this.designation.size()]); // ConceptDefinitionDesignationComponent
+        case -993141291: return this.property.toArray(new Base[this.property.size()]); // ConceptDefinitionPropertyComponent
+        case 951024232: return this.concept.toArray(new Base[this.concept.size()]); // ConceptDefinitionComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code = castToCode(value); // CodeType
+        case 1671764162: this.display = castToString(value); // StringType
+        case -1014418093: this.definition = castToString(value); // StringType
+        case -900931593: this.designation.add((ConceptDefinitionDesignationComponent) value); // ConceptDefinitionDesignationComponent
+        case -993141291: this.property.add((ConceptDefinitionPropertyComponent) value); // ConceptDefinitionPropertyComponent
+        case 951024232: this.concept.add((ConceptDefinitionComponent) value); // ConceptDefinitionComponent
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = castToCode(value); // CodeType
@@ -1692,6 +1786,28 @@ public class CodeSystem extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1613589672: return this.language == null ? new Base[0] : new Base[] {this.language}; // CodeType
+        case 116103: return this.use == null ? new Base[0] : new Base[] {this.use}; // Coding
+        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1613589672: this.language = castToCode(value); // CodeType
+        case 116103: this.use = castToCoding(value); // Coding
+        case 111972721: this.value = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("language"))
           this.language = castToCode(value); // CodeType
@@ -1942,6 +2058,26 @@ public class CodeSystem extends DomainResource {
           childrenList.add(new Property("code", "code", "A code that is a reference to CodeSystem.property.code.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("value[x]", "code|Coding|string|integer|boolean|dateTime", "The value of this property.", 0, java.lang.Integer.MAX_VALUE, value));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case -1410166417: return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code = castToCode(value); // CodeType
+        case -1410166417: this.value = (Type) value; // Type
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -3202,6 +3338,66 @@ public class CodeSystem extends DomainResource {
         childrenList.add(new Property("filter", "", "A filter that can be used in a value set compose statement when selecting concepts using a filter.", 0, java.lang.Integer.MAX_VALUE, filter));
         childrenList.add(new Property("property", "", "A property defines an additional slot through which additional information can be provided about a concept.", 0, java.lang.Integer.MAX_VALUE, property));
         childrenList.add(new Property("concept", "", "Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are.", 0, java.lang.Integer.MAX_VALUE, concept));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -404562712: return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
+        case 1447404028: return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
+        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // CodeSystemContactComponent
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -669707736: return this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
+        case -1619874672: return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // StringType
+        case 1522889671: return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
+        case -35616442: return this.caseSensitive == null ? new Base[0] : new Base[] {this.caseSensitive}; // BooleanType
+        case -1410174671: return this.valueSet == null ? new Base[0] : new Base[] {this.valueSet}; // UriType
+        case 1248023381: return this.compositional == null ? new Base[0] : new Base[] {this.compositional}; // BooleanType
+        case 617270957: return this.versionNeeded == null ? new Base[0] : new Base[] {this.versionNeeded}; // BooleanType
+        case 951530617: return this.content == null ? new Base[0] : new Base[] {this.content}; // Enumeration<CodeSystemContentMode>
+        case 94851343: return this.count == null ? new Base[0] : new Base[] {this.count}; // UnsignedIntType
+        case -1274492040: return this.filter.toArray(new Base[this.filter.size()]); // CodeSystemFilterComponent
+        case -993141291: return this.property.toArray(new Base[this.property.size()]); // CodeSystemPropertyComponent
+        case 951024232: return this.concept.toArray(new Base[this.concept.size()]); // ConceptDefinitionComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 116079: this.url = castToUri(value); // UriType
+        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
+        case 351608024: this.version = castToString(value); // StringType
+        case 3373707: this.name = castToString(value); // StringType
+        case -892481550: this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+        case -404562712: this.experimental = castToBoolean(value); // BooleanType
+        case 1447404028: this.publisher = castToString(value); // StringType
+        case 951526432: this.contact.add((CodeSystemContactComponent) value); // CodeSystemContactComponent
+        case 3076014: this.date = castToDateTime(value); // DateTimeType
+        case -1724546052: this.description = castToString(value); // StringType
+        case -669707736: this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1619874672: this.requirements = castToString(value); // StringType
+        case 1522889671: this.copyright = castToString(value); // StringType
+        case -35616442: this.caseSensitive = castToBoolean(value); // BooleanType
+        case -1410174671: this.valueSet = castToUri(value); // UriType
+        case 1248023381: this.compositional = castToBoolean(value); // BooleanType
+        case 617270957: this.versionNeeded = castToBoolean(value); // BooleanType
+        case 951530617: this.content = new CodeSystemContentModeEnumFactory().fromType(value); // Enumeration<CodeSystemContentMode>
+        case 94851343: this.count = castToUnsignedInt(value); // UnsignedIntType
+        case -1274492040: this.filter.add((CodeSystemFilterComponent) value); // CodeSystemFilterComponent
+        case -993141291: this.property.add((CodeSystemPropertyComponent) value); // CodeSystemPropertyComponent
+        case 951024232: this.concept.add((ConceptDefinitionComponent) value); // ConceptDefinitionComponent
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

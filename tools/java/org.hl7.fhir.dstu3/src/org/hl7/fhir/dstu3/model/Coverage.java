@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -943,6 +943,56 @@ public class Coverage extends DomainResource {
         childrenList.add(new Property("school", "string", "Name of school for over-aged dependants.", 0, java.lang.Integer.MAX_VALUE, school));
         childrenList.add(new Property("network", "string", "The identifier for a community of providers.", 0, java.lang.Integer.MAX_VALUE, network));
         childrenList.add(new Property("contract", "Reference(Contract)", "The policy(s) which constitute this insurance coverage.", 0, java.lang.Integer.MAX_VALUE, contract));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 185649959: return this.issuer == null ? new Base[0] : new Base[] {this.issuer}; // Type
+        case 97543: return this.bin == null ? new Base[0] : new Base[] {this.bin}; // StringType
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 1114937931: return this.planholder == null ? new Base[0] : new Base[] {this.planholder}; // Type
+        case 1292142459: return this.beneficiary == null ? new Base[0] : new Base[] {this.beneficiary}; // Type
+        case -261851592: return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Coding
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 98629247: return this.group == null ? new Base[0] : new Base[] {this.group}; // StringType
+        case 3443497: return this.plan == null ? new Base[0] : new Base[] {this.plan}; // StringType
+        case -1868653175: return this.subPlan == null ? new Base[0] : new Base[] {this.subPlan}; // StringType
+        case -1109226753: return this.dependent == null ? new Base[0] : new Base[] {this.dependent}; // PositiveIntType
+        case 1349547969: return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
+        case 1481625679: return this.exception.toArray(new Base[this.exception.size()]); // Coding
+        case -907977868: return this.school == null ? new Base[0] : new Base[] {this.school}; // StringType
+        case 1843485230: return this.network == null ? new Base[0] : new Base[] {this.network}; // StringType
+        case -566947566: return this.contract.toArray(new Base[this.contract.size()]); // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 185649959: this.issuer = (Type) value; // Type
+        case 97543: this.bin = castToString(value); // StringType
+        case -991726143: this.period = castToPeriod(value); // Period
+        case 3575610: this.type = castToCoding(value); // Coding
+        case 1114937931: this.planholder = (Type) value; // Type
+        case 1292142459: this.beneficiary = (Type) value; // Type
+        case -261851592: this.relationship = castToCoding(value); // Coding
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case 98629247: this.group = castToString(value); // StringType
+        case 3443497: this.plan = castToString(value); // StringType
+        case -1868653175: this.subPlan = castToString(value); // StringType
+        case -1109226753: this.dependent = castToPositiveInt(value); // PositiveIntType
+        case 1349547969: this.sequence = castToPositiveInt(value); // PositiveIntType
+        case 1481625679: this.exception.add(castToCoding(value)); // Coding
+        case -907977868: this.school = castToString(value); // StringType
+        case 1843485230: this.network = castToString(value); // StringType
+        case -566947566: this.contract.add(castToReference(value)); // Reference
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

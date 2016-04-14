@@ -6,8 +6,13 @@ import java.util.Queue;
 
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.utils.ShExGenerator.HTMLLinkPolicy;
 
 public class ShExGenerator {
+
+  public enum HTMLLinkPolicy {
+    NONE, EXTERNAL, INTERNAL
+  }
 
   /**
    * this makes interal metadata services avaialble to the generator - retrieving structure definitions, and value set expansion etc 
@@ -25,7 +30,7 @@ public class ShExGenerator {
    * 
    * @return the ShEx source for the provided structures
    */
-  public String generate(StructureDefinition... structures) {
+  public String generate(HTMLLinkPolicy links, StructureDefinition... structures) {
     StringBuilder b = new StringBuilder();
     b.append("PREFIX fhir: <http://hl7.org/fhir/>\r\n");
     

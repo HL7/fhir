@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -308,6 +308,26 @@ public class Condition extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1857640538: return this.summary == null ? new Base[0] : new Base[] {this.summary}; // CodeableConcept
+        case 2119382722: return this.assessment.toArray(new Base[this.assessment.size()]); // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1857640538: this.summary = castToCodeableConcept(value); // CodeableConcept
+        case 2119382722: this.assessment.add(castToReference(value)); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("summary"))
           this.summary = castToCodeableConcept(value); // CodeableConcept
@@ -482,6 +502,26 @@ public class Condition extends DomainResource {
           childrenList.add(new Property("code", "CodeableConcept", "A manifestation or symptom that led to the recording of this condition.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("detail", "Reference(Any)", "Links to other relevant information, including pathology reports.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -1335224239: return this.detail.toArray(new Base[this.detail.size()]); // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
+        case -1335224239: this.detail.add(castToReference(value)); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1424,6 +1464,54 @@ public class Condition extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case -373242253: return this.asserter == null ? new Base[0] : new Base[] {this.asserter}; // Reference
+        case 1888120446: return this.dateRecorded == null ? new Base[0] : new Base[] {this.dateRecorded}; // DateType
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
+        case -462853915: return this.clinicalStatus == null ? new Base[0] : new Base[] {this.clinicalStatus}; // CodeType
+        case -842509843: return this.verificationStatus == null ? new Base[0] : new Base[] {this.verificationStatus}; // Enumeration<ConditionVerificationStatus>
+        case 1478300413: return this.severity == null ? new Base[0] : new Base[] {this.severity}; // CodeableConcept
+        case -1886216323: return this.onset == null ? new Base[0] : new Base[] {this.onset}; // Type
+        case -584196495: return this.abatement == null ? new Base[0] : new Base[] {this.abatement}; // Type
+        case 109757182: return this.stage == null ? new Base[0] : new Base[] {this.stage}; // ConditionStageComponent
+        case 382967383: return this.evidence.toArray(new Base[this.evidence.size()]); // ConditionEvidenceComponent
+        case 1702620169: return this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
+        case 3387378: return this.note.toArray(new Base[this.note.size()]); // Annotation
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case -791418107: this.patient = castToReference(value); // Reference
+        case 1524132147: this.encounter = castToReference(value); // Reference
+        case -373242253: this.asserter = castToReference(value); // Reference
+        case 1888120446: this.dateRecorded = castToDate(value); // DateType
+        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
+        case 50511102: this.category = castToCodeableConcept(value); // CodeableConcept
+        case -462853915: this.clinicalStatus = castToCode(value); // CodeType
+        case -842509843: this.verificationStatus = new ConditionVerificationStatusEnumFactory().fromType(value); // Enumeration<ConditionVerificationStatus>
+        case 1478300413: this.severity = castToCodeableConcept(value); // CodeableConcept
+        case -1886216323: this.onset = (Type) value; // Type
+        case -584196495: this.abatement = (Type) value; // Type
+        case 109757182: this.stage = (ConditionStageComponent) value; // ConditionStageComponent
+        case 382967383: this.evidence.add((ConditionEvidenceComponent) value); // ConditionEvidenceComponent
+        case 1702620169: this.bodySite.add(castToCodeableConcept(value)); // CodeableConcept
+        case 3387378: this.note.add(castToAnnotation(value)); // Annotation
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -1703,7 +1791,7 @@ public class Condition extends DomainResource {
    * Path: <b>Condition.onset[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="onset", path="Condition.onset", description="Date related onsets (dateTime and Period)", type="date" )
+  @SearchParamDefinition(name="onset", path="Condition.onset.as(dateTime) | Condition.onset.as(Period)", description="Date related onsets (dateTime and Period)", type="date" )
   public static final String SP_ONSET = "onset";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>onset</b>
@@ -1763,7 +1851,7 @@ public class Condition extends DomainResource {
    * Path: <b>Condition.onset[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="onset-info", path="Condition.onset", description="Other onsets (boolean, age, range, string)", type="string" )
+  @SearchParamDefinition(name="onset-info", path="Condition.onset.as(boolean) | Condition.onset.as(Quantity) | Condition.onset.as(Range) | Condition.onset.as(string)", description="Other onsets (boolean, age, range, string)", type="string" )
   public static final String SP_ONSET_INFO = "onset-info";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>onset-info</b>

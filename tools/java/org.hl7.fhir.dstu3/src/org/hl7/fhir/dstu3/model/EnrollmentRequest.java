@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -554,6 +554,42 @@ public class EnrollmentRequest extends DomainResource {
         childrenList.add(new Property("subject", "Reference(Patient)", "Patient Resource.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("coverage", "Reference(Coverage)", "Reference to the program or plan identification, underwriter or payor.", 0, java.lang.Integer.MAX_VALUE, coverage));
         childrenList.add(new Property("relationship", "Coding", "The relationship of the patient to the subscriber.", 0, java.lang.Integer.MAX_VALUE, relationship));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 1548678118: return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
+        case 1089373397: return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
+        case 1028554472: return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
+        case -880905839: return this.target == null ? new Base[0] : new Base[] {this.target}; // Reference
+        case -987494927: return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Reference
+        case 1178922291: return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case -351767064: return this.coverage == null ? new Base[0] : new Base[] {this.coverage}; // Reference
+        case -261851592: return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Coding
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
+        case 1548678118: this.ruleset = castToCoding(value); // Coding
+        case 1089373397: this.originalRuleset = castToCoding(value); // Coding
+        case 1028554472: this.created = castToDateTime(value); // DateTimeType
+        case -880905839: this.target = castToReference(value); // Reference
+        case -987494927: this.provider = castToReference(value); // Reference
+        case 1178922291: this.organization = castToReference(value); // Reference
+        case -1867885268: this.subject = castToReference(value); // Reference
+        case -351767064: this.coverage = castToReference(value); // Reference
+        case -261851592: this.relationship = castToCoding(value); // Coding
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

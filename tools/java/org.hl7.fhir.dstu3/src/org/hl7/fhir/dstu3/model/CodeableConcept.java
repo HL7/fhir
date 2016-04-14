@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -162,6 +162,26 @@ public class CodeableConcept extends Type implements ICompositeType {
         super.listChildren(childrenList);
         childrenList.add(new Property("coding", "Coding", "A reference to a code defined by a terminology system.", 0, java.lang.Integer.MAX_VALUE, coding));
         childrenList.add(new Property("text", "string", "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 0, java.lang.Integer.MAX_VALUE, text));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1355086998: return this.coding.toArray(new Base[this.coding.size()]); // Coding
+        case 3556653: return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1355086998: this.coding.add(castToCoding(value)); // Coding
+        case 3556653: this.text = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

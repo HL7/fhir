@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -335,6 +335,32 @@ public class DataRequirement extends Type implements ICompositeType {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3433509: return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
+        case -1438410321: return this.valueSet == null ? new Base[0] : new Base[] {this.valueSet}; // Type
+        case -766209282: return this.valueCode.toArray(new Base[this.valueCode.size()]); // CodeType
+        case -1887705029: return this.valueCoding.toArray(new Base[this.valueCoding.size()]); // Coding
+        case 924902896: return this.valueCodeableConcept.toArray(new Base[this.valueCodeableConcept.size()]); // CodeableConcept
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3433509: this.path = castToString(value); // StringType
+        case -1438410321: this.valueSet = (Type) value; // Type
+        case -766209282: this.valueCode.add(castToCode(value)); // CodeType
+        case -1887705029: this.valueCoding.add(castToCoding(value)); // Coding
+        case 924902896: this.valueCodeableConcept.add(castToCodeableConcept(value)); // CodeableConcept
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("path"))
           this.path = castToString(value); // StringType
@@ -562,6 +588,26 @@ public class DataRequirement extends Type implements ICompositeType {
           childrenList.add(new Property("path", "string", "The date-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type dateTime, Period, Schedule, or Timing.", 0, java.lang.Integer.MAX_VALUE, path));
           childrenList.add(new Property("value[x]", "dateTime|Period", "The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime.", 0, java.lang.Integer.MAX_VALUE, value));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3433509: return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
+        case -1410166417: return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3433509: this.path = castToString(value); // StringType
+        case -1410166417: this.value = (Type) value; // Type
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -917,6 +963,32 @@ public class DataRequirement extends Type implements ICompositeType {
         childrenList.add(new Property("mustSupport", "string", "Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available.", 0, java.lang.Integer.MAX_VALUE, mustSupport));
         childrenList.add(new Property("codeFilter", "", "Code filters specify additional constraints on the data, specifying the value set of interest for a particular element of the data.", 0, java.lang.Integer.MAX_VALUE, codeFilter));
         childrenList.add(new Property("dateFilter", "", "Date filters specify additional constraints on the data in terms of the applicable date range for specific elements.", 0, java.lang.Integer.MAX_VALUE, dateFilter));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
+        case -309425751: return this.profile == null ? new Base[0] : new Base[] {this.profile}; // Reference
+        case -1402857082: return this.mustSupport.toArray(new Base[this.mustSupport.size()]); // StringType
+        case -1303674939: return this.codeFilter.toArray(new Base[this.codeFilter.size()]); // DataRequirementCodeFilterComponent
+        case 149531846: return this.dateFilter.toArray(new Base[this.dateFilter.size()]); // DataRequirementDateFilterComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610: this.type = castToCode(value); // CodeType
+        case -309425751: this.profile = castToReference(value); // Reference
+        case -1402857082: this.mustSupport.add(castToString(value)); // StringType
+        case -1303674939: this.codeFilter.add((DataRequirementCodeFilterComponent) value); // DataRequirementCodeFilterComponent
+        case 149531846: this.dateFilter.add((DataRequirementDateFilterComponent) value); // DataRequirementDateFilterComponent
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1581,6 +1581,26 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707: this.name = castToString(value); // StringType
+        case -1429363305: this.telecom.add(castToContactPoint(value)); // ContactPoint
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -1837,6 +1857,28 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 212873301: return this.releaseDate == null ? new Base[0] : new Base[] {this.releaseDate}; // DateTimeType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707: this.name = castToString(value); // StringType
+        case 351608024: this.version = castToString(value); // StringType
+        case 212873301: this.releaseDate = castToDateTime(value); // DateTimeType
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -2038,6 +2080,26 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("description", "string", "Information about the specific installation that this conformance statement relates to.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("url", "uri", "An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.", 0, java.lang.Integer.MAX_VALUE, url));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1724546052: this.description = castToString(value); // StringType
+        case 116079: this.url = castToUri(value); // UriType
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -2578,6 +2640,40 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3357091: return this.mode == null ? new Base[0] : new Base[] {this.mode}; // Enumeration<RestfulConformanceMode>
+        case 1587405498: return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        case 949122880: return this.security == null ? new Base[0] : new Base[] {this.security}; // ConformanceRestSecurityComponent
+        case -341064690: return this.resource.toArray(new Base[this.resource.size()]); // ConformanceRestResourceComponent
+        case 1844104722: return this.interaction.toArray(new Base[this.interaction.size()]); // SystemInteractionComponent
+        case 1262805409: return this.transactionMode == null ? new Base[0] : new Base[] {this.transactionMode}; // Enumeration<TransactionMode>
+        case -553645115: return this.searchParam.toArray(new Base[this.searchParam.size()]); // ConformanceRestResourceSearchParamComponent
+        case 1662702951: return this.operation.toArray(new Base[this.operation.size()]); // ConformanceRestOperationComponent
+        case -397756334: return this.compartment.toArray(new Base[this.compartment.size()]); // UriType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3357091: this.mode = new RestfulConformanceModeEnumFactory().fromType(value); // Enumeration<RestfulConformanceMode>
+        case 1587405498: this.documentation = castToString(value); // StringType
+        case 949122880: this.security = (ConformanceRestSecurityComponent) value; // ConformanceRestSecurityComponent
+        case -341064690: this.resource.add((ConformanceRestResourceComponent) value); // ConformanceRestResourceComponent
+        case 1844104722: this.interaction.add((SystemInteractionComponent) value); // SystemInteractionComponent
+        case 1262805409: this.transactionMode = new TransactionModeEnumFactory().fromType(value); // Enumeration<TransactionMode>
+        case -553645115: this.searchParam.add((ConformanceRestResourceSearchParamComponent) value); // ConformanceRestResourceSearchParamComponent
+        case 1662702951: this.operation.add((ConformanceRestOperationComponent) value); // ConformanceRestOperationComponent
+        case -397756334: this.compartment.add(castToUri(value)); // UriType
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("mode"))
           this.mode = new RestfulConformanceModeEnumFactory().fromType(value); // Enumeration<RestfulConformanceMode>
@@ -2931,6 +3027,30 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059629: return this.cors == null ? new Base[0] : new Base[] {this.cors}; // BooleanType
+        case 1984153269: return this.service.toArray(new Base[this.service.size()]); // CodeableConcept
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 1952399767: return this.certificate.toArray(new Base[this.certificate.size()]); // ConformanceRestSecurityCertificateComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059629: this.cors = castToBoolean(value); // BooleanType
+        case 1984153269: this.service.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1724546052: this.description = castToString(value); // StringType
+        case 1952399767: this.certificate.add((ConformanceRestSecurityCertificateComponent) value); // ConformanceRestSecurityCertificateComponent
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("cors"))
           this.cors = castToBoolean(value); // BooleanType
@@ -3142,6 +3262,26 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("type", "code", "Mime type for certificate.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("blob", "base64Binary", "Actual certificate.", 0, java.lang.Integer.MAX_VALUE, blob));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
+        case 3026845: return this.blob == null ? new Base[0] : new Base[] {this.blob}; // Base64BinaryType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610: this.type = castToCode(value); // CodeType
+        case 3026845: this.blob = castToBase64Binary(value); // Base64BinaryType
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -3885,6 +4025,46 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
+        case -309425751: return this.profile == null ? new Base[0] : new Base[] {this.profile}; // Reference
+        case 1844104722: return this.interaction.toArray(new Base[this.interaction.size()]); // ResourceInteractionComponent
+        case -670487542: return this.versioning == null ? new Base[0] : new Base[] {this.versioning}; // Enumeration<ResourceVersionPolicy>
+        case 187518494: return this.readHistory == null ? new Base[0] : new Base[] {this.readHistory}; // BooleanType
+        case -1400550619: return this.updateCreate == null ? new Base[0] : new Base[] {this.updateCreate}; // BooleanType
+        case 6401826: return this.conditionalCreate == null ? new Base[0] : new Base[] {this.conditionalCreate}; // BooleanType
+        case 519849711: return this.conditionalUpdate == null ? new Base[0] : new Base[] {this.conditionalUpdate}; // BooleanType
+        case 23237585: return this.conditionalDelete == null ? new Base[0] : new Base[] {this.conditionalDelete}; // Enumeration<ConditionalDeleteStatus>
+        case -1035904544: return this.searchInclude.toArray(new Base[this.searchInclude.size()]); // StringType
+        case -2123884979: return this.searchRevInclude.toArray(new Base[this.searchRevInclude.size()]); // StringType
+        case -553645115: return this.searchParam.toArray(new Base[this.searchParam.size()]); // ConformanceRestResourceSearchParamComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610: this.type = castToCode(value); // CodeType
+        case -309425751: this.profile = castToReference(value); // Reference
+        case 1844104722: this.interaction.add((ResourceInteractionComponent) value); // ResourceInteractionComponent
+        case -670487542: this.versioning = new ResourceVersionPolicyEnumFactory().fromType(value); // Enumeration<ResourceVersionPolicy>
+        case 187518494: this.readHistory = castToBoolean(value); // BooleanType
+        case -1400550619: this.updateCreate = castToBoolean(value); // BooleanType
+        case 6401826: this.conditionalCreate = castToBoolean(value); // BooleanType
+        case 519849711: this.conditionalUpdate = castToBoolean(value); // BooleanType
+        case 23237585: this.conditionalDelete = new ConditionalDeleteStatusEnumFactory().fromType(value); // Enumeration<ConditionalDeleteStatus>
+        case -1035904544: this.searchInclude.add(castToString(value)); // StringType
+        case -2123884979: this.searchRevInclude.add(castToString(value)); // StringType
+        case -553645115: this.searchParam.add((ConformanceRestResourceSearchParamComponent) value); // ConformanceRestResourceSearchParamComponent
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCode(value); // CodeType
@@ -4169,6 +4349,26 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("code", "code", "Coded identifier of the operation, supported by the system resource.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("documentation", "string", "Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.", 0, java.lang.Integer.MAX_VALUE, documentation));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<TypeRestfulInteraction>
+        case 1587405498: return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code = new TypeRestfulInteractionEnumFactory().fromType(value); // Enumeration<TypeRestfulInteraction>
+        case 1587405498: this.documentation = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -4663,6 +4863,36 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1014418093: return this.definition == null ? new Base[0] : new Base[] {this.definition}; // UriType
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<SearchParamType>
+        case 1587405498: return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        case -880905839: return this.target.toArray(new Base[this.target.size()]); // CodeType
+        case -615513385: return this.modifier.toArray(new Base[this.modifier.size()]); // Enumeration<SearchModifierCode>
+        case 94623425: return this.chain.toArray(new Base[this.chain.size()]); // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707: this.name = castToString(value); // StringType
+        case -1014418093: this.definition = castToUri(value); // UriType
+        case 3575610: this.type = new SearchParamTypeEnumFactory().fromType(value); // Enumeration<SearchParamType>
+        case 1587405498: this.documentation = castToString(value); // StringType
+        case -880905839: this.target.add(castToCode(value)); // CodeType
+        case -615513385: this.modifier.add(new SearchModifierCodeEnumFactory().fromType(value)); // Enumeration<SearchModifierCode>
+        case 94623425: this.chain.add(castToString(value)); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -4906,6 +5136,26 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<SystemRestfulInteraction>
+        case 1587405498: return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code = new SystemRestfulInteractionEnumFactory().fromType(value); // Enumeration<SystemRestfulInteraction>
+        case 1587405498: this.documentation = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = new SystemRestfulInteractionEnumFactory().fromType(value); // Enumeration<SystemRestfulInteraction>
@@ -5100,6 +5350,26 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("name", "string", "The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the url. For a query, this is the name used in the _query parameter when the query is called.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("definition", "Reference(OperationDefinition)", "Where the formal definition can be found.", 0, java.lang.Integer.MAX_VALUE, definition));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1014418093: return this.definition == null ? new Base[0] : new Base[] {this.definition}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707: this.name = castToString(value); // StringType
+        case -1014418093: this.definition = castToReference(value); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -5386,6 +5656,30 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 1741102485: return this.endpoint.toArray(new Base[this.endpoint.size()]); // ConformanceMessagingEndpointComponent
+        case 897803608: return this.reliableCache == null ? new Base[0] : new Base[] {this.reliableCache}; // UnsignedIntType
+        case 1587405498: return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        case 96891546: return this.event.toArray(new Base[this.event.size()]); // ConformanceMessagingEventComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 1741102485: this.endpoint.add((ConformanceMessagingEndpointComponent) value); // ConformanceMessagingEndpointComponent
+        case 897803608: this.reliableCache = castToUnsignedInt(value); // UnsignedIntType
+        case 1587405498: this.documentation = castToString(value); // StringType
+        case 96891546: this.event.add((ConformanceMessagingEventComponent) value); // ConformanceMessagingEventComponent
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("endpoint"))
           this.getEndpoint().add((ConformanceMessagingEndpointComponent) value);
@@ -5578,6 +5872,26 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("protocol", "Coding", "A list of the messaging transport protocol(s) identifiers, supported by this endpoint.", 0, java.lang.Integer.MAX_VALUE, protocol));
           childrenList.add(new Property("address", "uri", "The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.", 0, java.lang.Integer.MAX_VALUE, address));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -989163880: return this.protocol == null ? new Base[0] : new Base[] {this.protocol}; // Coding
+        case -1147692044: return this.address == null ? new Base[0] : new Base[] {this.address}; // UriType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -989163880: this.protocol = castToCoding(value); // Coding
+        case -1147692044: this.address = castToUri(value); // UriType
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -6036,6 +6350,36 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // Coding
+        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // Enumeration<MessageSignificanceCategory>
+        case 3357091: return this.mode == null ? new Base[0] : new Base[] {this.mode}; // Enumeration<ConformanceEventMode>
+        case 97604824: return this.focus == null ? new Base[0] : new Base[] {this.focus}; // CodeType
+        case 1095692943: return this.request == null ? new Base[0] : new Base[] {this.request}; // Reference
+        case -340323263: return this.response == null ? new Base[0] : new Base[] {this.response}; // Reference
+        case 1587405498: return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code = castToCoding(value); // Coding
+        case 50511102: this.category = new MessageSignificanceCategoryEnumFactory().fromType(value); // Enumeration<MessageSignificanceCategory>
+        case 3357091: this.mode = new ConformanceEventModeEnumFactory().fromType(value); // Enumeration<ConformanceEventMode>
+        case 97604824: this.focus = castToCode(value); // CodeType
+        case 1095692943: this.request = castToReference(value); // Reference
+        case -340323263: this.response = castToReference(value); // Reference
+        case 1587405498: this.documentation = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = castToCoding(value); // Coding
@@ -6325,6 +6669,28 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("documentation", "string", "A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A constraint on a resource used in the document.", 0, java.lang.Integer.MAX_VALUE, profile));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3357091: return this.mode == null ? new Base[0] : new Base[] {this.mode}; // Enumeration<DocumentMode>
+        case 1587405498: return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        case -309425751: return this.profile == null ? new Base[0] : new Base[] {this.profile}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3357091: this.mode = new DocumentModeEnumFactory().fromType(value); // Enumeration<DocumentMode>
+        case 1587405498: this.documentation = castToString(value); // StringType
+        case -309425751: this.profile = castToReference(value); // Reference
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -7576,6 +7942,66 @@ public class Conformance extends DomainResource implements IBaseConformance {
         childrenList.add(new Property("rest", "", "A definition of the restful capabilities of the solution, if any.", 0, java.lang.Integer.MAX_VALUE, rest));
         childrenList.add(new Property("messaging", "", "A description of the messaging capabilities of the solution.", 0, java.lang.Integer.MAX_VALUE, messaging));
         childrenList.add(new Property("document", "", "A document definition.", 0, java.lang.Integer.MAX_VALUE, document));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -404562712: return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case 1447404028: return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
+        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // ConformanceContactComponent
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -669707736: return this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
+        case -1619874672: return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // StringType
+        case 1522889671: return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
+        case 3292052: return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<ConformanceStatementKind>
+        case 1319330215: return this.software == null ? new Base[0] : new Base[] {this.software}; // ConformanceSoftwareComponent
+        case 1683336114: return this.implementation == null ? new Base[0] : new Base[] {this.implementation}; // ConformanceImplementationComponent
+        case 461006061: return this.fhirVersion == null ? new Base[0] : new Base[] {this.fhirVersion}; // IdType
+        case -1862642142: return this.acceptUnknown == null ? new Base[0] : new Base[] {this.acceptUnknown}; // Enumeration<UnknownContentCode>
+        case -1268779017: return this.format.toArray(new Base[this.format.size()]); // CodeType
+        case -309425751: return this.profile.toArray(new Base[this.profile.size()]); // Reference
+        case 3496916: return this.rest.toArray(new Base[this.rest.size()]); // ConformanceRestComponent
+        case -1440008444: return this.messaging.toArray(new Base[this.messaging.size()]); // ConformanceMessagingComponent
+        case 861720859: return this.document.toArray(new Base[this.document.size()]); // ConformanceDocumentComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 116079: this.url = castToUri(value); // UriType
+        case 351608024: this.version = castToString(value); // StringType
+        case 3373707: this.name = castToString(value); // StringType
+        case -892481550: this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+        case -404562712: this.experimental = castToBoolean(value); // BooleanType
+        case 3076014: this.date = castToDateTime(value); // DateTimeType
+        case 1447404028: this.publisher = castToString(value); // StringType
+        case 951526432: this.contact.add((ConformanceContactComponent) value); // ConformanceContactComponent
+        case -1724546052: this.description = castToString(value); // StringType
+        case -669707736: this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1619874672: this.requirements = castToString(value); // StringType
+        case 1522889671: this.copyright = castToString(value); // StringType
+        case 3292052: this.kind = new ConformanceStatementKindEnumFactory().fromType(value); // Enumeration<ConformanceStatementKind>
+        case 1319330215: this.software = (ConformanceSoftwareComponent) value; // ConformanceSoftwareComponent
+        case 1683336114: this.implementation = (ConformanceImplementationComponent) value; // ConformanceImplementationComponent
+        case 461006061: this.fhirVersion = castToId(value); // IdType
+        case -1862642142: this.acceptUnknown = new UnknownContentCodeEnumFactory().fromType(value); // Enumeration<UnknownContentCode>
+        case -1268779017: this.format.add(castToCode(value)); // CodeType
+        case -309425751: this.profile.add(castToReference(value)); // Reference
+        case 3496916: this.rest.add((ConformanceRestComponent) value); // ConformanceRestComponent
+        case -1440008444: this.messaging.add((ConformanceMessagingComponent) value); // ConformanceMessagingComponent
+        case 861720859: this.document.add((ConformanceDocumentComponent) value); // ConformanceDocumentComponent
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

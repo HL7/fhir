@@ -1,5 +1,6 @@
 package org.hl7.fhir.dstu3.metamodel;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -16,10 +17,12 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
+import org.hl7.fhir.utilities.xml.XMLWriter;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -38,19 +41,19 @@ public class XmlParser extends ParserBase {
     DocumentBuilder builder = factory.newDocumentBuilder();
     Document doc = builder.parse(stream);
     org.w3c.dom.Element base = doc.getDocumentElement();
-    if (base.getNamespaceURI() == null)
-      throw new FHIRFormatError("This does not appear to be a FHIR resource (no namespace '"+base.getNamespaceURI()+"')");
-    if (!base.getNamespaceURI().equals(FormatUtilities.FHIR_NS))
-      throw new FHIRFormatError("This does not appear to be a FHIR resource (wrong namespace '"+base.getNamespaceURI()+"')");
-    return parse(base, null);
+    String ns = base.getNamespaceURI();
+    String name = base.getNodeName();
+    StructureDefinition sd = getDefinition(ns, name);
+
+    Element result = new Element(base.getNodeName(), new Property(sd.getSnapshot().getElement().get(0), sd));
+    result.setType(base.getNodeName());
+    parseChildren(base.getNodeName(), base, result);
+    result.numberChildren();
+    return result;
   }
 
-  public Element parse(org.w3c.dom.Element base, String fixedType) throws Exception {
-
-    String name = base.getNodeName();
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+(fixedType != null ? fixedType : name));
-    if (sd == null)
-      throw new FHIRFormatError("This does not appear to be a FHIR resource (unknown name '"+base.getNodeName()+"')");
+  public Element parse(org.w3c.dom.Element base, String type) throws Exception {
+    StructureDefinition sd = getDefinition(FormatUtilities.FHIR_NS, type);
     Element result = new Element(base.getNodeName(), new Property(sd.getSnapshot().getElement().get(0), sd));
     result.setType(base.getNodeName());
     parseChildren(base.getNodeName(), base, result);
@@ -60,17 +63,19 @@ public class XmlParser extends ParserBase {
 
   private void parseChildren(String path, org.w3c.dom.Element node, Element context) throws Exception {
   	reapComments(node, context);
-    List<Property> properties = getChildProperties(context.getProperty(), context.getName());
-    List<org.w3c.dom.Node> processed = new ArrayList<Node>();
+    List<Property> properties = getChildProperties(context.getProperty(), context.getName(), XMLUtil.getXsiType(node));
+    List<org.w3c.dom.Node> processed = new ArrayList<org.w3c.dom.Node>();
     for (Property property : properties) {
       if (isAttr(property)) {
       	Attr attr = node.getAttributeNode(property.getName());
+        if (attr != null) {
       	processed.add(attr);
       	if (attr != null)
       		if (property.getName().equals("value"))
       			context.setValue(attr.getValue());
       		else
       	    context.getChildren().add(new Element(property.getName(), property, property.getType(), attr.getValue()));
+        }
       } else if (property.isPrimitive() && "xhtml".equals(property.getType())) {
       	org.w3c.dom.Element div = XMLUtil.getNamedChild(node, property.getName());
       	processed.add(div);
@@ -144,8 +149,59 @@ public class XmlParser extends ParserBase {
 	return false;
 	}
 
-	@Override
-  public void compose(Element e, OutputStream destination, OutputStyle style, String base) throws Exception {
-    throw new NotImplementedException("not done yet");
+  private boolean isText(Property property) {
+    for (Enumeration<PropertyRepresentation> r : property.getDefinition().getRepresentation()) {
+      if (r.getValue() == PropertyRepresentation.XMLTEXT) {
+        return true;
+      }
+    }
+    return false;
   }
+
+	@Override
+  public void compose(Element e, OutputStream stream, OutputStyle style, String base) throws Exception {
+    XMLWriter xml = new XMLWriter(stream, "UTF-8");
+    xml.setPretty(style == OutputStyle.PRETTY);
+    xml.start();
+    xml.setDefaultNamespace(e.getProperty().getNamespace());
+    composeElement(xml, e, e.getType());
+    xml.end();
+
+  }
+
+  private void composeElement(XMLWriter xml, Element element, String elementName) throws IOException {
+    for (String s : element.getComments()) {
+      xml.comment(s, true);
+    }
+    if (isText(element.getProperty())) {
+      xml.enter(elementName);
+      xml.text(element.getValue());
+      xml.exit(elementName);      
+    } else if (element.getProperty().isPrimitive() || (element.hasType() && ParserBase.isPrimitive(element.getType()))) {
+      if (element.getType().equals("xhtml")) {
+        xml.enter(elementName);
+        xml.escapedText(element.getValue());
+        xml.exit(elementName);
+      } else if (isText(element.getProperty())) {
+        xml.text(element.getValue());
+      } else {
+        xml.attribute("value", element.getValue());
+        xml.element(elementName);
+      }
+    } else {
+      for (Element child : element.getChildren()) {
+        if (isAttr(child.getProperty()))
+          xml.attribute(child.getName(), child.getValue());
+      }
+      xml.enter(elementName);
+      for (Element child : element.getChildren()) {
+        if (isText(child.getProperty()))
+          xml.text(child.getValue());
+        else if (!isAttr(child.getProperty()))
+          composeElement(xml, child, child.getName());
+      }
+      xml.exit(elementName);
+    }
+  }
+
 }

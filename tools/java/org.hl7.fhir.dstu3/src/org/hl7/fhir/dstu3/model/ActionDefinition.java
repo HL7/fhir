@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -662,6 +662,30 @@ public class ActionDefinition extends Type implements ICompositeType {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -889046145: return this.actionIdentifier == null ? new Base[0] : new Base[] {this.actionIdentifier}; // Identifier
+        case -261851592: return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Enumeration<ActionRelationshipType>
+        case -1960684787: return this.offset == null ? new Base[0] : new Base[] {this.offset}; // Type
+        case -1413299531: return this.anchor == null ? new Base[0] : new Base[] {this.anchor}; // Enumeration<ActionRelationshipAnchor>
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -889046145: this.actionIdentifier = castToIdentifier(value); // Identifier
+        case -261851592: this.relationship = new ActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<ActionRelationshipType>
+        case -1960684787: this.offset = (Type) value; // Type
+        case -1413299531: this.anchor = new ActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<ActionRelationshipAnchor>
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("actionIdentifier"))
           this.actionIdentifier = castToIdentifier(value); // Identifier
@@ -829,6 +853,26 @@ public class ActionDefinition extends Type implements ICompositeType {
           childrenList.add(new Property("type", "Coding", "The type of the behavior to be described, such as grouping, visual, or selection behaviors.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("value", "Coding", "The specific behavior. The code used here is determined by the type of behavior being described. For example, the grouping behavior uses the grouping-behavior-type valueset.", 0, java.lang.Integer.MAX_VALUE, value));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // Coding
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610: this.type = castToCoding(value); // Coding
+        case 111972721: this.value = castToCoding(value); // Coding
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1023,6 +1067,26 @@ public class ActionDefinition extends Type implements ICompositeType {
           childrenList.add(new Property("path", "string", "The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.", 0, java.lang.Integer.MAX_VALUE, path));
           childrenList.add(new Property("expression", "string", "An expression specifying the value of the customized element.", 0, java.lang.Integer.MAX_VALUE, expression));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3433509: return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
+        case -1795452264: return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3433509: this.path = castToString(value); // StringType
+        case -1795452264: this.expression = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1848,6 +1912,52 @@ public class ActionDefinition extends Type implements ICompositeType {
         childrenList.add(new Property("resource", "Reference(Any)", "The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition).", 0, java.lang.Integer.MAX_VALUE, resource));
         childrenList.add(new Property("customization", "", "Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result.", 0, java.lang.Integer.MAX_VALUE, customization));
         childrenList.add(new Property("action", "ActionDefinition", "Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition.", 0, java.lang.Integer.MAX_VALUE, action));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -889046145: return this.actionIdentifier == null ? new Base[0] : new Base[] {this.actionIdentifier}; // Identifier
+        case 102727412: return this.label == null ? new Base[0] : new Base[] {this.label}; // StringType
+        case 110371416: return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -900391049: return this.textEquivalent == null ? new Base[0] : new Base[] {this.textEquivalent}; // StringType
+        case 951024232: return this.concept.toArray(new Base[this.concept.size()]); // CodeableConcept
+        case -1735429846: return this.supportingEvidence.toArray(new Base[this.supportingEvidence.size()]); // Attachment
+        case 1587405498: return this.documentation.toArray(new Base[this.documentation.size()]); // Attachment
+        case -384107967: return this.relatedAction == null ? new Base[0] : new Base[] {this.relatedAction}; // ActionDefinitionRelatedActionComponent
+        case 841294093: return this.participantType.toArray(new Base[this.participantType.size()]); // Enumeration<ParticipantType>
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ActionType>
+        case 1510912594: return this.behavior.toArray(new Base[this.behavior.size()]); // ActionDefinitionBehaviorComponent
+        case -341064690: return this.resource == null ? new Base[0] : new Base[] {this.resource}; // Reference
+        case 1637263315: return this.customization.toArray(new Base[this.customization.size()]); // ActionDefinitionCustomizationComponent
+        case -1422950858: return this.action.toArray(new Base[this.action.size()]); // ActionDefinition
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -889046145: this.actionIdentifier = castToIdentifier(value); // Identifier
+        case 102727412: this.label = castToString(value); // StringType
+        case 110371416: this.title = castToString(value); // StringType
+        case -1724546052: this.description = castToString(value); // StringType
+        case -900391049: this.textEquivalent = castToString(value); // StringType
+        case 951024232: this.concept.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1735429846: this.supportingEvidence.add(castToAttachment(value)); // Attachment
+        case 1587405498: this.documentation.add(castToAttachment(value)); // Attachment
+        case -384107967: this.relatedAction = (ActionDefinitionRelatedActionComponent) value; // ActionDefinitionRelatedActionComponent
+        case 841294093: this.participantType.add(new ParticipantTypeEnumFactory().fromType(value)); // Enumeration<ParticipantType>
+        case 3575610: this.type = new ActionTypeEnumFactory().fromType(value); // Enumeration<ActionType>
+        case 1510912594: this.behavior.add((ActionDefinitionBehaviorComponent) value); // ActionDefinitionBehaviorComponent
+        case -341064690: this.resource = castToReference(value); // Reference
+        case 1637263315: this.customization.add((ActionDefinitionCustomizationComponent) value); // ActionDefinitionCustomizationComponent
+        case -1422950858: this.action.add(castToActionDefinition(value)); // ActionDefinition
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

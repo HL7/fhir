@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -414,6 +414,28 @@ public class DeviceComponent extends DomainResource {
           childrenList.add(new Property("componentId", "Identifier", "Describes the internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacture can make use of.", 0, java.lang.Integer.MAX_VALUE, componentId));
           childrenList.add(new Property("productionSpec", "string", "Describes the printable string defining the component.", 0, java.lang.Integer.MAX_VALUE, productionSpec));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -2133482091: return this.specType == null ? new Base[0] : new Base[] {this.specType}; // CodeableConcept
+        case -985933064: return this.componentId == null ? new Base[0] : new Base[] {this.componentId}; // Identifier
+        case 182147092: return this.productionSpec == null ? new Base[0] : new Base[] {this.productionSpec}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -2133482091: this.specType = castToCodeableConcept(value); // CodeableConcept
+        case -985933064: this.componentId = castToIdentifier(value); // Identifier
+        case 182147092: this.productionSpec = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -955,6 +977,42 @@ public class DeviceComponent extends DomainResource {
         childrenList.add(new Property("measurementPrinciple", "code", "Describes the physical principle of the measurement. For example: thermal, chemical, acoustical, etc.", 0, java.lang.Integer.MAX_VALUE, measurementPrinciple));
         childrenList.add(new Property("productionSpecification", "", "Describes the production specification such as component revision, serial number, etc.", 0, java.lang.Integer.MAX_VALUE, productionSpecification));
         childrenList.add(new Property("languageCode", "CodeableConcept", "Describes the language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.", 0, java.lang.Integer.MAX_VALUE, languageCode));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case -2072475531: return this.lastSystemChange == null ? new Base[0] : new Base[] {this.lastSystemChange}; // InstantType
+        case -896505829: return this.source == null ? new Base[0] : new Base[] {this.source}; // Reference
+        case -995424086: return this.parent == null ? new Base[0] : new Base[] {this.parent}; // Reference
+        case -2103166364: return this.operationalStatus.toArray(new Base[this.operationalStatus.size()]); // CodeableConcept
+        case 1111110742: return this.parameterGroup == null ? new Base[0] : new Base[] {this.parameterGroup}; // CodeableConcept
+        case 24324384: return this.measurementPrinciple == null ? new Base[0] : new Base[] {this.measurementPrinciple}; // Enumeration<MeasmntPrinciple>
+        case -455527222: return this.productionSpecification.toArray(new Base[this.productionSpecification.size()]); // DeviceComponentProductionSpecificationComponent
+        case -2092349083: return this.languageCode == null ? new Base[0] : new Base[] {this.languageCode}; // CodeableConcept
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610: this.type = castToCodeableConcept(value); // CodeableConcept
+        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
+        case -2072475531: this.lastSystemChange = castToInstant(value); // InstantType
+        case -896505829: this.source = castToReference(value); // Reference
+        case -995424086: this.parent = castToReference(value); // Reference
+        case -2103166364: this.operationalStatus.add(castToCodeableConcept(value)); // CodeableConcept
+        case 1111110742: this.parameterGroup = castToCodeableConcept(value); // CodeableConcept
+        case 24324384: this.measurementPrinciple = new MeasmntPrincipleEnumFactory().fromType(value); // Enumeration<MeasmntPrinciple>
+        case -455527222: this.productionSpecification.add((DeviceComponentProductionSpecificationComponent) value); // DeviceComponentProductionSpecificationComponent
+        case -2092349083: this.languageCode = castToCodeableConcept(value); // CodeableConcept
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

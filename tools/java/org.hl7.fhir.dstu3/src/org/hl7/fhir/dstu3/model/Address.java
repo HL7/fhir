@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -829,6 +829,42 @@ public class Address extends Type implements ICompositeType {
         childrenList.add(new Property("postalCode", "string", "A postal code designating a region defined by the postal service.", 0, java.lang.Integer.MAX_VALUE, postalCode));
         childrenList.add(new Property("country", "string", "Country - a nation as commonly understood or generally accepted.", 0, java.lang.Integer.MAX_VALUE, country));
         childrenList.add(new Property("period", "Period", "Time period when address was/is in use.", 0, java.lang.Integer.MAX_VALUE, period));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 116103: return this.use == null ? new Base[0] : new Base[] {this.use}; // Enumeration<AddressUse>
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<AddressType>
+        case 3556653: return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        case 3321844: return this.line.toArray(new Base[this.line.size()]); // StringType
+        case 3053931: return this.city == null ? new Base[0] : new Base[] {this.city}; // StringType
+        case 288961422: return this.district == null ? new Base[0] : new Base[] {this.district}; // StringType
+        case 109757585: return this.state == null ? new Base[0] : new Base[] {this.state}; // StringType
+        case 2011152728: return this.postalCode == null ? new Base[0] : new Base[] {this.postalCode}; // StringType
+        case 957831062: return this.country == null ? new Base[0] : new Base[] {this.country}; // StringType
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 116103: this.use = new AddressUseEnumFactory().fromType(value); // Enumeration<AddressUse>
+        case 3575610: this.type = new AddressTypeEnumFactory().fromType(value); // Enumeration<AddressType>
+        case 3556653: this.text = castToString(value); // StringType
+        case 3321844: this.line.add(castToString(value)); // StringType
+        case 3053931: this.city = castToString(value); // StringType
+        case 288961422: this.district = castToString(value); // StringType
+        case 109757585: this.state = castToString(value); // StringType
+        case 2011152728: this.postalCode = castToString(value); // StringType
+        case 957831062: this.country = castToString(value); // StringType
+        case -991726143: this.period = castToPeriod(value); // Period
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

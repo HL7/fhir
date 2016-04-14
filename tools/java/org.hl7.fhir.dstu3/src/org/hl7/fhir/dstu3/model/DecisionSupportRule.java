@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -317,6 +317,32 @@ public class DecisionSupportRule extends DomainResource {
         childrenList.add(new Property("trigger", "TriggerDefinition", "The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow.", 0, java.lang.Integer.MAX_VALUE, trigger));
         childrenList.add(new Property("condition", "string", "The condition element describes he \"if\" portion of the rule that determines whether or not the rule \"fires\". The condition must be the name of an expression in a referenced library.", 0, java.lang.Integer.MAX_VALUE, condition));
         childrenList.add(new Property("action", "ActionDefinition", "The action element defines the \"when\" portion of the rule that determines what actions should be performed if the condition evaluates to true.", 0, java.lang.Integer.MAX_VALUE, action));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 455891387: return this.moduleMetadata == null ? new Base[0] : new Base[] {this.moduleMetadata}; // ModuleMetadata
+        case 166208699: return this.library.toArray(new Base[this.library.size()]); // Reference
+        case -1059891784: return this.trigger.toArray(new Base[this.trigger.size()]); // TriggerDefinition
+        case -861311717: return this.condition == null ? new Base[0] : new Base[] {this.condition}; // StringType
+        case -1422950858: return this.action.toArray(new Base[this.action.size()]); // ActionDefinition
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 455891387: this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
+        case 166208699: this.library.add(castToReference(value)); // Reference
+        case -1059891784: this.trigger.add(castToTriggerDefinition(value)); // TriggerDefinition
+        case -861311717: this.condition = castToString(value); // StringType
+        case -1422950858: this.action.add(castToActionDefinition(value)); // ActionDefinition
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

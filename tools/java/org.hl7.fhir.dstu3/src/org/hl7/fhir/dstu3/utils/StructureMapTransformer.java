@@ -3,12 +3,18 @@ package org.hl7.fhir.dstu3.utils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.apache.commons.codec.language.MatchRatingApproachEncoder;
+import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.exceptions.PathEngineException;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
+import org.hl7.fhir.dstu3.model.Factory;
+import org.hl7.fhir.dstu3.model.IdType;
+import org.hl7.fhir.dstu3.model.PrimitiveType;
+import org.hl7.fhir.dstu3.model.ResourceFactory;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupRuleComponent;
@@ -207,10 +213,43 @@ public class StructureMapTransformer {
   }
   
   
-  private void processTarget(TransformContext context, Variables tgtVars, StructureMapGroupRuleTargetComponent t) {
-    
-    
+  private void processTarget(TransformContext context, Variables vars, StructureMapGroupRuleTargetComponent tgt) throws Exception {
+    Base dest = vars.get(VariableMode.OUTPUT, tgt.getContext());
+    if (!tgt.hasElement())
+      throw new Exception("Not supported yet");
+    if (tgt.hasTransform()) {
+      Base v = runTransform(tgt, vars);
+      dest.setProperty(tgt.getElement(), v);
+      if (tgt.hasVariable())
+        vars.add(VariableMode.OUTPUT, tgt.getVariable(), v);
+    }
   }
 
+  private Base runTransform(StructureMapGroupRuleTargetComponent tgt, Variables vars) throws FHIRException {
+    switch (tgt.getTransform()) {
+    case CREATE :
+      return ResourceFactory.createResource( tgt.getParameter().get(0).getValueStringType().asStringValue());
+    case COPY : 
+      return vars.get(VariableMode.INPUT, ((PrimitiveType) tgt.getParameter().get(0).getValue()).asStringValue());
+    case TRUNCATE : 
+      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+    case ESCAPE : 
+      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+    case CAST :
+      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+    case APPEND : 
+      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+    case TRANSLATE : 
+      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+    case REFERENCE :
+      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+    case DATEOP :
+      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+    case UUID :
+      return new IdType(UUID.randomUUID().toString());
+    default:
+      throw new Error("Transform Unknown");
+    }
+  }
   
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -304,6 +304,26 @@ public class CompartmentDefinition extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707: this.name = castToString(value); // StringType
+        case -1429363305: this.telecom.add(castToContactPoint(value)); // ContactPoint
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -563,6 +583,28 @@ public class CompartmentDefinition extends DomainResource {
           childrenList.add(new Property("param", "string", "The name of a search parameter that represents the link to the compartment. More than one may be listed because a resource may be linked to a compartment more than one way.", 0, java.lang.Integer.MAX_VALUE, param));
           childrenList.add(new Property("documentation", "string", "Additional doco about the resource and compartment.", 0, java.lang.Integer.MAX_VALUE, documentation));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case 106436749: return this.param.toArray(new Base[this.param.size()]); // StringType
+        case 1587405498: return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code = castToCode(value); // CodeType
+        case 106436749: this.param.add(castToString(value)); // StringType
+        case 1587405498: this.documentation = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1306,6 +1348,46 @@ public class CompartmentDefinition extends DomainResource {
         childrenList.add(new Property("code", "code", "Which compartment this definition describes.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("search", "boolean", "Whether the search syntax is supported.", 0, java.lang.Integer.MAX_VALUE, search));
         childrenList.add(new Property("resource", "", "Information about how a resource it related to the compartment.", 0, java.lang.Integer.MAX_VALUE, resource));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -404562712: return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
+        case 1447404028: return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
+        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // CompartmentDefinitionContactComponent
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -1619874672: return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // StringType
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<CompartmentType>
+        case -906336856: return this.search == null ? new Base[0] : new Base[] {this.search}; // BooleanType
+        case -341064690: return this.resource.toArray(new Base[this.resource.size()]); // CompartmentDefinitionResourceComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 116079: this.url = castToUri(value); // UriType
+        case 3373707: this.name = castToString(value); // StringType
+        case -892481550: this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+        case -404562712: this.experimental = castToBoolean(value); // BooleanType
+        case 1447404028: this.publisher = castToString(value); // StringType
+        case 951526432: this.contact.add((CompartmentDefinitionContactComponent) value); // CompartmentDefinitionContactComponent
+        case 3076014: this.date = castToDateTime(value); // DateTimeType
+        case -1724546052: this.description = castToString(value); // StringType
+        case -1619874672: this.requirements = castToString(value); // StringType
+        case 3059181: this.code = new CompartmentTypeEnumFactory().fromType(value); // Enumeration<CompartmentType>
+        case -906336856: this.search = castToBoolean(value); // BooleanType
+        case -341064690: this.resource.add((CompartmentDefinitionResourceComponent) value); // CompartmentDefinitionResourceComponent
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

@@ -476,7 +476,7 @@ public class StructureMap extends DomainResource {
         /**
          * reference(source : object) - return a string that references the provided tree properly
          */
-        REFERENCE, 
+        REFERENCE, UUID, DATEOP, POINTER,
         /**
          * added to help the parsers
          */
@@ -500,6 +500,12 @@ public class StructureMap extends DomainResource {
           return TRANSLATE;
         if ("reference".equals(codeString))
           return REFERENCE;
+        if ("dateOp".equals(codeString))
+          return DATEOP;
+        if ("uuid".equals(codeString))
+          return UUID;
+        if ("pointer".equals(codeString))
+          return POINTER;
         throw new FHIRException("Unknown StructureMapTransform code '"+codeString+"'");
         }
         public String toCode() {
@@ -512,6 +518,9 @@ public class StructureMap extends DomainResource {
             case APPEND: return "append";
             case TRANSLATE: return "translate";
             case REFERENCE: return "reference";
+            case DATEOP: return "dateOp";
+            case UUID: return "uuid";
+            case POINTER: return "pointer";
             default: return "?";
           }
         }

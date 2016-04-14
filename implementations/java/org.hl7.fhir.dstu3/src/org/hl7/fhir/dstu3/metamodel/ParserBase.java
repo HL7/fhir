@@ -6,12 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
+import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
+import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 
 public abstract class ParserBase {
@@ -34,7 +38,25 @@ public abstract class ParserBase {
 
 	public abstract void compose(Element e, OutputStream destination, OutputStyle style, String base)  throws Exception;
 
-	protected List<Property> getChildProperties(Property property, String elementName) throws DefinitionException {
+	protected StructureDefinition getDefinition(String ns, String name) throws FHIRFormatError {
+    if (ns == null)
+      throw new FHIRFormatError("This cannot be parsed as a FHIR object (no namespace)");
+    if (name == null)
+      throw new FHIRFormatError("This cannot be parsed as a FHIR object (no name)");
+	  for (StructureDefinition sd : context.allStructures()) {
+	    if (name.equals(sd.getId())) {
+	      if(ns.equals(FormatUtilities.FHIR_NS) && !ToolingExtensions.hasExtension(sd, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"))
+	        return sd;
+	      String sns = ToolingExtensions.readStringExtension(sd, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace");
+	      if (ns.equals(sns))
+	        return sd;
+	    }
+	  }
+    throw new FHIRFormatError("This does not appear to be a FHIR resource (unknown namespace/name '"+ns+"::"+name+"')");
+  }
+
+  
+	protected List<Property> getChildProperties(Property property, String elementName, String statedType) throws DefinitionException {
 		ElementDefinition ed = property.getDefinition();
 		StructureDefinition sd = property.getStructure();
 		List<ElementDefinition> children = ProfileUtilities.getChildMap(sd, ed);
@@ -49,13 +71,29 @@ public abstract class ParserBase {
 				t = ed.getType().get(0).getCode();
 				boolean all = true;
 				for (TypeRefComponent tr : ed.getType()) {
-					if (!tr.getCode().equals(t))
+					if (!tr.getCode().equals(t)) {
 						all = false;
+				  	break;
+					}
 				}
 				if (!all) {
+				  // ok, it's polymorphic
+				  if (ed.hasRepresentation(PropertyRepresentation.TYPEATTR)) {
+				    t = statedType;
+				    if (t == null && ToolingExtensions.hasExtension(ed, "http://hl7.org/fhir/StructureDefinition/elementdefinition-defaultype"))
+				      t = ToolingExtensions.readStringExtension(ed, "http://hl7.org/fhir/StructureDefinition/elementdefinition-defaultype");
+				    boolean ok = false;
+		        for (TypeRefComponent tr : ed.getType()) 
+		          if (tr.getCode().equals(t)) 
+		            ok = true;
+		         if (!ok)
+		           throw new DefinitionException("Type '"+t+"' is not an acceptable type for '"+elementName+"' on property "+property.getDefinition().getPath());
+				    
+				  } else {
 					t = elementName.substring(tail(ed.getPath()).length() - 3);
 					if (isPrimitive(lowFirst(t)))
 						t = lowFirst(t);
+				  }
 				}
 			}
 			if (!"xhtml".equals(t)) {

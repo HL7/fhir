@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -811,6 +811,30 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1888270692: return this.discriminator.toArray(new Base[this.discriminator.size()]); // StringType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -1207109523: return this.ordered == null ? new Base[0] : new Base[] {this.ordered}; // BooleanType
+        case 108873975: return this.rules == null ? new Base[0] : new Base[] {this.rules}; // Enumeration<SlicingRules>
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1888270692: this.discriminator.add(castToString(value)); // StringType
+        case -1724546052: this.description = castToString(value); // StringType
+        case -1207109523: this.ordered = castToBoolean(value); // BooleanType
+        case 108873975: this.rules = new SlicingRulesEnumFactory().fromType(value); // Enumeration<SlicingRules>
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("discriminator"))
           this.getDiscriminator().add(castToString(value));
@@ -1073,6 +1097,28 @@ public class ElementDefinition extends Type implements ICompositeType {
           childrenList.add(new Property("min", "integer", "Minimum cardinality of the base element identified by the path.", 0, java.lang.Integer.MAX_VALUE, min));
           childrenList.add(new Property("max", "string", "Maximum cardinality of the base element identified by the path.", 0, java.lang.Integer.MAX_VALUE, max));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3433509: return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
+        case 108114: return this.min == null ? new Base[0] : new Base[] {this.min}; // IntegerType
+        case 107876: return this.max == null ? new Base[0] : new Base[] {this.max}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3433509: this.path = castToString(value); // StringType
+        case 108114: this.min = castToInteger(value); // IntegerType
+        case 107876: this.max = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1400,6 +1446,30 @@ public class ElementDefinition extends Type implements ICompositeType {
           childrenList.add(new Property("aggregation", "code", "If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.", 0, java.lang.Integer.MAX_VALUE, aggregation));
           childrenList.add(new Property("versioning", "code", "Whether this reference needs to be version specific or version independent, or whetehr either can be used.", 0, java.lang.Integer.MAX_VALUE, versioning));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case -309425751: return this.profile.toArray(new Base[this.profile.size()]); // UriType
+        case 841524962: return this.aggregation.toArray(new Base[this.aggregation.size()]); // Enumeration<AggregationMode>
+        case -670487542: return this.versioning == null ? new Base[0] : new Base[] {this.versioning}; // Enumeration<ReferenceVersionRules>
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: this.code = castToCode(value); // CodeType
+        case -309425751: this.profile.add(castToUri(value)); // UriType
+        case 841524962: this.aggregation.add(new AggregationModeEnumFactory().fromType(value)); // Enumeration<AggregationMode>
+        case -670487542: this.versioning = new ReferenceVersionRulesEnumFactory().fromType(value); // Enumeration<ReferenceVersionRules>
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -1839,6 +1909,34 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 106079: return this.key == null ? new Base[0] : new Base[] {this.key}; // IdType
+        case -1619874672: return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // StringType
+        case 1478300413: return this.severity == null ? new Base[0] : new Base[] {this.severity}; // Enumeration<ConstraintSeverity>
+        case 99639597: return this.human == null ? new Base[0] : new Base[] {this.human}; // StringType
+        case -1795452264: return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
+        case 114256029: return this.xpath == null ? new Base[0] : new Base[] {this.xpath}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 106079: this.key = castToId(value); // IdType
+        case -1619874672: this.requirements = castToString(value); // StringType
+        case 1478300413: this.severity = new ConstraintSeverityEnumFactory().fromType(value); // Enumeration<ConstraintSeverity>
+        case 99639597: this.human = castToString(value); // StringType
+        case -1795452264: this.expression = castToString(value); // StringType
+        case 114256029: this.xpath = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("key"))
           this.key = castToId(value); // IdType
@@ -2116,6 +2214,28 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 1791316033: return this.strength == null ? new Base[0] : new Base[] {this.strength}; // Enumeration<BindingStrength>
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -1438410321: return this.valueSet == null ? new Base[0] : new Base[] {this.valueSet}; // Type
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 1791316033: this.strength = new BindingStrengthEnumFactory().fromType(value); // Enumeration<BindingStrength>
+        case -1724546052: this.description = castToString(value); // StringType
+        case -1438410321: this.valueSet = (Type) value; // Type
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("strength"))
           this.strength = new BindingStrengthEnumFactory().fromType(value); // Enumeration<BindingStrength>
@@ -2376,6 +2496,28 @@ public class ElementDefinition extends Type implements ICompositeType {
           childrenList.add(new Property("language", "code", "Identifies the computable language in which mapping.map is expressed.", 0, java.lang.Integer.MAX_VALUE, language));
           childrenList.add(new Property("map", "string", "Expresses what part of the target specification corresponds to this element.", 0, java.lang.Integer.MAX_VALUE, map));
         }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -135761730: return this.identity == null ? new Base[0] : new Base[] {this.identity}; // IdType
+        case -1613589672: return this.language == null ? new Base[0] : new Base[] {this.language}; // CodeType
+        case 107868: return this.map == null ? new Base[0] : new Base[] {this.map}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -135761730: this.identity = castToId(value); // IdType
+        case -1613589672: this.language = castToCode(value); // CodeType
+        case 107868: this.map = castToString(value); // StringType
+        default: super.setProperty(hash, value);
+        }
+
+      }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
@@ -3933,6 +4075,84 @@ public class ElementDefinition extends Type implements ICompositeType {
         childrenList.add(new Property("isSummary", "boolean", "Whether the element should be included if a client requests a search with the parameter _summary=true.", 0, java.lang.Integer.MAX_VALUE, isSummary));
         childrenList.add(new Property("binding", "", "Binds to a value set if this element is coded (code, Coding, CodeableConcept).", 0, java.lang.Integer.MAX_VALUE, binding));
         childrenList.add(new Property("mapping", "", "Identifies a concept from an external specification that roughly corresponds to this element.", 0, java.lang.Integer.MAX_VALUE, mapping));
+      }
+
+      @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3433509: return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
+        case -671065907: return this.representation.toArray(new Base[this.representation.size()]); // Enumeration<PropertyRepresentation>
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 102727412: return this.label == null ? new Base[0] : new Base[] {this.label}; // StringType
+        case 3059181: return this.code.toArray(new Base[this.code.size()]); // Coding
+        case -2119287345: return this.slicing == null ? new Base[0] : new Base[] {this.slicing}; // ElementDefinitionSlicingComponent
+        case 109413500: return this.short_ == null ? new Base[0] : new Base[] {this.short_}; // StringType
+        case -1014418093: return this.definition == null ? new Base[0] : new Base[] {this.definition}; // MarkdownType
+        case -602415628: return this.comments == null ? new Base[0] : new Base[] {this.comments}; // MarkdownType
+        case -1619874672: return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // MarkdownType
+        case 92902992: return this.alias.toArray(new Base[this.alias.size()]); // StringType
+        case 108114: return this.min == null ? new Base[0] : new Base[] {this.min}; // IntegerType
+        case 107876: return this.max == null ? new Base[0] : new Base[] {this.max}; // StringType
+        case 3016401: return this.base == null ? new Base[0] : new Base[] {this.base}; // ElementDefinitionBaseComponent
+        case 1193747154: return this.contentReference == null ? new Base[0] : new Base[] {this.contentReference}; // UriType
+        case 3575610: return this.type.toArray(new Base[this.type.size()]); // TypeRefComponent
+        case 587922128: return this.defaultValue == null ? new Base[0] : new Base[] {this.defaultValue}; // org.hl7.fhir.dstu3.model.Type
+        case 1857257103: return this.meaningWhenMissing == null ? new Base[0] : new Base[] {this.meaningWhenMissing}; // MarkdownType
+        case -391522164: return this.fixed == null ? new Base[0] : new Base[] {this.fixed}; // org.hl7.fhir.dstu3.model.Type
+        case -885125392: return this.pattern == null ? new Base[0] : new Base[] {this.pattern}; // org.hl7.fhir.dstu3.model.Type
+        case -2002328874: return this.example == null ? new Base[0] : new Base[] {this.example}; // org.hl7.fhir.dstu3.model.Type
+        case -55301663: return this.minValue == null ? new Base[0] : new Base[] {this.minValue}; // org.hl7.fhir.dstu3.model.Type
+        case 622130931: return this.maxValue == null ? new Base[0] : new Base[] {this.maxValue}; // org.hl7.fhir.dstu3.model.Type
+        case -791400086: return this.maxLength == null ? new Base[0] : new Base[] {this.maxLength}; // IntegerType
+        case -861311717: return this.condition.toArray(new Base[this.condition.size()]); // IdType
+        case -190376483: return this.constraint.toArray(new Base[this.constraint.size()]); // ElementDefinitionConstraintComponent
+        case -1402857082: return this.mustSupport == null ? new Base[0] : new Base[] {this.mustSupport}; // BooleanType
+        case -1408783839: return this.isModifier == null ? new Base[0] : new Base[] {this.isModifier}; // BooleanType
+        case 1857548060: return this.isSummary == null ? new Base[0] : new Base[] {this.isSummary}; // BooleanType
+        case -108220795: return this.binding == null ? new Base[0] : new Base[] {this.binding}; // ElementDefinitionBindingComponent
+        case 837556430: return this.mapping.toArray(new Base[this.mapping.size()]); // ElementDefinitionMappingComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3433509: this.path = castToString(value); // StringType
+        case -671065907: this.representation.add(new PropertyRepresentationEnumFactory().fromType(value)); // Enumeration<PropertyRepresentation>
+        case 3373707: this.name = castToString(value); // StringType
+        case 102727412: this.label = castToString(value); // StringType
+        case 3059181: this.code.add(castToCoding(value)); // Coding
+        case -2119287345: this.slicing = (ElementDefinitionSlicingComponent) value; // ElementDefinitionSlicingComponent
+        case 109413500: this.short_ = castToString(value); // StringType
+        case -1014418093: this.definition = castToMarkdown(value); // MarkdownType
+        case -602415628: this.comments = castToMarkdown(value); // MarkdownType
+        case -1619874672: this.requirements = castToMarkdown(value); // MarkdownType
+        case 92902992: this.alias.add(castToString(value)); // StringType
+        case 108114: this.min = castToInteger(value); // IntegerType
+        case 107876: this.max = castToString(value); // StringType
+        case 3016401: this.base = (ElementDefinitionBaseComponent) value; // ElementDefinitionBaseComponent
+        case 1193747154: this.contentReference = castToUri(value); // UriType
+        case 3575610: this.type.add((TypeRefComponent) value); // TypeRefComponent
+        case 587922128: this.defaultValue = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+        case 1857257103: this.meaningWhenMissing = castToMarkdown(value); // MarkdownType
+        case -391522164: this.fixed = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+        case -885125392: this.pattern = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+        case -2002328874: this.example = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+        case -55301663: this.minValue = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+        case 622130931: this.maxValue = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+        case -791400086: this.maxLength = castToInteger(value); // IntegerType
+        case -861311717: this.condition.add(castToId(value)); // IdType
+        case -190376483: this.constraint.add((ElementDefinitionConstraintComponent) value); // ElementDefinitionConstraintComponent
+        case -1402857082: this.mustSupport = castToBoolean(value); // BooleanType
+        case -1408783839: this.isModifier = castToBoolean(value); // BooleanType
+        case 1857548060: this.isSummary = castToBoolean(value); // BooleanType
+        case -108220795: this.binding = (ElementDefinitionBindingComponent) value; // ElementDefinitionBindingComponent
+        case 837556430: this.mapping.add((ElementDefinitionMappingComponent) value); // ElementDefinitionMappingComponent
+        default: super.setProperty(hash, value);
+        }
+
       }
 
       @Override

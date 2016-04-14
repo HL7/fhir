@@ -49,6 +49,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -196,6 +197,8 @@ import org.hl7.fhir.dstu3.utils.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.QuestionnaireBuilder;
 import org.hl7.fhir.dstu3.utils.ResourceUtilities;
+import org.hl7.fhir.dstu3.utils.ShExGenerator;
+import org.hl7.fhir.dstu3.utils.ShExGenerator.HTMLLinkPolicy;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.validation.BaseValidator;
 import org.hl7.fhir.dstu3.validation.IResourceValidator.BestPracticeWarningLevel;
@@ -213,6 +216,7 @@ import org.hl7.fhir.tools.implementations.csharp.CSharpGenerator;
 import org.hl7.fhir.tools.implementations.delphi.DelphiGenerator;
 import org.hl7.fhir.tools.implementations.java.JavaGenerator;
 import org.hl7.fhir.tools.implementations.javascript.JavaScriptGenerator;
+
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CloseProtectedZipInputStream;
@@ -1844,6 +1848,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   // return result;
   // }
 
+
   private void produceSpecification() throws Exception {
     page.setNavigation(new Navigation());
     page.getNavigation().parse(page.getFolders().srcDir + "navigation.xml");
@@ -1857,6 +1862,13 @@ public class Publisher implements URIResolver, SectionNumberer {
       new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
           page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), false);
 
+      List<StructureDefinition> list = new ArrayList<StructureDefinition>();
+      for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
+        if (sd.getDerivation() == TypeDerivationRule.SPECIALIZATION)
+          list.add(sd);
+      }
+      TextFile.stringToFile(new ShExGenerator(page.getWorkerContext()).generate(HTMLLinkPolicy.NONE, list), page.getFolders().dstDir+"fhir.shex");
+      
       if (buildFlags.get("all")) {
         for (PlatformGenerator gen : page.getReferenceImplementations()) {
           page.log("Produce " + gen.getName() + " Reference Implementation", LogMessageType.Process);
@@ -2996,6 +3008,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     addToResourceFeed(rp, typeBundle, (fn));
     cloneToXhtml(pt.getName().toLowerCase() + ".profile", "StructureDefinition for " + pt.getName(), false, "profile-instance:type:" + pt.getName(), "Type");
     jsonToXhtml(pt.getName().toLowerCase() + ".profile", "StructureDefinition for " + pt.getName(), resource2Json(rp), "profile-instance:type:" + pt.getName(), "Type");
+    String shex = new ShExGenerator(page.getWorkerContext()).generate(HTMLLinkPolicy.NONE, rp);
+    TextFile.stringToFile(shex, Utilities.changeFileExt(page.getFolders().dstDir + fn, ".shex"));
+    shexToXhtml(pt.getName().toLowerCase(), "ShEx statement for " + pt.getName(), shex, "profile-instance:type:" + pt.getName(), "Type");
   }
 
   private void producePrimitiveTypeProfile(DefinedCode type) throws Exception {
@@ -3016,12 +3031,16 @@ public class Publisher implements URIResolver, SectionNumberer {
     new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, rp);
     s.close();
 
+    String shex = new ShExGenerator(page.getWorkerContext()).generate(HTMLLinkPolicy.NONE, rp);
+    TextFile.stringToFile(shex, Utilities.changeFileExt(page.getFolders().dstDir + fn, ".shex"));
+    
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, typeBundle, (fn));
     // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html"
     // + File.separator + "datatypes.html"));
     cloneToXhtml(type.getCode().toLowerCase() + ".profile", "StructureDefinition for " + type.getCode(), false, "profile-instance:type:" + type.getCode(), "Type");
     jsonToXhtml(type.getCode().toLowerCase() + ".profile", "StructureDefinition for " + type.getCode(), resource2Json(rp), "profile-instance:type:" + type.getCode(), "Type");
+    shexToXhtml(type.getCode().toLowerCase(), "ShEx statement for " + type.getCode(), shex, "profile-instance:type:" + type.getCode(), "Type");
   }
 
   private void produceTypeProfile(TypeDefn type) throws Exception {
@@ -3061,6 +3080,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     // + File.separator + "datatypes.html"));
     cloneToXhtml(type.getName().toLowerCase() + ".profile", "StructureDefinition for " + type.getName(), false, "profile-instance:type:" + type.getName(), "Type");
     jsonToXhtml(type.getName().toLowerCase() + ".profile", "StructureDefinition for " + type.getName(), resource2Json(rp), "profile-instance:type:" + type.getName(), "Type");
+    String shex = new ShExGenerator(page.getWorkerContext()).generate(HTMLLinkPolicy.NONE, rp);
+    TextFile.stringToFile(shex, Utilities.changeFileExt(page.getFolders().dstDir + fn, ".shex"));
+    shexToXhtml(type.getName().toLowerCase(), "ShEx statement for " + type.getName(), shex, "profile-instance:type:" + type.getName(), "Type");
   }
 
   protected XmlPullParser loadXml(InputStream stream) throws Exception {
@@ -3338,6 +3360,18 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   */
+  private void shexToXhtml(String n, String description, String shex, String pageType, String crumbTitle) throws Exception {
+    shexToXhtml(n, description, shex, pageType, crumbTitle, null);
+  }
+  
+  private void shexToXhtml(String n, String description, String shex, String pageType, String crumbTitle, ImplementationGuideDefn igd) throws Exception {
+    shex = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(description) + "</p>\r\n<pre class=\"shex\">\r\n" + Utilities.escapeXml(shex)+ "\r\n</pre>\r\n</div>\r\n";
+    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-shex.html").replace("<%example%>", shex);
+    html = page.processPageIncludes(n + ".shex.html", html, pageType, null, null, null, crumbTitle, igd);
+    TextFile.stringToFile(html, page.getFolders().dstDir + n + ".shex.html");
+    page.getEpub().registerExternal(n + ".shex.html");
+  }
+
   private void jsonToXhtml(String n, String description, String json, String pageType, String crumbTitle) throws Exception {
     jsonToXhtml(n, description, json, pageType, crumbTitle, null);
   }
@@ -3347,7 +3381,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
     html = page.processPageIncludes(n + ".json.html", html, pageType, null, null, null, crumbTitle, igd);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".json.html");
-    //    page.getEpub().registerFile(n + ".json.html", description, EPubManager.XHTML_TYPE);
     page.getEpub().registerExternal(n + ".json.html");
   }
 
@@ -3783,6 +3816,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir + "html" + File.separator + n + ".html"));
       cloneToXhtml(n + ".profile", "StructureDefinition for " + n, true, "profile-instance:resource:" + root.getName(), "Profile");
       jsonToXhtml(n + ".profile", "StructureDefinition for " + n, resource2Json(rp), "profile-instance:resource:" + root.getName(), "Profile");
+      String shex = new ShExGenerator(page.getWorkerContext()).generate(HTMLLinkPolicy.NONE, rp);
+      TextFile.stringToFile(shex, page.getFolders().dstDir + n+".shex");
+      shexToXhtml(n, "ShEx statement for " + n, shex, "profile-instance:type:" + root.getName(), "Type");
     }
     return rp;
   }
@@ -4029,6 +4065,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     s = new FileOutputStream(page.getFolders().dstDir + prefix +title + ".profile.json");
     jcomp.setOutputStyle(OutputStyle.PRETTY).compose(s, profile.getResource());
     s.close();
+//    String shex = new ShExGenerator(page.getWorkerContext()).generate(HTMLLinkPolicy.NONE, profile.getResource());
+//    TextFile.stringToFile(shex, Utilities.changeFileExt(page.getFolders().dstDir + prefix +title + ".profile.shex", ".shex"));
+//    shexToXhtml(prefix +title + ".profile", "ShEx statement for " + prefix +title, shex, "profile-instance:type:" + title, "Type");
 
     TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(new FileOutputStream(tmp), page);
     tgen.generate(level == 0 ? "" : "../", profile);

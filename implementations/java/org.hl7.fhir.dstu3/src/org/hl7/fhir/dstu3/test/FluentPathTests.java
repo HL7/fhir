@@ -937,9 +937,12 @@ public class FluentPathTests {
 
   private void testStructureDefinition(StructureDefinition sd) throws FileNotFoundException, IOException, FHIRException {
     testBoolean(sd, sd, "StructureDefinition", "snapshot.element.tail().all(path.startsWith(%resource.snapshot.element.first().path&'.')) and differential.element.tail().all(path.startsWith(%resource.differential.element.first().path&'.'))", true);
-    
   }
 
+  @Test
+  public void testDoubleEntryPoint() throws FileNotFoundException, IOException, FHIRException {
+    testBoolean(patient(), "(Patient.name | Patient.address).count() = 3", true);
+  }
 
 }
 
