@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -676,10 +676,18 @@ public class ActionDefinition extends Type implements ICompositeType {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -889046145: this.actionIdentifier = castToIdentifier(value); // Identifier
-        case -261851592: this.relationship = new ActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<ActionRelationshipType>
-        case -1960684787: this.offset = (Type) value; // Type
-        case -1413299531: this.anchor = new ActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<ActionRelationshipAnchor>
+        case -889046145:
+          this.actionIdentifier = castToIdentifier(value); // Identifier
+          break;
+        case -261851592:
+          this.relationship = new ActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<ActionRelationshipType>
+          break;
+        case -1960684787:
+          this.offset = (Type) value; // Type
+          break;
+        case -1413299531:
+          this.anchor = new ActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<ActionRelationshipAnchor>
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -697,6 +705,18 @@ public class ActionDefinition extends Type implements ICompositeType {
           this.anchor = new ActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<ActionRelationshipAnchor>
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -889046145:  return getActionIdentifier(); // Identifier
+        case -261851592: throw new FHIRException("Cannot make property relationship as it is not a complex type"); // Enumeration<ActionRelationshipType>
+        case -1960684787:  return getOffset(); // Type
+        case -1413299531: throw new FHIRException("Cannot make property anchor as it is not a complex type"); // Enumeration<ActionRelationshipAnchor>
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -867,8 +887,12 @@ public class ActionDefinition extends Type implements ICompositeType {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610: this.type = castToCoding(value); // Coding
-        case 111972721: this.value = castToCoding(value); // Coding
+        case 3575610:
+          this.type = castToCoding(value); // Coding
+          break;
+        case 111972721:
+          this.value = castToCoding(value); // Coding
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -882,6 +906,16 @@ public class ActionDefinition extends Type implements ICompositeType {
           this.value = castToCoding(value); // Coding
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getType(); // Coding
+        case 111972721:  return getValue(); // Coding
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1081,8 +1115,12 @@ public class ActionDefinition extends Type implements ICompositeType {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3433509: this.path = castToString(value); // StringType
-        case -1795452264: this.expression = castToString(value); // StringType
+        case 3433509:
+          this.path = castToString(value); // StringType
+          break;
+        case -1795452264:
+          this.expression = castToString(value); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1096,6 +1134,16 @@ public class ActionDefinition extends Type implements ICompositeType {
           this.expression = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
+        case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1682,7 +1730,7 @@ public class ActionDefinition extends Type implements ICompositeType {
       if (this.participantType == null)
         return false;
       for (Enumeration<ParticipantType> v : this.participantType)
-        if (v.equals(value)) // code
+        if (v.getValue().equals(value)) // code
           return true;
       return false;
     }
@@ -1940,21 +1988,51 @@ public class ActionDefinition extends Type implements ICompositeType {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -889046145: this.actionIdentifier = castToIdentifier(value); // Identifier
-        case 102727412: this.label = castToString(value); // StringType
-        case 110371416: this.title = castToString(value); // StringType
-        case -1724546052: this.description = castToString(value); // StringType
-        case -900391049: this.textEquivalent = castToString(value); // StringType
-        case 951024232: this.concept.add(castToCodeableConcept(value)); // CodeableConcept
-        case -1735429846: this.supportingEvidence.add(castToAttachment(value)); // Attachment
-        case 1587405498: this.documentation.add(castToAttachment(value)); // Attachment
-        case -384107967: this.relatedAction = (ActionDefinitionRelatedActionComponent) value; // ActionDefinitionRelatedActionComponent
-        case 841294093: this.participantType.add(new ParticipantTypeEnumFactory().fromType(value)); // Enumeration<ParticipantType>
-        case 3575610: this.type = new ActionTypeEnumFactory().fromType(value); // Enumeration<ActionType>
-        case 1510912594: this.behavior.add((ActionDefinitionBehaviorComponent) value); // ActionDefinitionBehaviorComponent
-        case -341064690: this.resource = castToReference(value); // Reference
-        case 1637263315: this.customization.add((ActionDefinitionCustomizationComponent) value); // ActionDefinitionCustomizationComponent
-        case -1422950858: this.action.add(castToActionDefinition(value)); // ActionDefinition
+        case -889046145:
+          this.actionIdentifier = castToIdentifier(value); // Identifier
+          break;
+        case 102727412:
+          this.label = castToString(value); // StringType
+          break;
+        case 110371416:
+          this.title = castToString(value); // StringType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -900391049:
+          this.textEquivalent = castToString(value); // StringType
+          break;
+        case 951024232:
+          this.concept.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1735429846:
+          this.supportingEvidence.add(castToAttachment(value)); // Attachment
+          break;
+        case 1587405498:
+          this.documentation.add(castToAttachment(value)); // Attachment
+          break;
+        case -384107967:
+          this.relatedAction = (ActionDefinitionRelatedActionComponent) value; // ActionDefinitionRelatedActionComponent
+          break;
+        case 841294093:
+          this.participantType.add(new ParticipantTypeEnumFactory().fromType(value)); // Enumeration<ParticipantType>
+          break;
+        case 3575610:
+          this.type = new ActionTypeEnumFactory().fromType(value); // Enumeration<ActionType>
+          break;
+        case 1510912594:
+          this.behavior.add((ActionDefinitionBehaviorComponent) value); // ActionDefinitionBehaviorComponent
+          break;
+        case -341064690:
+          this.resource = castToReference(value); // Reference
+          break;
+        case 1637263315:
+          this.customization.add((ActionDefinitionCustomizationComponent) value); // ActionDefinitionCustomizationComponent
+          break;
+        case -1422950858:
+          this.action.add(castToActionDefinition(value)); // ActionDefinition
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1994,6 +2072,29 @@ public class ActionDefinition extends Type implements ICompositeType {
           this.getAction().add(castToActionDefinition(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -889046145:  return getActionIdentifier(); // Identifier
+        case 102727412: throw new FHIRException("Cannot make property label as it is not a complex type"); // StringType
+        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -900391049: throw new FHIRException("Cannot make property textEquivalent as it is not a complex type"); // StringType
+        case 951024232:  return addConcept(); // CodeableConcept
+        case -1735429846:  return addSupportingEvidence(); // Attachment
+        case 1587405498:  return addDocumentation(); // Attachment
+        case -384107967:  return getRelatedAction(); // ActionDefinitionRelatedActionComponent
+        case 841294093: throw new FHIRException("Cannot make property participantType as it is not a complex type"); // Enumeration<ParticipantType>
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<ActionType>
+        case 1510912594:  return addBehavior(); // ActionDefinitionBehaviorComponent
+        case -341064690:  return getResource(); // Reference
+        case 1637263315:  return addCustomization(); // ActionDefinitionCustomizationComponent
+        case -1422950858:  return addAction(); // ActionDefinition
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

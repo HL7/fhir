@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -246,6 +246,30 @@ public class SupplyRequest extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -697920873: return this.schedule == null ? new Base[0] : new Base[] {this.schedule}; // Timing
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -697920873:
+          this.schedule = castToTiming(value); // Timing
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = castToCodeableConcept(value); // CodeableConcept
@@ -253,6 +277,16 @@ public class SupplyRequest extends DomainResource {
           this.schedule = castToTiming(value); // Timing
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181:  return getCode(); // CodeableConcept
+        case -697920873:  return getSchedule(); // Timing
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -821,6 +855,62 @@ public class SupplyRequest extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -896505829: return this.source == null ? new Base[0] : new Base[] {this.source}; // Reference
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<SupplyRequestStatus>
+        case 3292052: return this.kind == null ? new Base[0] : new Base[] {this.kind}; // CodeableConcept
+        case 2129914144: return this.orderedItem == null ? new Base[0] : new Base[] {this.orderedItem}; // Reference
+        case -1663305268: return this.supplier.toArray(new Base[this.supplier.size()]); // Reference
+        case -669418564: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Type
+        case 3648314: return this.when == null ? new Base[0] : new Base[] {this.when}; // SupplyRequestWhenComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -791418107:
+          this.patient = castToReference(value); // Reference
+          break;
+        case -896505829:
+          this.source = castToReference(value); // Reference
+          break;
+        case 3076014:
+          this.date = castToDateTime(value); // DateTimeType
+          break;
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case -892481550:
+          this.status = new SupplyRequestStatusEnumFactory().fromType(value); // Enumeration<SupplyRequestStatus>
+          break;
+        case 3292052:
+          this.kind = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 2129914144:
+          this.orderedItem = castToReference(value); // Reference
+          break;
+        case -1663305268:
+          this.supplier.add(castToReference(value)); // Reference
+          break;
+        case -669418564:
+          this.reason = (Type) value; // Type
+          break;
+        case 3648314:
+          this.when = (SupplyRequestWhenComponent) value; // SupplyRequestWhenComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("patient"))
           this.patient = castToReference(value); // Reference
@@ -844,6 +934,24 @@ public class SupplyRequest extends DomainResource {
           this.when = (SupplyRequestWhenComponent) value; // SupplyRequestWhenComponent
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -791418107:  return getPatient(); // Reference
+        case -896505829:  return getSource(); // Reference
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
+        case -1618432855:  return getIdentifier(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<SupplyRequestStatus>
+        case 3292052:  return getKind(); // CodeableConcept
+        case 2129914144:  return getOrderedItem(); // Reference
+        case -1663305268:  return addSupplier(); // Reference
+        case -669418564:  return getReason(); // Type
+        case 3648314:  return getWhen(); // SupplyRequestWhenComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

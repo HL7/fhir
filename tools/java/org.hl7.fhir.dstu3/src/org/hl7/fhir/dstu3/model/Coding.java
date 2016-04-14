@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -368,11 +368,21 @@ public class Coding extends Type implements IBaseCoding, ICompositeType {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -887328209: this.system = castToUri(value); // UriType
-        case 351608024: this.version = castToString(value); // StringType
-        case 3059181: this.code = castToCode(value); // CodeType
-        case 1671764162: this.display = castToString(value); // StringType
-        case 423643014: this.userSelected = castToBoolean(value); // BooleanType
+        case -887328209:
+          this.system = castToUri(value); // UriType
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case 3059181:
+          this.code = castToCode(value); // CodeType
+          break;
+        case 1671764162:
+          this.display = castToString(value); // StringType
+          break;
+        case 423643014:
+          this.userSelected = castToBoolean(value); // BooleanType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -392,6 +402,19 @@ public class Coding extends Type implements IBaseCoding, ICompositeType {
           this.userSelected = castToBoolean(value); // BooleanType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // UriType
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
+        case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
+        case 423643014: throw new FHIRException("Cannot make property userSelected as it is not a complex type"); // BooleanType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

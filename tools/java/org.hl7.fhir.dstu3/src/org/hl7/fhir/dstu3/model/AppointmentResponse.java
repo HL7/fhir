@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -517,14 +517,30 @@ public class AppointmentResponse extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case -1474995297: this.appointment = castToReference(value); // Reference
-        case 109757538: this.start = castToInstant(value); // InstantType
-        case 100571: this.end = castToInstant(value); // InstantType
-        case 841294093: this.participantType.add(castToCodeableConcept(value)); // CodeableConcept
-        case 92645877: this.actor = castToReference(value); // Reference
-        case 996096261: this.participantStatus = castToCode(value); // CodeType
-        case 950398559: this.comment = castToString(value); // StringType
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -1474995297:
+          this.appointment = castToReference(value); // Reference
+          break;
+        case 109757538:
+          this.start = castToInstant(value); // InstantType
+          break;
+        case 100571:
+          this.end = castToInstant(value); // InstantType
+          break;
+        case 841294093:
+          this.participantType.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 92645877:
+          this.actor = castToReference(value); // Reference
+          break;
+        case 996096261:
+          this.participantStatus = castToCode(value); // CodeType
+          break;
+        case 950398559:
+          this.comment = castToString(value); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -550,6 +566,22 @@ public class AppointmentResponse extends DomainResource {
           this.comment = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -1474995297:  return getAppointment(); // Reference
+        case 109757538: throw new FHIRException("Cannot make property start as it is not a complex type"); // InstantType
+        case 100571: throw new FHIRException("Cannot make property end as it is not a complex type"); // InstantType
+        case 841294093:  return addParticipantType(); // CodeableConcept
+        case 92645877:  return getActor(); // Reference
+        case 996096261: throw new FHIRException("Cannot make property participantStatus as it is not a complex type"); // CodeType
+        case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

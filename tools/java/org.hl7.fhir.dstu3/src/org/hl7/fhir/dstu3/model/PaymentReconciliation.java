@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -405,6 +405,50 @@ public class PaymentReconciliation extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 37106577: return this.request == null ? new Base[0] : new Base[] {this.request}; // Type
+        case 1832772751: return this.responce == null ? new Base[0] : new Base[] {this.responce}; // Type
+        case -2047315241: return this.submitter == null ? new Base[0] : new Base[] {this.submitter}; // Type
+        case 1375276088: return this.payee == null ? new Base[0] : new Base[] {this.payee}; // Type
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateType
+        case -1413853096: return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Money
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = castToCoding(value); // Coding
+          break;
+        case 37106577:
+          this.request = (Type) value; // Type
+          break;
+        case 1832772751:
+          this.responce = (Type) value; // Type
+          break;
+        case -2047315241:
+          this.submitter = (Type) value; // Type
+          break;
+        case 1375276088:
+          this.payee = (Type) value; // Type
+          break;
+        case 3076014:
+          this.date = castToDate(value); // DateType
+          break;
+        case -1413853096:
+          this.amount = castToMoney(value); // Money
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCoding(value); // Coding
@@ -422,6 +466,21 @@ public class PaymentReconciliation extends DomainResource {
           this.amount = castToMoney(value); // Money
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getType(); // Coding
+        case 37106577:  return getRequest(); // Type
+        case 1832772751:  return getResponce(); // Type
+        case -2047315241:  return getSubmitter(); // Type
+        case 1375276088:  return getPayee(); // Type
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateType
+        case -1413853096:  return getAmount(); // Money
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -627,6 +686,30 @@ public class PaymentReconciliation extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 3556653: return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = castToCoding(value); // Coding
+          break;
+        case 3556653:
+          this.text = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCoding(value); // Coding
@@ -634,6 +717,16 @@ public class PaymentReconciliation extends DomainResource {
           this.text = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getType(); // Coding
+        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1398,6 +1491,82 @@ public class PaymentReconciliation extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 37106577: return this.request == null ? new Base[0] : new Base[] {this.request}; // Type
+        case -1106507950: return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // Enumeration<RemittanceOutcome>
+        case 583380919: return this.disposition == null ? new Base[0] : new Base[] {this.disposition}; // StringType
+        case 1548678118: return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
+        case 1089373397: return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
+        case 1028554472: return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case 1326483053: return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Type
+        case -1694784800: return this.requestProvider == null ? new Base[0] : new Base[] {this.requestProvider}; // Type
+        case 818740190: return this.requestOrganization == null ? new Base[0] : new Base[] {this.requestOrganization}; // Type
+        case -1335224239: return this.detail.toArray(new Base[this.detail.size()]); // DetailsComponent
+        case 3148996: return this.form == null ? new Base[0] : new Base[] {this.form}; // Coding
+        case 110549828: return this.total == null ? new Base[0] : new Base[] {this.total}; // Money
+        case 3387378: return this.note.toArray(new Base[this.note.size()]); // NotesComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 37106577:
+          this.request = (Type) value; // Type
+          break;
+        case -1106507950:
+          this.outcome = new RemittanceOutcomeEnumFactory().fromType(value); // Enumeration<RemittanceOutcome>
+          break;
+        case 583380919:
+          this.disposition = castToString(value); // StringType
+          break;
+        case 1548678118:
+          this.ruleset = castToCoding(value); // Coding
+          break;
+        case 1089373397:
+          this.originalRuleset = castToCoding(value); // Coding
+          break;
+        case 1028554472:
+          this.created = castToDateTime(value); // DateTimeType
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        case 1326483053:
+          this.organization = (Type) value; // Type
+          break;
+        case -1694784800:
+          this.requestProvider = (Type) value; // Type
+          break;
+        case 818740190:
+          this.requestOrganization = (Type) value; // Type
+          break;
+        case -1335224239:
+          this.detail.add((DetailsComponent) value); // DetailsComponent
+          break;
+        case 3148996:
+          this.form = castToCoding(value); // Coding
+          break;
+        case 110549828:
+          this.total = castToMoney(value); // Money
+          break;
+        case 3387378:
+          this.note.add((NotesComponent) value); // NotesComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -1431,6 +1600,29 @@ public class PaymentReconciliation extends DomainResource {
           this.getNote().add((NotesComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 37106577:  return getRequest(); // Type
+        case -1106507950: throw new FHIRException("Cannot make property outcome as it is not a complex type"); // Enumeration<RemittanceOutcome>
+        case 583380919: throw new FHIRException("Cannot make property disposition as it is not a complex type"); // StringType
+        case 1548678118:  return getRuleset(); // Coding
+        case 1089373397:  return getOriginalRuleset(); // Coding
+        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
+        case -991726143:  return getPeriod(); // Period
+        case 1326483053:  return getOrganization(); // Type
+        case -1694784800:  return getRequestProvider(); // Type
+        case 818740190:  return getRequestOrganization(); // Type
+        case -1335224239:  return addDetail(); // DetailsComponent
+        case 3148996:  return getForm(); // Coding
+        case 110549828:  return getTotal(); // Money
+        case 3387378:  return addNote(); // NotesComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

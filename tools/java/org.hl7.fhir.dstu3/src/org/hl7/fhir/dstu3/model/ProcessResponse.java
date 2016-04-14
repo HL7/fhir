@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -153,6 +153,30 @@ public class ProcessResponse extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 3556653: return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = castToCoding(value); // Coding
+          break;
+        case 3556653:
+          this.text = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCoding(value); // Coding
@@ -160,6 +184,16 @@ public class ProcessResponse extends DomainResource {
           this.text = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getType(); // Coding
+        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -827,6 +861,74 @@ public class ProcessResponse extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 37106577: return this.request == null ? new Base[0] : new Base[] {this.request}; // Type
+        case -1106507950: return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // Coding
+        case 583380919: return this.disposition == null ? new Base[0] : new Base[] {this.disposition}; // StringType
+        case 1548678118: return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
+        case 1089373397: return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
+        case 1028554472: return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
+        case 1326483053: return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Type
+        case -1694784800: return this.requestProvider == null ? new Base[0] : new Base[] {this.requestProvider}; // Type
+        case 818740190: return this.requestOrganization == null ? new Base[0] : new Base[] {this.requestOrganization}; // Type
+        case 3148996: return this.form == null ? new Base[0] : new Base[] {this.form}; // Coding
+        case 105008833: return this.notes.toArray(new Base[this.notes.size()]); // ProcessResponseNotesComponent
+        case 96784904: return this.error.toArray(new Base[this.error.size()]); // Coding
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 37106577:
+          this.request = (Type) value; // Type
+          break;
+        case -1106507950:
+          this.outcome = castToCoding(value); // Coding
+          break;
+        case 583380919:
+          this.disposition = castToString(value); // StringType
+          break;
+        case 1548678118:
+          this.ruleset = castToCoding(value); // Coding
+          break;
+        case 1089373397:
+          this.originalRuleset = castToCoding(value); // Coding
+          break;
+        case 1028554472:
+          this.created = castToDateTime(value); // DateTimeType
+          break;
+        case 1326483053:
+          this.organization = (Type) value; // Type
+          break;
+        case -1694784800:
+          this.requestProvider = (Type) value; // Type
+          break;
+        case 818740190:
+          this.requestOrganization = (Type) value; // Type
+          break;
+        case 3148996:
+          this.form = castToCoding(value); // Coding
+          break;
+        case 105008833:
+          this.notes.add((ProcessResponseNotesComponent) value); // ProcessResponseNotesComponent
+          break;
+        case 96784904:
+          this.error.add(castToCoding(value)); // Coding
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -856,6 +958,27 @@ public class ProcessResponse extends DomainResource {
           this.getError().add(castToCoding(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 37106577:  return getRequest(); // Type
+        case -1106507950:  return getOutcome(); // Coding
+        case 583380919: throw new FHIRException("Cannot make property disposition as it is not a complex type"); // StringType
+        case 1548678118:  return getRuleset(); // Coding
+        case 1089373397:  return getOriginalRuleset(); // Coding
+        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
+        case 1326483053:  return getOrganization(); // Type
+        case -1694784800:  return getRequestProvider(); // Type
+        case 818740190:  return getRequestOrganization(); // Type
+        case 3148996:  return getForm(); // Coding
+        case 105008833:  return addNotes(); // ProcessResponseNotesComponent
+        case 96784904:  return addError(); // Coding
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

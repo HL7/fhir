@@ -158,6 +158,12 @@
   Display = pointer
   Definition = something
 
+ -- Row 12 -----------------------------------
+  Id = 12
+  Code = evaluate
+  Display = evaluate
+  Definition = something
+
 === Sheet map-list-mode =====================================
 
  -- Row 1 -----------------------------------

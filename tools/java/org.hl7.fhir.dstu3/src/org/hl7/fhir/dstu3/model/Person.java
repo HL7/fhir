@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -300,6 +300,30 @@ public class Person extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -880905839: return this.target == null ? new Base[0] : new Base[] {this.target}; // Reference
+        case 1771900717: return this.assurance == null ? new Base[0] : new Base[] {this.assurance}; // Enumeration<IdentityAssuranceLevel>
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -880905839:
+          this.target = castToReference(value); // Reference
+          break;
+        case 1771900717:
+          this.assurance = new IdentityAssuranceLevelEnumFactory().fromType(value); // Enumeration<IdentityAssuranceLevel>
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("target"))
           this.target = castToReference(value); // Reference
@@ -307,6 +331,16 @@ public class Person extends DomainResource {
           this.assurance = new IdentityAssuranceLevelEnumFactory().fromType(value); // Enumeration<IdentityAssuranceLevel>
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -880905839:  return getTarget(); // Reference
+        case 1771900717: throw new FHIRException("Cannot make property assurance as it is not a complex type"); // Enumeration<IdentityAssuranceLevel>
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -872,6 +906,62 @@ public class Person extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 3373707: return this.name.toArray(new Base[this.name.size()]); // HumanName
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        case -1249512767: return this.gender == null ? new Base[0] : new Base[] {this.gender}; // Enumeration<AdministrativeGender>
+        case -1210031859: return this.birthDate == null ? new Base[0] : new Base[] {this.birthDate}; // DateType
+        case -1147692044: return this.address.toArray(new Base[this.address.size()]); // Address
+        case 106642994: return this.photo == null ? new Base[0] : new Base[] {this.photo}; // Attachment
+        case -2058947787: return this.managingOrganization == null ? new Base[0] : new Base[] {this.managingOrganization}; // Reference
+        case -1422950650: return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
+        case 3321850: return this.link.toArray(new Base[this.link.size()]); // PersonLinkComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 3373707:
+          this.name.add(castToHumanName(value)); // HumanName
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
+        case -1249512767:
+          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
+          break;
+        case -1210031859:
+          this.birthDate = castToDate(value); // DateType
+          break;
+        case -1147692044:
+          this.address.add(castToAddress(value)); // Address
+          break;
+        case 106642994:
+          this.photo = castToAttachment(value); // Attachment
+          break;
+        case -2058947787:
+          this.managingOrganization = castToReference(value); // Reference
+          break;
+        case -1422950650:
+          this.active = castToBoolean(value); // BooleanType
+          break;
+        case 3321850:
+          this.link.add((PersonLinkComponent) value); // PersonLinkComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -895,6 +985,24 @@ public class Person extends DomainResource {
           this.getLink().add((PersonLinkComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 3373707:  return addName(); // HumanName
+        case -1429363305:  return addTelecom(); // ContactPoint
+        case -1249512767: throw new FHIRException("Cannot make property gender as it is not a complex type"); // Enumeration<AdministrativeGender>
+        case -1210031859: throw new FHIRException("Cannot make property birthDate as it is not a complex type"); // DateType
+        case -1147692044:  return addAddress(); // Address
+        case 106642994:  return getPhoto(); // Attachment
+        case -2058947787:  return getManagingOrganization(); // Reference
+        case -1422950650: throw new FHIRException("Cannot make property active as it is not a complex type"); // BooleanType
+        case 3321850:  return addLink(); // PersonLinkComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -123,6 +123,30 @@ public class Ratio extends Type implements ICompositeType {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 1747334793: return this.numerator == null ? new Base[0] : new Base[] {this.numerator}; // Quantity
+        case -1983274394: return this.denominator == null ? new Base[0] : new Base[] {this.denominator}; // Quantity
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 1747334793:
+          this.numerator = castToQuantity(value); // Quantity
+          break;
+        case -1983274394:
+          this.denominator = castToQuantity(value); // Quantity
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("numerator"))
           this.numerator = castToQuantity(value); // Quantity
@@ -130,6 +154,16 @@ public class Ratio extends Type implements ICompositeType {
           this.denominator = castToQuantity(value); // Quantity
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 1747334793:  return getNumerator(); // Quantity
+        case -1983274394:  return getDenominator(); // Quantity
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

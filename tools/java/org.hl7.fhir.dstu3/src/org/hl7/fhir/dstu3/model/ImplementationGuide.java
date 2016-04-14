@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -439,6 +439,30 @@ public class ImplementationGuide extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -446,6 +470,16 @@ public class ImplementationGuide extends DomainResource {
           this.getTelecom().add(castToContactPoint(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1429363305:  return addTelecom(); // ContactPoint
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -635,6 +669,30 @@ public class ImplementationGuide extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<GuideDependencyType>
+        case 116076: return this.uri == null ? new Base[0] : new Base[] {this.uri}; // UriType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = new GuideDependencyTypeEnumFactory().fromType(value); // Enumeration<GuideDependencyType>
+          break;
+        case 116076:
+          this.uri = castToUri(value); // UriType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new GuideDependencyTypeEnumFactory().fromType(value); // Enumeration<GuideDependencyType>
@@ -642,6 +700,16 @@ public class ImplementationGuide extends DomainResource {
           this.uri = castToUri(value); // UriType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<GuideDependencyType>
+        case 116076: throw new FHIRException("Cannot make property uri as it is not a complex type"); // UriType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -878,6 +946,34 @@ public class ImplementationGuide extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -341064690: return this.resource.toArray(new Base[this.resource.size()]); // ImplementationGuidePackageResourceComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -341064690:
+          this.resource.add((ImplementationGuidePackageResourceComponent) value); // ImplementationGuidePackageResourceComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -887,6 +983,17 @@ public class ImplementationGuide extends DomainResource {
           this.getResource().add((ImplementationGuidePackageResourceComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -341064690:  return addResource(); // ImplementationGuidePackageResourceComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1309,6 +1416,46 @@ public class ImplementationGuide extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1322970774: return this.example == null ? new Base[0] : new Base[] {this.example}; // BooleanType
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -1163472445: return this.acronym == null ? new Base[0] : new Base[] {this.acronym}; // StringType
+        case -1698413947: return this.source == null ? new Base[0] : new Base[] {this.source}; // Type
+        case -2002349313: return this.exampleFor == null ? new Base[0] : new Base[] {this.exampleFor}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1322970774:
+          this.example = castToBoolean(value); // BooleanType
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -1163472445:
+          this.acronym = castToString(value); // StringType
+          break;
+        case -1698413947:
+          this.source = (Type) value; // Type
+          break;
+        case -2002349313:
+          this.exampleFor = castToReference(value); // Reference
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("example"))
           this.example = castToBoolean(value); // BooleanType
@@ -1324,6 +1471,20 @@ public class ImplementationGuide extends DomainResource {
           this.exampleFor = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1322970774: throw new FHIRException("Cannot make property example as it is not a complex type"); // BooleanType
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -1163472445: throw new FHIRException("Cannot make property acronym as it is not a complex type"); // StringType
+        case -1698413947:  return getSource(); // Type
+        case -2002349313:  return getExampleFor(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1539,6 +1700,30 @@ public class ImplementationGuide extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
+        case -309425751: return this.profile == null ? new Base[0] : new Base[] {this.profile}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = castToCode(value); // CodeType
+          break;
+        case -309425751:
+          this.profile = castToReference(value); // Reference
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCode(value); // CodeType
@@ -1546,6 +1731,16 @@ public class ImplementationGuide extends DomainResource {
           this.profile = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
+        case -309425751:  return getProfile(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2015,6 +2210,50 @@ public class ImplementationGuide extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -896505829: return this.source == null ? new Base[0] : new Base[] {this.source}; // UriType
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 3292052: return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<GuidePageKind>
+        case 3575610: return this.type.toArray(new Base[this.type.size()]); // CodeType
+        case -807062458: return this.package_.toArray(new Base[this.package_.size()]); // StringType
+        case -1268779017: return this.format == null ? new Base[0] : new Base[] {this.format}; // CodeType
+        case 3433103: return this.page.toArray(new Base[this.page.size()]); // ImplementationGuidePageComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -896505829:
+          this.source = castToUri(value); // UriType
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case 3292052:
+          this.kind = new GuidePageKindEnumFactory().fromType(value); // Enumeration<GuidePageKind>
+          break;
+        case 3575610:
+          this.type.add(castToCode(value)); // CodeType
+          break;
+        case -807062458:
+          this.package_.add(castToString(value)); // StringType
+          break;
+        case -1268779017:
+          this.format = castToCode(value); // CodeType
+          break;
+        case 3433103:
+          this.page.add((ImplementationGuidePageComponent) value); // ImplementationGuidePageComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("source"))
           this.source = castToUri(value); // UriType
@@ -2032,6 +2271,21 @@ public class ImplementationGuide extends DomainResource {
           this.getPage().add((ImplementationGuidePageComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -896505829: throw new FHIRException("Cannot make property source as it is not a complex type"); // UriType
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case 3292052: throw new FHIRException("Cannot make property kind as it is not a complex type"); // Enumeration<GuidePageKind>
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
+        case -807062458: throw new FHIRException("Cannot make property package as it is not a complex type"); // StringType
+        case -1268779017: throw new FHIRException("Cannot make property format as it is not a complex type"); // CodeType
+        case 3433103:  return addPage(); // ImplementationGuidePageComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -3036,6 +3290,90 @@ public class ImplementationGuide extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -404562712: return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
+        case 1447404028: return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
+        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // ImplementationGuideContactComponent
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -669707736: return this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
+        case 1522889671: return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
+        case 461006061: return this.fhirVersion == null ? new Base[0] : new Base[] {this.fhirVersion}; // IdType
+        case -26291381: return this.dependency.toArray(new Base[this.dependency.size()]); // ImplementationGuideDependencyComponent
+        case -807062458: return this.package_.toArray(new Base[this.package_.size()]); // ImplementationGuidePackageComponent
+        case -1243020381: return this.global.toArray(new Base[this.global.size()]); // ImplementationGuideGlobalComponent
+        case -1388966911: return this.binary.toArray(new Base[this.binary.size()]); // UriType
+        case 3433103: return this.page == null ? new Base[0] : new Base[] {this.page}; // ImplementationGuidePageComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 116079:
+          this.url = castToUri(value); // UriType
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -892481550:
+          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          break;
+        case -404562712:
+          this.experimental = castToBoolean(value); // BooleanType
+          break;
+        case 1447404028:
+          this.publisher = castToString(value); // StringType
+          break;
+        case 951526432:
+          this.contact.add((ImplementationGuideContactComponent) value); // ImplementationGuideContactComponent
+          break;
+        case 3076014:
+          this.date = castToDateTime(value); // DateTimeType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -669707736:
+          this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 1522889671:
+          this.copyright = castToString(value); // StringType
+          break;
+        case 461006061:
+          this.fhirVersion = castToId(value); // IdType
+          break;
+        case -26291381:
+          this.dependency.add((ImplementationGuideDependencyComponent) value); // ImplementationGuideDependencyComponent
+          break;
+        case -807062458:
+          this.package_.add((ImplementationGuidePackageComponent) value); // ImplementationGuidePackageComponent
+          break;
+        case -1243020381:
+          this.global.add((ImplementationGuideGlobalComponent) value); // ImplementationGuideGlobalComponent
+          break;
+        case -1388966911:
+          this.binary.add(castToUri(value)); // UriType
+          break;
+        case 3433103:
+          this.page = (ImplementationGuidePageComponent) value; // ImplementationGuidePageComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("url"))
           this.url = castToUri(value); // UriType
@@ -3073,6 +3411,31 @@ public class ImplementationGuide extends DomainResource {
           this.page = (ImplementationGuidePageComponent) value; // ImplementationGuidePageComponent
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
+        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
+        case 951526432:  return addContact(); // ImplementationGuideContactComponent
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -669707736:  return addUseContext(); // CodeableConcept
+        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
+        case 461006061: throw new FHIRException("Cannot make property fhirVersion as it is not a complex type"); // IdType
+        case -26291381:  return addDependency(); // ImplementationGuideDependencyComponent
+        case -807062458:  return addPackage(); // ImplementationGuidePackageComponent
+        case -1243020381:  return addGlobal(); // ImplementationGuideGlobalComponent
+        case -1388966911: throw new FHIRException("Cannot make property binary as it is not a complex type"); // UriType
+        case 3433103:  return getPage(); // ImplementationGuidePageComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

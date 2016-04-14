@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -339,6 +339,34 @@ public class MessageHeader extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // IdType
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<ResponseType>
+        case 1557721666: return this.details == null ? new Base[0] : new Base[] {this.details}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier = castToId(value); // IdType
+          break;
+        case 3059181:
+          this.code = new ResponseTypeEnumFactory().fromType(value); // Enumeration<ResponseType>
+          break;
+        case 1557721666:
+          this.details = castToReference(value); // Reference
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToId(value); // IdType
@@ -348,6 +376,17 @@ public class MessageHeader extends DomainResource {
           this.details = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855: throw new FHIRException("Cannot make property identifier as it is not a complex type"); // IdType
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<ResponseType>
+        case 1557721666:  return getDetails(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -688,6 +727,42 @@ public class MessageHeader extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 1319330215: return this.software == null ? new Base[0] : new Base[] {this.software}; // StringType
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 951526432: return this.contact == null ? new Base[0] : new Base[] {this.contact}; // ContactPoint
+        case 1741102485: return this.endpoint == null ? new Base[0] : new Base[] {this.endpoint}; // UriType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case 1319330215:
+          this.software = castToString(value); // StringType
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case 951526432:
+          this.contact = castToContactPoint(value); // ContactPoint
+          break;
+        case 1741102485:
+          this.endpoint = castToUri(value); // UriType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -701,6 +776,19 @@ public class MessageHeader extends DomainResource {
           this.endpoint = castToUri(value); // UriType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case 1319330215: throw new FHIRException("Cannot make property software as it is not a complex type"); // StringType
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case 951526432:  return getContact(); // ContactPoint
+        case 1741102485: throw new FHIRException("Cannot make property endpoint as it is not a complex type"); // UriType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -962,6 +1050,34 @@ public class MessageHeader extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -880905839: return this.target == null ? new Base[0] : new Base[] {this.target}; // Reference
+        case 1741102485: return this.endpoint == null ? new Base[0] : new Base[] {this.endpoint}; // UriType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -880905839:
+          this.target = castToReference(value); // Reference
+          break;
+        case 1741102485:
+          this.endpoint = castToUri(value); // UriType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -971,6 +1087,17 @@ public class MessageHeader extends DomainResource {
           this.endpoint = castToUri(value); // UriType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -880905839:  return getTarget(); // Reference
+        case 1741102485: throw new FHIRException("Cannot make property endpoint as it is not a complex type"); // UriType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1564,6 +1691,66 @@ public class MessageHeader extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 55126294: return this.timestamp == null ? new Base[0] : new Base[] {this.timestamp}; // InstantType
+        case 96891546: return this.event == null ? new Base[0] : new Base[] {this.event}; // Coding
+        case -340323263: return this.response == null ? new Base[0] : new Base[] {this.response}; // MessageHeaderResponseComponent
+        case -896505829: return this.source == null ? new Base[0] : new Base[] {this.source}; // MessageSourceComponent
+        case -1429847026: return this.destination.toArray(new Base[this.destination.size()]); // MessageDestinationComponent
+        case -1591951995: return this.enterer == null ? new Base[0] : new Base[] {this.enterer}; // Reference
+        case -1406328437: return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
+        case -808719889: return this.receiver == null ? new Base[0] : new Base[] {this.receiver}; // Reference
+        case 1847674614: return this.responsible == null ? new Base[0] : new Base[] {this.responsible}; // Reference
+        case -934964668: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // CodeableConcept
+        case 3076010: return this.data.toArray(new Base[this.data.size()]); // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 55126294:
+          this.timestamp = castToInstant(value); // InstantType
+          break;
+        case 96891546:
+          this.event = castToCoding(value); // Coding
+          break;
+        case -340323263:
+          this.response = (MessageHeaderResponseComponent) value; // MessageHeaderResponseComponent
+          break;
+        case -896505829:
+          this.source = (MessageSourceComponent) value; // MessageSourceComponent
+          break;
+        case -1429847026:
+          this.destination.add((MessageDestinationComponent) value); // MessageDestinationComponent
+          break;
+        case -1591951995:
+          this.enterer = castToReference(value); // Reference
+          break;
+        case -1406328437:
+          this.author = castToReference(value); // Reference
+          break;
+        case -808719889:
+          this.receiver = castToReference(value); // Reference
+          break;
+        case 1847674614:
+          this.responsible = castToReference(value); // Reference
+          break;
+        case -934964668:
+          this.reason = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 3076010:
+          this.data.add(castToReference(value)); // Reference
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("timestamp"))
           this.timestamp = castToInstant(value); // InstantType
@@ -1589,6 +1776,25 @@ public class MessageHeader extends DomainResource {
           this.getData().add(castToReference(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 55126294: throw new FHIRException("Cannot make property timestamp as it is not a complex type"); // InstantType
+        case 96891546:  return getEvent(); // Coding
+        case -340323263:  return getResponse(); // MessageHeaderResponseComponent
+        case -896505829:  return getSource(); // MessageSourceComponent
+        case -1429847026:  return addDestination(); // MessageDestinationComponent
+        case -1591951995:  return getEnterer(); // Reference
+        case -1406328437:  return getAuthor(); // Reference
+        case -808719889:  return getReceiver(); // Reference
+        case 1847674614:  return getResponsible(); // Reference
+        case -934964668:  return getReason(); // CodeableConcept
+        case 3076010:  return addData(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -445,6 +445,42 @@ public class ImagingExcerpt extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 115792: return this.uid == null ? new Base[0] : new Base[] {this.uid}; // OidType
+        case -814900911: return this.imagingStudy == null ? new Base[0] : new Base[] {this.imagingStudy}; // Reference
+        case 95578844: return this.dicom.toArray(new Base[this.dicom.size()]); // StudyDicomComponent
+        case 1196225919: return this.viewable.toArray(new Base[this.viewable.size()]); // StudyViewableComponent
+        case -905838985: return this.series.toArray(new Base[this.series.size()]); // SeriesComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 115792:
+          this.uid = castToOid(value); // OidType
+          break;
+        case -814900911:
+          this.imagingStudy = castToReference(value); // Reference
+          break;
+        case 95578844:
+          this.dicom.add((StudyDicomComponent) value); // StudyDicomComponent
+          break;
+        case 1196225919:
+          this.viewable.add((StudyViewableComponent) value); // StudyViewableComponent
+          break;
+        case -905838985:
+          this.series.add((SeriesComponent) value); // SeriesComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("uid"))
           this.uid = castToOid(value); // OidType
@@ -458,6 +494,19 @@ public class ImagingExcerpt extends DomainResource {
           this.getSeries().add((SeriesComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 115792: throw new FHIRException("Cannot make property uid as it is not a complex type"); // OidType
+        case -814900911:  return getImagingStudy(); // Reference
+        case 95578844:  return addDicom(); // StudyDicomComponent
+        case 1196225919:  return addViewable(); // StudyViewableComponent
+        case -905838985:  return addSeries(); // SeriesComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -670,6 +719,30 @@ public class ImagingExcerpt extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<DWebType>
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = new DWebTypeEnumFactory().fromType(value); // Enumeration<DWebType>
+          break;
+        case 116079:
+          this.url = castToUri(value); // UriType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new DWebTypeEnumFactory().fromType(value); // Enumeration<DWebType>
@@ -677,6 +750,16 @@ public class ImagingExcerpt extends DomainResource {
           this.url = castToUri(value); // UriType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<DWebType>
+        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1184,6 +1267,54 @@ public class ImagingExcerpt extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -389131437: return this.contentType == null ? new Base[0] : new Base[] {this.contentType}; // CodeType
+        case -1221029593: return this.height == null ? new Base[0] : new Base[] {this.height}; // PositiveIntType
+        case 113126854: return this.width == null ? new Base[0] : new Base[] {this.width}; // PositiveIntType
+        case -1266514778: return this.frames == null ? new Base[0] : new Base[] {this.frames}; // PositiveIntType
+        case -1992012396: return this.duration == null ? new Base[0] : new Base[] {this.duration}; // UnsignedIntType
+        case 3530753: return this.size == null ? new Base[0] : new Base[] {this.size}; // UnsignedIntType
+        case 110371416: return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -389131437:
+          this.contentType = castToCode(value); // CodeType
+          break;
+        case -1221029593:
+          this.height = castToPositiveInt(value); // PositiveIntType
+          break;
+        case 113126854:
+          this.width = castToPositiveInt(value); // PositiveIntType
+          break;
+        case -1266514778:
+          this.frames = castToPositiveInt(value); // PositiveIntType
+          break;
+        case -1992012396:
+          this.duration = castToUnsignedInt(value); // UnsignedIntType
+          break;
+        case 3530753:
+          this.size = castToUnsignedInt(value); // UnsignedIntType
+          break;
+        case 110371416:
+          this.title = castToString(value); // StringType
+          break;
+        case 116079:
+          this.url = castToUri(value); // UriType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("contentType"))
           this.contentType = castToCode(value); // CodeType
@@ -1203,6 +1334,22 @@ public class ImagingExcerpt extends DomainResource {
           this.url = castToUri(value); // UriType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -389131437: throw new FHIRException("Cannot make property contentType as it is not a complex type"); // CodeType
+        case -1221029593: throw new FHIRException("Cannot make property height as it is not a complex type"); // PositiveIntType
+        case 113126854: throw new FHIRException("Cannot make property width as it is not a complex type"); // PositiveIntType
+        case -1266514778: throw new FHIRException("Cannot make property frames as it is not a complex type"); // PositiveIntType
+        case -1992012396: throw new FHIRException("Cannot make property duration as it is not a complex type"); // UnsignedIntType
+        case 3530753: throw new FHIRException("Cannot make property size as it is not a complex type"); // UnsignedIntType
+        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
+        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1460,6 +1607,34 @@ public class ImagingExcerpt extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 115792: return this.uid == null ? new Base[0] : new Base[] {this.uid}; // OidType
+        case 95578844: return this.dicom.toArray(new Base[this.dicom.size()]); // SeriesDicomComponent
+        case 555127957: return this.instance.toArray(new Base[this.instance.size()]); // InstanceComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 115792:
+          this.uid = castToOid(value); // OidType
+          break;
+        case 95578844:
+          this.dicom.add((SeriesDicomComponent) value); // SeriesDicomComponent
+          break;
+        case 555127957:
+          this.instance.add((InstanceComponent) value); // InstanceComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("uid"))
           this.uid = castToOid(value); // OidType
@@ -1469,6 +1644,17 @@ public class ImagingExcerpt extends DomainResource {
           this.getInstance().add((InstanceComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 115792: throw new FHIRException("Cannot make property uid as it is not a complex type"); // OidType
+        case 95578844:  return addDicom(); // SeriesDicomComponent
+        case 555127957:  return addInstance(); // InstanceComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1667,6 +1853,30 @@ public class ImagingExcerpt extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<DWebType>
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = new DWebTypeEnumFactory().fromType(value); // Enumeration<DWebType>
+          break;
+        case 116079:
+          this.url = castToUri(value); // UriType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new DWebTypeEnumFactory().fromType(value); // Enumeration<DWebType>
@@ -1674,6 +1884,16 @@ public class ImagingExcerpt extends DomainResource {
           this.url = castToUri(value); // UriType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<DWebType>
+        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1969,6 +2189,38 @@ public class ImagingExcerpt extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 1560041540: return this.sopClass == null ? new Base[0] : new Base[] {this.sopClass}; // OidType
+        case 115792: return this.uid == null ? new Base[0] : new Base[] {this.uid}; // OidType
+        case 95578844: return this.dicom.toArray(new Base[this.dicom.size()]); // InstanceDicomComponent
+        case -144148451: return this.frameNumbers.toArray(new Base[this.frameNumbers.size()]); // UnsignedIntType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 1560041540:
+          this.sopClass = castToOid(value); // OidType
+          break;
+        case 115792:
+          this.uid = castToOid(value); // OidType
+          break;
+        case 95578844:
+          this.dicom.add((InstanceDicomComponent) value); // InstanceDicomComponent
+          break;
+        case -144148451:
+          this.frameNumbers.add(castToUnsignedInt(value)); // UnsignedIntType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("sopClass"))
           this.sopClass = castToOid(value); // OidType
@@ -1980,6 +2232,18 @@ public class ImagingExcerpt extends DomainResource {
           this.getFrameNumbers().add(castToUnsignedInt(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 1560041540: throw new FHIRException("Cannot make property sopClass as it is not a complex type"); // OidType
+        case 115792: throw new FHIRException("Cannot make property uid as it is not a complex type"); // OidType
+        case 95578844:  return addDicom(); // InstanceDicomComponent
+        case -144148451: throw new FHIRException("Cannot make property frameNumbers as it is not a complex type"); // UnsignedIntType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2184,6 +2448,30 @@ public class ImagingExcerpt extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<DWebType>
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = new DWebTypeEnumFactory().fromType(value); // Enumeration<DWebType>
+          break;
+        case 116079:
+          this.url = castToUri(value); // UriType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new DWebTypeEnumFactory().fromType(value); // Enumeration<DWebType>
@@ -2191,6 +2479,16 @@ public class ImagingExcerpt extends DomainResource {
           this.url = castToUri(value); // UriType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<DWebType>
+        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2625,6 +2923,50 @@ public class ImagingExcerpt extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 115792: return this.uid == null ? new Base[0] : new Base[] {this.uid}; // OidType
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -1724532252: return this.authoringTime == null ? new Base[0] : new Base[] {this.authoringTime}; // DateTimeType
+        case -1406328437: return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
+        case 110371416: return this.title == null ? new Base[0] : new Base[] {this.title}; // CodeableConcept
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 109776329: return this.study.toArray(new Base[this.study.size()]); // StudyComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 115792:
+          this.uid = castToOid(value); // OidType
+          break;
+        case -791418107:
+          this.patient = castToReference(value); // Reference
+          break;
+        case -1724532252:
+          this.authoringTime = castToDateTime(value); // DateTimeType
+          break;
+        case -1406328437:
+          this.author = castToReference(value); // Reference
+          break;
+        case 110371416:
+          this.title = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case 109776329:
+          this.study.add((StudyComponent) value); // StudyComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("uid"))
           this.uid = castToOid(value); // OidType
@@ -2642,6 +2984,21 @@ public class ImagingExcerpt extends DomainResource {
           this.getStudy().add((StudyComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 115792: throw new FHIRException("Cannot make property uid as it is not a complex type"); // OidType
+        case -791418107:  return getPatient(); // Reference
+        case -1724532252: throw new FHIRException("Cannot make property authoringTime as it is not a complex type"); // DateTimeType
+        case -1406328437:  return getAuthor(); // Reference
+        case 110371416:  return getTitle(); // CodeableConcept
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 109776329:  return addStudy(); // StudyComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

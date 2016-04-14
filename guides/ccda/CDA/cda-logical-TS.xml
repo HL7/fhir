@@ -43,6 +43,9 @@
       </binding>
     </element>
     <element>
+      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat">
+        <valueString value="v3"/>
+      </extension>
       <path value="TS.value"/>
       <representation value="xmlAttr"/>
       <min value="0"/>
@@ -71,6 +74,9 @@
       </type>
     </element>
     <element>
+      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat">
+        <valueString value="v3"/>
+      </extension>
       <path value="TS.value"/>
       <representation value="xmlAttr"/>
       <min value="0"/>

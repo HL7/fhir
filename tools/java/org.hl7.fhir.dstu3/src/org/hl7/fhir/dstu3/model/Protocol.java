@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -863,6 +863,54 @@ public class Protocol extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -1992012396: return this.duration == null ? new Base[0] : new Base[] {this.duration}; // Duration
+        case -650968616: return this.precondition == null ? new Base[0] : new Base[] {this.precondition}; // ProtocolStepPreconditionComponent
+        case 3127582: return this.exit == null ? new Base[0] : new Base[] {this.exit}; // ProtocolStepPreconditionComponent
+        case 185563615: return this.firstActivity == null ? new Base[0] : new Base[] {this.firstActivity}; // UriType
+        case -1655966961: return this.activity.toArray(new Base[this.activity.size()]); // ProtocolStepActivityComponent
+        case 3377907: return this.next.toArray(new Base[this.next.size()]); // ProtocolStepNextComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -1992012396:
+          this.duration = castToDuration(value); // Duration
+          break;
+        case -650968616:
+          this.precondition = (ProtocolStepPreconditionComponent) value; // ProtocolStepPreconditionComponent
+          break;
+        case 3127582:
+          this.exit = (ProtocolStepPreconditionComponent) value; // ProtocolStepPreconditionComponent
+          break;
+        case 185563615:
+          this.firstActivity = castToUri(value); // UriType
+          break;
+        case -1655966961:
+          this.activity.add((ProtocolStepActivityComponent) value); // ProtocolStepActivityComponent
+          break;
+        case 3377907:
+          this.next.add((ProtocolStepNextComponent) value); // ProtocolStepNextComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -882,6 +930,22 @@ public class Protocol extends DomainResource {
           this.getNext().add((ProtocolStepNextComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -1992012396:  return getDuration(); // Duration
+        case -650968616:  return getPrecondition(); // ProtocolStepPreconditionComponent
+        case 3127582:  return getExit(); // ProtocolStepPreconditionComponent
+        case 185563615: throw new FHIRException("Cannot make property firstActivity as it is not a complex type"); // UriType
+        case -1655966961:  return addActivity(); // ProtocolStepActivityComponent
+        case 3377907:  return addNext(); // ProtocolStepNextComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1225,6 +1289,42 @@ public class Protocol extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -861311717: return this.condition == null ? new Base[0] : new Base[] {this.condition}; // ProtocolStepPreconditionConditionComponent
+        case 169749129: return this.intersection.toArray(new Base[this.intersection.size()]); // ProtocolStepPreconditionComponent
+        case 111433423: return this.union.toArray(new Base[this.union.size()]); // ProtocolStepPreconditionComponent
+        case -1321148966: return this.exclude.toArray(new Base[this.exclude.size()]); // ProtocolStepPreconditionComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -861311717:
+          this.condition = (ProtocolStepPreconditionConditionComponent) value; // ProtocolStepPreconditionConditionComponent
+          break;
+        case 169749129:
+          this.intersection.add((ProtocolStepPreconditionComponent) value); // ProtocolStepPreconditionComponent
+          break;
+        case 111433423:
+          this.union.add((ProtocolStepPreconditionComponent) value); // ProtocolStepPreconditionComponent
+          break;
+        case -1321148966:
+          this.exclude.add((ProtocolStepPreconditionComponent) value); // ProtocolStepPreconditionComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("description"))
           this.description = castToString(value); // StringType
@@ -1238,6 +1338,19 @@ public class Protocol extends DomainResource {
           this.getExclude().add((ProtocolStepPreconditionComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -861311717:  return getCondition(); // ProtocolStepPreconditionConditionComponent
+        case 169749129:  return addIntersection(); // ProtocolStepPreconditionComponent
+        case 111433423:  return addUnion(); // ProtocolStepPreconditionComponent
+        case -1321148966:  return addExclude(); // ProtocolStepPreconditionComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1456,6 +1569,30 @@ public class Protocol extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case -1410166417: return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1410166417:
+          this.value = (Type) value; // Type
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCodeableConcept(value); // CodeableConcept
@@ -1463,6 +1600,16 @@ public class Protocol extends DomainResource {
           this.value = (Type) value; // Type
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getType(); // CodeableConcept
+        case -1410166417:  return getValue(); // Type
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1791,6 +1938,42 @@ public class Protocol extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -196794451: return this.alternative.toArray(new Base[this.alternative.size()]); // UriType
+        case -1399907075: return this.component.toArray(new Base[this.component.size()]); // ProtocolStepActivityComponentComponent
+        case 765915793: return this.following.toArray(new Base[this.following.size()]); // UriType
+        case 3641717: return this.wait == null ? new Base[0] : new Base[] {this.wait}; // Duration
+        case -1335224239: return this.detail == null ? new Base[0] : new Base[] {this.detail}; // ProtocolStepActivityDetailComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -196794451:
+          this.alternative.add(castToUri(value)); // UriType
+          break;
+        case -1399907075:
+          this.component.add((ProtocolStepActivityComponentComponent) value); // ProtocolStepActivityComponentComponent
+          break;
+        case 765915793:
+          this.following.add(castToUri(value)); // UriType
+          break;
+        case 3641717:
+          this.wait = castToDuration(value); // Duration
+          break;
+        case -1335224239:
+          this.detail = (ProtocolStepActivityDetailComponent) value; // ProtocolStepActivityDetailComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("alternative"))
           this.getAlternative().add(castToUri(value));
@@ -1804,6 +1987,19 @@ public class Protocol extends DomainResource {
           this.detail = (ProtocolStepActivityDetailComponent) value; // ProtocolStepActivityDetailComponent
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -196794451: throw new FHIRException("Cannot make property alternative as it is not a complex type"); // UriType
+        case -1399907075:  return addComponent(); // ProtocolStepActivityComponentComponent
+        case 765915793: throw new FHIRException("Cannot make property following as it is not a complex type"); // UriType
+        case 3641717:  return getWait(); // Duration
+        case -1335224239:  return getDetail(); // ProtocolStepActivityDetailComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2018,6 +2214,30 @@ public class Protocol extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 1349547969: return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // IntegerType
+        case -1655966961: return this.activity == null ? new Base[0] : new Base[] {this.activity}; // UriType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 1349547969:
+          this.sequence = castToInteger(value); // IntegerType
+          break;
+        case -1655966961:
+          this.activity = castToUri(value); // UriType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("sequence"))
           this.sequence = castToInteger(value); // IntegerType
@@ -2025,6 +2245,16 @@ public class Protocol extends DomainResource {
           this.activity = castToUri(value); // UriType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // IntegerType
+        case -1655966961: throw new FHIRException("Cannot make property activity as it is not a complex type"); // UriType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2497,6 +2727,54 @@ public class Protocol extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // Enumeration<ActivityDefinitionCategory>
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case 164632566: return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
+        case 1901043637: return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
+        case 481140686: return this.performer.toArray(new Base[this.performer.size()]); // Reference
+        case -309474065: return this.product == null ? new Base[0] : new Base[] {this.product}; // Reference
+        case -1285004149: return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 50511102:
+          this.category = new ActivityDefinitionCategoryEnumFactory().fromType(value); // Enumeration<ActivityDefinitionCategory>
+          break;
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 164632566:
+          this.timing = (Type) value; // Type
+          break;
+        case 1901043637:
+          this.location = castToReference(value); // Reference
+          break;
+        case 481140686:
+          this.performer.add(castToReference(value)); // Reference
+          break;
+        case -309474065:
+          this.product = castToReference(value); // Reference
+          break;
+        case -1285004149:
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("category"))
           this.category = new ActivityDefinitionCategoryEnumFactory().fromType(value); // Enumeration<ActivityDefinitionCategory>
@@ -2516,6 +2794,22 @@ public class Protocol extends DomainResource {
           this.description = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 50511102: throw new FHIRException("Cannot make property category as it is not a complex type"); // Enumeration<ActivityDefinitionCategory>
+        case 3059181:  return getCode(); // CodeableConcept
+        case 164632566:  return getTiming(); // Type
+        case 1901043637:  return getLocation(); // Reference
+        case 481140686:  return addPerformer(); // Reference
+        case -309474065:  return getProduct(); // Reference
+        case -1285004149:  return getQuantity(); // SimpleQuantity
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2774,6 +3068,34 @@ public class Protocol extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -925155509: return this.reference == null ? new Base[0] : new Base[] {this.reference}; // UriType
+        case -861311717: return this.condition == null ? new Base[0] : new Base[] {this.condition}; // ProtocolStepPreconditionComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -925155509:
+          this.reference = castToUri(value); // UriType
+          break;
+        case -861311717:
+          this.condition = (ProtocolStepPreconditionComponent) value; // ProtocolStepPreconditionComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("description"))
           this.description = castToString(value); // StringType
@@ -2783,6 +3105,17 @@ public class Protocol extends DomainResource {
           this.condition = (ProtocolStepPreconditionComponent) value; // ProtocolStepPreconditionComponent
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -925155509: throw new FHIRException("Cannot make property reference as it is not a complex type"); // UriType
+        case -861311717:  return getCondition(); // ProtocolStepPreconditionComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -3346,6 +3679,58 @@ public class Protocol extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 110371416: return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ProtocolStatus>
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ProtocolType>
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 98629247: return this.group == null ? new Base[0] : new Base[] {this.group}; // Reference
+        case -220463842: return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // StringType
+        case -1406328437: return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
+        case 3540684: return this.step.toArray(new Base[this.step.size()]); // ProtocolStepComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 110371416:
+          this.title = castToString(value); // StringType
+          break;
+        case -892481550:
+          this.status = new ProtocolStatusEnumFactory().fromType(value); // Enumeration<ProtocolStatus>
+          break;
+        case 3575610:
+          this.type = new ProtocolTypeEnumFactory().fromType(value); // Enumeration<ProtocolType>
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case 98629247:
+          this.group = castToReference(value); // Reference
+          break;
+        case -220463842:
+          this.purpose = castToString(value); // StringType
+          break;
+        case -1406328437:
+          this.author = castToReference(value); // Reference
+          break;
+        case 3540684:
+          this.step.add((ProtocolStepComponent) value); // ProtocolStepComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -3367,6 +3752,23 @@ public class Protocol extends DomainResource {
           this.getStep().add((ProtocolStepComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ProtocolStatus>
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<ProtocolType>
+        case -1867885268:  return getSubject(); // Reference
+        case 98629247:  return getGroup(); // Reference
+        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // StringType
+        case -1406328437:  return getAuthor(); // Reference
+        case 3540684:  return addStep(); // ProtocolStepComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

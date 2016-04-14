@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -451,8 +451,12 @@ public class CodeSystem extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707: this.name = castToString(value); // StringType
-        case -1429363305: this.telecom.add(castToContactPoint(value)); // ContactPoint
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -466,6 +470,16 @@ public class CodeSystem extends DomainResource {
           this.getTelecom().add(castToContactPoint(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1429363305:  return addTelecom(); // ContactPoint
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -788,10 +802,18 @@ public class CodeSystem extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181: this.code = castToCode(value); // CodeType
-        case -1724546052: this.description = castToString(value); // StringType
-        case -500553564: this.operator.add(castToCode(value)); // CodeType
-        case 111972721: this.value = castToString(value); // StringType
+        case 3059181:
+          this.code = castToCode(value); // CodeType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -500553564:
+          this.operator.add(castToCode(value)); // CodeType
+          break;
+        case 111972721:
+          this.value = castToString(value); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -809,6 +831,18 @@ public class CodeSystem extends DomainResource {
           this.value = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -500553564: throw new FHIRException("Cannot make property operator as it is not a complex type"); // CodeType
+        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1078,9 +1112,15 @@ public class CodeSystem extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181: this.code = castToCode(value); // CodeType
-        case -1724546052: this.description = castToString(value); // StringType
-        case 3575610: this.type = new PropertyTypeEnumFactory().fromType(value); // Enumeration<PropertyType>
+        case 3059181:
+          this.code = castToCode(value); // CodeType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case 3575610:
+          this.type = new PropertyTypeEnumFactory().fromType(value); // Enumeration<PropertyType>
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1096,6 +1136,17 @@ public class CodeSystem extends DomainResource {
           this.type = new PropertyTypeEnumFactory().fromType(value); // Enumeration<PropertyType>
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<PropertyType>
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1507,12 +1558,24 @@ public class CodeSystem extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181: this.code = castToCode(value); // CodeType
-        case 1671764162: this.display = castToString(value); // StringType
-        case -1014418093: this.definition = castToString(value); // StringType
-        case -900931593: this.designation.add((ConceptDefinitionDesignationComponent) value); // ConceptDefinitionDesignationComponent
-        case -993141291: this.property.add((ConceptDefinitionPropertyComponent) value); // ConceptDefinitionPropertyComponent
-        case 951024232: this.concept.add((ConceptDefinitionComponent) value); // ConceptDefinitionComponent
+        case 3059181:
+          this.code = castToCode(value); // CodeType
+          break;
+        case 1671764162:
+          this.display = castToString(value); // StringType
+          break;
+        case -1014418093:
+          this.definition = castToString(value); // StringType
+          break;
+        case -900931593:
+          this.designation.add((ConceptDefinitionDesignationComponent) value); // ConceptDefinitionDesignationComponent
+          break;
+        case -993141291:
+          this.property.add((ConceptDefinitionPropertyComponent) value); // ConceptDefinitionPropertyComponent
+          break;
+        case 951024232:
+          this.concept.add((ConceptDefinitionComponent) value); // ConceptDefinitionComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1534,6 +1597,20 @@ public class CodeSystem extends DomainResource {
           this.getConcept().add((ConceptDefinitionComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
+        case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
+        case -1014418093: throw new FHIRException("Cannot make property definition as it is not a complex type"); // StringType
+        case -900931593:  return addDesignation(); // ConceptDefinitionDesignationComponent
+        case -993141291:  return addProperty(); // ConceptDefinitionPropertyComponent
+        case 951024232:  return addConcept(); // ConceptDefinitionComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1799,9 +1876,15 @@ public class CodeSystem extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1613589672: this.language = castToCode(value); // CodeType
-        case 116103: this.use = castToCoding(value); // Coding
-        case 111972721: this.value = castToString(value); // StringType
+        case -1613589672:
+          this.language = castToCode(value); // CodeType
+          break;
+        case 116103:
+          this.use = castToCoding(value); // Coding
+          break;
+        case 111972721:
+          this.value = castToString(value); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1817,6 +1900,17 @@ public class CodeSystem extends DomainResource {
           this.value = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1613589672: throw new FHIRException("Cannot make property language as it is not a complex type"); // CodeType
+        case 116103:  return getUse(); // Coding
+        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2072,8 +2166,12 @@ public class CodeSystem extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181: this.code = castToCode(value); // CodeType
-        case -1410166417: this.value = (Type) value; // Type
+        case 3059181:
+          this.code = castToCode(value); // CodeType
+          break;
+        case -1410166417:
+          this.value = (Type) value; // Type
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -2087,6 +2185,16 @@ public class CodeSystem extends DomainResource {
           this.value = (Type) value; // Type
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
+        case -1410166417:  return getValue(); // Type
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -3373,28 +3481,72 @@ public class CodeSystem extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 116079: this.url = castToUri(value); // UriType
-        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
-        case 351608024: this.version = castToString(value); // StringType
-        case 3373707: this.name = castToString(value); // StringType
-        case -892481550: this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
-        case -404562712: this.experimental = castToBoolean(value); // BooleanType
-        case 1447404028: this.publisher = castToString(value); // StringType
-        case 951526432: this.contact.add((CodeSystemContactComponent) value); // CodeSystemContactComponent
-        case 3076014: this.date = castToDateTime(value); // DateTimeType
-        case -1724546052: this.description = castToString(value); // StringType
-        case -669707736: this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
-        case -1619874672: this.requirements = castToString(value); // StringType
-        case 1522889671: this.copyright = castToString(value); // StringType
-        case -35616442: this.caseSensitive = castToBoolean(value); // BooleanType
-        case -1410174671: this.valueSet = castToUri(value); // UriType
-        case 1248023381: this.compositional = castToBoolean(value); // BooleanType
-        case 617270957: this.versionNeeded = castToBoolean(value); // BooleanType
-        case 951530617: this.content = new CodeSystemContentModeEnumFactory().fromType(value); // Enumeration<CodeSystemContentMode>
-        case 94851343: this.count = castToUnsignedInt(value); // UnsignedIntType
-        case -1274492040: this.filter.add((CodeSystemFilterComponent) value); // CodeSystemFilterComponent
-        case -993141291: this.property.add((CodeSystemPropertyComponent) value); // CodeSystemPropertyComponent
-        case 951024232: this.concept.add((ConceptDefinitionComponent) value); // ConceptDefinitionComponent
+        case 116079:
+          this.url = castToUri(value); // UriType
+          break;
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -892481550:
+          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          break;
+        case -404562712:
+          this.experimental = castToBoolean(value); // BooleanType
+          break;
+        case 1447404028:
+          this.publisher = castToString(value); // StringType
+          break;
+        case 951526432:
+          this.contact.add((CodeSystemContactComponent) value); // CodeSystemContactComponent
+          break;
+        case 3076014:
+          this.date = castToDateTime(value); // DateTimeType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -669707736:
+          this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1619874672:
+          this.requirements = castToString(value); // StringType
+          break;
+        case 1522889671:
+          this.copyright = castToString(value); // StringType
+          break;
+        case -35616442:
+          this.caseSensitive = castToBoolean(value); // BooleanType
+          break;
+        case -1410174671:
+          this.valueSet = castToUri(value); // UriType
+          break;
+        case 1248023381:
+          this.compositional = castToBoolean(value); // BooleanType
+          break;
+        case 617270957:
+          this.versionNeeded = castToBoolean(value); // BooleanType
+          break;
+        case 951530617:
+          this.content = new CodeSystemContentModeEnumFactory().fromType(value); // Enumeration<CodeSystemContentMode>
+          break;
+        case 94851343:
+          this.count = castToUnsignedInt(value); // UnsignedIntType
+          break;
+        case -1274492040:
+          this.filter.add((CodeSystemFilterComponent) value); // CodeSystemFilterComponent
+          break;
+        case -993141291:
+          this.property.add((CodeSystemPropertyComponent) value); // CodeSystemPropertyComponent
+          break;
+        case 951024232:
+          this.concept.add((ConceptDefinitionComponent) value); // ConceptDefinitionComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -3448,6 +3600,36 @@ public class CodeSystem extends DomainResource {
           this.getConcept().add((ConceptDefinitionComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case -1618432855:  return getIdentifier(); // Identifier
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
+        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
+        case 951526432:  return addContact(); // CodeSystemContactComponent
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -669707736:  return addUseContext(); // CodeableConcept
+        case -1619874672: throw new FHIRException("Cannot make property requirements as it is not a complex type"); // StringType
+        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
+        case -35616442: throw new FHIRException("Cannot make property caseSensitive as it is not a complex type"); // BooleanType
+        case -1410174671: throw new FHIRException("Cannot make property valueSet as it is not a complex type"); // UriType
+        case 1248023381: throw new FHIRException("Cannot make property compositional as it is not a complex type"); // BooleanType
+        case 617270957: throw new FHIRException("Cannot make property versionNeeded as it is not a complex type"); // BooleanType
+        case 951530617: throw new FHIRException("Cannot make property content as it is not a complex type"); // Enumeration<CodeSystemContentMode>
+        case 94851343: throw new FHIRException("Cannot make property count as it is not a complex type"); // UnsignedIntType
+        case -1274492040:  return addFilter(); // CodeSystemFilterComponent
+        case -993141291:  return addProperty(); // CodeSystemPropertyComponent
+        case 951024232:  return addConcept(); // ConceptDefinitionComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1151,19 +1151,45 @@ public class DeviceUseRequest extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -806219817: this.bodySite = (Type) value; // Type
-        case -892481550: this.status = new DeviceUseRequestStatusEnumFactory().fromType(value); // Enumeration<DeviceUseRequestStatus>
-        case -1335157162: this.device = castToReference(value); // Reference
-        case 1524132147: this.encounter = castToReference(value); // Reference
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case -597168804: this.indication.add(castToCodeableConcept(value)); // CodeableConcept
-        case 105008833: this.notes.add(castToString(value)); // StringType
-        case 1825472528: this.prnReason.add(castToCodeableConcept(value)); // CodeableConcept
-        case -391079124: this.orderedOn = castToDateTime(value); // DateTimeType
-        case 735397551: this.recordedOn = castToDateTime(value); // DateTimeType
-        case -1867885268: this.subject = castToReference(value); // Reference
-        case 164632566: this.timing = (Type) value; // Type
-        case -1165461084: this.priority = new DeviceUseRequestPriorityEnumFactory().fromType(value); // Enumeration<DeviceUseRequestPriority>
+        case -806219817:
+          this.bodySite = (Type) value; // Type
+          break;
+        case -892481550:
+          this.status = new DeviceUseRequestStatusEnumFactory().fromType(value); // Enumeration<DeviceUseRequestStatus>
+          break;
+        case -1335157162:
+          this.device = castToReference(value); // Reference
+          break;
+        case 1524132147:
+          this.encounter = castToReference(value); // Reference
+          break;
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -597168804:
+          this.indication.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 105008833:
+          this.notes.add(castToString(value)); // StringType
+          break;
+        case 1825472528:
+          this.prnReason.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -391079124:
+          this.orderedOn = castToDateTime(value); // DateTimeType
+          break;
+        case 735397551:
+          this.recordedOn = castToDateTime(value); // DateTimeType
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case 164632566:
+          this.timing = (Type) value; // Type
+          break;
+        case -1165461084:
+          this.priority = new DeviceUseRequestPriorityEnumFactory().fromType(value); // Enumeration<DeviceUseRequestPriority>
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1199,6 +1225,27 @@ public class DeviceUseRequest extends DomainResource {
           this.priority = new DeviceUseRequestPriorityEnumFactory().fromType(value); // Enumeration<DeviceUseRequestPriority>
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -806219817:  return getBodySite(); // Type
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DeviceUseRequestStatus>
+        case -1335157162:  return getDevice(); // Reference
+        case 1524132147:  return getEncounter(); // Reference
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -597168804:  return addIndication(); // CodeableConcept
+        case 105008833: throw new FHIRException("Cannot make property notes as it is not a complex type"); // StringType
+        case 1825472528:  return addPrnReason(); // CodeableConcept
+        case -391079124: throw new FHIRException("Cannot make property orderedOn as it is not a complex type"); // DateTimeType
+        case 735397551: throw new FHIRException("Cannot make property recordedOn as it is not a complex type"); // DateTimeType
+        case -1867885268:  return getSubject(); // Reference
+        case 164632566:  return getTiming(); // Type
+        case -1165461084: throw new FHIRException("Cannot make property priority as it is not a complex type"); // Enumeration<DeviceUseRequestPriority>
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

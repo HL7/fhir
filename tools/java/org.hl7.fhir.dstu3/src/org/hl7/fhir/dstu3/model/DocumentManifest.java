@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -136,7 +136,9 @@ public class DocumentManifest extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3427856: this.p = (Type) value; // Type
+        case 3427856:
+          this.p = (Type) value; // Type
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -148,6 +150,15 @@ public class DocumentManifest extends DomainResource {
           this.p = (Type) value; // Type
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3427856:  return getP(); // Type
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -314,8 +325,12 @@ public class DocumentManifest extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
-        case 112787: this.ref = castToReference(value); // Reference
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case 112787:
+          this.ref = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -329,6 +344,16 @@ public class DocumentManifest extends DomainResource {
           this.ref = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return getIdentifier(); // Identifier
+        case 112787:  return getRef(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1037,18 +1062,42 @@ public class DocumentManifest extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 243769515: this.masterIdentifier = castToIdentifier(value); // Identifier
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case -1867885268: this.subject = castToReference(value); // Reference
-        case 820081177: this.recipient.add(castToReference(value)); // Reference
-        case 3575610: this.type = castToCodeableConcept(value); // CodeableConcept
-        case -1406328437: this.author.add(castToReference(value)); // Reference
-        case 1028554472: this.created = castToDateTime(value); // DateTimeType
-        case -896505829: this.source = castToUri(value); // UriType
-        case -892481550: this.status = new DocumentReferenceStatusEnumFactory().fromType(value); // Enumeration<DocumentReferenceStatus>
-        case -1724546052: this.description = castToString(value); // StringType
-        case 951530617: this.content.add((DocumentManifestContentComponent) value); // DocumentManifestContentComponent
-        case 1090493483: this.related.add((DocumentManifestRelatedComponent) value); // DocumentManifestRelatedComponent
+        case 243769515:
+          this.masterIdentifier = castToIdentifier(value); // Identifier
+          break;
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case 820081177:
+          this.recipient.add(castToReference(value)); // Reference
+          break;
+        case 3575610:
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1406328437:
+          this.author.add(castToReference(value)); // Reference
+          break;
+        case 1028554472:
+          this.created = castToDateTime(value); // DateTimeType
+          break;
+        case -896505829:
+          this.source = castToUri(value); // UriType
+          break;
+        case -892481550:
+          this.status = new DocumentReferenceStatusEnumFactory().fromType(value); // Enumeration<DocumentReferenceStatus>
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case 951530617:
+          this.content.add((DocumentManifestContentComponent) value); // DocumentManifestContentComponent
+          break;
+        case 1090493483:
+          this.related.add((DocumentManifestRelatedComponent) value); // DocumentManifestRelatedComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1082,6 +1131,26 @@ public class DocumentManifest extends DomainResource {
           this.getRelated().add((DocumentManifestRelatedComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 243769515:  return getMasterIdentifier(); // Identifier
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -1867885268:  return getSubject(); // Reference
+        case 820081177:  return addRecipient(); // Reference
+        case 3575610:  return getType(); // CodeableConcept
+        case -1406328437:  return addAuthor(); // Reference
+        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
+        case -896505829: throw new FHIRException("Cannot make property source as it is not a complex type"); // UriType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DocumentReferenceStatus>
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 951530617:  return addContent(); // DocumentManifestContentComponent
+        case 1090493483:  return addRelated(); // DocumentManifestRelatedComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

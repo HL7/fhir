@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -684,10 +684,18 @@ public class Appointment extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610: this.type.add(castToCodeableConcept(value)); // CodeableConcept
-        case 92645877: this.actor = castToReference(value); // Reference
-        case -393139297: this.required = new ParticipantRequiredEnumFactory().fromType(value); // Enumeration<ParticipantRequired>
-        case -892481550: this.status = new ParticipationStatusEnumFactory().fromType(value); // Enumeration<ParticipationStatus>
+        case 3575610:
+          this.type.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 92645877:
+          this.actor = castToReference(value); // Reference
+          break;
+        case -393139297:
+          this.required = new ParticipantRequiredEnumFactory().fromType(value); // Enumeration<ParticipantRequired>
+          break;
+        case -892481550:
+          this.status = new ParticipationStatusEnumFactory().fromType(value); // Enumeration<ParticipationStatus>
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -705,6 +713,18 @@ public class Appointment extends DomainResource {
           this.status = new ParticipationStatusEnumFactory().fromType(value); // Enumeration<ParticipationStatus>
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return addType(); // CodeableConcept
+        case 92645877:  return getActor(); // Reference
+        case -393139297: throw new FHIRException("Cannot make property required as it is not a complex type"); // Enumeration<ParticipantRequired>
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ParticipationStatus>
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1627,22 +1647,54 @@ public class Appointment extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case -892481550: this.status = new AppointmentStatusEnumFactory().fromType(value); // Enumeration<AppointmentStatus>
-        case 1281188563: this.serviceCategory = castToCodeableConcept(value); // CodeableConcept
-        case -1928370289: this.serviceType.add(castToCodeableConcept(value)); // CodeableConcept
-        case -1694759682: this.specialty.add(castToCodeableConcept(value)); // CodeableConcept
-        case -1596426375: this.appointmentType = castToCodeableConcept(value); // CodeableConcept
-        case -934964668: this.reason = castToCodeableConcept(value); // CodeableConcept
-        case -1165461084: this.priority = castToUnsignedInt(value); // UnsignedIntType
-        case -1724546052: this.description = castToString(value); // StringType
-        case 109757538: this.start = castToInstant(value); // InstantType
-        case 100571: this.end = castToInstant(value); // InstantType
-        case -413630573: this.minutesDuration = castToPositiveInt(value); // PositiveIntType
-        case 3533310: this.slot.add(castToReference(value)); // Reference
-        case 1028554472: this.created = castToDateTime(value); // DateTimeType
-        case 950398559: this.comment = castToString(value); // StringType
-        case 767422259: this.participant.add((AppointmentParticipantComponent) value); // AppointmentParticipantComponent
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -892481550:
+          this.status = new AppointmentStatusEnumFactory().fromType(value); // Enumeration<AppointmentStatus>
+          break;
+        case 1281188563:
+          this.serviceCategory = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1928370289:
+          this.serviceType.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1694759682:
+          this.specialty.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1596426375:
+          this.appointmentType = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -934964668:
+          this.reason = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1165461084:
+          this.priority = castToUnsignedInt(value); // UnsignedIntType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case 109757538:
+          this.start = castToInstant(value); // InstantType
+          break;
+        case 100571:
+          this.end = castToInstant(value); // InstantType
+          break;
+        case -413630573:
+          this.minutesDuration = castToPositiveInt(value); // PositiveIntType
+          break;
+        case 3533310:
+          this.slot.add(castToReference(value)); // Reference
+          break;
+        case 1028554472:
+          this.created = castToDateTime(value); // DateTimeType
+          break;
+        case 950398559:
+          this.comment = castToString(value); // StringType
+          break;
+        case 767422259:
+          this.participant.add((AppointmentParticipantComponent) value); // AppointmentParticipantComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1684,6 +1736,30 @@ public class Appointment extends DomainResource {
           this.getParticipant().add((AppointmentParticipantComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<AppointmentStatus>
+        case 1281188563:  return getServiceCategory(); // CodeableConcept
+        case -1928370289:  return addServiceType(); // CodeableConcept
+        case -1694759682:  return addSpecialty(); // CodeableConcept
+        case -1596426375:  return getAppointmentType(); // CodeableConcept
+        case -934964668:  return getReason(); // CodeableConcept
+        case -1165461084: throw new FHIRException("Cannot make property priority as it is not a complex type"); // UnsignedIntType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 109757538: throw new FHIRException("Cannot make property start as it is not a complex type"); // InstantType
+        case 100571: throw new FHIRException("Cannot make property end as it is not a complex type"); // InstantType
+        case -413630573: throw new FHIRException("Cannot make property minutesDuration as it is not a complex type"); // PositiveIntType
+        case 3533310:  return addSlot(); // Reference
+        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
+        case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
+        case 767422259:  return addParticipant(); // AppointmentParticipantComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

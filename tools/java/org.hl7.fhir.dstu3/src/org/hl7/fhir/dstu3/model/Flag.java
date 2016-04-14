@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -532,6 +532,54 @@ public class Flag extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<FlagStatus>
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case -1406328437: return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 50511102:
+          this.category = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -892481550:
+          this.status = new FlagStatusEnumFactory().fromType(value); // Enumeration<FlagStatus>
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case 1524132147:
+          this.encounter = castToReference(value); // Reference
+          break;
+        case -1406328437:
+          this.author = castToReference(value); // Reference
+          break;
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -551,6 +599,22 @@ public class Flag extends DomainResource {
           this.code = castToCodeableConcept(value); // CodeableConcept
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 50511102:  return getCategory(); // CodeableConcept
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<FlagStatus>
+        case -991726143:  return getPeriod(); // Period
+        case -1867885268:  return getSubject(); // Reference
+        case 1524132147:  return getEncounter(); // Reference
+        case -1406328437:  return getAuthor(); // Reference
+        case 3059181:  return getCode(); // CodeableConcept
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

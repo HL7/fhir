@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -302,7 +302,7 @@ public class HealthcareService extends DomainResource {
           if (this.daysOfWeek == null)
             return false;
           for (Enumeration<DaysOfWeek> v : this.daysOfWeek)
-            if (v.equals(value)) // code
+            if (v.getValue().equals(value)) // code
               return true;
           return false;
         }
@@ -459,6 +459,38 @@ public class HealthcareService extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 68050338: return this.daysOfWeek.toArray(new Base[this.daysOfWeek.size()]); // Enumeration<DaysOfWeek>
+        case -1414913477: return this.allDay == null ? new Base[0] : new Base[] {this.allDay}; // BooleanType
+        case -1039453818: return this.availableStartTime == null ? new Base[0] : new Base[] {this.availableStartTime}; // TimeType
+        case 101151551: return this.availableEndTime == null ? new Base[0] : new Base[] {this.availableEndTime}; // TimeType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 68050338:
+          this.daysOfWeek.add(new DaysOfWeekEnumFactory().fromType(value)); // Enumeration<DaysOfWeek>
+          break;
+        case -1414913477:
+          this.allDay = castToBoolean(value); // BooleanType
+          break;
+        case -1039453818:
+          this.availableStartTime = castToTime(value); // TimeType
+          break;
+        case 101151551:
+          this.availableEndTime = castToTime(value); // TimeType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("daysOfWeek"))
           this.getDaysOfWeek().add(new DaysOfWeekEnumFactory().fromType(value));
@@ -470,6 +502,18 @@ public class HealthcareService extends DomainResource {
           this.availableEndTime = castToTime(value); // TimeType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 68050338: throw new FHIRException("Cannot make property daysOfWeek as it is not a complex type"); // Enumeration<DaysOfWeek>
+        case -1414913477: throw new FHIRException("Cannot make property allDay as it is not a complex type"); // BooleanType
+        case -1039453818: throw new FHIRException("Cannot make property availableStartTime as it is not a complex type"); // TimeType
+        case 101151551: throw new FHIRException("Cannot make property availableEndTime as it is not a complex type"); // TimeType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -648,6 +692,30 @@ public class HealthcareService extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -1320499647: return this.during == null ? new Base[0] : new Base[] {this.during}; // Period
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -1320499647:
+          this.during = castToPeriod(value); // Period
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("description"))
           this.description = castToString(value); // StringType
@@ -655,6 +723,16 @@ public class HealthcareService extends DomainResource {
           this.during = castToPeriod(value); // Period
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -1320499647:  return getDuring(); // Period
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1914,6 +1992,114 @@ public class HealthcareService extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 205136282: return this.providedBy == null ? new Base[0] : new Base[] {this.providedBy}; // Reference
+        case 1281188563: return this.serviceCategory == null ? new Base[0] : new Base[] {this.serviceCategory}; // CodeableConcept
+        case -1928370289: return this.serviceType.toArray(new Base[this.serviceType.size()]); // CodeableConcept
+        case -1694759682: return this.specialty.toArray(new Base[this.specialty.size()]); // CodeableConcept
+        case 1901043637: return this.location.toArray(new Base[this.location.size()]); // Reference
+        case -1928572192: return this.serviceName == null ? new Base[0] : new Base[] {this.serviceName}; // StringType
+        case 950398559: return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        case -1469168622: return this.extraDetails == null ? new Base[0] : new Base[] {this.extraDetails}; // StringType
+        case 106642994: return this.photo == null ? new Base[0] : new Base[] {this.photo}; // Attachment
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        case -1532328299: return this.coverageArea.toArray(new Base[this.coverageArea.size()]); // Reference
+        case 1504575405: return this.serviceProvisionCode.toArray(new Base[this.serviceProvisionCode.size()]); // CodeableConcept
+        case -930847859: return this.eligibility == null ? new Base[0] : new Base[] {this.eligibility}; // CodeableConcept
+        case 1635973407: return this.eligibilityNote == null ? new Base[0] : new Base[] {this.eligibilityNote}; // StringType
+        case 1010379567: return this.programName.toArray(new Base[this.programName.size()]); // StringType
+        case 366313883: return this.characteristic.toArray(new Base[this.characteristic.size()]); // CodeableConcept
+        case -2092740898: return this.referralMethod.toArray(new Base[this.referralMethod.size()]); // CodeableConcept
+        case 1446899510: return this.publicKey == null ? new Base[0] : new Base[] {this.publicKey}; // StringType
+        case 427220062: return this.appointmentRequired == null ? new Base[0] : new Base[] {this.appointmentRequired}; // BooleanType
+        case 1873069366: return this.availableTime.toArray(new Base[this.availableTime.size()]); // HealthcareServiceAvailableTimeComponent
+        case -629572298: return this.notAvailable.toArray(new Base[this.notAvailable.size()]); // HealthcareServiceNotAvailableComponent
+        case -1149143617: return this.availabilityExceptions == null ? new Base[0] : new Base[] {this.availabilityExceptions}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 205136282:
+          this.providedBy = castToReference(value); // Reference
+          break;
+        case 1281188563:
+          this.serviceCategory = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1928370289:
+          this.serviceType.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1694759682:
+          this.specialty.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 1901043637:
+          this.location.add(castToReference(value)); // Reference
+          break;
+        case -1928572192:
+          this.serviceName = castToString(value); // StringType
+          break;
+        case 950398559:
+          this.comment = castToString(value); // StringType
+          break;
+        case -1469168622:
+          this.extraDetails = castToString(value); // StringType
+          break;
+        case 106642994:
+          this.photo = castToAttachment(value); // Attachment
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
+        case -1532328299:
+          this.coverageArea.add(castToReference(value)); // Reference
+          break;
+        case 1504575405:
+          this.serviceProvisionCode.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -930847859:
+          this.eligibility = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 1635973407:
+          this.eligibilityNote = castToString(value); // StringType
+          break;
+        case 1010379567:
+          this.programName.add(castToString(value)); // StringType
+          break;
+        case 366313883:
+          this.characteristic.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -2092740898:
+          this.referralMethod.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 1446899510:
+          this.publicKey = castToString(value); // StringType
+          break;
+        case 427220062:
+          this.appointmentRequired = castToBoolean(value); // BooleanType
+          break;
+        case 1873069366:
+          this.availableTime.add((HealthcareServiceAvailableTimeComponent) value); // HealthcareServiceAvailableTimeComponent
+          break;
+        case -629572298:
+          this.notAvailable.add((HealthcareServiceNotAvailableComponent) value); // HealthcareServiceNotAvailableComponent
+          break;
+        case -1149143617:
+          this.availabilityExceptions = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -1963,6 +2149,37 @@ public class HealthcareService extends DomainResource {
           this.availabilityExceptions = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 205136282:  return getProvidedBy(); // Reference
+        case 1281188563:  return getServiceCategory(); // CodeableConcept
+        case -1928370289:  return addServiceType(); // CodeableConcept
+        case -1694759682:  return addSpecialty(); // CodeableConcept
+        case 1901043637:  return addLocation(); // Reference
+        case -1928572192: throw new FHIRException("Cannot make property serviceName as it is not a complex type"); // StringType
+        case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
+        case -1469168622: throw new FHIRException("Cannot make property extraDetails as it is not a complex type"); // StringType
+        case 106642994:  return getPhoto(); // Attachment
+        case -1429363305:  return addTelecom(); // ContactPoint
+        case -1532328299:  return addCoverageArea(); // Reference
+        case 1504575405:  return addServiceProvisionCode(); // CodeableConcept
+        case -930847859:  return getEligibility(); // CodeableConcept
+        case 1635973407: throw new FHIRException("Cannot make property eligibilityNote as it is not a complex type"); // StringType
+        case 1010379567: throw new FHIRException("Cannot make property programName as it is not a complex type"); // StringType
+        case 366313883:  return addCharacteristic(); // CodeableConcept
+        case -2092740898:  return addReferralMethod(); // CodeableConcept
+        case 1446899510: throw new FHIRException("Cannot make property publicKey as it is not a complex type"); // StringType
+        case 427220062: throw new FHIRException("Cannot make property appointmentRequired as it is not a complex type"); // BooleanType
+        case 1873069366:  return addAvailableTime(); // HealthcareServiceAvailableTimeComponent
+        case -629572298:  return addNotAvailable(); // HealthcareServiceNotAvailableComponent
+        case -1149143617: throw new FHIRException("Cannot make property availabilityExceptions as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

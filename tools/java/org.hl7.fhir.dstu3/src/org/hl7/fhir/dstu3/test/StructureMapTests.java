@@ -107,6 +107,8 @@ public class StructureMapTests {
     Element cda = Manager.parse(context, new FileInputStream("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\Example\\ccd.xml"), FhirFormat.XML, false);
     Manager.compose(context, cda, new FileOutputStream("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\Example\\ccd.out.xml"), FhirFormat.XML, OutputStyle.PRETTY, null);
     StructureMapTransformer transformer = new StructureMapTransformer(context, maps, null);
-    transformer.transform(null, cda, maps.get("http://hl7.org/fhir/StructureMap/cda"), new Bundle());
+    Bundle bundle = new Bundle();
+    transformer.transform(null, cda, maps.get("http://hl7.org/fhir/StructureMap/cda"), bundle);
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream("c:\\temp\\bundle.xml"), bundle);
   }
 }

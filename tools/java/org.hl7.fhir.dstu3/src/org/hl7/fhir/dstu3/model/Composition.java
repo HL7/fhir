@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -371,7 +371,7 @@ public class Composition extends DomainResource {
           if (this.mode == null)
             return false;
           for (Enumeration<CompositionAttestationMode> v : this.mode)
-            if (v.equals(value)) // code
+            if (v.getValue().equals(value)) // code
               return true;
           return false;
         }
@@ -485,9 +485,15 @@ public class Composition extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3357091: this.mode.add(new CompositionAttestationModeEnumFactory().fromType(value)); // Enumeration<CompositionAttestationMode>
-        case 3560141: this.time = castToDateTime(value); // DateTimeType
-        case 106437350: this.party = castToReference(value); // Reference
+        case 3357091:
+          this.mode.add(new CompositionAttestationModeEnumFactory().fromType(value)); // Enumeration<CompositionAttestationMode>
+          break;
+        case 3560141:
+          this.time = castToDateTime(value); // DateTimeType
+          break;
+        case 106437350:
+          this.party = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -503,6 +509,17 @@ public class Composition extends DomainResource {
           this.party = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<CompositionAttestationMode>
+        case 3560141: throw new FHIRException("Cannot make property time as it is not a complex type"); // DateTimeType
+        case 106437350:  return getParty(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -738,9 +755,15 @@ public class Composition extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181: this.code.add(castToCodeableConcept(value)); // CodeableConcept
-        case -991726143: this.period = castToPeriod(value); // Period
-        case -1335224239: this.detail.add(castToReference(value)); // Reference
+        case 3059181:
+          this.code.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        case -1335224239:
+          this.detail.add(castToReference(value)); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -756,6 +779,17 @@ public class Composition extends DomainResource {
           this.getDetail().add(castToReference(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181:  return addCode(); // CodeableConcept
+        case -991726143:  return getPeriod(); // Period
+        case -1335224239:  return addDetail(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1210,14 +1244,30 @@ public class Composition extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 110371416: this.title = castToString(value); // StringType
-        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
-        case 3556653: this.text = castToNarrative(value); // Narrative
-        case 3357091: this.mode = castToCode(value); // CodeType
-        case -391079516: this.orderedBy = castToCodeableConcept(value); // CodeableConcept
-        case 96667762: this.entry.add(castToReference(value)); // Reference
-        case 1140135409: this.emptyReason = castToCodeableConcept(value); // CodeableConcept
-        case 1970241253: this.section.add((SectionComponent) value); // SectionComponent
+        case 110371416:
+          this.title = castToString(value); // StringType
+          break;
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 3556653:
+          this.text = castToNarrative(value); // Narrative
+          break;
+        case 3357091:
+          this.mode = castToCode(value); // CodeType
+          break;
+        case -391079516:
+          this.orderedBy = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 96667762:
+          this.entry.add(castToReference(value)); // Reference
+          break;
+        case 1140135409:
+          this.emptyReason = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 1970241253:
+          this.section.add((SectionComponent) value); // SectionComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1243,6 +1293,22 @@ public class Composition extends DomainResource {
           this.getSection().add((SectionComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
+        case 3059181:  return getCode(); // CodeableConcept
+        case 3556653:  return getText(); // Narrative
+        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // CodeType
+        case -391079516:  return getOrderedBy(); // CodeableConcept
+        case 96667762:  return addEntry(); // Reference
+        case 1140135409:  return getEmptyReason(); // CodeableConcept
+        case 1970241253:  return addSection(); // SectionComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2071,20 +2137,48 @@ public class Composition extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
-        case 3076014: this.date = castToDateTime(value); // DateTimeType
-        case 3575610: this.type = castToCodeableConcept(value); // CodeableConcept
-        case 94742904: this.class_ = castToCodeableConcept(value); // CodeableConcept
-        case 110371416: this.title = castToString(value); // StringType
-        case -892481550: this.status = new CompositionStatusEnumFactory().fromType(value); // Enumeration<CompositionStatus>
-        case -1923018202: this.confidentiality = castToCode(value); // CodeType
-        case -1867885268: this.subject = castToReference(value); // Reference
-        case -1406328437: this.author.add(castToReference(value)); // Reference
-        case 542920370: this.attester.add((CompositionAttesterComponent) value); // CompositionAttesterComponent
-        case 1611297262: this.custodian = castToReference(value); // Reference
-        case 96891546: this.event.add((CompositionEventComponent) value); // CompositionEventComponent
-        case 1524132147: this.encounter = castToReference(value); // Reference
-        case 1970241253: this.section.add((SectionComponent) value); // SectionComponent
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case 3076014:
+          this.date = castToDateTime(value); // DateTimeType
+          break;
+        case 3575610:
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 94742904:
+          this.class_ = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 110371416:
+          this.title = castToString(value); // StringType
+          break;
+        case -892481550:
+          this.status = new CompositionStatusEnumFactory().fromType(value); // Enumeration<CompositionStatus>
+          break;
+        case -1923018202:
+          this.confidentiality = castToCode(value); // CodeType
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case -1406328437:
+          this.author.add(castToReference(value)); // Reference
+          break;
+        case 542920370:
+          this.attester.add((CompositionAttesterComponent) value); // CompositionAttesterComponent
+          break;
+        case 1611297262:
+          this.custodian = castToReference(value); // Reference
+          break;
+        case 96891546:
+          this.event.add((CompositionEventComponent) value); // CompositionEventComponent
+          break;
+        case 1524132147:
+          this.encounter = castToReference(value); // Reference
+          break;
+        case 1970241253:
+          this.section.add((SectionComponent) value); // SectionComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -2122,6 +2216,28 @@ public class Composition extends DomainResource {
           this.getSection().add((SectionComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return getIdentifier(); // Identifier
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
+        case 3575610:  return getType(); // CodeableConcept
+        case 94742904:  return getClass_(); // CodeableConcept
+        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<CompositionStatus>
+        case -1923018202: throw new FHIRException("Cannot make property confidentiality as it is not a complex type"); // CodeType
+        case -1867885268:  return getSubject(); // Reference
+        case -1406328437:  return addAuthor(); // Reference
+        case 542920370:  return addAttester(); // CompositionAttesterComponent
+        case 1611297262:  return getCustodian(); // Reference
+        case 96891546:  return addEvent(); // CompositionEventComponent
+        case 1524132147:  return getEncounter(); // Reference
+        case 1970241253:  return addSection(); // SectionComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

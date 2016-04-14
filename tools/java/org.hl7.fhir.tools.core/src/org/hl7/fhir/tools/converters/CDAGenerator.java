@@ -385,6 +385,7 @@ public class CDAGenerator {
       for (Element prop : props) {
         processProperty(sd.getDifferential().getElement(), n, prop, p);
       }
+        
       if (n.equals("TS") || n.equals("PQ") )
         addInclusiveAttribute(sd.getDifferential().getElement(), n);
       if (n.equals("CE") || n.equals("CV") || n.equals("CD") )
@@ -507,6 +508,8 @@ public class CDAGenerator {
       ed.addRepresentation(PropertyRepresentation.XMLTEXT);
     else
       ed.addRepresentation(PropertyRepresentation.XMLATTR);
+    if (dtn.equals("TS"))
+      ed.addExtension().setUrl("http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat").setValue(new StringType("v3"));
     list.add(ed);
   }
 

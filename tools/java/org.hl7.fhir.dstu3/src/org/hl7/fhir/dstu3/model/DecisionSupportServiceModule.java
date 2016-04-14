@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -250,10 +250,18 @@ public class DecisionSupportServiceModule extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 455891387: this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
-        case -1059891784: this.trigger.add(castToTriggerDefinition(value)); // TriggerDefinition
-        case 1954460585: this.parameter.add(castToParameterDefinition(value)); // ParameterDefinition
-        case 629147193: this.dataRequirement.add(castToDataRequirement(value)); // DataRequirement
+        case 455891387:
+          this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
+          break;
+        case -1059891784:
+          this.trigger.add(castToTriggerDefinition(value)); // TriggerDefinition
+          break;
+        case 1954460585:
+          this.parameter.add(castToParameterDefinition(value)); // ParameterDefinition
+          break;
+        case 629147193:
+          this.dataRequirement.add(castToDataRequirement(value)); // DataRequirement
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -271,6 +279,18 @@ public class DecisionSupportServiceModule extends DomainResource {
           this.getDataRequirement().add(castToDataRequirement(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 455891387:  return getModuleMetadata(); // ModuleMetadata
+        case -1059891784:  return addTrigger(); // TriggerDefinition
+        case 1954460585:  return addParameter(); // ParameterDefinition
+        case 629147193:  return addDataRequirement(); // DataRequirement
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

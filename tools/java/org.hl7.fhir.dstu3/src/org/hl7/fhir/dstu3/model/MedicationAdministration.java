@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -457,6 +457,46 @@ public class MedicationAdministration extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3556653: return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        case 2099997657: return this.site == null ? new Base[0] : new Base[] {this.site}; // Type
+        case 108704329: return this.route == null ? new Base[0] : new Base[] {this.route}; // CodeableConcept
+        case -1077554975: return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
+        case -1285004149: return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case 983460768: return this.rate == null ? new Base[0] : new Base[] {this.rate}; // Type
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3556653:
+          this.text = castToString(value); // StringType
+          break;
+        case 2099997657:
+          this.site = (Type) value; // Type
+          break;
+        case 108704329:
+          this.route = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1077554975:
+          this.method = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1285004149:
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        case 983460768:
+          this.rate = (Type) value; // Type
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("text"))
           this.text = castToString(value); // StringType
@@ -472,6 +512,20 @@ public class MedicationAdministration extends DomainResource {
           this.rate = (Type) value; // Type
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
+        case 2099997657:  return getSite(); // Type
+        case 108704329:  return getRoute(); // CodeableConcept
+        case -1077554975:  return getMethod(); // CodeableConcept
+        case -1285004149:  return getQuantity(); // SimpleQuantity
+        case 983460768:  return getRate(); // Type
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1316,6 +1370,78 @@ public class MedicationAdministration extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationAdministrationStatus>
+        case 1458402129: return this.medication == null ? new Base[0] : new Base[] {this.medication}; // Type
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case -272263444: return this.effectiveTime == null ? new Base[0] : new Base[] {this.effectiveTime}; // Type
+        case 574573338: return this.practitioner == null ? new Base[0] : new Base[] {this.practitioner}; // Reference
+        case 460301338: return this.prescription == null ? new Base[0] : new Base[] {this.prescription}; // Reference
+        case -1050911117: return this.wasNotGiven == null ? new Base[0] : new Base[] {this.wasNotGiven}; // BooleanType
+        case 2101123790: return this.reasonNotGiven.toArray(new Base[this.reasonNotGiven.size()]); // CodeableConcept
+        case 914964377: return this.reasonGiven.toArray(new Base[this.reasonGiven.size()]); // CodeableConcept
+        case -1335157162: return this.device.toArray(new Base[this.device.size()]); // Reference
+        case 3387378: return this.note.toArray(new Base[this.note.size()]); // Annotation
+        case -1326018889: return this.dosage == null ? new Base[0] : new Base[] {this.dosage}; // MedicationAdministrationDosageComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -892481550:
+          this.status = new MedicationAdministrationStatusEnumFactory().fromType(value); // Enumeration<MedicationAdministrationStatus>
+          break;
+        case 1458402129:
+          this.medication = (Type) value; // Type
+          break;
+        case -791418107:
+          this.patient = castToReference(value); // Reference
+          break;
+        case 1524132147:
+          this.encounter = castToReference(value); // Reference
+          break;
+        case -272263444:
+          this.effectiveTime = (Type) value; // Type
+          break;
+        case 574573338:
+          this.practitioner = castToReference(value); // Reference
+          break;
+        case 460301338:
+          this.prescription = castToReference(value); // Reference
+          break;
+        case -1050911117:
+          this.wasNotGiven = castToBoolean(value); // BooleanType
+          break;
+        case 2101123790:
+          this.reasonNotGiven.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 914964377:
+          this.reasonGiven.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1335157162:
+          this.device.add(castToReference(value)); // Reference
+          break;
+        case 3387378:
+          this.note.add(castToAnnotation(value)); // Annotation
+          break;
+        case -1326018889:
+          this.dosage = (MedicationAdministrationDosageComponent) value; // MedicationAdministrationDosageComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -1347,6 +1473,28 @@ public class MedicationAdministration extends DomainResource {
           this.dosage = (MedicationAdministrationDosageComponent) value; // MedicationAdministrationDosageComponent
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<MedicationAdministrationStatus>
+        case 1458402129:  return getMedication(); // Type
+        case -791418107:  return getPatient(); // Reference
+        case 1524132147:  return getEncounter(); // Reference
+        case -272263444:  return getEffectiveTime(); // Type
+        case 574573338:  return getPractitioner(); // Reference
+        case 460301338:  return getPrescription(); // Reference
+        case -1050911117: throw new FHIRException("Cannot make property wasNotGiven as it is not a complex type"); // BooleanType
+        case 2101123790:  return addReasonNotGiven(); // CodeableConcept
+        case 914964377:  return addReasonGiven(); // CodeableConcept
+        case -1335157162:  return addDevice(); // Reference
+        case 3387378:  return addNote(); // Annotation
+        case -1326018889:  return getDosage(); // MedicationAdministrationDosageComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

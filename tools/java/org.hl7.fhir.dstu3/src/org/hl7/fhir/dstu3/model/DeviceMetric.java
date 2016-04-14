@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -890,9 +890,15 @@ public class DeviceMetric extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610: this.type = new DeviceMetricCalibrationTypeEnumFactory().fromType(value); // Enumeration<DeviceMetricCalibrationType>
-        case 109757585: this.state = new DeviceMetricCalibrationStateEnumFactory().fromType(value); // Enumeration<DeviceMetricCalibrationState>
-        case 3560141: this.time = castToInstant(value); // InstantType
+        case 3575610:
+          this.type = new DeviceMetricCalibrationTypeEnumFactory().fromType(value); // Enumeration<DeviceMetricCalibrationType>
+          break;
+        case 109757585:
+          this.state = new DeviceMetricCalibrationStateEnumFactory().fromType(value); // Enumeration<DeviceMetricCalibrationState>
+          break;
+        case 3560141:
+          this.time = castToInstant(value); // InstantType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -908,6 +914,17 @@ public class DeviceMetric extends DomainResource {
           this.time = castToInstant(value); // InstantType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<DeviceMetricCalibrationType>
+        case 109757585: throw new FHIRException("Cannot make property state as it is not a complex type"); // Enumeration<DeviceMetricCalibrationState>
+        case 3560141: throw new FHIRException("Cannot make property time as it is not a complex type"); // InstantType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1469,16 +1486,36 @@ public class DeviceMetric extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610: this.type = castToCodeableConcept(value); // CodeableConcept
-        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
-        case 3594628: this.unit = castToCodeableConcept(value); // CodeableConcept
-        case -896505829: this.source = castToReference(value); // Reference
-        case -995424086: this.parent = castToReference(value); // Reference
-        case -2103166364: this.operationalStatus = new DeviceMetricOperationalStatusEnumFactory().fromType(value); // Enumeration<DeviceMetricOperationalStatus>
-        case 94842723: this.color = new DeviceMetricColorEnumFactory().fromType(value); // Enumeration<DeviceMetricColor>
-        case 50511102: this.category = new DeviceMetricCategoryEnumFactory().fromType(value); // Enumeration<DeviceMetricCategory>
-        case -1300332387: this.measurementPeriod = castToTiming(value); // Timing
-        case 1421318634: this.calibration.add((DeviceMetricCalibrationComponent) value); // DeviceMetricCalibrationComponent
+        case 3575610:
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case 3594628:
+          this.unit = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -896505829:
+          this.source = castToReference(value); // Reference
+          break;
+        case -995424086:
+          this.parent = castToReference(value); // Reference
+          break;
+        case -2103166364:
+          this.operationalStatus = new DeviceMetricOperationalStatusEnumFactory().fromType(value); // Enumeration<DeviceMetricOperationalStatus>
+          break;
+        case 94842723:
+          this.color = new DeviceMetricColorEnumFactory().fromType(value); // Enumeration<DeviceMetricColor>
+          break;
+        case 50511102:
+          this.category = new DeviceMetricCategoryEnumFactory().fromType(value); // Enumeration<DeviceMetricCategory>
+          break;
+        case -1300332387:
+          this.measurementPeriod = castToTiming(value); // Timing
+          break;
+        case 1421318634:
+          this.calibration.add((DeviceMetricCalibrationComponent) value); // DeviceMetricCalibrationComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1508,6 +1545,24 @@ public class DeviceMetric extends DomainResource {
           this.getCalibration().add((DeviceMetricCalibrationComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getType(); // CodeableConcept
+        case -1618432855:  return getIdentifier(); // Identifier
+        case 3594628:  return getUnit(); // CodeableConcept
+        case -896505829:  return getSource(); // Reference
+        case -995424086:  return getParent(); // Reference
+        case -2103166364: throw new FHIRException("Cannot make property operationalStatus as it is not a complex type"); // Enumeration<DeviceMetricOperationalStatus>
+        case 94842723: throw new FHIRException("Cannot make property color as it is not a complex type"); // Enumeration<DeviceMetricColor>
+        case 50511102: throw new FHIRException("Cannot make property category as it is not a complex type"); // Enumeration<DeviceMetricCategory>
+        case -1300332387:  return getMeasurementPeriod(); // Timing
+        case 1421318634:  return addCalibration(); // DeviceMetricCalibrationComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

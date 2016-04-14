@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -181,8 +181,12 @@ public class ConceptMap extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707: this.name = castToString(value); // StringType
-        case -1429363305: this.telecom.add(castToContactPoint(value)); // ContactPoint
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -196,6 +200,16 @@ public class ConceptMap extends DomainResource {
           this.getTelecom().add(castToContactPoint(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1429363305:  return addTelecom(); // ContactPoint
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -503,10 +517,18 @@ public class ConceptMap extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -887328209: this.system = castToUri(value); // UriType
-        case 351608024: this.version = castToString(value); // StringType
-        case 3059181: this.code = castToCode(value); // CodeType
-        case -880905839: this.target.add((TargetElementComponent) value); // TargetElementComponent
+        case -887328209:
+          this.system = castToUri(value); // UriType
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case 3059181:
+          this.code = castToCode(value); // CodeType
+          break;
+        case -880905839:
+          this.target.add((TargetElementComponent) value); // TargetElementComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -524,6 +546,18 @@ public class ConceptMap extends DomainResource {
           this.getTarget().add((TargetElementComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // UriType
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
+        case -880905839:  return addTarget(); // TargetElementComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1010,13 +1044,27 @@ public class ConceptMap extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -887328209: this.system = castToUri(value); // UriType
-        case 351608024: this.version = castToString(value); // StringType
-        case 3059181: this.code = castToCode(value); // CodeType
-        case -15828692: this.equivalence = new ConceptMapEquivalenceEnumFactory().fromType(value); // Enumeration<ConceptMapEquivalence>
-        case -602415628: this.comments = castToString(value); // StringType
-        case -1109214266: this.dependsOn.add((OtherElementComponent) value); // OtherElementComponent
-        case -309474065: this.product.add((OtherElementComponent) value); // OtherElementComponent
+        case -887328209:
+          this.system = castToUri(value); // UriType
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case 3059181:
+          this.code = castToCode(value); // CodeType
+          break;
+        case -15828692:
+          this.equivalence = new ConceptMapEquivalenceEnumFactory().fromType(value); // Enumeration<ConceptMapEquivalence>
+          break;
+        case -602415628:
+          this.comments = castToString(value); // StringType
+          break;
+        case -1109214266:
+          this.dependsOn.add((OtherElementComponent) value); // OtherElementComponent
+          break;
+        case -309474065:
+          this.product.add((OtherElementComponent) value); // OtherElementComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1040,6 +1088,21 @@ public class ConceptMap extends DomainResource {
           this.getProduct().add((OtherElementComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // UriType
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
+        case -15828692: throw new FHIRException("Cannot make property equivalence as it is not a complex type"); // Enumeration<ConceptMapEquivalence>
+        case -602415628: throw new FHIRException("Cannot make property comments as it is not a complex type"); // StringType
+        case -1109214266:  return addDependsOn(); // OtherElementComponent
+        case -309474065:  return addProduct(); // OtherElementComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1324,9 +1387,15 @@ public class ConceptMap extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1662836996: this.element = castToUri(value); // UriType
-        case -887328209: this.system = castToUri(value); // UriType
-        case 3059181: this.code = castToString(value); // StringType
+        case -1662836996:
+          this.element = castToUri(value); // UriType
+          break;
+        case -887328209:
+          this.system = castToUri(value); // UriType
+          break;
+        case 3059181:
+          this.code = castToString(value); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1342,6 +1411,17 @@ public class ConceptMap extends DomainResource {
           this.code = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1662836996: throw new FHIRException("Cannot make property element as it is not a complex type"); // UriType
+        case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // UriType
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2296,22 +2376,54 @@ public class ConceptMap extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 116079: this.url = castToUri(value); // UriType
-        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
-        case 351608024: this.version = castToString(value); // StringType
-        case 3373707: this.name = castToString(value); // StringType
-        case -892481550: this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
-        case -404562712: this.experimental = castToBoolean(value); // BooleanType
-        case 1447404028: this.publisher = castToString(value); // StringType
-        case 951526432: this.contact.add((ConceptMapContactComponent) value); // ConceptMapContactComponent
-        case 3076014: this.date = castToDateTime(value); // DateTimeType
-        case -1724546052: this.description = castToString(value); // StringType
-        case -669707736: this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
-        case -1619874672: this.requirements = castToString(value); // StringType
-        case 1522889671: this.copyright = castToString(value); // StringType
-        case -1698413947: this.source = (Type) value; // Type
-        case -815579825: this.target = (Type) value; // Type
-        case -1662836996: this.element.add((SourceElementComponent) value); // SourceElementComponent
+        case 116079:
+          this.url = castToUri(value); // UriType
+          break;
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -892481550:
+          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          break;
+        case -404562712:
+          this.experimental = castToBoolean(value); // BooleanType
+          break;
+        case 1447404028:
+          this.publisher = castToString(value); // StringType
+          break;
+        case 951526432:
+          this.contact.add((ConceptMapContactComponent) value); // ConceptMapContactComponent
+          break;
+        case 3076014:
+          this.date = castToDateTime(value); // DateTimeType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -669707736:
+          this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1619874672:
+          this.requirements = castToString(value); // StringType
+          break;
+        case 1522889671:
+          this.copyright = castToString(value); // StringType
+          break;
+        case -1698413947:
+          this.source = (Type) value; // Type
+          break;
+        case -815579825:
+          this.target = (Type) value; // Type
+          break;
+        case -1662836996:
+          this.element.add((SourceElementComponent) value); // SourceElementComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -2353,6 +2465,30 @@ public class ConceptMap extends DomainResource {
           this.getElement().add((SourceElementComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case -1618432855:  return getIdentifier(); // Identifier
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
+        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
+        case 951526432:  return addContact(); // ConceptMapContactComponent
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -669707736:  return addUseContext(); // CodeableConcept
+        case -1619874672: throw new FHIRException("Cannot make property requirements as it is not a complex type"); // StringType
+        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
+        case -1698413947:  return getSource(); // Type
+        case -815579825:  return getTarget(); // Type
+        case -1662836996:  return addElement(); // SourceElementComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

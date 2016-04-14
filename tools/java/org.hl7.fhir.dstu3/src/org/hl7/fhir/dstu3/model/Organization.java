@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -207,6 +207,38 @@ public class Organization extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -220463842: return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // CodeableConcept
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // HumanName
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        case -1147692044: return this.address == null ? new Base[0] : new Base[] {this.address}; // Address
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -220463842:
+          this.purpose = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 3373707:
+          this.name = castToHumanName(value); // HumanName
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
+        case -1147692044:
+          this.address = castToAddress(value); // Address
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("purpose"))
           this.purpose = castToCodeableConcept(value); // CodeableConcept
@@ -218,6 +250,18 @@ public class Organization extends DomainResource {
           this.address = castToAddress(value); // Address
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -220463842:  return getPurpose(); // CodeableConcept
+        case 3373707:  return getName(); // HumanName
+        case -1429363305:  return addTelecom(); // ContactPoint
+        case -1147692044:  return getAddress(); // Address
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -693,6 +737,54 @@ public class Organization extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1422950650: return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        case -1147692044: return this.address.toArray(new Base[this.address.size()]); // Address
+        case -995410646: return this.partOf == null ? new Base[0] : new Base[] {this.partOf}; // Reference
+        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // OrganizationContactComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -1422950650:
+          this.active = castToBoolean(value); // BooleanType
+          break;
+        case 3575610:
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
+        case -1147692044:
+          this.address.add(castToAddress(value)); // Address
+          break;
+        case -995410646:
+          this.partOf = castToReference(value); // Reference
+          break;
+        case 951526432:
+          this.contact.add((OrganizationContactComponent) value); // OrganizationContactComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -712,6 +804,22 @@ public class Organization extends DomainResource {
           this.getContact().add((OrganizationContactComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -1422950650: throw new FHIRException("Cannot make property active as it is not a complex type"); // BooleanType
+        case 3575610:  return getType(); // CodeableConcept
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1429363305:  return addTelecom(); // ContactPoint
+        case -1147692044:  return addAddress(); // Address
+        case -995410646:  return getPartOf(); // Reference
+        case 951526432:  return addContact(); // OrganizationContactComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

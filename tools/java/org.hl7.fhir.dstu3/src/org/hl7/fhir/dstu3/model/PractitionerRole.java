@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -292,6 +292,38 @@ public class PractitionerRole extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 68050338: return this.daysOfWeek.toArray(new Base[this.daysOfWeek.size()]); // CodeType
+        case -1414913477: return this.allDay == null ? new Base[0] : new Base[] {this.allDay}; // BooleanType
+        case -1039453818: return this.availableStartTime == null ? new Base[0] : new Base[] {this.availableStartTime}; // TimeType
+        case 101151551: return this.availableEndTime == null ? new Base[0] : new Base[] {this.availableEndTime}; // TimeType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 68050338:
+          this.daysOfWeek.add(castToCode(value)); // CodeType
+          break;
+        case -1414913477:
+          this.allDay = castToBoolean(value); // BooleanType
+          break;
+        case -1039453818:
+          this.availableStartTime = castToTime(value); // TimeType
+          break;
+        case 101151551:
+          this.availableEndTime = castToTime(value); // TimeType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("daysOfWeek"))
           this.getDaysOfWeek().add(castToCode(value));
@@ -303,6 +335,18 @@ public class PractitionerRole extends DomainResource {
           this.availableEndTime = castToTime(value); // TimeType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 68050338: throw new FHIRException("Cannot make property daysOfWeek as it is not a complex type"); // CodeType
+        case -1414913477: throw new FHIRException("Cannot make property allDay as it is not a complex type"); // BooleanType
+        case -1039453818: throw new FHIRException("Cannot make property availableStartTime as it is not a complex type"); // TimeType
+        case 101151551: throw new FHIRException("Cannot make property availableEndTime as it is not a complex type"); // TimeType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -481,6 +525,30 @@ public class PractitionerRole extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -1320499647: return this.during == null ? new Base[0] : new Base[] {this.during}; // Period
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -1320499647:
+          this.during = castToPeriod(value); // Period
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("description"))
           this.description = castToString(value); // StringType
@@ -488,6 +556,16 @@ public class PractitionerRole extends DomainResource {
           this.during = castToPeriod(value); // Period
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -1320499647:  return getDuring(); // Period
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1249,6 +1327,74 @@ public class PractitionerRole extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1422950650: return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
+        case 574573338: return this.practitioner == null ? new Base[0] : new Base[] {this.practitioner}; // Reference
+        case 1178922291: return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
+        case 3506294: return this.role.toArray(new Base[this.role.size()]); // CodeableConcept
+        case -1694759682: return this.specialty.toArray(new Base[this.specialty.size()]); // CodeableConcept
+        case 1901043637: return this.location.toArray(new Base[this.location.size()]); // Reference
+        case 1289661064: return this.healthcareService.toArray(new Base[this.healthcareService.size()]); // Reference
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case 1873069366: return this.availableTime.toArray(new Base[this.availableTime.size()]); // PractitionerRoleAvailableTimeComponent
+        case -629572298: return this.notAvailable.toArray(new Base[this.notAvailable.size()]); // PractitionerRoleNotAvailableComponent
+        case -1149143617: return this.availabilityExceptions == null ? new Base[0] : new Base[] {this.availabilityExceptions}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -1422950650:
+          this.active = castToBoolean(value); // BooleanType
+          break;
+        case 574573338:
+          this.practitioner = castToReference(value); // Reference
+          break;
+        case 1178922291:
+          this.organization = castToReference(value); // Reference
+          break;
+        case 3506294:
+          this.role.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1694759682:
+          this.specialty.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 1901043637:
+          this.location.add(castToReference(value)); // Reference
+          break;
+        case 1289661064:
+          this.healthcareService.add(castToReference(value)); // Reference
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        case 1873069366:
+          this.availableTime.add((PractitionerRoleAvailableTimeComponent) value); // PractitionerRoleAvailableTimeComponent
+          break;
+        case -629572298:
+          this.notAvailable.add((PractitionerRoleNotAvailableComponent) value); // PractitionerRoleNotAvailableComponent
+          break;
+        case -1149143617:
+          this.availabilityExceptions = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -1278,6 +1424,27 @@ public class PractitionerRole extends DomainResource {
           this.availabilityExceptions = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -1422950650: throw new FHIRException("Cannot make property active as it is not a complex type"); // BooleanType
+        case 574573338:  return getPractitioner(); // Reference
+        case 1178922291:  return getOrganization(); // Reference
+        case 3506294:  return addRole(); // CodeableConcept
+        case -1694759682:  return addSpecialty(); // CodeableConcept
+        case 1901043637:  return addLocation(); // Reference
+        case 1289661064:  return addHealthcareService(); // Reference
+        case -1429363305:  return addTelecom(); // ContactPoint
+        case -991726143:  return getPeriod(); // Period
+        case 1873069366:  return addAvailableTime(); // PractitionerRoleAvailableTimeComponent
+        case -629572298:  return addNotAvailable(); // PractitionerRoleNotAvailableComponent
+        case -1149143617: throw new FHIRException("Cannot make property availabilityExceptions as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

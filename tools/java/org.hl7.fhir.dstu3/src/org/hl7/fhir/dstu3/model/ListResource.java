@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -471,6 +471,38 @@ public class ListResource extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3145580: return this.flag == null ? new Base[0] : new Base[] {this.flag}; // CodeableConcept
+        case 1550463001: return this.deleted == null ? new Base[0] : new Base[] {this.deleted}; // BooleanType
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case 3242771: return this.item == null ? new Base[0] : new Base[] {this.item}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3145580:
+          this.flag = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 1550463001:
+          this.deleted = castToBoolean(value); // BooleanType
+          break;
+        case 3076014:
+          this.date = castToDateTime(value); // DateTimeType
+          break;
+        case 3242771:
+          this.item = castToReference(value); // Reference
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("flag"))
           this.flag = castToCodeableConcept(value); // CodeableConcept
@@ -482,6 +514,18 @@ public class ListResource extends DomainResource {
           this.item = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3145580:  return getFlag(); // CodeableConcept
+        case 1550463001: throw new FHIRException("Cannot make property deleted as it is not a complex type"); // BooleanType
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
+        case 3242771:  return getItem(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1191,6 +1235,74 @@ public class ListResource extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ListStatus>
+        case 3357091: return this.mode == null ? new Base[0] : new Base[] {this.mode}; // Enumeration<ListMode>
+        case 110371416: return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -896505829: return this.source == null ? new Base[0] : new Base[] {this.source}; // Reference
+        case -391079516: return this.orderedBy == null ? new Base[0] : new Base[] {this.orderedBy}; // CodeableConcept
+        case 3387378: return this.note.toArray(new Base[this.note.size()]); // Annotation
+        case 96667762: return this.entry.toArray(new Base[this.entry.size()]); // ListEntryComponent
+        case 1140135409: return this.emptyReason == null ? new Base[0] : new Base[] {this.emptyReason}; // CodeableConcept
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -892481550:
+          this.status = new ListStatusEnumFactory().fromType(value); // Enumeration<ListStatus>
+          break;
+        case 3357091:
+          this.mode = new ListModeEnumFactory().fromType(value); // Enumeration<ListMode>
+          break;
+        case 110371416:
+          this.title = castToString(value); // StringType
+          break;
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case 1524132147:
+          this.encounter = castToReference(value); // Reference
+          break;
+        case 3076014:
+          this.date = castToDateTime(value); // DateTimeType
+          break;
+        case -896505829:
+          this.source = castToReference(value); // Reference
+          break;
+        case -391079516:
+          this.orderedBy = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 3387378:
+          this.note.add(castToAnnotation(value)); // Annotation
+          break;
+        case 96667762:
+          this.entry.add((ListEntryComponent) value); // ListEntryComponent
+          break;
+        case 1140135409:
+          this.emptyReason = castToCodeableConcept(value); // CodeableConcept
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -1220,6 +1332,27 @@ public class ListResource extends DomainResource {
           this.emptyReason = castToCodeableConcept(value); // CodeableConcept
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ListStatus>
+        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<ListMode>
+        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
+        case 3059181:  return getCode(); // CodeableConcept
+        case -1867885268:  return getSubject(); // Reference
+        case 1524132147:  return getEncounter(); // Reference
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
+        case -896505829:  return getSource(); // Reference
+        case -391079516:  return getOrderedBy(); // CodeableConcept
+        case 3387378:  return addNote(); // Annotation
+        case 96667762:  return addEntry(); // ListEntryComponent
+        case 1140135409:  return getEmptyReason(); // CodeableConcept
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1544,19 +1677,19 @@ public class ListResource extends DomainResource {
  /**
    * Search parameter: <b>notes</b>
    * <p>
-   * Description: <b>Comments about the list</b><br>
+   * Description: <b>The annotation  - text content</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>List.note</b><br>
+   * Path: <b>List.note.text</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="notes", path="List.note", description="Comments about the list", type="string" )
+  @SearchParamDefinition(name="notes", path="List.note.text", description="The annotation  - text content", type="string" )
   public static final String SP_NOTES = "notes";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>notes</b>
    * <p>
-   * Description: <b>Comments about the list</b><br>
+   * Description: <b>The annotation  - text content</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>List.note</b><br>
+   * Path: <b>List.note.text</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam NOTES = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NOTES);

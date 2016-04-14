@@ -3,7 +3,9 @@ package org.hl7.fhir.dstu3.metamodel;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.Base;
+import org.hl7.fhir.utilities.Utilities;
 
 /**
  * This class represents the reference model of FHIR
@@ -172,9 +174,39 @@ public class Element extends Base {
   }
 
   @Override
-  protected void listChildren(List<org.hl7.fhir.dstu3.model.Property> result) {
-    
-  }
+	public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+  	if (isPrimitive() && (hash == "value".hashCode()) && !Utilities.noString(value)) {
+  		String tn = getType();
+  		throw new Error("not done yet"); 
+  	}
+  		
+  	List<Base> result = new ArrayList<Base>();
+  	for (Element child : children) {
+  		if (child.getName().hashCode() == hash)
+  			result.add(child);
+  	}
+  	if (result.isEmpty() && checkValid) {
+//  		throw new FHIRException("not determined yet");
+  	}
+  	return result.toArray(new Base[result.size()]);
+	}
 
+	@Override
+	protected void listChildren(
+	    List<org.hl7.fhir.dstu3.model.Property> result) {
+	// TODO Auto-generated method stub
+	
+	}
+
+	@Override
+	public boolean isPrimitive() {
+		return property.isPrimitive();
+	}
+	
+	@Override
+	public String primitiveValue() {
+		return value;
+	}
+	
 	
 }

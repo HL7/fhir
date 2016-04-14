@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -117,7 +117,9 @@ public abstract class BackboneElement extends Element implements IBaseBackboneEl
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -298878168: this.modifierExtension.add(castToExtension(value)); // Extension
+        case -298878168:
+          this.modifierExtension.add(castToExtension(value)); // Extension
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -129,6 +131,15 @@ public abstract class BackboneElement extends Element implements IBaseBackboneEl
           this.getModifierExtension().add(castToExtension(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -298878168:  return addModifierExtension(); // Extension
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

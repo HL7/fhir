@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -674,10 +674,18 @@ public class DiagnosticOrder extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -892481550: this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
-        case -1724546052: this.description = castToCodeableConcept(value); // CodeableConcept
-        case 1792749467: this.dateTime = castToDateTime(value); // DateTimeType
-        case 92645877: this.actor = castToReference(value); // Reference
+        case -892481550:
+          this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
+          break;
+        case -1724546052:
+          this.description = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 1792749467:
+          this.dateTime = castToDateTime(value); // DateTimeType
+          break;
+        case 92645877:
+          this.actor = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -695,6 +703,18 @@ public class DiagnosticOrder extends DomainResource {
           this.actor = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DiagnosticOrderStatus>
+        case -1724546052:  return getDescription(); // CodeableConcept
+        case 1792749467: throw new FHIRException("Cannot make property dateTime as it is not a complex type"); // DateTimeType
+        case 92645877:  return getActor(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1042,11 +1062,21 @@ public class DiagnosticOrder extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
-        case -2132868344: this.specimen.add(castToReference(value)); // Reference
-        case 1702620169: this.bodySite = castToCodeableConcept(value); // CodeableConcept
-        case -892481550: this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
-        case 96891546: this.event.add((DiagnosticOrderEventComponent) value); // DiagnosticOrderEventComponent
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -2132868344:
+          this.specimen.add(castToReference(value)); // Reference
+          break;
+        case 1702620169:
+          this.bodySite = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -892481550:
+          this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
+          break;
+        case 96891546:
+          this.event.add((DiagnosticOrderEventComponent) value); // DiagnosticOrderEventComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1066,6 +1096,19 @@ public class DiagnosticOrder extends DomainResource {
           this.getEvent().add((DiagnosticOrderEventComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181:  return getCode(); // CodeableConcept
+        case -2132868344:  return addSpecimen(); // Reference
+        case 1702620169:  return getBodySite(); // CodeableConcept
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DiagnosticOrderStatus>
+        case 96891546:  return addEvent(); // DiagnosticOrderEventComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1844,18 +1887,42 @@ public class DiagnosticOrder extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case -892481550: this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
-        case -1165461084: this.priority = new DiagnosticOrderPriorityEnumFactory().fromType(value); // Enumeration<DiagnosticOrderPriority>
-        case -1867885268: this.subject = castToReference(value); // Reference
-        case 1524132147: this.encounter = castToReference(value); // Reference
-        case -1207109509: this.orderer = castToReference(value); // Reference
-        case -934964668: this.reason.add(castToCodeableConcept(value)); // CodeableConcept
-        case -1248768647: this.supportingInformation.add(castToReference(value)); // Reference
-        case -2132868344: this.specimen.add(castToReference(value)); // Reference
-        case 96891546: this.event.add((DiagnosticOrderEventComponent) value); // DiagnosticOrderEventComponent
-        case 3242771: this.item.add((DiagnosticOrderItemComponent) value); // DiagnosticOrderItemComponent
-        case 3387378: this.note.add(castToAnnotation(value)); // Annotation
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -892481550:
+          this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
+          break;
+        case -1165461084:
+          this.priority = new DiagnosticOrderPriorityEnumFactory().fromType(value); // Enumeration<DiagnosticOrderPriority>
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case 1524132147:
+          this.encounter = castToReference(value); // Reference
+          break;
+        case -1207109509:
+          this.orderer = castToReference(value); // Reference
+          break;
+        case -934964668:
+          this.reason.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1248768647:
+          this.supportingInformation.add(castToReference(value)); // Reference
+          break;
+        case -2132868344:
+          this.specimen.add(castToReference(value)); // Reference
+          break;
+        case 96891546:
+          this.event.add((DiagnosticOrderEventComponent) value); // DiagnosticOrderEventComponent
+          break;
+        case 3242771:
+          this.item.add((DiagnosticOrderItemComponent) value); // DiagnosticOrderItemComponent
+          break;
+        case 3387378:
+          this.note.add(castToAnnotation(value)); // Annotation
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1889,6 +1956,26 @@ public class DiagnosticOrder extends DomainResource {
           this.getNote().add(castToAnnotation(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DiagnosticOrderStatus>
+        case -1165461084: throw new FHIRException("Cannot make property priority as it is not a complex type"); // Enumeration<DiagnosticOrderPriority>
+        case -1867885268:  return getSubject(); // Reference
+        case 1524132147:  return getEncounter(); // Reference
+        case -1207109509:  return getOrderer(); // Reference
+        case -934964668:  return addReason(); // CodeableConcept
+        case -1248768647:  return addSupportingInformation(); // Reference
+        case -2132868344:  return addSpecimen(); // Reference
+        case 96891546:  return addEvent(); // DiagnosticOrderEventComponent
+        case 3242771:  return addItem(); // DiagnosticOrderItemComponent
+        case 3387378:  return addNote(); // Annotation
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

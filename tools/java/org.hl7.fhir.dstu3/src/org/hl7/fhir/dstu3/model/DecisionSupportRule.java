@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -335,11 +335,21 @@ public class DecisionSupportRule extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 455891387: this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
-        case 166208699: this.library.add(castToReference(value)); // Reference
-        case -1059891784: this.trigger.add(castToTriggerDefinition(value)); // TriggerDefinition
-        case -861311717: this.condition = castToString(value); // StringType
-        case -1422950858: this.action.add(castToActionDefinition(value)); // ActionDefinition
+        case 455891387:
+          this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
+          break;
+        case 166208699:
+          this.library.add(castToReference(value)); // Reference
+          break;
+        case -1059891784:
+          this.trigger.add(castToTriggerDefinition(value)); // TriggerDefinition
+          break;
+        case -861311717:
+          this.condition = castToString(value); // StringType
+          break;
+        case -1422950858:
+          this.action.add(castToActionDefinition(value)); // ActionDefinition
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -359,6 +369,19 @@ public class DecisionSupportRule extends DomainResource {
           this.getAction().add(castToActionDefinition(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 455891387:  return getModuleMetadata(); // ModuleMetadata
+        case 166208699:  return addLibrary(); // Reference
+        case -1059891784:  return addTrigger(); // TriggerDefinition
+        case -861311717: throw new FHIRException("Cannot make property condition as it is not a complex type"); // StringType
+        case -1422950858:  return addAction(); // ActionDefinition
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

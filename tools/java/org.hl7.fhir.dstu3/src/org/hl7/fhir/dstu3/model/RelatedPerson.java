@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -529,6 +529,62 @@ public class RelatedPerson extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -261851592: return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // CodeableConcept
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // HumanName
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        case -1249512767: return this.gender == null ? new Base[0] : new Base[] {this.gender}; // Enumeration<AdministrativeGender>
+        case -1210031859: return this.birthDate == null ? new Base[0] : new Base[] {this.birthDate}; // DateType
+        case -1147692044: return this.address.toArray(new Base[this.address.size()]); // Address
+        case 106642994: return this.photo.toArray(new Base[this.photo.size()]); // Attachment
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -791418107:
+          this.patient = castToReference(value); // Reference
+          break;
+        case -261851592:
+          this.relationship = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 3373707:
+          this.name = castToHumanName(value); // HumanName
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
+        case -1249512767:
+          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
+          break;
+        case -1210031859:
+          this.birthDate = castToDate(value); // DateType
+          break;
+        case -1147692044:
+          this.address.add(castToAddress(value)); // Address
+          break;
+        case 106642994:
+          this.photo.add(castToAttachment(value)); // Attachment
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -552,6 +608,24 @@ public class RelatedPerson extends DomainResource {
           this.period = castToPeriod(value); // Period
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -791418107:  return getPatient(); // Reference
+        case -261851592:  return getRelationship(); // CodeableConcept
+        case 3373707:  return getName(); // HumanName
+        case -1429363305:  return addTelecom(); // ContactPoint
+        case -1249512767: throw new FHIRException("Cannot make property gender as it is not a complex type"); // Enumeration<AdministrativeGender>
+        case -1210031859: throw new FHIRException("Cannot make property birthDate as it is not a complex type"); // DateType
+        case -1147692044:  return addAddress(); // Address
+        case 106642994:  return addPhoto(); // Attachment
+        case -991726143:  return getPeriod(); // Period
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

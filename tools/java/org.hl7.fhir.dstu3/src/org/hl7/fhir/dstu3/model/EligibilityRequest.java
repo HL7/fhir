@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -834,22 +834,54 @@ public class EligibilityRequest extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case 1548678118: this.ruleset = castToCoding(value); // Coding
-        case 1089373397: this.originalRuleset = castToCoding(value); // Coding
-        case 1028554472: this.created = castToDateTime(value); // DateTimeType
-        case -815579825: this.target = (Type) value; // Type
-        case 2064698607: this.provider = (Type) value; // Type
-        case 1326483053: this.organization = (Type) value; // Type
-        case -1165461084: this.priority = castToCoding(value); // Coding
-        case -812909349: this.enterer = (Type) value; // Type
-        case -542224643: this.facility = (Type) value; // Type
-        case -2061246629: this.patient = (Type) value; // Type
-        case 227689880: this.coverage = (Type) value; // Type
-        case 259920682: this.businessArrangement = castToString(value); // StringType
-        case -1927922223: this.serviced = (Type) value; // Type
-        case -1023390027: this.benefitCategory = castToCoding(value); // Coding
-        case 1987878471: this.benefitSubCategory = castToCoding(value); // Coding
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 1548678118:
+          this.ruleset = castToCoding(value); // Coding
+          break;
+        case 1089373397:
+          this.originalRuleset = castToCoding(value); // Coding
+          break;
+        case 1028554472:
+          this.created = castToDateTime(value); // DateTimeType
+          break;
+        case -815579825:
+          this.target = (Type) value; // Type
+          break;
+        case 2064698607:
+          this.provider = (Type) value; // Type
+          break;
+        case 1326483053:
+          this.organization = (Type) value; // Type
+          break;
+        case -1165461084:
+          this.priority = castToCoding(value); // Coding
+          break;
+        case -812909349:
+          this.enterer = (Type) value; // Type
+          break;
+        case -542224643:
+          this.facility = (Type) value; // Type
+          break;
+        case -2061246629:
+          this.patient = (Type) value; // Type
+          break;
+        case 227689880:
+          this.coverage = (Type) value; // Type
+          break;
+        case 259920682:
+          this.businessArrangement = castToString(value); // StringType
+          break;
+        case -1927922223:
+          this.serviced = (Type) value; // Type
+          break;
+        case -1023390027:
+          this.benefitCategory = castToCoding(value); // Coding
+          break;
+        case 1987878471:
+          this.benefitSubCategory = castToCoding(value); // Coding
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -891,6 +923,30 @@ public class EligibilityRequest extends DomainResource {
           this.benefitSubCategory = castToCoding(value); // Coding
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 1548678118:  return getRuleset(); // Coding
+        case 1089373397:  return getOriginalRuleset(); // Coding
+        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
+        case -815579825:  return getTarget(); // Type
+        case 2064698607:  return getProvider(); // Type
+        case 1326483053:  return getOrganization(); // Type
+        case -1165461084:  return getPriority(); // Coding
+        case -812909349:  return getEnterer(); // Type
+        case -542224643:  return getFacility(); // Type
+        case -2061246629:  return getPatient(); // Type
+        case 227689880:  return getCoverage(); // Type
+        case 259920682: throw new FHIRException("Cannot make property businessArrangement as it is not a complex type"); // StringType
+        case -1927922223:  return getServiced(); // Type
+        case -1023390027:  return getBenefitCategory(); // Coding
+        case 1987878471:  return getBenefitSubCategory(); // Coding
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

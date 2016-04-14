@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -901,6 +901,78 @@ public class GuidanceResponse extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -889046145: return this.actionIdentifier == null ? new Base[0] : new Base[] {this.actionIdentifier}; // Identifier
+        case 102727412: return this.label == null ? new Base[0] : new Base[] {this.label}; // StringType
+        case 110371416: return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -900391049: return this.textEquivalent == null ? new Base[0] : new Base[] {this.textEquivalent}; // StringType
+        case 951024232: return this.concept.toArray(new Base[this.concept.size()]); // CodeableConcept
+        case -1735429846: return this.supportingEvidence.toArray(new Base[this.supportingEvidence.size()]); // Attachment
+        case -384107967: return this.relatedAction == null ? new Base[0] : new Base[] {this.relatedAction}; // GuidanceResponseActionRelatedActionComponent
+        case 1587405498: return this.documentation.toArray(new Base[this.documentation.size()]); // Attachment
+        case 767422259: return this.participant.toArray(new Base[this.participant.size()]); // Reference
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
+        case 1510912594: return this.behavior.toArray(new Base[this.behavior.size()]); // GuidanceResponseActionBehaviorComponent
+        case -341064690: return this.resource == null ? new Base[0] : new Base[] {this.resource}; // Reference
+        case -1422950858: return this.action.toArray(new Base[this.action.size()]); // GuidanceResponseActionComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -889046145:
+          this.actionIdentifier = castToIdentifier(value); // Identifier
+          break;
+        case 102727412:
+          this.label = castToString(value); // StringType
+          break;
+        case 110371416:
+          this.title = castToString(value); // StringType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -900391049:
+          this.textEquivalent = castToString(value); // StringType
+          break;
+        case 951024232:
+          this.concept.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1735429846:
+          this.supportingEvidence.add(castToAttachment(value)); // Attachment
+          break;
+        case -384107967:
+          this.relatedAction = (GuidanceResponseActionRelatedActionComponent) value; // GuidanceResponseActionRelatedActionComponent
+          break;
+        case 1587405498:
+          this.documentation.add(castToAttachment(value)); // Attachment
+          break;
+        case 767422259:
+          this.participant.add(castToReference(value)); // Reference
+          break;
+        case 3575610:
+          this.type = castToCode(value); // CodeType
+          break;
+        case 1510912594:
+          this.behavior.add((GuidanceResponseActionBehaviorComponent) value); // GuidanceResponseActionBehaviorComponent
+          break;
+        case -341064690:
+          this.resource = castToReference(value); // Reference
+          break;
+        case -1422950858:
+          this.action.add((GuidanceResponseActionComponent) value); // GuidanceResponseActionComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("actionIdentifier"))
           this.actionIdentifier = castToIdentifier(value); // Identifier
@@ -932,6 +1004,28 @@ public class GuidanceResponse extends DomainResource {
           this.getAction().add((GuidanceResponseActionComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -889046145:  return getActionIdentifier(); // Identifier
+        case 102727412: throw new FHIRException("Cannot make property label as it is not a complex type"); // StringType
+        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -900391049: throw new FHIRException("Cannot make property textEquivalent as it is not a complex type"); // StringType
+        case 951024232:  return addConcept(); // CodeableConcept
+        case -1735429846:  return addSupportingEvidence(); // Attachment
+        case -384107967:  return getRelatedAction(); // GuidanceResponseActionRelatedActionComponent
+        case 1587405498:  return addDocumentation(); // Attachment
+        case 767422259:  return addParticipant(); // Reference
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
+        case 1510912594:  return addBehavior(); // GuidanceResponseActionBehaviorComponent
+        case -341064690:  return getResource(); // Reference
+        case -1422950858:  return addAction(); // GuidanceResponseActionComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1291,6 +1385,38 @@ public class GuidanceResponse extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -889046145: return this.actionIdentifier == null ? new Base[0] : new Base[] {this.actionIdentifier}; // Identifier
+        case -261851592: return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // CodeType
+        case -1960684787: return this.offset == null ? new Base[0] : new Base[] {this.offset}; // Type
+        case -1413299531: return this.anchor == null ? new Base[0] : new Base[] {this.anchor}; // CodeType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -889046145:
+          this.actionIdentifier = castToIdentifier(value); // Identifier
+          break;
+        case -261851592:
+          this.relationship = castToCode(value); // CodeType
+          break;
+        case -1960684787:
+          this.offset = (Type) value; // Type
+          break;
+        case -1413299531:
+          this.anchor = castToCode(value); // CodeType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("actionIdentifier"))
           this.actionIdentifier = castToIdentifier(value); // Identifier
@@ -1302,6 +1428,18 @@ public class GuidanceResponse extends DomainResource {
           this.anchor = castToCode(value); // CodeType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -889046145:  return getActionIdentifier(); // Identifier
+        case -261851592: throw new FHIRException("Cannot make property relationship as it is not a complex type"); // CodeType
+        case -1960684787:  return getOffset(); // Type
+        case -1413299531: throw new FHIRException("Cannot make property anchor as it is not a complex type"); // CodeType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1460,6 +1598,30 @@ public class GuidanceResponse extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // Coding
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = castToCoding(value); // Coding
+          break;
+        case 111972721:
+          this.value = castToCoding(value); // Coding
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCoding(value); // Coding
@@ -1467,6 +1629,16 @@ public class GuidanceResponse extends DomainResource {
           this.value = castToCoding(value); // Coding
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getType(); // Coding
+        case 111972721:  return getValue(); // Coding
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1935,6 +2107,50 @@ public class GuidanceResponse extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 693933066: return this.requestId == null ? new Base[0] : new Base[] {this.requestId}; // StringType
+        case -1068784020: return this.module == null ? new Base[0] : new Base[] {this.module}; // Reference
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<GuidanceResponseStatus>
+        case 1081619755: return this.evaluationMessage.toArray(new Base[this.evaluationMessage.size()]); // Reference
+        case 525609419: return this.outputParameters == null ? new Base[0] : new Base[] {this.outputParameters}; // Reference
+        case -1422950858: return this.action.toArray(new Base[this.action.size()]); // GuidanceResponseActionComponent
+        case 629147193: return this.dataRequirement.toArray(new Base[this.dataRequirement.size()]); // DataRequirement
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 693933066:
+          this.requestId = castToString(value); // StringType
+          break;
+        case -1068784020:
+          this.module = castToReference(value); // Reference
+          break;
+        case -892481550:
+          this.status = new GuidanceResponseStatusEnumFactory().fromType(value); // Enumeration<GuidanceResponseStatus>
+          break;
+        case 1081619755:
+          this.evaluationMessage.add(castToReference(value)); // Reference
+          break;
+        case 525609419:
+          this.outputParameters = castToReference(value); // Reference
+          break;
+        case -1422950858:
+          this.action.add((GuidanceResponseActionComponent) value); // GuidanceResponseActionComponent
+          break;
+        case 629147193:
+          this.dataRequirement.add(castToDataRequirement(value)); // DataRequirement
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("requestId"))
           this.requestId = castToString(value); // StringType
@@ -1952,6 +2168,21 @@ public class GuidanceResponse extends DomainResource {
           this.getDataRequirement().add(castToDataRequirement(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 693933066: throw new FHIRException("Cannot make property requestId as it is not a complex type"); // StringType
+        case -1068784020:  return getModule(); // Reference
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<GuidanceResponseStatus>
+        case 1081619755:  return addEvaluationMessage(); // Reference
+        case 525609419:  return getOutputParameters(); // Reference
+        case -1422950858:  return addAction(); // GuidanceResponseActionComponent
+        case 629147193:  return addDataRequirement(); // DataRequirement
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

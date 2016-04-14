@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -316,8 +316,12 @@ public class CompartmentDefinition extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707: this.name = castToString(value); // StringType
-        case -1429363305: this.telecom.add(castToContactPoint(value)); // ContactPoint
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -331,6 +335,16 @@ public class CompartmentDefinition extends DomainResource {
           this.getTelecom().add(castToContactPoint(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1429363305:  return addTelecom(); // ContactPoint
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -598,9 +612,15 @@ public class CompartmentDefinition extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181: this.code = castToCode(value); // CodeType
-        case 106436749: this.param.add(castToString(value)); // StringType
-        case 1587405498: this.documentation = castToString(value); // StringType
+        case 3059181:
+          this.code = castToCode(value); // CodeType
+          break;
+        case 106436749:
+          this.param.add(castToString(value)); // StringType
+          break;
+        case 1587405498:
+          this.documentation = castToString(value); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -616,6 +636,17 @@ public class CompartmentDefinition extends DomainResource {
           this.documentation = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
+        case 106436749: throw new FHIRException("Cannot make property param as it is not a complex type"); // StringType
+        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1373,18 +1404,42 @@ public class CompartmentDefinition extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 116079: this.url = castToUri(value); // UriType
-        case 3373707: this.name = castToString(value); // StringType
-        case -892481550: this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
-        case -404562712: this.experimental = castToBoolean(value); // BooleanType
-        case 1447404028: this.publisher = castToString(value); // StringType
-        case 951526432: this.contact.add((CompartmentDefinitionContactComponent) value); // CompartmentDefinitionContactComponent
-        case 3076014: this.date = castToDateTime(value); // DateTimeType
-        case -1724546052: this.description = castToString(value); // StringType
-        case -1619874672: this.requirements = castToString(value); // StringType
-        case 3059181: this.code = new CompartmentTypeEnumFactory().fromType(value); // Enumeration<CompartmentType>
-        case -906336856: this.search = castToBoolean(value); // BooleanType
-        case -341064690: this.resource.add((CompartmentDefinitionResourceComponent) value); // CompartmentDefinitionResourceComponent
+        case 116079:
+          this.url = castToUri(value); // UriType
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -892481550:
+          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          break;
+        case -404562712:
+          this.experimental = castToBoolean(value); // BooleanType
+          break;
+        case 1447404028:
+          this.publisher = castToString(value); // StringType
+          break;
+        case 951526432:
+          this.contact.add((CompartmentDefinitionContactComponent) value); // CompartmentDefinitionContactComponent
+          break;
+        case 3076014:
+          this.date = castToDateTime(value); // DateTimeType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -1619874672:
+          this.requirements = castToString(value); // StringType
+          break;
+        case 3059181:
+          this.code = new CompartmentTypeEnumFactory().fromType(value); // Enumeration<CompartmentType>
+          break;
+        case -906336856:
+          this.search = castToBoolean(value); // BooleanType
+          break;
+        case -341064690:
+          this.resource.add((CompartmentDefinitionResourceComponent) value); // CompartmentDefinitionResourceComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1418,6 +1473,26 @@ public class CompartmentDefinition extends DomainResource {
           this.getResource().add((CompartmentDefinitionResourceComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
+        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
+        case 951526432:  return addContact(); // CompartmentDefinitionContactComponent
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -1619874672: throw new FHIRException("Cannot make property requirements as it is not a complex type"); // StringType
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<CompartmentType>
+        case -906336856: throw new FHIRException("Cannot make property search as it is not a complex type"); // BooleanType
+        case -341064690:  return addResource(); // CompartmentDefinitionResourceComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

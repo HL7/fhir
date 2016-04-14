@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -386,6 +386,50 @@ public class Schedule extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 1281188563: return this.serviceCategory == null ? new Base[0] : new Base[] {this.serviceCategory}; // CodeableConcept
+        case -1928370289: return this.serviceType.toArray(new Base[this.serviceType.size()]); // CodeableConcept
+        case -1694759682: return this.specialty.toArray(new Base[this.specialty.size()]); // CodeableConcept
+        case 92645877: return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
+        case -1718507650: return this.planningHorizon == null ? new Base[0] : new Base[] {this.planningHorizon}; // Period
+        case 950398559: return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 1281188563:
+          this.serviceCategory = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1928370289:
+          this.serviceType.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1694759682:
+          this.specialty.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 92645877:
+          this.actor = castToReference(value); // Reference
+          break;
+        case -1718507650:
+          this.planningHorizon = castToPeriod(value); // Period
+          break;
+        case 950398559:
+          this.comment = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -403,6 +447,21 @@ public class Schedule extends DomainResource {
           this.comment = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 1281188563:  return getServiceCategory(); // CodeableConcept
+        case -1928370289:  return addServiceType(); // CodeableConcept
+        case -1694759682:  return addSpecialty(); // CodeableConcept
+        case 92645877:  return getActor(); // Reference
+        case -1718507650:  return getPlanningHorizon(); // Period
+        case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1012,17 +1012,39 @@ public class AuditEvent extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3506294: this.role.add(castToCodeableConcept(value)); // CodeableConcept
-        case -925155509: this.reference = castToReference(value); // Reference
-        case -836030906: this.userId = castToIdentifier(value); // Identifier
-        case 92912804: this.altId = castToString(value); // StringType
-        case 3373707: this.name = castToString(value); // StringType
-        case 693934258: this.requestor = castToBoolean(value); // BooleanType
-        case 1901043637: this.location = castToReference(value); // Reference
-        case -982670030: this.policy.add(castToUri(value)); // UriType
-        case 103772132: this.media = castToCoding(value); // Coding
-        case 1843485230: this.network = (AuditEventAgentNetworkComponent) value; // AuditEventAgentNetworkComponent
-        case -1881902670: this.purposeOfUse.add(castToCoding(value)); // Coding
+        case 3506294:
+          this.role.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -925155509:
+          this.reference = castToReference(value); // Reference
+          break;
+        case -836030906:
+          this.userId = castToIdentifier(value); // Identifier
+          break;
+        case 92912804:
+          this.altId = castToString(value); // StringType
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case 693934258:
+          this.requestor = castToBoolean(value); // BooleanType
+          break;
+        case 1901043637:
+          this.location = castToReference(value); // Reference
+          break;
+        case -982670030:
+          this.policy.add(castToUri(value)); // UriType
+          break;
+        case 103772132:
+          this.media = castToCoding(value); // Coding
+          break;
+        case 1843485230:
+          this.network = (AuditEventAgentNetworkComponent) value; // AuditEventAgentNetworkComponent
+          break;
+        case -1881902670:
+          this.purposeOfUse.add(castToCoding(value)); // Coding
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1054,6 +1076,25 @@ public class AuditEvent extends DomainResource {
           this.getPurposeOfUse().add(castToCoding(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3506294:  return addRole(); // CodeableConcept
+        case -925155509:  return getReference(); // Reference
+        case -836030906:  return getUserId(); // Identifier
+        case 92912804: throw new FHIRException("Cannot make property altId as it is not a complex type"); // StringType
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case 693934258: throw new FHIRException("Cannot make property requestor as it is not a complex type"); // BooleanType
+        case 1901043637:  return getLocation(); // Reference
+        case -982670030: throw new FHIRException("Cannot make property policy as it is not a complex type"); // UriType
+        case 103772132:  return getMedia(); // Coding
+        case 1843485230:  return getNetwork(); // AuditEventAgentNetworkComponent
+        case -1881902670:  return addPurposeOfUse(); // Coding
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1310,8 +1351,12 @@ public class AuditEvent extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1147692044: this.address = castToString(value); // StringType
-        case 3575610: this.type = new AuditEventParticipantNetworkTypeEnumFactory().fromType(value); // Enumeration<AuditEventParticipantNetworkType>
+        case -1147692044:
+          this.address = castToString(value); // StringType
+          break;
+        case 3575610:
+          this.type = new AuditEventParticipantNetworkTypeEnumFactory().fromType(value); // Enumeration<AuditEventParticipantNetworkType>
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1325,6 +1370,16 @@ public class AuditEvent extends DomainResource {
           this.type = new AuditEventParticipantNetworkTypeEnumFactory().fromType(value); // Enumeration<AuditEventParticipantNetworkType>
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1147692044: throw new FHIRException("Cannot make property address as it is not a complex type"); // StringType
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<AuditEventParticipantNetworkType>
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1553,9 +1608,15 @@ public class AuditEvent extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3530567: this.site = castToString(value); // StringType
-        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
-        case 3575610: this.type.add(castToCoding(value)); // Coding
+        case 3530567:
+          this.site = castToString(value); // StringType
+          break;
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case 3575610:
+          this.type.add(castToCoding(value)); // Coding
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1571,6 +1632,17 @@ public class AuditEvent extends DomainResource {
           this.getType().add(castToCoding(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3530567: throw new FHIRException("Cannot make property site as it is not a complex type"); // StringType
+        case -1618432855:  return getIdentifier(); // Identifier
+        case 3575610:  return addType(); // Coding
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2118,16 +2190,36 @@ public class AuditEvent extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
-        case -925155509: this.reference = castToReference(value); // Reference
-        case 3575610: this.type = castToCoding(value); // Coding
-        case 3506294: this.role = castToCoding(value); // Coding
-        case -302323862: this.lifecycle = castToCoding(value); // Coding
-        case -722296940: this.securityLabel.add(castToCoding(value)); // Coding
-        case 3373707: this.name = castToString(value); // StringType
-        case -1724546052: this.description = castToString(value); // StringType
-        case 107944136: this.query = castToBase64Binary(value); // Base64BinaryType
-        case -1335224239: this.detail.add((AuditEventEntityDetailComponent) value); // AuditEventEntityDetailComponent
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case -925155509:
+          this.reference = castToReference(value); // Reference
+          break;
+        case 3575610:
+          this.type = castToCoding(value); // Coding
+          break;
+        case 3506294:
+          this.role = castToCoding(value); // Coding
+          break;
+        case -302323862:
+          this.lifecycle = castToCoding(value); // Coding
+          break;
+        case -722296940:
+          this.securityLabel.add(castToCoding(value)); // Coding
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case 107944136:
+          this.query = castToBase64Binary(value); // Base64BinaryType
+          break;
+        case -1335224239:
+          this.detail.add((AuditEventEntityDetailComponent) value); // AuditEventEntityDetailComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -2157,6 +2249,24 @@ public class AuditEvent extends DomainResource {
           this.getDetail().add((AuditEventEntityDetailComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return getIdentifier(); // Identifier
+        case -925155509:  return getReference(); // Reference
+        case 3575610:  return getType(); // Coding
+        case 3506294:  return getRole(); // Coding
+        case -302323862:  return getLifecycle(); // Coding
+        case -722296940:  return addSecurityLabel(); // Coding
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 107944136: throw new FHIRException("Cannot make property query as it is not a complex type"); // Base64BinaryType
+        case -1335224239:  return addDetail(); // AuditEventEntityDetailComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2406,8 +2516,12 @@ public class AuditEvent extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610: this.type = castToString(value); // StringType
-        case 111972721: this.value = castToBase64Binary(value); // Base64BinaryType
+        case 3575610:
+          this.type = castToString(value); // StringType
+          break;
+        case 111972721:
+          this.value = castToBase64Binary(value); // Base64BinaryType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -2421,6 +2535,16 @@ public class AuditEvent extends DomainResource {
           this.value = castToBase64Binary(value); // Base64BinaryType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // StringType
+        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // Base64BinaryType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2999,16 +3123,36 @@ public class AuditEvent extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610: this.type = castToCoding(value); // Coding
-        case -1867567750: this.subtype.add(castToCoding(value)); // Coding
-        case -1422950858: this.action = new AuditEventActionEnumFactory().fromType(value); // Enumeration<AuditEventAction>
-        case -799233872: this.recorded = castToInstant(value); // InstantType
-        case -1106507950: this.outcome = new AuditEventOutcomeEnumFactory().fromType(value); // Enumeration<AuditEventOutcome>
-        case 1062502659: this.outcomeDesc = castToString(value); // StringType
-        case -341917691: this.purposeOfEvent.add(castToCoding(value)); // Coding
-        case 92750597: this.agent.add((AuditEventAgentComponent) value); // AuditEventAgentComponent
-        case -896505829: this.source = (AuditEventSourceComponent) value; // AuditEventSourceComponent
-        case -1298275357: this.entity.add((AuditEventEntityComponent) value); // AuditEventEntityComponent
+        case 3575610:
+          this.type = castToCoding(value); // Coding
+          break;
+        case -1867567750:
+          this.subtype.add(castToCoding(value)); // Coding
+          break;
+        case -1422950858:
+          this.action = new AuditEventActionEnumFactory().fromType(value); // Enumeration<AuditEventAction>
+          break;
+        case -799233872:
+          this.recorded = castToInstant(value); // InstantType
+          break;
+        case -1106507950:
+          this.outcome = new AuditEventOutcomeEnumFactory().fromType(value); // Enumeration<AuditEventOutcome>
+          break;
+        case 1062502659:
+          this.outcomeDesc = castToString(value); // StringType
+          break;
+        case -341917691:
+          this.purposeOfEvent.add(castToCoding(value)); // Coding
+          break;
+        case 92750597:
+          this.agent.add((AuditEventAgentComponent) value); // AuditEventAgentComponent
+          break;
+        case -896505829:
+          this.source = (AuditEventSourceComponent) value; // AuditEventSourceComponent
+          break;
+        case -1298275357:
+          this.entity.add((AuditEventEntityComponent) value); // AuditEventEntityComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -3038,6 +3182,24 @@ public class AuditEvent extends DomainResource {
           this.getEntity().add((AuditEventEntityComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getType(); // Coding
+        case -1867567750:  return addSubtype(); // Coding
+        case -1422950858: throw new FHIRException("Cannot make property action as it is not a complex type"); // Enumeration<AuditEventAction>
+        case -799233872: throw new FHIRException("Cannot make property recorded as it is not a complex type"); // InstantType
+        case -1106507950: throw new FHIRException("Cannot make property outcome as it is not a complex type"); // Enumeration<AuditEventOutcome>
+        case 1062502659: throw new FHIRException("Cannot make property outcomeDesc as it is not a complex type"); // StringType
+        case -341917691:  return addPurposeOfEvent(); // Coding
+        case 92750597:  return addAgent(); // AuditEventAgentComponent
+        case -896505829:  return getSource(); // AuditEventSourceComponent
+        case -1298275357:  return addEntity(); // AuditEventEntityComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

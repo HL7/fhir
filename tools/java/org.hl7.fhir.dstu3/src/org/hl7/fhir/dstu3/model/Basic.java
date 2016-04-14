@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -324,11 +324,21 @@ public class Basic extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
-        case -1867885268: this.subject = castToReference(value); // Reference
-        case 1028554472: this.created = castToDate(value); // DateType
-        case -1406328437: this.author = castToReference(value); // Reference
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case 1028554472:
+          this.created = castToDate(value); // DateType
+          break;
+        case -1406328437:
+          this.author = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -348,6 +358,19 @@ public class Basic extends DomainResource {
           this.author = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 3059181:  return getCode(); // CodeableConcept
+        case -1867885268:  return getSubject(); // Reference
+        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateType
+        case -1406328437:  return getAuthor(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

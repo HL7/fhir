@@ -914,7 +914,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     for (ElementDefn e : p.getElements()) {
       String tn = typeNames.get(e);
       if (!e.typeCode().equals("xhtml")) {
-        write(indent+"    case "+propId(e.getName())+": ");
+        write(indent+"    case "+propId(e.getName())+":\r\n");
         String name = e.getName().replace("[x]", "");
         String cn = "("+tn+") value";
         if (tn.contains("Enumeration<")) { // enumeration
@@ -923,10 +923,11 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           cn = "castTo"+upFirst(e.getTypes().get(0).getName())+"(value)";
         }
         if (e.unbounded()) {
-          write("this."+getElementName(name, true)+".add("+cn+"); // "+tn+"\r\n");
+          write(indent+"      this."+getElementName(name, true)+".add("+cn+"); // "+tn+"\r\n");
         } else {
-          write("this."+getElementName(name, true)+" = "+cn+"; // "+tn+"\r\n");
+          write(indent+"      this."+getElementName(name, true)+" = "+cn+"; // "+tn+"\r\n");
         }
+        write(indent+"      break;\r\n");
       }
     }
     write(indent+"    default: super.setProperty(hash, value);\r\n");

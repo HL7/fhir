@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -566,6 +566,42 @@ public class Observation extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 107348: return this.low == null ? new Base[0] : new Base[] {this.low}; // SimpleQuantity
+        case 3202466: return this.high == null ? new Base[0] : new Base[] {this.high}; // SimpleQuantity
+        case 938160637: return this.meaning == null ? new Base[0] : new Base[] {this.meaning}; // CodeableConcept
+        case 96511: return this.age == null ? new Base[0] : new Base[] {this.age}; // Range
+        case 3556653: return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 107348:
+          this.low = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        case 3202466:
+          this.high = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        case 938160637:
+          this.meaning = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 96511:
+          this.age = castToRange(value); // Range
+          break;
+        case 3556653:
+          this.text = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("low"))
           this.low = castToSimpleQuantity(value); // SimpleQuantity
@@ -579,6 +615,19 @@ public class Observation extends DomainResource {
           this.text = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 107348:  return getLow(); // SimpleQuantity
+        case 3202466:  return getHigh(); // SimpleQuantity
+        case 938160637:  return getMeaning(); // CodeableConcept
+        case 96511:  return getAge(); // Range
+        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -784,6 +833,30 @@ public class Observation extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ObservationRelationshipType>
+        case -880905839: return this.target == null ? new Base[0] : new Base[] {this.target}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = new ObservationRelationshipTypeEnumFactory().fromType(value); // Enumeration<ObservationRelationshipType>
+          break;
+        case -880905839:
+          this.target = castToReference(value); // Reference
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new ObservationRelationshipTypeEnumFactory().fromType(value); // Enumeration<ObservationRelationshipType>
@@ -791,6 +864,16 @@ public class Observation extends DomainResource {
           this.target = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<ObservationRelationshipType>
+        case -880905839:  return getTarget(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1139,6 +1222,38 @@ public class Observation extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -1410166417: return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
+        case 1034315687: return this.dataAbsentReason == null ? new Base[0] : new Base[] {this.dataAbsentReason}; // CodeableConcept
+        case -1912545102: return this.referenceRange.toArray(new Base[this.referenceRange.size()]); // ObservationReferenceRangeComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1410166417:
+          this.value = (Type) value; // Type
+          break;
+        case 1034315687:
+          this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1912545102:
+          this.referenceRange.add((ObservationReferenceRangeComponent) value); // ObservationReferenceRangeComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = castToCodeableConcept(value); // CodeableConcept
@@ -1150,6 +1265,18 @@ public class Observation extends DomainResource {
           this.getReferenceRange().add((ObservationReferenceRangeComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181:  return getCode(); // CodeableConcept
+        case -1410166417:  return getValue(); // Type
+        case 1034315687:  return getDataAbsentReason(); // CodeableConcept
+        case -1912545102:  return addReferenceRange(); // ObservationReferenceRangeComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2321,6 +2448,102 @@ public class Observation extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ObservationStatus>
+        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case 247104889: return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
+        case -1179159893: return this.issued == null ? new Base[0] : new Base[] {this.issued}; // InstantType
+        case 481140686: return this.performer.toArray(new Base[this.performer.size()]); // Reference
+        case -1410166417: return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
+        case 1034315687: return this.dataAbsentReason == null ? new Base[0] : new Base[] {this.dataAbsentReason}; // CodeableConcept
+        case -297950712: return this.interpretation == null ? new Base[0] : new Base[] {this.interpretation}; // CodeableConcept
+        case 950398559: return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        case 1702620169: return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
+        case -1077554975: return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
+        case -2132868344: return this.specimen == null ? new Base[0] : new Base[] {this.specimen}; // Reference
+        case -1335157162: return this.device == null ? new Base[0] : new Base[] {this.device}; // Reference
+        case -1912545102: return this.referenceRange.toArray(new Base[this.referenceRange.size()]); // ObservationReferenceRangeComponent
+        case 1090493483: return this.related.toArray(new Base[this.related.size()]); // ObservationRelatedComponent
+        case -1399907075: return this.component.toArray(new Base[this.component.size()]); // ObservationComponentComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -892481550:
+          this.status = new ObservationStatusEnumFactory().fromType(value); // Enumeration<ObservationStatus>
+          break;
+        case 50511102:
+          this.category = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case 1524132147:
+          this.encounter = castToReference(value); // Reference
+          break;
+        case 247104889:
+          this.effective = (Type) value; // Type
+          break;
+        case -1179159893:
+          this.issued = castToInstant(value); // InstantType
+          break;
+        case 481140686:
+          this.performer.add(castToReference(value)); // Reference
+          break;
+        case -1410166417:
+          this.value = (Type) value; // Type
+          break;
+        case 1034315687:
+          this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -297950712:
+          this.interpretation = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 950398559:
+          this.comment = castToString(value); // StringType
+          break;
+        case 1702620169:
+          this.bodySite = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1077554975:
+          this.method = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -2132868344:
+          this.specimen = castToReference(value); // Reference
+          break;
+        case -1335157162:
+          this.device = castToReference(value); // Reference
+          break;
+        case -1912545102:
+          this.referenceRange.add((ObservationReferenceRangeComponent) value); // ObservationReferenceRangeComponent
+          break;
+        case 1090493483:
+          this.related.add((ObservationRelatedComponent) value); // ObservationRelatedComponent
+          break;
+        case -1399907075:
+          this.component.add((ObservationComponentComponent) value); // ObservationComponentComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -2364,6 +2587,34 @@ public class Observation extends DomainResource {
           this.getComponent().add((ObservationComponentComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ObservationStatus>
+        case 50511102:  return getCategory(); // CodeableConcept
+        case 3059181:  return getCode(); // CodeableConcept
+        case -1867885268:  return getSubject(); // Reference
+        case 1524132147:  return getEncounter(); // Reference
+        case 247104889:  return getEffective(); // Type
+        case -1179159893: throw new FHIRException("Cannot make property issued as it is not a complex type"); // InstantType
+        case 481140686:  return addPerformer(); // Reference
+        case -1410166417:  return getValue(); // Type
+        case 1034315687:  return getDataAbsentReason(); // CodeableConcept
+        case -297950712:  return getInterpretation(); // CodeableConcept
+        case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
+        case 1702620169:  return getBodySite(); // CodeableConcept
+        case -1077554975:  return getMethod(); // CodeableConcept
+        case -2132868344:  return getSpecimen(); // Reference
+        case -1335157162:  return getDevice(); // Reference
+        case -1912545102:  return addReferenceRange(); // ObservationReferenceRangeComponent
+        case 1090493483:  return addRelated(); // ObservationRelatedComponent
+        case -1399907075:  return addComponent(); // ObservationComponentComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

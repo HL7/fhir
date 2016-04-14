@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -315,11 +315,40 @@ public class Goal extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1819555005: return this.result == null ? new Base[0] : new Base[] {this.result}; // Type
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1819555005:
+          this.result = (Type) value; // Type
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("result[x]"))
           this.result = (Type) value; // Type
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1819555005:  return getResult(); // Type
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1088,6 +1117,78 @@ public class Goal extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 1316793566: return this.start == null ? new Base[0] : new Base[] {this.start}; // Type
+        case -815579825: return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
+        case 50511102: return this.category.toArray(new Base[this.category.size()]); // CodeableConcept
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<GoalStatus>
+        case 247524032: return this.statusDate == null ? new Base[0] : new Base[] {this.statusDate}; // DateType
+        case 2051346646: return this.statusReason == null ? new Base[0] : new Base[] {this.statusReason}; // CodeableConcept
+        case 175423686: return this.expressedBy == null ? new Base[0] : new Base[] {this.expressedBy}; // Reference
+        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
+        case 874544034: return this.addresses.toArray(new Base[this.addresses.size()]); // Reference
+        case 3387378: return this.note.toArray(new Base[this.note.size()]); // Annotation
+        case -1106507950: return this.outcome.toArray(new Base[this.outcome.size()]); // GoalOutcomeComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case 1316793566:
+          this.start = (Type) value; // Type
+          break;
+        case -815579825:
+          this.target = (Type) value; // Type
+          break;
+        case 50511102:
+          this.category.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -892481550:
+          this.status = new GoalStatusEnumFactory().fromType(value); // Enumeration<GoalStatus>
+          break;
+        case 247524032:
+          this.statusDate = castToDate(value); // DateType
+          break;
+        case 2051346646:
+          this.statusReason = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 175423686:
+          this.expressedBy = castToReference(value); // Reference
+          break;
+        case -1165461084:
+          this.priority = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 874544034:
+          this.addresses.add(castToReference(value)); // Reference
+          break;
+        case 3387378:
+          this.note.add(castToAnnotation(value)); // Annotation
+          break;
+        case -1106507950:
+          this.outcome.add((GoalOutcomeComponent) value); // GoalOutcomeComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -1119,6 +1220,28 @@ public class Goal extends DomainResource {
           this.getOutcome().add((GoalOutcomeComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -1867885268:  return getSubject(); // Reference
+        case 1316793566:  return getStart(); // Type
+        case -815579825:  return getTarget(); // Type
+        case 50511102:  return addCategory(); // CodeableConcept
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<GoalStatus>
+        case 247524032: throw new FHIRException("Cannot make property statusDate as it is not a complex type"); // DateType
+        case 2051346646:  return getStatusReason(); // CodeableConcept
+        case 175423686:  return getExpressedBy(); // Reference
+        case -1165461084:  return getPriority(); // CodeableConcept
+        case 874544034:  return addAddresses(); // Reference
+        case 3387378:  return addNote(); // Annotation
+        case -1106507950:  return addOutcome(); // GoalOutcomeComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

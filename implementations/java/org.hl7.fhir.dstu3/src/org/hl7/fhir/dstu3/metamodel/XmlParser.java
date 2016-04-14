@@ -13,10 +13,13 @@ import org.apache.commons.lang3.NotImplementedException;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -69,12 +72,20 @@ public class XmlParser extends ParserBase {
       if (isAttr(property)) {
       	Attr attr = node.getAttributeNode(property.getName());
         if (attr != null) {
-      	processed.add(attr);
-      	if (attr != null)
-      		if (property.getName().equals("value"))
-      			context.setValue(attr.getValue());
+      	  processed.add(attr);
+      	  String av = attr.getValue();
+      	  if (ToolingExtensions.hasExtension(property.getDefinition(), "http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat"))
+      	  	av = convertForDateFormat(ToolingExtensions.readStringExtension(property.getDefinition(), "http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat"), av);
+      		if (property.getName().equals("value") && context.isPrimitive())
+      			context.setValue(av);
       		else
-      	    context.getChildren().add(new Element(property.getName(), property, property.getType(), attr.getValue()));
+      	    context.getChildren().add(new Element(property.getName(), property, property.getType(), av));
+        }
+      } else if (isText(property)) {
+      	String text = XMLUtil.getDirectText(node);
+        if (!Utilities.noString(text)) {
+        	processed.add(node);
+    	    context.getChildren().add(new Element(property.getName(), property, property.getType(), text));
         }
       } else if (property.isPrimitive() && "xhtml".equals(property.getType())) {
       	org.w3c.dom.Element div = XMLUtil.getNamedChild(node, property.getName());
@@ -110,7 +121,15 @@ public class XmlParser extends ParserBase {
     }
   }
 
-  private void parseResource(String string, org.w3c.dom.Element container, Element parent) throws Exception {
+  private String convertForDateFormat(String fmt, String av) throws FHIRException {
+  	if ("v3".equals(fmt)) {
+  		DateTimeType d = DateTimeType.parseV3(av);
+  		return d.asStringValue();
+  	} else
+  		throw new FHIRException("Unknown Data format '"+fmt+"'");
+	}
+
+	private void parseResource(String string, org.w3c.dom.Element container, Element parent) throws Exception {
   	org.w3c.dom.Element res = XMLUtil.getFirstChild(container);
     String name = res.getNodeName();
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+name);

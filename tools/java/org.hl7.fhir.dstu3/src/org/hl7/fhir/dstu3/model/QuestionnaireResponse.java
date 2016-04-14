@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -428,6 +428,42 @@ public class QuestionnaireResponse extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1102667083: return this.linkId == null ? new Base[0] : new Base[] {this.linkId}; // StringType
+        case 3556653: return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case -1412808770: return this.answer.toArray(new Base[this.answer.size()]); // QuestionnaireResponseItemAnswerComponent
+        case 3242771: return this.item.toArray(new Base[this.item.size()]); // QuestionnaireResponseItemComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1102667083:
+          this.linkId = castToString(value); // StringType
+          break;
+        case 3556653:
+          this.text = castToString(value); // StringType
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case -1412808770:
+          this.answer.add((QuestionnaireResponseItemAnswerComponent) value); // QuestionnaireResponseItemAnswerComponent
+          break;
+        case 3242771:
+          this.item.add((QuestionnaireResponseItemComponent) value); // QuestionnaireResponseItemComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("linkId"))
           this.linkId = castToString(value); // StringType
@@ -441,6 +477,19 @@ public class QuestionnaireResponse extends DomainResource {
           this.getItem().add((QuestionnaireResponseItemComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1102667083: throw new FHIRException("Cannot make property linkId as it is not a complex type"); // StringType
+        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
+        case -1867885268:  return getSubject(); // Reference
+        case -1412808770:  return addAnswer(); // QuestionnaireResponseItemAnswerComponent
+        case 3242771:  return addItem(); // QuestionnaireResponseItemComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -778,6 +827,30 @@ public class QuestionnaireResponse extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1410166417: return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
+        case 3242771: return this.item.toArray(new Base[this.item.size()]); // QuestionnaireResponseItemComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1410166417:
+          this.value = (Type) value; // Type
+          break;
+        case 3242771:
+          this.item.add((QuestionnaireResponseItemComponent) value); // QuestionnaireResponseItemComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("value[x]"))
           this.value = (Type) value; // Type
@@ -785,6 +858,16 @@ public class QuestionnaireResponse extends DomainResource {
           this.getItem().add((QuestionnaireResponseItemComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1410166417:  return getValue(); // Type
+        case 3242771:  return addItem(); // QuestionnaireResponseItemComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1374,6 +1457,58 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case -1017049693: return this.questionnaire == null ? new Base[0] : new Base[] {this.questionnaire}; // Reference
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<QuestionnaireResponseStatus>
+        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case -1406328437: return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
+        case 1433073514: return this.authored == null ? new Base[0] : new Base[] {this.authored}; // DateTimeType
+        case -896505829: return this.source == null ? new Base[0] : new Base[] {this.source}; // Reference
+        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case 3242771: return this.item.toArray(new Base[this.item.size()]); // QuestionnaireResponseItemComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case -1017049693:
+          this.questionnaire = castToReference(value); // Reference
+          break;
+        case -892481550:
+          this.status = new QuestionnaireResponseStatusEnumFactory().fromType(value); // Enumeration<QuestionnaireResponseStatus>
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case -1406328437:
+          this.author = castToReference(value); // Reference
+          break;
+        case 1433073514:
+          this.authored = castToDateTime(value); // DateTimeType
+          break;
+        case -896505829:
+          this.source = castToReference(value); // Reference
+          break;
+        case 1524132147:
+          this.encounter = castToReference(value); // Reference
+          break;
+        case 3242771:
+          this.item.add((QuestionnaireResponseItemComponent) value); // QuestionnaireResponseItemComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
@@ -1395,6 +1530,23 @@ public class QuestionnaireResponse extends DomainResource {
           this.getItem().add((QuestionnaireResponseItemComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return getIdentifier(); // Identifier
+        case -1017049693:  return getQuestionnaire(); // Reference
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<QuestionnaireResponseStatus>
+        case -1867885268:  return getSubject(); // Reference
+        case -1406328437:  return getAuthor(); // Reference
+        case 1433073514: throw new FHIRException("Cannot make property authored as it is not a complex type"); // DateTimeType
+        case -896505829:  return getSource(); // Reference
+        case 1524132147:  return getEncounter(); // Reference
+        case 3242771:  return addItem(); // QuestionnaireResponseItemComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -703,6 +703,66 @@ public class SupplyDelivery extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<SupplyDeliveryStatus>
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case -1285004149: return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case 1993333233: return this.suppliedItem == null ? new Base[0] : new Base[] {this.suppliedItem}; // Reference
+        case -1663305268: return this.supplier == null ? new Base[0] : new Base[] {this.supplier}; // Reference
+        case -562837097: return this.whenPrepared == null ? new Base[0] : new Base[] {this.whenPrepared}; // Period
+        case 3560141: return this.time == null ? new Base[0] : new Base[] {this.time}; // DateTimeType
+        case -1429847026: return this.destination == null ? new Base[0] : new Base[] {this.destination}; // Reference
+        case -808719889: return this.receiver.toArray(new Base[this.receiver.size()]); // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case -892481550:
+          this.status = new SupplyDeliveryStatusEnumFactory().fromType(value); // Enumeration<SupplyDeliveryStatus>
+          break;
+        case -791418107:
+          this.patient = castToReference(value); // Reference
+          break;
+        case 3575610:
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1285004149:
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        case 1993333233:
+          this.suppliedItem = castToReference(value); // Reference
+          break;
+        case -1663305268:
+          this.supplier = castToReference(value); // Reference
+          break;
+        case -562837097:
+          this.whenPrepared = castToPeriod(value); // Period
+          break;
+        case 3560141:
+          this.time = castToDateTime(value); // DateTimeType
+          break;
+        case -1429847026:
+          this.destination = castToReference(value); // Reference
+          break;
+        case -808719889:
+          this.receiver.add(castToReference(value)); // Reference
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
@@ -728,6 +788,25 @@ public class SupplyDelivery extends DomainResource {
           this.getReceiver().add(castToReference(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return getIdentifier(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<SupplyDeliveryStatus>
+        case -791418107:  return getPatient(); // Reference
+        case 3575610:  return getType(); // CodeableConcept
+        case -1285004149:  return getQuantity(); // SimpleQuantity
+        case 1993333233:  return getSuppliedItem(); // Reference
+        case -1663305268:  return getSupplier(); // Reference
+        case -562837097:  return getWhenPrepared(); // Period
+        case 3560141: throw new FHIRException("Cannot make property time as it is not a complex type"); // DateTimeType
+        case -1429847026:  return getDestination(); // Reference
+        case -808719889:  return addReceiver(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

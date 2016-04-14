@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1163,6 +1163,94 @@ public class ReferralRequest extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -332612366: return this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
+        case -995424086: return this.parent == null ? new Base[0] : new Base[] {this.parent}; // Identifier
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ReferralStatus>
+        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // Enumeration<ReferralCategory>
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case 951530927: return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
+        case 1098185163: return this.fulfillmentTime == null ? new Base[0] : new Base[] {this.fulfillmentTime}; // Period
+        case 1433073514: return this.authored == null ? new Base[0] : new Base[] {this.authored}; // DateTimeType
+        case 693933948: return this.requester == null ? new Base[0] : new Base[] {this.requester}; // Reference
+        case -1694759682: return this.specialty == null ? new Base[0] : new Base[] {this.specialty}; // CodeableConcept
+        case 820081177: return this.recipient.toArray(new Base[this.recipient.size()]); // Reference
+        case -934964668: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // CodeableConcept
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 190229561: return this.serviceRequested.toArray(new Base[this.serviceRequested.size()]); // CodeableConcept
+        case -1248768647: return this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -332612366:
+          this.basedOn.add(castToReference(value)); // Reference
+          break;
+        case -995424086:
+          this.parent = castToIdentifier(value); // Identifier
+          break;
+        case -892481550:
+          this.status = new ReferralStatusEnumFactory().fromType(value); // Enumeration<ReferralStatus>
+          break;
+        case 50511102:
+          this.category = new ReferralCategoryEnumFactory().fromType(value); // Enumeration<ReferralCategory>
+          break;
+        case 3575610:
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1165461084:
+          this.priority = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -791418107:
+          this.patient = castToReference(value); // Reference
+          break;
+        case 951530927:
+          this.context = castToReference(value); // Reference
+          break;
+        case 1098185163:
+          this.fulfillmentTime = castToPeriod(value); // Period
+          break;
+        case 1433073514:
+          this.authored = castToDateTime(value); // DateTimeType
+          break;
+        case 693933948:
+          this.requester = castToReference(value); // Reference
+          break;
+        case -1694759682:
+          this.specialty = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 820081177:
+          this.recipient.add(castToReference(value)); // Reference
+          break;
+        case -934964668:
+          this.reason = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case 190229561:
+          this.serviceRequested.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1248768647:
+          this.supportingInformation.add(castToReference(value)); // Reference
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -1202,6 +1290,32 @@ public class ReferralRequest extends DomainResource {
           this.getSupportingInformation().add(castToReference(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -332612366:  return addBasedOn(); // Reference
+        case -995424086:  return getParent(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ReferralStatus>
+        case 50511102: throw new FHIRException("Cannot make property category as it is not a complex type"); // Enumeration<ReferralCategory>
+        case 3575610:  return getType(); // CodeableConcept
+        case -1165461084:  return getPriority(); // CodeableConcept
+        case -791418107:  return getPatient(); // Reference
+        case 951530927:  return getContext(); // Reference
+        case 1098185163:  return getFulfillmentTime(); // Period
+        case 1433073514: throw new FHIRException("Cannot make property authored as it is not a complex type"); // DateTimeType
+        case 693933948:  return getRequester(); // Reference
+        case -1694759682:  return getSpecialty(); // CodeableConcept
+        case 820081177:  return addRecipient(); // Reference
+        case -934964668:  return getReason(); // CodeableConcept
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 190229561:  return addServiceRequested(); // CodeableConcept
+        case -1248768647:  return addSupportingInformation(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

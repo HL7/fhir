@@ -139,14 +139,23 @@ private Map<String, Object> userData;
     return null;
   }  
   
-  public List<Base> listChildrenByName(String name) {
-    List<Property> children = new ArrayList<Property>();
-    listChildren(children);
-    List<Base> result = new ArrayList<Base>();
-    for (Property c : children)
-      if (name.equals("*") || c.getName().equals(name) || (c.getName().endsWith("[x]") && c.getName().startsWith(name)))
-        result.addAll(c.getValues());
-    return result;
+  public List<Base> listChildrenByName(String name) throws FHIRException {
+  	List<Base> result = new ArrayList<Base>();
+  	for (Base b : listChildrenByName(name, true))
+  		if (b != null)
+  		  result.add(b);
+  	return result;
+  }
+  
+  public Base[] listChildrenByName(String name, boolean checkValid) throws FHIRException {
+  	return getProperty(name.hashCode(), checkValid);
+//    List<Property> children = new ArrayList<Property>();
+//    listChildren(children);
+//    List<Base> result = new ArrayList<Base>();
+//    for (Property c : children)
+//      if (name.equals("*") || c.getName().equals(name) || (c.getName().endsWith("[x]") && c.getName().startsWith(name)))
+//        result.addAll(c.getValues());
+//    return result;
   }
 
 	public boolean isEmpty() {
@@ -262,6 +271,8 @@ private Map<String, Object> userData;
 	public StringType castToString(Base b) throws FHIRException {
 		if (b instanceof StringType)
 			return (StringType) b;
+		else if (b.isPrimitive())
+			return new StringType(b.primitiveValue());
 		else
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a String");
 	}
@@ -283,6 +294,8 @@ private Map<String, Object> userData;
 	public DateTimeType castToDateTime(Base b) throws FHIRException {
 		if (b instanceof DateTimeType)
 			return (DateTimeType) b;
+		else if (b.fhirType().equals("dateTime"))
+			return new DateTimeType(b.primitiveValue());
 		else
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a DateTime");
 	}
@@ -297,6 +310,8 @@ private Map<String, Object> userData;
 	public CodeType castToCode(Base b) throws FHIRException {
 		if (b instanceof CodeType)
 			return (CodeType) b;
+		else if (b.isPrimitive())
+			return new CodeType(b.primitiveValue());
 		else
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a Code");
 	}

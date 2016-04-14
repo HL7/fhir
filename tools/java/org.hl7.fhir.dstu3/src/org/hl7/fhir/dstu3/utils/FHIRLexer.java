@@ -246,7 +246,10 @@ public class FHIRLexer {
     if (!isStringConstant())
       throw error("Found "+current+" expecting \"["+desc+"]\"");
 
-    String s = take();
+    return processConstant(take());
+  }
+
+  public String processConstant(String s) throws FHIRLexerException {
     StringBuilder b = new StringBuilder();
     int i = 1;
     while (i < s.length()-1) {

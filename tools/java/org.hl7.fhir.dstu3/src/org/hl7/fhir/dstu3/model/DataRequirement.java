@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -350,11 +350,21 @@ public class DataRequirement extends Type implements ICompositeType {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3433509: this.path = castToString(value); // StringType
-        case -1438410321: this.valueSet = (Type) value; // Type
-        case -766209282: this.valueCode.add(castToCode(value)); // CodeType
-        case -1887705029: this.valueCoding.add(castToCoding(value)); // Coding
-        case 924902896: this.valueCodeableConcept.add(castToCodeableConcept(value)); // CodeableConcept
+        case 3433509:
+          this.path = castToString(value); // StringType
+          break;
+        case -1438410321:
+          this.valueSet = (Type) value; // Type
+          break;
+        case -766209282:
+          this.valueCode.add(castToCode(value)); // CodeType
+          break;
+        case -1887705029:
+          this.valueCoding.add(castToCoding(value)); // Coding
+          break;
+        case 924902896:
+          this.valueCodeableConcept.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -374,6 +384,19 @@ public class DataRequirement extends Type implements ICompositeType {
           this.getValueCodeableConcept().add(castToCodeableConcept(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
+        case -1438410321:  return getValueSet(); // Type
+        case -766209282: throw new FHIRException("Cannot make property valueCode as it is not a complex type"); // CodeType
+        case -1887705029:  return addValueCoding(); // Coding
+        case 924902896:  return addValueCodeableConcept(); // CodeableConcept
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -602,8 +625,12 @@ public class DataRequirement extends Type implements ICompositeType {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3433509: this.path = castToString(value); // StringType
-        case -1410166417: this.value = (Type) value; // Type
+        case 3433509:
+          this.path = castToString(value); // StringType
+          break;
+        case -1410166417:
+          this.value = (Type) value; // Type
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -617,6 +644,16 @@ public class DataRequirement extends Type implements ICompositeType {
           this.value = (Type) value; // Type
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
+        case -1410166417:  return getValue(); // Type
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -981,11 +1018,21 @@ public class DataRequirement extends Type implements ICompositeType {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610: this.type = castToCode(value); // CodeType
-        case -309425751: this.profile = castToReference(value); // Reference
-        case -1402857082: this.mustSupport.add(castToString(value)); // StringType
-        case -1303674939: this.codeFilter.add((DataRequirementCodeFilterComponent) value); // DataRequirementCodeFilterComponent
-        case 149531846: this.dateFilter.add((DataRequirementDateFilterComponent) value); // DataRequirementDateFilterComponent
+        case 3575610:
+          this.type = castToCode(value); // CodeType
+          break;
+        case -309425751:
+          this.profile = castToReference(value); // Reference
+          break;
+        case -1402857082:
+          this.mustSupport.add(castToString(value)); // StringType
+          break;
+        case -1303674939:
+          this.codeFilter.add((DataRequirementCodeFilterComponent) value); // DataRequirementCodeFilterComponent
+          break;
+        case 149531846:
+          this.dateFilter.add((DataRequirementDateFilterComponent) value); // DataRequirementDateFilterComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1005,6 +1052,19 @@ public class DataRequirement extends Type implements ICompositeType {
           this.getDateFilter().add((DataRequirementDateFilterComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
+        case -309425751:  return getProfile(); // Reference
+        case -1402857082: throw new FHIRException("Cannot make property mustSupport as it is not a complex type"); // StringType
+        case -1303674939:  return addCodeFilter(); // DataRequirementCodeFilterComponent
+        case 149531846:  return addDateFilter(); // DataRequirementDateFilterComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

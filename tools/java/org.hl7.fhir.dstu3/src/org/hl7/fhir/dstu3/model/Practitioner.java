@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -477,6 +477,54 @@ public class Practitioner extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 1178922291: return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
+        case 3506294: return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
+        case -1694759682: return this.specialty.toArray(new Base[this.specialty.size()]); // CodeableConcept
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case 1901043637: return this.location.toArray(new Base[this.location.size()]); // Reference
+        case 1289661064: return this.healthcareService.toArray(new Base[this.healthcareService.size()]); // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 1178922291:
+          this.organization = castToReference(value); // Reference
+          break;
+        case 3506294:
+          this.role = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1694759682:
+          this.specialty.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        case 1901043637:
+          this.location.add(castToReference(value)); // Reference
+          break;
+        case 1289661064:
+          this.healthcareService.add(castToReference(value)); // Reference
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("organization"))
           this.organization = castToReference(value); // Reference
@@ -496,6 +544,22 @@ public class Practitioner extends DomainResource {
           this.getHealthcareService().add(castToReference(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 1178922291:  return getOrganization(); // Reference
+        case 3506294:  return getRole(); // CodeableConcept
+        case -1694759682:  return addSpecialty(); // CodeableConcept
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -1429363305:  return addTelecom(); // ContactPoint
+        case -991726143:  return getPeriod(); // Period
+        case 1901043637:  return addLocation(); // Reference
+        case 1289661064:  return addHealthcareService(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -795,6 +859,38 @@ public class Practitioner extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case -1179159879: return this.issuer == null ? new Base[0] : new Base[] {this.issuer}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        case -1179159879:
+          this.issuer = castToReference(value); // Reference
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -806,6 +902,18 @@ public class Practitioner extends DomainResource {
           this.issuer = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 3059181:  return getCode(); // CodeableConcept
+        case -991726143:  return getPeriod(); // Period
+        case -1179159879:  return getIssuer(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1444,6 +1552,66 @@ Work addresses are not typically entered in this property as they are usually ro
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1422950650: return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
+        case 3373707: return this.name.toArray(new Base[this.name.size()]); // HumanName
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        case -1147692044: return this.address.toArray(new Base[this.address.size()]); // Address
+        case -1249512767: return this.gender == null ? new Base[0] : new Base[] {this.gender}; // Enumeration<AdministrativeGender>
+        case -1210031859: return this.birthDate == null ? new Base[0] : new Base[] {this.birthDate}; // DateType
+        case 106642994: return this.photo.toArray(new Base[this.photo.size()]); // Attachment
+        case 221717168: return this.practitionerRole.toArray(new Base[this.practitionerRole.size()]); // PractitionerPractitionerRoleComponent
+        case -631333393: return this.qualification.toArray(new Base[this.qualification.size()]); // PractitionerQualificationComponent
+        case -1035284522: return this.communication.toArray(new Base[this.communication.size()]); // CodeableConcept
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -1422950650:
+          this.active = castToBoolean(value); // BooleanType
+          break;
+        case 3373707:
+          this.name.add(castToHumanName(value)); // HumanName
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
+        case -1147692044:
+          this.address.add(castToAddress(value)); // Address
+          break;
+        case -1249512767:
+          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
+          break;
+        case -1210031859:
+          this.birthDate = castToDate(value); // DateType
+          break;
+        case 106642994:
+          this.photo.add(castToAttachment(value)); // Attachment
+          break;
+        case 221717168:
+          this.practitionerRole.add((PractitionerPractitionerRoleComponent) value); // PractitionerPractitionerRoleComponent
+          break;
+        case -631333393:
+          this.qualification.add((PractitionerQualificationComponent) value); // PractitionerQualificationComponent
+          break;
+        case -1035284522:
+          this.communication.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -1469,6 +1637,25 @@ Work addresses are not typically entered in this property as they are usually ro
           this.getCommunication().add(castToCodeableConcept(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -1422950650: throw new FHIRException("Cannot make property active as it is not a complex type"); // BooleanType
+        case 3373707:  return addName(); // HumanName
+        case -1429363305:  return addTelecom(); // ContactPoint
+        case -1147692044:  return addAddress(); // Address
+        case -1249512767: throw new FHIRException("Cannot make property gender as it is not a complex type"); // Enumeration<AdministrativeGender>
+        case -1210031859: throw new FHIRException("Cannot make property birthDate as it is not a complex type"); // DateType
+        case 106642994:  return addPhoto(); // Attachment
+        case 221717168:  return addPractitionerRole(); // PractitionerPractitionerRoleComponent
+        case -631333393:  return addQualification(); // PractitionerQualificationComponent
+        case -1035284522:  return addCommunication(); // CodeableConcept
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

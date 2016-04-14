@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -269,10 +269,18 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3556653: this.text = castToNarrative(value); // Narrative
-        case -410956685: this.contained.add(castToResource(value)); // Resource
-        case -612557761: this.extension.add(castToExtension(value)); // Extension
-        case -298878168: this.modifierExtension.add(castToExtension(value)); // Extension
+        case 3556653:
+          this.text = castToNarrative(value); // Narrative
+          break;
+        case -410956685:
+          this.contained.add(castToResource(value)); // Resource
+          break;
+        case -612557761:
+          this.extension.add(castToExtension(value)); // Extension
+          break;
+        case -298878168:
+          this.modifierExtension.add(castToExtension(value)); // Extension
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -290,6 +298,18 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
           this.getModifierExtension().add(castToExtension(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3556653:  return getText(); // Narrative
+        case -410956685: throw new FHIRException("Cannot make property contained as it is not a complex type"); // Resource
+        case -612557761:  return addExtension(); // Extension
+        case -298878168:  return addModifierExtension(); // Extension
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

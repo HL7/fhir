@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1033,22 +1033,54 @@ public class Device extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case -1343558178: this.udiCarrier = castToIdentifier(value); // Identifier
-        case -892481550: this.status = new DeviceStatusEnumFactory().fromType(value); // Enumeration<DeviceStatus>
-        case 3575610: this.type = castToCodeableConcept(value); // CodeableConcept
-        case 462547450: this.lotNumber = castToString(value); // StringType
-        case -1969347631: this.manufacturer = castToString(value); // StringType
-        case 416714767: this.manufactureDate = castToDateTime(value); // DateTimeType
-        case -668811523: this.expirationDate = castToDateTime(value); // DateTimeType
-        case 104069929: this.model = castToString(value); // StringType
-        case 351608024: this.version = castToString(value); // StringType
-        case -791418107: this.patient = castToReference(value); // Reference
-        case 106164915: this.owner = castToReference(value); // Reference
-        case 951526432: this.contact.add(castToContactPoint(value)); // ContactPoint
-        case 1901043637: this.location = castToReference(value); // Reference
-        case 116079: this.url = castToUri(value); // UriType
-        case 3387378: this.note.add(castToAnnotation(value)); // Annotation
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -1343558178:
+          this.udiCarrier = castToIdentifier(value); // Identifier
+          break;
+        case -892481550:
+          this.status = new DeviceStatusEnumFactory().fromType(value); // Enumeration<DeviceStatus>
+          break;
+        case 3575610:
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 462547450:
+          this.lotNumber = castToString(value); // StringType
+          break;
+        case -1969347631:
+          this.manufacturer = castToString(value); // StringType
+          break;
+        case 416714767:
+          this.manufactureDate = castToDateTime(value); // DateTimeType
+          break;
+        case -668811523:
+          this.expirationDate = castToDateTime(value); // DateTimeType
+          break;
+        case 104069929:
+          this.model = castToString(value); // StringType
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case -791418107:
+          this.patient = castToReference(value); // Reference
+          break;
+        case 106164915:
+          this.owner = castToReference(value); // Reference
+          break;
+        case 951526432:
+          this.contact.add(castToContactPoint(value)); // ContactPoint
+          break;
+        case 1901043637:
+          this.location = castToReference(value); // Reference
+          break;
+        case 116079:
+          this.url = castToUri(value); // UriType
+          break;
+        case 3387378:
+          this.note.add(castToAnnotation(value)); // Annotation
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1090,6 +1122,30 @@ public class Device extends DomainResource {
           this.getNote().add(castToAnnotation(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -1343558178:  return getUdiCarrier(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DeviceStatus>
+        case 3575610:  return getType(); // CodeableConcept
+        case 462547450: throw new FHIRException("Cannot make property lotNumber as it is not a complex type"); // StringType
+        case -1969347631: throw new FHIRException("Cannot make property manufacturer as it is not a complex type"); // StringType
+        case 416714767: throw new FHIRException("Cannot make property manufactureDate as it is not a complex type"); // DateTimeType
+        case -668811523: throw new FHIRException("Cannot make property expirationDate as it is not a complex type"); // DateTimeType
+        case 104069929: throw new FHIRException("Cannot make property model as it is not a complex type"); // StringType
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case -791418107:  return getPatient(); // Reference
+        case 106164915:  return getOwner(); // Reference
+        case 951526432:  return addContact(); // ContactPoint
+        case 1901043637:  return getLocation(); // Reference
+        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case 3387378:  return addNote(); // Annotation
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

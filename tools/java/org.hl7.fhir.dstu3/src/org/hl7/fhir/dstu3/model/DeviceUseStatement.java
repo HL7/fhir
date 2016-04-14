@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -569,15 +569,33 @@ public class DeviceUseStatement extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -806219817: this.bodySite = (Type) value; // Type
-        case 2042879511: this.whenUsed = castToPeriod(value); // Period
-        case -1335157162: this.device = castToReference(value); // Reference
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case -597168804: this.indication.add(castToCodeableConcept(value)); // CodeableConcept
-        case 105008833: this.notes.add(castToString(value)); // StringType
-        case 735397551: this.recordedOn = castToDateTime(value); // DateTimeType
-        case -1867885268: this.subject = castToReference(value); // Reference
-        case 164632566: this.timing = (Type) value; // Type
+        case -806219817:
+          this.bodySite = (Type) value; // Type
+          break;
+        case 2042879511:
+          this.whenUsed = castToPeriod(value); // Period
+          break;
+        case -1335157162:
+          this.device = castToReference(value); // Reference
+          break;
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -597168804:
+          this.indication.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 105008833:
+          this.notes.add(castToString(value)); // StringType
+          break;
+        case 735397551:
+          this.recordedOn = castToDateTime(value); // DateTimeType
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case 164632566:
+          this.timing = (Type) value; // Type
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -605,6 +623,23 @@ public class DeviceUseStatement extends DomainResource {
           this.timing = (Type) value; // Type
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -806219817:  return getBodySite(); // Type
+        case 2042879511:  return getWhenUsed(); // Period
+        case -1335157162:  return getDevice(); // Reference
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -597168804:  return addIndication(); // CodeableConcept
+        case 105008833: throw new FHIRException("Cannot make property notes as it is not a complex type"); // StringType
+        case 735397551: throw new FHIRException("Cannot make property recordedOn as it is not a complex type"); // DateTimeType
+        case -1867885268:  return getSubject(); // Reference
+        case 164632566:  return getTiming(); // Type
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

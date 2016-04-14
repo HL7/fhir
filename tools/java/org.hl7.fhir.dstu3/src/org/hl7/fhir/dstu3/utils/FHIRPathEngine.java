@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.TimeZone;
 
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
+import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.exceptions.PathEngineException;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BooleanType;
@@ -165,9 +166,10 @@ public class FHIRPathEngine {
    * @param item
    * @param name
    * @param result
+	 * @throws FHIRException 
    */
-  protected void getChildrenByName(Base item, String name, List<Base> result) {
-    for (Base v : item.listChildrenByName(name))
+  protected void getChildrenByName(Base item, String name, List<Base> result) throws FHIRException {
+  	for (Base v : item.listChildrenByName(name, false))
       if (v != null)
         result.add(v);
   }
@@ -260,10 +262,10 @@ public class FHIRPathEngine {
    * @param base - the object against which the path is being evaluated
    * @param ExpressionNode - the parsed ExpressionNode statement to use
    * @return
-   * @throws PathEngineException 
+   * @throws FHIRException 
    * @
    */
-  public List<Base> evaluate(Base base, ExpressionNode ExpressionNode) throws PathEngineException {
+	public List<Base> evaluate(Base base, ExpressionNode ExpressionNode) throws FHIRException {
     List<Base> list = new ArrayList<Base>();
     if (base != null)
       list.add(base);
@@ -277,10 +279,10 @@ public class FHIRPathEngine {
    * @param base - the object against which the path is being evaluated
    * @param path - the FHIR Path statement to use
    * @return
-   * @throws PathEngineException 
+	 * @throws FHIRException 
    * @
    */
-  public List<Base> evaluate(Base base, String path) throws FHIRLexerException, PathEngineException {
+	public List<Base> evaluate(Base base, String path) throws FHIRException {
     ExpressionNode exp = parse(path);
     List<Base> list = new ArrayList<Base>();
     if (base != null)
@@ -295,10 +297,10 @@ public class FHIRPathEngine {
    * @param base - the object against which the path is being evaluated
    * @param ExpressionNode - the parsed ExpressionNode statement to use
    * @return
-   * @throws PathEngineException 
+	 * @throws FHIRException 
    * @
    */
-  public List<Base> evaluate(Object appContext, Resource resource, Base base, ExpressionNode ExpressionNode) throws PathEngineException {
+	public List<Base> evaluate(Object appContext, Resource resource, Base base, ExpressionNode ExpressionNode) throws FHIRException {
     List<Base> list = new ArrayList<Base>();
     if (base != null)
       list.add(base);
@@ -312,10 +314,10 @@ public class FHIRPathEngine {
    * @param base - the object against which the path is being evaluated
    * @param path - the FHIR Path statement to use
    * @return
-   * @throws PathEngineException 
+	 * @throws FHIRException 
    * @
    */
-  public List<Base> evaluate(Object appContext, Resource resource, Base base, String path) throws FHIRLexerException, PathEngineException {
+	public List<Base> evaluate(Object appContext, Resource resource, Base base, String path) throws FHIRException {
     ExpressionNode exp = parse(path);
     List<Base> list = new ArrayList<Base>();
     if (base != null)
@@ -330,10 +332,10 @@ public class FHIRPathEngine {
    * @param base - the object against which the path is being evaluated
    * @param path - the FHIR Path statement to use
    * @return
-   * @throws PathEngineException 
+	 * @throws FHIRException 
    * @
    */
-  public boolean evaluateToBoolean(Resource resource, Base base, String path) throws FHIRLexerException, PathEngineException {
+	public boolean evaluateToBoolean(Resource resource, Base base, String path) throws FHIRException {
     return convertToBoolean(evaluate(null, resource, base, path));
   }
 
@@ -343,10 +345,10 @@ public class FHIRPathEngine {
    * @param base - the object against which the path is being evaluated
    * @param path - the FHIR Path statement to use
    * @return
-   * @throws PathEngineException 
+   * @throws FHIRException 
    * @
    */
-  public boolean evaluateToBoolean(Resource resource, Base base, ExpressionNode node) throws PathEngineException {
+  public boolean evaluateToBoolean(Resource resource, Base base, ExpressionNode node) throws FHIRException {
     return convertToBoolean(evaluate(null, resource, base, node));
   }
 
@@ -356,10 +358,10 @@ public class FHIRPathEngine {
    * @param base - the object against which the path is being evaluated
    * @param path - the FHIR Path statement to use
    * @return
-   * @throws PathEngineException 
+	 * @throws FHIRException 
    * @
    */
-  public String evaluateToString(Base base, String path) throws FHIRLexerException, PathEngineException {
+	public String evaluateToString(Base base, String path) throws FHIRException {
     return convertToString(evaluate(base, path));
   }
 
@@ -739,7 +741,7 @@ public class FHIRPathEngine {
     return false;
   }
 
-  private List<Base> execute(ExecutionContext context, List<Base> focus, ExpressionNode exp, boolean atEntry) throws PathEngineException {
+	private List<Base> execute(ExecutionContext context, List<Base> focus, ExpressionNode exp, boolean atEntry) throws FHIRException {
     List<Base> work = new ArrayList<Base>();
     switch (exp.getKind()) {
     case Name:
@@ -982,7 +984,7 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> operate(List<Base> left, Operation operation, List<Base> right) throws PathEngineException {
+  private List<Base> operate(List<Base> left, Operation operation, List<Base> right) throws FHIRException {
     switch (operation) {
     case Equals: return opEquals(left, right);
     case Equivalent: return opEquivalent(left, right);
@@ -1195,7 +1197,7 @@ public class FHIRPathEngine {
     return makeBoolean(!res);
   }
 
-  private List<Base> opLessThen(List<Base> left, List<Base> right) {
+	private List<Base> opLessThen(List<Base> left, List<Base> right) throws FHIRException {
     if (left.size() == 1 && right.size() == 1 && left.get(0).isPrimitive() && right.get(0).isPrimitive()) {
       Base l = left.get(0);
       Base r = right.get(0);
@@ -1219,7 +1221,7 @@ public class FHIRPathEngine {
     return new ArrayList<Base>();
   }
 
-  private List<Base> opGreater(List<Base> left, List<Base> right) {
+	private List<Base> opGreater(List<Base> left, List<Base> right) throws FHIRException {
     if (left.size() == 1 && right.size() == 1 && left.get(0).isPrimitive() && right.get(0).isPrimitive()) {
       Base l = left.get(0);
       Base r = right.get(0);
@@ -1243,7 +1245,7 @@ public class FHIRPathEngine {
     return new ArrayList<Base>();
   }
 
-  private List<Base> opLessOrEqual(List<Base> left, List<Base> right) {
+	private List<Base> opLessOrEqual(List<Base> left, List<Base> right) throws FHIRException {
     if (left.size() == 1 && right.size() == 1 && left.get(0).isPrimitive() && right.get(0).isPrimitive()) {
       Base l = left.get(0);
       Base r = right.get(0);
@@ -1269,7 +1271,7 @@ public class FHIRPathEngine {
     return new ArrayList<Base>();
   }
 
-  private List<Base> opGreaterOrEqual(List<Base> left, List<Base> right) {
+	private List<Base> opGreaterOrEqual(List<Base> left, List<Base> right) throws FHIRException {
     if (left.size() == 1 && right.size() == 1 && left.get(0).isPrimitive() && right.get(0).isPrimitive()) {
       Base l = left.get(0);
       Base r = right.get(0);
@@ -1627,7 +1629,7 @@ public class FHIRPathEngine {
       return hostServices.resolveConstantType(context.appInfo, s);
   }
 
-  private List<Base> execute(ExecutionContext context, Base item, ExpressionNode exp, boolean atEntry) {
+	private List<Base> execute(ExecutionContext context, Base item, ExpressionNode exp, boolean atEntry) throws FHIRException {
     List<Base> result = new ArrayList<Base>(); 
     if (atEntry && Character.isUpperCase(exp.getName().charAt(0))) {// special case for start up
       if (item instanceof Resource && ((Resource) item).getResourceType().toString().equals(exp.getName()))  
@@ -1875,7 +1877,7 @@ public class FHIRPathEngine {
   //		return s.equals("boolean") || s.equals("integer") || s.equals("decimal") || s.equals("base64Binary") || s.equals("instant") || s.equals("string") || s.equals("uri") || s.equals("date") || s.equals("dateTime") || s.equals("time") || s.equals("code") || s.equals("oid") || s.equals("id") || s.equals("unsignedInt") || s.equals("positiveInt") || s.equals("markdown");
   //	}
 
-  private List<Base> evaluateFunction(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+	private List<Base> evaluateFunction(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     switch (exp.getFunction()) {
     case Empty : return funcEmpty(context, focus, exp);
     case Not : return funcNot(context, focus, exp);
@@ -1929,7 +1931,7 @@ public class FHIRPathEngine {
     }
   }
 
-  private List<Base> funcAll(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+	private List<Base> funcAll(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     if (exp.getParameters().size() == 1) {
       List<Base> result = new ArrayList<Base>();
       List<Base> pc = new ArrayList<Base>();
@@ -1992,7 +1994,7 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> funcDescendents(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
+  private List<Base> funcDescendents(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     List<Base> current = new ArrayList<Base>();
     current.addAll(focus);
@@ -2012,7 +2014,7 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> funcChildren(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
+  private List<Base> funcChildren(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     for (Base b : focus)
       getChildrenByName(b, "*", result);
@@ -2025,7 +2027,7 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> funcReplaceMatches(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+  private List<Base> funcReplaceMatches(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     String sw = convertToString(execute(context, focus, exp.getParameters().get(0), true));
 
@@ -2037,7 +2039,7 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> funcEndsWith(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+  private List<Base> funcEndsWith(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     String sw = convertToString(execute(context, focus, exp.getParameters().get(0), true));
 
@@ -2065,7 +2067,7 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> funcIif(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+  private List<Base> funcIif(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> n1 = execute(context, focus, exp.getParameters().get(0), true);
     Boolean v = convertToBoolean(n1);
 
@@ -2078,7 +2080,7 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> funcTake(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+  private List<Base> funcTake(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> n1 = execute(context, focus, exp.getParameters().get(0), true);
     int i1 = Integer.parseInt(n1.get(0).primitiveValue());
 
@@ -2118,7 +2120,7 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> funcRepeat(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+  private List<Base> funcRepeat(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     List<Base> current = new ArrayList<Base>();
     current.addAll(focus);
@@ -2159,7 +2161,7 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> funcSupersetOf(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+  private List<Base> funcSupersetOf(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> target = execute(context, focus, exp.getParameters().get(0), true);
 
     boolean valid = true;
@@ -2182,7 +2184,7 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> funcSubsetOf(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+  private List<Base> funcSubsetOf(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> target = execute(context, focus, exp.getParameters().get(0), true);
 
     boolean valid = true;
@@ -2216,7 +2218,7 @@ public class FHIRPathEngine {
     throw new Error("not Implemented yet");
   }
 
-  private List<Base> funcExtension(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+	private List<Base> funcExtension(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     List<Base> nl = execute(context, focus, exp.getParameters().get(0), true);
     String url = nl.get(0).primitiveValue();
@@ -2235,7 +2237,7 @@ public class FHIRPathEngine {
     return result;
   }
 
-  private List<Base> funcTrace(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+	private List<Base> funcTrace(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> nl = execute(context, focus, exp.getParameters().get(0), true);
     String name = nl.get(0).primitiveValue();
 
@@ -2262,7 +2264,7 @@ public class FHIRPathEngine {
     return result;
   }
 
-  private List<Base> funcMatches(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+	private List<Base> funcMatches(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     String sw = convertToString(execute(context, focus, exp.getParameters().get(0), true));
 
@@ -2273,7 +2275,7 @@ public class FHIRPathEngine {
     return result;
   }
 
-  private List<Base> funcContains(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+	private List<Base> funcContains(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     String sw = convertToString(execute(context, focus, exp.getParameters().get(0), true));
 
@@ -2293,7 +2295,7 @@ public class FHIRPathEngine {
     return result;
   }
 
-  private List<Base> funcStartsWith(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+	private List<Base> funcStartsWith(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     String sw = convertToString(execute(context, focus, exp.getParameters().get(0), true));
 
@@ -2304,7 +2306,7 @@ public class FHIRPathEngine {
     return result;
   }
 
-  private List<Base> funcSubstring(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+	private List<Base> funcSubstring(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     List<Base> n1 = execute(context, focus, exp.getParameters().get(0), true);
     int i1 = Integer.parseInt(n1.get(0).primitiveValue());
@@ -2343,7 +2345,7 @@ public class FHIRPathEngine {
     return result;
   }
 
-  private List<Base> funcSkip(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+  private List<Base> funcSkip(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> n1 = execute(context, focus, exp.getParameters().get(0), true);
     int i1 = Integer.parseInt(n1.get(0).primitiveValue());
 
@@ -2375,7 +2377,7 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> funcWhere(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+	private List<Base> funcWhere(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     List<Base> pc = new ArrayList<Base>();
     for (Base item : focus) {
@@ -2387,7 +2389,7 @@ public class FHIRPathEngine {
     return result;
   }
 
-  private List<Base> funcSelect(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+  private List<Base> funcSelect(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     List<Base> pc = new ArrayList<Base>();
     for (Base item : focus) {
@@ -2399,7 +2401,7 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> funcItem(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
+	private List<Base> funcItem(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     String s = convertToString(execute(context, focus, exp.getParameters().get(0), true));
     if (Utilities.isInteger(s) && Integer.parseInt(s) < focus.size())

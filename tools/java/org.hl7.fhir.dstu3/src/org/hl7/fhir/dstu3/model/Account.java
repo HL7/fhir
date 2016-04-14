@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -657,17 +657,39 @@ public class Account extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case 3373707: this.name = castToString(value); // StringType
-        case 3575610: this.type = castToCodeableConcept(value); // CodeableConcept
-        case -892481550: this.status = new AccountStatusEnumFactory().fromType(value); // Enumeration<AccountStatus>
-        case 1325532263: this.activePeriod = castToPeriod(value); // Period
-        case 575402001: this.currency = castToCoding(value); // Coding
-        case -339185956: this.balance = castToMoney(value); // Money
-        case 1024117193: this.coveragePeriod = castToPeriod(value); // Period
-        case -1867885268: this.subject = castToReference(value); // Reference
-        case 106164915: this.owner = castToReference(value); // Reference
-        case -1724546052: this.description = castToString(value); // StringType
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case 3575610:
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -892481550:
+          this.status = new AccountStatusEnumFactory().fromType(value); // Enumeration<AccountStatus>
+          break;
+        case 1325532263:
+          this.activePeriod = castToPeriod(value); // Period
+          break;
+        case 575402001:
+          this.currency = castToCoding(value); // Coding
+          break;
+        case -339185956:
+          this.balance = castToMoney(value); // Money
+          break;
+        case 1024117193:
+          this.coveragePeriod = castToPeriod(value); // Period
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case 106164915:
+          this.owner = castToReference(value); // Reference
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -699,6 +721,25 @@ public class Account extends DomainResource {
           this.description = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case 3575610:  return getType(); // CodeableConcept
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<AccountStatus>
+        case 1325532263:  return getActivePeriod(); // Period
+        case 575402001:  return getCurrency(); // Coding
+        case -339185956:  return getBalance(); // Money
+        case 1024117193:  return getCoveragePeriod(); // Period
+        case -1867885268:  return getSubject(); // Reference
+        case 106164915:  return getOwner(); // Reference
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

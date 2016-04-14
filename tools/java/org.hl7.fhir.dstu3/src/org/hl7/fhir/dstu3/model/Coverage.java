@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -973,23 +973,57 @@ public class Coverage extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 185649959: this.issuer = (Type) value; // Type
-        case 97543: this.bin = castToString(value); // StringType
-        case -991726143: this.period = castToPeriod(value); // Period
-        case 3575610: this.type = castToCoding(value); // Coding
-        case 1114937931: this.planholder = (Type) value; // Type
-        case 1292142459: this.beneficiary = (Type) value; // Type
-        case -261851592: this.relationship = castToCoding(value); // Coding
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case 98629247: this.group = castToString(value); // StringType
-        case 3443497: this.plan = castToString(value); // StringType
-        case -1868653175: this.subPlan = castToString(value); // StringType
-        case -1109226753: this.dependent = castToPositiveInt(value); // PositiveIntType
-        case 1349547969: this.sequence = castToPositiveInt(value); // PositiveIntType
-        case 1481625679: this.exception.add(castToCoding(value)); // Coding
-        case -907977868: this.school = castToString(value); // StringType
-        case 1843485230: this.network = castToString(value); // StringType
-        case -566947566: this.contract.add(castToReference(value)); // Reference
+        case 185649959:
+          this.issuer = (Type) value; // Type
+          break;
+        case 97543:
+          this.bin = castToString(value); // StringType
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        case 3575610:
+          this.type = castToCoding(value); // Coding
+          break;
+        case 1114937931:
+          this.planholder = (Type) value; // Type
+          break;
+        case 1292142459:
+          this.beneficiary = (Type) value; // Type
+          break;
+        case -261851592:
+          this.relationship = castToCoding(value); // Coding
+          break;
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 98629247:
+          this.group = castToString(value); // StringType
+          break;
+        case 3443497:
+          this.plan = castToString(value); // StringType
+          break;
+        case -1868653175:
+          this.subPlan = castToString(value); // StringType
+          break;
+        case -1109226753:
+          this.dependent = castToPositiveInt(value); // PositiveIntType
+          break;
+        case 1349547969:
+          this.sequence = castToPositiveInt(value); // PositiveIntType
+          break;
+        case 1481625679:
+          this.exception.add(castToCoding(value)); // Coding
+          break;
+        case -907977868:
+          this.school = castToString(value); // StringType
+          break;
+        case 1843485230:
+          this.network = castToString(value); // StringType
+          break;
+        case -566947566:
+          this.contract.add(castToReference(value)); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1033,6 +1067,31 @@ public class Coverage extends DomainResource {
           this.getContract().add(castToReference(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 185649959:  return getIssuer(); // Type
+        case 97543: throw new FHIRException("Cannot make property bin as it is not a complex type"); // StringType
+        case -991726143:  return getPeriod(); // Period
+        case 3575610:  return getType(); // Coding
+        case 1114937931:  return getPlanholder(); // Type
+        case 1292142459:  return getBeneficiary(); // Type
+        case -261851592:  return getRelationship(); // Coding
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 98629247: throw new FHIRException("Cannot make property group as it is not a complex type"); // StringType
+        case 3443497: throw new FHIRException("Cannot make property plan as it is not a complex type"); // StringType
+        case -1868653175: throw new FHIRException("Cannot make property subPlan as it is not a complex type"); // StringType
+        case -1109226753: throw new FHIRException("Cannot make property dependent as it is not a complex type"); // PositiveIntType
+        case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // PositiveIntType
+        case 1481625679:  return addException(); // Coding
+        case -907977868: throw new FHIRException("Cannot make property school as it is not a complex type"); // StringType
+        case 1843485230: throw new FHIRException("Cannot make property network as it is not a complex type"); // StringType
+        case -566947566:  return addContract(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -420,6 +420,38 @@ public class Group extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -1410166417: return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
+        case -1321148966: return this.exclude == null ? new Base[0] : new Base[] {this.exclude}; // BooleanType
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1410166417:
+          this.value = (Type) value; // Type
+          break;
+        case -1321148966:
+          this.exclude = castToBoolean(value); // BooleanType
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = castToCodeableConcept(value); // CodeableConcept
@@ -431,6 +463,18 @@ public class Group extends DomainResource {
           this.period = castToPeriod(value); // Period
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181:  return getCode(); // CodeableConcept
+        case -1410166417:  return getValue(); // Type
+        case -1321148966: throw new FHIRException("Cannot make property exclude as it is not a complex type"); // BooleanType
+        case -991726143:  return getPeriod(); // Period
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -670,6 +714,34 @@ public class Group extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1298275357: return this.entity == null ? new Base[0] : new Base[] {this.entity}; // Reference
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case 24665195: return this.inactive == null ? new Base[0] : new Base[] {this.inactive}; // BooleanType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1298275357:
+          this.entity = castToReference(value); // Reference
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        case 24665195:
+          this.inactive = castToBoolean(value); // BooleanType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("entity"))
           this.entity = castToReference(value); // Reference
@@ -679,6 +751,17 @@ public class Group extends DomainResource {
           this.inactive = castToBoolean(value); // BooleanType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1298275357:  return getEntity(); // Reference
+        case -991726143:  return getPeriod(); // Period
+        case 24665195: throw new FHIRException("Cannot make property inactive as it is not a complex type"); // BooleanType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1208,6 +1291,58 @@ public class Group extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<GroupType>
+        case -1422939762: return this.actual == null ? new Base[0] : new Base[] {this.actual}; // BooleanType
+        case -1422950650: return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1285004149: return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // UnsignedIntType
+        case 366313883: return this.characteristic.toArray(new Base[this.characteristic.size()]); // GroupCharacteristicComponent
+        case -1077769574: return this.member.toArray(new Base[this.member.size()]); // GroupMemberComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 3575610:
+          this.type = new GroupTypeEnumFactory().fromType(value); // Enumeration<GroupType>
+          break;
+        case -1422939762:
+          this.actual = castToBoolean(value); // BooleanType
+          break;
+        case -1422950650:
+          this.active = castToBoolean(value); // BooleanType
+          break;
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1285004149:
+          this.quantity = castToUnsignedInt(value); // UnsignedIntType
+          break;
+        case 366313883:
+          this.characteristic.add((GroupCharacteristicComponent) value); // GroupCharacteristicComponent
+          break;
+        case -1077769574:
+          this.member.add((GroupMemberComponent) value); // GroupMemberComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -1229,6 +1364,23 @@ public class Group extends DomainResource {
           this.getMember().add((GroupMemberComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<GroupType>
+        case -1422939762: throw new FHIRException("Cannot make property actual as it is not a complex type"); // BooleanType
+        case -1422950650: throw new FHIRException("Cannot make property active as it is not a complex type"); // BooleanType
+        case 3059181:  return getCode(); // CodeableConcept
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1285004149: throw new FHIRException("Cannot make property quantity as it is not a complex type"); // UnsignedIntType
+        case 366313883:  return addCharacteristic(); // GroupCharacteristicComponent
+        case -1077769574:  return addMember(); // GroupMemberComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

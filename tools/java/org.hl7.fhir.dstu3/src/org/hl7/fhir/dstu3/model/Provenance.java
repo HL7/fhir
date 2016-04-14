@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -370,6 +370,38 @@ public class Provenance extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3506294: return this.role == null ? new Base[0] : new Base[] {this.role}; // Coding
+        case 92645877: return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
+        case -836030906: return this.userId == null ? new Base[0] : new Base[] {this.userId}; // Identifier
+        case 126261658: return this.relatedAgent.toArray(new Base[this.relatedAgent.size()]); // ProvenanceAgentRelatedAgentComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3506294:
+          this.role = castToCoding(value); // Coding
+          break;
+        case 92645877:
+          this.actor = castToReference(value); // Reference
+          break;
+        case -836030906:
+          this.userId = castToIdentifier(value); // Identifier
+          break;
+        case 126261658:
+          this.relatedAgent.add((ProvenanceAgentRelatedAgentComponent) value); // ProvenanceAgentRelatedAgentComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("role"))
           this.role = castToCoding(value); // Coding
@@ -381,6 +413,18 @@ public class Provenance extends DomainResource {
           this.getRelatedAgent().add((ProvenanceAgentRelatedAgentComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3506294:  return getRole(); // Coding
+        case 92645877:  return getActor(); // Reference
+        case -836030906:  return getUserId(); // Identifier
+        case 126261658:  return addRelatedAgent(); // ProvenanceAgentRelatedAgentComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -562,6 +606,30 @@ public class Provenance extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case -880905839: return this.target == null ? new Base[0] : new Base[] {this.target}; // UriType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -880905839:
+          this.target = castToUri(value); // UriType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCodeableConcept(value); // CodeableConcept
@@ -569,6 +637,16 @@ public class Provenance extends DomainResource {
           this.target = castToUri(value); // UriType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getType(); // CodeableConcept
+        case -880905839: throw new FHIRException("Cannot make property target as it is not a complex type"); // UriType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -877,6 +955,42 @@ public class Provenance extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3506294: return this.role == null ? new Base[0] : new Base[] {this.role}; // Enumeration<ProvenanceEntityRole>
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case -925155509: return this.reference == null ? new Base[0] : new Base[] {this.reference}; // UriType
+        case 1671764162: return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
+        case 92750597: return this.agent == null ? new Base[0] : new Base[] {this.agent}; // ProvenanceAgentComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3506294:
+          this.role = new ProvenanceEntityRoleEnumFactory().fromType(value); // Enumeration<ProvenanceEntityRole>
+          break;
+        case 3575610:
+          this.type = castToCoding(value); // Coding
+          break;
+        case -925155509:
+          this.reference = castToUri(value); // UriType
+          break;
+        case 1671764162:
+          this.display = castToString(value); // StringType
+          break;
+        case 92750597:
+          this.agent = (ProvenanceAgentComponent) value; // ProvenanceAgentComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("role"))
           this.role = new ProvenanceEntityRoleEnumFactory().fromType(value); // Enumeration<ProvenanceEntityRole>
@@ -890,6 +1004,19 @@ public class Provenance extends DomainResource {
           this.agent = (ProvenanceAgentComponent) value; // ProvenanceAgentComponent
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3506294: throw new FHIRException("Cannot make property role as it is not a complex type"); // Enumeration<ProvenanceEntityRole>
+        case 3575610:  return getType(); // Coding
+        case -925155509: throw new FHIRException("Cannot make property reference as it is not a complex type"); // UriType
+        case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
+        case 92750597:  return getAgent(); // ProvenanceAgentComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1473,6 +1600,62 @@ public class Provenance extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -880905839: return this.target.toArray(new Base[this.target.size()]); // Reference
+        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case -799233872: return this.recorded == null ? new Base[0] : new Base[] {this.recorded}; // InstantType
+        case -934964668: return this.reason.toArray(new Base[this.reason.size()]); // Coding
+        case -1655966961: return this.activity == null ? new Base[0] : new Base[] {this.activity}; // Coding
+        case 1901043637: return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
+        case -982670030: return this.policy.toArray(new Base[this.policy.size()]); // UriType
+        case 92750597: return this.agent.toArray(new Base[this.agent.size()]); // ProvenanceAgentComponent
+        case -1298275357: return this.entity.toArray(new Base[this.entity.size()]); // ProvenanceEntityComponent
+        case 1073584312: return this.signature.toArray(new Base[this.signature.size()]); // Signature
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -880905839:
+          this.target.add(castToReference(value)); // Reference
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        case -799233872:
+          this.recorded = castToInstant(value); // InstantType
+          break;
+        case -934964668:
+          this.reason.add(castToCoding(value)); // Coding
+          break;
+        case -1655966961:
+          this.activity = castToCoding(value); // Coding
+          break;
+        case 1901043637:
+          this.location = castToReference(value); // Reference
+          break;
+        case -982670030:
+          this.policy.add(castToUri(value)); // UriType
+          break;
+        case 92750597:
+          this.agent.add((ProvenanceAgentComponent) value); // ProvenanceAgentComponent
+          break;
+        case -1298275357:
+          this.entity.add((ProvenanceEntityComponent) value); // ProvenanceEntityComponent
+          break;
+        case 1073584312:
+          this.signature.add(castToSignature(value)); // Signature
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("target"))
           this.getTarget().add(castToReference(value));
@@ -1496,6 +1679,24 @@ public class Provenance extends DomainResource {
           this.getSignature().add(castToSignature(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -880905839:  return addTarget(); // Reference
+        case -991726143:  return getPeriod(); // Period
+        case -799233872: throw new FHIRException("Cannot make property recorded as it is not a complex type"); // InstantType
+        case -934964668:  return addReason(); // Coding
+        case -1655966961:  return getActivity(); // Coding
+        case 1901043637:  return getLocation(); // Reference
+        case -982670030: throw new FHIRException("Cannot make property policy as it is not a complex type"); // UriType
+        case 92750597:  return addAgent(); // ProvenanceAgentComponent
+        case -1298275357:  return addEntity(); // ProvenanceEntityComponent
+        case 1073584312:  return addSignature(); // Signature
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

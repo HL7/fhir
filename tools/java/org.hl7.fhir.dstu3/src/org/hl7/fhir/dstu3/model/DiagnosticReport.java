@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -364,8 +364,12 @@ public class DiagnosticReport extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 950398559: this.comment = castToString(value); // StringType
-        case 3321850: this.link = castToReference(value); // Reference
+        case 950398559:
+          this.comment = castToString(value); // StringType
+          break;
+        case 3321850:
+          this.link = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -379,6 +383,16 @@ public class DiagnosticReport extends DomainResource {
           this.link = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
+        case 3321850:  return getLink(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1393,23 +1407,57 @@ public class DiagnosticReport extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case -892481550: this.status = new DiagnosticReportStatusEnumFactory().fromType(value); // Enumeration<DiagnosticReportStatus>
-        case 50511102: this.category = castToCodeableConcept(value); // CodeableConcept
-        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
-        case -1867885268: this.subject = castToReference(value); // Reference
-        case 1524132147: this.encounter = castToReference(value); // Reference
-        case 247104889: this.effective = (Type) value; // Type
-        case -1179159893: this.issued = castToInstant(value); // InstantType
-        case 481140686: this.performer = castToReference(value); // Reference
-        case 1095692943: this.request.add(castToReference(value)); // Reference
-        case -2132868344: this.specimen.add(castToReference(value)); // Reference
-        case -934426595: this.result.add(castToReference(value)); // Reference
-        case -814900911: this.imagingStudy.add(castToReference(value)); // Reference
-        case 100313435: this.image.add((DiagnosticReportImageComponent) value); // DiagnosticReportImageComponent
-        case -1731259873: this.conclusion = castToString(value); // StringType
-        case -1364269926: this.codedDiagnosis.add(castToCodeableConcept(value)); // CodeableConcept
-        case 230090366: this.presentedForm.add(castToAttachment(value)); // Attachment
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -892481550:
+          this.status = new DiagnosticReportStatusEnumFactory().fromType(value); // Enumeration<DiagnosticReportStatus>
+          break;
+        case 50511102:
+          this.category = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case 1524132147:
+          this.encounter = castToReference(value); // Reference
+          break;
+        case 247104889:
+          this.effective = (Type) value; // Type
+          break;
+        case -1179159893:
+          this.issued = castToInstant(value); // InstantType
+          break;
+        case 481140686:
+          this.performer = castToReference(value); // Reference
+          break;
+        case 1095692943:
+          this.request.add(castToReference(value)); // Reference
+          break;
+        case -2132868344:
+          this.specimen.add(castToReference(value)); // Reference
+          break;
+        case -934426595:
+          this.result.add(castToReference(value)); // Reference
+          break;
+        case -814900911:
+          this.imagingStudy.add(castToReference(value)); // Reference
+          break;
+        case 100313435:
+          this.image.add((DiagnosticReportImageComponent) value); // DiagnosticReportImageComponent
+          break;
+        case -1731259873:
+          this.conclusion = castToString(value); // StringType
+          break;
+        case -1364269926:
+          this.codedDiagnosis.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 230090366:
+          this.presentedForm.add(castToAttachment(value)); // Attachment
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1453,6 +1501,31 @@ public class DiagnosticReport extends DomainResource {
           this.getPresentedForm().add(castToAttachment(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DiagnosticReportStatus>
+        case 50511102:  return getCategory(); // CodeableConcept
+        case 3059181:  return getCode(); // CodeableConcept
+        case -1867885268:  return getSubject(); // Reference
+        case 1524132147:  return getEncounter(); // Reference
+        case 247104889:  return getEffective(); // Type
+        case -1179159893: throw new FHIRException("Cannot make property issued as it is not a complex type"); // InstantType
+        case 481140686:  return getPerformer(); // Reference
+        case 1095692943:  return addRequest(); // Reference
+        case -2132868344:  return addSpecimen(); // Reference
+        case -934426595:  return addResult(); // Reference
+        case -814900911:  return addImagingStudy(); // Reference
+        case 100313435:  return addImage(); // DiagnosticReportImageComponent
+        case -1731259873: throw new FHIRException("Cannot make property conclusion as it is not a complex type"); // StringType
+        case -1364269926:  return addCodedDiagnosis(); // CodeableConcept
+        case 230090366:  return addPresentedForm(); // Attachment
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

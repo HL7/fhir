@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -238,6 +238,34 @@ public class Library extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // StringType
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1618432855:
+          this.identifier = castToString(value); // StringType
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -247,6 +275,17 @@ public class Library extends DomainResource {
           this.version = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1618432855: throw new FHIRException("Cannot make property identifier as it is not a complex type"); // StringType
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -551,6 +590,38 @@ public class Library extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // StringType
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 506673541: return this.document == null ? new Base[0] : new Base[] {this.document}; // Type
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1618432855:
+          this.identifier = castToString(value); // StringType
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case 506673541:
+          this.document = (Type) value; // Type
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -562,6 +633,18 @@ public class Library extends DomainResource {
           this.document = (Type) value; // Type
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1618432855: throw new FHIRException("Cannot make property identifier as it is not a complex type"); // StringType
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case 506673541:  return getDocument(); // Type
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -822,6 +905,34 @@ public class Library extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // StringType
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1618432855:
+          this.identifier = castToString(value); // StringType
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -831,6 +942,17 @@ public class Library extends DomainResource {
           this.version = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1618432855: throw new FHIRException("Cannot make property identifier as it is not a complex type"); // StringType
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1144,6 +1266,38 @@ public class Library extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // StringType
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case -916511108: return this.codeSystem.toArray(new Base[this.codeSystem.size()]); // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1618432855:
+          this.identifier = castToString(value); // StringType
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case -916511108:
+          this.codeSystem.add(castToString(value)); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -1155,6 +1309,18 @@ public class Library extends DomainResource {
           this.getCodeSystem().add(castToString(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1618432855: throw new FHIRException("Cannot make property identifier as it is not a complex type"); // StringType
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case -916511108: throw new FHIRException("Cannot make property codeSystem as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1598,6 +1764,54 @@ public class Library extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 455891387: return this.moduleMetadata == null ? new Base[0] : new Base[] {this.moduleMetadata}; // ModuleMetadata
+        case 104069929: return this.model.toArray(new Base[this.model.size()]); // LibraryModelComponent
+        case 166208699: return this.library.toArray(new Base[this.library.size()]); // LibraryLibraryComponent
+        case -916511108: return this.codeSystem.toArray(new Base[this.codeSystem.size()]); // LibraryCodeSystemComponent
+        case -1410174671: return this.valueSet.toArray(new Base[this.valueSet.size()]); // LibraryValueSetComponent
+        case 1954460585: return this.parameter.toArray(new Base[this.parameter.size()]); // ParameterDefinition
+        case 629147193: return this.dataRequirement.toArray(new Base[this.dataRequirement.size()]); // DataRequirement
+        case 861720859: return this.document == null ? new Base[0] : new Base[] {this.document}; // Attachment
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 455891387:
+          this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
+          break;
+        case 104069929:
+          this.model.add((LibraryModelComponent) value); // LibraryModelComponent
+          break;
+        case 166208699:
+          this.library.add((LibraryLibraryComponent) value); // LibraryLibraryComponent
+          break;
+        case -916511108:
+          this.codeSystem.add((LibraryCodeSystemComponent) value); // LibraryCodeSystemComponent
+          break;
+        case -1410174671:
+          this.valueSet.add((LibraryValueSetComponent) value); // LibraryValueSetComponent
+          break;
+        case 1954460585:
+          this.parameter.add(castToParameterDefinition(value)); // ParameterDefinition
+          break;
+        case 629147193:
+          this.dataRequirement.add(castToDataRequirement(value)); // DataRequirement
+          break;
+        case 861720859:
+          this.document = castToAttachment(value); // Attachment
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("moduleMetadata"))
           this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
@@ -1617,6 +1831,22 @@ public class Library extends DomainResource {
           this.document = castToAttachment(value); // Attachment
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 455891387:  return getModuleMetadata(); // ModuleMetadata
+        case 104069929:  return addModel(); // LibraryModelComponent
+        case 166208699:  return addLibrary(); // LibraryLibraryComponent
+        case -916511108:  return addCodeSystem(); // LibraryCodeSystemComponent
+        case -1410174671:  return addValueSet(); // LibraryValueSetComponent
+        case 1954460585:  return addParameter(); // ParameterDefinition
+        case 629147193:  return addDataRequirement(); // DataRequirement
+        case 861720859:  return getDocument(); // Attachment
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -518,6 +518,50 @@ public class Sequence extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1499470472: return this.chromosome == null ? new Base[0] : new Base[] {this.chromosome}; // CodeableConcept
+        case 1061239735: return this.genomeBuild == null ? new Base[0] : new Base[] {this.genomeBuild}; // StringType
+        case -1911500465: return this.referenceSeqId == null ? new Base[0] : new Base[] {this.referenceSeqId}; // CodeableConcept
+        case 1923414665: return this.referenceSeqPointer == null ? new Base[0] : new Base[] {this.referenceSeqPointer}; // Reference
+        case -1648301499: return this.referenceSeqString == null ? new Base[0] : new Base[] {this.referenceSeqString}; // StringType
+        case 1903685202: return this.windowStart == null ? new Base[0] : new Base[] {this.windowStart}; // IntegerType
+        case -217026869: return this.windowEnd == null ? new Base[0] : new Base[] {this.windowEnd}; // IntegerType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1499470472:
+          this.chromosome = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 1061239735:
+          this.genomeBuild = castToString(value); // StringType
+          break;
+        case -1911500465:
+          this.referenceSeqId = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 1923414665:
+          this.referenceSeqPointer = castToReference(value); // Reference
+          break;
+        case -1648301499:
+          this.referenceSeqString = castToString(value); // StringType
+          break;
+        case 1903685202:
+          this.windowStart = castToInteger(value); // IntegerType
+          break;
+        case -217026869:
+          this.windowEnd = castToInteger(value); // IntegerType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("chromosome"))
           this.chromosome = castToCodeableConcept(value); // CodeableConcept
@@ -535,6 +579,21 @@ public class Sequence extends DomainResource {
           this.windowEnd = castToInteger(value); // IntegerType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1499470472:  return getChromosome(); // CodeableConcept
+        case 1061239735: throw new FHIRException("Cannot make property genomeBuild as it is not a complex type"); // StringType
+        case -1911500465:  return getReferenceSeqId(); // CodeableConcept
+        case 1923414665:  return getReferenceSeqPointer(); // Reference
+        case -1648301499: throw new FHIRException("Cannot make property referenceSeqString as it is not a complex type"); // StringType
+        case 1903685202: throw new FHIRException("Cannot make property windowStart as it is not a complex type"); // IntegerType
+        case -217026869: throw new FHIRException("Cannot make property windowEnd as it is not a complex type"); // IntegerType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -911,6 +970,42 @@ public class Sequence extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 109757538: return this.start == null ? new Base[0] : new Base[] {this.start}; // IntegerType
+        case 100571: return this.end == null ? new Base[0] : new Base[] {this.end}; // IntegerType
+        case -1418745787: return this.observedAllele == null ? new Base[0] : new Base[] {this.observedAllele}; // StringType
+        case 364045960: return this.referenceAllele == null ? new Base[0] : new Base[] {this.referenceAllele}; // StringType
+        case 94658738: return this.cigar == null ? new Base[0] : new Base[] {this.cigar}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 109757538:
+          this.start = castToInteger(value); // IntegerType
+          break;
+        case 100571:
+          this.end = castToInteger(value); // IntegerType
+          break;
+        case -1418745787:
+          this.observedAllele = castToString(value); // StringType
+          break;
+        case 364045960:
+          this.referenceAllele = castToString(value); // StringType
+          break;
+        case 94658738:
+          this.cigar = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("start"))
           this.start = castToInteger(value); // IntegerType
@@ -924,6 +1019,19 @@ public class Sequence extends DomainResource {
           this.cigar = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 109757538: throw new FHIRException("Cannot make property start as it is not a complex type"); // IntegerType
+        case 100571: throw new FHIRException("Cannot make property end as it is not a complex type"); // IntegerType
+        case -1418745787: throw new FHIRException("Cannot make property observedAllele as it is not a complex type"); // StringType
+        case 364045960: throw new FHIRException("Cannot make property referenceAllele as it is not a complex type"); // StringType
+        case 94658738: throw new FHIRException("Cannot make property cigar as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1204,6 +1312,38 @@ public class Sequence extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 109757538: return this.start == null ? new Base[0] : new Base[] {this.start}; // IntegerType
+        case 100571: return this.end == null ? new Base[0] : new Base[] {this.end}; // IntegerType
+        case 109264530: return this.score == null ? new Base[0] : new Base[] {this.score}; // Quantity
+        case -1077554975: return this.method == null ? new Base[0] : new Base[] {this.method}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 109757538:
+          this.start = castToInteger(value); // IntegerType
+          break;
+        case 100571:
+          this.end = castToInteger(value); // IntegerType
+          break;
+        case 109264530:
+          this.score = castToQuantity(value); // Quantity
+          break;
+        case -1077554975:
+          this.method = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("start"))
           this.start = castToInteger(value); // IntegerType
@@ -1215,6 +1355,18 @@ public class Sequence extends DomainResource {
           this.method = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 109757538: throw new FHIRException("Cannot make property start as it is not a complex type"); // IntegerType
+        case 100571: throw new FHIRException("Cannot make property end as it is not a complex type"); // IntegerType
+        case 109264530:  return getScore(); // Quantity
+        case -1077554975: throw new FHIRException("Cannot make property method as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1524,6 +1676,38 @@ public class Sequence extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -82113408: return this.variantId == null ? new Base[0] : new Base[] {this.variantId}; // StringType
+        case -934980271: return this.readId == null ? new Base[0] : new Base[] {this.readId}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 116079:
+          this.url = castToUri(value); // UriType
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -82113408:
+          this.variantId = castToString(value); // StringType
+          break;
+        case -934980271:
+          this.readId = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("url"))
           this.url = castToUri(value); // UriType
@@ -1535,6 +1719,18 @@ public class Sequence extends DomainResource {
           this.readId = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -82113408: throw new FHIRException("Cannot make property variantId as it is not a complex type"); // StringType
+        case -934980271: throw new FHIRException("Cannot make property readId as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1864,6 +2060,42 @@ public class Sequence extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 1591532317: return this.precisionOfBoundaries == null ? new Base[0] : new Base[] {this.precisionOfBoundaries}; // StringType
+        case -1872600587: return this.reportedaCGHRatio == null ? new Base[0] : new Base[] {this.reportedaCGHRatio}; // DecimalType
+        case -1106363674: return this.length == null ? new Base[0] : new Base[] {this.length}; // IntegerType
+        case 106111099: return this.outer == null ? new Base[0] : new Base[] {this.outer}; // SequenceStructureVariationOuterComponent
+        case 100355670: return this.inner == null ? new Base[0] : new Base[] {this.inner}; // SequenceStructureVariationInnerComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 1591532317:
+          this.precisionOfBoundaries = castToString(value); // StringType
+          break;
+        case -1872600587:
+          this.reportedaCGHRatio = castToDecimal(value); // DecimalType
+          break;
+        case -1106363674:
+          this.length = castToInteger(value); // IntegerType
+          break;
+        case 106111099:
+          this.outer = (SequenceStructureVariationOuterComponent) value; // SequenceStructureVariationOuterComponent
+          break;
+        case 100355670:
+          this.inner = (SequenceStructureVariationInnerComponent) value; // SequenceStructureVariationInnerComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("precisionOfBoundaries"))
           this.precisionOfBoundaries = castToString(value); // StringType
@@ -1877,6 +2109,19 @@ public class Sequence extends DomainResource {
           this.inner = (SequenceStructureVariationInnerComponent) value; // SequenceStructureVariationInnerComponent
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 1591532317: throw new FHIRException("Cannot make property precisionOfBoundaries as it is not a complex type"); // StringType
+        case -1872600587: throw new FHIRException("Cannot make property reportedaCGHRatio as it is not a complex type"); // DecimalType
+        case -1106363674: throw new FHIRException("Cannot make property length as it is not a complex type"); // IntegerType
+        case 106111099:  return getOuter(); // SequenceStructureVariationOuterComponent
+        case 100355670:  return getInner(); // SequenceStructureVariationInnerComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2071,6 +2316,30 @@ public class Sequence extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 109757538: return this.start == null ? new Base[0] : new Base[] {this.start}; // IntegerType
+        case 100571: return this.end == null ? new Base[0] : new Base[] {this.end}; // IntegerType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 109757538:
+          this.start = castToInteger(value); // IntegerType
+          break;
+        case 100571:
+          this.end = castToInteger(value); // IntegerType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("start"))
           this.start = castToInteger(value); // IntegerType
@@ -2078,6 +2347,16 @@ public class Sequence extends DomainResource {
           this.end = castToInteger(value); // IntegerType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 109757538: throw new FHIRException("Cannot make property start as it is not a complex type"); // IntegerType
+        case 100571: throw new FHIRException("Cannot make property end as it is not a complex type"); // IntegerType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2254,6 +2533,30 @@ public class Sequence extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 109757538: return this.start == null ? new Base[0] : new Base[] {this.start}; // IntegerType
+        case 100571: return this.end == null ? new Base[0] : new Base[] {this.end}; // IntegerType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 109757538:
+          this.start = castToInteger(value); // IntegerType
+          break;
+        case 100571:
+          this.end = castToInteger(value); // IntegerType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("start"))
           this.start = castToInteger(value); // IntegerType
@@ -2261,6 +2564,16 @@ public class Sequence extends DomainResource {
           this.end = castToInteger(value); // IntegerType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 109757538: throw new FHIRException("Cannot make property start as it is not a complex type"); // IntegerType
+        case 100571: throw new FHIRException("Cannot make property end as it is not a complex type"); // IntegerType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -3213,6 +3526,94 @@ public class Sequence extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<SequenceType>
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -2132868344: return this.specimen == null ? new Base[0] : new Base[] {this.specimen}; // Reference
+        case -1335157162: return this.device == null ? new Base[0] : new Base[] {this.device}; // Reference
+        case -1285004149: return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
+        case -2008465092: return this.species == null ? new Base[0] : new Base[] {this.species}; // CodeableConcept
+        case -502547180: return this.referenceSeq.toArray(new Base[this.referenceSeq.size()]); // SequenceReferenceSeqComponent
+        case -81944045: return this.variation == null ? new Base[0] : new Base[] {this.variation}; // SequenceVariationComponent
+        case 651215103: return this.quality.toArray(new Base[this.quality.size()]); // SequenceQualityComponent
+        case 2079026319: return this.allelicState == null ? new Base[0] : new Base[] {this.allelicState}; // CodeableConcept
+        case 8650330: return this.allelicFrequency == null ? new Base[0] : new Base[] {this.allelicFrequency}; // DecimalType
+        case 960854556: return this.copyNumberEvent == null ? new Base[0] : new Base[] {this.copyNumberEvent}; // CodeableConcept
+        case -1798816354: return this.readCoverage == null ? new Base[0] : new Base[] {this.readCoverage}; // IntegerType
+        case 1950800714: return this.repository.toArray(new Base[this.repository.size()]); // SequenceRepositoryComponent
+        case -400605635: return this.pointer.toArray(new Base[this.pointer.size()]); // Reference
+        case 125541495: return this.observedSeq == null ? new Base[0] : new Base[] {this.observedSeq}; // StringType
+        case 122345516: return this.observation == null ? new Base[0] : new Base[] {this.observation}; // Reference
+        case 1886586336: return this.structureVariation == null ? new Base[0] : new Base[] {this.structureVariation}; // SequenceStructureVariationComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = new SequenceTypeEnumFactory().fromType(value); // Enumeration<SequenceType>
+          break;
+        case -791418107:
+          this.patient = castToReference(value); // Reference
+          break;
+        case -2132868344:
+          this.specimen = castToReference(value); // Reference
+          break;
+        case -1335157162:
+          this.device = castToReference(value); // Reference
+          break;
+        case -1285004149:
+          this.quantity = castToQuantity(value); // Quantity
+          break;
+        case -2008465092:
+          this.species = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -502547180:
+          this.referenceSeq.add((SequenceReferenceSeqComponent) value); // SequenceReferenceSeqComponent
+          break;
+        case -81944045:
+          this.variation = (SequenceVariationComponent) value; // SequenceVariationComponent
+          break;
+        case 651215103:
+          this.quality.add((SequenceQualityComponent) value); // SequenceQualityComponent
+          break;
+        case 2079026319:
+          this.allelicState = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 8650330:
+          this.allelicFrequency = castToDecimal(value); // DecimalType
+          break;
+        case 960854556:
+          this.copyNumberEvent = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1798816354:
+          this.readCoverage = castToInteger(value); // IntegerType
+          break;
+        case 1950800714:
+          this.repository.add((SequenceRepositoryComponent) value); // SequenceRepositoryComponent
+          break;
+        case -400605635:
+          this.pointer.add(castToReference(value)); // Reference
+          break;
+        case 125541495:
+          this.observedSeq = castToString(value); // StringType
+          break;
+        case 122345516:
+          this.observation = castToReference(value); // Reference
+          break;
+        case 1886586336:
+          this.structureVariation = (SequenceStructureVariationComponent) value; // SequenceStructureVariationComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new SequenceTypeEnumFactory().fromType(value); // Enumeration<SequenceType>
@@ -3252,6 +3653,32 @@ public class Sequence extends DomainResource {
           this.structureVariation = (SequenceStructureVariationComponent) value; // SequenceStructureVariationComponent
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<SequenceType>
+        case -791418107:  return getPatient(); // Reference
+        case -2132868344:  return getSpecimen(); // Reference
+        case -1335157162:  return getDevice(); // Reference
+        case -1285004149:  return getQuantity(); // Quantity
+        case -2008465092:  return getSpecies(); // CodeableConcept
+        case -502547180:  return addReferenceSeq(); // SequenceReferenceSeqComponent
+        case -81944045:  return getVariation(); // SequenceVariationComponent
+        case 651215103:  return addQuality(); // SequenceQualityComponent
+        case 2079026319:  return getAllelicState(); // CodeableConcept
+        case 8650330: throw new FHIRException("Cannot make property allelicFrequency as it is not a complex type"); // DecimalType
+        case 960854556:  return getCopyNumberEvent(); // CodeableConcept
+        case -1798816354: throw new FHIRException("Cannot make property readCoverage as it is not a complex type"); // IntegerType
+        case 1950800714:  return addRepository(); // SequenceRepositoryComponent
+        case -400605635:  return addPointer(); // Reference
+        case 125541495: throw new FHIRException("Cannot make property observedSeq as it is not a complex type"); // StringType
+        case 122345516:  return getObservation(); // Reference
+        case 1886586336:  return getStructureVariation(); // SequenceStructureVariationComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

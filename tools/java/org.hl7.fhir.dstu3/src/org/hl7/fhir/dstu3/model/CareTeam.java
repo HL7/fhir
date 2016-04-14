@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -192,9 +192,15 @@ public class CareTeam extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3506294: this.role = castToCodeableConcept(value); // CodeableConcept
-        case -1077769574: this.member = castToReference(value); // Reference
-        case -991726143: this.period = castToPeriod(value); // Period
+        case 3506294:
+          this.role = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1077769574:
+          this.member = castToReference(value); // Reference
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -210,6 +216,17 @@ public class CareTeam extends DomainResource {
           this.period = castToPeriod(value); // Period
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3506294:  return getRole(); // CodeableConcept
+        case -1077769574:  return getMember(); // Reference
+        case -991726143:  return getPeriod(); // Period
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -678,14 +695,30 @@ public class CareTeam extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case -892481550: this.status = castToCodeableConcept(value); // CodeableConcept
-        case 3575610: this.type.add(castToCodeableConcept(value)); // CodeableConcept
-        case 3373707: this.name = castToString(value); // StringType
-        case -1867885268: this.subject = castToReference(value); // Reference
-        case -991726143: this.period = castToPeriod(value); // Period
-        case 767422259: this.participant.add((CareTeamParticipantComponent) value); // CareTeamParticipantComponent
-        case -2058947787: this.managingOrganization = castToReference(value); // Reference
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -892481550:
+          this.status = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 3575610:
+          this.type.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        case 767422259:
+          this.participant.add((CareTeamParticipantComponent) value); // CareTeamParticipantComponent
+          break;
+        case -2058947787:
+          this.managingOrganization = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -711,6 +744,22 @@ public class CareTeam extends DomainResource {
           this.managingOrganization = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -892481550:  return getStatus(); // CodeableConcept
+        case 3575610:  return addType(); // CodeableConcept
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1867885268:  return getSubject(); // Reference
+        case -991726143:  return getPeriod(); // Period
+        case 767422259:  return addParticipant(); // CareTeamParticipantComponent
+        case -2058947787:  return getManagingOrganization(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

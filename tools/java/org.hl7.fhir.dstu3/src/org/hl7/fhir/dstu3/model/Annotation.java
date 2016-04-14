@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -244,9 +244,15 @@ public class Annotation extends Type implements ICompositeType {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 1475597077: this.author = (Type) value; // Type
-        case 3560141: this.time = castToDateTime(value); // DateTimeType
-        case 3556653: this.text = castToString(value); // StringType
+        case 1475597077:
+          this.author = (Type) value; // Type
+          break;
+        case 3560141:
+          this.time = castToDateTime(value); // DateTimeType
+          break;
+        case 3556653:
+          this.text = castToString(value); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -262,6 +268,17 @@ public class Annotation extends Type implements ICompositeType {
           this.text = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 1475597077:  return getAuthor(); // Type
+        case 3560141: throw new FHIRException("Cannot make property time as it is not a complex type"); // DateTimeType
+        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1593,8 +1593,12 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707: this.name = castToString(value); // StringType
-        case -1429363305: this.telecom.add(castToContactPoint(value)); // ContactPoint
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1608,6 +1612,16 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.getTelecom().add(castToContactPoint(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1429363305:  return addTelecom(); // ContactPoint
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1870,9 +1884,15 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707: this.name = castToString(value); // StringType
-        case 351608024: this.version = castToString(value); // StringType
-        case 212873301: this.releaseDate = castToDateTime(value); // DateTimeType
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case 212873301:
+          this.releaseDate = castToDateTime(value); // DateTimeType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1888,6 +1908,17 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.releaseDate = castToDateTime(value); // DateTimeType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case 212873301: throw new FHIRException("Cannot make property releaseDate as it is not a complex type"); // DateTimeType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2094,8 +2125,12 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1724546052: this.description = castToString(value); // StringType
-        case 116079: this.url = castToUri(value); // UriType
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case 116079:
+          this.url = castToUri(value); // UriType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -2109,6 +2144,16 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.url = castToUri(value); // UriType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2659,15 +2704,33 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3357091: this.mode = new RestfulConformanceModeEnumFactory().fromType(value); // Enumeration<RestfulConformanceMode>
-        case 1587405498: this.documentation = castToString(value); // StringType
-        case 949122880: this.security = (ConformanceRestSecurityComponent) value; // ConformanceRestSecurityComponent
-        case -341064690: this.resource.add((ConformanceRestResourceComponent) value); // ConformanceRestResourceComponent
-        case 1844104722: this.interaction.add((SystemInteractionComponent) value); // SystemInteractionComponent
-        case 1262805409: this.transactionMode = new TransactionModeEnumFactory().fromType(value); // Enumeration<TransactionMode>
-        case -553645115: this.searchParam.add((ConformanceRestResourceSearchParamComponent) value); // ConformanceRestResourceSearchParamComponent
-        case 1662702951: this.operation.add((ConformanceRestOperationComponent) value); // ConformanceRestOperationComponent
-        case -397756334: this.compartment.add(castToUri(value)); // UriType
+        case 3357091:
+          this.mode = new RestfulConformanceModeEnumFactory().fromType(value); // Enumeration<RestfulConformanceMode>
+          break;
+        case 1587405498:
+          this.documentation = castToString(value); // StringType
+          break;
+        case 949122880:
+          this.security = (ConformanceRestSecurityComponent) value; // ConformanceRestSecurityComponent
+          break;
+        case -341064690:
+          this.resource.add((ConformanceRestResourceComponent) value); // ConformanceRestResourceComponent
+          break;
+        case 1844104722:
+          this.interaction.add((SystemInteractionComponent) value); // SystemInteractionComponent
+          break;
+        case 1262805409:
+          this.transactionMode = new TransactionModeEnumFactory().fromType(value); // Enumeration<TransactionMode>
+          break;
+        case -553645115:
+          this.searchParam.add((ConformanceRestResourceSearchParamComponent) value); // ConformanceRestResourceSearchParamComponent
+          break;
+        case 1662702951:
+          this.operation.add((ConformanceRestOperationComponent) value); // ConformanceRestOperationComponent
+          break;
+        case -397756334:
+          this.compartment.add(castToUri(value)); // UriType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -2695,6 +2758,23 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.getCompartment().add(castToUri(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<RestfulConformanceMode>
+        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        case 949122880:  return getSecurity(); // ConformanceRestSecurityComponent
+        case -341064690:  return addResource(); // ConformanceRestResourceComponent
+        case 1844104722:  return addInteraction(); // SystemInteractionComponent
+        case 1262805409: throw new FHIRException("Cannot make property transactionMode as it is not a complex type"); // Enumeration<TransactionMode>
+        case -553645115:  return addSearchParam(); // ConformanceRestResourceSearchParamComponent
+        case 1662702951:  return addOperation(); // ConformanceRestOperationComponent
+        case -397756334: throw new FHIRException("Cannot make property compartment as it is not a complex type"); // UriType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -3041,10 +3121,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3059629: this.cors = castToBoolean(value); // BooleanType
-        case 1984153269: this.service.add(castToCodeableConcept(value)); // CodeableConcept
-        case -1724546052: this.description = castToString(value); // StringType
-        case 1952399767: this.certificate.add((ConformanceRestSecurityCertificateComponent) value); // ConformanceRestSecurityCertificateComponent
+        case 3059629:
+          this.cors = castToBoolean(value); // BooleanType
+          break;
+        case 1984153269:
+          this.service.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case 1952399767:
+          this.certificate.add((ConformanceRestSecurityCertificateComponent) value); // ConformanceRestSecurityCertificateComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -3062,6 +3150,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.getCertificate().add((ConformanceRestSecurityCertificateComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059629: throw new FHIRException("Cannot make property cors as it is not a complex type"); // BooleanType
+        case 1984153269:  return addService(); // CodeableConcept
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 1952399767:  return addCertificate(); // ConformanceRestSecurityCertificateComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -3276,8 +3376,12 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610: this.type = castToCode(value); // CodeType
-        case 3026845: this.blob = castToBase64Binary(value); // Base64BinaryType
+        case 3575610:
+          this.type = castToCode(value); // CodeType
+          break;
+        case 3026845:
+          this.blob = castToBase64Binary(value); // Base64BinaryType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -3291,6 +3395,16 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.blob = castToBase64Binary(value); // Base64BinaryType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
+        case 3026845: throw new FHIRException("Cannot make property blob as it is not a complex type"); // Base64BinaryType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -4047,18 +4161,42 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610: this.type = castToCode(value); // CodeType
-        case -309425751: this.profile = castToReference(value); // Reference
-        case 1844104722: this.interaction.add((ResourceInteractionComponent) value); // ResourceInteractionComponent
-        case -670487542: this.versioning = new ResourceVersionPolicyEnumFactory().fromType(value); // Enumeration<ResourceVersionPolicy>
-        case 187518494: this.readHistory = castToBoolean(value); // BooleanType
-        case -1400550619: this.updateCreate = castToBoolean(value); // BooleanType
-        case 6401826: this.conditionalCreate = castToBoolean(value); // BooleanType
-        case 519849711: this.conditionalUpdate = castToBoolean(value); // BooleanType
-        case 23237585: this.conditionalDelete = new ConditionalDeleteStatusEnumFactory().fromType(value); // Enumeration<ConditionalDeleteStatus>
-        case -1035904544: this.searchInclude.add(castToString(value)); // StringType
-        case -2123884979: this.searchRevInclude.add(castToString(value)); // StringType
-        case -553645115: this.searchParam.add((ConformanceRestResourceSearchParamComponent) value); // ConformanceRestResourceSearchParamComponent
+        case 3575610:
+          this.type = castToCode(value); // CodeType
+          break;
+        case -309425751:
+          this.profile = castToReference(value); // Reference
+          break;
+        case 1844104722:
+          this.interaction.add((ResourceInteractionComponent) value); // ResourceInteractionComponent
+          break;
+        case -670487542:
+          this.versioning = new ResourceVersionPolicyEnumFactory().fromType(value); // Enumeration<ResourceVersionPolicy>
+          break;
+        case 187518494:
+          this.readHistory = castToBoolean(value); // BooleanType
+          break;
+        case -1400550619:
+          this.updateCreate = castToBoolean(value); // BooleanType
+          break;
+        case 6401826:
+          this.conditionalCreate = castToBoolean(value); // BooleanType
+          break;
+        case 519849711:
+          this.conditionalUpdate = castToBoolean(value); // BooleanType
+          break;
+        case 23237585:
+          this.conditionalDelete = new ConditionalDeleteStatusEnumFactory().fromType(value); // Enumeration<ConditionalDeleteStatus>
+          break;
+        case -1035904544:
+          this.searchInclude.add(castToString(value)); // StringType
+          break;
+        case -2123884979:
+          this.searchRevInclude.add(castToString(value)); // StringType
+          break;
+        case -553645115:
+          this.searchParam.add((ConformanceRestResourceSearchParamComponent) value); // ConformanceRestResourceSearchParamComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -4092,6 +4230,26 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.getSearchParam().add((ConformanceRestResourceSearchParamComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
+        case -309425751:  return getProfile(); // Reference
+        case 1844104722:  return addInteraction(); // ResourceInteractionComponent
+        case -670487542: throw new FHIRException("Cannot make property versioning as it is not a complex type"); // Enumeration<ResourceVersionPolicy>
+        case 187518494: throw new FHIRException("Cannot make property readHistory as it is not a complex type"); // BooleanType
+        case -1400550619: throw new FHIRException("Cannot make property updateCreate as it is not a complex type"); // BooleanType
+        case 6401826: throw new FHIRException("Cannot make property conditionalCreate as it is not a complex type"); // BooleanType
+        case 519849711: throw new FHIRException("Cannot make property conditionalUpdate as it is not a complex type"); // BooleanType
+        case 23237585: throw new FHIRException("Cannot make property conditionalDelete as it is not a complex type"); // Enumeration<ConditionalDeleteStatus>
+        case -1035904544: throw new FHIRException("Cannot make property searchInclude as it is not a complex type"); // StringType
+        case -2123884979: throw new FHIRException("Cannot make property searchRevInclude as it is not a complex type"); // StringType
+        case -553645115:  return addSearchParam(); // ConformanceRestResourceSearchParamComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -4363,8 +4521,12 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181: this.code = new TypeRestfulInteractionEnumFactory().fromType(value); // Enumeration<TypeRestfulInteraction>
-        case 1587405498: this.documentation = castToString(value); // StringType
+        case 3059181:
+          this.code = new TypeRestfulInteractionEnumFactory().fromType(value); // Enumeration<TypeRestfulInteraction>
+          break;
+        case 1587405498:
+          this.documentation = castToString(value); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -4378,6 +4540,16 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.documentation = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<TypeRestfulInteraction>
+        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -4792,7 +4964,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
           if (this.modifier == null)
             return false;
           for (Enumeration<SearchModifierCode> v : this.modifier)
-            if (v.equals(value)) // code
+            if (v.getValue().equals(value)) // code
               return true;
           return false;
         }
@@ -4880,13 +5052,27 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707: this.name = castToString(value); // StringType
-        case -1014418093: this.definition = castToUri(value); // UriType
-        case 3575610: this.type = new SearchParamTypeEnumFactory().fromType(value); // Enumeration<SearchParamType>
-        case 1587405498: this.documentation = castToString(value); // StringType
-        case -880905839: this.target.add(castToCode(value)); // CodeType
-        case -615513385: this.modifier.add(new SearchModifierCodeEnumFactory().fromType(value)); // Enumeration<SearchModifierCode>
-        case 94623425: this.chain.add(castToString(value)); // StringType
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1014418093:
+          this.definition = castToUri(value); // UriType
+          break;
+        case 3575610:
+          this.type = new SearchParamTypeEnumFactory().fromType(value); // Enumeration<SearchParamType>
+          break;
+        case 1587405498:
+          this.documentation = castToString(value); // StringType
+          break;
+        case -880905839:
+          this.target.add(castToCode(value)); // CodeType
+          break;
+        case -615513385:
+          this.modifier.add(new SearchModifierCodeEnumFactory().fromType(value)); // Enumeration<SearchModifierCode>
+          break;
+        case 94623425:
+          this.chain.add(castToString(value)); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -4910,6 +5096,21 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.getChain().add(castToString(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1014418093: throw new FHIRException("Cannot make property definition as it is not a complex type"); // UriType
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<SearchParamType>
+        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        case -880905839: throw new FHIRException("Cannot make property target as it is not a complex type"); // CodeType
+        case -615513385: throw new FHIRException("Cannot make property modifier as it is not a complex type"); // Enumeration<SearchModifierCode>
+        case 94623425: throw new FHIRException("Cannot make property chain as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -5148,8 +5349,12 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181: this.code = new SystemRestfulInteractionEnumFactory().fromType(value); // Enumeration<SystemRestfulInteraction>
-        case 1587405498: this.documentation = castToString(value); // StringType
+        case 3059181:
+          this.code = new SystemRestfulInteractionEnumFactory().fromType(value); // Enumeration<SystemRestfulInteraction>
+          break;
+        case 1587405498:
+          this.documentation = castToString(value); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -5163,6 +5368,16 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.documentation = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<SystemRestfulInteraction>
+        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -5364,8 +5579,12 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707: this.name = castToString(value); // StringType
-        case -1014418093: this.definition = castToReference(value); // Reference
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1014418093:
+          this.definition = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -5379,6 +5598,16 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.definition = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1014418093:  return getDefinition(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -5670,10 +5899,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 1741102485: this.endpoint.add((ConformanceMessagingEndpointComponent) value); // ConformanceMessagingEndpointComponent
-        case 897803608: this.reliableCache = castToUnsignedInt(value); // UnsignedIntType
-        case 1587405498: this.documentation = castToString(value); // StringType
-        case 96891546: this.event.add((ConformanceMessagingEventComponent) value); // ConformanceMessagingEventComponent
+        case 1741102485:
+          this.endpoint.add((ConformanceMessagingEndpointComponent) value); // ConformanceMessagingEndpointComponent
+          break;
+        case 897803608:
+          this.reliableCache = castToUnsignedInt(value); // UnsignedIntType
+          break;
+        case 1587405498:
+          this.documentation = castToString(value); // StringType
+          break;
+        case 96891546:
+          this.event.add((ConformanceMessagingEventComponent) value); // ConformanceMessagingEventComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -5691,6 +5928,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.getEvent().add((ConformanceMessagingEventComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 1741102485:  return addEndpoint(); // ConformanceMessagingEndpointComponent
+        case 897803608: throw new FHIRException("Cannot make property reliableCache as it is not a complex type"); // UnsignedIntType
+        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        case 96891546:  return addEvent(); // ConformanceMessagingEventComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -5886,8 +6135,12 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -989163880: this.protocol = castToCoding(value); // Coding
-        case -1147692044: this.address = castToUri(value); // UriType
+        case -989163880:
+          this.protocol = castToCoding(value); // Coding
+          break;
+        case -1147692044:
+          this.address = castToUri(value); // UriType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -5901,6 +6154,16 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.address = castToUri(value); // UriType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -989163880:  return getProtocol(); // Coding
+        case -1147692044: throw new FHIRException("Cannot make property address as it is not a complex type"); // UriType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -6367,13 +6630,27 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181: this.code = castToCoding(value); // Coding
-        case 50511102: this.category = new MessageSignificanceCategoryEnumFactory().fromType(value); // Enumeration<MessageSignificanceCategory>
-        case 3357091: this.mode = new ConformanceEventModeEnumFactory().fromType(value); // Enumeration<ConformanceEventMode>
-        case 97604824: this.focus = castToCode(value); // CodeType
-        case 1095692943: this.request = castToReference(value); // Reference
-        case -340323263: this.response = castToReference(value); // Reference
-        case 1587405498: this.documentation = castToString(value); // StringType
+        case 3059181:
+          this.code = castToCoding(value); // Coding
+          break;
+        case 50511102:
+          this.category = new MessageSignificanceCategoryEnumFactory().fromType(value); // Enumeration<MessageSignificanceCategory>
+          break;
+        case 3357091:
+          this.mode = new ConformanceEventModeEnumFactory().fromType(value); // Enumeration<ConformanceEventMode>
+          break;
+        case 97604824:
+          this.focus = castToCode(value); // CodeType
+          break;
+        case 1095692943:
+          this.request = castToReference(value); // Reference
+          break;
+        case -340323263:
+          this.response = castToReference(value); // Reference
+          break;
+        case 1587405498:
+          this.documentation = castToString(value); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -6397,6 +6674,21 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.documentation = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181:  return getCode(); // Coding
+        case 50511102: throw new FHIRException("Cannot make property category as it is not a complex type"); // Enumeration<MessageSignificanceCategory>
+        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<ConformanceEventMode>
+        case 97604824: throw new FHIRException("Cannot make property focus as it is not a complex type"); // CodeType
+        case 1095692943:  return getRequest(); // Reference
+        case -340323263:  return getResponse(); // Reference
+        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -6684,9 +6976,15 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3357091: this.mode = new DocumentModeEnumFactory().fromType(value); // Enumeration<DocumentMode>
-        case 1587405498: this.documentation = castToString(value); // StringType
-        case -309425751: this.profile = castToReference(value); // Reference
+        case 3357091:
+          this.mode = new DocumentModeEnumFactory().fromType(value); // Enumeration<DocumentMode>
+          break;
+        case 1587405498:
+          this.documentation = castToString(value); // StringType
+          break;
+        case -309425751:
+          this.profile = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -6702,6 +7000,17 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.profile = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<DocumentMode>
+        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        case -309425751:  return getProfile(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -7977,28 +8286,72 @@ public class Conformance extends DomainResource implements IBaseConformance {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 116079: this.url = castToUri(value); // UriType
-        case 351608024: this.version = castToString(value); // StringType
-        case 3373707: this.name = castToString(value); // StringType
-        case -892481550: this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
-        case -404562712: this.experimental = castToBoolean(value); // BooleanType
-        case 3076014: this.date = castToDateTime(value); // DateTimeType
-        case 1447404028: this.publisher = castToString(value); // StringType
-        case 951526432: this.contact.add((ConformanceContactComponent) value); // ConformanceContactComponent
-        case -1724546052: this.description = castToString(value); // StringType
-        case -669707736: this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
-        case -1619874672: this.requirements = castToString(value); // StringType
-        case 1522889671: this.copyright = castToString(value); // StringType
-        case 3292052: this.kind = new ConformanceStatementKindEnumFactory().fromType(value); // Enumeration<ConformanceStatementKind>
-        case 1319330215: this.software = (ConformanceSoftwareComponent) value; // ConformanceSoftwareComponent
-        case 1683336114: this.implementation = (ConformanceImplementationComponent) value; // ConformanceImplementationComponent
-        case 461006061: this.fhirVersion = castToId(value); // IdType
-        case -1862642142: this.acceptUnknown = new UnknownContentCodeEnumFactory().fromType(value); // Enumeration<UnknownContentCode>
-        case -1268779017: this.format.add(castToCode(value)); // CodeType
-        case -309425751: this.profile.add(castToReference(value)); // Reference
-        case 3496916: this.rest.add((ConformanceRestComponent) value); // ConformanceRestComponent
-        case -1440008444: this.messaging.add((ConformanceMessagingComponent) value); // ConformanceMessagingComponent
-        case 861720859: this.document.add((ConformanceDocumentComponent) value); // ConformanceDocumentComponent
+        case 116079:
+          this.url = castToUri(value); // UriType
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -892481550:
+          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          break;
+        case -404562712:
+          this.experimental = castToBoolean(value); // BooleanType
+          break;
+        case 3076014:
+          this.date = castToDateTime(value); // DateTimeType
+          break;
+        case 1447404028:
+          this.publisher = castToString(value); // StringType
+          break;
+        case 951526432:
+          this.contact.add((ConformanceContactComponent) value); // ConformanceContactComponent
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -669707736:
+          this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1619874672:
+          this.requirements = castToString(value); // StringType
+          break;
+        case 1522889671:
+          this.copyright = castToString(value); // StringType
+          break;
+        case 3292052:
+          this.kind = new ConformanceStatementKindEnumFactory().fromType(value); // Enumeration<ConformanceStatementKind>
+          break;
+        case 1319330215:
+          this.software = (ConformanceSoftwareComponent) value; // ConformanceSoftwareComponent
+          break;
+        case 1683336114:
+          this.implementation = (ConformanceImplementationComponent) value; // ConformanceImplementationComponent
+          break;
+        case 461006061:
+          this.fhirVersion = castToId(value); // IdType
+          break;
+        case -1862642142:
+          this.acceptUnknown = new UnknownContentCodeEnumFactory().fromType(value); // Enumeration<UnknownContentCode>
+          break;
+        case -1268779017:
+          this.format.add(castToCode(value)); // CodeType
+          break;
+        case -309425751:
+          this.profile.add(castToReference(value)); // Reference
+          break;
+        case 3496916:
+          this.rest.add((ConformanceRestComponent) value); // ConformanceRestComponent
+          break;
+        case -1440008444:
+          this.messaging.add((ConformanceMessagingComponent) value); // ConformanceMessagingComponent
+          break;
+        case 861720859:
+          this.document.add((ConformanceDocumentComponent) value); // ConformanceDocumentComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -8052,6 +8405,36 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.getDocument().add((ConformanceDocumentComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
+        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
+        case 951526432:  return addContact(); // ConformanceContactComponent
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -669707736:  return addUseContext(); // CodeableConcept
+        case -1619874672: throw new FHIRException("Cannot make property requirements as it is not a complex type"); // StringType
+        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
+        case 3292052: throw new FHIRException("Cannot make property kind as it is not a complex type"); // Enumeration<ConformanceStatementKind>
+        case 1319330215:  return getSoftware(); // ConformanceSoftwareComponent
+        case 1683336114:  return getImplementation(); // ConformanceImplementationComponent
+        case 461006061: throw new FHIRException("Cannot make property fhirVersion as it is not a complex type"); // IdType
+        case -1862642142: throw new FHIRException("Cannot make property acceptUnknown as it is not a complex type"); // Enumeration<UnknownContentCode>
+        case -1268779017: throw new FHIRException("Cannot make property format as it is not a complex type"); // CodeType
+        case -309425751:  return addProfile(); // Reference
+        case 3496916:  return addRest(); // ConformanceRestComponent
+        case -1440008444:  return addMessaging(); // ConformanceMessagingComponent
+        case 861720859:  return addDocument(); // ConformanceDocumentComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -199,6 +199,30 @@ public class Period extends Type implements ICompositeType {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 109757538: return this.start == null ? new Base[0] : new Base[] {this.start}; // DateTimeType
+        case 100571: return this.end == null ? new Base[0] : new Base[] {this.end}; // DateTimeType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 109757538:
+          this.start = castToDateTime(value); // DateTimeType
+          break;
+        case 100571:
+          this.end = castToDateTime(value); // DateTimeType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("start"))
           this.start = castToDateTime(value); // DateTimeType
@@ -206,6 +230,16 @@ public class Period extends Type implements ICompositeType {
           this.end = castToDateTime(value); // DateTimeType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 109757538: throw new FHIRException("Cannot make property start as it is not a complex type"); // DateTimeType
+        case 100571: throw new FHIRException("Cannot make property end as it is not a complex type"); // DateTimeType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

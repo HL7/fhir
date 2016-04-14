@@ -16,11 +16,15 @@ import org.hl7.fhir.dstu3.model.IdType;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceFactory;
+import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupRuleComponent;
+import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupRuleDependentComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupRuleSourceComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupRuleTargetComponent;
+import org.hl7.fhir.dstu3.model.Type;
+import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.utils.StructureMapTransformer.ITransformerServices;
 import org.hl7.fhir.dstu3.utils.StructureMapTransformer.TransformContext;
 import org.hl7.fhir.dstu3.utils.StructureMapTransformer.Variable;
@@ -111,6 +115,10 @@ public class StructureMapTransformer {
   private IWorkerContext context;
   private FHIRPathEngine fpe;
   
+  private void log(String cnt) {
+  	System.out.println(cnt);
+  }
+  
   public StructureMapTransformer(IWorkerContext context, Map<String, StructureMap> library, ITransformerServices services) {
     super();
     this.context = context;
@@ -131,9 +139,10 @@ public class StructureMapTransformer {
    * @param item
    * @param name
    * @param result
+   * @throws FHIRException 
    */
-  protected void getChildrenByName(Base item, String name, List<Base> result) {
-    for (Base v : item.listChildrenByName(name))
+  protected void getChildrenByName(Base item, String name, List<Base> result) throws FHIRException {
+    for (Base v : item.listChildrenByName(name, true))
       if (v != null)
         result.add(v);
   }
@@ -148,18 +157,20 @@ public class StructureMapTransformer {
     vars.add(VariableMode.INPUT, "src", source);
     vars.add(VariableMode.OUTPUT, "tgt", target);
     
-    executeGroup(context, vars, map.getGroup().get(0));
+    executeGroup("", context, vars, map.getGroup().get(0));
   }
 
-  private void executeGroup(TransformContext context, Variables vars, StructureMapGroupComponent group) throws Exception {
+  private void executeGroup(String indent, TransformContext context, Variables vars, StructureMapGroupComponent group) throws Exception {
+  	log(indent+"Group : "+group.getName());
     // todo: extends
     // todo: check inputs
     for (StructureMapGroupRuleComponent r : group.getRule()) {
-      executeRule(context, vars, r);
+      executeRule(indent+"  ", context, vars, r);
     }
   }
 
-  private void executeRule(TransformContext context, Variables vars, StructureMapGroupRuleComponent rule) throws Exception {
+  private void executeRule(String indent, TransformContext context, Variables vars, StructureMapGroupRuleComponent rule) throws Exception {
+  	log(indent+"rule : "+rule.getName());
     Variables srcVars = vars.copy();
     if (rule.getSource().size() != 1)
       throw new Exception("not handled yet");
@@ -168,7 +179,11 @@ public class StructureMapTransformer {
       for (StructureMapGroupRuleTargetComponent t : rule.getTarget()) {
         processTarget(context, v, t);
       }
-      // process dependencies
+      if (rule.hasRule()) {
+      	for (StructureMapGroupRuleComponent childrule : rule.getRule()) {
+      		executeRule(indent +"  ", context, v, childrule);
+      	}
+      }
     }
   }
   
@@ -177,7 +192,7 @@ public class StructureMapTransformer {
     List<Base> items = new ArrayList<Base>();
     Base b = vars.get(VariableMode.INPUT, src.getContext());
     if (b == null)
-    	throw new FHIRException("Unknown variable "+src.getContext());
+    	throw new FHIRException("Unknown input variable "+src.getContext());
     if (!src.hasElement()) 
       items.add(b);
     else 
@@ -225,7 +240,7 @@ public class StructureMapTransformer {
     Base v = null;
     if (tgt.hasTransform()) {
       v = runTransform(tgt, vars);
-      dest.setProperty(tgt.getElement(), v);
+      dest.setProperty(tgt.getElement().hashCode(), v);
     } else 
     	v = dest.makeProperty(tgt.getElement().hashCode());
     if (tgt.hasVariable())
@@ -235,11 +250,24 @@ public class StructureMapTransformer {
   private Base runTransform(StructureMapGroupRuleTargetComponent tgt, Variables vars) throws FHIRException {
     switch (tgt.getTransform()) {
     case CREATE :
-      Resource r = ResourceFactory.createResource( tgt.getParameter().get(0).getValueStringType().asStringValue());
-      r.setId(UUID.randomUUID().toString().toLowerCase());
-      return r;
+      return ResourceFactory.createResource( tgt.getParameter().get(0).getValueStringType().asStringValue());
     case COPY : 
-      return vars.get(VariableMode.INPUT, ((PrimitiveType) tgt.getParameter().get(0).getValue()).asStringValue());
+    	Type p = tgt.getParameter().get(0).getValue();
+    	if (!(p instanceof IdType))
+    		return p;
+    	else 
+    		return vars.get(VariableMode.INPUT, ((IdType) p).asStringValue());
+    case EVALUATE :
+			ExpressionNode expr = (ExpressionNode) tgt.getUserData(StructureMapCompiler.MAP_EXPRESSION);
+			if (expr == null) {
+				expr = fpe.parse(((StringType) tgt.getParameter().get(1).getValue()).asStringValue());
+				tgt.setUserData(StructureMapCompiler.MAP_WHERE_EXPRESSION, expr);
+			}
+			List<Base> v = fpe.evaluate(null, null, vars.get(VariableMode.INPUT, ((IdType) tgt.getParameter().get(0).getValue()).asStringValue()), expr);
+			if (v.size() != 1)
+				throw new FHIRException("evaluation of "+expr.toString()+" returned "+Integer.toString(v.size())+" objects");
+			return v.get(0);
+    	
     case TRUNCATE : 
       throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
     case ESCAPE : 
@@ -259,7 +287,7 @@ public class StructureMapTransformer {
     case POINTER :
       Base b = vars.get(VariableMode.OUTPUT, ((PrimitiveType) tgt.getParameter().get(0).getValue()).asStringValue());
       if (b instanceof Resource)
-      	return new IdType(((Resource) b).getId());
+      	return new UriType("urn:uuid:"+((Resource) b).getId());
       else
       	throw new FHIRException("Transform engine cannot point at an element of type "+b.fhirType());
     default:

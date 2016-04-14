@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -314,8 +314,12 @@ public class DocumentReference extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181: this.code = new DocumentRelationshipTypeEnumFactory().fromType(value); // Enumeration<DocumentRelationshipType>
-        case -880905839: this.target = castToReference(value); // Reference
+        case 3059181:
+          this.code = new DocumentRelationshipTypeEnumFactory().fromType(value); // Enumeration<DocumentRelationshipType>
+          break;
+        case -880905839:
+          this.target = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -329,6 +333,16 @@ public class DocumentReference extends DomainResource {
           this.target = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<DocumentRelationshipType>
+        case -880905839:  return getTarget(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -500,8 +514,12 @@ public class DocumentReference extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1963501277: this.attachment = castToAttachment(value); // Attachment
-        case -1268779017: this.format.add(castToCoding(value)); // Coding
+        case -1963501277:
+          this.attachment = castToAttachment(value); // Attachment
+          break;
+        case -1268779017:
+          this.format.add(castToCoding(value)); // Coding
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -515,6 +533,16 @@ public class DocumentReference extends DomainResource {
           this.getFormat().add(castToCoding(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1963501277:  return getAttachment(); // Attachment
+        case -1268779017:  return addFormat(); // Coding
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -913,13 +941,27 @@ public class DocumentReference extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 1524132147: this.encounter = castToReference(value); // Reference
-        case 96891546: this.event.add(castToCodeableConcept(value)); // CodeableConcept
-        case -991726143: this.period = castToPeriod(value); // Period
-        case 370698365: this.facilityType = castToCodeableConcept(value); // CodeableConcept
-        case 331373717: this.practiceSetting = castToCodeableConcept(value); // CodeableConcept
-        case 2031381048: this.sourcePatientInfo = castToReference(value); // Reference
-        case 1090493483: this.related.add((DocumentReferenceContextRelatedComponent) value); // DocumentReferenceContextRelatedComponent
+        case 1524132147:
+          this.encounter = castToReference(value); // Reference
+          break;
+        case 96891546:
+          this.event.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        case 370698365:
+          this.facilityType = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 331373717:
+          this.practiceSetting = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 2031381048:
+          this.sourcePatientInfo = castToReference(value); // Reference
+          break;
+        case 1090493483:
+          this.related.add((DocumentReferenceContextRelatedComponent) value); // DocumentReferenceContextRelatedComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -943,6 +985,21 @@ public class DocumentReference extends DomainResource {
           this.getRelated().add((DocumentReferenceContextRelatedComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 1524132147:  return getEncounter(); // Reference
+        case 96891546:  return addEvent(); // CodeableConcept
+        case -991726143:  return getPeriod(); // Period
+        case 370698365:  return getFacilityType(); // CodeableConcept
+        case 331373717:  return getPracticeSetting(); // CodeableConcept
+        case 2031381048:  return getSourcePatientInfo(); // Reference
+        case 1090493483:  return addRelated(); // DocumentReferenceContextRelatedComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1147,8 +1204,12 @@ public class DocumentReference extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
-        case 112787: this.ref = castToReference(value); // Reference
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case 112787:
+          this.ref = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1162,6 +1223,16 @@ public class DocumentReference extends DomainResource {
           this.ref = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return getIdentifier(); // Identifier
+        case 112787:  return getRef(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2064,23 +2135,57 @@ public class DocumentReference extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 243769515: this.masterIdentifier = castToIdentifier(value); // Identifier
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case -1867885268: this.subject = castToReference(value); // Reference
-        case 3575610: this.type = castToCodeableConcept(value); // CodeableConcept
-        case 94742904: this.class_ = castToCodeableConcept(value); // CodeableConcept
-        case -1406328437: this.author.add(castToReference(value)); // Reference
-        case 1611297262: this.custodian = castToReference(value); // Reference
-        case 1815000435: this.authenticator = castToReference(value); // Reference
-        case 1028554472: this.created = castToDateTime(value); // DateTimeType
-        case 1943292145: this.indexed = castToInstant(value); // InstantType
-        case -892481550: this.status = new DocumentReferenceStatusEnumFactory().fromType(value); // Enumeration<DocumentReferenceStatus>
-        case -23496886: this.docStatus = castToCodeableConcept(value); // CodeableConcept
-        case -7765931: this.relatesTo.add((DocumentReferenceRelatesToComponent) value); // DocumentReferenceRelatesToComponent
-        case -1724546052: this.description = castToString(value); // StringType
-        case -722296940: this.securityLabel.add(castToCodeableConcept(value)); // CodeableConcept
-        case 951530617: this.content.add((DocumentReferenceContentComponent) value); // DocumentReferenceContentComponent
-        case 951530927: this.context = (DocumentReferenceContextComponent) value; // DocumentReferenceContextComponent
+        case 243769515:
+          this.masterIdentifier = castToIdentifier(value); // Identifier
+          break;
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case 3575610:
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 94742904:
+          this.class_ = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1406328437:
+          this.author.add(castToReference(value)); // Reference
+          break;
+        case 1611297262:
+          this.custodian = castToReference(value); // Reference
+          break;
+        case 1815000435:
+          this.authenticator = castToReference(value); // Reference
+          break;
+        case 1028554472:
+          this.created = castToDateTime(value); // DateTimeType
+          break;
+        case 1943292145:
+          this.indexed = castToInstant(value); // InstantType
+          break;
+        case -892481550:
+          this.status = new DocumentReferenceStatusEnumFactory().fromType(value); // Enumeration<DocumentReferenceStatus>
+          break;
+        case -23496886:
+          this.docStatus = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -7765931:
+          this.relatesTo.add((DocumentReferenceRelatesToComponent) value); // DocumentReferenceRelatesToComponent
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -722296940:
+          this.securityLabel.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 951530617:
+          this.content.add((DocumentReferenceContentComponent) value); // DocumentReferenceContentComponent
+          break;
+        case 951530927:
+          this.context = (DocumentReferenceContextComponent) value; // DocumentReferenceContextComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -2124,6 +2229,31 @@ public class DocumentReference extends DomainResource {
           this.context = (DocumentReferenceContextComponent) value; // DocumentReferenceContextComponent
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 243769515:  return getMasterIdentifier(); // Identifier
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -1867885268:  return getSubject(); // Reference
+        case 3575610:  return getType(); // CodeableConcept
+        case 94742904:  return getClass_(); // CodeableConcept
+        case -1406328437:  return addAuthor(); // Reference
+        case 1611297262:  return getCustodian(); // Reference
+        case 1815000435:  return getAuthenticator(); // Reference
+        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
+        case 1943292145: throw new FHIRException("Cannot make property indexed as it is not a complex type"); // InstantType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DocumentReferenceStatus>
+        case -23496886:  return getDocStatus(); // CodeableConcept
+        case -7765931:  return addRelatesTo(); // DocumentReferenceRelatesToComponent
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -722296940:  return addSecurityLabel(); // CodeableConcept
+        case 951530617:  return addContent(); // DocumentReferenceContentComponent
+        case 951530927:  return getContext(); // DocumentReferenceContextComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

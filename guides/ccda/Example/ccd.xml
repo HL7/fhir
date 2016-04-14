@@ -550,7 +550,7 @@
 										displayName="Do not resuscitate"
 										codeSystem="2.16.840.1.113883.6.96"/>
 									<participant typeCode="VRF">
-										<time value="201102019"/>
+										<time value="20110219"/>
 										<participantRole>
 											<id root="20cf14fb-b65c-4c8c-a54d-b0cca834c18c"/>
 											<code code="207QA0505X" displayName="Adult Medicine"
@@ -1207,7 +1207,7 @@
 									<code code="46008-9 " displayName="Bathing"
 										codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
 									<statusCode code="completed"/>
-									<effectiveTime value="200130311"/>
+									<effectiveTime value="20130311"/>
 									<value xsi:type="CD" code="371153006" displayName="Independent"
 										codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
 									<author typeCode="AUT">

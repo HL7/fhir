@@ -13,6 +13,7 @@ import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.IdType;
 import org.hl7.fhir.dstu3.model.IntegerType;
+import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupComponent;
@@ -27,6 +28,7 @@ import org.hl7.fhir.dstu3.model.StructureMap.StructureMapListMode;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapModelMode;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapStructureComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapTransform;
+import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.utilities.Utilities;
@@ -35,6 +37,7 @@ public class StructureMapCompiler {
 
   public static final String MAP_WHERE_CHECK = "map.where.check";
   public static final String MAP_WHERE_EXPRESSION = "map.where.expression";
+  public static final String MAP_EXPRESSION = "map.transform.expression";
   private IWorkerContext worker;
   private FHIRPathEngine fluent;
   
@@ -212,6 +215,12 @@ public class StructureMapCompiler {
 			b.append(" = ");
 			if (rt.getTransform() == StructureMapTransform.COPY && rt.getParameter().size() == 1) {
 				renderTransformParam(b, rt.getParameter().get(0));
+			} else if (rt.getTransform() == StructureMapTransform.EVALUATE && rt.getParameter().size() == 2) {
+				b.append(rt.getTransform().toCode());
+				b.append("(");
+				b.append(((IdType) rt.getParameter().get(0).getValue()).asStringValue());
+				b.append(((StringType) rt.getParameter().get(1).getValue()).asStringValue());
+				b.append(")");
 			} else {
 				b.append(rt.getTransform().toCode());
 				b.append("(");
@@ -375,11 +384,16 @@ public class StructureMapCompiler {
       lexer.token("then");
       if (lexer.hasToken("{")) {
         lexer.token("{");
+        if (lexer.hasComment()) {
+          rule.setDocumentation(lexer.take().substring(2).trim());
+        }
+        lexer.skipComments();
         while (!lexer.hasToken("}")) {
           if (lexer.done())
             throw lexer.error("premature termination expecting '}' in nested group");
           parseRule(rule.getRule(), lexer);
         }      
+        lexer.token("}");
       } else {
         done = false;
         while (!done) {
@@ -389,8 +403,7 @@ public class StructureMapCompiler {
             lexer.next();
         }
       }
-    }
-    if (lexer.hasComment()) {
+    } else if (lexer.hasComment()) {
       rule.setDocumentation(lexer.take().substring(2).trim());
     }
     lexer.skipComments();
@@ -455,19 +468,36 @@ public class StructureMapCompiler {
     }
     if (lexer.hasToken("=")) {
       lexer.token("=");
+      boolean isConstant = lexer.isConstant(true);
       String name = lexer.take();
       if (lexer.hasToken("(")) {
         target.setTransform(StructureMapTransform.fromCode(name));
         lexer.token("(");
-        while (!lexer.hasToken(")")) {
-          parseParameter(target, lexer);
-          if (!lexer.hasToken(")"))
-          	lexer.token(",");
-        }        
+        if (target.getTransform() == StructureMapTransform.EVALUATE) {
+      		parseParameter(target, lexer);
+    			lexer.token(",");
+          ExpressionNode node = fluent.parse(lexer);
+          target.setUserData(MAP_EXPRESSION, node);
+          target.addParameter().setValue(new StringType(node.toString()));
+        } else { 
+        	while (!lexer.hasToken(")")) {
+        		parseParameter(target, lexer);
+        		if (!lexer.hasToken(")"))
+        			lexer.token(",");
+        	}       
+        }
         lexer.token(")");
       } else {
         target.setTransform(StructureMapTransform.COPY);
-        target.addParameter().setValue(new IdType(name));
+        if (!isConstant) {
+        	String id = name;
+        	while (lexer.hasToken(".")) {
+        		id = id + lexer.take() + lexer.take();
+        	}
+          target.addParameter().setValue(new IdType(id));
+        }
+        else 
+        	target.addParameter().setValue(readConstant(name, lexer));
       }
     }
     if (lexer.hasToken("as")) {
@@ -487,22 +517,25 @@ public class StructureMapCompiler {
     }
   }
 
-  private void parseParameter(StructureMapGroupRuleTargetComponent target, FHIRLexer lexer) throws FHIRLexerException {
-    if (!lexer.isConstant(true))
+
+	private void parseParameter(StructureMapGroupRuleTargetComponent target, FHIRLexer lexer) throws FHIRLexerException {
+    if (!lexer.isConstant(true)) {
       target.addParameter().setValue(new IdType(lexer.take()));
-    else if (lexer.isStringConstant())
+    } else if (lexer.isStringConstant())
       target.addParameter().setValue(new StringType(lexer.readConstant("??")));
     else {
-      String s = lexer.take();
-      if (Utilities.isInteger(s))
-        target.addParameter().setValue(new IntegerType(s));
-      else if (Utilities.isDecimal(s))
-        target.addParameter().setValue(new DecimalType(s));
-      else if (Utilities.existsInList(s, "true", "false"))
-        target.addParameter().setValue(new BooleanType(s.equals("true")));
-      else 
-        target.addParameter().setValue(new StringType(s));        
+    	target.addParameter().setValue(readConstant(lexer.take(), lexer));
     }
   }
   
+  private Type readConstant(String s, FHIRLexer lexer) throws FHIRLexerException {
+    if (Utilities.isInteger(s))
+      return new IntegerType(s);
+    else if (Utilities.isDecimal(s))
+    	return new DecimalType(s);
+    else if (Utilities.existsInList(s, "true", "false"))
+    	return new BooleanType(s.equals("true"));
+    else 
+    	return new StringType(lexer.processConstant(s));        
+	}
 }

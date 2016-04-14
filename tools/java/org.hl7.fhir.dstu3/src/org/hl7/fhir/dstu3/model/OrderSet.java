@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -214,6 +214,34 @@ public class OrderSet extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 455891387: return this.moduleMetadata == null ? new Base[0] : new Base[] {this.moduleMetadata}; // ModuleMetadata
+        case 166208699: return this.library.toArray(new Base[this.library.size()]); // Reference
+        case -1422950858: return this.action.toArray(new Base[this.action.size()]); // ActionDefinition
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 455891387:
+          this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
+          break;
+        case 166208699:
+          this.library.add(castToReference(value)); // Reference
+          break;
+        case -1422950858:
+          this.action.add(castToActionDefinition(value)); // ActionDefinition
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("moduleMetadata"))
           this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
@@ -223,6 +251,17 @@ public class OrderSet extends DomainResource {
           this.getAction().add(castToActionDefinition(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 455891387:  return getModuleMetadata(); // ModuleMetadata
+        case 166208699:  return addLibrary(); // Reference
+        case -1422950858:  return addAction(); // ActionDefinition
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

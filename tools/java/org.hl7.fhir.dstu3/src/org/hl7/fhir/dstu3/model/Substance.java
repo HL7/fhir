@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -184,6 +184,34 @@ public class Substance extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case -1289159373: return this.expiry == null ? new Base[0] : new Base[] {this.expiry}; // DateTimeType
+        case -1285004149: return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case -1289159373:
+          this.expiry = castToDateTime(value); // DateTimeType
+          break;
+        case -1285004149:
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
@@ -193,6 +221,17 @@ public class Substance extends DomainResource {
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return getIdentifier(); // Identifier
+        case -1289159373: throw new FHIRException("Cannot make property expiry as it is not a complex type"); // DateTimeType
+        case -1285004149:  return getQuantity(); // SimpleQuantity
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -367,6 +406,30 @@ public class Substance extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1285004149: return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Ratio
+        case 530040176: return this.substance == null ? new Base[0] : new Base[] {this.substance}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1285004149:
+          this.quantity = castToRatio(value); // Ratio
+          break;
+        case 530040176:
+          this.substance = castToReference(value); // Reference
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("quantity"))
           this.quantity = castToRatio(value); // Ratio
@@ -374,6 +437,16 @@ public class Substance extends DomainResource {
           this.substance = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1285004149:  return getQuantity(); // Ratio
+        case 530040176:  return getSubstance(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -733,6 +806,46 @@ public class Substance extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 50511102: return this.category.toArray(new Base[this.category.size()]); // CodeableConcept
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 555127957: return this.instance.toArray(new Base[this.instance.size()]); // SubstanceInstanceComponent
+        case -206409263: return this.ingredient.toArray(new Base[this.ingredient.size()]); // SubstanceIngredientComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 50511102:
+          this.category.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case 555127957:
+          this.instance.add((SubstanceInstanceComponent) value); // SubstanceInstanceComponent
+          break;
+        case -206409263:
+          this.ingredient.add((SubstanceIngredientComponent) value); // SubstanceIngredientComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -748,6 +861,20 @@ public class Substance extends DomainResource {
           this.getIngredient().add((SubstanceIngredientComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 50511102:  return addCategory(); // CodeableConcept
+        case 3059181:  return getCode(); // CodeableConcept
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 555127957:  return addInstance(); // SubstanceInstanceComponent
+        case -206409263:  return addIngredient(); // SubstanceIngredientComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

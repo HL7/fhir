@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -775,17 +775,39 @@ public class Endpoint extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -892481550: this.status = new EndpointStatusEnumFactory().fromType(value); // Enumeration<EndpointStatus>
-        case -2058947787: this.managingOrganization = castToReference(value); // Reference
-        case 951526432: this.contact.add(castToContactPoint(value)); // ContactPoint
-        case 1270211384: this.connectionType = castToCode(value); // CodeType
-        case -1077554975: this.method.add(castToCoding(value)); // Coding
-        case -991726143: this.period = castToPeriod(value); // Period
-        case 1341051916: this.address = (Type) value; // Type
-        case -2140609755: this.payloadFormat = castToString(value); // StringType
-        case 909929960: this.payloadType.add(castToCodeableConcept(value)); // CodeableConcept
-        case -1221270899: this.header.add(castToString(value)); // StringType
-        case 1446899510: this.publicKey = castToString(value); // StringType
+        case -892481550:
+          this.status = new EndpointStatusEnumFactory().fromType(value); // Enumeration<EndpointStatus>
+          break;
+        case -2058947787:
+          this.managingOrganization = castToReference(value); // Reference
+          break;
+        case 951526432:
+          this.contact.add(castToContactPoint(value)); // ContactPoint
+          break;
+        case 1270211384:
+          this.connectionType = castToCode(value); // CodeType
+          break;
+        case -1077554975:
+          this.method.add(castToCoding(value)); // Coding
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        case 1341051916:
+          this.address = (Type) value; // Type
+          break;
+        case -2140609755:
+          this.payloadFormat = castToString(value); // StringType
+          break;
+        case 909929960:
+          this.payloadType.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1221270899:
+          this.header.add(castToString(value)); // StringType
+          break;
+        case 1446899510:
+          this.publicKey = castToString(value); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -817,6 +839,25 @@ public class Endpoint extends DomainResource {
           this.publicKey = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EndpointStatus>
+        case -2058947787:  return getManagingOrganization(); // Reference
+        case 951526432:  return addContact(); // ContactPoint
+        case 1270211384: throw new FHIRException("Cannot make property connectionType as it is not a complex type"); // CodeType
+        case -1077554975:  return addMethod(); // Coding
+        case -991726143:  return getPeriod(); // Period
+        case 1341051916:  return getAddress(); // Type
+        case -2140609755: throw new FHIRException("Cannot make property payloadFormat as it is not a complex type"); // StringType
+        case 909929960:  return addPayloadType(); // CodeableConcept
+        case -1221270899: throw new FHIRException("Cannot make property header as it is not a complex type"); // StringType
+        case 1446899510: throw new FHIRException("Cannot make property publicKey as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

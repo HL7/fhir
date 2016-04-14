@@ -325,7 +325,7 @@ public class QuestionnaireBuilder {
     return path.substring(path.lastIndexOf('.')+1);
   }
 
-  private void processExisting(String path, List<QuestionnaireResponse.QuestionnaireResponseItemComponent> answerGroups, List<QuestionnaireResponse.QuestionnaireResponseItemComponent> nResponse) {
+  private void processExisting(String path, List<QuestionnaireResponse.QuestionnaireResponseItemComponent> answerGroups, List<QuestionnaireResponse.QuestionnaireResponseItemComponent> nResponse) throws FHIRException {
     // processing existing data
     for (QuestionnaireResponse.QuestionnaireResponseItemComponent ag : answerGroups) {
       List<Base> children = ((Element) ag.getUserData("object")).listChildrenByName(tail(path));

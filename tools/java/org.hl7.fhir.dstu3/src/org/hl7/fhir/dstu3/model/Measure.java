@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -805,6 +805,42 @@ public class Measure extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -2023558323: return this.population.toArray(new Base[this.population.size()]); // MeasureGroupPopulationComponent
+        case 90983669: return this.stratifier.toArray(new Base[this.stratifier.size()]); // MeasureGroupStratifierComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -2023558323:
+          this.population.add((MeasureGroupPopulationComponent) value); // MeasureGroupPopulationComponent
+          break;
+        case 90983669:
+          this.stratifier.add((MeasureGroupStratifierComponent) value); // MeasureGroupStratifierComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
@@ -818,6 +854,19 @@ public class Measure extends DomainResource {
           this.getStratifier().add((MeasureGroupStratifierComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return getIdentifier(); // Identifier
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -2023558323:  return addPopulation(); // MeasureGroupPopulationComponent
+        case 90983669:  return addStratifier(); // MeasureGroupStratifierComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1173,6 +1222,42 @@ public class Measure extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<MeasurePopulationType>
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 1952046943: return this.criteria == null ? new Base[0] : new Base[] {this.criteria}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = new MeasurePopulationTypeEnumFactory().fromType(value); // Enumeration<MeasurePopulationType>
+          break;
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case 1952046943:
+          this.criteria = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new MeasurePopulationTypeEnumFactory().fromType(value); // Enumeration<MeasurePopulationType>
@@ -1186,6 +1271,19 @@ public class Measure extends DomainResource {
           this.criteria = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<MeasurePopulationType>
+        case -1618432855:  return getIdentifier(); // Identifier
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 1952046943: throw new FHIRException("Cannot make property criteria as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1426,6 +1524,34 @@ public class Measure extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 1952046943: return this.criteria == null ? new Base[0] : new Base[] {this.criteria}; // StringType
+        case 3433509: return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case 1952046943:
+          this.criteria = castToString(value); // StringType
+          break;
+        case 3433509:
+          this.path = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
@@ -1435,6 +1561,17 @@ public class Measure extends DomainResource {
           this.path = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return getIdentifier(); // Identifier
+        case 1952046943: throw new FHIRException("Cannot make property criteria as it is not a complex type"); // StringType
+        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1615,7 +1752,7 @@ public class Measure extends DomainResource {
           if (this.usage == null)
             return false;
           for (Enumeration<MeasureDataUsage> v : this.usage)
-            if (v.equals(value)) // code
+            if (v.getValue().equals(value)) // code
               return true;
           return false;
         }
@@ -1727,6 +1864,38 @@ public class Measure extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 111574433: return this.usage.toArray(new Base[this.usage.size()]); // Enumeration<MeasureDataUsage>
+        case 1952046943: return this.criteria == null ? new Base[0] : new Base[] {this.criteria}; // StringType
+        case 3433509: return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case 111574433:
+          this.usage.add(new MeasureDataUsageEnumFactory().fromType(value)); // Enumeration<MeasureDataUsage>
+          break;
+        case 1952046943:
+          this.criteria = castToString(value); // StringType
+          break;
+        case 3433509:
+          this.path = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
@@ -1738,6 +1907,18 @@ public class Measure extends DomainResource {
           this.path = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return getIdentifier(); // Identifier
+        case 111574433: throw new FHIRException("Cannot make property usage as it is not a complex type"); // Enumeration<MeasureDataUsage>
+        case 1952046943: throw new FHIRException("Cannot make property criteria as it is not a complex type"); // StringType
+        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2158,7 +2339,7 @@ public class Measure extends DomainResource {
       if (this.type == null)
         return false;
       for (Enumeration<MeasureType> v : this.type)
-        if (v.equals(value)) // code
+        if (v.getValue().equals(value)) // code
           return true;
       return false;
     }
@@ -2655,6 +2836,82 @@ public class Measure extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 455891387: return this.moduleMetadata == null ? new Base[0] : new Base[] {this.moduleMetadata}; // ModuleMetadata
+        case 166208699: return this.library.toArray(new Base[this.library.size()]); // Reference
+        case 432371099: return this.disclaimer == null ? new Base[0] : new Base[] {this.disclaimer}; // MarkdownType
+        case 1924005583: return this.scoring == null ? new Base[0] : new Base[] {this.scoring}; // Enumeration<MeasureScoring>
+        case 3575610: return this.type.toArray(new Base[this.type.size()]); // Enumeration<MeasureType>
+        case 93273500: return this.riskAdjustment == null ? new Base[0] : new Base[] {this.riskAdjustment}; // StringType
+        case 1254503906: return this.rateAggregation == null ? new Base[0] : new Base[] {this.rateAggregation}; // StringType
+        case 345689335: return this.rationale == null ? new Base[0] : new Base[] {this.rationale}; // MarkdownType
+        case -18631389: return this.clinicalRecommendationStatement == null ? new Base[0] : new Base[] {this.clinicalRecommendationStatement}; // MarkdownType
+        case -2085456136: return this.improvementNotation == null ? new Base[0] : new Base[] {this.improvementNotation}; // StringType
+        case -1014418093: return this.definition == null ? new Base[0] : new Base[] {this.definition}; // MarkdownType
+        case -1314002088: return this.guidance == null ? new Base[0] : new Base[] {this.guidance}; // MarkdownType
+        case 113762: return this.set == null ? new Base[0] : new Base[] {this.set}; // StringType
+        case 98629247: return this.group.toArray(new Base[this.group.size()]); // MeasureGroupComponent
+        case 1447496814: return this.supplementalData.toArray(new Base[this.supplementalData.size()]); // MeasureSupplementalDataComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 455891387:
+          this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
+          break;
+        case 166208699:
+          this.library.add(castToReference(value)); // Reference
+          break;
+        case 432371099:
+          this.disclaimer = castToMarkdown(value); // MarkdownType
+          break;
+        case 1924005583:
+          this.scoring = new MeasureScoringEnumFactory().fromType(value); // Enumeration<MeasureScoring>
+          break;
+        case 3575610:
+          this.type.add(new MeasureTypeEnumFactory().fromType(value)); // Enumeration<MeasureType>
+          break;
+        case 93273500:
+          this.riskAdjustment = castToString(value); // StringType
+          break;
+        case 1254503906:
+          this.rateAggregation = castToString(value); // StringType
+          break;
+        case 345689335:
+          this.rationale = castToMarkdown(value); // MarkdownType
+          break;
+        case -18631389:
+          this.clinicalRecommendationStatement = castToMarkdown(value); // MarkdownType
+          break;
+        case -2085456136:
+          this.improvementNotation = castToString(value); // StringType
+          break;
+        case -1014418093:
+          this.definition = castToMarkdown(value); // MarkdownType
+          break;
+        case -1314002088:
+          this.guidance = castToMarkdown(value); // MarkdownType
+          break;
+        case 113762:
+          this.set = castToString(value); // StringType
+          break;
+        case 98629247:
+          this.group.add((MeasureGroupComponent) value); // MeasureGroupComponent
+          break;
+        case 1447496814:
+          this.supplementalData.add((MeasureSupplementalDataComponent) value); // MeasureSupplementalDataComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("moduleMetadata"))
           this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
@@ -2688,6 +2945,29 @@ public class Measure extends DomainResource {
           this.getSupplementalData().add((MeasureSupplementalDataComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 455891387:  return getModuleMetadata(); // ModuleMetadata
+        case 166208699:  return addLibrary(); // Reference
+        case 432371099: throw new FHIRException("Cannot make property disclaimer as it is not a complex type"); // MarkdownType
+        case 1924005583: throw new FHIRException("Cannot make property scoring as it is not a complex type"); // Enumeration<MeasureScoring>
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<MeasureType>
+        case 93273500: throw new FHIRException("Cannot make property riskAdjustment as it is not a complex type"); // StringType
+        case 1254503906: throw new FHIRException("Cannot make property rateAggregation as it is not a complex type"); // StringType
+        case 345689335: throw new FHIRException("Cannot make property rationale as it is not a complex type"); // MarkdownType
+        case -18631389: throw new FHIRException("Cannot make property clinicalRecommendationStatement as it is not a complex type"); // MarkdownType
+        case -2085456136: throw new FHIRException("Cannot make property improvementNotation as it is not a complex type"); // StringType
+        case -1014418093: throw new FHIRException("Cannot make property definition as it is not a complex type"); // MarkdownType
+        case -1314002088: throw new FHIRException("Cannot make property guidance as it is not a complex type"); // MarkdownType
+        case 113762: throw new FHIRException("Cannot make property set as it is not a complex type"); // StringType
+        case 98629247:  return addGroup(); // MeasureGroupComponent
+        case 1447496814:  return addSupplementalData(); // MeasureSupplementalDataComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

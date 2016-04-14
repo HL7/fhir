@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -217,6 +217,30 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -925155509: return this.reference == null ? new Base[0] : new Base[] {this.reference}; // StringType
+        case 1671764162: return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -925155509:
+          this.reference = castToString(value); // StringType
+          break;
+        case 1671764162:
+          this.display = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("reference"))
           this.reference = castToString(value); // StringType
@@ -224,6 +248,16 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
           this.display = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -925155509: throw new FHIRException("Cannot make property reference as it is not a complex type"); // StringType
+        case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

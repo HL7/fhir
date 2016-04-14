@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -332,8 +332,12 @@ public class DataElement extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707: this.name = castToString(value); // StringType
-        case -1429363305: this.telecom.add(castToContactPoint(value)); // ContactPoint
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -347,6 +351,16 @@ public class DataElement extends DomainResource {
           this.getTelecom().add(castToContactPoint(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1429363305:  return addTelecom(); // ContactPoint
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -667,10 +681,18 @@ public class DataElement extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -135761730: this.identity = castToId(value); // IdType
-        case 116076: this.uri = castToUri(value); // UriType
-        case 3373707: this.name = castToString(value); // StringType
-        case 950398559: this.comment = castToString(value); // StringType
+        case -135761730:
+          this.identity = castToId(value); // IdType
+          break;
+        case 116076:
+          this.uri = castToUri(value); // UriType
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case 950398559:
+          this.comment = castToString(value); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -688,6 +710,18 @@ public class DataElement extends DomainResource {
           this.comment = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -135761730: throw new FHIRException("Cannot make property identity as it is not a complex type"); // IdType
+        case 116076: throw new FHIRException("Cannot make property uri as it is not a complex type"); // UriType
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1543,20 +1577,48 @@ public class DataElement extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 116079: this.url = castToUri(value); // UriType
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case 351608024: this.version = castToString(value); // StringType
-        case -892481550: this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
-        case -404562712: this.experimental = castToBoolean(value); // BooleanType
-        case 1447404028: this.publisher = castToString(value); // StringType
-        case 3076014: this.date = castToDateTime(value); // DateTimeType
-        case 3373707: this.name = castToString(value); // StringType
-        case 951526432: this.contact.add((DataElementContactComponent) value); // DataElementContactComponent
-        case -669707736: this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
-        case 1522889671: this.copyright = castToString(value); // StringType
-        case -1572568464: this.stringency = new DataElementStringencyEnumFactory().fromType(value); // Enumeration<DataElementStringency>
-        case 837556430: this.mapping.add((DataElementMappingComponent) value); // DataElementMappingComponent
-        case -1662836996: this.element.add(castToElementDefinition(value)); // ElementDefinition
+        case 116079:
+          this.url = castToUri(value); // UriType
+          break;
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case -892481550:
+          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          break;
+        case -404562712:
+          this.experimental = castToBoolean(value); // BooleanType
+          break;
+        case 1447404028:
+          this.publisher = castToString(value); // StringType
+          break;
+        case 3076014:
+          this.date = castToDateTime(value); // DateTimeType
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case 951526432:
+          this.contact.add((DataElementContactComponent) value); // DataElementContactComponent
+          break;
+        case -669707736:
+          this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 1522889671:
+          this.copyright = castToString(value); // StringType
+          break;
+        case -1572568464:
+          this.stringency = new DataElementStringencyEnumFactory().fromType(value); // Enumeration<DataElementStringency>
+          break;
+        case 837556430:
+          this.mapping.add((DataElementMappingComponent) value); // DataElementMappingComponent
+          break;
+        case -1662836996:
+          this.element.add(castToElementDefinition(value)); // ElementDefinition
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1594,6 +1656,28 @@ public class DataElement extends DomainResource {
           this.getElement().add(castToElementDefinition(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
+        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case 951526432:  return addContact(); // DataElementContactComponent
+        case -669707736:  return addUseContext(); // CodeableConcept
+        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
+        case -1572568464: throw new FHIRException("Cannot make property stringency as it is not a complex type"); // Enumeration<DataElementStringency>
+        case 837556430:  return addMapping(); // DataElementMappingComponent
+        case -1662836996:  return addElement(); // ElementDefinition
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

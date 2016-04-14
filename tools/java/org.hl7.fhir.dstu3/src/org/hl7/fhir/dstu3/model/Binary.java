@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -189,8 +189,12 @@ public class Binary extends BaseBinary implements IBaseBinary {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -389131437: this.contentType = castToCode(value); // CodeType
-        case 951530617: this.content = castToBase64Binary(value); // Base64BinaryType
+        case -389131437:
+          this.contentType = castToCode(value); // CodeType
+          break;
+        case 951530617:
+          this.content = castToBase64Binary(value); // Base64BinaryType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -204,6 +208,16 @@ public class Binary extends BaseBinary implements IBaseBinary {
           this.content = castToBase64Binary(value); // Base64BinaryType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -389131437: throw new FHIRException("Cannot make property contentType as it is not a complex type"); // CodeType
+        case 951530617: throw new FHIRException("Cannot make property content as it is not a complex type"); // Base64BinaryType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -382,6 +382,42 @@ public class Meta extends Type implements IBaseMetaType {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1407102957: return this.versionId == null ? new Base[0] : new Base[] {this.versionId}; // IdType
+        case 1649733957: return this.lastUpdated == null ? new Base[0] : new Base[] {this.lastUpdated}; // InstantType
+        case -309425751: return this.profile.toArray(new Base[this.profile.size()]); // UriType
+        case 949122880: return this.security.toArray(new Base[this.security.size()]); // Coding
+        case 114586: return this.tag.toArray(new Base[this.tag.size()]); // Coding
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1407102957:
+          this.versionId = castToId(value); // IdType
+          break;
+        case 1649733957:
+          this.lastUpdated = castToInstant(value); // InstantType
+          break;
+        case -309425751:
+          this.profile.add(castToUri(value)); // UriType
+          break;
+        case 949122880:
+          this.security.add(castToCoding(value)); // Coding
+          break;
+        case 114586:
+          this.tag.add(castToCoding(value)); // Coding
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("versionId"))
           this.versionId = castToId(value); // IdType
@@ -395,6 +431,19 @@ public class Meta extends Type implements IBaseMetaType {
           this.getTag().add(castToCoding(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1407102957: throw new FHIRException("Cannot make property versionId as it is not a complex type"); // IdType
+        case 1649733957: throw new FHIRException("Cannot make property lastUpdated as it is not a complex type"); // InstantType
+        case -309425751: throw new FHIRException("Cannot make property profile as it is not a complex type"); // UriType
+        case 949122880:  return addSecurity(); // Coding
+        case 114586:  return addTag(); // Coding
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

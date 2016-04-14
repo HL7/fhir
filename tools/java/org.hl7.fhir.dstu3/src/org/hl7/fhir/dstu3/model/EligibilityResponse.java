@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -296,12 +296,24 @@ public class EligibilityResponse extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 50511102: this.category = castToCoding(value); // Coding
-        case 1365024606: this.subCategory = castToCoding(value); // Coding
-        case 1843485230: this.network = castToCoding(value); // Coding
-        case 3594628: this.unit = castToCoding(value); // Coding
-        case 3556460: this.term = castToCoding(value); // Coding
-        case 357555337: this.financial.add((BenefitComponent) value); // BenefitComponent
+        case 50511102:
+          this.category = castToCoding(value); // Coding
+          break;
+        case 1365024606:
+          this.subCategory = castToCoding(value); // Coding
+          break;
+        case 1843485230:
+          this.network = castToCoding(value); // Coding
+          break;
+        case 3594628:
+          this.unit = castToCoding(value); // Coding
+          break;
+        case 3556460:
+          this.term = castToCoding(value); // Coding
+          break;
+        case 357555337:
+          this.financial.add((BenefitComponent) value); // BenefitComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -323,6 +335,20 @@ public class EligibilityResponse extends DomainResource {
           this.getFinancial().add((BenefitComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 50511102:  return getCategory(); // Coding
+        case 1365024606:  return getSubCategory(); // Coding
+        case 1843485230:  return getNetwork(); // Coding
+        case 3594628:  return getUnit(); // Coding
+        case 3556460:  return getTerm(); // Coding
+        case 357555337:  return addFinancial(); // BenefitComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -580,9 +606,15 @@ public class EligibilityResponse extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610: this.type = castToCoding(value); // Coding
-        case 952095881: this.benefit = (Type) value; // Type
-        case 787635980: this.benefitUsed = (Type) value; // Type
+        case 3575610:
+          this.type = castToCoding(value); // Coding
+          break;
+        case 952095881:
+          this.benefit = (Type) value; // Type
+          break;
+        case 787635980:
+          this.benefitUsed = (Type) value; // Type
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -598,6 +630,17 @@ public class EligibilityResponse extends DomainResource {
           this.benefitUsed = (Type) value; // Type
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getType(); // Coding
+        case 952095881:  return getBenefit(); // Type
+        case 787635980:  return getBenefitUsed(); // Type
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -735,7 +778,9 @@ public class EligibilityResponse extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181: this.code = castToCoding(value); // Coding
+        case 3059181:
+          this.code = castToCoding(value); // Coding
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -747,6 +792,15 @@ public class EligibilityResponse extends DomainResource {
           this.code = castToCoding(value); // Coding
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181:  return getCode(); // Coding
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1569,21 +1623,51 @@ public class EligibilityResponse extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case 37106577: this.request = (Type) value; // Type
-        case -1106507950: this.outcome = new RemittanceOutcomeEnumFactory().fromType(value); // Enumeration<RemittanceOutcome>
-        case 583380919: this.disposition = castToString(value); // StringType
-        case 1548678118: this.ruleset = castToCoding(value); // Coding
-        case 1089373397: this.originalRuleset = castToCoding(value); // Coding
-        case 1028554472: this.created = castToDateTime(value); // DateTimeType
-        case 1326483053: this.organization = (Type) value; // Type
-        case -1694784800: this.requestProvider = (Type) value; // Type
-        case 818740190: this.requestOrganization = (Type) value; // Type
-        case 1945431270: this.inforce = castToBoolean(value); // BooleanType
-        case -566947566: this.contract = castToReference(value); // Reference
-        case 3148996: this.form = castToCoding(value); // Coding
-        case 596003397: this.benefitBalance.add((BenefitsComponent) value); // BenefitsComponent
-        case 96784904: this.error.add((ErrorsComponent) value); // ErrorsComponent
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 37106577:
+          this.request = (Type) value; // Type
+          break;
+        case -1106507950:
+          this.outcome = new RemittanceOutcomeEnumFactory().fromType(value); // Enumeration<RemittanceOutcome>
+          break;
+        case 583380919:
+          this.disposition = castToString(value); // StringType
+          break;
+        case 1548678118:
+          this.ruleset = castToCoding(value); // Coding
+          break;
+        case 1089373397:
+          this.originalRuleset = castToCoding(value); // Coding
+          break;
+        case 1028554472:
+          this.created = castToDateTime(value); // DateTimeType
+          break;
+        case 1326483053:
+          this.organization = (Type) value; // Type
+          break;
+        case -1694784800:
+          this.requestProvider = (Type) value; // Type
+          break;
+        case 818740190:
+          this.requestOrganization = (Type) value; // Type
+          break;
+        case 1945431270:
+          this.inforce = castToBoolean(value); // BooleanType
+          break;
+        case -566947566:
+          this.contract = castToReference(value); // Reference
+          break;
+        case 3148996:
+          this.form = castToCoding(value); // Coding
+          break;
+        case 596003397:
+          this.benefitBalance.add((BenefitsComponent) value); // BenefitsComponent
+          break;
+        case 96784904:
+          this.error.add((ErrorsComponent) value); // ErrorsComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1623,6 +1707,29 @@ public class EligibilityResponse extends DomainResource {
           this.getError().add((ErrorsComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 37106577:  return getRequest(); // Type
+        case -1106507950: throw new FHIRException("Cannot make property outcome as it is not a complex type"); // Enumeration<RemittanceOutcome>
+        case 583380919: throw new FHIRException("Cannot make property disposition as it is not a complex type"); // StringType
+        case 1548678118:  return getRuleset(); // Coding
+        case 1089373397:  return getOriginalRuleset(); // Coding
+        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
+        case 1326483053:  return getOrganization(); // Type
+        case -1694784800:  return getRequestProvider(); // Type
+        case 818740190:  return getRequestOrganization(); // Type
+        case 1945431270: throw new FHIRException("Cannot make property inforce as it is not a complex type"); // BooleanType
+        case -566947566:  return getContract(); // Reference
+        case 3148996:  return getForm(); // Coding
+        case 596003397:  return addBenefitBalance(); // BenefitsComponent
+        case 96784904:  return addError(); // ErrorsComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

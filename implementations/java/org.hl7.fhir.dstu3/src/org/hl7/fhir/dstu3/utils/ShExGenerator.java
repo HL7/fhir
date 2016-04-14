@@ -1,8 +1,13 @@
 package org.hl7.fhir.dstu3.utils;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
@@ -24,15 +29,33 @@ public class ShExGenerator {
     this.context = context;
   }
   
+  public String generate(HTMLLinkPolicy links, StructureDefinition structure) {
+    List<StructureDefinition> list = new ArrayList<StructureDefinition>();
+    list.add(structure);
+    return generate(links, list);
+  }
+  
+  public class SortById implements Comparator<StructureDefinition> {
+
+    @Override
+    public int compare(StructureDefinition arg0, StructureDefinition arg1) {
+      return arg0.getId().compareTo(arg1.getId());
+    }
+
+  }
+
   /** 
    * this is called externally to generate a set of structures to a single ShEx file
    * generally, it will be called with a single structure, or a long list of structures (all of them)
    * 
    * @return the ShEx source for the provided structures
    */
-  public String generate(HTMLLinkPolicy links, StructureDefinition... structures) {
+  public String generate(HTMLLinkPolicy links, List<StructureDefinition> structures) {
+    Collections.sort(structures, new SortById());
+
     StringBuilder b = new StringBuilder();
     b.append("PREFIX fhir: <http://hl7.org/fhir/>\r\n");
+    Set<String> done = new HashSet<String>();
     
     for (StructureDefinition sd : structures) {
       b.append("<");
@@ -53,8 +76,11 @@ public class ShExGenerator {
       
       while (!queue.isEmpty()) {
         ElementDefinition ed = queue.poll();
+        if (done.contains(ed.getPath())) // watch for recursion
+          break;
+        done.add(ed.getPath());
         b.append("<");
-        b.append(sd.getId());
+        b.append(ed.getPath());
         b.append("> {\r\n");
         boolean hasProps = false;
         List<ElementDefinition> children = ProfileUtilities.getChildList(sd, ed);

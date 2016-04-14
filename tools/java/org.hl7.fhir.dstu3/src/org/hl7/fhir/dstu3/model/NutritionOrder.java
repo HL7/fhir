@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -559,6 +559,46 @@ public class NutritionOrder extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type.toArray(new Base[this.type.size()]); // CodeableConcept
+        case -697920873: return this.schedule.toArray(new Base[this.schedule.size()]); // Timing
+        case -1671151641: return this.nutrient.toArray(new Base[this.nutrient.size()]); // NutritionOrderOralDietNutrientComponent
+        case -1417816805: return this.texture.toArray(new Base[this.texture.size()]); // NutritionOrderOralDietTextureComponent
+        case -525105592: return this.fluidConsistencyType.toArray(new Base[this.fluidConsistencyType.size()]); // CodeableConcept
+        case 301526158: return this.instruction == null ? new Base[0] : new Base[] {this.instruction}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -697920873:
+          this.schedule.add(castToTiming(value)); // Timing
+          break;
+        case -1671151641:
+          this.nutrient.add((NutritionOrderOralDietNutrientComponent) value); // NutritionOrderOralDietNutrientComponent
+          break;
+        case -1417816805:
+          this.texture.add((NutritionOrderOralDietTextureComponent) value); // NutritionOrderOralDietTextureComponent
+          break;
+        case -525105592:
+          this.fluidConsistencyType.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 301526158:
+          this.instruction = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.getType().add(castToCodeableConcept(value));
@@ -574,6 +614,20 @@ public class NutritionOrder extends DomainResource {
           this.instruction = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return addType(); // CodeableConcept
+        case -697920873:  return addSchedule(); // Timing
+        case -1671151641:  return addNutrient(); // NutritionOrderOralDietNutrientComponent
+        case -1417816805:  return addTexture(); // NutritionOrderOralDietTextureComponent
+        case -525105592:  return addFluidConsistencyType(); // CodeableConcept
+        case 301526158: throw new FHIRException("Cannot make property instruction as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -747,6 +801,30 @@ public class NutritionOrder extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -615513385: return this.modifier == null ? new Base[0] : new Base[] {this.modifier}; // CodeableConcept
+        case -1413853096: return this.amount == null ? new Base[0] : new Base[] {this.amount}; // SimpleQuantity
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -615513385:
+          this.modifier = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1413853096:
+          this.amount = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("modifier"))
           this.modifier = castToCodeableConcept(value); // CodeableConcept
@@ -754,6 +832,16 @@ public class NutritionOrder extends DomainResource {
           this.amount = castToSimpleQuantity(value); // SimpleQuantity
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -615513385:  return getModifier(); // CodeableConcept
+        case -1413853096:  return getAmount(); // SimpleQuantity
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -890,6 +978,30 @@ public class NutritionOrder extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -615513385: return this.modifier == null ? new Base[0] : new Base[] {this.modifier}; // CodeableConcept
+        case 379498680: return this.foodType == null ? new Base[0] : new Base[] {this.foodType}; // CodeableConcept
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -615513385:
+          this.modifier = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 379498680:
+          this.foodType = castToCodeableConcept(value); // CodeableConcept
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("modifier"))
           this.modifier = castToCodeableConcept(value); // CodeableConcept
@@ -897,6 +1009,16 @@ public class NutritionOrder extends DomainResource {
           this.foodType = castToCodeableConcept(value); // CodeableConcept
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -615513385:  return getModifier(); // CodeableConcept
+        case 379498680:  return getFoodType(); // CodeableConcept
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1195,6 +1317,42 @@ public class NutritionOrder extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case -1491817446: return this.productName == null ? new Base[0] : new Base[] {this.productName}; // StringType
+        case -697920873: return this.schedule.toArray(new Base[this.schedule.size()]); // Timing
+        case -1285004149: return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case 301526158: return this.instruction == null ? new Base[0] : new Base[] {this.instruction}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610:
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1491817446:
+          this.productName = castToString(value); // StringType
+          break;
+        case -697920873:
+          this.schedule.add(castToTiming(value)); // Timing
+          break;
+        case -1285004149:
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        case 301526158:
+          this.instruction = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCodeableConcept(value); // CodeableConcept
@@ -1208,6 +1366,19 @@ public class NutritionOrder extends DomainResource {
           this.instruction = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getType(); // CodeableConcept
+        case -1491817446: throw new FHIRException("Cannot make property productName as it is not a complex type"); // StringType
+        case -697920873:  return addSchedule(); // Timing
+        case -1285004149:  return getQuantity(); // SimpleQuantity
+        case 301526158: throw new FHIRException("Cannot make property instruction as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1678,6 +1849,58 @@ public class NutritionOrder extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -138930641: return this.baseFormulaType == null ? new Base[0] : new Base[] {this.baseFormulaType}; // CodeableConcept
+        case -1267705979: return this.baseFormulaProductName == null ? new Base[0] : new Base[] {this.baseFormulaProductName}; // StringType
+        case -470746842: return this.additiveType == null ? new Base[0] : new Base[] {this.additiveType}; // CodeableConcept
+        case 488079534: return this.additiveProductName == null ? new Base[0] : new Base[] {this.additiveProductName}; // StringType
+        case 186983261: return this.caloricDensity == null ? new Base[0] : new Base[] {this.caloricDensity}; // SimpleQuantity
+        case -1710107042: return this.routeofAdministration == null ? new Base[0] : new Base[] {this.routeofAdministration}; // CodeableConcept
+        case 1255702622: return this.administration.toArray(new Base[this.administration.size()]); // NutritionOrderEnteralFormulaAdministrationComponent
+        case 2017924652: return this.maxVolumeToDeliver == null ? new Base[0] : new Base[] {this.maxVolumeToDeliver}; // SimpleQuantity
+        case 427085136: return this.administrationInstruction == null ? new Base[0] : new Base[] {this.administrationInstruction}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -138930641:
+          this.baseFormulaType = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1267705979:
+          this.baseFormulaProductName = castToString(value); // StringType
+          break;
+        case -470746842:
+          this.additiveType = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 488079534:
+          this.additiveProductName = castToString(value); // StringType
+          break;
+        case 186983261:
+          this.caloricDensity = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        case -1710107042:
+          this.routeofAdministration = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 1255702622:
+          this.administration.add((NutritionOrderEnteralFormulaAdministrationComponent) value); // NutritionOrderEnteralFormulaAdministrationComponent
+          break;
+        case 2017924652:
+          this.maxVolumeToDeliver = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        case 427085136:
+          this.administrationInstruction = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("baseFormulaType"))
           this.baseFormulaType = castToCodeableConcept(value); // CodeableConcept
@@ -1699,6 +1922,23 @@ public class NutritionOrder extends DomainResource {
           this.administrationInstruction = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -138930641:  return getBaseFormulaType(); // CodeableConcept
+        case -1267705979: throw new FHIRException("Cannot make property baseFormulaProductName as it is not a complex type"); // StringType
+        case -470746842:  return getAdditiveType(); // CodeableConcept
+        case 488079534: throw new FHIRException("Cannot make property additiveProductName as it is not a complex type"); // StringType
+        case 186983261:  return getCaloricDensity(); // SimpleQuantity
+        case -1710107042:  return getRouteofAdministration(); // CodeableConcept
+        case 1255702622:  return addAdministration(); // NutritionOrderEnteralFormulaAdministrationComponent
+        case 2017924652:  return getMaxVolumeToDeliver(); // SimpleQuantity
+        case 427085136: throw new FHIRException("Cannot make property administrationInstruction as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1931,6 +2171,34 @@ public class NutritionOrder extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -697920873: return this.schedule == null ? new Base[0] : new Base[] {this.schedule}; // Timing
+        case -1285004149: return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case 983460768: return this.rate == null ? new Base[0] : new Base[] {this.rate}; // Type
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -697920873:
+          this.schedule = castToTiming(value); // Timing
+          break;
+        case -1285004149:
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        case 983460768:
+          this.rate = (Type) value; // Type
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("schedule"))
           this.schedule = castToTiming(value); // Timing
@@ -1940,6 +2208,17 @@ public class NutritionOrder extends DomainResource {
           this.rate = (Type) value; // Type
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -697920873:  return getSchedule(); // Timing
+        case -1285004149:  return getQuantity(); // SimpleQuantity
+        case 983460768:  return getRate(); // Type
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2640,6 +2919,70 @@ public class NutritionOrder extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<NutritionOrderStatus>
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case 1792749467: return this.dateTime == null ? new Base[0] : new Base[] {this.dateTime}; // DateTimeType
+        case -1207109509: return this.orderer == null ? new Base[0] : new Base[] {this.orderer}; // Reference
+        case -120164120: return this.allergyIntolerance.toArray(new Base[this.allergyIntolerance.size()]); // Reference
+        case 659473872: return this.foodPreferenceModifier.toArray(new Base[this.foodPreferenceModifier.size()]); // CodeableConcept
+        case 1760260175: return this.excludeFoodModifier.toArray(new Base[this.excludeFoodModifier.size()]); // CodeableConcept
+        case 1153521250: return this.oralDiet == null ? new Base[0] : new Base[] {this.oralDiet}; // NutritionOrderOralDietComponent
+        case -711993159: return this.supplement.toArray(new Base[this.supplement.size()]); // NutritionOrderSupplementComponent
+        case -671083805: return this.enteralFormula == null ? new Base[0] : new Base[] {this.enteralFormula}; // NutritionOrderEnteralFormulaComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -892481550:
+          this.status = new NutritionOrderStatusEnumFactory().fromType(value); // Enumeration<NutritionOrderStatus>
+          break;
+        case -791418107:
+          this.patient = castToReference(value); // Reference
+          break;
+        case 1524132147:
+          this.encounter = castToReference(value); // Reference
+          break;
+        case 1792749467:
+          this.dateTime = castToDateTime(value); // DateTimeType
+          break;
+        case -1207109509:
+          this.orderer = castToReference(value); // Reference
+          break;
+        case -120164120:
+          this.allergyIntolerance.add(castToReference(value)); // Reference
+          break;
+        case 659473872:
+          this.foodPreferenceModifier.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 1760260175:
+          this.excludeFoodModifier.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 1153521250:
+          this.oralDiet = (NutritionOrderOralDietComponent) value; // NutritionOrderOralDietComponent
+          break;
+        case -711993159:
+          this.supplement.add((NutritionOrderSupplementComponent) value); // NutritionOrderSupplementComponent
+          break;
+        case -671083805:
+          this.enteralFormula = (NutritionOrderEnteralFormulaComponent) value; // NutritionOrderEnteralFormulaComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -2667,6 +3010,26 @@ public class NutritionOrder extends DomainResource {
           this.enteralFormula = (NutritionOrderEnteralFormulaComponent) value; // NutritionOrderEnteralFormulaComponent
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<NutritionOrderStatus>
+        case -791418107:  return getPatient(); // Reference
+        case 1524132147:  return getEncounter(); // Reference
+        case 1792749467: throw new FHIRException("Cannot make property dateTime as it is not a complex type"); // DateTimeType
+        case -1207109509:  return getOrderer(); // Reference
+        case -120164120:  return addAllergyIntolerance(); // Reference
+        case 659473872:  return addFoodPreferenceModifier(); // CodeableConcept
+        case 1760260175:  return addExcludeFoodModifier(); // CodeableConcept
+        case 1153521250:  return getOralDiet(); // NutritionOrderOralDietComponent
+        case -711993159:  return addSupplement(); // NutritionOrderSupplementComponent
+        case -671083805:  return getEnteralFormula(); // NutritionOrderEnteralFormulaComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

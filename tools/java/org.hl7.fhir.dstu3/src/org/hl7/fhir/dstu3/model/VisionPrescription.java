@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1205,6 +1205,82 @@ public class VisionPrescription extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -309474065: return this.product == null ? new Base[0] : new Base[] {this.product}; // Coding
+        case 100913: return this.eye == null ? new Base[0] : new Base[] {this.eye}; // Enumeration<VisionEyes>
+        case -895981619: return this.sphere == null ? new Base[0] : new Base[] {this.sphere}; // DecimalType
+        case -349378602: return this.cylinder == null ? new Base[0] : new Base[] {this.cylinder}; // DecimalType
+        case 3008417: return this.axis == null ? new Base[0] : new Base[] {this.axis}; // IntegerType
+        case 106935105: return this.prism == null ? new Base[0] : new Base[] {this.prism}; // DecimalType
+        case 3016401: return this.base == null ? new Base[0] : new Base[] {this.base}; // Enumeration<VisionBase>
+        case 96417: return this.add == null ? new Base[0] : new Base[] {this.add}; // DecimalType
+        case 106858757: return this.power == null ? new Base[0] : new Base[] {this.power}; // DecimalType
+        case 1309344840: return this.backCurve == null ? new Base[0] : new Base[] {this.backCurve}; // DecimalType
+        case -233204595: return this.diameter == null ? new Base[0] : new Base[] {this.diameter}; // DecimalType
+        case -1992012396: return this.duration == null ? new Base[0] : new Base[] {this.duration}; // SimpleQuantity
+        case 94842723: return this.color == null ? new Base[0] : new Base[] {this.color}; // StringType
+        case 93997959: return this.brand == null ? new Base[0] : new Base[] {this.brand}; // StringType
+        case 105008833: return this.notes == null ? new Base[0] : new Base[] {this.notes}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -309474065:
+          this.product = castToCoding(value); // Coding
+          break;
+        case 100913:
+          this.eye = new VisionEyesEnumFactory().fromType(value); // Enumeration<VisionEyes>
+          break;
+        case -895981619:
+          this.sphere = castToDecimal(value); // DecimalType
+          break;
+        case -349378602:
+          this.cylinder = castToDecimal(value); // DecimalType
+          break;
+        case 3008417:
+          this.axis = castToInteger(value); // IntegerType
+          break;
+        case 106935105:
+          this.prism = castToDecimal(value); // DecimalType
+          break;
+        case 3016401:
+          this.base = new VisionBaseEnumFactory().fromType(value); // Enumeration<VisionBase>
+          break;
+        case 96417:
+          this.add = castToDecimal(value); // DecimalType
+          break;
+        case 106858757:
+          this.power = castToDecimal(value); // DecimalType
+          break;
+        case 1309344840:
+          this.backCurve = castToDecimal(value); // DecimalType
+          break;
+        case -233204595:
+          this.diameter = castToDecimal(value); // DecimalType
+          break;
+        case -1992012396:
+          this.duration = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        case 94842723:
+          this.color = castToString(value); // StringType
+          break;
+        case 93997959:
+          this.brand = castToString(value); // StringType
+          break;
+        case 105008833:
+          this.notes = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("product"))
           this.product = castToCoding(value); // Coding
@@ -1238,6 +1314,29 @@ public class VisionPrescription extends DomainResource {
           this.notes = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -309474065:  return getProduct(); // Coding
+        case 100913: throw new FHIRException("Cannot make property eye as it is not a complex type"); // Enumeration<VisionEyes>
+        case -895981619: throw new FHIRException("Cannot make property sphere as it is not a complex type"); // DecimalType
+        case -349378602: throw new FHIRException("Cannot make property cylinder as it is not a complex type"); // DecimalType
+        case 3008417: throw new FHIRException("Cannot make property axis as it is not a complex type"); // IntegerType
+        case 106935105: throw new FHIRException("Cannot make property prism as it is not a complex type"); // DecimalType
+        case 3016401: throw new FHIRException("Cannot make property base as it is not a complex type"); // Enumeration<VisionBase>
+        case 96417: throw new FHIRException("Cannot make property add as it is not a complex type"); // DecimalType
+        case 106858757: throw new FHIRException("Cannot make property power as it is not a complex type"); // DecimalType
+        case 1309344840: throw new FHIRException("Cannot make property backCurve as it is not a complex type"); // DecimalType
+        case -233204595: throw new FHIRException("Cannot make property diameter as it is not a complex type"); // DecimalType
+        case -1992012396:  return getDuration(); // SimpleQuantity
+        case 94842723: throw new FHIRException("Cannot make property color as it is not a complex type"); // StringType
+        case 93997959: throw new FHIRException("Cannot make property brand as it is not a complex type"); // StringType
+        case 105008833: throw new FHIRException("Cannot make property notes as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1750,6 +1849,50 @@ public class VisionPrescription extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1496880759: return this.dateWritten == null ? new Base[0] : new Base[] {this.dateWritten}; // DateTimeType
+        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case 1430631077: return this.prescriber == null ? new Base[0] : new Base[] {this.prescriber}; // Reference
+        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case -669418564: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Type
+        case 284885341: return this.dispense.toArray(new Base[this.dispense.size()]); // VisionPrescriptionDispenseComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -1496880759:
+          this.dateWritten = castToDateTime(value); // DateTimeType
+          break;
+        case -791418107:
+          this.patient = castToReference(value); // Reference
+          break;
+        case 1430631077:
+          this.prescriber = castToReference(value); // Reference
+          break;
+        case 1524132147:
+          this.encounter = castToReference(value); // Reference
+          break;
+        case -669418564:
+          this.reason = (Type) value; // Type
+          break;
+        case 284885341:
+          this.dispense.add((VisionPrescriptionDispenseComponent) value); // VisionPrescriptionDispenseComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -1767,6 +1910,21 @@ public class VisionPrescription extends DomainResource {
           this.getDispense().add((VisionPrescriptionDispenseComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -1496880759: throw new FHIRException("Cannot make property dateWritten as it is not a complex type"); // DateTimeType
+        case -791418107:  return getPatient(); // Reference
+        case 1430631077:  return getPrescriber(); // Reference
+        case 1524132147:  return getEncounter(); // Reference
+        case -669418564:  return getReason(); // Type
+        case 284885341:  return addDispense(); // VisionPrescriptionDispenseComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

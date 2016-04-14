@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -601,11 +601,21 @@ public class ContactPoint extends Type implements ICompositeType {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -887328209: this.system = new ContactPointSystemEnumFactory().fromType(value); // Enumeration<ContactPointSystem>
-        case 111972721: this.value = castToString(value); // StringType
-        case 116103: this.use = new ContactPointUseEnumFactory().fromType(value); // Enumeration<ContactPointUse>
-        case 3492908: this.rank = castToPositiveInt(value); // PositiveIntType
-        case -991726143: this.period = castToPeriod(value); // Period
+        case -887328209:
+          this.system = new ContactPointSystemEnumFactory().fromType(value); // Enumeration<ContactPointSystem>
+          break;
+        case 111972721:
+          this.value = castToString(value); // StringType
+          break;
+        case 116103:
+          this.use = new ContactPointUseEnumFactory().fromType(value); // Enumeration<ContactPointUse>
+          break;
+        case 3492908:
+          this.rank = castToPositiveInt(value); // PositiveIntType
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -625,6 +635,19 @@ public class ContactPoint extends Type implements ICompositeType {
           this.period = castToPeriod(value); // Period
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // Enumeration<ContactPointSystem>
+        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
+        case 116103: throw new FHIRException("Cannot make property use as it is not a complex type"); // Enumeration<ContactPointUse>
+        case 3492908: throw new FHIRException("Cannot make property rank as it is not a complex type"); // PositiveIntType
+        case -991726143:  return getPeriod(); // Period
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

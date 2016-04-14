@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -123,6 +123,30 @@ public class Range extends Type implements ICompositeType {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 107348: return this.low == null ? new Base[0] : new Base[] {this.low}; // SimpleQuantity
+        case 3202466: return this.high == null ? new Base[0] : new Base[] {this.high}; // SimpleQuantity
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 107348:
+          this.low = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        case 3202466:
+          this.high = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("low"))
           this.low = castToSimpleQuantity(value); // SimpleQuantity
@@ -130,6 +154,16 @@ public class Range extends Type implements ICompositeType {
           this.high = castToSimpleQuantity(value); // SimpleQuantity
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 107348:  return getLow(); // SimpleQuantity
+        case 3202466:  return getHigh(); // SimpleQuantity
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -586,8 +586,12 @@ public class CarePlan extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181: this.code = new CarePlanRelationshipEnumFactory().fromType(value); // Enumeration<CarePlanRelationship>
-        case 3443497: this.plan = castToReference(value); // Reference
+        case 3059181:
+          this.code = new CarePlanRelationshipEnumFactory().fromType(value); // Enumeration<CarePlanRelationship>
+          break;
+        case 3443497:
+          this.plan = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -601,6 +605,16 @@ public class CarePlan extends DomainResource {
           this.plan = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<CarePlanRelationship>
+        case 3443497:  return getPlan(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -768,8 +782,12 @@ public class CarePlan extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 3506294: this.role = castToCodeableConcept(value); // CodeableConcept
-        case -1077769574: this.member = castToReference(value); // Reference
+        case 3506294:
+          this.role = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1077769574:
+          this.member = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -783,6 +801,16 @@ public class CarePlan extends DomainResource {
           this.member = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3506294:  return getRole(); // CodeableConcept
+        case -1077769574:  return getMember(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1063,10 +1091,18 @@ public class CarePlan extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 836386063: this.actionResulting.add(castToReference(value)); // Reference
-        case -1001078227: this.progress.add(castToAnnotation(value)); // Annotation
-        case -925155509: this.reference = castToReference(value); // Reference
-        case -1335224239: this.detail = (CarePlanActivityDetailComponent) value; // CarePlanActivityDetailComponent
+        case 836386063:
+          this.actionResulting.add(castToReference(value)); // Reference
+          break;
+        case -1001078227:
+          this.progress.add(castToAnnotation(value)); // Annotation
+          break;
+        case -925155509:
+          this.reference = castToReference(value); // Reference
+          break;
+        case -1335224239:
+          this.detail = (CarePlanActivityDetailComponent) value; // CarePlanActivityDetailComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -1084,6 +1120,18 @@ public class CarePlan extends DomainResource {
           this.detail = (CarePlanActivityDetailComponent) value; // CarePlanActivityDetailComponent
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 836386063:  return addActionResulting(); // Reference
+        case -1001078227:  return addProgress(); // Annotation
+        case -925155509:  return getReference(); // Reference
+        case -1335224239:  return getDetail(); // CarePlanActivityDetailComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1967,21 +2015,51 @@ public class CarePlan extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case 50511102: this.category = castToCodeableConcept(value); // CodeableConcept
-        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
-        case 722137681: this.reasonCode.add(castToCodeableConcept(value)); // CodeableConcept
-        case -1146218137: this.reasonReference.add(castToReference(value)); // Reference
-        case 3178259: this.goal.add(castToReference(value)); // Reference
-        case -892481550: this.status = new CarePlanActivityStatusEnumFactory().fromType(value); // Enumeration<CarePlanActivityStatus>
-        case 2051346646: this.statusReason = castToCodeableConcept(value); // CodeableConcept
-        case 663275198: this.prohibited = castToBoolean(value); // BooleanType
-        case 1162627251: this.scheduled = (Type) value; // Type
-        case 1901043637: this.location = castToReference(value); // Reference
-        case 481140686: this.performer.add(castToReference(value)); // Reference
-        case 1753005361: this.product = (Type) value; // Type
-        case -768908335: this.dailyAmount = castToSimpleQuantity(value); // SimpleQuantity
-        case -1285004149: this.quantity = castToSimpleQuantity(value); // SimpleQuantity
-        case -1724546052: this.description = castToString(value); // StringType
+        case 50511102:
+          this.category = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 722137681:
+          this.reasonCode.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1146218137:
+          this.reasonReference.add(castToReference(value)); // Reference
+          break;
+        case 3178259:
+          this.goal.add(castToReference(value)); // Reference
+          break;
+        case -892481550:
+          this.status = new CarePlanActivityStatusEnumFactory().fromType(value); // Enumeration<CarePlanActivityStatus>
+          break;
+        case 2051346646:
+          this.statusReason = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 663275198:
+          this.prohibited = castToBoolean(value); // BooleanType
+          break;
+        case 1162627251:
+          this.scheduled = (Type) value; // Type
+          break;
+        case 1901043637:
+          this.location = castToReference(value); // Reference
+          break;
+        case 481140686:
+          this.performer.add(castToReference(value)); // Reference
+          break;
+        case 1753005361:
+          this.product = (Type) value; // Type
+          break;
+        case -768908335:
+          this.dailyAmount = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        case -1285004149:
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -2021,6 +2099,29 @@ public class CarePlan extends DomainResource {
           this.description = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 50511102:  return getCategory(); // CodeableConcept
+        case 3059181:  return getCode(); // CodeableConcept
+        case 722137681:  return addReasonCode(); // CodeableConcept
+        case -1146218137:  return addReasonReference(); // Reference
+        case 3178259:  return addGoal(); // Reference
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<CarePlanActivityStatus>
+        case 2051346646:  return getStatusReason(); // CodeableConcept
+        case 663275198: throw new FHIRException("Cannot make property prohibited as it is not a complex type"); // BooleanType
+        case 1162627251:  return getScheduled(); // Type
+        case 1901043637:  return getLocation(); // Reference
+        case 481140686:  return addPerformer(); // Reference
+        case 1753005361:  return getProduct(); // Type
+        case -768908335:  return getDailyAmount(); // SimpleQuantity
+        case -1285004149:  return getQuantity(); // SimpleQuantity
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -3070,22 +3171,54 @@ public class CarePlan extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case -1867885268: this.subject = castToReference(value); // Reference
-        case -892481550: this.status = new CarePlanStatusEnumFactory().fromType(value); // Enumeration<CarePlanStatus>
-        case 951530927: this.context = castToReference(value); // Reference
-        case -991726143: this.period = castToPeriod(value); // Period
-        case -1406328437: this.author.add(castToReference(value)); // Reference
-        case -615513399: this.modified = castToDateTime(value); // DateTimeType
-        case 50511102: this.category.add(castToCodeableConcept(value)); // CodeableConcept
-        case -1724546052: this.description = castToString(value); // StringType
-        case 874544034: this.addresses.add(castToReference(value)); // Reference
-        case -1854767153: this.support.add(castToReference(value)); // Reference
-        case 1112903156: this.relatedPlan.add((CarePlanRelatedPlanComponent) value); // CarePlanRelatedPlanComponent
-        case 767422259: this.participant.add((CarePlanParticipantComponent) value); // CarePlanParticipantComponent
-        case 3178259: this.goal.add(castToReference(value)); // Reference
-        case -1655966961: this.activity.add((CarePlanActivityComponent) value); // CarePlanActivityComponent
-        case 3387378: this.note = castToAnnotation(value); // Annotation
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case -892481550:
+          this.status = new CarePlanStatusEnumFactory().fromType(value); // Enumeration<CarePlanStatus>
+          break;
+        case 951530927:
+          this.context = castToReference(value); // Reference
+          break;
+        case -991726143:
+          this.period = castToPeriod(value); // Period
+          break;
+        case -1406328437:
+          this.author.add(castToReference(value)); // Reference
+          break;
+        case -615513399:
+          this.modified = castToDateTime(value); // DateTimeType
+          break;
+        case 50511102:
+          this.category.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case 874544034:
+          this.addresses.add(castToReference(value)); // Reference
+          break;
+        case -1854767153:
+          this.support.add(castToReference(value)); // Reference
+          break;
+        case 1112903156:
+          this.relatedPlan.add((CarePlanRelatedPlanComponent) value); // CarePlanRelatedPlanComponent
+          break;
+        case 767422259:
+          this.participant.add((CarePlanParticipantComponent) value); // CarePlanParticipantComponent
+          break;
+        case 3178259:
+          this.goal.add(castToReference(value)); // Reference
+          break;
+        case -1655966961:
+          this.activity.add((CarePlanActivityComponent) value); // CarePlanActivityComponent
+          break;
+        case 3387378:
+          this.note = castToAnnotation(value); // Annotation
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -3127,6 +3260,30 @@ public class CarePlan extends DomainResource {
           this.note = castToAnnotation(value); // Annotation
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -1867885268:  return getSubject(); // Reference
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<CarePlanStatus>
+        case 951530927:  return getContext(); // Reference
+        case -991726143:  return getPeriod(); // Period
+        case -1406328437:  return addAuthor(); // Reference
+        case -615513399: throw new FHIRException("Cannot make property modified as it is not a complex type"); // DateTimeType
+        case 50511102:  return addCategory(); // CodeableConcept
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 874544034:  return addAddresses(); // Reference
+        case -1854767153:  return addSupport(); // Reference
+        case 1112903156:  return addRelatedPlan(); // CarePlanRelatedPlanComponent
+        case 767422259:  return addParticipant(); // CarePlanParticipantComponent
+        case 3178259:  return addGoal(); // Reference
+        case -1655966961:  return addActivity(); // CarePlanActivityComponent
+        case 3387378:  return getNote(); // Annotation
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

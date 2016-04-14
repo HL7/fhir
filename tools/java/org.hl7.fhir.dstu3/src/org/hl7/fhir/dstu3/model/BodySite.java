@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -375,12 +375,24 @@ public class BodySite extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -791418107: this.patient = castToReference(value); // Reference
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case 3059181: this.code = castToCodeableConcept(value); // CodeableConcept
-        case -615513385: this.modifier.add(castToCodeableConcept(value)); // CodeableConcept
-        case -1724546052: this.description = castToString(value); // StringType
-        case 100313435: this.image.add(castToAttachment(value)); // Attachment
+        case -791418107:
+          this.patient = castToReference(value); // Reference
+          break;
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 3059181:
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -615513385:
+          this.modifier.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case 100313435:
+          this.image.add(castToAttachment(value)); // Attachment
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -402,6 +414,20 @@ public class BodySite extends DomainResource {
           this.getImage().add(castToAttachment(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -791418107:  return getPatient(); // Reference
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 3059181:  return getCode(); // CodeableConcept
+        case -615513385:  return addModifier(); // CodeableConcept
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 100313435:  return addImage(); // Attachment
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

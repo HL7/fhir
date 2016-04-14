@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -333,9 +333,15 @@ public class DetectedIssue extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1422950858: this.action = castToCodeableConcept(value); // CodeableConcept
-        case 3076014: this.date = castToDateTime(value); // DateTimeType
-        case -1406328437: this.author = castToReference(value); // Reference
+        case -1422950858:
+          this.action = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 3076014:
+          this.date = castToDateTime(value); // DateTimeType
+          break;
+        case -1406328437:
+          this.author = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -351,6 +357,17 @@ public class DetectedIssue extends DomainResource {
           this.author = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1422950858:  return getAction(); // CodeableConcept
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
+        case -1406328437:  return getAuthor(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -957,16 +974,36 @@ public class DetectedIssue extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -791418107: this.patient = castToReference(value); // Reference
-        case 50511102: this.category = castToCodeableConcept(value); // CodeableConcept
-        case 1478300413: this.severity = new DetectedIssueSeverityEnumFactory().fromType(value); // Enumeration<DetectedIssueSeverity>
-        case -810216884: this.implicated.add(castToReference(value)); // Reference
-        case -1335224239: this.detail = castToString(value); // StringType
-        case 3076014: this.date = castToDateTime(value); // DateTimeType
-        case -1406328437: this.author = castToReference(value); // Reference
-        case -1618432855: this.identifier = castToIdentifier(value); // Identifier
-        case -925155509: this.reference = castToUri(value); // UriType
-        case 1293793087: this.mitigation.add((DetectedIssueMitigationComponent) value); // DetectedIssueMitigationComponent
+        case -791418107:
+          this.patient = castToReference(value); // Reference
+          break;
+        case 50511102:
+          this.category = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 1478300413:
+          this.severity = new DetectedIssueSeverityEnumFactory().fromType(value); // Enumeration<DetectedIssueSeverity>
+          break;
+        case -810216884:
+          this.implicated.add(castToReference(value)); // Reference
+          break;
+        case -1335224239:
+          this.detail = castToString(value); // StringType
+          break;
+        case 3076014:
+          this.date = castToDateTime(value); // DateTimeType
+          break;
+        case -1406328437:
+          this.author = castToReference(value); // Reference
+          break;
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case -925155509:
+          this.reference = castToUri(value); // UriType
+          break;
+        case 1293793087:
+          this.mitigation.add((DetectedIssueMitigationComponent) value); // DetectedIssueMitigationComponent
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -996,6 +1033,24 @@ public class DetectedIssue extends DomainResource {
           this.getMitigation().add((DetectedIssueMitigationComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -791418107:  return getPatient(); // Reference
+        case 50511102:  return getCategory(); // CodeableConcept
+        case 1478300413: throw new FHIRException("Cannot make property severity as it is not a complex type"); // Enumeration<DetectedIssueSeverity>
+        case -810216884:  return addImplicated(); // Reference
+        case -1335224239: throw new FHIRException("Cannot make property detail as it is not a complex type"); // StringType
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
+        case -1406328437:  return getAuthor(); // Reference
+        case -1618432855:  return getIdentifier(); // Identifier
+        case -925155509: throw new FHIRException("Cannot make property reference as it is not a complex type"); // UriType
+        case 1293793087:  return addMitigation(); // DetectedIssueMitigationComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

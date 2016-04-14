@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -320,6 +320,30 @@ public class ValueSet extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -327,6 +351,16 @@ public class ValueSet extends DomainResource {
           this.getTelecom().add(castToContactPoint(value));
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1429363305:  return addTelecom(); // ContactPoint
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -559,6 +593,34 @@ public class ValueSet extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1184795739: return this.import_.toArray(new Base[this.import_.size()]); // UriType
+        case 1942574248: return this.include.toArray(new Base[this.include.size()]); // ConceptSetComponent
+        case -1321148966: return this.exclude.toArray(new Base[this.exclude.size()]); // ConceptSetComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1184795739:
+          this.import_.add(castToUri(value)); // UriType
+          break;
+        case 1942574248:
+          this.include.add((ConceptSetComponent) value); // ConceptSetComponent
+          break;
+        case -1321148966:
+          this.exclude.add((ConceptSetComponent) value); // ConceptSetComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("import"))
           this.getImport().add(castToUri(value));
@@ -568,6 +630,17 @@ public class ValueSet extends DomainResource {
           this.getExclude().add((ConceptSetComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1184795739: throw new FHIRException("Cannot make property import as it is not a complex type"); // UriType
+        case 1942574248:  return addInclude(); // ConceptSetComponent
+        case -1321148966:  return addExclude(); // ConceptSetComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -869,6 +942,38 @@ public class ValueSet extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -887328209: return this.system == null ? new Base[0] : new Base[] {this.system}; // UriType
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 951024232: return this.concept.toArray(new Base[this.concept.size()]); // ConceptReferenceComponent
+        case -1274492040: return this.filter.toArray(new Base[this.filter.size()]); // ConceptSetFilterComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -887328209:
+          this.system = castToUri(value); // UriType
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case 951024232:
+          this.concept.add((ConceptReferenceComponent) value); // ConceptReferenceComponent
+          break;
+        case -1274492040:
+          this.filter.add((ConceptSetFilterComponent) value); // ConceptSetFilterComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("system"))
           this.system = castToUri(value); // UriType
@@ -880,6 +985,18 @@ public class ValueSet extends DomainResource {
           this.getFilter().add((ConceptSetFilterComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // UriType
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case 951024232:  return addConcept(); // ConceptReferenceComponent
+        case -1274492040:  return addFilter(); // ConceptSetFilterComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1133,6 +1250,34 @@ public class ValueSet extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case 1671764162: return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
+        case -900931593: return this.designation.toArray(new Base[this.designation.size()]); // ConceptReferenceDesignationComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181:
+          this.code = castToCode(value); // CodeType
+          break;
+        case 1671764162:
+          this.display = castToString(value); // StringType
+          break;
+        case -900931593:
+          this.designation.add((ConceptReferenceDesignationComponent) value); // ConceptReferenceDesignationComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = castToCode(value); // CodeType
@@ -1142,6 +1287,17 @@ public class ValueSet extends DomainResource {
           this.getDesignation().add((ConceptReferenceDesignationComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
+        case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
+        case -900931593:  return addDesignation(); // ConceptReferenceDesignationComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1371,6 +1527,34 @@ public class ValueSet extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1613589672: return this.language == null ? new Base[0] : new Base[] {this.language}; // CodeType
+        case 116103: return this.use == null ? new Base[0] : new Base[] {this.use}; // Coding
+        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1613589672:
+          this.language = castToCode(value); // CodeType
+          break;
+        case 116103:
+          this.use = castToCoding(value); // Coding
+          break;
+        case 111972721:
+          this.value = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("language"))
           this.language = castToCode(value); // CodeType
@@ -1380,6 +1564,17 @@ public class ValueSet extends DomainResource {
           this.value = castToString(value); // StringType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1613589672: throw new FHIRException("Cannot make property language as it is not a complex type"); // CodeType
+        case 116103:  return getUse(); // Coding
+        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1625,6 +1820,34 @@ public class ValueSet extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -993141291: return this.property == null ? new Base[0] : new Base[] {this.property}; // CodeType
+        case 3553: return this.op == null ? new Base[0] : new Base[] {this.op}; // Enumeration<FilterOperator>
+        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // CodeType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -993141291:
+          this.property = castToCode(value); // CodeType
+          break;
+        case 3553:
+          this.op = new FilterOperatorEnumFactory().fromType(value); // Enumeration<FilterOperator>
+          break;
+        case 111972721:
+          this.value = castToCode(value); // CodeType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("property"))
           this.property = castToCode(value); // CodeType
@@ -1634,6 +1857,17 @@ public class ValueSet extends DomainResource {
           this.value = castToCode(value); // CodeType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -993141291: throw new FHIRException("Cannot make property property as it is not a complex type"); // CodeType
+        case 3553: throw new FHIRException("Cannot make property op as it is not a complex type"); // Enumeration<FilterOperator>
+        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // CodeType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2027,6 +2261,46 @@ public class ValueSet extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // UriType
+        case 55126294: return this.timestamp == null ? new Base[0] : new Base[] {this.timestamp}; // DateTimeType
+        case 110549828: return this.total == null ? new Base[0] : new Base[] {this.total}; // IntegerType
+        case -1019779949: return this.offset == null ? new Base[0] : new Base[] {this.offset}; // IntegerType
+        case 1954460585: return this.parameter.toArray(new Base[this.parameter.size()]); // ValueSetExpansionParameterComponent
+        case -567445985: return this.contains.toArray(new Base[this.contains.size()]); // ValueSetExpansionContainsComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier = castToUri(value); // UriType
+          break;
+        case 55126294:
+          this.timestamp = castToDateTime(value); // DateTimeType
+          break;
+        case 110549828:
+          this.total = castToInteger(value); // IntegerType
+          break;
+        case -1019779949:
+          this.offset = castToInteger(value); // IntegerType
+          break;
+        case 1954460585:
+          this.parameter.add((ValueSetExpansionParameterComponent) value); // ValueSetExpansionParameterComponent
+          break;
+        case -567445985:
+          this.contains.add((ValueSetExpansionContainsComponent) value); // ValueSetExpansionContainsComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToUri(value); // UriType
@@ -2042,6 +2316,20 @@ public class ValueSet extends DomainResource {
           this.getContains().add((ValueSetExpansionContainsComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855: throw new FHIRException("Cannot make property identifier as it is not a complex type"); // UriType
+        case 55126294: throw new FHIRException("Cannot make property timestamp as it is not a complex type"); // DateTimeType
+        case 110549828: throw new FHIRException("Cannot make property total as it is not a complex type"); // IntegerType
+        case -1019779949: throw new FHIRException("Cannot make property offset as it is not a complex type"); // IntegerType
+        case 1954460585:  return addParameter(); // ValueSetExpansionParameterComponent
+        case -567445985:  return addContains(); // ValueSetExpansionContainsComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2306,6 +2594,30 @@ public class ValueSet extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1410166417: return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1410166417:
+          this.value = (Type) value; // Type
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
@@ -2313,6 +2625,16 @@ public class ValueSet extends DomainResource {
           this.value = (Type) value; // Type
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1410166417:  return getValue(); // Type
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -2733,6 +3055,46 @@ public class ValueSet extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -887328209: return this.system == null ? new Base[0] : new Base[] {this.system}; // UriType
+        case 1732898850: return this.abstract_ == null ? new Base[0] : new Base[] {this.abstract_}; // BooleanType
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case 1671764162: return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
+        case -567445985: return this.contains.toArray(new Base[this.contains.size()]); // ValueSetExpansionContainsComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -887328209:
+          this.system = castToUri(value); // UriType
+          break;
+        case 1732898850:
+          this.abstract_ = castToBoolean(value); // BooleanType
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case 3059181:
+          this.code = castToCode(value); // CodeType
+          break;
+        case 1671764162:
+          this.display = castToString(value); // StringType
+          break;
+        case -567445985:
+          this.contains.add((ValueSetExpansionContainsComponent) value); // ValueSetExpansionContainsComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("system"))
           this.system = castToUri(value); // UriType
@@ -2748,6 +3110,20 @@ public class ValueSet extends DomainResource {
           this.getContains().add((ValueSetExpansionContainsComponent) value);
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // UriType
+        case 1732898850: throw new FHIRException("Cannot make property abstract as it is not a complex type"); // BooleanType
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
+        case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
+        case -567445985:  return addContains(); // ValueSetExpansionContainsComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -3765,6 +4141,94 @@ public class ValueSet extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -404562712: return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
+        case 1447404028: return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
+        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // ValueSetContactComponent
+        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case 1391591896: return this.lockedDate == null ? new Base[0] : new Base[] {this.lockedDate}; // DateType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -669707736: return this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
+        case 1596987778: return this.immutable == null ? new Base[0] : new Base[] {this.immutable}; // BooleanType
+        case -1619874672: return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // StringType
+        case 1522889671: return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
+        case -1809433861: return this.extensible == null ? new Base[0] : new Base[] {this.extensible}; // BooleanType
+        case 950497682: return this.compose == null ? new Base[0] : new Base[] {this.compose}; // ValueSetComposeComponent
+        case 17878207: return this.expansion == null ? new Base[0] : new Base[] {this.expansion}; // ValueSetExpansionComponent
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 116079:
+          this.url = castToUri(value); // UriType
+          break;
+        case -1618432855:
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        case 351608024:
+          this.version = castToString(value); // StringType
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -892481550:
+          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          break;
+        case -404562712:
+          this.experimental = castToBoolean(value); // BooleanType
+          break;
+        case 1447404028:
+          this.publisher = castToString(value); // StringType
+          break;
+        case 951526432:
+          this.contact.add((ValueSetContactComponent) value); // ValueSetContactComponent
+          break;
+        case 3076014:
+          this.date = castToDateTime(value); // DateTimeType
+          break;
+        case 1391591896:
+          this.lockedDate = castToDate(value); // DateType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case -669707736:
+          this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case 1596987778:
+          this.immutable = castToBoolean(value); // BooleanType
+          break;
+        case -1619874672:
+          this.requirements = castToString(value); // StringType
+          break;
+        case 1522889671:
+          this.copyright = castToString(value); // StringType
+          break;
+        case -1809433861:
+          this.extensible = castToBoolean(value); // BooleanType
+          break;
+        case 950497682:
+          this.compose = (ValueSetComposeComponent) value; // ValueSetComposeComponent
+          break;
+        case 17878207:
+          this.expansion = (ValueSetExpansionComponent) value; // ValueSetExpansionComponent
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("url"))
           this.url = castToUri(value); // UriType
@@ -3804,6 +4268,32 @@ public class ValueSet extends DomainResource {
           this.expansion = (ValueSetExpansionComponent) value; // ValueSetExpansionComponent
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case -1618432855:  return getIdentifier(); // Identifier
+        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
+        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
+        case 951526432:  return addContact(); // ValueSetContactComponent
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
+        case 1391591896: throw new FHIRException("Cannot make property lockedDate as it is not a complex type"); // DateType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -669707736:  return addUseContext(); // CodeableConcept
+        case 1596987778: throw new FHIRException("Cannot make property immutable as it is not a complex type"); // BooleanType
+        case -1619874672: throw new FHIRException("Cannot make property requirements as it is not a complex type"); // StringType
+        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
+        case -1809433861: throw new FHIRException("Cannot make property extensible as it is not a complex type"); // BooleanType
+        case 950497682:  return getCompose(); // ValueSetComposeComponent
+        case 17878207:  return getExpansion(); // ValueSetExpansionComponent
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 11, 2016 11:52+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -480,6 +480,34 @@ public class Location extends DomainResource {
         }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 137365935: return this.longitude == null ? new Base[0] : new Base[] {this.longitude}; // DecimalType
+        case -1439978388: return this.latitude == null ? new Base[0] : new Base[] {this.latitude}; // DecimalType
+        case 2036550306: return this.altitude == null ? new Base[0] : new Base[] {this.altitude}; // DecimalType
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case 137365935:
+          this.longitude = castToDecimal(value); // DecimalType
+          break;
+        case -1439978388:
+          this.latitude = castToDecimal(value); // DecimalType
+          break;
+        case 2036550306:
+          this.altitude = castToDecimal(value); // DecimalType
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("longitude"))
           this.longitude = castToDecimal(value); // DecimalType
@@ -489,6 +517,17 @@ public class Location extends DomainResource {
           this.altitude = castToDecimal(value); // DecimalType
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case 137365935: throw new FHIRException("Cannot make property longitude as it is not a complex type"); // DecimalType
+        case -1439978388: throw new FHIRException("Cannot make property latitude as it is not a complex type"); // DecimalType
+        case 2036550306: throw new FHIRException("Cannot make property altitude as it is not a complex type"); // DecimalType
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
@@ -1129,6 +1168,70 @@ public class Location extends DomainResource {
       }
 
       @Override
+      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<LocationStatus>
+        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 3357091: return this.mode == null ? new Base[0] : new Base[] {this.mode}; // Enumeration<LocationMode>
+        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        case -1147692044: return this.address == null ? new Base[0] : new Base[] {this.address}; // Address
+        case -1474715471: return this.physicalType == null ? new Base[0] : new Base[] {this.physicalType}; // CodeableConcept
+        case 747804969: return this.position == null ? new Base[0] : new Base[] {this.position}; // LocationPositionComponent
+        case -2058947787: return this.managingOrganization == null ? new Base[0] : new Base[] {this.managingOrganization}; // Reference
+        case -995410646: return this.partOf == null ? new Base[0] : new Base[] {this.partOf}; // Reference
+        default: return super.getProperty(hash, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, Base value) throws FHIRException {
+        switch (hash) {
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case -892481550:
+          this.status = new LocationStatusEnumFactory().fromType(value); // Enumeration<LocationStatus>
+          break;
+        case 3373707:
+          this.name = castToString(value); // StringType
+          break;
+        case -1724546052:
+          this.description = castToString(value); // StringType
+          break;
+        case 3357091:
+          this.mode = new LocationModeEnumFactory().fromType(value); // Enumeration<LocationMode>
+          break;
+        case 3575610:
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -1429363305:
+          this.telecom.add(castToContactPoint(value)); // ContactPoint
+          break;
+        case -1147692044:
+          this.address = castToAddress(value); // Address
+          break;
+        case -1474715471:
+          this.physicalType = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 747804969:
+          this.position = (LocationPositionComponent) value; // LocationPositionComponent
+          break;
+        case -2058947787:
+          this.managingOrganization = castToReference(value); // Reference
+          break;
+        case -995410646:
+          this.partOf = castToReference(value); // Reference
+          break;
+        default: super.setProperty(hash, value);
+        }
+
+      }
+
+      @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
@@ -1156,6 +1259,26 @@ public class Location extends DomainResource {
           this.partOf = castToReference(value); // Reference
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<LocationStatus>
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<LocationMode>
+        case 3575610:  return getType(); // CodeableConcept
+        case -1429363305:  return addTelecom(); // ContactPoint
+        case -1147692044:  return getAddress(); // Address
+        case -1474715471:  return getPhysicalType(); // CodeableConcept
+        case 747804969:  return getPosition(); // LocationPositionComponent
+        case -2058947787:  return getManagingOrganization(); // Reference
+        case -995410646:  return getPartOf(); // Reference
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override

@@ -15,32 +15,38 @@ group CDA2FHIR // this groups sets things going. pass in a CDA document and a bu
   input tgt : Bundle as target;
 
 setup: for src make 
-  tgt.type = "document", 
-  tgt.id = uuid(), 
-  tgt.entry as e, 
-  e.resource = create("Composition") as cmp, 
-  cmp.id = uuid(),
-  e.fullUrl = pointer(cmp)
+   tgt.type = "document", 
+   tgt.id = uuid(), 
+   tgt.entry as e, 
+   e.resource = create("Composition") as cmp, 
+   cmp.id = uuid(),
+   e.fullUrl = pointer(cmp)
+  then {
   
-// we ignore for src.id. that's the CDA id we can't use 
+  // we ignore src.id. that's the CDA id we can't use 
 
-code:  for src.code            as s make cmp.type as t then CD2CodeableConcept(s, t)
-title: for src.title           as s make cmp.title = s 
-date:  for src.effectiveTime   as s make cmp.date = s
-conf:  for src.confidentiality as s make cmp.confidentiality as t then CD2CodeableConcept(s, t)
-lang:  for src.languageCode    as s then lang2(s, tgt)
-lang2: for s.code              as s make cmp.language = s
-setid: for s.setId             as s make cmp.identifier as t then II2Identifier(s, t)
+  code:  for src.code            as s make cmp.type as t then CD2CodeableConcept(s, t)
+  title: for src.title           as s then {
+    titleI: for s.value          as sv make cmp.title = sv
+  }
+  date:  for src.effectiveTime   as s make cmp.date = evaluate(s, value)
+  conf:  for src.confidentiality as s make cmp.confidentiality as t then CD2CodeableConcept(s, t)
+  lang:  for src.languageCode    as s then  {
+    lang2: for s.code              as s make cmp.language = s
+  }
+  setid: for src.setId             as s make cmp.identifier as t then II2Identifier(s, t)
 
-// we also ignore version number and copyTime
+  // we also ignore version number and copyTime
 
-rct: for src.recordTarget as r then pat(r, tgt)
-pat: for t.patientRole as s make 
-  tgt.entry as p, 
-  p.resource = create("Patient") as pat, 
-  pat.id = uuid(),
-  e.fullUrl = pointer(pat) then PatientRole(s, pat)
-  
+  rct: for src.recordTarget as r then {
+    pat: for r.patientRole as s make 
+      tgt.entry as p, 
+      p.resource = create("Patient") as pat, 
+      pat.id = uuid(),
+      e.fullUrl = pointer(pat) then PatientRole(s, pat)
+  }
+}
+    
 endgroup   
 
 group PatientRole

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 10:56+1000 for FHIR v1.4.0
+// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -577,16 +577,36 @@ public class EnrollmentRequest extends DomainResource {
       @Override
       public void setProperty(int hash, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855: this.identifier.add(castToIdentifier(value)); // Identifier
-        case 1548678118: this.ruleset = castToCoding(value); // Coding
-        case 1089373397: this.originalRuleset = castToCoding(value); // Coding
-        case 1028554472: this.created = castToDateTime(value); // DateTimeType
-        case -880905839: this.target = castToReference(value); // Reference
-        case -987494927: this.provider = castToReference(value); // Reference
-        case 1178922291: this.organization = castToReference(value); // Reference
-        case -1867885268: this.subject = castToReference(value); // Reference
-        case -351767064: this.coverage = castToReference(value); // Reference
-        case -261851592: this.relationship = castToCoding(value); // Coding
+        case -1618432855:
+          this.identifier.add(castToIdentifier(value)); // Identifier
+          break;
+        case 1548678118:
+          this.ruleset = castToCoding(value); // Coding
+          break;
+        case 1089373397:
+          this.originalRuleset = castToCoding(value); // Coding
+          break;
+        case 1028554472:
+          this.created = castToDateTime(value); // DateTimeType
+          break;
+        case -880905839:
+          this.target = castToReference(value); // Reference
+          break;
+        case -987494927:
+          this.provider = castToReference(value); // Reference
+          break;
+        case 1178922291:
+          this.organization = castToReference(value); // Reference
+          break;
+        case -1867885268:
+          this.subject = castToReference(value); // Reference
+          break;
+        case -351767064:
+          this.coverage = castToReference(value); // Reference
+          break;
+        case -261851592:
+          this.relationship = castToCoding(value); // Coding
+          break;
         default: super.setProperty(hash, value);
         }
 
@@ -616,6 +636,24 @@ public class EnrollmentRequest extends DomainResource {
           this.relationship = castToCoding(value); // Coding
         else
           super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash) throws FHIRException {
+        switch (hash) {
+        case -1618432855:  return addIdentifier(); // Identifier
+        case 1548678118:  return getRuleset(); // Coding
+        case 1089373397:  return getOriginalRuleset(); // Coding
+        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
+        case -880905839:  return getTarget(); // Reference
+        case -987494927:  return getProvider(); // Reference
+        case 1178922291:  return getOrganization(); // Reference
+        case -1867885268:  return getSubject(); // Reference
+        case -351767064:  return getCoverage(); // Reference
+        case -261851592:  return getRelationship(); // Coding
+        default: return super.makeProperty(hash);
+        }
+
       }
 
       @Override
