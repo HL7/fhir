@@ -38,6 +38,11 @@ public class ShexGeneratorTests {
     doTest("id");
   }
 
+  @Test
+  public void testUri() throws FHIRException, IOException {
+    doTest("uri");
+  }
+
 
   @Test
   public void testObservation() throws FHIRException, IOException {
