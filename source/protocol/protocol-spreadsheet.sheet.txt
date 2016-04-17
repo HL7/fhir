@@ -39,6 +39,11 @@
   Binding = unbound
   Definition = Code describing the timing of an activity; e.g. BID, QD
 
+ -- Row 8 -----------------------------------
+  Binding Name = PerformerProduct
+  Binding = unbound
+  Definition = Code describing the type of substance or medication
+
 === Sheet protocol-status =====================================
 
  -- Row 1 -----------------------------------
@@ -439,9 +444,10 @@
   Requirements = Helps in planning of activity
 
  -- Row 37 -----------------------------------
-  Element = Protocol.step.activity.detail.product
+  Element = Protocol.step.activity.detail.product[x]
   Card. = 0..1
-  Type = Reference(Medication|Substance)
+  Type = Reference(Medication|Substance)|CodeableConcept
+  Binding = PerformerProduct
   Short Label = What\'s administered/supplied
   Definition = Identifies the food, drug or other product being consumed or supplied in the activity.
 
