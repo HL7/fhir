@@ -1,1 +1,1 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:d714500c-22d6-4966-9619-9f17066d136f","timestamp":"2016-03-29T20:07:46Z","contains":[{"system":"http://hl7.org/fhir/hspc-allergyintolerancetype","code":"521059339","display":"Intolerance"}]}}
+{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:fc9b851f-5195-4cf5-b24e-740bfc62005d","timestamp":"2016-04-16T03:34:30Z","contains":[{"system":"http://hl7.org/fhir/hspc-allergyintolerancetype","code":"521059339","display":"Intolerance"}]}}

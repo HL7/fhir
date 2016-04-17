@@ -10,17 +10,6 @@
       "hash": "#|http://snomed.info/sct|null|394848005|Normal priority",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "|null|null|routine|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "routine",
-        "definition": null,
-        "display": "Routine"
-      }
     }
   ]
 }

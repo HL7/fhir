@@ -11,28 +11,6 @@
         "definition": null,
         "display": "Preliminary"
       }
-    },
-    {
-      "hash": "|null|null|final|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "final",
-        "definition": null,
-        "display": "Final"
-      }
-    },
-    {
-      "hash": "|null|null|preliminary|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "preliminary",
-        "definition": null,
-        "display": "Preliminary"
-      }
     }
   ]
 }
