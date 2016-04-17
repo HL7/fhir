@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -304,25 +304,25 @@ public class CompartmentDefinition extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
-        default: return super.getProperty(hash, checkValid);
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1429363305: /*telecom*/ return this.telecom == null ? new Base[0] : this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707:
+        case 3373707: // name
           this.name = castToString(value); // StringType
           break;
-        case -1429363305:
-          this.telecom.add(castToContactPoint(value)); // ContactPoint
+        case -1429363305: // telecom
+          this.getTelecom().add(castToContactPoint(value)); // ContactPoint
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -338,11 +338,11 @@ public class CompartmentDefinition extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case -1429363305:  return addTelecom(); // ContactPoint
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -599,29 +599,29 @@ public class CompartmentDefinition extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
-        case 106436749: return this.param.toArray(new Base[this.param.size()]); // StringType
-        case 1587405498: return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case 106436749: /*param*/ return this.param == null ? new Base[0] : this.param.toArray(new Base[this.param.size()]); // StringType
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181:
+        case 3059181: // code
           this.code = castToCode(value); // CodeType
           break;
-        case 106436749:
-          this.param.add(castToString(value)); // StringType
+        case 106436749: // param
+          this.getParam().add(castToString(value)); // StringType
           break;
-        case 1587405498:
+        case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -639,12 +639,12 @@ public class CompartmentDefinition extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
         case 106436749: throw new FHIRException("Cannot make property param as it is not a complex type"); // StringType
         case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1382,65 +1382,65 @@ public class CompartmentDefinition extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
-        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
-        case -404562712: return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
-        case 1447404028: return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
-        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // CompartmentDefinitionContactComponent
-        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -1619874672: return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // StringType
-        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<CompartmentType>
-        case -906336856: return this.search == null ? new Base[0] : new Base[] {this.search}; // BooleanType
-        case -341064690: return this.resource.toArray(new Base[this.resource.size()]); // CompartmentDefinitionResourceComponent
-        default: return super.getProperty(hash, checkValid);
+        case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
+        case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
+        case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // CompartmentDefinitionContactComponent
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -1619874672: /*requirements*/ return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // StringType
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<CompartmentType>
+        case -906336856: /*search*/ return this.search == null ? new Base[0] : new Base[] {this.search}; // BooleanType
+        case -341064690: /*resource*/ return this.resource == null ? new Base[0] : this.resource.toArray(new Base[this.resource.size()]); // CompartmentDefinitionResourceComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 116079:
+        case 116079: // url
           this.url = castToUri(value); // UriType
           break;
-        case 3373707:
+        case 3373707: // name
           this.name = castToString(value); // StringType
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
           break;
-        case -404562712:
+        case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
           break;
-        case 1447404028:
+        case 1447404028: // publisher
           this.publisher = castToString(value); // StringType
           break;
-        case 951526432:
-          this.contact.add((CompartmentDefinitionContactComponent) value); // CompartmentDefinitionContactComponent
+        case 951526432: // contact
+          this.getContact().add((CompartmentDefinitionContactComponent) value); // CompartmentDefinitionContactComponent
           break;
-        case 3076014:
+        case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        case -1619874672:
+        case -1619874672: // requirements
           this.requirements = castToString(value); // StringType
           break;
-        case 3059181:
+        case 3059181: // code
           this.code = new CompartmentTypeEnumFactory().fromType(value); // Enumeration<CompartmentType>
           break;
-        case -906336856:
+        case -906336856: // search
           this.search = castToBoolean(value); // BooleanType
           break;
-        case -341064690:
-          this.resource.add((CompartmentDefinitionResourceComponent) value); // CompartmentDefinitionResourceComponent
+        case -341064690: // resource
+          this.getResource().add((CompartmentDefinitionResourceComponent) value); // CompartmentDefinitionResourceComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1476,7 +1476,7 @@ public class CompartmentDefinition extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
@@ -1490,7 +1490,7 @@ public class CompartmentDefinition extends DomainResource {
         case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<CompartmentType>
         case -906336856: throw new FHIRException("Cannot make property search as it is not a complex type"); // BooleanType
         case -341064690:  return addResource(); // CompartmentDefinitionResourceComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

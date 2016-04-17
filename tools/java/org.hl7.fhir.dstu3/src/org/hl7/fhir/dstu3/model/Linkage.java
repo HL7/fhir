@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -260,25 +260,25 @@ public class Linkage extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<LinkageType>
-        case -341064690: return this.resource == null ? new Base[0] : new Base[] {this.resource}; // Reference
-        default: return super.getProperty(hash, checkValid);
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<LinkageType>
+        case -341064690: /*resource*/ return this.resource == null ? new Base[0] : new Base[] {this.resource}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610:
+        case 3575610: // type
           this.type = new LinkageTypeEnumFactory().fromType(value); // Enumeration<LinkageType>
           break;
-        case -341064690:
+        case -341064690: // resource
           this.resource = castToReference(value); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -294,11 +294,11 @@ public class Linkage extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<LinkageType>
         case -341064690:  return getResource(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -470,25 +470,25 @@ public class Linkage extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1406328437: return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
-        case 3242771: return this.item.toArray(new Base[this.item.size()]); // LinkageItemComponent
-        default: return super.getProperty(hash, checkValid);
+        case -1406328437: /*author*/ return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
+        case 3242771: /*item*/ return this.item == null ? new Base[0] : this.item.toArray(new Base[this.item.size()]); // LinkageItemComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1406328437:
+        case -1406328437: // author
           this.author = castToReference(value); // Reference
           break;
-        case 3242771:
-          this.item.add((LinkageItemComponent) value); // LinkageItemComponent
+        case 3242771: // item
+          this.getItem().add((LinkageItemComponent) value); // LinkageItemComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -504,11 +504,11 @@ public class Linkage extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1406328437:  return getAuthor(); // Reference
         case 3242771:  return addItem(); // LinkageItemComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

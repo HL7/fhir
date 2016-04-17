@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1136,73 +1136,73 @@ public class ProcedureRequest extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case 1702620169: return this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
-        case -669418564: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Type
-        case 1162627251: return this.scheduled == null ? new Base[0] : new Base[] {this.scheduled}; // Type
-        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
-        case 481140686: return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ProcedureRequestStatus>
-        case 105008833: return this.notes.toArray(new Base[this.notes.size()]); // Annotation
-        case -544329575: return this.asNeeded == null ? new Base[0] : new Base[] {this.asNeeded}; // Type
-        case -391079124: return this.orderedOn == null ? new Base[0] : new Base[] {this.orderedOn}; // DateTimeType
-        case -1207109509: return this.orderer == null ? new Base[0] : new Base[] {this.orderer}; // Reference
-        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<ProcedureRequestPriority>
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Type
+        case -160710483: /*scheduled*/ return this.scheduled == null ? new Base[0] : new Base[] {this.scheduled}; // Type
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ProcedureRequestStatus>
+        case 105008833: /*notes*/ return this.notes == null ? new Base[0] : this.notes.toArray(new Base[this.notes.size()]); // Annotation
+        case -1432923513: /*asNeeded*/ return this.asNeeded == null ? new Base[0] : new Base[] {this.asNeeded}; // Type
+        case -391079124: /*orderedOn*/ return this.orderedOn == null ? new Base[0] : new Base[] {this.orderedOn}; // DateTimeType
+        case -1207109509: /*orderer*/ return this.orderer == null ? new Base[0] : new Base[] {this.orderer}; // Reference
+        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<ProcedureRequestPriority>
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -1867885268:
+        case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           break;
-        case 3059181:
+        case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 1702620169:
-          this.bodySite.add(castToCodeableConcept(value)); // CodeableConcept
+        case 1702620169: // bodySite
+          this.getBodySite().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -669418564:
+        case -934964668: // reason
           this.reason = (Type) value; // Type
           break;
-        case 1162627251:
+        case -160710483: // scheduled
           this.scheduled = (Type) value; // Type
           break;
-        case 1524132147:
+        case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
           break;
-        case 481140686:
+        case 481140686: // performer
           this.performer = castToReference(value); // Reference
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new ProcedureRequestStatusEnumFactory().fromType(value); // Enumeration<ProcedureRequestStatus>
           break;
-        case 105008833:
-          this.notes.add(castToAnnotation(value)); // Annotation
+        case 105008833: // notes
+          this.getNotes().add(castToAnnotation(value)); // Annotation
           break;
-        case -544329575:
+        case -1432923513: // asNeeded
           this.asNeeded = (Type) value; // Type
           break;
-        case -391079124:
+        case -391079124: // orderedOn
           this.orderedOn = castToDateTime(value); // DateTimeType
           break;
-        case -1207109509:
+        case -1207109509: // orderer
           this.orderer = castToReference(value); // Reference
           break;
-        case -1165461084:
+        case -1165461084: // priority
           this.priority = new ProcedureRequestPriorityEnumFactory().fromType(value); // Enumeration<ProcedureRequestPriority>
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1242,7 +1242,7 @@ public class ProcedureRequest extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -1867885268:  return getSubject(); // Reference
@@ -1258,7 +1258,7 @@ public class ProcedureRequest extends DomainResource {
         case -391079124: throw new FHIRException("Cannot make property orderedOn as it is not a complex type"); // DateTimeType
         case -1207109509:  return getOrderer(); // Reference
         case -1165461084: throw new FHIRException("Cannot make property priority as it is not a complex type"); // Enumeration<ProcedureRequestPriority>
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

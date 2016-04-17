@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1128,69 +1128,69 @@ public class DeviceUseRequest extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -806219817: return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // Type
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DeviceUseRequestStatus>
-        case -1335157162: return this.device == null ? new Base[0] : new Base[] {this.device}; // Reference
-        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -597168804: return this.indication.toArray(new Base[this.indication.size()]); // CodeableConcept
-        case 105008833: return this.notes.toArray(new Base[this.notes.size()]); // StringType
-        case 1825472528: return this.prnReason.toArray(new Base[this.prnReason.size()]); // CodeableConcept
-        case -391079124: return this.orderedOn == null ? new Base[0] : new Base[] {this.orderedOn}; // DateTimeType
-        case 735397551: return this.recordedOn == null ? new Base[0] : new Base[] {this.recordedOn}; // DateTimeType
-        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 164632566: return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
-        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<DeviceUseRequestPriority>
-        default: return super.getProperty(hash, checkValid);
+        case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // Type
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DeviceUseRequestStatus>
+        case -1335157162: /*device*/ return this.device == null ? new Base[0] : new Base[] {this.device}; // Reference
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -597168804: /*indication*/ return this.indication == null ? new Base[0] : this.indication.toArray(new Base[this.indication.size()]); // CodeableConcept
+        case 105008833: /*notes*/ return this.notes == null ? new Base[0] : this.notes.toArray(new Base[this.notes.size()]); // StringType
+        case 1825472528: /*prnReason*/ return this.prnReason == null ? new Base[0] : this.prnReason.toArray(new Base[this.prnReason.size()]); // CodeableConcept
+        case -391079124: /*orderedOn*/ return this.orderedOn == null ? new Base[0] : new Base[] {this.orderedOn}; // DateTimeType
+        case 735397551: /*recordedOn*/ return this.recordedOn == null ? new Base[0] : new Base[] {this.recordedOn}; // DateTimeType
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
+        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<DeviceUseRequestPriority>
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -806219817:
+        case 1702620169: // bodySite
           this.bodySite = (Type) value; // Type
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new DeviceUseRequestStatusEnumFactory().fromType(value); // Enumeration<DeviceUseRequestStatus>
           break;
-        case -1335157162:
+        case -1335157162: // device
           this.device = castToReference(value); // Reference
           break;
-        case 1524132147:
+        case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
           break;
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -597168804:
-          this.indication.add(castToCodeableConcept(value)); // CodeableConcept
+        case -597168804: // indication
+          this.getIndication().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case 105008833:
-          this.notes.add(castToString(value)); // StringType
+        case 105008833: // notes
+          this.getNotes().add(castToString(value)); // StringType
           break;
-        case 1825472528:
-          this.prnReason.add(castToCodeableConcept(value)); // CodeableConcept
+        case 1825472528: // prnReason
+          this.getPrnReason().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -391079124:
+        case -391079124: // orderedOn
           this.orderedOn = castToDateTime(value); // DateTimeType
           break;
-        case 735397551:
+        case 735397551: // recordedOn
           this.recordedOn = castToDateTime(value); // DateTimeType
           break;
-        case -1867885268:
+        case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           break;
-        case 164632566:
+        case -873664438: // timing
           this.timing = (Type) value; // Type
           break;
-        case -1165461084:
+        case -1165461084: // priority
           this.priority = new DeviceUseRequestPriorityEnumFactory().fromType(value); // Enumeration<DeviceUseRequestPriority>
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1228,7 +1228,7 @@ public class DeviceUseRequest extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -806219817:  return getBodySite(); // Type
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DeviceUseRequestStatus>
@@ -1243,7 +1243,7 @@ public class DeviceUseRequest extends DomainResource {
         case -1867885268:  return getSubject(); // Reference
         case 164632566:  return getTiming(); // Type
         case -1165461084: throw new FHIRException("Cannot make property priority as it is not a complex type"); // Enumeration<DeviceUseRequestPriority>
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

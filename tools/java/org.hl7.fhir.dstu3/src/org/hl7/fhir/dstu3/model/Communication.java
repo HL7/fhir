@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -272,21 +272,21 @@ public class Communication extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 264548711: return this.content == null ? new Base[0] : new Base[] {this.content}; // Type
-        default: return super.getProperty(hash, checkValid);
+        case 951530617: /*content*/ return this.content == null ? new Base[0] : new Base[] {this.content}; // Type
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 264548711:
+        case 951530617: // content
           this.content = (Type) value; // Type
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -300,10 +300,10 @@ public class Communication extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 264548711:  return getContent(); // Type
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1058,69 +1058,69 @@ public class Communication extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
-        case -905962955: return this.sender == null ? new Base[0] : new Base[] {this.sender}; // Reference
-        case 820081177: return this.recipient.toArray(new Base[this.recipient.size()]); // Reference
-        case -786701938: return this.payload.toArray(new Base[this.payload.size()]); // CommunicationPayloadComponent
-        case -1078030475: return this.medium.toArray(new Base[this.medium.size()]); // CodeableConcept
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<CommunicationStatus>
-        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
-        case 3526552: return this.sent == null ? new Base[0] : new Base[] {this.sent}; // DateTimeType
-        case -808719903: return this.received == null ? new Base[0] : new Base[] {this.received}; // DateTimeType
-        case -934964668: return this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
-        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 960204736: return this.requestDetail == null ? new Base[0] : new Base[] {this.requestDetail}; // Reference
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
+        case -905962955: /*sender*/ return this.sender == null ? new Base[0] : new Base[] {this.sender}; // Reference
+        case 820081177: /*recipient*/ return this.recipient == null ? new Base[0] : this.recipient.toArray(new Base[this.recipient.size()]); // Reference
+        case -786701938: /*payload*/ return this.payload == null ? new Base[0] : this.payload.toArray(new Base[this.payload.size()]); // CommunicationPayloadComponent
+        case -1078030475: /*medium*/ return this.medium == null ? new Base[0] : this.medium.toArray(new Base[this.medium.size()]); // CodeableConcept
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<CommunicationStatus>
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case 3526552: /*sent*/ return this.sent == null ? new Base[0] : new Base[] {this.sent}; // DateTimeType
+        case -808719903: /*received*/ return this.received == null ? new Base[0] : new Base[] {this.received}; // DateTimeType
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 960204736: /*requestDetail*/ return this.requestDetail == null ? new Base[0] : new Base[] {this.requestDetail}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case 50511102:
+        case 50511102: // category
           this.category = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -905962955:
+        case -905962955: // sender
           this.sender = castToReference(value); // Reference
           break;
-        case 820081177:
-          this.recipient.add(castToReference(value)); // Reference
+        case 820081177: // recipient
+          this.getRecipient().add(castToReference(value)); // Reference
           break;
-        case -786701938:
-          this.payload.add((CommunicationPayloadComponent) value); // CommunicationPayloadComponent
+        case -786701938: // payload
+          this.getPayload().add((CommunicationPayloadComponent) value); // CommunicationPayloadComponent
           break;
-        case -1078030475:
-          this.medium.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1078030475: // medium
+          this.getMedium().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new CommunicationStatusEnumFactory().fromType(value); // Enumeration<CommunicationStatus>
           break;
-        case 1524132147:
+        case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
           break;
-        case 3526552:
+        case 3526552: // sent
           this.sent = castToDateTime(value); // DateTimeType
           break;
-        case -808719903:
+        case -808719903: // received
           this.received = castToDateTime(value); // DateTimeType
           break;
-        case -934964668:
-          this.reason.add(castToCodeableConcept(value)); // CodeableConcept
+        case -934964668: // reason
+          this.getReason().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1867885268:
+        case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           break;
-        case 960204736:
+        case 960204736: // requestDetail
           this.requestDetail = castToReference(value); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1158,7 +1158,7 @@ public class Communication extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case 50511102:  return getCategory(); // CodeableConcept
@@ -1173,7 +1173,7 @@ public class Communication extends DomainResource {
         case -934964668:  return addReason(); // CodeableConcept
         case -1867885268:  return getSubject(); // Reference
         case 960204736:  return getRequestDetail(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

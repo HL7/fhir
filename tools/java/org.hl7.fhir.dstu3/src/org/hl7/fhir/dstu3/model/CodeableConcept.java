@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -165,25 +165,25 @@ public class CodeableConcept extends Type implements ICompositeType {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1355086998: return this.coding.toArray(new Base[this.coding.size()]); // Coding
-        case 3556653: return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case -1355086998: /*coding*/ return this.coding == null ? new Base[0] : this.coding.toArray(new Base[this.coding.size()]); // Coding
+        case 3556653: /*text*/ return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1355086998:
-          this.coding.add(castToCoding(value)); // Coding
+        case -1355086998: // coding
+          this.getCoding().add(castToCoding(value)); // Coding
           break;
-        case 3556653:
+        case 3556653: // text
           this.text = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -199,11 +199,11 @@ public class CodeableConcept extends Type implements ICompositeType {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1355086998:  return addCoding(); // Coding
         case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

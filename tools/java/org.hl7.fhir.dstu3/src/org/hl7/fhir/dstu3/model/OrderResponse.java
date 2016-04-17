@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -655,45 +655,45 @@ public class OrderResponse extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case 1095692943: return this.request == null ? new Base[0] : new Base[] {this.request}; // Reference
-        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
-        case 117694: return this.who == null ? new Base[0] : new Base[] {this.who}; // Reference
-        case 1630081248: return this.orderStatus == null ? new Base[0] : new Base[] {this.orderStatus}; // Enumeration<OrderStatus>
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case 1512395230: return this.fulfillment.toArray(new Base[this.fulfillment.size()]); // Reference
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 1095692943: /*request*/ return this.request == null ? new Base[0] : new Base[] {this.request}; // Reference
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case 117694: /*who*/ return this.who == null ? new Base[0] : new Base[] {this.who}; // Reference
+        case 1630081248: /*orderStatus*/ return this.orderStatus == null ? new Base[0] : new Base[] {this.orderStatus}; // Enumeration<OrderStatus>
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 1512395230: /*fulfillment*/ return this.fulfillment == null ? new Base[0] : this.fulfillment.toArray(new Base[this.fulfillment.size()]); // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case 1095692943:
+        case 1095692943: // request
           this.request = castToReference(value); // Reference
           break;
-        case 3076014:
+        case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
           break;
-        case 117694:
+        case 117694: // who
           this.who = castToReference(value); // Reference
           break;
-        case 1630081248:
+        case 1630081248: // orderStatus
           this.orderStatus = new OrderStatusEnumFactory().fromType(value); // Enumeration<OrderStatus>
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        case 1512395230:
-          this.fulfillment.add(castToReference(value)); // Reference
+        case 1512395230: // fulfillment
+          this.getFulfillment().add(castToReference(value)); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -719,7 +719,7 @@ public class OrderResponse extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case 1095692943:  return getRequest(); // Reference
@@ -728,7 +728,7 @@ public class OrderResponse extends DomainResource {
         case 1630081248: throw new FHIRException("Cannot make property orderStatus as it is not a complex type"); // Enumeration<OrderStatus>
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case 1512395230:  return addFulfillment(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

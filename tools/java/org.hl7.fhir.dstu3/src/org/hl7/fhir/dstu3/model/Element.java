@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -196,25 +196,25 @@ public abstract class Element extends Base implements IBaseHasExtensions {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3355: return this.id == null ? new Base[0] : new Base[] {this.id}; // IdType
-        case -612557761: return this.extension.toArray(new Base[this.extension.size()]); // Extension
-        default: return super.getProperty(hash, checkValid);
+        case 3355: /*id*/ return this.id == null ? new Base[0] : new Base[] {this.id}; // IdType
+        case -612557761: /*extension*/ return this.extension == null ? new Base[0] : this.extension.toArray(new Base[this.extension.size()]); // Extension
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3355:
+        case 3355: // id
           this.id = castToId(value); // IdType
           break;
-        case -612557761:
-          this.extension.add(castToExtension(value)); // Extension
+        case -612557761: // extension
+          this.getExtension().add(castToExtension(value)); // Extension
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -230,11 +230,11 @@ public abstract class Element extends Base implements IBaseHasExtensions {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3355: throw new FHIRException("Cannot make property id as it is not a complex type"); // IdType
         case -612557761:  return addExtension(); // Extension
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

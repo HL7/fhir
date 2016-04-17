@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -812,25 +812,25 @@ public class StructureMap extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
-        default: return super.getProperty(hash, checkValid);
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1429363305: /*telecom*/ return this.telecom == null ? new Base[0] : this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707:
+        case 3373707: // name
           this.name = castToString(value); // StringType
           break;
-        case -1429363305:
-          this.telecom.add(castToContactPoint(value)); // ContactPoint
+        case -1429363305: // telecom
+          this.getTelecom().add(castToContactPoint(value)); // ContactPoint
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -846,11 +846,11 @@ public class StructureMap extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case -1429363305:  return addTelecom(); // ContactPoint
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1099,29 +1099,29 @@ public class StructureMap extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
-        case 3357091: return this.mode == null ? new Base[0] : new Base[] {this.mode}; // Enumeration<StructureMapModelMode>
-        case 1587405498: return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case 3357091: /*mode*/ return this.mode == null ? new Base[0] : new Base[] {this.mode}; // Enumeration<StructureMapModelMode>
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 116079:
+        case 116079: // url
           this.url = castToUri(value); // UriType
           break;
-        case 3357091:
+        case 3357091: // mode
           this.mode = new StructureMapModelModeEnumFactory().fromType(value); // Enumeration<StructureMapModelMode>
           break;
-        case 1587405498:
+        case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1139,12 +1139,12 @@ public class StructureMap extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
         case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<StructureMapModelMode>
         case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1494,37 +1494,37 @@ public class StructureMap extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // IdType
-        case -1305664359: return this.extends_ == null ? new Base[0] : new Base[] {this.extends_}; // IdType
-        case 1587405498: return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
-        case 100358090: return this.input.toArray(new Base[this.input.size()]); // StructureMapGroupInputComponent
-        case 3512060: return this.rule.toArray(new Base[this.rule.size()]); // StructureMapGroupRuleComponent
-        default: return super.getProperty(hash, checkValid);
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // IdType
+        case -1305664359: /*extends*/ return this.extends_ == null ? new Base[0] : new Base[] {this.extends_}; // IdType
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        case 100358090: /*input*/ return this.input == null ? new Base[0] : this.input.toArray(new Base[this.input.size()]); // StructureMapGroupInputComponent
+        case 3512060: /*rule*/ return this.rule == null ? new Base[0] : this.rule.toArray(new Base[this.rule.size()]); // StructureMapGroupRuleComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707:
+        case 3373707: // name
           this.name = castToId(value); // IdType
           break;
-        case -1305664359:
+        case -1305664359: // extends
           this.extends_ = castToId(value); // IdType
           break;
-        case 1587405498:
+        case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
           break;
-        case 100358090:
-          this.input.add((StructureMapGroupInputComponent) value); // StructureMapGroupInputComponent
+        case 100358090: // input
+          this.getInput().add((StructureMapGroupInputComponent) value); // StructureMapGroupInputComponent
           break;
-        case 3512060:
-          this.rule.add((StructureMapGroupRuleComponent) value); // StructureMapGroupRuleComponent
+        case 3512060: // rule
+          this.getRule().add((StructureMapGroupRuleComponent) value); // StructureMapGroupRuleComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1546,14 +1546,14 @@ public class StructureMap extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // IdType
         case -1305664359: throw new FHIRException("Cannot make property extends as it is not a complex type"); // IdType
         case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
         case 100358090:  return addInput(); // StructureMapGroupInputComponent
         case 3512060:  return addRule(); // StructureMapGroupRuleComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1878,33 +1878,33 @@ public class StructureMap extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // IdType
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // StringType
-        case 3357091: return this.mode == null ? new Base[0] : new Base[] {this.mode}; // Enumeration<StructureMapInputMode>
-        case 1587405498: return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // IdType
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // StringType
+        case 3357091: /*mode*/ return this.mode == null ? new Base[0] : new Base[] {this.mode}; // Enumeration<StructureMapInputMode>
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707:
+        case 3373707: // name
           this.name = castToId(value); // IdType
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = castToString(value); // StringType
           break;
-        case 3357091:
+        case 3357091: // mode
           this.mode = new StructureMapInputModeEnumFactory().fromType(value); // Enumeration<StructureMapInputMode>
           break;
-        case 1587405498:
+        case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1924,13 +1924,13 @@ public class StructureMap extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // IdType
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // StringType
         case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<StructureMapInputMode>
         case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -2324,41 +2324,41 @@ public class StructureMap extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // IdType
-        case -896505829: return this.source.toArray(new Base[this.source.size()]); // StructureMapGroupRuleSourceComponent
-        case -880905839: return this.target.toArray(new Base[this.target.size()]); // StructureMapGroupRuleTargetComponent
-        case 3512060: return this.rule.toArray(new Base[this.rule.size()]); // StructureMapGroupRuleComponent
-        case -1109226753: return this.dependent.toArray(new Base[this.dependent.size()]); // StructureMapGroupRuleDependentComponent
-        case 1587405498: return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // IdType
+        case -896505829: /*source*/ return this.source == null ? new Base[0] : this.source.toArray(new Base[this.source.size()]); // StructureMapGroupRuleSourceComponent
+        case -880905839: /*target*/ return this.target == null ? new Base[0] : this.target.toArray(new Base[this.target.size()]); // StructureMapGroupRuleTargetComponent
+        case 3512060: /*rule*/ return this.rule == null ? new Base[0] : this.rule.toArray(new Base[this.rule.size()]); // StructureMapGroupRuleComponent
+        case -1109226753: /*dependent*/ return this.dependent == null ? new Base[0] : this.dependent.toArray(new Base[this.dependent.size()]); // StructureMapGroupRuleDependentComponent
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707:
+        case 3373707: // name
           this.name = castToId(value); // IdType
           break;
-        case -896505829:
-          this.source.add((StructureMapGroupRuleSourceComponent) value); // StructureMapGroupRuleSourceComponent
+        case -896505829: // source
+          this.getSource().add((StructureMapGroupRuleSourceComponent) value); // StructureMapGroupRuleSourceComponent
           break;
-        case -880905839:
-          this.target.add((StructureMapGroupRuleTargetComponent) value); // StructureMapGroupRuleTargetComponent
+        case -880905839: // target
+          this.getTarget().add((StructureMapGroupRuleTargetComponent) value); // StructureMapGroupRuleTargetComponent
           break;
-        case 3512060:
-          this.rule.add((StructureMapGroupRuleComponent) value); // StructureMapGroupRuleComponent
+        case 3512060: // rule
+          this.getRule().add((StructureMapGroupRuleComponent) value); // StructureMapGroupRuleComponent
           break;
-        case -1109226753:
-          this.dependent.add((StructureMapGroupRuleDependentComponent) value); // StructureMapGroupRuleDependentComponent
+        case -1109226753: // dependent
+          this.getDependent().add((StructureMapGroupRuleDependentComponent) value); // StructureMapGroupRuleDependentComponent
           break;
-        case 1587405498:
+        case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -2382,7 +2382,7 @@ public class StructureMap extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // IdType
         case -896505829:  return addSource(); // StructureMapGroupRuleSourceComponent
@@ -2390,7 +2390,7 @@ public class StructureMap extends DomainResource {
         case 3512060:  return addRule(); // StructureMapGroupRuleComponent
         case -1109226753:  return addDependent(); // StructureMapGroupRuleDependentComponent
         case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -2952,49 +2952,49 @@ public class StructureMap extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -393139297: return this.required == null ? new Base[0] : new Base[] {this.required}; // BooleanType
-        case 951530927: return this.context == null ? new Base[0] : new Base[] {this.context}; // IdType
-        case -102839927: return this.contextType == null ? new Base[0] : new Base[] {this.contextType}; // Enumeration<StructureMapContextType>
-        case -1662836996: return this.element == null ? new Base[0] : new Base[] {this.element}; // StringType
-        case 1345445729: return this.listMode == null ? new Base[0] : new Base[] {this.listMode}; // Enumeration<StructureMapListMode>
-        case -1249586564: return this.variable == null ? new Base[0] : new Base[] {this.variable}; // IdType
-        case -861311717: return this.condition == null ? new Base[0] : new Base[] {this.condition}; // StringType
-        case 94627080: return this.check == null ? new Base[0] : new Base[] {this.check}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case -393139297: /*required*/ return this.required == null ? new Base[0] : new Base[] {this.required}; // BooleanType
+        case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // IdType
+        case -102839927: /*contextType*/ return this.contextType == null ? new Base[0] : new Base[] {this.contextType}; // Enumeration<StructureMapContextType>
+        case -1662836996: /*element*/ return this.element == null ? new Base[0] : new Base[] {this.element}; // StringType
+        case 1345445729: /*listMode*/ return this.listMode == null ? new Base[0] : new Base[] {this.listMode}; // Enumeration<StructureMapListMode>
+        case -1249586564: /*variable*/ return this.variable == null ? new Base[0] : new Base[] {this.variable}; // IdType
+        case -861311717: /*condition*/ return this.condition == null ? new Base[0] : new Base[] {this.condition}; // StringType
+        case 94627080: /*check*/ return this.check == null ? new Base[0] : new Base[] {this.check}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -393139297:
+        case -393139297: // required
           this.required = castToBoolean(value); // BooleanType
           break;
-        case 951530927:
+        case 951530927: // context
           this.context = castToId(value); // IdType
           break;
-        case -102839927:
+        case -102839927: // contextType
           this.contextType = new StructureMapContextTypeEnumFactory().fromType(value); // Enumeration<StructureMapContextType>
           break;
-        case -1662836996:
+        case -1662836996: // element
           this.element = castToString(value); // StringType
           break;
-        case 1345445729:
+        case 1345445729: // listMode
           this.listMode = new StructureMapListModeEnumFactory().fromType(value); // Enumeration<StructureMapListMode>
           break;
-        case -1249586564:
+        case -1249586564: // variable
           this.variable = castToId(value); // IdType
           break;
-        case -861311717:
+        case -861311717: // condition
           this.condition = castToString(value); // StringType
           break;
-        case 94627080:
+        case 94627080: // check
           this.check = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -3022,7 +3022,7 @@ public class StructureMap extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -393139297: throw new FHIRException("Cannot make property required as it is not a complex type"); // BooleanType
         case 951530927: throw new FHIRException("Cannot make property context as it is not a complex type"); // IdType
@@ -3032,7 +3032,7 @@ public class StructureMap extends DomainResource {
         case -1249586564: throw new FHIRException("Cannot make property variable as it is not a complex type"); // IdType
         case -861311717: throw new FHIRException("Cannot make property condition as it is not a complex type"); // StringType
         case 94627080: throw new FHIRException("Cannot make property check as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -3588,49 +3588,49 @@ public class StructureMap extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 951530927: return this.context == null ? new Base[0] : new Base[] {this.context}; // IdType
-        case -102839927: return this.contextType == null ? new Base[0] : new Base[] {this.contextType}; // Enumeration<StructureMapContextType>
-        case -1662836996: return this.element == null ? new Base[0] : new Base[] {this.element}; // StringType
-        case -1249586564: return this.variable == null ? new Base[0] : new Base[] {this.variable}; // IdType
-        case 1345445729: return this.listMode.toArray(new Base[this.listMode.size()]); // Enumeration<StructureMapListMode>
-        case 337117045: return this.listRuleId == null ? new Base[0] : new Base[] {this.listRuleId}; // IdType
-        case 1052666732: return this.transform == null ? new Base[0] : new Base[] {this.transform}; // Enumeration<StructureMapTransform>
-        case 1954460585: return this.parameter.toArray(new Base[this.parameter.size()]); // StructureMapGroupRuleTargetParameterComponent
-        default: return super.getProperty(hash, checkValid);
+        case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // IdType
+        case -102839927: /*contextType*/ return this.contextType == null ? new Base[0] : new Base[] {this.contextType}; // Enumeration<StructureMapContextType>
+        case -1662836996: /*element*/ return this.element == null ? new Base[0] : new Base[] {this.element}; // StringType
+        case -1249586564: /*variable*/ return this.variable == null ? new Base[0] : new Base[] {this.variable}; // IdType
+        case 1345445729: /*listMode*/ return this.listMode == null ? new Base[0] : this.listMode.toArray(new Base[this.listMode.size()]); // Enumeration<StructureMapListMode>
+        case 337117045: /*listRuleId*/ return this.listRuleId == null ? new Base[0] : new Base[] {this.listRuleId}; // IdType
+        case 1052666732: /*transform*/ return this.transform == null ? new Base[0] : new Base[] {this.transform}; // Enumeration<StructureMapTransform>
+        case 1954460585: /*parameter*/ return this.parameter == null ? new Base[0] : this.parameter.toArray(new Base[this.parameter.size()]); // StructureMapGroupRuleTargetParameterComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 951530927:
+        case 951530927: // context
           this.context = castToId(value); // IdType
           break;
-        case -102839927:
+        case -102839927: // contextType
           this.contextType = new StructureMapContextTypeEnumFactory().fromType(value); // Enumeration<StructureMapContextType>
           break;
-        case -1662836996:
+        case -1662836996: // element
           this.element = castToString(value); // StringType
           break;
-        case -1249586564:
+        case -1249586564: // variable
           this.variable = castToId(value); // IdType
           break;
-        case 1345445729:
-          this.listMode.add(new StructureMapListModeEnumFactory().fromType(value)); // Enumeration<StructureMapListMode>
+        case 1345445729: // listMode
+          this.getListMode().add(new StructureMapListModeEnumFactory().fromType(value)); // Enumeration<StructureMapListMode>
           break;
-        case 337117045:
+        case 337117045: // listRuleId
           this.listRuleId = castToId(value); // IdType
           break;
-        case 1052666732:
+        case 1052666732: // transform
           this.transform = new StructureMapTransformEnumFactory().fromType(value); // Enumeration<StructureMapTransform>
           break;
-        case 1954460585:
-          this.parameter.add((StructureMapGroupRuleTargetParameterComponent) value); // StructureMapGroupRuleTargetParameterComponent
+        case 1954460585: // parameter
+          this.getParameter().add((StructureMapGroupRuleTargetParameterComponent) value); // StructureMapGroupRuleTargetParameterComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -3658,7 +3658,7 @@ public class StructureMap extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 951530927: throw new FHIRException("Cannot make property context as it is not a complex type"); // IdType
         case -102839927: throw new FHIRException("Cannot make property contextType as it is not a complex type"); // Enumeration<StructureMapContextType>
@@ -3668,7 +3668,7 @@ public class StructureMap extends DomainResource {
         case 337117045: throw new FHIRException("Cannot make property listRuleId as it is not a complex type"); // IdType
         case 1052666732: throw new FHIRException("Cannot make property transform as it is not a complex type"); // Enumeration<StructureMapTransform>
         case 1954460585:  return addParameter(); // StructureMapGroupRuleTargetParameterComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -3879,21 +3879,21 @@ public class StructureMap extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1410166417: return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
-        default: return super.getProperty(hash, checkValid);
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1410166417:
+        case 111972721: // value
           this.value = (Type) value; // Type
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -3907,10 +3907,10 @@ public class StructureMap extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1410166417:  return getValue(); // Type
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -4118,25 +4118,25 @@ public class StructureMap extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // IdType
-        case -1249586564: return this.variable.toArray(new Base[this.variable.size()]); // StringType
-        default: return super.getProperty(hash, checkValid);
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // IdType
+        case -1249586564: /*variable*/ return this.variable == null ? new Base[0] : this.variable.toArray(new Base[this.variable.size()]); // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707:
+        case 3373707: // name
           this.name = castToId(value); // IdType
           break;
-        case -1249586564:
-          this.variable.add(castToString(value)); // StringType
+        case -1249586564: // variable
+          this.getVariable().add(castToString(value)); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -4152,11 +4152,11 @@ public class StructureMap extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // IdType
         case -1249586564: throw new FHIRException("Cannot make property variable as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -5097,81 +5097,81 @@ public class StructureMap extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
-        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
-        case -404562712: return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
-        case 1447404028: return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
-        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // StructureMapContactComponent
-        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -669707736: return this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
-        case -1619874672: return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // StringType
-        case 1522889671: return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
-        case 144518515: return this.structure.toArray(new Base[this.structure.size()]); // StructureMapStructureComponent
-        case -1184795739: return this.import_.toArray(new Base[this.import_.size()]); // UriType
-        case 98629247: return this.group.toArray(new Base[this.group.size()]); // StructureMapGroupComponent
-        default: return super.getProperty(hash, checkValid);
+        case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
+        case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
+        case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // StructureMapContactComponent
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
+        case -1619874672: /*requirements*/ return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // StringType
+        case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
+        case 144518515: /*structure*/ return this.structure == null ? new Base[0] : this.structure.toArray(new Base[this.structure.size()]); // StructureMapStructureComponent
+        case -1184795739: /*import*/ return this.import_ == null ? new Base[0] : this.import_.toArray(new Base[this.import_.size()]); // UriType
+        case 98629247: /*group*/ return this.group == null ? new Base[0] : this.group.toArray(new Base[this.group.size()]); // StructureMapGroupComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 116079:
+        case 116079: // url
           this.url = castToUri(value); // UriType
           break;
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case 351608024:
+        case 351608024: // version
           this.version = castToString(value); // StringType
           break;
-        case 3373707:
+        case 3373707: // name
           this.name = castToString(value); // StringType
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
           break;
-        case -404562712:
+        case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
           break;
-        case 1447404028:
+        case 1447404028: // publisher
           this.publisher = castToString(value); // StringType
           break;
-        case 951526432:
-          this.contact.add((StructureMapContactComponent) value); // StructureMapContactComponent
+        case 951526432: // contact
+          this.getContact().add((StructureMapContactComponent) value); // StructureMapContactComponent
           break;
-        case 3076014:
+        case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        case -669707736:
-          this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
+        case -669707736: // useContext
+          this.getUseContext().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1619874672:
+        case -1619874672: // requirements
           this.requirements = castToString(value); // StringType
           break;
-        case 1522889671:
+        case 1522889671: // copyright
           this.copyright = castToString(value); // StringType
           break;
-        case 144518515:
-          this.structure.add((StructureMapStructureComponent) value); // StructureMapStructureComponent
+        case 144518515: // structure
+          this.getStructure().add((StructureMapStructureComponent) value); // StructureMapStructureComponent
           break;
-        case -1184795739:
-          this.import_.add(castToUri(value)); // UriType
+        case -1184795739: // import
+          this.getImport().add(castToUri(value)); // UriType
           break;
-        case 98629247:
-          this.group.add((StructureMapGroupComponent) value); // StructureMapGroupComponent
+        case 98629247: // group
+          this.getGroup().add((StructureMapGroupComponent) value); // StructureMapGroupComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -5215,7 +5215,7 @@ public class StructureMap extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
         case -1618432855:  return addIdentifier(); // Identifier
@@ -5233,7 +5233,7 @@ public class StructureMap extends DomainResource {
         case 144518515:  return addStructure(); // StructureMapStructureComponent
         case -1184795739: throw new FHIRException("Cannot make property import as it is not a complex type"); // UriType
         case 98629247:  return addGroup(); // StructureMapGroupComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

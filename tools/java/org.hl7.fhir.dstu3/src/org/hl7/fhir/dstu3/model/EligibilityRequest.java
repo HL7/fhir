@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -808,81 +808,81 @@ public class EligibilityRequest extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case 1548678118: return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
-        case 1089373397: return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
-        case 1028554472: return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
-        case -815579825: return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
-        case 2064698607: return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Type
-        case 1326483053: return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Type
-        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Coding
-        case -812909349: return this.enterer == null ? new Base[0] : new Base[] {this.enterer}; // Type
-        case -542224643: return this.facility == null ? new Base[0] : new Base[] {this.facility}; // Type
-        case -2061246629: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Type
-        case 227689880: return this.coverage == null ? new Base[0] : new Base[] {this.coverage}; // Type
-        case 259920682: return this.businessArrangement == null ? new Base[0] : new Base[] {this.businessArrangement}; // StringType
-        case -1927922223: return this.serviced == null ? new Base[0] : new Base[] {this.serviced}; // Type
-        case -1023390027: return this.benefitCategory == null ? new Base[0] : new Base[] {this.benefitCategory}; // Coding
-        case 1987878471: return this.benefitSubCategory == null ? new Base[0] : new Base[] {this.benefitSubCategory}; // Coding
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 1548678118: /*ruleset*/ return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
+        case 1089373397: /*originalRuleset*/ return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
+        case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
+        case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
+        case -987494927: /*provider*/ return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Type
+        case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Type
+        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Coding
+        case -1591951995: /*enterer*/ return this.enterer == null ? new Base[0] : new Base[] {this.enterer}; // Type
+        case 501116579: /*facility*/ return this.facility == null ? new Base[0] : new Base[] {this.facility}; // Type
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Type
+        case -351767064: /*coverage*/ return this.coverage == null ? new Base[0] : new Base[] {this.coverage}; // Type
+        case 259920682: /*businessArrangement*/ return this.businessArrangement == null ? new Base[0] : new Base[] {this.businessArrangement}; // StringType
+        case 1379209295: /*serviced*/ return this.serviced == null ? new Base[0] : new Base[] {this.serviced}; // Type
+        case -1023390027: /*benefitCategory*/ return this.benefitCategory == null ? new Base[0] : new Base[] {this.benefitCategory}; // Coding
+        case 1987878471: /*benefitSubCategory*/ return this.benefitSubCategory == null ? new Base[0] : new Base[] {this.benefitSubCategory}; // Coding
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case 1548678118:
+        case 1548678118: // ruleset
           this.ruleset = castToCoding(value); // Coding
           break;
-        case 1089373397:
+        case 1089373397: // originalRuleset
           this.originalRuleset = castToCoding(value); // Coding
           break;
-        case 1028554472:
+        case 1028554472: // created
           this.created = castToDateTime(value); // DateTimeType
           break;
-        case -815579825:
+        case -880905839: // target
           this.target = (Type) value; // Type
           break;
-        case 2064698607:
+        case -987494927: // provider
           this.provider = (Type) value; // Type
           break;
-        case 1326483053:
+        case 1178922291: // organization
           this.organization = (Type) value; // Type
           break;
-        case -1165461084:
+        case -1165461084: // priority
           this.priority = castToCoding(value); // Coding
           break;
-        case -812909349:
+        case -1591951995: // enterer
           this.enterer = (Type) value; // Type
           break;
-        case -542224643:
+        case 501116579: // facility
           this.facility = (Type) value; // Type
           break;
-        case -2061246629:
+        case -791418107: // patient
           this.patient = (Type) value; // Type
           break;
-        case 227689880:
+        case -351767064: // coverage
           this.coverage = (Type) value; // Type
           break;
-        case 259920682:
+        case 259920682: // businessArrangement
           this.businessArrangement = castToString(value); // StringType
           break;
-        case -1927922223:
+        case 1379209295: // serviced
           this.serviced = (Type) value; // Type
           break;
-        case -1023390027:
+        case -1023390027: // benefitCategory
           this.benefitCategory = castToCoding(value); // Coding
           break;
-        case 1987878471:
+        case 1987878471: // benefitSubCategory
           this.benefitSubCategory = castToCoding(value); // Coding
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -926,7 +926,7 @@ public class EligibilityRequest extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case 1548678118:  return getRuleset(); // Coding
@@ -944,7 +944,7 @@ public class EligibilityRequest extends DomainResource {
         case -1927922223:  return getServiced(); // Type
         case -1023390027:  return getBenefitCategory(); // Coding
         case 1987878471:  return getBenefitSubCategory(); // Coding
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

@@ -56,27 +56,24 @@ public class Validator {
       System.out.println("FHIR Validation tool. ");
       System.out.println("");
       System.out.println("The FHIR validation tool validates a FHIR resource or bundle.");
-      System.out.println("Schema and schematron checking is performed, then some additional checks are performed");
+      System.out.println("The validation tool compares a resource against the base definitions and whatever");
+      System.out.println("profiles are declared in the resource or specificed on the command line");
+      System.out.println("For XML: Schema and schematron checking is also performed");
+      System.out.println("RDF/Json-LD are not supported at this time");
       System.out.println("");
-      System.out.println("JSON is not supported at this time");
-      System.out.println("");
-      System.out.println("Usage: org.hl7.fhir.validator.jar [source] (-defn [definitions]) (-folder [name])  (-profile [profile]) (-questionnaire [questionnaire]) (-output [output]) (-tsserver [server])  (-noxslt) where: ");
+      System.out.println("Usage: org.hl7.fhir.validator.jar [source] (-defn [definitions]) (-folder [name]) (-profile [profile]) (-questionnaire [questionnaire]) (-output [output]) (-tsserver [server]) where: ");
       System.out.println("* [source] is a file name or url of the resource or bundle feed to validate");
-      System.out.println("* [definitions] is the file name or url of the validation pack (validation.zip). Default: get it from inside the jar file");
-      System.out.println("* [folder] is the name of a folder containing additional structure definitions. No default value");
-      System.out.println("* [txserver] is the url of a FHIR terminology service. Default is http://fhir2.healthintersections.com.au/open");
+      System.out.println("* [definitions] is the file name or url of the validation pack (validation(-min).xml|json.zip)");
+      System.out.println("* [folder] is the name of a folder containing additional structure definitions. No default value/ You can have multiple folder parameters");
+      System.out.println("* [txserver] is the url of a FHIR terminology service. Default is http://fhir3.healthintersections.com.au/open");
       System.out.println("* [profile] is an optional filename or URL for a specific profile to validate a resource");
       System.out.println("    against. In the absence of this parameter, the resource will be checked against the ");
-      System.out.println("    base specification using the definitions.");
+      System.out.println("    base specification using the definitions specified.");
       System.out.println("* [logical] is an optional filename or URL for a logical model set (bundle) to use instead of a resource");
       System.out.println("* [questionnaire] is an optional filename or URL for a specific questionnaire to validate a ");
       System.out.println("    QuestionnaireResponse against, if it is nominated in the response");
       System.out.println("* [output] is a filename for the results (OperationOutcome). Default: results are sent to the std out.");
-      System.out.println("* -noxslt means not to run the schematrons (you really need to run these, but they need xslt2).");
       System.out.println("");
-      System.out.println("Or: java -jar org.hl7.fhir.validator.jar -profile-tests [registry] (-defn [definitions])");
-      System.out.println("");
-      System.out.println("Master Source for the validation pack: "+ValidationEngine.MASTER_SOURCE);
     } else {
       if (args[0].equals("-profile-tests")) {
         String pack = null;
@@ -206,7 +203,7 @@ public class Validator {
     engine.readDefinitions(definitions);
     if (!Utilities.noString(folder))
       engine.loadFromFolder(folder);
-    engine.connectToTSServer(txServer == null ? "http://fhir2.healthintersections.com.au/open" : txServer);
+    engine.connectToTSServer(txServer == null ? "http://fhir3.healthintersections.com.au/open" : txServer);
     engine.loadProfile(profile);
     engine.loadQuestionnaire(questionnaire);
     engine.loadLogical(logical);

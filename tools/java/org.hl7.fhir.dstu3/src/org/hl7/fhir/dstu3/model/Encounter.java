@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -630,25 +630,25 @@ Not to be used when the patient is currently at the location
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EncounterState>
-        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        default: return super.getProperty(hash, checkValid);
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EncounterState>
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -892481550:
+        case -892481550: // status
           this.status = new EncounterStateEnumFactory().fromType(value); // Enumeration<EncounterState>
           break;
-        case -991726143:
+        case -991726143: // period
           this.period = castToPeriod(value); // Period
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -664,11 +664,11 @@ Not to be used when the patient is currently at the location
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EncounterState>
         case -991726143:  return getPeriod(); // Period
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -874,29 +874,29 @@ Not to be used when the patient is currently at the location
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3575610: return this.type.toArray(new Base[this.type.size()]); // CodeableConcept
-        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        case -46292327: return this.individual == null ? new Base[0] : new Base[] {this.individual}; // Reference
-        default: return super.getProperty(hash, checkValid);
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : this.type.toArray(new Base[this.type.size()]); // CodeableConcept
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case -46292327: /*individual*/ return this.individual == null ? new Base[0] : new Base[] {this.individual}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610:
-          this.type.add(castToCodeableConcept(value)); // CodeableConcept
+        case 3575610: // type
+          this.getType().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -991726143:
+        case -991726143: // period
           this.period = castToPeriod(value); // Period
           break;
-        case -46292327:
+        case -46292327: // individual
           this.individual = castToReference(value); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -914,12 +914,12 @@ Not to be used when the patient is currently at the location
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610:  return addType(); // CodeableConcept
         case -991726143:  return getPeriod(); // Period
         case -46292327:  return getIndividual(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1537,61 +1537,61 @@ Not to be used when the patient is currently at the location
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -965394961: return this.preAdmissionIdentifier == null ? new Base[0] : new Base[] {this.preAdmissionIdentifier}; // Identifier
-        case -1008619738: return this.origin == null ? new Base[0] : new Base[] {this.origin}; // Reference
-        case 538887120: return this.admitSource == null ? new Base[0] : new Base[] {this.admitSource}; // CodeableConcept
-        case 2048045678: return this.admittingDiagnosis.toArray(new Base[this.admittingDiagnosis.size()]); // Reference
-        case 669348630: return this.reAdmission == null ? new Base[0] : new Base[] {this.reAdmission}; // CodeableConcept
-        case -1360641041: return this.dietPreference.toArray(new Base[this.dietPreference.size()]); // CodeableConcept
-        case 1583588345: return this.specialCourtesy.toArray(new Base[this.specialCourtesy.size()]); // CodeableConcept
-        case 47410321: return this.specialArrangement.toArray(new Base[this.specialArrangement.size()]); // CodeableConcept
-        case -1429847026: return this.destination == null ? new Base[0] : new Base[] {this.destination}; // Reference
-        case 528065941: return this.dischargeDisposition == null ? new Base[0] : new Base[] {this.dischargeDisposition}; // CodeableConcept
-        case -1985183665: return this.dischargeDiagnosis.toArray(new Base[this.dischargeDiagnosis.size()]); // Reference
-        default: return super.getProperty(hash, checkValid);
+        case -965394961: /*preAdmissionIdentifier*/ return this.preAdmissionIdentifier == null ? new Base[0] : new Base[] {this.preAdmissionIdentifier}; // Identifier
+        case -1008619738: /*origin*/ return this.origin == null ? new Base[0] : new Base[] {this.origin}; // Reference
+        case 538887120: /*admitSource*/ return this.admitSource == null ? new Base[0] : new Base[] {this.admitSource}; // CodeableConcept
+        case 2048045678: /*admittingDiagnosis*/ return this.admittingDiagnosis == null ? new Base[0] : this.admittingDiagnosis.toArray(new Base[this.admittingDiagnosis.size()]); // Reference
+        case 669348630: /*reAdmission*/ return this.reAdmission == null ? new Base[0] : new Base[] {this.reAdmission}; // CodeableConcept
+        case -1360641041: /*dietPreference*/ return this.dietPreference == null ? new Base[0] : this.dietPreference.toArray(new Base[this.dietPreference.size()]); // CodeableConcept
+        case 1583588345: /*specialCourtesy*/ return this.specialCourtesy == null ? new Base[0] : this.specialCourtesy.toArray(new Base[this.specialCourtesy.size()]); // CodeableConcept
+        case 47410321: /*specialArrangement*/ return this.specialArrangement == null ? new Base[0] : this.specialArrangement.toArray(new Base[this.specialArrangement.size()]); // CodeableConcept
+        case -1429847026: /*destination*/ return this.destination == null ? new Base[0] : new Base[] {this.destination}; // Reference
+        case 528065941: /*dischargeDisposition*/ return this.dischargeDisposition == null ? new Base[0] : new Base[] {this.dischargeDisposition}; // CodeableConcept
+        case -1985183665: /*dischargeDiagnosis*/ return this.dischargeDiagnosis == null ? new Base[0] : this.dischargeDiagnosis.toArray(new Base[this.dischargeDiagnosis.size()]); // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -965394961:
+        case -965394961: // preAdmissionIdentifier
           this.preAdmissionIdentifier = castToIdentifier(value); // Identifier
           break;
-        case -1008619738:
+        case -1008619738: // origin
           this.origin = castToReference(value); // Reference
           break;
-        case 538887120:
+        case 538887120: // admitSource
           this.admitSource = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 2048045678:
-          this.admittingDiagnosis.add(castToReference(value)); // Reference
+        case 2048045678: // admittingDiagnosis
+          this.getAdmittingDiagnosis().add(castToReference(value)); // Reference
           break;
-        case 669348630:
+        case 669348630: // reAdmission
           this.reAdmission = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1360641041:
-          this.dietPreference.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1360641041: // dietPreference
+          this.getDietPreference().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case 1583588345:
-          this.specialCourtesy.add(castToCodeableConcept(value)); // CodeableConcept
+        case 1583588345: // specialCourtesy
+          this.getSpecialCourtesy().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case 47410321:
-          this.specialArrangement.add(castToCodeableConcept(value)); // CodeableConcept
+        case 47410321: // specialArrangement
+          this.getSpecialArrangement().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1429847026:
+        case -1429847026: // destination
           this.destination = castToReference(value); // Reference
           break;
-        case 528065941:
+        case 528065941: // dischargeDisposition
           this.dischargeDisposition = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1985183665:
-          this.dischargeDiagnosis.add(castToReference(value)); // Reference
+        case -1985183665: // dischargeDiagnosis
+          this.getDischargeDiagnosis().add(castToReference(value)); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1625,7 +1625,7 @@ Not to be used when the patient is currently at the location
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -965394961:  return getPreAdmissionIdentifier(); // Identifier
         case -1008619738:  return getOrigin(); // Reference
@@ -1638,7 +1638,7 @@ Not to be used when the patient is currently at the location
         case -1429847026:  return getDestination(); // Reference
         case 528065941:  return getDischargeDisposition(); // CodeableConcept
         case -1985183665:  return addDischargeDiagnosis(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1937,29 +1937,29 @@ Not to be used when the patient is currently at the location
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 1901043637: return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EncounterLocationStatus>
-        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        default: return super.getProperty(hash, checkValid);
+        case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EncounterLocationStatus>
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 1901043637:
+        case 1901043637: // location
           this.location = castToReference(value); // Reference
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new EncounterLocationStatusEnumFactory().fromType(value); // Enumeration<EncounterLocationStatus>
           break;
-        case -991726143:
+        case -991726143: // period
           this.period = castToPeriod(value); // Period
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1977,12 +1977,12 @@ Not to be used when the patient is currently at the location
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1901043637:  return getLocation(); // Reference
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EncounterLocationStatus>
         case -991726143:  return getPeriod(); // Period
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -3032,93 +3032,93 @@ Not to be used when the patient is currently at the location
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EncounterState>
-        case -986695614: return this.statusHistory.toArray(new Base[this.statusHistory.size()]); // EncounterStatusHistoryComponent
-        case 94742904: return this.class_ == null ? new Base[0] : new Base[] {this.class_}; // Enumeration<EncounterClass>
-        case 3575610: return this.type.toArray(new Base[this.type.size()]); // CodeableConcept
-        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
-        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
-        case -1892140189: return this.episodeOfCare.toArray(new Base[this.episodeOfCare.size()]); // Reference
-        case -1258204701: return this.incomingReferral.toArray(new Base[this.incomingReferral.size()]); // Reference
-        case 767422259: return this.participant.toArray(new Base[this.participant.size()]); // EncounterParticipantComponent
-        case -1474995297: return this.appointment == null ? new Base[0] : new Base[] {this.appointment}; // Reference
-        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        case -1106363674: return this.length == null ? new Base[0] : new Base[] {this.length}; // Duration
-        case -934964668: return this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
-        case -597168804: return this.indication.toArray(new Base[this.indication.size()]); // Reference
-        case 1057894634: return this.hospitalization == null ? new Base[0] : new Base[] {this.hospitalization}; // EncounterHospitalizationComponent
-        case 1901043637: return this.location.toArray(new Base[this.location.size()]); // EncounterLocationComponent
-        case 243182534: return this.serviceProvider == null ? new Base[0] : new Base[] {this.serviceProvider}; // Reference
-        case -995410646: return this.partOf == null ? new Base[0] : new Base[] {this.partOf}; // Reference
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EncounterState>
+        case -986695614: /*statusHistory*/ return this.statusHistory == null ? new Base[0] : this.statusHistory.toArray(new Base[this.statusHistory.size()]); // EncounterStatusHistoryComponent
+        case 94742904: /*class*/ return this.class_ == null ? new Base[0] : new Base[] {this.class_}; // Enumeration<EncounterClass>
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : this.type.toArray(new Base[this.type.size()]); // CodeableConcept
+        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -1892140189: /*episodeOfCare*/ return this.episodeOfCare == null ? new Base[0] : this.episodeOfCare.toArray(new Base[this.episodeOfCare.size()]); // Reference
+        case -1258204701: /*incomingReferral*/ return this.incomingReferral == null ? new Base[0] : this.incomingReferral.toArray(new Base[this.incomingReferral.size()]); // Reference
+        case 767422259: /*participant*/ return this.participant == null ? new Base[0] : this.participant.toArray(new Base[this.participant.size()]); // EncounterParticipantComponent
+        case -1474995297: /*appointment*/ return this.appointment == null ? new Base[0] : new Base[] {this.appointment}; // Reference
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case -1106363674: /*length*/ return this.length == null ? new Base[0] : new Base[] {this.length}; // Duration
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
+        case -597168804: /*indication*/ return this.indication == null ? new Base[0] : this.indication.toArray(new Base[this.indication.size()]); // Reference
+        case 1057894634: /*hospitalization*/ return this.hospitalization == null ? new Base[0] : new Base[] {this.hospitalization}; // EncounterHospitalizationComponent
+        case 1901043637: /*location*/ return this.location == null ? new Base[0] : this.location.toArray(new Base[this.location.size()]); // EncounterLocationComponent
+        case 243182534: /*serviceProvider*/ return this.serviceProvider == null ? new Base[0] : new Base[] {this.serviceProvider}; // Reference
+        case -995410646: /*partOf*/ return this.partOf == null ? new Base[0] : new Base[] {this.partOf}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new EncounterStateEnumFactory().fromType(value); // Enumeration<EncounterState>
           break;
-        case -986695614:
-          this.statusHistory.add((EncounterStatusHistoryComponent) value); // EncounterStatusHistoryComponent
+        case -986695614: // statusHistory
+          this.getStatusHistory().add((EncounterStatusHistoryComponent) value); // EncounterStatusHistoryComponent
           break;
-        case 94742904:
+        case 94742904: // class
           this.class_ = new EncounterClassEnumFactory().fromType(value); // Enumeration<EncounterClass>
           break;
-        case 3575610:
-          this.type.add(castToCodeableConcept(value)); // CodeableConcept
+        case 3575610: // type
+          this.getType().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1165461084:
+        case -1165461084: // priority
           this.priority = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -791418107:
+        case -791418107: // patient
           this.patient = castToReference(value); // Reference
           break;
-        case -1892140189:
-          this.episodeOfCare.add(castToReference(value)); // Reference
+        case -1892140189: // episodeOfCare
+          this.getEpisodeOfCare().add(castToReference(value)); // Reference
           break;
-        case -1258204701:
-          this.incomingReferral.add(castToReference(value)); // Reference
+        case -1258204701: // incomingReferral
+          this.getIncomingReferral().add(castToReference(value)); // Reference
           break;
-        case 767422259:
-          this.participant.add((EncounterParticipantComponent) value); // EncounterParticipantComponent
+        case 767422259: // participant
+          this.getParticipant().add((EncounterParticipantComponent) value); // EncounterParticipantComponent
           break;
-        case -1474995297:
+        case -1474995297: // appointment
           this.appointment = castToReference(value); // Reference
           break;
-        case -991726143:
+        case -991726143: // period
           this.period = castToPeriod(value); // Period
           break;
-        case -1106363674:
+        case -1106363674: // length
           this.length = castToDuration(value); // Duration
           break;
-        case -934964668:
-          this.reason.add(castToCodeableConcept(value)); // CodeableConcept
+        case -934964668: // reason
+          this.getReason().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -597168804:
-          this.indication.add(castToReference(value)); // Reference
+        case -597168804: // indication
+          this.getIndication().add(castToReference(value)); // Reference
           break;
-        case 1057894634:
+        case 1057894634: // hospitalization
           this.hospitalization = (EncounterHospitalizationComponent) value; // EncounterHospitalizationComponent
           break;
-        case 1901043637:
-          this.location.add((EncounterLocationComponent) value); // EncounterLocationComponent
+        case 1901043637: // location
+          this.getLocation().add((EncounterLocationComponent) value); // EncounterLocationComponent
           break;
-        case 243182534:
+        case 243182534: // serviceProvider
           this.serviceProvider = castToReference(value); // Reference
           break;
-        case -995410646:
+        case -995410646: // partOf
           this.partOf = castToReference(value); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -3168,7 +3168,7 @@ Not to be used when the patient is currently at the location
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EncounterState>
@@ -3189,7 +3189,7 @@ Not to be used when the patient is currently at the location
         case 1901043637:  return addLocation(); // EncounterLocationComponent
         case 243182534:  return getServiceProvider(); // Reference
         case -995410646:  return getPartOf(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

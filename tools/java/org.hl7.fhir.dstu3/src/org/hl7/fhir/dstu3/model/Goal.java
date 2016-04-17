@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -315,21 +315,21 @@ public class Goal extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1819555005: return this.result == null ? new Base[0] : new Base[] {this.result}; // Type
-        default: return super.getProperty(hash, checkValid);
+        case -934426595: /*result*/ return this.result == null ? new Base[0] : new Base[] {this.result}; // Type
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1819555005:
+        case -934426595: // result
           this.result = (Type) value; // Type
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -343,10 +343,10 @@ public class Goal extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1819555005:  return getResult(); // Type
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1117,73 +1117,73 @@ public class Goal extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 1316793566: return this.start == null ? new Base[0] : new Base[] {this.start}; // Type
-        case -815579825: return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
-        case 50511102: return this.category.toArray(new Base[this.category.size()]); // CodeableConcept
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<GoalStatus>
-        case 247524032: return this.statusDate == null ? new Base[0] : new Base[] {this.statusDate}; // DateType
-        case 2051346646: return this.statusReason == null ? new Base[0] : new Base[] {this.statusReason}; // CodeableConcept
-        case 175423686: return this.expressedBy == null ? new Base[0] : new Base[] {this.expressedBy}; // Reference
-        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
-        case 874544034: return this.addresses.toArray(new Base[this.addresses.size()]); // Reference
-        case 3387378: return this.note.toArray(new Base[this.note.size()]); // Annotation
-        case -1106507950: return this.outcome.toArray(new Base[this.outcome.size()]); // GoalOutcomeComponent
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 109757538: /*start*/ return this.start == null ? new Base[0] : new Base[] {this.start}; // Type
+        case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : this.category.toArray(new Base[this.category.size()]); // CodeableConcept
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<GoalStatus>
+        case 247524032: /*statusDate*/ return this.statusDate == null ? new Base[0] : new Base[] {this.statusDate}; // DateType
+        case 2051346646: /*statusReason*/ return this.statusReason == null ? new Base[0] : new Base[] {this.statusReason}; // CodeableConcept
+        case 175423686: /*expressedBy*/ return this.expressedBy == null ? new Base[0] : new Base[] {this.expressedBy}; // Reference
+        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
+        case 874544034: /*addresses*/ return this.addresses == null ? new Base[0] : this.addresses.toArray(new Base[this.addresses.size()]); // Reference
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
+        case -1106507950: /*outcome*/ return this.outcome == null ? new Base[0] : this.outcome.toArray(new Base[this.outcome.size()]); // GoalOutcomeComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -1867885268:
+        case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           break;
-        case 1316793566:
+        case 109757538: // start
           this.start = (Type) value; // Type
           break;
-        case -815579825:
+        case -880905839: // target
           this.target = (Type) value; // Type
           break;
-        case 50511102:
-          this.category.add(castToCodeableConcept(value)); // CodeableConcept
+        case 50511102: // category
+          this.getCategory().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new GoalStatusEnumFactory().fromType(value); // Enumeration<GoalStatus>
           break;
-        case 247524032:
+        case 247524032: // statusDate
           this.statusDate = castToDate(value); // DateType
           break;
-        case 2051346646:
+        case 2051346646: // statusReason
           this.statusReason = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 175423686:
+        case 175423686: // expressedBy
           this.expressedBy = castToReference(value); // Reference
           break;
-        case -1165461084:
+        case -1165461084: // priority
           this.priority = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 874544034:
-          this.addresses.add(castToReference(value)); // Reference
+        case 874544034: // addresses
+          this.getAddresses().add(castToReference(value)); // Reference
           break;
-        case 3387378:
-          this.note.add(castToAnnotation(value)); // Annotation
+        case 3387378: // note
+          this.getNote().add(castToAnnotation(value)); // Annotation
           break;
-        case -1106507950:
-          this.outcome.add((GoalOutcomeComponent) value); // GoalOutcomeComponent
+        case -1106507950: // outcome
+          this.getOutcome().add((GoalOutcomeComponent) value); // GoalOutcomeComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1223,7 +1223,7 @@ public class Goal extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -1867885268:  return getSubject(); // Reference
@@ -1239,7 +1239,7 @@ public class Goal extends DomainResource {
         case 874544034:  return addAddresses(); // Reference
         case 3387378:  return addNote(); // Annotation
         case -1106507950:  return addOutcome(); // GoalOutcomeComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

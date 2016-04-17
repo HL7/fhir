@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -308,25 +308,25 @@ public class EpisodeOfCare extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EpisodeOfCareStatus>
-        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        default: return super.getProperty(hash, checkValid);
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EpisodeOfCareStatus>
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -892481550:
+        case -892481550: // status
           this.status = new EpisodeOfCareStatusEnumFactory().fromType(value); // Enumeration<EpisodeOfCareStatus>
           break;
-        case -991726143:
+        case -991726143: // period
           this.period = castToPeriod(value); // Period
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -342,11 +342,11 @@ public class EpisodeOfCare extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EpisodeOfCareStatus>
         case -991726143:  return getPeriod(); // Period
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1049,61 +1049,61 @@ public class EpisodeOfCare extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EpisodeOfCareStatus>
-        case -986695614: return this.statusHistory.toArray(new Base[this.statusHistory.size()]); // EpisodeOfCareStatusHistoryComponent
-        case 3575610: return this.type.toArray(new Base[this.type.size()]); // CodeableConcept
-        case -861311717: return this.condition.toArray(new Base[this.condition.size()]); // Reference
-        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
-        case -2058947787: return this.managingOrganization == null ? new Base[0] : new Base[] {this.managingOrganization}; // Reference
-        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        case -310299598: return this.referralRequest.toArray(new Base[this.referralRequest.size()]); // Reference
-        case -1147746468: return this.careManager == null ? new Base[0] : new Base[] {this.careManager}; // Reference
-        case 3555933: return this.team.toArray(new Base[this.team.size()]); // Reference
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EpisodeOfCareStatus>
+        case -986695614: /*statusHistory*/ return this.statusHistory == null ? new Base[0] : this.statusHistory.toArray(new Base[this.statusHistory.size()]); // EpisodeOfCareStatusHistoryComponent
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : this.type.toArray(new Base[this.type.size()]); // CodeableConcept
+        case -861311717: /*condition*/ return this.condition == null ? new Base[0] : this.condition.toArray(new Base[this.condition.size()]); // Reference
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -2058947787: /*managingOrganization*/ return this.managingOrganization == null ? new Base[0] : new Base[] {this.managingOrganization}; // Reference
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case -310299598: /*referralRequest*/ return this.referralRequest == null ? new Base[0] : this.referralRequest.toArray(new Base[this.referralRequest.size()]); // Reference
+        case -1147746468: /*careManager*/ return this.careManager == null ? new Base[0] : new Base[] {this.careManager}; // Reference
+        case 3555933: /*team*/ return this.team == null ? new Base[0] : this.team.toArray(new Base[this.team.size()]); // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new EpisodeOfCareStatusEnumFactory().fromType(value); // Enumeration<EpisodeOfCareStatus>
           break;
-        case -986695614:
-          this.statusHistory.add((EpisodeOfCareStatusHistoryComponent) value); // EpisodeOfCareStatusHistoryComponent
+        case -986695614: // statusHistory
+          this.getStatusHistory().add((EpisodeOfCareStatusHistoryComponent) value); // EpisodeOfCareStatusHistoryComponent
           break;
-        case 3575610:
-          this.type.add(castToCodeableConcept(value)); // CodeableConcept
+        case 3575610: // type
+          this.getType().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -861311717:
-          this.condition.add(castToReference(value)); // Reference
+        case -861311717: // condition
+          this.getCondition().add(castToReference(value)); // Reference
           break;
-        case -791418107:
+        case -791418107: // patient
           this.patient = castToReference(value); // Reference
           break;
-        case -2058947787:
+        case -2058947787: // managingOrganization
           this.managingOrganization = castToReference(value); // Reference
           break;
-        case -991726143:
+        case -991726143: // period
           this.period = castToPeriod(value); // Period
           break;
-        case -310299598:
-          this.referralRequest.add(castToReference(value)); // Reference
+        case -310299598: // referralRequest
+          this.getReferralRequest().add(castToReference(value)); // Reference
           break;
-        case -1147746468:
+        case -1147746468: // careManager
           this.careManager = castToReference(value); // Reference
           break;
-        case 3555933:
-          this.team.add(castToReference(value)); // Reference
+        case 3555933: // team
+          this.getTeam().add(castToReference(value)); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1137,7 +1137,7 @@ public class EpisodeOfCare extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EpisodeOfCareStatus>
@@ -1150,7 +1150,7 @@ public class EpisodeOfCare extends DomainResource {
         case -310299598:  return addReferralRequest(); // Reference
         case -1147746468:  return getCareManager(); // Reference
         case 3555933:  return addTeam(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

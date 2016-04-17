@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -182,29 +182,29 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 683016900: return this.claim == null ? new Base[0] : new Base[] {this.claim}; // Type
-        case -261851592: return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Coding
-        case -925155509: return this.reference == null ? new Base[0] : new Base[] {this.reference}; // Identifier
-        default: return super.getProperty(hash, checkValid);
+        case 94742588: /*claim*/ return this.claim == null ? new Base[0] : new Base[] {this.claim}; // Type
+        case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Coding
+        case -925155509: /*reference*/ return this.reference == null ? new Base[0] : new Base[] {this.reference}; // Identifier
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 683016900:
+        case 94742588: // claim
           this.claim = (Type) value; // Type
           break;
-        case -261851592:
+        case -261851592: // relationship
           this.relationship = castToCoding(value); // Coding
           break;
-        case -925155509:
+        case -925155509: // reference
           this.reference = castToIdentifier(value); // Identifier
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -222,12 +222,12 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 683016900:  return getClaim(); // Type
         case -261851592:  return getRelationship(); // Coding
         case -925155509:  return getReference(); // Identifier
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -397,25 +397,25 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
-        case 1189320666: return this.party == null ? new Base[0] : new Base[] {this.party}; // Type
-        default: return super.getProperty(hash, checkValid);
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 106437350: /*party*/ return this.party == null ? new Base[0] : new Base[] {this.party}; // Type
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610:
+        case 3575610: // type
           this.type = castToCoding(value); // Coding
           break;
-        case 1189320666:
+        case 106437350: // party
           this.party = (Type) value; // Type
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -431,11 +431,11 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610:  return getType(); // Coding
         case 1189320666:  return getParty(); // Type
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -608,25 +608,25 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 1349547969: return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
-        case 1196993265: return this.diagnosis == null ? new Base[0] : new Base[] {this.diagnosis}; // Coding
-        default: return super.getProperty(hash, checkValid);
+        case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
+        case 1196993265: /*diagnosis*/ return this.diagnosis == null ? new Base[0] : new Base[] {this.diagnosis}; // Coding
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 1349547969:
+        case 1349547969: // sequence
           this.sequence = castToPositiveInt(value); // PositiveIntType
           break;
-        case 1196993265:
+        case 1196993265: // diagnosis
           this.diagnosis = castToCoding(value); // Coding
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -642,11 +642,11 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // PositiveIntType
         case 1196993265:  return getDiagnosis(); // Coding
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -892,29 +892,29 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 1349547969: return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
-        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
-        case 1640074445: return this.procedure == null ? new Base[0] : new Base[] {this.procedure}; // Type
-        default: return super.getProperty(hash, checkValid);
+        case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -1095204141: /*procedure*/ return this.procedure == null ? new Base[0] : new Base[] {this.procedure}; // Type
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 1349547969:
+        case 1349547969: // sequence
           this.sequence = castToPositiveInt(value); // PositiveIntType
           break;
-        case 3076014:
+        case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
           break;
-        case 1640074445:
+        case -1095204141: // procedure
           this.procedure = (Type) value; // Type
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -932,12 +932,12 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // PositiveIntType
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
         case 1640074445:  return getProcedure(); // Type
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1143,25 +1143,25 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 227689880: return this.coverage == null ? new Base[0] : new Base[] {this.coverage}; // Type
-        case 522246568: return this.preAuthRef.toArray(new Base[this.preAuthRef.size()]); // StringType
-        default: return super.getProperty(hash, checkValid);
+        case -351767064: /*coverage*/ return this.coverage == null ? new Base[0] : new Base[] {this.coverage}; // Type
+        case 522246568: /*preAuthRef*/ return this.preAuthRef == null ? new Base[0] : this.preAuthRef.toArray(new Base[this.preAuthRef.size()]); // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 227689880:
+        case -351767064: // coverage
           this.coverage = (Type) value; // Type
           break;
-        case 522246568:
-          this.preAuthRef.add(castToString(value)); // StringType
+        case 522246568: // preAuthRef
+          this.getPreAuthRef().add(castToString(value)); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1177,11 +1177,11 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 227689880:  return getCoverage(); // Type
         case 522246568: throw new FHIRException("Cannot make property preAuthRef as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1348,25 +1348,25 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1313930605: return this.time == null ? new Base[0] : new Base[] {this.time}; // Type
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
-        default: return super.getProperty(hash, checkValid);
+        case 3560141: /*time*/ return this.time == null ? new Base[0] : new Base[] {this.time}; // Type
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1313930605:
+        case 3560141: // time
           this.time = (Type) value; // Type
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = castToCoding(value); // Coding
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1382,11 +1382,11 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1313930605:  return getTime(); // Type
         case 3575610:  return getType(); // Coding
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -2611,113 +2611,113 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 1349547969: return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
-        case 2064698607: return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Type
-        case -1823115240: return this.supervisor == null ? new Base[0] : new Base[] {this.supervisor}; // Type
-        case -1240156290: return this.providerQualification == null ? new Base[0] : new Base[] {this.providerQualification}; // Coding
-        case -1659207418: return this.diagnosisLinkId.toArray(new Base[this.diagnosisLinkId.size()]); // PositiveIntType
-        case 1984153269: return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
-        case 615164076: return this.serviceModifier.toArray(new Base[this.serviceModifier.size()]); // Coding
-        case -615513385: return this.modifier.toArray(new Base[this.modifier.size()]); // Coding
-        case 1010065041: return this.programCode.toArray(new Base[this.programCode.size()]); // Coding
-        case -1927922223: return this.serviced == null ? new Base[0] : new Base[] {this.serviced}; // Type
-        case 106748167: return this.place == null ? new Base[0] : new Base[] {this.place}; // Coding
-        case -1285004149: return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
-        case -486196699: return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
-        case -1282148017: return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
-        case -982754077: return this.points == null ? new Base[0] : new Base[] {this.points}; // DecimalType
-        case 108957: return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
-        case 115642: return this.udi.toArray(new Base[this.udi.size()]); // Reference
-        case 1702620169: return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // Coding
-        case -1868566105: return this.subSite.toArray(new Base[this.subSite.size()]); // Coding
-        case -1110033957: return this.noteNumber.toArray(new Base[this.noteNumber.size()]); // PositiveIntType
-        case -231349275: return this.adjudication.toArray(new Base[this.adjudication.size()]); // ItemAdjudicationComponent
-        case -1335224239: return this.detail.toArray(new Base[this.detail.size()]); // DetailComponent
-        case -2138744398: return this.prosthesis == null ? new Base[0] : new Base[] {this.prosthesis}; // ProsthesisComponent
-        default: return super.getProperty(hash, checkValid);
+        case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case -987494927: /*provider*/ return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Type
+        case -1697229976: /*supervisor*/ return this.supervisor == null ? new Base[0] : new Base[] {this.supervisor}; // Type
+        case -1240156290: /*providerQualification*/ return this.providerQualification == null ? new Base[0] : new Base[] {this.providerQualification}; // Coding
+        case -1659207418: /*diagnosisLinkId*/ return this.diagnosisLinkId == null ? new Base[0] : this.diagnosisLinkId.toArray(new Base[this.diagnosisLinkId.size()]); // PositiveIntType
+        case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
+        case 615164076: /*serviceModifier*/ return this.serviceModifier == null ? new Base[0] : this.serviceModifier.toArray(new Base[this.serviceModifier.size()]); // Coding
+        case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // Coding
+        case 1010065041: /*programCode*/ return this.programCode == null ? new Base[0] : this.programCode.toArray(new Base[this.programCode.size()]); // Coding
+        case 1379209295: /*serviced*/ return this.serviced == null ? new Base[0] : new Base[] {this.serviced}; // Type
+        case 106748167: /*place*/ return this.place == null ? new Base[0] : new Base[] {this.place}; // Coding
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
+        case -1282148017: /*factor*/ return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
+        case -982754077: /*points*/ return this.points == null ? new Base[0] : new Base[] {this.points}; // DecimalType
+        case 108957: /*net*/ return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
+        case 115642: /*udi*/ return this.udi == null ? new Base[0] : this.udi.toArray(new Base[this.udi.size()]); // Reference
+        case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // Coding
+        case -1868566105: /*subSite*/ return this.subSite == null ? new Base[0] : this.subSite.toArray(new Base[this.subSite.size()]); // Coding
+        case -1110033957: /*noteNumber*/ return this.noteNumber == null ? new Base[0] : this.noteNumber.toArray(new Base[this.noteNumber.size()]); // PositiveIntType
+        case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // ItemAdjudicationComponent
+        case -1335224239: /*detail*/ return this.detail == null ? new Base[0] : this.detail.toArray(new Base[this.detail.size()]); // DetailComponent
+        case -2138744398: /*prosthesis*/ return this.prosthesis == null ? new Base[0] : new Base[] {this.prosthesis}; // ProsthesisComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 1349547969:
+        case 1349547969: // sequence
           this.sequence = castToPositiveInt(value); // PositiveIntType
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = castToCoding(value); // Coding
           break;
-        case 2064698607:
+        case -987494927: // provider
           this.provider = (Type) value; // Type
           break;
-        case -1823115240:
+        case -1697229976: // supervisor
           this.supervisor = (Type) value; // Type
           break;
-        case -1240156290:
+        case -1240156290: // providerQualification
           this.providerQualification = castToCoding(value); // Coding
           break;
-        case -1659207418:
-          this.diagnosisLinkId.add(castToPositiveInt(value)); // PositiveIntType
+        case -1659207418: // diagnosisLinkId
+          this.getDiagnosisLinkId().add(castToPositiveInt(value)); // PositiveIntType
           break;
-        case 1984153269:
+        case 1984153269: // service
           this.service = castToCoding(value); // Coding
           break;
-        case 615164076:
-          this.serviceModifier.add(castToCoding(value)); // Coding
+        case 615164076: // serviceModifier
+          this.getServiceModifier().add(castToCoding(value)); // Coding
           break;
-        case -615513385:
-          this.modifier.add(castToCoding(value)); // Coding
+        case -615513385: // modifier
+          this.getModifier().add(castToCoding(value)); // Coding
           break;
-        case 1010065041:
-          this.programCode.add(castToCoding(value)); // Coding
+        case 1010065041: // programCode
+          this.getProgramCode().add(castToCoding(value)); // Coding
           break;
-        case -1927922223:
+        case 1379209295: // serviced
           this.serviced = (Type) value; // Type
           break;
-        case 106748167:
+        case 106748167: // place
           this.place = castToCoding(value); // Coding
           break;
-        case -1285004149:
+        case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
           break;
-        case -486196699:
+        case -486196699: // unitPrice
           this.unitPrice = castToMoney(value); // Money
           break;
-        case -1282148017:
+        case -1282148017: // factor
           this.factor = castToDecimal(value); // DecimalType
           break;
-        case -982754077:
+        case -982754077: // points
           this.points = castToDecimal(value); // DecimalType
           break;
-        case 108957:
+        case 108957: // net
           this.net = castToMoney(value); // Money
           break;
-        case 115642:
-          this.udi.add(castToReference(value)); // Reference
+        case 115642: // udi
+          this.getUdi().add(castToReference(value)); // Reference
           break;
-        case 1702620169:
+        case 1702620169: // bodySite
           this.bodySite = castToCoding(value); // Coding
           break;
-        case -1868566105:
-          this.subSite.add(castToCoding(value)); // Coding
+        case -1868566105: // subSite
+          this.getSubSite().add(castToCoding(value)); // Coding
           break;
-        case -1110033957:
-          this.noteNumber.add(castToPositiveInt(value)); // PositiveIntType
+        case -1110033957: // noteNumber
+          this.getNoteNumber().add(castToPositiveInt(value)); // PositiveIntType
           break;
-        case -231349275:
-          this.adjudication.add((ItemAdjudicationComponent) value); // ItemAdjudicationComponent
+        case -231349275: // adjudication
+          this.getAdjudication().add((ItemAdjudicationComponent) value); // ItemAdjudicationComponent
           break;
-        case -1335224239:
-          this.detail.add((DetailComponent) value); // DetailComponent
+        case -1335224239: // detail
+          this.getDetail().add((DetailComponent) value); // DetailComponent
           break;
-        case -2138744398:
+        case -2138744398: // prosthesis
           this.prosthesis = (ProsthesisComponent) value; // ProsthesisComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -2777,7 +2777,7 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // PositiveIntType
         case 3575610:  return getType(); // Coding
@@ -2803,7 +2803,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case -231349275:  return addAdjudication(); // ItemAdjudicationComponent
         case -1335224239:  return addDetail(); // DetailComponent
         case -2138744398:  return getProsthesis(); // ProsthesisComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -3223,33 +3223,33 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
-        case -934964668: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Coding
-        case -1413853096: return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Money
-        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // DecimalType
-        default: return super.getProperty(hash, checkValid);
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Coding
+        case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Money
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // DecimalType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 50511102:
+        case 50511102: // category
           this.category = castToCoding(value); // Coding
           break;
-        case -934964668:
+        case -934964668: // reason
           this.reason = castToCoding(value); // Coding
           break;
-        case -1413853096:
+        case -1413853096: // amount
           this.amount = castToMoney(value); // Money
           break;
-        case 111972721:
+        case 111972721: // value
           this.value = castToDecimal(value); // DecimalType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -3269,13 +3269,13 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 50511102:  return getCategory(); // Coding
         case -934964668:  return getReason(); // Coding
         case -1413853096:  return getAmount(); // Money
         case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // DecimalType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -3951,65 +3951,65 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 1349547969: return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
-        case 1984153269: return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
-        case 1010065041: return this.programCode.toArray(new Base[this.programCode.size()]); // Coding
-        case -1285004149: return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
-        case -486196699: return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
-        case -1282148017: return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
-        case -982754077: return this.points == null ? new Base[0] : new Base[] {this.points}; // DecimalType
-        case 108957: return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
-        case 115642: return this.udi.toArray(new Base[this.udi.size()]); // Reference
-        case -231349275: return this.adjudication.toArray(new Base[this.adjudication.size()]); // DetailAdjudicationComponent
-        case -828829007: return this.subDetail.toArray(new Base[this.subDetail.size()]); // SubDetailComponent
-        default: return super.getProperty(hash, checkValid);
+        case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
+        case 1010065041: /*programCode*/ return this.programCode == null ? new Base[0] : this.programCode.toArray(new Base[this.programCode.size()]); // Coding
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
+        case -1282148017: /*factor*/ return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
+        case -982754077: /*points*/ return this.points == null ? new Base[0] : new Base[] {this.points}; // DecimalType
+        case 108957: /*net*/ return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
+        case 115642: /*udi*/ return this.udi == null ? new Base[0] : this.udi.toArray(new Base[this.udi.size()]); // Reference
+        case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // DetailAdjudicationComponent
+        case -828829007: /*subDetail*/ return this.subDetail == null ? new Base[0] : this.subDetail.toArray(new Base[this.subDetail.size()]); // SubDetailComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 1349547969:
+        case 1349547969: // sequence
           this.sequence = castToPositiveInt(value); // PositiveIntType
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = castToCoding(value); // Coding
           break;
-        case 1984153269:
+        case 1984153269: // service
           this.service = castToCoding(value); // Coding
           break;
-        case 1010065041:
-          this.programCode.add(castToCoding(value)); // Coding
+        case 1010065041: // programCode
+          this.getProgramCode().add(castToCoding(value)); // Coding
           break;
-        case -1285004149:
+        case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
           break;
-        case -486196699:
+        case -486196699: // unitPrice
           this.unitPrice = castToMoney(value); // Money
           break;
-        case -1282148017:
+        case -1282148017: // factor
           this.factor = castToDecimal(value); // DecimalType
           break;
-        case -982754077:
+        case -982754077: // points
           this.points = castToDecimal(value); // DecimalType
           break;
-        case 108957:
+        case 108957: // net
           this.net = castToMoney(value); // Money
           break;
-        case 115642:
-          this.udi.add(castToReference(value)); // Reference
+        case 115642: // udi
+          this.getUdi().add(castToReference(value)); // Reference
           break;
-        case -231349275:
-          this.adjudication.add((DetailAdjudicationComponent) value); // DetailAdjudicationComponent
+        case -231349275: // adjudication
+          this.getAdjudication().add((DetailAdjudicationComponent) value); // DetailAdjudicationComponent
           break;
-        case -828829007:
-          this.subDetail.add((SubDetailComponent) value); // SubDetailComponent
+        case -828829007: // subDetail
+          this.getSubDetail().add((SubDetailComponent) value); // SubDetailComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -4045,7 +4045,7 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // PositiveIntType
         case 3575610:  return getType(); // Coding
@@ -4059,7 +4059,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case 115642:  return addUdi(); // Reference
         case -231349275:  return addAdjudication(); // DetailAdjudicationComponent
         case -828829007:  return addSubDetail(); // SubDetailComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -4381,33 +4381,33 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
-        case -934964668: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Coding
-        case -1413853096: return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Money
-        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // DecimalType
-        default: return super.getProperty(hash, checkValid);
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Coding
+        case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Money
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // DecimalType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 50511102:
+        case 50511102: // category
           this.category = castToCoding(value); // Coding
           break;
-        case -934964668:
+        case -934964668: // reason
           this.reason = castToCoding(value); // Coding
           break;
-        case -1413853096:
+        case -1413853096: // amount
           this.amount = castToMoney(value); // Money
           break;
-        case 111972721:
+        case 111972721: // value
           this.value = castToDecimal(value); // DecimalType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -4427,13 +4427,13 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 50511102:  return getCategory(); // Coding
         case -934964668:  return getReason(); // Coding
         case -1413853096:  return getAmount(); // Money
         case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // DecimalType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -5061,61 +5061,61 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 1349547969: return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
-        case 1984153269: return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
-        case 1010065041: return this.programCode.toArray(new Base[this.programCode.size()]); // Coding
-        case -1285004149: return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
-        case -486196699: return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
-        case -1282148017: return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
-        case -982754077: return this.points == null ? new Base[0] : new Base[] {this.points}; // DecimalType
-        case 108957: return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
-        case 115642: return this.udi.toArray(new Base[this.udi.size()]); // Reference
-        case -231349275: return this.adjudication.toArray(new Base[this.adjudication.size()]); // SubDetailAdjudicationComponent
-        default: return super.getProperty(hash, checkValid);
+        case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
+        case 1010065041: /*programCode*/ return this.programCode == null ? new Base[0] : this.programCode.toArray(new Base[this.programCode.size()]); // Coding
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
+        case -1282148017: /*factor*/ return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
+        case -982754077: /*points*/ return this.points == null ? new Base[0] : new Base[] {this.points}; // DecimalType
+        case 108957: /*net*/ return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
+        case 115642: /*udi*/ return this.udi == null ? new Base[0] : this.udi.toArray(new Base[this.udi.size()]); // Reference
+        case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // SubDetailAdjudicationComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 1349547969:
+        case 1349547969: // sequence
           this.sequence = castToPositiveInt(value); // PositiveIntType
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = castToCoding(value); // Coding
           break;
-        case 1984153269:
+        case 1984153269: // service
           this.service = castToCoding(value); // Coding
           break;
-        case 1010065041:
-          this.programCode.add(castToCoding(value)); // Coding
+        case 1010065041: // programCode
+          this.getProgramCode().add(castToCoding(value)); // Coding
           break;
-        case -1285004149:
+        case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
           break;
-        case -486196699:
+        case -486196699: // unitPrice
           this.unitPrice = castToMoney(value); // Money
           break;
-        case -1282148017:
+        case -1282148017: // factor
           this.factor = castToDecimal(value); // DecimalType
           break;
-        case -982754077:
+        case -982754077: // points
           this.points = castToDecimal(value); // DecimalType
           break;
-        case 108957:
+        case 108957: // net
           this.net = castToMoney(value); // Money
           break;
-        case 115642:
-          this.udi.add(castToReference(value)); // Reference
+        case 115642: // udi
+          this.getUdi().add(castToReference(value)); // Reference
           break;
-        case -231349275:
-          this.adjudication.add((SubDetailAdjudicationComponent) value); // SubDetailAdjudicationComponent
+        case -231349275: // adjudication
+          this.getAdjudication().add((SubDetailAdjudicationComponent) value); // SubDetailAdjudicationComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -5149,7 +5149,7 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // PositiveIntType
         case 3575610:  return getType(); // Coding
@@ -5162,7 +5162,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case 108957:  return getNet(); // Money
         case 115642:  return addUdi(); // Reference
         case -231349275:  return addAdjudication(); // SubDetailAdjudicationComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -5474,33 +5474,33 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
-        case -934964668: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Coding
-        case -1413853096: return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Money
-        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // DecimalType
-        default: return super.getProperty(hash, checkValid);
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Coding
+        case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Money
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // DecimalType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 50511102:
+        case 50511102: // category
           this.category = castToCoding(value); // Coding
           break;
-        case -934964668:
+        case -934964668: // reason
           this.reason = castToCoding(value); // Coding
           break;
-        case -1413853096:
+        case -1413853096: // amount
           this.amount = castToMoney(value); // Money
           break;
-        case 111972721:
+        case 111972721: // value
           this.value = castToDecimal(value); // DecimalType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -5520,13 +5520,13 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 50511102:  return getCategory(); // Coding
         case -934964668:  return getReason(); // Coding
         case -1413853096:  return getAmount(); // Money
         case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // DecimalType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -5753,29 +5753,29 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 1948342084: return this.initial == null ? new Base[0] : new Base[] {this.initial}; // BooleanType
-        case -1770675816: return this.priorDate == null ? new Base[0] : new Base[] {this.priorDate}; // DateType
-        case -532999663: return this.priorMaterial == null ? new Base[0] : new Base[] {this.priorMaterial}; // Coding
-        default: return super.getProperty(hash, checkValid);
+        case 1948342084: /*initial*/ return this.initial == null ? new Base[0] : new Base[] {this.initial}; // BooleanType
+        case -1770675816: /*priorDate*/ return this.priorDate == null ? new Base[0] : new Base[] {this.priorDate}; // DateType
+        case -532999663: /*priorMaterial*/ return this.priorMaterial == null ? new Base[0] : new Base[] {this.priorMaterial}; // Coding
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 1948342084:
+        case 1948342084: // initial
           this.initial = castToBoolean(value); // BooleanType
           break;
-        case -1770675816:
+        case -1770675816: // priorDate
           this.priorDate = castToDate(value); // DateType
           break;
-        case -532999663:
+        case -532999663: // priorMaterial
           this.priorMaterial = castToCoding(value); // Coding
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -5793,12 +5793,12 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1948342084: throw new FHIRException("Cannot make property initial as it is not a complex type"); // BooleanType
         case -1770675816: throw new FHIRException("Cannot make property priorDate as it is not a complex type"); // DateType
         case -532999663:  return getPriorMaterial(); // Coding
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -6169,41 +6169,41 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1422298666: return this.sequenceLinkId.toArray(new Base[this.sequenceLinkId.size()]); // PositiveIntType
-        case 1984153269: return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
-        case 101254: return this.fee == null ? new Base[0] : new Base[] {this.fee}; // Money
-        case -1859667856: return this.noteNumberLinkId.toArray(new Base[this.noteNumberLinkId.size()]); // PositiveIntType
-        case -231349275: return this.adjudication.toArray(new Base[this.adjudication.size()]); // AddedItemAdjudicationComponent
-        case -1335224239: return this.detail.toArray(new Base[this.detail.size()]); // AddedItemsDetailComponent
-        default: return super.getProperty(hash, checkValid);
+        case -1422298666: /*sequenceLinkId*/ return this.sequenceLinkId == null ? new Base[0] : this.sequenceLinkId.toArray(new Base[this.sequenceLinkId.size()]); // PositiveIntType
+        case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
+        case 101254: /*fee*/ return this.fee == null ? new Base[0] : new Base[] {this.fee}; // Money
+        case -1859667856: /*noteNumberLinkId*/ return this.noteNumberLinkId == null ? new Base[0] : this.noteNumberLinkId.toArray(new Base[this.noteNumberLinkId.size()]); // PositiveIntType
+        case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // AddedItemAdjudicationComponent
+        case -1335224239: /*detail*/ return this.detail == null ? new Base[0] : this.detail.toArray(new Base[this.detail.size()]); // AddedItemsDetailComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1422298666:
-          this.sequenceLinkId.add(castToPositiveInt(value)); // PositiveIntType
+        case -1422298666: // sequenceLinkId
+          this.getSequenceLinkId().add(castToPositiveInt(value)); // PositiveIntType
           break;
-        case 1984153269:
+        case 1984153269: // service
           this.service = castToCoding(value); // Coding
           break;
-        case 101254:
+        case 101254: // fee
           this.fee = castToMoney(value); // Money
           break;
-        case -1859667856:
-          this.noteNumberLinkId.add(castToPositiveInt(value)); // PositiveIntType
+        case -1859667856: // noteNumberLinkId
+          this.getNoteNumberLinkId().add(castToPositiveInt(value)); // PositiveIntType
           break;
-        case -231349275:
-          this.adjudication.add((AddedItemAdjudicationComponent) value); // AddedItemAdjudicationComponent
+        case -231349275: // adjudication
+          this.getAdjudication().add((AddedItemAdjudicationComponent) value); // AddedItemAdjudicationComponent
           break;
-        case -1335224239:
-          this.detail.add((AddedItemsDetailComponent) value); // AddedItemsDetailComponent
+        case -1335224239: // detail
+          this.getDetail().add((AddedItemsDetailComponent) value); // AddedItemsDetailComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -6227,7 +6227,7 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1422298666: throw new FHIRException("Cannot make property sequenceLinkId as it is not a complex type"); // PositiveIntType
         case 1984153269:  return getService(); // Coding
@@ -6235,7 +6235,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1859667856: throw new FHIRException("Cannot make property noteNumberLinkId as it is not a complex type"); // PositiveIntType
         case -231349275:  return addAdjudication(); // AddedItemAdjudicationComponent
         case -1335224239:  return addDetail(); // AddedItemsDetailComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -6526,33 +6526,33 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
-        case -934964668: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Coding
-        case -1413853096: return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Money
-        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // DecimalType
-        default: return super.getProperty(hash, checkValid);
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Coding
+        case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Money
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // DecimalType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 50511102:
+        case 50511102: // category
           this.category = castToCoding(value); // Coding
           break;
-        case -934964668:
+        case -934964668: // reason
           this.reason = castToCoding(value); // Coding
           break;
-        case -1413853096:
+        case -1413853096: // amount
           this.amount = castToMoney(value); // Money
           break;
-        case 111972721:
+        case 111972721: // value
           this.value = castToDecimal(value); // DecimalType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -6572,13 +6572,13 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 50511102:  return getCategory(); // Coding
         case -934964668:  return getReason(); // Coding
         case -1413853096:  return getAmount(); // Money
         case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // DecimalType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -6783,29 +6783,29 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 1984153269: return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
-        case 101254: return this.fee == null ? new Base[0] : new Base[] {this.fee}; // Money
-        case -231349275: return this.adjudication.toArray(new Base[this.adjudication.size()]); // AddedItemDetailAdjudicationComponent
-        default: return super.getProperty(hash, checkValid);
+        case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
+        case 101254: /*fee*/ return this.fee == null ? new Base[0] : new Base[] {this.fee}; // Money
+        case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // AddedItemDetailAdjudicationComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 1984153269:
+        case 1984153269: // service
           this.service = castToCoding(value); // Coding
           break;
-        case 101254:
+        case 101254: // fee
           this.fee = castToMoney(value); // Money
           break;
-        case -231349275:
-          this.adjudication.add((AddedItemDetailAdjudicationComponent) value); // AddedItemDetailAdjudicationComponent
+        case -231349275: // adjudication
+          this.getAdjudication().add((AddedItemDetailAdjudicationComponent) value); // AddedItemDetailAdjudicationComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -6823,12 +6823,12 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1984153269:  return getService(); // Coding
         case 101254:  return getFee(); // Money
         case -231349275:  return addAdjudication(); // AddedItemDetailAdjudicationComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -7091,33 +7091,33 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
-        case -934964668: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Coding
-        case -1413853096: return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Money
-        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // DecimalType
-        default: return super.getProperty(hash, checkValid);
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Coding
+        case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Money
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // DecimalType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 50511102:
+        case 50511102: // category
           this.category = castToCoding(value); // Coding
           break;
-        case -934964668:
+        case -934964668: // reason
           this.reason = castToCoding(value); // Coding
           break;
-        case -1413853096:
+        case -1413853096: // amount
           this.amount = castToMoney(value); // Money
           break;
-        case 111972721:
+        case 111972721: // value
           this.value = castToDecimal(value); // DecimalType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -7137,13 +7137,13 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 50511102:  return getCategory(); // Coding
         case -934964668:  return getReason(); // Coding
         case -1413853096:  return getAmount(); // Money
         case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // DecimalType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -7357,29 +7357,29 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 110545608: return this.tooth == null ? new Base[0] : new Base[] {this.tooth}; // Coding
-        case -934964668: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Coding
-        case 580646965: return this.extractionDate == null ? new Base[0] : new Base[] {this.extractionDate}; // DateType
-        default: return super.getProperty(hash, checkValid);
+        case 110545608: /*tooth*/ return this.tooth == null ? new Base[0] : new Base[] {this.tooth}; // Coding
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Coding
+        case 580646965: /*extractionDate*/ return this.extractionDate == null ? new Base[0] : new Base[] {this.extractionDate}; // DateType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 110545608:
+        case 110545608: // tooth
           this.tooth = castToCoding(value); // Coding
           break;
-        case -934964668:
+        case -934964668: // reason
           this.reason = castToCoding(value); // Coding
           break;
-        case 580646965:
+        case 580646965: // extractionDate
           this.extractionDate = castToDate(value); // DateType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -7397,12 +7397,12 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 110545608:  return getTooth(); // Coding
         case -934964668:  return getReason(); // Coding
         case 580646965: throw new FHIRException("Cannot make property extractionDate as it is not a complex type"); // DateType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -7624,29 +7624,29 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1034364087: return this.number == null ? new Base[0] : new Base[] {this.number}; // PositiveIntType
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
-        case 3556653: return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case -1034364087: /*number*/ return this.number == null ? new Base[0] : new Base[] {this.number}; // PositiveIntType
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 3556653: /*text*/ return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1034364087:
+        case -1034364087: // number
           this.number = castToPositiveInt(value); // PositiveIntType
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = castToCoding(value); // Coding
           break;
-        case 3556653:
+        case 3556653: // text
           this.text = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -7664,12 +7664,12 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1034364087: throw new FHIRException("Cannot make property number as it is not a complex type"); // PositiveIntType
         case 3575610:  return getType(); // Coding
         case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -7964,41 +7964,41 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
-        case 1365024606: return this.subCategory == null ? new Base[0] : new Base[] {this.subCategory}; // Coding
-        case 1843485230: return this.network == null ? new Base[0] : new Base[] {this.network}; // Coding
-        case 3594628: return this.unit == null ? new Base[0] : new Base[] {this.unit}; // Coding
-        case 3556460: return this.term == null ? new Base[0] : new Base[] {this.term}; // Coding
-        case 357555337: return this.financial.toArray(new Base[this.financial.size()]); // BenefitComponent
-        default: return super.getProperty(hash, checkValid);
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
+        case 1365024606: /*subCategory*/ return this.subCategory == null ? new Base[0] : new Base[] {this.subCategory}; // Coding
+        case 1843485230: /*network*/ return this.network == null ? new Base[0] : new Base[] {this.network}; // Coding
+        case 3594628: /*unit*/ return this.unit == null ? new Base[0] : new Base[] {this.unit}; // Coding
+        case 3556460: /*term*/ return this.term == null ? new Base[0] : new Base[] {this.term}; // Coding
+        case 357555337: /*financial*/ return this.financial == null ? new Base[0] : this.financial.toArray(new Base[this.financial.size()]); // BenefitComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 50511102:
+        case 50511102: // category
           this.category = castToCoding(value); // Coding
           break;
-        case 1365024606:
+        case 1365024606: // subCategory
           this.subCategory = castToCoding(value); // Coding
           break;
-        case 1843485230:
+        case 1843485230: // network
           this.network = castToCoding(value); // Coding
           break;
-        case 3594628:
+        case 3594628: // unit
           this.unit = castToCoding(value); // Coding
           break;
-        case 3556460:
+        case 3556460: // term
           this.term = castToCoding(value); // Coding
           break;
-        case 357555337:
-          this.financial.add((BenefitComponent) value); // BenefitComponent
+        case 357555337: // financial
+          this.getFinancial().add((BenefitComponent) value); // BenefitComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -8022,7 +8022,7 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 50511102:  return getCategory(); // Coding
         case 1365024606:  return getSubCategory(); // Coding
@@ -8030,7 +8030,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case 3594628:  return getUnit(); // Coding
         case 3556460:  return getTerm(); // Coding
         case 357555337:  return addFinancial(); // BenefitComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -8277,29 +8277,29 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
-        case 952095881: return this.benefit == null ? new Base[0] : new Base[] {this.benefit}; // Type
-        case 787635980: return this.benefitUsed == null ? new Base[0] : new Base[] {this.benefitUsed}; // Type
-        default: return super.getProperty(hash, checkValid);
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case -222710633: /*benefit*/ return this.benefit == null ? new Base[0] : new Base[] {this.benefit}; // Type
+        case -549981964: /*benefitUsed*/ return this.benefitUsed == null ? new Base[0] : new Base[] {this.benefitUsed}; // Type
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610:
+        case 3575610: // type
           this.type = castToCoding(value); // Coding
           break;
-        case 952095881:
+        case -222710633: // benefit
           this.benefit = (Type) value; // Type
           break;
-        case 787635980:
+        case -549981964: // benefitUsed
           this.benefitUsed = (Type) value; // Type
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -8317,12 +8317,12 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610:  return getType(); // Coding
         case 952095881:  return getBenefit(); // Type
         case 787635980:  return getBenefitUsed(); // Type
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -10541,209 +10541,209 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case 683016900: return this.claim == null ? new Base[0] : new Base[] {this.claim}; // Type
-        case -1527963965: return this.claimResponse == null ? new Base[0] : new Base[] {this.claimResponse}; // Type
-        case -1868521062: return this.subType.toArray(new Base[this.subType.size()]); // Coding
-        case 1548678118: return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
-        case 1089373397: return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
-        case 1028554472: return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
-        case -332066046: return this.billablePeriod == null ? new Base[0] : new Base[] {this.billablePeriod}; // Period
-        case 583380919: return this.disposition == null ? new Base[0] : new Base[] {this.disposition}; // StringType
-        case 2064698607: return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Type
-        case 1326483053: return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Type
-        case -542224643: return this.facility == null ? new Base[0] : new Base[] {this.facility}; // Type
-        case 1090493483: return this.related.toArray(new Base[this.related.size()]); // RelatedClaimsComponent
-        case -993324506: return this.prescription == null ? new Base[0] : new Base[] {this.prescription}; // Type
-        case -2067905515: return this.originalPrescription == null ? new Base[0] : new Base[] {this.originalPrescription}; // Type
-        case 106443592: return this.payee == null ? new Base[0] : new Base[] {this.payee}; // PayeeComponent
-        case 344221635: return this.referral == null ? new Base[0] : new Base[] {this.referral}; // Type
-        case 1721744222: return this.occurrenceCode.toArray(new Base[this.occurrenceCode.size()]); // Coding
-        case -556690898: return this.occurenceSpanCode.toArray(new Base[this.occurenceSpanCode.size()]); // Coding
-        case -766209282: return this.valueCode.toArray(new Base[this.valueCode.size()]); // Coding
-        case 1196993265: return this.diagnosis.toArray(new Base[this.diagnosis.size()]); // DiagnosisComponent
-        case -1095204141: return this.procedure.toArray(new Base[this.procedure.size()]); // ProcedureComponent
-        case -481489822: return this.specialCondition.toArray(new Base[this.specialCondition.size()]); // Coding
-        case -2061246629: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Type
-        case 159695370: return this.precedence == null ? new Base[0] : new Base[] {this.precedence}; // PositiveIntType
-        case -351767064: return this.coverage == null ? new Base[0] : new Base[] {this.coverage}; // CoverageComponent
-        case -63170979: return this.accidentDate == null ? new Base[0] : new Base[] {this.accidentDate}; // DateType
-        case -62671383: return this.accidentType == null ? new Base[0] : new Base[] {this.accidentType}; // Coding
-        case 1540715292: return this.accidentLocation == null ? new Base[0] : new Base[] {this.accidentLocation}; // Type
-        case 1753076536: return this.interventionException.toArray(new Base[this.interventionException.size()]); // Coding
-        case 105901603: return this.onset.toArray(new Base[this.onset.size()]); // OnsetComponent
-        case 1051487345: return this.employmentImpacted == null ? new Base[0] : new Base[] {this.employmentImpacted}; // Period
-        case 1057894634: return this.hospitalization == null ? new Base[0] : new Base[] {this.hospitalization}; // Period
-        case 3242771: return this.item.toArray(new Base[this.item.size()]); // ItemsComponent
-        case -1148899500: return this.addItem.toArray(new Base[this.addItem.size()]); // AddedItemComponent
-        case -1157130302: return this.missingTeeth.toArray(new Base[this.missingTeeth.size()]); // MissingTeethComponent
-        case -577782479: return this.totalCost == null ? new Base[0] : new Base[] {this.totalCost}; // Money
-        case 2096309753: return this.unallocDeductable == null ? new Base[0] : new Base[] {this.unallocDeductable}; // Money
-        case 332332211: return this.totalBenefit == null ? new Base[0] : new Base[] {this.totalBenefit}; // Money
-        case 856402963: return this.paymentAdjustment == null ? new Base[0] : new Base[] {this.paymentAdjustment}; // Money
-        case -1386508233: return this.paymentAdjustmentReason == null ? new Base[0] : new Base[] {this.paymentAdjustmentReason}; // Coding
-        case -1540873516: return this.paymentDate == null ? new Base[0] : new Base[] {this.paymentDate}; // DateType
-        case 909332990: return this.paymentAmount == null ? new Base[0] : new Base[] {this.paymentAmount}; // Money
-        case 1612875949: return this.paymentRef == null ? new Base[0] : new Base[] {this.paymentRef}; // Identifier
-        case -350385368: return this.reserved == null ? new Base[0] : new Base[] {this.reserved}; // Coding
-        case 3148996: return this.form == null ? new Base[0] : new Base[] {this.form}; // Coding
-        case 3387378: return this.note.toArray(new Base[this.note.size()]); // NotesComponent
-        case 596003397: return this.benefitBalance.toArray(new Base[this.benefitBalance.size()]); // BenefitBalanceComponent
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 94742588: /*claim*/ return this.claim == null ? new Base[0] : new Base[] {this.claim}; // Type
+        case 689513629: /*claimResponse*/ return this.claimResponse == null ? new Base[0] : new Base[] {this.claimResponse}; // Type
+        case -1868521062: /*subType*/ return this.subType == null ? new Base[0] : this.subType.toArray(new Base[this.subType.size()]); // Coding
+        case 1548678118: /*ruleset*/ return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
+        case 1089373397: /*originalRuleset*/ return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
+        case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
+        case -332066046: /*billablePeriod*/ return this.billablePeriod == null ? new Base[0] : new Base[] {this.billablePeriod}; // Period
+        case 583380919: /*disposition*/ return this.disposition == null ? new Base[0] : new Base[] {this.disposition}; // StringType
+        case -987494927: /*provider*/ return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Type
+        case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Type
+        case 501116579: /*facility*/ return this.facility == null ? new Base[0] : new Base[] {this.facility}; // Type
+        case 1090493483: /*related*/ return this.related == null ? new Base[0] : this.related.toArray(new Base[this.related.size()]); // RelatedClaimsComponent
+        case 460301338: /*prescription*/ return this.prescription == null ? new Base[0] : new Base[] {this.prescription}; // Type
+        case -1814015861: /*originalPrescription*/ return this.originalPrescription == null ? new Base[0] : new Base[] {this.originalPrescription}; // Type
+        case 106443592: /*payee*/ return this.payee == null ? new Base[0] : new Base[] {this.payee}; // PayeeComponent
+        case -722568291: /*referral*/ return this.referral == null ? new Base[0] : new Base[] {this.referral}; // Type
+        case 1721744222: /*occurrenceCode*/ return this.occurrenceCode == null ? new Base[0] : this.occurrenceCode.toArray(new Base[this.occurrenceCode.size()]); // Coding
+        case -556690898: /*occurenceSpanCode*/ return this.occurenceSpanCode == null ? new Base[0] : this.occurenceSpanCode.toArray(new Base[this.occurenceSpanCode.size()]); // Coding
+        case -766209282: /*valueCode*/ return this.valueCode == null ? new Base[0] : this.valueCode.toArray(new Base[this.valueCode.size()]); // Coding
+        case 1196993265: /*diagnosis*/ return this.diagnosis == null ? new Base[0] : this.diagnosis.toArray(new Base[this.diagnosis.size()]); // DiagnosisComponent
+        case -1095204141: /*procedure*/ return this.procedure == null ? new Base[0] : this.procedure.toArray(new Base[this.procedure.size()]); // ProcedureComponent
+        case -481489822: /*specialCondition*/ return this.specialCondition == null ? new Base[0] : this.specialCondition.toArray(new Base[this.specialCondition.size()]); // Coding
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Type
+        case 159695370: /*precedence*/ return this.precedence == null ? new Base[0] : new Base[] {this.precedence}; // PositiveIntType
+        case -351767064: /*coverage*/ return this.coverage == null ? new Base[0] : new Base[] {this.coverage}; // CoverageComponent
+        case -63170979: /*accidentDate*/ return this.accidentDate == null ? new Base[0] : new Base[] {this.accidentDate}; // DateType
+        case -62671383: /*accidentType*/ return this.accidentType == null ? new Base[0] : new Base[] {this.accidentType}; // Coding
+        case -1074014492: /*accidentLocation*/ return this.accidentLocation == null ? new Base[0] : new Base[] {this.accidentLocation}; // Type
+        case 1753076536: /*interventionException*/ return this.interventionException == null ? new Base[0] : this.interventionException.toArray(new Base[this.interventionException.size()]); // Coding
+        case 105901603: /*onset*/ return this.onset == null ? new Base[0] : this.onset.toArray(new Base[this.onset.size()]); // OnsetComponent
+        case 1051487345: /*employmentImpacted*/ return this.employmentImpacted == null ? new Base[0] : new Base[] {this.employmentImpacted}; // Period
+        case 1057894634: /*hospitalization*/ return this.hospitalization == null ? new Base[0] : new Base[] {this.hospitalization}; // Period
+        case 3242771: /*item*/ return this.item == null ? new Base[0] : this.item.toArray(new Base[this.item.size()]); // ItemsComponent
+        case -1148899500: /*addItem*/ return this.addItem == null ? new Base[0] : this.addItem.toArray(new Base[this.addItem.size()]); // AddedItemComponent
+        case -1157130302: /*missingTeeth*/ return this.missingTeeth == null ? new Base[0] : this.missingTeeth.toArray(new Base[this.missingTeeth.size()]); // MissingTeethComponent
+        case -577782479: /*totalCost*/ return this.totalCost == null ? new Base[0] : new Base[] {this.totalCost}; // Money
+        case 2096309753: /*unallocDeductable*/ return this.unallocDeductable == null ? new Base[0] : new Base[] {this.unallocDeductable}; // Money
+        case 332332211: /*totalBenefit*/ return this.totalBenefit == null ? new Base[0] : new Base[] {this.totalBenefit}; // Money
+        case 856402963: /*paymentAdjustment*/ return this.paymentAdjustment == null ? new Base[0] : new Base[] {this.paymentAdjustment}; // Money
+        case -1386508233: /*paymentAdjustmentReason*/ return this.paymentAdjustmentReason == null ? new Base[0] : new Base[] {this.paymentAdjustmentReason}; // Coding
+        case -1540873516: /*paymentDate*/ return this.paymentDate == null ? new Base[0] : new Base[] {this.paymentDate}; // DateType
+        case 909332990: /*paymentAmount*/ return this.paymentAmount == null ? new Base[0] : new Base[] {this.paymentAmount}; // Money
+        case 1612875949: /*paymentRef*/ return this.paymentRef == null ? new Base[0] : new Base[] {this.paymentRef}; // Identifier
+        case -350385368: /*reserved*/ return this.reserved == null ? new Base[0] : new Base[] {this.reserved}; // Coding
+        case 3148996: /*form*/ return this.form == null ? new Base[0] : new Base[] {this.form}; // Coding
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // NotesComponent
+        case 596003397: /*benefitBalance*/ return this.benefitBalance == null ? new Base[0] : this.benefitBalance.toArray(new Base[this.benefitBalance.size()]); // BenefitBalanceComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case 683016900:
+        case 94742588: // claim
           this.claim = (Type) value; // Type
           break;
-        case -1527963965:
+        case 689513629: // claimResponse
           this.claimResponse = (Type) value; // Type
           break;
-        case -1868521062:
-          this.subType.add(castToCoding(value)); // Coding
+        case -1868521062: // subType
+          this.getSubType().add(castToCoding(value)); // Coding
           break;
-        case 1548678118:
+        case 1548678118: // ruleset
           this.ruleset = castToCoding(value); // Coding
           break;
-        case 1089373397:
+        case 1089373397: // originalRuleset
           this.originalRuleset = castToCoding(value); // Coding
           break;
-        case 1028554472:
+        case 1028554472: // created
           this.created = castToDateTime(value); // DateTimeType
           break;
-        case -332066046:
+        case -332066046: // billablePeriod
           this.billablePeriod = castToPeriod(value); // Period
           break;
-        case 583380919:
+        case 583380919: // disposition
           this.disposition = castToString(value); // StringType
           break;
-        case 2064698607:
+        case -987494927: // provider
           this.provider = (Type) value; // Type
           break;
-        case 1326483053:
+        case 1178922291: // organization
           this.organization = (Type) value; // Type
           break;
-        case -542224643:
+        case 501116579: // facility
           this.facility = (Type) value; // Type
           break;
-        case 1090493483:
-          this.related.add((RelatedClaimsComponent) value); // RelatedClaimsComponent
+        case 1090493483: // related
+          this.getRelated().add((RelatedClaimsComponent) value); // RelatedClaimsComponent
           break;
-        case -993324506:
+        case 460301338: // prescription
           this.prescription = (Type) value; // Type
           break;
-        case -2067905515:
+        case -1814015861: // originalPrescription
           this.originalPrescription = (Type) value; // Type
           break;
-        case 106443592:
+        case 106443592: // payee
           this.payee = (PayeeComponent) value; // PayeeComponent
           break;
-        case 344221635:
+        case -722568291: // referral
           this.referral = (Type) value; // Type
           break;
-        case 1721744222:
-          this.occurrenceCode.add(castToCoding(value)); // Coding
+        case 1721744222: // occurrenceCode
+          this.getOccurrenceCode().add(castToCoding(value)); // Coding
           break;
-        case -556690898:
-          this.occurenceSpanCode.add(castToCoding(value)); // Coding
+        case -556690898: // occurenceSpanCode
+          this.getOccurenceSpanCode().add(castToCoding(value)); // Coding
           break;
-        case -766209282:
-          this.valueCode.add(castToCoding(value)); // Coding
+        case -766209282: // valueCode
+          this.getValueCode().add(castToCoding(value)); // Coding
           break;
-        case 1196993265:
-          this.diagnosis.add((DiagnosisComponent) value); // DiagnosisComponent
+        case 1196993265: // diagnosis
+          this.getDiagnosis().add((DiagnosisComponent) value); // DiagnosisComponent
           break;
-        case -1095204141:
-          this.procedure.add((ProcedureComponent) value); // ProcedureComponent
+        case -1095204141: // procedure
+          this.getProcedure().add((ProcedureComponent) value); // ProcedureComponent
           break;
-        case -481489822:
-          this.specialCondition.add(castToCoding(value)); // Coding
+        case -481489822: // specialCondition
+          this.getSpecialCondition().add(castToCoding(value)); // Coding
           break;
-        case -2061246629:
+        case -791418107: // patient
           this.patient = (Type) value; // Type
           break;
-        case 159695370:
+        case 159695370: // precedence
           this.precedence = castToPositiveInt(value); // PositiveIntType
           break;
-        case -351767064:
+        case -351767064: // coverage
           this.coverage = (CoverageComponent) value; // CoverageComponent
           break;
-        case -63170979:
+        case -63170979: // accidentDate
           this.accidentDate = castToDate(value); // DateType
           break;
-        case -62671383:
+        case -62671383: // accidentType
           this.accidentType = castToCoding(value); // Coding
           break;
-        case 1540715292:
+        case -1074014492: // accidentLocation
           this.accidentLocation = (Type) value; // Type
           break;
-        case 1753076536:
-          this.interventionException.add(castToCoding(value)); // Coding
+        case 1753076536: // interventionException
+          this.getInterventionException().add(castToCoding(value)); // Coding
           break;
-        case 105901603:
-          this.onset.add((OnsetComponent) value); // OnsetComponent
+        case 105901603: // onset
+          this.getOnset().add((OnsetComponent) value); // OnsetComponent
           break;
-        case 1051487345:
+        case 1051487345: // employmentImpacted
           this.employmentImpacted = castToPeriod(value); // Period
           break;
-        case 1057894634:
+        case 1057894634: // hospitalization
           this.hospitalization = castToPeriod(value); // Period
           break;
-        case 3242771:
-          this.item.add((ItemsComponent) value); // ItemsComponent
+        case 3242771: // item
+          this.getItem().add((ItemsComponent) value); // ItemsComponent
           break;
-        case -1148899500:
-          this.addItem.add((AddedItemComponent) value); // AddedItemComponent
+        case -1148899500: // addItem
+          this.getAddItem().add((AddedItemComponent) value); // AddedItemComponent
           break;
-        case -1157130302:
-          this.missingTeeth.add((MissingTeethComponent) value); // MissingTeethComponent
+        case -1157130302: // missingTeeth
+          this.getMissingTeeth().add((MissingTeethComponent) value); // MissingTeethComponent
           break;
-        case -577782479:
+        case -577782479: // totalCost
           this.totalCost = castToMoney(value); // Money
           break;
-        case 2096309753:
+        case 2096309753: // unallocDeductable
           this.unallocDeductable = castToMoney(value); // Money
           break;
-        case 332332211:
+        case 332332211: // totalBenefit
           this.totalBenefit = castToMoney(value); // Money
           break;
-        case 856402963:
+        case 856402963: // paymentAdjustment
           this.paymentAdjustment = castToMoney(value); // Money
           break;
-        case -1386508233:
+        case -1386508233: // paymentAdjustmentReason
           this.paymentAdjustmentReason = castToCoding(value); // Coding
           break;
-        case -1540873516:
+        case -1540873516: // paymentDate
           this.paymentDate = castToDate(value); // DateType
           break;
-        case 909332990:
+        case 909332990: // paymentAmount
           this.paymentAmount = castToMoney(value); // Money
           break;
-        case 1612875949:
+        case 1612875949: // paymentRef
           this.paymentRef = castToIdentifier(value); // Identifier
           break;
-        case -350385368:
+        case -350385368: // reserved
           this.reserved = castToCoding(value); // Coding
           break;
-        case 3148996:
+        case 3148996: // form
           this.form = castToCoding(value); // Coding
           break;
-        case 3387378:
-          this.note.add((NotesComponent) value); // NotesComponent
+        case 3387378: // note
+          this.getNote().add((NotesComponent) value); // NotesComponent
           break;
-        case 596003397:
-          this.benefitBalance.add((BenefitBalanceComponent) value); // BenefitBalanceComponent
+        case 596003397: // benefitBalance
+          this.getBenefitBalance().add((BenefitBalanceComponent) value); // BenefitBalanceComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -10851,7 +10851,7 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case 683016900:  return getClaim(); // Type
@@ -10901,7 +10901,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case 3148996:  return getForm(); // Coding
         case 3387378:  return addNote(); // NotesComponent
         case 596003397:  return addBenefitBalance(); // BenefitBalanceComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

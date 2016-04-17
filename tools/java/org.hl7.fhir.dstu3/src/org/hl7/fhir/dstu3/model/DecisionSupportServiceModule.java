@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -236,33 +236,33 @@ public class DecisionSupportServiceModule extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 455891387: return this.moduleMetadata == null ? new Base[0] : new Base[] {this.moduleMetadata}; // ModuleMetadata
-        case -1059891784: return this.trigger.toArray(new Base[this.trigger.size()]); // TriggerDefinition
-        case 1954460585: return this.parameter.toArray(new Base[this.parameter.size()]); // ParameterDefinition
-        case 629147193: return this.dataRequirement.toArray(new Base[this.dataRequirement.size()]); // DataRequirement
-        default: return super.getProperty(hash, checkValid);
+        case 455891387: /*moduleMetadata*/ return this.moduleMetadata == null ? new Base[0] : new Base[] {this.moduleMetadata}; // ModuleMetadata
+        case -1059891784: /*trigger*/ return this.trigger == null ? new Base[0] : this.trigger.toArray(new Base[this.trigger.size()]); // TriggerDefinition
+        case 1954460585: /*parameter*/ return this.parameter == null ? new Base[0] : this.parameter.toArray(new Base[this.parameter.size()]); // ParameterDefinition
+        case 629147193: /*dataRequirement*/ return this.dataRequirement == null ? new Base[0] : this.dataRequirement.toArray(new Base[this.dataRequirement.size()]); // DataRequirement
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 455891387:
+        case 455891387: // moduleMetadata
           this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
           break;
-        case -1059891784:
-          this.trigger.add(castToTriggerDefinition(value)); // TriggerDefinition
+        case -1059891784: // trigger
+          this.getTrigger().add(castToTriggerDefinition(value)); // TriggerDefinition
           break;
-        case 1954460585:
-          this.parameter.add(castToParameterDefinition(value)); // ParameterDefinition
+        case 1954460585: // parameter
+          this.getParameter().add(castToParameterDefinition(value)); // ParameterDefinition
           break;
-        case 629147193:
-          this.dataRequirement.add(castToDataRequirement(value)); // DataRequirement
+        case 629147193: // dataRequirement
+          this.getDataRequirement().add(castToDataRequirement(value)); // DataRequirement
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -282,13 +282,13 @@ public class DecisionSupportServiceModule extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 455891387:  return getModuleMetadata(); // ModuleMetadata
         case -1059891784:  return addTrigger(); // TriggerDefinition
         case 1954460585:  return addParameter(); // ParameterDefinition
         case 629147193:  return addDataRequirement(); // DataRequirement
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

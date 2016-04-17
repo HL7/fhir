@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -662,33 +662,33 @@ public class ActionDefinition extends Type implements ICompositeType {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -889046145: return this.actionIdentifier == null ? new Base[0] : new Base[] {this.actionIdentifier}; // Identifier
-        case -261851592: return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Enumeration<ActionRelationshipType>
-        case -1960684787: return this.offset == null ? new Base[0] : new Base[] {this.offset}; // Type
-        case -1413299531: return this.anchor == null ? new Base[0] : new Base[] {this.anchor}; // Enumeration<ActionRelationshipAnchor>
-        default: return super.getProperty(hash, checkValid);
+        case -889046145: /*actionIdentifier*/ return this.actionIdentifier == null ? new Base[0] : new Base[] {this.actionIdentifier}; // Identifier
+        case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Enumeration<ActionRelationshipType>
+        case -1019779949: /*offset*/ return this.offset == null ? new Base[0] : new Base[] {this.offset}; // Type
+        case -1413299531: /*anchor*/ return this.anchor == null ? new Base[0] : new Base[] {this.anchor}; // Enumeration<ActionRelationshipAnchor>
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -889046145:
+        case -889046145: // actionIdentifier
           this.actionIdentifier = castToIdentifier(value); // Identifier
           break;
-        case -261851592:
+        case -261851592: // relationship
           this.relationship = new ActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<ActionRelationshipType>
           break;
-        case -1960684787:
+        case -1019779949: // offset
           this.offset = (Type) value; // Type
           break;
-        case -1413299531:
+        case -1413299531: // anchor
           this.anchor = new ActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<ActionRelationshipAnchor>
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -708,13 +708,13 @@ public class ActionDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -889046145:  return getActionIdentifier(); // Identifier
         case -261851592: throw new FHIRException("Cannot make property relationship as it is not a complex type"); // Enumeration<ActionRelationshipType>
         case -1960684787:  return getOffset(); // Type
         case -1413299531: throw new FHIRException("Cannot make property anchor as it is not a complex type"); // Enumeration<ActionRelationshipAnchor>
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -875,25 +875,25 @@ public class ActionDefinition extends Type implements ICompositeType {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
-        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // Coding
-        default: return super.getProperty(hash, checkValid);
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // Coding
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610:
+        case 3575610: // type
           this.type = castToCoding(value); // Coding
           break;
-        case 111972721:
+        case 111972721: // value
           this.value = castToCoding(value); // Coding
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -909,11 +909,11 @@ public class ActionDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610:  return getType(); // Coding
         case 111972721:  return getValue(); // Coding
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1103,25 +1103,25 @@ public class ActionDefinition extends Type implements ICompositeType {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3433509: return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
-        case -1795452264: return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case 3433509: /*path*/ return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
+        case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3433509:
+        case 3433509: // path
           this.path = castToString(value); // StringType
           break;
-        case -1795452264:
+        case -1795452264: // expression
           this.expression = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1137,11 +1137,11 @@ public class ActionDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
         case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1963,77 +1963,77 @@ public class ActionDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -889046145: return this.actionIdentifier == null ? new Base[0] : new Base[] {this.actionIdentifier}; // Identifier
-        case 102727412: return this.label == null ? new Base[0] : new Base[] {this.label}; // StringType
-        case 110371416: return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -900391049: return this.textEquivalent == null ? new Base[0] : new Base[] {this.textEquivalent}; // StringType
-        case 951024232: return this.concept.toArray(new Base[this.concept.size()]); // CodeableConcept
-        case -1735429846: return this.supportingEvidence.toArray(new Base[this.supportingEvidence.size()]); // Attachment
-        case 1587405498: return this.documentation.toArray(new Base[this.documentation.size()]); // Attachment
-        case -384107967: return this.relatedAction == null ? new Base[0] : new Base[] {this.relatedAction}; // ActionDefinitionRelatedActionComponent
-        case 841294093: return this.participantType.toArray(new Base[this.participantType.size()]); // Enumeration<ParticipantType>
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ActionType>
-        case 1510912594: return this.behavior.toArray(new Base[this.behavior.size()]); // ActionDefinitionBehaviorComponent
-        case -341064690: return this.resource == null ? new Base[0] : new Base[] {this.resource}; // Reference
-        case 1637263315: return this.customization.toArray(new Base[this.customization.size()]); // ActionDefinitionCustomizationComponent
-        case -1422950858: return this.action.toArray(new Base[this.action.size()]); // ActionDefinition
-        default: return super.getProperty(hash, checkValid);
+        case -889046145: /*actionIdentifier*/ return this.actionIdentifier == null ? new Base[0] : new Base[] {this.actionIdentifier}; // Identifier
+        case 102727412: /*label*/ return this.label == null ? new Base[0] : new Base[] {this.label}; // StringType
+        case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -900391049: /*textEquivalent*/ return this.textEquivalent == null ? new Base[0] : new Base[] {this.textEquivalent}; // StringType
+        case 951024232: /*concept*/ return this.concept == null ? new Base[0] : this.concept.toArray(new Base[this.concept.size()]); // CodeableConcept
+        case -1735429846: /*supportingEvidence*/ return this.supportingEvidence == null ? new Base[0] : this.supportingEvidence.toArray(new Base[this.supportingEvidence.size()]); // Attachment
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : this.documentation.toArray(new Base[this.documentation.size()]); // Attachment
+        case -384107967: /*relatedAction*/ return this.relatedAction == null ? new Base[0] : new Base[] {this.relatedAction}; // ActionDefinitionRelatedActionComponent
+        case 841294093: /*participantType*/ return this.participantType == null ? new Base[0] : this.participantType.toArray(new Base[this.participantType.size()]); // Enumeration<ParticipantType>
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ActionType>
+        case 1510912594: /*behavior*/ return this.behavior == null ? new Base[0] : this.behavior.toArray(new Base[this.behavior.size()]); // ActionDefinitionBehaviorComponent
+        case -341064690: /*resource*/ return this.resource == null ? new Base[0] : new Base[] {this.resource}; // Reference
+        case 1637263315: /*customization*/ return this.customization == null ? new Base[0] : this.customization.toArray(new Base[this.customization.size()]); // ActionDefinitionCustomizationComponent
+        case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // ActionDefinition
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -889046145:
+        case -889046145: // actionIdentifier
           this.actionIdentifier = castToIdentifier(value); // Identifier
           break;
-        case 102727412:
+        case 102727412: // label
           this.label = castToString(value); // StringType
           break;
-        case 110371416:
+        case 110371416: // title
           this.title = castToString(value); // StringType
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        case -900391049:
+        case -900391049: // textEquivalent
           this.textEquivalent = castToString(value); // StringType
           break;
-        case 951024232:
-          this.concept.add(castToCodeableConcept(value)); // CodeableConcept
+        case 951024232: // concept
+          this.getConcept().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1735429846:
-          this.supportingEvidence.add(castToAttachment(value)); // Attachment
+        case -1735429846: // supportingEvidence
+          this.getSupportingEvidence().add(castToAttachment(value)); // Attachment
           break;
-        case 1587405498:
-          this.documentation.add(castToAttachment(value)); // Attachment
+        case 1587405498: // documentation
+          this.getDocumentation().add(castToAttachment(value)); // Attachment
           break;
-        case -384107967:
+        case -384107967: // relatedAction
           this.relatedAction = (ActionDefinitionRelatedActionComponent) value; // ActionDefinitionRelatedActionComponent
           break;
-        case 841294093:
-          this.participantType.add(new ParticipantTypeEnumFactory().fromType(value)); // Enumeration<ParticipantType>
+        case 841294093: // participantType
+          this.getParticipantType().add(new ParticipantTypeEnumFactory().fromType(value)); // Enumeration<ParticipantType>
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = new ActionTypeEnumFactory().fromType(value); // Enumeration<ActionType>
           break;
-        case 1510912594:
-          this.behavior.add((ActionDefinitionBehaviorComponent) value); // ActionDefinitionBehaviorComponent
+        case 1510912594: // behavior
+          this.getBehavior().add((ActionDefinitionBehaviorComponent) value); // ActionDefinitionBehaviorComponent
           break;
-        case -341064690:
+        case -341064690: // resource
           this.resource = castToReference(value); // Reference
           break;
-        case 1637263315:
-          this.customization.add((ActionDefinitionCustomizationComponent) value); // ActionDefinitionCustomizationComponent
+        case 1637263315: // customization
+          this.getCustomization().add((ActionDefinitionCustomizationComponent) value); // ActionDefinitionCustomizationComponent
           break;
-        case -1422950858:
-          this.action.add(castToActionDefinition(value)); // ActionDefinition
+        case -1422950858: // action
+          this.getAction().add(castToActionDefinition(value)); // ActionDefinition
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -2075,7 +2075,7 @@ public class ActionDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -889046145:  return getActionIdentifier(); // Identifier
         case 102727412: throw new FHIRException("Cannot make property label as it is not a complex type"); // StringType
@@ -2092,7 +2092,7 @@ public class ActionDefinition extends Type implements ICompositeType {
         case -341064690:  return getResource(); // Reference
         case 1637263315:  return addCustomization(); // ActionDefinitionCustomizationComponent
         case -1422950858:  return addAction(); // ActionDefinition
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1133,49 +1133,49 @@ public class AllergyIntolerance extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 530040176: return this.substance == null ? new Base[0] : new Base[] {this.substance}; // CodeableConcept
-        case -1404142937: return this.certainty == null ? new Base[0] : new Base[] {this.certainty}; // Enumeration<AllergyIntoleranceCertainty>
-        case 1115984422: return this.manifestation.toArray(new Base[this.manifestation.size()]); // CodeableConcept
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case 105901603: return this.onset == null ? new Base[0] : new Base[] {this.onset}; // DateTimeType
-        case 1478300413: return this.severity == null ? new Base[0] : new Base[] {this.severity}; // Enumeration<AllergyIntoleranceSeverity>
-        case 421286274: return this.exposureRoute == null ? new Base[0] : new Base[] {this.exposureRoute}; // CodeableConcept
-        case 3387378: return this.note.toArray(new Base[this.note.size()]); // Annotation
-        default: return super.getProperty(hash, checkValid);
+        case 530040176: /*substance*/ return this.substance == null ? new Base[0] : new Base[] {this.substance}; // CodeableConcept
+        case -1404142937: /*certainty*/ return this.certainty == null ? new Base[0] : new Base[] {this.certainty}; // Enumeration<AllergyIntoleranceCertainty>
+        case 1115984422: /*manifestation*/ return this.manifestation == null ? new Base[0] : this.manifestation.toArray(new Base[this.manifestation.size()]); // CodeableConcept
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 105901603: /*onset*/ return this.onset == null ? new Base[0] : new Base[] {this.onset}; // DateTimeType
+        case 1478300413: /*severity*/ return this.severity == null ? new Base[0] : new Base[] {this.severity}; // Enumeration<AllergyIntoleranceSeverity>
+        case 421286274: /*exposureRoute*/ return this.exposureRoute == null ? new Base[0] : new Base[] {this.exposureRoute}; // CodeableConcept
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 530040176:
+        case 530040176: // substance
           this.substance = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1404142937:
+        case -1404142937: // certainty
           this.certainty = new AllergyIntoleranceCertaintyEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceCertainty>
           break;
-        case 1115984422:
-          this.manifestation.add(castToCodeableConcept(value)); // CodeableConcept
+        case 1115984422: // manifestation
+          this.getManifestation().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        case 105901603:
+        case 105901603: // onset
           this.onset = castToDateTime(value); // DateTimeType
           break;
-        case 1478300413:
+        case 1478300413: // severity
           this.severity = new AllergyIntoleranceSeverityEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceSeverity>
           break;
-        case 421286274:
+        case 421286274: // exposureRoute
           this.exposureRoute = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 3387378:
-          this.note.add(castToAnnotation(value)); // Annotation
+        case 3387378: // note
+          this.getNote().add(castToAnnotation(value)); // Annotation
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1203,7 +1203,7 @@ public class AllergyIntolerance extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 530040176:  return getSubstance(); // CodeableConcept
         case -1404142937: throw new FHIRException("Cannot make property certainty as it is not a complex type"); // Enumeration<AllergyIntoleranceCertainty>
@@ -1213,7 +1213,7 @@ public class AllergyIntolerance extends DomainResource {
         case 1478300413: throw new FHIRException("Cannot make property severity as it is not a complex type"); // Enumeration<AllergyIntoleranceSeverity>
         case 421286274:  return getExposureRoute(); // CodeableConcept
         case 3387378:  return addNote(); // Annotation
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -2068,73 +2068,73 @@ public class AllergyIntolerance extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<AllergyIntoleranceStatus>
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<AllergyIntoleranceType>
-        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // Enumeration<AllergyIntoleranceCategory>
-        case -1608054609: return this.criticality == null ? new Base[0] : new Base[] {this.criticality}; // Enumeration<AllergyIntoleranceCriticality>
-        case 530040176: return this.substance == null ? new Base[0] : new Base[] {this.substance}; // CodeableConcept
-        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
-        case -1952893826: return this.recordedDate == null ? new Base[0] : new Base[] {this.recordedDate}; // DateTimeType
-        case -799233858: return this.recorder == null ? new Base[0] : new Base[] {this.recorder}; // Reference
-        case -427039519: return this.reporter == null ? new Base[0] : new Base[] {this.reporter}; // Reference
-        case 105901603: return this.onset == null ? new Base[0] : new Base[] {this.onset}; // DateTimeType
-        case 1307739841: return this.lastOccurence == null ? new Base[0] : new Base[] {this.lastOccurence}; // DateTimeType
-        case 3387378: return this.note.toArray(new Base[this.note.size()]); // Annotation
-        case -867509719: return this.reaction.toArray(new Base[this.reaction.size()]); // AllergyIntoleranceReactionComponent
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<AllergyIntoleranceStatus>
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<AllergyIntoleranceType>
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Enumeration<AllergyIntoleranceCategory>
+        case -1608054609: /*criticality*/ return this.criticality == null ? new Base[0] : new Base[] {this.criticality}; // Enumeration<AllergyIntoleranceCriticality>
+        case 530040176: /*substance*/ return this.substance == null ? new Base[0] : new Base[] {this.substance}; // CodeableConcept
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -1952893826: /*recordedDate*/ return this.recordedDate == null ? new Base[0] : new Base[] {this.recordedDate}; // DateTimeType
+        case -799233858: /*recorder*/ return this.recorder == null ? new Base[0] : new Base[] {this.recorder}; // Reference
+        case -427039519: /*reporter*/ return this.reporter == null ? new Base[0] : new Base[] {this.reporter}; // Reference
+        case 105901603: /*onset*/ return this.onset == null ? new Base[0] : new Base[] {this.onset}; // DateTimeType
+        case 1307739841: /*lastOccurence*/ return this.lastOccurence == null ? new Base[0] : new Base[] {this.lastOccurence}; // DateTimeType
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
+        case -867509719: /*reaction*/ return this.reaction == null ? new Base[0] : this.reaction.toArray(new Base[this.reaction.size()]); // AllergyIntoleranceReactionComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new AllergyIntoleranceStatusEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceStatus>
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = new AllergyIntoleranceTypeEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceType>
           break;
-        case 50511102:
+        case 50511102: // category
           this.category = new AllergyIntoleranceCategoryEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceCategory>
           break;
-        case -1608054609:
+        case -1608054609: // criticality
           this.criticality = new AllergyIntoleranceCriticalityEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceCriticality>
           break;
-        case 530040176:
+        case 530040176: // substance
           this.substance = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -791418107:
+        case -791418107: // patient
           this.patient = castToReference(value); // Reference
           break;
-        case -1952893826:
+        case -1952893826: // recordedDate
           this.recordedDate = castToDateTime(value); // DateTimeType
           break;
-        case -799233858:
+        case -799233858: // recorder
           this.recorder = castToReference(value); // Reference
           break;
-        case -427039519:
+        case -427039519: // reporter
           this.reporter = castToReference(value); // Reference
           break;
-        case 105901603:
+        case 105901603: // onset
           this.onset = castToDateTime(value); // DateTimeType
           break;
-        case 1307739841:
+        case 1307739841: // lastOccurence
           this.lastOccurence = castToDateTime(value); // DateTimeType
           break;
-        case 3387378:
-          this.note.add(castToAnnotation(value)); // Annotation
+        case 3387378: // note
+          this.getNote().add(castToAnnotation(value)); // Annotation
           break;
-        case -867509719:
-          this.reaction.add((AllergyIntoleranceReactionComponent) value); // AllergyIntoleranceReactionComponent
+        case -867509719: // reaction
+          this.getReaction().add((AllergyIntoleranceReactionComponent) value); // AllergyIntoleranceReactionComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -2174,7 +2174,7 @@ public class AllergyIntolerance extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<AllergyIntoleranceStatus>
@@ -2190,7 +2190,7 @@ public class AllergyIntolerance extends DomainResource {
         case 1307739841: throw new FHIRException("Cannot make property lastOccurence as it is not a complex type"); // DateTimeType
         case 3387378:  return addNote(); // Annotation
         case -867509719:  return addReaction(); // AllergyIntoleranceReactionComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

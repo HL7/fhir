@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -123,25 +123,25 @@ public class Ratio extends Type implements ICompositeType {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 1747334793: return this.numerator == null ? new Base[0] : new Base[] {this.numerator}; // Quantity
-        case -1983274394: return this.denominator == null ? new Base[0] : new Base[] {this.denominator}; // Quantity
-        default: return super.getProperty(hash, checkValid);
+        case 1747334793: /*numerator*/ return this.numerator == null ? new Base[0] : new Base[] {this.numerator}; // Quantity
+        case -1983274394: /*denominator*/ return this.denominator == null ? new Base[0] : new Base[] {this.denominator}; // Quantity
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 1747334793:
+        case 1747334793: // numerator
           this.numerator = castToQuantity(value); // Quantity
           break;
-        case -1983274394:
+        case -1983274394: // denominator
           this.denominator = castToQuantity(value); // Quantity
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -157,11 +157,11 @@ public class Ratio extends Type implements ICompositeType {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1747334793:  return getNumerator(); // Quantity
         case -1983274394:  return getDenominator(); // Quantity
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

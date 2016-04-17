@@ -201,16 +201,18 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     }
 
     for (CodeSystem cs : definitions.getCodeSystems().values()) {
-      if (!cs.hasId())
-        throw new Exception("No id on "+cs.getUrl());
-      if (cs.getUserData("java-generated") == null && !cs.getId().startsWith("v2-")) {
-        String tns = tokenize(cs.getId());
-        JavaCodeSystemGenerator vsgen = new JavaCodeSystemGenerator(new FileOutputStream(Utilities.path(javaDir, "codesystems", tns+".java")));
-        vsgen.generate(genDate, version, cs, tns);
-        vsgen.close();
-        JavaCodeSystemFactoryGenerator vsfgen = new JavaCodeSystemFactoryGenerator(new FileOutputStream(Utilities.path(javaDir, "codesystems", tns+"EnumFactory.java")));
-        vsfgen.generate(genDate, version, cs, tns);
-        vsfgen.close();
+      if (cs != null) {
+        if (!cs.hasId())
+          throw new Exception("No id on "+cs.getUrl());
+        if (cs.getUserData("java-generated") == null && !cs.getId().startsWith("v2-")) {
+          String tns = tokenize(cs.getId());
+          JavaCodeSystemGenerator vsgen = new JavaCodeSystemGenerator(new FileOutputStream(Utilities.path(javaDir, "codesystems", tns+".java")));
+          vsgen.generate(genDate, version, cs, tns);
+          vsgen.close();
+          JavaCodeSystemFactoryGenerator vsfgen = new JavaCodeSystemFactoryGenerator(new FileOutputStream(Utilities.path(javaDir, "codesystems", tns+"EnumFactory.java")));
+          vsfgen.generate(genDate, version, cs, tns);
+          vsfgen.close();
+        }
       }
     }
     // delete old files to save people finding and deleting them

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -343,25 +343,25 @@ public class OperationDefinition extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
-        default: return super.getProperty(hash, checkValid);
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1429363305: /*telecom*/ return this.telecom == null ? new Base[0] : this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707:
+        case 3373707: // name
           this.name = castToString(value); // StringType
           break;
-        case -1429363305:
-          this.telecom.add(castToContactPoint(value)); // ContactPoint
+        case -1429363305: // telecom
+          this.getTelecom().add(castToContactPoint(value)); // ContactPoint
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -377,11 +377,11 @@ public class OperationDefinition extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case -1429363305:  return addTelecom(); // ContactPoint
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -989,57 +989,57 @@ public class OperationDefinition extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // CodeType
-        case 116103: return this.use == null ? new Base[0] : new Base[] {this.use}; // Enumeration<OperationParameterUse>
-        case 108114: return this.min == null ? new Base[0] : new Base[] {this.min}; // IntegerType
-        case 107876: return this.max == null ? new Base[0] : new Base[] {this.max}; // StringType
-        case 1587405498: return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
-        case -710454014: return this.searchType == null ? new Base[0] : new Base[] {this.searchType}; // Enumeration<SearchParamType>
-        case -309425751: return this.profile == null ? new Base[0] : new Base[] {this.profile}; // Reference
-        case -108220795: return this.binding == null ? new Base[0] : new Base[] {this.binding}; // OperationDefinitionParameterBindingComponent
-        case 3433459: return this.part.toArray(new Base[this.part.size()]); // OperationDefinitionParameterComponent
-        default: return super.getProperty(hash, checkValid);
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // CodeType
+        case 116103: /*use*/ return this.use == null ? new Base[0] : new Base[] {this.use}; // Enumeration<OperationParameterUse>
+        case 108114: /*min*/ return this.min == null ? new Base[0] : new Base[] {this.min}; // IntegerType
+        case 107876: /*max*/ return this.max == null ? new Base[0] : new Base[] {this.max}; // StringType
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
+        case -710454014: /*searchType*/ return this.searchType == null ? new Base[0] : new Base[] {this.searchType}; // Enumeration<SearchParamType>
+        case -309425751: /*profile*/ return this.profile == null ? new Base[0] : new Base[] {this.profile}; // Reference
+        case -108220795: /*binding*/ return this.binding == null ? new Base[0] : new Base[] {this.binding}; // OperationDefinitionParameterBindingComponent
+        case 3433459: /*part*/ return this.part == null ? new Base[0] : this.part.toArray(new Base[this.part.size()]); // OperationDefinitionParameterComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3373707:
+        case 3373707: // name
           this.name = castToCode(value); // CodeType
           break;
-        case 116103:
+        case 116103: // use
           this.use = new OperationParameterUseEnumFactory().fromType(value); // Enumeration<OperationParameterUse>
           break;
-        case 108114:
+        case 108114: // min
           this.min = castToInteger(value); // IntegerType
           break;
-        case 107876:
+        case 107876: // max
           this.max = castToString(value); // StringType
           break;
-        case 1587405498:
+        case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = castToCode(value); // CodeType
           break;
-        case -710454014:
+        case -710454014: // searchType
           this.searchType = new SearchParamTypeEnumFactory().fromType(value); // Enumeration<SearchParamType>
           break;
-        case -309425751:
+        case -309425751: // profile
           this.profile = castToReference(value); // Reference
           break;
-        case -108220795:
+        case -108220795: // binding
           this.binding = (OperationDefinitionParameterBindingComponent) value; // OperationDefinitionParameterBindingComponent
           break;
-        case 3433459:
-          this.part.add((OperationDefinitionParameterComponent) value); // OperationDefinitionParameterComponent
+        case 3433459: // part
+          this.getPart().add((OperationDefinitionParameterComponent) value); // OperationDefinitionParameterComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1071,7 +1071,7 @@ public class OperationDefinition extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // CodeType
         case 116103: throw new FHIRException("Cannot make property use as it is not a complex type"); // Enumeration<OperationParameterUse>
@@ -1083,7 +1083,7 @@ public class OperationDefinition extends DomainResource {
         case -309425751:  return getProfile(); // Reference
         case -108220795:  return getBinding(); // OperationDefinitionParameterBindingComponent
         case 3433459:  return addPart(); // OperationDefinitionParameterComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1316,25 +1316,25 @@ public class OperationDefinition extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 1791316033: return this.strength == null ? new Base[0] : new Base[] {this.strength}; // Enumeration<BindingStrength>
-        case -1438410321: return this.valueSet == null ? new Base[0] : new Base[] {this.valueSet}; // Type
-        default: return super.getProperty(hash, checkValid);
+        case 1791316033: /*strength*/ return this.strength == null ? new Base[0] : new Base[] {this.strength}; // Enumeration<BindingStrength>
+        case -1410174671: /*valueSet*/ return this.valueSet == null ? new Base[0] : new Base[] {this.valueSet}; // Type
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 1791316033:
+        case 1791316033: // strength
           this.strength = new BindingStrengthEnumFactory().fromType(value); // Enumeration<BindingStrength>
           break;
-        case -1438410321:
+        case -1410174671: // valueSet
           this.valueSet = (Type) value; // Type
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1350,11 +1350,11 @@ public class OperationDefinition extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1791316033: throw new FHIRException("Cannot make property strength as it is not a complex type"); // Enumeration<BindingStrength>
         case -1438410321:  return getValueSet(); // Type
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -2529,97 +2529,97 @@ public class OperationDefinition extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
-        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
-        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
-        case 3292052: return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<OperationKind>
-        case -404562712: return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
-        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
-        case 1447404028: return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
-        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // OperationDefinitionContactComponent
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -669707736: return this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
-        case -1619874672: return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // StringType
-        case 1680468793: return this.idempotent == null ? new Base[0] : new Base[] {this.idempotent}; // BooleanType
-        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
-        case 950398559: return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
-        case 3016401: return this.base == null ? new Base[0] : new Base[] {this.base}; // Reference
-        case -887328209: return this.system == null ? new Base[0] : new Base[] {this.system}; // BooleanType
-        case 3575610: return this.type.toArray(new Base[this.type.size()]); // CodeType
-        case 555127957: return this.instance == null ? new Base[0] : new Base[] {this.instance}; // BooleanType
-        case 1954460585: return this.parameter.toArray(new Base[this.parameter.size()]); // OperationDefinitionParameterComponent
-        default: return super.getProperty(hash, checkValid);
+        case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<OperationKind>
+        case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
+        case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // OperationDefinitionContactComponent
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
+        case -1619874672: /*requirements*/ return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // StringType
+        case 1680468793: /*idempotent*/ return this.idempotent == null ? new Base[0] : new Base[] {this.idempotent}; // BooleanType
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        case 3016401: /*base*/ return this.base == null ? new Base[0] : new Base[] {this.base}; // Reference
+        case -887328209: /*system*/ return this.system == null ? new Base[0] : new Base[] {this.system}; // BooleanType
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : this.type.toArray(new Base[this.type.size()]); // CodeType
+        case 555127957: /*instance*/ return this.instance == null ? new Base[0] : new Base[] {this.instance}; // BooleanType
+        case 1954460585: /*parameter*/ return this.parameter == null ? new Base[0] : this.parameter.toArray(new Base[this.parameter.size()]); // OperationDefinitionParameterComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 116079:
+        case 116079: // url
           this.url = castToUri(value); // UriType
           break;
-        case 351608024:
+        case 351608024: // version
           this.version = castToString(value); // StringType
           break;
-        case 3373707:
+        case 3373707: // name
           this.name = castToString(value); // StringType
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
           break;
-        case 3292052:
+        case 3292052: // kind
           this.kind = new OperationKindEnumFactory().fromType(value); // Enumeration<OperationKind>
           break;
-        case -404562712:
+        case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
           break;
-        case 3076014:
+        case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
           break;
-        case 1447404028:
+        case 1447404028: // publisher
           this.publisher = castToString(value); // StringType
           break;
-        case 951526432:
-          this.contact.add((OperationDefinitionContactComponent) value); // OperationDefinitionContactComponent
+        case 951526432: // contact
+          this.getContact().add((OperationDefinitionContactComponent) value); // OperationDefinitionContactComponent
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        case -669707736:
-          this.useContext.add(castToCodeableConcept(value)); // CodeableConcept
+        case -669707736: // useContext
+          this.getUseContext().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1619874672:
+        case -1619874672: // requirements
           this.requirements = castToString(value); // StringType
           break;
-        case 1680468793:
+        case 1680468793: // idempotent
           this.idempotent = castToBoolean(value); // BooleanType
           break;
-        case 3059181:
+        case 3059181: // code
           this.code = castToCode(value); // CodeType
           break;
-        case 950398559:
+        case 950398559: // comment
           this.comment = castToString(value); // StringType
           break;
-        case 3016401:
+        case 3016401: // base
           this.base = castToReference(value); // Reference
           break;
-        case -887328209:
+        case -887328209: // system
           this.system = castToBoolean(value); // BooleanType
           break;
-        case 3575610:
-          this.type.add(castToCode(value)); // CodeType
+        case 3575610: // type
+          this.getType().add(castToCode(value)); // CodeType
           break;
-        case 555127957:
+        case 555127957: // instance
           this.instance = castToBoolean(value); // BooleanType
           break;
-        case 1954460585:
-          this.parameter.add((OperationDefinitionParameterComponent) value); // OperationDefinitionParameterComponent
+        case 1954460585: // parameter
+          this.getParameter().add((OperationDefinitionParameterComponent) value); // OperationDefinitionParameterComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -2671,7 +2671,7 @@ public class OperationDefinition extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
@@ -2693,7 +2693,7 @@ public class OperationDefinition extends DomainResource {
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
         case 555127957: throw new FHIRException("Cannot make property instance as it is not a complex type"); // BooleanType
         case 1954460585:  return addParameter(); // OperationDefinitionParameterComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

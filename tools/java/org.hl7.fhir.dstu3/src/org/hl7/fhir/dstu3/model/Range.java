@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -123,25 +123,25 @@ public class Range extends Type implements ICompositeType {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 107348: return this.low == null ? new Base[0] : new Base[] {this.low}; // SimpleQuantity
-        case 3202466: return this.high == null ? new Base[0] : new Base[] {this.high}; // SimpleQuantity
-        default: return super.getProperty(hash, checkValid);
+        case 107348: /*low*/ return this.low == null ? new Base[0] : new Base[] {this.low}; // SimpleQuantity
+        case 3202466: /*high*/ return this.high == null ? new Base[0] : new Base[] {this.high}; // SimpleQuantity
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 107348:
+        case 107348: // low
           this.low = castToSimpleQuantity(value); // SimpleQuantity
           break;
-        case 3202466:
+        case 3202466: // high
           this.high = castToSimpleQuantity(value); // SimpleQuantity
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -157,11 +157,11 @@ public class Range extends Type implements ICompositeType {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 107348:  return getLow(); // SimpleQuantity
         case 3202466:  return getHigh(); // SimpleQuantity
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

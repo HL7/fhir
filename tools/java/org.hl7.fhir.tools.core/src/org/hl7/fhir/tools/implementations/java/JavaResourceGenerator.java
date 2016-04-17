@@ -853,7 +853,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	
   private void generatePropertyMaker(ElementDefn p, String indent) throws Exception {
     write(indent+"  @Override\r\n");
-    write(indent+"  public Base makeProperty(int hash) throws FHIRException {\r\n");
+    write(indent+"  public Base makeProperty(int hash, String name) throws FHIRException {\r\n");
     write(indent+"    switch (hash) {\r\n");
     for (ElementDefn e : p.getElements()) {
       String tn = typeNames.get(e);
@@ -869,7 +869,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         }
       }
     }
-    write(indent+"    default: return super.makeProperty(hash);\r\n");
+    write(indent+"    default: return super.makeProperty(hash, name);\r\n");
     write(indent+"    }\r\n\r\n");  
     write(indent+"  }\r\n\r\n");  
   }
@@ -909,13 +909,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
   private void generatePropertySetterId(ElementDefn p, String indent) throws Exception {
     write(indent+"  @Override\r\n");
-    write(indent+"  public void setProperty(int hash, Base value) throws FHIRException {\r\n");
+    write(indent+"  public void setProperty(int hash, String name, Base value) throws FHIRException {\r\n");
     write(indent+"    switch (hash) {\r\n");
     for (ElementDefn e : p.getElements()) {
       String tn = typeNames.get(e);
       if (!e.typeCode().equals("xhtml")) {
-        write(indent+"    case "+propId(e.getName())+":\r\n");
         String name = e.getName().replace("[x]", "");
+        write(indent+"    case "+propId(name)+": // "+name+"\r\n");
         String cn = "("+tn+") value";
         if (tn.contains("Enumeration<")) { // enumeration
           cn = "new "+tn.substring(tn.indexOf("<")+1, tn.length()-1)+"EnumFactory().fromType(value)";
@@ -923,35 +923,35 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           cn = "castTo"+upFirst(e.getTypes().get(0).getName())+"(value)";
         }
         if (e.unbounded()) {
-          write(indent+"      this."+getElementName(name, true)+".add("+cn+"); // "+tn+"\r\n");
+          write(indent+"      this.get"+upFirst(getElementName(name, false))+"().add("+cn+"); // "+tn+"\r\n");
         } else {
           write(indent+"      this."+getElementName(name, true)+" = "+cn+"; // "+tn+"\r\n");
         }
         write(indent+"      break;\r\n");
       }
     }
-    write(indent+"    default: super.setProperty(hash, value);\r\n");
+    write(indent+"    default: super.setProperty(hash, name, value);\r\n");
     write(indent+"    }\r\n\r\n");  
     write(indent+"  }\r\n\r\n");  
   }
 
   private void generatePropertyGetterId(ElementDefn p, String indent) throws Exception {
     write(indent+"  @Override\r\n");
-    write(indent+"  public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {\r\n");
+    write(indent+"  public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {\r\n");
     write(indent+"    switch (hash) {\r\n");
     for (ElementDefn e : p.getElements()) {
       String tn = typeNames.get(e);
       if (!e.typeCode().equals("xhtml")) {
-        write(indent+"    case "+propId(e.getName())+": ");
         String name = e.getName().replace("[x]", "");
+        write(indent+"    case "+propId(name)+": /*"+name+"*/ ");
         if (e.unbounded()) {
-          write("return this."+getElementName(name, true)+".toArray(new Base[this."+getElementName(name, true)+".size()]); // "+tn+"\r\n");
+          write("return this."+getElementName(name, true)+" == null ? new Base[0] : this."+getElementName(name, true)+".toArray(new Base[this."+getElementName(name, true)+".size()]); // "+tn+"\r\n");
         } else {
           write("return this."+getElementName(name, true)+" == null ? new Base[0] : new Base[] {this."+getElementName(name, true)+"}; // "+tn+"\r\n");
         }
       }
     }
-    write(indent+"    default: return super.getProperty(hash, checkValid);\r\n");
+    write(indent+"    default: return super.getProperty(hash, name, checkValid);\r\n");
     write(indent+"    }\r\n\r\n");  
     write(indent+"  }\r\n\r\n");  
   }

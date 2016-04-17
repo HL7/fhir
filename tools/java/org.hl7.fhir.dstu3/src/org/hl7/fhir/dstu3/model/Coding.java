@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -353,37 +353,37 @@ public class Coding extends Type implements IBaseCoding, ICompositeType {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -887328209: return this.system == null ? new Base[0] : new Base[] {this.system}; // UriType
-        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
-        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
-        case 1671764162: return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
-        case 423643014: return this.userSelected == null ? new Base[0] : new Base[] {this.userSelected}; // BooleanType
-        default: return super.getProperty(hash, checkValid);
+        case -887328209: /*system*/ return this.system == null ? new Base[0] : new Base[] {this.system}; // UriType
+        case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case 1671764162: /*display*/ return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
+        case 423643014: /*userSelected*/ return this.userSelected == null ? new Base[0] : new Base[] {this.userSelected}; // BooleanType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -887328209:
+        case -887328209: // system
           this.system = castToUri(value); // UriType
           break;
-        case 351608024:
+        case 351608024: // version
           this.version = castToString(value); // StringType
           break;
-        case 3059181:
+        case 3059181: // code
           this.code = castToCode(value); // CodeType
           break;
-        case 1671764162:
+        case 1671764162: // display
           this.display = castToString(value); // StringType
           break;
-        case 423643014:
+        case 423643014: // userSelected
           this.userSelected = castToBoolean(value); // BooleanType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -405,14 +405,14 @@ public class Coding extends Type implements IBaseCoding, ICompositeType {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // UriType
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
         case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
         case 423643014: throw new FHIRException("Cannot make property userSelected as it is not a complex type"); // BooleanType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -244,21 +244,21 @@ public class ProcessRequest extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1422298666: return this.sequenceLinkId == null ? new Base[0] : new Base[] {this.sequenceLinkId}; // IntegerType
-        default: return super.getProperty(hash, checkValid);
+        case -1422298666: /*sequenceLinkId*/ return this.sequenceLinkId == null ? new Base[0] : new Base[] {this.sequenceLinkId}; // IntegerType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1422298666:
+        case -1422298666: // sequenceLinkId
           this.sequenceLinkId = castToInteger(value); // IntegerType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -272,10 +272,10 @@ public class ProcessRequest extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1422298666: throw new FHIRException("Cannot make property sequenceLinkId as it is not a complex type"); // IntegerType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1150,81 +1150,81 @@ public class ProcessRequest extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1422950858: return this.action == null ? new Base[0] : new Base[] {this.action}; // Enumeration<ActionList>
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case 1548678118: return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
-        case 1089373397: return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
-        case 1028554472: return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
-        case -815579825: return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
-        case 2064698607: return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Type
-        case 1326483053: return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Type
-        case 37106577: return this.request == null ? new Base[0] : new Base[] {this.request}; // Type
-        case 1847549087: return this.response == null ? new Base[0] : new Base[] {this.response}; // Type
-        case -2001137643: return this.nullify == null ? new Base[0] : new Base[] {this.nullify}; // BooleanType
-        case -925155509: return this.reference == null ? new Base[0] : new Base[] {this.reference}; // StringType
-        case 3242771: return this.item.toArray(new Base[this.item.size()]); // ItemsComponent
-        case 1942574248: return this.include.toArray(new Base[this.include.size()]); // StringType
-        case -1321148966: return this.exclude.toArray(new Base[this.exclude.size()]); // StringType
-        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        default: return super.getProperty(hash, checkValid);
+        case -1422950858: /*action*/ return this.action == null ? new Base[0] : new Base[] {this.action}; // Enumeration<ActionList>
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 1548678118: /*ruleset*/ return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
+        case 1089373397: /*originalRuleset*/ return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
+        case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
+        case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
+        case -987494927: /*provider*/ return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Type
+        case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Type
+        case 1095692943: /*request*/ return this.request == null ? new Base[0] : new Base[] {this.request}; // Type
+        case -340323263: /*response*/ return this.response == null ? new Base[0] : new Base[] {this.response}; // Type
+        case -2001137643: /*nullify*/ return this.nullify == null ? new Base[0] : new Base[] {this.nullify}; // BooleanType
+        case -925155509: /*reference*/ return this.reference == null ? new Base[0] : new Base[] {this.reference}; // StringType
+        case 3242771: /*item*/ return this.item == null ? new Base[0] : this.item.toArray(new Base[this.item.size()]); // ItemsComponent
+        case 1942574248: /*include*/ return this.include == null ? new Base[0] : this.include.toArray(new Base[this.include.size()]); // StringType
+        case -1321148966: /*exclude*/ return this.exclude == null ? new Base[0] : this.exclude.toArray(new Base[this.exclude.size()]); // StringType
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1422950858:
+        case -1422950858: // action
           this.action = new ActionListEnumFactory().fromType(value); // Enumeration<ActionList>
           break;
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case 1548678118:
+        case 1548678118: // ruleset
           this.ruleset = castToCoding(value); // Coding
           break;
-        case 1089373397:
+        case 1089373397: // originalRuleset
           this.originalRuleset = castToCoding(value); // Coding
           break;
-        case 1028554472:
+        case 1028554472: // created
           this.created = castToDateTime(value); // DateTimeType
           break;
-        case -815579825:
+        case -880905839: // target
           this.target = (Type) value; // Type
           break;
-        case 2064698607:
+        case -987494927: // provider
           this.provider = (Type) value; // Type
           break;
-        case 1326483053:
+        case 1178922291: // organization
           this.organization = (Type) value; // Type
           break;
-        case 37106577:
+        case 1095692943: // request
           this.request = (Type) value; // Type
           break;
-        case 1847549087:
+        case -340323263: // response
           this.response = (Type) value; // Type
           break;
-        case -2001137643:
+        case -2001137643: // nullify
           this.nullify = castToBoolean(value); // BooleanType
           break;
-        case -925155509:
+        case -925155509: // reference
           this.reference = castToString(value); // StringType
           break;
-        case 3242771:
-          this.item.add((ItemsComponent) value); // ItemsComponent
+        case 3242771: // item
+          this.getItem().add((ItemsComponent) value); // ItemsComponent
           break;
-        case 1942574248:
-          this.include.add(castToString(value)); // StringType
+        case 1942574248: // include
+          this.getInclude().add(castToString(value)); // StringType
           break;
-        case -1321148966:
-          this.exclude.add(castToString(value)); // StringType
+        case -1321148966: // exclude
+          this.getExclude().add(castToString(value)); // StringType
           break;
-        case -991726143:
+        case -991726143: // period
           this.period = castToPeriod(value); // Period
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1268,7 +1268,7 @@ public class ProcessRequest extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1422950858: throw new FHIRException("Cannot make property action as it is not a complex type"); // Enumeration<ActionList>
         case -1618432855:  return addIdentifier(); // Identifier
@@ -1286,7 +1286,7 @@ public class ProcessRequest extends DomainResource {
         case 1942574248: throw new FHIRException("Cannot make property include as it is not a complex type"); // StringType
         case -1321148966: throw new FHIRException("Cannot make property exclude as it is not a complex type"); // StringType
         case -991726143:  return getPeriod(); // Period
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

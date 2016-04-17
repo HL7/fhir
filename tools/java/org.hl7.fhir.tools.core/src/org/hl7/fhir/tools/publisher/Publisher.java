@@ -124,6 +124,7 @@ import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.metamodel.Manager;
 import org.hl7.fhir.dstu3.metamodel.Manager.FhirFormat;
+import org.hl7.fhir.dstu3.metamodel.ParserBase.ValidationPolicy;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
@@ -3114,7 +3115,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       String type = base.getAttribute("fragment");
       if (!page.getDefinitions().hasPrimitiveType(type)) {
         try {
-          new org.hl7.fhir.dstu3.metamodel.XmlParser(page.getWorkerContext(), true).parse(XMLUtil.getFirstChild(base), type);
+          org.hl7.fhir.dstu3.metamodel.XmlParser p = new org.hl7.fhir.dstu3.metamodel.XmlParser(page.getWorkerContext());
+          p.setupValidation(ValidationPolicy.QUICK, null);
+          p.parse(XMLUtil.getFirstChild(base), type);
         } catch (Exception e) {
           page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, "Fragment Error in page " + f.getPage() + ": " + e.getMessage(), IssueSeverity.ERROR));
         }
@@ -3605,6 +3608,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       cs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
       cs.setUserData("committee", "fhir");
       cs.setUserData("path", prefix +n + ".html");
+      addToResourceFeed(cs, valueSetsFeed, file.getName());
       page.getCodeSystems().put(cs.getUrl(), cs);
     } else if (rt.equals("ConceptMap")) {
       ConceptMap cm = (ConceptMap) new XmlParser().parse(new FileInputStream(file));
@@ -3621,7 +3625,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     e.setResourceName(resourceName);
     String canonical = "http://hl7.org/fhir/";
     
-    org.hl7.fhir.dstu3.metamodel.Element ex = Manager.parse(page.getWorkerContext(), new CSFileInputStream(page.getFolders().dstDir + prefix+n + ".xml"), FhirFormat.XML, true);
+    org.hl7.fhir.dstu3.metamodel.Element ex = Manager.parse(page.getWorkerContext(), new CSFileInputStream(page.getFolders().dstDir + prefix+n + ".xml"), FhirFormat.XML);
     Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".json"), FhirFormat.JSON, OutputStyle.PRETTY, canonical); 
     Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".jsonld"), FhirFormat.JSONLD, OutputStyle.PRETTY, canonical); 
 //    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(Utilities.changeFileExt(destName, ".canonical.json")), FhirFormat.JSON, OutputStyle.CANONICAL); 
@@ -5572,16 +5576,18 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void generateCodeSystemsPart1() throws Exception {
     page.log(" ...code systems", LogMessageType.Process);
     for (CodeSystem cs : page.getDefinitions().getCodeSystems().values()) {
-      if (!cs.hasText()) {
-        cs.setText(new Narrative());
-        cs.getText().setStatus(NarrativeStatus.EMPTY);
+      if (cs != null) {
+        if (!cs.hasText()) {
+          cs.setText(new Narrative());
+          cs.getText().setStatus(NarrativeStatus.EMPTY);
+        }
+        if (!cs.getText().hasDiv()) {
+          cs.getText().setDiv(new XhtmlNode(NodeType.Element));
+          cs.getText().getDiv().setName("div");
+        }
+        //      if (ToolingExtensions.getOID(cs) == null)
+        //        throw new Exception("No OID on code system "+cs.getUrl());
       }
-      if (!cs.getText().hasDiv()) {
-        cs.getText().setDiv(new XhtmlNode(NodeType.Element));
-        cs.getText().getDiv().setName("div");
-      }
-//      if (ToolingExtensions.getOID(cs) == null)
-//        throw new Exception("No OID on code system "+cs.getUrl());
     }
   }
 

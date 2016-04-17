@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -589,53 +589,53 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3556653: return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
-        case -873664438: return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Timing
-        case -544329575: return this.asNeeded == null ? new Base[0] : new Base[] {this.asNeeded}; // Type
-        case 2099997657: return this.site == null ? new Base[0] : new Base[] {this.site}; // Type
-        case 108704329: return this.route == null ? new Base[0] : new Base[] {this.route}; // CodeableConcept
-        case -1077554975: return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
-        case -515002347: return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Type
-        case 983460768: return this.rate == null ? new Base[0] : new Base[] {this.rate}; // Type
-        case 1506263709: return this.maxDosePerPeriod == null ? new Base[0] : new Base[] {this.maxDosePerPeriod}; // Ratio
-        default: return super.getProperty(hash, checkValid);
+        case 3556653: /*text*/ return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Timing
+        case -1432923513: /*asNeeded*/ return this.asNeeded == null ? new Base[0] : new Base[] {this.asNeeded}; // Type
+        case 3530567: /*site*/ return this.site == null ? new Base[0] : new Base[] {this.site}; // Type
+        case 108704329: /*route*/ return this.route == null ? new Base[0] : new Base[] {this.route}; // CodeableConcept
+        case -1077554975: /*method*/ return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Type
+        case 3493088: /*rate*/ return this.rate == null ? new Base[0] : new Base[] {this.rate}; // Type
+        case 1506263709: /*maxDosePerPeriod*/ return this.maxDosePerPeriod == null ? new Base[0] : new Base[] {this.maxDosePerPeriod}; // Ratio
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3556653:
+        case 3556653: // text
           this.text = castToString(value); // StringType
           break;
-        case -873664438:
+        case -873664438: // timing
           this.timing = castToTiming(value); // Timing
           break;
-        case -544329575:
+        case -1432923513: // asNeeded
           this.asNeeded = (Type) value; // Type
           break;
-        case 2099997657:
+        case 3530567: // site
           this.site = (Type) value; // Type
           break;
-        case 108704329:
+        case 108704329: // route
           this.route = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1077554975:
+        case -1077554975: // method
           this.method = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -515002347:
+        case -1285004149: // quantity
           this.quantity = (Type) value; // Type
           break;
-        case 983460768:
+        case 3493088: // rate
           this.rate = (Type) value; // Type
           break;
-        case 1506263709:
+        case 1506263709: // maxDosePerPeriod
           this.maxDosePerPeriod = castToRatio(value); // Ratio
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -665,7 +665,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
         case -873664438:  return getTiming(); // Timing
@@ -676,7 +676,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         case -515002347:  return getQuantity(); // Type
         case 983460768:  return getRate(); // Type
         case 1506263709:  return getMaxDosePerPeriod(); // Ratio
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1568,73 +1568,73 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationStatementStatus>
-        case 1458402129: return this.medication == null ? new Base[0] : new Base[] {this.medication}; // Type
-        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
-        case 247104889: return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
-        case -2123220889: return this.informationSource == null ? new Base[0] : new Base[] {this.informationSource}; // Reference
-        case -1248768647: return this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
-        case -1980855245: return this.dateAsserted == null ? new Base[0] : new Base[] {this.dateAsserted}; // DateTimeType
-        case -1039154243: return this.wasNotTaken == null ? new Base[0] : new Base[] {this.wasNotTaken}; // BooleanType
-        case 2112880664: return this.reasonNotTaken.toArray(new Base[this.reasonNotTaken.size()]); // CodeableConcept
-        case -1558446993: return this.reasonForUseCode.toArray(new Base[this.reasonForUseCode.size()]); // CodeableConcept
-        case -370888183: return this.reasonForUseReference.toArray(new Base[this.reasonForUseReference.size()]); // Reference
-        case 3387378: return this.note.toArray(new Base[this.note.size()]); // Annotation
-        case -1326018889: return this.dosage.toArray(new Base[this.dosage.size()]); // MedicationStatementDosageComponent
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationStatementStatus>
+        case 1998965455: /*medication*/ return this.medication == null ? new Base[0] : new Base[] {this.medication}; // Type
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
+        case -2123220889: /*informationSource*/ return this.informationSource == null ? new Base[0] : new Base[] {this.informationSource}; // Reference
+        case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
+        case -1980855245: /*dateAsserted*/ return this.dateAsserted == null ? new Base[0] : new Base[] {this.dateAsserted}; // DateTimeType
+        case -1039154243: /*wasNotTaken*/ return this.wasNotTaken == null ? new Base[0] : new Base[] {this.wasNotTaken}; // BooleanType
+        case 2112880664: /*reasonNotTaken*/ return this.reasonNotTaken == null ? new Base[0] : this.reasonNotTaken.toArray(new Base[this.reasonNotTaken.size()]); // CodeableConcept
+        case -1558446993: /*reasonForUseCode*/ return this.reasonForUseCode == null ? new Base[0] : this.reasonForUseCode.toArray(new Base[this.reasonForUseCode.size()]); // CodeableConcept
+        case -370888183: /*reasonForUseReference*/ return this.reasonForUseReference == null ? new Base[0] : this.reasonForUseReference.toArray(new Base[this.reasonForUseReference.size()]); // Reference
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
+        case -1326018889: /*dosage*/ return this.dosage == null ? new Base[0] : this.dosage.toArray(new Base[this.dosage.size()]); // MedicationStatementDosageComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new MedicationStatementStatusEnumFactory().fromType(value); // Enumeration<MedicationStatementStatus>
           break;
-        case 1458402129:
+        case 1998965455: // medication
           this.medication = (Type) value; // Type
           break;
-        case -791418107:
+        case -791418107: // patient
           this.patient = castToReference(value); // Reference
           break;
-        case 247104889:
+        case -1468651097: // effective
           this.effective = (Type) value; // Type
           break;
-        case -2123220889:
+        case -2123220889: // informationSource
           this.informationSource = castToReference(value); // Reference
           break;
-        case -1248768647:
-          this.supportingInformation.add(castToReference(value)); // Reference
+        case -1248768647: // supportingInformation
+          this.getSupportingInformation().add(castToReference(value)); // Reference
           break;
-        case -1980855245:
+        case -1980855245: // dateAsserted
           this.dateAsserted = castToDateTime(value); // DateTimeType
           break;
-        case -1039154243:
+        case -1039154243: // wasNotTaken
           this.wasNotTaken = castToBoolean(value); // BooleanType
           break;
-        case 2112880664:
-          this.reasonNotTaken.add(castToCodeableConcept(value)); // CodeableConcept
+        case 2112880664: // reasonNotTaken
+          this.getReasonNotTaken().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1558446993:
-          this.reasonForUseCode.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1558446993: // reasonForUseCode
+          this.getReasonForUseCode().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -370888183:
-          this.reasonForUseReference.add(castToReference(value)); // Reference
+        case -370888183: // reasonForUseReference
+          this.getReasonForUseReference().add(castToReference(value)); // Reference
           break;
-        case 3387378:
-          this.note.add(castToAnnotation(value)); // Annotation
+        case 3387378: // note
+          this.getNote().add(castToAnnotation(value)); // Annotation
           break;
-        case -1326018889:
-          this.dosage.add((MedicationStatementDosageComponent) value); // MedicationStatementDosageComponent
+        case -1326018889: // dosage
+          this.getDosage().add((MedicationStatementDosageComponent) value); // MedicationStatementDosageComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1674,7 +1674,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<MedicationStatementStatus>
@@ -1690,7 +1690,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         case -370888183:  return addReasonForUseReference(); // Reference
         case 3387378:  return addNote(); // Annotation
         case -1326018889:  return addDosage(); // MedicationStatementDosageComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

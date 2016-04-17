@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -506,45 +506,45 @@ public class SampledData extends Type implements ICompositeType {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1008619738: return this.origin == null ? new Base[0] : new Base[] {this.origin}; // SimpleQuantity
-        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // DecimalType
-        case -1282148017: return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
-        case 1209133370: return this.lowerLimit == null ? new Base[0] : new Base[] {this.lowerLimit}; // DecimalType
-        case -1681713095: return this.upperLimit == null ? new Base[0] : new Base[] {this.upperLimit}; // DecimalType
-        case 414334925: return this.dimensions == null ? new Base[0] : new Base[] {this.dimensions}; // PositiveIntType
-        case 3076010: return this.data == null ? new Base[0] : new Base[] {this.data}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case -1008619738: /*origin*/ return this.origin == null ? new Base[0] : new Base[] {this.origin}; // SimpleQuantity
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // DecimalType
+        case -1282148017: /*factor*/ return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
+        case 1209133370: /*lowerLimit*/ return this.lowerLimit == null ? new Base[0] : new Base[] {this.lowerLimit}; // DecimalType
+        case -1681713095: /*upperLimit*/ return this.upperLimit == null ? new Base[0] : new Base[] {this.upperLimit}; // DecimalType
+        case 414334925: /*dimensions*/ return this.dimensions == null ? new Base[0] : new Base[] {this.dimensions}; // PositiveIntType
+        case 3076010: /*data*/ return this.data == null ? new Base[0] : new Base[] {this.data}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1008619738:
+        case -1008619738: // origin
           this.origin = castToSimpleQuantity(value); // SimpleQuantity
           break;
-        case -991726143:
+        case -991726143: // period
           this.period = castToDecimal(value); // DecimalType
           break;
-        case -1282148017:
+        case -1282148017: // factor
           this.factor = castToDecimal(value); // DecimalType
           break;
-        case 1209133370:
+        case 1209133370: // lowerLimit
           this.lowerLimit = castToDecimal(value); // DecimalType
           break;
-        case -1681713095:
+        case -1681713095: // upperLimit
           this.upperLimit = castToDecimal(value); // DecimalType
           break;
-        case 414334925:
+        case 414334925: // dimensions
           this.dimensions = castToPositiveInt(value); // PositiveIntType
           break;
-        case 3076010:
+        case 3076010: // data
           this.data = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -570,7 +570,7 @@ public class SampledData extends Type implements ICompositeType {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1008619738:  return getOrigin(); // SimpleQuantity
         case -991726143: throw new FHIRException("Cannot make property period as it is not a complex type"); // DecimalType
@@ -579,7 +579,7 @@ public class SampledData extends Type implements ICompositeType {
         case -1681713095: throw new FHIRException("Cannot make property upperLimit as it is not a complex type"); // DecimalType
         case 414334925: throw new FHIRException("Cannot make property dimensions as it is not a complex type"); // PositiveIntType
         case 3076010: throw new FHIRException("Cannot make property data as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

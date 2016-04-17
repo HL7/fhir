@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -636,61 +636,61 @@ public class Account extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<AccountStatus>
-        case 1325532263: return this.activePeriod == null ? new Base[0] : new Base[] {this.activePeriod}; // Period
-        case 575402001: return this.currency == null ? new Base[0] : new Base[] {this.currency}; // Coding
-        case -339185956: return this.balance == null ? new Base[0] : new Base[] {this.balance}; // Money
-        case 1024117193: return this.coveragePeriod == null ? new Base[0] : new Base[] {this.coveragePeriod}; // Period
-        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 106164915: return this.owner == null ? new Base[0] : new Base[] {this.owner}; // Reference
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<AccountStatus>
+        case 1325532263: /*activePeriod*/ return this.activePeriod == null ? new Base[0] : new Base[] {this.activePeriod}; // Period
+        case 575402001: /*currency*/ return this.currency == null ? new Base[0] : new Base[] {this.currency}; // Coding
+        case -339185956: /*balance*/ return this.balance == null ? new Base[0] : new Base[] {this.balance}; // Money
+        case 1024117193: /*coveragePeriod*/ return this.coveragePeriod == null ? new Base[0] : new Base[] {this.coveragePeriod}; // Period
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 106164915: /*owner*/ return this.owner == null ? new Base[0] : new Base[] {this.owner}; // Reference
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case 3373707:
+        case 3373707: // name
           this.name = castToString(value); // StringType
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new AccountStatusEnumFactory().fromType(value); // Enumeration<AccountStatus>
           break;
-        case 1325532263:
+        case 1325532263: // activePeriod
           this.activePeriod = castToPeriod(value); // Period
           break;
-        case 575402001:
+        case 575402001: // currency
           this.currency = castToCoding(value); // Coding
           break;
-        case -339185956:
+        case -339185956: // balance
           this.balance = castToMoney(value); // Money
           break;
-        case 1024117193:
+        case 1024117193: // coveragePeriod
           this.coveragePeriod = castToPeriod(value); // Period
           break;
-        case -1867885268:
+        case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           break;
-        case 106164915:
+        case 106164915: // owner
           this.owner = castToReference(value); // Reference
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -724,7 +724,7 @@ public class Account extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
@@ -737,7 +737,7 @@ public class Account extends DomainResource {
         case -1867885268:  return getSubject(); // Reference
         case 106164915:  return getOwner(); // Reference
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

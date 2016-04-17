@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -723,61 +723,61 @@ public class ImagingStudy extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 115792: return this.uid == null ? new Base[0] : new Base[] {this.uid}; // OidType
-        case -1034364087: return this.number == null ? new Base[0] : new Base[] {this.number}; // UnsignedIntType
-        case -622722335: return this.modality == null ? new Base[0] : new Base[] {this.modality}; // Coding
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -1043544226: return this.numberOfInstances == null ? new Base[0] : new Base[] {this.numberOfInstances}; // UnsignedIntType
-        case 1997542747: return this.availability == null ? new Base[0] : new Base[] {this.availability}; // Enumeration<InstanceAvailability>
-        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
-        case 1702620169: return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // Coding
-        case -170291817: return this.laterality == null ? new Base[0] : new Base[] {this.laterality}; // Coding
-        case -1897185151: return this.started == null ? new Base[0] : new Base[] {this.started}; // DateTimeType
-        case 555127957: return this.instance.toArray(new Base[this.instance.size()]); // ImagingStudySeriesInstanceComponent
-        default: return super.getProperty(hash, checkValid);
+        case 115792: /*uid*/ return this.uid == null ? new Base[0] : new Base[] {this.uid}; // OidType
+        case -1034364087: /*number*/ return this.number == null ? new Base[0] : new Base[] {this.number}; // UnsignedIntType
+        case -622722335: /*modality*/ return this.modality == null ? new Base[0] : new Base[] {this.modality}; // Coding
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -1043544226: /*numberOfInstances*/ return this.numberOfInstances == null ? new Base[0] : new Base[] {this.numberOfInstances}; // UnsignedIntType
+        case 1997542747: /*availability*/ return this.availability == null ? new Base[0] : new Base[] {this.availability}; // Enumeration<InstanceAvailability>
+        case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // Coding
+        case -170291817: /*laterality*/ return this.laterality == null ? new Base[0] : new Base[] {this.laterality}; // Coding
+        case -1897185151: /*started*/ return this.started == null ? new Base[0] : new Base[] {this.started}; // DateTimeType
+        case 555127957: /*instance*/ return this.instance == null ? new Base[0] : this.instance.toArray(new Base[this.instance.size()]); // ImagingStudySeriesInstanceComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 115792:
+        case 115792: // uid
           this.uid = castToOid(value); // OidType
           break;
-        case -1034364087:
+        case -1034364087: // number
           this.number = castToUnsignedInt(value); // UnsignedIntType
           break;
-        case -622722335:
+        case -622722335: // modality
           this.modality = castToCoding(value); // Coding
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        case -1043544226:
+        case -1043544226: // numberOfInstances
           this.numberOfInstances = castToUnsignedInt(value); // UnsignedIntType
           break;
-        case 1997542747:
+        case 1997542747: // availability
           this.availability = new InstanceAvailabilityEnumFactory().fromType(value); // Enumeration<InstanceAvailability>
           break;
-        case 116079:
+        case 116079: // url
           this.url = castToUri(value); // UriType
           break;
-        case 1702620169:
+        case 1702620169: // bodySite
           this.bodySite = castToCoding(value); // Coding
           break;
-        case -170291817:
+        case -170291817: // laterality
           this.laterality = castToCoding(value); // Coding
           break;
-        case -1897185151:
+        case -1897185151: // started
           this.started = castToDateTime(value); // DateTimeType
           break;
-        case 555127957:
-          this.instance.add((ImagingStudySeriesInstanceComponent) value); // ImagingStudySeriesInstanceComponent
+        case 555127957: // instance
+          this.getInstance().add((ImagingStudySeriesInstanceComponent) value); // ImagingStudySeriesInstanceComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -811,7 +811,7 @@ public class ImagingStudy extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 115792: throw new FHIRException("Cannot make property uid as it is not a complex type"); // OidType
         case -1034364087: throw new FHIRException("Cannot make property number as it is not a complex type"); // UnsignedIntType
@@ -824,7 +824,7 @@ public class ImagingStudy extends DomainResource {
         case -170291817:  return getLaterality(); // Coding
         case -1897185151: throw new FHIRException("Cannot make property started as it is not a complex type"); // DateTimeType
         case 555127957:  return addInstance(); // ImagingStudySeriesInstanceComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1279,41 +1279,41 @@ public class ImagingStudy extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 115792: return this.uid == null ? new Base[0] : new Base[] {this.uid}; // OidType
-        case -1034364087: return this.number == null ? new Base[0] : new Base[] {this.number}; // UnsignedIntType
-        case 1560041540: return this.sopClass == null ? new Base[0] : new Base[] {this.sopClass}; // OidType
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // StringType
-        case 110371416: return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
-        case 951530617: return this.content.toArray(new Base[this.content.size()]); // Attachment
-        default: return super.getProperty(hash, checkValid);
+        case 115792: /*uid*/ return this.uid == null ? new Base[0] : new Base[] {this.uid}; // OidType
+        case -1034364087: /*number*/ return this.number == null ? new Base[0] : new Base[] {this.number}; // UnsignedIntType
+        case 1560041540: /*sopClass*/ return this.sopClass == null ? new Base[0] : new Base[] {this.sopClass}; // OidType
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // StringType
+        case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
+        case 951530617: /*content*/ return this.content == null ? new Base[0] : this.content.toArray(new Base[this.content.size()]); // Attachment
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 115792:
+        case 115792: // uid
           this.uid = castToOid(value); // OidType
           break;
-        case -1034364087:
+        case -1034364087: // number
           this.number = castToUnsignedInt(value); // UnsignedIntType
           break;
-        case 1560041540:
+        case 1560041540: // sopClass
           this.sopClass = castToOid(value); // OidType
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = castToString(value); // StringType
           break;
-        case 110371416:
+        case 110371416: // title
           this.title = castToString(value); // StringType
           break;
-        case 951530617:
-          this.content.add(castToAttachment(value)); // Attachment
+        case 951530617: // content
+          this.getContent().add(castToAttachment(value)); // Attachment
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1337,7 +1337,7 @@ public class ImagingStudy extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 115792: throw new FHIRException("Cannot make property uid as it is not a complex type"); // OidType
         case -1034364087: throw new FHIRException("Cannot make property number as it is not a complex type"); // UnsignedIntType
@@ -1345,7 +1345,7 @@ public class ImagingStudy extends DomainResource {
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // StringType
         case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
         case 951530617:  return addContent(); // Attachment
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -2333,81 +2333,81 @@ public class ImagingStudy extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 115792: return this.uid == null ? new Base[0] : new Base[] {this.uid}; // OidType
-        case -2115028956: return this.accession == null ? new Base[0] : new Base[] {this.accession}; // Identifier
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case 1997542747: return this.availability == null ? new Base[0] : new Base[] {this.availability}; // Enumeration<InstanceAvailability>
-        case -1030238433: return this.modalityList.toArray(new Base[this.modalityList.size()]); // Coding
-        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
-        case -1897185151: return this.started == null ? new Base[0] : new Base[] {this.started}; // DateTimeType
-        case 106006350: return this.order.toArray(new Base[this.order.size()]); // Reference
-        case -722568161: return this.referrer == null ? new Base[0] : new Base[] {this.referrer}; // Reference
-        case -2008009094: return this.interpreter == null ? new Base[0] : new Base[] {this.interpreter}; // Reference
-        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
-        case 1920000407: return this.numberOfSeries == null ? new Base[0] : new Base[] {this.numberOfSeries}; // UnsignedIntType
-        case -1043544226: return this.numberOfInstances == null ? new Base[0] : new Base[] {this.numberOfInstances}; // UnsignedIntType
-        case -1095204141: return this.procedure.toArray(new Base[this.procedure.size()]); // Reference
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -905838985: return this.series.toArray(new Base[this.series.size()]); // ImagingStudySeriesComponent
-        default: return super.getProperty(hash, checkValid);
+        case 115792: /*uid*/ return this.uid == null ? new Base[0] : new Base[] {this.uid}; // OidType
+        case -2115028956: /*accession*/ return this.accession == null ? new Base[0] : new Base[] {this.accession}; // Identifier
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 1997542747: /*availability*/ return this.availability == null ? new Base[0] : new Base[] {this.availability}; // Enumeration<InstanceAvailability>
+        case -1030238433: /*modalityList*/ return this.modalityList == null ? new Base[0] : this.modalityList.toArray(new Base[this.modalityList.size()]); // Coding
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -1897185151: /*started*/ return this.started == null ? new Base[0] : new Base[] {this.started}; // DateTimeType
+        case 106006350: /*order*/ return this.order == null ? new Base[0] : this.order.toArray(new Base[this.order.size()]); // Reference
+        case -722568161: /*referrer*/ return this.referrer == null ? new Base[0] : new Base[] {this.referrer}; // Reference
+        case -2008009094: /*interpreter*/ return this.interpreter == null ? new Base[0] : new Base[] {this.interpreter}; // Reference
+        case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case 1920000407: /*numberOfSeries*/ return this.numberOfSeries == null ? new Base[0] : new Base[] {this.numberOfSeries}; // UnsignedIntType
+        case -1043544226: /*numberOfInstances*/ return this.numberOfInstances == null ? new Base[0] : new Base[] {this.numberOfInstances}; // UnsignedIntType
+        case -1095204141: /*procedure*/ return this.procedure == null ? new Base[0] : this.procedure.toArray(new Base[this.procedure.size()]); // Reference
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -905838985: /*series*/ return this.series == null ? new Base[0] : this.series.toArray(new Base[this.series.size()]); // ImagingStudySeriesComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 115792:
+        case 115792: // uid
           this.uid = castToOid(value); // OidType
           break;
-        case -2115028956:
+        case -2115028956: // accession
           this.accession = castToIdentifier(value); // Identifier
           break;
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case 1997542747:
+        case 1997542747: // availability
           this.availability = new InstanceAvailabilityEnumFactory().fromType(value); // Enumeration<InstanceAvailability>
           break;
-        case -1030238433:
-          this.modalityList.add(castToCoding(value)); // Coding
+        case -1030238433: // modalityList
+          this.getModalityList().add(castToCoding(value)); // Coding
           break;
-        case -791418107:
+        case -791418107: // patient
           this.patient = castToReference(value); // Reference
           break;
-        case -1897185151:
+        case -1897185151: // started
           this.started = castToDateTime(value); // DateTimeType
           break;
-        case 106006350:
-          this.order.add(castToReference(value)); // Reference
+        case 106006350: // order
+          this.getOrder().add(castToReference(value)); // Reference
           break;
-        case -722568161:
+        case -722568161: // referrer
           this.referrer = castToReference(value); // Reference
           break;
-        case -2008009094:
+        case -2008009094: // interpreter
           this.interpreter = castToReference(value); // Reference
           break;
-        case 116079:
+        case 116079: // url
           this.url = castToUri(value); // UriType
           break;
-        case 1920000407:
+        case 1920000407: // numberOfSeries
           this.numberOfSeries = castToUnsignedInt(value); // UnsignedIntType
           break;
-        case -1043544226:
+        case -1043544226: // numberOfInstances
           this.numberOfInstances = castToUnsignedInt(value); // UnsignedIntType
           break;
-        case -1095204141:
-          this.procedure.add(castToReference(value)); // Reference
+        case -1095204141: // procedure
+          this.getProcedure().add(castToReference(value)); // Reference
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        case -905838985:
-          this.series.add((ImagingStudySeriesComponent) value); // ImagingStudySeriesComponent
+        case -905838985: // series
+          this.getSeries().add((ImagingStudySeriesComponent) value); // ImagingStudySeriesComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -2451,7 +2451,7 @@ public class ImagingStudy extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 115792: throw new FHIRException("Cannot make property uid as it is not a complex type"); // OidType
         case -2115028956:  return getAccession(); // Identifier
@@ -2469,7 +2469,7 @@ public class ImagingStudy extends DomainResource {
         case -1095204141:  return addProcedure(); // Reference
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -905838985:  return addSeries(); // ImagingStudySeriesComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -352,25 +352,25 @@ public class DiagnosticReport extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 950398559: return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
-        case 3321850: return this.link == null ? new Base[0] : new Base[] {this.link}; // Reference
-        default: return super.getProperty(hash, checkValid);
+        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        case 3321850: /*link*/ return this.link == null ? new Base[0] : new Base[] {this.link}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 950398559:
+        case 950398559: // comment
           this.comment = castToString(value); // StringType
           break;
-        case 3321850:
+        case 3321850: // link
           this.link = castToReference(value); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -386,11 +386,11 @@ public class DiagnosticReport extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
         case 3321850:  return getLink(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1380,85 +1380,85 @@ public class DiagnosticReport extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DiagnosticReportStatus>
-        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
-        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
-        case 247104889: return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
-        case -1179159893: return this.issued == null ? new Base[0] : new Base[] {this.issued}; // InstantType
-        case 481140686: return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
-        case 1095692943: return this.request.toArray(new Base[this.request.size()]); // Reference
-        case -2132868344: return this.specimen.toArray(new Base[this.specimen.size()]); // Reference
-        case -934426595: return this.result.toArray(new Base[this.result.size()]); // Reference
-        case -814900911: return this.imagingStudy.toArray(new Base[this.imagingStudy.size()]); // Reference
-        case 100313435: return this.image.toArray(new Base[this.image.size()]); // DiagnosticReportImageComponent
-        case -1731259873: return this.conclusion == null ? new Base[0] : new Base[] {this.conclusion}; // StringType
-        case -1364269926: return this.codedDiagnosis.toArray(new Base[this.codedDiagnosis.size()]); // CodeableConcept
-        case 230090366: return this.presentedForm.toArray(new Base[this.presentedForm.size()]); // Attachment
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DiagnosticReportStatus>
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
+        case -1179159893: /*issued*/ return this.issued == null ? new Base[0] : new Base[] {this.issued}; // InstantType
+        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
+        case 1095692943: /*request*/ return this.request == null ? new Base[0] : this.request.toArray(new Base[this.request.size()]); // Reference
+        case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : this.specimen.toArray(new Base[this.specimen.size()]); // Reference
+        case -934426595: /*result*/ return this.result == null ? new Base[0] : this.result.toArray(new Base[this.result.size()]); // Reference
+        case -814900911: /*imagingStudy*/ return this.imagingStudy == null ? new Base[0] : this.imagingStudy.toArray(new Base[this.imagingStudy.size()]); // Reference
+        case 100313435: /*image*/ return this.image == null ? new Base[0] : this.image.toArray(new Base[this.image.size()]); // DiagnosticReportImageComponent
+        case -1731259873: /*conclusion*/ return this.conclusion == null ? new Base[0] : new Base[] {this.conclusion}; // StringType
+        case -1364269926: /*codedDiagnosis*/ return this.codedDiagnosis == null ? new Base[0] : this.codedDiagnosis.toArray(new Base[this.codedDiagnosis.size()]); // CodeableConcept
+        case 230090366: /*presentedForm*/ return this.presentedForm == null ? new Base[0] : this.presentedForm.toArray(new Base[this.presentedForm.size()]); // Attachment
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new DiagnosticReportStatusEnumFactory().fromType(value); // Enumeration<DiagnosticReportStatus>
           break;
-        case 50511102:
+        case 50511102: // category
           this.category = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 3059181:
+        case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1867885268:
+        case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           break;
-        case 1524132147:
+        case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
           break;
-        case 247104889:
+        case -1468651097: // effective
           this.effective = (Type) value; // Type
           break;
-        case -1179159893:
+        case -1179159893: // issued
           this.issued = castToInstant(value); // InstantType
           break;
-        case 481140686:
+        case 481140686: // performer
           this.performer = castToReference(value); // Reference
           break;
-        case 1095692943:
-          this.request.add(castToReference(value)); // Reference
+        case 1095692943: // request
+          this.getRequest().add(castToReference(value)); // Reference
           break;
-        case -2132868344:
-          this.specimen.add(castToReference(value)); // Reference
+        case -2132868344: // specimen
+          this.getSpecimen().add(castToReference(value)); // Reference
           break;
-        case -934426595:
-          this.result.add(castToReference(value)); // Reference
+        case -934426595: // result
+          this.getResult().add(castToReference(value)); // Reference
           break;
-        case -814900911:
-          this.imagingStudy.add(castToReference(value)); // Reference
+        case -814900911: // imagingStudy
+          this.getImagingStudy().add(castToReference(value)); // Reference
           break;
-        case 100313435:
-          this.image.add((DiagnosticReportImageComponent) value); // DiagnosticReportImageComponent
+        case 100313435: // image
+          this.getImage().add((DiagnosticReportImageComponent) value); // DiagnosticReportImageComponent
           break;
-        case -1731259873:
+        case -1731259873: // conclusion
           this.conclusion = castToString(value); // StringType
           break;
-        case -1364269926:
-          this.codedDiagnosis.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1364269926: // codedDiagnosis
+          this.getCodedDiagnosis().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case 230090366:
-          this.presentedForm.add(castToAttachment(value)); // Attachment
+        case 230090366: // presentedForm
+          this.getPresentedForm().add(castToAttachment(value)); // Attachment
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1504,7 +1504,7 @@ public class DiagnosticReport extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DiagnosticReportStatus>
@@ -1523,7 +1523,7 @@ public class DiagnosticReport extends DomainResource {
         case -1731259873: throw new FHIRException("Cannot make property conclusion as it is not a complex type"); // StringType
         case -1364269926:  return addCodedDiagnosis(); // CodeableConcept
         case 230090366:  return addPresentedForm(); // Attachment
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

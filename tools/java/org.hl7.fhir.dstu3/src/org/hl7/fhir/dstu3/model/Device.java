@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1007,81 +1007,81 @@ public class Device extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -1343558178: return this.udiCarrier == null ? new Base[0] : new Base[] {this.udiCarrier}; // Identifier
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DeviceStatus>
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case 462547450: return this.lotNumber == null ? new Base[0] : new Base[] {this.lotNumber}; // StringType
-        case -1969347631: return this.manufacturer == null ? new Base[0] : new Base[] {this.manufacturer}; // StringType
-        case 416714767: return this.manufactureDate == null ? new Base[0] : new Base[] {this.manufactureDate}; // DateTimeType
-        case -668811523: return this.expirationDate == null ? new Base[0] : new Base[] {this.expirationDate}; // DateTimeType
-        case 104069929: return this.model == null ? new Base[0] : new Base[] {this.model}; // StringType
-        case 351608024: return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
-        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
-        case 106164915: return this.owner == null ? new Base[0] : new Base[] {this.owner}; // Reference
-        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // ContactPoint
-        case 1901043637: return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
-        case 116079: return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
-        case 3387378: return this.note.toArray(new Base[this.note.size()]); // Annotation
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1343558178: /*udiCarrier*/ return this.udiCarrier == null ? new Base[0] : new Base[] {this.udiCarrier}; // Identifier
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DeviceStatus>
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case 462547450: /*lotNumber*/ return this.lotNumber == null ? new Base[0] : new Base[] {this.lotNumber}; // StringType
+        case -1969347631: /*manufacturer*/ return this.manufacturer == null ? new Base[0] : new Base[] {this.manufacturer}; // StringType
+        case 416714767: /*manufactureDate*/ return this.manufactureDate == null ? new Base[0] : new Base[] {this.manufactureDate}; // DateTimeType
+        case -668811523: /*expirationDate*/ return this.expirationDate == null ? new Base[0] : new Base[] {this.expirationDate}; // DateTimeType
+        case 104069929: /*model*/ return this.model == null ? new Base[0] : new Base[] {this.model}; // StringType
+        case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case 106164915: /*owner*/ return this.owner == null ? new Base[0] : new Base[] {this.owner}; // Reference
+        case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactPoint
+        case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
+        case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -1343558178:
+        case -1343558178: // udiCarrier
           this.udiCarrier = castToIdentifier(value); // Identifier
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new DeviceStatusEnumFactory().fromType(value); // Enumeration<DeviceStatus>
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 462547450:
+        case 462547450: // lotNumber
           this.lotNumber = castToString(value); // StringType
           break;
-        case -1969347631:
+        case -1969347631: // manufacturer
           this.manufacturer = castToString(value); // StringType
           break;
-        case 416714767:
+        case 416714767: // manufactureDate
           this.manufactureDate = castToDateTime(value); // DateTimeType
           break;
-        case -668811523:
+        case -668811523: // expirationDate
           this.expirationDate = castToDateTime(value); // DateTimeType
           break;
-        case 104069929:
+        case 104069929: // model
           this.model = castToString(value); // StringType
           break;
-        case 351608024:
+        case 351608024: // version
           this.version = castToString(value); // StringType
           break;
-        case -791418107:
+        case -791418107: // patient
           this.patient = castToReference(value); // Reference
           break;
-        case 106164915:
+        case 106164915: // owner
           this.owner = castToReference(value); // Reference
           break;
-        case 951526432:
-          this.contact.add(castToContactPoint(value)); // ContactPoint
+        case 951526432: // contact
+          this.getContact().add(castToContactPoint(value)); // ContactPoint
           break;
-        case 1901043637:
+        case 1901043637: // location
           this.location = castToReference(value); // Reference
           break;
-        case 116079:
+        case 116079: // url
           this.url = castToUri(value); // UriType
           break;
-        case 3387378:
-          this.note.add(castToAnnotation(value)); // Annotation
+        case 3387378: // note
+          this.getNote().add(castToAnnotation(value)); // Annotation
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1125,7 +1125,7 @@ public class Device extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -1343558178:  return getUdiCarrier(); // Identifier
@@ -1143,7 +1143,7 @@ public class Device extends DomainResource {
         case 1901043637:  return getLocation(); // Reference
         case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
         case 3387378:  return addNote(); // Annotation
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

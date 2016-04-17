@@ -169,7 +169,9 @@ public class FHIRPathEngine {
 	 * @throws FHIRException 
    */
   protected void getChildrenByName(Base item, String name, List<Base> result) throws FHIRException {
-  	for (Base v : item.listChildrenByName(name, false))
+  	Base[] list = item.listChildrenByName(name, false);
+  	if (list != null)
+  		for (Base v : list)
       if (v != null)
         result.add(v);
   }
@@ -312,6 +314,23 @@ public class FHIRPathEngine {
    * evaluate a path and return the matching elements
    * 
    * @param base - the object against which the path is being evaluated
+   * @param ExpressionNode - the parsed ExpressionNode statement to use
+   * @return
+   * @throws FHIRException 
+   * @
+   */
+  public List<Base> evaluate(Object appContext, Base resource, Base base, ExpressionNode ExpressionNode) throws FHIRException {
+    List<Base> list = new ArrayList<Base>();
+    if (base != null)
+      list.add(base);
+    log = new StringBuilder();
+    return execute(new ExecutionContext(appContext, resource, base), list, ExpressionNode, true);
+  }
+
+  /**
+   * evaluate a path and return the matching elements
+   * 
+   * @param base - the object against which the path is being evaluated
    * @param path - the FHIR Path statement to use
    * @return
 	 * @throws FHIRException 
@@ -349,6 +368,19 @@ public class FHIRPathEngine {
    * @
    */
   public boolean evaluateToBoolean(Resource resource, Base base, ExpressionNode node) throws FHIRException {
+    return convertToBoolean(evaluate(null, resource, base, node));
+  }
+
+  /**
+   * evaluate a path and return true or false (e.g. for an invariant)
+   * 
+   * @param base - the object against which the path is being evaluated
+   * @param path - the FHIR Path statement to use
+   * @return
+   * @throws FHIRException 
+   * @
+   */
+  public boolean evaluateToBoolean(Base resource, Base base, ExpressionNode node) throws FHIRException {
     return convertToBoolean(evaluate(null, resource, base, node));
   }
 
@@ -427,14 +459,14 @@ public class FHIRPathEngine {
 
   private class ExecutionContext {
     private Object appInfo;
-    private Resource resource;
+    private Base resource;
     private Base thisItem;
-    public ExecutionContext(Object appInfo, Resource resource, Base thisItem) {
+    public ExecutionContext(Object appInfo, Base resource, Base thisItem) {
       this.appInfo = appInfo;
       this.resource = resource; 
       this.thisItem = thisItem;
     }
-    public Resource getResource() {
+    public Base getResource() {
       return resource;
     }
     public Base getThisItem() {
@@ -1135,7 +1167,7 @@ public class FHIRPathEngine {
 
   private boolean doEquals(Base left, Base right) {
     if (left.isPrimitive() && right.isPrimitive())
-      return left.primitiveValue().equals(right.primitiveValue());
+			return Base.equals(left.primitiveValue(), right.primitiveValue());
     else
       return Base.compareDeep(left, right, false);
   }
@@ -2395,7 +2427,7 @@ public class FHIRPathEngine {
     for (Base item : focus) {
       pc.clear();
       pc.add(item);
-      result.addAll(execute(changeThis(context, item), pc, exp.getParameters().get(0), false));
+      result.addAll(execute(changeThis(context, item), pc, exp.getParameters().get(0), true));
     }
     return result;
   }

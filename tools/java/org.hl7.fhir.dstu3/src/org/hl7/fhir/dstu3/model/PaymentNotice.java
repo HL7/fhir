@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -592,61 +592,61 @@ public class PaymentNotice extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case 1548678118: return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
-        case 1089373397: return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
-        case 1028554472: return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
-        case -815579825: return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
-        case 2064698607: return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Type
-        case 1326483053: return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Type
-        case 37106577: return this.request == null ? new Base[0] : new Base[] {this.request}; // Type
-        case 1847549087: return this.response == null ? new Base[0] : new Base[] {this.response}; // Type
-        case 1430704536: return this.paymentStatus == null ? new Base[0] : new Base[] {this.paymentStatus}; // Coding
-        case 247524032: return this.statusDate == null ? new Base[0] : new Base[] {this.statusDate}; // DateType
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 1548678118: /*ruleset*/ return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
+        case 1089373397: /*originalRuleset*/ return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
+        case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
+        case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
+        case -987494927: /*provider*/ return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Type
+        case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Type
+        case 1095692943: /*request*/ return this.request == null ? new Base[0] : new Base[] {this.request}; // Type
+        case -340323263: /*response*/ return this.response == null ? new Base[0] : new Base[] {this.response}; // Type
+        case 1430704536: /*paymentStatus*/ return this.paymentStatus == null ? new Base[0] : new Base[] {this.paymentStatus}; // Coding
+        case 247524032: /*statusDate*/ return this.statusDate == null ? new Base[0] : new Base[] {this.statusDate}; // DateType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case 1548678118:
+        case 1548678118: // ruleset
           this.ruleset = castToCoding(value); // Coding
           break;
-        case 1089373397:
+        case 1089373397: // originalRuleset
           this.originalRuleset = castToCoding(value); // Coding
           break;
-        case 1028554472:
+        case 1028554472: // created
           this.created = castToDateTime(value); // DateTimeType
           break;
-        case -815579825:
+        case -880905839: // target
           this.target = (Type) value; // Type
           break;
-        case 2064698607:
+        case -987494927: // provider
           this.provider = (Type) value; // Type
           break;
-        case 1326483053:
+        case 1178922291: // organization
           this.organization = (Type) value; // Type
           break;
-        case 37106577:
+        case 1095692943: // request
           this.request = (Type) value; // Type
           break;
-        case 1847549087:
+        case -340323263: // response
           this.response = (Type) value; // Type
           break;
-        case 1430704536:
+        case 1430704536: // paymentStatus
           this.paymentStatus = castToCoding(value); // Coding
           break;
-        case 247524032:
+        case 247524032: // statusDate
           this.statusDate = castToDate(value); // DateType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -680,7 +680,7 @@ public class PaymentNotice extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case 1548678118:  return getRuleset(); // Coding
@@ -693,7 +693,7 @@ public class PaymentNotice extends DomainResource {
         case 1847549087:  return getResponse(); // Type
         case 1430704536:  return getPaymentStatus(); // Coding
         case 247524032: throw new FHIRException("Cannot make property statusDate as it is not a complex type"); // DateType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

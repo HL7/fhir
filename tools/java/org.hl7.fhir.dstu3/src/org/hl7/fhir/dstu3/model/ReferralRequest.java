@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1163,89 +1163,89 @@ public class ReferralRequest extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -332612366: return this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
-        case -995424086: return this.parent == null ? new Base[0] : new Base[] {this.parent}; // Identifier
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ReferralStatus>
-        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // Enumeration<ReferralCategory>
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
-        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
-        case 951530927: return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
-        case 1098185163: return this.fulfillmentTime == null ? new Base[0] : new Base[] {this.fulfillmentTime}; // Period
-        case 1433073514: return this.authored == null ? new Base[0] : new Base[] {this.authored}; // DateTimeType
-        case 693933948: return this.requester == null ? new Base[0] : new Base[] {this.requester}; // Reference
-        case -1694759682: return this.specialty == null ? new Base[0] : new Base[] {this.specialty}; // CodeableConcept
-        case 820081177: return this.recipient.toArray(new Base[this.recipient.size()]); // Reference
-        case -934964668: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // CodeableConcept
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case 190229561: return this.serviceRequested.toArray(new Base[this.serviceRequested.size()]); // CodeableConcept
-        case -1248768647: return this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
+        case -995424086: /*parent*/ return this.parent == null ? new Base[0] : new Base[] {this.parent}; // Identifier
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ReferralStatus>
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Enumeration<ReferralCategory>
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
+        case 1098185163: /*fulfillmentTime*/ return this.fulfillmentTime == null ? new Base[0] : new Base[] {this.fulfillmentTime}; // Period
+        case 1433073514: /*authored*/ return this.authored == null ? new Base[0] : new Base[] {this.authored}; // DateTimeType
+        case 693933948: /*requester*/ return this.requester == null ? new Base[0] : new Base[] {this.requester}; // Reference
+        case -1694759682: /*specialty*/ return this.specialty == null ? new Base[0] : new Base[] {this.specialty}; // CodeableConcept
+        case 820081177: /*recipient*/ return this.recipient == null ? new Base[0] : this.recipient.toArray(new Base[this.recipient.size()]); // Reference
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // CodeableConcept
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 190229561: /*serviceRequested*/ return this.serviceRequested == null ? new Base[0] : this.serviceRequested.toArray(new Base[this.serviceRequested.size()]); // CodeableConcept
+        case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -332612366:
-          this.basedOn.add(castToReference(value)); // Reference
+        case -332612366: // basedOn
+          this.getBasedOn().add(castToReference(value)); // Reference
           break;
-        case -995424086:
+        case -995424086: // parent
           this.parent = castToIdentifier(value); // Identifier
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new ReferralStatusEnumFactory().fromType(value); // Enumeration<ReferralStatus>
           break;
-        case 50511102:
+        case 50511102: // category
           this.category = new ReferralCategoryEnumFactory().fromType(value); // Enumeration<ReferralCategory>
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1165461084:
+        case -1165461084: // priority
           this.priority = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -791418107:
+        case -791418107: // patient
           this.patient = castToReference(value); // Reference
           break;
-        case 951530927:
+        case 951530927: // context
           this.context = castToReference(value); // Reference
           break;
-        case 1098185163:
+        case 1098185163: // fulfillmentTime
           this.fulfillmentTime = castToPeriod(value); // Period
           break;
-        case 1433073514:
+        case 1433073514: // authored
           this.authored = castToDateTime(value); // DateTimeType
           break;
-        case 693933948:
+        case 693933948: // requester
           this.requester = castToReference(value); // Reference
           break;
-        case -1694759682:
+        case -1694759682: // specialty
           this.specialty = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 820081177:
-          this.recipient.add(castToReference(value)); // Reference
+        case 820081177: // recipient
+          this.getRecipient().add(castToReference(value)); // Reference
           break;
-        case -934964668:
+        case -934964668: // reason
           this.reason = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        case 190229561:
-          this.serviceRequested.add(castToCodeableConcept(value)); // CodeableConcept
+        case 190229561: // serviceRequested
+          this.getServiceRequested().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1248768647:
-          this.supportingInformation.add(castToReference(value)); // Reference
+        case -1248768647: // supportingInformation
+          this.getSupportingInformation().add(castToReference(value)); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1293,7 +1293,7 @@ public class ReferralRequest extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -332612366:  return addBasedOn(); // Reference
@@ -1313,7 +1313,7 @@ public class ReferralRequest extends DomainResource {
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case 190229561:  return addServiceRequested(); // CodeableConcept
         case -1248768647:  return addSupportingInformation(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

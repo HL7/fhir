@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -302,25 +302,25 @@ public class DocumentReference extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<DocumentRelationshipType>
-        case -880905839: return this.target == null ? new Base[0] : new Base[] {this.target}; // Reference
-        default: return super.getProperty(hash, checkValid);
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<DocumentRelationshipType>
+        case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181:
+        case 3059181: // code
           this.code = new DocumentRelationshipTypeEnumFactory().fromType(value); // Enumeration<DocumentRelationshipType>
           break;
-        case -880905839:
+        case -880905839: // target
           this.target = castToReference(value); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -336,11 +336,11 @@ public class DocumentReference extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<DocumentRelationshipType>
         case -880905839:  return getTarget(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -502,25 +502,25 @@ public class DocumentReference extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1963501277: return this.attachment == null ? new Base[0] : new Base[] {this.attachment}; // Attachment
-        case -1268779017: return this.format.toArray(new Base[this.format.size()]); // Coding
-        default: return super.getProperty(hash, checkValid);
+        case -1963501277: /*attachment*/ return this.attachment == null ? new Base[0] : new Base[] {this.attachment}; // Attachment
+        case -1268779017: /*format*/ return this.format == null ? new Base[0] : this.format.toArray(new Base[this.format.size()]); // Coding
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1963501277:
+        case -1963501277: // attachment
           this.attachment = castToAttachment(value); // Attachment
           break;
-        case -1268779017:
-          this.format.add(castToCoding(value)); // Coding
+        case -1268779017: // format
+          this.getFormat().add(castToCoding(value)); // Coding
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -536,11 +536,11 @@ public class DocumentReference extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1963501277:  return getAttachment(); // Attachment
         case -1268779017:  return addFormat(); // Coding
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -924,45 +924,45 @@ public class DocumentReference extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
-        case 96891546: return this.event.toArray(new Base[this.event.size()]); // CodeableConcept
-        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        case 370698365: return this.facilityType == null ? new Base[0] : new Base[] {this.facilityType}; // CodeableConcept
-        case 331373717: return this.practiceSetting == null ? new Base[0] : new Base[] {this.practiceSetting}; // CodeableConcept
-        case 2031381048: return this.sourcePatientInfo == null ? new Base[0] : new Base[] {this.sourcePatientInfo}; // Reference
-        case 1090493483: return this.related.toArray(new Base[this.related.size()]); // DocumentReferenceContextRelatedComponent
-        default: return super.getProperty(hash, checkValid);
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case 96891546: /*event*/ return this.event == null ? new Base[0] : this.event.toArray(new Base[this.event.size()]); // CodeableConcept
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case 370698365: /*facilityType*/ return this.facilityType == null ? new Base[0] : new Base[] {this.facilityType}; // CodeableConcept
+        case 331373717: /*practiceSetting*/ return this.practiceSetting == null ? new Base[0] : new Base[] {this.practiceSetting}; // CodeableConcept
+        case 2031381048: /*sourcePatientInfo*/ return this.sourcePatientInfo == null ? new Base[0] : new Base[] {this.sourcePatientInfo}; // Reference
+        case 1090493483: /*related*/ return this.related == null ? new Base[0] : this.related.toArray(new Base[this.related.size()]); // DocumentReferenceContextRelatedComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 1524132147:
+        case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
           break;
-        case 96891546:
-          this.event.add(castToCodeableConcept(value)); // CodeableConcept
+        case 96891546: // event
+          this.getEvent().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -991726143:
+        case -991726143: // period
           this.period = castToPeriod(value); // Period
           break;
-        case 370698365:
+        case 370698365: // facilityType
           this.facilityType = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 331373717:
+        case 331373717: // practiceSetting
           this.practiceSetting = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 2031381048:
+        case 2031381048: // sourcePatientInfo
           this.sourcePatientInfo = castToReference(value); // Reference
           break;
-        case 1090493483:
-          this.related.add((DocumentReferenceContextRelatedComponent) value); // DocumentReferenceContextRelatedComponent
+        case 1090493483: // related
+          this.getRelated().add((DocumentReferenceContextRelatedComponent) value); // DocumentReferenceContextRelatedComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -988,7 +988,7 @@ public class DocumentReference extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1524132147:  return getEncounter(); // Reference
         case 96891546:  return addEvent(); // CodeableConcept
@@ -997,7 +997,7 @@ public class DocumentReference extends DomainResource {
         case 331373717:  return getPracticeSetting(); // CodeableConcept
         case 2031381048:  return getSourcePatientInfo(); // Reference
         case 1090493483:  return addRelated(); // DocumentReferenceContextRelatedComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1192,25 +1192,25 @@ public class DocumentReference extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
-        case 112787: return this.ref == null ? new Base[0] : new Base[] {this.ref}; // Reference
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 112787: /*ref*/ return this.ref == null ? new Base[0] : new Base[] {this.ref}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
+        case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
           break;
-        case 112787:
+        case 112787: // ref
           this.ref = castToReference(value); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1226,11 +1226,11 @@ public class DocumentReference extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return getIdentifier(); // Identifier
         case 112787:  return getRef(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -2108,85 +2108,85 @@ public class DocumentReference extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 243769515: return this.masterIdentifier == null ? new Base[0] : new Base[] {this.masterIdentifier}; // Identifier
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case 94742904: return this.class_ == null ? new Base[0] : new Base[] {this.class_}; // CodeableConcept
-        case -1406328437: return this.author.toArray(new Base[this.author.size()]); // Reference
-        case 1611297262: return this.custodian == null ? new Base[0] : new Base[] {this.custodian}; // Reference
-        case 1815000435: return this.authenticator == null ? new Base[0] : new Base[] {this.authenticator}; // Reference
-        case 1028554472: return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
-        case 1943292145: return this.indexed == null ? new Base[0] : new Base[] {this.indexed}; // InstantType
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DocumentReferenceStatus>
-        case -23496886: return this.docStatus == null ? new Base[0] : new Base[] {this.docStatus}; // CodeableConcept
-        case -7765931: return this.relatesTo.toArray(new Base[this.relatesTo.size()]); // DocumentReferenceRelatesToComponent
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -722296940: return this.securityLabel.toArray(new Base[this.securityLabel.size()]); // CodeableConcept
-        case 951530617: return this.content.toArray(new Base[this.content.size()]); // DocumentReferenceContentComponent
-        case 951530927: return this.context == null ? new Base[0] : new Base[] {this.context}; // DocumentReferenceContextComponent
-        default: return super.getProperty(hash, checkValid);
+        case 243769515: /*masterIdentifier*/ return this.masterIdentifier == null ? new Base[0] : new Base[] {this.masterIdentifier}; // Identifier
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case 94742904: /*class*/ return this.class_ == null ? new Base[0] : new Base[] {this.class_}; // CodeableConcept
+        case -1406328437: /*author*/ return this.author == null ? new Base[0] : this.author.toArray(new Base[this.author.size()]); // Reference
+        case 1611297262: /*custodian*/ return this.custodian == null ? new Base[0] : new Base[] {this.custodian}; // Reference
+        case 1815000435: /*authenticator*/ return this.authenticator == null ? new Base[0] : new Base[] {this.authenticator}; // Reference
+        case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
+        case 1943292145: /*indexed*/ return this.indexed == null ? new Base[0] : new Base[] {this.indexed}; // InstantType
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DocumentReferenceStatus>
+        case -23496886: /*docStatus*/ return this.docStatus == null ? new Base[0] : new Base[] {this.docStatus}; // CodeableConcept
+        case -7765931: /*relatesTo*/ return this.relatesTo == null ? new Base[0] : this.relatesTo.toArray(new Base[this.relatesTo.size()]); // DocumentReferenceRelatesToComponent
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -722296940: /*securityLabel*/ return this.securityLabel == null ? new Base[0] : this.securityLabel.toArray(new Base[this.securityLabel.size()]); // CodeableConcept
+        case 951530617: /*content*/ return this.content == null ? new Base[0] : this.content.toArray(new Base[this.content.size()]); // DocumentReferenceContentComponent
+        case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // DocumentReferenceContextComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 243769515:
+        case 243769515: // masterIdentifier
           this.masterIdentifier = castToIdentifier(value); // Identifier
           break;
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -1867885268:
+        case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 94742904:
+        case 94742904: // class
           this.class_ = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1406328437:
-          this.author.add(castToReference(value)); // Reference
+        case -1406328437: // author
+          this.getAuthor().add(castToReference(value)); // Reference
           break;
-        case 1611297262:
+        case 1611297262: // custodian
           this.custodian = castToReference(value); // Reference
           break;
-        case 1815000435:
+        case 1815000435: // authenticator
           this.authenticator = castToReference(value); // Reference
           break;
-        case 1028554472:
+        case 1028554472: // created
           this.created = castToDateTime(value); // DateTimeType
           break;
-        case 1943292145:
+        case 1943292145: // indexed
           this.indexed = castToInstant(value); // InstantType
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new DocumentReferenceStatusEnumFactory().fromType(value); // Enumeration<DocumentReferenceStatus>
           break;
-        case -23496886:
+        case -23496886: // docStatus
           this.docStatus = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -7765931:
-          this.relatesTo.add((DocumentReferenceRelatesToComponent) value); // DocumentReferenceRelatesToComponent
+        case -7765931: // relatesTo
+          this.getRelatesTo().add((DocumentReferenceRelatesToComponent) value); // DocumentReferenceRelatesToComponent
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        case -722296940:
-          this.securityLabel.add(castToCodeableConcept(value)); // CodeableConcept
+        case -722296940: // securityLabel
+          this.getSecurityLabel().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case 951530617:
-          this.content.add((DocumentReferenceContentComponent) value); // DocumentReferenceContentComponent
+        case 951530617: // content
+          this.getContent().add((DocumentReferenceContentComponent) value); // DocumentReferenceContentComponent
           break;
-        case 951530927:
+        case 951530927: // context
           this.context = (DocumentReferenceContextComponent) value; // DocumentReferenceContextComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -2232,7 +2232,7 @@ public class DocumentReference extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 243769515:  return getMasterIdentifier(); // Identifier
         case -1618432855:  return addIdentifier(); // Identifier
@@ -2251,7 +2251,7 @@ public class DocumentReference extends DomainResource {
         case -722296940:  return addSecurityLabel(); // CodeableConcept
         case 951530617:  return addContent(); // DocumentReferenceContentComponent
         case 951530927:  return getContext(); // DocumentReferenceContextComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

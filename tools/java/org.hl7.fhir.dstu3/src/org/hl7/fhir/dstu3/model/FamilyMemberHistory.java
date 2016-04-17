@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -366,33 +366,33 @@ public class FamilyMemberHistory extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case -1106507950: return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // CodeableConcept
-        case -1886216323: return this.onset == null ? new Base[0] : new Base[] {this.onset}; // Type
-        case 3387378: return this.note == null ? new Base[0] : new Base[] {this.note}; // Annotation
-        default: return super.getProperty(hash, checkValid);
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -1106507950: /*outcome*/ return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // CodeableConcept
+        case 105901603: /*onset*/ return this.onset == null ? new Base[0] : new Base[] {this.onset}; // Type
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : new Base[] {this.note}; // Annotation
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181:
+        case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1106507950:
+        case -1106507950: // outcome
           this.outcome = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1886216323:
+        case 105901603: // onset
           this.onset = (Type) value; // Type
           break;
-        case 3387378:
+        case 3387378: // note
           this.note = castToAnnotation(value); // Annotation
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -412,13 +412,13 @@ public class FamilyMemberHistory extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181:  return getCode(); // CodeableConcept
         case -1106507950:  return getOutcome(); // CodeableConcept
         case -1886216323:  return getOnset(); // Type
         case 3387378:  return getNote(); // Annotation
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1189,65 +1189,65 @@ public class FamilyMemberHistory extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
-        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<FamilyHistoryStatus>
-        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -261851592: return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // CodeableConcept
-        case -1249512767: return this.gender == null ? new Base[0] : new Base[] {this.gender}; // Enumeration<AdministrativeGender>
-        case 67532951: return this.born == null ? new Base[0] : new Base[] {this.born}; // Type
-        case -1419716831: return this.age == null ? new Base[0] : new Base[] {this.age}; // Type
-        case -1311442804: return this.deceased == null ? new Base[0] : new Base[] {this.deceased}; // Type
-        case 3387378: return this.note == null ? new Base[0] : new Base[] {this.note}; // Annotation
-        case -861311717: return this.condition.toArray(new Base[this.condition.size()]); // FamilyMemberHistoryConditionComponent
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<FamilyHistoryStatus>
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // CodeableConcept
+        case -1249512767: /*gender*/ return this.gender == null ? new Base[0] : new Base[] {this.gender}; // Enumeration<AdministrativeGender>
+        case 3029833: /*born*/ return this.born == null ? new Base[0] : new Base[] {this.born}; // Type
+        case 96511: /*age*/ return this.age == null ? new Base[0] : new Base[] {this.age}; // Type
+        case 561497972: /*deceased*/ return this.deceased == null ? new Base[0] : new Base[] {this.deceased}; // Type
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : new Base[] {this.note}; // Annotation
+        case -861311717: /*condition*/ return this.condition == null ? new Base[0] : this.condition.toArray(new Base[this.condition.size()]); // FamilyMemberHistoryConditionComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -791418107:
+        case -791418107: // patient
           this.patient = castToReference(value); // Reference
           break;
-        case 3076014:
+        case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new FamilyHistoryStatusEnumFactory().fromType(value); // Enumeration<FamilyHistoryStatus>
           break;
-        case 3373707:
+        case 3373707: // name
           this.name = castToString(value); // StringType
           break;
-        case -261851592:
+        case -261851592: // relationship
           this.relationship = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1249512767:
+        case -1249512767: // gender
           this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
           break;
-        case 67532951:
+        case 3029833: // born
           this.born = (Type) value; // Type
           break;
-        case -1419716831:
+        case 96511: // age
           this.age = (Type) value; // Type
           break;
-        case -1311442804:
+        case 561497972: // deceased
           this.deceased = (Type) value; // Type
           break;
-        case 3387378:
+        case 3387378: // note
           this.note = castToAnnotation(value); // Annotation
           break;
-        case -861311717:
-          this.condition.add((FamilyMemberHistoryConditionComponent) value); // FamilyMemberHistoryConditionComponent
+        case -861311717: // condition
+          this.getCondition().add((FamilyMemberHistoryConditionComponent) value); // FamilyMemberHistoryConditionComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1283,7 +1283,7 @@ public class FamilyMemberHistory extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -791418107:  return getPatient(); // Reference
@@ -1297,7 +1297,7 @@ public class FamilyMemberHistory extends DomainResource {
         case -1311442804:  return getDeceased(); // Type
         case 3387378:  return getNote(); // Annotation
         case -861311717:  return addCondition(); // FamilyMemberHistoryConditionComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

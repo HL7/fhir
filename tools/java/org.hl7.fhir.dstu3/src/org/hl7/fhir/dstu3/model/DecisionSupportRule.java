@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -320,37 +320,37 @@ public class DecisionSupportRule extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 455891387: return this.moduleMetadata == null ? new Base[0] : new Base[] {this.moduleMetadata}; // ModuleMetadata
-        case 166208699: return this.library.toArray(new Base[this.library.size()]); // Reference
-        case -1059891784: return this.trigger.toArray(new Base[this.trigger.size()]); // TriggerDefinition
-        case -861311717: return this.condition == null ? new Base[0] : new Base[] {this.condition}; // StringType
-        case -1422950858: return this.action.toArray(new Base[this.action.size()]); // ActionDefinition
-        default: return super.getProperty(hash, checkValid);
+        case 455891387: /*moduleMetadata*/ return this.moduleMetadata == null ? new Base[0] : new Base[] {this.moduleMetadata}; // ModuleMetadata
+        case 166208699: /*library*/ return this.library == null ? new Base[0] : this.library.toArray(new Base[this.library.size()]); // Reference
+        case -1059891784: /*trigger*/ return this.trigger == null ? new Base[0] : this.trigger.toArray(new Base[this.trigger.size()]); // TriggerDefinition
+        case -861311717: /*condition*/ return this.condition == null ? new Base[0] : new Base[] {this.condition}; // StringType
+        case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // ActionDefinition
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 455891387:
+        case 455891387: // moduleMetadata
           this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
           break;
-        case 166208699:
-          this.library.add(castToReference(value)); // Reference
+        case 166208699: // library
+          this.getLibrary().add(castToReference(value)); // Reference
           break;
-        case -1059891784:
-          this.trigger.add(castToTriggerDefinition(value)); // TriggerDefinition
+        case -1059891784: // trigger
+          this.getTrigger().add(castToTriggerDefinition(value)); // TriggerDefinition
           break;
-        case -861311717:
+        case -861311717: // condition
           this.condition = castToString(value); // StringType
           break;
-        case -1422950858:
-          this.action.add(castToActionDefinition(value)); // ActionDefinition
+        case -1422950858: // action
+          this.getAction().add(castToActionDefinition(value)); // ActionDefinition
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -372,14 +372,14 @@ public class DecisionSupportRule extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 455891387:  return getModuleMetadata(); // ModuleMetadata
         case 166208699:  return addLibrary(); // Reference
         case -1059891784:  return addTrigger(); // TriggerDefinition
         case -861311717: throw new FHIRException("Cannot make property condition as it is not a complex type"); // StringType
         case -1422950858:  return addAction(); // ActionDefinition
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

@@ -715,7 +715,7 @@ public class ProfileComparer {
     if (vsRef == null)
       return null;
     if (vsRef instanceof UriType)
-      throw new Error("not done yet");
+      return null;
     else {
       Reference ref = (Reference) vsRef;
       if (!ref.hasReference())

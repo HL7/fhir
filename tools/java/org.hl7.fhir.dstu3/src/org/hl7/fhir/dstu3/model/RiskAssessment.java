@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -355,37 +355,37 @@ public class RiskAssessment extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1106507950: return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // CodeableConcept
-        case 1430185003: return this.probability == null ? new Base[0] : new Base[] {this.probability}; // Type
-        case -70741061: return this.relativeRisk == null ? new Base[0] : new Base[] {this.relativeRisk}; // DecimalType
-        case 1312831238: return this.when == null ? new Base[0] : new Base[] {this.when}; // Type
-        case 345689335: return this.rationale == null ? new Base[0] : new Base[] {this.rationale}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case -1106507950: /*outcome*/ return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // CodeableConcept
+        case -1290561483: /*probability*/ return this.probability == null ? new Base[0] : new Base[] {this.probability}; // Type
+        case -70741061: /*relativeRisk*/ return this.relativeRisk == null ? new Base[0] : new Base[] {this.relativeRisk}; // DecimalType
+        case 3648314: /*when*/ return this.when == null ? new Base[0] : new Base[] {this.when}; // Type
+        case 345689335: /*rationale*/ return this.rationale == null ? new Base[0] : new Base[] {this.rationale}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1106507950:
+        case -1106507950: // outcome
           this.outcome = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 1430185003:
+        case -1290561483: // probability
           this.probability = (Type) value; // Type
           break;
-        case -70741061:
+        case -70741061: // relativeRisk
           this.relativeRisk = castToDecimal(value); // DecimalType
           break;
-        case 1312831238:
+        case 3648314: // when
           this.when = (Type) value; // Type
           break;
-        case 345689335:
+        case 345689335: // rationale
           this.rationale = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -407,14 +407,14 @@ public class RiskAssessment extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1106507950:  return getOutcome(); // CodeableConcept
         case 1430185003:  return getProbability(); // Type
         case -70741061: throw new FHIRException("Cannot make property relativeRisk as it is not a complex type"); // DecimalType
         case 1312831238:  return getWhen(); // Type
         case 345689335: throw new FHIRException("Cannot make property rationale as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1021,57 +1021,57 @@ public class RiskAssessment extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
-        case -861311717: return this.condition == null ? new Base[0] : new Base[] {this.condition}; // Reference
-        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
-        case 481140686: return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
-        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
-        case -1077554975: return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
-        case 93508670: return this.basis.toArray(new Base[this.basis.size()]); // Reference
-        case 1161234575: return this.prediction.toArray(new Base[this.prediction.size()]); // RiskAssessmentPredictionComponent
-        case 1293793087: return this.mitigation == null ? new Base[0] : new Base[] {this.mitigation}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -861311717: /*condition*/ return this.condition == null ? new Base[0] : new Base[] {this.condition}; // Reference
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case -1077554975: /*method*/ return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
+        case 93508670: /*basis*/ return this.basis == null ? new Base[0] : this.basis.toArray(new Base[this.basis.size()]); // Reference
+        case 1161234575: /*prediction*/ return this.prediction == null ? new Base[0] : this.prediction.toArray(new Base[this.prediction.size()]); // RiskAssessmentPredictionComponent
+        case 1293793087: /*mitigation*/ return this.mitigation == null ? new Base[0] : new Base[] {this.mitigation}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1867885268:
+        case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           break;
-        case 3076014:
+        case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
           break;
-        case -861311717:
+        case -861311717: // condition
           this.condition = castToReference(value); // Reference
           break;
-        case 1524132147:
+        case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
           break;
-        case 481140686:
+        case 481140686: // performer
           this.performer = castToReference(value); // Reference
           break;
-        case -1618432855:
+        case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
           break;
-        case -1077554975:
+        case -1077554975: // method
           this.method = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 93508670:
-          this.basis.add(castToReference(value)); // Reference
+        case 93508670: // basis
+          this.getBasis().add(castToReference(value)); // Reference
           break;
-        case 1161234575:
-          this.prediction.add((RiskAssessmentPredictionComponent) value); // RiskAssessmentPredictionComponent
+        case 1161234575: // prediction
+          this.getPrediction().add((RiskAssessmentPredictionComponent) value); // RiskAssessmentPredictionComponent
           break;
-        case 1293793087:
+        case 1293793087: // mitigation
           this.mitigation = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1103,7 +1103,7 @@ public class RiskAssessment extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1867885268:  return getSubject(); // Reference
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
@@ -1115,7 +1115,7 @@ public class RiskAssessment extends DomainResource {
         case 93508670:  return addBasis(); // Reference
         case 1161234575:  return addPrediction(); // RiskAssessmentPredictionComponent
         case 1293793087: throw new FHIRException("Cannot make property mitigation as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

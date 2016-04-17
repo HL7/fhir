@@ -76,6 +76,7 @@ import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.Composition;
 import org.hl7.fhir.dstu3.model.Resource;
@@ -224,8 +225,14 @@ public class SourceParser {
     for (String n : ini.getPropertyNames("special-resources"))
       definitions.getAggregationEndpoints().add(n);
 
-    logger.log("Load ValueSets", LogMessageType.Process);
-    String[] pn = ini.getPropertyNames("valuesets");
+    logger.log("Load Code Systems", LogMessageType.Process);
+    String[] pn = ini.getPropertyNames("codesystems");
+    if (pn != null)
+      for (String n : pn) {
+        loadCodeSystem(n);
+      }
+    logger.log("Load Value Sets", LogMessageType.Process);
+    pn = ini.getPropertyNames("valuesets");
     if (pn != null)
       for (String n : pn) {
         loadValueSet(n);
@@ -538,6 +545,14 @@ public class SourceParser {
         }
       }
     }    
+  }
+
+  private void loadCodeSystem(String n) throws FileNotFoundException, Exception {
+    XmlParser xml = new XmlParser();
+    CodeSystem cs = (CodeSystem) xml.parse(new CSFileInputStream(srcDir+ini.getStringProperty("codesystems", n).replace('\\', File.separatorChar)));
+    if (!cs.hasId())  
+      cs.setId(FormatUtilities.makeId(n));
+    definitions.getCodeSystems().put(cs.getUrl(), cs);
   }
 
 

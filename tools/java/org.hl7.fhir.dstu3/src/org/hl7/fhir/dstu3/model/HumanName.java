@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -695,45 +695,45 @@ public class HumanName extends Type implements ICompositeType {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 116103: return this.use == null ? new Base[0] : new Base[] {this.use}; // Enumeration<NameUse>
-        case 3556653: return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
-        case -1281860764: return this.family.toArray(new Base[this.family.size()]); // StringType
-        case 98367357: return this.given.toArray(new Base[this.given.size()]); // StringType
-        case -980110702: return this.prefix.toArray(new Base[this.prefix.size()]); // StringType
-        case -891422895: return this.suffix.toArray(new Base[this.suffix.size()]); // StringType
-        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        default: return super.getProperty(hash, checkValid);
+        case 116103: /*use*/ return this.use == null ? new Base[0] : new Base[] {this.use}; // Enumeration<NameUse>
+        case 3556653: /*text*/ return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        case -1281860764: /*family*/ return this.family == null ? new Base[0] : this.family.toArray(new Base[this.family.size()]); // StringType
+        case 98367357: /*given*/ return this.given == null ? new Base[0] : this.given.toArray(new Base[this.given.size()]); // StringType
+        case -980110702: /*prefix*/ return this.prefix == null ? new Base[0] : this.prefix.toArray(new Base[this.prefix.size()]); // StringType
+        case -891422895: /*suffix*/ return this.suffix == null ? new Base[0] : this.suffix.toArray(new Base[this.suffix.size()]); // StringType
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 116103:
+        case 116103: // use
           this.use = new NameUseEnumFactory().fromType(value); // Enumeration<NameUse>
           break;
-        case 3556653:
+        case 3556653: // text
           this.text = castToString(value); // StringType
           break;
-        case -1281860764:
-          this.family.add(castToString(value)); // StringType
+        case -1281860764: // family
+          this.getFamily().add(castToString(value)); // StringType
           break;
-        case 98367357:
-          this.given.add(castToString(value)); // StringType
+        case 98367357: // given
+          this.getGiven().add(castToString(value)); // StringType
           break;
-        case -980110702:
-          this.prefix.add(castToString(value)); // StringType
+        case -980110702: // prefix
+          this.getPrefix().add(castToString(value)); // StringType
           break;
-        case -891422895:
-          this.suffix.add(castToString(value)); // StringType
+        case -891422895: // suffix
+          this.getSuffix().add(castToString(value)); // StringType
           break;
-        case -991726143:
+        case -991726143: // period
           this.period = castToPeriod(value); // Period
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -759,7 +759,7 @@ public class HumanName extends Type implements ICompositeType {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 116103: throw new FHIRException("Cannot make property use as it is not a complex type"); // Enumeration<NameUse>
         case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
@@ -768,7 +768,7 @@ public class HumanName extends Type implements ICompositeType {
         case -980110702: throw new FHIRException("Cannot make property prefix as it is not a complex type"); // StringType
         case -891422895: throw new FHIRException("Cannot make property suffix as it is not a complex type"); // StringType
         case -991726143:  return getPeriod(); // Period
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

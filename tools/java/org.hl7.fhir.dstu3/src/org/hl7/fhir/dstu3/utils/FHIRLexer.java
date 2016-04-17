@@ -113,9 +113,9 @@ public class FHIRLexer {
     currentStartLocation = currentLocation;
     if (cursor < path.length()) {
       char ch = path.charAt(cursor);
-      if (ch == '!' || ch == '>' || ch == '<' || ch == ':')  {
+      if (ch == '!' || ch == '>' || ch == '<' || ch == ':' || ch == '-' || ch == '=')  {
         cursor++;
-        if (cursor < path.length() && (path.charAt(cursor) == '=' || path.charAt(cursor) == '~')) 
+        if (cursor < path.length() && (path.charAt(cursor) == '=' || path.charAt(cursor) == '~' || path.charAt(cursor) == '-')) 
           cursor++;
         current = path.substring(currentStart, cursor);
       } else if (ch >= '0' && ch <= '9') {

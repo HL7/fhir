@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -370,33 +370,33 @@ public class Provenance extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3506294: return this.role == null ? new Base[0] : new Base[] {this.role}; // Coding
-        case 92645877: return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
-        case -836030906: return this.userId == null ? new Base[0] : new Base[] {this.userId}; // Identifier
-        case 126261658: return this.relatedAgent.toArray(new Base[this.relatedAgent.size()]); // ProvenanceAgentRelatedAgentComponent
-        default: return super.getProperty(hash, checkValid);
+        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // Coding
+        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
+        case -836030906: /*userId*/ return this.userId == null ? new Base[0] : new Base[] {this.userId}; // Identifier
+        case 126261658: /*relatedAgent*/ return this.relatedAgent == null ? new Base[0] : this.relatedAgent.toArray(new Base[this.relatedAgent.size()]); // ProvenanceAgentRelatedAgentComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3506294:
+        case 3506294: // role
           this.role = castToCoding(value); // Coding
           break;
-        case 92645877:
+        case 92645877: // actor
           this.actor = castToReference(value); // Reference
           break;
-        case -836030906:
+        case -836030906: // userId
           this.userId = castToIdentifier(value); // Identifier
           break;
-        case 126261658:
-          this.relatedAgent.add((ProvenanceAgentRelatedAgentComponent) value); // ProvenanceAgentRelatedAgentComponent
+        case 126261658: // relatedAgent
+          this.getRelatedAgent().add((ProvenanceAgentRelatedAgentComponent) value); // ProvenanceAgentRelatedAgentComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -416,13 +416,13 @@ public class Provenance extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3506294:  return getRole(); // Coding
         case 92645877:  return getActor(); // Reference
         case -836030906:  return getUserId(); // Identifier
         case 126261658:  return addRelatedAgent(); // ProvenanceAgentRelatedAgentComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -606,25 +606,25 @@ public class Provenance extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case -880905839: return this.target == null ? new Base[0] : new Base[] {this.target}; // UriType
-        default: return super.getProperty(hash, checkValid);
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // UriType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610:
+        case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -880905839:
+        case -880905839: // target
           this.target = castToUri(value); // UriType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -640,11 +640,11 @@ public class Provenance extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610:  return getType(); // CodeableConcept
         case -880905839: throw new FHIRException("Cannot make property target as it is not a complex type"); // UriType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -955,37 +955,37 @@ public class Provenance extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3506294: return this.role == null ? new Base[0] : new Base[] {this.role}; // Enumeration<ProvenanceEntityRole>
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
-        case -925155509: return this.reference == null ? new Base[0] : new Base[] {this.reference}; // UriType
-        case 1671764162: return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
-        case 92750597: return this.agent == null ? new Base[0] : new Base[] {this.agent}; // ProvenanceAgentComponent
-        default: return super.getProperty(hash, checkValid);
+        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // Enumeration<ProvenanceEntityRole>
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case -925155509: /*reference*/ return this.reference == null ? new Base[0] : new Base[] {this.reference}; // UriType
+        case 1671764162: /*display*/ return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
+        case 92750597: /*agent*/ return this.agent == null ? new Base[0] : new Base[] {this.agent}; // ProvenanceAgentComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3506294:
+        case 3506294: // role
           this.role = new ProvenanceEntityRoleEnumFactory().fromType(value); // Enumeration<ProvenanceEntityRole>
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = castToCoding(value); // Coding
           break;
-        case -925155509:
+        case -925155509: // reference
           this.reference = castToUri(value); // UriType
           break;
-        case 1671764162:
+        case 1671764162: // display
           this.display = castToString(value); // StringType
           break;
-        case 92750597:
+        case 92750597: // agent
           this.agent = (ProvenanceAgentComponent) value; // ProvenanceAgentComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1007,14 +1007,14 @@ public class Provenance extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3506294: throw new FHIRException("Cannot make property role as it is not a complex type"); // Enumeration<ProvenanceEntityRole>
         case 3575610:  return getType(); // Coding
         case -925155509: throw new FHIRException("Cannot make property reference as it is not a complex type"); // UriType
         case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
         case 92750597:  return getAgent(); // ProvenanceAgentComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1600,57 +1600,57 @@ public class Provenance extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -880905839: return this.target.toArray(new Base[this.target.size()]); // Reference
-        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        case -799233872: return this.recorded == null ? new Base[0] : new Base[] {this.recorded}; // InstantType
-        case -934964668: return this.reason.toArray(new Base[this.reason.size()]); // Coding
-        case -1655966961: return this.activity == null ? new Base[0] : new Base[] {this.activity}; // Coding
-        case 1901043637: return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
-        case -982670030: return this.policy.toArray(new Base[this.policy.size()]); // UriType
-        case 92750597: return this.agent.toArray(new Base[this.agent.size()]); // ProvenanceAgentComponent
-        case -1298275357: return this.entity.toArray(new Base[this.entity.size()]); // ProvenanceEntityComponent
-        case 1073584312: return this.signature.toArray(new Base[this.signature.size()]); // Signature
-        default: return super.getProperty(hash, checkValid);
+        case -880905839: /*target*/ return this.target == null ? new Base[0] : this.target.toArray(new Base[this.target.size()]); // Reference
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case -799233872: /*recorded*/ return this.recorded == null ? new Base[0] : new Base[] {this.recorded}; // InstantType
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : this.reason.toArray(new Base[this.reason.size()]); // Coding
+        case -1655966961: /*activity*/ return this.activity == null ? new Base[0] : new Base[] {this.activity}; // Coding
+        case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
+        case -982670030: /*policy*/ return this.policy == null ? new Base[0] : this.policy.toArray(new Base[this.policy.size()]); // UriType
+        case 92750597: /*agent*/ return this.agent == null ? new Base[0] : this.agent.toArray(new Base[this.agent.size()]); // ProvenanceAgentComponent
+        case -1298275357: /*entity*/ return this.entity == null ? new Base[0] : this.entity.toArray(new Base[this.entity.size()]); // ProvenanceEntityComponent
+        case 1073584312: /*signature*/ return this.signature == null ? new Base[0] : this.signature.toArray(new Base[this.signature.size()]); // Signature
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -880905839:
-          this.target.add(castToReference(value)); // Reference
+        case -880905839: // target
+          this.getTarget().add(castToReference(value)); // Reference
           break;
-        case -991726143:
+        case -991726143: // period
           this.period = castToPeriod(value); // Period
           break;
-        case -799233872:
+        case -799233872: // recorded
           this.recorded = castToInstant(value); // InstantType
           break;
-        case -934964668:
-          this.reason.add(castToCoding(value)); // Coding
+        case -934964668: // reason
+          this.getReason().add(castToCoding(value)); // Coding
           break;
-        case -1655966961:
+        case -1655966961: // activity
           this.activity = castToCoding(value); // Coding
           break;
-        case 1901043637:
+        case 1901043637: // location
           this.location = castToReference(value); // Reference
           break;
-        case -982670030:
-          this.policy.add(castToUri(value)); // UriType
+        case -982670030: // policy
+          this.getPolicy().add(castToUri(value)); // UriType
           break;
-        case 92750597:
-          this.agent.add((ProvenanceAgentComponent) value); // ProvenanceAgentComponent
+        case 92750597: // agent
+          this.getAgent().add((ProvenanceAgentComponent) value); // ProvenanceAgentComponent
           break;
-        case -1298275357:
-          this.entity.add((ProvenanceEntityComponent) value); // ProvenanceEntityComponent
+        case -1298275357: // entity
+          this.getEntity().add((ProvenanceEntityComponent) value); // ProvenanceEntityComponent
           break;
-        case 1073584312:
-          this.signature.add(castToSignature(value)); // Signature
+        case 1073584312: // signature
+          this.getSignature().add(castToSignature(value)); // Signature
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1682,7 +1682,7 @@ public class Provenance extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -880905839:  return addTarget(); // Reference
         case -991726143:  return getPeriod(); // Period
@@ -1694,7 +1694,7 @@ public class Provenance extends DomainResource {
         case 92750597:  return addAgent(); // ProvenanceAgentComponent
         case -1298275357:  return addEntity(); // ProvenanceEntityComponent
         case 1073584312:  return addSignature(); // Signature
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

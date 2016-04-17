@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -268,25 +268,25 @@ public class ClinicalImpression extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case 3242771: return this.item.toArray(new Base[this.item.size()]); // Reference
-        default: return super.getProperty(hash, checkValid);
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case 3242771: /*item*/ return this.item == null ? new Base[0] : this.item.toArray(new Base[this.item.size()]); // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181:
+        case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 3242771:
-          this.item.add(castToReference(value)); // Reference
+        case 3242771: // item
+          this.getItem().add(castToReference(value)); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -302,11 +302,11 @@ public class ClinicalImpression extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181:  return getCode(); // CodeableConcept
         case 3242771:  return addItem(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -481,25 +481,25 @@ public class ClinicalImpression extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3242771: return this.item == null ? new Base[0] : new Base[] {this.item}; // CodeableConcept
-        case 94434409: return this.cause == null ? new Base[0] : new Base[] {this.cause}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case 3242771: /*item*/ return this.item == null ? new Base[0] : new Base[] {this.item}; // CodeableConcept
+        case 94434409: /*cause*/ return this.cause == null ? new Base[0] : new Base[] {this.cause}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3242771:
+        case 3242771: // item
           this.item = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 94434409:
+        case 94434409: // cause
           this.cause = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -515,11 +515,11 @@ public class ClinicalImpression extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3242771:  return getItem(); // CodeableConcept
         case 94434409: throw new FHIRException("Cannot make property cause as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -690,25 +690,25 @@ public class ClinicalImpression extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3242771: return this.item == null ? new Base[0] : new Base[] {this.item}; // CodeableConcept
-        case -934964668: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case 3242771: /*item*/ return this.item == null ? new Base[0] : new Base[] {this.item}; // CodeableConcept
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3242771:
+        case 3242771: // item
           this.item = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -934964668:
+        case -934964668: // reason
           this.reason = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -724,11 +724,11 @@ public class ClinicalImpression extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3242771:  return getItem(); // CodeableConcept
         case -934964668: throw new FHIRException("Cannot make property reason as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1749,85 +1749,85 @@ public class ClinicalImpression extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
-        case -373213113: return this.assessor == null ? new Base[0] : new Base[] {this.assessor}; // Reference
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ClinicalImpressionStatus>
-        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -1273775369: return this.previous == null ? new Base[0] : new Base[] {this.previous}; // Reference
-        case -309542241: return this.problem.toArray(new Base[this.problem.size()]); // Reference
-        case 1363514312: return this.trigger == null ? new Base[0] : new Base[] {this.trigger}; // Type
-        case -428294735: return this.investigations.toArray(new Base[this.investigations.size()]); // ClinicalImpressionInvestigationsComponent
-        case -989163880: return this.protocol == null ? new Base[0] : new Base[] {this.protocol}; // UriType
-        case -1857640538: return this.summary == null ? new Base[0] : new Base[] {this.summary}; // StringType
-        case -853173367: return this.finding.toArray(new Base[this.finding.size()]); // ClinicalImpressionFindingComponent
-        case -341328904: return this.resolved.toArray(new Base[this.resolved.size()]); // CodeableConcept
-        case 763913542: return this.ruledOut.toArray(new Base[this.ruledOut.size()]); // ClinicalImpressionRuledOutComponent
-        case -972050334: return this.prognosis == null ? new Base[0] : new Base[] {this.prognosis}; // StringType
-        case 3443497: return this.plan.toArray(new Base[this.plan.size()]); // Reference
-        case -1422950858: return this.action.toArray(new Base[this.action.size()]); // Reference
-        default: return super.getProperty(hash, checkValid);
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -373213113: /*assessor*/ return this.assessor == null ? new Base[0] : new Base[] {this.assessor}; // Reference
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ClinicalImpressionStatus>
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -1273775369: /*previous*/ return this.previous == null ? new Base[0] : new Base[] {this.previous}; // Reference
+        case -309542241: /*problem*/ return this.problem == null ? new Base[0] : this.problem.toArray(new Base[this.problem.size()]); // Reference
+        case -1059891784: /*trigger*/ return this.trigger == null ? new Base[0] : new Base[] {this.trigger}; // Type
+        case -428294735: /*investigations*/ return this.investigations == null ? new Base[0] : this.investigations.toArray(new Base[this.investigations.size()]); // ClinicalImpressionInvestigationsComponent
+        case -989163880: /*protocol*/ return this.protocol == null ? new Base[0] : new Base[] {this.protocol}; // UriType
+        case -1857640538: /*summary*/ return this.summary == null ? new Base[0] : new Base[] {this.summary}; // StringType
+        case -853173367: /*finding*/ return this.finding == null ? new Base[0] : this.finding.toArray(new Base[this.finding.size()]); // ClinicalImpressionFindingComponent
+        case -341328904: /*resolved*/ return this.resolved == null ? new Base[0] : this.resolved.toArray(new Base[this.resolved.size()]); // CodeableConcept
+        case 763913542: /*ruledOut*/ return this.ruledOut == null ? new Base[0] : this.ruledOut.toArray(new Base[this.ruledOut.size()]); // ClinicalImpressionRuledOutComponent
+        case -972050334: /*prognosis*/ return this.prognosis == null ? new Base[0] : new Base[] {this.prognosis}; // StringType
+        case 3443497: /*plan*/ return this.plan == null ? new Base[0] : this.plan.toArray(new Base[this.plan.size()]); // Reference
+        case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -791418107:
+        case -791418107: // patient
           this.patient = castToReference(value); // Reference
           break;
-        case -373213113:
+        case -373213113: // assessor
           this.assessor = castToReference(value); // Reference
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new ClinicalImpressionStatusEnumFactory().fromType(value); // Enumeration<ClinicalImpressionStatus>
           break;
-        case 3076014:
+        case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        case -1273775369:
+        case -1273775369: // previous
           this.previous = castToReference(value); // Reference
           break;
-        case -309542241:
-          this.problem.add(castToReference(value)); // Reference
+        case -309542241: // problem
+          this.getProblem().add(castToReference(value)); // Reference
           break;
-        case 1363514312:
+        case -1059891784: // trigger
           this.trigger = (Type) value; // Type
           break;
-        case -428294735:
-          this.investigations.add((ClinicalImpressionInvestigationsComponent) value); // ClinicalImpressionInvestigationsComponent
+        case -428294735: // investigations
+          this.getInvestigations().add((ClinicalImpressionInvestigationsComponent) value); // ClinicalImpressionInvestigationsComponent
           break;
-        case -989163880:
+        case -989163880: // protocol
           this.protocol = castToUri(value); // UriType
           break;
-        case -1857640538:
+        case -1857640538: // summary
           this.summary = castToString(value); // StringType
           break;
-        case -853173367:
-          this.finding.add((ClinicalImpressionFindingComponent) value); // ClinicalImpressionFindingComponent
+        case -853173367: // finding
+          this.getFinding().add((ClinicalImpressionFindingComponent) value); // ClinicalImpressionFindingComponent
           break;
-        case -341328904:
-          this.resolved.add(castToCodeableConcept(value)); // CodeableConcept
+        case -341328904: // resolved
+          this.getResolved().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case 763913542:
-          this.ruledOut.add((ClinicalImpressionRuledOutComponent) value); // ClinicalImpressionRuledOutComponent
+        case 763913542: // ruledOut
+          this.getRuledOut().add((ClinicalImpressionRuledOutComponent) value); // ClinicalImpressionRuledOutComponent
           break;
-        case -972050334:
+        case -972050334: // prognosis
           this.prognosis = castToString(value); // StringType
           break;
-        case 3443497:
-          this.plan.add(castToReference(value)); // Reference
+        case 3443497: // plan
+          this.getPlan().add(castToReference(value)); // Reference
           break;
-        case -1422950858:
-          this.action.add(castToReference(value)); // Reference
+        case -1422950858: // action
+          this.getAction().add(castToReference(value)); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1873,7 +1873,7 @@ public class ClinicalImpression extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -791418107:  return getPatient(); // Reference
         case -373213113:  return getAssessor(); // Reference
@@ -1892,7 +1892,7 @@ public class ClinicalImpression extends DomainResource {
         case -972050334: throw new FHIRException("Cannot make property prognosis as it is not a complex type"); // StringType
         case 3443497:  return addPlan(); // Reference
         case -1422950858:  return addAction(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

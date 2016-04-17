@@ -16,8 +16,8 @@ public class TurtleParser extends ParserBase {
 
   private String base;
   
-  public TurtleParser(IWorkerContext context, boolean check) {
-    super(context, check);
+  public TurtleParser(IWorkerContext context) {
+    super(context);
   }
   @Override
   public Element parse(InputStream stream) throws Exception {

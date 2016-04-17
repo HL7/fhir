@@ -202,11 +202,11 @@ public class ValueSetValidator extends BaseValidator {
           for (ConceptReferenceComponent cc : inc.getConcept()) {
             if (inc.getSystem().equals("http://nema.org/dicom/dicm"))
               suppressedwarning(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
-                  "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem(),
-                  "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem());             
+                  "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (1)",
+                  "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (1)");             
             else
               rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
-                "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem());
+                "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (2)");
             
           }
         }

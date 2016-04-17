@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -748,65 +748,65 @@ public class Media extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<DigitalMediaType>
-        case -1867567750: return this.subtype == null ? new Base[0] : new Base[] {this.subtype}; // CodeableConcept
-        case 3619493: return this.view == null ? new Base[0] : new Base[] {this.view}; // CodeableConcept
-        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case -500553564: return this.operator == null ? new Base[0] : new Base[] {this.operator}; // Reference
-        case 780988929: return this.deviceName == null ? new Base[0] : new Base[] {this.deviceName}; // StringType
-        case -1221029593: return this.height == null ? new Base[0] : new Base[] {this.height}; // PositiveIntType
-        case 113126854: return this.width == null ? new Base[0] : new Base[] {this.width}; // PositiveIntType
-        case -1266514778: return this.frames == null ? new Base[0] : new Base[] {this.frames}; // PositiveIntType
-        case -1992012396: return this.duration == null ? new Base[0] : new Base[] {this.duration}; // UnsignedIntType
-        case 951530617: return this.content == null ? new Base[0] : new Base[] {this.content}; // Attachment
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<DigitalMediaType>
+        case -1867567750: /*subtype*/ return this.subtype == null ? new Base[0] : new Base[] {this.subtype}; // CodeableConcept
+        case 3619493: /*view*/ return this.view == null ? new Base[0] : new Base[] {this.view}; // CodeableConcept
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case -500553564: /*operator*/ return this.operator == null ? new Base[0] : new Base[] {this.operator}; // Reference
+        case 780988929: /*deviceName*/ return this.deviceName == null ? new Base[0] : new Base[] {this.deviceName}; // StringType
+        case -1221029593: /*height*/ return this.height == null ? new Base[0] : new Base[] {this.height}; // PositiveIntType
+        case 113126854: /*width*/ return this.width == null ? new Base[0] : new Base[] {this.width}; // PositiveIntType
+        case -1266514778: /*frames*/ return this.frames == null ? new Base[0] : new Base[] {this.frames}; // PositiveIntType
+        case -1992012396: /*duration*/ return this.duration == null ? new Base[0] : new Base[] {this.duration}; // UnsignedIntType
+        case 951530617: /*content*/ return this.content == null ? new Base[0] : new Base[] {this.content}; // Attachment
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = new DigitalMediaTypeEnumFactory().fromType(value); // Enumeration<DigitalMediaType>
           break;
-        case -1867567750:
+        case -1867567750: // subtype
           this.subtype = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 3619493:
+        case 3619493: // view
           this.view = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1867885268:
+        case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           break;
-        case -500553564:
+        case -500553564: // operator
           this.operator = castToReference(value); // Reference
           break;
-        case 780988929:
+        case 780988929: // deviceName
           this.deviceName = castToString(value); // StringType
           break;
-        case -1221029593:
+        case -1221029593: // height
           this.height = castToPositiveInt(value); // PositiveIntType
           break;
-        case 113126854:
+        case 113126854: // width
           this.width = castToPositiveInt(value); // PositiveIntType
           break;
-        case -1266514778:
+        case -1266514778: // frames
           this.frames = castToPositiveInt(value); // PositiveIntType
           break;
-        case -1992012396:
+        case -1992012396: // duration
           this.duration = castToUnsignedInt(value); // UnsignedIntType
           break;
-        case 951530617:
+        case 951530617: // content
           this.content = castToAttachment(value); // Attachment
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -842,7 +842,7 @@ public class Media extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<DigitalMediaType>
@@ -856,7 +856,7 @@ public class Media extends DomainResource {
         case -1266514778: throw new FHIRException("Cannot make property frames as it is not a complex type"); // PositiveIntType
         case -1992012396: throw new FHIRException("Cannot make property duration as it is not a complex type"); // UnsignedIntType
         case 951530617:  return getContent(); // Attachment
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

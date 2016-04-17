@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -529,37 +529,37 @@ public class MeasureReport extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
-        case -2023558323: return this.population.toArray(new Base[this.population.size()]); // MeasureReportGroupPopulationComponent
-        case -386313260: return this.measureScore == null ? new Base[0] : new Base[] {this.measureScore}; // DecimalType
-        case 90983669: return this.stratifier.toArray(new Base[this.stratifier.size()]); // MeasureReportGroupStratifierComponent
-        case 1447496814: return this.supplementalData.toArray(new Base[this.supplementalData.size()]); // MeasureReportGroupSupplementalDataComponent
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case -2023558323: /*population*/ return this.population == null ? new Base[0] : this.population.toArray(new Base[this.population.size()]); // MeasureReportGroupPopulationComponent
+        case -386313260: /*measureScore*/ return this.measureScore == null ? new Base[0] : new Base[] {this.measureScore}; // DecimalType
+        case 90983669: /*stratifier*/ return this.stratifier == null ? new Base[0] : this.stratifier.toArray(new Base[this.stratifier.size()]); // MeasureReportGroupStratifierComponent
+        case 1447496814: /*supplementalData*/ return this.supplementalData == null ? new Base[0] : this.supplementalData.toArray(new Base[this.supplementalData.size()]); // MeasureReportGroupSupplementalDataComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
+        case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
           break;
-        case -2023558323:
-          this.population.add((MeasureReportGroupPopulationComponent) value); // MeasureReportGroupPopulationComponent
+        case -2023558323: // population
+          this.getPopulation().add((MeasureReportGroupPopulationComponent) value); // MeasureReportGroupPopulationComponent
           break;
-        case -386313260:
+        case -386313260: // measureScore
           this.measureScore = castToDecimal(value); // DecimalType
           break;
-        case 90983669:
-          this.stratifier.add((MeasureReportGroupStratifierComponent) value); // MeasureReportGroupStratifierComponent
+        case 90983669: // stratifier
+          this.getStratifier().add((MeasureReportGroupStratifierComponent) value); // MeasureReportGroupStratifierComponent
           break;
-        case 1447496814:
-          this.supplementalData.add((MeasureReportGroupSupplementalDataComponent) value); // MeasureReportGroupSupplementalDataComponent
+        case 1447496814: // supplementalData
+          this.getSupplementalData().add((MeasureReportGroupSupplementalDataComponent) value); // MeasureReportGroupSupplementalDataComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -581,14 +581,14 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return getIdentifier(); // Identifier
         case -2023558323:  return addPopulation(); // MeasureReportGroupPopulationComponent
         case -386313260: throw new FHIRException("Cannot make property measureScore as it is not a complex type"); // DecimalType
         case 90983669:  return addStratifier(); // MeasureReportGroupStratifierComponent
         case 1447496814:  return addSupplementalData(); // MeasureReportGroupSupplementalDataComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -860,29 +860,29 @@ public class MeasureReport extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
-        case 94851343: return this.count == null ? new Base[0] : new Base[] {this.count}; // IntegerType
-        case 1235842574: return this.patients == null ? new Base[0] : new Base[] {this.patients}; // Reference
-        default: return super.getProperty(hash, checkValid);
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
+        case 94851343: /*count*/ return this.count == null ? new Base[0] : new Base[] {this.count}; // IntegerType
+        case 1235842574: /*patients*/ return this.patients == null ? new Base[0] : new Base[] {this.patients}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610:
+        case 3575610: // type
           this.type = castToCode(value); // CodeType
           break;
-        case 94851343:
+        case 94851343: // count
           this.count = castToInteger(value); // IntegerType
           break;
-        case 1235842574:
+        case 1235842574: // patients
           this.patients = castToReference(value); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -900,12 +900,12 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
         case 94851343: throw new FHIRException("Cannot make property count as it is not a complex type"); // IntegerType
         case 1235842574:  return getPatients(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1072,25 +1072,25 @@ public class MeasureReport extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
-        case 98629247: return this.group.toArray(new Base[this.group.size()]); // MeasureReportGroupStratifierGroupComponent
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 98629247: /*group*/ return this.group == null ? new Base[0] : this.group.toArray(new Base[this.group.size()]); // MeasureReportGroupStratifierGroupComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
+        case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
           break;
-        case 98629247:
-          this.group.add((MeasureReportGroupStratifierGroupComponent) value); // MeasureReportGroupStratifierGroupComponent
+        case 98629247: // group
+          this.getGroup().add((MeasureReportGroupStratifierGroupComponent) value); // MeasureReportGroupStratifierGroupComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1106,11 +1106,11 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return getIdentifier(); // Identifier
         case 98629247:  return addGroup(); // MeasureReportGroupStratifierGroupComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1372,29 +1372,29 @@ public class MeasureReport extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
-        case -2023558323: return this.population.toArray(new Base[this.population.size()]); // MeasureReportGroupStratifierGroupPopulationComponent
-        case -386313260: return this.measureScore == null ? new Base[0] : new Base[] {this.measureScore}; // DecimalType
-        default: return super.getProperty(hash, checkValid);
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
+        case -2023558323: /*population*/ return this.population == null ? new Base[0] : this.population.toArray(new Base[this.population.size()]); // MeasureReportGroupStratifierGroupPopulationComponent
+        case -386313260: /*measureScore*/ return this.measureScore == null ? new Base[0] : new Base[] {this.measureScore}; // DecimalType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 111972721:
+        case 111972721: // value
           this.value = castToString(value); // StringType
           break;
-        case -2023558323:
-          this.population.add((MeasureReportGroupStratifierGroupPopulationComponent) value); // MeasureReportGroupStratifierGroupPopulationComponent
+        case -2023558323: // population
+          this.getPopulation().add((MeasureReportGroupStratifierGroupPopulationComponent) value); // MeasureReportGroupStratifierGroupPopulationComponent
           break;
-        case -386313260:
+        case -386313260: // measureScore
           this.measureScore = castToDecimal(value); // DecimalType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1412,12 +1412,12 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
         case -2023558323:  return addPopulation(); // MeasureReportGroupStratifierGroupPopulationComponent
         case -386313260: throw new FHIRException("Cannot make property measureScore as it is not a complex type"); // DecimalType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1670,29 +1670,29 @@ public class MeasureReport extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
-        case 94851343: return this.count == null ? new Base[0] : new Base[] {this.count}; // IntegerType
-        case 1235842574: return this.patients == null ? new Base[0] : new Base[] {this.patients}; // Reference
-        default: return super.getProperty(hash, checkValid);
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
+        case 94851343: /*count*/ return this.count == null ? new Base[0] : new Base[] {this.count}; // IntegerType
+        case 1235842574: /*patients*/ return this.patients == null ? new Base[0] : new Base[] {this.patients}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610:
+        case 3575610: // type
           this.type = castToCode(value); // CodeType
           break;
-        case 94851343:
+        case 94851343: // count
           this.count = castToInteger(value); // IntegerType
           break;
-        case 1235842574:
+        case 1235842574: // patients
           this.patients = castToReference(value); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1710,12 +1710,12 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
         case 94851343: throw new FHIRException("Cannot make property count as it is not a complex type"); // IntegerType
         case 1235842574:  return getPatients(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1882,25 +1882,25 @@ public class MeasureReport extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
-        case 98629247: return this.group.toArray(new Base[this.group.size()]); // MeasureReportGroupSupplementalDataGroupComponent
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 98629247: /*group*/ return this.group == null ? new Base[0] : this.group.toArray(new Base[this.group.size()]); // MeasureReportGroupSupplementalDataGroupComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
+        case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
           break;
-        case 98629247:
-          this.group.add((MeasureReportGroupSupplementalDataGroupComponent) value); // MeasureReportGroupSupplementalDataGroupComponent
+        case 98629247: // group
+          this.getGroup().add((MeasureReportGroupSupplementalDataGroupComponent) value); // MeasureReportGroupSupplementalDataGroupComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1916,11 +1916,11 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return getIdentifier(); // Identifier
         case 98629247:  return addGroup(); // MeasureReportGroupSupplementalDataGroupComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -2169,29 +2169,29 @@ public class MeasureReport extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 111972721: return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
-        case 94851343: return this.count == null ? new Base[0] : new Base[] {this.count}; // IntegerType
-        case 1235842574: return this.patients == null ? new Base[0] : new Base[] {this.patients}; // Reference
-        default: return super.getProperty(hash, checkValid);
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
+        case 94851343: /*count*/ return this.count == null ? new Base[0] : new Base[] {this.count}; // IntegerType
+        case 1235842574: /*patients*/ return this.patients == null ? new Base[0] : new Base[] {this.patients}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 111972721:
+        case 111972721: // value
           this.value = castToString(value); // StringType
           break;
-        case 94851343:
+        case 94851343: // count
           this.count = castToInteger(value); // IntegerType
           break;
-        case 1235842574:
+        case 1235842574: // patients
           this.patients = castToReference(value); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -2209,12 +2209,12 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
         case 94851343: throw new FHIRException("Cannot make property count as it is not a complex type"); // IntegerType
         case 1235842574:  return getPatients(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -2773,53 +2773,53 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 938321246: return this.measure == null ? new Base[0] : new Base[] {this.measure}; // Reference
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<MeasureReportType>
-        case -791418107: return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
-        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MeasureReportStatus>
-        case 3076014: return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
-        case -2053950847: return this.reportingOrganization == null ? new Base[0] : new Base[] {this.reportingOrganization}; // Reference
-        case 98629247: return this.group.toArray(new Base[this.group.size()]); // MeasureReportGroupComponent
-        case 1599836026: return this.evaluatedResources == null ? new Base[0] : new Base[] {this.evaluatedResources}; // Reference
-        default: return super.getProperty(hash, checkValid);
+        case 938321246: /*measure*/ return this.measure == null ? new Base[0] : new Base[] {this.measure}; // Reference
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<MeasureReportType>
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MeasureReportStatus>
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -2053950847: /*reportingOrganization*/ return this.reportingOrganization == null ? new Base[0] : new Base[] {this.reportingOrganization}; // Reference
+        case 98629247: /*group*/ return this.group == null ? new Base[0] : this.group.toArray(new Base[this.group.size()]); // MeasureReportGroupComponent
+        case 1599836026: /*evaluatedResources*/ return this.evaluatedResources == null ? new Base[0] : new Base[] {this.evaluatedResources}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 938321246:
+        case 938321246: // measure
           this.measure = castToReference(value); // Reference
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = new MeasureReportTypeEnumFactory().fromType(value); // Enumeration<MeasureReportType>
           break;
-        case -791418107:
+        case -791418107: // patient
           this.patient = castToReference(value); // Reference
           break;
-        case -991726143:
+        case -991726143: // period
           this.period = castToPeriod(value); // Period
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new MeasureReportStatusEnumFactory().fromType(value); // Enumeration<MeasureReportStatus>
           break;
-        case 3076014:
+        case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
           break;
-        case -2053950847:
+        case -2053950847: // reportingOrganization
           this.reportingOrganization = castToReference(value); // Reference
           break;
-        case 98629247:
-          this.group.add((MeasureReportGroupComponent) value); // MeasureReportGroupComponent
+        case 98629247: // group
+          this.getGroup().add((MeasureReportGroupComponent) value); // MeasureReportGroupComponent
           break;
-        case 1599836026:
+        case 1599836026: // evaluatedResources
           this.evaluatedResources = castToReference(value); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -2849,7 +2849,7 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 938321246:  return getMeasure(); // Reference
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<MeasureReportType>
@@ -2860,7 +2860,7 @@ public class MeasureReport extends DomainResource {
         case -2053950847:  return getReportingOrganization(); // Reference
         case 98629247:  return addGroup(); // MeasureReportGroupComponent
         case 1599836026:  return getEvaluatedResources(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

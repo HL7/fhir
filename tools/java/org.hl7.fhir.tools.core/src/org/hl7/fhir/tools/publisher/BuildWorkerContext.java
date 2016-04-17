@@ -37,7 +37,10 @@ import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.DataElement;
+import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemIdentifierType;
+import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
@@ -68,6 +71,7 @@ import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.exceptions.UcumException;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.OIDUtils;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ucum.UcumEssenceService;
@@ -587,7 +591,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         return verifyLoinc(code, display);
       if (system.equals("http://unitsofmeasure.org"))
         return verifyUcum(code, display);
-      if (codeSystems.containsKey(system)) {
+      if (codeSystems.containsKey(system) && codeSystems.get(system) != null) {
         return verifyCode(codeSystems.get(system), code, display);
       }
       if (system.startsWith("http://example.org"))
@@ -1032,5 +1036,37 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     result.addAll(profiles.values());
     return result;
   }
+
+  @Override
+  public String oid2Uri(String oid) {
+    String uri = OIDUtils.getUriForOid(oid);
+    if (uri != null)
+      return uri;
+//    for (NamingSystem ns : systems) {
+//      if (hasOid(ns, oid)) {
+//        uri = getUri(ns);
+//        if (uri != null)
+//          return null;
+//      }
+//    }
+    return null;
+  }
+
+  private String getUri(NamingSystem ns) {
+    for (NamingSystemUniqueIdComponent id : ns.getUniqueId()) {
+      if (id.getType() == NamingSystemIdentifierType.URI)
+        return id.getValue();
+    }
+    return null;
+  }
+
+  private boolean hasOid(NamingSystem ns, String oid) {
+    for (NamingSystemUniqueIdComponent id : ns.getUniqueId()) {
+      if (id.getType() == NamingSystemIdentifierType.OID && id.getValue().equals(oid))
+        return true;
+    }
+    return false;
+  }
+
 
 }

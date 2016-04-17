@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -214,29 +214,29 @@ public class OrderSet extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 455891387: return this.moduleMetadata == null ? new Base[0] : new Base[] {this.moduleMetadata}; // ModuleMetadata
-        case 166208699: return this.library.toArray(new Base[this.library.size()]); // Reference
-        case -1422950858: return this.action.toArray(new Base[this.action.size()]); // ActionDefinition
-        default: return super.getProperty(hash, checkValid);
+        case 455891387: /*moduleMetadata*/ return this.moduleMetadata == null ? new Base[0] : new Base[] {this.moduleMetadata}; // ModuleMetadata
+        case 166208699: /*library*/ return this.library == null ? new Base[0] : this.library.toArray(new Base[this.library.size()]); // Reference
+        case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // ActionDefinition
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 455891387:
+        case 455891387: // moduleMetadata
           this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
           break;
-        case 166208699:
-          this.library.add(castToReference(value)); // Reference
+        case 166208699: // library
+          this.getLibrary().add(castToReference(value)); // Reference
           break;
-        case -1422950858:
-          this.action.add(castToActionDefinition(value)); // ActionDefinition
+        case -1422950858: // action
+          this.getAction().add(castToActionDefinition(value)); // ActionDefinition
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -254,12 +254,12 @@ public class OrderSet extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 455891387:  return getModuleMetadata(); // ModuleMetadata
         case 166208699:  return addLibrary(); // Reference
         case -1422950858:  return addAction(); // ActionDefinition
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

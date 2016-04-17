@@ -76,14 +76,25 @@ public class JavaFactoryGenerator extends OutputStreamWriter {
     for (String name : types.keySet()) {
       write("        if (\""+name+"\".equals(name))\r\n");
       String t = types.get(name);
-      if (t.contains("<"))
-        write("            return new "+t+"(\""+t.substring(t.indexOf('<')+1).replace(">", "")+"\");\r\n");
-      else
-        write("            return new "+t+"();\r\n");
+      write("            return new "+t+"();\r\n");
     }    
     write("        else\r\n");
     write("            throw new FHIRException(\"Unknown Type Name '\"+name+\"'\");\r\n");
+    write("    }\r\n\r\n");
+    write("    public static Base createResourceOrType(String name) throws FHIRException {\r\n");
+    for (String name : resources.keySet()) {
+      write("        if (\""+name+"\".equals(name))\r\n");
+      write("            return new "+javaClassName(resources.get(name))+"();\r\n");
+    }
+    for (String name : types.keySet()) {
+      write("        if (\""+name+"\".equals(name))\r\n");
+      String t = types.get(name);
+      write("            return new "+t+"();\r\n");
+    }    
+    write("        else\r\n");
+    write("            throw new FHIRException(\"Unknown Resource or Type Name '\"+name+\"'\");\r\n");
     write("    }\r\n");
+    write("\r\n");
     write("\r\n");
 		write("}\r\n");
 		write("\r\n");

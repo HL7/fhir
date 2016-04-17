@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -473,45 +473,45 @@ public class Patient extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -261851592: return this.relationship.toArray(new Base[this.relationship.size()]); // CodeableConcept
-        case 3373707: return this.name == null ? new Base[0] : new Base[] {this.name}; // HumanName
-        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
-        case -1147692044: return this.address == null ? new Base[0] : new Base[] {this.address}; // Address
-        case -1249512767: return this.gender == null ? new Base[0] : new Base[] {this.gender}; // Enumeration<AdministrativeGender>
-        case 1178922291: return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
-        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        default: return super.getProperty(hash, checkValid);
+        case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : this.relationship.toArray(new Base[this.relationship.size()]); // CodeableConcept
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // HumanName
+        case -1429363305: /*telecom*/ return this.telecom == null ? new Base[0] : this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        case -1147692044: /*address*/ return this.address == null ? new Base[0] : new Base[] {this.address}; // Address
+        case -1249512767: /*gender*/ return this.gender == null ? new Base[0] : new Base[] {this.gender}; // Enumeration<AdministrativeGender>
+        case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -261851592:
-          this.relationship.add(castToCodeableConcept(value)); // CodeableConcept
+        case -261851592: // relationship
+          this.getRelationship().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case 3373707:
+        case 3373707: // name
           this.name = castToHumanName(value); // HumanName
           break;
-        case -1429363305:
-          this.telecom.add(castToContactPoint(value)); // ContactPoint
+        case -1429363305: // telecom
+          this.getTelecom().add(castToContactPoint(value)); // ContactPoint
           break;
-        case -1147692044:
+        case -1147692044: // address
           this.address = castToAddress(value); // Address
           break;
-        case -1249512767:
+        case -1249512767: // gender
           this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
           break;
-        case 1178922291:
+        case 1178922291: // organization
           this.organization = castToReference(value); // Reference
           break;
-        case -991726143:
+        case -991726143: // period
           this.period = castToPeriod(value); // Period
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -537,7 +537,7 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -261851592:  return addRelationship(); // CodeableConcept
         case 3373707:  return getName(); // HumanName
@@ -546,7 +546,7 @@ public class Patient extends DomainResource {
         case -1249512767: throw new FHIRException("Cannot make property gender as it is not a complex type"); // Enumeration<AdministrativeGender>
         case 1178922291:  return getOrganization(); // Reference
         case -991726143:  return getPeriod(); // Period
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -759,29 +759,29 @@ public class Patient extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -2008465092: return this.species == null ? new Base[0] : new Base[] {this.species}; // CodeableConcept
-        case 94001524: return this.breed == null ? new Base[0] : new Base[] {this.breed}; // CodeableConcept
-        case -678569453: return this.genderStatus == null ? new Base[0] : new Base[] {this.genderStatus}; // CodeableConcept
-        default: return super.getProperty(hash, checkValid);
+        case -2008465092: /*species*/ return this.species == null ? new Base[0] : new Base[] {this.species}; // CodeableConcept
+        case 94001524: /*breed*/ return this.breed == null ? new Base[0] : new Base[] {this.breed}; // CodeableConcept
+        case -678569453: /*genderStatus*/ return this.genderStatus == null ? new Base[0] : new Base[] {this.genderStatus}; // CodeableConcept
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -2008465092:
+        case -2008465092: // species
           this.species = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 94001524:
+        case 94001524: // breed
           this.breed = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -678569453:
+        case -678569453: // genderStatus
           this.genderStatus = castToCodeableConcept(value); // CodeableConcept
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -799,12 +799,12 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -2008465092:  return getSpecies(); // CodeableConcept
         case 94001524:  return getBreed(); // CodeableConcept
         case -678569453:  return getGenderStatus(); // CodeableConcept
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -978,25 +978,25 @@ public class Patient extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1613589672: return this.language == null ? new Base[0] : new Base[] {this.language}; // CodeableConcept
-        case -1294005119: return this.preferred == null ? new Base[0] : new Base[] {this.preferred}; // BooleanType
-        default: return super.getProperty(hash, checkValid);
+        case -1613589672: /*language*/ return this.language == null ? new Base[0] : new Base[] {this.language}; // CodeableConcept
+        case -1294005119: /*preferred*/ return this.preferred == null ? new Base[0] : new Base[] {this.preferred}; // BooleanType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1613589672:
+        case -1613589672: // language
           this.language = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1294005119:
+        case -1294005119: // preferred
           this.preferred = castToBoolean(value); // BooleanType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1012,11 +1012,11 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1613589672:  return getLanguage(); // CodeableConcept
         case -1294005119: throw new FHIRException("Cannot make property preferred as it is not a complex type"); // BooleanType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1209,25 +1209,25 @@ public class Patient extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 106069776: return this.other == null ? new Base[0] : new Base[] {this.other}; // Reference
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<LinkType>
-        default: return super.getProperty(hash, checkValid);
+        case 106069776: /*other*/ return this.other == null ? new Base[0] : new Base[] {this.other}; // Reference
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<LinkType>
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 106069776:
+        case 106069776: // other
           this.other = castToReference(value); // Reference
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = new LinkTypeEnumFactory().fromType(value); // Enumeration<LinkType>
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1243,11 +1243,11 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 106069776:  return getOther(); // Reference
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<LinkType>
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -2159,85 +2159,85 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -1422950650: return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
-        case 3373707: return this.name.toArray(new Base[this.name.size()]); // HumanName
-        case -1429363305: return this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
-        case -1249512767: return this.gender == null ? new Base[0] : new Base[] {this.gender}; // Enumeration<AdministrativeGender>
-        case -1210031859: return this.birthDate == null ? new Base[0] : new Base[] {this.birthDate}; // DateType
-        case -1311442804: return this.deceased == null ? new Base[0] : new Base[] {this.deceased}; // Type
-        case -1147692044: return this.address.toArray(new Base[this.address.size()]); // Address
-        case 1756919302: return this.maritalStatus == null ? new Base[0] : new Base[] {this.maritalStatus}; // CodeableConcept
-        case -1764672111: return this.multipleBirth == null ? new Base[0] : new Base[] {this.multipleBirth}; // Type
-        case 106642994: return this.photo.toArray(new Base[this.photo.size()]); // Attachment
-        case 951526432: return this.contact.toArray(new Base[this.contact.size()]); // ContactComponent
-        case -1413116420: return this.animal == null ? new Base[0] : new Base[] {this.animal}; // AnimalComponent
-        case -1035284522: return this.communication.toArray(new Base[this.communication.size()]); // PatientCommunicationComponent
-        case 1963803682: return this.careProvider.toArray(new Base[this.careProvider.size()]); // Reference
-        case -2058947787: return this.managingOrganization == null ? new Base[0] : new Base[] {this.managingOrganization}; // Reference
-        case 3321850: return this.link.toArray(new Base[this.link.size()]); // PatientLinkComponent
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1422950650: /*active*/ return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : this.name.toArray(new Base[this.name.size()]); // HumanName
+        case -1429363305: /*telecom*/ return this.telecom == null ? new Base[0] : this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
+        case -1249512767: /*gender*/ return this.gender == null ? new Base[0] : new Base[] {this.gender}; // Enumeration<AdministrativeGender>
+        case -1210031859: /*birthDate*/ return this.birthDate == null ? new Base[0] : new Base[] {this.birthDate}; // DateType
+        case 561497972: /*deceased*/ return this.deceased == null ? new Base[0] : new Base[] {this.deceased}; // Type
+        case -1147692044: /*address*/ return this.address == null ? new Base[0] : this.address.toArray(new Base[this.address.size()]); // Address
+        case 1756919302: /*maritalStatus*/ return this.maritalStatus == null ? new Base[0] : new Base[] {this.maritalStatus}; // CodeableConcept
+        case -677369713: /*multipleBirth*/ return this.multipleBirth == null ? new Base[0] : new Base[] {this.multipleBirth}; // Type
+        case 106642994: /*photo*/ return this.photo == null ? new Base[0] : this.photo.toArray(new Base[this.photo.size()]); // Attachment
+        case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactComponent
+        case -1413116420: /*animal*/ return this.animal == null ? new Base[0] : new Base[] {this.animal}; // AnimalComponent
+        case -1035284522: /*communication*/ return this.communication == null ? new Base[0] : this.communication.toArray(new Base[this.communication.size()]); // PatientCommunicationComponent
+        case 1963803682: /*careProvider*/ return this.careProvider == null ? new Base[0] : this.careProvider.toArray(new Base[this.careProvider.size()]); // Reference
+        case -2058947787: /*managingOrganization*/ return this.managingOrganization == null ? new Base[0] : new Base[] {this.managingOrganization}; // Reference
+        case 3321850: /*link*/ return this.link == null ? new Base[0] : this.link.toArray(new Base[this.link.size()]); // PatientLinkComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -1422950650:
+        case -1422950650: // active
           this.active = castToBoolean(value); // BooleanType
           break;
-        case 3373707:
-          this.name.add(castToHumanName(value)); // HumanName
+        case 3373707: // name
+          this.getName().add(castToHumanName(value)); // HumanName
           break;
-        case -1429363305:
-          this.telecom.add(castToContactPoint(value)); // ContactPoint
+        case -1429363305: // telecom
+          this.getTelecom().add(castToContactPoint(value)); // ContactPoint
           break;
-        case -1249512767:
+        case -1249512767: // gender
           this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
           break;
-        case -1210031859:
+        case -1210031859: // birthDate
           this.birthDate = castToDate(value); // DateType
           break;
-        case -1311442804:
+        case 561497972: // deceased
           this.deceased = (Type) value; // Type
           break;
-        case -1147692044:
-          this.address.add(castToAddress(value)); // Address
+        case -1147692044: // address
+          this.getAddress().add(castToAddress(value)); // Address
           break;
-        case 1756919302:
+        case 1756919302: // maritalStatus
           this.maritalStatus = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1764672111:
+        case -677369713: // multipleBirth
           this.multipleBirth = (Type) value; // Type
           break;
-        case 106642994:
-          this.photo.add(castToAttachment(value)); // Attachment
+        case 106642994: // photo
+          this.getPhoto().add(castToAttachment(value)); // Attachment
           break;
-        case 951526432:
-          this.contact.add((ContactComponent) value); // ContactComponent
+        case 951526432: // contact
+          this.getContact().add((ContactComponent) value); // ContactComponent
           break;
-        case -1413116420:
+        case -1413116420: // animal
           this.animal = (AnimalComponent) value; // AnimalComponent
           break;
-        case -1035284522:
-          this.communication.add((PatientCommunicationComponent) value); // PatientCommunicationComponent
+        case -1035284522: // communication
+          this.getCommunication().add((PatientCommunicationComponent) value); // PatientCommunicationComponent
           break;
-        case 1963803682:
-          this.careProvider.add(castToReference(value)); // Reference
+        case 1963803682: // careProvider
+          this.getCareProvider().add(castToReference(value)); // Reference
           break;
-        case -2058947787:
+        case -2058947787: // managingOrganization
           this.managingOrganization = castToReference(value); // Reference
           break;
-        case 3321850:
-          this.link.add((PatientLinkComponent) value); // PatientLinkComponent
+        case 3321850: // link
+          this.getLink().add((PatientLinkComponent) value); // PatientLinkComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -2283,7 +2283,7 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -1422950650: throw new FHIRException("Cannot make property active as it is not a complex type"); // BooleanType
@@ -2302,7 +2302,7 @@ public class Patient extends DomainResource {
         case 1963803682:  return addCareProvider(); // Reference
         case -2058947787:  return getManagingOrganization(); // Reference
         case 3321850:  return addLink(); // PatientLinkComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

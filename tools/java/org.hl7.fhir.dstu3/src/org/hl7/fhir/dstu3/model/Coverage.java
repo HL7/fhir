@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -946,85 +946,85 @@ public class Coverage extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 185649959: return this.issuer == null ? new Base[0] : new Base[] {this.issuer}; // Type
-        case 97543: return this.bin == null ? new Base[0] : new Base[] {this.bin}; // StringType
-        case -991726143: return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
-        case 1114937931: return this.planholder == null ? new Base[0] : new Base[] {this.planholder}; // Type
-        case 1292142459: return this.beneficiary == null ? new Base[0] : new Base[] {this.beneficiary}; // Type
-        case -261851592: return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Coding
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case 98629247: return this.group == null ? new Base[0] : new Base[] {this.group}; // StringType
-        case 3443497: return this.plan == null ? new Base[0] : new Base[] {this.plan}; // StringType
-        case -1868653175: return this.subPlan == null ? new Base[0] : new Base[] {this.subPlan}; // StringType
-        case -1109226753: return this.dependent == null ? new Base[0] : new Base[] {this.dependent}; // PositiveIntType
-        case 1349547969: return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
-        case 1481625679: return this.exception.toArray(new Base[this.exception.size()]); // Coding
-        case -907977868: return this.school == null ? new Base[0] : new Base[] {this.school}; // StringType
-        case 1843485230: return this.network == null ? new Base[0] : new Base[] {this.network}; // StringType
-        case -566947566: return this.contract.toArray(new Base[this.contract.size()]); // Reference
-        default: return super.getProperty(hash, checkValid);
+        case -1179159879: /*issuer*/ return this.issuer == null ? new Base[0] : new Base[] {this.issuer}; // Type
+        case 97543: /*bin*/ return this.bin == null ? new Base[0] : new Base[] {this.bin}; // StringType
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 1007064597: /*planholder*/ return this.planholder == null ? new Base[0] : new Base[] {this.planholder}; // Type
+        case -565102875: /*beneficiary*/ return this.beneficiary == null ? new Base[0] : new Base[] {this.beneficiary}; // Type
+        case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Coding
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case 98629247: /*group*/ return this.group == null ? new Base[0] : new Base[] {this.group}; // StringType
+        case 3443497: /*plan*/ return this.plan == null ? new Base[0] : new Base[] {this.plan}; // StringType
+        case -1868653175: /*subPlan*/ return this.subPlan == null ? new Base[0] : new Base[] {this.subPlan}; // StringType
+        case -1109226753: /*dependent*/ return this.dependent == null ? new Base[0] : new Base[] {this.dependent}; // PositiveIntType
+        case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
+        case 1481625679: /*exception*/ return this.exception == null ? new Base[0] : this.exception.toArray(new Base[this.exception.size()]); // Coding
+        case -907977868: /*school*/ return this.school == null ? new Base[0] : new Base[] {this.school}; // StringType
+        case 1843485230: /*network*/ return this.network == null ? new Base[0] : new Base[] {this.network}; // StringType
+        case -566947566: /*contract*/ return this.contract == null ? new Base[0] : this.contract.toArray(new Base[this.contract.size()]); // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 185649959:
+        case -1179159879: // issuer
           this.issuer = (Type) value; // Type
           break;
-        case 97543:
+        case 97543: // bin
           this.bin = castToString(value); // StringType
           break;
-        case -991726143:
+        case -991726143: // period
           this.period = castToPeriod(value); // Period
           break;
-        case 3575610:
+        case 3575610: // type
           this.type = castToCoding(value); // Coding
           break;
-        case 1114937931:
+        case 1007064597: // planholder
           this.planholder = (Type) value; // Type
           break;
-        case 1292142459:
+        case -565102875: // beneficiary
           this.beneficiary = (Type) value; // Type
           break;
-        case -261851592:
+        case -261851592: // relationship
           this.relationship = castToCoding(value); // Coding
           break;
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case 98629247:
+        case 98629247: // group
           this.group = castToString(value); // StringType
           break;
-        case 3443497:
+        case 3443497: // plan
           this.plan = castToString(value); // StringType
           break;
-        case -1868653175:
+        case -1868653175: // subPlan
           this.subPlan = castToString(value); // StringType
           break;
-        case -1109226753:
+        case -1109226753: // dependent
           this.dependent = castToPositiveInt(value); // PositiveIntType
           break;
-        case 1349547969:
+        case 1349547969: // sequence
           this.sequence = castToPositiveInt(value); // PositiveIntType
           break;
-        case 1481625679:
-          this.exception.add(castToCoding(value)); // Coding
+        case 1481625679: // exception
+          this.getException().add(castToCoding(value)); // Coding
           break;
-        case -907977868:
+        case -907977868: // school
           this.school = castToString(value); // StringType
           break;
-        case 1843485230:
+        case 1843485230: // network
           this.network = castToString(value); // StringType
           break;
-        case -566947566:
-          this.contract.add(castToReference(value)); // Reference
+        case -566947566: // contract
+          this.getContract().add(castToReference(value)); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1070,7 +1070,7 @@ public class Coverage extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 185649959:  return getIssuer(); // Type
         case 97543: throw new FHIRException("Cannot make property bin as it is not a complex type"); // StringType
@@ -1089,7 +1089,7 @@ public class Coverage extends DomainResource {
         case -907977868: throw new FHIRException("Cannot make property school as it is not a complex type"); // StringType
         case 1843485230: throw new FHIRException("Cannot make property network as it is not a complex type"); // StringType
         case -566947566:  return addContract(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

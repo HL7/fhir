@@ -3,15 +3,20 @@ package org.hl7.fhir.dstu3.metamodel;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 
 public class Property {
 
+	private IWorkerContext context;
 	private ElementDefinition definition;
 	private StructureDefinition structure;
+	private Boolean canBePrimitive; 
 
-	public Property(ElementDefinition definition, StructureDefinition structure) {
+	public Property(IWorkerContext context, ElementDefinition definition, StructureDefinition structure) {
+		this.context = context;
 		this.definition = definition;
 		this.structure = structure;
 	}
@@ -27,9 +32,14 @@ public class Property {
 	public String getType() {
 		if (definition.getType().size() == 0)
 			return null;
-		else if (definition.getType().size() > 1)
+		else if (definition.getType().size() > 1) {
+			String tn = definition.getType().get(0).getCode();
+			for (int i = 1; i < definition.getType().size(); i++) {
+				if (!tn.equals(definition.getType().get(i).getCode()))
 			throw new Error("logic error, gettype when types > 1");
-		else
+			}
+			return tn;
+		} else
 			return definition.getType().get(0).getCode();
 	}
 
@@ -46,11 +56,13 @@ public class Property {
       if (all)
         return t;
       String tail = definition.getPath().substring(definition.getPath().lastIndexOf(".")+1);
-      if (tail.endsWith("[x]") && elementName.startsWith(tail.substring(0, tail.length()-3))) {
+      if (tail.endsWith("[x]") && elementName != null && elementName.startsWith(tail.substring(0, tail.length()-3))) {
         String name = elementName.substring(tail.length()-3);
         return ParserBase.isPrimitive(lowFirst(name)) ? lowFirst(name) : name;        
       } else
-        throw new Error("logic error, gettype when types > 1, name mismatch at "+definition.getPath());
+        throw new Error("logic error, gettype when types > 1, name mismatch for "+elementName+" on at "+definition.getPath());
+    } else if (definition.getType().get(0).getCode() == null) {
+      return structure.getId();
     } else
       return definition.getType().get(0).getCode();
   }
@@ -81,8 +93,8 @@ public class Property {
 		return structure;
 	}
 
-	public boolean isPrimitive() {
-		return definition.getType().size() == 1 && ParserBase.isPrimitive(definition.getType().get(0).getCode());
+	public boolean isPrimitive(String name) {
+    return ParserBase.isPrimitive(getType(name));
 	}
 
 	private String lowFirst(String t) {
@@ -90,7 +102,7 @@ public class Property {
 	}
 
 	public boolean isResource() {
-		return definition.getType().size() == 1 && definition.getType().get(0).getCode().equals("Resource");
+		return definition.getType().size() == 1 && ("Resource".equals(definition.getType().get(0).getCode()) || "DomainResource".equals(definition.getType().get(0).getCode()));
 	}
 
 	public boolean isList() {
@@ -108,6 +120,38 @@ public class Property {
       return ToolingExtensions.readStringExtension(structure, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace");
     return FormatUtilities.FHIR_NS;
   }
+
+	public boolean IsLogicalAndHasPrimitiveValue(String name) {
+		if (canBePrimitive!= null)
+			return canBePrimitive;
+		
+		canBePrimitive = false;
+  	if (structure.getKind() != StructureDefinitionKind.LOGICAL)
+  		return false;
+  	if (!hasType(name))
+  		return false;
+  	StructureDefinition sd = context.fetchResource(StructureDefinition.class, structure.getUrl().substring(0, structure.getUrl().lastIndexOf("/")+1)+getType(name));
+  	if (sd == null || sd.getKind() != StructureDefinitionKind.LOGICAL)
+  		return false;
+  	for (ElementDefinition ed : sd.getSnapshot().getElement()) {
+  		if (ed.getPath().equals(sd.getId()+".value") && ed.getType().size() == 1 && ParserBase.isPrimitive(ed.getType().get(0).getCode())) {
+  			canBePrimitive = true;
+  			return true;
+  		}
+  	}
+  	return false;
+	}
+
+  public boolean isChoice() {
+    if (definition.getType().size() <= 1)
+      return false;
+    String tn = definition.getType().get(0).getCode();
+    for (int i = 1; i < definition.getType().size(); i++) 
+      if (!definition.getType().get(i).getCode().equals(tn))
+        return true;
+    return false;
+  }
+
 
 
 }

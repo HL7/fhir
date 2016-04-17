@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -660,33 +660,33 @@ public class DiagnosticOrder extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DiagnosticOrderStatus>
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // CodeableConcept
-        case 1792749467: return this.dateTime == null ? new Base[0] : new Base[] {this.dateTime}; // DateTimeType
-        case 92645877: return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
-        default: return super.getProperty(hash, checkValid);
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DiagnosticOrderStatus>
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // CodeableConcept
+        case 1792749467: /*dateTime*/ return this.dateTime == null ? new Base[0] : new Base[] {this.dateTime}; // DateTimeType
+        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -892481550:
+        case -892481550: // status
           this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 1792749467:
+        case 1792749467: // dateTime
           this.dateTime = castToDateTime(value); // DateTimeType
           break;
-        case 92645877:
+        case 92645877: // actor
           this.actor = castToReference(value); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -706,13 +706,13 @@ public class DiagnosticOrder extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DiagnosticOrderStatus>
         case -1724546052:  return getDescription(); // CodeableConcept
         case 1792749467: throw new FHIRException("Cannot make property dateTime as it is not a complex type"); // DateTimeType
         case 92645877:  return getActor(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1047,37 +1047,37 @@ public class DiagnosticOrder extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case -2132868344: return this.specimen.toArray(new Base[this.specimen.size()]); // Reference
-        case 1702620169: return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DiagnosticOrderStatus>
-        case 96891546: return this.event.toArray(new Base[this.event.size()]); // DiagnosticOrderEventComponent
-        default: return super.getProperty(hash, checkValid);
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : this.specimen.toArray(new Base[this.specimen.size()]); // Reference
+        case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DiagnosticOrderStatus>
+        case 96891546: /*event*/ return this.event == null ? new Base[0] : this.event.toArray(new Base[this.event.size()]); // DiagnosticOrderEventComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181:
+        case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -2132868344:
-          this.specimen.add(castToReference(value)); // Reference
+        case -2132868344: // specimen
+          this.getSpecimen().add(castToReference(value)); // Reference
           break;
-        case 1702620169:
+        case 1702620169: // bodySite
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
           break;
-        case 96891546:
-          this.event.add((DiagnosticOrderEventComponent) value); // DiagnosticOrderEventComponent
+        case 96891546: // event
+          this.getEvent().add((DiagnosticOrderEventComponent) value); // DiagnosticOrderEventComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1099,14 +1099,14 @@ public class DiagnosticOrder extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181:  return getCode(); // CodeableConcept
         case -2132868344:  return addSpecimen(); // Reference
         case 1702620169:  return getBodySite(); // CodeableConcept
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DiagnosticOrderStatus>
         case 96891546:  return addEvent(); // DiagnosticOrderEventComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1865,65 +1865,65 @@ public class DiagnosticOrder extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DiagnosticOrderStatus>
-        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<DiagnosticOrderPriority>
-        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
-        case -1207109509: return this.orderer == null ? new Base[0] : new Base[] {this.orderer}; // Reference
-        case -934964668: return this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
-        case -1248768647: return this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
-        case -2132868344: return this.specimen.toArray(new Base[this.specimen.size()]); // Reference
-        case 96891546: return this.event.toArray(new Base[this.event.size()]); // DiagnosticOrderEventComponent
-        case 3242771: return this.item.toArray(new Base[this.item.size()]); // DiagnosticOrderItemComponent
-        case 3387378: return this.note.toArray(new Base[this.note.size()]); // Annotation
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DiagnosticOrderStatus>
+        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<DiagnosticOrderPriority>
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case -1207109509: /*orderer*/ return this.orderer == null ? new Base[0] : new Base[] {this.orderer}; // Reference
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
+        case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
+        case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : this.specimen.toArray(new Base[this.specimen.size()]); // Reference
+        case 96891546: /*event*/ return this.event == null ? new Base[0] : this.event.toArray(new Base[this.event.size()]); // DiagnosticOrderEventComponent
+        case 3242771: /*item*/ return this.item == null ? new Base[0] : this.item.toArray(new Base[this.item.size()]); // DiagnosticOrderItemComponent
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
           break;
-        case -1165461084:
+        case -1165461084: // priority
           this.priority = new DiagnosticOrderPriorityEnumFactory().fromType(value); // Enumeration<DiagnosticOrderPriority>
           break;
-        case -1867885268:
+        case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           break;
-        case 1524132147:
+        case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
           break;
-        case -1207109509:
+        case -1207109509: // orderer
           this.orderer = castToReference(value); // Reference
           break;
-        case -934964668:
-          this.reason.add(castToCodeableConcept(value)); // CodeableConcept
+        case -934964668: // reason
+          this.getReason().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1248768647:
-          this.supportingInformation.add(castToReference(value)); // Reference
+        case -1248768647: // supportingInformation
+          this.getSupportingInformation().add(castToReference(value)); // Reference
           break;
-        case -2132868344:
-          this.specimen.add(castToReference(value)); // Reference
+        case -2132868344: // specimen
+          this.getSpecimen().add(castToReference(value)); // Reference
           break;
-        case 96891546:
-          this.event.add((DiagnosticOrderEventComponent) value); // DiagnosticOrderEventComponent
+        case 96891546: // event
+          this.getEvent().add((DiagnosticOrderEventComponent) value); // DiagnosticOrderEventComponent
           break;
-        case 3242771:
-          this.item.add((DiagnosticOrderItemComponent) value); // DiagnosticOrderItemComponent
+        case 3242771: // item
+          this.getItem().add((DiagnosticOrderItemComponent) value); // DiagnosticOrderItemComponent
           break;
-        case 3387378:
-          this.note.add(castToAnnotation(value)); // Annotation
+        case 3387378: // note
+          this.getNote().add(castToAnnotation(value)); // Annotation
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1959,7 +1959,7 @@ public class DiagnosticOrder extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DiagnosticOrderStatus>
@@ -1973,7 +1973,7 @@ public class DiagnosticOrder extends DomainResource {
         case 96891546:  return addEvent(); // DiagnosticOrderEventComponent
         case 3242771:  return addItem(); // DiagnosticOrderItemComponent
         case 3387378:  return addNote(); // Annotation
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -566,37 +566,37 @@ public class Observation extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 107348: return this.low == null ? new Base[0] : new Base[] {this.low}; // SimpleQuantity
-        case 3202466: return this.high == null ? new Base[0] : new Base[] {this.high}; // SimpleQuantity
-        case 938160637: return this.meaning == null ? new Base[0] : new Base[] {this.meaning}; // CodeableConcept
-        case 96511: return this.age == null ? new Base[0] : new Base[] {this.age}; // Range
-        case 3556653: return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
-        default: return super.getProperty(hash, checkValid);
+        case 107348: /*low*/ return this.low == null ? new Base[0] : new Base[] {this.low}; // SimpleQuantity
+        case 3202466: /*high*/ return this.high == null ? new Base[0] : new Base[] {this.high}; // SimpleQuantity
+        case 938160637: /*meaning*/ return this.meaning == null ? new Base[0] : new Base[] {this.meaning}; // CodeableConcept
+        case 96511: /*age*/ return this.age == null ? new Base[0] : new Base[] {this.age}; // Range
+        case 3556653: /*text*/ return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 107348:
+        case 107348: // low
           this.low = castToSimpleQuantity(value); // SimpleQuantity
           break;
-        case 3202466:
+        case 3202466: // high
           this.high = castToSimpleQuantity(value); // SimpleQuantity
           break;
-        case 938160637:
+        case 938160637: // meaning
           this.meaning = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 96511:
+        case 96511: // age
           this.age = castToRange(value); // Range
           break;
-        case 3556653:
+        case 3556653: // text
           this.text = castToString(value); // StringType
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -618,14 +618,14 @@ public class Observation extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 107348:  return getLow(); // SimpleQuantity
         case 3202466:  return getHigh(); // SimpleQuantity
         case 938160637:  return getMeaning(); // CodeableConcept
         case 96511:  return getAge(); // Range
         case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -833,25 +833,25 @@ public class Observation extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3575610: return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ObservationRelationshipType>
-        case -880905839: return this.target == null ? new Base[0] : new Base[] {this.target}; // Reference
-        default: return super.getProperty(hash, checkValid);
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ObservationRelationshipType>
+        case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610:
+        case 3575610: // type
           this.type = new ObservationRelationshipTypeEnumFactory().fromType(value); // Enumeration<ObservationRelationshipType>
           break;
-        case -880905839:
+        case -880905839: // target
           this.target = castToReference(value); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -867,11 +867,11 @@ public class Observation extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<ObservationRelationshipType>
         case -880905839:  return getTarget(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1222,33 +1222,33 @@ public class Observation extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case -1410166417: return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
-        case 1034315687: return this.dataAbsentReason == null ? new Base[0] : new Base[] {this.dataAbsentReason}; // CodeableConcept
-        case -1912545102: return this.referenceRange.toArray(new Base[this.referenceRange.size()]); // ObservationReferenceRangeComponent
-        default: return super.getProperty(hash, checkValid);
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
+        case 1034315687: /*dataAbsentReason*/ return this.dataAbsentReason == null ? new Base[0] : new Base[] {this.dataAbsentReason}; // CodeableConcept
+        case -1912545102: /*referenceRange*/ return this.referenceRange == null ? new Base[0] : this.referenceRange.toArray(new Base[this.referenceRange.size()]); // ObservationReferenceRangeComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3059181:
+        case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1410166417:
+        case 111972721: // value
           this.value = (Type) value; // Type
           break;
-        case 1034315687:
+        case 1034315687: // dataAbsentReason
           this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1912545102:
-          this.referenceRange.add((ObservationReferenceRangeComponent) value); // ObservationReferenceRangeComponent
+        case -1912545102: // referenceRange
+          this.getReferenceRange().add((ObservationReferenceRangeComponent) value); // ObservationReferenceRangeComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1268,13 +1268,13 @@ public class Observation extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181:  return getCode(); // CodeableConcept
         case -1410166417:  return getValue(); // Type
         case 1034315687:  return getDataAbsentReason(); // CodeableConcept
         case -1912545102:  return addReferenceRange(); // ObservationReferenceRangeComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -2448,97 +2448,97 @@ public class Observation extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ObservationStatus>
-        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
-        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
-        case 247104889: return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
-        case -1179159893: return this.issued == null ? new Base[0] : new Base[] {this.issued}; // InstantType
-        case 481140686: return this.performer.toArray(new Base[this.performer.size()]); // Reference
-        case -1410166417: return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
-        case 1034315687: return this.dataAbsentReason == null ? new Base[0] : new Base[] {this.dataAbsentReason}; // CodeableConcept
-        case -297950712: return this.interpretation == null ? new Base[0] : new Base[] {this.interpretation}; // CodeableConcept
-        case 950398559: return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
-        case 1702620169: return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
-        case -1077554975: return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
-        case -2132868344: return this.specimen == null ? new Base[0] : new Base[] {this.specimen}; // Reference
-        case -1335157162: return this.device == null ? new Base[0] : new Base[] {this.device}; // Reference
-        case -1912545102: return this.referenceRange.toArray(new Base[this.referenceRange.size()]); // ObservationReferenceRangeComponent
-        case 1090493483: return this.related.toArray(new Base[this.related.size()]); // ObservationRelatedComponent
-        case -1399907075: return this.component.toArray(new Base[this.component.size()]); // ObservationComponentComponent
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ObservationStatus>
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
+        case -1179159893: /*issued*/ return this.issued == null ? new Base[0] : new Base[] {this.issued}; // InstantType
+        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // Reference
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
+        case 1034315687: /*dataAbsentReason*/ return this.dataAbsentReason == null ? new Base[0] : new Base[] {this.dataAbsentReason}; // CodeableConcept
+        case -297950712: /*interpretation*/ return this.interpretation == null ? new Base[0] : new Base[] {this.interpretation}; // CodeableConcept
+        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
+        case -1077554975: /*method*/ return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
+        case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : new Base[] {this.specimen}; // Reference
+        case -1335157162: /*device*/ return this.device == null ? new Base[0] : new Base[] {this.device}; // Reference
+        case -1912545102: /*referenceRange*/ return this.referenceRange == null ? new Base[0] : this.referenceRange.toArray(new Base[this.referenceRange.size()]); // ObservationReferenceRangeComponent
+        case 1090493483: /*related*/ return this.related == null ? new Base[0] : this.related.toArray(new Base[this.related.size()]); // ObservationRelatedComponent
+        case -1399907075: /*component*/ return this.component == null ? new Base[0] : this.component.toArray(new Base[this.component.size()]); // ObservationComponentComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new ObservationStatusEnumFactory().fromType(value); // Enumeration<ObservationStatus>
           break;
-        case 50511102:
+        case 50511102: // category
           this.category = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 3059181:
+        case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1867885268:
+        case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           break;
-        case 1524132147:
+        case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
           break;
-        case 247104889:
+        case -1468651097: // effective
           this.effective = (Type) value; // Type
           break;
-        case -1179159893:
+        case -1179159893: // issued
           this.issued = castToInstant(value); // InstantType
           break;
-        case 481140686:
-          this.performer.add(castToReference(value)); // Reference
+        case 481140686: // performer
+          this.getPerformer().add(castToReference(value)); // Reference
           break;
-        case -1410166417:
+        case 111972721: // value
           this.value = (Type) value; // Type
           break;
-        case 1034315687:
+        case 1034315687: // dataAbsentReason
           this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -297950712:
+        case -297950712: // interpretation
           this.interpretation = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 950398559:
+        case 950398559: // comment
           this.comment = castToString(value); // StringType
           break;
-        case 1702620169:
+        case 1702620169: // bodySite
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1077554975:
+        case -1077554975: // method
           this.method = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -2132868344:
+        case -2132868344: // specimen
           this.specimen = castToReference(value); // Reference
           break;
-        case -1335157162:
+        case -1335157162: // device
           this.device = castToReference(value); // Reference
           break;
-        case -1912545102:
-          this.referenceRange.add((ObservationReferenceRangeComponent) value); // ObservationReferenceRangeComponent
+        case -1912545102: // referenceRange
+          this.getReferenceRange().add((ObservationReferenceRangeComponent) value); // ObservationReferenceRangeComponent
           break;
-        case 1090493483:
-          this.related.add((ObservationRelatedComponent) value); // ObservationRelatedComponent
+        case 1090493483: // related
+          this.getRelated().add((ObservationRelatedComponent) value); // ObservationRelatedComponent
           break;
-        case -1399907075:
-          this.component.add((ObservationComponentComponent) value); // ObservationComponentComponent
+        case -1399907075: // component
+          this.getComponent().add((ObservationComponentComponent) value); // ObservationComponentComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -2590,7 +2590,7 @@ public class Observation extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ObservationStatus>
@@ -2612,7 +2612,7 @@ public class Observation extends DomainResource {
         case -1912545102:  return addReferenceRange(); // ObservationReferenceRangeComponent
         case 1090493483:  return addRelated(); // ObservationRelatedComponent
         case -1399907075:  return addComponent(); // ObservationComponentComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

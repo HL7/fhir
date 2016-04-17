@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -670,33 +670,33 @@ public class Appointment extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3575610: return this.type.toArray(new Base[this.type.size()]); // CodeableConcept
-        case 92645877: return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
-        case -393139297: return this.required == null ? new Base[0] : new Base[] {this.required}; // Enumeration<ParticipantRequired>
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ParticipationStatus>
-        default: return super.getProperty(hash, checkValid);
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : this.type.toArray(new Base[this.type.size()]); // CodeableConcept
+        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
+        case -393139297: /*required*/ return this.required == null ? new Base[0] : new Base[] {this.required}; // Enumeration<ParticipantRequired>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ParticipationStatus>
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610:
-          this.type.add(castToCodeableConcept(value)); // CodeableConcept
+        case 3575610: // type
+          this.getType().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case 92645877:
+        case 92645877: // actor
           this.actor = castToReference(value); // Reference
           break;
-        case -393139297:
+        case -393139297: // required
           this.required = new ParticipantRequiredEnumFactory().fromType(value); // Enumeration<ParticipantRequired>
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new ParticipationStatusEnumFactory().fromType(value); // Enumeration<ParticipationStatus>
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -716,13 +716,13 @@ public class Appointment extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610:  return addType(); // CodeableConcept
         case 92645877:  return getActor(); // Reference
         case -393139297: throw new FHIRException("Cannot make property required as it is not a complex type"); // Enumeration<ParticipantRequired>
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ParticipationStatus>
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1621,81 +1621,81 @@ public class Appointment extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<AppointmentStatus>
-        case 1281188563: return this.serviceCategory == null ? new Base[0] : new Base[] {this.serviceCategory}; // CodeableConcept
-        case -1928370289: return this.serviceType.toArray(new Base[this.serviceType.size()]); // CodeableConcept
-        case -1694759682: return this.specialty.toArray(new Base[this.specialty.size()]); // CodeableConcept
-        case -1596426375: return this.appointmentType == null ? new Base[0] : new Base[] {this.appointmentType}; // CodeableConcept
-        case -934964668: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // CodeableConcept
-        case -1165461084: return this.priority == null ? new Base[0] : new Base[] {this.priority}; // UnsignedIntType
-        case -1724546052: return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case 109757538: return this.start == null ? new Base[0] : new Base[] {this.start}; // InstantType
-        case 100571: return this.end == null ? new Base[0] : new Base[] {this.end}; // InstantType
-        case -413630573: return this.minutesDuration == null ? new Base[0] : new Base[] {this.minutesDuration}; // PositiveIntType
-        case 3533310: return this.slot.toArray(new Base[this.slot.size()]); // Reference
-        case 1028554472: return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
-        case 950398559: return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
-        case 767422259: return this.participant.toArray(new Base[this.participant.size()]); // AppointmentParticipantComponent
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<AppointmentStatus>
+        case 1281188563: /*serviceCategory*/ return this.serviceCategory == null ? new Base[0] : new Base[] {this.serviceCategory}; // CodeableConcept
+        case -1928370289: /*serviceType*/ return this.serviceType == null ? new Base[0] : this.serviceType.toArray(new Base[this.serviceType.size()]); // CodeableConcept
+        case -1694759682: /*specialty*/ return this.specialty == null ? new Base[0] : this.specialty.toArray(new Base[this.specialty.size()]); // CodeableConcept
+        case -1596426375: /*appointmentType*/ return this.appointmentType == null ? new Base[0] : new Base[] {this.appointmentType}; // CodeableConcept
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // CodeableConcept
+        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // UnsignedIntType
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 109757538: /*start*/ return this.start == null ? new Base[0] : new Base[] {this.start}; // InstantType
+        case 100571: /*end*/ return this.end == null ? new Base[0] : new Base[] {this.end}; // InstantType
+        case -413630573: /*minutesDuration*/ return this.minutesDuration == null ? new Base[0] : new Base[] {this.minutesDuration}; // PositiveIntType
+        case 3533310: /*slot*/ return this.slot == null ? new Base[0] : this.slot.toArray(new Base[this.slot.size()]); // Reference
+        case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
+        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        case 767422259: /*participant*/ return this.participant == null ? new Base[0] : this.participant.toArray(new Base[this.participant.size()]); // AppointmentParticipantComponent
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new AppointmentStatusEnumFactory().fromType(value); // Enumeration<AppointmentStatus>
           break;
-        case 1281188563:
+        case 1281188563: // serviceCategory
           this.serviceCategory = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1928370289:
-          this.serviceType.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1928370289: // serviceType
+          this.getServiceType().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1694759682:
-          this.specialty.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1694759682: // specialty
+          this.getSpecialty().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1596426375:
+        case -1596426375: // appointmentType
           this.appointmentType = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -934964668:
+        case -934964668: // reason
           this.reason = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -1165461084:
+        case -1165461084: // priority
           this.priority = castToUnsignedInt(value); // UnsignedIntType
           break;
-        case -1724546052:
+        case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        case 109757538:
+        case 109757538: // start
           this.start = castToInstant(value); // InstantType
           break;
-        case 100571:
+        case 100571: // end
           this.end = castToInstant(value); // InstantType
           break;
-        case -413630573:
+        case -413630573: // minutesDuration
           this.minutesDuration = castToPositiveInt(value); // PositiveIntType
           break;
-        case 3533310:
-          this.slot.add(castToReference(value)); // Reference
+        case 3533310: // slot
+          this.getSlot().add(castToReference(value)); // Reference
           break;
-        case 1028554472:
+        case 1028554472: // created
           this.created = castToDateTime(value); // DateTimeType
           break;
-        case 950398559:
+        case 950398559: // comment
           this.comment = castToString(value); // StringType
           break;
-        case 767422259:
-          this.participant.add((AppointmentParticipantComponent) value); // AppointmentParticipantComponent
+        case 767422259: // participant
+          this.getParticipant().add((AppointmentParticipantComponent) value); // AppointmentParticipantComponent
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1739,7 +1739,7 @@ public class Appointment extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<AppointmentStatus>
@@ -1757,7 +1757,7 @@ public class Appointment extends DomainResource {
         case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
         case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
         case 767422259:  return addParticipant(); // AppointmentParticipantComponent
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }

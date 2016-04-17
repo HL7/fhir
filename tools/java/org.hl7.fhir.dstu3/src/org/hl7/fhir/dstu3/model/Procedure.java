@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Apr 14, 2016 17:28+1000 for FHIR v1.4.0
+// Generated on Sat, Apr 16, 2016 13:53+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -266,25 +266,25 @@ public class Procedure extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 92645877: return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
-        case 3506294: return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
-        default: return super.getProperty(hash, checkValid);
+        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
+        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 92645877:
+        case 92645877: // actor
           this.actor = castToReference(value); // Reference
           break;
-        case 3506294:
+        case 3506294: // role
           this.role = castToCodeableConcept(value); // CodeableConcept
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -300,11 +300,11 @@ public class Procedure extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 92645877:  return getActor(); // Reference
         case 3506294:  return getRole(); // CodeableConcept
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -476,25 +476,25 @@ public class Procedure extends DomainResource {
         }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1422950858: return this.action == null ? new Base[0] : new Base[] {this.action}; // CodeableConcept
-        case 947372650: return this.manipulated == null ? new Base[0] : new Base[] {this.manipulated}; // Reference
-        default: return super.getProperty(hash, checkValid);
+        case -1422950858: /*action*/ return this.action == null ? new Base[0] : new Base[] {this.action}; // CodeableConcept
+        case 947372650: /*manipulated*/ return this.manipulated == null ? new Base[0] : new Base[] {this.manipulated}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1422950858:
+        case -1422950858: // action
           this.action = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 947372650:
+        case 947372650: // manipulated
           this.manipulated = castToReference(value); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -510,11 +510,11 @@ public class Procedure extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1422950858:  return getAction(); // CodeableConcept
         case 947372650:  return getManipulated(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
@@ -1643,101 +1643,101 @@ public class Procedure extends DomainResource {
       }
 
       @Override
-      public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: return this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -1867885268: return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case -892481550: return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ProcedureStatus>
-        case 50511102: return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
-        case 3059181: return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case 585470509: return this.notPerformed == null ? new Base[0] : new Base[] {this.notPerformed}; // BooleanType
-        case -906415471: return this.reasonNotPerformed.toArray(new Base[this.reasonNotPerformed.size()]); // CodeableConcept
-        case 1702620169: return this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
-        case -669418564: return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Type
-        case 481140686: return this.performer.toArray(new Base[this.performer.size()]); // ProcedurePerformerComponent
-        case 1355984064: return this.performed == null ? new Base[0] : new Base[] {this.performed}; // Type
-        case 1524132147: return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
-        case 1901043637: return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
-        case -1106507950: return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // CodeableConcept
-        case -934521548: return this.report.toArray(new Base[this.report.size()]); // Reference
-        case -1644401602: return this.complication.toArray(new Base[this.complication.size()]); // CodeableConcept
-        case 301801004: return this.followUp.toArray(new Base[this.followUp.size()]); // CodeableConcept
-        case 1095692943: return this.request == null ? new Base[0] : new Base[] {this.request}; // Reference
-        case 105008833: return this.notes.toArray(new Base[this.notes.size()]); // Annotation
-        case -1129235173: return this.focalDevice.toArray(new Base[this.focalDevice.size()]); // ProcedureFocalDeviceComponent
-        case 3599293: return this.used.toArray(new Base[this.used.size()]); // Reference
-        default: return super.getProperty(hash, checkValid);
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ProcedureStatus>
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case 585470509: /*notPerformed*/ return this.notPerformed == null ? new Base[0] : new Base[] {this.notPerformed}; // BooleanType
+        case -906415471: /*reasonNotPerformed*/ return this.reasonNotPerformed == null ? new Base[0] : this.reasonNotPerformed.toArray(new Base[this.reasonNotPerformed.size()]); // CodeableConcept
+        case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Type
+        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // ProcedurePerformerComponent
+        case 481140672: /*performed*/ return this.performed == null ? new Base[0] : new Base[] {this.performed}; // Type
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
+        case -1106507950: /*outcome*/ return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // CodeableConcept
+        case -934521548: /*report*/ return this.report == null ? new Base[0] : this.report.toArray(new Base[this.report.size()]); // Reference
+        case -1644401602: /*complication*/ return this.complication == null ? new Base[0] : this.complication.toArray(new Base[this.complication.size()]); // CodeableConcept
+        case 301801004: /*followUp*/ return this.followUp == null ? new Base[0] : this.followUp.toArray(new Base[this.followUp.size()]); // CodeableConcept
+        case 1095692943: /*request*/ return this.request == null ? new Base[0] : new Base[] {this.request}; // Reference
+        case 105008833: /*notes*/ return this.notes == null ? new Base[0] : this.notes.toArray(new Base[this.notes.size()]); // Annotation
+        case -1129235173: /*focalDevice*/ return this.focalDevice == null ? new Base[0] : this.focalDevice.toArray(new Base[this.focalDevice.size()]); // ProcedureFocalDeviceComponent
+        case 3599293: /*used*/ return this.used == null ? new Base[0] : this.used.toArray(new Base[this.used.size()]); // Reference
+        default: return super.getProperty(hash, name, checkValid);
         }
 
       }
 
       @Override
-      public void setProperty(int hash, Base value) throws FHIRException {
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1618432855:
-          this.identifier.add(castToIdentifier(value)); // Identifier
+        case -1618432855: // identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -1867885268:
+        case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           break;
-        case -892481550:
+        case -892481550: // status
           this.status = new ProcedureStatusEnumFactory().fromType(value); // Enumeration<ProcedureStatus>
           break;
-        case 50511102:
+        case 50511102: // category
           this.category = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 3059181:
+        case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 585470509:
+        case 585470509: // notPerformed
           this.notPerformed = castToBoolean(value); // BooleanType
           break;
-        case -906415471:
-          this.reasonNotPerformed.add(castToCodeableConcept(value)); // CodeableConcept
+        case -906415471: // reasonNotPerformed
+          this.getReasonNotPerformed().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case 1702620169:
-          this.bodySite.add(castToCodeableConcept(value)); // CodeableConcept
+        case 1702620169: // bodySite
+          this.getBodySite().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -669418564:
+        case -934964668: // reason
           this.reason = (Type) value; // Type
           break;
-        case 481140686:
-          this.performer.add((ProcedurePerformerComponent) value); // ProcedurePerformerComponent
+        case 481140686: // performer
+          this.getPerformer().add((ProcedurePerformerComponent) value); // ProcedurePerformerComponent
           break;
-        case 1355984064:
+        case 481140672: // performed
           this.performed = (Type) value; // Type
           break;
-        case 1524132147:
+        case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
           break;
-        case 1901043637:
+        case 1901043637: // location
           this.location = castToReference(value); // Reference
           break;
-        case -1106507950:
+        case -1106507950: // outcome
           this.outcome = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -934521548:
-          this.report.add(castToReference(value)); // Reference
+        case -934521548: // report
+          this.getReport().add(castToReference(value)); // Reference
           break;
-        case -1644401602:
-          this.complication.add(castToCodeableConcept(value)); // CodeableConcept
+        case -1644401602: // complication
+          this.getComplication().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case 301801004:
-          this.followUp.add(castToCodeableConcept(value)); // CodeableConcept
+        case 301801004: // followUp
+          this.getFollowUp().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case 1095692943:
+        case 1095692943: // request
           this.request = castToReference(value); // Reference
           break;
-        case 105008833:
-          this.notes.add(castToAnnotation(value)); // Annotation
+        case 105008833: // notes
+          this.getNotes().add(castToAnnotation(value)); // Annotation
           break;
-        case -1129235173:
-          this.focalDevice.add((ProcedureFocalDeviceComponent) value); // ProcedureFocalDeviceComponent
+        case -1129235173: // focalDevice
+          this.getFocalDevice().add((ProcedureFocalDeviceComponent) value); // ProcedureFocalDeviceComponent
           break;
-        case 3599293:
-          this.used.add(castToReference(value)); // Reference
+        case 3599293: // used
+          this.getUsed().add(castToReference(value)); // Reference
           break;
-        default: super.setProperty(hash, value);
+        default: super.setProperty(hash, name, value);
         }
 
       }
@@ -1791,7 +1791,7 @@ public class Procedure extends DomainResource {
       }
 
       @Override
-      public Base makeProperty(int hash) throws FHIRException {
+      public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -1867885268:  return getSubject(); // Reference
@@ -1814,7 +1814,7 @@ public class Procedure extends DomainResource {
         case 105008833:  return addNotes(); // Annotation
         case -1129235173:  return addFocalDevice(); // ProcedureFocalDeviceComponent
         case 3599293:  return addUsed(); // Reference
-        default: return super.makeProperty(hash);
+        default: return super.makeProperty(hash, name);
         }
 
       }
