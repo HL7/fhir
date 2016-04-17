@@ -58,6 +58,7 @@ public class InstanceValidatorTests {
 			}
 		}
 		Assert.assertTrue(ec == errorCount);
+		System.out.println(val.reportTimes());
 	}
 		
 	

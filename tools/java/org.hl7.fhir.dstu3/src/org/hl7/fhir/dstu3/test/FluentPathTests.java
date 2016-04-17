@@ -83,7 +83,6 @@ public class FluentPathTests {
     FHIRPathEngine fp = new FHIRPathEngine(context);
 
     ExpressionNode node = fp.parse(expression);
-    System.out.println(node.toString());
     fp.check(null, resource.getResourceType().toString(), resource.getResourceType().toString(), node);
     List<Base> outcome = fp.evaluate(resource, node);
     if (fp.hasLog())
@@ -110,7 +109,6 @@ public class FluentPathTests {
     FHIRPathEngine fp = new FHIRPathEngine(context);
 
     ExpressionNode node = fp.parse(expression);
-    System.out.println(node.toString());
     fp.check(null, null, resource.getResourceType().toString(), node);
     List<Base> outcome = fp.evaluate(null, null, resource, node);
     if (fp.hasLog())
@@ -126,7 +124,6 @@ public class FluentPathTests {
     FHIRPathEngine fp = new FHIRPathEngine(context);
 
     ExpressionNode node = fp.parse(expression);
-    System.out.println(node.toString());
     fp.check(null, resource == null ? null : resource.getResourceType().toString(), focusType, node);
     List<Base> outcome = fp.evaluate(null, resource, focus, node);
     if (fp.hasLog())
@@ -142,7 +139,6 @@ public class FluentPathTests {
 
     try {
       ExpressionNode node = fp.parse(expression);
-      System.out.println(node.toString());
       fp.check(null, null, resource.getResourceType().toString(), node);
       fp.evaluate(null, null, resource, node);
       if (fp.hasLog())

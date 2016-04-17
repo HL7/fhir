@@ -5102,8 +5102,11 @@ public class Publisher implements URIResolver, SectionNumberer {
     // the build tool validation focuses on codes and identifiers
     List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
     validator.validate(issues, root);
-    if (profile != null && VALIDATE_BY_PROFILE)
+//    System.out.println("  -x- "+validator.reportTimes());
+    if (profile != null && VALIDATE_BY_PROFILE) {
       validator.validate(issues, root, profile);
+      System.out.println("  -- "+validator.reportTimes());
+    }
     for (ValidationMessage m : issues) {
       if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING)) {
         m.setMessage(n+":: "+m.getLocation()+": "+m.getMessage());
@@ -5125,6 +5128,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     // the build tool validation focuses on codes and identifiers
     List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
     validator.validate(issues, obj);
+//    System.out.println("  -j- "+validator.reportTimes());
     // if (profile != null)
     // validator.validateInstanceByProfile(issues, root, profile);
     for (ValidationMessage m : issues) {

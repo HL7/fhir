@@ -43,6 +43,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   // all maps are to the full URI
   protected Map<String, CodeSystem> codeSystems = new HashMap<String, CodeSystem>();
+  protected Set<String> nonSupportedCodeSystems = new HashSet<String>();
   protected Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
   protected Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
   
@@ -54,6 +55,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   // private ValueSetExpansionCache expansionCache; //   
 
   protected FHIRToolingClient txServer;
+  private Bundle bndCodeSystems;
 
   @Override
   public CodeSystem fetchCodeSystem(String system) {
@@ -64,21 +66,28 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   public boolean supportsSystem(String system) {
     if (codeSystems.containsKey(system))
       return true;
+    else if (nonSupportedCodeSystems.contains(system))
+      return false;
+    else if (system.startsWith("http://example.org") || system.startsWith("http://acme.com") || system.startsWith("http://hl7.org/fhir/valueset-") || system.startsWith("urn:oid:"))
+      return false;
     else {
-      Bundle bnd = txServer.fetchFeed(txServer.getAddress()+"/CodeSystem?content=not-present&_summary=true&_count=1000");
-      for (BundleEntryComponent be : bnd.getEntry()) {
+      System.out.println("check system "+system);
+      if (bndCodeSystems == null)
+        bndCodeSystems = txServer.fetchFeed(txServer.getAddress()+"/CodeSystem?content=not-present&_summary=true&_count=1000");
+      for (BundleEntryComponent be : bndCodeSystems.getEntry()) {
       	CodeSystem cs = (CodeSystem) be.getResource();
       	if (!codeSystems.containsKey(cs.getUrl())) {
       		codeSystems.put(cs.getUrl(), null);
       	}
       }
-      for (BundleEntryComponent be : bnd.getEntry()) {
+      for (BundleEntryComponent be : bndCodeSystems.getEntry()) {
       	CodeSystem cs = (CodeSystem) be.getResource();
         if (system.equals(cs.getUrl())) {
           return true;
         }
       }
     }
+    nonSupportedCodeSystems.add(system);
     return false;
   }
 
@@ -404,4 +413,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     return null;
   }
 
+  public Set<String> getNonSupportedCodeSystems() {
+    return nonSupportedCodeSystems;
+  }
+
+  
 }

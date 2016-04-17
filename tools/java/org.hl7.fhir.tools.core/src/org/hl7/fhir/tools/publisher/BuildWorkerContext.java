@@ -905,8 +905,14 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     if (!dir.exists())
       return;
     
+    if (new File(Utilities.path(validationCachePath, "noy-supported.txt")).exists())
+      for (String s : TextFile.fileToString(Utilities.path(validationCachePath, "not-supported.txt")).split("\\r?\\n"))
+        nonSupportedCodeSystems.add(s);
+    
     String[] files = dir.list();
     for (String f : files) {
+      if (f.endsWith(".txt"))
+        break;
       String fn = Utilities.path(validationCachePath, f);
       com.google.gson.JsonParser  parser = new com.google.gson.JsonParser();
       JsonObject json = (JsonObject) parser.parse(TextFile.fileToString(fn));
@@ -949,6 +955,12 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       Utilities.clearDirectory(validationCachePath);
     else
       dir.mkdir();
+
+    String sl = null;
+    for (String s : nonSupportedCodeSystems)
+      sl = sl == null ? s : sl + "\r\n" + s;
+    TextFile.stringToFile(sl, Utilities.path(validationCachePath, "not-supported.txt"));
+
     for (String s : validationCache.keySet()) {
       String fn = Utilities.path(validationCachePath, makeFileName(s)+".json");
       String cnt = "";

@@ -232,13 +232,28 @@ public class XmlParser extends ParserBase {
     			String npath = path+"/"+pathPrefix(child.getNamespaceURI())+child.getLocalName();
     			Element n = new Element(child.getLocalName(), property).markLocation(line(child), col(child));
     			checkElement((org.w3c.dom.Element) child, npath, n.getProperty());
-    				if (property.isChoice())
+    				boolean ok = true;
+    				if (property.isChoice()) {
+    					if (property.getDefinition().hasRepresentation(PropertyRepresentation.TYPEATTR)) {
+    						String xsiType = ((org.w3c.dom.Element) child).getAttributeNS(FormatUtilities.NS_XSI, "type");
+    						if (xsiType == null) {
+    		          logError(line(child), col(child), path, IssueType.STRUCTURE, "No type found on '"+child.getLocalName()+'"', IssueSeverity.ERROR);
+    		          ok = false;
+    						} else {
+    							if (xsiType.contains(":"))
+    								xsiType = xsiType.substring(xsiType.indexOf(":")+1);
+    							n.setType(xsiType);
+    						}
+    					} else
     					n.setType(n.getType());
+    				}
           context.getChildren().add(n);
+    				if (ok) {
           if (property.isResource())
     				parseResource(npath, (org.w3c.dom.Element) child, n);
           else
     				parseChildren(npath, (org.w3c.dom.Element) child, n);
+    			}
     			}
       	} else
           logError(line(child), col(child), path, IssueType.STRUCTURE, "Undefined element '"+child.getLocalName()+'"', IssueSeverity.ERROR);    		
