@@ -562,6 +562,11 @@
   Description = A language in which a designation is provided
   Path = CodeSystem.concept.designation.language
 
+ -- Row 13 -----------------------------------
+  Name = content
+  Type = token
+  Path = CodeSystem.content
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
@@ -595,12 +600,6 @@
   Identity = nhin-purposeofuse
   Description = NHIN Purpose of Use
   Filename = codesystem-nhin-purposeofuse.xml
-
- -- Row 4 -----------------------------------
-  Name = RESTful Interactions
-  Identity = restful-interaction
-  Description = The set of interactions defined by the RESTful part of the FHIR specification
-  Filename = codesystem-restful-interaction.xml
 
 === Sheet Examples =====================================
 
