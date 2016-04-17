@@ -1,4 +1,4 @@
-map "http://hl7.org/fhir/StructureMap/cda-ed" = "V3/FHIR Mappings: CD"
+map "http://hl7.org/fhir/StructureMap/cda-cd" = "V3/FHIR Mappings: CD"
 
 uses "http://hl7.org/fhir/StructureDefinition/cda-CD" as source
 uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" as target
@@ -43,7 +43,7 @@ cd.code:
 
 cd.system:  
   for src.codeSystem as sc1
-  make tgt.system = translate(sc1, "http://hl7.org/fhir/ConceptMap/special-oid2uri", "code")
+  make tgt.system = translate(sc1, "http://hl7.org/fhir/ConceptMap/special-oid2uri", "uri")
      
 // codeSystemName is ignored
 cd.vers:    

@@ -1,19 +1,43 @@
 map "http://hl7.org/fhir/StructureMap/cda-ad" = "V3/FHIR Mappings: AD"
 
+conceptmap "#map-use" {
+//  source "http://hl7.org/fhir/ValueSet/address-use"
+//  target "http://hl7.org/fhir/ValueSet/v3-AddressUse"
+  
+  prefix f = "http://hl7.org/fhir/address-use"
+  prefix v3 = "http://hl7.org/fhir/v3/AddressUse"
+  
+  v3:BAD <= f:old
+  v3:CONF	--
+  v3:H == f:home
+  v3:HP <= f:home
+  v3:HV <= f:home
+  v3:OLD == f:old
+  v3:TMP <= f:temp
+  v3:WP	== f:work
+  v3:DIR <= f:work
+  v3:PUB <= f:work
+  v3:PHYS -- // see mapping to address-type
+  v3:PST -- // see mapping to address-type
+  v3:AS --
+  v3:EC --
+  v3:MC --
+  v3:PG --
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/cda-AD" as source
 uses "http://hl7.org/fhir/StructureDefinition/Address" as target
 
-imports "http://hl7.org/fhir/StructureMap/cda-ad"; 
 imports "http://hl7.org/fhir/StructureMap/cda-ivl-ts"; 
 
-group ADToAdress  extends ANY2Element
+group AD2Address extends ANY2Element
   input src : AD as source;
   input tgt : Address as target;
 
   
-ad.use: for src.use as v make tgt.use = translate(v, "http://hl7.org/fhir/ConceptMap/v3-address-use", code) // todo: that map is the wrong way around
+ad.use: for src.use as v make tgt.use = translate(v, "#map-use", "code") // todo: that map is the wrong way around
 ad.dal: for src.deliveryAddressLine as v make tgt.line = v first
-ad.sal: for src.streetAddressLine as v make tgt.line = v 
+ad.sal: for src.streetAddressLine as v make tgt.line = v
 ad.city: for src.city only_one as v make tgt.city = v  // more than one, an error
 ad.county: for src.county only_one as v make tgt.district = v // more than one, an error
 ad.state: for src.state only_one as v make tgt.state = v // more than one, an error

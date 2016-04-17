@@ -1,0 +1,16 @@
+map "http://hl7.org/fhir/StructureMap/cda-ii" = "V3/FHIR Mappings: II"
+
+uses "http://hl7.org/fhir/StructureDefinition/cda-II" as source
+uses "http://hl7.org/fhir/StructureDefinition/Identifier" as target
+
+group II2Identifier // no: override this ... extends ANY2Element
+  input src : II as source;
+  input tgt : Identifier as target;
+
+  root1: for src.root as r where extension.exists() make tgt.system = translate(r, "http://hl7.org/fhir/ConceptMap/special-oid2uri", "uri")  
+  ext1: for src.extension as e make tgt.value = e
+  
+  root2: for src.root as r where extension.empty() make tgt.system = "urn:ietf:rfc:3986", tgt.value = append("urn:oid", r)
+  
+endgroup
+
