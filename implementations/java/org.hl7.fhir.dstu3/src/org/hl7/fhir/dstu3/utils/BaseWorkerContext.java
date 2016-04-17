@@ -43,6 +43,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   // all maps are to the full URI
   protected Map<String, CodeSystem> codeSystems = new HashMap<String, CodeSystem>();
+  protected Set<String> nonSupportedCodeSystems = new HashSet<String>();
   protected Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
   protected Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
   
@@ -64,6 +65,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   public boolean supportsSystem(String system) {
     if (codeSystems.containsKey(system))
       return true;
+    else if (nonSupportedCodeSystems.contains(system))
+      return false;
     else {
       Bundle bnd = txServer.fetchFeed(txServer.getAddress()+"/CodeSystem?content=not-present&_summary=true&_count=1000");
       for (BundleEntryComponent be : bnd.getEntry()) {
@@ -79,6 +82,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         }
       }
     }
+    nonSupportedCodeSystems.add(system);
     return false;
   }
 
@@ -404,4 +408,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     return null;
   }
 
+  public Set<String> getNonSupportedCodeSystems() {
+    return nonSupportedCodeSystems;
+  }
+
+  
 }

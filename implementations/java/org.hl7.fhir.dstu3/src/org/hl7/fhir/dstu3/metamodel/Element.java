@@ -208,7 +208,7 @@ public class Element extends Base {
   	for (Element child : children) {
   		if (child.getName().equals(name))
   			result.add(child);
-  		if (child.getName().startsWith(name) && child.getProperty().isChoice() && child.getProperty().getName().equals(name+"[x}"))
+  		if (child.getName().startsWith(name) && child.getProperty().isChoice() && child.getProperty().getName().equals(name+"[x]"))
   			result.add(child);
   	}
   	if (result.isEmpty() && checkValid) {

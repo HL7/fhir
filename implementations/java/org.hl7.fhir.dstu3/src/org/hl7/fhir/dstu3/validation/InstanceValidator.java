@@ -114,6 +114,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	private boolean suppressLoincSnomedMessages;
 
   private Bundle logical;
+  
+  // time tracking
+  private long overall = 0;
+  private long txTime = 0;
+  private long sdTime = 0;
+  private long loadTime = 0;
+  private long fpeTime = 0;
+  
 
 	public InstanceValidator(IWorkerContext theContext) {
 			super();
@@ -146,24 +154,28 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		}
 
 
-		@Override
-  public void validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format) throws Exception {
-    validate(errors, stream, format, (StructureDefinition) null);
-		}  	
+	@Override
+	public void validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format) throws Exception {
+		validate(errors, stream, format, (StructureDefinition) null);
+	}  	
 
-		@Override
-  public void validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format, String profile) throws Exception {
-    StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
-    if (p == null)
-      throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    validate(errors, stream, format, p);
-		}
+	@Override
+	public void validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format, String profile) throws Exception {
+		long t = System.nanoTime();
+		StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
+		sdTime = sdTime + (System.nanoTime() - t);
+		if (p == null)
+			throw new DefinitionException("StructureDefinition '" + profile + "' not found");
+		validate(errors, stream, format, p);
+	}
 
 		@Override
   public void validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format, StructureDefinition profile) throws Exception {
     ParserBase parser = Manager.makeParser(context, format);
     parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
+    long t = System.nanoTime();
     Element e = parser.parse(stream);
+    loadTime = System.nanoTime() - t;
     if (e != null)
     	validate(errors, e, profile);
 		}
@@ -176,7 +188,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		
 		@Override
   public void validate(List<ValidationMessage> errors, Resource resource, String profile) throws Exception {
+			long t = System.nanoTime();
     StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
+    sdTime = sdTime + (System.nanoTime() - t);
     if (p == null)
       throw new DefinitionException("StructureDefinition '" + profile + "' not found");
     validate(errors, resource, p);
@@ -187,7 +201,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     throw new Exception("Not done yet");
 //    ParserBase parser = new ObjectParser(context);
 //    parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
+//    long t = System.nanoTime();
 //    Element e = parser.parse(resource);
+//    loadTime = System.nanoTime() - t;
 //    validate(errors, e, profile);    
 		}
 
@@ -203,7 +219,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 		@Override
   public void validate(List<ValidationMessage> errors, Element element, String profile) throws Exception {
+			long t = System.nanoTime();
     StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
+    sdTime = sdTime + (System.nanoTime() - t);
     if (p == null)
       throw new DefinitionException("StructureDefinition '" + profile + "' not found");
     validate(errors, element, p);
@@ -211,7 +229,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   @Override
   public void validate(List<ValidationMessage> errors, org.w3c.dom.Element element, String profile) throws Exception {
+		long t = System.nanoTime();
     StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
+    sdTime = sdTime + (System.nanoTime() - t);
     if (p == null)
       throw new DefinitionException("StructureDefinition '" + profile + "' not found");
     validate(errors, element, p);
@@ -221,7 +241,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   public void validate(List<ValidationMessage> errors, org.w3c.dom.Element element, StructureDefinition profile) throws Exception {
     XmlParser parser = new XmlParser(context);
     parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
+    long t = System.nanoTime();
     Element e = parser.parse(element);
+    loadTime = System.nanoTime() - t;
     validate(errors, e, profile);
 		}
 
@@ -232,7 +254,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 		@Override
   public void validate(List<ValidationMessage> errors, Document document, String profile) throws Exception {
+			long t = System.nanoTime();
     StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
+    sdTime = sdTime + (System.nanoTime() - t);
     if (p == null)
       throw new DefinitionException("StructureDefinition '" + profile + "' not found");
     validate(errors, document, p);
@@ -241,8 +265,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		@Override
   public void validate(List<ValidationMessage> errors, Document document, StructureDefinition profile) throws Exception {
     XmlParser parser = new XmlParser(context);
-    parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
+    parser.setupValidation(ValidationPolicy.EVERYTHING, errors);
+    long t = System.nanoTime();
     Element e = parser.parse(document);
+    loadTime = System.nanoTime() - t;
     validate(errors, e, profile);
 		}
 
@@ -253,7 +279,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 		@Override
   public void validate(List<ValidationMessage> errors, JsonObject object, String profile) throws Exception {
+			long t = System.nanoTime();
     StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
+    sdTime = sdTime + (System.nanoTime() - t);
     if (p == null)
       throw new DefinitionException("StructureDefinition '" + profile + "' not found");
     validate(errors, object, p);
@@ -263,14 +291,18 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   public void validate(List<ValidationMessage> errors, JsonObject object, StructureDefinition profile) throws Exception {
     JsonParser parser = new JsonParser(context);
     parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
+    long t = System.nanoTime();
     Element e = parser.parse(object);
+    loadTime = System.nanoTime() - t;
     validate(errors, e, profile);
 	}
 
   @Override
   public void validate(List<ValidationMessage> errors, Element element, StructureDefinition profile) throws Exception {
     // this is the main entry point; all the other entry points end up here coming here...
+  	long t = System.nanoTime();
   	validateResource(errors, element, element, profile, resourceIdRule, new NodeStack(element));
+  	overall = System.nanoTime() - t;
 	}
 
 
@@ -308,8 +340,13 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	// public API
 
 	private boolean checkCode(List<ValidationMessage> errors, Element element, String path, String code, String system, String display) {
-		if (context.supportsSystem(system)) {
+		long t = System.nanoTime();
+		boolean ss = context.supportsSystem(system);
+    txTime = txTime + (System.nanoTime() - t);
+		if (ss) {
+			t = System.nanoTime();
 			ValidationResult s = context.validateCode(system, code, display);
+			txTime = txTime + (System.nanoTime() - t);
 			if (s == null || s.isOk())
 				return true;
 			if (s.getSeverity() == IssueSeverity.INFORMATION)
@@ -365,7 +402,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 								else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
 									warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "No code provided, and a code should be provided from the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl());
 							} else {
+								long t = System.nanoTime();
 								ValidationResult vr = context.validateCode(cc, valueset);
+								txTime = txTime + (System.nanoTime() - t);
 								if (!vr.isOk()) {
 									if (binding.getStrength() == BindingStrength.REQUIRED)
 										rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required");
@@ -430,7 +469,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 							if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, valueset != null, "ValueSet " + describeReference(binding.getValueSet()) + " not found")) {
 								try {
 									Coding c = readAsCoding(element);
+									long t = System.nanoTime();
 									ValidationResult vr = context.validateCode(c, valueset);
+									txTime = txTime + (System.nanoTime() - t);
 									if (!vr.isOk()) {
 										if (binding.getStrength() == BindingStrength.REQUIRED)
 											rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is required from this value set");
@@ -471,7 +512,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 				String ref = profile.primitiveValue();
 				String p = stack.addToLiteralPath("meta", "profile", ":" + Integer.toString(i));
 				if (rule(errors, IssueType.INVALID, element.line(), element.col(), p, !Utilities.noString(ref), "StructureDefinition reference invalid")) {
+					long t = System.nanoTime();
 					StructureDefinition pr = context.fetchResource(StructureDefinition.class, ref);
+			    sdTime = sdTime + (System.nanoTime() - t);
 					if (warning(errors, IssueType.INVALID, element.line(), element.col(), p, pr != null, "StructureDefinition reference \"{0}\" could not be resolved", ref)) {
 						if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), p, pr.hasSnapshot(),
 								"StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided")) {
@@ -488,7 +531,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		String url = element.getNamedChildValue("url");
 		boolean isModifier = element.getName().equals("modifierExtension");
 
+		long t = System.nanoTime();
 		StructureDefinition ex = context.fetchResource(StructureDefinition.class, url);
+    sdTime = sdTime + (System.nanoTime() - t);
 		if (ex == null) {
 			if (!rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, allowUnknownExtension(url), "The extension " + url + " is unknown, and not allowed here"))
 				warning(errors, IssueType.STRUCTURE, element.line(), element.col(), path, allowUnknownExtension(url), "Unknown extension " + url);
@@ -797,8 +842,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	  		    "code", "samp", "img", "map", "area"
 	  		    
 	  				), "Illegal element name in the XHTML ('"+node.getName()+"')");
-	  		for (String an : node.getAttributes().keySet()) 
-		  		rule(errors, IssueType.INVALID, e.line(), e.col(), path, an.startsWith("xmlns") || Utilities.existsInList(an, 
+	  		for (String an : node.getAttributes().keySet()) {
+	  		  boolean ok = an.startsWith("xmlns") || Utilities.existsInList(an, 
 		  				"title", "style", "class", "id", "lang", "xml:lang", "dir", "accesskey", "tabindex",
               // tables
              "span", "width", "align", "valign", "char", "charoff", "abbr", "axis", "headers", "scope", "rowspan", "colspan") ||
@@ -807,8 +852,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
        "a.charset", "a.type", "a.name", "a.href", "a.hreflang", "a.rel", "a.rev", "a.shape", "a.coords", "img.src",
        "img.alt", "img.longdesc", "img.height", "img.width", "img.usemap", "img.ismap", "map.name", "area.shape",
        "area.coords", "area.href", "area.nohref", "area.alt", "table.summary", "table.width", "table.border",
-       "table.frame", "table.rules", "table.cellspacing", "table.cellpadding"
-		  				), "Illegal attribute name in the XHTML ('"+an+"' on '"+node.getName()+"')");
+       "table.frame", "table.rules", "table.cellspacing", "table.cellpadding", "pre.space"
+              );
+	        if (!ok)
+		  	  	rule(errors, IssueType.INVALID, e.line(), e.col(), path, false, "Illegal attribute name in the XHTML ('"+an+"' on '"+node.getName()+"')");
+	  		}
 	  		checkInnerNames(errors, e, path, node.getChildNodes());
 	  	}
 	  }	
@@ -837,7 +885,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		if (binding.hasValueSet() && binding.getValueSet() instanceof Reference) {
 			ValueSet vs = resolveBindingReference(profile, binding.getValueSet());
 			if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, vs != null, "ValueSet {0} not found", describeReference(binding.getValueSet()))) {
+				long t = System.nanoTime();
 				ValidationResult vr = context.validateCode(null, value, null, vs);
+				txTime = txTime + (System.nanoTime() - t);
 				if (vr != null && !vr.isOk()) {
 					if (binding.getStrength() == BindingStrength.REQUIRED)
 						rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code is required from this value set");
@@ -914,10 +964,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	}
 
   private String checkResourceType(String type)  {
+		long t = System.nanoTime();
+		try {
 		if (context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + type) != null)
 			return type;
 		else
 			return null;
+		} finally {
+	    sdTime = sdTime + (System.nanoTime() - t);
+		}
 	}
 
 	private void checkSampledData(List<ValidationMessage> errors, String path, Element focus, SampledData fixed) {
@@ -1084,9 +1139,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 				// need to do some special processing for reference here...
 				if (ed.getType().get(0).getCode().equals("Reference"))
 					discriminator = discriminator.substring(discriminator.indexOf(".")+1);
+				long t = System.nanoTime();
 				type = context.fetchResource(StructureDefinition.class, ed.getType().get(0).getProfile().get(0).getValue());
-			} else
+		    sdTime = sdTime + (System.nanoTime() - t);
+			} else {
+				long t = System.nanoTime();
 				type = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + ed.getType().get(0).getCode());
+		    sdTime = sdTime + (System.nanoTime() - t);
+			}
 			snapshot = type.getSnapshot().getElement();
 			ed = snapshot.get(0);
 			index = 0;
@@ -1142,7 +1202,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
        }
      }
 
-		return context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + type);
+		long t = System.nanoTime();
+		try {
+		  return context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + type);
+		} finally {
+      sdTime = sdTime + (System.nanoTime() - t);
+		}
 	}
 
 	private Element getValueForDiscriminator(Element element, String discriminator, ElementDefinition criteria) {
@@ -1151,7 +1216,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	}
 
   private CodeSystem getCodeSystem(String system) {
-		return context.fetchCodeSystem(system);
+		long t = System.nanoTime();
+		try {
+		  return context.fetchCodeSystem(system);
+		} finally {
+			txTime = txTime + (System.nanoTime() - t);
+		}
 	}
 
 	private boolean hasTime(String fmt) {
@@ -1273,8 +1343,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	}
 
 	private ValueSet resolveBindingReference(DomainResource ctxt, Type reference) {
-	  if (reference instanceof UriType)
-	    return context.fetchResource(ValueSet.class, ((UriType) reference).getValue().toString());
+	  if (reference instanceof UriType) {
+			long t = System.nanoTime();
+	    ValueSet fr = context.fetchResource(ValueSet.class, ((UriType) reference).getValue().toString());
+	    txTime = txTime + (System.nanoTime() - t);
+			return fr;
+	  }
 	  else if (reference instanceof Reference) {
 	    String s = ((Reference) reference).getReference();
 	    if (s.startsWith("#")) {
@@ -1283,8 +1357,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	          return (ValueSet) c;
 	      }
 	      return null;
-	    } else
-	      return context.fetchResource(ValueSet.class, ((Reference) reference).getReference());
+	    } else {
+	  		long t = System.nanoTime();
+	  		ValueSet fr = context.fetchResource(ValueSet.class, ((Reference) reference).getReference());
+	      txTime = txTime + (System.nanoTime() - t);
+	      return fr;
+	    }
 	  }
 	  else
 	    return null;
@@ -1340,8 +1418,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 					return (StructureDefinition) r;
 			}
 			return null;
-		} else
-			return context.fetchResource(StructureDefinition.class, pr);
+		} else {
+			long t = System.nanoTime();
+			StructureDefinition fr = context.fetchResource(StructureDefinition.class, pr);
+	    sdTime = sdTime + (System.nanoTime() - t);
+			return fr;
+		}
 	}
 
   private ElementDefinition resolveType(String type)  {
@@ -1354,7 +1436,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         }
       }
 		String url = "http://hl7.org/fhir/StructureDefinition/" + type;
+		long t = System.nanoTime();
 		StructureDefinition sd = context.fetchResource(StructureDefinition.class, url);
+    sdTime = sdTime + (System.nanoTime() - t);
 		if (sd == null || !sd.hasSnapshot())
 			return null;
 		else
@@ -1443,7 +1527,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	private void validateQuestionannaireResponse(List<ValidationMessage> errors, Element element, NodeStack stack) {
 	  Element q = element.getNamedChild("questionnaire");
 	  if (hint(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), q != null, "No questionnaire is identified, so no validation can be performed against the base questionnaire")) {
+			long t = System.nanoTime();
 	    Questionnaire qsrc = context.fetchResource(Questionnaire.class, q.getNamedChildValue("reference"));
+	    sdTime = sdTime + (System.nanoTime() - t);
       if (warning(errors, IssueType.REQUIRED, q.line(), q.col(), stack.getLiteralPath(), qsrc != null, "The questionnaire could not be resolved, so no validation can be performed against the base questionnaire")) {
         boolean inProgress = "in-progress".equals(element.getNamedChildValue("status"));
         validateQuestionannaireResponseItems(qsrc, qsrc.getItem(), errors, element, stack, inProgress);        
@@ -1669,7 +1755,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	      	}
 	      }
 	      
+				long t = System.nanoTime();
 	      ValidationResult res = context.validateCode(c, vs);
+				txTime = txTime + (System.nanoTime() - t);
 	      if (!res.isOk())
 	        rule(errors, IssueType.CODEINVALID, value.line(), value.col(), stack.getLiteralPath(), false, "The value provided ("+c.getSystem()+"::"+c.getCode()+") is not in the options value set in the questionnaire");
 	    } catch (Exception e) {
@@ -1920,7 +2008,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 	private void validateContains(List<ValidationMessage> errors, String path, ElementDefinition child, ElementDefinition context, Element resource, Element element, NodeStack stack, IdStatus idstatus) throws FHIRException, FHIRException {
 		String resourceName = element.getType();
+		long t = System.nanoTime();
 		StructureDefinition profile = this.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + resourceName);
+    sdTime = sdTime + (System.nanoTime() - t);
 		// special case: resource wrapper is reset if we're crossing a bundle boundary, but not otherwise
 		if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY) 
 			resource = element;
@@ -1946,10 +2036,13 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	// String firstBase = null;
 	// firstBase = ebase == null ? base : ebase;
 
+	long time = 0;
 	private void validateElement(List<ValidationMessage> errors, StructureDefinition profile, ElementDefinition definition, StructureDefinition cprofile, ElementDefinition context,
 			  Element resource, Element element, String actualType, NodeStack stack, boolean inCodeableConcept) throws FHIRException, FHIRException {
 		element.markValidation(profile, definition);
 
+//		System.out.println("  "+stack.getLiteralPath()+" "+Long.toString((System.nanoTime() - time) / 1000000));
+//		time = System.nanoTime();
 		checkInvariants(errors, stack.getLiteralPath(), profile, definition, null, null, resource, element);
 
 		// get the list of direct defined children, including slices
@@ -2068,7 +2161,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 				NodeStack localStack = stack.push(ei.element, ei.count, ei.definition, type == null ? typeDefn : resolveType(type));
 				String localStackLiterapPath = localStack.getLiteralPath();
 				String eiPath = ei.path;
-				assert(eiPath.equals(localStackLiterapPath)) : "ei.path: " + ei.path + "  -  localStack.getLiterapPath: " + localStackLiterapPath;
+				assert(eiPath.equals(localStackLiterapPath)) : "ei.path: " + ei.path + "  -  localStack.getLiteralPath: " + localStackLiterapPath;
 				boolean thisIsCodeableConcept = false;
 
 				if (type != null) {
@@ -2148,14 +2241,18 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			if (inv.hasExpression()) {
 				ExpressionNode n = (ExpressionNode) inv.getUserData("validator.expression.cache");
 				if (n == null) {
+					long t = System.nanoTime();
 				  n = fpe.parse(inv.getExpression());
+				  fpeTime = fpeTime + (System.nanoTime() - t);
 				  inv.setUserData("validator.expression.cache", n);
 				}
 				
 				String msg;
 				boolean ok;
 				try {
+					long t = System.nanoTime();
 		      ok = fpe.evaluateToBoolean(resource, element, n);
+				  fpeTime = fpeTime + (System.nanoTime() - t);
 		      msg = fpe.forLog();
 				} catch (Exception ex) {
 				  ok = false;
@@ -2197,7 +2294,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		if (ok) {
 			String resourceName = element.getType();
 			if (profile == null) {
+				long t = System.nanoTime();
 				profile = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + resourceName);
+		    sdTime = sdTime + (System.nanoTime() - t);
 				ok = rule(errors, IssueType.INVALID, element.line(), element.col(), stack.addToLiteralPath(resourceName), profile != null, "No profile found for resource type '" + resourceName + "'");
 			} else {
 				String type = profile.getKind() == StructureDefinitionKind.LOGICAL ? profile.getId() : profile.hasBaseType() && profile.getDerivation() == TypeDerivationRule.CONSTRAINT ? profile.getBaseType() : profile.getName();
@@ -2442,4 +2541,13 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 	}
 
+  public String reportTimes() {
+  	String s = String.format("Times: overall = %d, tx = %d, sd = %d, load = %d, fpe = %d", overall, txTime, sdTime, loadTime, fpeTime);
+  	overall = 0;
+  	txTime = 0;
+  	sdTime = 0;
+  	loadTime = 0;
+  	fpeTime = 0;
+  	return s;
+  }
 }
