@@ -79,6 +79,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
+import org.hl7.fhir.dstu3.utils.XmlLocationAnnotator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.SchemaInputSource;
 import org.hl7.fhir.utilities.Utilities;
@@ -94,7 +95,6 @@ import org.xml.sax.XMLReader;
 import com.google.gson.JsonObject;
 
 public class ValidationEngine {
-	static final String MASTER_SOURCE = "http://hl7.org/documentcenter/public/standards/FHIR-Develop/validator.zip"; // fix after DSTU!!
 
 //  static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
 //  static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
@@ -125,7 +125,7 @@ public class ValidationEngine {
 		this.profileURI = profileURI;
 	}
 
-  public void process() throws FHIRException, ParserConfigurationException, TransformerException, SAXException, IOException {
+  public void process() throws Exception {
 		if (isXml())
 			processXml();
 		else
@@ -150,7 +150,7 @@ public class ValidationEngine {
 	  
   }
 
-	public void processXml() throws ParserConfigurationException, TransformerException, SAXException, IOException, FHIRException {
+	public void processXml() throws Exception {
     outputs = new ArrayList<ValidationMessage>();
 
     // ok all loaded
@@ -206,14 +206,15 @@ public class ValidationEngine {
 		validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
 		validator.getExtensionDomains().addAll(extensionDomains);
 
-		if (logical != null)
-      outputs.addAll(validator.validateLogical(doc, logical));
-		else if (profile != null)
-      outputs.addAll(validator.validate(doc, profile));
+//		if (logical != null)
+//      validator.validateLogical(outputs, doc, logical));
+//		else
+		 if (profile != null)
+      validator.validate(outputs, doc, profile);
     else if (profileURI != null)
-      outputs.addAll(validator.validate(doc, profileURI));
+      validator.validate(outputs, doc, profileURI);
     else
-      outputs.addAll(validator.validate(doc));
+      validator.validate(outputs, doc);
     
 		try {
 		  context.newXmlParser().parse(new ByteArrayInputStream(source));
@@ -229,7 +230,7 @@ public class ValidationEngine {
     outcome = op;
   }
 
-  public void processJson() throws FHIRException, IOException {
+  public void processJson() throws Exception {
 		outputs = new ArrayList<ValidationMessage>();
 
 		// ok all loaded
@@ -245,11 +246,11 @@ public class ValidationEngine {
 		validator.getExtensionDomains().addAll(extensionDomains);
 
 		if (profile != null)
-			outputs.addAll(validator.validate(obj, profile));
+			validator.validate(outputs, obj, profile);
 		else if (profileURI != null)
-			outputs.addAll(validator.validate(obj, profileURI));
+			validator.validate(outputs, obj, profileURI);
 		else
-			outputs.addAll(validator.validate(obj));
+			validator.validate(outputs, obj);
 
 		try {
 		  new JsonParser().parse(new ByteArrayInputStream(source));
@@ -423,7 +424,7 @@ public class ValidationEngine {
     System.out.println("  .. load definitions from "+definitions);
 		byte[] defn;
 		if (Utilities.noString(definitions)) {
-			defn = loadFromUrl(MASTER_SOURCE);
+			throw new FHIRException("No definitions specified");
 		} else if (definitions.startsWith("https:") || definitions.startsWith("http:")) {
 			defn = loadFromUrl(definitions);
 		} else if (new File(definitions).exists()) {

@@ -65,14 +65,10 @@ public class ProfileValidatorTests {
 
 	/**
 	 * @param args
-	 * @throws FHIRException 
-	 * @throws ParserConfigurationException 
-	 * @throws IOException 
-	 * @throws SAXException 
-	 * @throws FileNotFoundException 
+	 * @throws Exception 
 	 * @
 	 */
-	public static void main(String[] args) throws FHIRException, FileNotFoundException, SAXException, IOException, ParserConfigurationException {
+	public static void main(String[] args) throws Exception {
 		File pack = new File(args[0]);
 		File registry = new File(args[1]);
 		if (!pack.exists())
@@ -83,7 +79,7 @@ public class ProfileValidatorTests {
 		self.execute();
 	}
 
-	public void execute() throws FileNotFoundException, SAXException, IOException, ParserConfigurationException, FHIRException {
+	public void execute() throws Exception {
 	  InstanceValidator v = new InstanceValidator(SimpleWorkerContext.fromPack(pack.getAbsolutePath()));
 	  
     Document reg = parseXml(registry.getAbsolutePath());
@@ -103,7 +99,7 @@ public class ProfileValidatorTests {
 	  return reg;
   }
 
-	private void executeCase(InstanceValidator v, String dir, Element test) throws FileNotFoundException, SAXException, IOException, ParserConfigurationException, FHIRException {
+	private void executeCase(InstanceValidator v, String dir, Element test) throws Exception {
 	  Element r = parseXml(dir+XMLUtil.getNamedChildValue(test, "instance")+".xml").getDocumentElement();
 	  StructureDefinition p = (StructureDefinition) parseReference(dir+XMLUtil.getNamedChildValue(test, "profile")+".xml");
 	  List<ValidationMessage> errors = new ArrayList<ValidationMessage>();

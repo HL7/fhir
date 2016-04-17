@@ -34,12 +34,16 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.utilities.xhtml.XhtmlParser.NSMap;
+import org.hl7.fhir.utilities.xhtml.XhtmlParser.QName;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -48,7 +52,63 @@ import org.xmlpull.v1.XmlPullParserException;
 
 public class XhtmlParser {
 
-  private Set<String> elements = new HashSet<String>();
+  public class NSMap {
+  	private Map<String, String> nslist = new HashMap<String, String>();
+
+  	public NSMap(NSMap nsm) {
+		  if (nsm != null)
+		  	nslist.putAll(nsm.nslist);
+  	}
+
+  	public void def(String ns) {
+  		nslist.put("", ns);
+  	}
+
+  	public void ns(String abbrev, String ns) {
+  		nslist.put(abbrev, ns);	
+  	}
+
+  	public String def() {
+  		return nslist.get("");
+  	}
+
+  	public boolean hasDef() {
+  		return nslist.containsKey("");
+  	}
+
+  	public String get(String abbrev) {
+  		return nslist.containsKey(abbrev) ? nslist.get(abbrev) : "http://error/undefined-namespace";
+  	}
+	}
+
+  public class QName {
+  	private String ns;
+  	private String name;
+
+  	public QName(String src) {
+  		if (src.contains(":")) {
+  			ns = src.substring(0, src.indexOf(":"));
+  			name = src.substring(src.indexOf(":")+1);
+  		} else {
+  			ns = null;
+  			name = src;
+  		}
+  	}
+
+  	public String getName() {
+  		return name;
+  	}
+
+  	public boolean hasNs() {
+  		return ns != null;
+  	}
+
+  	public String getNs() {
+  		return ns;
+  	}
+  }
+
+	private Set<String> elements = new HashSet<String>();
   private Set<String> attributes = new HashSet<String>();  
   
   
@@ -184,6 +244,7 @@ public enum ParserSecurityPolicy {
   
   private boolean trimWhitespace;
   private boolean mustBeWellFormed = true;
+  private boolean validatorMode;
   
   public boolean isTrimWhitespace() {
     return trimWhitespace;
@@ -202,7 +263,16 @@ public enum ParserSecurityPolicy {
   }
   
 
-  public ParserSecurityPolicy getPolicy() {
+  public boolean isValidatorMode() {
+		return validatorMode;
+	}
+
+	public XhtmlParser setValidatorMode(boolean validatorMode) {
+		this.validatorMode = validatorMode;
+		return this;
+	}
+
+	public ParserSecurityPolicy getPolicy() {
  	return policy;
   }
 
@@ -211,9 +281,13 @@ public enum ParserSecurityPolicy {
   }
 
   public XhtmlNode parseHtmlNode(Element node) throws FHIRFormatError  {
+  	return parseHtmlNode(node, null);
+  }
+  
+  public XhtmlNode parseHtmlNode(Element node, String defaultNS) throws FHIRFormatError  {
     XhtmlNode res = new XhtmlNode(NodeType.Element);
     res.setName(node.getLocalName());
-    
+    defaultNS = checkNS(res, node, defaultNS);
     for (int i = 0; i < node.getAttributes().getLength(); i++) {
     	Attr attr = (Attr) node.getAttributes().item(i);
       if (attributeIsOk(res.getName(), attr.getName(), attr.getValue()) && !attr.getLocalName().startsWith("xmlns"))
@@ -227,7 +301,7 @@ public enum ParserSecurityPolicy {
         res.addComment(child.getTextContent());
       } else if (child.getNodeType() == Node.ELEMENT_NODE) {
         if (elementIsOk(child.getLocalName()))
-          res.getChildNodes().add(parseHtmlNode((Element) child));
+          res.getChildNodes().add(parseHtmlNode((Element) child, defaultNS));
       } else
         throw new FHIRFormatError("Unhandled XHTML feature: "+Integer.toString(child.getNodeType())+descLoc());
       child = child.getNextSibling();
@@ -235,7 +309,20 @@ public enum ParserSecurityPolicy {
     return res;
   }  
 
-  public XhtmlNode parseHtmlNode(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError  {
+  private String checkNS(XhtmlNode res, Element node, String defaultNS) {
+	  if (!validatorMode)
+	  	return null;
+	  String ns = node.getNamespaceURI();
+	  if (ns == null)
+	  	return null;
+	  if (!ns.equals(defaultNS)) {
+	  	res.getAttributes().put("xmlns", ns);
+	  	return ns;
+	  }
+	  return defaultNS;
+	}
+
+	public XhtmlNode parseHtmlNode(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError  {
     XhtmlNode res = new XhtmlNode(NodeType.Element);
     res.setName(xpp.getName());
     
@@ -323,20 +410,58 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
     if (peekChar() != '<')
       throw new FHIRFormatError("Unable to Parse HTML - does not start with tag. Found "+peekChar()+descLoc());
     readChar();
-    String n = readName().toLowerCase();
-    if ((entryName != null) && !n.equals(entryName))
+    QName n = new QName(readName().toLowerCase());
+    if ((entryName != null) && !n.getName().equals(entryName))
       throw new FHIRFormatError("Unable to Parse HTML - starts with '"+n+"' not '"+entryName+"'"+descLoc());
-    XhtmlNode root = result.addTag(n);
-
-    readToTagEnd();
-    unwindPoint = null;
-    List<XhtmlNode> p = new ArrayList<XhtmlNode>();
-    parseElementInner(root, p);
-
+    XhtmlNode root = result.addTag(n.getName());
+    parseAttributes(root);
+    NSMap nsm = checkNamespaces(n, root, null, true);
+    if (readChar() == '/') {
+      if (peekChar() != '>')
+        throw new FHIRFormatError("unexpected non-end of element "+n+" "+descLoc());
+      readChar();
+    } else {
+	    unwindPoint = null;
+	    List<XhtmlNode> p = new ArrayList<XhtmlNode>();
+	    parseElementInner(root, p, nsm);
+    }
     return result;
   }
   
-  private void addTextNode(XhtmlNode node, StringBuilder s)
+  private NSMap checkNamespaces(QName n, XhtmlNode node, NSMap nsm, boolean root) {
+  	// what we do here is strip out any stated namespace attributes, putting them in the namesapce map
+  	// then we figure out what the namespace of this element is, and state it explicitly if it's not the default
+  	
+  	// but we don't bother with any of this if we're not validating
+  	if (!validatorMode)
+  		return null;
+  	NSMap result = new NSMap(nsm);
+  	List<String> nsattrs = new ArrayList<String>();
+  	for (String an : node.getAttributes().keySet()) {
+  		if (an.equals("xmlns")) {
+  			result.def(node.getAttribute(an));
+  			nsattrs.add(an);
+  		}
+  		if (an.startsWith("xmlns:")) {
+  			result.ns(an.substring(6), node.getAttribute(an));
+  			nsattrs.add(an);
+  		}
+  	}
+  	for (String s : nsattrs)
+  		node.getAttributes().remove(s);
+  	if (n.hasNs()) {
+  		String nns = result.get(n.getNs());
+  		if (!nns.equals(result.def())) {
+  			node.getAttributes().put("xmlns", nns);
+  			result.def(nns);
+  		}
+  	} else if (root && result.hasDef()) {
+  		node.getAttributes().put("xmlns", result.def());
+  	}
+  	return result;
+	}
+
+	private void addTextNode(XhtmlNode node, StringBuilder s)
   {
     String t = isTrimWhitespace() ? s.toString().trim() : s.toString();
     if (t.length() > 0)
@@ -347,7 +472,7 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
       s.setLength(0);
     }
   }
-  private void parseElementInner(XhtmlNode node, List<XhtmlNode> parents) throws FHIRFormatError, IOException 
+  private void parseElementInner(XhtmlNode node, List<XhtmlNode> parents, NSMap nsm) throws FHIRFormatError, IOException 
   {
     StringBuilder s = new StringBuilder();
     while (peekChar() != '\0' && !parents.contains(unwindPoint) && !(node == unwindPoint))
@@ -360,11 +485,10 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
           node.addComment(readToCommentEnd());
         else if (peekChar() == '?')
           node.addComment(readToTagEnd());
-        else if (peekChar() == '/')
-        {
+        else if (peekChar() == '/') {
           readChar();
-          String n = readToTagEnd();
-          if (node.getName().equals(n))
+          QName n = new QName(readToTagEnd());
+          if (node.getName().equals(n.getName()))
             return;
           else
           {
@@ -397,7 +521,7 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
         }
         else if (Character.isLetterOrDigit(peekChar()))
         {
-          parseElement(node, parents);
+          parseElement(node, parents, nsm);
         }
         else
           throw new FHIRFormatError("Unable to Parse HTML - node '" + node.getName() + "' has unexpected content '"+peekChar()+"' (last text = '"+lastText+"'"+descLoc());
@@ -412,20 +536,21 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
     addTextNode(node, s);
   }
 
-  private void parseElement(XhtmlNode parent, List<XhtmlNode> parents) throws IOException, FHIRFormatError 
+  private void parseElement(XhtmlNode parent, List<XhtmlNode> parents, NSMap nsm) throws IOException, FHIRFormatError 
   {
-    String name = readName();
-    XhtmlNode node = parent.addTag(name);
+    QName name = new QName(readName());
+    XhtmlNode node = parent.addTag(name.getName());
     List<XhtmlNode> newParents = new ArrayList<XhtmlNode>();
     newParents.addAll(parents);
     newParents.add(parent);
     parseAttributes(node);
+    nsm = checkNamespaces(name, node, nsm, false);
     if (readChar() == '/') {
       if (peekChar() != '>')
         throw new FHIRFormatError("unexpected non-end of element "+name+" "+descLoc());
       readChar();
     } else {
-       parseElementInner(node, newParents);
+       parseElementInner(node, newParents, nsm);
     }
   }
   
@@ -962,7 +1087,7 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
     result.setName(n);
     unwindPoint = null;
     List<XhtmlNode> p = new ArrayList<XhtmlNode>();
-    parseElementInner(result, p);
+    parseElementInner(result, p, null);
 
     return result;
   }

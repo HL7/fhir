@@ -23,8 +23,8 @@ public class JsonLDParser extends ParserBase {
 	private JsonCreator json;
   private String base;
 
-	public JsonLDParser(IWorkerContext context, boolean check) {
-		super(context, check);
+	public JsonLDParser(IWorkerContext context) {
+		super(context);
 	}
 
 	@Override
@@ -107,7 +107,7 @@ public class JsonLDParser extends ParserBase {
     openArray(en);
     for (Element item : list) { 
       open(null);
-      if (item.getProperty().isPrimitive() || ParserBase.isPrimitive(item.getType())) {
+      if (item.isPrimitive() || ParserBase.isPrimitive(item.getType())) {
         if (item.hasValue())
           primitiveValue(item);
       }
@@ -148,7 +148,7 @@ public class JsonLDParser extends ParserBase {
     if (element.hasChildren() || element.hasComments() || element.hasValue()) {
 			open(en);
 			  
-	    if (element.getProperty().isPrimitive() || ParserBase.isPrimitive(element.getType())) {
+	    if (element.isPrimitive() || ParserBase.isPrimitive(element.getType())) {
 	      if (element.hasValue())
 	        primitiveValue(element);
 	    }

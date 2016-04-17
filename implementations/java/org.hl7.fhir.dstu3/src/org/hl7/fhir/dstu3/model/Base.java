@@ -85,9 +85,13 @@ private Map<String, Object> userData;
     return formatCommentsPost;
   }  
   
-	// these 2 allow evaluation engines to get access to primitive values
+	// these 3 allow evaluation engines to get access to primitive values
 	public boolean isPrimitive() {
 		return false;
+	}
+	
+	public boolean hasPrimitiveValue() {
+		return isPrimitive();
 	}
 	
 	public String primitiveValue() {
@@ -148,14 +152,17 @@ private Map<String, Object> userData;
   }
   
   public Base[] listChildrenByName(String name, boolean checkValid) throws FHIRException {
-  	return getProperty(name.hashCode(), checkValid);
-//    List<Property> children = new ArrayList<Property>();
-//    listChildren(children);
-//    List<Base> result = new ArrayList<Base>();
-//    for (Property c : children)
-//      if (name.equals("*") || c.getName().equals(name) || (c.getName().endsWith("[x]") && c.getName().startsWith(name)))
-//        result.addAll(c.getValues());
-//    return result;
+  	if (name.equals("*")) {
+  		List<Property> children = new ArrayList<Property>();
+  		listChildren(children);
+  		List<Base> result = new ArrayList<Base>();
+  		for (Property c : children)
+  			if (name.equals("*") || c.getName().equals(name) || (c.getName().endsWith("[x]") && c.getName().startsWith(name)))
+  				result.addAll(c.getValues());
+  		return result.toArray(new Base[result.size()]);
+  	}
+  	else
+    	return getProperty(name.hashCode(), name, checkValid);
   }
 
 	public boolean isEmpty() {
@@ -163,11 +170,11 @@ private Map<String, Object> userData;
   }
 
 	public boolean equalsDeep(Base other) {
-	  return other != null;
+	  return other == this;
   }  
   
 	public boolean equalsShallow(Base other) {
-	  return other != null;
+	  return other == this;
   }  
   
 	public static boolean compareDeep(List<? extends Base> e1, List<? extends Base> e2, boolean allowNull) {
@@ -271,7 +278,7 @@ private Map<String, Object> userData;
 	public StringType castToString(Base b) throws FHIRException {
 		if (b instanceof StringType)
 			return (StringType) b;
-		else if (b.isPrimitive())
+		else if (b.hasPrimitiveValue())
 			return new StringType(b.primitiveValue());
 		else
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a String");
@@ -280,14 +287,18 @@ private Map<String, Object> userData;
 	public UriType castToUri(Base b) throws FHIRException {
 		if (b instanceof UriType)
 			return (UriType) b;
-		else
+		else if (b.hasPrimitiveValue())
+			return new UriType(b.primitiveValue());
+		else 
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a Uri");
 	}
 	
 	public DateType castToDate(Base b) throws FHIRException {
 		if (b instanceof DateType)
 			return (DateType) b;
-		else
+		else if (b.hasPrimitiveValue())
+			return new DateType(b.primitiveValue());
+		else	
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a Date");
 	}
 	
@@ -572,18 +583,27 @@ private Map<String, Object> userData;
   	return false;
 	}
 
-	public Base[] getProperty(int hash, boolean checkValid) throws FHIRException {
+	public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
 		if (checkValid)
-			throw new FHIRException("Attempt to read invalid property "+Integer.toString(hash));
+			throw new FHIRException("Attempt to read invalid property '"+name+"' on type "+fhirType());
   	return null; 
 	}
 
-	public void setProperty(int hash, Base value) throws FHIRException {
-		throw new FHIRException("Attempt to write to invalid property "+Integer.toString(hash));
+	public void setProperty(int hash, String name, Base value) throws FHIRException {
+		throw new FHIRException("Attempt to write to invalid property '"+name+"' on type "+fhirType());
 	}
 
-	public Base makeProperty(int hash) throws FHIRException {
-		throw new FHIRException("Attempt to make an invalid property "+Integer.toString(hash));
+	public Base makeProperty(int hash, String name) throws FHIRException {
+		throw new FHIRException("Attempt to make an invalid property '"+name+"' on type "+fhirType());
+	}
+
+	public static boolean equals(String v1, String v2) {
+  	if (v1 == null && v2 == null)
+  		return true;
+  	else if (v1 == null || v2 == null)
+    	return false;
+  	else
+  		return v1.equals(v2);
 	}
 	
 

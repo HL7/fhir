@@ -1,5 +1,6 @@
 package org.hl7.fhir.dstu3.metamodel;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -8,17 +9,29 @@ import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMResult;
+import javax.xml.transform.sax.SAXSource;
 
 import org.apache.commons.lang3.NotImplementedException;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.metamodel.Element.SpecialElement;
 import org.hl7.fhir.dstu3.model.DateTimeType;
+import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation;
+import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.dstu3.utils.XmlLocationAnnotator;
+import org.hl7.fhir.dstu3.utils.XmlLocationData;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -30,98 +43,255 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
+import org.xml.sax.XMLReader;
 
 public class XmlParser extends ParserBase {
-
-  
-  public XmlParser(IWorkerContext context, boolean check) {
-    super(context, check);
+  public XmlParser(IWorkerContext context) {
+    super(context);
   }
 
   public Element parse(InputStream stream) throws Exception {
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true);
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    Document doc = builder.parse(stream);
-    org.w3c.dom.Element base = doc.getDocumentElement();
-    String ns = base.getNamespaceURI();
-    String name = base.getNodeName();
-    StructureDefinition sd = getDefinition(ns, name);
+		Document doc = null;
+  	try {
+  		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+  		factory.setNamespaceAware(true);
+  		if (policy == ValidationPolicy.EVERYTHING) {
+  			// use a slower parser that keeps location data
+  			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+  			Transformer nullTransformer = transformerFactory.newTransformer();
+  			DocumentBuilder docBuilder = factory.newDocumentBuilder();
+  			doc = docBuilder.newDocument();
+  			DOMResult domResult = new DOMResult(doc);
+  			SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+  			saxParserFactory.setNamespaceAware(true);
+  			saxParserFactory.setValidating(false);
+  			SAXParser saxParser = saxParserFactory.newSAXParser();
+  			XMLReader xmlReader = saxParser.getXMLReader();
+  			XmlLocationAnnotator locationAnnotator = new XmlLocationAnnotator(xmlReader, doc);
+  			InputSource inputSource = new InputSource(stream);
+  			SAXSource saxSource = new SAXSource(locationAnnotator, inputSource);
+  			nullTransformer.transform(saxSource, domResult);
+  		} else {
+  			DocumentBuilder builder = factory.newDocumentBuilder();
+  			doc = builder.parse(stream);
+  		}
+  	} catch (Exception e) {
+      logError(0, 0, "(syntax)", IssueType.INVALID, e.getMessage(), IssueSeverity.FATAL);
+      doc = null;
+  	}
+  	if (doc == null)
+  		return null;
+  	else
+      return parse(doc);
+  }
 
-    Element result = new Element(base.getNodeName(), new Property(sd.getSnapshot().getElement().get(0), sd));
-    result.setType(base.getNodeName());
-    parseChildren(base.getNodeName(), base, result);
+  private void checkForProcessingInstruction(Document document) throws FHIRFormatError {
+    if (policy == ValidationPolicy.EVERYTHING) {
+      Node node = document.getFirstChild();
+      while (node != null) {
+        if (node.getNodeType() == Node.PROCESSING_INSTRUCTION_NODE)
+          logError(line(document), col(document), "(document)", IssueType.INVALID, "No processing instructions allowed in resources", IssueSeverity.ERROR);
+        node = node.getNextSibling();
+      }
+    }
+  }
+
+  
+  private int line(Node node) {
+		XmlLocationData loc = (XmlLocationData) node.getUserData(XmlLocationData.LOCATION_DATA_KEY);
+		return loc == null ? 0 : loc.getStartLine();
+  }
+
+  private int col(Node node) {
+		XmlLocationData loc = (XmlLocationData) node.getUserData(XmlLocationData.LOCATION_DATA_KEY);
+		return loc == null ? 0 : loc.getStartColumn();
+  }
+
+  public Element parse(Document doc) throws Exception {
+    checkForProcessingInstruction(doc);
+    org.w3c.dom.Element element = doc.getDocumentElement();
+    return parse(element);
+  }
+  
+  public Element parse(org.w3c.dom.Element element) throws Exception {
+    String ns = element.getNamespaceURI();
+    String name = element.getLocalName();
+    String path = "/"+pathPrefix(ns)+name;
+    
+    StructureDefinition sd = getDefinition(line(element), col(element), ns, name);
+    if (sd == null)
+      return null;
+
+    Element result = new Element(element.getLocalName(), new Property(context, sd.getSnapshot().getElement().get(0), sd));
+    checkElement(element, path, result.getProperty());
+    result.markLocation(line(element), col(element));
+    result.setType(element.getLocalName());
+    parseChildren(path, element, result);
     result.numberChildren();
     return result;
   }
 
+  private String pathPrefix(String ns) {
+    if (Utilities.noString(ns))
+      return "";
+    if (ns.equals(FormatUtilities.FHIR_NS))
+      return "f:";
+    if (ns.equals(FormatUtilities.XHTML_NS))
+      return "h:";
+    if (ns.equals("urn:hl7-org:v3"))
+      return "v3:";
+    return "?:";
+  }
+
+  private boolean empty(org.w3c.dom.Element element) {
+    for (int i = 0; i < element.getAttributes().getLength(); i++) {
+      String n = element.getAttributes().item(i).getNodeName();
+      if (!n.equals("xmlns") && !n.startsWith("xmlns:"))
+        return false;
+    }
+    if (!Utilities.noString(element.getTextContent().trim()))
+      return false;
+    
+    Node n = element.getFirstChild();
+    while (n != null) {
+      if (n.getNodeType() == Node.ELEMENT_NODE)
+        return false;
+      n = n.getNextSibling();
+    }
+    return true;
+  }
+  
+  private void checkElement(org.w3c.dom.Element element, String path, Property prop) throws FHIRFormatError {
+    if (policy == ValidationPolicy.EVERYTHING) {
+      if (empty(element))
+        logError(line(element), col(element), path, IssueType.INVALID, "Element must have some content", IssueSeverity.ERROR);
+      String ns = FormatUtilities.FHIR_NS;
+      if (ToolingExtensions.hasExtension(prop.getDefinition(), "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"))
+      	ns = ToolingExtensions.readStringExtension(prop.getDefinition(), "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace");
+      else if (ToolingExtensions.hasExtension(prop.getStructure(), "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"))
+      	ns = ToolingExtensions.readStringExtension(prop.getStructure(), "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace");
+      if (!element.getNamespaceURI().equals(ns))
+        logError(line(element), col(element), path, IssueType.INVALID, "Wrong namespace - expected '"+ns+"'", IssueSeverity.ERROR);
+    }
+  }
+
   public Element parse(org.w3c.dom.Element base, String type) throws Exception {
-    StructureDefinition sd = getDefinition(FormatUtilities.FHIR_NS, type);
-    Element result = new Element(base.getNodeName(), new Property(sd.getSnapshot().getElement().get(0), sd));
-    result.setType(base.getNodeName());
-    parseChildren(base.getNodeName(), base, result);
+    StructureDefinition sd = getDefinition(0, 0, FormatUtilities.FHIR_NS, type);
+    Element result = new Element(base.getLocalName(), new Property(context, sd.getSnapshot().getElement().get(0), sd));
+    String path = "/"+pathPrefix(base.getNamespaceURI())+base.getLocalName();
+    checkElement(base, path, result.getProperty());
+    result.setType(base.getLocalName());
+    parseChildren(path, base, result);
     result.numberChildren();
     return result;
   }
 
   private void parseChildren(String path, org.w3c.dom.Element node, Element context) throws Exception {
+  	// this parsing routine retains the original order in a the XML file, to support validation
   	reapComments(node, context);
     List<Property> properties = getChildProperties(context.getProperty(), context.getName(), XMLUtil.getXsiType(node));
-    List<org.w3c.dom.Node> processed = new ArrayList<org.w3c.dom.Node>();
-    for (Property property : properties) {
-      if (isAttr(property)) {
-      	Attr attr = node.getAttributeNode(property.getName());
-        if (attr != null) {
-      	  processed.add(attr);
-      	  String av = attr.getValue();
-      	  if (ToolingExtensions.hasExtension(property.getDefinition(), "http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat"))
-      	  	av = convertForDateFormat(ToolingExtensions.readStringExtension(property.getDefinition(), "http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat"), av);
-      		if (property.getName().equals("value") && context.isPrimitive())
-      			context.setValue(av);
-      		else
-      	    context.getChildren().add(new Element(property.getName(), property, property.getType(), av));
-        }
-      } else if (isText(property)) {
-      	String text = XMLUtil.getDirectText(node);
-        if (!Utilities.noString(text)) {
-        	processed.add(node);
-    	    context.getChildren().add(new Element(property.getName(), property, property.getType(), text));
-        }
-      } else if (property.isPrimitive() && "xhtml".equals(property.getType())) {
-      	org.w3c.dom.Element div = XMLUtil.getNamedChild(node, property.getName());
-      	processed.add(div);
-      	XhtmlNode xhtml = new XhtmlParser().parseHtmlNode(div);
-  	    context.getChildren().add(new Element("div", property, "xhtml", new XhtmlComposer().compose(xhtml)));
-      } else {
-        List<org.w3c.dom.Element> children = new ArrayList<org.w3c.dom.Element>();
-      	XMLUtil.getNamedChildrenWithWildcard(node, property.getName(), children);
-      	processed.addAll(children);
-      	for (org.w3c.dom.Element child : children) {
-    			Element n = new Element(child.getNodeName(), property);
-    			context.getChildren().add(n);
-    			if (property.isResource())
-    				parseResource(path+"."+property.getName(), child, n);
-    			else
-    			  parseChildren(path+"."+property.getName(), child, n);
-      	}
-      }
+
+  	String text = XMLUtil.getDirectText(node).trim();
+    if (!Utilities.noString(text)) {
+    	Property property = getTextProp(properties);
+    	if (property != null) {
+  	    context.getChildren().add(new Element(property.getName(), property, property.getType(), text).markLocation(line(node), col(node)));
+    	} else {
+        logError(line(node), col(node), path, IssueType.STRUCTURE, "Text should not be present", IssueSeverity.ERROR);
+    	}    		
     }
-    if (check) {
-      org.w3c.dom.Element child = XMLUtil.getFirstChild(node);
-      while (child != null) {
-        if (!processed.contains(child))
-          throw new Exception("Unexpected element at "+path+"."+child.getNodeName());
-        child = XMLUtil.getNextSibling(child);
-      }
-      NamedNodeMap am = node.getAttributes();
-      for (int i = 0; i < am.getLength(); i++) {
-        if (!processed.contains(am.item(i)) && !am.item(i).getNodeName().startsWith("xmlns"))
-          throw new Exception("Unexpected element at "+path+".@"+am.item(i).getNodeName());
-      }
+    
+    for (int i = 0; i < node.getAttributes().getLength(); i++) {
+    	Node attr = node.getAttributes().item(i);
+    	if (!(attr.getNodeName().equals("xmlns") || attr.getNodeName().startsWith("xmlns:"))) {
+      	Property property = getAttrProp(properties, attr.getNodeName());
+      	if (property != null) {
+	    	  String av = attr.getNodeValue();
+	    	  if (ToolingExtensions.hasExtension(property.getDefinition(), "http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat"))
+	    	  	av = convertForDateFormat(ToolingExtensions.readStringExtension(property.getDefinition(), "http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat"), av);
+	    		if (property.getName().equals("value") && context.isPrimitive())
+	    			context.setValue(av);
+	    		else
+	    	    context.getChildren().add(new Element(property.getName(), property, property.getType(), av).markLocation(line(node), col(node)));
+      	} else {
+          logError(line(node), col(node), path, IssueType.STRUCTURE, "Undefined attribute '@"+attr.getNodeName()+"'", IssueSeverity.ERROR);      		
+      	}
+    	}
+    }
+    
+    Node child = node.getFirstChild();
+    while (child != null) {
+    	if (child.getNodeType() == Node.ELEMENT_NODE) {
+    		Property property = getElementProp(properties, child.getLocalName());
+    		if (property != null) {
+    			if (!property.isChoice() && "xhtml".equals(property.getType())) {
+          	XhtmlNode xhtml = new XhtmlParser().setValidatorMode(true).parseHtmlNode((org.w3c.dom.Element) child);
+      	    context.getChildren().add(new Element("div", property, "xhtml", new XhtmlComposer().compose(xhtml)).setXhtml(xhtml).markLocation(line(child), col(child)));
+    			} else {
+    			  String npath = path+"/"+pathPrefix(child.getNamespaceURI())+child.getLocalName();
+    				Element n = new Element(child.getLocalName(), property).markLocation(line(child), col(child));
+    				checkElement((org.w3c.dom.Element) child, npath, n.getProperty());
+    				boolean ok = true;
+    				if (property.isChoice()) {
+    					if (property.getDefinition().hasRepresentation(PropertyRepresentation.TYPEATTR)) {
+    						String xsiType = ((org.w3c.dom.Element) child).getAttributeNS(FormatUtilities.NS_XSI, "type");
+    						if (xsiType == null) {
+    		          logError(line(child), col(child), path, IssueType.STRUCTURE, "No type found on '"+child.getLocalName()+'"', IssueSeverity.ERROR);
+    		          ok = false;
+    						} else {
+    							if (xsiType.contains(":"))
+    								xsiType = xsiType.substring(xsiType.indexOf(":")+1);
+    							n.setType(xsiType);
+    						}
+    					} else
+    					  n.setType(n.getType());
+    				}
+    				context.getChildren().add(n);
+    				if (ok) {
+    					if (property.isResource())
+    						parseResource(npath, (org.w3c.dom.Element) child, n);
+    					else
+    						parseChildren(npath, (org.w3c.dom.Element) child, n);
+    				}
+    			}
+      	} else
+          logError(line(child), col(child), path, IssueType.STRUCTURE, "Undefined element '"+child.getLocalName()+'"', IssueSeverity.ERROR);    		
+    	} else if (child.getNodeType() == Node.CDATA_SECTION_NODE){
+        logError(line(child), col(child), path, IssueType.STRUCTURE, "CDATA is not allowed", IssueSeverity.ERROR);      		
+    	} else if (!Utilities.existsInList(child.getNodeType(), 3, 8)) {
+        logError(line(child), col(child), path, IssueType.STRUCTURE, "Node type "+Integer.toString(child.getNodeType())+" is not allowed", IssueSeverity.ERROR);
+    	}
+    	child = child.getNextSibling();
     }
   }
 
-  private String convertForDateFormat(String fmt, String av) throws FHIRException {
+  private Property getElementProp(List<Property> properties, String nodeName) {
+  	for (Property p : properties)
+  		if (!p.getDefinition().hasRepresentation(PropertyRepresentation.XMLATTR) && !p.getDefinition().hasRepresentation(PropertyRepresentation.XMLTEXT)) {
+  		  if (p.getName().equals(nodeName)) 
+				  return p;
+  		  if (p.getName().endsWith("[x]") && nodeName.length() > p.getName().length()-3 && p.getName().substring(0, p.getName().length()-3).equals(nodeName.substring(0, p.getName().length()-3))) 
+				  return p;
+  		}
+  	return null;
+	}
+
+	private Property getAttrProp(List<Property> properties, String nodeName) {
+  	for (Property p : properties)
+  		if (p.getName().equals(nodeName) && p.getDefinition().hasRepresentation(PropertyRepresentation.XMLATTR)) 
+				return p;
+  	return null;
+  }
+
+	private Property getTextProp(List<Property> properties) {
+  	for (Property p : properties)
+  		if (p.getDefinition().hasRepresentation(PropertyRepresentation.XMLTEXT)) 
+				return p;
+  	return null;
+	}
+
+	private String convertForDateFormat(String fmt, String av) throws FHIRException {
   	if ("v3".equals(fmt)) {
   		DateTimeType d = DateTimeType.parseV3(av);
   		return d.asStringValue();
@@ -131,14 +301,13 @@ public class XmlParser extends ParserBase {
 
 	private void parseResource(String string, org.w3c.dom.Element container, Element parent) throws Exception {
   	org.w3c.dom.Element res = XMLUtil.getFirstChild(container);
-    String name = res.getNodeName();
+    String name = res.getLocalName();
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+name);
     if (sd == null)
-      throw new FHIRFormatError("Contained resource does not appear to be a FHIR resource (unknown name '"+res.getNodeName()+"')");
-    Element result = new Element(res.getNodeName(), new Property(sd.getSnapshot().getElement().get(0), sd));
-    result.setType(res.getNodeName());
-    parseChildren(res.getNodeName(), res, result);
-    parent.getChildren().add(result);
+      throw new FHIRFormatError("Contained resource does not appear to be a FHIR resource (unknown name '"+res.getLocalName()+"')");
+    parent.updateProperty(new Property(context, sd.getSnapshot().getElement().get(0), sd), parent.getProperty().getName().equals("contained") ? SpecialElement.CONTAINED : SpecialElement.BUNDLE_ENTRY);
+    parent.setType(name);
+    parseChildren(res.getLocalName(), res, parent);
 	}
 
 	private void reapComments(org.w3c.dom.Element element, Element context) {
@@ -169,11 +338,6 @@ public class XmlParser extends ParserBase {
 	}
 
   private boolean isText(Property property) {
-    for (Enumeration<PropertyRepresentation> r : property.getDefinition().getRepresentation()) {
-      if (r.getValue() == PropertyRepresentation.XMLTEXT) {
-        return true;
-      }
-    }
     return false;
   }
 
@@ -196,7 +360,7 @@ public class XmlParser extends ParserBase {
       xml.enter(elementName);
       xml.text(element.getValue());
       xml.exit(elementName);      
-    } else if (element.getProperty().isPrimitive() || (element.hasType() && ParserBase.isPrimitive(element.getType()))) {
+    } else if (element.isPrimitive() || (element.hasType() && ParserBase.isPrimitive(element.getType()))) {
       if (element.getType().equals("xhtml")) {
         xml.enter(elementName);
         xml.escapedText(element.getValue());

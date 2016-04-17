@@ -1,17 +1,44 @@
 package org.hl7.fhir.dstu3.test;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
+import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
+import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.metamodel.Element;
+import org.hl7.fhir.dstu3.metamodel.Manager;
+import org.hl7.fhir.dstu3.metamodel.Manager.FhirFormat;
+import org.hl7.fhir.dstu3.model.Base;
+import org.hl7.fhir.dstu3.model.Bundle;
+import org.hl7.fhir.dstu3.model.CodeType;
+import org.hl7.fhir.dstu3.model.Coding;
+import org.hl7.fhir.dstu3.model.ConceptMap;
+import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
+import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
+import org.hl7.fhir.dstu3.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureMap;
+import org.hl7.fhir.dstu3.model.StructureMap.StructureMapTransform;
+import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
-import org.hl7.fhir.dstu3.utils.StructureMapCompiler;
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities.ITransformerServices;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.junit.Test;
+
 
 public class StructureMapTests {
 
@@ -20,7 +47,7 @@ public class StructureMapTests {
   private void testParse(String path) throws FileNotFoundException, IOException, FHIRException {
     if (context == null)
       context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
-    StructureMapCompiler scm = new StructureMapCompiler(context);
+    StructureMapUtilities scm = new StructureMapUtilities(context, null, null);
     StructureMap map = scm.parse(TextFile.fileToString(Utilities.path("C:\\work\\org.hl7.fhir\\build", path)));
     TextFile.stringToFile(scm.render(map), Utilities.path("C:\\work\\org.hl7.fhir\\build", path+".out"));
   }
@@ -65,5 +92,36 @@ public class StructureMapTests {
     testParse("guides\\ccda\\maps\\cda.map");
   }
 
+  @Test
+  public void testLoadCDA() throws FileNotFoundException, Exception {
+    Map<String, StructureMap> maps = new HashMap<String, StructureMap>();
+
+    StructureMapUtilities scu = new StructureMapUtilities(context, maps, null);
+    if (context == null)
+      context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
+    
+    for (String f : new File("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\CDA").list()) {
+      try {
+        StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new FileInputStream("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\CDA\\"+f));
+        ((SimpleWorkerContext) context).seeResource(sd.getUrl(), sd);
+      } catch (Exception e) {
+      }
+    }
+   
+    for (String f : new File("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\maps").list()) {
+      try {
+        StructureMap map = scu.parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\maps\\"+ f));
+        maps.put(map.getUrl(), map);
+      } catch (Exception e) {
+      }
+    }
+        
+    Element cda = Manager.parse(context, new FileInputStream("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\Example\\ccd.xml"), FhirFormat.XML);
+    Manager.compose(context, cda, new FileOutputStream("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\Example\\ccd.out.json"), FhirFormat.JSON, OutputStyle.PRETTY, null);
+    Manager.compose(context, cda, new FileOutputStream("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\Example\\ccd.out.xml"), FhirFormat.XML, OutputStyle.PRETTY, null);
+    Bundle bundle = new Bundle();
+    scu.transform(null, cda, maps.get("http://hl7.org/fhir/StructureMap/cda"), bundle);
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream("c:\\temp\\bundle.xml"), bundle);
+  }
 
 }

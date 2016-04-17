@@ -293,5 +293,7 @@ public interface IWorkerContext {
   // return a set of types that have tails
   public Set<String> typeTails();
 
+	public String oid2Uri(String code);
+
 
 }

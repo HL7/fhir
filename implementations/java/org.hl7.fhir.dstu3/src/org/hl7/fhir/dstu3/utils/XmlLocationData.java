@@ -1,4 +1,4 @@
-package org.hl7.fhir.dstu3.validation;
+package org.hl7.fhir.dstu3.utils;
 
 public class XmlLocationData {
 

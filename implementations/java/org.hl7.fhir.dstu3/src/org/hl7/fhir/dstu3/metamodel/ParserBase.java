@@ -10,15 +10,25 @@ import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.dstu3.validation.ValidationMessage;
+import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
 
 public abstract class ParserBase {
+
+  interface IErrorNotifier {
+    
+  }
+  public enum ValidationPolicy { NONE, QUICK, EVERYTHING }
 
 	public static boolean isPrimitive(String code) {
 		return Utilities.existsInList(code, 
@@ -26,33 +36,68 @@ public abstract class ParserBase {
 	}
 
 	protected IWorkerContext context;
-	protected boolean check;
+	protected ValidationPolicy policy;
+  protected List<ValidationMessage> errors;
 
-	public ParserBase(IWorkerContext context, boolean check) {
+	public ParserBase(IWorkerContext context) {
 		super();
 		this.context = context;
-		this.check = check;
+		policy = ValidationPolicy.NONE;
+	}
+
+	public void setupValidation(ValidationPolicy policy, List<ValidationMessage> errors) {
+	  this.policy = policy;
+	  this.errors = errors;
 	}
 
 	public abstract Element parse(InputStream stream) throws Exception;
 
 	public abstract void compose(Element e, OutputStream destination, OutputStyle style, String base)  throws Exception;
 
-	protected StructureDefinition getDefinition(String ns, String name) throws FHIRFormatError {
-    if (ns == null)
-      throw new FHIRFormatError("This cannot be parsed as a FHIR object (no namespace)");
-    if (name == null)
-      throw new FHIRFormatError("This cannot be parsed as a FHIR object (no name)");
+	
+	public void logError(int line, int col, String path, IssueType type, String message, IssueSeverity level) throws FHIRFormatError {
+	  if (policy == ValidationPolicy.EVERYTHING) {
+	    ValidationMessage msg = new ValidationMessage(Source.InstanceValidator, type, line, col, path, message, level);
+	    errors.add(msg);
+	  } else if (level == IssueSeverity.FATAL || (level == IssueSeverity.ERROR && policy == ValidationPolicy.QUICK))
+	    throw new FHIRFormatError(message+String.format(" at line %d col %d", line, col));
+	}
+	
+	
+	protected StructureDefinition getDefinition(int line, int col, String ns, String name) throws FHIRFormatError {
+    if (ns == null) {
+      logError(line, col, name, IssueType.STRUCTURE, "This cannot be parsed as a FHIR object (no namespace)", IssueSeverity.FATAL);
+      return null;
+    }
+    if (name == null) {
+      logError(line, col, name, IssueType.STRUCTURE, "This cannot be parsed as a FHIR object (no name)", IssueSeverity.FATAL);
+      return null;
+  	}
 	  for (StructureDefinition sd : context.allStructures()) {
 	    if (name.equals(sd.getId())) {
-	      if(ns.equals(FormatUtilities.FHIR_NS) && !ToolingExtensions.hasExtension(sd, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"))
+	      if((ns != null || ns.equals(FormatUtilities.FHIR_NS)) && !ToolingExtensions.hasExtension(sd, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"))
 	        return sd;
 	      String sns = ToolingExtensions.readStringExtension(sd, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace");
-	      if (ns.equals(sns))
+	      if (ns != null && ns.equals(sns))
 	        return sd;
 	    }
 	  }
-    throw new FHIRFormatError("This does not appear to be a FHIR resource (unknown namespace/name '"+ns+"::"+name+"')");
+	  logError(line, col, name, IssueType.STRUCTURE, "This does not appear to be a FHIR resource (unknown namespace/name '"+ns+"::"+name+"')", IssueSeverity.FATAL);
+	  return null;
+  }
+
+	protected StructureDefinition getDefinition(int line, int col, String name) throws FHIRFormatError {
+    if (name == null) {
+      logError(line, col, name, IssueType.STRUCTURE, "This cannot be parsed as a FHIR object (no name)", IssueSeverity.FATAL);
+      return null;
+  	}
+	  for (StructureDefinition sd : context.allStructures()) {
+	    if (name.equals(sd.getId())) {
+	      return sd;
+	    }
+	  }
+	  logError(line, col, name, IssueType.STRUCTURE, "This does not appear to be a FHIR resource (unknown name '"+name+"')", IssueSeverity.FATAL);
+	  return null;
   }
 
   
@@ -105,7 +150,7 @@ public abstract class ParserBase {
 		}
 		List<Property> properties = new ArrayList<Property>();
 		for (ElementDefinition child : children) {
-			properties.add(new Property(child, sd));
+			properties.add(new Property(context, child, sd));
 		}
 		return properties;
 	}

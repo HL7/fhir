@@ -67,7 +67,7 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
   }
 
 	private static com.google.gson.JsonParser  parser = new com.google.gson.JsonParser();
-
+  
   // -- in descendent generated code --------------------------------------
   
   abstract protected Resource parseResource(JsonObject json) throws IOException, FHIRFormatError;

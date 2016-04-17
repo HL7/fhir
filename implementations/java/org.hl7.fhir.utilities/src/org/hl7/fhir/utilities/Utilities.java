@@ -682,11 +682,25 @@ public class Utilities {
   }
 
 
+  public static boolean charInSet(char value, char... array) {
+    for (int i : array)
+      if (value == i)
+          return true;
+    return false;
+  }
+
   public static boolean existsInList(String value, String... array) {
     if (value == null)
       return false;
     for (String s : array)
       if (value.equals(s))
+          return true;
+    return false;
+  }
+
+  public static boolean existsInList(int value, int... array) {
+    for (int i : array)
+      if (value == i)
           return true;
     return false;
   }
