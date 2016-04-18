@@ -1149,31 +1149,33 @@ public class Publisher implements URIResolver, SectionNumberer {
     Collections.sort(names);
     for (String n : names) {
       CodeSystem cs = page.getCodeSystems().get(n);
-      if (cs.hasName()) {
-        NamingSystem ns = new NamingSystem();
-        ns.setId(cs.getId());
-        ns.setName(cs.getName());
-        ns.setStatus(cs.getStatus());
-        if (!ns.hasStatus())
-          ns.setStatus(ConformanceResourceStatus.DRAFT);
-        ns.setKind(NamingSystemType.CODESYSTEM);
-        ns.setPublisher(cs.getPublisher());
-        for (CodeSystemContactComponent c : cs.getContact()) {
-          NamingSystemContactComponent nc = ns.addContact();
-          nc.setName(c.getName());
-          for (ContactPoint cc : c.getTelecom()) {
-            nc.getTelecom().add(cc);
+      if (cs != null) {
+        if (cs.hasName()) {
+          NamingSystem ns = new NamingSystem();
+          ns.setId(cs.getId());
+          ns.setName(cs.getName());
+          ns.setStatus(cs.getStatus());
+          if (!ns.hasStatus())
+            ns.setStatus(ConformanceResourceStatus.DRAFT);
+          ns.setKind(NamingSystemType.CODESYSTEM);
+          ns.setPublisher(cs.getPublisher());
+          for (CodeSystemContactComponent c : cs.getContact()) {
+            NamingSystemContactComponent nc = ns.addContact();
+            nc.setName(c.getName());
+            for (ContactPoint cc : c.getTelecom()) {
+              nc.getTelecom().add(cc);
+            }
           }
+          ns.setDate(cs.getDate());
+          if (!ns.hasDate())
+            ns.setDate(page.getGenDate().getTime());
+          ns.setDescription(cs.getDescription());
+          ns.addUniqueId().setType(NamingSystemIdentifierType.URI).setValue(cs.getUrl()).setPreferred(true);
+          if (ToolingExtensions.getOID(cs) != null)
+            ns.addUniqueId().setType(NamingSystemIdentifierType.OID).setValue(ToolingExtensions.getOID(cs).substring(8)).setPreferred(false);
+          ns.setUserData("path", cs.getUserData("path"));
+          bnd.addEntry().setResource(ns).setFullUrl(cs.getUrl().replace("ValueSet", "NamingSystem"));
         }
-        ns.setDate(cs.getDate());
-        if (!ns.hasDate())
-          ns.setDate(page.getGenDate().getTime());
-        ns.setDescription(cs.getDescription());
-        ns.addUniqueId().setType(NamingSystemIdentifierType.URI).setValue(cs.getUrl()).setPreferred(true);
-        if (ToolingExtensions.getOID(cs) != null)
-          ns.addUniqueId().setType(NamingSystemIdentifierType.OID).setValue(ToolingExtensions.getOID(cs).substring(8)).setPreferred(false);
-        ns.setUserData("path", cs.getUserData("path"));
-        bnd.addEntry().setResource(ns).setFullUrl(cs.getUrl().replace("ValueSet", "NamingSystem"));
       }
     }
     xml.compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "namingsystem-terminologies.xml")), bnd);
