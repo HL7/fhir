@@ -1,0 +1,57 @@
+<DecisionSupportRule xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/decisionsupportrule.xsd">
+  <id value="decisionsupportrule-azathioprine-conflicting-statuses"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Azathioprine Myelotoxicity Intervention - Conflicting Statuses</div>
+  </text>
+
+  <moduleMetadata>
+	  <identifier>
+		<use value="official"/>
+		<value value="azathioprine-myelotoxicity-conflicting-statuses"/>
+	  </identifier>
+	  <version value="1.0.0"/>
+	  <title value="Azathioprine Myelotoxicity Conflicting Statuses"/>
+	  <type value="eca-rule"/>
+	  <status value="active"/>
+	  <description value="Azathioprine myelotoxicity intervention to alert the user that conflicting statuses were found in the patient's TPMT genotype test results."/>
+	  <publicationDate value="2016-04-01"/>
+	  <topic>
+		<text value="Azathioprine Myelotoxicity - Conflicting Statuses"/>
+	  </topic>
+  </moduleMetadata>
+
+  <library>
+    <reference value="Library/library-azathioprine-myelotoxicity-cds-logic"/>
+  </library>
+
+  <trigger>
+    <type value="data-added"/>
+    <eventData>
+      <type value="MedicationOrder"/>
+      <codeFilter>
+        <path value="code"/>
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://snomed.org/sct"/>
+            <code value="372574004"/>
+          </coding>
+          <text value="Azathioprine (substance)"/>
+        </valueCodeableConcept>
+      </codeFilter>
+      </eventData>
+  </trigger>
+
+  <condition value="Should Notify User of Conflicting Statuses"/>
+
+  <action>
+    <title value="Patient Shows Conflicting Statuses in TPMT Genotype Test Results."/>
+    <textEquivalent value="The Patient has conflicting statuses in their TPMT Genotype Test results."/>
+    <participantType value="practitioner"/>
+    <type value="create"/>
+    <customization>
+      <path value="/"/>
+      <expression value="Conflicting TPMT Test Results Alert"/>
+    </customization>
+  </action>
+</DecisionSupportRule>

@@ -1,0 +1,48 @@
+<!-- Should exclude CDS from identifiers as this is harmonized logic -->
+<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
+  <id value="library-abacavir-hypersensitivity-cds-logic"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Abacavir Hypersensitivity CDS Logic</div>
+  </text>
+
+  <moduleMetadata>
+	  <identifier>
+		<use value="official"/>
+		<value value="Abacavir_Hypersensitivity_CDS_Logic"/>
+	  </identifier>
+	  <version value="1.0.0"/>
+	  <title value="Abacavir Hypersensitivity CDS Logic"/>
+	  <type value="library"/>
+	  <status value="active"/>
+	  <experimental value="true"/>
+	  <description value="Decision support logic for improving detection of hypersensitivity to Abacavir caused by the HLA-B*57:01 allele"/>
+	  <publicationDate value="2016-03-14"/>
+	  <topic>
+		<text value="Abacavir Hypersensitivity"/>
+	  </topic>
+  </moduleMetadata>
+
+  <model>
+    <identifier value="QUICK"/>
+  </model>
+
+  <valueSet>
+    <name value="snomed-CT"/>
+    <identifier value="2.16.840.1.113883.6.96"/>
+  </valueSet>
+
+  <dataRequirement>
+    <type value="Observation"/>
+    <codeFilter>
+      <path value="code"/>
+      <valueSetString value="Observed HLA-B*57:01 Allele"/>
+    </codeFilter>
+  </dataRequirement>
+
+  <document>
+    <contentType value="application/cql+text"/>
+    <url value="http://cqlrepository.org/"/>
+  </document>
+
+</Library>

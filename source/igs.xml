@@ -17,7 +17,8 @@
   <ig code="nehta"    name="NEHTA Tooling/Method Evaluation" brief="NEHTA" review="" source="\guides\nehta\nehta.xml" committee="fhir" ballot="draft" fmm="0" section="I"/> 
   <ig code="argonaut" name="Argonaut" brief="Argonaut" source="\guides\argonaut\argonaut.xml" committeereview="0" committee="fhir" ballot="draft" fmm="0" section="J"/>
   <ig code="gao"      name="Guideline Appropriate Ordering" brief="GAO" source="\guides\gao\gao.xml" committeereview="0" committee="cds" ballot="draft" fmm="0" section="K"/>
+  <ig code="digitizeiom" name="DIGITizE Pharmacogenomic Clinical Decision Support" brief="DIGITIZEIOM" source="\guides\digitizeiom\digitizeiom.xml" committeereview="0" committee="cds" ballot="draft" fmm="0" section="L"/>
   <ig code="ccda" name="C-CDA on FHIR" brief="CCDA" source="\guides\ccda\ccda.xml" committeereview="0" committee="sd" ballot="draft" fmm="0" section="M"/>
-  <ig code="pcd"      name="Privacy Consent Directive on FHIR" brief="PCD" source="\guides\pcd\pcd.xml" committeereview="0" committee="cbcc" ballot="draft" fmm="0" section="M"/>
+  <ig code="pcd"      name="Privacy Consent Directive on FHIR" brief="PCD" source="\guides\pcd\pcd.xml" committeereview="0" committee="cbcc" ballot="draft" fmm="0" section="N"/>
   <ig code="cts2" name="Common Terminology Services 2" brief="CTS2" source="guides\cts2\cts2.xml" committeereview="0" committee="fhir" ballot="draf" fmm="0" section="O"/>
 </igs>

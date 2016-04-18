@@ -1,0 +1,65 @@
+<DecisionSupportRule xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/decisionsupportrule.xsd">
+	<id value="decisionsupportrule-azathioprine-need-test"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Azathioprine Myelotoxicity Intervention - Need Test</div>
+	</text>
+	<moduleMetadata>
+		<identifier>
+			<use value="official"/>
+			<value value="azathioprine-myelotoxicity-need-test"/>
+		</identifier>
+		<version value="1.0.0"/>
+		<title value="Azathioprine Myelotoxicity Need Test"/>
+		<type value="eca-rule"/>
+		<status value="active"/>
+		<description value="Azathioprine myelotoxicity intervention to alert the user that a TPMT genotype test should be administered."/>
+		<publicationDate value="2016-04-01"/>
+		<topic>
+			<text value="Azathioprine Myelotoxicity - Need Test"/>
+		</topic>
+	</moduleMetadata>
+	<library>
+		<reference value="Library/library-azathioprine-myelotoxicity-cds-logic"/>
+	</library>
+	<trigger>
+		<type value="data-added"/>
+		<eventData>
+			<type value="MedicationOrder"/>
+			<codeFilter>
+				<path value="code"/>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.org/sct"/>
+						<code value="372574004"/>
+					</coding>
+					<text value="Azathioprine (substance)"/>
+				</valueCodeableConcept>
+			</codeFilter>
+		</eventData>
+	</trigger>
+	<condition value="Needs TPMT Test"/>
+	<action>
+		<title value="Patient should be administered a TPMT Genotype Test."/>
+		<action>
+			<title value="Create the TPMT Genotype Test."/>
+			<textEquivalent value="Administer a TPMT Genotype Test."/>
+			<participantType value="practitioner"/>
+			<type value="create"/>
+			<customization>
+				<path value="/"/>
+				<expression value="Create Diagnostic Order for TPMT Genotype Test"/>
+			</customization>
+		</action>
+		<action>
+			<title value="Notify the provider to sign the order."/>
+			<textEquivalent value="A TPMT Genotype Test is recommended, please authorize or reject the order."/>
+			<participantType value="practitioner"/>
+			<type value="create"/>
+			<customization>
+				<path value="/"/>
+				<expression value="Missing TPMT Test Alert"/>
+			</customization>
+		</action>
+	</action>
+</DecisionSupportRule>

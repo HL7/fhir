@@ -1,0 +1,53 @@
+<DecisionSupportRule xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/decisionsupportrule.xsd">
+	<id value="decisionsupportrule-abacavir-conflicting-statuses"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Abacavir Hypersensitivity Intervention - Conflicting Statuses</div>
+	</text>
+	<moduleMetadata>
+		<identifier>
+			<use value="official"/>
+			<value value="abacavir-hypersensitivity-conflicting-statuses"/>
+		</identifier>
+		<version value="1.0.0"/>
+		<title value="Abacavir Hypersensitivity Intervention Conflicting Statuses"/>
+		<type value="eca-rule"/>
+		<status value="active"/>
+		<description value="Abacavir hypersensitivity intervention to alert the user that conflicting statuses were found in the patient's genotype test results."/>
+		<publicationDate value="2016-04-01"/>
+		<topic>
+			<text value="Abacavir Hypersensitivity - Conflicting Statuses"/>
+		</topic>
+	</moduleMetadata>
+	<library>
+		<reference value="Library/library-abacavir-hypersensitivity-cds-logic"/>
+	</library>
+	<trigger>
+		<type value="data-added"/>
+		<eventData>
+			<type value="MedicationOrder"/>
+			<!-- <profile value="http://hl7.org/fhir/StructureDefinition/MedicationOrder"/> -->
+			<codeFilter>
+				<path value="code"/>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.org/sct"/>
+						<code value="387005008"/>
+					</coding>
+					<text value="Abacavir (substance)"/>
+				</valueCodeableConcept>
+			</codeFilter>
+		</eventData>
+	</trigger>
+	<condition value="Should Notify User Of Conflicting Test Statuses"/>
+	<action>
+		<title value="Patient Shows Conflicting Statuses in Genotype Test Results."/>
+		<textEquivalent value="The Patient has conflicting statuses in their Genotype Test results."/>
+		<participantType value="practitioner"/>
+		<type value="create"/>
+		<customization>
+			<path value="/"/>
+			<expression value="Conflicting Test Results Alert"/>
+		</customization>
+	</action>
+</DecisionSupportRule>
