@@ -5393,13 +5393,15 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void generateCodeSystemsPart2() throws Exception {
 
     Set<String> urls = new HashSet<String>();
-    
+
     for (CodeSystem cs : page.getDefinitions().getCodeSystems().values()) {
-      if (cs.getUserData("example") == null && !cs.getUrl().contains("/v2/") && !cs.getUrl().contains("/v3/"))
-        if (!urls.contains(cs.getUrl())) {
-          urls.add(cs.getUrl());
-          generateCodeSystemPart2(cs);
-        }
+      if (cs != null) {
+        if (cs.getUserData("example") == null && !cs.getUrl().contains("/v2/") && !cs.getUrl().contains("/v3/"))
+          if (!urls.contains(cs.getUrl())) {
+            urls.add(cs.getUrl());
+            generateCodeSystemPart2(cs);
+          }
+      }
     }
   }
 
