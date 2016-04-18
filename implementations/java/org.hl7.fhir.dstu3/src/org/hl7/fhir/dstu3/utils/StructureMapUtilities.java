@@ -1058,4 +1058,9 @@ public class StructureMapUtilities {
 		}
 	}
 
+
+	public Map<String, StructureMap> getLibrary() {
+	  return library;
+	}
+
 }

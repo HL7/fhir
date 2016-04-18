@@ -2254,7 +2254,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         if (vs.getUrl().contains("/v2"))
           v2Valuesets.addEntry().setFullUrl(vs.getUrl()).setResource(vs);
       for (CodeSystem cs : page.getCodeSystems().values())
-        if (cs.getUrl().contains("/v2"))
+        if (cs!= null && cs.getUrl().contains("/v2"))
           v2Valuesets.addEntry().setFullUrl(cs.getUrl()).setResource(cs);
 
 
@@ -2275,7 +2275,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         if (vs.getUrl().contains("/v3"))
           v3Valuesets.addEntry().setFullUrl(vs.getUrl()).setResource(vs);
       for (CodeSystem cs : page.getCodeSystems().values())
-        if (cs.getUrl().contains("/v3"))
+        if (cs != null && cs.getUrl().contains("/v3"))
           v3Valuesets.addEntry().setFullUrl(cs.getUrl()).setResource(cs);
       
       checkBundleURLs(v3Valuesets);

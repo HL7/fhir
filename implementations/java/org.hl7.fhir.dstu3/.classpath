@@ -26,5 +26,6 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/jackson-databind-2.5.2.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/Saxon-HE-9.5.1-5.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/hapi-fhir-base-1.3.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/ST4-4.0.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

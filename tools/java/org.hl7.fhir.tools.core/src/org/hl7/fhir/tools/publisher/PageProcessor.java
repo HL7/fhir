@@ -1980,12 +1980,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     
     List<String> names = new ArrayList<String>();
     Map<String, CodeSystem> map = new HashMap<String, CodeSystem>();
-    
+
     for (CodeSystem cs : definitions.getCodeSystems().values()) {
-      String n = cs.getUrl();
-      if (n.contains("/v3/")) {
-        names.add(n);
-        map.put(n, cs);
+      if (cs != null) {
+        String n = cs.getUrl();
+        if (n.contains("/v3/")) {
+          names.add(n);
+          map.put(n, cs);
+        }
       }
     }
     Collections.sort(names);
@@ -7050,13 +7052,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     Collections.sort(names);
     for (String n : names) {
       CodeSystem cs = definitions.getCodeSystems().get(n);
-      if (cs.getUrl().startsWith("http://hl7.org/fhir") && !cs.getUrl().startsWith("http://hl7.org/fhir/v2/") && !cs.getUrl().startsWith("http://hl7.org/fhir/v3/")) {
-        b.append("  <tr>\r\n");
-        b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getUrl().substring(20)+"</a></td>\r\n");
-        b.append("    <td>"+cs.getName()+": "+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
-        String oid = ToolingExtensions.getOID(cs);
-        b.append("    <td>"+(oid == null ? "" : oid.substring(8))+"</td>\r\n");
-        b.append("  </tr>\r\n");
+      if (cs != null) {
+        if (cs.getUrl().startsWith("http://hl7.org/fhir") && !cs.getUrl().startsWith("http://hl7.org/fhir/v2/") && !cs.getUrl().startsWith("http://hl7.org/fhir/v3/")) {
+          b.append("  <tr>\r\n");
+          b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getUrl().substring(20)+"</a></td>\r\n");
+          b.append("    <td>"+cs.getName()+": "+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
+          String oid = ToolingExtensions.getOID(cs);
+          b.append("    <td>"+(oid == null ? "" : oid.substring(8))+"</td>\r\n");
+          b.append("  </tr>\r\n");
+        }
       }
     }
     return b.toString();
@@ -7131,7 +7135,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String n : definitions.getInfrastructure().keySet())
       definitions.addNs("http://hl7.org/fhir/"+n, "Data Type "+n, definitions.getSrcFile(n)+".html#"+n);
     for (CodeSystem cs : getCodeSystems().values())
-      if (cs.getUrl().startsWith("http://hl7.org/fhir"))
+      if (cs != null && cs.getUrl().startsWith("http://hl7.org/fhir"))
         definitions.addNs(cs.getUrl(), "CodeSystem "+cs.getName(), cs.getUserString("path"));
     for (ValueSet vs : getValueSets().values())
       if (vs.getUrl().startsWith("http://hl7.org/fhir"))
