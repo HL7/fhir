@@ -401,6 +401,7 @@
             <span class="cql-keyword">not exists </span><span class="cql-generic">(</span><a href="#ObservedAllele"><span class="cql-interface" style="text-decoration: underline">"Observed HLA-B*57:01 Allele"</span></a><span class="cql-generic">)</span>
           </div>
         </div>
+        <a href="decisionsupportrule-abacavir-need-test.xml.html">Decision Support Rule</a>
       </li>
       <li>
         There are two or more conflicting statuses of the observed HLA-B*57:01 allele from a patient's genotype test results
@@ -414,6 +415,7 @@
             </div>
           </div>
         </div>
+        <a href="decisionsupportrule-abacavir-conflicting-statuses.xml.html">Decision Support Rule</a>
       </li>
       <li>
         There is a positive status in the patient's genotype test indicating a hypersensitivity to Abacavir
@@ -427,6 +429,7 @@
             </div>
           </div>
         </div>
+        <a href="decisionsupportrule-abacavir-hypersensitivity-positive.xml.html">Decision Support Rule</a>
       </li>
     </ul>
   </p>
@@ -444,6 +447,7 @@
             <span class="cql-keyword">not exists </span><span class="cql-generic">(</span><a href="#Results"><span class="cql-interface" style="text-decoration:underline;">"TPMT Results"</span></a><span class="cql-generic">)</span>
           </div>
         </div>
+        <a href="decisionsupportrule-azathioprine-need-test.xml.html">Decision Support Rule</a>
       </li>
       <li>
         There are two or more conflicting TPMT results for a patient.
@@ -460,6 +464,7 @@
             </div>
           </div>
         </div>
+        <a href="decisionsupportrule-azathioprine-conflicting-statuses.xml.html">Decision Support Rule</a>
       </li>
       <li>
         The patient is at increased risk of myelotoxicity due to intermediate status on TPMT genotype test
@@ -473,6 +478,7 @@
             </div>
           </div>
         </div>
+        <a href="decisionsupportrule-azathioprine-lower-dosage.xml.html">Decision Support Rule</a>
       </li>
       <li>
         The patient is at very high risk of myelotoxicity due to poor status found in the latest TPMT genotype test
@@ -499,10 +505,35 @@
             </div>
           </div>
         </div>
+        <a href="decisionsupportrule-azathioprine-poor-status.xml.html">Decision Support Rule</a>
       </li>
     </ul>
   </p>
-
+  
+  <a name="content-index"/>
+  <h4>Content Index</h4>
+  
+  <p>The following resources formalize the description of the logic and behavior defined by this implementation guide.</p>
+  
+  <table class="list">
+	  <thead>
+		  <tr><th>Resource</th><th>Type</th><th>Description</th></tr>
+	  </thead>
+	  <tbody>
+		  <tr><td><a href="decisionsupportrule-abacavir-conflicting-statuses.xml">Abacavir Conflicting Statuses</a></td><td><a href="[%fhir-path%]decisionsupportrule.html">Decision Support Rule</a></td><td>Detects conflicting statuses for Abacavir Sensitivity tests and notifies appropriately</td></tr>
+		  <tr><td><a href="decisionsupportrule-abacavir-hypersensitivity-positive.xml">Abacavir Hypersensitivity</a></td><td><a href="[%fhir-path%]decisionsupportrule.html">Decision Support Rule</a></td><td>Detects positive status for Abacavir Sensitivity and notifies appropriately</td></tr>
+		  <tr><td><a href="decisionsupportrule-abacavir-need-test.xml">Abacavir Sensitivity Test Recommended</a></td><td><a href="[%fhir-path%]decisionsupportrule.html">Decision Support Rule</a></td><td>Detects no results for Abacavir Sensitivity and notifies appropriately</td></tr>
+		  <tr><td><a href="decisionsupportrule-azathioprine-conflicting-statuses.xml">Azathioprine Conflicting Statuses</a></td><td><a href="[%fhir-path%]decisionsupportrule.html">Decision Support Rule</a></td><td>Detects conflicting statuses for Azathioprine Sensitivity tests and notifies appropriately</td></tr>
+		  <tr><td><a href="decisionsupportrule-azathioprine-lower-dosage.xml">Azathioprine Lower Dosage</a></td><td><a href="[%fhir-path%]decisionsupportrule.html">Decision Support Rule</a></td><td>Detects that a lower dosage of Azathioprine may be appropriate</td></tr>
+		  <tr><td><a href="decisionsupportrule-azathioprine-need-test.xml">Azathioprine Test Recommended</a></td><td><a href="[%fhir-path%]decisionsupportrule.html">Decision Support Rule</a></td><td>Detects no results for Azathioprine Sensitivity and notifies appropriately</td></tr>
+		  <tr><td><a href="decisionsupportrule-azathioprine-poor-status.xml">Azathioprine Poor Status</a></td><td><a href="[%fhir-path%]decisionsupportrule.html">Decision Support Rule</a></td><td>Detects potentially poor metabolism for Azathioprine and notifies appropriately</td></tr>
+		  <tr><td><a href="library-abacavir-hypersensitivity-cds-logic.xml">Abacavir Hypersensitivity Library</a></td><td><a href="[%fhir-path%]library.html">Library</a></td><td>The distributable library for Abacavir Sensitivity logic used by the Abacavir Sensitivity decision support rules.</td></tr>
+		  <tr><td><a href="library-azathioprine-myelotoxicity-cds-logic.xml">Abacavir Myelotoxicity Library</a></td><td><a href="[%fhir-path%]library.html">Library</a></td><td>The distributable library for Azathioprine Myelotoxicity logic used by the Azathioprine Myelotoxicity decision support rules.</td></tr>
+		  <tr><td><a href="AbacavirOrderingPharmacogenomicSupport.cql">Abacavir Sensitivity CQL</a></td><td>CQL Source</td><td>For reference, the complete CQL content of the Abacavir Hypersensitivity Library</td></tr>
+		  <tr><td><a href="AzathioprineOrderingPharmacogenomicSupport.cql">Azathioprine Myelotoxicity CQL</a></td><td>CQL Source</td><td>For reference, the complete CQL content of the Azathioprine Myelotoxicity Library</td></tr>
+	  </tbody>
+  </table>
+  
   <a name="references"/>
   <h4>References</h4>
   <p>
