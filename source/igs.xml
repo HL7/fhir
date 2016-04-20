@@ -2,7 +2,6 @@
   <!-- only FMG can add entries to this list-->
   <!-- the literal order in this XML source file is the order of publication. Dependencies matter! -->
   <ig code="core"     name="FHIR Specification Core" brief="Core" review="" committee="fhir" ballot="dstu2" fmm="0" core="yes"/>
-  <ig code="ccda"     name="Consolidated CDA" brief="CCDA" review="" committee="sd" ballot="dstu2" fmm="0" core="yes"/>
   <ig code="openehr"  name="openEHR Profiles" brief="openEHR" review="" committee="pc" ballot="dstu2" fmm="0" core="yes"/>
   <ig code="cqmf"     name="Clinical Quality Measure Framework" brief="CQMF" review="" committee="cds" ballot="draft" fmm="0" core="yes"/>
   <ig code="ihe"      name="IHE Profiles" brief="IHE" review="" committee="hsi" ballot="dstu2" fmm="0" core="yes"/>
