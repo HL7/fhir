@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+
+[%settitle Payer Extract Cohort Definitions for Payer Quality Measures%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  [%file newheader%]
+
+  <style>
+
+    .code {
+        font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,sans-serif;
+        color:black;
+        background-color:rgb(250,250,250);
+        margin-top: 1em;
+        margin-bottom: 1em;
+        padding: 10px;
+        line-height: 1.5em;
+        font-size: 13px;
+        overflow: auto;
+    }
+
+    .p-l-10 {
+        padding-left: 10px;
+    }
+
+    .cql-keyword {
+        color: rgb(0, 0, 255);
+        font-weight: 700;
+    }
+
+    .cql-string {
+        color: rgb(163, 21, 21);
+    }
+
+    .cql-variable, .cql-property {
+        color: rgb(128, 0, 0);
+    }
+
+    .cql-class, .cql-object {
+        color: rgb(25, 127, 157);
+    }
+
+    .cql-literal, .cql-operator {
+        color: rgb(64,64,64);
+    }
+
+    .cql-interface {
+        color: rgb(43, 170, 175);
+    }
+
+  </style>
+</head>
+<body>
+  [%file newnavbar%]
+
+<div class="col-9">
+  <a name="pCDS"/>
+  <h3>Payer Extract Cohort Definitions for Payer Quality Measures</h3>
+
+  <a name="introduction"/>
+  <h4>Introduction</h4>
+  
+  <p>
+  This implementation guide contains definitions and resources to describe the cohorts and data requirements to calculate payer quality measures. The resources can be used to automate the extraction of data required to support the calculation of payer quality measures.
+  </p>
+  
+  <p>
+  This guide focuses on cohort definitions to support the following six payer measures:
+  </p>
+  
+  <table>
+	  <thead>
+		  <tr><th>Measure</th><th>Description</th></tr>
+	  </thead>
+	  <tbody>
+		  <tr><td>BCS</td><td>Breast Cancer Screening</td></tr>
+		  <tr><td>CBP</td><td>Controlling High Blood Pressure</td></tr>
+		  <tr><td>CCS</td><td>Cervical Cancer Screening</td></tr>
+		  <tr><td>CDC</td><td>Comprehensive Diabetes Care</td></tr>
+		  <tr><td>COL</td><td>Colorectal Cancer Screening</td></tr>
+		  <tr><td>ABA</td><td>Adult BMI Assessment</td></tr>
+	  </tbody>
+  </table>
+
+  <a name="content-index"/>
+  <h4>Content Index</h4>
+  
+  <p>The following resources formalize the description of the logic and behavior defined by this implementation guide.</p>
+  
+  <table class="list">
+	  <thead>
+		  <tr><th>Resource</th><th>Type</th><th>Description</th></tr>
+	  </thead>
+	  <tbody>
+		  <tr><td><a href="library-bcs.fhir.xml">Breast Cancer Screening Library</a></td><td><a href="[%fhir-path%]library.html">Library</a></td><td>Defines the cohort and data requirements to support calculation of a Breast Cancer Screening payer quality measure</td></tr>
+		  <tr><td><a href="measure-bcs.xml">Breast Cancer Screening Measure</a></td><td><a href="[%fhir-path%]measure.html">Measure</a></td><td>Defines the measure structure and cohort definition for a Breast Cancer Screening payer quality measure</td></tr>
+		  <tr><td><a href="library-bcs.elm.xml">Breast Cancer Screening (ELM)</a></td><td><a href="[%fhir-path%]library.html">ELM Source</a></td><td>For reference, the complete ELM content of the Breast Cancer Screening library</td></tr>
+		  <tr><td><a href="library-bcs.cql">Breast Cancer Screening CQL</a></td><td>CQL Source</td><td>For reference, the complete CQL content of the Breast Cancer Screening library</td></tr>
+	  </tbody>
+  </table>
+  
+</div>
+
+[%file newfooter%]
+</body>
+</html>

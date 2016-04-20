@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:quick="http://hl7.org/fhir" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="WCCABA" version="1"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localIdentifier="FHIR" uri="http://hl7.org/fhir"/>
+   </usings>
+   <parameters>
+      <def name="MeasurementPeriod" accessLevel="Public">
+         <parameterTypeSpecifier xsi:type="IntervalTypeSpecifier">
+            <pointType name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <valueSets>
+      <def name="BMI Percentile" id="BMI Percentile" accessLevel="Public"/>
+      <def name="BMI Value" id="BMI Value" accessLevel="Public"/>
+      <def name="Body Height" id="Body Height" accessLevel="Public"/>
+      <def name="Body Weight" id="Body Weight" accessLevel="Public"/>
+   </valueSets>
+   <statements>
+      <def name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand dataType="quick:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def name="Lookback Interval Two Years" context="Patient" accessLevel="Public">
+         <expression lowClosed="true" highClosed="true" xsi:type="Interval">
+            <low xsi:type="Subtract">
+               <operand xsi:type="Start">
+                  <operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
+               </operand>
+               <operand value="2" unit="years" xsi:type="Quantity"/>
+            </low>
+            <high xsi:type="End">
+               <operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
+            </high>
+         </expression>
+      </def>
+      <def name="In Demographic" context="Patient" accessLevel="Public">
+         <expression xsi:type="GreaterOrEqual">
+            <operand precision="Year" xsi:type="CalculateAgeAt">
+               <operand path="birthDate.value" xsi:type="Property">
+                  <source name="Patient" xsi:type="ExpressionRef"/>
+               </operand>
+               <operand xsi:type="Start">
+                  <operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
+               </operand>
+            </operand>
+            <operand valueType="t:Integer" value="18" xsi:type="Literal"/>
+         </expression>
+      </def>
+      <def name="BMI Percent" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="P">
+               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="BMI Percentile" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="In">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="P" xsi:type="Property"/>
+               </operand>
+               <operand xsi:type="List">
+                  <element valueType="t:String" value="final" xsi:type="Literal"/>
+                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Body Mass Index (BMI) Value" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="V">
+               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="BMI Value" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="In">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="V" xsi:type="Property"/>
+               </operand>
+               <operand xsi:type="List">
+                  <element valueType="t:String" value="final" xsi:type="Literal"/>
+                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Height" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="O">
+               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="Body Height" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="In">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="O" xsi:type="Property"/>
+               </operand>
+               <operand xsi:type="List">
+                  <element valueType="t:String" value="final" xsi:type="Literal"/>
+                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Weight" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="O">
+               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="Body Weight" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="In">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="O" xsi:type="Property"/>
+               </operand>
+               <operand xsi:type="List">
+                  <element valueType="t:String" value="final" xsi:type="Literal"/>
+                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+   </statements>
+</library>
+
+

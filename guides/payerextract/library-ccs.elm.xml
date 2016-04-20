@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:quick="http://hl7.org/fhir" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="CCS" version="1"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localIdentifier="FHIR" uri="http://hl7.org/fhir"/>
+   </usings>
+   <parameters>
+      <def name="MeasurementPeriod" accessLevel="Public">
+         <parameterTypeSpecifier xsi:type="IntervalTypeSpecifier">
+            <pointType name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <valueSets>
+      <def name="HPV Tests" id="HPV Tests" accessLevel="Public"/>
+      <def name="Cervical Cytology" id="2.16.840.1.113883.3.464.1004.1208" accessLevel="Public"/>
+      <def name="Hysterectomy" id="Hysterectomy" accessLevel="Public"/>
+      <def name="Absence of Cervix" id="Absence of Cervix" accessLevel="Public"/>
+   </valueSets>
+   <statements>
+      <def name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand dataType="quick:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def name="Lookback Interval Five Years" context="Patient" accessLevel="Public">
+         <expression lowClosed="true" highClosed="true" xsi:type="Interval">
+            <low xsi:type="Subtract">
+               <operand xsi:type="Start">
+                  <operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
+               </operand>
+               <operand value="5" unit="years" xsi:type="Quantity"/>
+            </low>
+            <high xsi:type="End">
+               <operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
+            </high>
+         </expression>
+      </def>
+      <def name="In Demographic" context="Patient" accessLevel="Public">
+         <expression xsi:type="And">
+            <operand xsi:type="Equal">
+               <operand path="value" xsi:type="Property">
+                  <source path="gender" xsi:type="Property">
+                     <source name="Patient" xsi:type="ExpressionRef"/>
+                  </source>
+               </operand>
+               <operand valueType="t:String" value="female" xsi:type="Literal"/>
+            </operand>
+            <operand xsi:type="GreaterOrEqual">
+               <operand precision="Year" xsi:type="CalculateAgeAt">
+                  <operand path="birthDate.value" xsi:type="Property">
+                     <source name="Patient" xsi:type="ExpressionRef"/>
+                  </operand>
+                  <operand xsi:type="Start">
+                     <operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+               <operand valueType="t:Integer" value="40" xsi:type="Literal"/>
+            </operand>
+         </expression>
+      </def>
+      <def name="Pap Smear Procedure" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="H">
+               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+                  <codes name="Cervical Cytology" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval Five Years" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="Equal">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="H" xsi:type="Property"/>
+               </operand>
+               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def name="Pap Smear DiagnosticReport" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="R">
+               <expression dataType="quick:DiagnosticReport" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="Cervical Cytology" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval Five Years" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="Equal">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="R" xsi:type="Property"/>
+               </operand>
+               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def name="Pap Smear Observation" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="R">
+               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="Cervical Cytology" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval Five Years" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="In">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="R" xsi:type="Property"/>
+               </operand>
+               <operand xsi:type="List">
+                  <element valueType="t:String" value="final" xsi:type="Literal"/>
+                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="HPV Test Procedure" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="H">
+               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+                  <codes name="HPV Tests" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval Five Years" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="Equal">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="H" xsi:type="Property"/>
+               </operand>
+               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def name="HPV Test DiagnosticReport" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="R">
+               <expression dataType="quick:DiagnosticReport" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="HPV Tests" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval Five Years" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="Equal">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="R" xsi:type="Property"/>
+               </operand>
+               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def name="HPV Test Observation" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="R">
+               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="HPV Tests" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval Five Years" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="In">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="R" xsi:type="Property"/>
+               </operand>
+               <operand xsi:type="List">
+                  <element valueType="t:String" value="final" xsi:type="Literal"/>
+                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Hysterectomy Procedure" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="A">
+               <expression dataType="quick:Procedure" xsi:type="Retrieve">
+                  <codes name="Hysterectomy" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="Equal">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="A" xsi:type="Property"/>
+               </operand>
+               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def name="Hx Hysterectomy Procedure" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="A">
+               <expression dataType="quick:Procedure" xsi:type="Retrieve">
+                  <codes name="Absence of Cervix" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="Equal">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="A" xsi:type="Property"/>
+               </operand>
+               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+   </statements>
+</library>
+
+

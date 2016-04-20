@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+	<id value="payerextract"/>
+	<url value="http://hl7.org/fhir/payerextract"/>
+	<version value="1"/>
+	<name value="Payer Extract Implementation Guide"/>
+	<status value="draft"/>
+	<experimental value="false"/>
+	<publisher value="Hl7 CDS"/>
+	<date value="2016-03-20T23:16:43-06:00"/>
+	<description value="Establishing Payer Extract Requirements for Payer Quality Measures"/>
+	<package>
+		<name value="Payer Extract"/>
+		<resource>
+			<example value="true"/>
+			<name value="Library - Breast Cancer Screening"/>
+			<description value="Logic to describe the cohort data requirements for Breast Cancer Screening"/>
+			<sourceUri value="library-bcs.fhir.xml"/>
+			<!--exampleFor>
+				<reference value="StructureDefinition/Library"/>
+			</exampleFor-->
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="Measure - Breast Cancer Screening Cohort Definition"/>
+			<description value="Measure structure for the Breast Cancer Screening Cohort Definition"/>
+			<sourceUri value="measure-bcs.xml"/>
+			<!--exampleFor>
+				<reference value="StructureDefinition/Measure"/>
+			</exampleFor-->
+		</resource>
+	</package>
+	<binary value="library-bcs.cql"/>
+	<binary value="library-bcs.elm.xml"/>
+	<page>
+		<source value="payerextract.html"/>
+		<name value="Payer Extract Cohort Definitions for Payer Quality Measures"/>
+		<kind value="page"/>
+		<format value="html"/>
+	</page>
+</ImplementationGuide>

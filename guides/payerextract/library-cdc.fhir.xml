@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<Library xmlns="http://hl7.org/fhir">
+		<id value=lib-bcbs-cdc.xml/>
+		<text>
+			<status value="generated"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">Comprehensive Diabetic Care</div>
+		</text>
+
+		<moduleMetadata>
+			<identifier>
+				<use value="official"/>
+				<value value="Comprehensive_Diabetic_Care"/>
+			</identifier>
+			<version value="1.0.0"/>
+			<title value="Comprehensive Diabetic Care"/>
+			<type value="library"/>
+			<status value="active"/>
+			<experimental value="true"/>
+			<description value=""/>
+			<publicationDate value="04/06/2016"/>
+			<topic>
+				<text value="something"/>
+			</topic>
+		</moduleMetadata>
+
+		<model>
+			<identifier value="QUICK"/>
+		</model> 
+
+		<!-- declare valuesets here: -->
+		<!--
+		<valueset>
+			<name value=""/>
+			<identifier value=""/>
+		</valueset>
+		-->
+
+		<dataRequirement>
+			<type value="Observation"/>
+			<codeFilter>
+				<path value="status"/>
+				<valueCode value="registered"/>
+			</codeFilter>
+			<codeFilter>
+				<path value="code"/>
+				<valueCode value="2.16.840.1.113883.3.464.1004.1113"/>
+			</codeFilter>
+		</dataRequirement>
+		
+		<dataRequirement>
+			<type value="Observation"/>
+			<codeFilter>
+				<path value="status"/>
+				<valueCode value="registered"/>
+			</codeFilter>
+			<codeFilter>
+				<path value="code"/>
+				<valueCode value="2.16.840.1.113883.3.464.1004.1114"/>
+			</codeFilter>
+		</dataRequirement>
+		
+		<dataRequirement>
+			<type value="Observation"/>
+			<codeFilter>
+				<path value="status"/>
+				<valueCode value="registered"/>
+			</codeFilter>
+			<codeFilter>
+				<path value="code"/>
+				<valueCode value="2.16.840.1.113883.3.464.1004.1216'*/"/>
+			</codeFilter>
+		</dataRequirement>
+		
+		

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
+	<id value="library-bcs.fhir"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Breast Cancer Screening Measures</div>
+	</text>
+	<moduleMetadata>
+		<identifier>
+			<use value="official"/>
+			<value value="Breast_Cancer_Screening_Measures"/>
+		</identifier>
+		<version value="1.0.0"/>
+		<title value="Breast Cancer Screening Measures"/>
+		<type value="library"/>
+		<status value="active"/>
+		<experimental value="true"/>
+		<publicationDate value="2016-04-19"/>
+		<topic>
+			<text value="something"/>
+		</topic>
+	</moduleMetadata>
+	<model>
+		<identifier value="QUICK"/>
+	</model>
+	<!-- declare valuesets here: -->
+	<!--
+		<valueset>
+			<name value=""/>
+			<identifier value=""/>
+		</valueset>
+		-->
+	<dataRequirement>
+		<type value="Patient"/>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="status"/>
+			<valueCode value="completed"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Bilateral Mastectomy"/>
+		</codeFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="status"/>
+			<valueCode value="completed"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Unilateral Mastectomy + Bilateral Modifier"/>
+		</codeFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="status"/>
+			<valueCode value="completed"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="History of Bilateral Mastectomy"/>
+		</codeFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="status"/>
+			<valueCode value="completed"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Unilateral Mastectomy + Left Modifier"/>
+		</codeFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="status"/>
+			<valueCode value="completed"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Unilateral Mastectomy Left"/>
+		</codeFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Observation"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Absence of Left Breast"/>
+		</codeFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="status"/>
+			<valueCode value="completed"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Unilateral Mastectomy + Right Modifier"/>
+		</codeFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="status"/>
+			<valueCode value="completed"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Unilateral Mastectomy Right"/>
+		</codeFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Observation"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Absence of Right Breast"/>
+		</codeFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Mammography"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="performedDateTime"/>
+			<valuePeriod>
+				<start value="2013-10-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<document>
+		<contentType value="application/xml+elm"/>
+		<url value="http://example.org/libraries/library-bcs.elm.xml"/>
+	</document>
+</Library>

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:quick="http://hl7.org/fhir" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="CDC" version="1"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localIdentifier="FHIR" uri="http://hl7.org/fhir"/>
+   </usings>
+   <parameters>
+      <def name="MeasurementPeriod" accessLevel="Public">
+         <parameterTypeSpecifier xsi:type="IntervalTypeSpecifier">
+            <pointType name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <valueSets>
+      <def name="HbA1c Tests" id="2.16.840.1.113883.3.464.1004.1116" accessLevel="Public"/>
+      <def name="HbA1c Level Less than 7.0" id="2.16.840.1.113883.3.464.1004.1115" accessLevel="Public"/>
+      <def name="HbA1c Level 7.0-9.0" id="2.16.840.1.113883.3.464.1004.1113" accessLevel="Public"/>
+      <def name="HbA1c Level Greater Than 9.0" id="2.16.840.1.113883.3.464.1004.1114" accessLevel="Public"/>
+      <def name="Diabetic Retinal Screening" id="2.16.840.1.113883.3.464.1004.1078" accessLevel="Public"/>
+      <def name="Diabetic Retinal Screening Negative" id="2.16.840.1.113883.3.464.1004.1079" accessLevel="Public"/>
+      <def name="Diabetic Retinal Screening With Eye Care Professional" id="2.16.840.1.113883.3.464.1004.1080" accessLevel="Public"/>
+      <def name="Urine Macroalbumin Tests" id="2.16.840.1.113883.3.464.1004.1257" accessLevel="Public"/>
+      <def name="Positive Urine Macroalbumin Tests" id="2.16.840.1.113883.3.464.1004.1216" accessLevel="Public"/>
+      <def name="Urine Protein Test" id="Urine Protein Test" accessLevel="Public"/>
+   </valueSets>
+   <statements>
+      <def name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand dataType="quick:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def name="Lookback Interval One Year" context="Patient" accessLevel="Public">
+         <expression lowClosed="true" highClosed="true" xsi:type="Interval">
+            <low xsi:type="Subtract">
+               <operand xsi:type="Start">
+                  <operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
+               </operand>
+               <operand value="1" unit="years" xsi:type="Quantity"/>
+            </low>
+            <high xsi:type="End">
+               <operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
+            </high>
+         </expression>
+      </def>
+      <def name="Lookback Interval Two Years" context="Patient" accessLevel="Public">
+         <expression lowClosed="true" highClosed="true" xsi:type="Interval">
+            <low xsi:type="Subtract">
+               <operand xsi:type="Start">
+                  <operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
+               </operand>
+               <operand value="2" unit="years" xsi:type="Quantity"/>
+            </low>
+            <high xsi:type="End">
+               <operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
+            </high>
+         </expression>
+      </def>
+      <def name="In Demographic" context="Patient" accessLevel="Public">
+         <expression xsi:type="GreaterOrEqual">
+            <operand precision="Year" xsi:type="CalculateAgeAt">
+               <operand path="birthDate.value" xsi:type="Property">
+                  <source name="Patient" xsi:type="ExpressionRef"/>
+               </operand>
+               <operand xsi:type="Start">
+                  <operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
+               </operand>
+            </operand>
+            <operand valueType="t:Integer" value="40" xsi:type="Literal"/>
+         </expression>
+      </def>
+      <def name="Heamoglobin A1C Tests" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="T">
+               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="HbA1c Tests" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="In">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="T" xsi:type="Property"/>
+               </operand>
+               <operand xsi:type="List">
+                  <element valueType="t:String" value="final" xsi:type="Literal"/>
+                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Heamoglobin A1C Level Less than 7.0" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="H">
+               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="HbA1c Level Less than 7.0" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="In">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="H" xsi:type="Property"/>
+               </operand>
+               <operand xsi:type="List">
+                  <element valueType="t:String" value="final" xsi:type="Literal"/>
+                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Heamoglobin A1C Level 7.0-9.0" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="H">
+               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="HbA1c Level 7.0-9.0" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="In">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="H" xsi:type="Property"/>
+               </operand>
+               <operand xsi:type="List">
+                  <element valueType="t:String" value="final" xsi:type="Literal"/>
+                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Heamoglobin A1C Level Greater than 9.0" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="H">
+               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="HbA1c Level Greater Than 9.0" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="In">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="H" xsi:type="Property"/>
+               </operand>
+               <operand xsi:type="List">
+                  <element valueType="t:String" value="final" xsi:type="Literal"/>
+                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="ARB Medication Order" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="A">
+               <expression dataType="quick:MedicationOrder" dateProperty="dateWritten.value" xsi:type="Retrieve">
+                  <codes name="ARB" xsi:type="IdentifierRef"/>
+                  <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="Equal">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="A" xsi:type="Property"/>
+               </operand>
+               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def name="ACE Medication Order" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="A">
+               <expression dataType="quick:MedicationOrder" dateProperty="dateWritten.value" xsi:type="Retrieve">
+                  <codes name="ACE" xsi:type="IdentifierRef"/>
+                  <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="Equal">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="A" xsi:type="Property"/>
+               </operand>
+               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def name="Diabetic Retinal Screening Eye Exam" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="D">
+               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+                  <codes name="Diabetic Retinal Screening" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="Equal">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="D" xsi:type="Property"/>
+               </operand>
+               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def name="Diabetic Retinal Screening Negative Eye Exam" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="D">
+               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+                  <codes name="Diabetic Retinal Screening Negative" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="Equal">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="D" xsi:type="Property"/>
+               </operand>
+               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def name="Diabetic Retinal Screening With Eye Care Professional Eye Exam" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="D">
+               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+                  <codes name="Diabetic Retinal Screening With Eye Care Professional" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="Equal">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="D" xsi:type="Property"/>
+               </operand>
+               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def name="Macroalbumin Results" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="M">
+               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="Urine Macroalbumin Tests" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="In">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="M" xsi:type="Property"/>
+               </operand>
+               <operand xsi:type="List">
+                  <element valueType="t:String" value="final" xsi:type="Literal"/>
+                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Positive Macroalbumin Tests" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="M">
+               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="Positive Urine Macroalbumin Tests" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="In">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="M" xsi:type="Property"/>
+               </operand>
+               <operand xsi:type="List">
+                  <element valueType="t:String" value="final" xsi:type="Literal"/>
+                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Diabetic Retinopathy Detected" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="D">
+               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+                  <codes name="Diabetic Retinal Screening" xsi:type="ValueSetRef"/>
+                  <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where xsi:type="In">
+               <operand path="value" xsi:type="Property">
+                  <source path="status" scope="D" xsi:type="Property"/>
+               </operand>
+               <operand xsi:type="List">
+                  <element valueType="t:String" value="final" xsi:type="Literal"/>
+                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+   </statements>
+</library>
+
+
