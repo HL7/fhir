@@ -1,5 +1,5 @@
 <StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../schema/structuredefinition.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../schema/composition.xsd"
  xmlns="http://hl7.org/fhir">
     <url value="http://hl7.org/fhir/StructureDefinition/ccda-referral-note-composition" />
     <name value="C-CDA on FHIR Referral Note" />
@@ -18,6 +18,7 @@
             <use value="work" />
         </telecom>
     </contact>
+    <description value="A Referral Note communicates pertinent information from a provider who is requesting services of another provider of clinical or non-clinical services. The information in this document includes the reason for the referral and additional information that would augment decision making and care delivery.&#xA;&#xA;Examples of referral situations are when a patient is referred from a family physician to a cardiologist for cardiac evaluation or when patient is sent by a cardiologist to an emergency department for angina or when a patient is referred by a nurse practitioner to an audiologist for hearing screening or when a patient is referred by a hospitalist to social services." />
     <fhirVersion value="1.4.0" />
     <kind value="resource" />
     <abstract value="false" />
@@ -44,22 +45,6 @@
                     <display value="ReferralDocumentType" />
                 </valueSetReference>
             </binding>
-        </element>
-        <element>
-            <path value="Composition.section" />
-            <slicing>
-                <discriminator value="Composition.section.code" />
-                <rules value="open" />
-            </slicing>
-        </element>
-        <element>
-            <path value="Composition.section" />
-            <name value="section_slice_pos2" />
-            <label value="Allergies and Intolerances Section" />
-            <short value="section" />
-            <definition value="SHALL contain exactly one [1..1] section (CONF:2219-1364) such that it" />
-            <min value="1" />
-            <max value="1" />
         </element>
         <element>
             <path value="Composition.section" />
@@ -111,6 +96,14 @@
             <max value="1" />
         </element>
         <element>
+            <path value="Composition.section.entry" />
+            <name value="section_slice_pos2" />
+            <short value="entry" />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF AllergyIntolerance Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance) (CONF:2219-2244)." />
+            <min value="0" />
+            <max value="*" />
+        </element>
+        <element>
             <path value="Composition.section" />
             <name value="section_slice_pos3" />
             <label value="Medications Section" />
@@ -151,6 +144,14 @@
             <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1374)." />
             <min value="1" />
             <max value="1" />
+        </element>
+        <element>
+            <path value="Composition.section.entry" />
+            <name value="section_slice_pos3" />
+            <short value="entry" />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF MedicationStatement Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-medicationstatement) (CONF:2219-2245)." />
+            <min value="0" />
+            <max value="*" />
         </element>
         <element>
             <path value="Composition.section" />
@@ -235,6 +236,14 @@
             <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1380)." />
             <min value="1" />
             <max value="1" />
+        </element>
+        <element>
+            <path value="Composition.section.entry" />
+            <name value="section_slice_pos5" />
+            <short value="entry" />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Condition Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-condition) (CONF:2219-2246)." />
+            <min value="0" />
+            <max value="*" />
         </element>
         <element>
             <path value="Composition.section" />
@@ -403,6 +412,14 @@
             <definition value="SHALL contain exactly one [1..1] text (CONF:2219-2024)." />
             <min value="1" />
             <max value="1" />
+        </element>
+        <element>
+            <path value="Composition.section.entry" />
+            <name value="section_slice_pos9" />
+            <short value="entry" />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Results Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-resultobs) (CONF:2219-2247)." />
+            <min value="0" />
+            <max value="*" />
         </element>
         <element>
             <path value="Composition.section" />
@@ -741,6 +758,14 @@
             <max value="1" />
         </element>
         <element>
+            <path value="Composition.section.entry" />
+            <name value="section_slice_pos17" />
+            <short value="entry" />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF FamilyMemberHistory Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-familyMemberHistory) (CONF:2219-2248)." />
+            <min value="0" />
+            <max value="*" />
+        </element>
+        <element>
             <path value="Composition.section" />
             <name value="section_slice_pos18" />
             <label value="Immunizations Section" />
@@ -783,6 +808,14 @@
             <max value="1" />
         </element>
         <element>
+            <path value="Composition.section.entry" />
+            <name value="section_slice_pos18" />
+            <short value="entry" />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Immunization Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-immunization) (CONF:2219-2249)." />
+            <min value="0" />
+            <max value="*" />
+        </element>
+        <element>
             <path value="Composition.section" />
             <name value="section_slice_pos19" />
             <label value="Vital Signs Section" />
@@ -823,6 +856,14 @@
             <definition value="SHALL contain exactly one [1..1] text (CONF:2219-2061)." />
             <min value="1" />
             <max value="1" />
+        </element>
+        <element>
+            <path value="Composition.section.entry" />
+            <name value="section_slice_pos19" />
+            <short value="entry" />
+            <definition value="MAY contain zero or more [0..*] U.S.DAF Vital Signs Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-vitalsigns) (CONF:2219-2250)." />
+            <min value="0" />
+            <max value="*" />
         </element>
         <element>
             <path value="Composition.section" />
@@ -949,6 +990,14 @@
             <definition value="SHALL contain exactly one [1..1] text (CONF:2219-2067)." />
             <min value="1" />
             <max value="1" />
+        </element>
+        <element>
+            <path value="Composition.section.entry" />
+            <name value="section_slice_pos22" />
+            <short value="entry" />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Procedure Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-procedure) (CONF:2219-2251)." />
+            <min value="0" />
+            <max value="*" />
         </element>
         <element>
             <path value="Composition.section" />
