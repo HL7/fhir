@@ -3,7 +3,7 @@
 		<h2>
 			<span class="mw-headline" id="Introduction">Introduction</span>
 		</h2>
-		<p>The FHIR Vitals Signs profile provides a common data model and API documentation for searching and fetching Vitals Signs.  <strong>To be conformant to FHIR, the implementation SHALL conform to this profile for the vitals sign observations listed in the table below.</strong>  It is based on the <a rel="nofollow" class="external text" href="http://hl7.org/fhir/daf/observation-daf-vitalsigns.html">Data Access Framework (DAF) Vital Signs</a>.  Support for basic mandatory searching of resources are defined below in the <a href="#Quick_Start"> Quick Start</a> section.</p>
+		<p>The FHIR Vitals Signs profile provides a common data model and API documentation for searching and fetching Vitals Signs.  <strong>To be conformant to FHIR, the implementation SHALL conform to this profile for the vitals sign observations listed in the table below.</strong>   Support for basic mandatory searching of resources are defined below in the <a href="#Quick_Start"> Quick Start</a> section. It is based on the <a rel="nofollow" class="external text" href="http://hl7.org/fhir/daf/observation-daf-vitalsigns.html">Data Access Framework (DAF) Vital Signs</a>. </p><p> This profile represents a minimum set of vital signs observations.  It does not require the support of any of these vital signs, but when do, you must represent them using this profile.  In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value. Other profiles may make rules about which vital sign must be present.</p>
 	</div>
 	<div>
 		<a name="bnc"> </a>
@@ -56,9 +56,9 @@ following the connectathon freeze period</p>
 				<td> Vital signs</td>
 				<td> 8716-3 </td>
 				<td> — </td>
-				<td> This is the top-level grouping structure for a set of vital signs.  It has no value in Observation.valueQuantity&#160;; instead, it just includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP)</td>
+				<td> This is the top-level grouping structure for a set of vital signs.  It has no value in Observation.valueQuantity&#160;; instead, it just includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP).  Note that querying for the grouping (panel) code may miss individual results that are not grouped.</td>
 				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Panel_Example" title="Vital Signs Panel Example">Example</a> Note that querying for the grouping (panel) code may miss individual results that are not grouped.
+					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Panel_Example" title="Vital Signs Panel Example">Example</a> 
 </td>
 			</tr>
 			<tr>
@@ -90,7 +90,7 @@ following the connectathon freeze period</p>
 				<td> 2708-6  </td>
 				<td>&#160;% </td>
 				<td>
-					<a rel="nofollow" class="external text" href="http://s.details.loinc.org/LOINC/2710-2.html">LOINC has deprecated 2710-2</a> (which is listed in C-CDA) and replaced  it with 59408-5, but 2708-6 is the one we want because it's methodless.  LOINC Long Common Name description: "Oxygen saturation in Arterial blood".</td>
+					<a rel="nofollow" class="external text" href="http://s.details.loinc.org/LOINC/2710-2.html">LOINC has deprecated 2710-2</a> (which is listed in C-CDA) and replaced  it with 59408-5, but 2708-6 is the one we want because it's methodless..</td>
 				<td>
 					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Oxygen_Saturation_Example" title="Vital Signs Oxygen Saturation Example">Example</a>
 				</td>
@@ -139,7 +139,7 @@ following the connectathon freeze period</p>
 	-->
 				<td>9843-4 </td>
 				<td> cm, [in_i]</td>
-				<td> LOINC Long Common Name description: "Head Occipital-frontal circumference"</td>
+				<td></td>
 				<td>
 					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Head_Cirmcumference_Example" title="Vital Signs Head Cirmcumference Example">Example</a>
 				</td>
@@ -149,7 +149,7 @@ following the connectathon freeze period</p>
 					<a href="bodyweight.html"/>Body weight </td>
 				<td> 29463-7 </td>
 				<td> g, kg,[lb_av]</td>
-				<td> LOINC Long Common Name description: "Body weight Measured"</td>
+				<td></td>
 				<td>
 					<a href="observation-example.html"> Example</a>
 				</td>
@@ -160,7 +160,7 @@ following the connectathon freeze period</p>
 				</td>
 				<td> 39156-5 </td>
 				<td> kg/m2 </td>
-				<td> LOINC Long Common Name description: "Body mass index (BMI) [Ratio]"</td>
+				<td></td>
 				<td>
 					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Body_Mass_Example" title="Vital Body Mass Example">Example</a>
 				</td>

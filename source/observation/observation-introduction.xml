@@ -25,7 +25,7 @@ provides a clinical or workflow context for a set of observations. </p>
   <li>Core characteristics: pregnancy status, death assertion</li>
 </ul>
 
-<p>The following core <a href="profiling.html">profiles</a> for the Observation resource have been defined as well. <strong>To be conformant to FHIR, implementations SHALL conform to these profiles:</strong> 
+<p>The following core <a href="profiling.html">profiles</a> for the Observation resource have been defined as well. <strong>If implementations use the Observation Resource, they SHALL conform to these profiles when supporting these specific use cases. :</strong> 
 </p>
 <ul>
   <li><a href="observation-vitalsigns.html">Vital signs:</a> temperature, blood pressure, respiration rate</li>
