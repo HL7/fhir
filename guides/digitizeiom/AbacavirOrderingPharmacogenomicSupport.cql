@@ -1,3 +1,7 @@
+library AbacavirOrderingPharmacogenomicSupport version '1'
+
+using FHIR // version '1.4'
+
 /*
 
 For each order of abacavir for a patient
@@ -30,6 +34,12 @@ For each order of abacavir for a patient
 
 */
 
+codesystem LOINC: 'http://loinc.org'
+codesystem SNOMED: 'http://snomed.org/sct'
+codesystem DiagnosticPriority: 'http://hl7.org/fhir/diagnostic-order-priority'
+
+context Patient
+
 define "Needs Genotype Test":
   not exists ("Observed HLA-B*57:01 Allele")
 
@@ -41,36 +51,39 @@ define "Should Notify User of Patient's Hypersensitivity":
   exists ("Positive Status for Hypersensitivity")
     and not exists ("Negative Status for Hypersensitivity")
 
+define "Genotype Results for HLA-B*57:01 Allele":
+    Code '50956-2' from LOINC display 'HLA-B*57:01[Presence]'
+
 define "Observed HLA-B*57:01 Allele":
   [Observation: "Genotype Results for HLA-B*57:01 Allele"]
 
 define "Positive Status for Hypersensitivity":
   "Observed HLA-B*57:01 Allele" A
-    where A.value = Code { code: '10828004' system: "http://snomed.org/sct" display: 'Positive' }
+    where A.valueCodeableConcept = Code '10828004' from SNOMED display 'Positive'
 
 define "Negative Status for Hypersensitivity":
   "Observed HLA-B*57:01 Allele" A
-    where A.value = Code { code: '260385009' system: "http://snomed.org/sct" display: 'Negative' }
+    where A.valueCodeableConcept = Code '260385009' from SNOMED display 'Negative'
 
 define "Create Diagnostic Order for Genotype Test":
   DiagnosticOrder {
     status: 'proposed',
-    priority: Code 'urgent' from "http://hl7.org/fhir/diagnostic-order-priority" display: 'Urgent',
+    priority: Code 'urgent' from DiagnosticPriority display 'Urgent',
     subject: Patient,
-    encounter: "Needs Genotype Test",
-    orderer: Practitioner,
+    //encounter: Encounter,
+    //orderer: Practitioner,
     reason: "Observed HLA-B*57:01 Allele",
     event: {
       Tuple {
         status: 'proposed',
-        description: "This event was raised because the patient has been prescribed Abacavir without a Genotype Test",
+        description: 'This event was raised because the patient has been prescribed Abacavir without a Genotype Test',
         dateTime: Now(),
         actor: Device
       }
     },
     item: {
       Tuple {
-        code: Code '50956-2' from "http://loinc.org/" display: '50956-2'
+        code: "Genotype Results for HLA-B*57:01 Allele"
       }
     }
   }
@@ -90,12 +103,12 @@ define "Missing Genotype Test Alert":
       Tuple { content: "Create Genotype Test" }
     },
     status: 'proposed',
-    encounter: "Active Abacavir Order",
+    //encounter: Encounter,
     scheduled: Now(),
     reason: "Needs Genotype Test",
     requestedOn: Now(),
     subject: Patient,
-    priority: Code 'urgent' from "http://hl7.org/fhir/diagnostic-order-priority" display: 'Urgent'
+    priority: Code 'urgent' from DiagnosticPriority display 'Urgent'
   }
 
 define "Conflicting Test Results Alert":
@@ -107,7 +120,7 @@ define "Conflicting Test Results Alert":
         content: 'There are two conflicting results for this patient. Consult with a clinical pharmacist or laboratory
         professional to resolve the conflict.'
         },
-      Tuple { content: "Conflicting Genotype Test Results"},
+      Tuple { content: "Conflicting Genotype Test Results" }
     },
     status: 'proposed',
     encounter: "Genotype Test Results",
@@ -115,7 +128,7 @@ define "Conflicting Test Results Alert":
     reason: "Conflicting Genotype Test Results",
     requestedOn: Now(),
     subject: Patient,
-    priority: Code 'routine' from "http://hl7.org/fhir/diagnostic-order-priority" display: 'Routine'
+    priority: Code 'routine' from DiagnosticPriority display 'Routine'
   }
 
 define "Hypersensitivity To Abacavir Alert":
@@ -129,7 +142,7 @@ define "Hypersensitivity To Abacavir Alert":
         choose an alternate antiretroviral. For more information, please consult a <<recommended clinical
         professional for consultation, for example some institutions might direct to a clinical pharmacist>>.'
         },
-      Tuple { content: "Hypersensitivity To Abacavir Detected"},
+      Tuple { content: "Hypersensitivity To Abacavir Detected" }
     },
     status: 'proposed',
     encounter: "Genotype Test Results",
@@ -137,5 +150,5 @@ define "Hypersensitivity To Abacavir Alert":
     reason: "Genotype Test Results Positive For HLA-B*57:01 Allele",
     requestedOn: Now(),
     subject: Patient,
-    priority: Code 'urgent' from "http://hl7.org/fhir/diagnostic-order-priority" display: 'Urgent'
+    priority: Code 'urgent' from DiagnosticPriority display 'Urgent'
   }

@@ -1,3 +1,7 @@
+library AzathioprineOrderingPharmacogenomicSupport version '1'
+
+using FHIR // version '1.4'
+
 /*
 
 For each order of Azathioprine for a patient
@@ -38,6 +42,9 @@ For each order of Azathioprine for a patient
 
 */
 
+codesystem LOINC: 'http://loinc.org'
+codesystem DiagnosticPriority: 'http://hl7.org/fhir/diagnostic-order-priority'
+
 define "Needs TPMT Test":
   not exists ("TPMT Results")
 
@@ -48,27 +55,29 @@ define "Should Notify User of Conflicting Statuses":
 
 define "Should Notify User to Lower Dosage":
   exists ("Intermediate Status")
-    and not exists ("Should Notify User of Conflicting Statuses")
+    and not "Should Notify User of Conflicting Statuses"
 
 define "Should Notify User of Poor Status in Most Recent Record":
-  exists ("First Record Poor Status")
+  "Most Recent Record Poor Status"
 
 define "Normal Status":
   "TPMT Results" T
-    where T.value = Code { code: 'LA25391-6' system: "http://loinc.org" display: 'Normal Metabolizer' }
+    where T.valueCodeableConcept = Code { code: 'LA25391-6', system: 'http://loinc.org', display: 'Normal Metabolizer' }
 
 define "Intermediate Status":
   "TPMT Results" T
-    where T.value = Code { code: 'LA10317-8' system: "http://loinc.org" display: 'Intermediate Metabolizer' }
+    where T.valueCodeableConcept = Code { code: 'LA10317-8', system: 'http://loinc.org', display: 'Intermediate Metabolizer' }
 
 define "Poor Status":
   "TPMT Results" T
-    where T.value = Code { code: 'LA9657-3' system: "http://loinc.org" display: 'Poor Metabolizer' }
+    where T.valueCodeableConcept = Code { code: 'LA9657-3', system: 'http://loinc.org', display: 'Poor Metabolizer' }
 
-define "First Record Poor Status":
-  "TPMT Results" T
-    where First(T.value = Code { code: 'LA9657-3' system: "http://loinc.org" display: 'Poor Metabolizer' })
-      sort by T.effectiveDateTime
+define "Most Recent Record Poor Status":
+  Last("TPMT Results" T sort by T.effectiveDateTime).valueCodeableConcept =
+    Code { code: 'LA9657-3', system: 'http://loinc.org', display: 'Poor Metabolizer' }
+
+define "Genotype Results for TPMT":
+  Code '79713-4' from LOINC display 'TPMT gene product metabolic activity interpretation'
 
 define "TPMT Results":
   [Observation: "Genotype Results for TPMT"]
@@ -90,13 +99,13 @@ define "Missing TPMT Test Alert":
     reason: "Missing TPMT Test",
     requestedOn: Now(),
     subject: Patient,
-    priority: Code 'urgent' from "http://hl7.org/fhir/diagnostic-order-priority" display: 'Urgent'
+    priority: Code 'urgent' from DiagnosticPriority display 'Urgent'
   }
 
 define "Create Diagnostic Order for TPMT Test":
   DiagnosticOrder {
     status: 'proposed',
-    priority: Code 'urgent' from "http://hl7.org/fhir/diagnostic-order-priority" display: 'Urgent',
+    priority: Code 'urgent' from DiagnosticPriority display 'Urgent',
     subject: Patient,
     encounter: "Missing TPMT Test Alert",
     orderer: Practitioner,
@@ -111,7 +120,7 @@ define "Create Diagnostic Order for TPMT Test":
     },
     item: {
       Tuple {
-        code: Code '79713-4' from "http://loinc.org/" display: '79713-4'
+        code: "Genotype Results for TPMT"
       }
     }
   }
@@ -125,7 +134,7 @@ define "Conflicting TPMT Test Results Alert":
         content: 'There are two or more conflicting TPMT results for this patient which must be resolved.
         Consult a clinical pharmacist or laboratory professional to resolve.'
         },
-      Tuple { content: "Conflicting TPMT Test Results"},
+      Tuple { content: "Conflicting TPMT Test Results"}
     },
     status: 'proposed',
     encounter: "TPMT Test Results",
@@ -133,7 +142,7 @@ define "Conflicting TPMT Test Results Alert":
     reason: "Conflicting TPMT Test Results",
     requestedOn: Now(),
     subject: Patient,
-    priority: Code 'routine' from "http://hl7.org/fhir/diagnostic-order-priority" display: 'Routine'
+    priority: Code 'routine' from DiagnosticPriority display 'Routine'
   }
 
 define "Intermediate TPMT Metabolizer Detected Alert":
@@ -160,7 +169,7 @@ define "Intermediate TPMT Metabolizer Detected Alert":
     reason: "Intermediate TPMT Metabolizer Detected",
     requestedOn: Now(),
     subject: Patient,
-    priority: Code 'urgent' from "http://hl7.org/fhir/diagnostic-order-priority" display: 'Urgent'
+    priority: Code 'urgent' from DiagnosticPriority display 'Urgent'
   }
 
 define "Poor TPMT Metabolizer Detected Alert":
@@ -188,5 +197,5 @@ define "Poor TPMT Metabolizer Detected Alert":
     reason: "Poor TPMT Metabolizer Detected",
     requestedOn: Now(),
     subject: Patient,
-    priority: Code 'urgent' from "http://hl7.org/fhir/diagnostic-order-priority" display: 'Urgent'
+    priority: Code 'urgent' from DiagnosticPriority display 'Urgent'
   }
