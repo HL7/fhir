@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
+	<id value="library-col"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Cohort Definition for Colorectal Cancer Screening Measure</div>
+	</text>
+	<moduleMetadata>
+		<identifier>
+			<use value="official"/>
+			<value value="COL"/>
+		</identifier>
+		<version value="1.0.0"/>
+		<title value="Cohort Definition for Colorectal Cancer Screening Measure"/>
+		<type value="library"/>
+		<status value="active"/>
+		<experimental value="true"/>
+		<publicationDate value="2016-04-19"/>
+		<topic>
+			<text value="something"/>
+		</topic>
+	</moduleMetadata>
+	<model>
+		<identifier value="FHIR"/>
+	</model>
+	<valueSet>
+		<name value="Colonoscopy"/>
+		<identifier value="2.16.840.1.113883.3.464.1004.1064"/>
+	</valueSet>
+	<valueSet>
+		<name value="Colorectal Cancer"/>
+		<identifier value="2.16.840.1.113883.3.464.1004.1064"/>
+	</valueSet>
+	<valueSet>
+		<name value="Flexible Sigmoidoscopy"/>
+		<identifier value="2.16.840.1.113883.3.464.1004.1102"/>
+	</valueSet>
+	<valueSet>
+		<name value="Total Colectomy"/>
+		<identifier value="2.16.840.1.113883.3.464.1003.198.12.1019"/>
+	</valueSet>
+	<valueSet>
+		<name value="Fecal Occult Blood Test (FOBT)"/>
+		<identifier value="2.16.840.1.113883.3.464.1003.198.12.1011"/>
+	</valueSet>
+	<dataRequirement>
+		<type value="Patient"/>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Colonoscopy"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="performedDateTime.value"/>
+			<valuePeriod>
+				<start value="2006-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Condition"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Colorectal Cancer"/>
+		</codeFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Flexible Sigmoidoscopy"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="performedDateTime.value"/>
+			<valuePeriod>
+				<start value="2011-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Total Colectomy"/>
+		</codeFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="FOBT"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="performedDateTime.value"/>
+			<valuePeriod>
+				<start value="2015-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<document>
+		<contentType value="application/xml+elm"/>
+		<url value="http://example.org/libraries/library-col.elm.xml"/>
+	</document>
+</Library>

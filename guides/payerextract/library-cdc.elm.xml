@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:quick="http://hl7.org/fhir" xmlns:a="urn:hl7-org:cql-annotations:r1">
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:a="urn:hl7-org:cql-annotations:r1">
    <identifier id="CDC" version="1"/>
    <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
    <usings>
@@ -28,7 +28,7 @@
    <statements>
       <def name="Patient" context="Patient">
          <expression xsi:type="SingletonFrom">
-            <operand dataType="quick:Patient" xsi:type="Retrieve"/>
+            <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
          </expression>
       </def>
       <def name="Lookback Interval One Year" context="Patient" accessLevel="Public">
@@ -73,7 +73,7 @@
       <def name="Heamoglobin A1C Tests" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="T">
-               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="HbA1c Tests" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
                </expression>
@@ -92,7 +92,7 @@
       <def name="Heamoglobin A1C Level Less than 7.0" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="H">
-               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="HbA1c Level Less than 7.0" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
                </expression>
@@ -111,7 +111,7 @@
       <def name="Heamoglobin A1C Level 7.0-9.0" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="H">
-               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="HbA1c Level 7.0-9.0" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
                </expression>
@@ -130,7 +130,7 @@
       <def name="Heamoglobin A1C Level Greater than 9.0" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="H">
-               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="HbA1c Level Greater Than 9.0" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
                </expression>
@@ -149,7 +149,7 @@
       <def name="ARB Medication Order" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="A">
-               <expression dataType="quick:MedicationOrder" dateProperty="dateWritten.value" xsi:type="Retrieve">
+               <expression dataType="fhir:MedicationOrder" dateProperty="dateWritten.value" xsi:type="Retrieve">
                   <codes name="ARB" xsi:type="IdentifierRef"/>
                   <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
                </expression>
@@ -165,7 +165,7 @@
       <def name="ACE Medication Order" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="A">
-               <expression dataType="quick:MedicationOrder" dateProperty="dateWritten.value" xsi:type="Retrieve">
+               <expression dataType="fhir:MedicationOrder" dateProperty="dateWritten.value" xsi:type="Retrieve">
                   <codes name="ACE" xsi:type="IdentifierRef"/>
                   <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
                </expression>
@@ -181,7 +181,7 @@
       <def name="Diabetic Retinal Screening Eye Exam" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="D">
-               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
                   <codes name="Diabetic Retinal Screening" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
                </expression>
@@ -197,7 +197,7 @@
       <def name="Diabetic Retinal Screening Negative Eye Exam" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="D">
-               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
                   <codes name="Diabetic Retinal Screening Negative" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
                </expression>
@@ -213,7 +213,7 @@
       <def name="Diabetic Retinal Screening With Eye Care Professional Eye Exam" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="D">
-               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
                   <codes name="Diabetic Retinal Screening With Eye Care Professional" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
                </expression>
@@ -229,7 +229,7 @@
       <def name="Macroalbumin Results" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="M">
-               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="Urine Macroalbumin Tests" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
                </expression>
@@ -248,7 +248,7 @@
       <def name="Positive Macroalbumin Tests" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="M">
-               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="Positive Urine Macroalbumin Tests" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
                </expression>
@@ -267,7 +267,7 @@
       <def name="Diabetic Retinopathy Detected" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="D">
-               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="Diabetic Retinal Screening" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
                </expression>

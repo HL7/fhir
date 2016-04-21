@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
+	<id value="library-cdc"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Cohort Definition for Comprehensive Diabetes Care Measure</div>
+	</text>
+	<moduleMetadata>
+		<identifier>
+			<use value="official"/>
+			<value value="CCS"/>
+		</identifier>
+		<version value="1.0.0"/>
+		<title value="Cohort Definition for Comprehensive Diabetes Care Measure"/>
+		<type value="library"/>
+		<status value="active"/>
+		<experimental value="true"/>
+		<publicationDate value="2016-04-19"/>
+		<topic>
+			<text value="something"/>
+		</topic>
+	</moduleMetadata>
+	<model>
+		<identifier value="FHIR"/>
+	</model>
+	<valueSet>
+		<name value="HbA1c Tests"/>
+		<identifier value="2.16.840.1.113883.3.464.1004.1116"/>
+	</valueSet>
+	<valueSet>
+		<name value="HbA1c Level Less than 7.0"/>
+		<identifier value="2.16.840.1.113883.3.464.1004.1115"/>
+	</valueSet>
+	<valueSet>
+		<name value="HbA1c Level 7.0-9.0"/>
+		<identifier value="2.16.840.1.113883.3.464.1004.1113"/>
+	</valueSet>
+	<valueSet>
+		<name value="HbA1c Level Greater Than 9.0"/>
+		<identifier value="2.16.840.1.113883.3.464.1004.1114"/>
+	</valueSet>
+	<valueSet>
+		<name value="Diabetic Retinal Screening"/>
+		<identifier value="2.16.840.1.113883.3.464.1004.1078"/>
+	</valueSet>
+	<valueSet>
+		<name value="Diabetic Retinal Screening Negative"/>
+		<identifier value="2.16.840.1.113883.3.464.1004.1079"/>
+	</valueSet>
+	<valueSet>
+		<name value="Diabetic Retinal Screening With Eye Care Professional"/>
+		<identifier value="2.16.840.1.113883.3.464.1004.1080"/>
+	</valueSet>
+	<valueSet>
+		<name value="Urine Macroalbumin Tests"/>
+		<identifier value="2.16.840.1.113883.3.464.1004.1257"/>
+	</valueSet>
+	<valueSet>
+		<name value="Positive Urine Macroalbumin Tests"/>
+		<identifier value="2.16.840.1.113883.3.464.1004.1216"/>
+	</valueSet>
+	<valueSet>
+		<name value="Urine Protein Test"/>
+		<identifier value="Urine Protein Test"/>
+	</valueSet>
+	<dataRequirement>
+		<type value="Patient"/>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Observation"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="HbA1c Tests"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="effectiveDateTime.value"/>
+			<valuePeriod>
+				<start value="2015-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Observation"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="HbA1c Level Less than 7.0"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="effectiveDateTime.value"/>
+			<valuePeriod>
+				<start value="2015-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Observation"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="HbA1c Level 7.0-9.0"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="effectiveDateTime.value"/>
+			<valuePeriod>
+				<start value="2015-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Observation"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="HbA1c Level Greater Than 9.0"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="effectiveDateTime.value"/>
+			<valuePeriod>
+				<start value="2015-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="MedicationOrder"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="ARB"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="dateWritten.value"/>
+			<valuePeriod>
+				<start value="2015-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="MedicationOrder"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="ACE"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="dateWritten.value"/>
+			<valuePeriod>
+				<start value="2015-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Diabetic Retinal Screening"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="performedDateTime.value"/>
+			<valuePeriod>
+				<start value="2014-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Diabetic Retinal Screening Negative"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="performedDateTime.value"/>
+			<valuePeriod>
+				<start value="2014-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Procedure"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Diabetic Retinal Screening With Eye Care Professional"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="performedDateTime.value"/>
+			<valuePeriod>
+				<start value="2014-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Observation"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Urine Macroalbumin Tests"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="effectiveDateTime.value"/>
+			<valuePeriod>
+				<start value="2015-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Observation"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Positive Urine Macroalbumin Tests"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="effectiveDateTime.value"/>
+			<valuePeriod>
+				<start value="2015-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<dataRequirement>
+		<type value="Observation"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Diabetic Retinal Screening"/>
+		</codeFilter>
+		<dateFilter>
+			<path value="effectiveDateTime.value"/>
+			<valuePeriod>
+				<start value="2014-01-01"/>
+			</valuePeriod>
+		</dateFilter>
+	</dataRequirement>
+	<document>
+		<contentType value="application/xml+elm"/>
+		<url value="http://example.org/libraries/library-cdc.elm.xml"/>
+	</document>
+</Library>

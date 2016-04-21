@@ -1,266 +1,264 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:quick="http://hl7.org/fhir" xmlns:a="urn:hl7-org:cql-annotations:r1">
-   <identifier id="BCS" version="1"/>
-   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
-   <usings>
-      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
-      <def localIdentifier="FHIR" uri="http://hl7.org/fhir"/>
-   </usings>
-   <parameters>
-      <def name="MeasurementPeriod" accessLevel="Public">
-         <parameterTypeSpecifier xsi:type="IntervalTypeSpecifier">
-            <pointType name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
-         </parameterTypeSpecifier>
-      </def>
-   </parameters>
-   <valueSets>
-      <def name="Bilateral Mastectomy" id="Bilateral Mastectomy" accessLevel="Public"/>
-      <def name="Unilateral Mastectomy" id="Unilateral Mastectomy + Bilateral Modifier" accessLevel="Public"/>
-      <def name="History of Bilateral Mastectomy" id="History of Bilateral Mastectomy" accessLevel="Public"/>
-      <def name="Left Modifier" id="Left Modifier" accessLevel="Public"/>
-      <def name="Absence of Left Breast" id="Absence of Left Breast" accessLevel="Public"/>
-      <def name="Unilateral Mastectomy Left" id="Unilateral Mastectomy Left" accessLevel="Public"/>
-      <def name="Right Modifier" id="Right Modifier" accessLevel="Public"/>
-      <def name="Absence of Right Breast" id="Absence of Right Breast" accessLevel="Public"/>
-      <def name="Unilateral Mastectomy Right" id="Unilateral Mastectomy Right" accessLevel="Public"/>
-      <def name="Mammography" id="Mammography" accessLevel="Public"/>
-   </valueSets>
-   <statements>
-      <def name="Patient" context="Patient">
-         <expression xsi:type="SingletonFrom">
-            <operand dataType="quick:Patient" xsi:type="Retrieve"/>
-         </expression>
-      </def>
-      <def name="Lookback Interval Twenty-Seven Months" context="Patient" accessLevel="Public">
-         <expression lowClosed="true" highClosed="true" xsi:type="Interval">
-            <low xsi:type="Subtract">
-               <operand xsi:type="Start">
-                  <operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
-               </operand>
-               <operand value="27" unit="months" xsi:type="Quantity"/>
-            </low>
-            <high xsi:type="End">
-               <operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
-            </high>
-         </expression>
-      </def>
-      <def name="In Demographic" context="Patient" accessLevel="Public">
-         <expression xsi:type="And">
-            <operand xsi:type="Equal">
-               <operand path="value" xsi:type="Property">
-                  <source path="gender" xsi:type="Property">
-                     <source name="Patient" xsi:type="ExpressionRef"/>
-                  </source>
-               </operand>
-               <operand valueType="t:String" value="female" xsi:type="Literal"/>
-            </operand>
-            <operand xsi:type="GreaterOrEqual">
-               <operand precision="Year" xsi:type="CalculateAgeAt">
-                  <operand path="birthDate.value" xsi:type="Property">
-                     <source name="Patient" xsi:type="ExpressionRef"/>
-                  </operand>
-                  <operand xsi:type="Start">
-                     <operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
-                  </operand>
-               </operand>
-               <operand valueType="t:Integer" value="40" xsi:type="Literal"/>
-            </operand>
-         </expression>
-      </def>
-      <def name="Bilateral Mastectomy Procedure" context="Patient" accessLevel="Public">
-         <expression xsi:type="Query">
-            <source alias="P">
-               <expression xsi:type="Union">
-                  <operand xsi:type="Union">
-                     <operand dataType="quick:Procedure" xsi:type="Retrieve">
-                        <codes name="Bilateral Mastectomy" xsi:type="ValueSetRef"/>
-                     </operand>
-                     <operand dataType="quick:Procedure" xsi:type="Retrieve">
-                        <codes name="Unilateral Mastectomy + Bilateral Modifier" xsi:type="IdentifierRef"/>
-                     </operand>
-                  </operand>
-                  <operand dataType="quick:Procedure" xsi:type="Retrieve">
-                     <codes name="History of Bilateral Mastectomy" xsi:type="ValueSetRef"/>
-                  </operand>
-               </expression>
-            </source>
-            <where xsi:type="Equal">
-               <operand path="value" xsi:type="Property">
-                  <source path="status" scope="P" xsi:type="Property"/>
-               </operand>
-               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
-            </where>
-         </expression>
-      </def>
-      <def name="Hx Mastectomy Bilat" context="Patient" accessLevel="Public">
-         <expression xsi:type="Query">
-            <source alias="P">
-               <expression name="Bilateral Mastectomy Procedure" xsi:type="ExpressionRef"/>
-            </source>
-            <return>
-               <expression path="performedDateTime" scope="P" xsi:type="Property"/>
-            </return>
-         </expression>
-      </def>
-      <def name="Left Mastectomy Procedure" context="Patient" accessLevel="Public">
-         <expression xsi:type="Query">
-            <source alias="P">
-               <expression xsi:type="Union">
-                  <operand dataType="quick:Procedure" xsi:type="Retrieve">
-                     <codes name="Unilateral Mastectomy + Left Modifier" xsi:type="IdentifierRef"/>
-                  </operand>
-                  <operand dataType="quick:Procedure" xsi:type="Retrieve">
-                     <codes name="Unilateral Mastectomy Left" xsi:type="ValueSetRef"/>
-                  </operand>
-               </expression>
-            </source>
-            <where xsi:type="Equal">
-               <operand path="value" xsi:type="Property">
-                  <source path="status" scope="P" xsi:type="Property"/>
-               </operand>
-               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
-            </where>
-         </expression>
-      </def>
-      <def name="Left Mastectomy Observation" context="Patient" accessLevel="Public">
-         <expression xsi:type="Query">
-            <source alias="O">
-               <expression dataType="quick:Observation" xsi:type="Retrieve">
-                  <codes name="Absence of Left Breast" xsi:type="ValueSetRef"/>
-               </expression>
-            </source>
-            <where xsi:type="In">
-               <operand path="value" xsi:type="Property">
-                  <source path="status" scope="O" xsi:type="Property"/>
-               </operand>
-               <operand xsi:type="List">
-                  <element valueType="t:String" value="final" xsi:type="Literal"/>
-                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
-               </operand>
-            </where>
-         </expression>
-      </def>
-      <def name="Hx Mastectomy Left" context="Patient" accessLevel="Public">
-         <expression xsi:type="First">
-            <source xsi:type="Query">
-               <source alias="MastectomyDates">
-                  <expression xsi:type="Union">
-                     <operand xsi:type="Query">
-                        <source alias="P">
-                           <expression name="Left Mastectomy Procedure" xsi:type="ExpressionRef"/>
-                        </source>
-                        <return>
-                           <expression path="value" xsi:type="Property">
-                              <source path="performedDateTime" scope="P" xsi:type="Property"/>
-                           </expression>
-                        </return>
-                     </operand>
-                     <operand xsi:type="Query">
-                        <source alias="O">
-                           <expression name="Left Mastectomy Observation" xsi:type="ExpressionRef"/>
-                        </source>
-                        <return>
-                           <expression path="value" xsi:type="Property">
-                              <source path="effectiveDateTime" scope="O" xsi:type="Property"/>
-                           </expression>
-                        </return>
-                     </operand>
-                  </expression>
-               </source>
-               <sort>
-                  <by direction="asc" xsi:type="ByDirection"/>
-               </sort>
-            </source>
-         </expression>
-      </def>
-      <def name="Right Mastectomy Procedure" context="Patient" accessLevel="Public">
-         <expression xsi:type="Query">
-            <source alias="P">
-               <expression xsi:type="Union">
-                  <operand dataType="quick:Procedure" xsi:type="Retrieve">
-                     <codes name="Unilateral Mastectomy + Right Modifier" xsi:type="IdentifierRef"/>
-                  </operand>
-                  <operand dataType="quick:Procedure" xsi:type="Retrieve">
-                     <codes name="Unilateral Mastectomy Right" xsi:type="ValueSetRef"/>
-                  </operand>
-               </expression>
-            </source>
-            <where xsi:type="Equal">
-               <operand path="value" xsi:type="Property">
-                  <source path="status" scope="P" xsi:type="Property"/>
-               </operand>
-               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
-            </where>
-         </expression>
-      </def>
-      <def name="Right Mastectomy Observation" context="Patient" accessLevel="Public">
-         <expression xsi:type="Query">
-            <source alias="O">
-               <expression dataType="quick:Observation" xsi:type="Retrieve">
-                  <codes name="Absence of Right Breast" xsi:type="ValueSetRef"/>
-               </expression>
-            </source>
-            <where xsi:type="In">
-               <operand path="value" xsi:type="Property">
-                  <source path="status" scope="O" xsi:type="Property"/>
-               </operand>
-               <operand xsi:type="List">
-                  <element valueType="t:String" value="final" xsi:type="Literal"/>
-                  <element valueType="t:String" value="amended" xsi:type="Literal"/>
-               </operand>
-            </where>
-         </expression>
-      </def>
-      <def name="Hx Mastectomy Right" context="Patient" accessLevel="Public">
-         <expression xsi:type="First">
-            <source xsi:type="Query">
-               <source alias="MastectomyDates">
-                  <expression xsi:type="Union">
-                     <operand xsi:type="Query">
-                        <source alias="P">
-                           <expression name="Right Mastectomy Procedure" xsi:type="ExpressionRef"/>
-                        </source>
-                        <return>
-                           <expression path="value" xsi:type="Property">
-                              <source path="performedDateTime" scope="P" xsi:type="Property"/>
-                           </expression>
-                        </return>
-                     </operand>
-                     <operand xsi:type="Query">
-                        <source alias="O">
-                           <expression name="Right Mastectomy Observation" xsi:type="ExpressionRef"/>
-                        </source>
-                        <return>
-                           <expression path="value" xsi:type="Property">
-                              <source path="effectiveDateTime" scope="O" xsi:type="Property"/>
-                           </expression>
-                        </return>
-                     </operand>
-                  </expression>
-               </source>
-               <sort>
-                  <by direction="asc" xsi:type="ByDirection"/>
-               </sort>
-            </source>
-         </expression>
-      </def>
-      <def name="Mammography Procedure" context="Patient" accessLevel="Public">
-         <expression xsi:type="Query">
-            <source alias="M">
-               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
-                  <codes name="Mammography" xsi:type="ValueSetRef"/>
-                  <dateRange name="Lookback Interval Twenty-Seven Months" xsi:type="ExpressionRef"/>
-               </expression>
-            </source>
-            <where xsi:type="Equal">
-               <operand path="value" xsi:type="Property">
-                  <source path="status" scope="M" xsi:type="Property"/>
-               </operand>
-               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
-            </where>
-         </expression>
-      </def>
-   </statements>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:a="urn:hl7-org:cql-annotations:r1">
+	<identifier id="BCS" version="1"/>
+	<schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+	<usings>
+		<def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+		<def localIdentifier="FHIR" uri="http://hl7.org/fhir"/>
+	</usings>
+	<parameters>
+		<def name="MeasurementPeriod" accessLevel="Public">
+			<parameterTypeSpecifier xsi:type="IntervalTypeSpecifier">
+				<pointType name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+			</parameterTypeSpecifier>
+		</def>
+	</parameters>
+	<valueSets>
+		<def name="Bilateral Mastectomy" id="Bilateral Mastectomy" accessLevel="Public"/>
+		<def name="Unilateral Mastectomy" id="Unilateral Mastectomy + Bilateral Modifier" accessLevel="Public"/>
+		<def name="History of Bilateral Mastectomy" id="History of Bilateral Mastectomy" accessLevel="Public"/>
+		<def name="Left Modifier" id="Left Modifier" accessLevel="Public"/>
+		<def name="Absence of Left Breast" id="Absence of Left Breast" accessLevel="Public"/>
+		<def name="Unilateral Mastectomy Left" id="Unilateral Mastectomy Left" accessLevel="Public"/>
+		<def name="Right Modifier" id="Right Modifier" accessLevel="Public"/>
+		<def name="Absence of Right Breast" id="Absence of Right Breast" accessLevel="Public"/>
+		<def name="Unilateral Mastectomy Right" id="Unilateral Mastectomy Right" accessLevel="Public"/>
+		<def name="Mammography" id="Mammography" accessLevel="Public"/>
+	</valueSets>
+	<statements>
+		<def name="Patient" context="Patient">
+			<expression xsi:type="SingletonFrom">
+				<operand dataType="fhir:Patient" xsi:type="Retrieve"/>
+			</expression>
+		</def>
+		<def name="Lookback Interval Twenty-Seven Months" context="Patient" accessLevel="Public">
+			<expression lowClosed="true" highClosed="true" xsi:type="Interval">
+				<low xsi:type="Subtract">
+					<operand xsi:type="Start">
+						<operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
+					</operand>
+					<operand value="27" unit="months" xsi:type="Quantity"/>
+				</low>
+				<high xsi:type="End">
+					<operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
+				</high>
+			</expression>
+		</def>
+		<def name="In Demographic" context="Patient" accessLevel="Public">
+			<expression xsi:type="And">
+				<operand xsi:type="Equal">
+					<operand path="value" xsi:type="Property">
+						<source path="gender" xsi:type="Property">
+							<source name="Patient" xsi:type="ExpressionRef"/>
+						</source>
+					</operand>
+					<operand valueType="t:String" value="female" xsi:type="Literal"/>
+				</operand>
+				<operand xsi:type="GreaterOrEqual">
+					<operand precision="Year" xsi:type="CalculateAgeAt">
+						<operand path="birthDate.value" xsi:type="Property">
+							<source name="Patient" xsi:type="ExpressionRef"/>
+						</operand>
+						<operand xsi:type="Start">
+							<operand name="MeasurementPeriod" xsi:type="ParameterRef"/>
+						</operand>
+					</operand>
+					<operand valueType="t:Integer" value="40" xsi:type="Literal"/>
+				</operand>
+			</expression>
+		</def>
+		<def name="Bilateral Mastectomy Procedure" context="Patient" accessLevel="Public">
+			<expression xsi:type="Query">
+				<source alias="P">
+					<expression xsi:type="Union">
+						<operand xsi:type="Union">
+							<operand dataType="fhir:Procedure" xsi:type="Retrieve">
+								<codes name="Bilateral Mastectomy" xsi:type="ValueSetRef"/>
+							</operand>
+							<operand dataType="fhir:Procedure" xsi:type="Retrieve">
+								<codes name="Unilateral Mastectomy + Bilateral Modifier" xsi:type="IdentifierRef"/>
+							</operand>
+						</operand>
+						<operand dataType="fhir:Procedure" xsi:type="Retrieve">
+							<codes name="History of Bilateral Mastectomy" xsi:type="ValueSetRef"/>
+						</operand>
+					</expression>
+				</source>
+				<where xsi:type="Equal">
+					<operand path="value" xsi:type="Property">
+						<source path="status" scope="P" xsi:type="Property"/>
+					</operand>
+					<operand valueType="t:String" value="completed" xsi:type="Literal"/>
+				</where>
+			</expression>
+		</def>
+		<def name="Hx Mastectomy Bilat" context="Patient" accessLevel="Public">
+			<expression xsi:type="Query">
+				<source alias="P">
+					<expression name="Bilateral Mastectomy Procedure" xsi:type="ExpressionRef"/>
+				</source>
+				<return>
+					<expression path="performedDateTime" scope="P" xsi:type="Property"/>
+				</return>
+			</expression>
+		</def>
+		<def name="Left Mastectomy Procedure" context="Patient" accessLevel="Public">
+			<expression xsi:type="Query">
+				<source alias="P">
+					<expression xsi:type="Union">
+						<operand dataType="fhir:Procedure" xsi:type="Retrieve">
+							<codes name="Unilateral Mastectomy + Left Modifier" xsi:type="IdentifierRef"/>
+						</operand>
+						<operand dataType="fhir:Procedure" xsi:type="Retrieve">
+							<codes name="Unilateral Mastectomy Left" xsi:type="ValueSetRef"/>
+						</operand>
+					</expression>
+				</source>
+				<where xsi:type="Equal">
+					<operand path="value" xsi:type="Property">
+						<source path="status" scope="P" xsi:type="Property"/>
+					</operand>
+					<operand valueType="t:String" value="completed" xsi:type="Literal"/>
+				</where>
+			</expression>
+		</def>
+		<def name="Left Mastectomy Observation" context="Patient" accessLevel="Public">
+			<expression xsi:type="Query">
+				<source alias="O">
+					<expression dataType="fhir:Observation" xsi:type="Retrieve">
+						<codes name="Absence of Left Breast" xsi:type="ValueSetRef"/>
+					</expression>
+				</source>
+				<where xsi:type="In">
+					<operand path="value" xsi:type="Property">
+						<source path="status" scope="O" xsi:type="Property"/>
+					</operand>
+					<operand xsi:type="List">
+						<element valueType="t:String" value="final" xsi:type="Literal"/>
+						<element valueType="t:String" value="amended" xsi:type="Literal"/>
+					</operand>
+				</where>
+			</expression>
+		</def>
+		<def name="Hx Mastectomy Left" context="Patient" accessLevel="Public">
+			<expression xsi:type="First">
+				<source xsi:type="Query">
+					<source alias="MastectomyDates">
+						<expression xsi:type="Union">
+							<operand xsi:type="Query">
+								<source alias="P">
+									<expression name="Left Mastectomy Procedure" xsi:type="ExpressionRef"/>
+								</source>
+								<return>
+									<expression path="value" xsi:type="Property">
+										<source path="performedDateTime" scope="P" xsi:type="Property"/>
+									</expression>
+								</return>
+							</operand>
+							<operand xsi:type="Query">
+								<source alias="O">
+									<expression name="Left Mastectomy Observation" xsi:type="ExpressionRef"/>
+								</source>
+								<return>
+									<expression path="value" xsi:type="Property">
+										<source path="effectiveDateTime" scope="O" xsi:type="Property"/>
+									</expression>
+								</return>
+							</operand>
+						</expression>
+					</source>
+					<sort>
+						<by direction="asc" xsi:type="ByDirection"/>
+					</sort>
+				</source>
+			</expression>
+		</def>
+		<def name="Right Mastectomy Procedure" context="Patient" accessLevel="Public">
+			<expression xsi:type="Query">
+				<source alias="P">
+					<expression xsi:type="Union">
+						<operand dataType="fhir:Procedure" xsi:type="Retrieve">
+							<codes name="Unilateral Mastectomy + Right Modifier" xsi:type="IdentifierRef"/>
+						</operand>
+						<operand dataType="fhir:Procedure" xsi:type="Retrieve">
+							<codes name="Unilateral Mastectomy Right" xsi:type="ValueSetRef"/>
+						</operand>
+					</expression>
+				</source>
+				<where xsi:type="Equal">
+					<operand path="value" xsi:type="Property">
+						<source path="status" scope="P" xsi:type="Property"/>
+					</operand>
+					<operand valueType="t:String" value="completed" xsi:type="Literal"/>
+				</where>
+			</expression>
+		</def>
+		<def name="Right Mastectomy Observation" context="Patient" accessLevel="Public">
+			<expression xsi:type="Query">
+				<source alias="O">
+					<expression dataType="fhir:Observation" xsi:type="Retrieve">
+						<codes name="Absence of Right Breast" xsi:type="ValueSetRef"/>
+					</expression>
+				</source>
+				<where xsi:type="In">
+					<operand path="value" xsi:type="Property">
+						<source path="status" scope="O" xsi:type="Property"/>
+					</operand>
+					<operand xsi:type="List">
+						<element valueType="t:String" value="final" xsi:type="Literal"/>
+						<element valueType="t:String" value="amended" xsi:type="Literal"/>
+					</operand>
+				</where>
+			</expression>
+		</def>
+		<def name="Hx Mastectomy Right" context="Patient" accessLevel="Public">
+			<expression xsi:type="First">
+				<source xsi:type="Query">
+					<source alias="MastectomyDates">
+						<expression xsi:type="Union">
+							<operand xsi:type="Query">
+								<source alias="P">
+									<expression name="Right Mastectomy Procedure" xsi:type="ExpressionRef"/>
+								</source>
+								<return>
+									<expression path="value" xsi:type="Property">
+										<source path="performedDateTime" scope="P" xsi:type="Property"/>
+									</expression>
+								</return>
+							</operand>
+							<operand xsi:type="Query">
+								<source alias="O">
+									<expression name="Right Mastectomy Observation" xsi:type="ExpressionRef"/>
+								</source>
+								<return>
+									<expression path="value" xsi:type="Property">
+										<source path="effectiveDateTime" scope="O" xsi:type="Property"/>
+									</expression>
+								</return>
+							</operand>
+						</expression>
+					</source>
+					<sort>
+						<by direction="asc" xsi:type="ByDirection"/>
+					</sort>
+				</source>
+			</expression>
+		</def>
+		<def name="Mammography Procedure" context="Patient" accessLevel="Public">
+			<expression xsi:type="Query">
+				<source alias="M">
+					<expression dataType="fhir:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+						<codes name="Mammography" xsi:type="ValueSetRef"/>
+						<dateRange name="Lookback Interval Twenty-Seven Months" xsi:type="ExpressionRef"/>
+					</expression>
+				</source>
+				<where xsi:type="Equal">
+					<operand path="value" xsi:type="Property">
+						<source path="status" scope="M" xsi:type="Property"/>
+					</operand>
+					<operand valueType="t:String" value="completed" xsi:type="Literal"/>
+				</where>
+			</expression>
+		</def>
+	</statements>
 </library>
-
-

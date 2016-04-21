@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:quick="http://hl7.org/fhir" xmlns:a="urn:hl7-org:cql-annotations:r1">
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:a="urn:hl7-org:cql-annotations:r1">
    <identifier id="CCS" version="1"/>
    <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
    <usings>
@@ -22,7 +22,7 @@
    <statements>
       <def name="Patient" context="Patient">
          <expression xsi:type="SingletonFrom">
-            <operand dataType="quick:Patient" xsi:type="Retrieve"/>
+            <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
          </expression>
       </def>
       <def name="Lookback Interval Five Years" context="Patient" accessLevel="Public">
@@ -64,7 +64,7 @@
       <def name="Pap Smear Procedure" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="H">
-               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
                   <codes name="Cervical Cytology" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Five Years" xsi:type="ExpressionRef"/>
                </expression>
@@ -80,7 +80,7 @@
       <def name="Pap Smear DiagnosticReport" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="R">
-               <expression dataType="quick:DiagnosticReport" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:DiagnosticReport" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="Cervical Cytology" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Five Years" xsi:type="ExpressionRef"/>
                </expression>
@@ -96,7 +96,7 @@
       <def name="Pap Smear Observation" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="R">
-               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="Cervical Cytology" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Five Years" xsi:type="ExpressionRef"/>
                </expression>
@@ -115,7 +115,7 @@
       <def name="HPV Test Procedure" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="H">
-               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
                   <codes name="HPV Tests" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Five Years" xsi:type="ExpressionRef"/>
                </expression>
@@ -131,7 +131,7 @@
       <def name="HPV Test DiagnosticReport" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="R">
-               <expression dataType="quick:DiagnosticReport" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:DiagnosticReport" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="HPV Tests" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Five Years" xsi:type="ExpressionRef"/>
                </expression>
@@ -147,7 +147,7 @@
       <def name="HPV Test Observation" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="R">
-               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="HPV Tests" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Five Years" xsi:type="ExpressionRef"/>
                </expression>
@@ -166,7 +166,7 @@
       <def name="Hysterectomy Procedure" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="A">
-               <expression dataType="quick:Procedure" xsi:type="Retrieve">
+               <expression dataType="fhir:Procedure" xsi:type="Retrieve">
                   <codes name="Hysterectomy" xsi:type="ValueSetRef"/>
                </expression>
             </source>
@@ -181,7 +181,7 @@
       <def name="Hx Hysterectomy Procedure" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="A">
-               <expression dataType="quick:Procedure" xsi:type="Retrieve">
+               <expression dataType="fhir:Procedure" xsi:type="Retrieve">
                   <codes name="Absence of Cervix" xsi:type="ValueSetRef"/>
                </expression>
             </source>

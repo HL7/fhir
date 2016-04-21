@@ -15,7 +15,7 @@
 			<example value="true"/>
 			<name value="Library - Breast Cancer Screening"/>
 			<description value="Logic to describe the cohort data requirements for Breast Cancer Screening"/>
-			<sourceUri value="library-bcs.fhir.xml"/>
+			<sourceUri value="library-bcs.xml"/>
 			<!--exampleFor>
 				<reference value="StructureDefinition/Library"/>
 			</exampleFor-->
@@ -29,9 +29,109 @@
 				<reference value="StructureDefinition/Measure"/>
 			</exampleFor-->
 		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="Library - Controlling Blood Pressure"/>
+			<description value="Logic to describe the cohort data requirements for Controlling Blood Pressure"/>
+			<sourceUri value="library-cbp.xml"/>
+			<!--exampleFor>
+				<reference value="StructureDefinition/Library"/>
+			</exampleFor-->
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="Measure - Controlling Blood Pressure Cohort Definition"/>
+			<description value="Measure structure for the Controlling Blood Pressure Cohort Definition"/>
+			<sourceUri value="measure-cbp.xml"/>
+			<!--exampleFor>
+				<reference value="StructureDefinition/Measure"/>
+			</exampleFor-->
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="Library - Cervical Cancer Screening"/>
+			<description value="Logic to describe the cohort data requirements for Cervical Cancer Screening"/>
+			<sourceUri value="library-ccs.xml"/>
+			<!--exampleFor>
+				<reference value="StructureDefinition/Library"/>
+			</exampleFor-->
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="Measure - Cervical Cancer Screening Cohort Definition"/>
+			<description value="Measure structure for the Cervical Cancer Screening Cohort Definition"/>
+			<sourceUri value="measure-ccs.xml"/>
+			<!--exampleFor>
+				<reference value="StructureDefinition/Measure"/>
+			</exampleFor-->
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="Library - Comprehensive Diabetes Care"/>
+			<description value="Logic to describe the cohort data requirements for Comprehensive Diabetes Care"/>
+			<sourceUri value="library-cdc.xml"/>
+			<!--exampleFor>
+				<reference value="StructureDefinition/Library"/>
+			</exampleFor-->
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="Measure - Comprehensive Diabetes Care Cohort Definition"/>
+			<description value="Measure structure for the Comprehensive Diabetes Care Cohort Definition"/>
+			<sourceUri value="measure-cdc.xml"/>
+			<!--exampleFor>
+				<reference value="StructureDefinition/Measure"/>
+			</exampleFor-->
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="Library - Colorectal Cancer Screening"/>
+			<description value="Logic to describe the cohort data requirements for Colorectal Cancer Screening"/>
+			<sourceUri value="library-col.xml"/>
+			<!--exampleFor>
+				<reference value="StructureDefinition/Library"/>
+			</exampleFor-->
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="Measure - Colorectal Cancer Screening Cohort Definition"/>
+			<description value="Measure structure for the Colorectal Cancer Screening Cohort Definition"/>
+			<sourceUri value="measure-col.xml"/>
+			<!--exampleFor>
+				<reference value="StructureDefinition/Measure"/>
+			</exampleFor-->
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="Library - Adult BMI Assessment"/>
+			<description value="Logic to describe the cohort data requirements for Adult BMI Assessment"/>
+			<sourceUri value="library-wcc-aba.xml"/>
+			<!--exampleFor>
+				<reference value="StructureDefinition/Library"/>
+			</exampleFor-->
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="Measure - Adult BMI Assessment Cohort Definition"/>
+			<description value="Measure structure for the Adult BMI Assessment Cohort Definition"/>
+			<sourceUri value="measure-wcc-aba.xml"/>
+			<!--exampleFor>
+				<reference value="StructureDefinition/Measure"/>
+			</exampleFor-->
+		</resource>
 	</package>
 	<binary value="library-bcs.cql"/>
 	<binary value="library-bcs.elm.xml"/>
+	<binary value="library-cbp.cql"/>
+	<binary value="library-cbp.elm.xml"/>
+	<binary value="library-ccs.cql"/>
+	<binary value="library-ccs.elm.xml"/>
+	<binary value="library-cdc.cql"/>
+	<binary value="library-cdc.elm.xml"/>
+	<binary value="library-col.cql"/>
+	<binary value="library-col.elm.xml"/>
+	<binary value="library-wcc-aba.cql"/>
+	<binary value="library-wcc-aba.elm.xml"/>
 	<page>
 		<source value="payerextract.html"/>
 		<name value="Payer Extract Cohort Definitions for Payer Quality Measures"/>

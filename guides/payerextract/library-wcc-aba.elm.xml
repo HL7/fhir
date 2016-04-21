@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:quick="http://hl7.org/fhir" xmlns:a="urn:hl7-org:cql-annotations:r1">
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:a="urn:hl7-org:cql-annotations:r1">
    <identifier id="WCCABA" version="1"/>
    <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
    <usings>
@@ -22,7 +22,7 @@
    <statements>
       <def name="Patient" context="Patient">
          <expression xsi:type="SingletonFrom">
-            <operand dataType="quick:Patient" xsi:type="Retrieve"/>
+            <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
          </expression>
       </def>
       <def name="Lookback Interval Two Years" context="Patient" accessLevel="Public">
@@ -54,7 +54,7 @@
       <def name="BMI Percent" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="P">
-               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="BMI Percentile" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
                </expression>
@@ -73,7 +73,7 @@
       <def name="Body Mass Index (BMI) Value" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="V">
-               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="BMI Value" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
                </expression>
@@ -92,7 +92,7 @@
       <def name="Height" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="O">
-               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="Body Height" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
                </expression>
@@ -111,7 +111,7 @@
       <def name="Weight" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="O">
-               <expression dataType="quick:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" dateProperty="effectiveDateTime.value" xsi:type="Retrieve">
                   <codes name="Body Weight" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Two Years" xsi:type="ExpressionRef"/>
                </expression>

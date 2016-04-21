@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:quick="http://hl7.org/fhir" xmlns:a="urn:hl7-org:cql-annotations:r1">
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:a="urn:hl7-org:cql-annotations:r1">
    <identifier id="COL" version="1"/>
    <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
    <usings>
@@ -23,7 +23,7 @@
    <statements>
       <def name="Patient" context="Patient">
          <expression xsi:type="SingletonFrom">
-            <operand dataType="quick:Patient" xsi:type="Retrieve"/>
+            <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
          </expression>
       </def>
       <def name="Lookback Interval One Year" context="Patient" accessLevel="Public">
@@ -81,7 +81,7 @@
       <def name="Colonoscopy Performed" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="C">
-               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
                   <codes name="Colonoscopy" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Ten Years" xsi:type="ExpressionRef"/>
                </expression>
@@ -97,7 +97,7 @@
       <def name="Hx Colorectal Cancer" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="C">
-               <expression dataType="quick:Condition" xsi:type="Retrieve">
+               <expression dataType="fhir:Condition" xsi:type="Retrieve">
                   <codes name="Colorectal Cancer" xsi:type="ValueSetRef"/>
                </expression>
             </source>
@@ -120,7 +120,7 @@
       <def name="Hx Sigmoidoscopy" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="S">
-               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
                   <codes name="Flexible Sigmoidoscopy" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Five Years" xsi:type="ExpressionRef"/>
                </expression>
@@ -136,7 +136,7 @@
       <def name="Hx Total Colectomy" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="T">
-               <expression dataType="quick:Procedure" xsi:type="Retrieve">
+               <expression dataType="fhir:Procedure" xsi:type="Retrieve">
                   <codes name="Total Colectomy" xsi:type="ValueSetRef"/>
                </expression>
             </source>
@@ -151,7 +151,7 @@
       <def name="iFOBT" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="F">
-               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
                   <codes name="FOBT" xsi:type="IdentifierRef"/>
                   <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
                </expression>
@@ -167,7 +167,7 @@
       <def name="gFOBT" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="F">
-               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
                   <codes name="FOBT" xsi:type="IdentifierRef"/>
                   <dateRange name="Lookback Interval One Year" xsi:type="ExpressionRef"/>
                </expression>
@@ -183,7 +183,7 @@
       <def name="Hx Colonoscopy" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="C">
-               <expression dataType="quick:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
+               <expression dataType="fhir:Procedure" dateProperty="performedDateTime.value" xsi:type="Retrieve">
                   <codes name="Colonoscopy" xsi:type="ValueSetRef"/>
                   <dateRange name="Lookback Interval Ten Years" xsi:type="ExpressionRef"/>
                </expression>

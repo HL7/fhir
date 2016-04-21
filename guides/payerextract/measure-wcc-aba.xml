@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Measure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/measure.xsd">
-  <id value="measure-bcs"/>
+  <id value="measure-wcc-aba"/>
   <text>
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      Cohort definition for Breast Cancer Screening.
+      Cohort definition for Adult BMI Assessment.
     </div>
   </text>
   <moduleMetadata>
 	  <identifier>
 		<use value="official" />
 		<system value="http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/payer-extract" />
-		<value value="BCS" />
+		<value value="WCCABA" />
 	  </identifier>
 	  <version value="1.0.0"/>
-	  <title value="Breast Cancer Screening Cohort Definition"/>
+	  <title value="Adult BMI Assessment Cohort Definition"/>
 	<type value="measure"/>
 	<status value="active"/>
 	<experimental value="true"/>
-	<description value="Breast Cancer Screening Cohort Definition"/>
+	<description value="Adult BMI Assessment Cohort Definition"/>
 	<topic>
 		<coding>
 		  <system value="http://hl7.org/fhir/c80-doc-typecodes" />
@@ -27,15 +27,15 @@
 	</topic>
   </moduleMetadata>
   <library>
-	  <reference value="Library/library-bcs"/>
+	  <reference value="Library/library-wcc-aba"/>
   </library>
   <scoring value="cohort"/>
   <group>
-		<identifier><value value="BCS-cohort"/></identifier>
+		<identifier><value value="WCCABA-cohort"/></identifier>
 		<population>
 			<type value="initial-population"/>
 			<identifier><value value="initial-population-identifier"/></identifier>
-			<criteria value="BCS.&quot;In Demographic&quot;"/>
+			<criteria value="WCCABA.&quot;In Demographic&quot;"/>
 		</population>
   </group>
 </Measure>

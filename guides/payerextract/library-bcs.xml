@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
-	<id value="library-bcs.fhir"/>
+	<id value="library-bcs"/>
 	<text>
 		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">Breast Cancer Screening Measures</div>
+		<div xmlns="http://www.w3.org/1999/xhtml">Cohort Definition for Breast Cancer Screening Measure</div>
 	</text>
 	<moduleMetadata>
 		<identifier>
 			<use value="official"/>
-			<value value="Breast_Cancer_Screening_Measures"/>
+			<value value="BCS"/>
 		</identifier>
 		<version value="1.0.0"/>
-		<title value="Breast Cancer Screening Measures"/>
+		<title value="Cohort Definition for Breast Cancer Screening Measure"/>
 		<type value="library"/>
 		<status value="active"/>
 		<experimental value="true"/>
@@ -21,15 +21,49 @@
 		</topic>
 	</moduleMetadata>
 	<model>
-		<identifier value="QUICK"/>
+		<identifier value="FHIR"/>
 	</model>
 	<!-- declare valuesets here: -->
-	<!--
-		<valueset>
-			<name value=""/>
-			<identifier value=""/>
-		</valueset>
-		-->
+	<valueSet>
+		<name value="Bilateral Mastectomy"/>
+		<identifier value="Bilateral Mastectomy"/>
+	</valueSet>
+	<valueSet>
+		<name value="Unilateral Mastectomy"/>
+		<identifier value="Unilateral Mastectomy + Bilateral Modifier"/>
+	</valueSet>
+	<valueSet>
+		<name value="History of Bilateral Mastectomy"/>
+		<identifier value="History of Bilateral Mastectomy"/>
+	</valueSet>
+	<valueSet>
+		<name value="Left Modifier"/>
+		<identifier value="Left Modifier"/>
+	</valueSet>
+	<valueSet>
+		<name value="Absence of Left Breast"/>
+		<identifier value="Absence of Left Breast"/>
+	</valueSet>
+	<valueSet>
+		<name value="Unilateral Mastectomy Left"/>
+		<identifier value="Unilateral Mastectomy Left"/>
+	</valueSet>
+	<valueSet>
+		<name value="Right Modifier"/>
+		<identifier value="Right Modifier"/>
+	</valueSet>
+	<valueSet>
+		<name value="Absence of Right Breast"/>
+		<identifier value="Absence of Right Breast"/>
+	</valueSet>
+	<valueSet>
+		<name value="Unilateral Mastectomy Right"/>
+		<identifier value="Unilateral Mastectomy Right"/>
+	</valueSet>
+	<valueSet>
+		<name value="Mammography"/>
+		<identifier value="Mammography"/>
+	</valueSet>
 	<dataRequirement>
 		<type value="Patient"/>
 	</dataRequirement>
@@ -133,7 +167,7 @@
 		<dateFilter>
 			<path value="performedDateTime"/>
 			<valuePeriod>
-				<start value="2013-10-01"/>
+				<start value="2014-10-01"/>
 			</valuePeriod>
 		</dateFilter>
 	</dataRequirement>
