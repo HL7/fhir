@@ -7421,7 +7421,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Datetime must be at least to the day.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">value:length &gt;= 8</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">length() &gt;= 8</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">f:matches(.,/\d{4}-[01]\d-[0-3])/)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7432,7 +7432,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Specimen.collection.collected[x]</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Datetime must be at least to the day.</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">value:length &gt;= 8</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">length() &gt;= 8</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">f:matches(.,/\d{4}-[01]\d-[0-3])/)</Data></Cell>
     <Cell><Data ss:Type="String">check on these xpaths  - need to do for collectedPeriod too</Data></Cell>
    </Row>

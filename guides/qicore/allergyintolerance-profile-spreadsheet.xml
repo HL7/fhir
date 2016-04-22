@@ -3342,7 +3342,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">extension: reasonRefuted is only permitted if status is refuted</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">status = 'refuted' or extension.where(url='http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted').empty</Data><NamedCell
+    <Cell ss:StyleID="s129"><Data ss:Type="String">status = 'refuted' or extension.where(url='http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted').empty()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">not(f:status/@value != 'refuted' and f:extension/@url='http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted')</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

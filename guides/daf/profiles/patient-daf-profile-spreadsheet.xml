@@ -7160,7 +7160,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">(Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes.  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">matches(&quot;[0-9]{5}(-[0-9]{4}){0,1}&quot;)</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">matches('[0-9]{5}(-[0-9]{4}){0,1}')</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7171,7 +7171,7 @@
     <Cell ss:StyleID="s94"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">Patient.contact.address.postalCode</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">(Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes.  </Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">matches(&quot;[0-9]{5}(-[0-9]{4}){0,1}&quot;)</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">matches('[0-9]{5}(-[0-9]{4}){0,1}')</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

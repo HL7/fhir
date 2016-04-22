@@ -7531,7 +7531,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">Practitioner.address.postalCode</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">(Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes.  </Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">postalCode:matches(&quot;[0-9]{5}(-[0-9]{4}){0,1}&quot;)</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">postalCode.matches('[0-9]{5}(-[0-9]{4}){0,1}')</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -8067,7 +8067,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">Practitioner.address.postalCode</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">(Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes.  </Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">postalCode:matches(&quot;[0-9]{5}(-[0-9]{4}){0,1}&quot;)</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">postalCode.matches('[0-9]{5}(-[0-9]{4}){0,1}')</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
