@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Composition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../schema/composition.xsd"
- xmlns="http://hl7.org/fhir">
+<Composition xmlns="http://hl7.org/fhir">
     <id value="ccd-example"/>
     <extension url="http://hl7.org/fhir/StructureDefinition/ccda-data-enterer-extension" >
-        <valueUri value="http://fhir2.healthintersections.com.au/open/Practitioner/00929"/>
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/9372674a-58b9-4588-abe0-12452eb42c/_history/1"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/ccda-informant-extension" >
-        <valueUri value="http://fhir2.healthintersections.com.au/open/Practitioner/00929"/>
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/9372674a-58b9-4588-abe0-12452eb42c/_history/1"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/ccda-information-recipient-extension" >
-        <valueUri value="http://fhir2.healthintersections.com.au/open/Practitioner/00929"/>
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/9372674a-58b9-4588-abe0-12452eb42c/_history/1"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/ccda-participant-extension" >
-        <valueUri value="http://fhir2.healthintersections.com.au/open/Practitioner/00929"/>
+        <valueUri value="http://fhir3.healthintersections.com.au/open/RelatedPerson/062f5887-b24c-439a-8af9-0d7ee43bb7/_history/1"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/ccda-performer-extension" >
-        <valueUri value="http://fhir2.healthintersections.com.au/open/Practitioner/00929"/>
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/9372674a-58b9-4588-abe0-12452eb42c/_history/1"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/ccda-authorization-extension" >
         <valueUri value="http://hl7.org/fhir/StructureDefinition/ccda-consent"/>
@@ -37,23 +35,23 @@
     <status value="preliminary"/>
     <confidentiality value="N"/>
     <subject>
-        <reference value="http://fhir2.healthintersections.com.au/open/Patient/1234568501"/>
+        <reference value="http://fhir3.healthintersections.com.au/open/Patient/d310f1b9-c909-42b4-842f-1c6973c3ad"/>
         <display value="Henry Jones"/>
     </subject>
     <author>
-        <reference value="http://fhir2.healthintersections.com.au/open/Practitioner/00929"/>
+        <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/9372674a-58b9-4588-abe0-12452eb42c/_history/1"/>
         <display value="Adam Everyman, MD"/>
     </author> 
     <attester>
         <mode value="legal"/>
         <time value="2012-01-04T09:10:14Z"/>
         <party>
-            <reference value="http://fhir2.healthintersections.com.au/open/Practitioner/00929"/>
+            <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/9372674a-58b9-4588-abe0-12452eb42c/_history/1"/>
             <display value="Adam Everyman, MD"/>
         </party>
     </attester>
     <custodian>
-        <reference value="http://fhir2.healthintersections.com.au/open/Organization/57"/>
+        <reference value="http://fhir3.healthintersections.com.au/open/Organization/d136dd41-d880-4827-aac8-15488ba0a4/_history/1"/>
         <display value="Community Health and Hospitals"/>
     </custodian>
     <event>
@@ -70,7 +68,7 @@
         </period>
     </event>
     <encounter>
-        <reference value="http://hl7.org/fhir/daf-encounter"/>
+        <reference value="http://fhir3.healthintersections.com.au/open/Encounter/8f65f480-d87d-4eb7-bc28-4f416eb004/_history/1"/>
     </encounter>
     <!-- Included all sections identified in the Trifolia C-CDA on FHIR profile http://hl7.org/fhir/StructureDefinition/ccda-ccd-composition -->
     <section>
@@ -104,30 +102,15 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Penicillin</td>
-                        <td>Moderate to Severe</td>
-                        <td>Nausea</td>
+                        <td>Cashew Nut</td>
+                        <td>Severe</td>
+                        <td>Anaphylactic reaction</td>
                         <td>Mild</td>
-                        <td>Inactive</td>
-                    </tr>
-                    <tr>
-                        <td>Codeine</td>
-                        <td>Mild</td>
-                        <td>Wheezing</td>
-                        <td>Moderate</td>
-                        <td>Active</td>
-                    </tr>
-                    <tr>
-                        <td>Aspirin</td>
-                        <td>Mild</td>
-                        <td>Hives</td>
-                        <td>Mild to Moderate</td>
                         <td>Active</td>
                     </tr>
                 </table>
             </div>
         </text>
-        <!-- Composition.section.mode and orderedBy are optional in FHIR DSTU2, and not specified in the Trifolia CCD CCoF profile - should it be removed from the sample?  -->  
         <mode value="snapshot"/>
         <orderedBy>
             <coding>
@@ -136,6 +119,9 @@
                 <display value="Sorted by Event Date"/>
             </coding>
         </orderedBy>
+        <entry>
+            <reference value="http://fhir3.healthintersections.com.au/open/AllergyIntolerance/0f5b79bd-31ba-4d1e-a870-e7c16f8482/_history/1"/>
+        </entry>
     </section>
     <section>
         <title value="Medication Section"/>
@@ -171,9 +157,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Proventil HFA</td>
-                        <td>Inhalant solution - 2 puffs QID PRN wheezing</td>
-                        <td>20151029</td>
+                        <td>Amoxicillin</td>
+                        <td>Amoxicillin Powder, for Suspension 250mg/5ml</td>
+                        <td>20160401</td>
                         <td>Active</td>
                         <td>Pneumonia</td>
                         <td>Generic substitution allowed</td>
@@ -181,6 +167,9 @@
                 </table>
             </div>
         </text>
+        <entry>
+            <reference value="http://fhir3.healthintersections.com.au/open/Medication/d176d58e-58f4-4f85-99f0-c7d6949cbf/_history/1"/>
+        </entry>
     </section>
     <section>
         <title value="Problem Section"/>
@@ -213,22 +202,18 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Pneumonia</td>
-                        <td>Diagnosis</td>
-                        <td>2015-10-29</td>
-                        <td>2016-01-15</td>
-                        <td>Complete</td>
-                    </tr>
-                    <tr>
-                        <td>Asthma</td>
+                        <td>Fever</td>
                         <td>Condition</td>
-                        <td>2000-02-15</td>
-                        <td></td>
-                        <td>Active</td>
+                        <td>2016-04-01</td>
+                        <td>2016-04-14</td>
+                        <td>Complete</td>
                     </tr>
                 </table>
             </div>
         </text>
+        <entry>
+            <reference value="http://fhir3.healthintersections.com.au/open/Condition/9912a319-5b07-461f-8233-92c24beff9/_history/1"/>
+        </entry>
     </section>
     <section>
         <title value="Procedures Section"/>
@@ -256,16 +241,23 @@
                         <td>
                             <b>Date Performed</b>
                         </td>
+                        <td>
+                            <b>Reason</b>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Lumbar Spinal Fusion</td>
-                        <td>Back Region</td>
-                        <td>Dr. S. Steen</td>
-                        <td>20150816</td>
+                        <td>Appendectomy (Procedure)</td>
+                        <td>Abdomen</td>
+                        <td>Dr. Adam Everyman</td>
+                        <td>20160405</td>
+                        <td>Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding</td>
                     </tr>
                 </table>
             </div>
         </text>
+        <entry>
+            <reference value="http://fhir3.healthintersections.com.au/open/Procedure/b0ccd4f7-cec0-4c1f-995a-9ab16c9661/_history/1"/>
+        </entry>
     </section>
     <section>
         <title value="Results Section"/>
@@ -295,14 +287,17 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Blood Chemistry - Folate in Red Blood Cells</td>
-                        <td>13.8 ug</td>
-                        <td>2015/02/01</td>
-                        <td>Preliminary</td>
+                        <td>Glucose [Moles/volume] in Blood</td>
+                        <td>6.3 mmol/l</td>
+                        <td>2016/04/01</td>
+                        <td>Final</td>
                     </tr>
                 </table>
             </div>
         </text>
+       <entry>
+           <reference value="http://fhir3.healthintersections.com.au/open/Observation/7f486fa8-b863-4429-80f9-6ea86e13f4/_history/1"/>
+       </entry>
     </section>
     <section>
         <title value="Advance Directives Section"/>
@@ -407,6 +402,9 @@
                 </table>
             </div>
         </text>
+        <entry>
+            <reference value="http://fhir3.healthintersections.com.au/open/FamilyMemberHistory/d47ebff8-4b48-418d-b88f-607273bf82/_history/1"/>
+        </entry>
     </section>
     <section>
         <title value="Functional Status Section"/>
@@ -494,6 +492,9 @@
                 </table>
             </div>
         </text>
+       <entry>
+            <reference value="http://fhir3.healthintersections.com.au/open/Immunization/1e5931f5-0e0c-4547-8f89-db12efbc8d/_history/1"/>
+       </entry>
     </section>
     <section>
         <title value=" Nutrition Section"/>
@@ -597,17 +598,15 @@
                     </tr>
                     <tr>
                         <td>Smoking</td>
-                        <td>1 pack per day</td>
+                        <td>1 pack tobacco per day</td>
                         <td>2005/05/01 - 2010/02/28</td>
-                    </tr>
-                    <tr>
-                        <td>Alcohol Consumption</td>
-                        <td>2 Bottles of Wine per week</td>
-                        <td>2001/01/01</td>
                     </tr>
                 </table>
             </div>
         </text>
+       <entry>
+           <reference value="http://fhir3.healthintersections.com.au/open/Observation/864f527f-fb2e-4902-9363-cb1e1dd2a9/_history/1"/>
+       </entry>
     </section>
     <section>
         <title value="Plan of Treatment Section"/>
@@ -743,22 +742,15 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Height</td>
-                        <td>2011/01/13</td>
-                        <td>177 cm</td>
-                    </tr>
-                    <tr>
-                        <td>Weight</td>
-                        <td>2011/01/13</td>
-                        <td>86 kg</td>
-                    </tr>
-                    <tr>
-                        <td>Blood Pressure</td>
-                        <td>2011/01/13</td>
-                        <td>132/86 mmHg</td>
+                        <td>Temperature</td>
+                        <td>2016/04/05</td>
+                        <td>39 Degrees Celcius</td>
                     </tr>
                 </table>
             </div>
         </text>
+        <entry>
+            <reference value="http://fhir3.healthintersections.com.au/open/Observation/b2db2be2-996c-4a6c-9574-bf736ae2c8/_history/1"/>
+        </entry>
     </section>
-</Composition>
+</Composition>  
