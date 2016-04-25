@@ -138,7 +138,9 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "fhirdatetime.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "constructors.go")), new File(dirs.get("modelDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "search", "mongo_registry.go")), new File(dirs.get("searchDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "search", "mongo_search.go")), new File(dirs.get("searchDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "search", "registry.go")), new File(dirs.get("searchDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "search", "search_param_types.go")), new File(dirs.get("searchDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "search", "url_query_parser.go")), new File(dirs.get("searchDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "batch_controller.go")), new File(dirs.get("serverDir")));
@@ -233,12 +235,26 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         serverWriter.newLine();
         serverWriter.write("\tbatch := NewBatchController(dal)");
         serverWriter.newLine();
-        serverWriter.write("\te.POST(\"/\", batch.Post)");
+        serverWriter.write("\tbatchHandlers := make([]gin.HandlerFunc, len(config[\"Batch\"]))");
+        serverWriter.newLine();
+        serverWriter.write("\tcopy(batchHandlers, config[\"Batch\"])");
+        serverWriter.newLine();
+        serverWriter.write("\tbatchHandlers = append(batchHandlers, batch.Post)");
+        serverWriter.newLine();
+        serverWriter.write("\te.POST(\"/\", batchHandlers...)");
         serverWriter.newLine();
         serverWriter.newLine();
         serverWriter.write("\t// Resources");
         serverWriter.newLine();
         serverWriter.newLine();
+
+        /*
+        batch := NewBatchController(dal)
+	batchHandlers := make([]gin.HandlerFunc, len(config["Batch"]))
+	copy(batchHandlers, config["Batch"])
+	batchHandlers = append(batchHandlers, batch.Post)
+	e.POST("/", batchHandlers...)
+         */
 
         for (String name : namesAndDefinitions.keySet()) {
             serverWriter.write("\tRegisterController(\""+ name + "\", e, config[\"" + name + "\"], dal, serverConfig)");

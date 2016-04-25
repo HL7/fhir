@@ -297,6 +297,14 @@ type SearchParam interface {
 	getQueryParamAndValue() (string, string)
 }
 
+// SearchParamData represents the data associated to an instance of a search param
+type SearchParamData struct {
+	Modifier string
+	Chain    string
+	Prefix   Prefix
+	Value    string
+}
+
 // SearchParamInfo contains information about a FHIR search parameter,
 // including its name, type, and paths or composites.
 type SearchParamInfo struct {
@@ -335,6 +343,21 @@ func (s SearchParamInfo) CreateSearchParam(paramStr string) SearchParam {
 		return ParseTokenParam(paramStr, s)
 	case "uri":
 		return ParseURIParam(paramStr, s)
+	default:
+		// Check for a custom search parameter
+		if parser, err := GlobalRegistry().LookupParameterParser(s.Type); err == nil {
+			data := SearchParamData{
+				Modifier: s.Modifier,
+				Chain:    s.Postfix,
+				Prefix:   s.Prefix,
+				Value:    paramStr,
+			}
+			param, err := parser(s, data)
+			if err != nil {
+				panic(createInternalServerError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", s.Name)))
+			}
+			return param
+		}
 	}
 	return nil
 }
@@ -779,7 +802,7 @@ func findReferencedType(typeFromVal string, info SearchParamInfo) string {
 			}
 			valid = (t == target)
 		}
-	} else if len(info.Targets) > 0 {
+	} else if len(info.Targets) > 1 {
 		for _, target := range info.Targets {
 			if t == target {
 				valid = true

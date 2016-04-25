@@ -22,6 +22,12 @@ func NewMongoSearcher(db *mgo.Database) *MongoSearcher {
 	return &MongoSearcher{db}
 }
 
+// GetDB returns a pointer to the Mongo database.  This is helpful for custom search
+// implementations.
+func (m *MongoSearcher) GetDB() *mgo.Database {
+	return m.db
+}
+
 // CreateQuery takes a FHIR-based Query and returns a pointer to the
 // corresponding mgo.Query.  The returned mgo.Query will obey any options
 // passed in through the query string (such as _count and _offset) and will
@@ -193,19 +199,19 @@ func (m *MongoSearcher) CreatePipeline(query Query) *mgo.Pipe {
 
 func (m *MongoSearcher) createQueryObject(query Query) bson.M {
 	result := bson.M{}
-	for _, p := range m.createParamObjects(query.Resource, query.Params()) {
+	for _, p := range m.createParamObjects(query.Params()) {
 		merge(result, p)
 	}
 	return result
 }
 
-func (m *MongoSearcher) createParamObjects(resource string, params []SearchParam) []bson.M {
+func (m *MongoSearcher) createParamObjects(params []SearchParam) []bson.M {
 	results := make([]bson.M, len(params))
 	for i, p := range params {
 		panicOnUnsupportedFeatures(p)
 		switch p := p.(type) {
 		case *CompositeParam:
-			results[i] = m.createCompositeQueryObject(resource, p)
+			results[i] = m.createCompositeQueryObject(p)
 		case *DateParam:
 			results[i] = m.createDateQueryObject(p)
 		case *NumberParam:
@@ -221,9 +227,18 @@ func (m *MongoSearcher) createParamObjects(resource string, params []SearchParam
 		case *URIParam:
 			results[i] = m.createURIQueryObject(p)
 		case *OrParam:
-			results[i] = m.createOrQueryObject(resource, p)
+			results[i] = m.createOrQueryObject(p)
 		default:
-			panic(createInternalServerError("MSG_PARAM_UNKNOWN", fmt.Sprintf("Parameter \"%s\" not understood", p)))
+			// Check for custom search parameter implementations
+			builder, err := GlobalMongoRegistry().LookupBSONBuilder(p.getInfo().Type)
+			if err != nil {
+				panic(createInternalServerError("MSG_PARAM_UNKNOWN", fmt.Sprintf("Parameter \"%s\" not understood", p.getInfo().Name)))
+			}
+			result, err := builder(p, m)
+			if err != nil {
+				panic(createInternalServerError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", p.getInfo().Name)))
+			}
+			results[i] = result
 		}
 	}
 
@@ -248,7 +263,7 @@ func panicOnUnsupportedFeatures(p SearchParam) {
 	}
 }
 
-func (m *MongoSearcher) createCompositeQueryObject(resource string, c *CompositeParam) bson.M {
+func (m *MongoSearcher) createCompositeQueryObject(c *CompositeParam) bson.M {
 	panic(createUnsupportedSearchError("MSG_PARAM_UNKNOWN", fmt.Sprintf("Parameter \"%s\" not understood", c.Name)))
 }
 
@@ -574,9 +589,9 @@ func (m *MongoSearcher) createURIQueryObject(u *URIParam) bson.M {
 	return orPaths(single, u.Paths)
 }
 
-func (m *MongoSearcher) createOrQueryObject(resource string, o *OrParam) bson.M {
+func (m *MongoSearcher) createOrQueryObject(o *OrParam) bson.M {
 	return bson.M{
-		"$or": m.createParamObjects(resource, o.Items),
+		"$or": m.createParamObjects(o.Items),
 	}
 }
 
