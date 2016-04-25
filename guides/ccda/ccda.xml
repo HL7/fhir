@@ -188,7 +188,7 @@
       <acronym value="HPDocumentType"/>
       <sourceUri value="ValueSet/2.16.840.1.113883.1.11.20.22.xml"/>
     </resource>
-        <resource>
+    <resource>
           <example value="true"/>
           <name value="Example CCD"/>
           <description value="Example CCD"/>
@@ -196,6 +196,16 @@
           <sourceUri value="Example/ccd-example.xml"/>
           <!-- <exampleFor>
             <reference value="http://hl7.org/fhir/StructureDefinition/ccda-ccd-composition"/>
+          </exampleFor> -->
+    </resource>
+    <resource>
+      <example value="true"/>
+      <name value="Example Consultation Note"/>
+      <description value="Example Consultation Note"/>
+      <acronym value="consultation-note-example"/>
+      <sourceUri value="Example/consultation-note-example.xml"/>
+      <!-- <exampleFor>
+            <reference value="http://hl7.org/fhir/StructureDefinition/ccda-consultation-note-composition"/>
           </exampleFor> -->
     </resource>
     <resource>
