@@ -113,22 +113,22 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	// used during the build process to keep the overall volume of messages down
 	private boolean suppressLoincSnomedMessages;
 
-  private Bundle logical;
-  
-  // time tracking
-  private long overall = 0;
-  private long txTime = 0;
-  private long sdTime = 0;
-  private long loadTime = 0;
-  private long fpeTime = 0;
-  
+	private Bundle logical;
+
+	// time tracking
+	private long overall = 0;
+	private long txTime = 0;
+	private long sdTime = 0;
+	private long loadTime = 0;
+	private long fpeTime = 0;
+
 
 	public InstanceValidator(IWorkerContext theContext) {
-			super();
+		super();
 		this.context = theContext;
-    fpe = new FHIRPathEngine(context);
+		fpe = new FHIRPathEngine(context);
 		source = Source.InstanceValidator;
-		}
+	}
 
 	private boolean allowUnknownExtension(String url) {
 		if (url.contains("example.org") || url.contains("acme.com") || url.contains("nema.org"))
@@ -137,7 +137,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			if (url.startsWith(s))
 				return true;
 		return anyExtensionsAllowed;
-				}
+	}
 
 	private void bpCheck(List<ValidationMessage> errors, IssueType invalid, int line, int col, String literalPath, boolean test, String message) {
 		if (bpWarnings != null) {
@@ -149,9 +149,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			case Hint:
 				hint(errors, invalid, line, col, literalPath, test, message);
 			default: // do nothing
-				}
 			}
 		}
+	}
 
 
 	@Override
@@ -169,140 +169,140 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		validate(errors, stream, format, p);
 	}
 
-		@Override
-  public void validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format, StructureDefinition profile) throws Exception {
-    ParserBase parser = Manager.makeParser(context, format);
-    parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
-    long t = System.nanoTime();
-    Element e = parser.parse(stream);
-    loadTime = System.nanoTime() - t;
-    if (e != null)
-    	validate(errors, e, profile);
-		}
-
-
-		@Override
-  public void validate(List<ValidationMessage> errors, Resource resource) throws Exception {
-    validate(errors, resource, (StructureDefinition) null);
-		}
-		
-		@Override
-  public void validate(List<ValidationMessage> errors, Resource resource, String profile) throws Exception {
-			long t = System.nanoTime();
-    StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
-    sdTime = sdTime + (System.nanoTime() - t);
-    if (p == null)
-      throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    validate(errors, resource, p);
-		}
-
-		@Override
-  public void validate(List<ValidationMessage> errors, Resource resource, StructureDefinition profile) throws Exception {
-    throw new Exception("Not done yet");
-//    ParserBase parser = new ObjectParser(context);
-//    parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
-//    long t = System.nanoTime();
-//    Element e = parser.parse(resource);
-//    loadTime = System.nanoTime() - t;
-//    validate(errors, e, profile);    
-		}
-
-  @Override
-  public void validate(List<ValidationMessage> errors, Element element) throws Exception {
-    validate(errors, element, (StructureDefinition) null);
-		}
-
-  @Override
-  public void validate(List<ValidationMessage> errors, org.w3c.dom.Element element) throws Exception {
-    validate(errors, element, (StructureDefinition) null);
-		}
-
-		@Override
-  public void validate(List<ValidationMessage> errors, Element element, String profile) throws Exception {
-			long t = System.nanoTime();
-    StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
-    sdTime = sdTime + (System.nanoTime() - t);
-    if (p == null)
-      throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    validate(errors, element, p);
-		}
-
-  @Override
-  public void validate(List<ValidationMessage> errors, org.w3c.dom.Element element, String profile) throws Exception {
+	@Override
+	public void validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format, StructureDefinition profile) throws Exception {
+		ParserBase parser = Manager.makeParser(context, format);
+		parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
 		long t = System.nanoTime();
-    StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
-    sdTime = sdTime + (System.nanoTime() - t);
-    if (p == null)
-      throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    validate(errors, element, p);
-		}
-
-  @Override
-  public void validate(List<ValidationMessage> errors, org.w3c.dom.Element element, StructureDefinition profile) throws Exception {
-    XmlParser parser = new XmlParser(context);
-    parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
-    long t = System.nanoTime();
-    Element e = parser.parse(element);
-    loadTime = System.nanoTime() - t;
-    validate(errors, e, profile);
-		}
-
-		@Override
-  public void validate(List<ValidationMessage> errors, Document document) throws Exception {
-    validate(errors, document, (StructureDefinition) null);
-		}
-
-		@Override
-  public void validate(List<ValidationMessage> errors, Document document, String profile) throws Exception {
-			long t = System.nanoTime();
-    StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
-    sdTime = sdTime + (System.nanoTime() - t);
-    if (p == null)
-      throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    validate(errors, document, p);
-		}
-
-		@Override
-  public void validate(List<ValidationMessage> errors, Document document, StructureDefinition profile) throws Exception {
-    XmlParser parser = new XmlParser(context);
-    parser.setupValidation(ValidationPolicy.EVERYTHING, errors);
-    long t = System.nanoTime();
-    Element e = parser.parse(document);
-    loadTime = System.nanoTime() - t;
-    validate(errors, e, profile);
-		}
-
-  @Override
-  public void validate(List<ValidationMessage> errors, JsonObject object) throws Exception {
-    // validate(errors, object, (StructureDefinition) null);
-		}
-
-		@Override
-  public void validate(List<ValidationMessage> errors, JsonObject object, String profile) throws Exception {
-			long t = System.nanoTime();
-    StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
-    sdTime = sdTime + (System.nanoTime() - t);
-    if (p == null)
-      throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    validate(errors, object, p);
+		Element e = parser.parse(stream);
+		loadTime = System.nanoTime() - t;
+		if (e != null)
+			validate(errors, e, profile);
 	}
 
-  @Override
-  public void validate(List<ValidationMessage> errors, JsonObject object, StructureDefinition profile) throws Exception {
-    JsonParser parser = new JsonParser(context);
-    parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
-    long t = System.nanoTime();
-    Element e = parser.parse(object);
-    loadTime = System.nanoTime() - t;
-    validate(errors, e, profile);
+
+	@Override
+	public void validate(List<ValidationMessage> errors, Resource resource) throws Exception {
+		validate(errors, resource, (StructureDefinition) null);
 	}
 
-  @Override
-  public void validate(List<ValidationMessage> errors, Element element, StructureDefinition profile) throws Exception {
-    // this is the main entry point; all the other entry points end up here coming here...
-  	long t = System.nanoTime();
-  	validateResource(errors, element, element, profile, resourceIdRule, new NodeStack(element));
-  	overall = System.nanoTime() - t;
+	@Override
+	public void validate(List<ValidationMessage> errors, Resource resource, String profile) throws Exception {
+		long t = System.nanoTime();
+		StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
+		sdTime = sdTime + (System.nanoTime() - t);
+		if (p == null)
+			throw new DefinitionException("StructureDefinition '" + profile + "' not found");
+		validate(errors, resource, p);
+	}
+
+	@Override
+	public void validate(List<ValidationMessage> errors, Resource resource, StructureDefinition profile) throws Exception {
+		throw new Exception("Not done yet");
+		//    ParserBase parser = new ObjectParser(context);
+		//    parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
+		//    long t = System.nanoTime();
+		//    Element e = parser.parse(resource);
+		//    loadTime = System.nanoTime() - t;
+		//    validate(errors, e, profile);    
+	}
+
+	@Override
+	public void validate(List<ValidationMessage> errors, Element element) throws Exception {
+		validate(errors, element, (StructureDefinition) null);
+	}
+
+	@Override
+	public void validate(List<ValidationMessage> errors, org.w3c.dom.Element element) throws Exception {
+		validate(errors, element, (StructureDefinition) null);
+	}
+
+	@Override
+	public void validate(List<ValidationMessage> errors, Element element, String profile) throws Exception {
+		long t = System.nanoTime();
+		StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
+		sdTime = sdTime + (System.nanoTime() - t);
+		if (p == null)
+			throw new DefinitionException("StructureDefinition '" + profile + "' not found");
+		validate(errors, element, p);
+	}
+
+	@Override
+	public void validate(List<ValidationMessage> errors, org.w3c.dom.Element element, String profile) throws Exception {
+		long t = System.nanoTime();
+		StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
+		sdTime = sdTime + (System.nanoTime() - t);
+		if (p == null)
+			throw new DefinitionException("StructureDefinition '" + profile + "' not found");
+		validate(errors, element, p);
+	}
+
+	@Override
+	public void validate(List<ValidationMessage> errors, org.w3c.dom.Element element, StructureDefinition profile) throws Exception {
+		XmlParser parser = new XmlParser(context);
+		parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
+		long t = System.nanoTime();
+		Element e = parser.parse(element);
+		loadTime = System.nanoTime() - t;
+		validate(errors, e, profile);
+	}
+
+	@Override
+	public void validate(List<ValidationMessage> errors, Document document) throws Exception {
+		validate(errors, document, (StructureDefinition) null);
+	}
+
+	@Override
+	public void validate(List<ValidationMessage> errors, Document document, String profile) throws Exception {
+		long t = System.nanoTime();
+		StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
+		sdTime = sdTime + (System.nanoTime() - t);
+		if (p == null)
+			throw new DefinitionException("StructureDefinition '" + profile + "' not found");
+		validate(errors, document, p);
+	}
+
+	@Override
+	public void validate(List<ValidationMessage> errors, Document document, StructureDefinition profile) throws Exception {
+		XmlParser parser = new XmlParser(context);
+		parser.setupValidation(ValidationPolicy.EVERYTHING, errors);
+		long t = System.nanoTime();
+		Element e = parser.parse(document);
+		loadTime = System.nanoTime() - t;
+		validate(errors, e, profile);
+	}
+
+	@Override
+	public void validate(List<ValidationMessage> errors, JsonObject object) throws Exception {
+		// validate(errors, object, (StructureDefinition) null);
+	}
+
+	@Override
+	public void validate(List<ValidationMessage> errors, JsonObject object, String profile) throws Exception {
+		long t = System.nanoTime();
+		StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
+		sdTime = sdTime + (System.nanoTime() - t);
+		if (p == null)
+			throw new DefinitionException("StructureDefinition '" + profile + "' not found");
+		validate(errors, object, p);
+	}
+
+	@Override
+	public void validate(List<ValidationMessage> errors, JsonObject object, StructureDefinition profile) throws Exception {
+		JsonParser parser = new JsonParser(context);
+		parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
+		long t = System.nanoTime();
+		Element e = parser.parse(object);
+		loadTime = System.nanoTime() - t;
+		validate(errors, e, profile);
+	}
+
+	@Override
+	public void validate(List<ValidationMessage> errors, Element element, StructureDefinition profile) throws Exception {
+		// this is the main entry point; all the other entry points end up here coming here...
+		long t = System.nanoTime();
+		validateResource(errors, element, element, profile, resourceIdRule, new NodeStack(element));
+		overall = System.nanoTime() - t;
 	}
 
 
@@ -342,7 +342,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	private boolean checkCode(List<ValidationMessage> errors, Element element, String path, String code, String system, String display) {
 		long t = System.nanoTime();
 		boolean ss = context.supportsSystem(system);
-    txTime = txTime + (System.nanoTime() - t);
+		txTime = txTime + (System.nanoTime() - t);
 		if (ss) {
 			t = System.nanoTime();
 			ValidationResult s = context.validateCode(system, code, display);
@@ -360,9 +360,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			if (system.equals("http://hl7.org/fhir/sid/icd-10"))
 				return true; // else don't check ICD-10 (for now)
 			else {
-        CodeSystem cs = getCodeSystem(system);
-        if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, cs != null, "Unknown Code System " + system)) {
-          ConceptDefinitionComponent def = getCodeDefinition(cs, code);
+				CodeSystem cs = getCodeSystem(system);
+				if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, cs != null, "Unknown Code System " + system)) {
+					ConceptDefinitionComponent def = getCodeDefinition(cs, code);
 					if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, def != null, "Unknown Code (" + system + "#" + code + ")"))
 						return warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, display == null || display.equals(def.getDisplay()), "Display should be '" + def.getDisplay() + "'");
 				}
@@ -387,7 +387,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		}
 	}
 
-  private void checkCodeableConcept(List<ValidationMessage> errors, String path, Element element, StructureDefinition profile, ElementDefinition theElementCntext)  {
+	private void checkCodeableConcept(List<ValidationMessage> errors, String path, Element element, StructureDefinition profile, ElementDefinition theElementCntext)  {
 		if (theElementCntext != null && theElementCntext.hasBinding()) {
 			ElementDefinitionBindingComponent binding = theElementCntext.getBinding();
 			if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, binding != null, "Binding for " + path + " missing (cc)")) {
@@ -453,7 +453,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		checkFixedValue(errors, path + ".userSelected", focus.getNamedChild("userSelected"), fixed.getUserSelectedElement(), "userSelected");
 	}
 
-  private void checkCoding(List<ValidationMessage> errors, String path, Element element, StructureDefinition profile, ElementDefinition theElementCntext, boolean inCodeableConcept)  {
+	private void checkCoding(List<ValidationMessage> errors, String path, Element element, StructureDefinition profile, ElementDefinition theElementCntext, boolean inCodeableConcept)  {
 		String code = element.getNamedChildValue("code");
 		String system = element.getNamedChildValue("system");
 		String display = element.getNamedChildValue("display");
@@ -514,7 +514,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 				if (rule(errors, IssueType.INVALID, element.line(), element.col(), p, !Utilities.noString(ref), "StructureDefinition reference invalid")) {
 					long t = System.nanoTime();
 					StructureDefinition pr = context.fetchResource(StructureDefinition.class, ref);
-			    sdTime = sdTime + (System.nanoTime() - t);
+					sdTime = sdTime + (System.nanoTime() - t);
 					if (warning(errors, IssueType.INVALID, element.line(), element.col(), p, pr != null, "StructureDefinition reference \"{0}\" could not be resolved", ref)) {
 						if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), p, pr.hasSnapshot(),
 								"StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided")) {
@@ -533,7 +533,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 		long t = System.nanoTime();
 		StructureDefinition ex = context.fetchResource(StructureDefinition.class, url);
-    sdTime = sdTime + (System.nanoTime() - t);
+		sdTime = sdTime + (System.nanoTime() - t);
 		if (ex == null) {
 			if (!rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, allowUnknownExtension(url), "The extension " + url + " is unknown, and not allowed here"))
 				warning(errors, IssueType.STRUCTURE, element.line(), element.col(), path, allowUnknownExtension(url), "Unknown extension " + url);
@@ -719,10 +719,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 					Element ex = getExtensionByUrl(extensions, e.getUrl());
 					if (rule(errors, IssueType.VALUE, focus.line(), focus.col(), path, ex != null, "Extension count mismatch: unable to find extension: " + e.getUrl())) {
 						checkFixedValue(errors, path, ex.getNamedChild("extension").getNamedChild("value"), e.getValue(), "extension.value");
+					}
 				}
 			}
 		}
-	}
 	}
 
 	private void checkHumanName(List<ValidationMessage> errors, String path, Element focus, HumanName fixed) {
@@ -773,7 +773,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 	private void checkPeriod(List<ValidationMessage> errors, String path, Element focus, Period fixed) {
 		checkFixedValue(errors, path + ".start", focus.getNamedChild("start"), fixed.getStartElement(), "start");
-    checkFixedValue(errors, path + ".end", focus.getNamedChild("end"), fixed.getEndElement(), "end");
+		checkFixedValue(errors, path + ".end", focus.getNamedChild("end"), fixed.getEndElement(), "end");
 	}
 
 	private void checkPrimitive(List<ValidationMessage> errors, String path, String type, ElementDefinition context, Element e, StructureDefinition profile) {
@@ -815,7 +815,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		if (context.hasBinding() && e.primitiveValue() != null) {
 			checkPrimitiveBinding(errors, path, type, context, e, profile);
 		}
-		
+
 		if (type.equals("xhtml")) {
 			XhtmlNode xhtml = e.getXhtml();
 			if (xhtml != null) { // if it is null, this is an error already noted in the parsers
@@ -833,43 +833,43 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	}
 
 	private void checkInnerNames(List<ValidationMessage> errors, Element e, String path, List<XhtmlNode> list) {
-	  for (XhtmlNode node : list) {
-	  	if (node.getNodeType() == NodeType.Element) {
-	  		rule(errors, IssueType.INVALID, e.line(), e.col(), path, Utilities.existsInList(node.getName(), 
-	  				"p", "br", "div", "h1", "h2", "h3", "h4", "h5", "h6", "a", "span", "b", "em", "i", "strong",
-	  		    "small", "big", "tt", "small", "dfn", "q", "var", "abbr", "acronym", "cite", "blockquote", "hr", "address", "bdo", "kbd", "q", "sub", "sup",
-	  		    "ul", "ol", "li", "dl", "dt", "dd", "pre", "table", "caption", "colgroup", "col", "thead", "tr", "tfoot", "tbody", "th", "td",
-	  		    "code", "samp", "img", "map", "area"
-	  		    
-	  				), "Illegal element name in the XHTML ('"+node.getName()+"')");
-	  		for (String an : node.getAttributes().keySet()) {
-	  		  boolean ok = an.startsWith("xmlns") || Utilities.existsInList(an, 
-		  				"title", "style", "class", "id", "lang", "xml:lang", "dir", "accesskey", "tabindex",
-              // tables
-             "span", "width", "align", "valign", "char", "charoff", "abbr", "axis", "headers", "scope", "rowspan", "colspan") ||
-		  				
-		  				Utilities.existsInList(node.getName()+"."+an, "a.href", "a.name", "img.src", "img.border", "div.xmlns", "blockquote.cite", "q.cite",
-       "a.charset", "a.type", "a.name", "a.href", "a.hreflang", "a.rel", "a.rev", "a.shape", "a.coords", "img.src",
-       "img.alt", "img.longdesc", "img.height", "img.width", "img.usemap", "img.ismap", "map.name", "area.shape",
-       "area.coords", "area.href", "area.nohref", "area.alt", "table.summary", "table.width", "table.border",
-       "table.frame", "table.rules", "table.cellspacing", "table.cellpadding", "pre.space"
-              );
-	        if (!ok)
-		  	  	rule(errors, IssueType.INVALID, e.line(), e.col(), path, false, "Illegal attribute name in the XHTML ('"+an+"' on '"+node.getName()+"')");
-	  		}
-	  		checkInnerNames(errors, e, path, node.getChildNodes());
-	  	}
-	  }	
+		for (XhtmlNode node : list) {
+			if (node.getNodeType() == NodeType.Element) {
+				rule(errors, IssueType.INVALID, e.line(), e.col(), path, Utilities.existsInList(node.getName(), 
+						"p", "br", "div", "h1", "h2", "h3", "h4", "h5", "h6", "a", "span", "b", "em", "i", "strong",
+						"small", "big", "tt", "small", "dfn", "q", "var", "abbr", "acronym", "cite", "blockquote", "hr", "address", "bdo", "kbd", "q", "sub", "sup",
+						"ul", "ol", "li", "dl", "dt", "dd", "pre", "table", "caption", "colgroup", "col", "thead", "tr", "tfoot", "tbody", "th", "td",
+						"code", "samp", "img", "map", "area"
+
+						), "Illegal element name in the XHTML ('"+node.getName()+"')");
+				for (String an : node.getAttributes().keySet()) {
+					boolean ok = an.startsWith("xmlns") || Utilities.existsInList(an, 
+							"title", "style", "class", "id", "lang", "xml:lang", "dir", "accesskey", "tabindex",
+							// tables
+							"span", "width", "align", "valign", "char", "charoff", "abbr", "axis", "headers", "scope", "rowspan", "colspan") ||
+
+							Utilities.existsInList(node.getName()+"."+an, "a.href", "a.name", "img.src", "img.border", "div.xmlns", "blockquote.cite", "q.cite",
+									"a.charset", "a.type", "a.name", "a.href", "a.hreflang", "a.rel", "a.rev", "a.shape", "a.coords", "img.src",
+									"img.alt", "img.longdesc", "img.height", "img.width", "img.usemap", "img.ismap", "map.name", "area.shape",
+									"area.coords", "area.href", "area.nohref", "area.alt", "table.summary", "table.width", "table.border",
+									"table.frame", "table.rules", "table.cellspacing", "table.cellpadding", "pre.space"
+									);
+					if (!ok)
+						rule(errors, IssueType.INVALID, e.line(), e.col(), path, false, "Illegal attribute name in the XHTML ('"+an+"' on '"+node.getName()+"')");
+				}
+				checkInnerNames(errors, e, path, node.getChildNodes());
+			}
+		}	
 	}
 
 	private void checkInnerNS(List<ValidationMessage> errors, Element e, String path, List<XhtmlNode> list) {
-	  for (XhtmlNode node : list) {
-	  	if (node.getNodeType() == NodeType.Element) {
-	  		String ns = node.getNsDecl();
-	  		rule(errors, IssueType.INVALID, e.line(), e.col(), path, ns == null || FormatUtilities.XHTML_NS.equals(ns), "Wrong namespace on the XHTML ('"+ns+"')");
-	  		checkInnerNS(errors, e, path, node.getChildNodes());
-	  	}
-	  }	
+		for (XhtmlNode node : list) {
+			if (node.getNodeType() == NodeType.Element) {
+				String ns = node.getNsDecl();
+				rule(errors, IssueType.INVALID, e.line(), e.col(), path, ns == null || FormatUtilities.XHTML_NS.equals(ns), "Wrong namespace on the XHTML ('"+ns+"')");
+				checkInnerNS(errors, e, path, node.getChildNodes());
+			}
+		}	
 	}
 
 	// note that we don't check the type here; it could be string, uri or code.
@@ -963,15 +963,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		}
 	}
 
-  private String checkResourceType(String type)  {
+	private String checkResourceType(String type)  {
 		long t = System.nanoTime();
 		try {
-		if (context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + type) != null)
-			return type;
-		else
-			return null;
+			if (context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + type) != null)
+				return type;
+			else
+				return null;
 		} finally {
-	    sdTime = sdTime + (System.nanoTime() - t);
+			sdTime = sdTime + (System.nanoTime() - t);
 		}
 	}
 
@@ -1058,7 +1058,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		return bpWarnings;
 	}  
 
-  private String getBaseType(StructureDefinition profile, String pr)  {
+	private String getBaseType(StructureDefinition profile, String pr)  {
 		// if (pr.startsWith("http://hl7.org/fhir/StructureDefinition/")) {
 		// // this just has to be a base type
 		// return pr.substring(40);
@@ -1101,8 +1101,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		return null;
 	}
 
-  private ConceptDefinitionComponent getCodeDefinition(CodeSystem cs, String code) {
-    for (ConceptDefinitionComponent c : cs.getConcept()) {
+	private ConceptDefinitionComponent getCodeDefinition(CodeSystem cs, String code) {
+		for (ConceptDefinitionComponent c : cs.getConcept()) {
 			ConceptDefinitionComponent r = getCodeDefinition(c, code);
 			if (r != null)
 				return r;
@@ -1127,7 +1127,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	private ElementDefinition getCriteriaForDiscriminator(String path, ElementDefinition ed, String discriminator, StructureDefinition profile) throws DefinitionException, org.hl7.fhir.dstu3.exceptions.DefinitionException {
 		List<ElementDefinition> childDefinitions = ProfileUtilities.getChildMap(profile, ed);
 		List<ElementDefinition> snapshot = null;
-    int index;
+		int index;
 		if (childDefinitions.isEmpty()) {
 			// going to look at the type
 			if (ed.getType().size() == 0)
@@ -1141,11 +1141,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 					discriminator = discriminator.substring(discriminator.indexOf(".")+1);
 				long t = System.nanoTime();
 				type = context.fetchResource(StructureDefinition.class, ed.getType().get(0).getProfile().get(0).getValue());
-		    sdTime = sdTime + (System.nanoTime() - t);
+				sdTime = sdTime + (System.nanoTime() - t);
 			} else {
 				long t = System.nanoTime();
 				type = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + ed.getType().get(0).getCode());
-		    sdTime = sdTime + (System.nanoTime() - t);
+				sdTime = sdTime + (System.nanoTime() - t);
 			}
 			snapshot = type.getSnapshot().getElement();
 			ed = snapshot.get(0);
@@ -1193,20 +1193,20 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	}  
 
 	private StructureDefinition getProfileForType(String type) {
-    if (logical != null)
-      for (BundleEntryComponent be : logical.getEntry()) {
-       if (be.hasResource() && be.getResource() instanceof StructureDefinition) {
-         StructureDefinition sd = (StructureDefinition) be.getResource();
-         if (sd.getId().equals(type))
-           return sd;
-       }
-     }
+		if (logical != null)
+			for (BundleEntryComponent be : logical.getEntry()) {
+				if (be.hasResource() && be.getResource() instanceof StructureDefinition) {
+					StructureDefinition sd = (StructureDefinition) be.getResource();
+					if (sd.getId().equals(type))
+						return sd;
+				}
+			}
 
 		long t = System.nanoTime();
 		try {
-		  return context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + type);
+			return context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + type);
 		} finally {
-      sdTime = sdTime + (System.nanoTime() - t);
+			sdTime = sdTime + (System.nanoTime() - t);
 		}
 	}
 
@@ -1215,10 +1215,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		return null;
 	}
 
-  private CodeSystem getCodeSystem(String system) {
+	private CodeSystem getCodeSystem(String system) {
 		long t = System.nanoTime();
 		try {
-		  return context.fetchCodeSystem(system);
+			return context.fetchCodeSystem(system);
 		} finally {
 			txTime = txTime + (System.nanoTime() - t);
 		}
@@ -1331,7 +1331,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 				}
 				if ("Bundle".equals(stack.getElement().getType())) {
 					Element res = getFromBundle(stack.getElement(), ref, fullUrl);
-  				return res;
+					return res;
 				}
 				stack = stack.parent;
 			}
@@ -1343,34 +1343,34 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	}
 
 	private ValueSet resolveBindingReference(DomainResource ctxt, Type reference) {
-	  if (reference instanceof UriType) {
+		if (reference instanceof UriType) {
 			long t = System.nanoTime();
-	    ValueSet fr = context.fetchResource(ValueSet.class, ((UriType) reference).getValue().toString());
-	    txTime = txTime + (System.nanoTime() - t);
+			ValueSet fr = context.fetchResource(ValueSet.class, ((UriType) reference).getValue().toString());
+			txTime = txTime + (System.nanoTime() - t);
 			return fr;
-	  }
-	  else if (reference instanceof Reference) {
-	    String s = ((Reference) reference).getReference();
-	    if (s.startsWith("#")) {
-	      for (Resource c : ctxt.getContained()) {
-	        if (c.getId().equals(s.substring(1)) && (c instanceof ValueSet))
-	          return (ValueSet) c;
-	      }
-	      return null;
-	    } else {
-	  		long t = System.nanoTime();
-	  		ValueSet fr = context.fetchResource(ValueSet.class, ((Reference) reference).getReference());
-	      txTime = txTime + (System.nanoTime() - t);
-	      return fr;
-	    }
-	  }
-	  else
-	    return null;
+		}
+		else if (reference instanceof Reference) {
+			String s = ((Reference) reference).getReference();
+			if (s.startsWith("#")) {
+				for (Resource c : ctxt.getContained()) {
+					if (c.getId().equals(s.substring(1)) && (c instanceof ValueSet))
+						return (ValueSet) c;
+				}
+				return null;
+			} else {
+				long t = System.nanoTime();
+				ValueSet fr = context.fetchResource(ValueSet.class, ((Reference) reference).getReference());
+				txTime = txTime + (System.nanoTime() - t);
+				return fr;
+			}
+		}
+		else
+			return null;
 	}
 
 	private Element resolveInBundle(List<Element> entries, String ref, String fullUrl, String type, String id) {
 		if (Utilities.isAbsoluteUrl(ref)) {
-      // if the reference is absolute, then you resolve by fullUrl. No other thinking is required. 
+			// if the reference is absolute, then you resolve by fullUrl. No other thinking is required. 
 			for (Element entry : entries) {
 				String fu = entry.getNamedChildValue("fullUrl");
 				if (ref.equals(fu))
@@ -1404,14 +1404,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		}
 	}
 
-  private ElementDefinition resolveNameReference(StructureDefinitionSnapshotComponent snapshot, String contentReference) {
+	private ElementDefinition resolveNameReference(StructureDefinitionSnapshotComponent snapshot, String contentReference) {
 		for (ElementDefinition ed : snapshot.getElement())
-      if (contentReference.equals("#"+ed.getId()))
+			if (contentReference.equals("#"+ed.getId()))
 				return ed;
 		return null;
 	}
 
-  private StructureDefinition resolveProfile(StructureDefinition profile, String pr)  {
+	private StructureDefinition resolveProfile(StructureDefinition profile, String pr)  {
 		if (pr.startsWith("#")) {
 			for (Resource r : profile.getContained()) {
 				if (r.getId().equals(pr.substring(1)) && r instanceof StructureDefinition)
@@ -1421,24 +1421,24 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		} else {
 			long t = System.nanoTime();
 			StructureDefinition fr = context.fetchResource(StructureDefinition.class, pr);
-	    sdTime = sdTime + (System.nanoTime() - t);
+			sdTime = sdTime + (System.nanoTime() - t);
 			return fr;
 		}
 	}
 
-  private ElementDefinition resolveType(String type)  {
-    if (logical != null)
-       for (BundleEntryComponent be : logical.getEntry()) {
-        if (be.hasResource() && be.getResource() instanceof StructureDefinition) {
-          StructureDefinition sd = (StructureDefinition) be.getResource();
-          if (sd.getId().equals(type))
-            return sd.getSnapshot().getElement().get(0);
-        }
-      }
+	private ElementDefinition resolveType(String type)  {
+		if (logical != null)
+			for (BundleEntryComponent be : logical.getEntry()) {
+				if (be.hasResource() && be.getResource() instanceof StructureDefinition) {
+					StructureDefinition sd = (StructureDefinition) be.getResource();
+					if (sd.getId().equals(type))
+						return sd.getSnapshot().getElement().get(0);
+				}
+			}
 		String url = "http://hl7.org/fhir/StructureDefinition/" + type;
 		long t = System.nanoTime();
 		StructureDefinition sd = context.fetchResource(StructureDefinition.class, url);
-    sdTime = sdTime + (System.nanoTime() - t);
+		sdTime = sdTime + (System.nanoTime() - t);
 		if (sd == null || !sd.hasSnapshot())
 			return null;
 		else
@@ -1481,7 +1481,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	 * @param ed
 	 *          - the slice for which to test membership
 	 * @return
- * @throws DefinitionException 
+	 * @throws DefinitionException 
 	 * @throws DefinitionException 
 	 * @throws Exception
 	 */
@@ -1517,180 +1517,180 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			// specific known special validations
 			if (element.getType().equals("Bundle"))
 				validateBundle(errors, element, stack);
-      if (element.getType().equals("Observation"))
-        validateObservation(errors, element, stack);
-      if (element.getType().equals("QuestionnaireResponse"))
-        validateQuestionannaireResponse(errors, element, stack);
+			if (element.getType().equals("Observation"))
+				validateObservation(errors, element, stack);
+			if (element.getType().equals("QuestionnaireResponse"))
+				validateQuestionannaireResponse(errors, element, stack);
 		}
 	}
 
 	private void validateQuestionannaireResponse(List<ValidationMessage> errors, Element element, NodeStack stack) {
-	  Element q = element.getNamedChild("questionnaire");
-	  if (hint(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), q != null, "No questionnaire is identified, so no validation can be performed against the base questionnaire")) {
+		Element q = element.getNamedChild("questionnaire");
+		if (hint(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), q != null, "No questionnaire is identified, so no validation can be performed against the base questionnaire")) {
 			long t = System.nanoTime();
-	    Questionnaire qsrc = context.fetchResource(Questionnaire.class, q.getNamedChildValue("reference"));
-	    sdTime = sdTime + (System.nanoTime() - t);
-      if (warning(errors, IssueType.REQUIRED, q.line(), q.col(), stack.getLiteralPath(), qsrc != null, "The questionnaire could not be resolved, so no validation can be performed against the base questionnaire")) {
-        boolean inProgress = "in-progress".equals(element.getNamedChildValue("status"));
-        validateQuestionannaireResponseItems(qsrc, qsrc.getItem(), errors, element, stack, inProgress);        
-      }
-	  }
+			Questionnaire qsrc = context.fetchResource(Questionnaire.class, q.getNamedChildValue("reference"));
+			sdTime = sdTime + (System.nanoTime() - t);
+			if (warning(errors, IssueType.REQUIRED, q.line(), q.col(), stack.getLiteralPath(), qsrc != null, "The questionnaire could not be resolved, so no validation can be performed against the base questionnaire")) {
+				boolean inProgress = "in-progress".equals(element.getNamedChildValue("status"));
+				validateQuestionannaireResponseItems(qsrc, qsrc.getItem(), errors, element, stack, inProgress);        
+			}
+		}
 	}
-	
+
 	private void validateQuestionannaireResponseItem(Questionnaire qsrc, QuestionnaireItemComponent qItem, List<ValidationMessage> errors, Element element, NodeStack stack, boolean inProgress) {
-	  String text = element.getNamedChildValue("text");
-	  rule(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), Utilities.noString(text) || text.equals(qItem.getText()), "If text exists, it must match the questionnaire definition for linkId "+qItem.getLinkId());
+		String text = element.getNamedChildValue("text");
+		rule(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), Utilities.noString(text) || text.equals(qItem.getText()), "If text exists, it must match the questionnaire definition for linkId "+qItem.getLinkId());
 
-	  List<Element> answers = new ArrayList<Element>();
-    element.getNamedChildren("answer", answers);
-    if (inProgress)
-      warning(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), (answers.size() > 0) || !qItem.getRequired(), "No response answer found for required item "+qItem.getLinkId());
-    else
-      rule(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), (answers.size() > 0) || !qItem.getRequired(), "No response answer found for required item "+qItem.getLinkId());
-    if (answers.size() > 1)
-      rule(errors, IssueType.INVALID, answers.get(1).line(), answers.get(1).col(), stack.getLiteralPath(), qItem.getRepeats(), "Only one response answer item with this linkId allowed");
+		List<Element> answers = new ArrayList<Element>();
+		element.getNamedChildren("answer", answers);
+		if (inProgress)
+			warning(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), (answers.size() > 0) || !qItem.getRequired(), "No response answer found for required item "+qItem.getLinkId());
+		else
+			rule(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), (answers.size() > 0) || !qItem.getRequired(), "No response answer found for required item "+qItem.getLinkId());
+		if (answers.size() > 1)
+			rule(errors, IssueType.INVALID, answers.get(1).line(), answers.get(1).col(), stack.getLiteralPath(), qItem.getRepeats(), "Only one response answer item with this linkId allowed");
 
-	    for (Element answer : answers) {
-	      NodeStack ns = stack.push(answer, -1, null, null);
-	        switch (qItem.getType()) {
-	        case GROUP: 
-	          rule(errors, IssueType.STRUCTURE, answer.line(), answer.col(), stack.getLiteralPath(), false, "Items of type group should not have answers"); 
-	          break;
-	        case DISPLAY:  // nothing
-            break;
-	        case BOOLEAN:       
-	          validateQuestionnaireResponseItemType(errors, answer, ns, "boolean");
-            break;
-	        case DECIMAL:       
-	          validateQuestionnaireResponseItemType(errors, answer, ns, "decimal");
-            break;
-	        case INTEGER:       
-	          validateQuestionnaireResponseItemType(errors, answer, ns, "integer");
-            break;
-	        case DATE:          
-	          validateQuestionnaireResponseItemType(errors, answer, ns, "date");
-            break;
-	        case DATETIME:      
-	          validateQuestionnaireResponseItemType(errors, answer, ns, "dateTime");
-            break;
-	        case INSTANT:       
-	          validateQuestionnaireResponseItemType(errors, answer, ns, "instant");
-            break;
-	        case TIME:          
-	          validateQuestionnaireResponseItemType(errors, answer, ns, "time");
-            break;
-	        case STRING:        
-	          validateQuestionnaireResponseItemType(errors, answer, ns, "string");
-            break;
-	        case TEXT:          
-	          validateQuestionnaireResponseItemType(errors, answer, ns, "text");
-            break;
-	        case URL:           
-	          validateQuestionnaireResponseItemType(errors, answer, ns, "uri");
-            break;
-	        case ATTACHMENT:    
-	          validateQuestionnaireResponseItemType(errors, answer, ns, "Attachment");
-            break;
-	        case REFERENCE:     
-	          validateQuestionnaireResponseItemType(errors, answer, ns, "Reference");
-            break;
-	        case QUANTITY:   
-	          if (validateQuestionnaireResponseItemType(errors, answer, ns, "Quantity").equals("Quantity"))
-	            if (qItem.hasExtension("???"))
-	              validateQuestionnaireResponseItemQuantity(errors, answer, ns);
-	              break;
-	        case CHOICE:     
-	          String itemType=validateQuestionnaireResponseItemType(errors, answer, ns, "Coding", "date", "time", "integer", "string");
-	          if (itemType.equals("Coding")) validateAnswerCode(errors, answer, ns, qsrc, qItem, false);
-	          else if (itemType.equals("date")) checkOption(errors, answer, ns, qsrc, qItem, "date");
-	          else if (itemType.equals("time")) checkOption(errors, answer, ns, qsrc, qItem, "time");
-	          else if (itemType.equals("integer")) checkOption(errors, answer, ns, qsrc, qItem, "integer");
-	          else if (itemType.equals("string")) checkOption(errors, answer, ns, qsrc, qItem, "string");
-            break;
-	        case OPENCHOICE: 
-	          itemType=validateQuestionnaireResponseItemType(errors, answer, ns, "Coding", "date", "time", "integer", "string");
-	          if (itemType.equals("Coding")) validateAnswerCode(errors, answer, ns, qsrc, qItem, true);
-	          else if (itemType.equals("date")) checkOption(errors, answer, ns, qsrc, qItem, "date");
-	          else if (itemType.equals("time")) checkOption(errors, answer, ns, qsrc, qItem, "time");
-	          else if (itemType.equals("integer")) checkOption(errors, answer, ns, qsrc, qItem, "integer");
-	          else if (itemType.equals("string")) checkOption(errors, answer, ns, qsrc, qItem, "string", true);
-            break;
-	        }
-	        validateQuestionannaireResponseItems(qsrc, qItem.getItem(), errors, answer, stack, inProgress);
-	    }
-	  if (qItem.getType() == null) {
-	    fail(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), false, "Definition for item "+qItem.getLinkId() + " does not contain a type");
-	  } else if (qItem.getType() == QuestionnaireItemType.GROUP) {
-	    validateQuestionannaireResponseItems(qsrc, qItem.getItem(), errors, element, stack, inProgress);
-	  } else {
-	    List<Element> items = new ArrayList<Element>();
-       element.getNamedChildren("item", items);
-      for (Element item : items) {
-         NodeStack ns = stack.push(item, -1, null, null);
-         rule(errors, IssueType.STRUCTURE, answers.get(0).line(), answers.get(0).col(), stack.getLiteralPath(), false, "Items not of type group should not have items - Item with linkId {0} of type {1} has {2} item(s)", qItem.getLinkId(), qItem.getType(), items.size());
-       }
-	  }
+		for (Element answer : answers) {
+			NodeStack ns = stack.push(answer, -1, null, null);
+			switch (qItem.getType()) {
+			case GROUP: 
+				rule(errors, IssueType.STRUCTURE, answer.line(), answer.col(), stack.getLiteralPath(), false, "Items of type group should not have answers"); 
+				break;
+			case DISPLAY:  // nothing
+				break;
+			case BOOLEAN:       
+				validateQuestionnaireResponseItemType(errors, answer, ns, "boolean");
+				break;
+			case DECIMAL:       
+				validateQuestionnaireResponseItemType(errors, answer, ns, "decimal");
+				break;
+			case INTEGER:       
+				validateQuestionnaireResponseItemType(errors, answer, ns, "integer");
+				break;
+			case DATE:          
+				validateQuestionnaireResponseItemType(errors, answer, ns, "date");
+				break;
+			case DATETIME:      
+				validateQuestionnaireResponseItemType(errors, answer, ns, "dateTime");
+				break;
+			case INSTANT:       
+				validateQuestionnaireResponseItemType(errors, answer, ns, "instant");
+				break;
+			case TIME:          
+				validateQuestionnaireResponseItemType(errors, answer, ns, "time");
+				break;
+			case STRING:        
+				validateQuestionnaireResponseItemType(errors, answer, ns, "string");
+				break;
+			case TEXT:          
+				validateQuestionnaireResponseItemType(errors, answer, ns, "text");
+				break;
+			case URL:           
+				validateQuestionnaireResponseItemType(errors, answer, ns, "uri");
+				break;
+			case ATTACHMENT:    
+				validateQuestionnaireResponseItemType(errors, answer, ns, "Attachment");
+				break;
+			case REFERENCE:     
+				validateQuestionnaireResponseItemType(errors, answer, ns, "Reference");
+				break;
+			case QUANTITY:   
+				if (validateQuestionnaireResponseItemType(errors, answer, ns, "Quantity").equals("Quantity"))
+					if (qItem.hasExtension("???"))
+						validateQuestionnaireResponseItemQuantity(errors, answer, ns);
+				break;
+			case CHOICE:     
+				String itemType=validateQuestionnaireResponseItemType(errors, answer, ns, "Coding", "date", "time", "integer", "string");
+				if (itemType.equals("Coding")) validateAnswerCode(errors, answer, ns, qsrc, qItem, false);
+				else if (itemType.equals("date")) checkOption(errors, answer, ns, qsrc, qItem, "date");
+				else if (itemType.equals("time")) checkOption(errors, answer, ns, qsrc, qItem, "time");
+				else if (itemType.equals("integer")) checkOption(errors, answer, ns, qsrc, qItem, "integer");
+				else if (itemType.equals("string")) checkOption(errors, answer, ns, qsrc, qItem, "string");
+				break;
+			case OPENCHOICE: 
+				itemType=validateQuestionnaireResponseItemType(errors, answer, ns, "Coding", "date", "time", "integer", "string");
+				if (itemType.equals("Coding")) validateAnswerCode(errors, answer, ns, qsrc, qItem, true);
+				else if (itemType.equals("date")) checkOption(errors, answer, ns, qsrc, qItem, "date");
+				else if (itemType.equals("time")) checkOption(errors, answer, ns, qsrc, qItem, "time");
+				else if (itemType.equals("integer")) checkOption(errors, answer, ns, qsrc, qItem, "integer");
+				else if (itemType.equals("string")) checkOption(errors, answer, ns, qsrc, qItem, "string", true);
+				break;
+			}
+			validateQuestionannaireResponseItems(qsrc, qItem.getItem(), errors, answer, stack, inProgress);
+		}
+		if (qItem.getType() == null) {
+			fail(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), false, "Definition for item "+qItem.getLinkId() + " does not contain a type");
+		} else if (qItem.getType() == QuestionnaireItemType.GROUP) {
+			validateQuestionannaireResponseItems(qsrc, qItem.getItem(), errors, element, stack, inProgress);
+		} else {
+			List<Element> items = new ArrayList<Element>();
+			element.getNamedChildren("item", items);
+			for (Element item : items) {
+				NodeStack ns = stack.push(item, -1, null, null);
+				rule(errors, IssueType.STRUCTURE, answers.get(0).line(), answers.get(0).col(), stack.getLiteralPath(), false, "Items not of type group should not have items - Item with linkId {0} of type {1} has {2} item(s)", qItem.getLinkId(), qItem.getType(), items.size());
+			}
+		}
 	}
 
 	private void validateQuestionannaireResponseItem(Questionnaire qsrc, QuestionnaireItemComponent qItem, List<ValidationMessage> errors, List<Element> elements, NodeStack stack, boolean inProgress) {
-	  if (elements.size() > 1)
-	    rule(errors, IssueType.INVALID, elements.get(1).line(), elements.get(1).col(), stack.getLiteralPath(), qItem.getRepeats(), "Only one response item with this linkId allowed");
-	  for (Element element : elements) {
-	    NodeStack ns = stack.push(element, -1, null, null);
-	    validateQuestionannaireResponseItem(qsrc, qItem, errors, element, ns, inProgress);
-	  }
+		if (elements.size() > 1)
+			rule(errors, IssueType.INVALID, elements.get(1).line(), elements.get(1).col(), stack.getLiteralPath(), qItem.getRepeats(), "Only one response item with this linkId allowed");
+		for (Element element : elements) {
+			NodeStack ns = stack.push(element, -1, null, null);
+			validateQuestionannaireResponseItem(qsrc, qItem, errors, element, ns, inProgress);
+		}
 	}
 
 	private int getLinkIdIndex(List<QuestionnaireItemComponent> qItems, String linkId) {
-	  for (int i = 0; i < qItems.size(); i++) {
-	    if (linkId.equals(qItems.get(i).getLinkId()))
-	      return i;
-	  }
-	  return -1;
+		for (int i = 0; i < qItems.size(); i++) {
+			if (linkId.equals(qItems.get(i).getLinkId()))
+				return i;
+		}
+		return -1;
 	}
 
 	private void validateQuestionannaireResponseItems(Questionnaire qsrc, List<QuestionnaireItemComponent> qItems, List<ValidationMessage> errors, Element element, NodeStack stack, boolean inProgress) {
-	  List<Element> items = new ArrayList<Element>();
-	  element.getNamedChildren("item", items);
-	  // now, sort into stacks
-	  Map<String, List<Element>> map = new HashMap<String, List<Element>>();
-	  int lastIndex = -1;
-	  for (Element item : items) {
-	    String linkId = item.getNamedChildValue("linkId");
-	    if (rule(errors, IssueType.REQUIRED, item.line(), item.col(), stack.getLiteralPath(), !Utilities.noString(linkId), "No LinkId, so can't be validated")) {
-	      int index = getLinkIdIndex(qItems, linkId);
-	      if (index == -1) {
-	        QuestionnaireItemComponent qItem = findQuestionnaireItem(qsrc, linkId);
-	        if (qItem != null) {
-	          rule(errors, IssueType.STRUCTURE, item.line(), item.col(), stack.getLiteralPath(), index > -1, "Structural Error: item is in the wrong place");
-	          NodeStack ns = stack.push(item, -1, null, null);
-	          validateQuestionannaireResponseItem(qsrc, qItem, errors, element, ns, inProgress);
-	        }
-	        else
-	          rule(errors, IssueType.NOTFOUND, item.line(), item.col(), stack.getLiteralPath(), index > -1, "LinkId \""+linkId+"\" not found in questionnaire");
-	      }
-	      else
-	      {
-	        rule(errors, IssueType.STRUCTURE, item.line(), item.col(), stack.getLiteralPath(), index >= lastIndex, "Structural Error: items are out of order");
-	        lastIndex = index;
-	        List<Element> mapItem = map.get(linkId);
-	        if (mapItem == null) {
-	          mapItem = new ArrayList<Element>();
-	          map.put(linkId, mapItem);
-	        }
-	        mapItem.add(item);
-	      }
-	    }
-	  }
+		List<Element> items = new ArrayList<Element>();
+		element.getNamedChildren("item", items);
+		// now, sort into stacks
+		Map<String, List<Element>> map = new HashMap<String, List<Element>>();
+		int lastIndex = -1;
+		for (Element item : items) {
+			String linkId = item.getNamedChildValue("linkId");
+			if (rule(errors, IssueType.REQUIRED, item.line(), item.col(), stack.getLiteralPath(), !Utilities.noString(linkId), "No LinkId, so can't be validated")) {
+				int index = getLinkIdIndex(qItems, linkId);
+				if (index == -1) {
+					QuestionnaireItemComponent qItem = findQuestionnaireItem(qsrc, linkId);
+					if (qItem != null) {
+						rule(errors, IssueType.STRUCTURE, item.line(), item.col(), stack.getLiteralPath(), index > -1, "Structural Error: item is in the wrong place");
+						NodeStack ns = stack.push(item, -1, null, null);
+						validateQuestionannaireResponseItem(qsrc, qItem, errors, element, ns, inProgress);
+					}
+					else
+						rule(errors, IssueType.NOTFOUND, item.line(), item.col(), stack.getLiteralPath(), index > -1, "LinkId \""+linkId+"\" not found in questionnaire");
+				}
+				else
+				{
+					rule(errors, IssueType.STRUCTURE, item.line(), item.col(), stack.getLiteralPath(), index >= lastIndex, "Structural Error: items are out of order");
+					lastIndex = index;
+					List<Element> mapItem = map.get(linkId);
+					if (mapItem == null) {
+						mapItem = new ArrayList<Element>();
+						map.put(linkId, mapItem);
+					}
+					mapItem.add(item);
+				}
+			}
+		}
 
-	  // ok, now we have a list of known items, grouped by linkId. We"ve made an error for anything out of order
-	  for (QuestionnaireItemComponent qItem : qItems) {
-	    List<Element> mapItem = map.get(qItem.getLinkId());
-	    if (mapItem != null)
-	      validateQuestionannaireResponseItem(qsrc, qItem, errors, mapItem, stack, inProgress);
-	    else
-	      rule(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), !qItem.getRequired(), "No response found for required item "+qItem.getLinkId());
-	  }
+		// ok, now we have a list of known items, grouped by linkId. We"ve made an error for anything out of order
+		for (QuestionnaireItemComponent qItem : qItems) {
+			List<Element> mapItem = map.get(qItem.getLinkId());
+			if (mapItem != null)
+				validateQuestionannaireResponseItem(qsrc, qItem, errors, mapItem, stack, inProgress);
+			else
+				rule(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), !qItem.getRequired(), "No response found for required item "+qItem.getLinkId());
+		}
 	}
 
 	private void validateQuestionnaireResponseItemQuantity( List<ValidationMessage> errors, Element answer, NodeStack stack)	{
@@ -1698,40 +1698,40 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	}
 
 	private String validateQuestionnaireResponseItemType(List<ValidationMessage> errors, Element element, NodeStack stack, String... types) {
-	  List<Element> values = new ArrayList<Element>();
-	  element.getNamedChildrenWithWildcard("value[x]", values);
-	  if (values.size() > 0) {
-	    NodeStack ns = stack.push(values.get(0), -1, null, null);
-	    CommaSeparatedStringBuilder l = new CommaSeparatedStringBuilder();
-	    for (String s : types)  {
-	      l.append(s);
-	      if (values.get(0).getName().equals("value"+Utilities.capitalize(s))) 
-	        return(s);
-	    }
-	    if (types.length == 1)
-	      rule(errors, IssueType.STRUCTURE, values.get(0).line(), values.get(0).col(), ns.getLiteralPath(), false, "Answer value must be of type "+types[0]);
-	    else
-	      rule(errors, IssueType.STRUCTURE, values.get(0).line(), values.get(0).col(), ns.getLiteralPath(), false, "Answer value must be one of the types "+l.toString());
-	  }
-	  return null;
+		List<Element> values = new ArrayList<Element>();
+		element.getNamedChildrenWithWildcard("value[x]", values);
+		if (values.size() > 0) {
+			NodeStack ns = stack.push(values.get(0), -1, null, null);
+			CommaSeparatedStringBuilder l = new CommaSeparatedStringBuilder();
+			for (String s : types)  {
+				l.append(s);
+				if (values.get(0).getName().equals("value"+Utilities.capitalize(s))) 
+					return(s);
+			}
+			if (types.length == 1)
+				rule(errors, IssueType.STRUCTURE, values.get(0).line(), values.get(0).col(), ns.getLiteralPath(), false, "Answer value must be of type "+types[0]);
+			else
+				rule(errors, IssueType.STRUCTURE, values.get(0).line(), values.get(0).col(), ns.getLiteralPath(), false, "Answer value must be one of the types "+l.toString());
+		}
+		return null;
 	}
 
 	private QuestionnaireItemComponent findQuestionnaireItem(Questionnaire qSrc, String linkId) {
-	  return findItem(qSrc.getItem(), linkId);
+		return findItem(qSrc.getItem(), linkId);
 	}
 
 	private QuestionnaireItemComponent findItem(List<QuestionnaireItemComponent> list, String linkId) {
-	  for (QuestionnaireItemComponent item : list) {
-	    if (linkId.equals(item.getLinkId()))
-	      return item;
-	    QuestionnaireItemComponent result = findItem(item.getItem(), linkId);
-	    if (result != null)
-	      return result;
-	  }
-	  return null;
+		for (QuestionnaireItemComponent item : list) {
+			if (linkId.equals(item.getLinkId()))
+				return item;
+			QuestionnaireItemComponent result = findItem(item.getItem(), linkId);
+			if (result != null)
+				return result;
+		}
+		return null;
 	}
 
-/*	private void validateAnswerCode(List<ValidationMessage> errors, Element value, NodeStack stack, List<Coding> optionList) {
+	/*	private void validateAnswerCode(List<ValidationMessage> errors, Element value, NodeStack stack, List<Coding> optionList) {
 	  String system = value.getNamedChildValue("system");
 	  String code = value.getNamedChildValue("code");
 	  boolean found = false;
@@ -1745,37 +1745,37 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	}*/
 
 	private void validateAnswerCode(List<ValidationMessage> errors, Element value, NodeStack stack, Questionnaire qSrc, Reference ref, boolean theOpenChoice) {
-	  ValueSet vs = resolveBindingReference(qSrc, ref);
-	  if (warning(errors, IssueType.CODEINVALID, value.line(), value.col(), stack.getLiteralPath(), vs != null, "ValueSet " + describeReference(ref) + " not found"))  {
-	    try {
-	      Coding c = readAsCoding(value);
-	      if (isBlank(c.getCode()) && isBlank(c.getSystem()) && isNotBlank(c.getDisplay())) {
-	      	if (theOpenChoice) {
-	      		return;
-	      	}
-	      }
-	      
+		ValueSet vs = resolveBindingReference(qSrc, ref);
+		if (warning(errors, IssueType.CODEINVALID, value.line(), value.col(), stack.getLiteralPath(), vs != null, "ValueSet " + describeReference(ref) + " not found"))  {
+			try {
+				Coding c = readAsCoding(value);
+				if (isBlank(c.getCode()) && isBlank(c.getSystem()) && isNotBlank(c.getDisplay())) {
+					if (theOpenChoice) {
+						return;
+					}
+				}
+
 				long t = System.nanoTime();
-	      ValidationResult res = context.validateCode(c, vs);
+				ValidationResult res = context.validateCode(c, vs);
 				txTime = txTime + (System.nanoTime() - t);
-	      if (!res.isOk())
-	        rule(errors, IssueType.CODEINVALID, value.line(), value.col(), stack.getLiteralPath(), false, "The value provided ("+c.getSystem()+"::"+c.getCode()+") is not in the options value set in the questionnaire");
-	    } catch (Exception e) {
-	      warning(errors, IssueType.CODEINVALID, value.line(), value.col(), stack.getLiteralPath(), false, "Error " + e.getMessage() + " validating Coding against Questionnaire Options");
-	    }
-	  }
+				if (!res.isOk())
+					rule(errors, IssueType.CODEINVALID, value.line(), value.col(), stack.getLiteralPath(), false, "The value provided ("+c.getSystem()+"::"+c.getCode()+") is not in the options value set in the questionnaire");
+			} catch (Exception e) {
+				warning(errors, IssueType.CODEINVALID, value.line(), value.col(), stack.getLiteralPath(), false, "Error " + e.getMessage() + " validating Coding against Questionnaire Options");
+			}
+		}
 	}
 
 	private void validateAnswerCode( List<ValidationMessage> errors, Element answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean theOpenChoice) {
-	  Element v = answer.getNamedChild("valueCoding");
-	  NodeStack ns = stack.push(v, -1, null, null);
-	  if (qItem.getOption().size() > 0)
-	  	checkCodingOption(errors, answer, stack, qSrc, qItem, theOpenChoice);
-//	    validateAnswerCode(errors, v, stack, qItem.getOption());
-	  else if (qItem.hasOptions())
-	    validateAnswerCode(errors, v, stack, qSrc, qItem.getOptions(), theOpenChoice);
-	  else
-	    hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate options because no option or options are provided");
+		Element v = answer.getNamedChild("valueCoding");
+		NodeStack ns = stack.push(v, -1, null, null);
+		if (qItem.getOption().size() > 0)
+			checkCodingOption(errors, answer, stack, qSrc, qItem, theOpenChoice);
+		//	    validateAnswerCode(errors, v, stack, qItem.getOption());
+		else if (qItem.hasOptions())
+			validateAnswerCode(errors, v, stack, qSrc, qItem.getOptions(), theOpenChoice);
+		else
+			hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate options because no option or options are provided");
 	}
 
 	private void checkOption( List<ValidationMessage> errors, Element answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, String type) {
@@ -1791,167 +1791,167 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	}
 
 	private void checkIntegerOption( List<ValidationMessage> errors, Element answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
-	  Element v = answer.getNamedChild("valueInteger");
-	  NodeStack ns = stack.push(v, -1, null, null);
-	  if (qItem.getOption().size() > 0) {
+		Element v = answer.getNamedChild("valueInteger");
+		NodeStack ns = stack.push(v, -1, null, null);
+		if (qItem.getOption().size() > 0) {
 			List<IntegerType> list = new ArrayList<IntegerType>();
-	    for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
-	    	try {
-    			list.add(components.getValueIntegerType());
-    		} catch (FHIRException e) {
-    			// If it's the wrong type, just keep going
-    		}
-	    }
-	  	if (list.isEmpty() && !openChoice) {
-		    rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type integer");
-	  	} else {
-	  		boolean found = false;
-			  for (IntegerType item : list) {
-		      if (item.getValue() == Integer.parseInt(v.primitiveValue())) {
-	  			      found = true;
-			      break;
-			    }
-			  }
-			  if (!found) {
-			  	rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The integer "+v.primitiveValue()+" is not a valid option");
-			  }
-	  	}
-	  } else
-	    hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate integer answer option because no option list is provided");
+			for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+				try {
+					list.add(components.getValueIntegerType());
+				} catch (FHIRException e) {
+					// If it's the wrong type, just keep going
+				}
+			}
+			if (list.isEmpty() && !openChoice) {
+				rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type integer");
+			} else {
+				boolean found = false;
+				for (IntegerType item : list) {
+					if (item.getValue() == Integer.parseInt(v.primitiveValue())) {
+						found = true;
+						break;
+					}
+				}
+				if (!found) {
+					rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The integer "+v.primitiveValue()+" is not a valid option");
+				}
+			}
+		} else
+			hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate integer answer option because no option list is provided");
 	}
 
 	private void checkDateOption( List<ValidationMessage> errors, Element answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
-	  Element v = answer.getNamedChild("valueDate");
-	  NodeStack ns = stack.push(v, -1, null, null);
-	  if (qItem.getOption().size() > 0) {
+		Element v = answer.getNamedChild("valueDate");
+		NodeStack ns = stack.push(v, -1, null, null);
+		if (qItem.getOption().size() > 0) {
 			List<DateType> list = new ArrayList<DateType>();
-	    for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
-	    	try {
-    			list.add(components.getValueDateType());
-    		} catch (FHIRException e) {
-    			// If it's the wrong type, just keep going
-    		}
-	    }
-	  	if (list.isEmpty() && !openChoice) {
-		    rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type date");
-	  	} else {
-	  		boolean found = false;
-			  for (DateType item : list) {
-		      if (item.getValue().equals(v.primitiveValue())) {
-	  			      found = true;
-			      break;
-			    }
-			  }
-			  if (!found) {
-			  	rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The date "+v.primitiveValue()+" is not a valid option");
-			  }
-	  	}
-	  } else
-	    hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate date answer option because no option list is provided");
+			for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+				try {
+					list.add(components.getValueDateType());
+				} catch (FHIRException e) {
+					// If it's the wrong type, just keep going
+				}
+			}
+			if (list.isEmpty() && !openChoice) {
+				rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type date");
+			} else {
+				boolean found = false;
+				for (DateType item : list) {
+					if (item.getValue().equals(v.primitiveValue())) {
+						found = true;
+						break;
+					}
+				}
+				if (!found) {
+					rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The date "+v.primitiveValue()+" is not a valid option");
+				}
+			}
+		} else
+			hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate date answer option because no option list is provided");
 	}
 
 	private void checkTimeOption( List<ValidationMessage> errors, Element answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
-	  Element v = answer.getNamedChild("valueTime");
-	  NodeStack ns = stack.push(v, -1, null, null);
-	  if (qItem.getOption().size() > 0) {
+		Element v = answer.getNamedChild("valueTime");
+		NodeStack ns = stack.push(v, -1, null, null);
+		if (qItem.getOption().size() > 0) {
 			List<TimeType> list = new ArrayList<TimeType>();
-	    for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
-	    	try {
-    			list.add(components.getValueTimeType());
-    		} catch (FHIRException e) {
-    			// If it's the wrong type, just keep going
-    		}
-	    }
-	  	if (list.isEmpty() && !openChoice) {
-		    rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type time");
-	  	} else {
-	  		boolean found = false;
-			  for (TimeType item : list) {
-		      if (item.getValue().equals(v.primitiveValue())) {
-	  			      found = true;
-			      break;
-			    }
-			  }
-			  if (!found) {
-			  	rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The time "+v.primitiveValue()+" is not a valid option");
-			  }
-	  	}
-	  } else
-	    hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate time answer option because no option list is provided");
+			for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+				try {
+					list.add(components.getValueTimeType());
+				} catch (FHIRException e) {
+					// If it's the wrong type, just keep going
+				}
+			}
+			if (list.isEmpty() && !openChoice) {
+				rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type time");
+			} else {
+				boolean found = false;
+				for (TimeType item : list) {
+					if (item.getValue().equals(v.primitiveValue())) {
+						found = true;
+						break;
+					}
+				}
+				if (!found) {
+					rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The time "+v.primitiveValue()+" is not a valid option");
+				}
+			}
+		} else
+			hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate time answer option because no option list is provided");
 	}
 
 	private void checkStringOption( List<ValidationMessage> errors, Element answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
-	  Element v = answer.getNamedChild("valueString");
-	  NodeStack ns = stack.push(v, -1, null, null);
-	  if (qItem.getOption().size() > 0) {
+		Element v = answer.getNamedChild("valueString");
+		NodeStack ns = stack.push(v, -1, null, null);
+		if (qItem.getOption().size() > 0) {
 			List<StringType> list = new ArrayList<StringType>();
-	    for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
-	    	try {
-	    		if (components.getValue() != null) {
-	    			list.add(components.getValueStringType());
-	    		}
-    		} catch (FHIRException e) {
-    			// If it's the wrong type, just keep going
-    		}
-	    }
-	  	if (list.isEmpty() && !openChoice) {
-		    rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type string");
-	  	} else {
-	  		boolean found = false;
-			  for (StringType item : list) {
-		      if (item.getValue().equals((v.primitiveValue()))) {
-	  			      found = true;
-			      break;
-			    }
-			  }
-			  if (!found) {
-			  	rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The string "+v.primitiveValue()+" is not a valid option");
-			  }
-	  	}
-	  } else {
-	    hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate string answer option because no option list is provided");
-	  }
+			for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+				try {
+					if (components.getValue() != null) {
+						list.add(components.getValueStringType());
+					}
+				} catch (FHIRException e) {
+					// If it's the wrong type, just keep going
+				}
+			}
+			if (list.isEmpty() && !openChoice) {
+				rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type string");
+			} else {
+				boolean found = false;
+				for (StringType item : list) {
+					if (item.getValue().equals((v.primitiveValue()))) {
+						found = true;
+						break;
+					}
+				}
+				if (!found) {
+					rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The string "+v.primitiveValue()+" is not a valid option");
+				}
+			}
+		} else {
+			hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate string answer option because no option list is provided");
+		}
 	}
 
 	private void checkCodingOption( List<ValidationMessage> errors, Element answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
-	  Element v = answer.getNamedChild("valueCoding");
-	  String system = v.getNamedChildValue("system");
-	  String code = v.getNamedChildValue("code");
-	  NodeStack ns = stack.push(v, -1, null, null);
-	  if (qItem.getOption().size() > 0) {
+		Element v = answer.getNamedChild("valueCoding");
+		String system = v.getNamedChildValue("system");
+		String code = v.getNamedChildValue("code");
+		NodeStack ns = stack.push(v, -1, null, null);
+		if (qItem.getOption().size() > 0) {
 			List<Coding> list = new ArrayList<Coding>();
-	    for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
-	    	try {
-	    		if (components.getValue() != null) {
-	    			list.add(components.getValueCoding());
-	    		}
-    		} catch (FHIRException e) {
-    			// If it's the wrong type, just keep going
-    		}
-	    }
-	  	if (list.isEmpty() && !openChoice) {
-		    rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type coding");
-	  	} else {
-	  		boolean found = false;
-			  for (Coding item : list) {
-		      if (ObjectUtil.equals(item.getSystem(), system) && ObjectUtil.equals(item.getCode(), code)) {
-			      found = true;
-			      break;
-			    }
-			  }
-			  if (!found) {
-			  	rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The code "+system+"::"+code+" is not a valid option");
-			  }
-	  	}
-	  } else
-	    hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate Coding option because no option list is provided");
+			for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+				try {
+					if (components.getValue() != null) {
+						list.add(components.getValueCoding());
+					}
+				} catch (FHIRException e) {
+					// If it's the wrong type, just keep going
+				}
+			}
+			if (list.isEmpty() && !openChoice) {
+				rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type coding");
+			} else {
+				boolean found = false;
+				for (Coding item : list) {
+					if (ObjectUtil.equals(item.getSystem(), system) && ObjectUtil.equals(item.getCode(), code)) {
+						found = true;
+						break;
+					}
+				}
+				if (!found) {
+					rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The code "+system+"::"+code+" is not a valid option");
+				}
+			}
+		} else
+			hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate Coding option because no option list is provided");
 	}
 
 	private String tail(String path) {
 		return path.substring(path.lastIndexOf(".") + 1);
 	}
 
-  private String tryParse(String ref)  {
+	private String tryParse(String ref)  {
 		String[] parts = ref.split("\\/");
 		switch (parts.length) {
 		case 1:
@@ -1991,7 +1991,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 				NodeStack localStack = firstStack.push(resource, -1, null, null);
 				String id = resource.getNamedChildValue("id");
 				if (rule(errors, IssueType.INVALID, firstEntry.line(), firstEntry.col(), stack.addToLiteralPath("entry", ":0"), resource != null, "No resource on first entry")) {
-						validateDocument(errors, entries, resource, localStack.push(resource, -1, null, null), fullUrl, id);
+					validateDocument(errors, entries, resource, localStack.push(resource, -1, null, null), fullUrl, id);
 				}
 			}
 			if (type.equals("message"))
@@ -2010,7 +2010,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		String resourceName = element.getType();
 		long t = System.nanoTime();
 		StructureDefinition profile = this.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + resourceName);
-    sdTime = sdTime + (System.nanoTime() - t);
+		sdTime = sdTime + (System.nanoTime() - t);
 		// special case: resource wrapper is reset if we're crossing a bundle boundary, but not otherwise
 		if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY) 
 			resource = element;
@@ -2025,7 +2025,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			// the composition subject and section references must resolve in the bundle
 			Element elem = composition.getNamedChild("subject");
 			if (rule(errors, IssueType.INVALID, composition.line(), composition.col(), stack.getLiteralPath(), elem != null, "A document composition must have a subject"))
-        validateBundleReference(errors, entries, elem, "Composition Subject", stack.push(elem, -1, null, null), fullUrl, "Composition", id);
+				validateBundleReference(errors, entries, elem, "Composition Subject", stack.push(elem, -1, null, null), fullUrl, "Composition", id);
 			validateSections(errors, entries, composition, stack, fullUrl, id);
 		}
 	}
@@ -2038,11 +2038,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 	long time = 0;
 	private void validateElement(List<ValidationMessage> errors, StructureDefinition profile, ElementDefinition definition, StructureDefinition cprofile, ElementDefinition context,
-			  Element resource, Element element, String actualType, NodeStack stack, boolean inCodeableConcept) throws FHIRException, FHIRException {
+			Element resource, Element element, String actualType, NodeStack stack, boolean inCodeableConcept) throws FHIRException, FHIRException {
 		element.markValidation(profile, definition);
 
-//		System.out.println("  "+stack.getLiteralPath()+" "+Long.toString((System.nanoTime() - time) / 1000000));
-//		time = System.nanoTime();
+		//		System.out.println("  "+stack.getLiteralPath()+" "+Long.toString((System.nanoTime() - time) / 1000000));
+		//		time = System.nanoTime();
 		checkInvariants(errors, stack.getLiteralPath(), profile, definition, null, null, resource, element);
 
 		// get the list of direct defined children, including slices
@@ -2148,8 +2148,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 							rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), stack.getLiteralPath(), false,
 									"The element " + ei.name + " is illegal. Valid types at this point are " + describeTypes(ei.definition.getType()));
 					}
-        } else if (ei.definition.getContentReference() != null) {
-          typeDefn = resolveNameReference(profile.getSnapshot(), ei.definition.getContentReference());
+				} else if (ei.definition.getContentReference() != null) {
+					typeDefn = resolveNameReference(profile.getSnapshot(), ei.definition.getContentReference());
 				}
 
 				if (type != null) {
@@ -2213,18 +2213,18 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 				return IdStatus.OPTIONAL;
 			} if (method == null) {
 				if (fullUrl == null)
-				  return IdStatus.REQUIRED;
+					return IdStatus.REQUIRED;
 				else if (fullUrl.primitiveValue().startsWith("urn:uuid:"))
-				  return IdStatus.OPTIONAL;
+					return IdStatus.OPTIONAL;
 				else
-				  return IdStatus.REQUIRED;
+					return IdStatus.REQUIRED;
 			} else {
 				String s = method.primitiveValue();
 				if (s.equals("PUT")) {
 					if (url == null)
-					  return IdStatus.REQUIRED;
+						return IdStatus.REQUIRED;
 					else
-					  return IdStatus.OPTIONAL; // or maybe prohibited? not clear
+						return IdStatus.OPTIONAL; // or maybe prohibited? not clear
 				} else if (s.equals("POST"))
 					return IdStatus.OPTIONAL; // this should be prohibited, but see task 9102
 				else // actually, we should never get to here; a bundle entry with method get/delete should not have a resource
@@ -2242,21 +2242,21 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 				ExpressionNode n = (ExpressionNode) inv.getUserData("validator.expression.cache");
 				if (n == null) {
 					long t = System.nanoTime();
-				  n = fpe.parse(inv.getExpression());
-				  fpeTime = fpeTime + (System.nanoTime() - t);
-				  inv.setUserData("validator.expression.cache", n);
+					n = fpe.parse(inv.getExpression());
+					fpeTime = fpeTime + (System.nanoTime() - t);
+					inv.setUserData("validator.expression.cache", n);
 				}
-				
+
 				String msg;
 				boolean ok;
 				try {
 					long t = System.nanoTime();
-		      ok = fpe.evaluateToBoolean(resource, element, n);
-				  fpeTime = fpeTime + (System.nanoTime() - t);
-		      msg = fpe.forLog();
+					ok = fpe.evaluateToBoolean(resource, element, n);
+					fpeTime = fpeTime + (System.nanoTime() - t);
+					msg = fpe.forLog();
 				} catch (Exception ex) {
-				  ok = false;
-				  msg = ex.getMessage(); 
+					ok = false;
+					msg = ex.getMessage(); 
 				}
 				if (!ok) {
 					if (inv.getSeverity() == ConstraintSeverity.ERROR)
@@ -2296,7 +2296,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			if (profile == null) {
 				long t = System.nanoTime();
 				profile = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + resourceName);
-		    sdTime = sdTime + (System.nanoTime() - t);
+				sdTime = sdTime + (System.nanoTime() - t);
 				ok = rule(errors, IssueType.INVALID, element.line(), element.col(), stack.addToLiteralPath(resourceName), profile != null, "No profile found for resource type '" + resourceName + "'");
 			} else {
 				String type = profile.getKind() == StructureDefinitionKind.LOGICAL ? profile.getId() : profile.hasBaseType() && profile.getDerivation() == TypeDerivationRule.CONSTRAINT ? profile.getBaseType() : profile.getName();
@@ -2412,10 +2412,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			int i = count();
 			String sfx = "";
 			if (i > -1) {
-  			sfx = "[" + Integer.toString(lastCount + 1) + "]";
+				sfx = "[" + Integer.toString(lastCount + 1) + "]";
 			}
 			return basePath + "." + name() + sfx;
-    }
+		}
 	}
 
 	private class NodeStack {
@@ -2429,7 +2429,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 		public NodeStack() {
 		}
-		
+
 		public NodeStack(Element element) {
 			this.element = element;
 			literalPath = element.getName();
@@ -2438,16 +2438,16 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		public String addToLiteralPath(String... path) {
 			StringBuilder b = new StringBuilder();
 			b.append(getLiteralPath());
-				for (String p : path) {
-					if (p.startsWith(":")) {
-						b.append("[");
-						b.append(p.substring(1));
-						b.append("]");
-					} else {
-			    b.append(".");
-						b.append(p);
-					}	  
+			for (String p : path) {
+				if (p.startsWith(":")) {
+					b.append("[");
+					b.append(p.substring(1));
+					b.append("]");
+				} else {
+					b.append(".");
+					b.append(p);
 				}	  
+			}	  
 			return b.toString();
 		}
 
@@ -2476,9 +2476,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			res.parent = this;
 			res.element = element;
 			res.definition = definition;
-  		res.literalPath = getLiteralPath() + "." + element.getName();
-				if (count > -1)
-					res.literalPath = res.literalPath + "[" + Integer.toString(count) + "]";
+			res.literalPath = getLiteralPath() + "." + element.getName();
+			if (count > -1)
+				res.literalPath = res.literalPath + "[" + Integer.toString(count) + "]";
 			res.logicalPaths = new ArrayList<String>();
 			if (type != null) {
 				// type will be bull if we on a stitching point of a contained resource, or if....
@@ -2507,47 +2507,47 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		}
 	}
 
-  private void checkForProcessingInstruction(List<ValidationMessage> errors, Document document) {
-    Node node = document.getFirstChild();
-    while (node != null) {
-      rule(errors, IssueType.INVALID, -1, -1, "(document)", node.getNodeType() != Node.PROCESSING_INSTRUCTION_NODE, "No processing instructions allowed in resources");
-      node = node.getNextSibling();
-    }
+	private void checkForProcessingInstruction(List<ValidationMessage> errors, Document document) {
+		Node node = document.getFirstChild();
+		while (node != null) {
+			rule(errors, IssueType.INVALID, -1, -1, "(document)", node.getNodeType() != Node.PROCESSING_INSTRUCTION_NODE, "No processing instructions allowed in resources");
+			node = node.getNextSibling();
+		}
+	}
+
+	public class ElementInfo {
+
+		public int index;
+		public int count;
+		public ElementDefinition definition;
+		private Element element;
+		private String name;
+		private String path;
+
+		public ElementInfo(String name, Element element, String path, int count) {
+			this.name = name;
+			this.element = element;
+			this.path = path;
+			this.count = count;
 		}
 
-  public class ElementInfo {
-
-    public int index;
-	public int count;
-    public ElementDefinition definition;
-    private Element element;
-    private String name;
-    private String path;
-
-    public ElementInfo(String name, Element element, String path, int count) {
-      this.name = name;
-      this.element = element;
-      this.path = path;
-      this.count = count;
+		public int col() {
+			return element.col();
 		}
 
-    public int col() {
-      return element.col();
-		}
-
-    public int line() {
-      return element.line();
+		public int line() {
+			return element.line();
 		}
 
 	}
 
-  public String reportTimes() {
-  	String s = String.format("Times: overall = %d, tx = %d, sd = %d, load = %d, fpe = %d", overall, txTime, sdTime, loadTime, fpeTime);
-  	overall = 0;
-  	txTime = 0;
-  	sdTime = 0;
-  	loadTime = 0;
-  	fpeTime = 0;
-  	return s;
-  }
+	public String reportTimes() {
+		String s = String.format("Times: overall = %d, tx = %d, sd = %d, load = %d, fpe = %d", overall, txTime, sdTime, loadTime, fpeTime);
+		overall = 0;
+		txTime = 0;
+		sdTime = 0;
+		loadTime = 0;
+		fpeTime = 0;
+		return s;
+	}
 }

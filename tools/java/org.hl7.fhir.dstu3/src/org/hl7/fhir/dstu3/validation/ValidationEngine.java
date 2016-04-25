@@ -106,7 +106,6 @@ public class ValidationEngine {
   private OperationOutcome outcome;
 	private boolean noSchematron;
 	private StructureDefinition profile;
-  private Bundle logical;
 	private Questionnaire questionnaire;
 	private String profileURI;
 	private SimpleWorkerContext context;
@@ -161,7 +160,6 @@ public class ValidationEngine {
     factory.setNamespaceAware(true);
     Document doc;
     
-    if (logical == null) {
     factory.setValidating(false);
     factory.setSchema(schema);
     DocumentBuilder builder = factory.newDocumentBuilder();
@@ -176,7 +174,6 @@ public class ValidationEngine {
 			}
 			byte[] out = Utilities.saxonTransform(definitions, source, schCache);
     	processSchematronOutput(out);
-    }
     }
 
 		// 3. internal validation. reparse without schema to "help", and use a special parser that keeps location data for us
@@ -352,14 +349,6 @@ public class ValidationEngine {
     this.profile = profile;
   }
 
-  public Bundle getLogical() {
-    return logical;
-  }
-
-  public void setLogical(Bundle logical) {
-    this.logical = logical;
-  }
-
   public Questionnaire getQuestionnaire() {
     return questionnaire;
   }
@@ -376,27 +365,6 @@ public class ValidationEngine {
   public SimpleWorkerContext getContext() {
     return context;
 	}
-
-  public void loadFromFolder(String folder) throws FileNotFoundException, Exception {
-    System.out.println("  .. load additional definitions from "+folder);
-    for (String n : new File(folder).list()) {
-      if (n.endsWith(".json")) 
-        loadFromFile(Utilities.path(folder, n), new JsonParser());
-      else if (n.endsWith(".xml")) 
-        loadFromFile(Utilities.path(folder, n), new XmlParser());
-    }
-  }
-  
-  private void loadFromFile(String filename, IParser p) throws FileNotFoundException, Exception {
-    Resource r = p.parse(new FileInputStream(filename));
-    if (r.getResourceType() == ResourceType.Bundle) {
-       for (BundleEntryComponent e : ((Bundle) r).getEntry()) {
-         context.seeResource(null, e.getResource());
-       }
-    } else {
-      context.seeResource(null, r);
-    }
-  }
 
 
 	public void readDefinitions(byte[] defn) throws IOException, SAXException, FHIRException {
@@ -458,13 +426,6 @@ public class ValidationEngine {
 				setProfile(readProfile(loadResourceCnt(profile, "profile")));
 		}
 	}
-
-  public void loadLogical(String logical) throws DefinitionException, Exception {
-    if (!Utilities.noString(logical)) { 
-      System.out.println("  .. load logical "+logical);
-      setLogical(readLogical(loadResourceCnt(logical, "logical")));
-    }
-  }
 
   public void loadQuestionnaire(String questionnaire) throws DefinitionException, Exception {
     if (!Utilities.noString(questionnaire)) { 

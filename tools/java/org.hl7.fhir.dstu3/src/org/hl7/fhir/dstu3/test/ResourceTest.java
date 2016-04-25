@@ -54,7 +54,7 @@ public class ResourceTest {
     this.source = source;
   }
   
-  public void test() throws FHIRFormatError, FileNotFoundException, IOException {
+  public Resource test() throws FHIRFormatError, FileNotFoundException, IOException {
     
     IParser p;
     if (isJson())
@@ -77,6 +77,7 @@ public class ResourceTest {
     atom.setOutputStyle(OutputStyle.PRETTY);
     atom.compose(out, rf, true);
     out.close();
+    return rf;
     
   }
 

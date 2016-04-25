@@ -15,6 +15,7 @@ import java.util.TimeZone;
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.exceptions.PathEngineException;
+import org.hl7.fhir.dstu3.metamodel.ParserBase;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.Bundle;
@@ -226,36 +227,32 @@ public class FHIRPathEngine {
 	 */
   public TypeDetails check(Object appContext, String resourceType, String context, ExpressionNode expr) throws FHIRLexerException, PathEngineException, DefinitionException {
 		// if context is a path that refers to a type, do that conversion now 
-		if (!allTypes.containsKey(context))
-		  context = checkCanConvertToType(context);
-    TypeDetails ctxt = new TypeDetails(CollectionStatus.SINGLETON, context);
-    TypeDetails types = new TypeDetails(CollectionStatus.SINGLETON, context);
-    return executeType(new ExecutionTypeContext(appContext, resourceType, ctxt), types, expr, true);
+	TypeDetails types; 
+	if (!context.contains("."))
+	  types = new TypeDetails(CollectionStatus.SINGLETON, context);
+	else {
+	  StructureDefinition sd = worker.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+context.substring(0, context.indexOf('.')));
+	  if (sd == null) 
+	    throw new PathEngineException("Unknown context "+context);
+	  ElementDefinitionMatch ed = getElementDefinition(sd, context, true);
+	  if (ed == null) 
+	    throw new PathEngineException("Unknown context element "+context);
+	  if (ed.fixedType != null) 
+	    types = new TypeDetails(CollectionStatus.SINGLETON, ed.fixedType);
+	  else if (ed.getDefinition().getType().isEmpty() || isAbstractType(ed.getDefinition().getType())) 
+	    types = new TypeDetails(CollectionStatus.SINGLETON, context);
+	  else {
+	    types = new TypeDetails(CollectionStatus.SINGLETON);
+		for (TypeRefComponent t : ed.getDefinition().getType()) 
+		  types.addType(t.getCode());
 	}
-
-  public TypeDetails check(Object appContext, String resourceType, String context, String expr) throws FHIRLexerException, PathEngineException, DefinitionException {
-  	return check(appContext, resourceType, context, parse(expr));
   }
   
-	private String checkCanConvertToType(String context) {
-	  String[] path = context.split("\\.");
-	  StructureDefinition sd = allTypes.get(path[0]);
-	  if (sd == null)
-	    return context;
-	  ElementDefinitionMatch ed = getElementDefinition(sd, context, true);
-    if (ed == null || ed.definition == null)
-      return context;
-    if (ed.fixedType != null) {
-      if (primitiveTypes.contains(Utilities.uncapitalize(ed.fixedType)))
-        return Utilities.uncapitalize(ed.fixedType);
-      else  
-        return ed.fixedType;
+    return executeType(new ExecutionTypeContext(appContext, resourceType, types), types, expr, true);
     }
-    if (ed.definition.getType().size() != 1)
-      return context;
-    if (ed.definition.getType().get(0).getCode().equals("Element") || ed.definition.getType().get(0).getCode().equals("BackboneElement") )
-      return context;
-    return ed.definition.getType().get(0).getCode();  
+
+  public TypeDetails check(Object appContext, String resourceType, String context, String expr) throws FHIRLexerException, PathEngineException, DefinitionException {
+    return check(appContext, resourceType, context, parse(expr));
   }
 
 
@@ -1814,7 +1811,7 @@ public class FHIRPathEngine {
       return new TypeDetails(CollectionStatus.SINGLETON, "string");
     }
     case Length : { 
-      checkContextString(focus, "length");
+      checkContextPrimitive(focus, "length");
       return new TypeDetails(CollectionStatus.SINGLETON, "integer");
     }
     case Children : 
@@ -2572,7 +2569,7 @@ public class FHIRPathEngine {
 		}
 	}
 
-	private ElementDefinitionMatch getElementDefinition(StructureDefinition sd, String path, boolean allowTypedName) {
+  private ElementDefinitionMatch getElementDefinition(StructureDefinition sd, String path, boolean allowTypedName) throws PathEngineException {
 		for (ElementDefinition ed : sd.getSnapshot().getElement()) {
 			if (ed.getPath().equals(path)) {
 				if (ed.hasContentReference()) {
@@ -2582,8 +2579,22 @@ public class FHIRPathEngine {
 			}
       if (ed.getPath().endsWith("[x]") && path.startsWith(ed.getPath().substring(0, ed.getPath().length()-3)) && path.length() == ed.getPath().length()-3)
 				return new ElementDefinitionMatch(ed, null);
-      if (allowTypedName && ed.getPath().endsWith("[x]") && path.startsWith(ed.getPath().substring(0, ed.getPath().length()-3)) && path.length() > ed.getPath().length()-3)
+      if (allowTypedName && ed.getPath().endsWith("[x]") && path.startsWith(ed.getPath().substring(0, ed.getPath().length()-3)) && path.length() > ed.getPath().length()-3) {
+    	String s = Utilities.uncapitalize(path.substring(ed.getPath().length()-3));
+    	if (ParserBase.isPrimitive(s))
+          return new ElementDefinitionMatch(ed, s);
+    	else
         return new ElementDefinitionMatch(ed, path.substring(ed.getPath().length()-3));
+      }
+      if (ed.getPath().contains(".") && path.startsWith(ed.getPath()+".") && (ed.getType().size() > 0) && !isAbstractType(ed.getType())) { 
+        // now we walk into the type.
+        if (ed.getType().size() > 1)  // if there's more than one type, the test above would fail this
+          throw new PathEngineException("Internal typing issue....");
+        StructureDefinition nsd = worker.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode());
+  	    if (nsd == null) 
+  	      throw new PathEngineException("Unknown type "+ed.getType().get(0).getCode());
+        return getElementDefinition(sd, sd.getId()+path.substring(ed.getPath().length()), allowTypedName);
+      }
 			if (ed.hasContentReference() && path.startsWith(ed.getPath()+".")) {
 				ElementDefinitionMatch m = getElementDefinitionById(sd, ed.getContentReference());
 				return getElementDefinition(sd, m.definition.getPath()+path.substring(ed.getPath().length()), allowTypedName);
@@ -2591,6 +2602,11 @@ public class FHIRPathEngine {
 		}
 		return null;
 	}
+
+  private boolean isAbstractType(List<TypeRefComponent> list) {
+	return list.size() != 1 ? true : Utilities.existsInList(list.get(0).getCode(), "Element", "BackboneElement", "Resource", "DomainResource");
+}
+
 
 	private boolean hasType(ElementDefinition ed, String s) {
 		for (TypeRefComponent t : ed.getType()) 

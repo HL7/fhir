@@ -202,5 +202,5 @@ public class JsonLDParser extends ParserBase {
       decorateCoding(c);
     }
   }
-  	
+
 }

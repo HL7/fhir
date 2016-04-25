@@ -39,6 +39,7 @@ import java.util.Map;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.DefinedCode;
+import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
@@ -769,13 +770,19 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     }
     
     for (DefinedCode cd : definitions.getPrimitives().values()) {
+      if (cd instanceof DefinedStringPattern) {
       String n = upFirst(cd.getCode());
       String t = upFirst(cd.getCode())+"Type";
+        regtn.append("    else if (type instanceof "+t+")\r\n       compose"+n+"(prefix+\""+n+"\", ("+t+") type);\r\n");
+      }
+    }
       
-//      if (n.equals("Uri"))
-//        t = "Uri";
+    for (DefinedCode cd : definitions.getPrimitives().values()) {
+      if (!(cd instanceof DefinedStringPattern)) {
+        String n = upFirst(cd.getCode());
+        String t = upFirst(cd.getCode())+"Type";      
       regtn.append("    else if (type instanceof "+t+")\r\n       compose"+n+"(prefix+\""+n+"\", ("+t+") type);\r\n");
-//      regn.append("    if (xpp.getName().equals(prefix+\""+n+"\"))\r\n      return true;\r\n");
+      }
     }
     
     finishComposer();

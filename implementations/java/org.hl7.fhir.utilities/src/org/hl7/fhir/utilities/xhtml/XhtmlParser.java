@@ -51,6 +51,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 public class XhtmlParser {
+	public static final String XHTML_NS = "http://www.w3.org/1999/xhtml";
 
   public class NSMap {
   	private Map<String, String> nslist = new HashMap<String, String>();
@@ -285,6 +286,13 @@ public enum ParserSecurityPolicy {
   }
   
   public XhtmlNode parseHtmlNode(Element node, String defaultNS) throws FHIRFormatError  {
+		XhtmlNode res = parseNode(node, defaultNS);
+		if (res.getNsDecl() == null)
+			res.getAttributes().put("xmlns", XHTML_NS);
+		return res;
+	}
+
+	private XhtmlNode parseNode(Element node, String defaultNS) throws FHIRFormatError  {
     XhtmlNode res = new XhtmlNode(NodeType.Element);
     res.setName(node.getLocalName());
     defaultNS = checkNS(res, node, defaultNS);
@@ -301,7 +309,7 @@ public enum ParserSecurityPolicy {
         res.addComment(child.getTextContent());
       } else if (child.getNodeType() == Node.ELEMENT_NODE) {
         if (elementIsOk(child.getLocalName()))
-          res.getChildNodes().add(parseHtmlNode((Element) child, defaultNS));
+					res.getChildNodes().add(parseNode((Element) child, defaultNS));
       } else
         throw new FHIRFormatError("Unhandled XHTML feature: "+Integer.toString(child.getNodeType())+descLoc());
       child = child.getNextSibling();
@@ -323,6 +331,13 @@ public enum ParserSecurityPolicy {
 	}
 
 	public XhtmlNode parseHtmlNode(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError  {
+		XhtmlNode res = parseNode(xpp);
+		if (res.getNsDecl() == null)
+			res.getAttributes().put("xmlns", XHTML_NS);
+		return res;
+
+	}
+	private XhtmlNode parseNode(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError  {
     XhtmlNode res = new XhtmlNode(NodeType.Element);
     res.setName(xpp.getName());
     
@@ -340,7 +355,7 @@ public enum ParserSecurityPolicy {
         xpp.next();
       } else if (eventType == XmlPullParser.START_TAG) {
         if (elementIsOk(xpp.getName()))
-        res.getChildNodes().add(parseHtmlNode(xpp));
+					res.getChildNodes().add(parseNode(xpp));
       } else
         throw new FHIRFormatError("Unhandled XHTML feature: "+Integer.toString(eventType)+descLoc());
       eventType = xpp.getEventType();
@@ -350,6 +365,8 @@ public enum ParserSecurityPolicy {
   }  
 
   private boolean attributeIsOk(String elem, String attr, String value) throws FHIRFormatError  {
+		if (validatorMode)
+			return true;
 	boolean ok = attributes.contains(attr) || attributes.contains(elem+"."+attr);
 	if (ok)
 	  return true;
@@ -370,6 +387,8 @@ public enum ParserSecurityPolicy {
   }
 
 private boolean elementIsOk(String name) throws FHIRFormatError  {
+		if (validatorMode)
+			return true;
     boolean ok = elements.contains(name);
 	if (ok)
       return true;
@@ -481,9 +500,12 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
       {
         addTextNode(node, s);
         readChar();
-        if (peekChar() == '!')
-          node.addComment(readToCommentEnd());
-        else if (peekChar() == '?')
+        if (peekChar() == '!') {
+        	String sc = readToCommentEnd();
+        	if (sc.startsWith("DOCTYPE"))
+            throw new FHIRFormatError("Malformed XHTML: Found a DocType declaration, and these are not allowed (XXE security vulnerability protection)");
+          node.addComment(sc);
+        } else if (peekChar() == '?')
           node.addComment(readToTagEnd());
         else if (peekChar() == '/') {
           readChar();

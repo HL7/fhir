@@ -32,7 +32,8 @@ public abstract class ParserBase {
 
 	public static boolean isPrimitive(String code) {
 		return Utilities.existsInList(code, 
-				"xhtml", "boolean", "integer", "string", "decimal", "uri", "base64Binary", "instant", "date", "dateTime", "time", "code", "oid", "id", "markdown", "unsignedInt", "positiveInt");
+				"xhtml", "boolean", "integer", "string", "decimal", "uri", "base64Binary", "instant", "date", "dateTime", 
+				"time", "code", "oid", "id", "markdown", "unsignedInt", "positiveInt", "xhtml", "base64Binary");
 	}
 
 	protected IWorkerContext context;
@@ -75,7 +76,7 @@ public abstract class ParserBase {
   	}
 	  for (StructureDefinition sd : context.allStructures()) {
 	    if (name.equals(sd.getId())) {
-	      if((ns != null || ns.equals(FormatUtilities.FHIR_NS)) && !ToolingExtensions.hasExtension(sd, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"))
+	      if((ns == null || ns.equals(FormatUtilities.FHIR_NS)) && !ToolingExtensions.hasExtension(sd, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"))
 	        return sd;
 	      String sns = ToolingExtensions.readStringExtension(sd, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace");
 	      if (ns != null && ns.equals(sns))

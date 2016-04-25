@@ -123,7 +123,7 @@ public class XhtmlComposer {
         dst.append("&gt;");
       else if (c == '"')
         dst.append("&quot;");
-      else if (!xmlOnly) {
+      else if (xmlOnly) {
         dst.append(c);
       } else {
         if (c == XhtmlNode.NBSP.charAt(0))
@@ -220,8 +220,14 @@ public class XhtmlComposer {
   }
 
   private void composeElement(IXMLWriter xml, XhtmlNode node) throws IOException  {
-    for (String n : node.getAttributes().keySet())
+    for (String n : node.getAttributes().keySet()) {
+      if (n.equals("xmlns")) 
+      	xml.setDefaultNamespace(node.getAttributes().get(n));
+      else if (n.startsWith("xmlns:")) 
+      	xml.namespace(n.substring(6), node.getAttributes().get(n));
+      else
       xml.attribute(n, node.getAttributes().get(n));
+    }
     xml.enter(XHTML_NS, node.getName());
     for (XhtmlNode n : node.getChildNodes())
       compose(xml, n);

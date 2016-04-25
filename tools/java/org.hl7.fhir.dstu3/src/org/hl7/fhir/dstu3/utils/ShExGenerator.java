@@ -76,7 +76,7 @@ public class ShExGenerator {
     private LinkedList<Pair<StructureDefinition, ElementDefinition>> typeReferences;
     private HashSet<String> references;
 
-  public ShExGenerator(IWorkerContext context) {
+    public ShExGenerator(IWorkerContext context) {
     super();
     this.context = context;
     this.typeReferences = new LinkedList<Pair<StructureDefinition, ElementDefinition>>();
@@ -104,10 +104,10 @@ public class ShExGenerator {
     return new ST(template, '$', '$');
   }
 
-  /** 
+  /**
    * this is called externally to generate a set of structures to a single ShEx file
    * generally, it will be called with a single structure, or a long list of structures (all of them)
-   * 
+   *
    * @param links HTML link rendering policy
    * @param structures list of structure definitions to render
    * @return ShEx definition of structures
@@ -115,7 +115,7 @@ public class ShExGenerator {
   public String generate(HTMLLinkPolicy links, List<StructureDefinition> structures) {
     ST shex_def = tmplt(SHEX_TEMPLATE);
     shex_def.add("header", genHeader());
-    
+
     // Process the requested definitions
     Collections.sort(structures, new SortById());
     StringBuilder shapeDefinitions = new StringBuilder();
@@ -139,19 +139,19 @@ public class ShExGenerator {
     for(String r: this.references) {
       shapeDefinitions.append("\n" + genReferenceEntry(r) + "\n");
     }
-      
+
     shex_def.add("shapeDefinitions", shapeDefinitions);
     return shex_def.render();
-      }
-      
+  }
+
   /**
    * Generate the ShEx Header
    * @return String representation
    */
   private String genHeader() {
     return HEADER_TEMPLATE;
-    }
-    
+  }
+
   /**
    * Emit a ShEx definition for the supplied StructureDefinition
    * @param sd Structure definition to emit
@@ -211,10 +211,10 @@ public class ShExGenerator {
       } else {
         defn = genAlternativeTypes(ed, id, card);
       }
-      }
+    }
     element_def.add("defn", defn);
     return element_def.render();
-      }
+  }
 
   private String genTypeRef(ElementDefinition.TypeRefComponent typ) {
     ST single_entry = tmplt(SIMPLE_ELEMENT_TEMPLATE);
@@ -240,13 +240,13 @@ public class ShExGenerator {
     return single_entry.render();
   }
 
-	/**
+  /**
    * Generate a set of alternative shapes
-     * @param ed Containing element definition
-     * @param id Element definition identifier
-     * @param card Cardinality
-     * @return ShEx list of alternative anonymous shapes separated by "OR"
-	 */
+   * @param ed Containing element definition
+   * @param id Element definition identifier
+   * @param card Cardinality
+   * @return ShEx list of alternative anonymous shapes separated by "OR"
+   */
   private String genAlternativeTypes(ElementDefinition ed, String id, String card) {
     ST shex_alt = tmplt(ALTERNATIVE_TEMPLATE);
     List<String> altEntries = new ArrayList<String>();
@@ -269,7 +269,7 @@ public class ShExGenerator {
     if(typ.getProfile().size() > 0) {
       String[] els = typ.getProfile().get(0).getValue().split("/");
       ref = els[els.length - 1];
-    } else { 
+    } else {
       ref = "";
     }
     shex_ref.add("id", id);
@@ -318,7 +318,7 @@ public class ShExGenerator {
     shex_choice.add("choiceEntries", StringUtils.join(choiceEntries, " |\n\t\t"));
     shex_choice.add("card", card);
     return shex_choice.render();
-    }
+  }
 
   /**
    * Generate an entry in a choice list

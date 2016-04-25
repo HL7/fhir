@@ -99,7 +99,7 @@ public abstract class ParserBase extends FormatUtilities implements IParser {
     return this;
   }
   
-  protected boolean handleComments = true;
+  protected boolean handleComments = false;
   
   public boolean getHandleComments() {
     return handleComments;

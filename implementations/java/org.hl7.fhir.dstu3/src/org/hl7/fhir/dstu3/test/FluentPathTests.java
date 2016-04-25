@@ -39,7 +39,6 @@ import junit.framework.Assert;
 
 public class FluentPathTests {
 
-  static private SimpleWorkerContext context;
   static private Patient patient;
   static private Appointment appointment;
   static private Observation observation;
@@ -48,39 +47,39 @@ public class FluentPathTests {
 
   private Patient patient() throws FHIRFormatError, FileNotFoundException, IOException {
     if (patient == null)
-      patient = (Patient) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/patient-example.json"));
+      patient = (Patient) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir.2016May/build/publish/patient-example.json"));
     return patient;
   }
 
   private Appointment appointment() throws FHIRFormatError, FileNotFoundException, IOException {
     if (appointment == null)
-      appointment = (Appointment) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/appointment-example-request.json"));
+      appointment = (Appointment) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir.2016May/build/publish/appointment-example-request.json"));
     return appointment;
   }
 
   private Questionnaire questionnaire() throws FHIRFormatError, FileNotFoundException, IOException {
     if (questionnaire == null)
-      questionnaire = (Questionnaire) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/questionnaire-example.json"));
+      questionnaire = (Questionnaire) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir.2016May/build/publish/questionnaire-example.json"));
     return questionnaire;
   }
 
   private ValueSet valueset() throws FHIRFormatError, FileNotFoundException, IOException {
     if (valueset == null)
-      valueset = (ValueSet) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/valueset-example-expansion.json"));
+      valueset = (ValueSet) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir.2016May/build/publish/valueset-example-expansion.json"));
     return valueset;
   }
 
   private Observation observation() throws FHIRFormatError, FileNotFoundException, IOException {
     if (observation == null)
-      observation = (Observation) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/observation-example.json"));
+      observation = (Observation) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir.2016May/build/publish/observation-example.json"));
     return observation;
   }
 
   @SuppressWarnings("deprecation")
   private void test(Resource resource, String expression, int count, String... types) throws FileNotFoundException, IOException, FHIRException {
-    if (context == null)
-      context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
-    FHIRPathEngine fp = new FHIRPathEngine(context);
+    if (TestingUtilities.context == null)
+    	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
+    FHIRPathEngine fp = new FHIRPathEngine(TestingUtilities.context);
 
     ExpressionNode node = fp.parse(expression);
     fp.check(null, resource.getResourceType().toString(), resource.getResourceType().toString(), node);
@@ -104,9 +103,9 @@ public class FluentPathTests {
 
   @SuppressWarnings("deprecation")
   private void testBoolean(Resource resource, String expression, boolean value) throws FileNotFoundException, IOException, FHIRException {
-    if (context == null)
-      context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
-    FHIRPathEngine fp = new FHIRPathEngine(context);
+    if (TestingUtilities.context == null)
+    	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
+    FHIRPathEngine fp = new FHIRPathEngine(TestingUtilities.context);
 
     ExpressionNode node = fp.parse(expression);
     fp.check(null, null, resource.getResourceType().toString(), node);
@@ -119,9 +118,9 @@ public class FluentPathTests {
 
   @SuppressWarnings("deprecation")
   private void testBoolean(Resource resource, Base focus, String focusType, String expression, boolean value) throws FileNotFoundException, IOException, FHIRException {
-    if (context == null)
-      context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
-    FHIRPathEngine fp = new FHIRPathEngine(context);
+    if (TestingUtilities.context == null)
+    	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
+    FHIRPathEngine fp = new FHIRPathEngine(TestingUtilities.context);
 
     ExpressionNode node = fp.parse(expression);
     fp.check(null, resource == null ? null : resource.getResourceType().toString(), focusType, node);
@@ -133,9 +132,9 @@ public class FluentPathTests {
   }
 
   private void testWrong(Resource resource, String expression) throws FileNotFoundException, IOException, FHIRException {
-    if (context == null)
-      context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
-    FHIRPathEngine fp = new FHIRPathEngine(context);
+    if (TestingUtilities.context == null)
+    	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
+    FHIRPathEngine fp = new FHIRPathEngine(TestingUtilities.context);
 
     try {
       ExpressionNode node = fp.parse(expression);
@@ -913,7 +912,7 @@ public class FluentPathTests {
   
   @Test
   public void testQuestionnaire() throws FileNotFoundException, IOException, FHIRException {
-    Questionnaire q = (Questionnaire) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/questionnaire-example-gcs.json"));
+    Questionnaire q = (Questionnaire) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir.2016May/build/publish/questionnaire-example-gcs.json"));
     for (QuestionnaireItemComponent qi : q.getItem()) {
       testQItem(qi);
     }
@@ -925,7 +924,7 @@ public class FluentPathTests {
    
   @Test
   public void testExtensionDefinitions() throws FileNotFoundException, IOException, FHIRException {
-    Bundle b = (Bundle) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/extension-definitions.json"));
+    Bundle b = (Bundle) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir.2016May/build/publish/extension-definitions.json"));
     for (BundleEntryComponent be : b.getEntry()) {
       testStructureDefinition((StructureDefinition) be.getResource());
     }

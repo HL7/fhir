@@ -16,21 +16,19 @@ import org.junit.Test;
 
 public class ShexGeneratorTests {
 
-  private static IWorkerContext context;
-
   private void doTest(String name) throws FileNotFoundException, IOException, FHIRException {
-    String workingDirectory = FileSystems.getDefault().getPath(System.getProperty("user.dir"), "data").toString();
-    if (context == null) {
+    String workingDirectory = "C:\\work\\org.hl7.fhir.2016May\\build\\publish"; // FileSystems.getDefault().getPath(System.getProperty("user.dir"), "data").toString();
+    if (TestingUtilities.context == null) {
       // For the time being, put the validation entry in org/hl7/fhir/dstu3/data
       Path path = FileSystems.getDefault().getPath(workingDirectory, "validation-min.xml.zip");
-      context = SimpleWorkerContext.fromPack(path.toString());
+      TestingUtilities.context = SimpleWorkerContext.fromPack(path.toString());
     }
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+name);
+    StructureDefinition sd = TestingUtilities.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+name);
     if(sd == null) {
       throw new FHIRException("StructuredDefinition for " + name + "was null");
     }
     Path outPath = FileSystems.getDefault().getPath(workingDirectory, name+".shex");
-    TextFile.stringToFile(new ShExGenerator(context).generate(HTMLLinkPolicy.NONE, sd), outPath.toString());
+    TextFile.stringToFile(new ShExGenerator(TestingUtilities.context).generate(HTMLLinkPolicy.NONE, sd), outPath.toString());
   }
 
   @Test

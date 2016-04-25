@@ -33,21 +33,21 @@
   Context = DataElement.mapping
   English = Property extension can only be specified if ObjectClass extension is present
   XPath = exists(f:extension[@url=\'http://hl7.org/fhir/StructureDefinition/11179-objectClass\']) or not(exists(f:extension[@url=\'http://hl7.org/fhir/StructureDefinition/11179-property\']))
-  Expression = extension[url = %ext-11179-objectClass] or extension[url = %ext-11179-property]:empty
+  Expression = (extension(%ext-11179-objectClass) | extension(%ext-11179-property).empty()
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = DataElement
   English = One and only one DataElement.code must have is-data-element-concept set to \"true\"
   XPath = count(f:code/f:extension[@uri=\'http://hl7.org/fhir/StructureDefinition/11179-de-is-data-element-concept\'])=1
-  Expression = code.extension[url = %ext-11179-de-is-data-element-concept]:count = 1
+  Expression = code.extension(%ext-11179-de-is-data-element-concept).count = 1
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = DataElement.element.binding.valueSetReference
   English = Must have data element permitted value concept map extension if and only if data element permitted value valueset extension is present
   XPath = count(f:extension[@url=\'http://hl7.org/fhir/StructureDefinition/11179-permitted-value-valueset\'])=count(f:extension[@url=\'http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap\'])
-  Expression = extension[url=%ext-11179-permitted-value-valueset:count = extension[url=%ext-11179-permitted-value-conceptmap]:count
+  Expression = extension(%ext-11179-permitted-value-valueset).count() = extension(%ext-11179-permitted-value-conceptmap).count()
 
 === Sheet SDCDE-DataElement =====================================
 

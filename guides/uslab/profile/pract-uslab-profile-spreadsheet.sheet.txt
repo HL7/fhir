@@ -16,7 +16,7 @@
   Context = Practitioner.address.postalCode
   English = (Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes.
   XPath = f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )
-  Expression = postalCode:matches(\"[0-9]{5}(-[0-9]{4}){0,1}\")
+  Expression = postalCode.matches(\'[0-9]{5}(-[0-9]{4}){0,1}\')
   Severity = error
 
 === Sheet USLab-Pract =====================================
@@ -247,7 +247,7 @@
   Context = Practitioner.address.postalCode
   English = (Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes.
   XPath = f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )
-  Expression = postalCode:matches(\"[0-9]{5}(-[0-9]{4}){0,1}\")
+  Expression = postalCode.matches(\'[0-9]{5}(-[0-9]{4}){0,1}\')
   Severity = error
 
 === Sheet USLab-PHPract =====================================

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Apr 18, 2016 07:09+1000 for FHIR v1.4.0
+// Generated on Tue, Apr 19, 2016 07:38+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -9840,7 +9840,7 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getPerformer().size(); i++)
       composeReference(t, "Protocol", "performer", element.getPerformer().get(i), i);
     if (element.hasProduct())
-      composeReference(t, "Protocol", "product", element.getProduct(), -1);
+      composeType(t, "Protocol", "product", element.getProduct(), -1);
     if (element.hasQuantity())
       composeQuantity(t, "Protocol", "quantity", element.getQuantity(), -1);
     if (element.hasDescriptionElement())

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Apr 18, 2016 07:09+1000 for FHIR v1.4.0
+// Generated on Tue, Apr 19, 2016 07:38+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -12664,8 +12664,9 @@ public class JsonParser extends JsonParserBase {
         res.getPerformer().add(parseReference(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("product"))
-      res.setProduct(parseReference(json.getAsJsonObject("product")));
+    Type product = parseType("product", json);
+    if (product != null)
+      res.setProduct(product);
     if (json.has("quantity"))
       res.setQuantity(parseSimpleQuantity(json.getAsJsonObject("quantity")));
     if (json.has("description"))
@@ -32073,7 +32074,7 @@ public class JsonParser extends JsonParserBase {
         closeArray();
       };
       if (element.hasProduct()) {
-        composeReference("product", element.getProduct());
+        composeType("product", element.getProduct());
       }
       if (element.hasQuantity()) {
         composeSimpleQuantity("quantity", element.getQuantity());

@@ -26,9 +26,12 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-package org.hl7.fhir.dstu3.test;
+package org.hl7.fhir.dstu3.test.scratch;
 
 import java.io.File;
+
+import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.test.ResourceTest;
 
 
 public class SingleTest {
@@ -40,7 +43,7 @@ public class SingleTest {
     try {
       ResourceTest r = new ResourceTest();
       r.setSource(new File("C:\\work\\org.hl7.fhir\\build\\publish\\patient-example.xml"));
-      r.test();
+      Resource rf = r.test();
       System.out.println("Completed OK");
     } catch (Exception e) {
       e.printStackTrace();

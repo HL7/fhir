@@ -29,7 +29,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 public class InstanceValidatorTests {
-  private static IWorkerContext context;
 
 	private void parse(String path) throws Exception {
 		Map<JsonElement, LocationData> map = new HashMap<JsonElement, JsonTrackingParser.LocationData>();
@@ -40,14 +39,14 @@ public class InstanceValidatorTests {
 	}
 		
 	private void validate(String path, int errorCount, boolean json) throws Exception {
-    if (context == null) {
-      context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
-      ((SimpleWorkerContext) context).connectToTSServer("http://local.healthintersections.com.au:960/open");
+    if (TestingUtilities.context == null) {
+    	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
+      ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://local.healthintersections.com.au:960/open");
     }
 
     System.out.println("Test "+path);
     FileInputStream file = new FileInputStream(Utilities.path("C:\\work\\org.hl7.fhir", path));
-		InstanceValidator val = new InstanceValidator(context);
+		InstanceValidator val = new InstanceValidator(TestingUtilities.context);
 		List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
 		val.validate(errors, file, json ? FhirFormat.JSON : FhirFormat.XML);
 		int ec = 0;
@@ -61,6 +60,11 @@ public class InstanceValidatorTests {
 		System.out.println(val.reportTimes());
 	}
 		
+//	@Test
+//	public void testCustom() throws Exception {
+//		validate("build\\publish\\sdc\\questionnaire-sdc-profile-example.xml", 0, false);
+//	}
+	
 	
 	@Test
 	public void testXmlListMinimal() throws Exception {
@@ -79,7 +83,7 @@ public class InstanceValidatorTests {
 
 	@Test
 	public void testXmlListWrongNS() throws Exception {
-		validate("build\\tests\\validation-examples\\list-wrong-ns.xml", 4, false);
+		validate("build\\tests\\validation-examples\\list-wrong-ns.xml", 1, false);
 	}
 	
 	@Test
@@ -130,6 +134,16 @@ public class InstanceValidatorTests {
 	@Test
 	public void testXmlListXhtml2() throws Exception {
 		validate("build\\tests\\validation-examples\\list-xhtml-correct2.xml", 0, false);
+	}
+
+	@Test
+	public void testXmlListXXE() throws Exception {
+		validate("build\\tests\\validation-examples\\list-xhtml-xxe1.xml", 1, false);
+	}
+
+	@Test
+	public void testXmlListXXE2() throws Exception {
+		validate("build\\tests\\validation-examples\\list-xhtml-xxe2.xml", 1, false);
 	}
 
 	@Test
@@ -256,6 +270,11 @@ public class InstanceValidatorTests {
 	@Test
 	public void testJsonListXhtmlCorrect2() throws Exception {
 		validate("build\\tests\\validation-examples\\list-xhtml-correct2.json", 0, true);
+	}
+
+	@Test
+	public void testJsonListXhtmlXXE() throws Exception {
+		validate("build\\tests\\validation-examples\\list-xhtml-xxe.json", 1, true);
 	}
 
 	@Test

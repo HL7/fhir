@@ -177,6 +177,7 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
 		BufferedInputStream input = new BufferedInputStream(stream);
 		XmlPullParserFactory factory = XmlPullParserFactory.newInstance(System.getProperty(XmlPullParserFactory.PROPERTY_NAME), null);
 		factory.setNamespaceAware(true);
+		factory.setFeature(XmlPullParser.FEATURE_PROCESS_DOCDECL, false);
 		XmlPullParser xpp = factory.newPullParser();
 		xpp.setInput(input, "UTF-8");
 		next(xpp);
@@ -201,7 +202,9 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
 				|| (eventType == XmlPullParser.PROCESSING_INSTRUCTION) || (eventType == XmlPullParser.DOCDECL)) {
 			if (eventType == XmlPullParser.COMMENT) {
 				comments.add(xpp.getText());
-			}
+			} else if (eventType == XmlPullParser.DOCDECL) {
+	      throw new XmlPullParserException("DTD declarations are not allowed"); 
+      }  
 			eventType = next(xpp);
 		}
 		return eventType;
@@ -361,7 +364,7 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
 			boolean oldPretty = xml.isPretty();
 			xml.setPretty(htmlPretty);
 			comp.setXmlOnly(true);
-			if (html.getNodeType() != NodeType.Text)
+			if (html.getNodeType() != NodeType.Text && html.getNsDecl() == null)
 				xml.namespace(XhtmlComposer.XHTML_NS, null);
 			comp.compose(xml, html);
 			xml.setPretty(oldPretty);

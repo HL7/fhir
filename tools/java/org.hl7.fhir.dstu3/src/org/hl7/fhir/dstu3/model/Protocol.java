@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Apr 18, 2016 07:09+1000 for FHIR v1.4.0
+// Generated on Tue, Apr 19, 2016 07:38+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -2359,14 +2359,9 @@ public class Protocol extends DomainResource {
         /**
          * Identifies the food, drug or other product being consumed or supplied in the activity.
          */
-        @Child(name = "product", type = {Medication.class, Substance.class}, order=6, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "product", type = {Medication.class, Substance.class, CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="What's administered/supplied", formalDefinition="Identifies the food, drug or other product being consumed or supplied in the activity." )
-        protected Reference product;
-
-        /**
-         * The actual object that is the target of the reference (Identifies the food, drug or other product being consumed or supplied in the activity.)
-         */
-        protected Resource productTarget;
+        protected Type product;
 
         /**
          * Identifies the quantity expected to be consumed at once (per dose, per meal, etc.).
@@ -2382,7 +2377,7 @@ public class Protocol extends DomainResource {
         @Description(shortDefinition="Extra info on activity occurrence", formalDefinition="This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc." )
         protected StringType description;
 
-        private static final long serialVersionUID = 8207475L;
+        private static final long serialVersionUID = -2110199458L;
 
     /**
      * Constructor
@@ -2605,13 +2600,34 @@ public class Protocol extends DomainResource {
         /**
          * @return {@link #product} (Identifies the food, drug or other product being consumed or supplied in the activity.)
          */
-        public Reference getProduct() { 
-          if (this.product == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProtocolStepActivityDetailComponent.product");
-            else if (Configuration.doAutoCreate())
-              this.product = new Reference(); // cc
+        public Type getProduct() { 
           return this.product;
+        }
+
+        /**
+         * @return {@link #product} (Identifies the food, drug or other product being consumed or supplied in the activity.)
+         */
+        public Reference getProductReference() throws FHIRException { 
+          if (!(this.product instanceof Reference))
+            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.product.getClass().getName()+" was encountered");
+          return (Reference) this.product;
+        }
+
+        public boolean hasProductReference() { 
+          return this.product instanceof Reference;
+        }
+
+        /**
+         * @return {@link #product} (Identifies the food, drug or other product being consumed or supplied in the activity.)
+         */
+        public CodeableConcept getProductCodeableConcept() throws FHIRException { 
+          if (!(this.product instanceof CodeableConcept))
+            throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.product.getClass().getName()+" was encountered");
+          return (CodeableConcept) this.product;
+        }
+
+        public boolean hasProductCodeableConcept() { 
+          return this.product instanceof CodeableConcept;
         }
 
         public boolean hasProduct() { 
@@ -2621,23 +2637,8 @@ public class Protocol extends DomainResource {
         /**
          * @param value {@link #product} (Identifies the food, drug or other product being consumed or supplied in the activity.)
          */
-        public ProtocolStepActivityDetailComponent setProduct(Reference value) { 
+        public ProtocolStepActivityDetailComponent setProduct(Type value) { 
           this.product = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #product} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the food, drug or other product being consumed or supplied in the activity.)
-         */
-        public Resource getProductTarget() { 
-          return this.productTarget;
-        }
-
-        /**
-         * @param value {@link #product} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the food, drug or other product being consumed or supplied in the activity.)
-         */
-        public ProtocolStepActivityDetailComponent setProductTarget(Resource value) { 
-          this.productTarget = value;
           return this;
         }
 
@@ -2721,7 +2722,7 @@ public class Protocol extends DomainResource {
           childrenList.add(new Property("timing[x]", "CodeableConcept|Timing", "The period, timing or frequency upon which the described activity is to occur.", 0, java.lang.Integer.MAX_VALUE, timing));
           childrenList.add(new Property("location", "Reference(Location)", "Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.", 0, java.lang.Integer.MAX_VALUE, location));
           childrenList.add(new Property("performer", "Reference(Practitioner|Organization|RelatedPerson|Patient)", "Identifies who's expected to be involved in the activity.", 0, java.lang.Integer.MAX_VALUE, performer));
-          childrenList.add(new Property("product", "Reference(Medication|Substance)", "Identifies the food, drug or other product being consumed or supplied in the activity.", 0, java.lang.Integer.MAX_VALUE, product));
+          childrenList.add(new Property("product[x]", "Reference(Medication|Substance)|CodeableConcept", "Identifies the food, drug or other product being consumed or supplied in the activity.", 0, java.lang.Integer.MAX_VALUE, product));
           childrenList.add(new Property("quantity", "SimpleQuantity", "Identifies the quantity expected to be consumed at once (per dose, per meal, etc.).", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("description", "string", "This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.", 0, java.lang.Integer.MAX_VALUE, description));
         }
@@ -2734,7 +2735,7 @@ public class Protocol extends DomainResource {
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // Reference
-        case -309474065: /*product*/ return this.product == null ? new Base[0] : new Base[] {this.product}; // Reference
+        case -309474065: /*product*/ return this.product == null ? new Base[0] : new Base[] {this.product}; // Type
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         default: return super.getProperty(hash, name, checkValid);
@@ -2761,7 +2762,7 @@ public class Protocol extends DomainResource {
           this.getPerformer().add(castToReference(value)); // Reference
           break;
         case -309474065: // product
-          this.product = castToReference(value); // Reference
+          this.product = (Type) value; // Type
           break;
         case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
@@ -2786,8 +2787,8 @@ public class Protocol extends DomainResource {
           this.location = castToReference(value); // Reference
         else if (name.equals("performer"))
           this.getPerformer().add(castToReference(value));
-        else if (name.equals("product"))
-          this.product = castToReference(value); // Reference
+        else if (name.equals("product[x]"))
+          this.product = (Type) value; // Type
         else if (name.equals("quantity"))
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("description"))
@@ -2804,7 +2805,7 @@ public class Protocol extends DomainResource {
         case 164632566:  return getTiming(); // Type
         case 1901043637:  return getLocation(); // Reference
         case 481140686:  return addPerformer(); // Reference
-        case -309474065:  return getProduct(); // Reference
+        case 1753005361:  return getProduct(); // Type
         case -1285004149:  return getQuantity(); // SimpleQuantity
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         default: return super.makeProperty(hash, name);
@@ -2836,8 +2837,12 @@ public class Protocol extends DomainResource {
         else if (name.equals("performer")) {
           return addPerformer();
         }
-        else if (name.equals("product")) {
+        else if (name.equals("productReference")) {
           this.product = new Reference();
+          return this.product;
+        }
+        else if (name.equals("productCodeableConcept")) {
+          this.product = new CodeableConcept();
           return this.product;
         }
         else if (name.equals("quantity")) {

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Apr 18, 2016 07:09+1000 for FHIR v1.4.0
+// Generated on Tue, Apr 19, 2016 07:38+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -11291,8 +11291,8 @@ public class XmlParser extends XmlParserBase {
         res.setLocation(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("performer")) {
         res.getPerformer().add(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("product")) {
-        res.setProduct(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "product")) {
+        res.setProduct(parseType("product", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("quantity")) {
         res.setQuantity(parseSimpleQuantity(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
@@ -27016,9 +27016,8 @@ public class XmlParser extends XmlParserBase {
           composeReference("performer", e);
       }
       if (element.hasProduct()) {
-        composeReference("product", element.getProduct());
-      }
-      if (element.hasQuantity()) {
+        composeType("product", element.getProduct());
+      }      if (element.hasQuantity()) {
         composeSimpleQuantity("quantity", element.getQuantity());
       }
       if (element.hasDescriptionElement()) {

@@ -1,4 +1,4 @@
-package org.hl7.fhir.dstu3.test;
+package org.hl7.fhir.dstu3.test.scratch;
 
 public class CLientTest {
 

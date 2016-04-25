@@ -157,6 +157,13 @@ public class ValidationEngine {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
     factory.setValidating(false);
+		factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+		factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+		factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+		factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+		factory.setXIncludeAware(false);
+		factory.setExpandEntityReferences(false);
+    
     factory.setSchema(schema);
     DocumentBuilder builder = factory.newDocumentBuilder();
     builder.setErrorHandler(new ValidationErrorHandler(outputs, "XML Source"));
@@ -184,8 +191,12 @@ public class ValidationEngine {
 		SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
 		saxParserFactory.setNamespaceAware(true);
 		saxParserFactory.setValidating(false);
+		saxParserFactory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+		saxParserFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
 		SAXParser saxParser = saxParserFactory.newSAXParser();
 		XMLReader xmlReader = saxParser.getXMLReader();
+	  xmlReader.setFeature("http://xml.org/sax/features/external-general-entities", false);
+	  xmlReader.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
     XmlLocationAnnotator locationAnnotator = new XmlLocationAnnotator(xmlReader, doc);
     InputSource inputSource = new InputSource(new ByteArrayInputStream(source));
     SAXSource saxSource = new SAXSource(locationAnnotator, inputSource);

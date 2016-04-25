@@ -39,6 +39,7 @@ import java.util.Map;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.DefinedCode;
+import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
@@ -650,12 +651,25 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     }
 
     for (DefinedCode cd : definitions.getPrimitives().values()) {
+      if (cd instanceof DefinedStringPattern) {
       String n = upFirst(cd.getCode());
       String t = upFirst(cd.getCode())+"Type";
       regtn.append("    else if (type instanceof "+t+") {\r\n");
       regtn.append("      compose"+upFirst(n)+"Core(prefix+\""+n+"\", ("+t+") type, false);\r\n");
       regtn.append("      compose"+upFirst(n)+"Extras(prefix+\""+n+"\", ("+t+") type, false);\r\n");
       regtn.append("    }\r\n");
+      }
+    }
+
+    for (DefinedCode cd : definitions.getPrimitives().values()) {
+      if (!(cd instanceof DefinedStringPattern)) {
+        String n = upFirst(cd.getCode());
+        String t = upFirst(cd.getCode())+"Type";
+        regtn.append("    else if (type instanceof "+t+") {\r\n");
+        regtn.append("      compose"+upFirst(n)+"Core(prefix+\""+n+"\", ("+t+") type, false);\r\n");
+        regtn.append("      compose"+upFirst(n)+"Extras(prefix+\""+n+"\", ("+t+") type, false);\r\n");
+        regtn.append("    }\r\n");
+      }
     }
 
     finishComposer();

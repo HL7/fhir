@@ -1,6 +1,8 @@
 package org.hl7.fhir.dstu3.utils;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,6 +36,7 @@ import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.Questionnaire;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.ResourceType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -396,5 +399,31 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	}
 
 
+
+
+  public void loadFromFolder(String folder) throws FileNotFoundException, Exception {
+    for (String n : new File(folder).list()) {
+      if (n.endsWith(".json")) 
+        loadFromFile(Utilities.path(folder, n), new JsonParser());
+      else if (n.endsWith(".xml")) 
+        loadFromFile(Utilities.path(folder, n), new XmlParser());
+    }
+  }
+  
+  private void loadFromFile(String filename, IParser p) throws FileNotFoundException, Exception {
+  	Resource r; 
+  	try {
+  		r = p.parse(new FileInputStream(filename));
+      if (r.getResourceType() == ResourceType.Bundle) {
+        for (BundleEntryComponent e : ((Bundle) r).getEntry()) {
+          seeResource(null, e.getResource());
+        }
+     } else {
+       seeResource(null, r);
+     }
+  	} catch (Exception e) {
+    	return;
+    }
+  }
 
 }

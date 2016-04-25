@@ -39,6 +39,7 @@ import org.hl7.fhir.utilities.xml.XMLUtil;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
@@ -67,7 +68,7 @@ public class JsonParser extends ParserBase {
 		  assert (map.containsKey(obj));
 			return parse(obj);	
 		} else {
-			JsonObject obj = JsonTrackingParser.parse(source, map);
+			JsonObject obj = (JsonObject) new com.google.gson.JsonParser().parse(source);
 			assert (map.containsKey(obj));
 			return parse(obj);	
 		} 
@@ -131,8 +132,10 @@ public class JsonParser extends ParserBase {
 					String eName = property.getName().substring(0, property.getName().length()-3) + Utilities.capitalize(type.getCode());
 					if (!ParserBase.isPrimitive(type.getCode()) && object.has(eName)) {
 						parseChildComplex(path, object, context, processed, property, eName);
+						break;
 					} else if (ParserBase.isPrimitive(type.getCode()) && (object.has(eName) || object.has("_"+eName))) {
 						parseChildPrimitive(object, context, processed, property, path, eName);
+						break;
 					}
 				}
 			} else if (property.isPrimitive(null)) {
@@ -180,14 +183,36 @@ public class JsonParser extends ParserBase {
 			logError(line(e), col(e), npath, IssueType.INVALID, "This property must be "+(property.isList() ? "an Array" : "an Object")+", not a "+e.getClass().getName(), IssueSeverity.ERROR);
 	}
 	
-	private void parseChildPrimitive(JsonObject object, Element context, Set<String> processed, Property property, String path, String name)
-			throws FHIRFormatError, DefinitionException {
+	private void parseChildPrimitive(JsonObject object, Element context, Set<String> processed, Property property, String path, String name) throws FHIRFormatError, DefinitionException {
 		String npath = path+"/"+property.getName();
 		processed.add(name);
 		processed.add("_"+name);
 		JsonElement main = object.has(name) ? object.get(name) : null; 
 		JsonElement fork = object.has("_"+name) ? object.get("_"+name) : null;
 		if (main != null || fork != null) {
+			if (property.isList() && ((main == null) || (main instanceof JsonArray)) &&((fork == null) || (fork instanceof JsonArray)) ) {
+				JsonArray arr1 = (JsonArray) main;
+				JsonArray arr2 = (JsonArray) fork;
+				for (int i = 0; i < Math.max(arrC(arr1), arrC(arr2)); i++) {
+					JsonElement m = arrI(arr1, i);
+					JsonElement f = arrI(arr2, i);
+					parseChildPrimitiveInstance(context, property, name, npath, m, f);
+				}
+			} else
+				parseChildPrimitiveInstance(context, property, name, npath, main, fork);
+		}
+	}
+
+	private JsonElement arrI(JsonArray arr, int i) {
+  	return arr == null || i >= arr.size() || arr.get(i) instanceof JsonNull ? null : arr.get(i);
+	}
+
+	private int arrC(JsonArray arr) {
+  	return arr == null ? 0 : arr.size();
+	}
+
+	private void parseChildPrimitiveInstance(Element context, Property property, String name, String npath,
+	    JsonElement main, JsonElement fork) throws FHIRFormatError, DefinitionException {
 			if (main != null && !(main instanceof JsonPrimitive))
 				logError(line(main), col(main), npath, IssueType.INVALID, "This property must be an simple value, not a "+main.getClass().getName(), IssueSeverity.ERROR);
 			else if (fork != null && !(fork instanceof JsonObject))
@@ -214,7 +239,7 @@ public class JsonParser extends ParserBase {
 							if (!p.isNumber())
 								logError(line(main), col(main), npath, IssueType.INVALID, "Error parsing JSON: the primitive value must be a number", IssueSeverity.ERROR);
 						} else if (!p.isString())
-						  logError(line(main), col(main), npath, IssueType.INVALID, "Error parsing JSON: the primitive value must be a number", IssueSeverity.ERROR);
+				  logError(line(main), col(main), npath, IssueType.INVALID, "Error parsing JSON: the primitive value must be a string", IssueSeverity.ERROR);
 					}
 				}
 				if (fork != null) {
@@ -224,7 +249,6 @@ public class JsonParser extends ParserBase {
 				}
 			}
 		}
-	}
 
 
 	private void parseResource(String npath, JsonObject res, Element parent) throws DefinitionException, FHIRFormatError {
@@ -304,7 +328,6 @@ public class JsonParser extends ParserBase {
 		json.beginObject();
 		prop("resourceType", e.getType());
 		Set<String> done = new HashSet<String>();
-		composeComments(e);
 		for (Element child : e.getChildren()) {
 			compose(e.getName(), e, done, child);
 		}
@@ -314,7 +337,7 @@ public class JsonParser extends ParserBase {
 	}
 
 	private void compose(String path, Element e, Set<String> done, Element child) throws IOException {
-		if (!child.getProperty().isList()) {
+		if (child.getSpecial() == SpecialElement.BUNDLE_ENTRY || !child.getProperty().isList()) {// for specials, ignore the cardinality of the stated type
 			compose(path, child);
 		} else if (!done.contains(child.getName())) {
 			done.add(child.getName());
@@ -333,7 +356,7 @@ public class JsonParser extends ParserBase {
 			for (Element item : list) { 
 				if (item.hasValue())
 					prim = true;
-				if (item.hasChildren() || item.hasComments())
+				if (item.hasChildren())
 					complex = true;
 			}
 			if (prim) {
@@ -351,9 +374,8 @@ public class JsonParser extends ParserBase {
 		if (complex) {
 			openArray(name);
 			for (Element item : list) { 
-				if (item.hasChildren() || item.hasComments()) {
+				if (item.hasChildren()) {
 					open(null);
-					composeComments(item);
 					if (item.getProperty().isResource()) {
 						prop("resourceType", item.getType());
 					}
@@ -390,11 +412,9 @@ public class JsonParser extends ParserBase {
 				primitiveValue(name, element);
 			name = "_"+name;
 		}
-		if (element.hasChildren() || element.hasComments()) {
+		if (element.hasChildren()) {
 			open(name);
-			composeComments(element);
 			if (element.getProperty().isResource()) {
-				element = element.getChildren().get(0);
 				prop("resourceType", element.getType());
 			}
 			Set<String> done = new HashSet<String>();
@@ -403,16 +423,6 @@ public class JsonParser extends ParserBase {
 			}
 			close();
 		}
-	}
-
-	private void composeComments(Element element) throws IOException {
-		if (element.hasComments()) {
-			openArray("fhir_comments");
-			for (String s : element.getComments())
-				json.value(s);
-			closeArray();
-		}
-
 	}
 
 }

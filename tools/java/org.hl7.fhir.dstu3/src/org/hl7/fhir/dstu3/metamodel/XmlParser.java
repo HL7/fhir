@@ -55,6 +55,14 @@ public class XmlParser extends ParserBase {
 		Document doc = null;
   	try {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+  		// xxe protection
+  		factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+  		factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+  		factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+  		factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+  		factory.setXIncludeAware(false);
+  		factory.setExpandEntityReferences(false);
+  			
     factory.setNamespaceAware(true);
     if (policy == ValidationPolicy.EVERYTHING) {
       // use a slower parser that keeps location data
@@ -63,11 +71,17 @@ public class XmlParser extends ParserBase {
       DocumentBuilder docBuilder = factory.newDocumentBuilder();
       doc = docBuilder.newDocument();
       DOMResult domResult = new DOMResult(doc);
-      SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-      saxParserFactory.setNamespaceAware(true);
-      saxParserFactory.setValidating(false);
-      SAXParser saxParser = saxParserFactory.newSAXParser();
+  			SAXParserFactory spf = SAXParserFactory.newInstance();
+  			spf.setNamespaceAware(true);
+  			spf.setValidating(false);
+  			SAXParser saxParser = spf.newSAXParser();
       XMLReader xmlReader = saxParser.getXMLReader();
+    		// xxe protection
+				spf.setFeature("http://xml.org/sax/features/external-general-entities", false);
+				spf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+  		  xmlReader.setFeature("http://xml.org/sax/features/external-general-entities", false);
+  		  xmlReader.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+  	   			
       XmlLocationAnnotator locationAnnotator = new XmlLocationAnnotator(xmlReader, doc);
       InputSource inputSource = new InputSource(stream);
       SAXSource saxSource = new SAXSource(locationAnnotator, inputSource);
@@ -227,7 +241,7 @@ public class XmlParser extends ParserBase {
     		if (property != null) {
     			if (!property.isChoice() && "xhtml".equals(property.getType())) {
           	XhtmlNode xhtml = new XhtmlParser().setValidatorMode(true).parseHtmlNode((org.w3c.dom.Element) child);
-      	    context.getChildren().add(new Element("div", property, "xhtml", new XhtmlComposer().compose(xhtml)).setXhtml(xhtml).markLocation(line(child), col(child)));
+						context.getChildren().add(new Element("div", property, "xhtml", new XhtmlComposer().setXmlOnly(true).compose(xhtml)).setXhtml(xhtml).markLocation(line(child), col(child)));
     			} else {
     			String npath = path+"/"+pathPrefix(child.getNamespaceURI())+child.getLocalName();
     			Element n = new Element(child.getLocalName(), property).markLocation(line(child), col(child));
@@ -338,6 +352,11 @@ public class XmlParser extends ParserBase {
   }
 
   private boolean isText(Property property) {
+		for (Enumeration<PropertyRepresentation> r : property.getDefinition().getRepresentation()) {
+			if (r.getValue() == PropertyRepresentation.XMLTEXT) {
+				return true;
+			}
+		}
     return false;
   }
 
@@ -362,13 +381,18 @@ public class XmlParser extends ParserBase {
       xml.exit(elementName);      
     } else if (element.isPrimitive() || (element.hasType() && ParserBase.isPrimitive(element.getType()))) {
       if (element.getType().equals("xhtml")) {
-        xml.enter(elementName);
         xml.escapedText(element.getValue());
-        xml.exit(elementName);
       } else if (isText(element.getProperty())) {
         xml.text(element.getValue());
       } else {
+				if (element.hasValue())
         xml.attribute("value", element.getValue());
+				if (element.hasChildren()) {
+					xml.enter(elementName);
+					for (Element child : element.getChildren()) 
+						composeElement(xml, child, child.getName());
+					xml.exit(elementName);
+				} else
         xml.element(elementName);
       }
     } else {
@@ -377,12 +401,16 @@ public class XmlParser extends ParserBase {
           xml.attribute(child.getName(), child.getValue());
       }
       xml.enter(elementName);
+	    if (element.getSpecial() != null)
+        xml.enter(element.getType());
       for (Element child : element.getChildren()) {
         if (isText(child.getProperty()))
           xml.text(child.getValue());
         else if (!isAttr(child.getProperty()))
           composeElement(xml, child, child.getName());
       }
+	    if (element.getSpecial() != null)
+        xml.exit(element.getType());
       xml.exit(elementName);
     }
   }

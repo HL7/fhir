@@ -146,4 +146,5 @@ public class TurtleParser extends ParserBase {
 		return "\"" +RdfGenerator.escape(value, true) + "\""+xst;
 	}
 
+
 }
