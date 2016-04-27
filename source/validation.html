@@ -108,17 +108,17 @@ Here is an example windows batch file that demonstrates the process (using the c
  @ECHO OFF
 
  ECHO get the validator and unzip it 
- wget.exe http://hl7.org/fhir/validator.zip
+ wget http://hl7.org/fhir/validator.zip
  7z.exe x validator.zip
 
  ECHO Get the validation source file (dictionary)
- wget.exe http://hl7.org/fhir/validation-min.xml.zip
+ wget http://hl7.org/fhir/validation-min.xml.zip
 
  ECHO get an example to validate
- wget.exe http://hl7.org/fhir/patient-example.html -O test-obs.xml
+ wget http://hl7.org/fhir/patient-example.xml -O pat-ex.xml
 
  ECHO validate it. The DAF profile will be loaded out of the definitions in validation-min.zip
- java -jar org.hl7.fhir.validator.jar test-obs.xml -defn validation-min.xml.zip -profile http://hl7.org/fhir/StructureDefinition/daf-patient
+ java -jar org.hl7.fhir.validator.jar pat-ex.xml -defn validation-min.xml.zip -profile http://hl7.org/fhir/StructureDefinition/daf-patient
 
  pause
 </pre>
