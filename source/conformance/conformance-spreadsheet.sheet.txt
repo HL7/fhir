@@ -434,14 +434,14 @@
   Context = Conformance
   English = A Conformance statement SHALL have at least one of REST, messaging or document
   XPath = exists(f:rest) or exists(f:messaging) or exists(f:document)
-  Expression = rest or messaging or document
+  Expression = rest.exists() or messaging.exists() or document.exists()
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Conformance
   English = A Conformance statement SHALL have at least one of description, software, or implementation
   XPath = count(f:software | f:implementation | f:description) > 0
-  Expression = description or software or implementation
+  Expression = (description.count() + software.count() + implementation.count()) > 0
 
  -- Row 3 -----------------------------------
   Id = 3

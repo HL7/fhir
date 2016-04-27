@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Apr 19, 2016 07:38+1000 for FHIR v1.4.0
+// Generated on Tue, Apr 26, 2016 16:55-0400 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -210,9 +210,9 @@ public class MedicationOrder extends DomainResource {
         /**
          * Additional instructions such as "Swallow with plenty of water" which may or may not be coded.
          */
-        @Child(name = "additionalInstructions", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "additionalInstructions", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Supplemental instructions - e.g. \"with meals\"", formalDefinition="Additional instructions such as \"Swallow with plenty of water\" which may or may not be coded." )
-        protected CodeableConcept additionalInstructions;
+        protected List<CodeableConcept> additionalInstructions;
 
         /**
          * The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
@@ -277,7 +277,7 @@ public class MedicationOrder extends DomainResource {
         @Description(shortDefinition="Amount of medication per unit of time", formalDefinition="Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours." )
         protected Type rate;
 
-        private static final long serialVersionUID = 1530665967L;
+        private static final long serialVersionUID = -1024739575L;
 
     /**
      * Constructor
@@ -338,24 +338,40 @@ public class MedicationOrder extends DomainResource {
         /**
          * @return {@link #additionalInstructions} (Additional instructions such as "Swallow with plenty of water" which may or may not be coded.)
          */
-        public CodeableConcept getAdditionalInstructions() { 
+        public List<CodeableConcept> getAdditionalInstructions() { 
           if (this.additionalInstructions == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderDosageInstructionComponent.additionalInstructions");
-            else if (Configuration.doAutoCreate())
-              this.additionalInstructions = new CodeableConcept(); // cc
+            this.additionalInstructions = new ArrayList<CodeableConcept>();
           return this.additionalInstructions;
         }
 
         public boolean hasAdditionalInstructions() { 
-          return this.additionalInstructions != null && !this.additionalInstructions.isEmpty();
+          if (this.additionalInstructions == null)
+            return false;
+          for (CodeableConcept item : this.additionalInstructions)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
-         * @param value {@link #additionalInstructions} (Additional instructions such as "Swallow with plenty of water" which may or may not be coded.)
+         * @return {@link #additionalInstructions} (Additional instructions such as "Swallow with plenty of water" which may or may not be coded.)
          */
-        public MedicationOrderDosageInstructionComponent setAdditionalInstructions(CodeableConcept value) { 
-          this.additionalInstructions = value;
+    // syntactic sugar
+        public CodeableConcept addAdditionalInstructions() { //3
+          CodeableConcept t = new CodeableConcept();
+          if (this.additionalInstructions == null)
+            this.additionalInstructions = new ArrayList<CodeableConcept>();
+          this.additionalInstructions.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public MedicationOrderDosageInstructionComponent addAdditionalInstructions(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.additionalInstructions == null)
+            this.additionalInstructions = new ArrayList<CodeableConcept>();
+          this.additionalInstructions.add(t);
           return this;
         }
 
@@ -691,7 +707,7 @@ public class MedicationOrder extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3556653: /*text*/ return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
-        case -1206718612: /*additionalInstructions*/ return this.additionalInstructions == null ? new Base[0] : new Base[] {this.additionalInstructions}; // CodeableConcept
+        case -1206718612: /*additionalInstructions*/ return this.additionalInstructions == null ? new Base[0] : this.additionalInstructions.toArray(new Base[this.additionalInstructions.size()]); // CodeableConcept
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Timing
         case -1432923513: /*asNeeded*/ return this.asNeeded == null ? new Base[0] : new Base[] {this.asNeeded}; // Type
         case 3530567: /*site*/ return this.site == null ? new Base[0] : new Base[] {this.site}; // Type
@@ -713,7 +729,7 @@ public class MedicationOrder extends DomainResource {
           this.text = castToString(value); // StringType
           break;
         case -1206718612: // additionalInstructions
-          this.additionalInstructions = castToCodeableConcept(value); // CodeableConcept
+          this.getAdditionalInstructions().add(castToCodeableConcept(value)); // CodeableConcept
           break;
         case -873664438: // timing
           this.timing = castToTiming(value); // Timing
@@ -752,7 +768,7 @@ public class MedicationOrder extends DomainResource {
         if (name.equals("text"))
           this.text = castToString(value); // StringType
         else if (name.equals("additionalInstructions"))
-          this.additionalInstructions = castToCodeableConcept(value); // CodeableConcept
+          this.getAdditionalInstructions().add(castToCodeableConcept(value));
         else if (name.equals("timing"))
           this.timing = castToTiming(value); // Timing
         else if (name.equals("asNeeded[x]"))
@@ -779,7 +795,7 @@ public class MedicationOrder extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
-        case -1206718612:  return getAdditionalInstructions(); // CodeableConcept
+        case -1206718612:  return addAdditionalInstructions(); // CodeableConcept
         case -873664438:  return getTiming(); // Timing
         case -544329575:  return getAsNeeded(); // Type
         case 2099997657:  return getSite(); // Type
@@ -800,8 +816,7 @@ public class MedicationOrder extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type MedicationOrder.text");
         }
         else if (name.equals("additionalInstructions")) {
-          this.additionalInstructions = new CodeableConcept();
-          return this.additionalInstructions;
+          return addAdditionalInstructions();
         }
         else if (name.equals("timing")) {
           this.timing = new Timing();
@@ -867,7 +882,11 @@ public class MedicationOrder extends DomainResource {
         MedicationOrderDosageInstructionComponent dst = new MedicationOrderDosageInstructionComponent();
         copyValues(dst);
         dst.text = text == null ? null : text.copy();
-        dst.additionalInstructions = additionalInstructions == null ? null : additionalInstructions.copy();
+        if (additionalInstructions != null) {
+          dst.additionalInstructions = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : additionalInstructions)
+            dst.additionalInstructions.add(i.copy());
+        };
         dst.timing = timing == null ? null : timing.copy();
         dst.asNeeded = asNeeded == null ? null : asNeeded.copy();
         dst.site = site == null ? null : site.copy();

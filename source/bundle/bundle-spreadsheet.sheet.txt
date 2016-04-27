@@ -159,8 +159,8 @@
   Id = 5
   Context = Bundle.entry
   English = must be a resource unless there\'s a request or response
-  XPath = f:resource or f:request or f:response
-  Expression = resource or request or response
+  XPath = exists(f:resource) or exists(f:request) or exists(f:response)
+  Expression = resource.exists() or request.exists() or response.exists()
   Severity = error
 
  -- Row 6 -----------------------------------

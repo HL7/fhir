@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Apr 19, 2016 07:38+1000 for FHIR v1.4.0
+// Generated on Tue, Apr 26, 2016 16:55-0400 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -50,6 +50,7 @@ import org.hl7.fhir.dstu3.model.UuidType;
 import org.hl7.fhir.dstu3.model.InstantType;
 import org.hl7.fhir.dstu3.model.*;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import com.google.gson.JsonObject;
@@ -10074,9 +10075,8 @@ public class JsonParser extends JsonParserBase {
       res.setMethod(parseCodeableConcept(json.getAsJsonObject("method")));
     if (json.has("quantity"))
       res.setQuantity(parseSimpleQuantity(json.getAsJsonObject("quantity")));
-    Type rate = parseType("rate", json);
-    if (rate != null)
-      res.setRate(rate);
+    if (json.has("rate"))
+      res.setRate(parseRatio(json.getAsJsonObject("rate")));
     return res;
   }
 
@@ -10148,8 +10148,12 @@ public class JsonParser extends JsonParserBase {
       res.setTextElement(parseString(json.get("text").getAsString()));
     if (json.has("_text"))
       parseElementProperties(json.getAsJsonObject("_text"), res.getTextElement());
-    if (json.has("additionalInstructions"))
-      res.setAdditionalInstructions(parseCodeableConcept(json.getAsJsonObject("additionalInstructions")));
+    if (json.has("additionalInstructions")) {
+      JsonArray array = json.getAsJsonArray("additionalInstructions");
+      for (int i = 0; i < array.size(); i++) {
+        res.getAdditionalInstructions().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("timing"))
       res.setTiming(parseTiming(json.getAsJsonObject("timing")));
     Type asNeeded = parseType("asNeeded", json);
@@ -10265,8 +10269,12 @@ public class JsonParser extends JsonParserBase {
       res.setTextElement(parseString(json.get("text").getAsString()));
     if (json.has("_text"))
       parseElementProperties(json.getAsJsonObject("_text"), res.getTextElement());
-    if (json.has("additionalInstructions"))
-      res.setAdditionalInstructions(parseCodeableConcept(json.getAsJsonObject("additionalInstructions")));
+    if (json.has("additionalInstructions")) {
+      JsonArray array = json.getAsJsonArray("additionalInstructions");
+      for (int i = 0; i < array.size(); i++) {
+        res.getAdditionalInstructions().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("timing"))
       res.setTiming(parseTiming(json.getAsJsonObject("timing")));
     Type asNeeded = parseType("asNeeded", json);
@@ -14882,6 +14890,10 @@ public class JsonParser extends JsonParserBase {
   protected TestScript.TestScriptRulesetRuleComponent parseTestScriptTestScriptRulesetRuleComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
     TestScript.TestScriptRulesetRuleComponent res = new TestScript.TestScriptRulesetRuleComponent();
     parseBackboneProperties(json, res);
+    if (json.has("ruleId"))
+      res.setRuleIdElement(parseId(json.get("ruleId").getAsString()));
+    if (json.has("_ruleId"))
+      parseElementProperties(json.getAsJsonObject("_ruleId"), res.getRuleIdElement());
     if (json.has("param")) {
       JsonArray array = json.getAsJsonArray("param");
       for (int i = 0; i < array.size(); i++) {
@@ -15094,6 +15106,10 @@ public class JsonParser extends JsonParserBase {
   protected TestScript.SetupActionAssertRuleComponent parseTestScriptSetupActionAssertRuleComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
     TestScript.SetupActionAssertRuleComponent res = new TestScript.SetupActionAssertRuleComponent();
     parseBackboneProperties(json, res);
+    if (json.has("ruleId"))
+      res.setRuleIdElement(parseId(json.get("ruleId").getAsString()));
+    if (json.has("_ruleId"))
+      parseElementProperties(json.getAsJsonObject("_ruleId"), res.getRuleIdElement());
     if (json.has("param")) {
       JsonArray array = json.getAsJsonArray("param");
       for (int i = 0; i < array.size(); i++) {
@@ -15120,6 +15136,10 @@ public class JsonParser extends JsonParserBase {
   protected TestScript.SetupActionAssertRulesetComponent parseTestScriptSetupActionAssertRulesetComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
     TestScript.SetupActionAssertRulesetComponent res = new TestScript.SetupActionAssertRulesetComponent();
     parseBackboneProperties(json, res);
+    if (json.has("rulesetId"))
+      res.setRulesetIdElement(parseId(json.get("rulesetId").getAsString()));
+    if (json.has("_rulesetId"))
+      parseElementProperties(json.getAsJsonObject("_rulesetId"), res.getRulesetIdElement());
     if (json.has("rule")) {
       JsonArray array = json.getAsJsonArray("rule");
       for (int i = 0; i < array.size(); i++) {
@@ -15132,6 +15152,10 @@ public class JsonParser extends JsonParserBase {
   protected TestScript.SetupActionAssertRulesetRuleComponent parseTestScriptSetupActionAssertRulesetRuleComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
     TestScript.SetupActionAssertRulesetRuleComponent res = new TestScript.SetupActionAssertRulesetRuleComponent();
     parseBackboneProperties(json, res);
+    if (json.has("ruleId"))
+      res.setRuleIdElement(parseId(json.get("ruleId").getAsString()));
+    if (json.has("_ruleId"))
+      parseElementProperties(json.getAsJsonObject("_ruleId"), res.getRuleIdElement());
     if (json.has("param")) {
       JsonArray array = json.getAsJsonArray("param");
       for (int i = 0; i < array.size(); i++) {
@@ -16756,7 +16780,11 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationExtras("status", element.getStatusElement(), new Narrative.NarrativeStatusEnumFactory(), false);
       }
       if (element.hasDiv()) {
-        composeXhtml("div", element.getDiv());
+        XhtmlNode node = element.getDiv();
+        if (node.getNsDecl() == null) {
+          node.attribute("xmlns", XHTML_NS);
+        }
+        composeXhtml("div", node);
       }
   }
 
@@ -28880,7 +28908,7 @@ public class JsonParser extends JsonParserBase {
         composeSimpleQuantity("quantity", element.getQuantity());
       }
       if (element.hasRate()) {
-        composeType("rate", element.getRate());
+        composeRatio("rate", element.getRate());
       }
   }
 
@@ -28973,8 +29001,11 @@ public class JsonParser extends JsonParserBase {
         composeStringExtras("text", element.getTextElement(), false);
       }
       if (element.hasAdditionalInstructions()) {
-        composeCodeableConcept("additionalInstructions", element.getAdditionalInstructions());
-      }
+        openArray("additionalInstructions");
+        for (CodeableConcept e : element.getAdditionalInstructions()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
       if (element.hasTiming()) {
         composeTiming("timing", element.getTiming());
       }
@@ -29120,8 +29151,11 @@ public class JsonParser extends JsonParserBase {
         composeStringExtras("text", element.getTextElement(), false);
       }
       if (element.hasAdditionalInstructions()) {
-        composeCodeableConcept("additionalInstructions", element.getAdditionalInstructions());
-      }
+        openArray("additionalInstructions");
+        for (CodeableConcept e : element.getAdditionalInstructions()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
       if (element.hasTiming()) {
         composeTiming("timing", element.getTiming());
       }
@@ -34786,6 +34820,10 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeTestScriptTestScriptRulesetRuleComponentInner(TestScript.TestScriptRulesetRuleComponent element) throws IOException {
       composeBackbone(element);
+      if (element.hasRuleIdElement()) {
+        composeIdCore("ruleId", element.getRuleIdElement(), false);
+        composeIdExtras("ruleId", element.getRuleIdElement(), false);
+      }
       if (element.hasParam()) {
         openArray("param");
         for (TestScript.TestScriptRulesetRuleParamComponent e : element.getParam()) 
@@ -35046,6 +35084,10 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeTestScriptSetupActionAssertRuleComponentInner(TestScript.SetupActionAssertRuleComponent element) throws IOException {
       composeBackbone(element);
+      if (element.hasRuleIdElement()) {
+        composeIdCore("ruleId", element.getRuleIdElement(), false);
+        composeIdExtras("ruleId", element.getRuleIdElement(), false);
+      }
       if (element.hasParam()) {
         openArray("param");
         for (TestScript.SetupActionAssertRuleParamComponent e : element.getParam()) 
@@ -35084,6 +35126,10 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeTestScriptSetupActionAssertRulesetComponentInner(TestScript.SetupActionAssertRulesetComponent element) throws IOException {
       composeBackbone(element);
+      if (element.hasRulesetIdElement()) {
+        composeIdCore("rulesetId", element.getRulesetIdElement(), false);
+        composeIdExtras("rulesetId", element.getRulesetIdElement(), false);
+      }
       if (element.hasRule()) {
         openArray("rule");
         for (TestScript.SetupActionAssertRulesetRuleComponent e : element.getRule()) 
@@ -35102,6 +35148,10 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeTestScriptSetupActionAssertRulesetRuleComponentInner(TestScript.SetupActionAssertRulesetRuleComponent element) throws IOException {
       composeBackbone(element);
+      if (element.hasRuleIdElement()) {
+        composeIdCore("ruleId", element.getRuleIdElement(), false);
+        composeIdExtras("ruleId", element.getRuleIdElement(), false);
+      }
       if (element.hasParam()) {
         openArray("param");
         for (TestScript.SetupActionAssertRulesetRuleParamComponent e : element.getParam()) 
@@ -36199,14 +36249,6 @@ public class JsonParser extends JsonParserBase {
       composeMarkdownCore(prefix+"Markdown", (MarkdownType) type, false);
       composeMarkdownExtras(prefix+"Markdown", (MarkdownType) type, false);
     }
-    else if (type instanceof IntegerType) {
-      composeIntegerCore(prefix+"Integer", (IntegerType) type, false);
-      composeIntegerExtras(prefix+"Integer", (IntegerType) type, false);
-    }
-    else if (type instanceof DateTimeType) {
-      composeDateTimeCore(prefix+"DateTime", (DateTimeType) type, false);
-      composeDateTimeExtras(prefix+"DateTime", (DateTimeType) type, false);
-    }
     else if (type instanceof UnsignedIntType) {
       composeUnsignedIntCore(prefix+"UnsignedInt", (UnsignedIntType) type, false);
       composeUnsignedIntExtras(prefix+"UnsignedInt", (UnsignedIntType) type, false);
@@ -36214,6 +36256,30 @@ public class JsonParser extends JsonParserBase {
     else if (type instanceof CodeType) {
       composeCodeCore(prefix+"Code", (CodeType) type, false);
       composeCodeExtras(prefix+"Code", (CodeType) type, false);
+    }
+    else if (type instanceof IdType) {
+      composeIdCore(prefix+"Id", (IdType) type, false);
+      composeIdExtras(prefix+"Id", (IdType) type, false);
+    }
+    else if (type instanceof OidType) {
+      composeOidCore(prefix+"Oid", (OidType) type, false);
+      composeOidExtras(prefix+"Oid", (OidType) type, false);
+    }
+    else if (type instanceof PositiveIntType) {
+      composePositiveIntCore(prefix+"PositiveInt", (PositiveIntType) type, false);
+      composePositiveIntExtras(prefix+"PositiveInt", (PositiveIntType) type, false);
+    }
+    else if (type instanceof UuidType) {
+      composeUuidCore(prefix+"Uuid", (UuidType) type, false);
+      composeUuidExtras(prefix+"Uuid", (UuidType) type, false);
+    }
+    else if (type instanceof IntegerType) {
+      composeIntegerCore(prefix+"Integer", (IntegerType) type, false);
+      composeIntegerExtras(prefix+"Integer", (IntegerType) type, false);
+    }
+    else if (type instanceof DateTimeType) {
+      composeDateTimeCore(prefix+"DateTime", (DateTimeType) type, false);
+      composeDateTimeExtras(prefix+"DateTime", (DateTimeType) type, false);
     }
     else if (type instanceof DateType) {
       composeDateCore(prefix+"Date", (DateType) type, false);
@@ -36227,10 +36293,6 @@ public class JsonParser extends JsonParserBase {
       composeUriCore(prefix+"Uri", (UriType) type, false);
       composeUriExtras(prefix+"Uri", (UriType) type, false);
     }
-    else if (type instanceof IdType) {
-      composeIdCore(prefix+"Id", (IdType) type, false);
-      composeIdExtras(prefix+"Id", (IdType) type, false);
-    }
     else if (type instanceof Base64BinaryType) {
       composeBase64BinaryCore(prefix+"Base64Binary", (Base64BinaryType) type, false);
       composeBase64BinaryExtras(prefix+"Base64Binary", (Base64BinaryType) type, false);
@@ -36239,14 +36301,6 @@ public class JsonParser extends JsonParserBase {
       composeTimeCore(prefix+"Time", (TimeType) type, false);
       composeTimeExtras(prefix+"Time", (TimeType) type, false);
     }
-    else if (type instanceof OidType) {
-      composeOidCore(prefix+"Oid", (OidType) type, false);
-      composeOidExtras(prefix+"Oid", (OidType) type, false);
-    }
-    else if (type instanceof PositiveIntType) {
-      composePositiveIntCore(prefix+"PositiveInt", (PositiveIntType) type, false);
-      composePositiveIntExtras(prefix+"PositiveInt", (PositiveIntType) type, false);
-    }
     else if (type instanceof StringType) {
       composeStringCore(prefix+"String", (StringType) type, false);
       composeStringExtras(prefix+"String", (StringType) type, false);
@@ -36254,10 +36308,6 @@ public class JsonParser extends JsonParserBase {
     else if (type instanceof BooleanType) {
       composeBooleanCore(prefix+"Boolean", (BooleanType) type, false);
       composeBooleanExtras(prefix+"Boolean", (BooleanType) type, false);
-    }
-    else if (type instanceof UuidType) {
-      composeUuidCore(prefix+"Uuid", (UuidType) type, false);
-      composeUuidExtras(prefix+"Uuid", (UuidType) type, false);
     }
     else if (type instanceof InstantType) {
       composeInstantCore(prefix+"Instant", (InstantType) type, false);

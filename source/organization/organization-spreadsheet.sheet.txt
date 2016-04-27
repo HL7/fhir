@@ -27,7 +27,7 @@
   Context = Organization
   English = The organization SHALL at least have a name or an id, and possibly more than one
   XPath = count(f:identifier | f:name) > 0
-  Expression = identifier or name
+  Expression = (identifier.count() + name.count()) > 0
 
  -- Row 2 -----------------------------------
   Id = 2

@@ -161,7 +161,7 @@
   Context = Observation.referenceRange
   English = Must have at least a low or a high or text
   XPath = (exists(f:low) or exists(f:high)or exists(f:text))
-  Expression = low or high or text
+  Expression = low.exists() or high.exists() or text.exists()
 
  -- Row 2 -----------------------------------
   Id = 6

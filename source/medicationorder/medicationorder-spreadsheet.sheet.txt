@@ -68,8 +68,10 @@
 
  -- Row 11 -----------------------------------
   Binding Name = AdditionalInstructions
-  Binding = unbound
+  Binding = value set
+  Reference = valueset-additional-instructions-codes
   Definition = Codes identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\".
+  Conformance = example
 
 === Sheet medication-order-status =====================================
 
@@ -266,7 +268,7 @@
 
  -- Row 16 -----------------------------------
   Element = MedicationOrder.dosageInstruction.additionalInstructions
-  Card. = 0..1
+  Card. = 0..*
   Type = CodeableConcept
   Binding = AdditionalInstructions
   Short Label = Supplemental instructions - e.g. \"with meals\"

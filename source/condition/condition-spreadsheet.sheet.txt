@@ -111,14 +111,14 @@
   Context = Condition.stage
   English = Stage SHALL have summary or assessment
   XPath = exists(f:summary) or exists(f:assessment)
-  Expression = summary or assessment
+  Expression = summary.exists() or assessment.exists()
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Condition.evidence
   English = evidence SHALL have code or details
   XPath = exists(f:code) or exists(f:detail)
-  Expression = code or detail
+  Expression = code.exists() or detail.exists()
 
 === Sheet Data Elements =====================================
 

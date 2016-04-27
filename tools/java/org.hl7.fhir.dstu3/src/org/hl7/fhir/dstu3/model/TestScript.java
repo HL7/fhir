@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Apr 19, 2016 07:38+1000 for FHIR v1.4.0
+// Generated on Tue, Apr 26, 2016 16:55-0400 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -3533,10 +3533,10 @@ public class TestScript extends DomainResource {
         protected Resource resourceTarget;
 
         /**
-         * Id of the referenced rule within the external ruleset template.
+         * The referenced rule within the external ruleset template.
          */
         @Child(name = "rule", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Id of referenced rule within the ruleset", formalDefinition="Id of the referenced rule within the external ruleset template." )
+        @Description(shortDefinition="The referenced rule within the ruleset", formalDefinition="The referenced rule within the external ruleset template." )
         protected List<TestScriptRulesetRuleComponent> rule;
 
         private static final long serialVersionUID = 5813554L;
@@ -3596,7 +3596,7 @@ public class TestScript extends DomainResource {
         }
 
         /**
-         * @return {@link #rule} (Id of the referenced rule within the external ruleset template.)
+         * @return {@link #rule} (The referenced rule within the external ruleset template.)
          */
         public List<TestScriptRulesetRuleComponent> getRule() { 
           if (this.rule == null)
@@ -3614,7 +3614,7 @@ public class TestScript extends DomainResource {
         }
 
         /**
-         * @return {@link #rule} (Id of the referenced rule within the external ruleset template.)
+         * @return {@link #rule} (The referenced rule within the external ruleset template.)
          */
     // syntactic sugar
         public TestScriptRulesetRuleComponent addRule() { //3
@@ -3638,7 +3638,7 @@ public class TestScript extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("resource", "Reference(Any)", "Reference to the resource (containing the contents of the ruleset needed for assertions).", 0, java.lang.Integer.MAX_VALUE, resource));
-          childrenList.add(new Property("rule", "", "Id of the referenced rule within the external ruleset template.", 0, java.lang.Integer.MAX_VALUE, rule));
+          childrenList.add(new Property("rule", "", "The referenced rule within the external ruleset template.", 0, java.lang.Integer.MAX_VALUE, rule));
         }
 
       @Override
@@ -3745,13 +3745,20 @@ public class TestScript extends DomainResource {
     @Block()
     public static class TestScriptRulesetRuleComponent extends BackboneElement implements IBaseBackboneElement {
         /**
+         * Id of the referenced rule within the external ruleset template.
+         */
+        @Child(name = "ruleId", type = {IdType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Id of referenced rule within the ruleset", formalDefinition="Id of the referenced rule within the external ruleset template." )
+        protected IdType ruleId;
+
+        /**
          * Each rule template can take one or more parameters for rule evaluation.
          */
-        @Child(name = "param", type = {}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "param", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Ruleset rule parameter template", formalDefinition="Each rule template can take one or more parameters for rule evaluation." )
         protected List<TestScriptRulesetRuleParamComponent> param;
 
-        private static final long serialVersionUID = 1266281462L;
+        private static final long serialVersionUID = 155033950L;
 
     /**
      * Constructor
@@ -3759,6 +3766,59 @@ public class TestScript extends DomainResource {
       public TestScriptRulesetRuleComponent() {
         super();
       }
+
+    /**
+     * Constructor
+     */
+      public TestScriptRulesetRuleComponent(IdType ruleId) {
+        super();
+        this.ruleId = ruleId;
+      }
+
+        /**
+         * @return {@link #ruleId} (Id of the referenced rule within the external ruleset template.). This is the underlying object with id, value and extensions. The accessor "getRuleId" gives direct access to the value
+         */
+        public IdType getRuleIdElement() { 
+          if (this.ruleId == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptRulesetRuleComponent.ruleId");
+            else if (Configuration.doAutoCreate())
+              this.ruleId = new IdType(); // bb
+          return this.ruleId;
+        }
+
+        public boolean hasRuleIdElement() { 
+          return this.ruleId != null && !this.ruleId.isEmpty();
+        }
+
+        public boolean hasRuleId() { 
+          return this.ruleId != null && !this.ruleId.isEmpty();
+        }
+
+        /**
+         * @param value {@link #ruleId} (Id of the referenced rule within the external ruleset template.). This is the underlying object with id, value and extensions. The accessor "getRuleId" gives direct access to the value
+         */
+        public TestScriptRulesetRuleComponent setRuleIdElement(IdType value) { 
+          this.ruleId = value;
+          return this;
+        }
+
+        /**
+         * @return Id of the referenced rule within the external ruleset template.
+         */
+        public String getRuleId() { 
+          return this.ruleId == null ? null : this.ruleId.getValue();
+        }
+
+        /**
+         * @param value Id of the referenced rule within the external ruleset template.
+         */
+        public TestScriptRulesetRuleComponent setRuleId(String value) { 
+            if (this.ruleId == null)
+              this.ruleId = new IdType();
+            this.ruleId.setValue(value);
+          return this;
+        }
 
         /**
          * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
@@ -3802,12 +3862,14 @@ public class TestScript extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
+          childrenList.add(new Property("ruleId", "id", "Id of the referenced rule within the external ruleset template.", 0, java.lang.Integer.MAX_VALUE, ruleId));
           childrenList.add(new Property("param", "", "Each rule template can take one or more parameters for rule evaluation.", 0, java.lang.Integer.MAX_VALUE, param));
         }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
+        case -919875273: /*ruleId*/ return this.ruleId == null ? new Base[0] : new Base[] {this.ruleId}; // IdType
         case 106436749: /*param*/ return this.param == null ? new Base[0] : this.param.toArray(new Base[this.param.size()]); // TestScriptRulesetRuleParamComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -3817,6 +3879,9 @@ public class TestScript extends DomainResource {
       @Override
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
+        case -919875273: // ruleId
+          this.ruleId = castToId(value); // IdType
+          break;
         case 106436749: // param
           this.getParam().add((TestScriptRulesetRuleParamComponent) value); // TestScriptRulesetRuleParamComponent
           break;
@@ -3827,7 +3892,9 @@ public class TestScript extends DomainResource {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("param"))
+        if (name.equals("ruleId"))
+          this.ruleId = castToId(value); // IdType
+        else if (name.equals("param"))
           this.getParam().add((TestScriptRulesetRuleParamComponent) value);
         else
           super.setProperty(name, value);
@@ -3836,6 +3903,7 @@ public class TestScript extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
+        case -919875273: throw new FHIRException("Cannot make property ruleId as it is not a complex type"); // IdType
         case 106436749:  return addParam(); // TestScriptRulesetRuleParamComponent
         default: return super.makeProperty(hash, name);
         }
@@ -3844,7 +3912,10 @@ public class TestScript extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("param")) {
+        if (name.equals("ruleId")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.ruleId");
+        }
+        else if (name.equals("param")) {
           return addParam();
         }
         else
@@ -3854,6 +3925,7 @@ public class TestScript extends DomainResource {
       public TestScriptRulesetRuleComponent copy() {
         TestScriptRulesetRuleComponent dst = new TestScriptRulesetRuleComponent();
         copyValues(dst);
+        dst.ruleId = ruleId == null ? null : ruleId.copy();
         if (param != null) {
           dst.param = new ArrayList<TestScriptRulesetRuleParamComponent>();
           for (TestScriptRulesetRuleParamComponent i : param)
@@ -3869,7 +3941,7 @@ public class TestScript extends DomainResource {
         if (!(other instanceof TestScriptRulesetRuleComponent))
           return false;
         TestScriptRulesetRuleComponent o = (TestScriptRulesetRuleComponent) other;
-        return compareDeep(param, o.param, true);
+        return compareDeep(ruleId, o.ruleId, true) && compareDeep(param, o.param, true);
       }
 
       @Override
@@ -3879,11 +3951,12 @@ public class TestScript extends DomainResource {
         if (!(other instanceof TestScriptRulesetRuleComponent))
           return false;
         TestScriptRulesetRuleComponent o = (TestScriptRulesetRuleComponent) other;
-        return true;
+        return compareValues(ruleId, o.ruleId, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (param == null || param.isEmpty());
+        return super.isEmpty() && (ruleId == null || ruleId.isEmpty()) && (param == null || param.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -5904,17 +5977,17 @@ public class TestScript extends DomainResource {
         protected StringType responseCode;
 
         /**
-         * The TestScript.rule id value this assert will evaluate.
+         * The TestScript.rule this assert will evaluate.
          */
         @Child(name = "rule", type = {}, order=15, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Id of the TestScript.rule", formalDefinition="The TestScript.rule id value this assert will evaluate." )
+        @Description(shortDefinition="The reference to a TestScript.rule", formalDefinition="The TestScript.rule this assert will evaluate." )
         protected SetupActionAssertRuleComponent rule;
 
         /**
-         * The TestScript.ruleset id value this assert will evaluate.
+         * The TestScript.ruleset this assert will evaluate.
          */
         @Child(name = "ruleset", type = {}, order=16, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Id of the TestScript.ruleset", formalDefinition="The TestScript.ruleset id value this assert will evaluate." )
+        @Description(shortDefinition="The reference to a TestScript.ruleset", formalDefinition="The TestScript.ruleset this assert will evaluate." )
         protected SetupActionAssertRulesetComponent ruleset;
 
         /**
@@ -6637,7 +6710,7 @@ public class TestScript extends DomainResource {
         }
 
         /**
-         * @return {@link #rule} (The TestScript.rule id value this assert will evaluate.)
+         * @return {@link #rule} (The TestScript.rule this assert will evaluate.)
          */
         public SetupActionAssertRuleComponent getRule() { 
           if (this.rule == null)
@@ -6653,7 +6726,7 @@ public class TestScript extends DomainResource {
         }
 
         /**
-         * @param value {@link #rule} (The TestScript.rule id value this assert will evaluate.)
+         * @param value {@link #rule} (The TestScript.rule this assert will evaluate.)
          */
         public SetupActionAssertComponent setRule(SetupActionAssertRuleComponent value) { 
           this.rule = value;
@@ -6661,7 +6734,7 @@ public class TestScript extends DomainResource {
         }
 
         /**
-         * @return {@link #ruleset} (The TestScript.ruleset id value this assert will evaluate.)
+         * @return {@link #ruleset} (The TestScript.ruleset this assert will evaluate.)
          */
         public SetupActionAssertRulesetComponent getRuleset() { 
           if (this.ruleset == null)
@@ -6677,7 +6750,7 @@ public class TestScript extends DomainResource {
         }
 
         /**
-         * @param value {@link #ruleset} (The TestScript.ruleset id value this assert will evaluate.)
+         * @param value {@link #ruleset} (The TestScript.ruleset this assert will evaluate.)
          */
         public SetupActionAssertComponent setRuleset(SetupActionAssertRulesetComponent value) { 
           this.ruleset = value;
@@ -6892,8 +6965,8 @@ public class TestScript extends DomainResource {
           childrenList.add(new Property("resource", "code", "The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("response", "code", "okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.", 0, java.lang.Integer.MAX_VALUE, response));
           childrenList.add(new Property("responseCode", "string", "The value of the HTTP response code to be tested.", 0, java.lang.Integer.MAX_VALUE, responseCode));
-          childrenList.add(new Property("rule", "", "The TestScript.rule id value this assert will evaluate.", 0, java.lang.Integer.MAX_VALUE, rule));
-          childrenList.add(new Property("ruleset", "", "The TestScript.ruleset id value this assert will evaluate.", 0, java.lang.Integer.MAX_VALUE, ruleset));
+          childrenList.add(new Property("rule", "", "The TestScript.rule this assert will evaluate.", 0, java.lang.Integer.MAX_VALUE, rule));
+          childrenList.add(new Property("ruleset", "", "The TestScript.ruleset this assert will evaluate.", 0, java.lang.Integer.MAX_VALUE, ruleset));
           childrenList.add(new Property("sourceId", "id", "Fixture to evaluate the XPath/JSONPath expression or the headerField  against.", 0, java.lang.Integer.MAX_VALUE, sourceId));
           childrenList.add(new Property("validateProfileId", "id", "The ID of the Profile to validate against.", 0, java.lang.Integer.MAX_VALUE, validateProfileId));
           childrenList.add(new Property("value", "string", "The value to compare to.", 0, java.lang.Integer.MAX_VALUE, value));
@@ -7220,13 +7293,20 @@ public class TestScript extends DomainResource {
     @Block()
     public static class SetupActionAssertRuleComponent extends BackboneElement implements IBaseBackboneElement {
         /**
+         * The TestScript.rule id value this assert will evaluate.
+         */
+        @Child(name = "ruleId", type = {IdType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Id of the TestScript.rule", formalDefinition="The TestScript.rule id value this assert will evaluate." )
+        protected IdType ruleId;
+
+        /**
          * Each rule template can take one or more parameters for rule evaluation.
          */
-        @Child(name = "param", type = {}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "param", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Rule parameter template", formalDefinition="Each rule template can take one or more parameters for rule evaluation." )
         protected List<SetupActionAssertRuleParamComponent> param;
 
-        private static final long serialVersionUID = 791319302L;
+        private static final long serialVersionUID = -319928210L;
 
     /**
      * Constructor
@@ -7234,6 +7314,59 @@ public class TestScript extends DomainResource {
       public SetupActionAssertRuleComponent() {
         super();
       }
+
+    /**
+     * Constructor
+     */
+      public SetupActionAssertRuleComponent(IdType ruleId) {
+        super();
+        this.ruleId = ruleId;
+      }
+
+        /**
+         * @return {@link #ruleId} (The TestScript.rule id value this assert will evaluate.). This is the underlying object with id, value and extensions. The accessor "getRuleId" gives direct access to the value
+         */
+        public IdType getRuleIdElement() { 
+          if (this.ruleId == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SetupActionAssertRuleComponent.ruleId");
+            else if (Configuration.doAutoCreate())
+              this.ruleId = new IdType(); // bb
+          return this.ruleId;
+        }
+
+        public boolean hasRuleIdElement() { 
+          return this.ruleId != null && !this.ruleId.isEmpty();
+        }
+
+        public boolean hasRuleId() { 
+          return this.ruleId != null && !this.ruleId.isEmpty();
+        }
+
+        /**
+         * @param value {@link #ruleId} (The TestScript.rule id value this assert will evaluate.). This is the underlying object with id, value and extensions. The accessor "getRuleId" gives direct access to the value
+         */
+        public SetupActionAssertRuleComponent setRuleIdElement(IdType value) { 
+          this.ruleId = value;
+          return this;
+        }
+
+        /**
+         * @return The TestScript.rule id value this assert will evaluate.
+         */
+        public String getRuleId() { 
+          return this.ruleId == null ? null : this.ruleId.getValue();
+        }
+
+        /**
+         * @param value The TestScript.rule id value this assert will evaluate.
+         */
+        public SetupActionAssertRuleComponent setRuleId(String value) { 
+            if (this.ruleId == null)
+              this.ruleId = new IdType();
+            this.ruleId.setValue(value);
+          return this;
+        }
 
         /**
          * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
@@ -7277,12 +7410,14 @@ public class TestScript extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
+          childrenList.add(new Property("ruleId", "id", "The TestScript.rule id value this assert will evaluate.", 0, java.lang.Integer.MAX_VALUE, ruleId));
           childrenList.add(new Property("param", "", "Each rule template can take one or more parameters for rule evaluation.", 0, java.lang.Integer.MAX_VALUE, param));
         }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
+        case -919875273: /*ruleId*/ return this.ruleId == null ? new Base[0] : new Base[] {this.ruleId}; // IdType
         case 106436749: /*param*/ return this.param == null ? new Base[0] : this.param.toArray(new Base[this.param.size()]); // SetupActionAssertRuleParamComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -7292,6 +7427,9 @@ public class TestScript extends DomainResource {
       @Override
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
+        case -919875273: // ruleId
+          this.ruleId = castToId(value); // IdType
+          break;
         case 106436749: // param
           this.getParam().add((SetupActionAssertRuleParamComponent) value); // SetupActionAssertRuleParamComponent
           break;
@@ -7302,7 +7440,9 @@ public class TestScript extends DomainResource {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("param"))
+        if (name.equals("ruleId"))
+          this.ruleId = castToId(value); // IdType
+        else if (name.equals("param"))
           this.getParam().add((SetupActionAssertRuleParamComponent) value);
         else
           super.setProperty(name, value);
@@ -7311,6 +7451,7 @@ public class TestScript extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
+        case -919875273: throw new FHIRException("Cannot make property ruleId as it is not a complex type"); // IdType
         case 106436749:  return addParam(); // SetupActionAssertRuleParamComponent
         default: return super.makeProperty(hash, name);
         }
@@ -7319,7 +7460,10 @@ public class TestScript extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("param")) {
+        if (name.equals("ruleId")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.ruleId");
+        }
+        else if (name.equals("param")) {
           return addParam();
         }
         else
@@ -7329,6 +7473,7 @@ public class TestScript extends DomainResource {
       public SetupActionAssertRuleComponent copy() {
         SetupActionAssertRuleComponent dst = new SetupActionAssertRuleComponent();
         copyValues(dst);
+        dst.ruleId = ruleId == null ? null : ruleId.copy();
         if (param != null) {
           dst.param = new ArrayList<SetupActionAssertRuleParamComponent>();
           for (SetupActionAssertRuleParamComponent i : param)
@@ -7344,7 +7489,7 @@ public class TestScript extends DomainResource {
         if (!(other instanceof SetupActionAssertRuleComponent))
           return false;
         SetupActionAssertRuleComponent o = (SetupActionAssertRuleComponent) other;
-        return compareDeep(param, o.param, true);
+        return compareDeep(ruleId, o.ruleId, true) && compareDeep(param, o.param, true);
       }
 
       @Override
@@ -7354,11 +7499,12 @@ public class TestScript extends DomainResource {
         if (!(other instanceof SetupActionAssertRuleComponent))
           return false;
         SetupActionAssertRuleComponent o = (SetupActionAssertRuleComponent) other;
-        return true;
+        return compareValues(ruleId, o.ruleId, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (param == null || param.isEmpty());
+        return super.isEmpty() && (ruleId == null || ruleId.isEmpty()) && (param == null || param.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -7597,13 +7743,20 @@ public class TestScript extends DomainResource {
     @Block()
     public static class SetupActionAssertRulesetComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Id of the referenced rule within the external ruleset template.
+         * The TestScript.ruleset id value this assert will evaluate.
          */
-        @Child(name = "rule", type = {}, order=1, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Id of referenced rule within the ruleset", formalDefinition="Id of the referenced rule within the external ruleset template." )
+        @Child(name = "rulesetId", type = {IdType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Id of the TestScript.ruleset", formalDefinition="The TestScript.ruleset id value this assert will evaluate." )
+        protected IdType rulesetId;
+
+        /**
+         * The referenced rule within the external ruleset template.
+         */
+        @Child(name = "rule", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="The referenced rule within the ruleset", formalDefinition="The referenced rule within the external ruleset template." )
         protected List<SetupActionAssertRulesetRuleComponent> rule;
 
-        private static final long serialVersionUID = 2134080946L;
+        private static final long serialVersionUID = 2070600738L;
 
     /**
      * Constructor
@@ -7612,8 +7765,61 @@ public class TestScript extends DomainResource {
         super();
       }
 
+    /**
+     * Constructor
+     */
+      public SetupActionAssertRulesetComponent(IdType rulesetId) {
+        super();
+        this.rulesetId = rulesetId;
+      }
+
         /**
-         * @return {@link #rule} (Id of the referenced rule within the external ruleset template.)
+         * @return {@link #rulesetId} (The TestScript.ruleset id value this assert will evaluate.). This is the underlying object with id, value and extensions. The accessor "getRulesetId" gives direct access to the value
+         */
+        public IdType getRulesetIdElement() { 
+          if (this.rulesetId == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SetupActionAssertRulesetComponent.rulesetId");
+            else if (Configuration.doAutoCreate())
+              this.rulesetId = new IdType(); // bb
+          return this.rulesetId;
+        }
+
+        public boolean hasRulesetIdElement() { 
+          return this.rulesetId != null && !this.rulesetId.isEmpty();
+        }
+
+        public boolean hasRulesetId() { 
+          return this.rulesetId != null && !this.rulesetId.isEmpty();
+        }
+
+        /**
+         * @param value {@link #rulesetId} (The TestScript.ruleset id value this assert will evaluate.). This is the underlying object with id, value and extensions. The accessor "getRulesetId" gives direct access to the value
+         */
+        public SetupActionAssertRulesetComponent setRulesetIdElement(IdType value) { 
+          this.rulesetId = value;
+          return this;
+        }
+
+        /**
+         * @return The TestScript.ruleset id value this assert will evaluate.
+         */
+        public String getRulesetId() { 
+          return this.rulesetId == null ? null : this.rulesetId.getValue();
+        }
+
+        /**
+         * @param value The TestScript.ruleset id value this assert will evaluate.
+         */
+        public SetupActionAssertRulesetComponent setRulesetId(String value) { 
+            if (this.rulesetId == null)
+              this.rulesetId = new IdType();
+            this.rulesetId.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #rule} (The referenced rule within the external ruleset template.)
          */
         public List<SetupActionAssertRulesetRuleComponent> getRule() { 
           if (this.rule == null)
@@ -7631,7 +7837,7 @@ public class TestScript extends DomainResource {
         }
 
         /**
-         * @return {@link #rule} (Id of the referenced rule within the external ruleset template.)
+         * @return {@link #rule} (The referenced rule within the external ruleset template.)
          */
     // syntactic sugar
         public SetupActionAssertRulesetRuleComponent addRule() { //3
@@ -7654,12 +7860,14 @@ public class TestScript extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("rule", "", "Id of the referenced rule within the external ruleset template.", 0, java.lang.Integer.MAX_VALUE, rule));
+          childrenList.add(new Property("rulesetId", "id", "The TestScript.ruleset id value this assert will evaluate.", 0, java.lang.Integer.MAX_VALUE, rulesetId));
+          childrenList.add(new Property("rule", "", "The referenced rule within the external ruleset template.", 0, java.lang.Integer.MAX_VALUE, rule));
         }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
+        case -2073977951: /*rulesetId*/ return this.rulesetId == null ? new Base[0] : new Base[] {this.rulesetId}; // IdType
         case 3512060: /*rule*/ return this.rule == null ? new Base[0] : this.rule.toArray(new Base[this.rule.size()]); // SetupActionAssertRulesetRuleComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -7669,6 +7877,9 @@ public class TestScript extends DomainResource {
       @Override
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
+        case -2073977951: // rulesetId
+          this.rulesetId = castToId(value); // IdType
+          break;
         case 3512060: // rule
           this.getRule().add((SetupActionAssertRulesetRuleComponent) value); // SetupActionAssertRulesetRuleComponent
           break;
@@ -7679,7 +7890,9 @@ public class TestScript extends DomainResource {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("rule"))
+        if (name.equals("rulesetId"))
+          this.rulesetId = castToId(value); // IdType
+        else if (name.equals("rule"))
           this.getRule().add((SetupActionAssertRulesetRuleComponent) value);
         else
           super.setProperty(name, value);
@@ -7688,6 +7901,7 @@ public class TestScript extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
+        case -2073977951: throw new FHIRException("Cannot make property rulesetId as it is not a complex type"); // IdType
         case 3512060:  return addRule(); // SetupActionAssertRulesetRuleComponent
         default: return super.makeProperty(hash, name);
         }
@@ -7696,7 +7910,10 @@ public class TestScript extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("rule")) {
+        if (name.equals("rulesetId")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.rulesetId");
+        }
+        else if (name.equals("rule")) {
           return addRule();
         }
         else
@@ -7706,6 +7923,7 @@ public class TestScript extends DomainResource {
       public SetupActionAssertRulesetComponent copy() {
         SetupActionAssertRulesetComponent dst = new SetupActionAssertRulesetComponent();
         copyValues(dst);
+        dst.rulesetId = rulesetId == null ? null : rulesetId.copy();
         if (rule != null) {
           dst.rule = new ArrayList<SetupActionAssertRulesetRuleComponent>();
           for (SetupActionAssertRulesetRuleComponent i : rule)
@@ -7721,7 +7939,7 @@ public class TestScript extends DomainResource {
         if (!(other instanceof SetupActionAssertRulesetComponent))
           return false;
         SetupActionAssertRulesetComponent o = (SetupActionAssertRulesetComponent) other;
-        return compareDeep(rule, o.rule, true);
+        return compareDeep(rulesetId, o.rulesetId, true) && compareDeep(rule, o.rule, true);
       }
 
       @Override
@@ -7731,11 +7949,12 @@ public class TestScript extends DomainResource {
         if (!(other instanceof SetupActionAssertRulesetComponent))
           return false;
         SetupActionAssertRulesetComponent o = (SetupActionAssertRulesetComponent) other;
-        return true;
+        return compareValues(rulesetId, o.rulesetId, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (rule == null || rule.isEmpty());
+        return super.isEmpty() && (rulesetId == null || rulesetId.isEmpty()) && (rule == null || rule.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -7748,13 +7967,20 @@ public class TestScript extends DomainResource {
     @Block()
     public static class SetupActionAssertRulesetRuleComponent extends BackboneElement implements IBaseBackboneElement {
         /**
+         * Id of the referenced rule within the external ruleset template.
+         */
+        @Child(name = "ruleId", type = {IdType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Id of referenced rule within the ruleset", formalDefinition="Id of the referenced rule within the external ruleset template." )
+        protected IdType ruleId;
+
+        /**
          * Each rule template can take one or more parameters for rule evaluation.
          */
-        @Child(name = "param", type = {}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "param", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Rule parameter template", formalDefinition="Each rule template can take one or more parameters for rule evaluation." )
         protected List<SetupActionAssertRulesetRuleParamComponent> param;
 
-        private static final long serialVersionUID = -905162350L;
+        private static final long serialVersionUID = 52246314L;
 
     /**
      * Constructor
@@ -7762,6 +7988,59 @@ public class TestScript extends DomainResource {
       public SetupActionAssertRulesetRuleComponent() {
         super();
       }
+
+    /**
+     * Constructor
+     */
+      public SetupActionAssertRulesetRuleComponent(IdType ruleId) {
+        super();
+        this.ruleId = ruleId;
+      }
+
+        /**
+         * @return {@link #ruleId} (Id of the referenced rule within the external ruleset template.). This is the underlying object with id, value and extensions. The accessor "getRuleId" gives direct access to the value
+         */
+        public IdType getRuleIdElement() { 
+          if (this.ruleId == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SetupActionAssertRulesetRuleComponent.ruleId");
+            else if (Configuration.doAutoCreate())
+              this.ruleId = new IdType(); // bb
+          return this.ruleId;
+        }
+
+        public boolean hasRuleIdElement() { 
+          return this.ruleId != null && !this.ruleId.isEmpty();
+        }
+
+        public boolean hasRuleId() { 
+          return this.ruleId != null && !this.ruleId.isEmpty();
+        }
+
+        /**
+         * @param value {@link #ruleId} (Id of the referenced rule within the external ruleset template.). This is the underlying object with id, value and extensions. The accessor "getRuleId" gives direct access to the value
+         */
+        public SetupActionAssertRulesetRuleComponent setRuleIdElement(IdType value) { 
+          this.ruleId = value;
+          return this;
+        }
+
+        /**
+         * @return Id of the referenced rule within the external ruleset template.
+         */
+        public String getRuleId() { 
+          return this.ruleId == null ? null : this.ruleId.getValue();
+        }
+
+        /**
+         * @param value Id of the referenced rule within the external ruleset template.
+         */
+        public SetupActionAssertRulesetRuleComponent setRuleId(String value) { 
+            if (this.ruleId == null)
+              this.ruleId = new IdType();
+            this.ruleId.setValue(value);
+          return this;
+        }
 
         /**
          * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
@@ -7805,12 +8084,14 @@ public class TestScript extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
+          childrenList.add(new Property("ruleId", "id", "Id of the referenced rule within the external ruleset template.", 0, java.lang.Integer.MAX_VALUE, ruleId));
           childrenList.add(new Property("param", "", "Each rule template can take one or more parameters for rule evaluation.", 0, java.lang.Integer.MAX_VALUE, param));
         }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
+        case -919875273: /*ruleId*/ return this.ruleId == null ? new Base[0] : new Base[] {this.ruleId}; // IdType
         case 106436749: /*param*/ return this.param == null ? new Base[0] : this.param.toArray(new Base[this.param.size()]); // SetupActionAssertRulesetRuleParamComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -7820,6 +8101,9 @@ public class TestScript extends DomainResource {
       @Override
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
+        case -919875273: // ruleId
+          this.ruleId = castToId(value); // IdType
+          break;
         case 106436749: // param
           this.getParam().add((SetupActionAssertRulesetRuleParamComponent) value); // SetupActionAssertRulesetRuleParamComponent
           break;
@@ -7830,7 +8114,9 @@ public class TestScript extends DomainResource {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("param"))
+        if (name.equals("ruleId"))
+          this.ruleId = castToId(value); // IdType
+        else if (name.equals("param"))
           this.getParam().add((SetupActionAssertRulesetRuleParamComponent) value);
         else
           super.setProperty(name, value);
@@ -7839,6 +8125,7 @@ public class TestScript extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
+        case -919875273: throw new FHIRException("Cannot make property ruleId as it is not a complex type"); // IdType
         case 106436749:  return addParam(); // SetupActionAssertRulesetRuleParamComponent
         default: return super.makeProperty(hash, name);
         }
@@ -7847,7 +8134,10 @@ public class TestScript extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("param")) {
+        if (name.equals("ruleId")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.ruleId");
+        }
+        else if (name.equals("param")) {
           return addParam();
         }
         else
@@ -7857,6 +8147,7 @@ public class TestScript extends DomainResource {
       public SetupActionAssertRulesetRuleComponent copy() {
         SetupActionAssertRulesetRuleComponent dst = new SetupActionAssertRulesetRuleComponent();
         copyValues(dst);
+        dst.ruleId = ruleId == null ? null : ruleId.copy();
         if (param != null) {
           dst.param = new ArrayList<SetupActionAssertRulesetRuleParamComponent>();
           for (SetupActionAssertRulesetRuleParamComponent i : param)
@@ -7872,7 +8163,7 @@ public class TestScript extends DomainResource {
         if (!(other instanceof SetupActionAssertRulesetRuleComponent))
           return false;
         SetupActionAssertRulesetRuleComponent o = (SetupActionAssertRulesetRuleComponent) other;
-        return compareDeep(param, o.param, true);
+        return compareDeep(ruleId, o.ruleId, true) && compareDeep(param, o.param, true);
       }
 
       @Override
@@ -7882,11 +8173,12 @@ public class TestScript extends DomainResource {
         if (!(other instanceof SetupActionAssertRulesetRuleComponent))
           return false;
         SetupActionAssertRulesetRuleComponent o = (SetupActionAssertRulesetRuleComponent) other;
-        return true;
+        return compareValues(ruleId, o.ruleId, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (param == null || param.isEmpty());
+        return super.isEmpty() && (ruleId == null || ruleId.isEmpty()) && (param == null || param.isEmpty())
+          ;
       }
 
   public String fhirType() {

@@ -1,0 +1,16 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/additional-instructions-codes",
+  "outcomes": [
+    {
+      "hash": "#|http://snomed.info/sct|null|311504000|With or after food",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "311504000",
+        "definition": null,
+        "display": "With or after food"
+      }
+    }
+  ]
+}

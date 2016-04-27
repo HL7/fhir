@@ -8,7 +8,7 @@
   Context = Ratio
   English = Numerator and denominator SHALL both be present, or both are absent. If both are absent, there SHALL be some extension present
   XPath = (count(f:numerator) = count(f:denominator)) and ((count(f:numerator) > 0) or (count(f:extension) > 0))
-  Expression = numerator.empty() xor denominator
+  Expression = (numerator.exists() and denominator.exists()) or extension.exists()
 
 === Sheet Data Elements =====================================
 

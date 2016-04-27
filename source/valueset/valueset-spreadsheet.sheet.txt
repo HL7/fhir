@@ -59,42 +59,42 @@
   Context = ValueSet.compose
   English = A value set composition SHALL have an include or an import
   XPath = exists(f:include) or exists(f:import)
-  Expression = include or import
+  Expression = include.exists() or import.exists()
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = ValueSet
   English = A value set with only one import SHALL also have an include and/or an exclude unless the value set includes an inline code system
   XPath = not(exists(f:compose)) or (count(f:compose/f:import)!=1 or exists(f:compose/f:include) or exists(f:compose/f:exclude))
-  Expression = compose.import.count() != 1 or compose.include or compose.exclude
+  Expression = compose.import.count() != 1 or compose.include.exists() or compose.exclude.exists()
 
  -- Row 3 -----------------------------------
   Id = 5
   Context = ValueSet
   English = Value set SHALL contain at least one of a a compose, or an expansion element
   XPath = exists(f:compose) or exists(f:expansion)
-  Expression = compose or expansion
+  Expression = compose.exists() or expansion.exists()
 
  -- Row 4 -----------------------------------
   Id = 6
   Context = ValueSet.expansion.contains
   English = SHALL have a code or a display
   XPath = exists(f:code) or exists(f:display)
-  Expression = code or display
+  Expression = code.exists() or display.exists()
 
  -- Row 5 -----------------------------------
   Id = 9
   Context = ValueSet.expansion.contains
   English = Must have a code if not abstract
   XPath = exists(f:code) or (f:abstract/@value = true())
-  Expression = code or abstract = true
+  Expression = code.exists() or abstract = true
 
  -- Row 6 -----------------------------------
   Id = 10
   Context = ValueSet.expansion.contains
   English = Must have a system if a code is present
   XPath = exists(f:system) or not(exists(f:code))
-  Expression = code.empty() or system
+  Expression = code.empty() or system.exists()
 
  -- Row 7 -----------------------------------
   Id = 11

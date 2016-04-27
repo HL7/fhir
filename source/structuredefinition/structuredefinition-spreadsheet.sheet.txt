@@ -97,7 +97,7 @@
   Context = StructureDefinition.mapping
   English = Must have at a name or a uri (or both)
   XPath = exists(f:uri) or exists(f:name)
-  Expression = name or uri
+  Expression = name.exists() or uri.exists()
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -112,21 +112,21 @@
   Context = StructureDefinition
   English = If the structure is not abstract, or there\'s a constrained type, then there SHALL be a base
   XPath = (f:abstract/@value=true()) or (exists(f:baseType) and exists(f:baseDefinition))
-  Expression = abstract = true or (baseType and baseDefinition)
+  Expression = abstract = true or (baseType.exists() and baseDefinition.exists())
 
  -- Row 5 -----------------------------------
   Id = 5
   Context = StructureDefinition
   English = If the structure defines an extension then the structure must have context information
   XPath = not(f:baseType/@value = \'extension\') or (exists(f:context) and exists(f:contextType))
-  Expression = baseType != \'Extension\' or (context and contextType)
+  Expression = baseType != \'Extension\' or (context.exists() and contextType.exists())
 
  -- Row 6 -----------------------------------
   Id = 6
   Context = StructureDefinition
   English = A structure must have either a differential, or a snapshot (or both)
   XPath = exists(f:snapshot) or exists(f:differential)
-  Expression = snapshot or differential
+  Expression = snapshot.exists() or differential.exists()
 
  -- Row 7 -----------------------------------
   Id = 7

@@ -2,6 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/doc-section-codes",
   "outcomes": [
     {
+      "hash": "#|http://loinc.org|null|10154-3|Chief complaint",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://loinc.org|null|10157-6|History of family member diseases",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
@@ -23,6 +28,11 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://loinc.org|null|10164-2|History of present illness",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://loinc.org|null|10183-2|Hospital discharge medications Narrative",
       "severity": null,
       "message": null,
@@ -34,7 +44,22 @@
       }
     },
     {
+      "hash": "#|http://loinc.org|null|10187-3|Review of systems",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://loinc.org|null|10190-7|Mental status",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|10210-3|Physical findings of General status",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|11348-0|History of past illness",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -65,6 +90,11 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://loinc.org|null|29299-5|Reason for visit",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://loinc.org|null|29299-5|Reason for visit Narrative",
       "severity": null,
       "message": null,
@@ -74,6 +104,11 @@
         "definition": null,
         "display": "Reason for visit Narrative"
       }
+    },
+    {
+      "hash": "#|http://loinc.org|null|29545-1|Physical findings",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|29762-2|Social history",
@@ -91,12 +126,22 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://loinc.org|null|46239-0|Chief complaint and reason for visit",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://loinc.org|null|46240-8|Encounters",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|46264-8|Medical equipment",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|47420-5|Functional status",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -128,6 +173,16 @@
     },
     {
       "hash": "#|http://loinc.org|null|48768-6|Payers",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|51847-2|Assessment (evaluation) and plan",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|51848-0|Assessment (evaluation)",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },

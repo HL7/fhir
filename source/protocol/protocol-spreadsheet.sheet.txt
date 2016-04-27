@@ -152,6 +152,7 @@
   Context = Protocol.step.precondition
   English = Only one of condition, intersection, union or exclude may be present
   XPath = (count(f:condition) + count(f:intersection[1]) + count(f:union[1]) + count(f:exclude[1])) <= 1
+  Expression = (condition.count() + intersection[0].count() + union[0].count() + exclude[0].count()) <= 1
 
 === Sheet Data Elements =====================================
 

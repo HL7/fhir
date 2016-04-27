@@ -10,7 +10,7 @@
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-10-19T00:06:42Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -3812,8 +3812,9 @@
    <Column ss:StyleID="s100" ss:Width="55.5"/>
    <Column ss:StyleID="s100" ss:Width="165"/>
    <Column ss:StyleID="s100" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s100" ss:AutoFitWidth="0" ss:Width="198.75" ss:Span="1"/>
-   <Column ss:Index="8" ss:StyleID="s100" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   <Column ss:StyleID="s100" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s100" ss:AutoFitWidth="0" ss:Width="280.5"/>
+   <Column ss:StyleID="s100" ss:AutoFitWidth="0" ss:Width="188.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75" ss:StyleID="s70">
     <Cell ss:StyleID="s101"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -3857,7 +3858,7 @@
     <Cell ss:StyleID="s83"><Data ss:Type="String">if there's a duration, there needs to be duration units</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">duration.empty() or durationUnit</Data><NamedCell
+    <Cell ss:StyleID="s83"><Data ss:Type="String">duration.empty() or durationUnit.exists()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:duration)) or exists(f:durationUnit)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3870,7 +3871,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">if there's a period, there needs to be period units</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">period.empty() or periodUnit</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">period.empty() or periodUnit.exists()</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:period)) or exists(f:periodUnit)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -3914,7 +3915,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If there's a periodMax, there must be a period</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">periodMax.empty() or period</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">periodMax.empty() or period.exists()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:periodMax)) or exists(f:period)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -3925,7 +3926,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If there's a durationMax, there must be a duration</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">durationMax.empty() or duration</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">durationMax.empty() or duration.exists()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:durationMax)) or exists(f:duration)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -3936,7 +3937,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If there's a countMax, there must be a count</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">countMax.empty() or count</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">countMax.empty() or count.exists()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:countMax)) or exists(f:count)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -3947,7 +3948,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If there's an offset, there must be a when</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">offset.empty() or when</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">offset.empty() or when.exists()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:offset)) or exists(f:when)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4384,8 +4385,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -91,7 +91,7 @@
   Context = MedicationAdministration.dosage
   English = SHALL have at least one of dosage.quantity and dosage.rate[x]
   XPath = exists(f:quantity) or exists(f:rateRatio) or exists(f:rateRange)
-  Expression = quantity or rate
+  Expression = quantity.exists() or rate.exists()
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -307,9 +307,9 @@
   RIM Mapping = doseQuantity
 
  -- Row 21 -----------------------------------
-  Element = MedicationAdministration.dosage.rate[x]
+  Element = MedicationAdministration.dosage.rate
   Card. = 0..1
-  Type = Ratio|Range
+  Type = Ratio
   Short Label = Dose quantity per unit of time
   Definition = Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Currently we do not specify a default of \'1\' in the denominator, but this is being discussed.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.
   Comments = If the rate changes over time, and you want to capture this in MedicationAdministration, then each change should be captured as a distinct MedicationAdministration, with a specific MedicationAdministration.dosage.rate, and the date time when the rate change occurred. Typically, the MedicationAdministration.dosage.rate element is not used to convey an average rate.

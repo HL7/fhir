@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Apr 19, 2016 07:38+1000 for FHIR v1.4.0
+// Generated on Tue, Apr 26, 2016 16:55-0400 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -9021,8 +9021,8 @@ public class XmlParser extends XmlParserBase {
         res.setMethod(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("quantity")) {
         res.setQuantity(parseSimpleQuantity(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "rate")) {
-        res.setRate(parseType("rate", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("rate")) {
+        res.setRate(parseRatio(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -9088,7 +9088,7 @@ public class XmlParser extends XmlParserBase {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("text")) {
         res.setTextElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("additionalInstructions")) {
-        res.setAdditionalInstructions(parseCodeableConcept(xpp));
+        res.getAdditionalInstructions().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("timing")) {
         res.setTiming(parseTiming(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "asNeeded")) {
@@ -9191,7 +9191,7 @@ public class XmlParser extends XmlParserBase {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("text")) {
         res.setTextElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("additionalInstructions")) {
-        res.setAdditionalInstructions(parseCodeableConcept(xpp));
+        res.getAdditionalInstructions().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("timing")) {
         res.setTiming(parseTiming(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "asNeeded")) {
@@ -13228,7 +13228,9 @@ public class XmlParser extends XmlParserBase {
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("param")) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("ruleId")) {
+        res.setRuleIdElement(parseId(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("param")) {
         res.getParam().add(parseTestScriptTestScriptRulesetRuleParamComponent(xpp, owner));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
@@ -13421,7 +13423,9 @@ public class XmlParser extends XmlParserBase {
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("param")) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("ruleId")) {
+        res.setRuleIdElement(parseId(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("param")) {
         res.getParam().add(parseTestScriptSetupActionAssertRuleParamComponent(xpp, owner));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
@@ -13457,7 +13461,9 @@ public class XmlParser extends XmlParserBase {
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("rule")) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("rulesetId")) {
+        res.setRulesetIdElement(parseId(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("rule")) {
         res.getRule().add(parseTestScriptSetupActionAssertRulesetRuleComponent(xpp, owner));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
@@ -13474,7 +13480,9 @@ public class XmlParser extends XmlParserBase {
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("param")) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("ruleId")) {
+        res.setRuleIdElement(parseId(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("param")) {
         res.getParam().add(parseTestScriptSetupActionAssertRulesetRuleParamComponent(xpp, owner));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
@@ -24553,8 +24561,9 @@ public class XmlParser extends XmlParserBase {
         composeSimpleQuantity("quantity", element.getQuantity());
       }
       if (element.hasRate()) {
-        composeType("rate", element.getRate());
-      }      composeElementClose(element);
+        composeRatio("rate", element.getRate());
+      }
+      composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
@@ -24627,8 +24636,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
       }
-      if (element.hasAdditionalInstructions()) {
-        composeCodeableConcept("additionalInstructions", element.getAdditionalInstructions());
+      if (element.hasAdditionalInstructions()) { 
+        for (CodeableConcept e : element.getAdditionalInstructions()) 
+          composeCodeableConcept("additionalInstructions", e);
       }
       if (element.hasTiming()) {
         composeTiming("timing", element.getTiming());
@@ -24745,8 +24755,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
       }
-      if (element.hasAdditionalInstructions()) {
-        composeCodeableConcept("additionalInstructions", element.getAdditionalInstructions());
+      if (element.hasAdditionalInstructions()) { 
+        for (CodeableConcept e : element.getAdditionalInstructions()) 
+          composeCodeableConcept("additionalInstructions", e);
       }
       if (element.hasTiming()) {
         composeTiming("timing", element.getTiming());
@@ -29093,6 +29104,9 @@ public class XmlParser extends XmlParserBase {
       composeElementAttributes(element);
       xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
+      if (element.hasRuleIdElement()) {
+        composeId("ruleId", element.getRuleIdElement());
+      }
       if (element.hasParam()) { 
         for (TestScript.TestScriptRulesetRuleParamComponent e : element.getParam()) 
           composeTestScriptTestScriptRulesetRuleParamComponent("param", e);
@@ -29292,6 +29306,9 @@ public class XmlParser extends XmlParserBase {
       composeElementAttributes(element);
       xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
+      if (element.hasRuleIdElement()) {
+        composeId("ruleId", element.getRuleIdElement());
+      }
       if (element.hasParam()) { 
         for (TestScript.SetupActionAssertRuleParamComponent e : element.getParam()) 
           composeTestScriptSetupActionAssertRuleParamComponent("param", e);
@@ -29322,6 +29339,9 @@ public class XmlParser extends XmlParserBase {
       composeElementAttributes(element);
       xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
+      if (element.hasRulesetIdElement()) {
+        composeId("rulesetId", element.getRulesetIdElement());
+      }
       if (element.hasRule()) { 
         for (TestScript.SetupActionAssertRulesetRuleComponent e : element.getRule()) 
           composeTestScriptSetupActionAssertRulesetRuleComponent("rule", e);
@@ -29336,6 +29356,9 @@ public class XmlParser extends XmlParserBase {
       composeElementAttributes(element);
       xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
+      if (element.hasRuleIdElement()) {
+        composeId("ruleId", element.getRuleIdElement());
+      }
       if (element.hasParam()) { 
         for (TestScript.SetupActionAssertRulesetRuleParamComponent e : element.getParam()) 
           composeTestScriptSetupActionAssertRulesetRuleParamComponent("param", e);
@@ -30305,36 +30328,36 @@ public class XmlParser extends XmlParserBase {
        composeContactPoint(prefix+"ContactPoint", (ContactPoint) type);
     else if (type instanceof MarkdownType)
        composeMarkdown(prefix+"Markdown", (MarkdownType) type);
-    else if (type instanceof IntegerType)
-       composeInteger(prefix+"Integer", (IntegerType) type);
-    else if (type instanceof DateTimeType)
-       composeDateTime(prefix+"DateTime", (DateTimeType) type);
     else if (type instanceof UnsignedIntType)
        composeUnsignedInt(prefix+"UnsignedInt", (UnsignedIntType) type);
     else if (type instanceof CodeType)
        composeCode(prefix+"Code", (CodeType) type);
+    else if (type instanceof IdType)
+       composeId(prefix+"Id", (IdType) type);
+    else if (type instanceof OidType)
+       composeOid(prefix+"Oid", (OidType) type);
+    else if (type instanceof PositiveIntType)
+       composePositiveInt(prefix+"PositiveInt", (PositiveIntType) type);
+    else if (type instanceof UuidType)
+       composeUuid(prefix+"Uuid", (UuidType) type);
+    else if (type instanceof IntegerType)
+       composeInteger(prefix+"Integer", (IntegerType) type);
+    else if (type instanceof DateTimeType)
+       composeDateTime(prefix+"DateTime", (DateTimeType) type);
     else if (type instanceof DateType)
        composeDate(prefix+"Date", (DateType) type);
     else if (type instanceof DecimalType)
        composeDecimal(prefix+"Decimal", (DecimalType) type);
     else if (type instanceof UriType)
        composeUri(prefix+"Uri", (UriType) type);
-    else if (type instanceof IdType)
-       composeId(prefix+"Id", (IdType) type);
     else if (type instanceof Base64BinaryType)
        composeBase64Binary(prefix+"Base64Binary", (Base64BinaryType) type);
     else if (type instanceof TimeType)
        composeTime(prefix+"Time", (TimeType) type);
-    else if (type instanceof OidType)
-       composeOid(prefix+"Oid", (OidType) type);
-    else if (type instanceof PositiveIntType)
-       composePositiveInt(prefix+"PositiveInt", (PositiveIntType) type);
     else if (type instanceof StringType)
        composeString(prefix+"String", (StringType) type);
     else if (type instanceof BooleanType)
        composeBoolean(prefix+"Boolean", (BooleanType) type);
-    else if (type instanceof UuidType)
-       composeUuid(prefix+"Uuid", (UuidType) type);
     else if (type instanceof InstantType)
        composeInstant(prefix+"Instant", (InstantType) type);
     else

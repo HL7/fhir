@@ -160,7 +160,7 @@
   Context = Appointment.participant
   English = Either the type or actor on the participant MUST be specified
   XPath = (exists(f:type) or exists(f:actor))
-  Expression = type or actor
+  Expression = type.exists() or actor.exists()
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -174,7 +174,7 @@
   Context = Appointment
   English = Only proposed or cancelled appointments can be missing start/end dates
   XPath = ((exists(f:start) and exists(f:end)) or (f:status/@value=\'proposed\') or (f:status/@value=\'cancelled\'))
-  Expression = (start and end) or status = \'proposed\' or status = \'cancelled\'
+  Expression = (start.exists() and end.exists()) or (status in (\'proposed\' | \'cancelled\'))
 
 === Sheet Data Elements =====================================
 

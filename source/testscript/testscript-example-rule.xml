@@ -68,13 +68,15 @@
 		<resource>
 			<reference value="TestScript/example"/>
 		</resource>
-		<rule id="RuleResponseContentType">
+		<rule>
+			<ruleId value="RuleResponseContentType"/>
 			<param>
 				<name value="expectedContentType"/>
 				<value value="JSON"/>
 			</param>
 		</rule>
-		<rule id="RuleResponseStatusCode">
+		<rule>
+			<ruleId value="RuleResponseStatusCode"/>
 			<param>
 				<name value="expectedStatusCode"/>
 				<value value="200"/>
@@ -97,8 +99,15 @@
 		</action>
 		<action>
 			<assert>
+				<label value="RuleReadOK"/>
 				<direction value="request"/>
-				<responseCode value="201"/>
+				<rule>
+					<ruleId value="ruleResponseOkay"/>
+					<param>
+						<name value="expectedStatusCode"/>
+						<value value="201"/>
+					</param>
+				</rule>
 			</assert>
 		</action>
 	</setup>
@@ -118,20 +127,19 @@
 		<action>
 			<assert>
 				<label value="RuleReadOK"/>
-				<rule id="ruleResponseOkay">
-					<param>
-						<name value="expectedStatusCode"/>
-						<value value="200"/>
-					</param>
+				<rule>
+					<ruleId value="ruleResponseOkay"/>
 				</rule>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="RuleContentTypeResponse"/>
-				<ruleset id="ruleset-responseResourcePatient">
+				<ruleset>
+					<rulesetId value="ruleset-responseResourcePatient"/>
 					<!-- We only need to overwrite one param value in the ruleset -->
-					<rule id="RuleResponseContentType">
+					<rule>
+						<ruleId value="RuleResponseContentType"/>
 						<param>
 							<name value="expectedContentType"/>
 							<value value="XML"/>

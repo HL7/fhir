@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Apr 19, 2016 07:38+1000 for FHIR v1.4.0
+// Generated on Tue, Apr 26, 2016 16:55-0400 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -7810,7 +7810,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasQuantity())
       composeQuantity(t, "MedicationAdministration", "quantity", element.getQuantity(), -1);
     if (element.hasRate())
-      composeType(t, "MedicationAdministration", "rate", element.getRate(), -1);
+      composeRatio(t, "MedicationAdministration", "rate", element.getRate(), -1);
   }
 
   protected void composeMedicationDispense(Complex parent, String parentType, String name, MedicationDispense element, int index) {
@@ -7869,8 +7869,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "dosageInstruction", name, element, index);
     if (element.hasTextElement())
       composeString(t, "MedicationDispense", "text", element.getTextElement(), -1);
-    if (element.hasAdditionalInstructions())
-      composeCodeableConcept(t, "MedicationDispense", "additionalInstructions", element.getAdditionalInstructions(), -1);
+    for (int i = 0; i < element.getAdditionalInstructions().size(); i++)
+      composeCodeableConcept(t, "MedicationDispense", "additionalInstructions", element.getAdditionalInstructions().get(i), i);
     if (element.hasTiming())
       composeTiming(t, "MedicationDispense", "timing", element.getTiming(), -1);
     if (element.hasAsNeeded())
@@ -7963,8 +7963,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "dosageInstruction", name, element, index);
     if (element.hasTextElement())
       composeString(t, "MedicationOrder", "text", element.getTextElement(), -1);
-    if (element.hasAdditionalInstructions())
-      composeCodeableConcept(t, "MedicationOrder", "additionalInstructions", element.getAdditionalInstructions(), -1);
+    for (int i = 0; i < element.getAdditionalInstructions().size(); i++)
+      composeCodeableConcept(t, "MedicationOrder", "additionalInstructions", element.getAdditionalInstructions().get(i), i);
     if (element.hasTiming())
       composeTiming(t, "MedicationOrder", "timing", element.getTiming(), -1);
     if (element.hasAsNeeded())
@@ -11563,6 +11563,8 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeBackboneElement(t, "rule", name, element, index);
+    if (element.hasRuleIdElement())
+      composeId(t, "TestScript", "ruleId", element.getRuleIdElement(), -1);
     for (int i = 0; i < element.getParam().size(); i++)
       composeTestScriptTestScriptRulesetRuleParamComponent(t, "TestScript", "param", element.getParam().get(i), i);
   }
@@ -11735,6 +11737,8 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeBackboneElement(t, "rule", name, element, index);
+    if (element.hasRuleIdElement())
+      composeId(t, "TestScript", "ruleId", element.getRuleIdElement(), -1);
     for (int i = 0; i < element.getParam().size(); i++)
       composeTestScriptSetupActionAssertRuleParamComponent(t, "TestScript", "param", element.getParam().get(i), i);
   }
@@ -11765,6 +11769,8 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeBackboneElement(t, "ruleset", name, element, index);
+    if (element.hasRulesetIdElement())
+      composeId(t, "TestScript", "rulesetId", element.getRulesetIdElement(), -1);
     for (int i = 0; i < element.getRule().size(); i++)
       composeTestScriptSetupActionAssertRulesetRuleComponent(t, "TestScript", "rule", element.getRule().get(i), i);
   }
@@ -11779,6 +11785,8 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeBackboneElement(t, "rule", name, element, index);
+    if (element.hasRuleIdElement())
+      composeId(t, "TestScript", "ruleId", element.getRuleIdElement(), -1);
     for (int i = 0; i < element.getParam().size(); i++)
       composeTestScriptSetupActionAssertRulesetRuleParamComponent(t, "TestScript", "param", element.getParam().get(i), i);
   }

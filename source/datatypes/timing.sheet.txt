@@ -193,14 +193,14 @@
   Context = Timing.repeat
   English = if there\'s a duration, there needs to be duration units
   XPath = not(exists(f:duration)) or exists(f:durationUnit)
-  Expression = duration.empty() or durationUnit
+  Expression = duration.empty() or durationUnit.exists()
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Timing.repeat
   English = if there\'s a period, there needs to be period units
   XPath = not(exists(f:period)) or exists(f:periodUnit)
-  Expression = period.empty() or periodUnit
+  Expression = period.empty() or periodUnit.exists()
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -228,28 +228,28 @@
   Context = Timing.repeat
   English = If there\'s a periodMax, there must be a period
   XPath = not(exists(f:periodMax)) or exists(f:period)
-  Expression = periodMax.empty() or period
+  Expression = periodMax.empty() or period.exists()
 
  -- Row 7 -----------------------------------
   Id = 7
   Context = Timing.repeat
   English = If there\'s a durationMax, there must be a duration
   XPath = not(exists(f:durationMax)) or exists(f:duration)
-  Expression = durationMax.empty() or duration
+  Expression = durationMax.empty() or duration.exists()
 
  -- Row 8 -----------------------------------
   Id = 8
   Context = Timing.repeat
   English = If there\'s a countMax, there must be a count
   XPath = not(exists(f:countMax)) or exists(f:count)
-  Expression = countMax.empty() or count
+  Expression = countMax.empty() or count.exists()
 
  -- Row 9 -----------------------------------
   Id = 9
   Context = Timing.repeat
   English = If there\'s an offset, there must be a when
   XPath = not(exists(f:offset)) or exists(f:when)
-  Expression = offset.empty() or when
+  Expression = offset.empty() or when.exists()
 
 === Sheet Data Elements =====================================
 

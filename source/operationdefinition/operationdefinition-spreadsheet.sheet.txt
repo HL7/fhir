@@ -50,7 +50,7 @@
   Context = OperationDefinition.parameter
   English = Either a type must be provided, or parts
   XPath = exists(f:type) or exists(f:part)
-  Expression = type or part
+  Expression = type.exists() or part.exists()
   Severity = error
 
  -- Row 2 -----------------------------------

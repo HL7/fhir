@@ -10,14 +10,14 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-09-17T20:17:44Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17610</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>16440</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
@@ -4487,7 +4487,7 @@
    <Column ss:StyleID="s104" ss:Width="55.5"/>
    <Column ss:StyleID="s104" ss:Width="165"/>
    <Column ss:StyleID="s104" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s104" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s104" ss:AutoFitWidth="0" ss:Width="267.75"/>
    <Column ss:StyleID="s104" ss:AutoFitWidth="0" ss:Width="188.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75" ss:StyleID="s70">
     <Cell ss:StyleID="s105"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data
@@ -4528,7 +4528,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">A value set composition SHALL have an include or an import</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">include or import</Data><NamedCell
+    <Cell ss:StyleID="s83"><Data ss:Type="String">include.exists() or import.exists()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">exists(f:include) or exists(f:import)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4540,7 +4540,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">A value set with only one import SHALL also have an include and/or an exclude unless the value set includes an inline code system</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">compose.import.count() != 1 or compose.include or compose.exclude</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">compose.import.count() != 1 or compose.include.exists() or compose.exclude.exists()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:compose)) or (count(f:compose/f:import)!=1 or exists(f:compose/f:include) or exists(f:compose/f:exclude))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -4550,7 +4550,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Value set SHALL contain at least one of a a compose, or an expansion element</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">compose or expansion</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">compose.exists() or expansion.exists()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">exists(f:compose) or exists(f:expansion)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4560,7 +4560,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">SHALL have a code or a display</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">code or display</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">code.exists() or display.exists()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">exists(f:code) or exists(f:display)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4570,7 +4570,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Must have a code if not abstract</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">code or abstract = true</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">code.exists() or abstract = true</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">exists(f:code) or (f:abstract/@value = true())</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4580,7 +4580,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Must have a system if a code is present</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">code.empty() or system</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">code.empty() or system.exists()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">exists(f:system) or not(exists(f:code))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4978,8 +4978,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

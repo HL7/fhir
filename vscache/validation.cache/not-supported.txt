@@ -14,6 +14,7 @@ http://www.ensembl.org
 http://snomed/sct
 http://unstats.un.org/unsd/methods/m49/m49.htm
 http://ihc.org/fhir/Namespace/cks
+http://nema.org/dicom/dicm
 http://www.icd10data.com/icd10pcs
 http://ihe.net/connectathon/classCodes
 http://hl7.org/fhir/sid/icd-10
@@ -21,7 +22,6 @@ http://nehta.gov.au/codes/medications/changetype
 http://ihe.net/xds/connectathon/classCodes
 http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921081v1.0-cs
 http://www.cms.gov/Medicare/Coding/ICD10/index.html
-http://fdasis.nlm.nih.gov
 http://hc-sc.gc.ca
 http://fdi.org/fhir/oraltoothcodes
 http://hl7.org/fhir/message-type
@@ -59,6 +59,7 @@ urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd
 http://ncimeta.nci.nih.gov
 http:/acme.ec/gcsmotor
 http://tools.ietf.org/html/bcp47
+http://snomed.org/sct
 http://hl7.org/fhir/paymenttype
 urn:ietf:bcp:47
 http://hl7.org/fhir/familial-relationship
@@ -71,11 +72,11 @@ http://www.cms.gov/Medicare/Coding/ICD9ProviderDiagnosticCodes/codes.html
 http://cimi.org/vs/patient/attribution-type
 http://hl7.org/fhir/oralservicecodes
 http://hl7.org/fhir/ValueSet/http-verb
-http://hl7.org/fhir/sid/cvx
 http://acme.org/lab/codes/panels
 http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921085v1.0-cs
 http://www.hgvs.org/mutnomen
 http://hl7.org/fhir
+http://hl7.org/fhir/c80-doc-typecodes
 http://www.genenames.org
 http://orionhealth.com/fhir/apps/referraltypes
 http://acmelabs.org
@@ -87,7 +88,6 @@ http://orionhealth.com/fhir/apps/prioritycodes
 http://acme.org/devices/clinical-codes
 urn:iso:std:iso:11073:10101
 urn:iso:std:iso:3166
-http://www.nlm.nih.gov/research/umls/rxnorm
 https://intranet.aumc.nl/labtestcodes
 http://ehr.goodhealthclinic.org
 http://www.ama-assn.org/go/cpt
