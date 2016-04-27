@@ -3,13 +3,11 @@ package org.hl7.fhir.dstu3.utils;
 import java.util.*;
 
 import org.hl7.fhir.dstu3.model.ElementDefinition;
-import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.StringUtils;
 
-import org.hl7.fhir.dstu3.model.UriType;
 import org.stringtemplate.v4.*;
 
 public class ShExGenerator {
@@ -17,11 +15,6 @@ public class ShExGenerator {
   public enum HTMLLinkPolicy {
     NONE, EXTERNAL, INTERNAL
   }
-
-  // An entire definition is a header plus a list of shape definitions
-  private static String SHEX_TEMPLATE =
-          "$header$\n\n" +
-          "$shapeDefinitions$";
 
   // A header is a list of prefixes plus a BASE
   private static String HEADER_TEMPLATE =
@@ -55,11 +48,17 @@ public class ShExGenerator {
   private static String CHOICE_TEMPLATE = "\n(\t$choiceEntries$\n\t)$card$";
 
   // A typed reference -- a fhir:uri with an optional type and the possibility of a resolvable shape
+//  fhir:Element.id @<id>?,
+//  fhir:Element.extension @<Extension>*,
+//  fhir:Reference.reference @<string>?,
+//  fhir:Reference.display @<string>?
   private static String TYPED_REFERENCE_TEMPLATE = "\n<$refType$Reference> {\n" +
                                                    "\ta [fhir:$refType$Reference]?,\n" +
-                                                   "\tfhir:uri.id @<id>?,\n" +
-                                                   "\tfhir:uri.extension @<Extension>*,\n" +
-                                                   "\tfhir:uri.value (xsd:anyURI OR @<$refType$>)\n" +
+                                                   "\tfhir:Element.id @<id>?,\n" +
+                                                   "\tfhir:Element.extension @<Extension>*,\n" +
+                                                   "\tfhir:link (@<$refType$> OR IRI)?,\n" +
+                                                   "\tfhir:Reference.reference @<string>?,\n" +
+                                                   "\tfhir:Reference.display @<string>?\n" +
                                                    "}";
 
   // TODO: find the literal for this
@@ -113,6 +112,8 @@ public class ShExGenerator {
    * @return ShEx definition of structures
    */
   public String generate(HTMLLinkPolicy links, List<StructureDefinition> structures) {
+    String SHEX_TEMPLATE = "$header$\n\n" +
+            "$shapeDefinitions$";
     ST shex_def = tmplt(SHEX_TEMPLATE);
     shex_def.add("header", genHeader());
 
@@ -132,12 +133,12 @@ public class ShExGenerator {
       if (seen.contains(ed.getPath()))
         break;
       seen.add(ed.getPath());
-      shapeDefinitions.append("\n" + genElementReference(sd, ed));
+      shapeDefinitions.append("\n").append(genElementReference(sd, ed));
     }
 
     // Add the specific reference types
     for(String r: this.references) {
-      shapeDefinitions.append("\n" + genReferenceEntry(r) + "\n");
+      shapeDefinitions.append("\n").append(genReferenceEntry(r)).append("\n");
     }
 
     shex_def.add("shapeDefinitions", shapeDefinitions);
