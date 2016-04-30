@@ -19,7 +19,7 @@
   <claimResponseReference>
     <reference value="ClaimResponse/R3500"/>
   </claimResponseReference> -->
-  
+  <type value="oral"/>
   <created value="2014-08-16"/>
 
   <disposition value="Claim settled as per contract."/>
