@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?><CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
   <id value="f203"/>
+    <contained>
+    <CareTeam>
+        <id value="careteam"/>
+        <participant>
+    	    <role>
+      		<coding>
+        	    <system value="http://snomed.info/sct"/>
+	            <code value="425268008"/>
+	            <display value="Review of care plan"/>
+	      </coding>
+    	    </role>
+    	    <member>
+      		<reference value="Practitioner/f201"/>
+      		<display value="Dokter Bronsig"/>
+    	    </member>
+  	</participant>
+ 	<participant>
+    	    <role>
+      		<coding>
+        	    <system value="http://snomed.info/sct"/>
+	            <code value="278110001"/>
+	            <display value="Radiographic imaging"/>
+	      </coding>
+    	    </role>
+    	    <member>
+      		<reference value="Practitioner/f202"/>
+      		<display value="Luigi Maas"/>
+    	    </member>
+  	</participant>
+    </CareTeam>
+  </contained>
   <contained>
     <Goal>
       <id value="goal"/>
@@ -26,32 +57,9 @@
     <reference value="Condition/f203"/>
     <display value="Roel's sepsis"/>
   </addresses>
-  <participant>
-    <role>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="425268008"/>
-        <display value="Review of care plan"/>
-      </coding>
-    </role>
-    <member>
-      <reference value="Practitioner/f201"/>
-      <display value="Dokter Bronsig"/>
-    </member>
-  </participant>
-  <participant>
-    <role>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="278110001"/>
-        <display value="Radiographic imaging"/>
-      </coding>
-    </role>
-    <member>
-      <reference value="Practitioner/f202"/>
-      <display value="Luigi Maas"/>
-    </member>
-  </participant>
+   <careTeam>
+    <reference value="#careteam"/>
+  </careTeam>
   <goal>
     <reference value="#goal"/>
   </goal>

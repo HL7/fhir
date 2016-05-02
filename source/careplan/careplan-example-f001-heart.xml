@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
   <id value="f001"/>
   <contained>
+    <CareTeam>
+        <id value="careteam"/>
+        <participant>
+    	    <member>
+      		<reference value="Practitioner/f002"/>
+      		<display value="P. Voigt"/>
+            </member>
+  	</participant>
+    </CareTeam>
+  </contained>  
+  <contained>
     <Goal>
       <id value="goal"/>
 			<subject>
@@ -37,12 +48,9 @@
     <!--TODO Correcte referentie-->
     <display value="?????"/>
   </addresses>
-  <participant>
-    <member>
-      <reference value="Practitioner/f002"/>
-      <display value="P. Voigt"/>
-    </member>
-  </participant>
+  <careTeam>
+    <reference value="#careteam"/>
+  </careTeam>
   <goal>
     <reference value="#goal"/>
   </goal>

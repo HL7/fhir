@@ -28,7 +28,67 @@
       <verificationStatus value="confirmed"/>
     </Condition>
   </contained>
+  
   <contained>
+    <CareTeam>
+        <id value="careteam"/>
+        <participant id="part1">
+    
+	    <role>
+      
+	    	<coding>
+        
+		    <system value="http://example.org/local"/>
+        
+		    <code value="nur"/>
+      
+	    	</coding>
+      
+		<text value="nurse"/>
+    
+	    </role>
+    
+	    <member>
+      
+		<reference value="Practitioner/13"/>
+      
+		<display value="Nurse Nancy"/>
+    
+	    </member>
+  
+	</participant>
+  
+	<participant id="part2">
+    
+	    <role>
+      
+		<coding>
+        
+		    <system value="http://example.org/local"/>
+        
+		    <code value="doc"/>
+      
+	        </coding>
+      
+		<text value="doctor"/>
+    
+	     </role>
+    
+	     <member>
+      
+		<reference value="Practitioner/14"/>
+      
+		<display value="Doctor Dave"/>
+    
+	     </member>
+  
+	</participant>
+
+    </CareTeam>
+  </contained>
+
+
+<contained>
     <Goal>
       <id value="goal"/>
       <subject>
@@ -53,32 +113,12 @@
     <reference value="#p1"/>
     <display value="obesity"/>
   </addresses>
-  <participant id="part1">
-    <role>
-      <coding>
-        <system value="http://example.org/local"/>
-        <code value="nur"/>
-      </coding>
-      <text value="nurse"/>
-    </role>
-    <member>
-      <reference value="Practitioner/13"/>
-      <display value="Nurse Nancy"/>
-    </member>
-  </participant>
-  <participant id="part2">
-    <role>
-      <coding>
-        <system value="http://example.org/local"/>
-        <code value="doc"/>
-      </coding>
-      <text value="doctor"/>
-    </role>
-    <member>
-      <reference value="Practitioner/14"/>
-      <display value="Doctor Dave"/>
-    </member>
-  </participant>
+ 
+
+  <careTeam>
+    <reference value="#careteam"/>
+  </careTeam>
+
   <goal>
     <reference value="#goal"/>
   </goal>

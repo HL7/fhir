@@ -25,20 +25,6 @@
     </Condition>
   </contained>
   <contained>
-    <Practitioner>
-      <id value="pr1"/>
-      <name>
-        <family value="Dietician"/>
-        <given value="Dorothy"/>
-      </name>
-      <practitionerRole>
-        <specialty>
-          <text value="Dietician"/>
-        </specialty>
-      </practitionerRole>
-    </Practitioner>
-  </contained>
-  <contained>
     <Goal>
       <id value="goal"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/goal-target">
@@ -79,24 +65,9 @@
     <reference value="#p1"/>
     <display value="obesity"/>
   </addresses>
-  <participant>
-    <role>
-      <text value="responsiblePerson"/>
-    </role>
-    <member>
-      <reference value="Patient/example"/>
-      <display value="Peter James Chalmers"/>
-    </member>
-  </participant>
-  <participant>
-    <role>
-      <text value="adviser"/>
-    </role>
-    <member>
-      <reference value="#pr1"/>
-      <display value="Dorothy Dietition"/>
-    </member>
-  </participant>
+  <careTeam>
+    <reference value="CareTeam/example"/>
+  </careTeam>
   <goal>
     <reference value="#goal"/>
   </goal>

@@ -51,6 +51,41 @@
     </Practitioner>
   </contained>
   <contained>
+    <CareTeam>
+        <id value="careteam"/>
+        <participant>
+        <!-- In New Zealand, there is a Lead Maternity Carer (LMC) - often a midwife -->
+        <role>
+          <coding>
+            <system value="http://example.org/mysys"/>
+            <code value="lmc"/>
+          </coding>
+          <text value="Midwife"/>
+        </role>
+        <member>
+          <!-- This links to the clinician resource, so we get all the stuff related to that like address, contact etc... -->
+          <reference value="#pr1"/>
+          <display value="Mavis Midwife"/>
+        </member>
+      </participant>
+      <participant>
+        <!-- To indicate that there is an obstretian consultant involved in this case. -->
+        <role>
+          <coding>
+            <system value="http://example.org/mysys"/>
+            <code value="obs"/>
+          </coding>
+          <text value="Obstretitian"/>
+        </role>
+        <member>
+          <!-- This links to the clinician resource, so we get all the stuff related to that like address, contact etc... -->
+          <reference value="#pr2"/>
+          <display value="Oscar Obstetrician"/>
+        </member>
+      </participant>
+    </CareTeam>
+  </contained>
+  <contained>
     <Goal>
       <id value="goal"/>
       <subject>
@@ -79,36 +114,9 @@
     <reference value="#p1"/>
     <display value="pregnancy"/>
   </addresses>
-  <participant>
-    <!-- In New Zealand, there is a Lead Maternity Carer (LMC) - often a midwife -->
-    <role>
-      <coding>
-        <system value="http://example.org/mysys"/>
-        <code value="lmc"/>
-      </coding>
-      <text value="Midwife"/>
-    </role>
-    <member>
-      <!-- This links to the clinician resource, so we get all the stuff related to that like address, contact etc... -->
-      <reference value="#pr1"/>
-      <display value="Mavis Midwife"/>
-    </member>
-  </participant>
-  <participant>
-    <!-- To indicate that there is an obstretian consultant involved in this case. -->
-    <role>
-      <coding>
-        <system value="http://example.org/mysys"/>
-        <code value="obs"/>
-      </coding>
-      <text value="Obstretitian"/>
-    </role>
-    <member>
-      <!-- This links to the clinician resource, so we get all the stuff related to that like address, contact etc... -->
-      <reference value="#pr2"/>
-      <display value="Oscar Obstetrician"/>
-    </member>
-  </participant>
+  <careTeam>
+    <reference value="#careteam"/>
+  </careTeam>
   <goal>
     <reference value="#goal"/>
   </goal>

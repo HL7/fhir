@@ -63,6 +63,24 @@
     </Medication>
   </contained>
   <contained>
+    <CareTeam>
+        <id value="careteam"/>
+	<participant>
+    	    <role>
+      	    	<coding>
+        	    <system value="http://snomed.info/sct"/>
+        	    <code value="28995006"/>
+        	    <display value="Treated with"/>
+      		</coding>
+    	    </role>
+    	    <member>
+      		<reference value="Practitioner/f201"/>
+      		<display value="Dokter Bronsig"/>
+    	    </member>
+  	</participant>
+    </CareTeam>
+  </contained>
+  <contained>
     <Goal>
       <id value="goal"/>
       <subject>
@@ -83,19 +101,9 @@
     <reference value="Condition/f202"/>
     <display value="Roel's head-neck tumor"/>
   </addresses>
-  <participant>
-    <role>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="28995006"/>
-        <display value="Treated with"/>
-      </coding>
-    </role>
-    <member>
-      <reference value="Practitioner/f201"/>
-      <display value="Dokter Bronsig"/>
-    </member>
-  </participant>
+  <careTeam>
+    <reference value="#careteam"/>
+  </careTeam>
   <goal>
     <reference value="#goal"/>
   </goal>
