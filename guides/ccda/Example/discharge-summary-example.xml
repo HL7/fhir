@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Composition xmlns="http://hl7.org/fhir">
+    <id value="discharge-summary-example"/>
     <extension url="http://hl7.org/fhir/StructureDefinition/ccda-data-enterer-extension" >
         <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/9372674a-58b9-4588-abe0-12452eb42c/_history/1"/>
     </extension>
