@@ -209,6 +209,16 @@
           </exampleFor> -->
     </resource>
     <resource>
+      <example value="true"/>
+      <name value="Example Discharge Summary"/>
+      <description value="Example Discharge Summary"/>
+      <acronym value="discharge-summary-example"/>
+      <sourceUri value="Example/discharge-summary-example.xml"/>
+      <!-- <exampleFor>
+            <reference value="http://hl7.org/fhir/StructureDefinition/ccda-discharge-summary-composition"/>
+          </exampleFor> -->
+    </resource>
+    <resource>
       <example value="false"/>
       <name value="V3 Data type ANY (DataValue)"/>
       <sourceUri value="CDA/cda-logical-ANY.xml"/>
