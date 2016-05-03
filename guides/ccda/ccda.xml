@@ -316,7 +316,7 @@
     <resource>
       <example value="false"/>
       <name value="V3 Data type RTO_PQ_PQ (Ratio)"/>
-      <sourceUri value="CDA/cda-logical-RTO_PQ_PQ.xml"/>
+      <sourceUri value="CDA/cda-logical-RTO.PQ.PQ.xml"/>
     </resource>
     <resource>
       <example value="false"/>
@@ -341,37 +341,37 @@
     <resource>
       <example value="false"/>
       <name value="V3 Data type IVL_TS (Interval)"/>
-      <sourceUri value="CDA/cda-logical-IVL_TS.xml"/>
+      <sourceUri value="CDA/cda-logical-IVL.TS.xml"/>
     </resource>
     <resource>
       <example value="false"/>
       <name value="V3 Data type IVL_PQ (Interval)"/>
-      <sourceUri value="CDA/cda-logical-IVL_PQ.xml"/>
+      <sourceUri value="CDA/cda-logical-IVL.PQ.xml"/>
     </resource>
     <resource>
       <example value="false"/>
       <name value="V3 Data type IVL_INT (Interval)"/>
-      <sourceUri value="CDA/cda-logical-IVL_INT.xml"/>
+      <sourceUri value="CDA/cda-logical-IVL.INT.xml"/>
     </resource>
     <resource>
       <example value="false"/>
       <name value="V3 Data type PIVL (PeriodicIntervalOfTime)"/>
-      <sourceUri value="CDA/cda-logical-PIVL.xml"/>
+      <sourceUri value="CDA/cda-logical-PIVL.TS.xml"/>
     </resource>
     <resource>
       <example value="false"/>
       <name value="V3 Data type EIVL (EventRelatedPeriodicInterval)"/>
-      <sourceUri value="CDA/cda-logical-EIVL.xml"/>
+      <sourceUri value="CDA/cda-logical-EIVL.TS.xml"/>
     </resource>
     <resource>
       <example value="false"/>
       <name value="V3 Data type SXCM_TS (GeneralTimingSpecification)"/>
-      <sourceUri value="CDA/cda-logical-SXCM_TS.xml"/>
+      <sourceUri value="CDA/cda-logical-SXCM.TS.xml"/>
     </resource>
     <resource>
       <example value="false"/>
       <name value="V3 Data type SXPR_TS (A set-component that is itself made up of set-components that are evaluated as one value)"/>
-      <sourceUri value="CDA/cda-logical-SXPR_TS.xml"/>
+      <sourceUri value="CDA/cda-logical-SXPR.TS.xml"/>
     </resource>
     <resource>
       <example value="false"/>

@@ -8235,7 +8235,7 @@
       </binding>
     </element>
     <element>
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaultype">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype">
         <valueString value="SXPR_TS"/>
       </extension>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.effectiveTime"/>
@@ -8904,7 +8904,7 @@
       </binding>
     </element>
     <element>
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaultype">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype">
         <valueString value="SXPR_TS"/>
       </extension>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.effectiveTime"/>
@@ -15225,7 +15225,7 @@
       </binding>
     </element>
     <element>
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaultype">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype">
         <valueString value="SXPR_TS"/>
       </extension>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.effectiveTime"/>
@@ -15674,7 +15674,7 @@
       </binding>
     </element>
     <element>
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaultype">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype">
         <valueString value="SXPR_TS"/>
       </extension>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.effectiveTime"/>

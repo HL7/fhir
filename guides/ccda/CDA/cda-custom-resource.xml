@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/fhir-single.xsd">
+<!-- search parameters
+  id : id (II -> Identifier)
+  code : code (CD -> CodeableConcept)
+  time : effectiveTime
+  author : author.assignedAuthor.id (II -> Identifier)
+  patient : recordTarget.patientRole.id (II -> Identifier)
+  patient-name : recordTarget.patientRole.patient.name (II -> Identifier)
+  patient-dob : recordTarget.patientRole.patient.birthTime
+  patient-gender : recordTarget.patientRole.patient.administrativeGenderCode (CD -> codeableConcept)
+  authenticator : authenticator.assignedEntity.id (II -> Identifier)
+  legal-authenticator: legalAuthenticator.assignedEntity.id (II -> Identifier)
+  -->  
+  <id value="ClinicalDocument"/>
+  <contained>
+    <SearchParameter>
+      <id value="cda-id"/>
+      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
+        <valueUri value="http://hl7.org/fhir/StructureMap/cda-ii#II2Identifier"/>
+      </extension>
+      <url value="http://hl7.org/fhir/SearchParameter/cda-id"/>
+      <name value="id"/>
+      <status value="draft"/>
+      <date value="2016-05-03T21:56:00+10:00"/>
+      <publisher value="Health Level Seven International (FHIR Infrastructure)"/>      
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+      </contact>
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+        </telecom>
+      </contact>
+      <code value="id"/>
+      <base value="ClinicalDocument"/>
+      <type value="token"/>
+      <description value="search on id"/>
+      <expression value="ClinicalDocument.id"/>
+      <xpathUsage value="normal"/>
+    </SearchParameter>
+    <SearchParameter>
+      <id value="cda-code"/>
+      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
+        <valueUri value="http://hl7.org/fhir/StructureMap/cda-cd#CD2CodeableConcept"/>
+      </extension>
+      <url value="http://hl7.org/fhir/SearchParameter/cda-code"/>
+      <name value="code"/>
+      <status value="draft"/>
+      <date value="2016-05-03T21:56:00+10:00"/>
+      <publisher value="Health Level Seven International (FHIR Infrastructure)"/>      
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+      </contact>
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+        </telecom>
+      </contact>
+      <code value="code"/>
+      <base value="ClinicalDocument"/>
+      <type value="token"/>
+      <description value="search on code"/>
+      <expression value="ClinicalDocument.code"/>
+      <xpathUsage value="normal"/>
+    </SearchParameter>
+    <SearchParameter>
+      <id value="cda-time"/>
+      <url value="http://hl7.org/fhir/SearchParameter/cda-time"/>
+      <name value="time"/>
+      <status value="draft"/>
+      <date value="2016-05-03T21:56:00+10:00"/>
+      <publisher value="Health Level Seven International (FHIR Infrastructure)"/>      
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+      </contact>
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+        </telecom>
+      </contact>
+      <code value="time"/>
+      <base value="ClinicalDocument"/>
+      <type value="token"/>
+      <description value="search on time"/>
+      <expression value="ClinicalDocument.effectiveTime"/>
+      <xpathUsage value="normal"/>
+    </SearchParameter>
+    <SearchParameter>
+      <id value="cda-author"/>
+      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
+        <valueUri value="http://hl7.org/fhir/StructureMap/cda-ii#II2Identifier"/>
+      </extension>
+      <url value="http://hl7.org/fhir/SearchParameter/cda-author"/>
+      <name value="author"/>
+      <status value="draft"/>
+      <date value="2016-05-03T21:56:00+10:00"/>
+      <publisher value="Health Level Seven International (FHIR Infrastructure)"/>      
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+      </contact>
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+        </telecom>
+      </contact>
+      <code value="author"/>
+      <base value="ClinicalDocument"/>
+      <type value="token"/>
+      <description value="search on author"/>
+      <expression value="ClinicalDocument.author.assignedAuthor.id"/>
+      <xpathUsage value="normal"/>
+    </SearchParameter>
+    <SearchParameter>
+      <id value="cda-patient"/>
+      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
+        <valueUri value="http://hl7.org/fhir/StructureMap/cda-ii#II2Identifier"/>
+      </extension>
+      <url value="http://hl7.org/fhir/SearchParameter/cda-patient"/>
+      <name value="patient"/>
+      <status value="draft"/>
+      <date value="2016-05-03T21:56:00+10:00"/>
+      <publisher value="Health Level Seven International (FHIR Infrastructure)"/>      
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+      </contact>
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+        </telecom>
+      </contact>
+      <code value="patient"/>
+      <base value="ClinicalDocument"/>
+      <type value="token"/>
+      <description value="search on patient"/>
+      <expression value="ClinicalDocument.recordTarget.patientRole.id"/>
+      <xpathUsage value="normal"/>
+    </SearchParameter>
+    <SearchParameter>
+      <id value="cda-patient-name"/>
+      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
+        <valueUri value="http://hl7.org/fhir/StructureMap/cda-ii#II2Identifier"/>
+      </extension>
+      <url value="http://hl7.org/fhir/SearchParameter/cda-patient-name"/>
+      <name value="patient-name"/>
+      <status value="draft"/>
+      <date value="2016-05-03T21:56:00+10:00"/>
+      <publisher value="Health Level Seven International (FHIR Infrastructure)"/>      
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+      </contact>
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+        </telecom>
+      </contact>
+      <code value="patient-name"/>
+      <base value="ClinicalDocument"/>
+      <type value="token"/>
+      <description value="search on patient-name"/>
+      <expression value="ClinicalDocument.id"/>
+      <xpathUsage value="normal"/>
+    </SearchParameter>
+    <SearchParameter>
+      <id value="cda-patient-dob"/>
+      <url value="http://hl7.org/fhir/SearchParameter/cda-patient-dob"/>
+      <name value="patient-dob"/>
+      <status value="draft"/>
+      <date value="2016-05-03T21:56:00+10:00"/>
+      <publisher value="Health Level Seven International (FHIR Infrastructure)"/>      
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+      </contact>
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+        </telecom>
+      </contact>
+      <code value="patient-dob"/>
+      <base value="ClinicalDocument"/>
+      <type value="token"/>
+      <description value="search on patient-dob"/>
+      <expression value="ClinicalDocument.recordTarget.patientRole.patient.birthTime"/>
+      <xpathUsage value="normal"/>
+    </SearchParameter>
+    <SearchParameter>
+      <id value="cda-patient-gender"/>
+      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
+        <valueUri value="http://hl7.org/fhir/StructureMap/cda-cd#CD2CodeableConcept"/>
+      </extension>
+      <url value="http://hl7.org/fhir/SearchParameter/cda-patient-gender"/>
+      <name value="patient-gender"/>
+      <status value="draft"/>
+      <date value="2016-05-03T21:56:00+10:00"/>
+      <publisher value="Health Level Seven International (FHIR Infrastructure)"/>      
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+      </contact>
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+        </telecom>
+      </contact>
+      <code value="patient-gender"/>
+      <base value="ClinicalDocument"/>
+      <type value="token"/>
+      <description value="search on patient-gender"/>
+      <expression value="ClinicalDocument.recordTarget.patientRole.patient.administrativeGenderCode"/>
+      <xpathUsage value="normal"/>
+    </SearchParameter>
+    <SearchParameter>
+      <id value="cda-authenticator"/>
+      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
+        <valueUri value="http://hl7.org/fhir/StructureMap/cda-ii#II2Identifier"/>
+      </extension>
+      <url value="http://hl7.org/fhir/SearchParameter/cda-authenticator"/>
+      <name value="authenticator"/>
+      <status value="draft"/>
+      <date value="2016-05-03T21:56:00+10:00"/>
+      <publisher value="Health Level Seven International (FHIR Infrastructure)"/>      
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+      </contact>
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+        </telecom>
+      </contact>
+      <code value="authenticator"/>
+      <base value="ClinicalDocument"/>
+      <type value="token"/>
+      <description value="search on authenticator"/>
+      <expression value="ClinicalDocument.authenticator.assignedEntity.id"/>
+      <xpathUsage value="normal"/>
+    </SearchParameter>
+    <SearchParameter>
+      <id value="cda-legal-authenticator"/>
+      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
+        <valueUri value="http://hl7.org/fhir/StructureMap/cda-ii#II2Identifier"/>
+      </extension>
+      <url value="http://hl7.org/fhir/SearchParameter/cda-legal-authenticator"/>
+      <name value="legal-authenticator"/>
+      <status value="draft"/>
+      <date value="2016-05-03T21:56:00+10:00"/>
+      <publisher value="Health Level Seven International (FHIR Infrastructure)"/>      
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+      </contact>
+      <contact>
+        <telecom>
+          <system value="other"/>
+          <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+        </telecom>
+      </contact>
+      <code value="legal-authenticator"/>
+      <base value="ClinicalDocument"/>
+      <type value="token"/>
+      <description value="search on legal-authenticator"/>
+      <expression value="ClinicalDocument.legalAuthenticator.assignedEntity.id"/>
+      <xpathUsage value="normal"/>
+    </SearchParameter>
+  </contained>
+  <url value="http://hl7.org/fhir/ImplementationGuide/ClinicalDocument"/>
+  <name value="CDA Custom Resource Definition"/>
+  <status value="draft"/>
+  <package>
+    <name value="CDA Custom Resource"/>
+    <resource>
+      <example value="false"/>
+      <sourceUri value="http://hl7.org/fhir/StructureDefinition/ClinicalDocument"/>
+    </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="#cda-id"/>
+      </sourceReference> 
+    </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="#cda-code"/>
+      </sourceReference> 
+    </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="#cda-time"/>
+      </sourceReference> 
+    </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="#cda-author"/>
+      </sourceReference> 
+    </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="#cda-patient"/>
+      </sourceReference> 
+    </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="#cda-patient-name"/>
+      </sourceReference> 
+    </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="#cda-patient-dob"/>
+      </sourceReference> 
+    </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="#cda-patient-gender"/>
+      </sourceReference> 
+    </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="#cda-authenticator"/>
+      </sourceReference> 
+    </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="#cda-legal-authenticator"/>
+      </sourceReference> 
+    </resource>
+  </package>
+  <!-- required, but not needed -->
+  <page>
+    <source value="http://null"/>
+    <name value="null"/>
+    <kind value="page"/>
+  </page>
+</ImplementationGuide>

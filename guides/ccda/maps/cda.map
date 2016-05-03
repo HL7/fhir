@@ -9,7 +9,7 @@ conceptmap "#gender" {
 }
 
 uses "http://hl7.org/fhir/StructureDefinition/ClinicalDocument" as source
-uses "http://hl7.org/fhir/StructureDefinition/Composition" as target
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" as target
 
 imports "http://hl7.org/fhir/StructureMap/cda-ed"
 imports "http://hl7.org/fhir/StructureMap/cda-ad"
@@ -19,7 +19,7 @@ imports "http://hl7.org/fhir/StructureMap/cda-tel"
 imports "http://hl7.org/fhir/StructureMap/cda-en"
 
 group CDA2FHIR // this groups sets things going. pass in a CDA document and a bundle.
-  input src : CDA as source;
+  input src : ClinicalDocument as source;
   input tgt : Bundle as target;
 
 setup: for src make 

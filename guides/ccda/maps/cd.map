@@ -25,7 +25,7 @@ cd.text:
 
 cd.nf: 
    for src.nullFlavor as nf 
-   where nullFlavor != "OTH" 
+   where nullFlavor != 'OTH'
    make
      Element.extension as ex, 
      ex.url = "http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor", 

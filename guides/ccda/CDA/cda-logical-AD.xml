@@ -279,7 +279,7 @@
       </type>
     </element>
     <element>
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaultype">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype">
         <valueString value="SXPR_TS"/>
       </extension>
       <path value="AD.useablePeriod"/>
@@ -559,7 +559,7 @@
       </type>
     </element>
     <element>
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaultype">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype">
         <valueString value="SXPR_TS"/>
       </extension>
       <path value="AD.useablePeriod"/>
