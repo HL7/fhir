@@ -28,14 +28,15 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.utilities.xhtml;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//@DatatypeDef()
-public class XhtmlNode {
+import org.hl7.fhir.instance.model.api.IBaseXhtml;
+
+@ca.uhn.fhir.model.api.annotation.DatatypeDef(name="xhtml")
+public class XhtmlNode implements IBaseXhtml {
 
   public static final String NBSP = Character.toString((char)0xa0);
   
@@ -49,6 +50,7 @@ public class XhtmlNode {
     super();
   }
 
+  
   public XhtmlNode(NodeType nodeType, String name) {
     super();
     this.nodeType = nodeType;
@@ -73,6 +75,7 @@ public class XhtmlNode {
   }
 
   public void setName(String name) {
+    assert name.contains(":") == false : "Name should not contain any : but was " + name;
     this.name = name;
   }
 
@@ -286,6 +289,15 @@ public class XhtmlNode {
 		return e1.equalsDeep(e2);
   }
 	
+  public String getNsDecl() {
+	 for (String an : attributes.keySet()) {
+		 if (an.equals("xmlns")) {
+			 return attributes.get(an);
+       }
+    }
+    return null;
+  }
+	
 	
 	public String getValueAsString() {
 		if (isEmpty()) {
@@ -348,13 +360,36 @@ public class XhtmlNode {
     return null;
   }
 
-  public String getNsDecl() {
-  	for (String an : attributes.keySet()) {
-  		if (an.equals("xmlns")) {
-  			return attributes.get(an);
-  		}
-  	}
-  	return null;
-  }
+@Override
+public String getValue() {
+	return getValueAsString();
+}
+
+@Override
+public XhtmlNode setValue(String theValue) throws IllegalArgumentException {
+	setValueAsString(theValue);
+	return this;
+}
+
+/**
+ * Returns false
+ */
+public boolean hasFormatComment() {
+	return false;
+}
+
+/**
+ * NOT SUPPORTED - Throws {@link UnsupportedOperationException}
+ */
+public List<String> getFormatCommentsPre() {
+	throw new UnsupportedOperationException();
+}
+
+/**
+ * NOT SUPPORTED - Throws {@link UnsupportedOperationException}
+ */
+public List<String> getFormatCommentsPost() {
+	throw new UnsupportedOperationException();
+}
 
 }

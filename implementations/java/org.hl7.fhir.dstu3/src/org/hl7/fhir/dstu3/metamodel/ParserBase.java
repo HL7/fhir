@@ -75,7 +75,7 @@ public abstract class ParserBase {
       return null;
   	}
 	  for (StructureDefinition sd : context.allStructures()) {
-	    if (name.equals(sd.getId())) {
+	    if (name.equals(sd.getIdElement().getIdPart())) {
 	      if((ns == null || ns.equals(FormatUtilities.FHIR_NS)) && !ToolingExtensions.hasExtension(sd, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"))
 	        return sd;
 	      String sns = ToolingExtensions.readStringExtension(sd, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace");
@@ -93,7 +93,7 @@ public abstract class ParserBase {
       return null;
   	}
 	  for (StructureDefinition sd : context.allStructures()) {
-	    if (name.equals(sd.getId())) {
+	    if (name.equals(sd.getIdElement().getIdPart())) {
 	      return sd;
 	    }
 	  }
