@@ -22,7 +22,6 @@
   <WindowTopY>0</WindowTopY>
   <TabRatio>719</TabRatio>
   <ActiveSheet>8</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -769,6 +768,11 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s151" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+  </Style>
   <Style ss:ID="s152">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
@@ -1119,7 +1123,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">MedicationCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">what</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3937,7 +3942,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>17</TopRowBottomPane>
+   <TopRowBottomPane>20</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3954,8 +3959,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6580,9 +6584,10 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s149"><Data ss:Type="String">MedicationAsNeededReason</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A coded concept identifying the precondition that should be met or evaluated prior to consuming or administering a medication dose.  For example &quot;pain&quot;, &quot;30 minutes prior to sexual intercourse&quot;, &quot;on flare-up&quot; etc.</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">unbound</Data></Cell>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s151" ss:HRef="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/medication-as-needed-reason</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -6638,11 +6643,12 @@
     <Cell ss:StyleID="s119"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">MedicationCode</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Codes identifying which substance or product can be dispensed</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s151" ss:HRef="http://hl7.org/fhir/ValueSet/medication-codes"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/medication-codes</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -6971,7 +6977,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>

@@ -1,22 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <ValueSet xmlns="http://hl7.org/fhir">
-  <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
-  </meta>
-  <name value="Reason Medication Not Given Codes"/>
-  <status value="draft"/>
-  <publisher value="FHIR Project team"/>
-  <contact>
+  
+
+<url value="http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes"/>
+
+<name value="SNOMED CT Reason Medication Not Given Codes"/>
+  
+<status value="draft"/>
+  
+<publisher value="FHIR Project team"/>
+  
+<contact>
     <telecom>
       <system value="other"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set is provided as an exemplar. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the medication process."/>
-  <compose>
-    <include>
-      <system value="http://hl7.org/fhir/reason-medication-not-given"/>
-    </include>
-  </compose>
+  
+
+<description value="This value set includes all medication refused, medication not administered, and non administration of necessary drug or medicine codes from SNOMED CT - provided as an exemplar value set."/>
+  
+
+<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+
+
+<compose>
+    
+	<include>
+		<system value="http://snomed.info/sct"/>
+
+		<filter>
+				
+			<!--   SNOMED CT - Children of 406149000 Medication Refused (situation)    -->
+				
+			<property value="concept"/>
+			<op value="is-a"/>
+			<value value="406149000"/>
+		</filter>
+	</include>
+	<include>
+		<system value="http://snomed.info/sct"/>
+
+		<filter>
+				
+			<!--   SNOMED CT - Children of 371900001 Medication Not Administered (situation)   -->
+		
+			<property value="concept"/>
+			<op value="is-a"/>
+			<value value="371900001"/>
+		</filter>
+	</include>
+	<include>
+		<system value="http://snomed.info/sct"/>
+
+		<filter>
+				
+			<!--   SNOMED CT - Children of 242990004 Non Administration of necessary drug or medicine (event)   -->
+			
+			<property value="concept"/>
+			<op value="is-a"/>
+			<value value="242990004"/>
+		</filter>
+	</include>
+</compose>
+
+
 </ValueSet>

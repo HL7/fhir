@@ -14,9 +14,9 @@
   <patient>
     <reference value="Patient/example"/>
   </patient>
-  <practitioner>
+  <performer>
     <reference value="Practitioner/example"/>
-  </practitioner>
+  </performer>
   <prescription>
     <reference value="MedicationOrder/example"/>
   </prescription>

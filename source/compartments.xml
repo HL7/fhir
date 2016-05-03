@@ -439,9 +439,10 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationAdministration</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell><Data ss:Type="String">patient | performer</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">practitioner</Data></Cell>
+    <Cell><Data ss:Type="String">performer</Data></Cell>
+    <Cell><Data ss:Type="String">performer</Data></Cell>
     <Cell><Data ss:Type="String">device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -694,7 +695,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>47</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -702,8 +703,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>62</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
