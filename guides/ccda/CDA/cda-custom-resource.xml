@@ -37,12 +37,14 @@
         </telecom>
       </contact>
       <code value="id"/>
-      <base value="ClinicalDocument"/>
+      <base value="Resource"/>
       <type value="token"/>
       <description value="search on id"/>
       <expression value="ClinicalDocument.id"/>
       <xpathUsage value="normal"/>
     </SearchParameter>
+  </contained>
+  <contained>
     <SearchParameter>
       <id value="cda-code"/>
       <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
@@ -66,12 +68,14 @@
         </telecom>
       </contact>
       <code value="code"/>
-      <base value="ClinicalDocument"/>
+      <base value="Resource"/>
       <type value="token"/>
       <description value="search on code"/>
       <expression value="ClinicalDocument.code"/>
       <xpathUsage value="normal"/>
     </SearchParameter>
+  </contained>
+  <contained>
     <SearchParameter>
       <id value="cda-time"/>
       <url value="http://hl7.org/fhir/SearchParameter/cda-time"/>
@@ -92,12 +96,14 @@
         </telecom>
       </contact>
       <code value="time"/>
-      <base value="ClinicalDocument"/>
+      <base value="Resource"/>
       <type value="token"/>
       <description value="search on time"/>
       <expression value="ClinicalDocument.effectiveTime"/>
       <xpathUsage value="normal"/>
     </SearchParameter>
+  </contained>
+  <contained>
     <SearchParameter>
       <id value="cda-author"/>
       <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
@@ -121,12 +127,14 @@
         </telecom>
       </contact>
       <code value="author"/>
-      <base value="ClinicalDocument"/>
+      <base value="Resource"/>
       <type value="token"/>
       <description value="search on author"/>
       <expression value="ClinicalDocument.author.assignedAuthor.id"/>
       <xpathUsage value="normal"/>
     </SearchParameter>
+  </contained>
+  <contained>
     <SearchParameter>
       <id value="cda-patient"/>
       <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
@@ -150,12 +158,14 @@
         </telecom>
       </contact>
       <code value="patient"/>
-      <base value="ClinicalDocument"/>
+      <base value="Resource"/>
       <type value="token"/>
       <description value="search on patient"/>
       <expression value="ClinicalDocument.recordTarget.patientRole.id"/>
       <xpathUsage value="normal"/>
     </SearchParameter>
+  </contained>
+  <contained>
     <SearchParameter>
       <id value="cda-patient-name"/>
       <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
@@ -179,12 +189,14 @@
         </telecom>
       </contact>
       <code value="patient-name"/>
-      <base value="ClinicalDocument"/>
+      <base value="Resource"/>
       <type value="token"/>
       <description value="search on patient-name"/>
       <expression value="ClinicalDocument.id"/>
       <xpathUsage value="normal"/>
     </SearchParameter>
+  </contained>
+  <contained>
     <SearchParameter>
       <id value="cda-patient-dob"/>
       <url value="http://hl7.org/fhir/SearchParameter/cda-patient-dob"/>
@@ -205,12 +217,14 @@
         </telecom>
       </contact>
       <code value="patient-dob"/>
-      <base value="ClinicalDocument"/>
+      <base value="Resource"/>
       <type value="token"/>
       <description value="search on patient-dob"/>
       <expression value="ClinicalDocument.recordTarget.patientRole.patient.birthTime"/>
       <xpathUsage value="normal"/>
     </SearchParameter>
+  </contained>
+  <contained>
     <SearchParameter>
       <id value="cda-patient-gender"/>
       <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
@@ -234,12 +248,14 @@
         </telecom>
       </contact>
       <code value="patient-gender"/>
-      <base value="ClinicalDocument"/>
+      <base value="Resource"/>
       <type value="token"/>
       <description value="search on patient-gender"/>
       <expression value="ClinicalDocument.recordTarget.patientRole.patient.administrativeGenderCode"/>
       <xpathUsage value="normal"/>
     </SearchParameter>
+  </contained>
+  <contained>
     <SearchParameter>
       <id value="cda-authenticator"/>
       <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
@@ -263,12 +279,14 @@
         </telecom>
       </contact>
       <code value="authenticator"/>
-      <base value="ClinicalDocument"/>
+      <base value="Resource"/>
       <type value="token"/>
       <description value="search on authenticator"/>
       <expression value="ClinicalDocument.authenticator.assignedEntity.id"/>
       <xpathUsage value="normal"/>
     </SearchParameter>
+  </contained>
+  <contained>
     <SearchParameter>
       <id value="cda-legal-authenticator"/>
       <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/index-transform">
@@ -292,7 +310,7 @@
         </telecom>
       </contact>
       <code value="legal-authenticator"/>
-      <base value="ClinicalDocument"/>
+      <base value="Resource"/>
       <type value="token"/>
       <description value="search on legal-authenticator"/>
       <expression value="ClinicalDocument.legalAuthenticator.assignedEntity.id"/>
