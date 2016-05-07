@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>694</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1874,7 +1874,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">FHIRDefinedType</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">FHIRDefinedTypeExt</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4479,6 +4479,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4500,7 +4501,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>26</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5058,7 +5059,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7191,19 +7191,13 @@
     <Cell ss:StyleID="s121"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s121"/>
+    <Cell><Data ss:Type="String">FHIRDefinedTypeExt</Data></Cell>
+    <Cell><Data ss:Type="String">Either a resource or a data type, including logical model types</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s154" ss:HRef="http://hl7.org/fhir/ValueSet/defined-types"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/defined-types</Data></Cell>
+    <Cell ss:Index="10" ss:StyleID="s120"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s148"/>

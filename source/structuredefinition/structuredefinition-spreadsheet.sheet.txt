@@ -29,6 +29,14 @@
   Definition = How a type relates to it\'s baseDefinition.
   Conformance = required
 
+ -- Row 5 -----------------------------------
+  Binding Name = FHIRDefinedTypeExt
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/defined-types
+  Definition = Either a resource or a data type, including logical model types
+  Conformance = extensible
+  Copyright = FHIR
+
 === Sheet structure-definition-kind =====================================
 
  -- Row 1 -----------------------------------
@@ -450,7 +458,7 @@
   Summary = Y
   Inv. = 4,11
   Type = code
-  Binding = FHIRDefinedType
+  Binding = FHIRDefinedTypeExt
   Short Label = Any datatype or resource, including abstract ones
   Definition = The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure
   Comments = if a baseType is present, then there SHALL be a baseDefinition as well. Note that the baseType could be determined by chasing through the baseDefinition references until a concrete structure (derivation = specialization) is reached, or by looking at the path of the first element in the snapshot - if present - but providing the baseType directly makes for simpler tooling and indexing

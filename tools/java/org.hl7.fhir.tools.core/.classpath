@@ -32,5 +32,7 @@
 	<classpathentry kind="lib" path="../imports/commons-lang3-3.3.2.jar"/>
 	<classpathentry kind="lib" path="../imports/junit-4.11.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu3"/>
+	<classpathentry kind="lib" path="../imports/scala-library-2.11.8.jar"/>
+	<classpathentry kind="lib" path="../imports/shexjava.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

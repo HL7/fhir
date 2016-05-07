@@ -50,7 +50,9 @@ The Logical View shows the resources as a tree structure with the following colu
  <tr> <td>Name</td> <td>The name of the element in the resource (manifests as XML element name, or JSON property name. Some names finish with <code>[x]</code> - the meaning of this is discussed below. In addition, this column contains an icon that denotes the underlying type of the content. The icons are described below</td> </tr>
  <tr> <td>Flags</td> <td>A set of information about the element that impacts how implementers handle them. The flags are described below</td> </tr>
  <tr> <td>Card.</td> <td>The lower and upper bounds on how many times this element is allowed to appear in the resource</td> </tr>
- <tr> <td>Type</td> <td>The type of the element (hyperlinked to the definition of the type)</td> </tr>
+ <tr> <td>Type</td> <td>The type of the element (hyperlinked to the definition of the type). Note that the type of the element has one of two meanings, 
+   depending on whether the element has defined children. If the element has children, then the element has an anonymous type that specializes the given type. If the element has no children, then 
+   the element has properties and children as specified by the nominated type</td> </tr>
  <tr> <td>Description &amp; Constraints</td> <td>A description of the element, and details about constraints that are applied to it. Particularly, for coded elements, information about which codes can be used</td> </tr>
 </table>
 <p>

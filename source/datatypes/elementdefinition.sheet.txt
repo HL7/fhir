@@ -43,6 +43,14 @@
   Definition = Whether a reference needs to be version specific or version independent, or whetehr either can be used
   Conformance = required
 
+ -- Row 7 -----------------------------------
+  Binding Name = FHIRDefinedTypeExt
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/defined-types
+  Definition = Either a resource or a data type, including logical model types
+  Conformance = extensible
+  Copyright = FHIR
+
 === Sheet constraint-severity =====================================
 
  -- Row 1 -----------------------------------
@@ -520,7 +528,7 @@
   Element = ElementDefinition.type.code
   Card. = 1..1
   Type = code
-  Binding = FHIRDefinedType
+  Binding = FHIRDefinedTypeExt
   Short Label = Name of Data type or Resource
   Definition = Name of Data type or Resource that is a(or the) type used for this element
   Comments = If the element is a reference to another resource, this element contains \"Reference\", and the profile element refers to the profile of the allowed target of the resource, which may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/StructureDefinition/Patient). There would be one pair of type/code for each allowed target resource type
