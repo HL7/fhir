@@ -59,7 +59,6 @@ urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd
 http://ncimeta.nci.nih.gov
 http:/acme.ec/gcsmotor
 http://tools.ietf.org/html/bcp47
-http://snomed.org/sct
 http://hl7.org/fhir/paymenttype
 urn:ietf:bcp:47
 http://hl7.org/fhir/familial-relationship
@@ -76,7 +75,6 @@ http://acme.org/lab/codes/panels
 http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921085v1.0-cs
 http://www.hgvs.org/mutnomen
 http://hl7.org/fhir
-http://hl7.org/fhir/c80-doc-typecodes
 http://www.genenames.org
 http://orionhealth.com/fhir/apps/referraltypes
 http://acmelabs.org

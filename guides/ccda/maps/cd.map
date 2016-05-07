@@ -15,7 +15,7 @@ cd.base:
 
 cd.other: 
    for src.translation as s 
-   where system.empty().not() 
+   where codeSsystem.empty().not() 
    check translation.originalText.empty() 
    make tgt.coding as t then CV2Coding(s, t) // other CVs, with a bonus side check: no nested original text allowed
 

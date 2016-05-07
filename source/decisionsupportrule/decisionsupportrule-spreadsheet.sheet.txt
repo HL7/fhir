@@ -219,25 +219,25 @@
   Filename = decisionsupportrule-example.xml
 
  -- Row 2 -----------------------------------
-  Name = CMS9CDS01
+  Name = !CMS9CDS01
   Identity = decisionsupportrule-exclusive-breastfeeding-intervention-01
   Description = Exclusive Breastfeeding Intervention 01
   Filename = decisionsupportrule-exclusive-breastfeeding-intervention-01.xml
 
  -- Row 3 -----------------------------------
-  Name = CMS9CDS02
+  Name = !CMS9CDS02
   Identity = decisionsupportrule-exclusive-breastfeeding-intervention-02
   Description = Exclusive Breastfeeding Intervention 02
   Filename = decisionsupportrule-exclusive-breastfeeding-intervention-02.xml
 
  -- Row 4 -----------------------------------
-  Name = CMS9CDS03
+  Name = !CMS9CDS03
   Identity = decisionsupportrule-exclusive-breastfeeding-intervention-03
   Description = Exclusive Breastfeeding Intervention 03
   Filename = decisionsupportrule-exclusive-breastfeeding-intervention-03.xml
 
  -- Row 5 -----------------------------------
-  Name = CMS9CDS04
+  Name = !CMS9CDS04
   Identity = decisionsupportrule-exclusive-breastfeeding-intervention-04
   Description = Exclusive Breastfeeding Intervention 04
   Filename = decisionsupportrule-exclusive-breastfeeding-intervention-04.xml
