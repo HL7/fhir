@@ -352,10 +352,11 @@
           <script type="text/javascript">
             <xsl:comment>
               <xsl:text>&#x0a;</xsl:text>
-              <xsl:text>var questionnaireAnswers = null;&#x0a;</xsl:text>
-              <xsl:text>var questionnaireAnswersId = null;&#x0a;</xsl:text>
-              <xsl:text>var questionnaireAnswersVersion = null;&#x0a;</xsl:text>
-              <xsl:text>var questionnaireAnswersEndpoint = null;&#x0a;</xsl:text>
+			  <xsl:text>var questionnaire = null;&#x0a;</xsl:text>
+              <xsl:text>var questionnaireResponse = null;&#x0a;</xsl:text>
+              <xsl:text>var questionnaireResponseId = null;&#x0a;</xsl:text>
+              <xsl:text>var questionnaireResponseVersion = null;&#x0a;</xsl:text>
+              <xsl:text>var questionnaireResponseEndpoint = "http://localhost:8080";&#x0a;</xsl:text>
 			  <!-- Generated validation and serialization scripts replaced with recursive functions -->
               <!--><xsl:apply-templates mode="validateScript" select="//f:group|//f:question"/>-->
               <!--><xsl:apply-templates mode="serializeScript" select="//f:group|//f:question"/>-->
@@ -697,71 +698,94 @@
       <xsl:text disable-output-escaping="yes">/html-form-delete.png" alt="Remove" style="width:10px;height:10px;"/&gt;'&#x0a;</xsl:text>
     </xsl:otherwise>
   </xsl:choose>
+
+///////////////////////////////////////////////////////////////////////////////
+// * VALIDATION AND SERIALIZATION FUNCTIONS                                  //
+// * For converting to/from FHIR resources                                   //
+///////////////////////////////////////////////////////////////////////////////
+
+// Serialize the HTML content of the page back into a JSON representation of a
+// Questionnaire resource
+// ** Note that not all elements of the resource are currently supported **
+function serializeQuestionnaire() {
+  if (questionnaire == null) {
+    initializeQuestionnaire();
+  }
   
+  // Locate root node
+  var itemNodes =  $("body div:first-child");
+  if (itemNodes.length &lt; 1) {
+    alert('Must have at least 1 occurrence of: item');
+    return false;   
+  }
+  
+  // Serialize root node; recursively traverse the DOM tree and serialize
+  // all items
+  for (var i=0; i &lt; itemNodes.length; i++) {
+    var itemNode = itemNodes[i];
+    var itemTree = serializeQuestionnaireNode(itemNode);
+  }
+  questionnaire.item = itemTree;
+  return true;
+  }  
+
+// Serialize the HTML content of the page and the user's responses  into a JSON
+// representation of a QuestionnaireResponse resource
+// ** Note that not all elements of the resource are currently supported **
 function serializeResponse() {
-  if (questionnaireAnswers == null) {
+  if (questionnaireResponse == null) {
     initializeAnswers();
   }
   
   // Locate root node
-  var groupNodes = findDiv(document.getElementById("div-cnt"), "root");
-  if (groupNodes.length &lt; 1) {
-    alert('Must have at least 1 occurrence of: group');
+  var itemNodes =  $("body div:first-child");
+  if (itemNodes.length &lt; 1) {
+    alert('Must have at least 1 occurrence of: item');
     return false;   
   }
   
   // Serialize root node; recursively traverse the DOM tree and serialize
   // all groups/questions/answers
-  for (var i=0; i &lt; groupNodes.length; i++) {
-    var groupNode = groupNodes[i];
-    var answerTree = serializeNode(groupNode);
+  for (var i=0; i &lt; itemNodes.length; i++) {
+    var itemNode = itemNodes[i];
+    var itemTree = serializeResponseNode(itemNode);
   }
+  questionnaireResponse.item = itemTree;
   return true;
 }
-  
-function serializeNode(node) {
+
+// Recursive function called by serializeQuestionnaire(). Traverses the DOM to
+// build a Questionnaire resource
+// ** Note that not all elements of the resource are currently supported **
+function serializeQuestionnaireNode(node) {
   // Serialize the current group's metadata
-  var groupLinkId = "group";   
-  var groupTitle = "";
+  var groupItemLinkId = "group";   
   var linkIdSpan = $(node).children("span");
   if (linkIdSpan.length &gt; 0) {
-    groupLinkId = linkIdSpan[0].innerHTML;
-  }
-  // A group's title is (unfortunately) a sibling element of the div element node
-  // we're working with. Solution: grab all "div" and "header" children of the 
-  // parent node, and find the header element (if any) that occurs right before
-  // the div node currently being serialized
-  var groupSiblings = $(node.parentNode).children("div, :header");
-  var tempTitle = "";
-  for (var i=0; i &lt; groupSiblings.length; i++) {
-    if(groupSiblings[i].nodeName != "DIV") {
-	  tempTitle = groupSiblings[i].innerHTML;
-    } else {
-      var temp = $(groupSiblings[i]).children("span");
-      if (temp.length > 0) {
-        var tempLinkId = temp[0].innerHTML;
-	    if(tempLinkId === groupLinkId) {
-		  groupTitle = tempTitle;
-		}
-      }
-	  tempTitle = "";
-    }
+    groupItemLinkId = linkIdSpan[0].innerHTML;
   }
   
-  // Inialize the group
-  var group = {
-    "linkId":groupLinkId,
-    "title":groupTitle,
-	"question":[],
-	"group":[]
+  // Note: using groupLinkId as a group title for now. Not all elements are supported
+  // EDIT HERE to add additional group elements
+  // Initialize the group
+  var groupItem = {
+    "linkId":groupItemLinkId,
+	//"concept":"",
+	//"text":"",
+	"type":"group",
+	//"required":"",
+	//"repeats":"",
+	//"options":"",
+	//"option":"",
+	"item":[]
   }
   
   // Serialize questions in this group
   // Questions are always contained in a table
   var childTables = $(node).children("table");
-  var questionLinkId;
-  var questionText;
-  var question;
+  var questionItemLinkId;
+  var itemText;
+  var item;
   
   for (var i=0; i &lt; childTables.length; i++) {
     var tableNode = childTables[i];
@@ -775,18 +799,111 @@ function serializeNode(node) {
       if (childNodes[j].parentNode.nodeName === "TD") {
 	    // childNodes[j] contains the span element corresponding to a question, so grab
 		// question metadata and initialize the question
-        questionLinkId = childNodes[j].innerHTML;
-		questionText = childNodes[j].parentNode.innerHTML;
-		questionText = questionText.substring(questionText.indexOf("/span") + "/span".length + 1).trim();
-		question = {
-		  "linkId":questionLinkId,
-	      "text":questionText,
-	      "answer":[]
+        questionItemLinkId = childNodes[j].innerHTML;
+		itemText = childNodes[j].parentNode.innerHTML;
+		itemText = itemText.substring(itemText.indexOf("/span") + "/span".length + 1).trim();
+		while (itemText.indexOf("&lt;") >= 0) {
+		  if (itemText.indexOf("&gt;") >= 0) {
+		    itemText = itemText.substring(0, itemText.indexOf("&lt;")) + itemText.substring(itemText.indexOf("&gt;")+1);
+	      }
+		}
+		itemText = itemText.trim();
+		
+		// EDIT HERE to add additional question elements
+		questionItem = {
+	      "linkId":questionItemLinkId,
+	  	  //"concept":"",
+	   	  "text":itemText,
+	  	  "type":"question",
+	  	  //"required":"",
+	  	  //"repeats":"",
+	  	  //"options":"",
+	  	  //"option":"",
+	  	  "item":[] // TODO: Support nested questions. Currently the XSLT does not support this (March 2016)
+	    }
+
+		groupItem.item.push(questionItem);
+	  }
+    }
+  }
+  
+  // Serialize child groups (and their subtrees)
+  var itemNodes = $(node).children("div").filter(function() {
+  	return this.style.display != "none";
+  });
+  var g;
+  for (var i=0; i &lt; itemNodes.length; i++) {
+    var divNode = itemNodes[i];
+    g = serializeQuestionnaireNode(divNode);
+	groupItem.item.push(g);
+  }
+  
+  return groupItem;
+}
+  
+// Recursive function called by serializeResponse(). Traverses the DOM to
+// build a QuestionnaireResponse resource
+// ** Note that not all elements of the resource are currently supported **
+function serializeResponseNode(node) {
+  // Serialize the current group's metadata
+  var groupItemLinkId = "group";   
+  var linkIdSpan = $(node).children("span");
+  if (linkIdSpan.length &gt; 0) {
+    groupItemLinkId = linkIdSpan[0].innerHTML;
+  }
+  
+  // Note: using groupLinkId as a group title for now. Not all elements are supported
+  // EDIT HERE to add additional item elements
+  // Inialize the group
+  var groupItem = {
+    "linkId":groupItemLinkId,
+	//"text":"",
+	//"subject":"",
+	"answer":[],
+	"item":[]
+  }
+  
+  // Serialize questions in this group
+  // Questions are always contained in a table
+  var childTables = $(node).children("table");
+  var itemLinkId;
+  var itemText;
+  var item;
+  
+  for (var i=0; i &lt; childTables.length; i++) {
+    var tableNode = childTables[i];
+    var childNodes = $(tableNode).find("span").filter(function() {
+      return this.style.display == "none";
+    });
+
+	// The span elements for questions are always contained in a table cell, so checking the parent
+	// node of each span element lets us confirm if a span element pertains to a question
+    for (var j=0; j &lt; childNodes.length; j++) {
+      if (childNodes[j].parentNode.nodeName === "TD") {
+	    // childNodes[j] contains the span element corresponding to a question, so grab
+		// question metadata and initialize the question
+        itemLinkId = childNodes[j].innerHTML;
+		itemText = childNodes[j].parentNode.innerHTML;
+		itemText = itemText.substring(itemText.indexOf("/span") + "/span".length + 1).trim();
+		while (itemText.indexOf("&lt;") >= 0) {
+		  if (itemText.indexOf("&gt;") >= 0) {
+		    itemText = itemText.substring(0, itemText.indexOf("&lt;")) + itemText.substring(itemText.indexOf("&gt;")+1);
+	      }
+		}
+		itemText = itemText.trim();
+		
+		// EDIT HERE to add additional item elements
+		item = {
+		  "linkId":itemLinkId,
+	      "text":itemText,
+		  //"subject":"",
+	      "answer":[],
+		  "item":[]
 		}
 
 		var answerNodes = findAnswers(node, childNodes[j].innerHTML);
 		for (var k=0; k &lt; answerNodes.length; k++) {
-	      var inputCell = answerCell(node, questionLinkId);
+	      var inputCell = answerCell(node, itemLinkId);
 		  if (inputCell == null) continue;
 		  var inputType = answerType(inputCell);
 		  var answer;
@@ -845,50 +962,131 @@ function serializeNode(node) {
 		    case "none":
 		      break;
 		  }
-		  question.answer.push(answer);
+		  item.answer.push(answer);
 		}
-		group.question.push(question);
+		if (item.answer.length &lt; 1) {
+			delete(item["answer"]);
+		}
+		if (item.item.length &lt; 1) {
+			delete(item["item"]);
+		}
+		groupItem.item.push(item);
 	  }
     }
   }
   
   // Serialize child groups (and their subtrees)
-  var groupNodes = $(node).children("div").filter(function() {
+  var itemNodes = $(node).children("div").filter(function() {
   	return this.style.display != "none";
   });
   var g;
-  for (var i=0; i &lt; groupNodes.length; i++) {
-    var divNode = groupNodes[i];
-    g = serializeNode(divNode);
-	group.group.push(g);
+  for (var i=0; i &lt; itemNodes.length; i++) {
+    var divNode = itemNodes[i];
+    g = serializeResponseNode(divNode);
+	groupItem.item.push(g);
   }
   
-  return group;
-}
+  if (groupItem.answer.length &lt; 1) {
+	delete(groupItem["answer"]);
+  }
+  if (groupItem.item.length &lt; 1) {
+	delete(groupItem["item"]);
+  }
   
+  return groupItem;
+}
+
+// Attempt to populate the HTML form based on a JSON-encoded
+// QuestionnaireResponse resource. Argument is assumed to contain the
+// JSON-encoded QuestionnaireResponse.
+// ** Note that not all elements of the resource are currently supported ** 
+function deserializeResponse(resp) {
+	// Locate root node
+	var itemNodes =  $("body div:first-child");
+	if (itemNodes.length &lt; 1) {
+  	  	return false;   
+	}
+	var rootNode = itemNodes[0];
+
+	if (resp.item != null) {
+		deserializeResponseItem(resp.item, rootNode)
+	}
+}
+
+function deserializeResponseItem(respItem, rootNode) {
+	if (respItem.hasOwnProperty("answer")) {
+		if (respItem.answer.length > 0) {
+			var linkId = respItem.linkId
+	    	inputType = $( "input[name*='" + linkId + "']" ).attr('type');
+			if (inputType == "text") {
+				var answer = respItem.answer[0].valueString;
+				$( "input[name*='" + linkId + "']" ).val(answer);
+			} else {
+				console.log("input type: " + inputType)
+			}
+			
+			// Other input types...
+			// First, get the answer value
+			var answer = respItem.answer[0].valueString;
+			
+			// Try radio buttons
+			var radios = $( "input[type|='radio']" );
+			for (var i=0; i &lt; radios.length; i++) {
+				if(radios[i].value == answer){
+					radios[i].checked = true;
+				}
+			}
+			
+			// Try drop-down lists
+			var options = $( "option" )
+			for (var i=0; i &lt; options.length; i++) {
+				if(options[i].value == answer){
+					dropdownLinkId = options[i].parentElement.parentElement.previousElementSibling.firstElementChild.innerHTML;
+					if(dropdownLinkId == linkId) {
+						options[i].parentElement.value = answer;
+					}
+				}
+			}
+		}
+	}
+	
+	if (respItem.hasOwnProperty("item")) {
+		if (respItem.item != null) {
+			for (var i=0; i &lt; respItem.item.length; i++) {
+				deserializeResponseItem(respItem.item[i], rootNode)
+			}
+		}
+	}
+}
+ 
+// Attempt to validate the HTML representation of the Questionnaire and the
+// user's responses. 
+// ** Note that not all elements of the resource are currently supported ** 
 function validateQuestionnaire() {
   // Locate the root node; throw an error if missing
-  var groupNodes = findDiv(document.getElementById("div-cnt"), "root");
-  if (groupNodes.length &lt; 1) {
+  var itemNodes =  $("body div:first-child");
+  if (itemNodes.length &lt; 1) {
     setAddFocus(node, "root");
     node.focus()
-    alert('Must have at least 1 occurrence of: group');
+    alert('Must have at least 1 occurrence of: item');
     return false;
   }
   
   // Recursively validate child nodes
   var valid = true;
-  for (var i=0; i &lt; groupNodes.length &amp;&amp; valid; i++) {
-    var divNode = groupNodes[i];
-    valid = validateDiv(divNode);
+  for (var i=0; i &lt; itemNodes.length &amp;&amp; valid; i++) {
+    var divNode = itemNodes[i];
+    valid = validateItem(divNode);
   }
   return valid;
 }
 
-// Validate a particular div element (which represents a question group) as well as any child
-// divs. This function is recursive, and will validate the entire subtree rooted at the div
-// provided as an argument
-function validateDiv(node) {
+// Validate a node as well as any child items. Called by validateQuestionnaire(). 
+// This function is recursive, and will validate the entire subtree rooted
+// at the node provided as an argument. The 'node' argument is expected to 
+// be a reference to a div element in the DOM
+// ** Note that not all elements of the resource are currently supported ** 
+function validateItem(node) {
   // Find any questions within this group
   // APPROACH: Since question span elements are never the first child of a div, we can't use jQuery's
   // children function. We can't use find, either, because that would also match questions contained
@@ -907,29 +1105,35 @@ function validateDiv(node) {
 	// node of each span element lets us confirm if a span element pertains to a question
     for (var j=0; j &lt; childNodes.length &amp;&amp; valid; j++) {
       if (childNodes[j].parentNode.nodeName === "TD") {
-		  // childNodes[j] contains a span element for a question
-		  var answerNodes = findAnswers(node, childNodes[j].innerHTML);
-		  if (answerNodes != null) {
-		    valid = true;
-		  }
+        // childNodes[j] contains a span element for a question
+		var answerNodes = findAnswers(node, childNodes[j].innerHTML);
+		if (answerNodes != null) {
+		  valid = true;
+		}
 	  }
     }
   }
   
+  if (valid == false) {
+    return valid;
+  }
+  
   // Find and recursively validate child groups, assuming any and all
   // questions in the current group are valid
-  var groupNodes = $(node).children("div").filter(function() {
+  var itemNodes = $(node).children("div").filter(function() {
   	return this.style.display != "none";
   });
-  for (var i=0; i &lt; groupNodes.length &amp;&amp; valid; i++) {
-    var divNode = groupNodes[i];
-    valid = validateDiv(divNode);
+  for (var i=0; i &lt; itemNodes.length &amp;&amp; valid; i++) {
+    var divNode = itemNodes[i];
+    valid = validateItem(divNode);
   }
  
   return valid;
   
 }
-  
+
+// Locate a particular div element with the specified linkId in the subtree
+// rooted at the referenced DOM node
 function findDiv(node, linkId) {
   return $(node).children("div").filter(function() {
     return $(this).children("span:first-child").text() == linkId
@@ -943,6 +1147,8 @@ function setAddFocus(node, linkId) {
   }).last().next(":input").focus();
 }
 
+// Locates the "answer cell" that corresponds to a question with the specified
+// linkID in the subtree rooted at the referenced DOM node
 function answerCell(node, linkId) {
   var answerRows = $(node).children("table").children("tbody").children("tr").filter(function() {
     return $(this).children("td:first-child").children("span:first-child").text() === linkId;
@@ -959,6 +1165,8 @@ function answerCell(node, linkId) {
   return inputCell = answerRows[0].cells[1];
 }
 
+// Detemines the answer type (radio button, checkbox, etc.) of a specified/
+// "answer cell"
 function answerType(inputCell) {
   if ($(inputCell).children("input:radio").length > 0)
     return "radio"
@@ -1006,6 +1214,8 @@ function answerType(inputCell) {
   else alert("Unknown type");
 }
 
+// Find the answers for a particular question, given a reference to the div
+// element containing the question and the question's linkId
 function findAnswers(node, linkId, lookupArray, isNumber) {
   var inputCell = answerCell(node, linkId);
 
@@ -1107,34 +1317,58 @@ function findAnswers(node, linkId, lookupArray, isNumber) {
 }
 
 function initializeAnswers(){
-  questionnaireAnswers =
+  // EDIT HERE to add additional QuestionnaireResponse elements
+  questionnaireResponse =
   {
-    "resourceType": "QuestionnaireAnswers",
-    "text": {
-      "status": "generated",
-      "div": null
-    },
-    // "questionnaire": TODO,
+  	"resourceType":"QuestionnaireResponse",
+	"id":"12345",
+	"text": {
+		"status":"generated",
+		"div":"TODO"
+	},
+	"resourceType":"QuestionnaireResponse",
+    // "identifier": "",
+    // "questionnaire": "",
     "status": "draft",
-    // "subject": TODO,
-    // "author": TODO,
-    "authored": "2001-01-01T00:00:00",
-    // "encounter": TODO,
-    "group": null
+    // "subject": "",
+    // "author": "",
+	"authored": currentTime(),
+    // "source": "",
+    // "encounter": "",
+    "item": null
+  }
+}
+
+function initializeQuestionnaire(){
+  // EDIT HERE to add additional Questionnaire elements
+  questionnaire =
+  {
+  	resourceType:"Questionnaire",
+    // "identifier": "",
+	// "version": "",
+    "status": "published",
+	// "date": currentTime(),
+    // "publisher": "",
+    // "telecom": "",
+	"title":document.title,
+	// "concept":""
+    // "subjectType":"",
+    "item": null
   }
 }
 
 function loadAnswers() {
-  if (typeof questionnaireAnswers == 'undefined') {
+  if (typeof questionnaireResponse == 'undefined') {
     initializeAnswers();
   } else {
     populateQuestionnaire();
   }
 }
 
+// Returns the current date/time in the format YYYY-MM-DDTHH:MM:SS
 function currentTime() {
   var now = new Date();
-  return now.getYear + "-" + padTime(now.getMonth) + "-" + padTime(now.getDay) + "T" + padTime(now.getHours) + ':' + padTime(now.getMinutes) + ':' + padTime(now.getSeconds);
+  return now.getFullYear() + "-" + padTime(now.getMonth() + 1) + "-" + padTime(now.getDate()) + "T" + padTime(now.getHours()) + ':' + padTime(now.getMinutes()) + ':' + padTime(now.getSeconds());
 }
 
 function padTime(num) {
@@ -1145,31 +1379,66 @@ function padTime(num) {
 }
 
 function saveDraft() {
-  //serializeQuestionnaire();
+  serializeQuestionnaire();
   serializeResponse();
-  questionnaireAnswers.status = "draft"
-  questionnaireAnswers.authored = currentTime();
-  saveQuestionnaire(questionnaireAnswers);
+  questionnaireResponse.status = "draft"
+  questionnaireResponse.authored = currentTime();
+  saveQuestionnaire();
 }
 
 function saveFinal() {
   if (validateQuestionnaire()) {
-    //serializeQuestionnaire();
+    serializeQuestionnaire();
 	serializeResponse();
-    if (questionnaireAnswers.status == "completed")
-      questionnaireAnswers.status = "amended"
+    if (questionnaireResponse.status == "completed")
+      questionnaireResponse.status = "amended"
      else
-      questionnaireAnswers.status = "completed";
-    questionnaireAnswers.authored = currentTime();
+      questionnaireResponse.status = "completed";
+    questionnaireResponse.authored = currentTime();
     saveQuestionnaire();
   } else {
   	alert("Questionnaire validation failed!");
   }
 }
 
+// Attempts to actually create/update a QuestionnaireResponse resource on a 
+// FHIR server (via XmlHTTPRequest HTTP POST)
+// NOT YET FULLY TESTED - consider this a rough draft or skeleton
+// implementation. Target endpoint must be in the same domain as the server
+// hosting the Questionnaire form EDIT HERE to complete REST operation
+// implementation
 function saveQuestionnaire() {
-	//TODO
+	var request = new XMLHttpRequest();
+	var targetURL = questionnaireResponseEndpoint;
+	
+	request.overrideMimeType("application/json+fhir");
+	
+	// Create an anonymous callback function to handle the result
+	request.onreadystatechange = function () {
+    	if (request.readyState !== XMLHttpRequest.DONE) {
+        	return;
+    	}
+    	if (request.status !== 200) {
+			alert("Save operation failed! (Request status: " + request.status + ")");
+        	return;
+    	}
+		alert("Save succeeded");
+		var response = request.responseText;
+		// EDIT HERE to do something with the response from the FHIR server
+	};
+	
+	// Send the request
+	requestBody = JSON.stringify(questionnaireResponse);
+	request.open("POST", targetURL, true);
+	request.setRequestHeader("Content-type", "application/json+fhir");
+	request.setRequestHeader("Content-length", requestBody.length);
+	request.setRequestHeader("Connection", "close");
+	request.send('data=' + requestBody);
 }
+
+///////////////////////////////////////////////////////////////////////////////
+// * END VALIDATION AND SERIALIZATION FUNCTIONS                              //
+///////////////////////////////////////////////////////////////////////////////
 
 function showError() {
   alert('Error');
