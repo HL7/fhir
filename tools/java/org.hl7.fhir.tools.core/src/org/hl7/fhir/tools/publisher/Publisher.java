@@ -209,6 +209,7 @@ import org.hl7.fhir.dstu3.validation.ProfileValidator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.rdf.RDFValidator;
+import org.hl7.fhir.rdf.ShExValidator;
 import org.hl7.fhir.tools.converters.CDAGenerator;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
 import org.hl7.fhir.tools.converters.ValueSetImporterV3;
@@ -1861,16 +1862,16 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       page.log("Produce Schemas", LogMessageType.Process);
       new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir+"codegen"+File.separator, page.getFolders().dstDir,
-          page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), true);
+          page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), true, page.getWorkerContext());
       new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
-          page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), false);
+          page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), false, page.getWorkerContext());
 
       List<StructureDefinition> list = new ArrayList<StructureDefinition>();
       for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
         if (sd.getDerivation() == TypeDerivationRule.SPECIALIZATION)
           list.add(sd);
       }
-      TextFile.stringToFile(new ShExGenerator(page.getWorkerContext()).generate(HTMLLinkPolicy.NONE, list), page.getFolders().dstDir+"fhir.shex");
+      TextFile.stringToFile(new ShExGenerator(page.getWorkerContext()).generate(HTMLLinkPolicy.NONE, list), page.getFolders().dstDir+"fhir.shex", false);
       
       if (buildFlags.get("all")) {
         for (PlatformGenerator gen : page.getReferenceImplementations()) {
@@ -4911,7 +4912,8 @@ public class Publisher implements URIResolver, SectionNumberer {
             n = ig.getCode()+File.separator+n;
           logError(" ...validate " + n, LogMessageType.Process);
           validateXmlFile(schema, n, validator, null);
-          validateJsonFile(schema, n, validator, null);
+          validateJsonFile(n, validator, null);
+//          validateTurtleFile(n, validator, null);
         }
         // todo-profile: how this works has to change (to use profile tag)
         for (Profile e : r.getConformancePackages()) {
@@ -5123,7 +5125,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
   }
 
-  private void validateJsonFile(Schema schema, String n, InstanceValidator validator, StructureDefinition profile) throws Exception {
+  private void validateJsonFile(String n, InstanceValidator validator, StructureDefinition profile) throws Exception {
     com.google.gson.JsonParser parser = new com.google.gson.JsonParser();
     JsonObject obj = parser.parse(TextFile.fileToString(Utilities.path(page.getFolders().dstDir, n + ".json"))).getAsJsonObject();
 
@@ -5144,6 +5146,39 @@ public class Publisher implements URIResolver, SectionNumberer {
       else
         errorCount++;
     }
+  }
+
+  private void validateTurtleFile(String n, InstanceValidator validator, StructureDefinition profile) throws Exception {
+//  first, ShEx validation
+    if (!(new File(Utilities.path(page.getFolders().dstDir, n + ".ttl")).exists()))
+      return;
+    
+    ShExValidator shexval = new ShExValidator();
+    
+    shexval.validate(Utilities.path(page.getFolders().dstDir, n + ".ttl"), Utilities.path(page.getFolders().dstDir, "fhir.shex"), "SHEXC");
+    
+ 
+//    
+//    com.google.gson.JsonParser parser = new com.google.gson.JsonParser();
+//    JsonObject obj = parser.parse(TextFile.fileToString()).getAsJsonObject();
+//
+//    // the build tool validation focuses on codes and identifiers
+//    List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
+//    validator.validate(issues, obj);
+////    System.out.println("  -j- "+validator.reportTimes());
+//    // if (profile != null)
+//    // validator.validateInstanceByProfile(issues, root, profile);
+//    for (ValidationMessage m : issues) {
+//      if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING))
+//        logError("  " + m.summary(), typeforSeverity(m.getLevel()));
+//
+//      if (m.getLevel() == IssueSeverity.WARNING)
+//        warningCount++;
+//      else if (m.getLevel() == IssueSeverity.INFORMATION)
+//        informationCount++;
+//      else
+//        errorCount++;
+//    }
   }
 
   private void validateBySchematron(String n, String sch) throws IOException, ParserConfigurationException, SAXException, FileNotFoundException {

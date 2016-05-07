@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Apr 26, 2016 16:55-0400 for FHIR v1.4.0
+// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -48,6 +48,141 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  */
 @ResourceDef(name="ExplanationOfBenefit", profile="http://hl7.org/fhir/Profile/ExplanationOfBenefit")
 public class ExplanationOfBenefit extends DomainResource {
+
+    public enum ClaimType {
+        /**
+         * A claim for Institution based, typically in-patient, goods and services.
+         */
+        INSTITUTIONAL, 
+        /**
+         * A claim for Oral Health (Dentist, Denturist, Hygienist) goods and services.
+         */
+        ORAL, 
+        /**
+         * A claim for Pharmacy based goods and services.
+         */
+        PHARMACY, 
+        /**
+         * A claim for Professional, typically out-patient, goods and services.
+         */
+        PROFESSIONAL, 
+        /**
+         * A claim for Vision (Opthamologist, Optometrist and Optician) goods and services.
+         */
+        VISION, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static ClaimType fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("institutional".equals(codeString))
+          return INSTITUTIONAL;
+        if ("oral".equals(codeString))
+          return ORAL;
+        if ("pharmacy".equals(codeString))
+          return PHARMACY;
+        if ("professional".equals(codeString))
+          return PROFESSIONAL;
+        if ("vision".equals(codeString))
+          return VISION;
+        throw new FHIRException("Unknown ClaimType code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case INSTITUTIONAL: return "institutional";
+            case ORAL: return "oral";
+            case PHARMACY: return "pharmacy";
+            case PROFESSIONAL: return "professional";
+            case VISION: return "vision";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case INSTITUTIONAL: return "http://hl7.org/fhir/claim-type-link";
+            case ORAL: return "http://hl7.org/fhir/claim-type-link";
+            case PHARMACY: return "http://hl7.org/fhir/claim-type-link";
+            case PROFESSIONAL: return "http://hl7.org/fhir/claim-type-link";
+            case VISION: return "http://hl7.org/fhir/claim-type-link";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case INSTITUTIONAL: return "A claim for Institution based, typically in-patient, goods and services.";
+            case ORAL: return "A claim for Oral Health (Dentist, Denturist, Hygienist) goods and services.";
+            case PHARMACY: return "A claim for Pharmacy based goods and services.";
+            case PROFESSIONAL: return "A claim for Professional, typically out-patient, goods and services.";
+            case VISION: return "A claim for Vision (Opthamologist, Optometrist and Optician) goods and services.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case INSTITUTIONAL: return "Institutional";
+            case ORAL: return "Oral Health";
+            case PHARMACY: return "Pharmacy";
+            case PROFESSIONAL: return "Professional";
+            case VISION: return "Vision";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ClaimTypeEnumFactory implements EnumFactory<ClaimType> {
+    public ClaimType fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("institutional".equals(codeString))
+          return ClaimType.INSTITUTIONAL;
+        if ("oral".equals(codeString))
+          return ClaimType.ORAL;
+        if ("pharmacy".equals(codeString))
+          return ClaimType.PHARMACY;
+        if ("professional".equals(codeString))
+          return ClaimType.PROFESSIONAL;
+        if ("vision".equals(codeString))
+          return ClaimType.VISION;
+        throw new IllegalArgumentException("Unknown ClaimType code '"+codeString+"'");
+        }
+        public Enumeration<ClaimType> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("institutional".equals(codeString))
+          return new Enumeration<ClaimType>(this, ClaimType.INSTITUTIONAL);
+        if ("oral".equals(codeString))
+          return new Enumeration<ClaimType>(this, ClaimType.ORAL);
+        if ("pharmacy".equals(codeString))
+          return new Enumeration<ClaimType>(this, ClaimType.PHARMACY);
+        if ("professional".equals(codeString))
+          return new Enumeration<ClaimType>(this, ClaimType.PROFESSIONAL);
+        if ("vision".equals(codeString))
+          return new Enumeration<ClaimType>(this, ClaimType.VISION);
+        throw new FHIRException("Unknown ClaimType code '"+codeString+"'");
+        }
+    public String toCode(ClaimType code) {
+      if (code == ClaimType.INSTITUTIONAL)
+        return "institutional";
+      if (code == ClaimType.ORAL)
+        return "oral";
+      if (code == ClaimType.PHARMACY)
+        return "pharmacy";
+      if (code == ClaimType.PROFESSIONAL)
+        return "professional";
+      if (code == ClaimType.VISION)
+        return "vision";
+      return "?";
+      }
+    public String toSystem(ClaimType code) {
+      return code.getSystem();
+      }
+    }
 
     @Block()
     public static class RelatedClaimsComponent extends BackboneElement implements IBaseBackboneElement {
@@ -8417,321 +8552,328 @@ public class ExplanationOfBenefit extends DomainResource {
     protected Type claimResponse;
 
     /**
+     * The category of claim.
+     */
+    @Child(name = "type", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="institutional | oral | pharmacy | professional | vision", formalDefinition="The category of claim." )
+    protected Enumeration<ClaimType> type;
+
+    /**
      * A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType.
      */
-    @Child(name = "subType", type = {Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "subType", type = {Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Finer grained claim type information", formalDefinition="A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType." )
     protected List<Coding> subType;
 
     /**
      * The version of the specification on which this instance relies.
      */
-    @Child(name = "ruleset", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "ruleset", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Current specification followed", formalDefinition="The version of the specification on which this instance relies." )
     protected Coding ruleset;
 
     /**
      * The version of the specification from which the original instance was created.
      */
-    @Child(name = "originalRuleset", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "originalRuleset", type = {Coding.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Original specification followed", formalDefinition="The version of the specification from which the original instance was created." )
     protected Coding originalRuleset;
 
     /**
      * The date when the EOB was created.
      */
-    @Child(name = "created", type = {DateTimeType.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "created", type = {DateTimeType.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Creation date", formalDefinition="The date when the EOB was created." )
     protected DateTimeType created;
 
     /**
      * The billable period for which charges are being submitted.
      */
-    @Child(name = "billablePeriod", type = {Period.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "billablePeriod", type = {Period.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Period for charge submission", formalDefinition="The billable period for which charges are being submitted." )
     protected Period billablePeriod;
 
     /**
      * A description of the status of the adjudication.
      */
-    @Child(name = "disposition", type = {StringType.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "disposition", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Disposition Message", formalDefinition="A description of the status of the adjudication." )
     protected StringType disposition;
 
     /**
      * The provider which is responsible for the claim.
      */
-    @Child(name = "provider", type = {Identifier.class, Practitioner.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "provider", type = {Identifier.class, Practitioner.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Responsible provider for the claim", formalDefinition="The provider which is responsible for the claim." )
     protected Type provider;
 
     /**
      * The provider which is responsible for the claim.
      */
-    @Child(name = "organization", type = {Identifier.class, Organization.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "organization", type = {Identifier.class, Organization.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Responsible organization for the claim", formalDefinition="The provider which is responsible for the claim." )
     protected Type organization;
 
     /**
      * Facility where the services were provided.
      */
-    @Child(name = "facility", type = {Identifier.class, Location.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "facility", type = {Identifier.class, Location.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Servicing Facility", formalDefinition="Facility where the services were provided." )
     protected Type facility;
 
     /**
      * Other claims which are related to this claim such as prior claim versions or for related services.
      */
-    @Child(name = "related", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "related", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Related Claims which may be revelant to processing this claimn", formalDefinition="Other claims which are related to this claim such as prior claim versions or for related services." )
     protected List<RelatedClaimsComponent> related;
 
     /**
      * Prescription to support the dispensing of Pharmacy or Vision products.
      */
-    @Child(name = "prescription", type = {Identifier.class, MedicationOrder.class, VisionPrescription.class}, order=13, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "prescription", type = {Identifier.class, MedicationOrder.class, VisionPrescription.class}, order=14, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Prescription", formalDefinition="Prescription to support the dispensing of Pharmacy or Vision products." )
     protected Type prescription;
 
     /**
      * Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.
      */
-    @Child(name = "originalPrescription", type = {Identifier.class, MedicationOrder.class}, order=14, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "originalPrescription", type = {Identifier.class, MedicationOrder.class}, order=15, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Original Prescription", formalDefinition="Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products." )
     protected Type originalPrescription;
 
     /**
      * The party to be reimbursed for the services.
      */
-    @Child(name = "payee", type = {}, order=15, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "payee", type = {}, order=16, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Payee", formalDefinition="The party to be reimbursed for the services." )
     protected PayeeComponent payee;
 
     /**
      * The referral resource which lists the date, practitioner, reason and other supporting information.
      */
-    @Child(name = "referral", type = {Identifier.class, ReferralRequest.class}, order=16, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "referral", type = {Identifier.class, ReferralRequest.class}, order=17, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Treatment Referral", formalDefinition="The referral resource which lists the date, practitioner, reason and other supporting information." )
     protected Type referral;
 
     /**
      * **Insert definition of Occurrence codes.
      */
-    @Child(name = "occurrenceCode", type = {Coding.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "occurrenceCode", type = {Coding.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Occurrence Codes", formalDefinition="**Insert definition of Occurrence codes." )
     protected List<Coding> occurrenceCode;
 
     /**
      * **Insert definition of Occurrence Span codes.
      */
-    @Child(name = "occurenceSpanCode", type = {Coding.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "occurenceSpanCode", type = {Coding.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Occurrence Span Codes", formalDefinition="**Insert definition of Occurrence Span codes." )
     protected List<Coding> occurenceSpanCode;
 
     /**
      * **Insert definition of Value codes.
      */
-    @Child(name = "valueCode", type = {Coding.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "valueCode", type = {Coding.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Value Codes", formalDefinition="**Insert definition of Value codes." )
     protected List<Coding> valueCode;
 
     /**
      * Ordered list of patient diagnosis for which care is sought.
      */
-    @Child(name = "diagnosis", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "diagnosis", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Diagnosis", formalDefinition="Ordered list of patient diagnosis for which care is sought." )
     protected List<DiagnosisComponent> diagnosis;
 
     /**
      * Ordered list of patient procedures performed to support the adjudication.
      */
-    @Child(name = "procedure", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "procedure", type = {}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Procedures performed", formalDefinition="Ordered list of patient procedures performed to support the adjudication." )
     protected List<ProcedureComponent> procedure;
 
     /**
      * List of special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.
      */
-    @Child(name = "specialCondition", type = {Coding.class}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "specialCondition", type = {Coding.class}, order=23, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="List of special Conditions", formalDefinition="List of special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication." )
     protected List<Coding> specialCondition;
 
     /**
      * Patient Resource.
      */
-    @Child(name = "patient", type = {Identifier.class, Patient.class}, order=23, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "patient", type = {Identifier.class, Patient.class}, order=24, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The subject of the Products and Services", formalDefinition="Patient Resource." )
     protected Type patient;
 
     /**
      * Precedence (primary, secondary, etc.).
      */
-    @Child(name = "precedence", type = {PositiveIntType.class}, order=24, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "precedence", type = {PositiveIntType.class}, order=25, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Precedence (primary, secondary, etc.)", formalDefinition="Precedence (primary, secondary, etc.)." )
     protected PositiveIntType precedence;
 
     /**
      * Financial instrument by which payment information for health care.
      */
-    @Child(name = "coverage", type = {}, order=25, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "coverage", type = {}, order=26, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Insurance or medical plan", formalDefinition="Financial instrument by which payment information for health care." )
     protected CoverageComponent coverage;
 
     /**
      * Date of an accident which these services are addressing.
      */
-    @Child(name = "accidentDate", type = {DateType.class}, order=26, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "accidentDate", type = {DateType.class}, order=27, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When the accident occurred", formalDefinition="Date of an accident which these services are addressing." )
     protected DateType accidentDate;
 
     /**
      * Type of accident: work, auto, etc.
      */
-    @Child(name = "accidentType", type = {Coding.class}, order=27, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "accidentType", type = {Coding.class}, order=28, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The nature of the accident", formalDefinition="Type of accident: work, auto, etc." )
     protected Coding accidentType;
 
     /**
      * Accident Place.
      */
-    @Child(name = "accidentLocation", type = {Address.class, Location.class}, order=28, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "accidentLocation", type = {Address.class, Location.class}, order=29, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Accident Place", formalDefinition="Accident Place." )
     protected Type accidentLocation;
 
     /**
      * A list of intervention and exception codes which may influence the adjudication of the claim.
      */
-    @Child(name = "interventionException", type = {Coding.class}, order=29, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "interventionException", type = {Coding.class}, order=30, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Intervention and exception code (Pharma)", formalDefinition="A list of intervention and exception codes which may influence the adjudication of the claim." )
     protected List<Coding> interventionException;
 
     /**
      * Period, start and last dates of aspects of the Condition or related services.
      */
-    @Child(name = "onset", type = {}, order=30, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "onset", type = {}, order=31, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Condition related Onset related dates and codes", formalDefinition="Period, start and last dates of aspects of the Condition or related services." )
     protected List<OnsetComponent> onset;
 
     /**
      * The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).
      */
-    @Child(name = "employmentImpacted", type = {Period.class}, order=31, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "employmentImpacted", type = {Period.class}, order=32, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Period unable to work", formalDefinition="The start and optional end dates of when the patient was precluded from working due to the treatable condition(s)." )
     protected Period employmentImpacted;
 
     /**
      * The start and optional end dates of when the patient was confined to a treatment center.
      */
-    @Child(name = "hospitalization", type = {Period.class}, order=32, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "hospitalization", type = {Period.class}, order=33, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Period in hospital", formalDefinition="The start and optional end dates of when the patient was confined to a treatment center." )
     protected Period hospitalization;
 
     /**
      * First tier of goods and services.
      */
-    @Child(name = "item", type = {}, order=33, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "item", type = {}, order=34, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Goods and Services", formalDefinition="First tier of goods and services." )
     protected List<ItemsComponent> item;
 
     /**
      * The first tier service adjudications for payor added services.
      */
-    @Child(name = "addItem", type = {}, order=34, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "addItem", type = {}, order=35, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Insurer added line items", formalDefinition="The first tier service adjudications for payor added services." )
     protected List<AddedItemComponent> addItem;
 
     /**
      * A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
      */
-    @Child(name = "missingTeeth", type = {}, order=35, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "missingTeeth", type = {}, order=36, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Only if type = oral", formalDefinition="A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons." )
     protected List<MissingTeethComponent> missingTeeth;
 
     /**
      * The total cost of the services reported.
      */
-    @Child(name = "totalCost", type = {Money.class}, order=36, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "totalCost", type = {Money.class}, order=37, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Total Cost of service from the Claim", formalDefinition="The total cost of the services reported." )
     protected Money totalCost;
 
     /**
      * The amount of deductable applied which was not allocated to any particular service line.
      */
-    @Child(name = "unallocDeductable", type = {Money.class}, order=37, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "unallocDeductable", type = {Money.class}, order=38, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Unallocated deductable", formalDefinition="The amount of deductable applied which was not allocated to any particular service line." )
     protected Money unallocDeductable;
 
     /**
      * Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductable).
      */
-    @Child(name = "totalBenefit", type = {Money.class}, order=38, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "totalBenefit", type = {Money.class}, order=39, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Total benefit payable for the Claim", formalDefinition="Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductable)." )
     protected Money totalBenefit;
 
     /**
      * Adjustment to the payment of this transaction which is not related to adjudication of this transaction.
      */
-    @Child(name = "paymentAdjustment", type = {Money.class}, order=39, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "paymentAdjustment", type = {Money.class}, order=40, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Payment adjustment for non-Claim issues", formalDefinition="Adjustment to the payment of this transaction which is not related to adjudication of this transaction." )
     protected Money paymentAdjustment;
 
     /**
      * Reason for the payment adjustment.
      */
-    @Child(name = "paymentAdjustmentReason", type = {Coding.class}, order=40, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "paymentAdjustmentReason", type = {Coding.class}, order=41, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Reason for Payment adjustment", formalDefinition="Reason for the payment adjustment." )
     protected Coding paymentAdjustmentReason;
 
     /**
      * Estimated payment data.
      */
-    @Child(name = "paymentDate", type = {DateType.class}, order=41, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "paymentDate", type = {DateType.class}, order=42, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Expected data of Payment", formalDefinition="Estimated payment data." )
     protected DateType paymentDate;
 
     /**
      * Payable less any payment adjustment.
      */
-    @Child(name = "paymentAmount", type = {Money.class}, order=42, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "paymentAmount", type = {Money.class}, order=43, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Payment amount", formalDefinition="Payable less any payment adjustment." )
     protected Money paymentAmount;
 
     /**
      * Payment identifer.
      */
-    @Child(name = "paymentRef", type = {Identifier.class}, order=43, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "paymentRef", type = {Identifier.class}, order=44, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Payment identifier", formalDefinition="Payment identifer." )
     protected Identifier paymentRef;
 
     /**
      * Status of funds reservation (For provider, for Patient, None).
      */
-    @Child(name = "reserved", type = {Coding.class}, order=44, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "reserved", type = {Coding.class}, order=45, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Funds reserved status", formalDefinition="Status of funds reservation (For provider, for Patient, None)." )
     protected Coding reserved;
 
     /**
      * The form to be used for printing the content.
      */
-    @Child(name = "form", type = {Coding.class}, order=45, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "form", type = {Coding.class}, order=46, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Printed Form Identifier", formalDefinition="The form to be used for printing the content." )
     protected Coding form;
 
     /**
      * Note text.
      */
-    @Child(name = "note", type = {}, order=46, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "note", type = {}, order=47, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Processing notes", formalDefinition="Note text." )
     protected List<NotesComponent> note;
 
     /**
      * Balance by Benefit Category.
      */
-    @Child(name = "benefitBalance", type = {}, order=47, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "benefitBalance", type = {}, order=48, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Balance by Benefit Category", formalDefinition="Balance by Benefit Category." )
     protected List<BenefitBalanceComponent> benefitBalance;
 
-    private static final long serialVersionUID = 1781852561L;
+    private static final long serialVersionUID = -131541244L;
 
   /**
    * Constructor
@@ -8743,8 +8885,9 @@ public class ExplanationOfBenefit extends DomainResource {
   /**
    * Constructor
    */
-    public ExplanationOfBenefit(Type patient, CoverageComponent coverage) {
+    public ExplanationOfBenefit(Enumeration<ClaimType> type, Type patient, CoverageComponent coverage) {
       super();
+      this.type = type;
       this.patient = patient;
       this.coverage = coverage;
     }
@@ -8876,6 +9019,51 @@ public class ExplanationOfBenefit extends DomainResource {
      */
     public ExplanationOfBenefit setClaimResponse(Type value) { 
       this.claimResponse = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #type} (The category of claim.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     */
+    public Enumeration<ClaimType> getTypeElement() { 
+      if (this.type == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ExplanationOfBenefit.type");
+        else if (Configuration.doAutoCreate())
+          this.type = new Enumeration<ClaimType>(new ClaimTypeEnumFactory()); // bb
+      return this.type;
+    }
+
+    public boolean hasTypeElement() { 
+      return this.type != null && !this.type.isEmpty();
+    }
+
+    public boolean hasType() { 
+      return this.type != null && !this.type.isEmpty();
+    }
+
+    /**
+     * @param value {@link #type} (The category of claim.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     */
+    public ExplanationOfBenefit setTypeElement(Enumeration<ClaimType> value) { 
+      this.type = value;
+      return this;
+    }
+
+    /**
+     * @return The category of claim.
+     */
+    public ClaimType getType() { 
+      return this.type == null ? null : this.type.getValue();
+    }
+
+    /**
+     * @param value The category of claim.
+     */
+    public ExplanationOfBenefit setType(ClaimType value) { 
+        if (this.type == null)
+          this.type = new Enumeration<ClaimType>(new ClaimTypeEnumFactory());
+        this.type.setValue(value);
       return this;
     }
 
@@ -10493,6 +10681,7 @@ public class ExplanationOfBenefit extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "The Response Business Identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("claim[x]", "Identifier|Reference(Claim)", "The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.", 0, java.lang.Integer.MAX_VALUE, claim));
         childrenList.add(new Property("claimResponse[x]", "Identifier|Reference(ClaimResponse)", "The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.", 0, java.lang.Integer.MAX_VALUE, claimResponse));
+        childrenList.add(new Property("type", "code", "The category of claim.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("subType", "Coding", "A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType.", 0, java.lang.Integer.MAX_VALUE, subType));
         childrenList.add(new Property("ruleset", "Coding", "The version of the specification on which this instance relies.", 0, java.lang.Integer.MAX_VALUE, ruleset));
         childrenList.add(new Property("originalRuleset", "Coding", "The version of the specification from which the original instance was created.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
@@ -10546,6 +10735,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case 94742588: /*claim*/ return this.claim == null ? new Base[0] : new Base[] {this.claim}; // Type
         case 689513629: /*claimResponse*/ return this.claimResponse == null ? new Base[0] : new Base[] {this.claimResponse}; // Type
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ClaimType>
         case -1868521062: /*subType*/ return this.subType == null ? new Base[0] : this.subType.toArray(new Base[this.subType.size()]); // Coding
         case 1548678118: /*ruleset*/ return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
         case 1089373397: /*originalRuleset*/ return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
@@ -10607,6 +10797,9 @@ public class ExplanationOfBenefit extends DomainResource {
           break;
         case 689513629: // claimResponse
           this.claimResponse = (Type) value; // Type
+          break;
+        case 3575610: // type
+          this.type = new ClaimTypeEnumFactory().fromType(value); // Enumeration<ClaimType>
           break;
         case -1868521062: // subType
           this.getSubType().add(castToCoding(value)); // Coding
@@ -10756,6 +10949,8 @@ public class ExplanationOfBenefit extends DomainResource {
           this.claim = (Type) value; // Type
         else if (name.equals("claimResponse[x]"))
           this.claimResponse = (Type) value; // Type
+        else if (name.equals("type"))
+          this.type = new ClaimTypeEnumFactory().fromType(value); // Enumeration<ClaimType>
         else if (name.equals("subType"))
           this.getSubType().add(castToCoding(value));
         else if (name.equals("ruleset"))
@@ -10856,6 +11051,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1618432855:  return addIdentifier(); // Identifier
         case 683016900:  return getClaim(); // Type
         case -1527963965:  return getClaimResponse(); // Type
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<ClaimType>
         case -1868521062:  return addSubType(); // Coding
         case 1548678118:  return getRuleset(); // Coding
         case 1089373397:  return getOriginalRuleset(); // Coding
@@ -10926,6 +11122,9 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("claimResponseReference")) {
           this.claimResponse = new Reference();
           return this.claimResponse;
+        }
+        else if (name.equals("type")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.type");
         }
         else if (name.equals("subType")) {
           return addSubType();
@@ -11138,6 +11337,7 @@ public class ExplanationOfBenefit extends DomainResource {
         };
         dst.claim = claim == null ? null : claim.copy();
         dst.claimResponse = claimResponse == null ? null : claimResponse.copy();
+        dst.type = type == null ? null : type.copy();
         if (subType != null) {
           dst.subType = new ArrayList<Coding>();
           for (Coding i : subType)
@@ -11258,12 +11458,12 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         ExplanationOfBenefit o = (ExplanationOfBenefit) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(claim, o.claim, true) && compareDeep(claimResponse, o.claimResponse, true)
-           && compareDeep(subType, o.subType, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(originalRuleset, o.originalRuleset, true)
-           && compareDeep(created, o.created, true) && compareDeep(billablePeriod, o.billablePeriod, true)
-           && compareDeep(disposition, o.disposition, true) && compareDeep(provider, o.provider, true) && compareDeep(organization, o.organization, true)
-           && compareDeep(facility, o.facility, true) && compareDeep(related, o.related, true) && compareDeep(prescription, o.prescription, true)
-           && compareDeep(originalPrescription, o.originalPrescription, true) && compareDeep(payee, o.payee, true)
-           && compareDeep(referral, o.referral, true) && compareDeep(occurrenceCode, o.occurrenceCode, true)
+           && compareDeep(type, o.type, true) && compareDeep(subType, o.subType, true) && compareDeep(ruleset, o.ruleset, true)
+           && compareDeep(originalRuleset, o.originalRuleset, true) && compareDeep(created, o.created, true)
+           && compareDeep(billablePeriod, o.billablePeriod, true) && compareDeep(disposition, o.disposition, true)
+           && compareDeep(provider, o.provider, true) && compareDeep(organization, o.organization, true) && compareDeep(facility, o.facility, true)
+           && compareDeep(related, o.related, true) && compareDeep(prescription, o.prescription, true) && compareDeep(originalPrescription, o.originalPrescription, true)
+           && compareDeep(payee, o.payee, true) && compareDeep(referral, o.referral, true) && compareDeep(occurrenceCode, o.occurrenceCode, true)
            && compareDeep(occurenceSpanCode, o.occurenceSpanCode, true) && compareDeep(valueCode, o.valueCode, true)
            && compareDeep(diagnosis, o.diagnosis, true) && compareDeep(procedure, o.procedure, true) && compareDeep(specialCondition, o.specialCondition, true)
            && compareDeep(patient, o.patient, true) && compareDeep(precedence, o.precedence, true) && compareDeep(coverage, o.coverage, true)
@@ -11286,15 +11486,15 @@ public class ExplanationOfBenefit extends DomainResource {
         if (!(other instanceof ExplanationOfBenefit))
           return false;
         ExplanationOfBenefit o = (ExplanationOfBenefit) other;
-        return compareValues(created, o.created, true) && compareValues(disposition, o.disposition, true) && compareValues(precedence, o.precedence, true)
-           && compareValues(accidentDate, o.accidentDate, true) && compareValues(paymentDate, o.paymentDate, true)
-          ;
+        return compareValues(type, o.type, true) && compareValues(created, o.created, true) && compareValues(disposition, o.disposition, true)
+           && compareValues(precedence, o.precedence, true) && compareValues(accidentDate, o.accidentDate, true)
+           && compareValues(paymentDate, o.paymentDate, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (claim == null || claim.isEmpty())
-           && (claimResponse == null || claimResponse.isEmpty()) && (subType == null || subType.isEmpty())
-           && (ruleset == null || ruleset.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
+           && (claimResponse == null || claimResponse.isEmpty()) && (type == null || type.isEmpty())
+           && (subType == null || subType.isEmpty()) && (ruleset == null || ruleset.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
            && (created == null || created.isEmpty()) && (billablePeriod == null || billablePeriod.isEmpty())
            && (disposition == null || disposition.isEmpty()) && (provider == null || provider.isEmpty())
            && (organization == null || organization.isEmpty()) && (facility == null || facility.isEmpty())

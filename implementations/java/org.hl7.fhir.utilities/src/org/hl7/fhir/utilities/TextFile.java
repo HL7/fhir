@@ -86,6 +86,16 @@ public class TextFile {
     sw.close();
   }
 
+  public static void stringToFile(String content, String path, boolean bom) throws IOException  {
+    File file = new CSFile(path);
+    OutputStreamWriter sw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
+    if (bom)
+      sw.write('\ufeff');  // Unicode BOM, translates to UTF-8 with the configured outputstreamwriter
+    sw.write(content);
+    sw.flush();
+    sw.close();
+  }
+
   public static void stringToFileNoPrefix(String content, String path) throws IOException  {
     File file = new CSFile(path);
     OutputStreamWriter sw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");

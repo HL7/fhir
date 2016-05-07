@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Apr 26, 2016 16:55-0400 for FHIR v1.4.0
+// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -1813,8 +1813,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "CarePlan", "support", element.getSupport().get(i), i);
     for (int i = 0; i < element.getRelatedPlan().size(); i++)
       composeCarePlanCarePlanRelatedPlanComponent(t, "CarePlan", "relatedPlan", element.getRelatedPlan().get(i), i);
-    for (int i = 0; i < element.getParticipant().size(); i++)
-      composeCarePlanCarePlanParticipantComponent(t, "CarePlan", "participant", element.getParticipant().get(i), i);
+    if (element.hasCareTeam())
+      composeReference(t, "CarePlan", "careTeam", element.getCareTeam(), -1);
     for (int i = 0; i < element.getGoal().size(); i++)
       composeReference(t, "CarePlan", "goal", element.getGoal().get(i), i);
     for (int i = 0; i < element.getActivity().size(); i++)
@@ -1837,22 +1837,6 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "CarePlan", "code", element.getCodeElement(), -1);
     if (element.hasPlan())
       composeReference(t, "CarePlan", "plan", element.getPlan(), -1);
-  }
-
-  protected void composeCarePlanCarePlanParticipantComponent(Complex parent, String parentType, String name, CarePlan.CarePlanParticipantComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "participant", name, element, index);
-    if (element.hasRole())
-      composeCodeableConcept(t, "CarePlan", "role", element.getRole(), -1);
-    if (element.hasMember())
-      composeReference(t, "CarePlan", "member", element.getMember(), -1);
   }
 
   protected void composeCarePlanCarePlanActivityComponent(Complex parent, String parentType, String name, CarePlan.CarePlanActivityComponent element, int index) {
@@ -5395,6 +5379,8 @@ public class RdfParser extends RdfParserBase {
       composeType(t, "ExplanationOfBenefit", "claim", element.getClaim(), -1);
     if (element.hasClaimResponse())
       composeType(t, "ExplanationOfBenefit", "claimResponse", element.getClaimResponse(), -1);
+    if (element.hasTypeElement())
+      composeEnum(t, "ExplanationOfBenefit", "type", element.getTypeElement(), -1);
     for (int i = 0; i < element.getSubType().size(); i++)
       composeCoding(t, "ExplanationOfBenefit", "subType", element.getSubType().get(i), i);
     if (element.hasRuleset())
@@ -7771,8 +7757,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "MedicationAdministration", "encounter", element.getEncounter(), -1);
     if (element.hasEffectiveTime())
       composeType(t, "MedicationAdministration", "effectiveTime", element.getEffectiveTime(), -1);
-    if (element.hasPractitioner())
-      composeReference(t, "MedicationAdministration", "practitioner", element.getPractitioner(), -1);
+    if (element.hasPerformer())
+      composeReference(t, "MedicationAdministration", "performer", element.getPerformer(), -1);
     if (element.hasPrescription())
       composeReference(t, "MedicationAdministration", "prescription", element.getPrescription(), -1);
     if (element.hasWasNotGivenElement())

@@ -24,6 +24,17 @@
       }
     },
     {
+      "hash": "#|http://loinc.org|null|18842-5|Discharge Summary",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "18842-5",
+        "definition": null,
+        "display": "Discharge summary"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|28655-9|null",
       "severity": null,
       "message": null,
@@ -32,6 +43,17 @@
         "code": "28655-9",
         "definition": null,
         "display": "Physician attending Discharge summary"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|34117-2|History and Physical Note",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "34117-2",
+        "definition": null,
+        "display": "History and physical note"
       }
     },
     {

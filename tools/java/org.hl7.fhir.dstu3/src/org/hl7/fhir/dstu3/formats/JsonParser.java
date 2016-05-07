@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Apr 26, 2016 16:55-0400 for FHIR v1.4.0
+// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -2445,12 +2445,8 @@ public class JsonParser extends JsonParserBase {
         res.getRelatedPlan().add(parseCarePlanCarePlanRelatedPlanComponent(array.get(i).getAsJsonObject(), res));
       }
     };
-    if (json.has("participant")) {
-      JsonArray array = json.getAsJsonArray("participant");
-      for (int i = 0; i < array.size(); i++) {
-        res.getParticipant().add(parseCarePlanCarePlanParticipantComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
+    if (json.has("careTeam"))
+      res.setCareTeam(parseReference(json.getAsJsonObject("careTeam")));
     if (json.has("goal")) {
       JsonArray array = json.getAsJsonArray("goal");
       for (int i = 0; i < array.size(); i++) {
@@ -2477,16 +2473,6 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
     if (json.has("plan"))
       res.setPlan(parseReference(json.getAsJsonObject("plan")));
-    return res;
-  }
-
-  protected CarePlan.CarePlanParticipantComponent parseCarePlanCarePlanParticipantComponent(JsonObject json, CarePlan owner) throws IOException, FHIRFormatError {
-    CarePlan.CarePlanParticipantComponent res = new CarePlan.CarePlanParticipantComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("role"))
-      res.setRole(parseCodeableConcept(json.getAsJsonObject("role")));
-    if (json.has("member"))
-      res.setMember(parseReference(json.getAsJsonObject("member")));
     return res;
   }
 
@@ -7042,6 +7028,10 @@ public class JsonParser extends JsonParserBase {
     Type claimResponse = parseType("claimResponse", json);
     if (claimResponse != null)
       res.setClaimResponse(claimResponse);
+    if (json.has("type"))
+      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), ExplanationOfBenefit.ClaimType.NULL, new ExplanationOfBenefit.ClaimTypeEnumFactory()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("subType")) {
       JsonArray array = json.getAsJsonArray("subType");
       for (int i = 0; i < array.size(); i++) {
@@ -10022,8 +10012,8 @@ public class JsonParser extends JsonParserBase {
     Type effectiveTime = parseType("effectiveTime", json);
     if (effectiveTime != null)
       res.setEffectiveTime(effectiveTime);
-    if (json.has("practitioner"))
-      res.setPractitioner(parseReference(json.getAsJsonObject("practitioner")));
+    if (json.has("performer"))
+      res.setPerformer(parseReference(json.getAsJsonObject("performer")));
     if (json.has("prescription"))
       res.setPrescription(parseReference(json.getAsJsonObject("prescription")));
     if (json.has("wasNotGiven"))
@@ -19476,12 +19466,9 @@ public class JsonParser extends JsonParserBase {
           composeCarePlanCarePlanRelatedPlanComponent(null, e);
         closeArray();
       };
-      if (element.hasParticipant()) {
-        openArray("participant");
-        for (CarePlan.CarePlanParticipantComponent e : element.getParticipant()) 
-          composeCarePlanCarePlanParticipantComponent(null, e);
-        closeArray();
-      };
+      if (element.hasCareTeam()) {
+        composeReference("careTeam", element.getCareTeam());
+      }
       if (element.hasGoal()) {
         openArray("goal");
         for (Reference e : element.getGoal()) 
@@ -19515,24 +19502,6 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasPlan()) {
         composeReference("plan", element.getPlan());
-      }
-  }
-
-  protected void composeCarePlanCarePlanParticipantComponent(String name, CarePlan.CarePlanParticipantComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeCarePlanCarePlanParticipantComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeCarePlanCarePlanParticipantComponentInner(CarePlan.CarePlanParticipantComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasRole()) {
-        composeCodeableConcept("role", element.getRole());
-      }
-      if (element.hasMember()) {
-        composeReference("member", element.getMember());
       }
   }
 
@@ -25142,6 +25111,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasClaimResponse()) {
         composeType("claimResponse", element.getClaimResponse());
       }
+      if (element.hasTypeElement()) {
+        composeEnumerationCore("type", element.getTypeElement(), new ExplanationOfBenefit.ClaimTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getTypeElement(), new ExplanationOfBenefit.ClaimTypeEnumFactory(), false);
+      }
       if (element.hasSubType()) {
         openArray("subType");
         for (Coding e : element.getSubType()) 
@@ -28842,8 +28815,8 @@ public class JsonParser extends JsonParserBase {
       if (element.hasEffectiveTime()) {
         composeType("effectiveTime", element.getEffectiveTime());
       }
-      if (element.hasPractitioner()) {
-        composeReference("practitioner", element.getPractitioner());
+      if (element.hasPerformer()) {
+        composeReference("performer", element.getPerformer());
       }
       if (element.hasPrescription()) {
         composeReference("prescription", element.getPrescription());

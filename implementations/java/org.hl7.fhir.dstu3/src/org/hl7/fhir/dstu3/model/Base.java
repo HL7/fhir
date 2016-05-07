@@ -170,11 +170,11 @@ private Map<String, Object> userData;
   }
 
 	public boolean equalsDeep(Base other) {
-	  return other != null;
+	  return other == this;
   }  
   
 	public boolean equalsShallow(Base other) {
-	  return other != null;
+	  return other == this;
   }  
   
 	public static boolean compareDeep(List<? extends Base> e1, List<? extends Base> e2, boolean allowNull) {

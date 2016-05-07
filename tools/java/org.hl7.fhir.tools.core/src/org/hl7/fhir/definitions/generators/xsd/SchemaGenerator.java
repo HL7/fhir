@@ -39,6 +39,7 @@ import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
@@ -48,10 +49,12 @@ public class SchemaGenerator {
 
   private String genDate;
   private String version;
+  private BuildWorkerContext workerContext;
 
-  public void generate(Definitions definitions, IniFile ini, String tmpResDir, String xsdDir, String dstDir, String srcDir, String version, String genDate, boolean forCodeGeneration) throws Exception {
+  public void generate(Definitions definitions, IniFile ini, String tmpResDir, String xsdDir, String dstDir, String srcDir, String version, String genDate, boolean forCodeGeneration, BuildWorkerContext workerContext) throws Exception {
 	  this.genDate = genDate;
 	  this.version = version;
+	  this.workerContext = workerContext;
 
 	  if (!forCodeGeneration) {
 	    File dir = new CSFile(xsdDir);
@@ -64,7 +67,7 @@ public class SchemaGenerator {
 	    }
 	  }
 
-	  XSDBaseGenerator xsdb = new XSDBaseGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-base.xsd")), "UTF-8"), forCodeGeneration);
+	  XSDBaseGenerator xsdb = new XSDBaseGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-base.xsd")), "UTF-8"), forCodeGeneration, workerContext);
 	  xsdb.setDefinitions(definitions);
 	  xsdb.generate(version, genDate, true);
 	  xsdb.getWriter().close();
@@ -75,7 +78,7 @@ public class SchemaGenerator {
     Collections.sort(names);
     for (String name : names) {
       ResourceDefn root = definitions.getResourceByName(name);
-		  XSDGenerator sgen = new XSDGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+root.getName().toLowerCase()+".xsd")), "UTF-8"), definitions, forCodeGeneration);
+		  XSDGenerator sgen = new XSDGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+root.getName().toLowerCase()+".xsd")), "UTF-8"), definitions, forCodeGeneration, workerContext);
 		  sgen.setDataTypes(definitions.getKnownTypes());
 		  sgen.generate(root.getRoot(), version, genDate, true);
 		  sgen.getWriter().close();
@@ -93,7 +96,7 @@ public class SchemaGenerator {
 	      + "xmlns:xml=\"http://www.w3.org/XML/1998/namespace\" targetNamespace=\"http://hl7.org/fhir\" elementFormDefault=\"qualified\" version=\""+version+"\">\r\n");
 	  single.write("  <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml=\"http://www.w3.org/XML/1998/namespace\", however this causes performance issues with other tools and thus is not in the base schemas. -->\r\n");
 
-    xsdb = new XSDBaseGenerator(single, forCodeGeneration);
+    xsdb = new XSDBaseGenerator(single, forCodeGeneration, workerContext);
     xsdb.setDefinitions(definitions);
     xsdb.generate(version, genDate, false);
  
@@ -118,7 +121,7 @@ public class SchemaGenerator {
 //  
     for (String name : names) {
       ResourceDefn root = definitions.getResourceByName(name);
-      XSDGenerator sgen = new XSDGenerator(single, definitions, forCodeGeneration);
+      XSDGenerator sgen = new XSDGenerator(single, definitions, forCodeGeneration, workerContext);
       sgen.setDataTypes(definitions.getKnownTypes());
       sgen.generate(root.getRoot(), version, genDate, false);
     }

@@ -205,7 +205,7 @@ public class XmlParser extends ParserBase {
   private void parseChildren(String path, org.w3c.dom.Element node, Element context) throws Exception {
   	// this parsing routine retains the original order in a the XML file, to support validation
   	reapComments(node, context);
-    List<Property> properties = getChildProperties(context.getProperty(), context.getName(), XMLUtil.getXsiType(node));
+    List<Property> properties = context.getProperty().getChildProperties(context.getName(), XMLUtil.getXsiType(node));
 
   	String text = XMLUtil.getDirectText(node).trim();
     if (!Utilities.noString(text)) {

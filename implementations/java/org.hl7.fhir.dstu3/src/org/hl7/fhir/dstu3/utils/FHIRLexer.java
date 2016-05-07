@@ -50,7 +50,9 @@ public class FHIRLexer {
   }
 
   public boolean isConstant(boolean incDoubleQuotes) {
-    return current.charAt(0) == '\'' || (incDoubleQuotes && current.charAt(0) == '"') || current.charAt(0) == '@' || current.charAt(0) == '%' || current.charAt(0) == '-' || (current.charAt(0) >= '0' && current.charAt(0) <= '9') || current.equals("true") || current.equals("false") || current.equals("{}");
+    return current.charAt(0) == '\'' || (incDoubleQuotes && current.charAt(0) == '"') || current.charAt(0) == '@' || current.charAt(0) == '%' || 
+        current.charAt(0) == '-' || current.charAt(0) == '+' || (current.charAt(0) >= '0' && current.charAt(0) <= '9') || 
+        current.equals("true") || current.equals("false") || current.equals("{}");
   }
 
   public boolean isStringConstant() {

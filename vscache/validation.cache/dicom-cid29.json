@@ -1,4 +1,16 @@
 ﻿{
   "url": "http://hl7.org/fhir/ValueSet/dicom-cid29",
-  "outcomes": []
+  "outcomes": [
+    {
+      "hash": "|http://nema.org/dicom/dicm|null|CT|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Computed Tomography"
+      }
+    }
+  ]
 }

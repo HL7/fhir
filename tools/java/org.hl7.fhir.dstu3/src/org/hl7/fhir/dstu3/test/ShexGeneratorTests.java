@@ -61,4 +61,14 @@ public class ShexGeneratorTests {
   public void testMedicationOrder() throws FHIRException, IOException {
     doTest("MedicationOrder");
   }
+
+  @Test
+  public void testAllergyIntolerance() throws FHIRException, IOException {
+    doTest("AllergyIntolerance");
+  }
+
+  @Test
+  public void testCoding() throws FHIRException, IOException {
+    doTest("Coding");
+  }
 }

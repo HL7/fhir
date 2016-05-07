@@ -61,17 +61,18 @@ public class CDAGenerator {
   }
 
   public static void main(String[] args) throws Exception {
-    new CDAGenerator().execute("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\CDA", "C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\cda");
-    System.out.println("Done");
+    int lp = new CDAGenerator().execute("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\CDA", "C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\cda");
+    System.out.println("Done. Longest path = "+Integer.toString(lp));
   }
 
-  public void execute(String src, String dst) throws Exception {
+  public int execute(String src, String dst) throws Exception {
     target = dst;
     start();
     processDataTypes(Utilities.path(src, "datatypes.mif"));
     processCDA(Utilities.path(src, "cda.mif"));
     finish();
     System.out.println(v3vs.toString());
+    return lp;
   }
 
   public CDAGenerator() {
@@ -92,6 +93,7 @@ public class CDAGenerator {
   private Map<String, String> shadows = new HashMap<String, String>();
   private Set<String> v3vs = new HashSet<String>();
 
+  int lp = 0;
 
   private void start() {
     structures = new ArrayList<StructureDefinition>();
@@ -209,6 +211,7 @@ public class CDAGenerator {
       if (path.contains(".")) {
         path = typeName + path.substring(path.indexOf("."));
         ned.setPath(path);
+        seePath(path);
         boolean found = false;
         for (ElementDefinition de : dst.getSnapshot().getElement()) {
           if (de.getPath().equals(path)) 
@@ -221,7 +224,13 @@ public class CDAGenerator {
   }
 
 
+  private void seePath(String path) {
+    int l = path.length();
+    lp = Math.max(lp, l);
+  }
+
   private StructureDefinition getDataType(String name) {
+    name = fix(name);
     for (StructureDefinition sd : structures) {
       if (sd.getUrl().equals(name))
         return sd;
@@ -232,8 +241,8 @@ public class CDAGenerator {
 
   private void buildSXPR() {
     StructureDefinition sd = new StructureDefinition();
-    sd.setId("SXPR_TS");
-    sd.setUrl("http://hl7.org/fhir/StructureDefinition/SXPR_TS");
+    sd.setId(fix("SXPR_TS"));
+    sd.setUrl("http://hl7.org/fhir/StructureDefinition/"+fix("SXPR_TS"));
     sd.setName("V3 Data type SXPR_TS (A set-component that is itself made up of set-components that are evaluated as one value)");
     sd.setDisplay("SXPR_TS - Component part of GTS");
     sd.setStatus(ConformanceResourceStatus.ACTIVE);
@@ -255,6 +264,7 @@ public class CDAGenerator {
 
     ElementDefinition ed = new ElementDefinition();
     ed.setPath("SXPR_TS.comp");
+    seePath(ed);
     ed.setMin(1);
     ed.setMax("*");
     ed.addRepresentation(PropertyRepresentation.TYPEATTR);
@@ -265,6 +275,10 @@ public class CDAGenerator {
     sd.getDifferential().getElement().add(ed);
     
     structures.add(sd);
+  }
+
+  private void seePath(ElementDefinition ed) {
+    seePath(ed.getPath());
   }
 
   private void buildInfrastructureRoot() {
@@ -285,6 +299,7 @@ public class CDAGenerator {
 
     ElementDefinition edb = new ElementDefinition();
     edb.setPath(sd.getId());
+    seePath(edb);
     edb.setMin(1);
     edb.setMax("*");
     edb.addType().setCode("Element");
@@ -292,6 +307,7 @@ public class CDAGenerator {
 
     ElementDefinition ed = new ElementDefinition();
     ed.setPath("InfrastructureRoot.realmCode");
+    seePath(ed);
     ed.setMin(0);
     ed.setMax("*");
     ed.setDefinition("When valued in an instance, this attribute signals the imposition of realm-specific constraints. The value of this attribute identifies the realm in question");
@@ -300,6 +316,7 @@ public class CDAGenerator {
     
     ed = new ElementDefinition();
     ed.setPath("InfrastructureRoot.typeId");
+    seePath(ed);
     ed.setMin(0);
     ed.setMax("1");
     ed.setDefinition("When valued in an instance, this attribute signals the imposition of constraints defined in an HL7-specified message type. This might be a common type (also known as CMET in the messaging communication environment), or content included within a wrapper. The value of this attribute provides a unique identifier for the type in question.");
@@ -308,6 +325,7 @@ public class CDAGenerator {
     
     ed = new ElementDefinition();
     ed.setPath("InfrastructureRoot.templateId");
+    seePath(ed);
     ed.setMin(0);
     ed.setMax("*");
     ed.setDefinition("When valued in an instance, this attribute signals the imposition of a set of template-defined constraints. The value of this attribute provides a unique identifier for the templates in question");
@@ -328,8 +346,8 @@ public class CDAGenerator {
       System.out.print(" "+n);
 
       StructureDefinition sd = new StructureDefinition();
-      sd.setId(n);
-      sd.setUrl("http://hl7.org/fhir/StructureDefinition/"+n);
+      sd.setId(fix(n));
+      sd.setUrl("http://hl7.org/fhir/StructureDefinition/"+fix(n));
       sd.setName("V3 Data type "+n+" ("+dt.getAttribute("title")+")");
       sd.setDisplay(sd.getName());
       sd.setStatus(ConformanceResourceStatus.ACTIVE);
@@ -352,6 +370,7 @@ public class CDAGenerator {
       sd.setDerivation(TypeDerivationRule.SPECIALIZATION);
       ElementDefinition edb = new ElementDefinition();
       edb.setPath(sd.getId());
+      seePath(edb);
       edb.setMin(1);
       edb.setMax("*");
       edb.addType().setCode("Element");
@@ -404,6 +423,7 @@ public class CDAGenerator {
       if (copy) {
         ElementDefinition n = ed.copy();
         n.setPath(ed.getPath().replace(source.getId(), target.getId()));
+        seePath(n);
         target.getDifferential().getElement().add(n);
       }
     }
@@ -422,6 +442,7 @@ public class CDAGenerator {
   private void addInclusiveAttribute(List<ElementDefinition> list, String n) {
     ElementDefinition ed = new ElementDefinition();
     ed.setPath(n+".inclusive");
+    seePath(ed);
     ed.setMin(0);
     ed.setMax("1");
     ed.addType().setCode("boolean");
@@ -432,6 +453,7 @@ public class CDAGenerator {
   private void addCDExtensions(List<ElementDefinition> list, String n) {
     ElementDefinition ed = new ElementDefinition();
     ed.setPath(n+".valueSet");
+    seePath(ed);
     ed.setMin(0);
     ed.setMax("1");
     ed.addType().setCode("string");
@@ -440,6 +462,7 @@ public class CDAGenerator {
     ed.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:sdtc"));
     ed = new ElementDefinition();
     ed.setPath(n+".valueSetVersion");
+    seePath(ed);
     ed.setMin(0);
     ed.setMax("1");
     ed.addType().setCode("string");
@@ -452,6 +475,7 @@ public class CDAGenerator {
   private void addOperatorAttribute(List<ElementDefinition> list, String n) {
     ElementDefinition ed = new ElementDefinition();
     ed.setPath(n+".operator");
+    seePath(ed);
     ed.setMin(0);
     ed.setMax("1");
     ed.addType().setCode("code");
@@ -474,6 +498,7 @@ public class CDAGenerator {
     for (String p : parts) {
       ElementDefinition ed = new ElementDefinition();
       ed.setPath(n+"."+p);
+      seePath(ed);
       ed.setMin(0);
       ed.setMax("*");
       ed.addType().setCode("ST");
@@ -484,6 +509,7 @@ public class CDAGenerator {
   private void addEDElements(List<ElementDefinition> list) {
     ElementDefinition ed = new ElementDefinition();
     ed.setPath("ED.representation");
+    seePath(ed);
     ed.setMin(0);
     ed.setMax("1");
     ed.addType().setCode("code");
@@ -491,6 +517,7 @@ public class CDAGenerator {
     list.add(ed);
     ed = new ElementDefinition();
     ed.setPath("ED.data");
+    seePath(ed);
     ed.setMin(0);
     ed.setMax("1");
     ed.addType().setCode("base64Binary");
@@ -501,6 +528,7 @@ public class CDAGenerator {
   private void addValueAttribute(List<ElementDefinition> list, String dtn, String t) {
     ElementDefinition ed = new ElementDefinition();
     ed.setPath(dtn+".value");
+    seePath(ed);
     ed.setMin(0);
     ed.setMax("1");
     ed.addType().setCode(t);
@@ -523,6 +551,7 @@ public class CDAGenerator {
       return;
 
     ed.setPath(dtn+"."+n);
+    seePath(ed);
     ed.setDefinition(getDefinition(prop));
     ed.setComments(getDesignComments(prop));
     ed.setLabel(XMLUtil.getNamedChildAttribute(prop, "mif:businessName", "name"));
@@ -550,7 +579,7 @@ public class CDAGenerator {
       ed.addType().setCode("EIVL_TS");
       ed.addType().setCode("PIVL_TS");
       ed.addType().setCode("SXPR_TS");
-      ed.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-defaultype").setValue(new StringType("SXPR_TS"));
+      ed.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype").setValue(new StringType("SXPR_TS"));
     } else
       ed.addType().setCode(t);
     if (p == PropStatus.ATTRIBUTE)
@@ -796,7 +825,7 @@ public class CDAGenerator {
     if (Utilities.existsInList(id, "string", "BackboneElement", "code", "boolean", "Resource"))
       return;
     for (StructureDefinition sd : structures) {
-      if (sd.getId().equals(id))
+      if (sd.getId().equals(fix(id)))
         return;
     }
     if (id.equals("PN") || id.equals("ON"))
@@ -808,9 +837,14 @@ public class CDAGenerator {
   }
 
 
+  private String fix(String id) {
+    return id; //.replace("_", ".");
+  }
+
   private void processClinicalDocument(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, Element cclss) {
     ElementDefinition ed = new ElementDefinition();
     ed.setPath("ClinicalDocument");
+    seePath(ed);
     ed.setMin(1);
     ed.setMax("1");
     ed.addType().setCode("Resource");
@@ -863,6 +897,7 @@ public class CDAGenerator {
       if (ed.getPath().contains(".")) {
         ElementDefinition ned = ed.copy();
         ned.setPath(path+"."+ed.getPath().substring(ed.getPath().lastIndexOf(".")+1));
+        seePath(ned);
         list.add(ned);
       }
     }
@@ -873,6 +908,7 @@ public class CDAGenerator {
     String n = attr.getAttribute("name");
     ElementDefinition ed = new ElementDefinition();
     ed.setPath(path+"."+n);
+    seePath(ed);
     ed.setMin(Integer.parseInt(attr.getAttribute("minimumMultiplicity")));
     ed.setMax(attr.getAttribute("maximumMultiplicity"));
     if (!Utilities.noString(attr.getAttribute("namespace")))
@@ -892,7 +928,7 @@ public class CDAGenerator {
       ed.addType().setCode("EIVL_TS");
       ed.addType().setCode("PIVL_TS");
       ed.addType().setCode("SXPR_TS");
-      ed.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-defaultype").setValue(new StringType("SXPR_TS"));
+      ed.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype").setValue(new StringType("SXPR_TS"));
     } else if ("ANY".equals(type)) {
       ed.addRepresentation(PropertyRepresentation.TYPEATTR);
       ed.addType().setCode("BL");
@@ -966,6 +1002,7 @@ public class CDAGenerator {
     String ipath = (path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path)+"."+n;
     
     ed.setPath(path+"."+n);
+    seePath(ed);
     ed.setMin(Integer.parseInt(tc.getAttribute("minimumMultiplicity")));
     ed.setMax(tc.getAttribute("maximumMultiplicity"));
     ed.addType().setCode("BackboneElement");

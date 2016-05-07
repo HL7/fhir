@@ -119,6 +119,17 @@
       "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
     },
     {
+      "hash": "#|http://snomed.info/sct|null|66493003|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Theophylline"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|96068000|Amoxicillin trihydrate",
       "severity": null,
       "message": null,

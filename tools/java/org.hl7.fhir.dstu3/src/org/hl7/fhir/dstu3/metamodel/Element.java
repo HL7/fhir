@@ -1,8 +1,11 @@
 package org.hl7.fhir.dstu3.metamodel;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.Validate;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.metamodel.Element.SpecialElement;
 import org.hl7.fhir.dstu3.model.Base;
@@ -298,7 +301,16 @@ public class Element extends Base {
   }
 
   public void getNamedChildrenWithWildcard(String string, List<Element> values) {
-		throw new Error("not done yet");  
+	  Validate.isTrue(string.endsWith("[x]"));
+	  
+	  String start = string.substring(0, string.length() - 3);
+	  	if (children != null) {
+	  		for (Element child : children) { 
+	  			if (child.getName().startsWith(start)) {
+	  				values.add(child);
+	  			}
+	  		}
+	  	}
   }
 
   
@@ -310,6 +322,19 @@ public class Element extends Base {
 		this.xhtml = xhtml;
 		return this;
  	}
+
+	@Override
+	public boolean isEmpty() {
+		if (isNotBlank(value)) {
+			return false;
+		}
+		for (Element next : getChildren()) {
+			if (!next.isEmpty()) {
+				return false;
+			}
+		}
+		return true;
+	}
 
 
 }

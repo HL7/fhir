@@ -4,7 +4,7 @@
     {
       "hash": "#|http://snomed.info/sct|null|166643006|Liver enzymes abnormal",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set SNOMED CT Reason Medication Not Given Codes"
     }
   ]
 }

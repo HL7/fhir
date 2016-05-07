@@ -91,7 +91,7 @@ public class StructureMapTests {
   }
 
   @Test
-  public void testLoadCDA() throws FileNotFoundException, Exception {
+  public void testTransformCDA() throws FileNotFoundException, Exception {
     Map<String, StructureMap> maps = new HashMap<String, StructureMap>();
 
     if (TestingUtilities.context == null)
@@ -121,6 +121,36 @@ public class StructureMapTests {
     Bundle bundle = new Bundle();
     scu.transform(null, cda, maps.get("http://hl7.org/fhir/StructureMap/cda"), bundle);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream("c:\\temp\\bundle.xml"), bundle);
+  }
+
+  @Test
+  public void testTransformProfilesCDA() throws FileNotFoundException, Exception {
+    Map<String, StructureMap> maps = new HashMap<String, StructureMap>();
+
+    if (TestingUtilities.context == null)
+      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
+
+    StructureMapUtilities scu = new StructureMapUtilities(TestingUtilities.context, maps, null);
+    
+    for (String f : new File("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\CDA").list()) {
+      try {
+        StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new FileInputStream("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\CDA\\"+f));
+        ((SimpleWorkerContext) TestingUtilities.context).seeResource(sd.getUrl(), sd);
+      } catch (Exception e) {
+      }
+    }
+
+    for (String f : new File("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\maps").list()) {
+      try {
+        StructureMap map = scu.parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\maps\\"+ f));
+        maps.put(map.getUrl(), map);
+      } catch (Exception e) {
+      }
+    }
+        
+    List<StructureDefinition> result = scu.profileTransform(null, maps.get("http://hl7.org/fhir/StructureMap/cda"));
+    for (StructureDefinition sd : result)
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream("c:\\temp\\res-"+sd.getId()+".xml"), sd);
   }
 
 }

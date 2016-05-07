@@ -3,11 +3,13 @@ package org.hl7.fhir.dstu3.utils;
 import java.util.*;
 
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.StringUtils;
 
+import org.hl7.fhir.dstu3.model.UriType;
 import org.stringtemplate.v4.*;
 
 public class ShExGenerator {
@@ -15,6 +17,11 @@ public class ShExGenerator {
   public enum HTMLLinkPolicy {
     NONE, EXTERNAL, INTERNAL
   }
+
+  // An entire definition is a header plus a list of shape definitions
+  private static String SHEX_TEMPLATE =
+          "$header$\n\n" +
+          "$shapeDefinitions$";
 
   // A header is a list of prefixes plus a BASE
   private static String HEADER_TEMPLATE =

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Apr 26, 2016 16:55-0400 for FHIR v1.4.0
+// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -642,14 +642,14 @@ public class MedicationAdministration extends DomainResource {
     /**
      * The individual who was responsible for giving the medication to the patient.
      */
-    @Child(name = "practitioner", type = {Practitioner.class, Patient.class, RelatedPerson.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "performer", type = {Practitioner.class, Patient.class, RelatedPerson.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who administered substance", formalDefinition="The individual who was responsible for giving the medication to the patient." )
-    protected Reference practitioner;
+    protected Reference performer;
 
     /**
      * The actual object that is the target of the reference (The individual who was responsible for giving the medication to the patient.)
      */
-    protected Resource practitionerTarget;
+    protected Resource performerTarget;
 
     /**
      * The original request, instruction or authority to perform the administration.
@@ -710,7 +710,7 @@ public class MedicationAdministration extends DomainResource {
     @Description(shortDefinition="Details of how medication was taken", formalDefinition="Describes the medication dosage information details e.g. dose, rate, site, route, etc." )
     protected MedicationAdministrationDosageComponent dosage;
 
-    private static final long serialVersionUID = 1357790003L;
+    private static final long serialVersionUID = -1867867025L;
 
   /**
    * Constructor
@@ -994,41 +994,41 @@ public class MedicationAdministration extends DomainResource {
     }
 
     /**
-     * @return {@link #practitioner} (The individual who was responsible for giving the medication to the patient.)
+     * @return {@link #performer} (The individual who was responsible for giving the medication to the patient.)
      */
-    public Reference getPractitioner() { 
-      if (this.practitioner == null)
+    public Reference getPerformer() { 
+      if (this.performer == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationAdministration.practitioner");
+          throw new Error("Attempt to auto-create MedicationAdministration.performer");
         else if (Configuration.doAutoCreate())
-          this.practitioner = new Reference(); // cc
-      return this.practitioner;
+          this.performer = new Reference(); // cc
+      return this.performer;
     }
 
-    public boolean hasPractitioner() { 
-      return this.practitioner != null && !this.practitioner.isEmpty();
+    public boolean hasPerformer() { 
+      return this.performer != null && !this.performer.isEmpty();
     }
 
     /**
-     * @param value {@link #practitioner} (The individual who was responsible for giving the medication to the patient.)
+     * @param value {@link #performer} (The individual who was responsible for giving the medication to the patient.)
      */
-    public MedicationAdministration setPractitioner(Reference value) { 
-      this.practitioner = value;
+    public MedicationAdministration setPerformer(Reference value) { 
+      this.performer = value;
       return this;
     }
 
     /**
-     * @return {@link #practitioner} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The individual who was responsible for giving the medication to the patient.)
+     * @return {@link #performer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The individual who was responsible for giving the medication to the patient.)
      */
-    public Resource getPractitionerTarget() { 
-      return this.practitionerTarget;
+    public Resource getPerformerTarget() { 
+      return this.performerTarget;
     }
 
     /**
-     * @param value {@link #practitioner} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The individual who was responsible for giving the medication to the patient.)
+     * @param value {@link #performer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The individual who was responsible for giving the medication to the patient.)
      */
-    public MedicationAdministration setPractitionerTarget(Resource value) { 
-      this.practitionerTarget = value;
+    public MedicationAdministration setPerformerTarget(Resource value) { 
+      this.performerTarget = value;
       return this;
     }
 
@@ -1334,7 +1334,7 @@ public class MedicationAdministration extends DomainResource {
         childrenList.add(new Property("patient", "Reference(Patient)", "The person or animal receiving the medication.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("effectiveTime[x]", "dateTime|Period", "A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.", 0, java.lang.Integer.MAX_VALUE, effectiveTime));
-        childrenList.add(new Property("practitioner", "Reference(Practitioner|Patient|RelatedPerson)", "The individual who was responsible for giving the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, practitioner));
+        childrenList.add(new Property("performer", "Reference(Practitioner|Patient|RelatedPerson)", "The individual who was responsible for giving the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("prescription", "Reference(MedicationOrder)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
         childrenList.add(new Property("wasNotGiven", "boolean", "Set this to true if the record is saying that the medication was NOT administered.", 0, java.lang.Integer.MAX_VALUE, wasNotGiven));
         childrenList.add(new Property("reasonNotGiven", "CodeableConcept", "A code indicating why the administration was not performed.", 0, java.lang.Integer.MAX_VALUE, reasonNotGiven));
@@ -1353,7 +1353,7 @@ public class MedicationAdministration extends DomainResource {
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
         case -929905388: /*effectiveTime*/ return this.effectiveTime == null ? new Base[0] : new Base[] {this.effectiveTime}; // Type
-        case 574573338: /*practitioner*/ return this.practitioner == null ? new Base[0] : new Base[] {this.practitioner}; // Reference
+        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
         case 460301338: /*prescription*/ return this.prescription == null ? new Base[0] : new Base[] {this.prescription}; // Reference
         case -1050911117: /*wasNotGiven*/ return this.wasNotGiven == null ? new Base[0] : new Base[] {this.wasNotGiven}; // BooleanType
         case 2101123790: /*reasonNotGiven*/ return this.reasonNotGiven == null ? new Base[0] : this.reasonNotGiven.toArray(new Base[this.reasonNotGiven.size()]); // CodeableConcept
@@ -1387,8 +1387,8 @@ public class MedicationAdministration extends DomainResource {
         case -929905388: // effectiveTime
           this.effectiveTime = (Type) value; // Type
           break;
-        case 574573338: // practitioner
-          this.practitioner = castToReference(value); // Reference
+        case 481140686: // performer
+          this.performer = castToReference(value); // Reference
           break;
         case 460301338: // prescription
           this.prescription = castToReference(value); // Reference
@@ -1430,8 +1430,8 @@ public class MedicationAdministration extends DomainResource {
           this.encounter = castToReference(value); // Reference
         else if (name.equals("effectiveTime[x]"))
           this.effectiveTime = (Type) value; // Type
-        else if (name.equals("practitioner"))
-          this.practitioner = castToReference(value); // Reference
+        else if (name.equals("performer"))
+          this.performer = castToReference(value); // Reference
         else if (name.equals("prescription"))
           this.prescription = castToReference(value); // Reference
         else if (name.equals("wasNotGiven"))
@@ -1459,7 +1459,7 @@ public class MedicationAdministration extends DomainResource {
         case -791418107:  return getPatient(); // Reference
         case 1524132147:  return getEncounter(); // Reference
         case -272263444:  return getEffectiveTime(); // Type
-        case 574573338:  return getPractitioner(); // Reference
+        case 481140686:  return getPerformer(); // Reference
         case 460301338:  return getPrescription(); // Reference
         case -1050911117: throw new FHIRException("Cannot make property wasNotGiven as it is not a complex type"); // BooleanType
         case 2101123790:  return addReasonNotGiven(); // CodeableConcept
@@ -1504,9 +1504,9 @@ public class MedicationAdministration extends DomainResource {
           this.effectiveTime = new Period();
           return this.effectiveTime;
         }
-        else if (name.equals("practitioner")) {
-          this.practitioner = new Reference();
-          return this.practitioner;
+        else if (name.equals("performer")) {
+          this.performer = new Reference();
+          return this.performer;
         }
         else if (name.equals("prescription")) {
           this.prescription = new Reference();
@@ -1553,7 +1553,7 @@ public class MedicationAdministration extends DomainResource {
         dst.patient = patient == null ? null : patient.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.effectiveTime = effectiveTime == null ? null : effectiveTime.copy();
-        dst.practitioner = practitioner == null ? null : practitioner.copy();
+        dst.performer = performer == null ? null : performer.copy();
         dst.prescription = prescription == null ? null : prescription.copy();
         dst.wasNotGiven = wasNotGiven == null ? null : wasNotGiven.copy();
         if (reasonNotGiven != null) {
@@ -1593,7 +1593,7 @@ public class MedicationAdministration extends DomainResource {
         MedicationAdministration o = (MedicationAdministration) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(medication, o.medication, true)
            && compareDeep(patient, o.patient, true) && compareDeep(encounter, o.encounter, true) && compareDeep(effectiveTime, o.effectiveTime, true)
-           && compareDeep(practitioner, o.practitioner, true) && compareDeep(prescription, o.prescription, true)
+           && compareDeep(performer, o.performer, true) && compareDeep(prescription, o.prescription, true)
            && compareDeep(wasNotGiven, o.wasNotGiven, true) && compareDeep(reasonNotGiven, o.reasonNotGiven, true)
            && compareDeep(reasonGiven, o.reasonGiven, true) && compareDeep(device, o.device, true) && compareDeep(note, o.note, true)
            && compareDeep(dosage, o.dosage, true);
@@ -1613,7 +1613,7 @@ public class MedicationAdministration extends DomainResource {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
            && (medication == null || medication.isEmpty()) && (patient == null || patient.isEmpty())
            && (encounter == null || encounter.isEmpty()) && (effectiveTime == null || effectiveTime.isEmpty())
-           && (practitioner == null || practitioner.isEmpty()) && (prescription == null || prescription.isEmpty())
+           && (performer == null || performer.isEmpty()) && (prescription == null || prescription.isEmpty())
            && (wasNotGiven == null || wasNotGiven.isEmpty()) && (reasonNotGiven == null || reasonNotGiven.isEmpty())
            && (reasonGiven == null || reasonGiven.isEmpty()) && (device == null || device.isEmpty())
            && (note == null || note.isEmpty()) && (dosage == null || dosage.isEmpty());
@@ -1697,32 +1697,6 @@ public class MedicationAdministration extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationAdministration:patient").toLocked();
 
  /**
-   * Search parameter: <b>practitioner</b>
-   * <p>
-   * Description: <b>Who administered substance</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.practitioner</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="practitioner", path="MedicationAdministration.practitioner", description="Who administered substance", type="reference" )
-  public static final String SP_PRACTITIONER = "practitioner";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>practitioner</b>
-   * <p>
-   * Description: <b>Who administered substance</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.practitioner</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRACTITIONER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRACTITIONER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationAdministration:practitioner</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRACTITIONER = new ca.uhn.fhir.model.api.Include("MedicationAdministration:practitioner").toLocked();
-
- /**
    * Search parameter: <b>status</b>
    * <p>
    * Description: <b>MedicationAdministration event status (for example one of active/paused/completed/nullified)</b><br>
@@ -1793,6 +1767,32 @@ public class MedicationAdministration extends DomainResource {
    * the path value of "<b>MedicationAdministration:device</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_DEVICE = new ca.uhn.fhir.model.api.Include("MedicationAdministration:device").toLocked();
+
+ /**
+   * Search parameter: <b>performer</b>
+   * <p>
+   * Description: <b>Who administered substance</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.performer</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="performer", path="MedicationAdministration.performer", description="Who administered substance", type="reference" )
+  public static final String SP_PERFORMER = "performer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>performer</b>
+   * <p>
+   * Description: <b>Who administered substance</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.performer</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PERFORMER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationAdministration:performer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("MedicationAdministration:performer").toLocked();
 
  /**
    * Search parameter: <b>code</b>

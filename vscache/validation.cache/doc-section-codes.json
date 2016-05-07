@@ -33,6 +33,11 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://loinc.org|null|10183-2|Hospital discharge medications",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://loinc.org|null|10183-2|Hospital discharge medications Narrative",
       "severity": null,
       "message": null,
@@ -42,6 +47,11 @@
         "definition": null,
         "display": "Hospital discharge medications Narrative"
       }
+    },
+    {
+      "hash": "#|http://loinc.org|null|10184-0|Hospital discharge physical",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://loinc.org|null|10187-3|Review of systems",
@@ -80,12 +90,32 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://loinc.org|null|11369-6|Immunizations",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://loinc.org|null|11450-4|Problem list",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://loinc.org|null|11493-4|Hospital discharge studies summary",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|11535-2| Hospital discharge diagnosis",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://loinc.org|null|18776-5|Plan of treatment",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|18841-7|Hospital consultations",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -121,6 +151,11 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://loinc.org|null|42346-7|Medications on admission",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://loinc.org|null|42348-3|Advance directives",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
@@ -132,6 +167,11 @@
     },
     {
       "hash": "#|http://loinc.org|null|46240-8|Encounters",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|46241-6|Hospital admission diagnosis",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -190,6 +230,27 @@
       "hash": "#|http://loinc.org|null|61144-2|Diet and nutrition",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|69730-0| Instructions",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|8648-8|Hospital course",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|8653-8|Hospital discharge instructions",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "8653-8",
+        "definition": null,
+        "display": "Hospital Discharge instructions"
+      }
     },
     {
       "hash": "#|http://loinc.org|null|8716-3|Vital signs",

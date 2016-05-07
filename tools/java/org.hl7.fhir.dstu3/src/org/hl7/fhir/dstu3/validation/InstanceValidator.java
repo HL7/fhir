@@ -1246,12 +1246,27 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 	private boolean isParametersEntry(String path) {
 		String[] parts = path.split("\\.");
-		return parts.length > 2 && parts[parts.length - 1].equals("resource") && (parts[parts.length - 2].startsWith("parameter[") || parts[parts.length - 2].startsWith("part["));
+		return parts.length > 2 && parts[parts.length - 1].equals("resource") && (pathEntryHasName(parts[parts.length - 2], "parameter") || pathEntryHasName(parts[parts.length - 2], "part"));
 	}
 
 	private boolean isBundleEntry(String path) {
 		String[] parts = path.split("\\.");
-		return parts.length > 2 && parts[parts.length - 1].equals("resource") && parts[parts.length - 2].startsWith("entry[");
+		return parts.length > 2 && parts[parts.length - 1].equals("resource") && pathEntryHasName(parts[parts.length - 2], "entry");
+	}
+
+
+	private static boolean pathEntryHasName(String thePathEntry, String theName) {
+		if (thePathEntry.equals(theName)) {
+			return true;
+		}
+		if (thePathEntry.length() >= theName.length() + 3) {
+			if (thePathEntry.startsWith(theName)) {
+				if (thePathEntry.charAt(theName.length()) == '[') {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	private boolean isPrimitiveType(String type) {
@@ -1525,7 +1540,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 	private void validateQuestionannaireResponse(List<ValidationMessage> errors, Element element, NodeStack stack) {
 	  Element q = element.getNamedChild("questionnaire");
-	  if (hint(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), q != null, "No questionnaire is identified, so no validation can be performed against the base questionnaire")) {
+		if (hint(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), q != null && isNotBlank(q.getNamedChildValue("reference")), "No questionnaire is identified, so no validation can be performed against the base questionnaire")) {
 			long t = System.nanoTime();
 	    Questionnaire qsrc = context.fetchResource(Questionnaire.class, q.getNamedChildValue("reference"));
 	    sdTime = sdTime + (System.nanoTime() - t);

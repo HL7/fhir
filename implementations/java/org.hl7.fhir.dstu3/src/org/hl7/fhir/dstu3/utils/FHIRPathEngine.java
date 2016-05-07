@@ -503,6 +503,10 @@ public class FHIRPathEngine {
       lexer.take();
       lexer.setCurrent("-"+lexer.getCurrent());
     }
+    if (lexer.getCurrent().equals("+")) {
+      lexer.take();
+      lexer.setCurrent("+"+lexer.getCurrent());
+    }
 		if (lexer.isConstant(false)) {
 			checkConstant(lexer.getCurrent(), lexer);
 			result.setConstant(lexer.take());

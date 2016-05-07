@@ -50,6 +50,8 @@ import org.hl7.fhir.utilities.Table;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ucum.Decimal;
 
+import ca.uhn.fhir.util.ElementUtil;
+
 /**
  * 
  * @author Grahame Grieve
@@ -499,6 +501,10 @@ public class FHIRPathEngine {
     if (lexer.getCurrent().equals("-")) {
       lexer.take();
       lexer.setCurrent("-"+lexer.getCurrent());
+    }
+    if (lexer.getCurrent().equals("+")) {
+      lexer.take();
+      lexer.setCurrent("+"+lexer.getCurrent());
     }
     if (lexer.isConstant(false)) {
       checkConstant(lexer.getCurrent(), lexer);
@@ -2238,7 +2244,7 @@ public class FHIRPathEngine {
 
   private List<Base> funcExists(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
     List<Base> result = new ArrayList<Base>();
-    result.add(new BooleanType(!focus.isEmpty()));
+    result.add(new BooleanType(!ElementUtil.isEmpty(focus)));
     return result;
   }
 
@@ -2440,7 +2446,7 @@ public class FHIRPathEngine {
 
   private List<Base> funcEmpty(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
     List<Base> result = new ArrayList<Base>();
-    result.add(new BooleanType(focus.isEmpty()));
+		result.add(new BooleanType(ElementUtil.isEmpty(focus)));
     return result;
   }
 

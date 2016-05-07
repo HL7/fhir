@@ -127,17 +127,40 @@ public class ValidationEngine {
   public void process() throws Exception {
 		if (isXml())
 			processXml();
-		else
+		else if (isJson())
 			processJson();
+		else if (isTurtle()) 
+      processTurtle();
+		else
+		  throw new Exception("Unable to detemine format");
 	}
 	
   private boolean isXml() throws FHIRFormatError {
   	
 	  int x = position(source, '<'); 
 	  int j = position(source, '{');
-	  if (x == Integer.MAX_VALUE && j == Integer.MAX_VALUE)
-	  	throw new FHIRFormatError("Unable to interpret the content as either XML or JSON");
+    int t = position(source, '@');
+	  if (x == Integer.MAX_VALUE && j == Integer.MAX_VALUE || (t < j && t < x))
+	  	return false;
 	  return (x < j);
+  }
+
+  private boolean isJson() throws FHIRFormatError {  
+    int x = position(source, '<'); 
+    int j = position(source, '{');
+    int t = position(source, '@');
+    if (x == Integer.MAX_VALUE && j == Integer.MAX_VALUE || (t < j && t < x))
+      return false;
+    return (j < x);
+  }
+
+  private boolean isTurtle() throws FHIRFormatError {  
+    int x = position(source, '<'); 
+    int j = position(source, '{');
+    int t = position(source, '@');
+    if (x == Integer.MAX_VALUE && j == Integer.MAX_VALUE || (t > j) || (t > x))
+      return false;
+    return true;
   }
 
 	private int position(byte[] bytes, char target) {
@@ -227,6 +250,10 @@ public class ValidationEngine {
     outcome = op;
   }
 
+  public void processTurtle() throws Exception {
+    throw new Exception("Not done yet");
+  }
+  
   public void processJson() throws Exception {
 		outputs = new ArrayList<ValidationMessage>();
 

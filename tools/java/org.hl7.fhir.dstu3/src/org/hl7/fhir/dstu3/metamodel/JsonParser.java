@@ -118,7 +118,7 @@ public class JsonParser extends ParserBase {
 
 	private void parseChildren(String path, JsonObject object, Element context, boolean hasResourceType) throws DefinitionException, FHIRFormatError {
 		reapComments(object, context);
-		List<Property> properties = getChildProperties(context.getProperty(), context.getName(), null);
+		List<Property> properties = context.getProperty().getChildProperties(context.getName(), null);
 		Set<String> processed = new HashSet<String>();
 		if (hasResourceType)
 			processed.add("resourceType");

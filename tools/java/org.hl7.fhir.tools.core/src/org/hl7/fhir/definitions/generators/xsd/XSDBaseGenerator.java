@@ -47,9 +47,15 @@ import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 
 public class XSDBaseGenerator {
@@ -69,13 +75,16 @@ public class XSDBaseGenerator {
   private List<String> genEnums = new ArrayList<String>();
   private Map<String, String> regexQueue = new HashMap<String, String>();
 
-  private boolean forCodeGeneration; 
+  private boolean forCodeGeneration;
+
+  private BuildWorkerContext workerContext; 
 
   // private Map<String, PrimitiveType> primitives;
 
-  public XSDBaseGenerator(OutputStreamWriter out, boolean forCodeGeneration) throws UnsupportedEncodingException {
+  public XSDBaseGenerator(OutputStreamWriter out, boolean forCodeGeneration, BuildWorkerContext workerContext) throws UnsupportedEncodingException {
     writer = out;
     this.forCodeGeneration = forCodeGeneration;
+    this.workerContext = workerContext;
   }
 
   private void write(String s) throws IOException {
@@ -558,15 +567,11 @@ public class XSDBaseGenerator {
 
     write("  <xs:simpleType name=\"" + en + "-list\">\r\n");
     write("    <xs:restriction base=\"xs:string\">\r\n");
-    if (bs.getValueSet().hasCompose()) {
-      for (ConceptSetComponent cc : bs.getValueSet().getCompose().getInclude()) {
-        for (ConceptReferenceComponent c : cc.getConcept()) {
-          genIncludedCode(c);
-          
-        }
-      }
+    ValueSet ex = workerContext.expandVS(bs.getValueSet(), true).getValueset();
+    for (ValueSetExpansionContainsComponent cc : ex.getExpansion().getContains()) {
+      genIncludedCode(cc);
     }
-    write("    </xs:restriction>\r\n");
+      write("    </xs:restriction>\r\n");
     write("  </xs:simpleType>\r\n");
 
     write("  <xs:complexType name=\""+en+"\">\r\n");
@@ -584,16 +589,33 @@ public class XSDBaseGenerator {
     genEnums.add(en);
   }
 
-  private void genIncludedCode(ConceptReferenceComponent c) throws IOException {
-    write("      <xs:enumeration value=\"" + Utilities.escapeXml(c.getCode()) + "\">\r\n");
+  private void genIncludedCode(ValueSetExpansionContainsComponent cc) throws IOException {
+    write("      <xs:enumeration value=\"" + Utilities.escapeXml(cc.getCode()) + "\">\r\n");
     write("        <xs:annotation>\r\n");
-    write("          <xs:documentation xml:lang=\"en\">" + Utilities.escapeXml(c.getDisplay()) + "</xs:documentation>\r\n"); // todo: do we need to look the definition up? 
-    for (ConceptReferenceDesignationComponent l : c.getDesignation())
-      if (l.hasLanguage())
-        write("          <xs:documentation xml:lang=\""+l.getLanguage()+"\">"+Utilities.escapeXml(l.getValue())+"</xs:documentation>\r\n");
+    write("          <xs:documentation xml:lang=\"en\">" + Utilities.escapeXml(cc.getDisplay()) + "</xs:documentation>\r\n"); // todo: do we need to look the definition up?
+    CodeSystem cs = workerContext.fetchCodeSystem(cc.getSystem());
+    if (cs != null && cc.hasCode()) {
+      ConceptDefinitionComponent c = getCodeDefinition(cc.getCode(), cs.getConcept());
+      for (ConceptDefinitionDesignationComponent l : c.getDesignation())
+        if (l.hasLanguage())
+          write("          <xs:documentation xml:lang=\""+l.getLanguage()+"\">"+Utilities.escapeXml(l.getValue())+"</xs:documentation>\r\n");
+    }
     write("        </xs:annotation>\r\n");
     write("      </xs:enumeration>\r\n");
   }
+
+  private ConceptDefinitionComponent getCodeDefinition(String code, List<ConceptDefinitionComponent> list) {
+    for (ConceptDefinitionComponent cc : list) {
+      if (code.equals(cc.getCode())) {
+        return cc;
+      }
+      ConceptDefinitionComponent t = getCodeDefinition(code, cc.getConcept());
+      if (t != null)
+        return t;
+    }
+    return null;
+  }
+
 
   private void generateType(ElementDefn root, String name, ElementDefn struc)
       throws IOException, Exception {
