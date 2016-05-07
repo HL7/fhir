@@ -308,12 +308,5 @@
                 <profile value="http://hl7.org/fhir/StructureDefinition/daf-encounter" />
             </type>
         </element>
-        <element>
-            <path value="Composition.section" />
-            <short value="section" />
-            <definition value="SHALL contain at least one [1..*] section (CONF:2219-680)." />
-            <min value="1" />
-            <max value="*" />
-        </element>
     </differential>
 </StructureDefinition>
