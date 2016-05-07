@@ -226,7 +226,7 @@
             <type>
                 <code value="code" />
             </type>
-            <fixedString value="legal" />
+            <fixedCode value="legal" />
         </element>
         <element>
             <path value="Composition.attester.party" />
@@ -277,9 +277,9 @@
             <path value="Composition.event" />
             <label value="serviceEvent" />
             <short value="serviceEvent" />
-            <definition value="SHALL contain exactly one [1..1] event (CONF:2219-676)." />
+            <definition value="SHALL contain least one [1..*] event (CONF:2219-676)." />
             <min value="1" />
-            <max value="1" />
+            <max value="*" />
         </element>
         <element>
             <path value="Composition.event.period" />
