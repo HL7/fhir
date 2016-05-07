@@ -50,7 +50,7 @@
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
 
  -- Row 5 -----------------------------------
-  Element = MedicationAdministration.practitioner
+  Element = MedicationAdministration.performer
   Card. = 0..1
   Must Support = Y
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}

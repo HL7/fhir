@@ -53,7 +53,7 @@
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
 
  -- Row 9 -----------------------------------
-  Element = MedicationAdministration.practitioner
+  Element = MedicationAdministration.performer
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
 
  -- Row 10 -----------------------------------

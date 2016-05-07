@@ -56,7 +56,7 @@
   Card. = 0..0
 
  -- Row 14 -----------------------------------
-  Element = CarePlan.participant
+  Element = CarePlan.careTeam
   Card. = 0..0
 
  -- Row 15 -----------------------------------
