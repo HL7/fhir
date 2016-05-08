@@ -354,12 +354,14 @@
    </resource>
     
   </package>
+  <!--
     <global>
       <type value="Composition"/>
       <profile>
         <reference value="StructureDefinition/ccda-us-realm-header-composition.xml"/>
       </profile>
   </global>
+  -->
   <page>
     <source value="ccda.html"/>
     <name value="C-CDA on FHIR Introduction"/>
