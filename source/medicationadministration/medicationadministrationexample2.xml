@@ -29,12 +29,12 @@
         <display value="Intravenous route"/>
       </coding>
     </route>
-    <quantity>
+    <dose>
       <value value="80"/>
       <unit value="mg"/>
       <system value="http://unitsofmeasure.org"/>
       <code value="mg"/>
-    </quantity>
+    </dose>
     <rate>
       <numerator>
         <value value="80"/>

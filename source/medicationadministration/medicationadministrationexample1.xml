@@ -28,10 +28,10 @@
         <display value="oral administration of treatment"/>
       </coding>  
     </route>
-    <quantity>
+    <dose>
       <value value="1"/>
       <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
       <code value="CAP"/>
-    </quantity>
+    </dose>
   </dosage>
 </MedicationAdministration>

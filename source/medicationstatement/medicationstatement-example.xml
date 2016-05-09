@@ -25,11 +25,11 @@
         <display value="oral administration of treatment"/>
       </coding>  
     </route>
-    <quantity>
+    <doseQuantity>
       <value value="10"/>
       <unit value="ml"/>
       <system value="http://unitsofmeasure.org"/>
       <code value="ml"/>
-    </quantity>
+    </doseQuantity>
   </dosage>
 </MedicationStatement>
