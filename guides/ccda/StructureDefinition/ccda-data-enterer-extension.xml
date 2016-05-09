@@ -46,8 +46,9 @@
             <min value="1" />
             <max value="1" />
             <type>
-	            <code value="Reference"/>
-      	    </type>
+                <code value="Reference" />
+                <profile value="http://hl7.org/fhir/StructureDefinition/daf-practitioner" />
+            </type>
         </element>
     </differential>
 </StructureDefinition>

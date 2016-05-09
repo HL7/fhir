@@ -40,9 +40,13 @@
         <element>
             <path value="Extension.valueReference" />
             <short value="valueReference" />
-            <definition value="SHALL contain exactly one [1..1] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-pract) (CONF:2219-1865)." />
+            <definition value="SHALL contain exactly one [1..1] U.S. DAF DiagnosticOrder Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-diagnosticOrder) (CONF:2219-1865)." />
             <min value="1" />
             <max value="1" />
+	    <type>
+		<code value="Reference" />
+		<profile value="http://hl7.org/fhir/StructureDefinition/daf-diagnosticOrder" />
+	    </type>
         </element>
     </differential>
 </StructureDefinition>
