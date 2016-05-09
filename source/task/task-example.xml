@@ -9,9 +9,12 @@
     <text value="Refill Request"/>
   </type>
   <status value="draft"/>
-  <subject>
-    <reference value="Medication/123"/>
-  </subject>
+  <focus>
+    <reference value="MedicationOrder/medrx001"/>
+  </focus>
+  <for>
+    <reference value="Patient/f001"/>
+  </for>
   <created value="2016-03-10T22:39:32-04:00"/>
   <lastModified value="2016-03-10T22:39:32-04:00"/>
   <creator>
