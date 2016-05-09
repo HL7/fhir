@@ -1,0 +1,36 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = InterfaceType
+  Binding = value set
+  Reference = valueset-airwayInterfaceType
+  Definition = The set of codes that describe the physical object that acts as an interface between a patient and the delivery of therapeutic gases.
+  Conformance = preferred
+
+=== Sheet hspc-deliveredO2 =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Delivered Oxygen Measurement
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
+  QDM Mapping = Patient Characteristic
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"3151-8\"/><display value=\"Inhaled oxygen flow rate\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Observation.valueQuantity
+  Type = Quantity
+
+ -- Row 4 -----------------------------------
+  Element = Observation.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
+
+ -- Row 5 -----------------------------------
+  Element = Observation.extension
+  Profile Name = AirwayIntefaceType
+  Type = Extension{#airwayInterfaceType}
+  Binding = InterfaceType

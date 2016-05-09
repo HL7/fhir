@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <url value="http://www.example.com/valueset/alleviatingfactors"/>
+  <version value="0.01"/>
+  <name value="HSPC Aiway Interface Type value set"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-02-09"/>
+  <description value="SELECT SNOMED CT code system values."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+		<concept>	
+			<code value ="469609003"/>
+			<display value ="Manual pulmonary resuscitator, single-use (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="425478008"/>
+			<display value ="Blow by oxygen mask (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="425994007"/>
+			<display value ="Oxygen mist tent (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="429375002"/>
+			<display value ="Esophageal tracheal double lumen supraglottic airway device (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="463388008"/>
+			<display value ="Esophageal-obturating/tracheal airway, single-use (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="706226000"/>
+			<display value ="Continuous positive airway pressure/Bilevel positive airway pressure mask (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="466033006"/>
+			<display value ="Resuscitator face mask, single-use (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="26412008"/>
+			<display value ="Endotracheal tube, device (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="426294006"/>
+			<display value ="Face tent oxygen delivery device (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="426854004"/>
+			<display value ="High flow oxygen nasal cannula (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="73027007"/>
+			<display value ="Infant incubator, device (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="257268009"/>
+			<display value ="Laryngeal mask (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="336623009"/>
+			<display value ="Oxygen nasal cannula (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="261974006"/>
+			<display value ="Nasal prongs (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="61330002"/>
+			<display value ="Nasopharyngeal airway device (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="427591007"/>
+			<display value ="Nonrebreather oxygen mask (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="32667006"/>
+			<display value ="Oropharyngeal airway device (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="427594004"/>
+			<display value ="Oxyhood (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="20428008"/>
+			<display value ="Oxygen tent, device (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="425926003"/>
+			<display value ="Partial rebreather oxygen mask (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="415700003"/>
+			<display value ="T piece without bag (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="465839001"/>
+			<display value ="Tracheostomy mask, oxygen (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="129121000"/>
+			<display value ="Tracheostomy tube, device (physical object)"/>
+		</concept>	
+		<concept>	
+			<code value ="428285009"/>
+			<display value ="Venturi mask (physical object)"/>
+		</concept>	
+    </include>
+  </compose>
+</ValueSet>

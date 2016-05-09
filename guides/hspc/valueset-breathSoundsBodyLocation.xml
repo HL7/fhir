@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+    <version value="0.01"/>
+    <name value="HSPC Breath Sounds Body Location Value Set"/>
+    <status value="draft"/>
+    <publisher value="Health Services Platform Consortium (HSPC)"/>
+    <date value="2016-03-23"/>
+    <description value="SELECT SNOMED CT code system values."/>
+    <immutable value="true"/>
+    <copyright value="TBD"/>
+    <extensible value="true"/>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+			<concept>	
+				<code value="44714003"/>
+				<display value="Structure of left upper lobe of lung (body structure)"/>
+			</concept>	
+			<concept>	
+				<code value="42400003"/>
+				<display value="Structure of right upper lobe of lung (body structure)"/>
+			</concept>	
+			<concept>	
+				<code value="41224006"/>
+				<display value="Structure of left lower lobe of lung (body structure)"/>
+			</concept>	
+			<concept>	
+				<code value="266005"/>
+				<display value="Structure of right lower lobe of lung (body structure)"/>
+			</concept>	
+			<concept>	
+				<code value="72481006"/>
+				<display value="Structure of right middle lobe of lung (body structure)"/>
+			</concept>	
+			<concept>	
+				<code value="14559000"/>
+				<display value="Structure of apex of left lung (body structure)"/>
+			</concept>	
+			<concept>	
+				<code value="39607008"/>
+				<display value="Lung structure (body structure)"/>
+			</concept>	
+			<concept>	
+				<code value="10024003"/>
+				<display value="Structure of base of lung (body structure)"/>
+			</concept>	
+			<concept>	
+				<code value="86598002"/>
+				<display value="Structure of apex of lung (body structure)"/>
+			</concept>	
+			<concept>	
+				<code value="62884005"/>
+				<display value="Structure of apex of right lung (body structure)"/>
+			</concept>	
+			<concept>	
+				<code value="60859004"/>
+				<display value="Structure of base of left lung (body structure)"/>
+			</concept>	
+			<concept>	
+				<code value="51785002"/>
+				<display value="Structure of base of right lung (body structure)"/>
+			</concept>
+        </include><!--
+        <include>
+			<system value="http://hl7.org/fhir/hspc-breathSoundsBodyLocation"/>
+		</include>-->
+    </compose>
+</ValueSet>

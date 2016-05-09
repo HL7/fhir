@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+    <version value="0.01"/>
+    <name value="HSPC Respiratory Pattern Value Set"/>
+    <status value="draft"/>
+    <publisher value="Health Services Platform Consortium (HSPC)"/>
+    <date value="2016-03-23"/>
+    <description value="SELECT SNOMED CT code system values."/>
+    <immutable value="true"/>
+    <copyright value="TBD"/>
+    <extensible value="true"/>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+			<concept>	
+				<code value="1023001"/>
+				<display value="Apnea (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="414563008"/>
+				<display value="Kussmaul's respiration (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="86684002"/>
+				<display value="Slow respiration (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="309155007"/>
+				<display value="Cheyne-Stokes respiration (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="271824009"/>
+				<display value="Respiration intermittent (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="5467003"/>
+				<display value="Normal respiratory rhythm (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="180928006"/>
+				<display value="Hyperpnea (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="70185004"/>
+				<display value="Apneusis (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="386813002"/>
+				<display value="Abnormal breathing (finding)"/>
+			</concept>
+		</include>
+    </compose>
+</ValueSet>

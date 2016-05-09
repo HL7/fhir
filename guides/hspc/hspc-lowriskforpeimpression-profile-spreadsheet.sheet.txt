@@ -1,0 +1,27 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = YesNo
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v2-0136
+  Definition = The set of values to indicate affirmative or negative
+  Conformance = preferred
+
+=== Sheet hspc-lowriskforpeimpressionind =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Low Risk for PE Impression Indicator
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
+
+ -- Row 2 -----------------------------------
+  Element = Observation.valueCodeableConcept
+  Type = CodeableConcept
+  Binding = YesNo
+
+ -- Row 3 -----------------------------------
+  Element = Observation.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
+
+=== Sheet Search =====================================

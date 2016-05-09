@@ -1,0 +1,30 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = Airway
+  Binding = value set
+  Reference = valueset-airwaytype
+  Definition = The set of codes that describe the various kinds of airways that may be asserted as patent or occluded.
+  Conformance = preferred
+
+=== Sheet hspc-airwaypatentassert =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Condition
+  Profile Name = HSPC Pregnancy Assertion
+  Type = {http://hl7.org/fhir/StructureDefinition/hspc-clinicalassert}
+
+ -- Row 2 -----------------------------------
+  Element = Condition.value
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://snomed.info/sct\"/><code value=\"248553004\"/><display value=\"No obstruction of airway (situation)\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Condition.extension
+  Profile Name = TypeOfAirway
+  Card. = 0..1
+  Type = Extension{#typeOfAirway}
+  Binding = Airway
+
+=== Sheet Search =====================================

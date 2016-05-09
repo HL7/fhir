@@ -1,0 +1,102 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = InterfaceType
+  Binding = value set
+  Reference = valueset-airwayInterfaceType
+  Definition = The set of codes that describe the physical object that acts as an interface between a patient and the delivery of therapeutic gases.
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = AbnormalInterpretation
+  Binding = value set
+  Reference = valueset-abnInt-NumericNom
+  Definition = The codes that describe in what way a result is abnormal
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = DeltaFlagNumericNom
+  Binding = value set
+  Reference = valueset-deltaFlag-numericNom
+  Definition = The codes that describe in what way a numeric result is significantly different from its predecesor
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = FocalSubject
+  Binding = value set
+  Reference = valueset-focalSubject
+  Definition = The set of codes that describe the subject of an observation when not the patient of record
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = BodyLocationPrecoord
+  Binding = value set
+  Reference = valueset-oxygensaturationbodylocation
+  Definition = The codes that describe precoordinated body sites used to measure the oxygen saturation via pulse oximetry
+  Conformance = preferred
+
+ -- Row 6 -----------------------------------
+  Binding Name = SensorDescription
+  Binding = value set
+  Reference = valueset-sensorDescription
+  Definition = A set of codes that describe the type of oxygen sensor used for pulse oximetry.
+  Conformance = preferred
+
+=== Sheet hspc-o2saturation =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Oxygen Saturation in Arterial Blood Meas
+  Type = Resource
+  QDM Mapping = Patient Characteristic
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"59408-5\"/><display value=\"Oxygen saturation in Arterial blood by Pulse oximetry\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Observation.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
+
+ -- Row 4 -----------------------------------
+  Element = Observation.valueQuantity
+  Type = Quantity
+  Value = <quantity><system value=\"http://unitsofmeasure.org\"/><code value=\"%\"/></quantity>
+
+ -- Row 5 -----------------------------------
+  Element = Observation.interpretation
+  Binding = AbnormalInterpretation
+
+ -- Row 6 -----------------------------------
+  Element = Observation.bodySite
+  Binding = BodyLocationPrecoord
+
+ -- Row 7 -----------------------------------
+  Element = Observation.extension
+  Profile Name = SensorDescription
+  Type = Extension{#sensorDescription}
+  Binding = SensorDescription
+
+ -- Row 8 -----------------------------------
+  Element = Observation.extension
+  Profile Name = DeltaFlag
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdeltaFlag}
+  Binding = DeltaFlagNumericNom
+
+ -- Row 9 -----------------------------------
+  Element = Observation.modifierExtension
+  Profile Name = FocalSubject
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsfocalSubject}
+  Binding = FocalSubject
+
+ -- Row 10 -----------------------------------
+  Element = !Observation.modifierExtension.extension
+  Profile Name = PersonIdentifier
+  Type = Extension{#PersonIdentifier}
+
+ -- Row 11 -----------------------------------
+  Element = !Observation.modifierExtension.extension
+  Profile Name = Name
+  Type = Extension{#Name}

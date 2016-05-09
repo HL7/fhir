@@ -1,0 +1,96 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet hspc-pecriteriarpanel =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Pulmonary Rule Out Criteria Panel
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
+
+ -- Row 2 -----------------------------------
+  Element = Observation.related
+  Profile Name = Age
+  Discriminator = related.name|false|open
+  Slice Description = Age
+  Aliases = Age
+
+ -- Row 3 -----------------------------------
+  Element = Observation.related.target
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-age}
+
+ -- Row 4 -----------------------------------
+  Element = Observation.related
+  Profile Name = Heart Rate
+  Slice Description = Heart Rate
+  Aliases = Heart Rate
+
+ -- Row 5 -----------------------------------
+  Element = Observation.related.target
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-heartrate}
+
+ -- Row 6 -----------------------------------
+  Element = Observation.related
+  Profile Name = Oxygen Saturation
+  Slice Description = Oxygen Saturation
+  Aliases = Oxygen Saturation
+
+ -- Row 7 -----------------------------------
+  Element = Observation.related.target
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-o2saturation}
+
+ -- Row 8 -----------------------------------
+  Element = Observation.related
+  Profile Name = Logical Assert
+  Slice Description = Logical Assert
+  Aliases = Logical Assert
+
+ -- Row 9 -----------------------------------
+  Element = Observation.related.target
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-logicalassert}
+
+ -- Row 10 -----------------------------------
+  Element = Observation.related
+  Profile Name = Hemoptysis
+  Slice Description = Hemoptysis
+  Aliases = Hemoptysis
+
+ -- Row 11 -----------------------------------
+  Element = Observation.related.target
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-hmptysis}
+
+ -- Row 12 -----------------------------------
+  Element = Observation.related
+  Profile Name = Taking Exogenous Estrogen
+  Slice Description = Taking Exogenous Estrogen
+  Aliases = Taking Exogenous Estrogen
+
+ -- Row 13 -----------------------------------
+  Element = Observation.related.target
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-exogenousEstrogen}
+
+ -- Row 14 -----------------------------------
+  Element = Observation.related
+  Profile Name = Pulmonary Embolism Criteria Rule Out Score
+  Slice Description = Pulmonary Embolism Criteria Rule Out Score
+  Aliases = Pulmonary Embolism Criteria Rule Out Score
+
+ -- Row 15 -----------------------------------
+  Element = Observation.related.target
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-peruleoutcriteriascore}
+
+ -- Row 16 -----------------------------------
+  Element = Observation.related
+  Profile Name = Low Risk for PE Impression
+  Slice Description = Low Risk for PE Impression
+  Aliases = Low Risk for PE Impression
+
+ -- Row 17 -----------------------------------
+  Element = Observation.related.target
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-lowriskforpeimpressionind}
+
+ -- Row 18 -----------------------------------
+  Element = Observation.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
+
+=== Sheet Search =====================================

@@ -1,0 +1,87 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = RespiratoryEffort
+  Binding = value set
+  Reference = valueset-respiratoryEffort
+  Definition = A set of codes that describe the effort one takes to breathe
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = AlleviatingFactor
+  Binding = value set
+  Reference = valueset-alleviatingfactors
+  Definition = A set of codes that describe activities or actions that help alleviate a condition
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = ExacerbatingFactor
+  Binding = value set
+  Reference = valueset-exacerbatingfactors
+  Definition = A set of codes that describe activities or actions that worsen a condition.
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = Periodicity
+  Binding = value set
+  Reference = valueset-periodicity
+  Definition = The codes that describe the frequency or rate at wich a condition, problem, observed entity happens.
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = Course
+  Binding = value set
+  Reference = valueset-course
+  Definition = The codes that describe the series of events or stages of a condition
+  Conformance = preferred
+
+=== Sheet hspc-respiratoryeffort =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Condition
+  Profile Name = HSPC Respiratory Effort
+  Type = {http://hl7.org/fhir/StructureDefinition/hspc-clinicalassert}
+
+ -- Row 2 -----------------------------------
+  Element = Condition.code
+  Type = CodeableConcept
+  Binding = RespiratoryEffort
+
+ -- Row 3 -----------------------------------
+  Element = Condition.focalSubject
+  Card. = 0..0
+
+ -- Row 4 -----------------------------------
+  Element = Condition.riskForIndicator
+  Card. = 0..0
+
+ -- Row 5 -----------------------------------
+  Element = Condition.extension
+  Profile Name = AlleviatingFactor
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsalleviatingFactor}
+  Binding = AlleviatingFactor
+
+ -- Row 6 -----------------------------------
+  Element = Condition.extension
+  Profile Name = ExacerbatingFactor
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsexacerbatingFactor}
+  Binding = ExacerbatingFactor
+
+ -- Row 7 -----------------------------------
+  Element = Condition.extension
+  Profile Name = Periodicity
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsperiodicity}
+  Binding = Periodicity
+
+ -- Row 8 -----------------------------------
+  Element = Condition.extension
+  Profile Name = Course
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionscourse}
+  Binding = Course
+
+=== Sheet Search =====================================

@@ -1,0 +1,47 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet hspc-o2saturationpanel =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Oxygen Saturation Panel
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
+  QDM Mapping = Patient Characteristic
+
+ -- Row 2 -----------------------------------
+  Element = Observation.component
+  Profile Name = OxygenSaturation
+  Discriminator = component.name|false|open
+  Card. = 1..1
+  Aliases = Oxygen Saturation
+
+ -- Row 3 -----------------------------------
+  Element = Observation.component.extension
+  Profile Name = SpO2
+  Card. = 1..1
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-o2saturation}
+
+ -- Row 4 -----------------------------------
+  Element = Observation.component
+  Profile Name = DeliveredOxygen
+  Card. = 0..1
+  Aliases = Delivered Oxygen
+
+ -- Row 5 -----------------------------------
+  Element = Observation.component.extension
+  Profile Name = Delivered O2
+  Card. = 0..1
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-deliveredo2}
+
+ -- Row 6 -----------------------------------
+  Element = Observation.component
+  Profile Name = OnRoomAir
+  Card. = 0..1
+  Aliases = On Room Air
+
+ -- Row 7 -----------------------------------
+  Element = Observation.component.extension
+  Profile Name = On Room Air Assert
+  Card. = 0..1
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-roomair}

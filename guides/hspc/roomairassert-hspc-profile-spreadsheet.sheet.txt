@@ -1,0 +1,32 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet hspc-roomair =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC On Room Air Assertion
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
+  QDM Mapping = Patient Characteristic
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://hl7.org/fhir/ValueSet/v3-ActCode\"/><code value=\"ASSERTION\"/><display value=\"Assertion\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Observation.valueCodeableConcept
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://hl7.org/fhir/hspc-assertions\"/><code value=\"68253\"/><display value=\"On room air\"/></coding></code>
+
+ -- Row 4 -----------------------------------
+  Element = Observation.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
+
+ -- Row 5 -----------------------------------
+  Element = !Observation.performer.practitionerRole
+
+ -- Row 6 -----------------------------------
+  Element = !Observation.performer.practitionerRole.role
+  Type = CodeableConcept{http://hl7.org/fhir/StructureDefinition/hspc-provpract#practitionerRole.role}
+  Value = <code><coding><system value=\"http://hl7.org/fhir/hspc-participationType\"/><code value=\"528177627\"/><display value=\"Asserter\"/></coding></code>
