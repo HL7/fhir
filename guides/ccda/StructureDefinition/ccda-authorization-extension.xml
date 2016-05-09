@@ -43,6 +43,10 @@
             <definition value="SHALL contain exactly one [1..1] C-CDA on FHIR Consent (identifier: http://hl7.org/fhir/StructureDefinition/ccda-consent) (CONF:2219-2011)." />
             <min value="1" />
             <max value="1" />
+	    <type>
+		<code value="Reference" />
+		<profile value="http://hl7.org/fhir/StructureDefinition/ccda-consent" />
+	    </type>
         </element>
     </differential>
 </StructureDefinition>
