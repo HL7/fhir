@@ -37,6 +37,7 @@
  -- Row 3 -----------------------------------
   Element = Observation.valueCodeableConcept
   Card. = 1..1
+  Type = CodeableConcept
   Binding = LogicalAssertVS
 
  -- Row 4 -----------------------------------

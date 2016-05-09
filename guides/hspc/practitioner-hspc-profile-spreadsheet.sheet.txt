@@ -231,6 +231,7 @@
   Profile Name = CommunicationMode
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionscommunicationMode}
   Binding = HSPCPractitionerCommunicationMode
+  Definition = The method by which an individual communicates.
 
  -- Row 19 -----------------------------------
   Element = Practitioner.classification

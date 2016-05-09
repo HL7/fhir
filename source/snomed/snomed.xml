@@ -463,6 +463,11 @@
     <display value="Tracheal suction"/>
     <display value="Aspiration from trachea (procedure)"/>
   </concept>
+  <concept id="129121000" display="Tracheostomy tube, device (physical object)">
+    <display value="Tracheostomy tube"/>
+    <display value="Tracheostomy tube, device"/>
+    <display value="Tracheostomy tube, device (physical object)"/>
+  </concept>
   <concept id="12921003" display="Pelvic structure (body structure)">
     <display value="Pelvic region"/>
     <display value="Pelvis"/>
@@ -941,6 +946,11 @@
     <display value="Blush"/>
     <display value="Flush"/>
     <display value="Blushing (function)"/>
+  </concept>
+  <concept id="20428008" display="Oxygen tent, device (physical object)">
+    <display value="Oxygen tent, device"/>
+    <display value="Oxygen tent"/>
+    <display value="Oxygen tent, device (physical object)"/>
   </concept>
   <concept id="2081004" display="Hospital ship (environment)">
     <display value="Hospital ship"/>
@@ -1431,6 +1441,11 @@
     <display value="Pedestrian conveyance (physical object)"/>
     <display value="Pedestrian conveyance"/>
   </concept>
+  <concept id="257268009" display="Laryngeal mask (physical object)">
+    <display value="Laryngeal mask"/>
+    <display value="LMA - Laryngeal mask airway"/>
+    <display value="Laryngeal mask (physical object)"/>
+  </concept>
   <concept id="257351008" display="Shunt (physical object)">
     <display value="Shunt"/>
     <display value="Shunt (physical object)"/>
@@ -1748,6 +1763,10 @@
     <display value="Unknown"/>
     <display value="Unknown (qualifier value)"/>
   </concept>
+  <concept id="261974006" display="Nasal prongs (physical object)">
+    <display value="Nasal prongs"/>
+    <display value="Nasal prongs (physical object)"/>
+  </concept>
   <concept id="262061000" display="Postoperative period (qualifier value)">
     <display value="Postoperative period"/>
     <display value="PO - Postoperative"/>
@@ -1774,6 +1793,16 @@
   </concept>
   <concept id="264065008" display="Left anterior (qualifier value)">
     <display value="Left anterior"/>
+  </concept>
+  <concept id="26412008" display="Endotracheal tube, device (physical object)">
+    <display value="ET - Endotracheal tube"/>
+    <display value="Intubation tube"/>
+    <display value="ETT - Endotracheal tube"/>
+    <display value="Endotracheal tube, device"/>
+    <display value="Endotracheal tube"/>
+    <display value="Endotracheal airway device"/>
+    <display value="Endotracheal airway"/>
+    <display value="Endotracheal tube, device (physical object)"/>
   </concept>
   <concept id="264176005" display="Right anterior (qualifier value)">
     <display value="Right anterior"/>
@@ -2097,6 +2126,13 @@
     <display value="Necropsy"/>
     <display value="Autopsy examination (procedure)"/>
   </concept>
+  <concept id="29707007" display="Toe structure (body structure)">
+    <display value="Toe structure"/>
+    <display value="Toe"/>
+    <display value="Toe, NOS"/>
+    <display value="Hinddigit, NOS"/>
+    <display value="Toe structure (body structure)"/>
+  </concept>
   <concept id="298225002" display="Lamina propria mucosae (body structure)">
     <display value="Lamina propria mucosae"/>
   </concept>
@@ -2105,6 +2141,11 @@
     <display value="Altered consciousness"/>
     <display value="Disturbance of consciousness"/>
     <display value="Impaired consciousness"/>
+  </concept>
+  <concept id="302545001" display="Entire foot (body structure)">
+    <display value="Foot"/>
+    <display value="Entire foot"/>
+    <display value="Entire foot (body structure)"/>
   </concept>
   <concept id="302794003" display="Nasogastric aspirate">
     <display value="Nasogastric aspirate"/>
@@ -2427,6 +2468,12 @@
     <display value="Descending colon"/>
     <display value="Descending colon structure (body structure)"/>
   </concept>
+  <concept id="32667006" display="Oropharyngeal airway device (physical object)">
+    <display value="Oral airway"/>
+    <display value="Oropharyngeal airway device"/>
+    <display value="Oropharyngeal airway"/>
+    <display value="Oropharyngeal airway device (physical object)"/>
+  </concept>
   <concept id="32713005" display="Cecum structure (body structure)">
     <display value="Cecum structure"/>
     <display value="Caecum structure"/>
@@ -2501,6 +2548,10 @@
     <display value="Sitting position"/>
     <display value="Sitting"/>
     <display value="Sitting position (finding)"/>
+  </concept>
+  <concept id="336623009" display="Oxygen nasal cannula (physical object)">
+    <display value="Oxygen nasal cannula"/>
+    <display value="Oxygen nasal cannula (physical object)"/>
   </concept>
   <concept id="337915000" display="Homo sapiens (organism)">
     <display value="Human"/>
@@ -3845,6 +3896,12 @@
     <display value="Right lateral tilt (finding)"/>
     <display value="Right lateral tilt"/>
   </concept>
+  <concept id="415700003" display="T piece without bag (physical object)">
+    <display value="T piece without bag (physical object)"/>
+    <display value="T piece without bag"/>
+    <display value="Ayers T"/>
+    <display value="Mapleson E T piece"/>
+  </concept>
   <concept id="41570003" display="Carbuncle (morphologic abnormality)">
     <display value="Carbuncle"/>
     <display value="Carbuncle (morphologic abnormality)"/>
@@ -4084,6 +4141,24 @@
     <display value="Review of care plan (procedure)"/>
     <display value="Review of care plan"/>
   </concept>
+  <concept id="425478008" display="Blow by oxygen mask (physical object)">
+    <display value="Blow by oxygen mask (physical object)"/>
+    <display value="Blow by oxygen mask"/>
+  </concept>
+  <concept id="425926003" display="Partial rebreather oxygen mask (physical object)">
+    <display value="Partial rebreather oxygen mask (physical object)"/>
+    <display value="Partial rebreather oxygen mask"/>
+    <display value="Partial rebreather mask"/>
+  </concept>
+  <concept id="425994007" display="Oxygen mist tent (physical object)">
+    <display value="Oxygen mist tent (physical object)"/>
+    <display value="Oxygen mist tent"/>
+  </concept>
+  <concept id="426294006" display="Face tent oxygen delivery device (physical object)">
+    <display value="Face tent oxygen delivery device (physical object)"/>
+    <display value="Face tent oxygen delivery device"/>
+    <display value="Face tent"/>
+  </concept>
   <concept id="426396005" display="Cardiac chest pain (finding)">
     <display value="Cardiac chest pain (finding)"/>
     <display value="Cardiac chest pain"/>
@@ -4094,6 +4169,20 @@
     <display value="Nursing home"/>
     <display value="Nursing home, NOS"/>
     <display value="Nursing home (environment)"/>
+  </concept>
+  <concept id="426854004" display="High flow oxygen nasal cannula (physical object)">
+    <display value="High flow oxygen nasal cannula (physical object)"/>
+    <display value="High flow oxygen nasal cannula"/>
+  </concept>
+  <concept id="427591007" display="Nonrebreather oxygen mask (physical object)">
+    <display value="Nonrebreather oxygen mask (physical object)"/>
+    <display value="Nonrebreather oxygen mask"/>
+    <display value="Non-rebreather mask"/>
+    <display value="Nonrebreather mask"/>
+  </concept>
+  <concept id="427594004" display="Oxyhood (physical object)">
+    <display value="Oxyhood (physical object)"/>
+    <display value="Oxyhood"/>
   </concept>
   <concept id="428041000124106" display="Occasional tobacco smoker (finding)">
     <display value="Occasional tobacco smoker"/>
@@ -4109,6 +4198,10 @@
     <display value="Heavy tobacco smoker (finding)"/>
     <display value="Heavy tobacco smoker"/>
     <display value="Current heavy tobacco smoker"/>
+  </concept>
+  <concept id="428285009" display="Venturi mask (physical object)">
+    <display value="Venturi mask (physical object)"/>
+    <display value="Venturi mask"/>
   </concept>
   <concept id="428607008" display="No known environmental allergy (situation)">
     <display value="No Known Environmental Allergy"/>
@@ -4130,6 +4223,13 @@
     <display value="Procedure to meet occupational requirement (regime/therapy)"/>
     <display value="Procedure to meet occupational requirement"/>
     <display value="Procedure to meet occupational requirement (procedure)"/>
+  </concept>
+  <concept id="429375002" display="Esophageal tracheal double lumen supraglottic airway device (physical object)">
+    <display value="Esophageal tracheal double lumen supraglottic airway device (physical object)"/>
+    <display value="Oesophageal tracheal double lumen airway device"/>
+    <display value="Esophageal tracheal double lumen supraglottic airway device"/>
+    <display value="Oesophageal tracheal double lumen supraglottic airway device"/>
+    <display value="Esophageal tracheal double lumen airway device"/>
   </concept>
   <concept id="42950004" display="Iron measurement (procedure)">
     <display value="Iron level"/>
@@ -4692,6 +4792,12 @@
   <concept id="4631006" display="Tubular adenocarcinoma (morphologic abnormality)">
     <display value="Tubular adenocarcinoma"/>
   </concept>
+  <concept id="463388008" display="Esophageal-obturating/tracheal airway, single-use">
+    <display value="Oesophageal-obturating/tracheal airway, single-use (physical object)"/>
+    <display value="Oesophageal-obturating/tracheal airway, single-use"/>
+    <display value="Esophageal-obturating/tracheal airway, single-use (physical object)"/>
+    <display value="Esophageal-obturating/tracheal airway, single-use"/>
+  </concept>
   <concept id="463698006" display="Pneumograph (physical object)">
     <display value="Pneumograph (physical object)"/>
     <display value="Pneumograph"/>
@@ -4700,6 +4806,14 @@
     <display value="Chloride measurement"/>
     <display value="Chloride measurement, NOS"/>
     <display value="Chloride measurement (procedure)"/>
+  </concept>
+  <concept id="465839001" display="Tracheostomy mask, oxygen (physical object)">
+    <display value="Tracheostomy mask, oxygen"/>
+    <display value="Tracheostomy mask, oxygen (physical object)"/>
+  </concept>
+  <concept id="466033006" display="Resuscitator face mask, single-use (physical object)">
+    <display value="Resuscitator face mask, single-use (physical object)"/>
+    <display value="Resuscitator face mask, single-use"/>
   </concept>
   <concept id="467862000" display="Capillary patient thermometer, mercury (physical object)">
     <display value="Capillary patient thermometer, mercury"/>
@@ -4730,6 +4844,10 @@
     <display value="Chiropractic manipulation, NOS"/>
     <display value="Chiropractic manipulation (procedure)"/>
     <display value="A manipulation done by a chiropractor"/>
+  </concept>
+  <concept id="469609003" display="Manual pulmonary resuscitator, single-use (physical object)">
+    <display value="Manual pulmonary resuscitator, single-use (physical object)"/>
+    <display value="Manual pulmonary resuscitator, single-use"/>
   </concept>
   <concept id="46992007" display="Pill (qualifier value)">
     <display value="Pill (product)"/>
@@ -4830,6 +4948,12 @@
     <display value="Anxiousness"/>
     <display value="Feeling anxious"/>
   </concept>
+  <concept id="48800003" display="Ear lobule structure (body structure)">
+    <display value="Ear lobule structure"/>
+    <display value="Ear lobule structure (body structure)"/>
+    <display value="Ear lobule"/>
+    <display value="Ear lobe"/>
+  </concept>
   <concept id="49122002" display="Ambulance, device (physical object)">
     <display value="Ambulance, device (physical object)"/>
     <display value="Ambulance, device"/>
@@ -4898,6 +5022,13 @@
     <display value="Hospital-based birthing center"/>
     <display value="Hospital-based birthing center (environment)"/>
     <display value="Hospital-based birthing center"/>
+  </concept>
+  <concept id="52795006" display="Forehead structure (body structure)">
+    <display value="Forehead structure"/>
+    <display value="Forehead structure (body structure)"/>
+    <display value="Forehead"/>
+    <display value="Forehead, NOS"/>
+    <display value="Frontal region"/>
   </concept>
   <concept id="53041004" display="Alcohol (substance)">
     <display value="Alcohol (substance)"/>
@@ -5086,6 +5217,12 @@
     <display value="Refused by parents of subject (qualifier value)"/>
     <display value="Refused by parents of subject"/>
   </concept>
+  <concept id="61330002" display="Nasopharyngeal airway device (physical object)">
+    <display value="Nasopharyngeal airway device"/>
+    <display value="Nasopharyngeal airway"/>
+    <display value="Nasal airway"/>
+    <display value="Nasopharyngeal airway device (physical object)"/>
+  </concept>
   <concept id="62455006" display="N0 category (finding)">
     <display value="N0 category (finding)"/>
   </concept>
@@ -5184,6 +5321,14 @@
     <display value="Absent respiratory sounds"/>
     <display value="Suppressed breath sounds"/>
     <display value="Absent breath sounds (finding)"/>
+  </concept>
+  <concept id="65531009" display="Middle finger structure (body structure)">
+    <display value="Middle finger"/>
+    <display value="Middle finger, NOS"/>
+    <display value="Third finger, NOS"/>
+    <display value="Third finger"/>
+    <display value="Middle finger structure"/>
+    <display value="Middle finger structure (body structure)"/>
   </concept>
   <concept id="66051006" display="Pyloric antrum structure (body structure)">
     <display value="Pyloric antrum"/>
@@ -5307,6 +5452,10 @@
     <display value="Stridulous breathing"/>
     <display value="Stridor (finding)"/>
   </concept>
+  <concept id="706226000" display="Continuous positive airway pressure/Bilevel positive airway pressure mask (physical object)">
+    <display value="Continuous positive airway pressure/Bilevel positive airway pressure mask"/>
+    <display value="Continuous positive airway pressure/Bilevel positive airway pressure mask (physical object)"/>
+  </concept>
   <concept id="7087005" display="Intermittent (qualifier value)">
     <display value="Intermittent (qualifier value)"/>
     <display value="Intermittent"/>
@@ -5386,6 +5535,11 @@
     <display value="Maternal"/>
     <display value="Mother (person)"/>
   </concept>
+  <concept id="73027007" display="Infant incubator">
+    <display value="Infant incubator"/>
+    <display value="Infant incubator, device"/>
+    <display value="Infant incubator, device (physical object)"/>
+  </concept>
   <concept id="73425007" display="Inactive (qualifier value)">
     <display value="Inactive"/>
     <display value="Inactive (qualifier value)"/>
@@ -5447,6 +5601,12 @@
     <display value="Group psychotherapy (regime/therapy)"/>
     <display value="Group psychotherapy"/>
     <display value="Group therapy"/>
+  </concept>
+  <concept id="76853006" display="Heel structure (body structure)">
+    <display value="Heel"/>
+    <display value="Calcaneal region"/>
+    <display value="Heel structure"/>
+    <display value="Heel structure (body structure)"/>
   </concept>
   <concept id="76902006" display="Tetanus (disorder)">
     <display value="Tetanus"/>
@@ -5575,6 +5735,15 @@
     <display value="Amputation (procedure)"/>
     <display value="Excision of normal topography"/>
   </concept>
+  <concept id="82002001" display="Ring finger structure (body structure)">
+    <display value="Finger, ring"/>
+    <display value="Ring finger"/>
+    <display value="Ring finger, NOS"/>
+    <display value="Fourth finger, NOS"/>
+    <display value="Fourth finger"/>
+    <display value="Ring finger structure"/>
+    <display value="Ring finger structure (body structure)"/>
+  </concept>
   <concept id="82242000" display="Children&#39;s hospital (environment)">
     <display value="Children&#39;s hospital"/>
     <display value="Children&#39;s hospital (environment)"/>
@@ -5610,6 +5779,16 @@
     <display value="Greater peritoneal cavity"/>
     <display value="Peritoneal cavity structure"/>
     <display value="Peritoneal cavity structure (body structure)"/>
+  </concept>
+  <concept id="83738005" display="Index finger structure (body structure)">
+    <display value="Finger, index"/>
+    <display value="Finger, little"/>
+    <display value="Index finger"/>
+    <display value="Index finger, NOS"/>
+    <display value="Second finger, NOS"/>
+    <display value="Second finger"/>
+    <display value="Index finger structure"/>
+    <display value="Index finger structure (body structure)"/>
   </concept>
   <concept id="83891005" display="Solo practice private office (environment)">
     <display value="Solo practice private office"/>

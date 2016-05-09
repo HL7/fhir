@@ -6,9 +6,9 @@
   <name value="HSPC Allergy Intolerance Type Value Set"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2015-08-06T00:00:00+03:00"/>
-  <description value="SELECT SNOMED CT and Intermountain Healthcare HDD code system values."/>
-  <copyright value="TBD"/>
+  <date value="2015-08-06T00:00:00-06:00"/>
+  <description value="Intermountain Healthcare HDD code system values."/>
+  <copyright value="Intermountain Healthcare"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

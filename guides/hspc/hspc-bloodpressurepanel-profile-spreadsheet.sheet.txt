@@ -15,30 +15,42 @@
 
  -- Row 3 -----------------------------------
   Element = Observation.component
-  Discriminator = component.extension|true|closed
-
- -- Row 4 -----------------------------------
-  Element = Observation.component.exstension
-  Profile Name = Systolic
+  Profile Name = Systolic Pressure
+  Discriminator = component.name|true|closed
   Card. = 1..1
   Aliases = Systolic BP
+
+ -- Row 4 -----------------------------------
+  Element = Observation.component.extension
+  Profile Name = Systolic BP
+  Card. = 1..1
   Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-systolicbp}
   Short Label = Systolic BP
 
  -- Row 5 -----------------------------------
-  Element = Observation.component.exstension
-  Profile Name = Diastolic
+  Element = Observation.component
+  Profile Name = Diastolic Pressure
   Card. = 1..1
   Aliases = Diastolic BP
-  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-diastolicbp}
   Short Label = Diastolic BP
 
  -- Row 6 -----------------------------------
-  Element = Observation.component.exstension
+  Element = Observation.component.extension
+  Profile Name = Diastolic BP
+  Card. = 1..1
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-diastolicbp}
+
+ -- Row 7 -----------------------------------
+  Element = Observation.component
   Profile Name = Mean Arterial Pressure
   Card. = 0..1
   Aliases = Mean Arterial Pressure
-  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-meanarterialpressure}
   Short Label = Mean Arterial Pressure
+
+ -- Row 8 -----------------------------------
+  Element = Observation.component.extension
+  Profile Name = MAP
+  Card. = 0..1
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-meanarterialpressure}
 
 === Sheet Search =====================================

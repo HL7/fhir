@@ -1274,7 +1274,8 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">LogicalAssertVS</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3821,7 +3822,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>

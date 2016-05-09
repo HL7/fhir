@@ -7,19 +7,20 @@
   <name value="Abnormal Interpretation Numeric Nom"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2015-04-14T00:00:00+03:00"/>
-  <description value="HL7 V3:ObservationInterpretation OID: 2.16.840.1.113883.5.83 + SNOMED CT SNOMED CT concepts from the Degree findings (qualifier value)272520006, Presence findings (qualifier value)260411009, Absence findings (qualifier value)272519000"/>
-  <copyright value="IHC"/>
+  <date value="2015-04-14T00:00:00-06:00"/>
+  <description value="Intermountain Healthcare HDD code system values."/>
+  <copyright value="Intermountain Healthcare"/>
+  <date value="2015-04-14T00:00:00+10:00"/>
   <caseSensitive value="true"/>
   <valueSet value="http://healthcaresoa.org/fhir/ValueSet/hspc-abnInt-NumericNom"/>
   <content value="complete"/>
   <concept>
-    <code value="higher"/>
+    <code value="1038"/>
     <display value="Higher than technical"/>
     <definition value="The results were lower than the technical limits of the test procedure"/>
   </concept>
   <concept>
-    <code value="lower"/>
+    <code value="1041"/>
     <display value="Lower than technical"/>
     <definition value="The results were higher than the technical limits of the test procedure"/>
   </concept>

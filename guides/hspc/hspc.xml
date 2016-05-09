@@ -105,8 +105,8 @@
     </extension>
     <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-logicalassert-profile-spreadsheet.xml"/>
-    </extension>
-    <!--<extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+    </extension><!--
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-medicationstatement-profile-spreadsheet.xml"/>
     </extension>-->
     <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
@@ -120,6 +120,9 @@
     </extension>
     <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-revisedgenevatotalscore-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-pesitotalscore-profile-spreadsheet.xml"/>
     </extension>
     <!--<extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-revisedgenevaagescore-profile-spreadsheet.xml"/>
@@ -190,11 +193,48 @@
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="diagnosticReport-hspc-radiologyreport-spreadsheet.xml"/>
     </extension>
-    <!--
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="hspc-breathSounds-profile-spreadsheet.xml"/>
+      <valueUri value="roomairassert-hspc-profile-spreadsheet.xml"/>
     </extension>
-    -->
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-deliveredoxygen-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-oxygenSaturationAterialBloodMeas-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-oxygenSaturationPanel-profile-spreadsheet.xml"/>
+    </extension><!--
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-breathsounds-profile-spreadsheetNew.xml"/>
+    </extension>-->
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-bodylength-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-bsa-profile-spreadsheet.xml"/>
+    </extension><!--
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-respiratorypattern-profile-spreadsheet.xml"/>
+    </extension>--><!--
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-respiratoryeffort-profile-spreadsheet.xml"/>
+    </extension>--><!--
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-airwaypatentassert-profile-spreadsheet.xml"/>
+    </extension>--><!--
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-takingexoestrogen-profile-spreadsheet.xml"/>
+    </extension>-->
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-peruleoutcriteriascore-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-lowriskforpeimpression-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-peruleoutcriteriapanel-profile-spreadsheet.xml"/>
+    </extension>
     <name value="base"/>
     <resource>
       <example value="false"/>

@@ -7,7 +7,7 @@
   <status value="draft"/>
   <publisher value="Health Services Platform Consortium (HSPC)"/>
   <date value="2015-02-09"/>
-  <description value="SELECT SNOMED CT code system values descending from &#39;change values&#39; (288533004)."/>
+  <description value="SELECT SNOMED CT code system values descending from &#39;Finding of marital or partnership status (finding)&#39; (365581002)."/>
   <immutable value="true"/>
   <copyright value="TBD"/>
   <extensible value="true"/>

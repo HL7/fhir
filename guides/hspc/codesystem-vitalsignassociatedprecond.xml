@@ -6,9 +6,9 @@
   <name value="HSPC Vital Sign Associated Precondition"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2015-06-11T00:00:00+03:00"/>
-  <description value="SELECT SNOMED CT code system values descending from &#39;Qualifier value&#39; (362981000)."/>
-  <copyright value="TBD"/>
+  <date value="2015-06-11T00:00:00-06:00"/>
+  <description value="Select Intermountain Healthcare HDD code system values."/>
+  <copyright value="Intemountain Healthcare"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

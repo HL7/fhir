@@ -9,15 +9,15 @@
   <Author>Grahame</Author>
   <LastAuthor>Nathan Davis</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-11-30T18:20:52Z</LastSaved>
-  <Version>16.00</Version>
+  <LastSaved>2016-05-03T19:26:48Z</LastSaved>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17610</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>16440</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>740</TabRatio>
@@ -1074,10 +1074,10 @@
  </Worksheet>
  <Worksheet ss:Name="HSPC-Patient">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='HSPC-Patient'!R1C1:R36C24"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='HSPC-Patient'!R1C1:R38C24"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="37" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="39" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s86" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="138"/>
@@ -1500,22 +1500,25 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">HSPCMaritalStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="24" ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Contact</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Emergency Contact</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">patient.contact.relationship|true|openAtEnd</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">contact.name|false|openAtEnd</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Patient.contact</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6" ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Emergency Contact</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8" ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="24" ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="String">emergencyContact</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Patient.contact.relationship</Data><NamedCell
@@ -1530,6 +1533,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">&lt;code&gt;&lt;coding&gt;&lt;system value=&quot;http://hl7.org/fhir/ValueSet/patient-contact-relationship&quot;/&gt;&lt;code value=&quot;emergency&quot;/&gt;&lt;display value=&quot;Emergency&quot;/&gt;&lt;/coding&gt;&lt;/code&gt;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="24" ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="String">contactPartyId</Data><NamedCell
@@ -1547,6 +1551,42 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="24" ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Contact</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Patient.contact</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Contact</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="24" ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s108"><Data ss:Type="String">contactPartyId</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Patient.contact.extension</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Extension{#ContactPartyId}</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="24" ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1561,6 +1601,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="24" ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="String">communication.mode</Data><NamedCell
@@ -1587,6 +1628,7 @@
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">HL7 Comm. Mode. TBD</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="24" ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s108"><Data ss:Type="String">militaryService</Data><NamedCell
@@ -1602,6 +1644,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">VeteranMilitaryStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="24" ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="String">birthDateVerificationMethod</Data><NamedCell
@@ -1616,6 +1659,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">BirthDateVerifiedMethod</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="24" ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="String">patientImportance</Data><NamedCell
@@ -1892,7 +1936,7 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Patient.patient-birthTime</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">!Patient.patient-birthTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">0..0</Data><NamedCell
@@ -2134,14 +2178,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R36C24"
+  <AutoFilter x:Range="R1C1:R38C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>

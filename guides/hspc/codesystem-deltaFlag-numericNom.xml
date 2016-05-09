@@ -7,9 +7,9 @@
   <name value="Abnormal Interpretation Numeric Nom"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2014-06-25T00:00:00+03:00"/>
-  <description value="HL7 V3:ObservationInterpretation OID: 2.16.840.1.113883.5.83 + SNOMED CT SNOMED CT concepts from the Degree findings (qualifier value)272520006, Presence findings (qualifier value)260411009, Absence findings (qualifier value)272519000"/>
-  <copyright value="IHC"/>
+  <date value="2014-06-25T00:00:00-06:00"/>
+  <description value="Intermountain Healthcare HDD code system values, the set of codes that describe abnormal interpretations."/>
+  <copyright value="Intermountain Healthcare"/>
   <caseSensitive value="true"/>
   <valueSet value="http://healthcaresoa.org/fhir/ValueSet/hspc-deltaFlag-numericNom"/>
   <content value="complete"/>

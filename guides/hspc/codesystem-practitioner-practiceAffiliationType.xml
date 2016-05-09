@@ -6,10 +6,11 @@
   <status value="draft"/>
   <experimental value="false"/>
   <description value="A set of codes that describe how a provider is affiliated with an organization pertaining to the practice of medicine."/>
+  <copyright value="Intermountain Healthcare"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="5b595190-aceb-48de-b0d6-8950a8829183"/>
+    <code value="50481705"/>
     <display value="School affiliation"/>
     <definition value="The provider&#39;s connection with the organization as a practitioner is in an educaitonal manner, i.e. as an educator or student."/>
   </concept>

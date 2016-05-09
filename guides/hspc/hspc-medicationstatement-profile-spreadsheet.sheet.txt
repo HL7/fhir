@@ -8,21 +8,22 @@
   Definition = A set of codes that describe the physical form a medication is in.
   Conformance = preferred
 
-=== Sheet hspc-medstatement =====================================
+=== Sheet hspc-medicationstatement =====================================
 
  -- Row 1 -----------------------------------
   Element = MedicationStatement
   Profile Name = HSPC MedicationStatement
-  Type = Resource
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-medicationstatement}
 
  -- Row 2 -----------------------------------
-  Element = MedicationStatement.medication
+  Element = !MedicationStatement.medication
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/qicore-medication}
 
  -- Row 3 -----------------------------------
-  Element = MedicationStatement.medication.product
+  Element = !MedicationStatement.medication.product
 
  -- Row 4 -----------------------------------
-  Element = MedicationStatement.medication.product.form
+  Element = !MedicationStatement.medication.product.form
   Profile Name = DoseForm
   Binding = DoseForm
 

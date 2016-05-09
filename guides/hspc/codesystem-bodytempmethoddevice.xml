@@ -6,9 +6,9 @@
   <name value="HSPC Body Temperature Measurement Method/Device"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2015-06-11T00:00:00+03:00"/>
-  <description value="SELECT SNOMED CT code system values."/>
-  <copyright value="TBD"/>
+  <date value="2015-06-11T00:00:00-06:00"/>
+  <description value="Select Intermountain Healthcare HDD code system values."/>
+  <copyright value="Intermountain Healthcare"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

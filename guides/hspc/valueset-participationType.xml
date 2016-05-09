@@ -33,6 +33,11 @@
       <display value="Therapeutic agent"/>
       <definition value="Something incorporated in the subject of a therapy service to achieve a physiologic effect (e.g., heal, relieve, provoke a condition, etc.)"/>
     </concept>
+    <concept>
+      <code value="528177627"/>
+      <display value="Asserter"/>
+      <definition value="The individual that is asserts something about a patient."/>
+    </concept>
   </codeSystem>
   <compose>
     <include>
