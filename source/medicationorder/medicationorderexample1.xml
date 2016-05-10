@@ -91,13 +91,7 @@
         </expectedSupplyDuration>
     </dispenseRequest>   
     <substitution>
-        <type>
-            <coding>
-                <system value="http://hl7.org/fhir"/>
-                <code value="G"/>
-                <display value="Generic Composition"/>
-            </coding>
-        </type>
+        <allowed value = "true"/>
         <reason>
             <coding>
                 <system value="http://hl7.org/fhir"/>
