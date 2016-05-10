@@ -72,9 +72,6 @@
         </doseQuantity>
     </dosageInstruction>         
     <dispenseRequest>
-        <medicationReference>
-            <reference value="Medication/MedicationExample3"/>
-        </medicationReference>
         <validityPeriod>
             <start value="2015-01-15"/>
             <end value="2016-01-15"/>
