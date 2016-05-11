@@ -11,7 +11,7 @@
 		</identifier>
 		<version value="1.0.0"/>
 		<title value="Azathioprine Myelotoxicity Intervention Poor Status"/>
-		<type value="eca-rule"/>
+		<type value="decision-support-rule"/>
 		<status value="active"/>
 		<description value="Azathioprine myelotoxicity intervention to alert the user that azathioprine should either be avoided or the dosage should be reduced."/>
 		<publicationDate value="2016-04-01"/>

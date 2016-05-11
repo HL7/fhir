@@ -144,6 +144,7 @@
   Element = MedicationDispense.status
   Card. = 0..1
   Is Modifier = Y
+  Summary = y
   Type = code
   Binding = MedicationDispenseStatus
   Short Label = in-progress | on-hold | completed | entered-in-error | stopped
@@ -155,6 +156,7 @@
  -- Row 4 -----------------------------------
   Element = MedicationDispense.medication[x]
   Card. = 1..1
+  Summary = y
   Type = CodeableConcept|Reference(Medication)
   Binding = MedicationCode
   Short Label = What medication was supplied
@@ -167,6 +169,7 @@
  -- Row 5 -----------------------------------
   Element = MedicationDispense.patient
   Card. = 0..1
+  Summary = y
   Type = Reference(Patient)
   Short Label = Who the dispense is for
   Definition = A link to a resource representing the person to whom the medication will be given.
@@ -223,6 +226,7 @@
  -- Row 11 -----------------------------------
   Element = MedicationDispense.whenPrepared
   Card. = 0..1
+  Summary = y
   Type = dateTime
   Short Label = Dispense processing time
   Definition = The time when the dispensed product was packaged and reviewed.

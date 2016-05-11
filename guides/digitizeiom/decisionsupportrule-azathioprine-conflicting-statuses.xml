@@ -12,7 +12,7 @@
 	  </identifier>
 	  <version value="1.0.0"/>
 	  <title value="Azathioprine Myelotoxicity Conflicting Statuses"/>
-	  <type value="eca-rule"/>
+	  <type value="decision-support-rule"/>
 	  <status value="active"/>
 	  <description value="Azathioprine myelotoxicity intervention to alert the user that conflicting statuses were found in the patient's TPMT genotype test results."/>
 	  <publicationDate value="2016-04-01"/>

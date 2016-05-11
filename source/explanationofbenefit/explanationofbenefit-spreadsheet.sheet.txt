@@ -240,14 +240,14 @@
   Conformance = example
 
  -- Row 35 -----------------------------------
-  Binding Name = ClaimType
+  Binding Name = ClaimType2
   Binding = code list
-  Reference = #claim-type-link
+  Reference = #claim-type-link2
   Definition = The type or discipline-style of the claim
   Description = create a valueset
   Conformance = required
 
-=== Sheet claim-type-link =====================================
+=== Sheet claim-type-link2 =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -322,7 +322,7 @@
   Card. = 1..1
   Regex = should we create a valueset?
   Type = code
-  Binding = ClaimType
+  Binding = ClaimType2
   Short Label = institutional | oral | pharmacy | professional | vision
   Definition = The category of claim
   Comments = Affects which fields and value sets are used
@@ -805,8 +805,8 @@
   Type = Identifier|Reference(Practitioner)
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient
-  RIM Mapping = 24G&H not sure
   CDAnet v4 Mapping = not used
+  RIM Mapping = 24G&H not sure
 
  -- Row 72 -----------------------------------
   Element = ExplanationOfBenefit.item.supervisor[x]

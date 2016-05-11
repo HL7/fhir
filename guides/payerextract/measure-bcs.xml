@@ -15,7 +15,7 @@
 	  </identifier>
 	  <version value="1.0.0"/>
 	  <title value="Breast Cancer Screening Cohort Definition"/>
-	<type value="measure"/>
+	<type value="module"/>
 	<status value="active"/>
 	<experimental value="true"/>
 	<description value="Breast Cancer Screening Cohort Definition"/>

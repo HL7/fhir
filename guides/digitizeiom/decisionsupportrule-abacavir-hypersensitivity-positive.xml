@@ -11,7 +11,7 @@
 		</identifier>
 		<version value="1.0.0"/>
 		<title value="Abacavir Hypersensitivity Positive"/>
-		<type value="eca-rule"/>
+		<type value="decision-support-rule"/>
 		<status value="active"/>
 		<description value="Abacavir hypersensitivity intervention to alert the user that the patient's genotype test results indicate a hypersensitivity to Abacavir."/>
 		<publicationDate value="2016-04-01"/>

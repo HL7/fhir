@@ -15,7 +15,7 @@
 	  </identifier>
 	  <version value="1.0.0"/>
 	  <title value="Controlling High Blood Pressure Cohort Definition"/>
-	<type value="measure"/>
+	<type value="module"/>
 	<status value="active"/>
 	<experimental value="true"/>
 	<description value="Controlling High Blood Pressure Cohort Definition"/>

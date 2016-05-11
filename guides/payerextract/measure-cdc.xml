@@ -15,7 +15,7 @@
 	  </identifier>
 	  <version value="1.0.0"/>
 	  <title value="Comprehensive Diabetes Care Cohort Definition"/>
-	<type value="measure"/>
+	<type value="module"/>
 	<status value="active"/>
 	<experimental value="true"/>
 	<description value="Comprehensive Diabetes Care Cohort Definition"/>
