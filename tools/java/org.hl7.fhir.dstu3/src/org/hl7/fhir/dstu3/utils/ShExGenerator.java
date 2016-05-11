@@ -3,13 +3,11 @@ package org.hl7.fhir.dstu3.utils;
 import java.util.*;
 
 import org.hl7.fhir.dstu3.model.ElementDefinition;
-import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.StringUtils;
 
-import org.hl7.fhir.dstu3.model.UriType;
 import org.stringtemplate.v4.*;
 
 public class ShExGenerator {
@@ -18,23 +16,22 @@ public class ShExGenerator {
     NONE, EXTERNAL, INTERNAL
   }
 
-  // An entire definition is a header plus a list of shape definitions
-  private static String SHEX_TEMPLATE =
-          "$header$\n\n" +
+  private static String SHEX_TEMPLATE = "$header$\n\n" +
           "$shapeDefinitions$";
 
   // A header is a list of prefixes plus a BASE
   private static String HEADER_TEMPLATE =
           "PREFIX fhir: <http://hl7.org/fhir/> \n" +
           "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \n" +
-          "BASE <http://hl7.org/fhir/shape/>\n";
+          "BASE <http://hl7.org/fhir/shape/>\n\n" +
+          "start=<$id$>\n";
 
   // A shape definition template -- an id followed by an optional resource declaration (type + treeRoot) +
   // a list of definition elements
-  private static String SHAPE_DEFINITION_TEMPLATE = "<$id$> {\n$resourceDecl$\t$elements$\n}\n";
+  private static String SHAPE_DEFINITION_TEMPLATE = "<$id$> {$resourceDecl$$elements$,\n\tfhir:index xsd:int?\n}\n";
 
   // Additional declaration that appears only in a resource definition
-  private static String RESOURCE_DECL_TEMPLATE = "\n\ta [fhir:$id$],\n\tfhir:nodeRole [fhir:treeRoot],\n";
+  private static String RESOURCE_DECL_TEMPLATE = "\n\ta [fhir:$id$],\n\tfhir:nodeRole [fhir:treeRoot],\n\t";
 
   // An element definition within a shape
   private static String ELEMENT_TEMPLATE = "fhir:$id$ $defn$$card$";
@@ -46,13 +43,16 @@ public class ShExGenerator {
   private static String PRIMITIVE_ELEMENT_TEMPLATE = "xsd:$typ$";
 
   // A list of alternative shape definitions
-  private static String ALTERNATIVE_TEMPLATE = "\n\t(\t$altEntries$\n\t)";
+  private static String ALTERNATIVE_TEMPLATE = "\n\t(\n\t\t$altEntries$\n\t)";
 
   // A typed reference definition
   private static String REFERENCE_TEMPLATE = "@<$ref$Reference>";
 
   // A choice of different predicate / types
   private static String CHOICE_TEMPLATE = "\n(\t$choiceEntries$\n\t)$card$";
+
+  // What we emit for an xhtml
+  private static String XHTML_TEMPLATE = "xsd:string";
 
   // A typed reference -- a fhir:uri with an optional type and the possibility of a resolvable shape
 //  fhir:Element.id @<id>?,
@@ -65,7 +65,8 @@ public class ShExGenerator {
                                                    "\tfhir:Element.extension @<Extension>*,\n" +
                                                    "\tfhir:link (@<$refType$> OR IRI)?,\n" +
                                                    "\tfhir:Reference.reference @<string>?,\n" +
-                                                   "\tfhir:Reference.display @<string>?\n" +
+                                                   "\tfhir:Reference.display @<string>?,\n" +
+                                                   "\tfhir:index xsd:int?\n" +
                                                    "}";
 
   // TODO: find the literal for this
@@ -79,21 +80,26 @@ public class ShExGenerator {
   /**
    * List of typeReferences generated per session
    */
-    private LinkedList<Pair<StructureDefinition, ElementDefinition>> typeReferences;
-    private HashSet<String> references;
+  private LinkedList<Pair<StructureDefinition, ElementDefinition>> typeReferences;
+  private HashSet<String> references;
+  private HashSet<String> datatypes;
+  private boolean doDatatypes;
 
-    public ShExGenerator(IWorkerContext context) {
+  public ShExGenerator(IWorkerContext context) {
     super();
+    doDatatypes = true;
     this.context = context;
-    this.typeReferences = new LinkedList<Pair<StructureDefinition, ElementDefinition>>();
-    this.references = new HashSet<String>();
+    typeReferences = new LinkedList<>();
+    references = new HashSet<>();
+    datatypes = new HashSet<>();
   }
   
   public String generate(HTMLLinkPolicy links, StructureDefinition structure) {
-    List<StructureDefinition> list = new ArrayList<StructureDefinition>();
+    List<StructureDefinition> list = new ArrayList<>();
     list.add(structure);
-    this.typeReferences.clear();
-    this.references.clear();
+    typeReferences.clear();
+    references.clear();
+    datatypes.clear();
     return generate(links, list);
   }
   
@@ -119,22 +125,32 @@ public class ShExGenerator {
    * @return ShEx definition of structures
    */
   public String generate(HTMLLinkPolicy links, List<StructureDefinition> structures) {
-    String SHEX_TEMPLATE = "$header$\n\n" +
-            "$shapeDefinitions$";
     ST shex_def = tmplt(SHEX_TEMPLATE);
-    shex_def.add("header", genHeader());
+    shex_def.add("header", genHeader(structures.get(0).getId()));
 
     // Process the requested definitions
     Collections.sort(structures, new SortById());
     StringBuilder shapeDefinitions = new StringBuilder();
     for (StructureDefinition sd : structures) {
-      shapeDefinitions.append(genShapeDefinition(sd, true));
+      shapeDefinitions.append(genShapeDefinition(sd));
     }
 
-    // Add the inner types
-    Set<String> seen = new HashSet<String>();
-    while(!this.typeReferences.isEmpty()) {
-      Pair<StructureDefinition, ElementDefinition> sded = this.typeReferences.poll();
+    emitInnerTypes(shapeDefinitions);
+    for(String r: references) {
+      shapeDefinitions.append("\n").append(genReferenceEntry(r)).append("\n");
+    }
+
+    emitDatatypes(shapeDefinitions);
+    emitInnerTypes(shapeDefinitions);
+
+    shex_def.add("shapeDefinitions", shapeDefinitions);
+    return shex_def.render();
+  }
+
+  private void emitInnerTypes(StringBuilder shapeDefinitions) {
+    Set<String> seen = new HashSet<>();
+    while(!typeReferences.isEmpty()) {
+      Pair<StructureDefinition, ElementDefinition> sded = typeReferences.poll();
       StructureDefinition sd = sded.getLeft();
       ElementDefinition ed = sded.getRight();
       if (seen.contains(ed.getPath()))
@@ -142,22 +158,31 @@ public class ShExGenerator {
       seen.add(ed.getPath());
       shapeDefinitions.append("\n").append(genElementReference(sd, ed));
     }
+  }
 
-    // Add the specific reference types
-    for(String r: this.references) {
-      shapeDefinitions.append("\n").append(genReferenceEntry(r)).append("\n");
+  private void emitDatatypes(StringBuilder shapeDefinitions) {
+    if(doDatatypes) {
+      Set<String> emitted = new HashSet<>();
+      while (!datatypes.isEmpty()) {
+        String dt = datatypes.iterator().next();
+        if (!emitted.contains(dt)) {
+          emitted.add(dt);
+          StructureDefinition sd = context.fetchResource(StructureDefinition.class,
+                  "http://hl7.org/fhir/StructureDefinition/" + dt);
+          if (sd != null)
+            shapeDefinitions.append("\n").append(genShapeDefinition(sd));
+        }
+        datatypes.remove(dt);
+      }
     }
-
-    shex_def.add("shapeDefinitions", shapeDefinitions);
-    return shex_def.render();
   }
 
   /**
    * Generate the ShEx Header
    * @return String representation
    */
-  private String genHeader() {
-    return HEADER_TEMPLATE;
+  private String genHeader(String id) {
+    return tmplt(HEADER_TEMPLATE).add("id", id).render();
   }
 
   /**
@@ -165,17 +190,14 @@ public class ShExGenerator {
    * @param sd Structure definition to emit
    * @return ShEx definition
    */
-  private String genShapeDefinition(StructureDefinition sd, boolean isResource) {
+  private String genShapeDefinition(StructureDefinition sd) {
     ST resource_decl = tmplt(RESOURCE_DECL_TEMPLATE);
     ST struct_def = tmplt(SHAPE_DEFINITION_TEMPLATE);
 
-    // todo: Figure out why this doesn't identify "Account" as a resource.  getResourceNames() returns "Resource", "Resource"
-    // this.context.getResourceNames().contains(sd.getId())
-    resource_decl.add("id", sd.getId());
-    struct_def.add("resourceDecl", isResource ? resource_decl.render() : "");
+    struct_def.add("resourceDecl", sd.getKind().name().equals("RESOURCE") ? resource_decl.add("id", sd.getId()).render() : "");
 
     struct_def.add("id", sd.getId());
-    List<String> elements = new ArrayList<String>();
+    List<String> elements = new ArrayList<>();
 
     for (ElementDefinition ed : sd.getSnapshot().getElement()) {
       if(StringUtils.countMatches(ed.getPath(), ".") == 1) {
@@ -204,7 +226,7 @@ public class ShExGenerator {
     List<ElementDefinition> children = ProfileUtilities.getChildList(sd, ed);
     if (children.size() > 0) {
       // inline anonymous type - give it a name and factor it out
-      this.typeReferences.add(new ImmutablePair<StructureDefinition, ElementDefinition>(sd, ed));
+      typeReferences.add(new ImmutablePair<>(sd, ed));
       ST anon_link = tmplt(SIMPLE_ELEMENT_TEMPLATE);
       anon_link.add("typ", id);
       defn = anon_link.render();
@@ -226,6 +248,7 @@ public class ShExGenerator {
 
   private String genTypeRef(ElementDefinition.TypeRefComponent typ) {
     ST single_entry = tmplt(SIMPLE_ELEMENT_TEMPLATE);
+
     if(typ.getProfile().size() > 0) {
       if (typ.getProfile().size() != 1) throw new AssertionError("Can't handle multiple profiles");
       single_entry.add("typ", getProfiledType(typ));
@@ -243,8 +266,12 @@ public class ShExGenerator {
         ST primitive_entry = tmplt(PRIMITIVE_ELEMENT_TEMPLATE);
         primitive_entry.add("typ", "string");
         return primitive_entry.render();
-      } else
+      } else if(typ.getCode().equals("xhtml")) {
+          return tmplt(XHTML_TEMPLATE).render();
+      } else {
         single_entry.add("typ", typ.getCode());
+        datatypes.add(typ.getCode());
+      }
     return single_entry.render();
   }
 
@@ -257,7 +284,7 @@ public class ShExGenerator {
    */
   private String genAlternativeTypes(ElementDefinition ed, String id, String card) {
     ST shex_alt = tmplt(ALTERNATIVE_TEMPLATE);
-    List<String> altEntries = new ArrayList<String>();
+    List<String> altEntries = new ArrayList<>();
 
     shex_alt.add("id", id);
 
@@ -282,7 +309,7 @@ public class ShExGenerator {
     }
     shex_ref.add("id", id);
     shex_ref.add("ref", ref);
-    this.references.add(ref);
+    references.add(ref);
     return shex_ref.render();
   }
 
@@ -317,7 +344,7 @@ public class ShExGenerator {
    */
   private String genChoiceTypes(ElementDefinition ed, String id, String card) {
     ST shex_choice = tmplt(CHOICE_TEMPLATE);
-    List<String> choiceEntries = new ArrayList<String>();
+    List<String> choiceEntries = new ArrayList<>();
     String base = id.replace("[x]", "");
 
     for(ElementDefinition.TypeRefComponent typ : ed.getType())  {
@@ -354,7 +381,7 @@ public class ShExGenerator {
     ST element_reference = tmplt(SHAPE_DEFINITION_TEMPLATE);
     element_reference.add("resourceDecl", "");  // Not a resource
     element_reference.add("id", ed.getPath());
-    List<String> elements = new ArrayList<String>();
+    List<String> elements = new ArrayList<>();
 
     for (ElementDefinition child: ProfileUtilities.getChildList(sd, ed)) {
       elements.add(genElementDefinition(sd, child));
