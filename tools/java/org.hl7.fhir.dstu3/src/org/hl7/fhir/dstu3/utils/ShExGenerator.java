@@ -89,13 +89,13 @@ public class ShExGenerator {
     super();
     doDatatypes = true;
     this.context = context;
-    typeReferences = new LinkedList<>();
-    references = new HashSet<>();
-    datatypes = new HashSet<>();
+    typeReferences = new LinkedList<Pair<StructureDefinition, ElementDefinition>>();
+    references = new HashSet<String>();
+    datatypes = new HashSet<String>();
   }
   
   public String generate(HTMLLinkPolicy links, StructureDefinition structure) {
-    List<StructureDefinition> list = new ArrayList<>();
+    List<StructureDefinition> list = new ArrayList<StructureDefinition>();
     list.add(structure);
     typeReferences.clear();
     references.clear();
@@ -148,7 +148,7 @@ public class ShExGenerator {
   }
 
   private void emitInnerTypes(StringBuilder shapeDefinitions) {
-    Set<String> seen = new HashSet<>();
+    Set<String> seen = new HashSet<String>();
     while(!typeReferences.isEmpty()) {
       Pair<StructureDefinition, ElementDefinition> sded = typeReferences.poll();
       StructureDefinition sd = sded.getLeft();
@@ -162,7 +162,7 @@ public class ShExGenerator {
 
   private void emitDatatypes(StringBuilder shapeDefinitions) {
     if(doDatatypes) {
-      Set<String> emitted = new HashSet<>();
+      Set<String> emitted = new HashSet<String>();
       while (!datatypes.isEmpty()) {
         String dt = datatypes.iterator().next();
         if (!emitted.contains(dt)) {
@@ -197,7 +197,7 @@ public class ShExGenerator {
     struct_def.add("resourceDecl", sd.getKind().name().equals("RESOURCE") ? resource_decl.add("id", sd.getId()).render() : "");
 
     struct_def.add("id", sd.getId());
-    List<String> elements = new ArrayList<>();
+    List<String> elements = new ArrayList<String>();
 
     for (ElementDefinition ed : sd.getSnapshot().getElement()) {
       if(StringUtils.countMatches(ed.getPath(), ".") == 1) {
@@ -226,7 +226,7 @@ public class ShExGenerator {
     List<ElementDefinition> children = ProfileUtilities.getChildList(sd, ed);
     if (children.size() > 0) {
       // inline anonymous type - give it a name and factor it out
-      typeReferences.add(new ImmutablePair<>(sd, ed));
+      typeReferences.add(new ImmutablePair<StructureDefinition, ElementDefinition>(sd, ed));
       ST anon_link = tmplt(SIMPLE_ELEMENT_TEMPLATE);
       anon_link.add("typ", id);
       defn = anon_link.render();
@@ -284,7 +284,7 @@ public class ShExGenerator {
    */
   private String genAlternativeTypes(ElementDefinition ed, String id, String card) {
     ST shex_alt = tmplt(ALTERNATIVE_TEMPLATE);
-    List<String> altEntries = new ArrayList<>();
+    List<String> altEntries = new ArrayList<String>();
 
     shex_alt.add("id", id);
 
@@ -344,7 +344,7 @@ public class ShExGenerator {
    */
   private String genChoiceTypes(ElementDefinition ed, String id, String card) {
     ST shex_choice = tmplt(CHOICE_TEMPLATE);
-    List<String> choiceEntries = new ArrayList<>();
+    List<String> choiceEntries = new ArrayList<String>();
     String base = id.replace("[x]", "");
 
     for(ElementDefinition.TypeRefComponent typ : ed.getType())  {
@@ -381,7 +381,7 @@ public class ShExGenerator {
     ST element_reference = tmplt(SHAPE_DEFINITION_TEMPLATE);
     element_reference.add("resourceDecl", "");  // Not a resource
     element_reference.add("id", ed.getPath());
-    List<String> elements = new ArrayList<>();
+    List<String> elements = new ArrayList<String>();
 
     for (ElementDefinition child: ProfileUtilities.getChildList(sd, ed)) {
       elements.add(genElementDefinition(sd, child));
