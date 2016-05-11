@@ -17,7 +17,8 @@ import org.junit.Test;
 public class ShexGeneratorTests {
 
   private void doTest(String name) throws FileNotFoundException, IOException, FHIRException {
-    String workingDirectory = FileSystems.getDefault().getPath(System.getProperty("user.dir"), "..", "..", "..", "publish").toString();
+    String workingDirectory = "C:\\work\\org.hl7.fhir.2016May\\build\\publish"; // FileSystems.getDefault().getPath(System.getProperty("user.dir"), "data").toString();
+    // String workingDirectory = FileSystems.getDefault().getPath(System.getProperty("user.dir"), "..", "..", "..", "publish").toString();
     if (TestingUtilities.context == null) {
       // For the time being, put the validation entry in org/hl7/fhir/dstu3/data
       Path path = FileSystems.getDefault().getPath(workingDirectory, "validation-min.xml.zip");
