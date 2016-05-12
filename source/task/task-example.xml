@@ -5,10 +5,16 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml"/>
   </text>
-  <type>
-    <text value="Refill Request"/>
-  </type>
   <status value="draft"/>
+  <stage>
+    <coding>
+      <system value="http://hl7.org/fhir/task-stage"/>
+      <code value="actionable"/>
+    </coding>
+  </stage>
+  <code>
+    <text value="Refill Request"/>
+  </code>
   <focus>
     <reference value="MedicationOrder/medrx001"/>
   </focus>
@@ -17,9 +23,9 @@
   </for>
   <created value="2016-03-10T22:39:32-04:00"/>
   <lastModified value="2016-03-10T22:39:32-04:00"/>
-  <creator>
+  <requester>
     <reference value="Patient/Keith"/>
-  </creator>
+  </requester>
   <owner>
     <reference value="Practitioner/MyDoc"/>
   </owner>

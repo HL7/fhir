@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/codesystem.xsd">
+  <id value="task-stage"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/codesystem-shareable-definition"/>
+  </meta>
+  <url value="http://hl7.org/fhir/task-stage"/>
+  <name value="Task Stage Codes"/>
+  <status value="draft"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="proposal"/>
+    <display value="proposal"/>
+    <definition value="The request is a recommendation or suggestion where there has not yet been any commitment to action"/>
+  </concept>
+  <concept>
+    <code value="planned"/>
+    <display value="planned"/>
+    <definition value="The request has a specific intention to be performed and may be scheduled but is not yet authorized to be performed"/>
+  </concept>
+  <concept>
+    <code value="actionable"/>
+    <display value="actionable"/>
+    <definition value="Indicates that the task is authorized and ready to be actioned"/>
+  </concept>
+</CodeSystem>

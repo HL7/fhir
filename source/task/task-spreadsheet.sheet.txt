@@ -24,6 +24,23 @@
   Definition = The current status of the task.
   Conformance = required
 
+ -- Row 4 -----------------------------------
+  Binding Name = TaskBusinessStatus
+  Binding = unbound
+  Definition = The domain-specific business-contextual sub-state of the task.  For example: \"Blood drawn\", \"IV inserted\", \"Awaiting physician signature\", etc.
+
+ -- Row 5 -----------------------------------
+  Binding Name = TaskStage
+  Binding = value set
+  Reference = valueset-task-stage
+  Definition = Distinguishes whether the task is a proposal, plan or full order
+  Conformance = extensible
+
+ -- Row 6 -----------------------------------
+  Binding Name = TaskReason
+  Binding = unbound
+  Definition = Indicates why the task is needed.  E.g. Suspended because patient admitted to hospital.
+
 === Sheet task-performer-type =====================================
 
  -- Row 1 -----------------------------------
@@ -157,14 +174,6 @@
   Expression = lastModified >= created
   Severity = error
 
- -- Row 2 -----------------------------------
-  Id = inv-2
-  Context = Task
-  English = A Failure reason may be present only when a task has failed.
-  XPath = not(exists(f:failureReason)) or f:status/@value = \'failed\'
-  Expression = failureReason.empty() or  status = \'failed\'
-  Severity = error
-
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -172,6 +181,7 @@
   Type = DomainResource
   Short Label = A task to be performed
   Definition = A task to be performed
+  RIM Mapping = ControlAct[moodCode=INT]
   w5 = workflow.order
 
  -- Row 2 -----------------------------------
@@ -180,63 +190,94 @@
   Type = Identifier
   Short Label = Task Instance Identifier
   Definition = The business identifier for this task.
+  RIM Mapping = .id
+  w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Task.type
+  Element = Task.basedOn
+  Card. = 0..*
+  Summary = Y
+  Type = Reference()
+  Short Label = Request fulfilled by this request
+  Definition = Identifies a plan, proposal or order that this task has been created in fulfillment of
+  RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=INT]
+
+ -- Row 4 -----------------------------------
+  Element = Task.requisition
+  Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Label = Composite request this is part of
+  Definition = An identifier that links together multiple tasks and other requests that were created in the same context
+  Requirements = Billing and/or reporting can be linked to whether multiple requests were created as a single unit.
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=INT].id
+
+ -- Row 5 -----------------------------------
+  Element = Task.parent
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Task)
+  Short Label = Composite task
+  Definition = Task that this particular task is part of
+  Requirements = Allows tasks to be broken down into sub-steps (and this division can occur independent of the original task)
+  Comments = This should usually be 0..1
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=INT]
+
+ -- Row 6 -----------------------------------
+  Element = Task.status
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = TaskStatus
+  Short Label = draft | requested | received | accepted | +
+  Definition = The current status of the task.
+  Requirements = These states enable coordination of task status with off-the-shelf workflow solutions that support automation of tasks.
+  RIM Mapping = .statusCode
+  w5 = status
+
+ -- Row 7 -----------------------------------
+  Element = Task.statusReason
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Short Label = Reason for current status
+  Definition = An explanation as to why this task is held, failed, was refused, etc.
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=\"status change\"].reasonCode
+
+ -- Row 8 -----------------------------------
+  Element = Task.businessStatus
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = TaskBusinessStatus
+  Short Label = E.g. \"Specimen collected\", \"IV prepped\"
+  Definition = Contains business-specific nuances of the business state.
+  Requirements = There\'s often a need to track substates of a task - this is often variable by specific workflow implementation
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"business status\"]
+
+ -- Row 9 -----------------------------------
+  Element = Task.stage
+  Card. = 1..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = TaskStage
+  Short Label = proposed | planned | actionable +
+  Definition = Indicates the \"level\" of actionability associated with the Task.  I.e. Is this a proposed task, a planned task, an actionable task, etc.
+  Comments = This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.
+  RIM Mapping = .moodCode
+  w5 = class
+
+ -- Row 10 -----------------------------------
+  Element = Task.code
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
   Short Label = Task Type
   Definition = A name or code (or both) briefly describing what the task involves.
+  RIM Mapping = .code
+  w5 = class
 
- -- Row 4 -----------------------------------
-  Element = Task.description
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Label = Task Description
-  Definition = A description of this task.
-
- -- Row 5 -----------------------------------
-  Element = Task.performerType
-  Card. = 0..*
-  Type = Coding
-  Binding = TaskPerformerType
-  Short Label = requester | dispatcher | scheduler | performer | monitor | manager | acquirer | reviewer
-  Definition = The type of participant that can execute the task.
-  Requirements = Use to distinguish tasks on different activity queues.
-
- -- Row 6 -----------------------------------
-  Element = Task.fulfillment
-  Card. = 0..1
-  Short Label = Constraints on fulfillment tasks
-  Definition = Identifies any limitations on what part of a referenced task subject request should be actioned
-  Requirements = Sometimes when fulfillment is sought, you don\'t want full fulfillment
-
- -- Row 7 -----------------------------------
-  Element = Task.fulfillment.repetitions
-  Card. = 0..1
-  Type = positiveInt
-  Short Label = How many times to repeat
-  Definition = Indicates the number of times the requested action should occur
-  Requirements = E.g. order that requests monthly lab tests, fulfillment is sought for 1
-
- -- Row 8 -----------------------------------
-  Element = Task.fulfillment.period
-  Card. = 0..1
-  Type = Period
-  Short Label = Over what time-period is fulfillment sought
-  Requirements = E.g. order that authorizes 1 year\'s services.  Fulfillment is sought for next 3 months.
-
- -- Row 9 -----------------------------------
-  Element = Task.fulfillment.recipients
-  Card. = 0..*
-  Type = Reference(Patient|Practitioner|RelatedPerson|Group|Organization)
-  Short Label = For whom is fulfillment sought?
-  Definition = For requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought?
-  To Do = Is this in the 80%?
-
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Task.priority
   Card. = 0..1
   Type = code
@@ -244,27 +285,18 @@
   Short Label = low | normal | high
   Definition = The priority of the task among other tasks of the same type
   Requirements = Used to identify the service level expected while performing a task.
+  RIM Mapping = .priorityCode
   Missing Meaning = If missing, this task should be performed with normal priority
-
- -- Row 11 -----------------------------------
-  Element = Task.status
-  Card. = 1..1
-  Summary = Y
-  Inv. = inv-2
-  Type = code
-  Binding = TaskStatus
-  Short Label = draft | requested | received | accepted | +
-  Definition = The current status of the task.
-  Requirements = These states enable coordination of task status with off-the-shelf workflow solutions that support automation of tasks.
+  w5 = grade
 
  -- Row 12 -----------------------------------
-  Element = Task.failureReason
+  Element = Task.description
   Card. = 0..1
   Summary = Y
-  Inv. = inv-2
-  Type = CodeableConcept
-  Short Label = Task Failure Reason
-  Definition = An explaination as to why this task failed.
+  Type = string
+  Short Label = Task Description
+  Definition = A description of this task.
+  RIM Mapping = .text
 
  -- Row 13 -----------------------------------
   Element = Task.focus
@@ -274,6 +306,8 @@
   Short Label = What task is acting on
   Definition = The request being actioned or the resource being manipulated by this task
   Requirements = Used to identify the thing to be done
+  RIM Mapping = .outboundRelationship[typeCode=SUBJ].target
+  w5 = what
 
  -- Row 14 -----------------------------------
   Element = Task.for
@@ -284,15 +318,19 @@
   Short Label = Beneficiary of the Task
   Definition = The entity who benefits from the performance of the service specified in the task (e.g., the patient).
   Requirements = Used to track tasks outstanding for a beneficiary.  Do not use to track the task owner or creator (see owner and creator respectively).
+  RIM Mapping = .participation[typeCode=RCT].role
+  w5 = who.focus
 
  -- Row 15 -----------------------------------
-  Element = Task.definition
+  Element = Task.context
   Card. = 0..1
   Summary = Y
-  Type = uri
-  Short Label = Task Definition
-  Definition = A reference to a formal or informal definition of the task.
-  Requirements = Enables a formal definition of how he task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation) to be associated with a task, enabling automation.
+  Type = Reference(Encounter|EpisodeOfCare)
+  Short Label = Healthcare event during which this task originated
+  Definition = The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created
+  Requirements = For some tasks it may be important to know the link between the task or episode of care the task originated within.
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=PCPR, moodCode=EVN]
+  w5 = context
 
  -- Row 16 -----------------------------------
   Element = Task.created
@@ -304,6 +342,8 @@
   Definition = The date and time this task was created.
   Requirements = Most often used along with lastUpdated to track duration of task to supporting monitoring and management.
   Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
+  RIM Mapping = .participation[typeCode=AUT].time
+  w5 = when.recorded
 
  -- Row 17 -----------------------------------
   Element = Task.lastModified
@@ -316,9 +356,10 @@
   Definition = The date and time of last modification to this task.
   Requirements = Used along with history to track task activity and time in a particular task state.  This enables monitoring and management.
   Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ, ].source[classCode=CACT, moodCode=EVN].effectiveTime
 
  -- Row 18 -----------------------------------
-  Element = Task.creator
+  Element = Task.requester
   Card. = 1..1
   Aliases = Initiator; Author
   Summary = Y
@@ -327,6 +368,8 @@
   Definition = The creator of the task.
   Requirements = Identifies who created this task.  May be used by access control mechanisms (e.g., to ensure that only the creator can cancel a task).
   Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
+  RIM Mapping = .participation[typeCode=AUT].role
+  w5 = who.author
 
  -- Row 19 -----------------------------------
   Element = Task.owner
@@ -338,63 +381,139 @@
   Definition = The owner of this task.  The participant who can execute this task.
   Requirements = Identifies who is expected to perform this task.
   Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
+  RIM Mapping = .participation[typeCode=PRF].role
+  w5 = who.actor
 
  -- Row 20 -----------------------------------
-  Element = Task.parent
-  Card. = 0..1
-  Summary = Y
-  Type = Reference(Task)
-  Short Label = Composite task
-  Definition = Task that this particular task is part of
-  Requirements = Allows tasks to be broken down into sub-steps (and this division can occur independent of the original task)
+  Element = Task.performerType
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = TaskPerformerType
+  Short Label = requester | dispatcher | scheduler | performer | monitor | manager | acquirer | reviewer
+  Definition = The type of participant that can execute the task.
+  Requirements = Use to distinguish tasks on different activity queues.
+  RIM Mapping = .participation[typeCode=PRF].role.code
+  w5 = who.actor
 
  -- Row 21 -----------------------------------
+  Element = Task.reason
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = TaskReason
+  Short Label = Why task is needed
+  Definition = A description or code indicating why this task needs to be performed
+  Comments = This should only be included if there is no focus or if it differs from the reason indicated on the focus.
+  RIM Mapping = .reasonCode
+  w5 = why
+
+ -- Row 22 -----------------------------------
+  Element = Task.note
+  Card. = 0..*
+  Type = Annotation
+  Short Label = Comments made about the task
+  Definition = Free-text information captured about the task as it progresses.
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ, ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value(string)
+
+ -- Row 23 -----------------------------------
+  Element = Task.fulfillment
+  Card. = 0..1
+  UML = 400;00
+  Short Label = Constraints on fulfillment tasks
+  Definition = Identifies any limitations on what part of a referenced task subject request should be actioned
+  Requirements = Sometimes when fulfillment is sought, you don\'t want full fulfillment
+  RIM Mapping = Instead of pointing to request, would point to component of request, having these characteristics
+
+ -- Row 24 -----------------------------------
+  Element = Task.fulfillment.repetitions
+  Card. = 0..1
+  Type = positiveInt
+  Short Label = How many times to repeat
+  Definition = Indicates the number of times the requested action should occur
+  Requirements = E.g. order that requests monthly lab tests, fulfillment is sought for 1
+  RIM Mapping = .repeatNumber
+
+ -- Row 25 -----------------------------------
+  Element = Task.fulfillment.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Over what time-period is fulfillment sought
+  Requirements = E.g. order that authorizes 1 year\'s services.  Fulfillment is sought for next 3 months.
+  RIM Mapping = .effectiveTime(IVL<TS>)
+
+ -- Row 26 -----------------------------------
+  Element = Task.fulfillment.recipients
+  Card. = 0..*
+  Type = Reference(Patient|Practitioner|RelatedPerson|Group|Organization)
+  Short Label = For whom is fulfillment sought?
+  Definition = For requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought?
+  RIM Mapping = .participation[typeCode=SBJ].role
+  To Do = Is this in the 80%?
+
+ -- Row 27 -----------------------------------
+  Element = Task.definition
+  Card. = 0..1
+  Summary = Y
+  Type = uri
+  Short Label = Task Definition
+  Definition = A reference to a formal or informal definition of the task.
+  Requirements = Enables a formal definition of how he task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation) to be associated with a task, enabling automation.
+  RIM Mapping = .outboundRelationship[typeCode=DEFN].target
+
+ -- Row 28 -----------------------------------
   Element = Task.input
   Card. = 0..*
+  UML = 400;125
   Type = =Parameter
   Short Label = Task Input
   Definition = Inputs to the task
   Requirements = Resources and data used to perform the task.  This data is used in the business logic of task execution, and is stored separately because it varies between workflows.
+  RIM Mapping = ???
 
- -- Row 22 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Task.input.name
   Card. = 1..1
   Type = string
   Short Label = Input Name
   Definition = The name of the input parameter.
   Requirements = Inputs are named to enable task automation to bind data and pass it from one task to the next.
+  RIM Mapping = ???
 
- -- Row 23 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Task.input.value[x]
   Card. = 1..1
   Type = *
   Short Label = Input Value
   Definition = The value of the input parameter as a basic type.
   Requirements = Task inputs can take any form.
+  RIM Mapping = ???
 
- -- Row 24 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Task.output
   Card. = 0..*
+  UML = 400;200
   Type = @Task.input
   Short Label = Task Output
   Definition = Outputs produced by the Task
   Requirements = Resources and data produced during the execution the task.  This data is generated by the business logic of task execution, and is stored separately because it varies between workflows.
+  RIM Mapping = ???
 
- -- Row 25 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Task.output.name
   Card. = 1..1
   Type = string
   Short Label = Output Name
   Definition = The name of the Output parameter.
   Requirements = Outputs are named to enable task automation to bind data and pass it from one task to the next.
+  RIM Mapping = ???
 
- -- Row 26 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = Task.output.value[x]
   Card. = 1..1
   Type = *
   Short Label = Output Value
   Definition = The value of the Output parameter as a basic type.
   Requirements = Task outputs can take any form.
+  RIM Mapping = ???
 
 === Sheet Search =====================================
 
@@ -405,10 +524,10 @@
   Path = Task.identifier
 
  -- Row 2 -----------------------------------
-  Name = type
+  Name = code
   Type = token
-  Description = Search by task type
-  Path = Task.type
+  Description = Search by task code
+  Path = Task.code
 
  -- Row 3 -----------------------------------
   Name = performer
@@ -429,10 +548,10 @@
   Path = Task.status
 
  -- Row 6 -----------------------------------
-  Name = failure
+  Name = statusreason
   Type = token
-  Description = Search by failure reason
-  Path = Task.failureReason
+  Description = Search by status reason
+  Path = Task.statusReason
 
  -- Row 7 -----------------------------------
   Name = focus
@@ -465,10 +584,10 @@
   Path = Task.owner
 
  -- Row 12 -----------------------------------
-  Name = creator
+  Name = requester
   Type = reference
-  Description = Search by task creator
-  Path = Task.creator
+  Description = Search by task requester
+  Path = Task.requester
 
  -- Row 13 -----------------------------------
   Name = parent
