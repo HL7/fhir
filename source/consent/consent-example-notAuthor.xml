@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+  <id value="consent-example-notAuthor"/>
+
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
+	The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
+	In other jurisdictions, where an express consent model is used (Opt-In), these would examples would contain the phrase "consent to" rather 
+	than "withhold" or "withdraw" consent for.
+    <p>
+	specific to use-case 5) Withhold or withdraw consent for disclosure of records that were authored by a specific organization (or service delivery location).  
+	</p><p>
+    Patient "P. van de Heuvel" wishes to have all of the PHI collected at the Good Health Psychiatric Hospital 
+   restricted from disclosure to every provider.
+   </p>
+   </div>
+  </text>
+
+  <status value="active"/>
+   
+  <!-- Opt-In is explicit authorization with explicit exceptions -->
+  <type>
+     <coding>
+	   <system value="http://hl7.org/fhir/consenttypecodes"/>
+	   <code value="Opt-In"/>
+	   <display value="Authorization with exceptions."/>
+	 </coding>
+  </type>
+ 
+  <issued value="2015-11-18"/>
+ <!-- not bound by a timeframe - Consent.applies -->
+ 
+  <patient>
+    <reference value="Patient/f001"/>
+    <display value="P. van de Heuvel"/>
+  </patient>
+
+  <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
+  <authority>
+      <reference value="Organization/Infoway"/>
+	  <display value="Canada Infoway"/>
+   </authority>
+	  
+   <!-- and/or would this [also] go into Consent.domain as a Jurisdiction?? (see the example on UK Pharamacy Juristiction) -->
+  <domain>
+      <reference value="Location/Infoway"/>
+	  <display value="Canada Infoway"/>
+   </domain>
+ 
+  <term>
+     <type>
+       <coding>
+	     <system value="http://hl7.org/fhir/consenttermtypecodes"/>
+	     <code value="withhold-authored-by"/>
+		 <display value="Withhold all data authored by specified actor entity."/>
+	   </coding>
+	 </type>
+	 <topic>
+    	   <reference value="Organization/2.16.840.1.113883.19.5"/>
+           <display value="Good Health Clinic"/>
+	 </topic>
+     
+	 <text value="Withhold all data authored by Good Health provider."/>
+   </term>
+   <!-- the terms of the consent in friendly consumer speak -->
+   <friendly>
+     <contentAttachment>
+	   <title value="The terms of the consent in friendly consumer speak."/>
+	   <!-- likely use url pointer to common text -->
+	 </contentAttachment>
+   </friendly>
+   <!-- the legal terms of the consent in lawyer speak -->
+   <legal>
+     <contentAttachment>
+	   <title value="The terms of the consent in lawyer speak."/>
+	   <!-- likely use url pointer to common text -->
+	   <!-- I think some think that this should be the pointer to the law by which this consent is derived under. Such as http://lois-laws.justice.gc.ca/eng/acts/P-21/index.html -->
+	 </contentAttachment>
+   </legal>
+</Consent>

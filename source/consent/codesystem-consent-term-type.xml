@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/consenttermtypecodes"/>
+  <name value="Consent Term Type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Consent Term Type codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="Authorized-Action"/>
+	<display value="Authorize a specified action."/>
+  </concept>
+  <concept>
+    <code value="Forbidden"/>
+	<display value="Forbid a specific thing."/>
+  </concept>
+  <concept>
+    <code value="withhold-authored-by"/>
+	<display value="Withhold all data authored by specified actor entity."/>
+  </concept>
+  <concept>
+  	     <code value="withhold-identified-object-and-related"/>
+		 <display value="Withhold the identified object and any other resources that are related to this object."/>
+  </concept>
+  <concept>
+  	     <code value="withhold-object-type"/>
+		 <display value="Withold specific object types."/>
+  </concept>
+  <concept>
+  	     <code value="withhold-from"/>
+		 <display value="Withhold all data from specified actor entity."/>
+  </concept>
+</CodeSystem>

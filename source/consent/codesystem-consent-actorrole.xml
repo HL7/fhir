@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/consentactorrole"/>
+  <name value="Consent Actor Role Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Consent Actor Role codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="practitioner"/>
+    <display value="Practitioner"/>
+  </concept>
+  <concept>
+    <code value="patient"/>
+    <display value="Patient"/>
+  </concept>
+</CodeSystem>

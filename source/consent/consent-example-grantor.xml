@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+  <id value="consent-example-grantor"/>
+
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">The following scenario is based on a question asked on John Moehrke's blog in the 
+	<a href="http://healthcaresecprivacy.blogspot.com/2016/04/consent-given-to-authorized.html">Consent given to authorized representative</a>
+    <p>
+This is a case where a Patient is giving a limited (read-only) access to an individual.
+	</p><p>
+    Patient "P. van de Heuvel" wishes to provide XXX with read-only access to the data at Good Health Psychiatric Hospital 
+   available for patient requested access use.
+   </p>
+   </div>
+  </text>
+
+  <status value="active"/>
+   
+  <!-- Opt-In is explicit authorization with explicit exceptions -->
+  <type>
+     <coding>
+	   <system value="http://hl7.org/fhir/consenttypecodes"/>
+	   <code value="Opt-In"/>
+	   <display value="Authorization with exceptions."/>
+	 </coding>
+  </type>
+
+  <issued value="2016-05-11"/>
+ <!-- not bound by a timeframe - consent.applies -->
+ 
+  <patient>
+    <reference value="Patient/f001"/>
+    <display value="P. van de Heuvel"/>
+  </patient>
+
+<!-- I expect an Consent.action is defining an action restriction for the whole Consent == Thus patient requested read access -->  
+ 	<action>
+	 <coding>
+      <system value="http://hl7.org/fhir/v3/ActReason"/>
+      <code value="PATRQT"/>
+      <display value="patient requested"/>
+	 </coding>
+    </action>
+ 	<action>
+	 <coding>
+      <system value="http://hl7.org/fhir/restful-interaction"/>
+      <code value="read"/>
+	 </coding>
+    </action>
+<!-- with an agent listed, the consent applies only to that agent -->
+   <agent>
+	 <actor>
+    	   <reference value="Practitioner/f204"/>
+           <display value="Fictive Nurse"/>
+	 </actor>
+	<role>
+     <coding>
+	   <system value="http://www.hl7.org/fhir/contractsignertypecodes"/>
+	   <code value="GRANTOR"/>
+	 </coding>
+    </role>
+   </agent>
+
+   <!-- the terms of the consent in friendly consumer speak -->
+   <friendly>
+     <contentAttachment>
+	   <title value="The terms of the consent in friendly consumer speak."/>
+	   <!-- likely use url pointer to common text -->
+	 </contentAttachment>
+   </friendly>
+   <!-- the legal terms of the consent in lawyer speak -->
+   <legal>
+     <contentAttachment>
+	   <title value="The terms of the consent in lawyer speak."/>
+	   <!-- likely use url pointer to common text -->
+	   <!-- I think some think that this should be the pointer to the law by which this consent is derived under. Such as http://lois-laws.justice.gc.ca/eng/acts/P-21/index.html -->
+	 </contentAttachment>
+   </legal>
+</Consent>

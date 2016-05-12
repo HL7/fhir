@@ -1,0 +1,512 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ConsentType
+  Binding = value set
+  Reference = valueset-consent-type
+  Definition = List of overall consent codes.
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = !ConsentSubtype
+  Binding = value set
+  Reference = valueset-consent-subtype
+  Definition = Detailed codes within the above.
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = ConsentTermType
+  Binding = value set
+  Reference = valueset-consent-term-type
+  Definition = Detailed codes for the types of consent provisions.
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = ConsentTermSubType
+  Binding = value set
+  Reference = valueset-consent-term-subtype
+  Definition = Detailed codes for the subtypes of consent provisions.
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = ConsentAction
+  Binding = value set
+  Reference = valueset-consent-action
+  Definition = Detailed codes for the consent action.
+  Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = ConsentActorRole
+  Binding = value set
+  Reference = valueset-consent-actorrole
+  Definition = Detailed codes for the consent actor role.
+  Conformance = example
+
+ -- Row 7 -----------------------------------
+  Binding Name = !ConsentSignerType
+  Binding = value set
+  Reference = http://hl7.org/fhir/valueset-contract-signer-type
+  Definition = List of parties who may be signing.
+  Conformance = preferred
+
+ -- Row 8 -----------------------------------
+  Binding Name = ConsentStatus
+  Binding = code list
+  Reference = #consent-status
+  Definition = Indicates the status of the consent
+  Conformance = required
+
+=== Sheet consent-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = draft
+  Display = Pending
+  Definition = The consent is in development or awaiting use but is not yet intended to be acted upon.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = active
+  Display = Active
+  Definition = The consent is intended to be followed and enforced.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = inactive
+  Display = Inactive
+  Definition = The consent is terminated or replaced.
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Consent
+  UML = 220;0
+  Type = DomainResource
+  Short Label = Consent
+  Definition = A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:
+  Comments = • To one or more identified entities in a defined role   • To perform one or more operations (e.g. collect, access, use, disclose, amend, or delete)   • On an instance or type of individually identifiable health information [IIHI]  • For a purpose such as treatment, payment, operations, research, public health, quality measures, health status evaluation by third parties, or marketing   • Under certain conditions, e.g. when unconscious   • For specified time period, e.g. effective and expiration dates   • In certain context, e.g. in an emergency   A consent directive is an instance of governing jurisdictional and organization privacy policies, which may or may not be backed up by a signed document (paper or electronic).
+  RIM Mapping = FinancialConsent
+  w5 = infrastructure.information
+
+ -- Row 2 -----------------------------------
+  Element = Consent.identifier
+  Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Label = Consent identifier
+  Definition = Unique identifier for this Consent.
+  RIM Mapping = FinancialConsent id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Consent.status
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ConsentStatus
+  Short Label = draft | active | inactive
+  Definition = Indicates whether this consent is currently active
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = Consent.type
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ConsentType
+  Short Label = Consent Type
+  Definition = Type of Consent such as an insurance policy, real estate consent, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc.
+  RIM Mapping = CNTRCT
+  w5 = class
+
+ -- Row 5 -----------------------------------
+  Element = !Consent.subType
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ConsentSubtype
+  Short Label = Consent Subtype
+  Definition = More specific type or specialization of an overarching or more general consent such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent.
+  RIM Mapping = e.g. RECOV
+
+ -- Row 6 -----------------------------------
+  Element = Consent.issued
+  Card. = 0..1
+  Summary = Y
+  Type = dateTime
+  Short Label = When this Consent was issued
+  Definition = When this  Consent was issued.
+  RIM Mapping = FinancialConsent effectiveTime
+  w5 = when.recorded
+
+ -- Row 7 -----------------------------------
+  Element = Consent.applies
+  Card. = 0..1
+  Summary = Y
+  Type = Period
+  Short Label = Effective time
+  Definition = Relevant time or time-period when this Consent is applicable
+  RIM Mapping = FinancialConsent activityTime
+  w5 = when.planned
+
+ -- Row 8 -----------------------------------
+  Element = Consent.topic
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Any)
+  Short Label = Data impacted by the Consent
+  Definition = The matter of concern in the context of this agreement.
+  Requirements = In the context of a consent, the topic is the matter under consideration in regards to which specific rights, privileges, obligations, restrictions, and prohibitions are binding on any grantor and grantee parties upon the execution of the consent. \nGiven the wide range of consent topics, implementers need to be cognizant of the business use case for which they are designing a FHIR Consent, and narrowly specify the topic being represented with respect to the Consent.type and any specializing Consent.subtype. \nThe same topic, e.g., an asset such as a good or service, such as a real property, medical supply, insurance, information, a procedure or employment, or a manner of conduct, such adherence to a privacy, trust, or security policy, may be the topic of multiple types of consents. \nOne way to determine the Consent.topic is to answer the question: “What is the object of negotiation?”\nAnswer: The Consent.topic, which may be described with more detail in the [0..*]Consent.valuedItem @ [0..1] Consent.valuedItem.entity[x] Definition: Specific type of Consent Valued Item that may be priced. CodeableConcept|Reference(Any)\nConsent.topic is “the what” that a grantor is exchanging with a grantee in return for some benefit. \nConsent.topic is “the what” to which any Consent.action is being applied for any stipulated Consent.action.reason. \nAConsent.topic is “the what” governed by the execution of the consent to which any party’s rights, privileges, obligations, restrictions, and prohibitions apply.
+  Comments = The Consent.topic may be an application for or offer of a policy or service (e.g., uri to a consent directive form or a health insurance policy), which becomes the Consent once accepted by both the grantor and grantee. \nThe Consent Resource may function simply as the computable representation of the executed consent, which may be the attached to the Consent Resource as the “binding” or as the “friendly” electronic form.  For example, a Consent Resource may be automatically populated with the values expressed in a related QuestionnaireResponse. \nHowever, the Consent Resource may be considered the legally binding consent if it is the only “executed” form of this consent, and includes the signatures as *The Consent Resource may function as the computable representation of an application or offer in a pre-executed Consent if the grantor has not entered any values.  In this case, it is populated with values in a “legal” form of the application or offer or by the values in an associated Questionnaire.  If the grantor has filled in the legal form or the associated Questionnaire Response, then these values are used to populate a pre-executed Consent Resource.\nIf the Consent.topic is considered an application or offer, then the policy is often required to be attached as the “legal” basis for the application to ensure “informed consent” to the consent, and that any discrepancy between the application and the policy are interpreted against the policy.  Implementers should check organizational and jurisdictional policies to determine the relationship among multiple representations of a consent pre- and post-execution.
+  RIM Mapping = Role
+  w5 = what
+
+ -- Row 9 -----------------------------------
+  Element = Consent.patient
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Patient)
+  Short Label = Consent Target Entity
+  Definition = The target entity impacted by or of interest to parties to the agreement.
+  Requirements = The Consent.subject is an entity that has some role with respect to the Consent.topic and Consent.topic.term, which is of focal interest to the parties to the consent and likely impacted in a significant way by the Consent.action/Consent.action.reason and the Consent.term.action/Consent.action.reason.  In many cases, the Consent.subject is a Consent.signer if the subject is an adult; has a legal interest in the consent; and incompetent to participate in the consent agreement.
+  Comments = The Consent.subject is an entity that has some role with respect to the Consent.topic and Consent.topic.term, which is of focal interest to the parties to the consent and likely impacted in a significant way by the Consent.action/Consent.action.reason and the Consent.term.action/Consent.action.reason. \nIn many cases, the Consent.subject is a Consent.signer if the subject is an adult; has a legal interest in the consent; and incompetent to participate in the consent agreement.
+  RIM Mapping = Role
+  w5 = who.focus
+
+ -- Row 10 -----------------------------------
+  Element = Consent.authority
+  Card. = 0..*
+  Type = Reference(Organization)
+  Short Label = Authority under which this Consent has standing
+  Definition = A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of consents and policies.
+  RIM Mapping = Role Scoper
+
+ -- Row 11 -----------------------------------
+  Element = Consent.domain
+  Card. = 0..*
+  Type = Reference(Location)
+  Short Label = Domain in which this Consent applies
+  Definition = Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources.
+  Requirements = scope of governance jurisdiction
+
+ -- Row 12 -----------------------------------
+  Element = Consent.action
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = ConsentAction
+  Short Label = Actions affected by
+  Definition = Actions controlled by this Consent.
+  RIM Mapping = e.g. JURISPOL
+
+ -- Row 13 -----------------------------------
+  Element = Consent.agent
+  Card. = 0..*
+  UML = 530;-20
+  Type = =Agent
+  Short Label = Consent Agent
+  Definition = An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
+  Requirements = An agent can be a person, an organization, software, device, or other entities that may be ascribed responsibility.
+  Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.\nFor example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
+  w5 = who
+
+ -- Row 14 -----------------------------------
+  Element = Consent.agent.actor
+  Card. = 1..1
+  Type = Reference(Consent|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)
+  Short Label = Consent Agent Type
+  Definition = Who or what parties are assigned roles in this Consent.
+
+ -- Row 15 -----------------------------------
+  Element = Consent.agent.role
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = ConsentActorRole
+  Short Label = Consent  Agent Role
+  Definition = Role type of agent assigned roles in this Consent.
+
+ -- Row 16 -----------------------------------
+  Element = !Consent.agent.signer
+  Card. = 0..1
+  Type = =Signer
+  Short Label = Agent Signature
+  Definition = If needed
+
+ -- Row 17 -----------------------------------
+  Element = !Consent.agent.signer.type
+  Card. = 1..1
+  Type = Coding
+  Binding = ConsentSignerType
+  Short Label = Consent signature Type
+  Definition = Role of this Consent signer, e.g. notary, grantee.
+
+ -- Row 18 -----------------------------------
+  Element = !Consent.agent.signer.signature
+  Card. = 1..*
+  Type = Signature
+  Short Label = Consent agent Signature
+  Definition = Legally binding Consent DSIG signature contents in Base64.
+
+ -- Row 19 -----------------------------------
+  Element = Consent.term
+  Card. = 0..*
+  UML = 250;300
+  Type = =Term
+  Short Label = Consent Term List
+  Definition = One or more Consent Provisions, which may be related and conveyed as a group, and may contain nested groups.
+
+ -- Row 20 -----------------------------------
+  Element = Consent.term.identifier
+  Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Label = Consent Term identifier
+  Definition = Unique identifier for this particular Consent Provision.
+
+ -- Row 21 -----------------------------------
+  Element = Consent.term.issued
+  Card. = 0..1
+  Summary = Y
+  Type = dateTime
+  Short Label = Consent Term Issue Date Time
+  Definition = When this Consent Provision was issued.
+
+ -- Row 22 -----------------------------------
+  Element = Consent.term.applies
+  Card. = 0..1
+  Summary = Y
+  Type = Period
+  Short Label = Consent Term Effective Time
+  Definition = Relevant time or time-period when this Consent Provision is applicable.
+
+ -- Row 23 -----------------------------------
+  Element = Consent.term.type
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ConsentTermType
+  Short Label = Consent Term Type
+  Definition = Type of Consent Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.
+
+ -- Row 24 -----------------------------------
+  Element = Consent.term.subType
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ConsentTermSubType
+  Short Label = Consent Term Subtype
+  Definition = Subtype of this Consent Provision, e.g. life time maximum payment for a consent term for specific valued item, e.g. disability payment.
+
+ -- Row 25 -----------------------------------
+  Element = Consent.term.topic
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Any)
+  Short Label = Context of the Consent term
+  Definition = The matter of concern in the context of this provision of the agrement.
+  Requirements = A consent term topic is typically about a portion of the consent topic which has additional or specialized rights, privileges, obligations, restrictions, and prohibitions that are binding on any grantor and grantee parties upon the execution of the consent. \nConsent.term.topic may be described in more detail in the [0..*] Consent.term.valuedItem @[0..1] Consent.term.valuedItem [x] Definition: Specific type of Consent Provision Valued Item that may be priced. CodeableConcept|Reference(Any) [See Consent.topic Requirements for further elaboration on this requirement.]
+  Comments = The Consent.term.topic, as a Consent Resource subpart, is handled in the same manner as the Consent Resource as discussed above.
+  RIM Mapping = Role
+
+ -- Row 26 -----------------------------------
+  Element = !Consent.term.subject
+  Card. = 0..1
+  Type = Reference(Any)
+  Short Label = Subject of this Consent Term
+  Definition = Who or what this Consent Provision is about.
+
+ -- Row 27 -----------------------------------
+  Element = Consent.term.action
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = ConsentAction
+  Short Label = Consent Term Action
+  Definition = Action stipulated by this Consent Provision.
+
+ -- Row 28 -----------------------------------
+  Element = Consent.term.agent
+  Card. = 0..*
+  UML = -20;320
+  Type = =TermAgent
+  Short Label = Consent Term Agent List
+  Definition = An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
+  Requirements = An agent can be a person, an organization, software, device, or other entities that may be ascribed responsibility.
+  Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.\nFor example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
+
+ -- Row 29 -----------------------------------
+  Element = Consent.term.agent.actor
+  Card. = 1..1
+  Type = Reference(Consent|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)
+  Short Label = Consent Term Agent List
+  Definition = The agent assigned a role in this Consent Provision.
+
+ -- Row 30 -----------------------------------
+  Element = Consent.term.agent.role
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = ConsentActorRole
+  Short Label = Consent Term Agent Role
+  Definition = Role played by the agent assigned this role in the execution of this Consent Provision.
+
+ -- Row 31 -----------------------------------
+  Element = Consent.term.text
+  Card. = 0..1
+  Type = string
+  Short Label = Human readable Consent term text
+  Definition = Human readable form of this Consent Provision.
+
+ -- Row 32 -----------------------------------
+  Element = !Consent.term.group
+  Card. = 0..*
+  Type = @Consent.term
+  Short Label = Nested Consent Term Group
+  Definition = Nested group of Consent Provisions.
+
+ -- Row 33 -----------------------------------
+  Element = Consent.friendly
+  Card. = 0..*
+  UML = -20;0
+  Type = =FriendlyLanguage
+  Short Label = Consent Friendly Language
+  Definition = The \"patient friendly language\" versionof the Consent in whole or in parts. \"Patient friendly language\" means the representation of the Consent and Consent Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Consent understand the roles, actions, obligations, responsibilities, and implication of the agreement.
+
+ -- Row 34 -----------------------------------
+  Element = Consent.friendly.content[x]
+  Card. = 1..1
+  Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)
+  Short Label = Easily comprehended representation of this Consent
+  Definition = Human readable rendering of this Consent in a format and representation intended to enhance comprehension and ensure understandability.
+
+ -- Row 35 -----------------------------------
+  Element = Consent.legal
+  Card. = 0..*
+  UML = -20;120
+  Type = =LegalLanguage
+  Short Label = Consent Legal Language
+  Definition = Legally binding Contract: This is the   legally recognized representation of the Contract, which is considered the \"source of truth\" and which would be the basis for legal action related to enforcement of this Contract.
+
+ -- Row 36 -----------------------------------
+  Element = Consent.legal.content[x]
+  Card. = 1..1
+  Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse|Contract)
+  Short Label = Consent Legal Text
+  Definition = Consent legal text in human renderable form.
+
+ -- Row 37 -----------------------------------
+  Element = Consent.rule
+  Card. = 0..*
+  UML = -20;230
+  Type = Attachment
+  Short Label = Computable Consent Language
+  Definition = List of Computable Policy Rule Language Representations of this Consent.
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = topic
+  Type = reference
+  Description = The identity of the topic of the consent
+  Path = Consent.topic
+
+ -- Row 2 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The identity of the subject of the consent
+  Path = Consent.patient
+
+ -- Row 3 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = The identity of the consent
+  Path = Consent.identifier
+
+ -- Row 4 -----------------------------------
+  Name = agent
+  Type = reference
+  Description = Agent to the Contact
+  Path = Consent.agent.actor
+
+ -- Row 5 -----------------------------------
+  Name = authority
+  Type = reference
+  Description = The authority of the consent
+  Path = Consent.authority
+
+ -- Row 6 -----------------------------------
+  Name = domain
+  Type = reference
+  Description = The domain of the consent
+  Path = Consent.domain
+
+ -- Row 7 -----------------------------------
+  Name = issued
+  Type = date
+  Description = The date/time the consent was issued
+  Path = Consent.issued
+
+ -- Row 8 -----------------------------------
+  Name = ttopic
+  Type = reference
+  Description = The identity of the topic of the consent terms
+  Path = Consent.term.topic
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Consent-In
+  Identity = consent-example-basic
+  Description = General Consent Example
+  Filename = consent-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Consent-Out
+  Identity = consent-example-Out
+  Description = Consent withholding access
+  Filename = consent-example-Out.xml
+
+ -- Row 3 -----------------------------------
+  Name = Consent-Emergency
+  Identity = consent-example-Emergency
+  Description = Consent withholding access exept for Emergency
+  Filename = consent-example-Emergency.xml
+
+ -- Row 4 -----------------------------------
+  Name = Consent-Not-This
+  Identity = consent-example-notThis
+  Description = Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)
+  Filename = consent-example-notThis.xml
+
+ -- Row 5 -----------------------------------
+  Name = Consent-Not-Labs
+  Identity = consent-example-notLabs
+  Description = Withhold or withdraw consent for disclosure of a specific record (e.g. Lab Order/Result)
+  Filename = consent-example-notLabs.xml
+
+ -- Row 6 -----------------------------------
+  Name = Consent-Not-Org
+  Identity = consent-example-notOrg
+  Description = Withhold or withdraw consent for disclosure to a specific provider organization
+  Filename = consent-example-notOrg.xml
+
+ -- Row 7 -----------------------------------
+  Name = Consent-Not-Them
+  Identity = consent-example-notThem
+  Description = Withhold or withdraw consent for disclosure to a specific provider agent (an individual within an organization)
+  Filename = consent-example-notThem.xml
+
+ -- Row 8 -----------------------------------
+  Name = Consent-Not-Author
+  Identity = consent-example-notAuthor
+  Description = Withhold or withdraw consent for disclosure of records that were authored by a specific organization (or service delivery location).
+  Filename = consent-example-notAuthor.xml
+
+ -- Row 9 -----------------------------------
+  Name = Consent-Grantor
+  Identity = consent-example-grantor
+  Description = Patient grants access to a specified individual for read-only access
+  Filename = consent-example-grantor.xml
+
+=== Sheet Examples =====================================

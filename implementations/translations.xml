@@ -149,6 +149,9 @@
         <translation lang="es">Conformidad</translation>
         <translation lang="fr">Conformité</translation>
     </item>
+    <item id="Consent">
+        <translation lang="en">Consent</translation>
+    </item>
     <item id="Coverage">
         <translation lang="en">Coverage</translation>
         <translation lang="zh">覆盖范围</translation>

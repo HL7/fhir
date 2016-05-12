@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/consentaction"/>
+  <name value="Consent Action Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Consent Action codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="Collection"/>
+  </concept>
+  <concept>
+    <code value="Use"/>
+  </concept>
+  <concept>
+    <code value="Disclosure"/>
+  </concept>
+</CodeSystem>

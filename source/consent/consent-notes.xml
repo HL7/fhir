@@ -1,0 +1,37 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<!--<p>
+Notes:
+</p>
+<h2>Section Title</h2>-->
+	  <h2>Realm specifics</h2>
+	  <h3>US Realm sample Use-Cases</h3>
+	  <p>
+		Five categories of Privacy Consent Directives are described in the Office of the National Coordinator for 
+		Health Information (ONC) Consent Directives Document released March 31, 2010, and include the following 
+		US-specific “Core consent options” for electronic exchange:
+	  </p>
+	  <ol>
+	  <li>No consent: Health information of patients is automatically included—patients cannot opt out;</li>
+	  <li>Opt-out: Default is for health information of patients to be included automatically, but the patient can opt out completely;</li>
+	  <li>Opt-out with exceptions: Default is for health information of patients to be included, but the patient can opt out completely or allow only select data to be included;</li>
+	  <li>Opt-in: Default is that no patient health information is included; patients must actively express consent to be included, but if they do so then their information must be all in or all out; and</li>
+	  <li>Opt-in with restrictions: Default is that no patient health information is made available, but the patient may allow a subset of select data to be included.</li>
+	  </ol>
+	  <h3>Canada Realm sample Use-Cases</h3>
+	  <p>
+	  The following scenarios are based on existing jurisdictional policy and are realized in existing systems in 
+	  Canada. The default policy is one of implied consent for the provision of care, so these scenarios all deal 
+	  with withdrawal or withholding consent for that purpose. In other jurisdictions, where an express consent 
+	  model is used (Opt-In), these would examples would contain the phrase "consent to" rather than "withhold" 
+	  or "withdraw" consent for.
+	  </p>
+	  <ol>
+	    <li>Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)</li>
+		<li>Withhold or withdraw consent for disclosure of a specific record (e.g. Lab Order/Result) </li>
+		<li>Withhold or withdraw consent for disclosure to a specific provider organization </li>
+		<li>Withhold or withdraw consent for disclosure to a specific provider agent (an individual within an organization) </li>
+		<li>Withhold or withdraw consent for disclosure of records that were authored by a specific organization (or service delivery location). </li>
+		<li>Combinations of the above </li>
+	  </ol>
+
+</div>
