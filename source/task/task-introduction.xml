@@ -29,7 +29,7 @@
     <p>The assignment of tasks into categories by type of task and type of performer, and task status 
       enable the server to function as a queue of work items.  This queue can be polled or subscribed 
       to by various agents, enabling automation of workflows in FHIR using existing search and subscription 
-      mechanisms.  Owners, creators, other agents (e.g. workflow managers) can thus be ready to 
+      mechanisms.  Owners, requesterss, other agents (e.g. workflow managers) can thus be ready to 
       initiate the next steps in a complex workflow.</p>
     <h3>Tasks State Machine</h3>
     <p>Tasks start in a Created state. Once they have been assigned to an owner they transition to
