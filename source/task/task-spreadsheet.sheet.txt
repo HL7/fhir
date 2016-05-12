@@ -197,7 +197,7 @@
   Element = Task.basedOn
   Card. = 0..*
   Summary = Y
-  Type = Reference()
+  Type = Reference(Any)
   Short Label = Request fulfilled by this request
   Definition = Identifies a plan, proposal or order that this task has been created in fulfillment of
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=INT]
@@ -265,7 +265,6 @@
   Definition = Indicates the \"level\" of actionability associated with the Task.  I.e. Is this a proposed task, a planned task, an actionable task, etc.
   Comments = This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.
   RIM Mapping = .moodCode
-  w5 = class
 
  -- Row 10 -----------------------------------
   Element = Task.code
@@ -601,6 +600,12 @@
   Description = Search by patient
   Path = Task.for
   Target Types = Patient
+
+ -- Row 15 -----------------------------------
+  Name = stage
+  Type = token
+  Description = Search by task stage
+  Path = Task.stage
 
 === Sheet Profiles =====================================
 
