@@ -29,7 +29,7 @@ public class ShExGenerator {
 
   // A shape definition template -- an id followed by an optional resource declaration (type + treeRoot) +
   // a list of definition elements
-  private static String SHAPE_DEFINITION_TEMPLATE = "<$id$> {$resourceDecl$$elements$,\n\tfhir:index xsd:int?\n}\n";
+  private static String SHAPE_DEFINITION_TEMPLATE = "<$id$> {$resourceDecl$$elements$,\n\tfhir:index xsd:integer?\n}\n";
 
   // Additional declaration that appears only in a resource definition
   private static String RESOURCE_DECL_TEMPLATE = "\n\ta [fhir:$id$],\n\tfhir:nodeRole [fhir:treeRoot],\n\t";
@@ -70,7 +70,7 @@ public class ShExGenerator {
                                                    "\tfhir:link (@<$refType$> OR IRI)?,\n" +
                                                    "\tfhir:Reference.reference @<string>?,\n" +
                                                    "\tfhir:Reference.display @<string>?,\n" +
-                                                   "\tfhir:index xsd:int?\n" +
+                                                   "\tfhir:index xsd:integer?\n" +
                                                    "}";
 
   // TODO: find the literal for this
