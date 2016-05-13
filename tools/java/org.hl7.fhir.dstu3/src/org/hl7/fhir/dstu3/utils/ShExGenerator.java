@@ -2,6 +2,7 @@ package org.hl7.fhir.dstu3.utils;
 
 import java.util.*;
 
+import org.hl7.fhir.dstu3.model.Element;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.apache.commons.lang3.tuple.Pair;
@@ -181,7 +182,11 @@ public class ShExGenerator {
    */
   private void emitInnerTypes(StringBuilder shapeDefinitions) {
     while(emittedInnerTypes.size() < innerTypes.size()) {
-      Iterator<Pair<StructureDefinition, ElementDefinition>> sdedi = innerTypes.iterator();
+      LinkedList<Pair<StructureDefinition, ElementDefinition>> sdedicopy =
+              new LinkedList<Pair<StructureDefinition, ElementDefinition>>();
+      for(Pair<StructureDefinition, ElementDefinition> e : innerTypes)
+        sdedicopy.add(e);
+      Iterator<Pair<StructureDefinition, ElementDefinition>> sdedi = sdedicopy.iterator();
       while(sdedi.hasNext()) {
         Pair<StructureDefinition, ElementDefinition> sded = sdedi.next();
         StructureDefinition sd = sded.getLeft();
