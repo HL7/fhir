@@ -469,9 +469,9 @@ public class FhirTurtleGenerator extends RdfGenerator {
     
     // now in OWL:
     if (e.getMinCardinality() > 0)
-      section.triple("fhir:"+tn, "rdfs:subClassOf", complex().predicate("a", "owl:Restriction").predicate("owl:onProperty", "fhir:"+tn+"."+en).predicate("owl:minCardinality", literal(e.getMinCardinality().toString()+"^^xs:nonNegativeInteger")));
+      section.triple("fhir:"+tn, "rdfs:subClassOf", complex().predicate("a", "owl:Restriction").predicate("owl:onProperty", "fhir:"+tn+"."+en).predicate("owl:minCardinality", literalTyped(e.getMinCardinality().toString(), "nonNegativeInteger")));
     if (e.getMaxCardinality() < Integer.MAX_VALUE)
-      section.triple("fhir:"+tn, "rdfs:subClassOf", complex().predicate("a", "owl:Restriction").predicate("owl:onProperty", "fhir:"+tn+"."+en).predicate("owl:maxCardinality", literal(e.getMaxCardinality().toString()+"^^xs:nonNegativeInteger")));
+      section.triple("fhir:"+tn, "rdfs:subClassOf", complex().predicate("a", "owl:Restriction").predicate("owl:onProperty", "fhir:"+tn+"."+en).predicate("owl:maxCardinality", literalTyped(e.getMaxCardinality().toString(), "nonNegativeInteger")));
         
     // define
     if (tr == null) {
