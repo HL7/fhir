@@ -54,6 +54,9 @@ public class ShExGenerator {
   // What we emit for an xhtml
   private static String XHTML_TEMPLATE = "xsd:string";
 
+  // Additional type for Coding
+  private static String CODING_TEMPLATE = "fhir:uri IRI?";
+
   // A typed reference -- a fhir:uri with an optional type and the possibility of a resolvable shape
 //  fhir:Element.id @<id>?,
 //  fhir:Element.extension @<Extension>*,
@@ -78,28 +81,36 @@ public class ShExGenerator {
   private IWorkerContext context;
 
   /**
-   * List of typeReferences generated per session
+   * innerTypes -- inner complex types.  Flattened in ShEx (doesn't have to be, btw)
+   * emittedInnerTypes -- set of inner types that have been generated
+   * datatypes, emittedDatatypes -- types used in the definition, types that have been generated
+   * references -- Reference types (Patient, Specimen, etc)
+   * doDataTypes -- whether or not to emit the data types.
    */
-  private LinkedList<Pair<StructureDefinition, ElementDefinition>> typeReferences;
+  private LinkedList<Pair<StructureDefinition, ElementDefinition>> innerTypes;
+  private LinkedList<String> emittedInnerTypes;
+  private HashSet<String> datatypes, emittedDatatypes;
   private HashSet<String> references;
-  private HashSet<String> datatypes;
-  private boolean doDatatypes;
+  private boolean doDatatypes = true;
 
   public ShExGenerator(IWorkerContext context) {
     super();
-    doDatatypes = true;
     this.context = context;
-    typeReferences = new LinkedList<Pair<StructureDefinition, ElementDefinition>>();
-    references = new HashSet<String>();
+    innerTypes = new LinkedList<Pair<StructureDefinition, ElementDefinition>>();
+    emittedInnerTypes = new LinkedList<String>();
     datatypes = new HashSet<String>();
+    emittedDatatypes = new HashSet<String>();
+    references = new HashSet<String>();
   }
   
   public String generate(HTMLLinkPolicy links, StructureDefinition structure) {
     List<StructureDefinition> list = new ArrayList<StructureDefinition>();
     list.add(structure);
-    typeReferences.clear();
-    references.clear();
+    innerTypes.clear();
+    emittedInnerTypes.clear();
     datatypes.clear();
+    emittedDatatypes.clear();
+    references.clear();
     return generate(links, list);
   }
   
@@ -135,44 +146,70 @@ public class ShExGenerator {
       shapeDefinitions.append(genShapeDefinition(sd));
     }
 
+    // Add all of the inner types
     emitInnerTypes(shapeDefinitions);
-    for(String r: references) {
-      shapeDefinitions.append("\n").append(genReferenceEntry(r)).append("\n");
+
+    // Generate all of the referenced data types if requested
+    while((doDatatypes && emittedDatatypes.size() < datatypes.size()) ||
+            emittedInnerTypes.size() < innerTypes.size()) {
+      emitDatatypes(shapeDefinitions);
+      emitInnerTypes(shapeDefinitions);
     }
 
-    emitDatatypes(shapeDefinitions);
-    emitInnerTypes(shapeDefinitions);
+    // Add all of the reference types
+    for(String r: references)
+      shapeDefinitions.append("\n").append(genReferenceEntry(r)).append("\n");
 
     shex_def.add("shapeDefinitions", shapeDefinitions);
     return shex_def.render();
   }
 
+  /**
+   * Generate a reference to a typed fhir:uri
+   * @param refType reference type name
+   * @return reference
+   */
+  private String genReferenceEntry(String refType) {
+    ST typed_ref = tmplt(TYPED_REFERENCE_TEMPLATE);
+    typed_ref.add("refType", refType);
+    return typed_ref.render();
+  }
+
+  /**
+   * Generate a flattened definition for the inner types
+   * @param shapeDefinitions shape definitions string
+   */
   private void emitInnerTypes(StringBuilder shapeDefinitions) {
-    Set<String> seen = new HashSet<String>();
-    while(!typeReferences.isEmpty()) {
-      Pair<StructureDefinition, ElementDefinition> sded = typeReferences.poll();
-      StructureDefinition sd = sded.getLeft();
-      ElementDefinition ed = sded.getRight();
-      if (seen.contains(ed.getPath()))
-        break;
-      seen.add(ed.getPath());
-      shapeDefinitions.append("\n").append(genElementReference(sd, ed));
+    while(emittedInnerTypes.size() < innerTypes.size()) {
+      Iterator<Pair<StructureDefinition, ElementDefinition>> sdedi = innerTypes.iterator();
+      while(sdedi.hasNext()) {
+        Pair<StructureDefinition, ElementDefinition> sded = sdedi.next();
+        StructureDefinition sd = sded.getLeft();
+        ElementDefinition ed = sded.getRight();
+        if (!emittedInnerTypes.contains(ed.getPath()))
+          shapeDefinitions.append("\n").append(genElementReference(sd, ed));
+        emittedInnerTypes.add(ed.getPath());
+      }
     }
   }
 
+  /**
+   * Generate a shape definition for the current set of datatypes
+   * @param shapeDefinitions shape definitions string
+   */
   private void emitDatatypes(StringBuilder shapeDefinitions) {
-    if(doDatatypes) {
-      Set<String> emitted = new HashSet<String>();
-      while (!datatypes.isEmpty()) {
-        String dt = datatypes.iterator().next();
-        if (!emitted.contains(dt)) {
-          emitted.add(dt);
+    while (emittedDatatypes.size() < datatypes.size()) {
+      Iterator<String> dti = datatypes.iterator();
+      while(dti.hasNext()) {
+        String dt = dti.next();
+        if (!emittedDatatypes.contains(dt)) {
           StructureDefinition sd = context.fetchResource(StructureDefinition.class,
                   "http://hl7.org/fhir/StructureDefinition/" + dt);
           if (sd != null)
             shapeDefinitions.append("\n").append(genShapeDefinition(sd));
+          emittedDatatypes.add(dt);
+          break;
         }
-        datatypes.remove(dt);
       }
     }
   }
@@ -199,6 +236,9 @@ public class ShExGenerator {
     struct_def.add("id", sd.getId());
     List<String> elements = new ArrayList<String>();
 
+    if (sd.getName().equals("Coding"))
+      elements.add(tmplt(CODING_TEMPLATE).render());
+
     for (ElementDefinition ed : sd.getSnapshot().getElement()) {
       if(StringUtils.countMatches(ed.getPath(), ".") == 1) {
         elements.add(genElementDefinition(sd, ed));
@@ -218,15 +258,16 @@ public class ShExGenerator {
     ST element_def =  tmplt(ELEMENT_TEMPLATE);
 
     String id = ed.hasBase() ? ed.getBase().getPath() : ed.getPath();
+    String shortId = id.substring(id.lastIndexOf(".") + 1);
     String card = "*".equals(ed.getMax()) ? (ed.getMin() == 0 ? "*" : "+") : "?";
     String defn;
-    element_def.add("id", id);
+    element_def.add("id", sd.getKind().toCode().equals("datatype")? shortId : id);
     element_def.add("card", card);
     
     List<ElementDefinition> children = ProfileUtilities.getChildList(sd, ed);
     if (children.size() > 0) {
       // inline anonymous type - give it a name and factor it out
-      typeReferences.add(new ImmutablePair<StructureDefinition, ElementDefinition>(sd, ed));
+      innerTypes.add(new ImmutablePair<StructureDefinition, ElementDefinition>(sd, ed));
       ST anon_link = tmplt(SIMPLE_ELEMENT_TEMPLATE);
       anon_link.add("typ", id);
       defn = anon_link.render();
@@ -237,9 +278,9 @@ public class ShExGenerator {
       // multiple types
       // todo: figure out how to do this with the API
       if(id.endsWith("[x]")) {
-        return genChoiceTypes(ed, id, card);
+        return genChoiceTypes(ed, id, shortId, card);
       } else {
-        defn = genAlternativeTypes(ed, id, card);
+        defn = genAlternativeTypes(ed, id, shortId, card);
       }
     }
     element_def.add("defn", defn);
@@ -279,24 +320,25 @@ public class ShExGenerator {
    * Generate a set of alternative shapes
    * @param ed Containing element definition
    * @param id Element definition identifier
+   * @param shortId id to use in the actual definition
    * @param card Cardinality
    * @return ShEx list of alternative anonymous shapes separated by "OR"
    */
-  private String genAlternativeTypes(ElementDefinition ed, String id, String card) {
+  private String genAlternativeTypes(ElementDefinition ed, String id, String shortId, String card) {
     ST shex_alt = tmplt(ALTERNATIVE_TEMPLATE);
     List<String> altEntries = new ArrayList<String>();
 
-    shex_alt.add("id", id);
+    shex_alt.add("id", shortId);
 
     for(ElementDefinition.TypeRefComponent typ : ed.getType())  {
-      altEntries.add(genAltEntry(id, typ));
+      altEntries.add(genAltEntry(id, typ).render());
     }
-    shex_alt.add("altEntries", StringUtils.join(altEntries, " OR\n\t\t"));
+    shex_alt.add("altEntries", StringUtils.join(altEntries, " OR\n"));
     shex_alt.add("card", card);
     return shex_alt.render();
   }
 
-  private String genReference(String id, ElementDefinition.TypeRefComponent  typ) {
+  private ST genReference(String id, ElementDefinition.TypeRefComponent  typ) {
     ST shex_ref = tmplt(REFERENCE_TEMPLATE);
 
     // todo: There has to be a better way to do this
@@ -310,7 +352,7 @@ public class ShExGenerator {
     shex_ref.add("id", id);
     shex_ref.add("ref", ref);
     references.add(ref);
-    return shex_ref.render();
+    return shex_ref;
   }
 
   /**
@@ -319,7 +361,7 @@ public class ShExGenerator {
    * @param typ shape type
    * @return ShEx equivalent
    */
-  private String genAltEntry(String id, ElementDefinition.TypeRefComponent typ) {
+  private ST genAltEntry(String id, ElementDefinition.TypeRefComponent typ) {
     if(!typ.getCode().equals("Reference"))
       throw new AssertionError("We do not handle " + typ.getCode() + " alternatives");
 
@@ -340,15 +382,25 @@ public class ShExGenerator {
    * Generate a list of type choices for a "name[x]" style id
    * @param ed containing elmentdefinition
    * @param id choice identifier
+   * @param shortId identifier for definition
    * @return ShEx fragment for the set of choices
    */
-  private String genChoiceTypes(ElementDefinition ed, String id, String card) {
+  private String genChoiceTypes(ElementDefinition ed, String id, String shortId, String card) {
     ST shex_choice = tmplt(CHOICE_TEMPLATE);
     List<String> choiceEntries = new ArrayList<String>();
-    String base = id.replace("[x]", "");
+    String base = shortId.replace("[x]", "");
 
     for(ElementDefinition.TypeRefComponent typ : ed.getType())  {
-      choiceEntries.add(genChoiceEntry(base, typ));
+      if(typ.getCode().equals("Reference")) {
+        ST entry = genAltEntry(base, typ);
+        ST shex_choice_entry = tmplt(ELEMENT_TEMPLATE);
+        shex_choice_entry.add("id", base+entry.getAttribute("ref"));
+        shex_choice_entry.add("card", "");
+        shex_choice_entry.add("defn", entry.render());
+        choiceEntries.add(shex_choice_entry.render());
+      }
+      else
+        choiceEntries.add(genChoiceEntry(base, typ));
     }
     shex_choice.add("choiceEntries", StringUtils.join(choiceEntries, " |\n\t\t"));
     shex_choice.add("card", card);
@@ -390,17 +442,5 @@ public class ShExGenerator {
     element_reference.add("elements", StringUtils.join(elements, ",\n\t"));
     return element_reference.render();
   }
-
-  /**
-   * Generate a reference to a typed fhir:uri
-   * @param refType reference type name
-   * @return reference
-   */
-  private String genReferenceEntry(String refType) {
-    ST typed_ref = tmplt(TYPED_REFERENCE_TEMPLATE);
-    typed_ref.add("refType", refType);
-    return typed_ref.render();
-  }
-
 
 }
