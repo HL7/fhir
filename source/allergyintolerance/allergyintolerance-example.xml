@@ -78,7 +78,7 @@
     <substance>
       <coding>
         <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-        <code value="C3214954"/>
+        <code value="1160593"/>
         <display value="cashew nut allergenic extract Injectable Product"/>
       </coding>  
     </substance>

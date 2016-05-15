@@ -80,7 +80,7 @@
 			<code>
 				<coding>
 					<!-- Error: Connection to http://localhost:960 refused -->
-					<!--<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>-->
+					<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
 					<code value="200371"/>
 				</coding>
 				<text value="citalopram"/>
@@ -89,7 +89,7 @@
 				<form>
 					<coding>
 						<!-- Error: Connection to http://localhost:960 refused -->
-						<!--<system value="http://snomed.info/sct"/>-->
+						<system value="http://snomed.info/sct"/>
 						<code value="385055001"/>
 						<display value="Tablet dose form"/>
 					</coding>
@@ -119,7 +119,7 @@
 			<code>
 				<coding>
 					<!-- Error: Connection to http://localhost:960 refused -->
-					<!--<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>-->
+					<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
 					<code value="2556"/>
 				</coding>
 				<text value="citalopram"/>
