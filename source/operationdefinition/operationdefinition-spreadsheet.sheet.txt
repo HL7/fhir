@@ -69,6 +69,7 @@
   Type = DomainResource
   Short Label = Definition of an operation or a named query
   Definition = A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
+  Object Impl = BaseConformance
   RIM Mapping = n/a
   w5 = conformance.behavior
 
@@ -79,6 +80,7 @@
   Short Label = Logical URL to reference this operation definition
   Definition = An absolute URL that is used to identify this operation definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this operation definition is (or will be) published
   Comments = Can be a urn:uuid: or a urn:oid:
+  Object Impl = BaseConformance.url
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -88,6 +90,7 @@
   Short Label = Logical id for this version of the operation definition
   Definition = The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp
   Requirements = There may be multiple resource versions of the profile that have this same identifier. The resource version id will change for technical reasons, whereas the stated version number needs to be under the author\'s control
+  Object Impl = BaseConformance.version
   w5 = id.version
 
  -- Row 4 -----------------------------------
@@ -97,6 +100,7 @@
   Short Label = Informal name for this operation
   Definition = A free text natural language name identifying the operation
   Comments = Not expected to be globally unique
+  Object Impl = BaseConformance.name
 
  -- Row 5 -----------------------------------
   Element = OperationDefinition.status
@@ -107,6 +111,7 @@
   Short Label = draft | active | retired
   Definition = The status of the profile
   Requirements = Allows filtering of profiles that are appropriate for use vs. not
+  Object Impl = BaseConformance.status
   w5 = status
 
  -- Row 6 -----------------------------------
@@ -134,6 +139,7 @@
   Short Label = Date for this version of the operation definition
   Definition = The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes
   Comments = Additional specific dates may be added as extensions
+  Object Impl = BaseConformance.date
   w5 = when.recorded
 
  -- Row 9 -----------------------------------
@@ -190,6 +196,7 @@
   Short Label = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of operation definitions.
   Requirements = Assist in searching for appropriate content
+  Object Impl = BaseConformance.useContext
 
  -- Row 15 -----------------------------------
   Element = OperationDefinition.requirements

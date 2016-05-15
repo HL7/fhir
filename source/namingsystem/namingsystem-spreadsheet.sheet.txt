@@ -102,6 +102,7 @@
   Type = DomainResource
   Short Label = System of unique identification
   Definition = A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.
+  Object Impl = BaseConformance
   v2 Mapping = N/A
   RIM Mapping = N/A
   w5 = conformance.terminology
@@ -113,6 +114,7 @@
   Short Label = Human-readable label
   Definition = The descriptive name of this particular identifier type or code system
   Comments = The\"symbolic name\" for an OID would be captured as an extension
+  Object Impl = BaseConformance.name
 
  -- Row 3 -----------------------------------
   Element = NamingSystem.status
@@ -122,6 +124,7 @@
   Binding = ConformanceResourceStatus
   Short Label = draft | active | retired
   Definition = Indicates whether the naming system is \"ready for use\" or not.
+  Object Impl = BaseConformance.status
   w5 = status
 
  -- Row 4 -----------------------------------
@@ -141,6 +144,7 @@
   Short Label = Publication Date(/time)
   Definition = The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the registration changes
   Comments = Additional specific dates may be added as extensions
+  Object Impl = BaseConformance.date
   w5 = when.recorded
 
  -- Row 6 -----------------------------------
@@ -214,6 +218,7 @@
   Short Label = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of naming systems
   Requirements = Assist in searching for appropriate content
+  Object Impl = BaseConformance.useContext
 
  -- Row 14 -----------------------------------
   Element = NamingSystem.usage

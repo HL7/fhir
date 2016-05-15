@@ -52,6 +52,7 @@
   Short Label = Compartment Definition for a resource
   Definition = A compartment definition that defines how resources are accessed on a server
   Comments = In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content
+  Object Impl = BaseConformance
   v2 Mapping = n/a
   RIM Mapping = n/a
   w5 = conformance.behavior
@@ -64,6 +65,7 @@
   Short Label = Absolute URL used to reference this compartment definition
   Definition = An absolute URL that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this compartment definition is (or will be) published
   Requirements = To allow referencing and reusing compartment definition definitions under other names on operational systems (in case of name clash)
+  Object Impl = BaseConformance.url
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -74,6 +76,7 @@
   Short Label = Informal name for this compartment definition
   Definition = A free text natural language name identifying the compartment definition
   Comments = This is often the same as the code for the parameter, but does not need to be
+  Object Impl = BaseConformance.name
 
  -- Row 4 -----------------------------------
   Element = CompartmentDefinition.status
@@ -85,6 +88,7 @@
   Short Label = draft | active | retired
   Definition = The status of this compartment definition definition
   Comments = This is not intended for use with actual conformance statements, but where conformance statements are used to describe possible or desired systems
+  Object Impl = BaseConformance.status
   w5 = status
 
  -- Row 5 -----------------------------------
@@ -142,6 +146,7 @@
   Short Label = Publication Date(/time)
   Definition = The date  (and optionally time) when the compartment definition definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes
   Comments = Additional specific dates may be added as extensions
+  Object Impl = BaseConformance.date
   w5 = when.recorded
 
  -- Row 11 -----------------------------------

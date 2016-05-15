@@ -515,6 +515,7 @@
   Type = DomainResource
   Short Label = A conformance statement
   Definition = A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+  Object Impl = BaseConformance
   w5 = conformance.behavior
 
  -- Row 2 -----------------------------------
@@ -524,6 +525,7 @@
   Type = uri
   Short Label = Logical uri to reference this statement
   Definition = An absolute URL that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this conformance statement is (or will be) published
+  Object Impl = BaseConformance.url
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -534,6 +536,7 @@
   Short Label = Logical id for this version of the statement
   Definition = The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp
   Comments = There may be multiple different instances of a conformance statement that have the same identifier but different versions
+  Object Impl = BaseConformance.version
   w5 = id.version
 
  -- Row 4 -----------------------------------
@@ -544,6 +547,7 @@
   Short Label = Informal name for this conformance statement
   Definition = A free text natural language name identifying the conformance statement
   Comments = The name is not expected to be globally unique
+  Object Impl = BaseConformance.name
 
  -- Row 5 -----------------------------------
   Element = Conformance.status
@@ -555,6 +559,7 @@
   Short Label = draft | active | retired
   Definition = The status of this conformance statement
   Comments = This is not intended for use with actual conformance statements, but where conformance statements are used to describe possible or desired systems
+  Object Impl = BaseConformance.status
   w5 = status
 
  -- Row 6 -----------------------------------
@@ -575,6 +580,7 @@
   Short Label = Publication Date(/time)
   Definition = The date  (and optionally time) when the conformance statement was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the conformance statement changes
   Comments = Additional specific dates may be added as extensions
+  Object Impl = BaseConformance.date
   w5 = when.recorded
 
  -- Row 8 -----------------------------------
@@ -633,6 +639,7 @@
   Short Label = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of conformance statements.
   Requirements = Assist in searching for appropriate content
+  Object Impl = BaseConformance.useContext
 
  -- Row 14 -----------------------------------
   Element = Conformance.requirements
@@ -649,6 +656,7 @@
   Type = string
   Short Label = Use and/or publishing restrictions
   Definition = A copyright statement relating to the conformance statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement
+  Object Impl = BaseConformance.copyright
 
  -- Row 16 -----------------------------------
   Element = Conformance.kind

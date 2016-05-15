@@ -238,5 +238,11 @@
 		</preamble>
 		<sort>29</sort>
 	</space>
-	
+	<space>
+		<url>http://hl7.org/fhir/object-implementation</url>
+		<columnName>Object Impl</columnName>
+		<title>Object Implementation Information</title>
+		<id>objimpl</id>
+		<sort>30</sort>
+	</space>
 </mappingSpaces>

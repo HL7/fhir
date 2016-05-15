@@ -2,14 +2,6 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = MedicationIntendedSubstitutionType
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ActSubstanceAdminSubstitutionCode
-  Definition = A coded concept describing whether a different medicinal product may be dispensed other than the product as specified exactly in the prescription.
-  Description = ActSubstanceAdminSubstitutionCode
-  Conformance = example
-
- -- Row 2 -----------------------------------
   Binding Name = MedicationIntendedSubstitutionReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-SubstanceAdminSubstitutionReason
@@ -17,24 +9,26 @@
   Description = SubstanceAdminSubstitutionReason
   Conformance = example
 
- -- Row 3 -----------------------------------
+ -- Row 2 -----------------------------------
   Binding Name = MedicationAsNeededReason
-  Binding = unbound
+  Binding = value set
+  Reference = valueset-medication-as-needed-reason
   Definition = A coded concept identifying the precondition that should be met or evaluated prior to consuming or administering a medication dose.  For example \"pain\", \"30 minutes prior to sexual intercourse\", \"on flare-up\" etc.
+  Conformance = example
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Binding Name = MedicationAdministrationSite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/approach-site-codes
   Definition = A coded concept describing the site location the medicine enters into or onto the body.
   Conformance = example
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = MedicationAdministrationMethod
   Binding = unbound
   Definition = A coded concept describing the technique by which the medicine is administered.
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = MedicationOrderStatus
   Binding = code list
   Reference = #medication-order-status
@@ -42,31 +36,33 @@
   Conformance = required
   v3 = ActStatus
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = RouteOfAdministration
   Binding = value set
   Reference = valueset-route-codes
   Definition = A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
   Conformance = example
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Binding Name = EndReason
   Binding = unbound
   Definition = Codes indicating why the medication was terminated; e.g. Adverse reaction, medication change, issue resolved, etc.
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Binding Name = OrderReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/condition-code
   Definition = Codes indicating why the medication was ordered.
   Conformance = example
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Binding Name = MedicationCode
-  Binding = unbound
-  Definition = Codes identifying substance that can be administered.
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/medication-codes
+  Definition = Codes identifying substance or product that can be ordered.
+  Conformance = example
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Binding Name = AdditionalInstructions
   Binding = value set
   Reference = valueset-additional-instructions-codes
@@ -144,6 +140,7 @@
   Element = MedicationOrder.status
   Card. = 0..1
   Is Modifier = Y
+  Summary = y
   Type = code
   Binding = MedicationOrderStatus
   Short Label = active | on-hold | completed | entered-in-error | stopped | draft
@@ -154,7 +151,9 @@
  -- Row 4 -----------------------------------
   Element = MedicationOrder.medication[x]
   Card. = 1..1
+  Summary = y
   Type = CodeableConcept|Reference(Medication)
+  Binding = MedicationCode
   Short Label = Medication to be taken
   Definition = Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the prescribed medication. When the only available information is a text description of the medication, Medication.code.text should be used
@@ -165,6 +164,7 @@
  -- Row 5 -----------------------------------
   Element = MedicationOrder.patient
   Card. = 0..1
+  Summary = y
   Type = Reference(Patient)
   Short Label = Who prescription is for
   Definition = A link to a resource representing the person to whom the medication will be given.
@@ -187,6 +187,7 @@
  -- Row 7 -----------------------------------
   Element = MedicationOrder.dateWritten
   Card. = 0..1
+  Summary = y
   Type = dateTime
   Short Label = When prescription was authorized
   Definition = The date (and perhaps time) when the prescription was written
@@ -197,6 +198,7 @@
  -- Row 8 -----------------------------------
   Element = MedicationOrder.prescriber
   Card. = 0..1
+  Summary = y
   Type = Reference(Practitioner)
   Short Label = Who ordered the medication(s)
   Definition = The healthcare professional responsible for authorizing the prescription
@@ -356,6 +358,13 @@
   Comments = This is intended for use as an adjunct to the dosage when there is an upper cap.  For example, a body surface area related dose with a maximum amount, such as 1.5 mg/m2 (maximum 2 mg) IV over 5 – 10 minutes would have doseQuantity of 1.5 mg/m2 and maxDosePerAdministration of 2 mg.
 
  -- Row 25 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.maxDosePerLifetime
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Label = Upper limit on medication per lifetime of the patient
+  Definition = The maximum total quantity of a therapeutic substance that may be administered per lifetime of the subject.
+
+ -- Row 26 -----------------------------------
   Element = MedicationOrder.dosageInstruction.rate[x]
   Card. = 0..1
   Type = Ratio|Range | SimpleQuantity
@@ -365,23 +374,13 @@
   v2 Mapping = RXE-22-Give Per (Time Unit)
   RIM Mapping = rateQuantity
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = MedicationOrder.dispenseRequest
   Card. = 0..1
   UML = 400;240
   Short Label = Medication supply authorization
   Definition = Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
   RIM Mapping = component.supplyEvent
-
- -- Row 27 -----------------------------------
-  Element = MedicationOrder.dispenseRequest.medication[x]
-  Card. = 0..1
-  Type = CodeableConcept|Reference(Medication)
-  Short Label = Product to be supplied
-  Definition = Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
-  Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.
-  v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code
-  RIM Mapping = consumable.role
 
  -- Row 28 -----------------------------------
   Element = MedicationOrder.dispenseRequest.validityPeriod
@@ -430,12 +429,11 @@
   RIM Mapping = subjectOf.substitutionPersmission
 
  -- Row 33 -----------------------------------
-  Element = MedicationOrder.substitution.type
+  Element = MedicationOrder.substitution.allowed
   Card. = 1..1
-  Type = CodeableConcept
-  Binding = MedicationIntendedSubstitutionType
-  Short Label = generic | formulary +
-  Definition = A code signifying whether a different drug should be dispensed from what was prescribed.
+  Type = boolean
+  Short Label = Whether substitution is allowed or not
+  Definition = True if the prescriber allows a different drug to be dispensed from what was prescribed.
   v2 Mapping = RXO-9-Allow Substitutions / RXE-9-Substitution Status
   RIM Mapping = code
 

@@ -44,8 +44,10 @@
 
  -- Row 7 -----------------------------------
   Binding Name = MedicationCode
-  Binding = unbound
-  Definition = Codes identifying substance that can be administered.
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/medication-codes
+  Definition = Codes identifying substance or product that can be administered.
+  Conformance = example
 
 === Sheet medication-admin-status =====================================
 
@@ -89,9 +91,9 @@
  -- Row 1 -----------------------------------
   Id = 1
   Context = MedicationAdministration.dosage
-  English = SHALL have at least one of dosage.quantity and dosage.rate[x]
-  XPath = exists(f:quantity) or exists(f:rateRatio) or exists(f:rateRange)
-  Expression = quantity.exists() or rate.exists()
+  English = SHALL have at least one of dosage.dose and dosage.rate[x]
+  XPath = exists(f:dose) or exists(f:rateRatio) or exists(f:rateRange)
+  Expression = dose.exists() or rate.exists()
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -130,6 +132,7 @@
   Element = MedicationAdministration.status
   Card. = 1..1
   Is Modifier = Y
+  Summary = y
   Type = code
   Binding = MedicationAdministrationStatus
   Short Label = in-progress | on-hold | completed | entered-in-error | stopped
@@ -141,7 +144,9 @@
  -- Row 4 -----------------------------------
   Element = MedicationAdministration.medication[x]
   Card. = 1..1
+  Summary = y
   Type = CodeableConcept|Reference(Medication)
+  Binding = MedicationCode
   Short Label = What was administered
   Definition = Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the administered medication. When the only available information is a text description of the medication, Medication.code.text should be used
@@ -152,6 +157,7 @@
  -- Row 5 -----------------------------------
   Element = MedicationAdministration.patient
   Card. = 1..1
+  Summary = y
   Type = Reference(Patient)
   Short Label = Who received medication
   Definition = The person or animal receiving the medication.
@@ -172,6 +178,7 @@
  -- Row 7 -----------------------------------
   Element = MedicationAdministration.effectiveTime[x]
   Card. = 1..1
+  Summary = y
   Type = dateTime|Period
   Short Label = Start and end time of administration
   Definition = A specific date/time or interval of time during which the administration took place (or did not take place, when the \'notGiven\' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.
@@ -181,7 +188,7 @@
   w5 = when.done
 
  -- Row 8 -----------------------------------
-  Element = MedicationAdministration.practitioner
+  Element = MedicationAdministration.performer
   Card. = 0..1
   Type = Reference(Practitioner | Patient | RelatedPerson)
   Short Label = Who administered substance
@@ -297,10 +304,10 @@
   RIM Mapping = methodCode
 
  -- Row 20 -----------------------------------
-  Element = MedicationAdministration.dosage.quantity
+  Element = MedicationAdministration.dosage.dose
   Card. = 0..1
   Type = SimpleQuantity
-  Short Label = Amount administered in one dose
+  Short Label = Amount of medication per dose
   Definition = The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.
   Comments = If the administration is not instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount administered over period of time of a single administration (as indicated by schedule)
   v2 Mapping = RXA-6 Administered Amount / RXA-7 Administered Units
@@ -379,9 +386,9 @@
   Path = MedicationAdministration.effectiveTime[x]
 
  -- Row 11 -----------------------------------
-  Name = practitioner
+  Name = performer
   Type = reference
-  Path = MedicationAdministration.practitioner
+  Path = MedicationAdministration.performer
 
 === Sheet Profiles =====================================
 

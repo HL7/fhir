@@ -56,6 +56,13 @@
   Definition = Codes identifying the substance or product being taken.
   Conformance = example
 
+ -- Row 9 -----------------------------------
+  Binding Name = AdditionalInstructions
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/additional-instructions-codes
+  Definition = Codes identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\".
+  Conformance = example
+
 === Sheet medication-statement-status =====================================
 
  -- Row 1 -----------------------------------
@@ -131,6 +138,7 @@
   Element = MedicationStatement.status
   Card. = 1..1
   Is Modifier = Y
+  Summary = y
   Type = code
   Binding = MedicationStatementStatus
   Short Label = active | completed | entered-in-error | intended
@@ -141,6 +149,7 @@
  -- Row 4 -----------------------------------
   Element = MedicationStatement.medication[x]
   Card. = 1..1
+  Summary = y
   Type = CodeableConcept|Reference(Medication)
   Binding = MedicationCode
   Short Label = What medication was taken
@@ -152,6 +161,7 @@
  -- Row 5 -----------------------------------
   Element = MedicationStatement.patient
   Card. = 1..1
+  Summary = y
   Type = Reference(Patient)
   Short Label = Who is/was taking  the medication
   Definition = The person or animal who is/was taking the medication.
@@ -162,6 +172,7 @@
  -- Row 6 -----------------------------------
   Element = MedicationStatement.effective[x]
   Card. = 0..1
+  Summary = y
   Type = dateTime | Period
   Short Label = Over what period was medication consumed?
   Definition = The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).
@@ -190,6 +201,7 @@
  -- Row 9 -----------------------------------
   Element = MedicationStatement.dateAsserted
   Card. = 0..1
+  Summary = y
   Type = dateTime
   Short Label = When the statement was asserted?
   Definition = The date when the medication statement was asserted by the information source.
@@ -198,6 +210,7 @@
   Element = MedicationStatement.wasNotTaken
   Card. = 0..1
   Is Modifier = Y
+  Summary = y
   Type = boolean
   Short Label = True if medication is/was not being taken
   Definition = Set this to true if the record is saying that the medication was NOT taken.
@@ -258,6 +271,14 @@
   RIM Mapping = .text
 
  -- Row 17 -----------------------------------
+  Element = MedicationStatement.dosage.additionalInstructions
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = AdditionalInstructions
+  Short Label = Supplemental instructions - e.g. \"with meals\"
+  Definition = Additional instructions such as \"Swallow with plenty of water\" which may or may not be coded.
+
+ -- Row 18 -----------------------------------
   Element = MedicationStatement.dosage.timing
   Card. = 0..1
   Type = Timing
@@ -265,7 +286,7 @@
   Definition = The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"
   RIM Mapping = .effectiveTime
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationStatement.dosage.asNeeded[x]
   Card. = 0..1
   Type = boolean | CodeableConcept
@@ -274,7 +295,7 @@
   Definition = Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).  \n\nSpecifically if \'boolean\' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.
   RIM Mapping = boolean: .outboundRelationship[typeCode=PRCN].negationInd (inversed - so negationInd = true means asNeeded=false  CodeableConcept: .outboundRelationship[typCode=PRCN].target[classCode=OBS, moodCode=EVN, isCriterionInd=true, code=\"Assertion\"].value
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MedicationStatement.dosage.site[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(BodySite)
@@ -283,7 +304,7 @@
   Definition = A coded specification of or a reference to the anatomic site where the medication first enters the body
   RIM Mapping = .approachSiteCode
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationStatement.dosage.route
   Card. = 0..1
   Type = CodeableConcept
@@ -292,7 +313,7 @@
   Definition = A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
   RIM Mapping = .routeCode
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MedicationStatement.dosage.method
   Card. = 0..1
   Type = CodeableConcept
@@ -302,15 +323,15 @@
   Comments = One of the reasons this attribute is not used often, is that the method is often pre-coordinated with the route and/or form of administration.  This means the codes used in route or form may pre-coordinate the method in the route code or the form code.  The implementation decision about what coding system to use for route or form code will determine how frequently the method code will be populated e.g. if route or form code pre-coordinate method code, then this attribute will not be populated often; if there is no pre-coordination then method code may  be used frequently.
   RIM Mapping = .methodCode
 
- -- Row 22 -----------------------------------
-  Element = MedicationStatement.dosage.quantity[x]
+ -- Row 23 -----------------------------------
+  Element = MedicationStatement.dosage.dose[x]
   Card. = 0..1
   Type = SimpleQuantity | Range
-  Short Label = Amount administered in one dose
+  Short Label = Amount of medication per dose
   Definition = The amount of therapeutic or other substance given at one administration event.
   RIM Mapping = .doseQuantity
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = MedicationStatement.dosage.rate[x]
   Card. = 0..1
   Type = Ratio|Range
@@ -318,7 +339,7 @@
   Definition = Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of \'1\' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours
   RIM Mapping = .rateQuantity
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = MedicationStatement.dosage.maxDosePerPeriod
   Card. = 0..1
   Type = Ratio

@@ -52,6 +52,7 @@
   Type = DomainResource
   Short Label = Defines behaviour and contraints on the ValueSet Expansion operation
   Definition = Resource to define constraints on the Expansion of a FHIR ValueSet.
+  Object Impl = BaseConformance
   w5 = conformance.terminology
 
  -- Row 2 -----------------------------------
@@ -61,6 +62,7 @@
   Type = uri
   Short Label = Globally unique logical identifier for  expansion profile
   Definition = An absolute URL that is used to identify this expansion profile when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this expansion profile is (or will be) published
+  Object Impl = BaseConformance.url
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -79,6 +81,7 @@
   Short Label = Logical identifier for this version of the expansion profile
   Definition = Used to identify this version of the expansion profile when it is referenced in a specification, model, design or instance.
   Comments = There may be multiple resource versions of the expansion profile that have the same identifier
+  Object Impl = BaseConformance.version
 
  -- Row 5 -----------------------------------
   Element = ExpansionProfile.name
@@ -89,6 +92,7 @@
   Definition = A free text natural language name for the expansion profile
   Requirements = Support human navigation
   Comments = The name is not expected to be unique. A name should be provided unless the expansion profile is a contained resource (e.g. an anonymous expansion profile in a FHIR profile). Most registries will require a name.
+  Object Impl = BaseConformance.name
 
  -- Row 6 -----------------------------------
   Element = ExpansionProfile.status
@@ -101,6 +105,7 @@
   Definition = The status of the expansion profile
   Requirements = Identify when/if the expansion profile should be used.
   Comments = Allows filtering of expansion instances that are appropriate (or not) for use
+  Object Impl = BaseConformance.status
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -157,6 +162,7 @@
   Definition = The date that the expansion profile status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes.
   Requirements = Need to know when an expansion profile was first legal for use or became withdrawn or replaced.
   Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the expansion profile. Additional specific dates may be added as extensions
+  Object Impl = BaseConformance.date
 
  -- Row 13 -----------------------------------
   Element = ExpansionProfile.description

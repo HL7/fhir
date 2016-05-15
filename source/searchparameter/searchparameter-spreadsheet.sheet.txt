@@ -60,6 +60,7 @@
   Short Label = Search Parameter for a resource
   Definition = A search parameter that defines a named search item that can be used to search/filter on a resource.
   Comments = In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content
+  Object Impl = BaseConformance
   v2 Mapping = n/a
   RIM Mapping = n/a
   w5 = conformance.behavior
@@ -72,6 +73,7 @@
   Short Label = Absolute URL used to reference this search parameter
   Definition = An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published
   Requirements = To allow referencing and reusing search parameter definitions under other names on operational systems (in case of name clash)
+  Object Impl = BaseConformance.url
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -82,6 +84,7 @@
   Short Label = Informal name for this search parameter
   Definition = A free text natural language name identifying the search parameter
   Comments = This is often the same as the code for the parameter, but does not need to be
+  Object Impl = BaseConformance.name
 
  -- Row 4 -----------------------------------
   Element = SearchParameter.status
@@ -93,6 +96,7 @@
   Short Label = draft | active | retired
   Definition = The status of this search parameter definition
   Comments = This is not intended for use with actual conformance statements, but where conformance statements are used to describe possible or desired systems
+  Object Impl = BaseConformance.status
   w5 = status
 
  -- Row 5 -----------------------------------
@@ -113,6 +117,7 @@
   Short Label = Publication Date(/time)
   Definition = The date  (and optionally time) when the search parameter definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes
   Comments = Additional specific dates may be added as extensions
+  Object Impl = BaseConformance.date
   w5 = when.recorded
 
  -- Row 7 -----------------------------------
@@ -161,6 +166,7 @@
   Short Label = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of search parameters.
   Requirements = Assist in searching for appropriate content
+  Object Impl = BaseConformance.useContext
 
  -- Row 12 -----------------------------------
   Element = SearchParameter.requirements

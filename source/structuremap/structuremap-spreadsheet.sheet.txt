@@ -195,6 +195,7 @@
   Type = DomainResource
   Short Label = A Map of relationships between 2 structures that can be used to transform data
   Definition = A Map of relationships between 2 structures that can be used to transform data
+  Object Impl = BaseConformance
   v2 Mapping = n/a
   Committee Notes = 0;0
   w5 = conformance.content
@@ -207,6 +208,7 @@
   Type = uri
   Short Label = Absolute URL used to reference this StructureMap
   Definition = An absolute URL that is used to identify this structure map when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure map is (or will be) published
+  Object Impl = BaseConformance.url
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -226,6 +228,7 @@
   Short Label = Logical id for this version of the StructureMap
   Definition = The identifier that is used to identify this version of the StructureMap when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the StructureMap author manually
   Comments = There may be multiple resource versions of the StructureMap that have this same identifier. The resource version id will change for technical reasons, whereas the stated version number needs to be under the author\'s control
+  Object Impl = BaseConformance.version
   w5 = id.version
 
  -- Row 5 -----------------------------------
@@ -235,6 +238,7 @@
   Type = string
   Short Label = Informal name for this StructureMap
   Definition = A free text natural language name identifying the StructureMap
+  Object Impl = BaseConformance.name
   To Do = Not expected to be globally unique
 
  -- Row 6 -----------------------------------
@@ -247,6 +251,7 @@
   Short Label = draft | active | retired
   Definition = The status of the StructureMap
   Comments = Allows filtering of StructureMaps that are appropriate for use vs. not
+  Object Impl = BaseConformance.status
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -304,6 +309,7 @@
   Type = dateTime
   Short Label = Date for this version of the StructureMap
   Definition = The date this version of the structure map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure map changes
+  Object Impl = BaseConformance.date
   To Do = Additional specific dates may be added as extensions
   w5 = when.recorded
 
@@ -325,6 +331,7 @@
   Short Label = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of structure maps.
   Comments = Assist in searching for appropriate content
+  Object Impl = BaseConformance.useContext
 
  -- Row 15 -----------------------------------
   Element = StructureMap.requirements
@@ -342,6 +349,7 @@
   Type = string
   Short Label = Use and/or publishing restrictions
   Definition = A copyright statement relating to the structure map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings
+  Object Impl = BaseConformance.copyright
 
  -- Row 17 -----------------------------------
   Element = StructureMap.structure
@@ -709,3 +717,34 @@
 === Sheet Examples =====================================
 
 === Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = transform
+  Use = Resource | Instance
+  Documentation = The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation.   If the operation is not called at the instance level, one of the in parameters identifier, context or valueset must be provided.  An expanded value set will be returned, or an OperationOutcome with an error message.
+  Type = operation
+  Title = Model Instance Transformation
+
+ -- Row 2 -----------------------------------
+  Name = transform.source
+  Use = in
+  Documentation = A logical value set resource uri
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = transform.content
+  Use = in
+  Documentation = The logical content to transform
+  Type = Resource
+  Min = 0
+  Max = 1
+
+ -- Row 4 -----------------------------------
+  Name = transform.return
+  Use = out
+  Documentation = The result of the transform
+  Type = Resource
+  Min = 1
+  Max = 1

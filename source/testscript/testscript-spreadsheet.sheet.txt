@@ -338,6 +338,7 @@
   Type = DomainResource
   Short Label = Describes a set of tests
   Definition = TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
+  Object Impl = BaseConformance
   w5 = conformance.misc
 
  -- Row 2 -----------------------------------
@@ -348,6 +349,7 @@
   Type = uri
   Short Label = Absolute URL used to reference this TestScript
   Definition = An absolute URL that is used to identify this Test Script. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this Test Script is (or will be) published
+  Object Impl = BaseConformance.url
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -358,6 +360,7 @@
   Short Label = Logical id for this version of the TestScript
   Definition = The identifier that is used to identify this version of the TestScript. This is an arbitrary value managed by the TestScript author manually
   Requirements = There may be multiple resource versions of the TestScript that have this same identifier. The resource version id will change for technical reasons, whereas the stated version number needs to be under the author\'s control
+  Object Impl = BaseConformance.version
   w5 = id.version
 
  -- Row 4 -----------------------------------
@@ -368,6 +371,7 @@
   Short Label = Informal name for this TestScript
   Definition = A free text natural language name identifying the TestScript
   Comments = Not expected to be globally unique
+  Object Impl = BaseConformance.name
 
  -- Row 5 -----------------------------------
   Element = TestScript.status
@@ -379,6 +383,7 @@
   Short Label = draft | active | retired
   Definition = The status of the TestScript
   Requirements = Allows filtering of TestScripts that are appropriate for use vs. not
+  Object Impl = BaseConformance.status
   w5 = status
 
  -- Row 6 -----------------------------------
@@ -445,6 +450,7 @@
   Short Label = Date for this version of the TestScript
   Definition = The date this version of the test tcript was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the test cases change
   Comments = Additional specific dates may be added as extensions
+  Object Impl = BaseConformance.date
   w5 = when.recorded
 
  -- Row 13 -----------------------------------
@@ -465,6 +471,7 @@
   Short Label = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of Test Scripts.
   Requirements = Assist in searching for appropriate content
+  Object Impl = BaseConformance.useContext
 
  -- Row 15 -----------------------------------
   Element = TestScript.requirements
@@ -482,6 +489,7 @@
   Type = string
   Short Label = Use and/or publishing restrictions
   Definition = A copyright statement relating to the Test Script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings
+  Object Impl = BaseConformance.copyright
 
  -- Row 17 -----------------------------------
   Element = TestScript.origin
