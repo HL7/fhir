@@ -78,12 +78,12 @@
       }
     },
     {
-      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|C3214954|cashew nut allergenic extract Injectable Product",
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|1160593|cashew nut allergenic extract Injectable Product",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Substance Code"
     },
     {
-      "hash": "#|null|null|2556|null",
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|2556|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Substance Code"
     }

@@ -151,6 +151,11 @@
       "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
     },
     {
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|200371|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
       "hash": "#|null|null|200371|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
