@@ -18,6 +18,7 @@ public class ShexGeneratorTests {
 
   private void doTest(String name) throws FileNotFoundException, IOException, FHIRException {
     String workingDirectory = "C:\\work\\org.hl7.fhir.2016May\\build\\publish"; // FileSystems.getDefault().getPath(System.getProperty("user.dir"), "data").toString();
+    // String workingDirectory = FileSystems.getDefault().getPath(System.getProperty("user.dir"), "..", "..", "..", "publish").toString();
     if (TestingUtilities.context == null) {
       // For the time being, put the validation entry in org/hl7/fhir/dstu3/data
       Path path = FileSystems.getDefault().getPath(workingDirectory, "validation-min.xml.zip");
@@ -27,7 +28,7 @@ public class ShexGeneratorTests {
     if(sd == null) {
       throw new FHIRException("StructuredDefinition for " + name + "was null");
     }
-    Path outPath = FileSystems.getDefault().getPath(workingDirectory, name+".shex");
+    Path outPath = FileSystems.getDefault().getPath(workingDirectory, name.toLowerCase()+".shex");
     TextFile.stringToFile(new ShExGenerator(TestingUtilities.context).generate(HTMLLinkPolicy.NONE, sd), outPath.toString());
   }
 
@@ -70,5 +71,10 @@ public class ShexGeneratorTests {
   @Test
   public void testCoding() throws FHIRException, IOException {
     doTest("Coding");
+  }
+
+  @Test
+  public void testTiming() throws FHIRException, IOException {
+    doTest("Timing");
   }
 }

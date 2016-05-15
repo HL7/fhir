@@ -83,7 +83,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 
 	public static SimpleWorkerContext fromClassPath() throws IOException, FHIRException {
 		SimpleWorkerContext res = new SimpleWorkerContext();
-		res.loadFromStream(SimpleWorkerContext.class.getResourceAsStream("validation.zip"));
+		res.loadFromStream(SimpleWorkerContext.class.getResourceAsStream("validation.json.zip"));
 		return res;
 	}
 
@@ -424,6 +424,11 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   	} catch (Exception e) {
     	return;
     }
+  }
+
+  public void dropResource(Resource r) throws Exception {
+   throw new Exception("NOt done yet");
+    
   }
 
 }

@@ -66,10 +66,10 @@ public class TurtleParser extends ParserBase {
 			return;
 		if ("http://snomed.info/sct".equals(system)) {
 			t.prefix("sct", "http://snomed.info/sct/");
-			t.predicate("a", "sct:"+code);
+			t.predicate("fhir:concept", "sct:"+code);
 		} else if ("http://loinc.org".equals(system)) {
 			t.prefix("loinc", "http://loinc.org/owl#");
-			t.predicate("a", "loinc:"+code);
+			t.predicate("fhir:concept", "loinc:"+code);
 		}  
 	}
 

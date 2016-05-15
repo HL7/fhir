@@ -299,7 +299,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   @Override
   public ValidationResult validateCode(String system, String code, String display, ConceptSetComponent vsi) {
     try {
-      ValueSet vs = new ValueSet().setUrl(Utilities.makeUuidUrn());
+      ValueSet vs = new ValueSet();
+      vs.setUrl(Utilities.makeUuidUrn());
       vs.getCompose().addInclude(vsi);
       return verifyCodeExternal(vs, new Coding().setSystem(system).setCode(code).setDisplay(display), true);
     } catch (Exception e) {

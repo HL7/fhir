@@ -117,6 +117,8 @@ public class Utilities {
     }
     
   	public static boolean isDecimal(String string) {
+  		if (Utilities.noString(string))
+  			return false;
   		try {
   			float r = Float.parseFloat(string);
   			return r != r + 1; // just to suppress the hint
