@@ -167,7 +167,7 @@
 
  -- Row 9 -----------------------------------
   Element = Consent.patient
-  Card. = 0..*
+  Card. = 1..1
   Summary = Y
   Type = Reference(Patient)
   Short Label = Consent Target Entity
