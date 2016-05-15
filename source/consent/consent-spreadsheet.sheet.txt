@@ -216,7 +216,7 @@
  -- Row 14 -----------------------------------
   Element = Consent.agent.actor
   Card. = 1..1
-  Type = Reference(Consent|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)
+  Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)
   Short Label = Consent Agent Type
   Definition = Who or what parties are assigned roles in this Consent.
 
@@ -337,7 +337,7 @@
  -- Row 29 -----------------------------------
   Element = Consent.term.agent.actor
   Card. = 1..1
-  Type = Reference(Consent|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)
+  Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)
   Short Label = Consent Term Agent List
   Definition = The agent assigned a role in this Consent Provision.
 
