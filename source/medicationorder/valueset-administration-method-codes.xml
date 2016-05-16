@@ -1,63 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
-      <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains method of administration concepts.</p>
-      
-      
-      <p>Possible sources include:</p>
-      
-      
-      <ul>
-        
-        
-        <li>SNOMED CT - Children of SCTID: 107733003 &quot;introduction (procedure)&quot; (note: not all concepts in this subset may be suitable)</li>
-        
-        
-        <li>ISO 11239 - Administration methods</li>
-      
-      
-      </ul>
-      
-      
-      <p>SNOMED CT is being used here as the example terminology.</p>
-      
-      
-      <p>Note: to avoid confusion with other attributes in this resource concepts that are pre-coordinated with  site and/or route 
-        of administration (e.g. &quot;intravenous infusion&quot; where &quot;intravenous&quot; is the route or &quot;rub into left hand&quot; where &quot;left hand&quot; 
-        is the site) should not be used in this value set
-      </p>
-      
-      
-      <p>This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement</p>  
-    
-    
-    </div>
-  </text>
-  <name value="SNOMED CT Introduction (procedure) for Administration Method Codes"/>
-  <status value="draft"/>
-  <publisher value="FHIR Project team"/>
-  <contact>
+  
+
+<url value="http://hl7.org/fhir/ValueSet/administration-method-codes"/>
+
+<name value="SNOMED CT Administration Method Codes"/>
+  
+<status value="draft"/>
+  
+<publisher value="FHIR Project team"/>
+  
+<contact>
     <telecom>
       <system value="other"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes some introduction (procedure) codes from SNOMED CT - provided as an exemplar"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
-  <compose>
-    <include>
-      <system value="http://snomed.info/sct"/>
-      <filter>
-      <!--   SNOMED CT - Children of SCTID: 107733003 "introduction (procedure)" "   -->
-        <property value="concept"/>
-        <op value="is-a"/>
-        <value value="107733003"/>
-      </filter>
-    </include>
-  </compose>
+  
+
+<description value="This value set includes some method codes from SNOMED CT - provided as an exemplar"/>
+  
+
+<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  
+
+<compose>
+    
+	<include>
+      
+		<system value="http://snomed.info/sct"/>
+      
+		<filter>
+      
+			<!--   SNOMED CT - Children of SCTID: 422096002 "Dosing instruction fragment (qualifier value)" "   -->
+        
+			<property value="concept"/>
+        
+			<op value="is-a"/>
+        
+			<value value="422096002"/>
+      
+		</filter>
+    
+	</include>
+  
+</compose>
+
+
 </ValueSet>
