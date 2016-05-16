@@ -4,12 +4,9 @@
 
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
-	The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
-	In other jurisdictions, where an express consent model is used (Opt-In), these would examples would contain the phrase "consent to" rather 
-	than "withhold" or "withdraw" consent for.
+    <div xmlns="http://www.w3.org/1999/xhtml">
     <p>
-	specific to use-case 0) Authorize Normal access for Treatment
+	Authorize Normal access for Treatment
 	</p><p>
     Patient "P. van de Heuvel" wishes to have all of the PHI collected at the Good Health Psychiatric Hospital 
    available for normal treatment use.

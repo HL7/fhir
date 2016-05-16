@@ -4,12 +4,9 @@
 
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
-	The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
-	In other jurisdictions, where an express consent model is used (Opt-In), these would examples would contain the phrase "consent to" rather 
-	than "withhold" or "withdraw" consent for.
-    <p>
-	specific to use-case 0.b) Withhold Authorization for Treatment except for Emegency Treatment
+    <div xmlns="http://www.w3.org/1999/xhtml">
+	<p>
+	Withhold Authorization for Treatment except for Emegency Treatment
 	</p><p>
     Patient "P. van de Heuvel" wishes to have no data at the Good Health Psychiatric Hospital 
    available except for Emegency treatment use.

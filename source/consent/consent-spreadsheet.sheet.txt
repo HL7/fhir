@@ -83,7 +83,7 @@
 
  -- Row 1 -----------------------------------
   Element = Consent
-  UML = 220;0
+  UML = 0;0
   Type = DomainResource
   Short Label = Consent
   Definition = A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:
@@ -94,7 +94,6 @@
  -- Row 2 -----------------------------------
   Element = Consent.identifier
   Card. = 0..1
-  Summary = Y
   Type = Identifier
   Short Label = Consent identifier
   Definition = Unique identifier for this Consent.
@@ -178,6 +177,7 @@
  -- Row 10 -----------------------------------
   Element = Consent.authority
   Card. = 0..*
+  Summary = Y
   Type = Reference(Organization)
   Short Label = Authority under which this Consent has standing
   Definition = A recognized organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of consents and policies.  When empty, there Consent is under the authority of he Patient alone.
@@ -186,6 +186,7 @@
  -- Row 11 -----------------------------------
   Element = Consent.domain
   Card. = 0..*
+  Summary = Y
   Type = Reference(Location)
   Short Label = Domain in which this Consent applies
   Definition = Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources.
@@ -194,6 +195,7 @@
  -- Row 12 -----------------------------------
   Element = Consent.action
   Card. = 0..*
+  Summary = Y
   Type = CodeableConcept
   Binding = ConsentAction
   Short Label = Actions affected by
@@ -203,17 +205,18 @@
  -- Row 13 -----------------------------------
   Element = Consent.agent
   Card. = 0..*
-  UML = 530;-20
+  Summary = Y
+  UML = 300;20
   Type = =Agent
   Short Label = Consent Agent
   Definition = An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
   Requirements = An agent can be a person, an organization, software, device, or other entities that may be ascribed responsibility.
-  Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.\nFor example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
   w5 = who
 
  -- Row 14 -----------------------------------
   Element = Consent.agent.actor
   Card. = 1..1
+  Summary = Y
   Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)
   Short Label = Consent Agent Type
   Definition = Who or what parties are assigned roles in this Consent.
@@ -221,6 +224,7 @@
  -- Row 15 -----------------------------------
   Element = Consent.agent.role
   Card. = 0..*
+  Summary = Y
   Type = CodeableConcept
   Binding = ConsentActorRole
   Short Label = Consent  Agent Role
@@ -251,25 +255,24 @@
  -- Row 19 -----------------------------------
   Element = Consent.except
   Card. = 0..*
-  UML = 250;300
-  Type = =Term
-  Short Label = Consent Term List
+  Summary = Y
+  UML = 300;150
+  Type = =Except
+  Short Label = Consent Exception List
   Definition = One or more exceptions to the base policy of this Consent.
 
  -- Row 20 -----------------------------------
   Element = !Consent.except.identifier
   Card. = 0..1
-  Summary = Y
   Type = Identifier
-  Short Label = Consent Term identifier
+  Short Label = Consent Exception identifier
   Definition = Unique identifier for this particular Consent Provision.
 
  -- Row 21 -----------------------------------
   Element = !Consent.except.issued
   Card. = 0..1
-  Summary = Y
   Type = dateTime
-  Short Label = Consent Term Issue Date Time
+  Short Label = Consent Exception Issue Date Time
   Definition = When this Consent Provision was issued.
 
  -- Row 22 -----------------------------------
@@ -277,7 +280,7 @@
   Card. = 0..1
   Summary = Y
   Type = Period
-  Short Label = Consent Term Effective Time
+  Short Label = Consent Exception Effective Time
   Definition = Relevant time or time-period when this Consent Provision is applicable.
 
  -- Row 23 -----------------------------------
@@ -286,15 +289,16 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ConsentExceptType
-  Short Label = Consent Term Type
+  Short Label = Consent Exception Type
   Definition = Type exception to the base Consent policy such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.
 
  -- Row 24 -----------------------------------
   Element = Consent.except.subType
   Card. = 0..1
+  Summary = Y
   Type = CodeableConcept
   Binding = ConsentExceptSubType
-  Short Label = Consent Term Subtype
+  Short Label = Consent Exception Subtype
   Definition = Subtype of this exception to the base Consent.
 
  -- Row 25 -----------------------------------
@@ -302,69 +306,72 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
-  Short Label = Context of the Consent term
+  Short Label = Context of the Consent Exception
   Definition = The matter of concern in the context of this provision of the agrement.
   Requirements = Must be a subset of those topics in Consent.topic
-  Comments = The Consent.except.topic, as a Consent Resource subpart, is handled in the same manner as the Consent Resource as discussed above.
   RIM Mapping = Role
 
  -- Row 26 -----------------------------------
   Element = !Consent.except.subject
   Card. = 0..1
   Type = Reference(Any)
-  Short Label = Subject of this Consent Term
+  Short Label = Subject of this Consent Exception
   Definition = Who or what this Consent Provision is about.
 
  -- Row 27 -----------------------------------
   Element = Consent.except.action
   Card. = 0..*
+  Summary = Y
   Type = CodeableConcept
   Binding = ConsentAction
-  Short Label = Consent Term Action
+  Short Label = Consent Exception Action
   Definition = Action stipulated by this Consent Exception
 
  -- Row 28 -----------------------------------
   Element = Consent.except.agent
   Card. = 0..*
-  UML = -20;320
-  Type = =TermAgent
-  Short Label = Consent Term Agent List
+  Summary = Y
+  UML = 600;200
+  Type = =ExceptAgent
+  Short Label = Consent Exception Agent List
   Definition = An actor having a role in this exeption
-  Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.\nFor example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
 
  -- Row 29 -----------------------------------
   Element = Consent.except.agent.actor
   Card. = 1..1
+  Summary = Y
   Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)
-  Short Label = Consent Term Agent List
+  Short Label = Consent Exception Agent List
   Definition = The agent assigned a role in this Consent Exception
 
  -- Row 30 -----------------------------------
   Element = Consent.except.agent.role
   Card. = 0..*
+  Summary = Y
   Type = CodeableConcept
   Binding = ConsentActorRole
-  Short Label = Consent Term Agent Role
+  Short Label = Consent Exception Agent Role
   Definition = Role played by the agent assigned this role in the execution of this Consent Exception
 
  -- Row 31 -----------------------------------
   Element = Consent.except.text
   Card. = 0..1
+  Summary = Y
   Type = string
-  Short Label = Human readable Consent term text
+  Short Label = Human readable Consent Exception text
   Definition = Human readable form of this Consent Exception
 
  -- Row 32 -----------------------------------
   Element = !Consent.except.group
   Card. = 0..*
   Type = @Consent.except
-  Short Label = Nested Consent Term Group
+  Short Label = Nested Consent Exception Group
   Definition = Nested group of Consent Provisions.
 
  -- Row 33 -----------------------------------
   Element = Consent.friendly
   Card. = 0..*
-  UML = -20;0
+  UML = 0;300
   Type = =FriendlyLanguage
   Short Label = Consent Friendly Language
   Definition = The \"patient friendly language\" versionof the Consent in whole or in parts. \"Patient friendly language\" means the representation of the Consent and Consent Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Consent understand the roles, actions, obligations, responsibilities, and implication of the agreement.
@@ -372,29 +379,28 @@
  -- Row 34 -----------------------------------
   Element = Consent.friendly.content[x]
   Card. = 1..1
-  Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)
+  Type = Attachment|Reference(DocumentReference)
   Short Label = Easily comprehended representation of this Consent
   Definition = Human readable rendering of this Consent in a format and representation intended to enhance comprehension and ensure understandability.
 
  -- Row 35 -----------------------------------
   Element = Consent.legal
   Card. = 0..*
-  UML = -20;120
+  UML = 300;300
   Type = =LegalLanguage
   Short Label = Consent Legal Language
-  Definition = Legally binding Contract: This is the   legally recognized representation of the Contract, which is considered the \"source of truth\" and which would be the basis for legal action related to enforcement of this Contract.
+  Definition = Legally binding text This is the   legally recognized representation of the Consent, which is considered the \"source of truth\" and which would be the basis for legal action related to enforcement of this Consent
 
  -- Row 36 -----------------------------------
   Element = Consent.legal.content[x]
   Card. = 1..1
-  Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse|Contract)
+  Type = Attachment|Reference(DocumentReference)
   Short Label = Consent Legal Text
   Definition = Consent legal text in human renderable form.
 
  -- Row 37 -----------------------------------
   Element = Consent.rule
   Card. = 0..*
-  UML = -20;230
   Type = Attachment
   Short Label = Computable Consent Language
   Definition = List of Computable Policy Rule Language Representations of this Consent. For example the equivilant consent provisioned rules in a different rules engine language, such as XACML.
@@ -444,24 +450,18 @@
   Path = Consent.issued
 
  -- Row 8 -----------------------------------
-  Name = ttopic
-  Type = reference
-  Description = The identity of the topic of the consent terms
-  Path = Consent.except.topic
-
- -- Row 9 -----------------------------------
   Name = applies
   Type = date
   Description = The effective date/time range of the consent
   Path = Consent.applies
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = status
   Type = token
   Description = The status of the consent
   Path = Consent.status
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = type
   Type = token
   Description = The type of the consent

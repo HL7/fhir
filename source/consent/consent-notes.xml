@@ -1,10 +1,32 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-<!--<p>
-Notes:
+
+<h2>General Model</h2>
+<p>
+The following is the general model of Privacy Consent Directives.
 </p>
-<h2>Section Title</h2>-->
-	  <h2>Realm specifics</h2>
-	  <h3>US Realm sample Use-Cases</h3>
+<p>
+There are context setting parameters:
+</p>
+<ol>
+<li>Who - The <td><b>patient</b></td></li>
+<li>What - The <td><b>topic</b></td> - all or specific resources are listed</li>
+<li>Where - The <td><b>domain</b></td> and <td><b>authority</b></td> - what is the location boundary and authority boundary of this consent</li>
+<li>When - The <td><b>issued</b></td> and <td><b>applies</b></td> - When was this captured and over what timeframe does it apply</li>
+<li>How - The <td><b>actions</b></td> and <td><b>actor</b></td> - What actions are covered, what actors are covered. (such as purposes of use that are covered)</li>
+</ol>
+<p>There are set of patterns.</p>
+	  <ol>
+	  <li>No consent: All settings need a policy for when no consent has been captured. Often this allows treatment only.;</li>
+	  <li>Opt-out: <a href="consent-example-Out.html">No sharing allowed for the specified domain, location, actions, and purposes</a>;</li>
+	  <li>Opt-out with exceptions: No sharing allowed, with some exceptions where it is allowed. Example: <a href="consent-example-Emergency.html">Withhold Authorization for Treatment except for Emegency Treatment</a>;</li>
+	  <li>Opt-in: Sharing for some purpose of use is authorized <a href="consent-example.html">Sharing allowed for Treatment, Payment, and normal Operations</a>; and</li>
+	  <li>Opt-in with restrictions: Sharing allowed, but the patient may make exceptions (See the Canadian examples).</li>
+	  </ol>
+      <p>For each of these patterns (positive or negative pattern), there can be exceptions. These exceptions are explicitly 
+	  recorded in the <td><b>except</b></td> element. 
+      </p>	
+<h2>Realm specifics</h2>
+ <h3>US Realm sample Use-Cases</h3>
 	  <p>
 		Five categories of Privacy Consent Directives are described in the Office of the National Coordinator for 
 		Health Information (ONC) Consent Directives Document released March 31, 2010, and include the following 
@@ -12,12 +34,12 @@ Notes:
 	  </p>
 	  <ol>
 	  <li>No consent: Health information of patients is automatically included—patients cannot opt out;</li>
-	  <li>Opt-out: Default is for health information of patients to be included automatically, but the patient can opt out completely;</li>
+	  <li>Opt-out: Default is for health information of patients to be included automatically, but the patient can <a href="consent-example-Out.html">opt out completely</a>;</li>
 	  <li>Opt-out with exceptions: Default is for health information of patients to be included, but the patient can opt out completely or allow only select data to be included;</li>
-	  <li>Opt-in: Default is that no patient health information is included; patients must actively express consent to be included, but if they do so then their information must be all in or all out; and</li>
+	  <li>Opt-in: Default is that no patient health information is included; patients must actively <a href="consent-example.html">express consent</a> to be included, but if they do so then their information must be all in or all out; and</li>
 	  <li>Opt-in with restrictions: Default is that no patient health information is made available, but the patient may allow a subset of select data to be included.</li>
 	  </ol>
-	  <h3>Canada Realm sample Use-Cases</h3>
+ <h3>Canada Realm sample Use-Cases</h3>
 	  <p>
 	  The following scenarios are based on existing jurisdictional policy and are realized in existing systems in 
 	  Canada. The default policy is one of implied consent for the provision of care, so these scenarios all deal 
@@ -26,12 +48,16 @@ Notes:
 	  or "withdraw" consent for.
 	  </p>
 	  <ol>
-	    <li>Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)</li>
-		<li>Withhold or withdraw consent for disclosure of a specific record (e.g. Lab Order/Result) </li>
-		<li>Withhold or withdraw consent for disclosure to a specific provider organization </li>
-		<li>Withhold or withdraw consent for disclosure to a specific provider agent (an individual within an organization) </li>
-		<li>Withhold or withdraw consent for disclosure of records that were authored by a specific organization (or service delivery location). </li>
+	    <li>Withhold or withdraw <a href="consent-example-notLab.html">consent for disclosure of records related to specific domain</a> (e.g. DI, LAB, etc.)</li>
+		<li>Withhold or withdraw <a href="consent-example-notThis.html">consent for disclosure of a specific record</a> (e.g. Lab Order/Result) </li>
+		<li>Withhold or withdraw <a href="consent-example-notOrg.html">consent for disclosure to a specific provider organization</a> </li>
+		<li>Withhold or withdraw <a href="consent-example-notThem.html">consent for disclosure to a specific provider agent</a> (an individual within an organization) </li>
+		<li>Withhold or withdraw <a href="consent-example-notAutor.html">consent for disclosure of records that were authored by a specific organization</a> (or service delivery location). </li>
 		<li>Combinations of the above </li>
 	  </ol>
+ <h3>Non Treatment Use-Cases</h3>
+	  <p>
+	  Also shown is an example where a <a href="consent-example-grantor.html">Patient has authorized disclosure to a specific individual for purposes directed by the patient</a> (possibly not a treatment case).
+	  </p>
 
 </div>
