@@ -2,8 +2,10 @@ package org.hl7.fhir.dstu3.utils;
 
 import java.util.*;
 
+import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.Element;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -41,7 +43,7 @@ public class ShExGenerator {
   private static String SIMPLE_ELEMENT_TEMPLATE = "@<$typ$>";
 
   // A primitive element definition
-  private static String PRIMITIVE_ELEMENT_TEMPLATE = "xsd:$typ$";
+  private static String PRIMITIVE_ELEMENT_TEMPLATE = "$typ$";
 
   // A list of alternative shape definitions
   private static String ALTERNATIVE_TEMPLATE = "\n\t(\n\t\t$altEntries$\n\t)";
@@ -151,10 +153,13 @@ public class ShExGenerator {
     emitInnerTypes(shapeDefinitions);
 
     // Generate all of the referenced data types if requested
-    while((doDatatypes && emittedDatatypes.size() < datatypes.size()) ||
-            emittedInnerTypes.size() < innerTypes.size()) {
-      emitDatatypes(shapeDefinitions);
-      emitInnerTypes(shapeDefinitions);
+    if(doDatatypes) {
+      shapeDefinitions.append("\n#---------------------- Data Types -------------------\n");
+      while (emittedDatatypes.size() < datatypes.size() ||
+              emittedInnerTypes.size() < innerTypes.size()) {
+        emitDatatypes(shapeDefinitions);
+        emitInnerTypes(shapeDefinitions);
+      }
     }
 
     // Add all of the reference types
@@ -266,7 +271,7 @@ public class ShExGenerator {
     String shortId = id.substring(id.lastIndexOf(".") + 1);
     String card = "*".equals(ed.getMax()) ? (ed.getMin() == 0 ? "*" : "+") : "?";
     String defn;
-    element_def.add("id", sd.getKind().toCode().equals("datatype")? shortId : id);
+    element_def.add("id", id.charAt(0) == id.toLowerCase().charAt(0)? shortId : id);
     element_def.add("card", card);
     
     List<ElementDefinition> children = ProfileUtilities.getChildList(sd, ed);
@@ -293,32 +298,39 @@ public class ShExGenerator {
   }
 
   private String genTypeRef(ElementDefinition.TypeRefComponent typ) {
-    ST single_entry = tmplt(SIMPLE_ELEMENT_TEMPLATE);
 
     if(typ.getProfile().size() > 0) {
       if (typ.getProfile().size() != 1) throw new AssertionError("Can't handle multiple profiles");
-      single_entry.add("typ", getProfiledType(typ));
-      // TODO: Figure out how to get into the interior codes
-//    } else if (typ.code.hasExtension()) {
-//        for (Extension ext : typ.getExtension()) {
-//          if(ext.getUrl() == XML_DEFN_TYPE ) {
-//            ST primitive_entry = tmplt(PRIMITIVE_ELEMENT_TEMPLATE);
-//            primitive_entry.add("typ", ext.getValue());
-//            return primitive_entry.render();
-//          }
-//        }
-//        return "UNKNOWN";
-      } else if (typ.getCode() == null) {
-        ST primitive_entry = tmplt(PRIMITIVE_ELEMENT_TEMPLATE);
-        primitive_entry.add("typ", "string");
-        return primitive_entry.render();
-      } else if(typ.getCode().equals("xhtml")) {
-          return tmplt(XHTML_TEMPLATE).render();
-      } else {
-        single_entry.add("typ", typ.getCode());
-        datatypes.add(typ.getCode());
+      if(typ.getCode().equals("Reference"))
+        return genReference("", typ).render();
+      else
+        return tmplt(SIMPLE_ELEMENT_TEMPLATE).add("typ", getProfiledType(typ)).render();
+
+    } else if (typ.getCodeElement().getExtensionsByUrl(XML_DEFN_TYPE).size() > 0) {
+      String xt = null;
+      try {
+        xt = typ.getCodeElement().getExtensionString(XML_DEFN_TYPE);
+      } catch (FHIRException e) {
+        e.printStackTrace();
       }
-    return single_entry.render();
+      // TODO: Remove the next three lines when id.profile, etc gets fixed
+      xt = xt.replace("+", "");
+      if(!xt.contains("xs:"))
+        xt = "xs:" + xt;
+      return tmplt(PRIMITIVE_ELEMENT_TEMPLATE).add("typ",
+              xt.replaceAll(",\\s*", " OR ").replaceAll("xs:", "xsd:").replaceAll("xsd:anyURI", "IRI")).render();
+
+    } else if (typ.getCode() == null) {
+      ST primitive_entry = tmplt(PRIMITIVE_ELEMENT_TEMPLATE);
+      primitive_entry.add("typ", "xsd:string");
+      return primitive_entry.render();
+
+    } else if(typ.getCode().equals("xhtml")) {
+        return tmplt(XHTML_TEMPLATE).render();
+    } else {
+      datatypes.add(typ.getCode());
+      return tmplt(SIMPLE_ELEMENT_TEMPLATE).add("typ", typ.getCode()).render();
+    }
   }
 
   /**
@@ -343,22 +355,7 @@ public class ShExGenerator {
     return shex_alt.render();
   }
 
-  private ST genReference(String id, ElementDefinition.TypeRefComponent  typ) {
-    ST shex_ref = tmplt(REFERENCE_TEMPLATE);
 
-    // todo: There has to be a better way to do this
-    String ref;
-    if(typ.getProfile().size() > 0) {
-      String[] els = typ.getProfile().get(0).getValue().split("/");
-      ref = els[els.length - 1];
-    } else {
-      ref = "";
-    }
-    shex_ref.add("id", id);
-    shex_ref.add("ref", ref);
-    references.add(ref);
-    return shex_ref;
-  }
 
   /**
    * Generate an alternative shape for a reference
@@ -380,7 +377,10 @@ public class ShExGenerator {
    */
   private String getProfiledType(ElementDefinition.TypeRefComponent typ)
   {
-    return typ.getProfile().get(0).fhirType();
+    if(typ.getCode().equals("Reference"))
+      return genReference("", typ).render();
+    else
+      return typ.getProfile().get(0).fhirType();
   }
 
   /**
@@ -438,6 +438,7 @@ public class ShExGenerator {
     ST element_reference = tmplt(SHAPE_DEFINITION_TEMPLATE);
     element_reference.add("resourceDecl", "");  // Not a resource
     element_reference.add("id", ed.getPath());
+
     List<String> elements = new ArrayList<String>();
 
     for (ElementDefinition child: ProfileUtilities.getChildList(sd, ed)) {
@@ -446,6 +447,29 @@ public class ShExGenerator {
 
     element_reference.add("elements", StringUtils.join(elements, ",\n\t"));
     return element_reference.render();
+  }
+
+  /**
+   * Generate a reference to a resource
+   * @param id attribute identifier (example:  AllergyIntolerance.recorder
+   * @param typ possible reference types
+   * @return ST that represents the result
+   */
+  private ST genReference(String id, ElementDefinition.TypeRefComponent typ) {
+    ST shex_ref = tmplt(REFERENCE_TEMPLATE);
+
+    // todo: There has to be a better way to do this
+    String ref;
+    if(typ.getProfile().size() > 0) {
+      String[] els = typ.getProfile().get(0).getValue().split("/");
+      ref = els[els.length - 1];
+    } else {
+      ref = "";
+    }
+    shex_ref.add("id", id);
+    shex_ref.add("ref", ref);
+    references.add(ref);
+    return shex_ref;
   }
 
 }
