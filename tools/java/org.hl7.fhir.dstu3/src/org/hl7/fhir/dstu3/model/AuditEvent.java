@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -70,7 +70,7 @@ public class AuditEvent extends DomainResource {
          */
         E, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static AuditEventAction fromCode(String codeString) throws FHIRException {
@@ -86,7 +86,10 @@ public class AuditEvent extends DomainResource {
           return D;
         if ("E".equals(codeString))
           return E;
-        throw new FHIRException("Unknown AuditEventAction code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown AuditEventAction code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -201,7 +204,7 @@ public class AuditEvent extends DomainResource {
          */
         _12, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static AuditEventOutcome fromCode(String codeString) throws FHIRException {
@@ -215,7 +218,10 @@ public class AuditEvent extends DomainResource {
           return _8;
         if ("12".equals(codeString))
           return _12;
-        throw new FHIRException("Unknown AuditEventOutcome code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown AuditEventOutcome code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -324,7 +330,7 @@ public class AuditEvent extends DomainResource {
          */
         _5, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static AuditEventParticipantNetworkType fromCode(String codeString) throws FHIRException {
@@ -340,7 +346,10 @@ public class AuditEvent extends DomainResource {
           return _4;
         if ("5".equals(codeString))
           return _5;
-        throw new FHIRException("Unknown AuditEventParticipantNetworkType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown AuditEventParticipantNetworkType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

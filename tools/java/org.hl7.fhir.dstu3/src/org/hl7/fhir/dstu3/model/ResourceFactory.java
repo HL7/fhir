@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
@@ -128,6 +128,8 @@ public class ResourceFactory extends Factory {
             return new AuditEvent();
         if ("EligibilityResponse".equals(name))
             return new EligibilityResponse();
+        if ("Consent".equals(name))
+            return new Consent();
         if ("MedicationOrder".equals(name))
             return new MedicationOrder();
         if ("Person".equals(name))
@@ -224,10 +226,10 @@ public class ResourceFactory extends Factory {
             return new MedicationAdministration();
         if ("StructureMap".equals(name))
             return new StructureMap();
-        if ("CompartmentDefinition".equals(name))
-            return new CompartmentDefinition();
         if ("Encounter".equals(name))
             return new Encounter();
+        if ("CompartmentDefinition".equals(name))
+            return new CompartmentDefinition();
         if ("List".equals(name))
             return new ListResource();
         if ("CodeSystem".equals(name))
@@ -428,6 +430,8 @@ public class ResourceFactory extends Factory {
             return new AuditEvent();
         if ("EligibilityResponse".equals(name))
             return new EligibilityResponse();
+        if ("Consent".equals(name))
+            return new Consent();
         if ("MedicationOrder".equals(name))
             return new MedicationOrder();
         if ("Person".equals(name))
@@ -524,10 +528,10 @@ public class ResourceFactory extends Factory {
             return new MedicationAdministration();
         if ("StructureMap".equals(name))
             return new StructureMap();
-        if ("CompartmentDefinition".equals(name))
-            return new CompartmentDefinition();
         if ("Encounter".equals(name))
             return new Encounter();
+        if ("CompartmentDefinition".equals(name))
+            return new CompartmentDefinition();
         if ("List".equals(name))
             return new ListResource();
         if ("CodeSystem".equals(name))

@@ -409,9 +409,13 @@ public class RdfGenerator {
 		}
 	}
 
-	protected StringType literal(String s) {
-		return new StringType("\""+escape(s, true)+"\"");
-	}
+  protected StringType literal(String s) {
+    return new StringType("\""+escape(s, true)+"\"");
+  }
+
+  protected StringType literalTyped(String s, String t) {
+    return new StringType("\""+escape(s, true)+"\"^^xs:"+t);
+  }
 
 	public static String escape(String s, boolean string) {
 		if (s == null)

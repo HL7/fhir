@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -62,7 +62,7 @@ public class MeasureReport extends DomainResource {
          */
         SUMMARY, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static MeasureReportType fromCode(String codeString) throws FHIRException {
@@ -74,7 +74,10 @@ public class MeasureReport extends DomainResource {
           return PATIENTLIST;
         if ("summary".equals(codeString))
           return SUMMARY;
-        throw new FHIRException("Unknown MeasureReportType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown MeasureReportType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -165,7 +168,7 @@ public class MeasureReport extends DomainResource {
          */
         ERROR, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static MeasureReportStatus fromCode(String codeString) throws FHIRException {
@@ -177,7 +180,10 @@ public class MeasureReport extends DomainResource {
           return PENDING;
         if ("error".equals(codeString))
           return ERROR;
-        throw new FHIRException("Unknown MeasureReportStatus code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown MeasureReportStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

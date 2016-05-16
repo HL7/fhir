@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -61,7 +61,7 @@ public class DeviceMetric extends DomainResource {
          */
         STANDBY, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static DeviceMetricOperationalStatus fromCode(String codeString) throws FHIRException {
@@ -73,7 +73,10 @@ public class DeviceMetric extends DomainResource {
           return OFF;
         if ("standby".equals(codeString))
           return STANDBY;
-        throw new FHIRException("Unknown DeviceMetricOperationalStatus code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown DeviceMetricOperationalStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -184,7 +187,7 @@ public class DeviceMetric extends DomainResource {
          */
         WHITE, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static DeviceMetricColor fromCode(String codeString) throws FHIRException {
@@ -206,7 +209,10 @@ public class DeviceMetric extends DomainResource {
           return CYAN;
         if ("white".equals(codeString))
           return WHITE;
-        throw new FHIRException("Unknown DeviceMetricColor code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown DeviceMetricColor code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -351,7 +357,7 @@ public class DeviceMetric extends DomainResource {
          */
         UNSPECIFIED, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static DeviceMetricCategory fromCode(String codeString) throws FHIRException {
@@ -365,7 +371,10 @@ public class DeviceMetric extends DomainResource {
           return CALCULATION;
         if ("unspecified".equals(codeString))
           return UNSPECIFIED;
-        throw new FHIRException("Unknown DeviceMetricCategory code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown DeviceMetricCategory code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -470,7 +479,7 @@ public class DeviceMetric extends DomainResource {
          */
         TWOPOINT, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static DeviceMetricCalibrationType fromCode(String codeString) throws FHIRException {
@@ -484,7 +493,10 @@ public class DeviceMetric extends DomainResource {
           return GAIN;
         if ("two-point".equals(codeString))
           return TWOPOINT;
-        throw new FHIRException("Unknown DeviceMetricCalibrationType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown DeviceMetricCalibrationType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -589,7 +601,7 @@ public class DeviceMetric extends DomainResource {
          */
         UNSPECIFIED, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static DeviceMetricCalibrationState fromCode(String codeString) throws FHIRException {
@@ -603,7 +615,10 @@ public class DeviceMetric extends DomainResource {
           return CALIBRATED;
         if ("unspecified".equals(codeString))
           return UNSPECIFIED;
-        throw new FHIRException("Unknown DeviceMetricCalibrationState code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown DeviceMetricCalibrationState code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

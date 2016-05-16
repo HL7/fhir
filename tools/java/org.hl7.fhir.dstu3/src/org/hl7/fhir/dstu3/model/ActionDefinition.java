@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -56,7 +56,7 @@ public class ActionDefinition extends Type implements ICompositeType {
          */
         AFTER, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ActionRelationshipType fromCode(String codeString) throws FHIRException {
@@ -66,7 +66,10 @@ public class ActionDefinition extends Type implements ICompositeType {
           return BEFORE;
         if ("after".equals(codeString))
           return AFTER;
-        throw new FHIRException("Unknown ActionRelationshipType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ActionRelationshipType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -143,7 +146,7 @@ public class ActionDefinition extends Type implements ICompositeType {
          */
         END, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ActionRelationshipAnchor fromCode(String codeString) throws FHIRException {
@@ -153,7 +156,10 @@ public class ActionDefinition extends Type implements ICompositeType {
           return START;
         if ("end".equals(codeString))
           return END;
-        throw new FHIRException("Unknown ActionRelationshipAnchor code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ActionRelationshipAnchor code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -234,7 +240,7 @@ public class ActionDefinition extends Type implements ICompositeType {
          */
         RELATEDPERSON, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ParticipantType fromCode(String codeString) throws FHIRException {
@@ -246,7 +252,10 @@ public class ActionDefinition extends Type implements ICompositeType {
           return PRACTITIONER;
         if ("related-person".equals(codeString))
           return RELATEDPERSON;
-        throw new FHIRException("Unknown ParticipantType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ParticipantType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -341,7 +350,7 @@ public class ActionDefinition extends Type implements ICompositeType {
          */
         FIREEVENT, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ActionType fromCode(String codeString) throws FHIRException {
@@ -355,7 +364,10 @@ public class ActionDefinition extends Type implements ICompositeType {
           return REMOVE;
         if ("fire-event".equals(codeString))
           return FIREEVENT;
-        throw new FHIRException("Unknown ActionType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ActionType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

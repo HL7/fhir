@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -68,7 +68,7 @@ public class ModuleMetadata extends Type implements ICompositeType {
          */
         ORDERSET, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ModuleMetadataType fromCode(String codeString) throws FHIRException {
@@ -84,7 +84,10 @@ public class ModuleMetadata extends Type implements ICompositeType {
           return DOCUMENTATIONTEMPLATE;
         if ("order-set".equals(codeString))
           return ORDERSET;
-        throw new FHIRException("Unknown ModuleMetadataType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ModuleMetadataType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -195,7 +198,7 @@ public class ModuleMetadata extends Type implements ICompositeType {
          */
         INACTIVE, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ModuleMetadataStatus fromCode(String codeString) throws FHIRException {
@@ -207,7 +210,10 @@ public class ModuleMetadata extends Type implements ICompositeType {
           return ACTIVE;
         if ("inactive".equals(codeString))
           return INACTIVE;
-        throw new FHIRException("Unknown ModuleMetadataStatus code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ModuleMetadataStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -302,7 +308,7 @@ public class ModuleMetadata extends Type implements ICompositeType {
          */
         ENDORSER, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ModuleMetadataContributorType fromCode(String codeString) throws FHIRException {
@@ -316,7 +322,10 @@ public class ModuleMetadata extends Type implements ICompositeType {
           return REVIEWER;
         if ("endorser".equals(codeString))
           return ENDORSER;
-        throw new FHIRException("Unknown ModuleMetadataContributorType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ModuleMetadataContributorType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -429,7 +438,7 @@ public class ModuleMetadata extends Type implements ICompositeType {
          */
         DERIVEDFROM, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ModuleMetadataResourceType fromCode(String codeString) throws FHIRException {
@@ -447,7 +456,10 @@ public class ModuleMetadata extends Type implements ICompositeType {
           return SUCCESSOR;
         if ("derived-from".equals(codeString))
           return DERIVEDFROM;
-        throw new FHIRException("Unknown ModuleMetadataResourceType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ModuleMetadataResourceType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

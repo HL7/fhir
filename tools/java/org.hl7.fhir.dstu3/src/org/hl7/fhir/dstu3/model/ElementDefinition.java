@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -65,7 +65,7 @@ public class ElementDefinition extends Type implements ICompositeType {
          */
         CDATEXT, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static PropertyRepresentation fromCode(String codeString) throws FHIRException {
@@ -79,7 +79,10 @@ public class ElementDefinition extends Type implements ICompositeType {
           return TYPEATTR;
         if ("cdaText".equals(codeString))
           return CDATEXT;
-        throw new FHIRException("Unknown PropertyRepresentation code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown PropertyRepresentation code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -180,7 +183,7 @@ public class ElementDefinition extends Type implements ICompositeType {
          */
         OPENATEND, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static SlicingRules fromCode(String codeString) throws FHIRException {
@@ -192,7 +195,10 @@ public class ElementDefinition extends Type implements ICompositeType {
           return OPEN;
         if ("openAtEnd".equals(codeString))
           return OPENATEND;
-        throw new FHIRException("Unknown SlicingRules code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown SlicingRules code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -283,7 +289,7 @@ public class ElementDefinition extends Type implements ICompositeType {
          */
         BUNDLED, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static AggregationMode fromCode(String codeString) throws FHIRException {
@@ -295,7 +301,10 @@ public class ElementDefinition extends Type implements ICompositeType {
           return REFERENCED;
         if ("bundled".equals(codeString))
           return BUNDLED;
-        throw new FHIRException("Unknown AggregationMode code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown AggregationMode code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -386,7 +395,7 @@ public class ElementDefinition extends Type implements ICompositeType {
          */
         SPECIFIC, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ReferenceVersionRules fromCode(String codeString) throws FHIRException {
@@ -398,7 +407,10 @@ public class ElementDefinition extends Type implements ICompositeType {
           return INDEPENDENT;
         if ("specific".equals(codeString))
           return SPECIFIC;
-        throw new FHIRException("Unknown ReferenceVersionRules code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ReferenceVersionRules code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -485,7 +497,7 @@ public class ElementDefinition extends Type implements ICompositeType {
          */
         WARNING, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ConstraintSeverity fromCode(String codeString) throws FHIRException {
@@ -495,7 +507,10 @@ public class ElementDefinition extends Type implements ICompositeType {
           return ERROR;
         if ("warning".equals(codeString))
           return WARNING;
-        throw new FHIRException("Unknown ConstraintSeverity code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ConstraintSeverity code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

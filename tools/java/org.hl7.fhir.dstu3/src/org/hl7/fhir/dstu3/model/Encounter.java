@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -73,7 +73,7 @@ public class Encounter extends DomainResource {
          */
         CANCELLED, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static EncounterState fromCode(String codeString) throws FHIRException {
@@ -91,7 +91,10 @@ public class Encounter extends DomainResource {
           return FINISHED;
         if ("cancelled".equals(codeString))
           return CANCELLED;
-        throw new FHIRException("Unknown EncounterState code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown EncounterState code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -236,7 +239,7 @@ public class Encounter extends DomainResource {
          */
         OTHER, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static EncounterClass fromCode(String codeString) throws FHIRException {
@@ -260,7 +263,10 @@ public class Encounter extends DomainResource {
           return VIRTUAL;
         if ("other".equals(codeString))
           return OTHER;
-        throw new FHIRException("Unknown EncounterClass code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown EncounterClass code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -419,7 +425,7 @@ Not to be used when the patient is currently at the location
          */
         COMPLETED, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static EncounterLocationStatus fromCode(String codeString) throws FHIRException {
@@ -433,7 +439,10 @@ Not to be used when the patient is currently at the location
           return RESERVED;
         if ("completed".equals(codeString))
           return COMPLETED;
-        throw new FHIRException("Unknown EncounterLocationStatus code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown EncounterLocationStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -65,7 +65,7 @@ public class Subscription extends DomainResource {
          */
         OFF, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static SubscriptionStatus fromCode(String codeString) throws FHIRException {
@@ -79,7 +79,10 @@ public class Subscription extends DomainResource {
           return ERROR;
         if ("off".equals(codeString))
           return OFF;
-        throw new FHIRException("Unknown SubscriptionStatus code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown SubscriptionStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -188,7 +191,7 @@ public class Subscription extends DomainResource {
          */
         MESSAGE, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static SubscriptionChannelType fromCode(String codeString) throws FHIRException {
@@ -204,7 +207,10 @@ public class Subscription extends DomainResource {
           return SMS;
         if ("message".equals(codeString))
           return MESSAGE;
-        throw new FHIRException("Unknown SubscriptionChannelType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown SubscriptionChannelType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

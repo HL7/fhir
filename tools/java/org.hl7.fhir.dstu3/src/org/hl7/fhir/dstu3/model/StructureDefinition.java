@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -62,7 +62,7 @@ public class StructureDefinition extends DomainResource {
          */
         LOGICAL, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static StructureDefinitionKind fromCode(String codeString) throws FHIRException {
@@ -74,7 +74,10 @@ public class StructureDefinition extends DomainResource {
           return RESOURCE;
         if ("logical".equals(codeString))
           return LOGICAL;
-        throw new FHIRException("Unknown StructureDefinitionKind code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown StructureDefinitionKind code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -165,7 +168,7 @@ public class StructureDefinition extends DomainResource {
          */
         EXTENSION, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ExtensionContext fromCode(String codeString) throws FHIRException {
@@ -177,7 +180,10 @@ public class StructureDefinition extends DomainResource {
           return DATATYPE;
         if ("extension".equals(codeString))
           return EXTENSION;
-        throw new FHIRException("Unknown ExtensionContext code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ExtensionContext code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -264,7 +270,7 @@ public class StructureDefinition extends DomainResource {
          */
         CONSTRAINT, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static TypeDerivationRule fromCode(String codeString) throws FHIRException {
@@ -274,7 +280,10 @@ public class StructureDefinition extends DomainResource {
           return SPECIALIZATION;
         if ("constraint".equals(codeString))
           return CONSTRAINT;
-        throw new FHIRException("Unknown TypeDerivationRule code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown TypeDerivationRule code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

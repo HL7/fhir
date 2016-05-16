@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -65,7 +65,7 @@ public class Measure extends DomainResource {
          */
         COHORT, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static MeasureScoring fromCode(String codeString) throws FHIRException {
@@ -79,7 +79,10 @@ public class Measure extends DomainResource {
           return CONTINUOUSVARIABLE;
         if ("cohort".equals(codeString))
           return COHORT;
-        throw new FHIRException("Unknown MeasureScoring code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown MeasureScoring code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -176,7 +179,7 @@ public class Measure extends DomainResource {
          */
         OUTCOME, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static MeasureType fromCode(String codeString) throws FHIRException {
@@ -186,7 +189,10 @@ public class Measure extends DomainResource {
           return PROCESS;
         if ("outcome".equals(codeString))
           return OUTCOME;
-        throw new FHIRException("Unknown MeasureType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown MeasureType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -291,7 +297,7 @@ public class Measure extends DomainResource {
          */
         MEASURESCORE, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static MeasurePopulationType fromCode(String codeString) throws FHIRException {
@@ -315,7 +321,10 @@ public class Measure extends DomainResource {
           return MEASUREPOPULATIONEXCLUSION;
         if ("measure-score".equals(codeString))
           return MEASURESCORE;
-        throw new FHIRException("Unknown MeasurePopulationType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown MeasurePopulationType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -462,7 +471,7 @@ public class Measure extends DomainResource {
          */
         RISKADJUSTMENTFACTOR, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static MeasureDataUsage fromCode(String codeString) throws FHIRException {
@@ -472,7 +481,10 @@ public class Measure extends DomainResource {
           return SUPPLEMENTALDATA;
         if ("risk-adjustment-factor".equals(codeString))
           return RISKADJUSTMENTFACTOR;
-        throw new FHIRException("Unknown MeasureDataUsage code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown MeasureDataUsage code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

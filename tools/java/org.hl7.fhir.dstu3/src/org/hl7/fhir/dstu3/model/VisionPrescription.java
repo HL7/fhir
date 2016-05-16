@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -58,7 +58,7 @@ public class VisionPrescription extends DomainResource {
          */
         LEFT, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static VisionEyes fromCode(String codeString) throws FHIRException {
@@ -68,7 +68,10 @@ public class VisionPrescription extends DomainResource {
           return RIGHT;
         if ("left".equals(codeString))
           return LEFT;
-        throw new FHIRException("Unknown VisionEyes code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown VisionEyes code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -153,7 +156,7 @@ public class VisionPrescription extends DomainResource {
          */
         OUT, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static VisionBase fromCode(String codeString) throws FHIRException {
@@ -167,7 +170,10 @@ public class VisionPrescription extends DomainResource {
           return IN;
         if ("out".equals(codeString))
           return OUT;
-        throw new FHIRException("Unknown VisionBase code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown VisionBase code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

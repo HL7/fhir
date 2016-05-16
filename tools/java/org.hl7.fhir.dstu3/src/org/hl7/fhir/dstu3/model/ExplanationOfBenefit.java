@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -49,7 +49,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 @ResourceDef(name="ExplanationOfBenefit", profile="http://hl7.org/fhir/Profile/ExplanationOfBenefit")
 public class ExplanationOfBenefit extends DomainResource {
 
-    public enum ClaimType {
+    public enum ClaimType2 {
         /**
          * A claim for Institution based, typically in-patient, goods and services.
          */
@@ -71,10 +71,10 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         VISION, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
-        public static ClaimType fromCode(String codeString) throws FHIRException {
+        public static ClaimType2 fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("institutional".equals(codeString))
@@ -87,7 +87,10 @@ public class ExplanationOfBenefit extends DomainResource {
           return PROFESSIONAL;
         if ("vision".equals(codeString))
           return VISION;
-        throw new FHIRException("Unknown ClaimType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ClaimType2 code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -101,11 +104,11 @@ public class ExplanationOfBenefit extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case INSTITUTIONAL: return "http://hl7.org/fhir/claim-type-link";
-            case ORAL: return "http://hl7.org/fhir/claim-type-link";
-            case PHARMACY: return "http://hl7.org/fhir/claim-type-link";
-            case PROFESSIONAL: return "http://hl7.org/fhir/claim-type-link";
-            case VISION: return "http://hl7.org/fhir/claim-type-link";
+            case INSTITUTIONAL: return "http://hl7.org/fhir/claim-type-link2";
+            case ORAL: return "http://hl7.org/fhir/claim-type-link2";
+            case PHARMACY: return "http://hl7.org/fhir/claim-type-link2";
+            case PROFESSIONAL: return "http://hl7.org/fhir/claim-type-link2";
+            case VISION: return "http://hl7.org/fhir/claim-type-link2";
             default: return "?";
           }
         }
@@ -131,55 +134,55 @@ public class ExplanationOfBenefit extends DomainResource {
         }
     }
 
-  public static class ClaimTypeEnumFactory implements EnumFactory<ClaimType> {
-    public ClaimType fromCode(String codeString) throws IllegalArgumentException {
+  public static class ClaimType2EnumFactory implements EnumFactory<ClaimType2> {
+    public ClaimType2 fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("institutional".equals(codeString))
-          return ClaimType.INSTITUTIONAL;
+          return ClaimType2.INSTITUTIONAL;
         if ("oral".equals(codeString))
-          return ClaimType.ORAL;
+          return ClaimType2.ORAL;
         if ("pharmacy".equals(codeString))
-          return ClaimType.PHARMACY;
+          return ClaimType2.PHARMACY;
         if ("professional".equals(codeString))
-          return ClaimType.PROFESSIONAL;
+          return ClaimType2.PROFESSIONAL;
         if ("vision".equals(codeString))
-          return ClaimType.VISION;
-        throw new IllegalArgumentException("Unknown ClaimType code '"+codeString+"'");
+          return ClaimType2.VISION;
+        throw new IllegalArgumentException("Unknown ClaimType2 code '"+codeString+"'");
         }
-        public Enumeration<ClaimType> fromType(Base code) throws FHIRException {
+        public Enumeration<ClaimType2> fromType(Base code) throws FHIRException {
           if (code == null || code.isEmpty())
             return null;
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("institutional".equals(codeString))
-          return new Enumeration<ClaimType>(this, ClaimType.INSTITUTIONAL);
+          return new Enumeration<ClaimType2>(this, ClaimType2.INSTITUTIONAL);
         if ("oral".equals(codeString))
-          return new Enumeration<ClaimType>(this, ClaimType.ORAL);
+          return new Enumeration<ClaimType2>(this, ClaimType2.ORAL);
         if ("pharmacy".equals(codeString))
-          return new Enumeration<ClaimType>(this, ClaimType.PHARMACY);
+          return new Enumeration<ClaimType2>(this, ClaimType2.PHARMACY);
         if ("professional".equals(codeString))
-          return new Enumeration<ClaimType>(this, ClaimType.PROFESSIONAL);
+          return new Enumeration<ClaimType2>(this, ClaimType2.PROFESSIONAL);
         if ("vision".equals(codeString))
-          return new Enumeration<ClaimType>(this, ClaimType.VISION);
-        throw new FHIRException("Unknown ClaimType code '"+codeString+"'");
+          return new Enumeration<ClaimType2>(this, ClaimType2.VISION);
+        throw new FHIRException("Unknown ClaimType2 code '"+codeString+"'");
         }
-    public String toCode(ClaimType code) {
-      if (code == ClaimType.INSTITUTIONAL)
+    public String toCode(ClaimType2 code) {
+      if (code == ClaimType2.INSTITUTIONAL)
         return "institutional";
-      if (code == ClaimType.ORAL)
+      if (code == ClaimType2.ORAL)
         return "oral";
-      if (code == ClaimType.PHARMACY)
+      if (code == ClaimType2.PHARMACY)
         return "pharmacy";
-      if (code == ClaimType.PROFESSIONAL)
+      if (code == ClaimType2.PROFESSIONAL)
         return "professional";
-      if (code == ClaimType.VISION)
+      if (code == ClaimType2.VISION)
         return "vision";
       return "?";
       }
-    public String toSystem(ClaimType code) {
+    public String toSystem(ClaimType2 code) {
       return code.getSystem();
       }
     }
@@ -8556,7 +8559,7 @@ public class ExplanationOfBenefit extends DomainResource {
      */
     @Child(name = "type", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="institutional | oral | pharmacy | professional | vision", formalDefinition="The category of claim." )
-    protected Enumeration<ClaimType> type;
+    protected Enumeration<ClaimType2> type;
 
     /**
      * A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType.
@@ -8873,7 +8876,7 @@ public class ExplanationOfBenefit extends DomainResource {
     @Description(shortDefinition="Balance by Benefit Category", formalDefinition="Balance by Benefit Category." )
     protected List<BenefitBalanceComponent> benefitBalance;
 
-    private static final long serialVersionUID = -131541244L;
+    private static final long serialVersionUID = 1654110726L;
 
   /**
    * Constructor
@@ -8885,7 +8888,7 @@ public class ExplanationOfBenefit extends DomainResource {
   /**
    * Constructor
    */
-    public ExplanationOfBenefit(Enumeration<ClaimType> type, Type patient, CoverageComponent coverage) {
+    public ExplanationOfBenefit(Enumeration<ClaimType2> type, Type patient, CoverageComponent coverage) {
       super();
       this.type = type;
       this.patient = patient;
@@ -9025,12 +9028,12 @@ public class ExplanationOfBenefit extends DomainResource {
     /**
      * @return {@link #type} (The category of claim.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<ClaimType> getTypeElement() { 
+    public Enumeration<ClaimType2> getTypeElement() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExplanationOfBenefit.type");
         else if (Configuration.doAutoCreate())
-          this.type = new Enumeration<ClaimType>(new ClaimTypeEnumFactory()); // bb
+          this.type = new Enumeration<ClaimType2>(new ClaimType2EnumFactory()); // bb
       return this.type;
     }
 
@@ -9045,7 +9048,7 @@ public class ExplanationOfBenefit extends DomainResource {
     /**
      * @param value {@link #type} (The category of claim.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public ExplanationOfBenefit setTypeElement(Enumeration<ClaimType> value) { 
+    public ExplanationOfBenefit setTypeElement(Enumeration<ClaimType2> value) { 
       this.type = value;
       return this;
     }
@@ -9053,16 +9056,16 @@ public class ExplanationOfBenefit extends DomainResource {
     /**
      * @return The category of claim.
      */
-    public ClaimType getType() { 
+    public ClaimType2 getType() { 
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
      * @param value The category of claim.
      */
-    public ExplanationOfBenefit setType(ClaimType value) { 
+    public ExplanationOfBenefit setType(ClaimType2 value) { 
         if (this.type == null)
-          this.type = new Enumeration<ClaimType>(new ClaimTypeEnumFactory());
+          this.type = new Enumeration<ClaimType2>(new ClaimType2EnumFactory());
         this.type.setValue(value);
       return this;
     }
@@ -10735,7 +10738,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case 94742588: /*claim*/ return this.claim == null ? new Base[0] : new Base[] {this.claim}; // Type
         case 689513629: /*claimResponse*/ return this.claimResponse == null ? new Base[0] : new Base[] {this.claimResponse}; // Type
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ClaimType>
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ClaimType2>
         case -1868521062: /*subType*/ return this.subType == null ? new Base[0] : this.subType.toArray(new Base[this.subType.size()]); // Coding
         case 1548678118: /*ruleset*/ return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
         case 1089373397: /*originalRuleset*/ return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
@@ -10799,7 +10802,7 @@ public class ExplanationOfBenefit extends DomainResource {
           this.claimResponse = (Type) value; // Type
           break;
         case 3575610: // type
-          this.type = new ClaimTypeEnumFactory().fromType(value); // Enumeration<ClaimType>
+          this.type = new ClaimType2EnumFactory().fromType(value); // Enumeration<ClaimType2>
           break;
         case -1868521062: // subType
           this.getSubType().add(castToCoding(value)); // Coding
@@ -10950,7 +10953,7 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("claimResponse[x]"))
           this.claimResponse = (Type) value; // Type
         else if (name.equals("type"))
-          this.type = new ClaimTypeEnumFactory().fromType(value); // Enumeration<ClaimType>
+          this.type = new ClaimType2EnumFactory().fromType(value); // Enumeration<ClaimType2>
         else if (name.equals("subType"))
           this.getSubType().add(castToCoding(value));
         else if (name.equals("ruleset"))
@@ -11051,7 +11054,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1618432855:  return addIdentifier(); // Identifier
         case 683016900:  return getClaim(); // Type
         case -1527963965:  return getClaimResponse(); // Type
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<ClaimType>
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<ClaimType2>
         case -1868521062:  return addSubType(); // Coding
         case 1548678118:  return getRuleset(); // Coding
         case 1089373397:  return getOriginalRuleset(); // Coding

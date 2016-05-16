@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -66,7 +66,7 @@ public class CodeSystem extends DomainResource {
          */
         COMPLETE, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static CodeSystemContentMode fromCode(String codeString) throws FHIRException {
@@ -80,7 +80,10 @@ public class CodeSystem extends DomainResource {
           return FRAGMENT;
         if ("complete".equals(codeString))
           return COMPLETE;
-        throw new FHIRException("Unknown CodeSystemContentMode code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown CodeSystemContentMode code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -193,7 +196,7 @@ public class CodeSystem extends DomainResource {
          */
         DATETIME, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static PropertyType fromCode(String codeString) throws FHIRException {
@@ -211,7 +214,10 @@ public class CodeSystem extends DomainResource {
           return BOOLEAN;
         if ("dateTime".equals(codeString))
           return DATETIME;
-        throw new FHIRException("Unknown PropertyType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown PropertyType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

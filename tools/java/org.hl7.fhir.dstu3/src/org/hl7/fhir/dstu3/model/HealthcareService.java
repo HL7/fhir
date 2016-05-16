@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -77,7 +77,7 @@ public class HealthcareService extends DomainResource {
          */
         SUN, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static DaysOfWeek fromCode(String codeString) throws FHIRException {
@@ -97,7 +97,10 @@ public class HealthcareService extends DomainResource {
           return SAT;
         if ("sun".equals(codeString))
           return SUN;
-        throw new FHIRException("Unknown DaysOfWeek code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown DaysOfWeek code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

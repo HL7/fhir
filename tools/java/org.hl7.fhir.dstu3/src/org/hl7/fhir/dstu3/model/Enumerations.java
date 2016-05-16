@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2302,6 +2302,10 @@ public class Enumerations {
          */
         CONFORMANCE, 
         /**
+         * A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:.
+         */
+        CONSENT, 
+        /**
          * A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
          */
         CONTRACT, 
@@ -2838,6 +2842,8 @@ public class Enumerations {
           return CONDITION;
         if ("Conformance".equals(codeString))
           return CONFORMANCE;
+        if ("Consent".equals(codeString))
+          return CONSENT;
         if ("Contract".equals(codeString))
           return CONTRACT;
         if ("Coverage".equals(codeString))
@@ -3107,6 +3113,7 @@ public class Enumerations {
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
             case CONFORMANCE: return "Conformance";
+            case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
             case DATAELEMENT: return "DataElement";
@@ -3281,6 +3288,7 @@ public class Enumerations {
             case CONCEPTMAP: return "http://hl7.org/fhir/resource-types";
             case CONDITION: return "http://hl7.org/fhir/resource-types";
             case CONFORMANCE: return "http://hl7.org/fhir/resource-types";
+            case CONSENT: return "http://hl7.org/fhir/resource-types";
             case CONTRACT: return "http://hl7.org/fhir/resource-types";
             case COVERAGE: return "http://hl7.org/fhir/resource-types";
             case DATAELEMENT: return "http://hl7.org/fhir/resource-types";
@@ -3455,6 +3463,7 @@ public class Enumerations {
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
             case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.";
             case CONFORMANCE: return "A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
+            case CONSENT: return "A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
             case COVERAGE: return "Financial instrument which may be used to pay for or reimburse health care products and services.";
             case DATAELEMENT: return "The formal description of a single piece of information that can be gathered and reported.";
@@ -3629,6 +3638,7 @@ public class Enumerations {
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
             case CONFORMANCE: return "Conformance";
+            case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
             case DATAELEMENT: return "DataElement";
@@ -3881,6 +3891,8 @@ public class Enumerations {
           return FHIRAllTypes.CONDITION;
         if ("Conformance".equals(codeString))
           return FHIRAllTypes.CONFORMANCE;
+        if ("Consent".equals(codeString))
+          return FHIRAllTypes.CONSENT;
         if ("Contract".equals(codeString))
           return FHIRAllTypes.CONTRACT;
         if ("Coverage".equals(codeString))
@@ -4227,6 +4239,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CONDITION);
         if ("Conformance".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CONFORMANCE);
+        if ("Consent".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CONSENT);
         if ("Contract".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CONTRACT);
         if ("Coverage".equals(codeString))
@@ -4568,6 +4582,8 @@ public class Enumerations {
         return "Condition";
       if (code == FHIRAllTypes.CONFORMANCE)
         return "Conformance";
+      if (code == FHIRAllTypes.CONSENT)
+        return "Consent";
       if (code == FHIRAllTypes.CONTRACT)
         return "Contract";
       if (code == FHIRAllTypes.COVERAGE)
@@ -5060,6 +5076,10 @@ public class Enumerations {
          * A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
          */
         CONFORMANCE, 
+        /**
+         * A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:.
+         */
+        CONSENT, 
         /**
          * A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
          */
@@ -5589,6 +5609,8 @@ public class Enumerations {
           return CONDITION;
         if ("Conformance".equals(codeString))
           return CONFORMANCE;
+        if ("Consent".equals(codeString))
+          return CONSENT;
         if ("Contract".equals(codeString))
           return CONTRACT;
         if ("Coverage".equals(codeString))
@@ -5854,6 +5876,7 @@ public class Enumerations {
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
             case CONFORMANCE: return "Conformance";
+            case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
             case DATAELEMENT: return "DataElement";
@@ -6026,6 +6049,7 @@ public class Enumerations {
             case CONCEPTMAP: return "http://hl7.org/fhir/resource-types";
             case CONDITION: return "http://hl7.org/fhir/resource-types";
             case CONFORMANCE: return "http://hl7.org/fhir/resource-types";
+            case CONSENT: return "http://hl7.org/fhir/resource-types";
             case CONTRACT: return "http://hl7.org/fhir/resource-types";
             case COVERAGE: return "http://hl7.org/fhir/resource-types";
             case DATAELEMENT: return "http://hl7.org/fhir/resource-types";
@@ -6198,6 +6222,7 @@ public class Enumerations {
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
             case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.";
             case CONFORMANCE: return "A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
+            case CONSENT: return "A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
             case COVERAGE: return "Financial instrument which may be used to pay for or reimburse health care products and services.";
             case DATAELEMENT: return "The formal description of a single piece of information that can be gathered and reported.";
@@ -6370,6 +6395,7 @@ public class Enumerations {
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
             case CONFORMANCE: return "Conformance";
+            case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
             case DATAELEMENT: return "DataElement";
@@ -6620,6 +6646,8 @@ public class Enumerations {
           return FHIRDefinedType.CONDITION;
         if ("Conformance".equals(codeString))
           return FHIRDefinedType.CONFORMANCE;
+        if ("Consent".equals(codeString))
+          return FHIRDefinedType.CONSENT;
         if ("Contract".equals(codeString))
           return FHIRDefinedType.CONTRACT;
         if ("Coverage".equals(codeString))
@@ -6962,6 +6990,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CONDITION);
         if ("Conformance".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CONFORMANCE);
+        if ("Consent".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CONSENT);
         if ("Contract".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CONTRACT);
         if ("Coverage".equals(codeString))
@@ -7299,6 +7329,8 @@ public class Enumerations {
         return "Condition";
       if (code == FHIRDefinedType.CONFORMANCE)
         return "Conformance";
+      if (code == FHIRDefinedType.CONSENT)
+        return "Consent";
       if (code == FHIRDefinedType.CONTRACT)
         return "Contract";
       if (code == FHIRDefinedType.COVERAGE)
@@ -8005,6 +8037,10 @@ public class Enumerations {
          */
         CONFORMANCE, 
         /**
+         * A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:.
+         */
+        CONSENT, 
+        /**
          * A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
          */
         CONTRACT, 
@@ -8431,6 +8467,8 @@ public class Enumerations {
           return CONDITION;
         if ("Conformance".equals(codeString))
           return CONFORMANCE;
+        if ("Consent".equals(codeString))
+          return CONSENT;
         if ("Contract".equals(codeString))
           return CONTRACT;
         if ("Coverage".equals(codeString))
@@ -8645,6 +8683,7 @@ public class Enumerations {
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
             case CONFORMANCE: return "Conformance";
+            case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
             case DATAELEMENT: return "DataElement";
@@ -8766,6 +8805,7 @@ public class Enumerations {
             case CONCEPTMAP: return "http://hl7.org/fhir/resource-types";
             case CONDITION: return "http://hl7.org/fhir/resource-types";
             case CONFORMANCE: return "http://hl7.org/fhir/resource-types";
+            case CONSENT: return "http://hl7.org/fhir/resource-types";
             case CONTRACT: return "http://hl7.org/fhir/resource-types";
             case COVERAGE: return "http://hl7.org/fhir/resource-types";
             case DATAELEMENT: return "http://hl7.org/fhir/resource-types";
@@ -8887,6 +8927,7 @@ public class Enumerations {
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
             case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.";
             case CONFORMANCE: return "A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
+            case CONSENT: return "A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
             case COVERAGE: return "Financial instrument which may be used to pay for or reimburse health care products and services.";
             case DATAELEMENT: return "The formal description of a single piece of information that can be gathered and reported.";
@@ -9008,6 +9049,7 @@ public class Enumerations {
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
             case CONFORMANCE: return "Conformance";
+            case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
             case DATAELEMENT: return "DataElement";
@@ -9156,6 +9198,8 @@ public class Enumerations {
           return ResourceType.CONDITION;
         if ("Conformance".equals(codeString))
           return ResourceType.CONFORMANCE;
+        if ("Consent".equals(codeString))
+          return ResourceType.CONSENT;
         if ("Contract".equals(codeString))
           return ResourceType.CONTRACT;
         if ("Coverage".equals(codeString))
@@ -9396,6 +9440,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.CONDITION);
         if ("Conformance".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CONFORMANCE);
+        if ("Consent".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.CONSENT);
         if ("Contract".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CONTRACT);
         if ("Coverage".equals(codeString))
@@ -9631,6 +9677,8 @@ public class Enumerations {
         return "Condition";
       if (code == ResourceType.CONFORMANCE)
         return "Conformance";
+      if (code == ResourceType.CONSENT)
+        return "Consent";
       if (code == ResourceType.CONTRACT)
         return "Contract";
       if (code == ResourceType.COVERAGE)

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -68,7 +68,7 @@ public class ContactPoint extends Type implements ICompositeType {
          */
         OTHER, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ContactPointSystem fromCode(String codeString) throws FHIRException {
@@ -84,7 +84,10 @@ public class ContactPoint extends Type implements ICompositeType {
           return PAGER;
         if ("other".equals(codeString))
           return OTHER;
-        throw new FHIRException("Unknown ContactPointSystem code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ContactPointSystem code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -203,7 +206,7 @@ public class ContactPoint extends Type implements ICompositeType {
          */
         MOBILE, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ContactPointUse fromCode(String codeString) throws FHIRException {
@@ -219,7 +222,10 @@ public class ContactPoint extends Type implements ICompositeType {
           return OLD;
         if ("mobile".equals(codeString))
           return MOBILE;
-        throw new FHIRException("Unknown ContactPointUse code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ContactPointUse code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

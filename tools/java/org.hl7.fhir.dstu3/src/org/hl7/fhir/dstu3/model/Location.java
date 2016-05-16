@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -62,7 +62,7 @@ public class Location extends DomainResource {
          */
         INACTIVE, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static LocationStatus fromCode(String codeString) throws FHIRException {
@@ -74,7 +74,10 @@ public class Location extends DomainResource {
           return SUSPENDED;
         if ("inactive".equals(codeString))
           return INACTIVE;
-        throw new FHIRException("Unknown LocationStatus code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown LocationStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -161,7 +164,7 @@ public class Location extends DomainResource {
          */
         KIND, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static LocationMode fromCode(String codeString) throws FHIRException {
@@ -171,7 +174,10 @@ public class Location extends DomainResource {
           return INSTANCE;
         if ("kind".equals(codeString))
           return KIND;
-        throw new FHIRException("Unknown LocationMode code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown LocationMode code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

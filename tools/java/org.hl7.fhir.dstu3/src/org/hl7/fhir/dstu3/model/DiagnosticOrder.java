@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -105,7 +105,7 @@ public class DiagnosticOrder extends DomainResource {
          */
         ENTEREDINERROR, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static DiagnosticOrderStatus fromCode(String codeString) throws FHIRException {
@@ -139,7 +139,10 @@ public class DiagnosticOrder extends DomainResource {
           return FAILED;
         if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
-        throw new FHIRException("Unknown DiagnosticOrderStatus code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown DiagnosticOrderStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -344,7 +347,7 @@ public class DiagnosticOrder extends DomainResource {
          */
         ASAP, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static DiagnosticOrderPriority fromCode(String codeString) throws FHIRException {
@@ -358,7 +361,10 @@ public class DiagnosticOrder extends DomainResource {
           return STAT;
         if ("asap".equals(codeString))
           return ASAP;
-        throw new FHIRException("Unknown DiagnosticOrderPriority code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown DiagnosticOrderPriority code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

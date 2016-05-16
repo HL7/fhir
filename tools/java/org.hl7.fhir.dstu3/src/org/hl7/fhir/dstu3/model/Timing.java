@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -77,7 +77,7 @@ public class Timing extends Type implements ICompositeType {
          */
         A, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static UnitsOfTime fromCode(String codeString) throws FHIRException {
@@ -97,7 +97,10 @@ public class Timing extends Type implements ICompositeType {
           return MO;
         if ("a".equals(codeString))
           return A;
-        throw new FHIRException("Unknown UnitsOfTime code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown UnitsOfTime code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -272,7 +275,7 @@ public class Timing extends Type implements ICompositeType {
          */
         PCV, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static EventTiming fromCode(String codeString) throws FHIRException {
@@ -306,7 +309,10 @@ public class Timing extends Type implements ICompositeType {
           return PCD;
         if ("PCV".equals(codeString))
           return PCV;
-        throw new FHIRException("Unknown EventTiming code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown EventTiming code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -1566,7 +1572,7 @@ public class Timing extends Type implements ICompositeType {
      * A code for the timing pattern. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing.
      */
     @Child(name = "code", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="QD | QOD | Q4H | Q6H | BID | TID | QID | AM | PM +", formalDefinition="A code for the timing pattern. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing." )
+    @Description(shortDefinition="BID | TID | QID | AM | PM | QD | QOD | Q4H | Q6H +", formalDefinition="A code for the timing pattern. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing." )
     protected CodeableConcept code;
 
     private static final long serialVersionUID = 791565112L;

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -89,7 +89,7 @@ public class DeviceUseRequest extends DomainResource {
          */
         ABORTED, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static DeviceUseRequestStatus fromCode(String codeString) throws FHIRException {
@@ -115,7 +115,10 @@ public class DeviceUseRequest extends DomainResource {
           return REJECTED;
         if ("aborted".equals(codeString))
           return ABORTED;
-        throw new FHIRException("Unknown DeviceUseRequestStatus code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown DeviceUseRequestStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -280,7 +283,7 @@ public class DeviceUseRequest extends DomainResource {
          */
         ASAP, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static DeviceUseRequestPriority fromCode(String codeString) throws FHIRException {
@@ -294,7 +297,10 @@ public class DeviceUseRequest extends DomainResource {
           return STAT;
         if ("asap".equals(codeString))
           return ASAP;
-        throw new FHIRException("Unknown DeviceUseRequestPriority code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown DeviceUseRequestPriority code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

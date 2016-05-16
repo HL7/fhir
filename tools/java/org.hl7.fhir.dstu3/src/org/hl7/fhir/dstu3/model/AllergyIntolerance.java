@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -77,7 +77,7 @@ public class AllergyIntolerance extends DomainResource {
          */
         ENTEREDINERROR, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static AllergyIntoleranceStatus fromCode(String codeString) throws FHIRException {
@@ -97,7 +97,10 @@ public class AllergyIntolerance extends DomainResource {
           return REFUTED;
         if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
-        throw new FHIRException("Unknown AllergyIntoleranceStatus code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown AllergyIntoleranceStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -224,7 +227,7 @@ public class AllergyIntolerance extends DomainResource {
          */
         INTOLERANCE, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static AllergyIntoleranceType fromCode(String codeString) throws FHIRException {
@@ -234,7 +237,10 @@ public class AllergyIntolerance extends DomainResource {
           return ALLERGY;
         if ("intolerance".equals(codeString))
           return INTOLERANCE;
-        throw new FHIRException("Unknown AllergyIntoleranceType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown AllergyIntoleranceType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -319,7 +325,7 @@ public class AllergyIntolerance extends DomainResource {
          */
         OTHER, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static AllergyIntoleranceCategory fromCode(String codeString) throws FHIRException {
@@ -333,7 +339,10 @@ public class AllergyIntolerance extends DomainResource {
           return ENVIRONMENT;
         if ("other".equals(codeString))
           return OTHER;
-        throw new FHIRException("Unknown AllergyIntoleranceCategory code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown AllergyIntoleranceCategory code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -434,7 +443,7 @@ public class AllergyIntolerance extends DomainResource {
          */
         UNABLETOASSESS, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static AllergyIntoleranceCriticality fromCode(String codeString) throws FHIRException {
@@ -446,7 +455,10 @@ public class AllergyIntolerance extends DomainResource {
           return HIGH;
         if ("unable-to-assess".equals(codeString))
           return UNABLETOASSESS;
-        throw new FHIRException("Unknown AllergyIntoleranceCriticality code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown AllergyIntoleranceCriticality code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -537,7 +549,7 @@ public class AllergyIntolerance extends DomainResource {
          */
         CONFIRMED, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static AllergyIntoleranceCertainty fromCode(String codeString) throws FHIRException {
@@ -549,7 +561,10 @@ public class AllergyIntolerance extends DomainResource {
           return LIKELY;
         if ("confirmed".equals(codeString))
           return CONFIRMED;
-        throw new FHIRException("Unknown AllergyIntoleranceCertainty code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown AllergyIntoleranceCertainty code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -640,7 +655,7 @@ public class AllergyIntolerance extends DomainResource {
          */
         SEVERE, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static AllergyIntoleranceSeverity fromCode(String codeString) throws FHIRException {
@@ -652,7 +667,10 @@ public class AllergyIntolerance extends DomainResource {
           return MODERATE;
         if ("severe".equals(codeString))
           return SEVERE;
-        throw new FHIRException("Unknown AllergyIntoleranceSeverity code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown AllergyIntoleranceSeverity code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

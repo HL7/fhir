@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -73,7 +73,7 @@ public class Protocol extends DomainResource {
          */
         SUPERSEDED, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ProtocolStatus fromCode(String codeString) throws FHIRException {
@@ -91,7 +91,10 @@ public class Protocol extends DomainResource {
           return WITHDRAWN;
         if ("superseded".equals(codeString))
           return SUPERSEDED;
-        throw new FHIRException("Unknown ProtocolStatus code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ProtocolStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -216,7 +219,7 @@ public class Protocol extends DomainResource {
          */
         STUDY, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ProtocolType fromCode(String codeString) throws FHIRException {
@@ -230,7 +233,10 @@ public class Protocol extends DomainResource {
           return DRUG;
         if ("study".equals(codeString))
           return STUDY;
-        throw new FHIRException("Unknown ProtocolType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ProtocolType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -347,7 +353,7 @@ public class Protocol extends DomainResource {
          */
         OTHER, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ActivityDefinitionCategory fromCode(String codeString) throws FHIRException {
@@ -367,7 +373,10 @@ public class Protocol extends DomainResource {
           return SUPPLY;
         if ("other".equals(codeString))
           return OTHER;
-        throw new FHIRException("Unknown ActivityDefinitionCategory code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ActivityDefinitionCategory code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

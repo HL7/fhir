@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -64,7 +64,7 @@ public class Address extends Type implements ICompositeType {
          */
         OLD, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static AddressUse fromCode(String codeString) throws FHIRException {
@@ -78,7 +78,10 @@ public class Address extends Type implements ICompositeType {
           return TEMP;
         if ("old".equals(codeString))
           return OLD;
-        throw new FHIRException("Unknown AddressUse code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown AddressUse code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -179,7 +182,7 @@ public class Address extends Type implements ICompositeType {
          */
         BOTH, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static AddressType fromCode(String codeString) throws FHIRException {
@@ -191,7 +194,10 @@ public class Address extends Type implements ICompositeType {
           return PHYSICAL;
         if ("both".equals(codeString))
           return BOTH;
-        throw new FHIRException("Unknown AddressType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown AddressType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

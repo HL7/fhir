@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -86,7 +86,7 @@ public class Bundle extends Resource implements IBaseBundle {
          */
         COLLECTION, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static BundleType fromCode(String codeString) throws FHIRException {
@@ -110,7 +110,10 @@ public class Bundle extends Resource implements IBaseBundle {
           return SEARCHSET;
         if ("collection".equals(codeString))
           return COLLECTION;
-        throw new FHIRException("Unknown BundleType code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown BundleType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -261,7 +264,7 @@ public class Bundle extends Resource implements IBaseBundle {
          */
         OUTCOME, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static SearchEntryMode fromCode(String codeString) throws FHIRException {
@@ -273,7 +276,10 @@ public class Bundle extends Resource implements IBaseBundle {
           return INCLUDE;
         if ("outcome".equals(codeString))
           return OUTCOME;
-        throw new FHIRException("Unknown SearchEntryMode code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown SearchEntryMode code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -368,7 +374,7 @@ public class Bundle extends Resource implements IBaseBundle {
          */
         DELETE, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static HTTPVerb fromCode(String codeString) throws FHIRException {
@@ -382,7 +388,10 @@ public class Bundle extends Resource implements IBaseBundle {
           return PUT;
         if ("DELETE".equals(codeString))
           return DELETE;
-        throw new FHIRException("Unknown HTTPVerb code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown HTTPVerb code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -89,7 +89,7 @@ public class CommunicationRequest extends DomainResource {
          */
         FAILED, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static CommunicationRequestStatus fromCode(String codeString) throws FHIRException {
@@ -115,7 +115,10 @@ public class CommunicationRequest extends DomainResource {
           return REJECTED;
         if ("failed".equals(codeString))
           return FAILED;
-        throw new FHIRException("Unknown CommunicationRequestStatus code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown CommunicationRequestStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

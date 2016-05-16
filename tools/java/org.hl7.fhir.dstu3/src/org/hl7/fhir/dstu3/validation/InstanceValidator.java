@@ -109,6 +109,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	private List<String> extensionDomains = new ArrayList<String>();
 
 	private IdStatus resourceIdRule;
+	private boolean allowXsiLocation;
 
 	// used during the build process to keep the overall volume of messages down
 	private boolean suppressLoincSnomedMessages;
@@ -155,48 +156,51 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 	
   @Override
-  public void validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format) throws Exception {
-    validate(errors, stream, format, (StructureDefinition) null);
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format) throws Exception {
+    return validate(errors, stream, format, (StructureDefinition) null);
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format, String profile) throws Exception {
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format, String profile) throws Exception {
 		long t = System.nanoTime();
     StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
 		sdTime = sdTime + (System.nanoTime() - t);
     if (p == null)
       throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    validate(errors, stream, format, p);
+    return validate(errors, stream, format, p);
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format, StructureDefinition profile) throws Exception {
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format, StructureDefinition profile) throws Exception {
     ParserBase parser = Manager.makeParser(context, format);
+    if (parser instanceof XmlParser) 
+      ((XmlParser) parser).setAllowXsiLocation(allowXsiLocation);
     parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
     long t = System.nanoTime();
     Element e = parser.parse(stream);
     loadTime = System.nanoTime() - t;
     if (e != null)
     validate(errors, e, profile);
+    return e;
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, Resource resource) throws Exception {
-    validate(errors, resource, (StructureDefinition) null);
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, Resource resource) throws Exception {
+    return validate(errors, resource, (StructureDefinition) null);
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, Resource resource, String profile) throws Exception {
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, Resource resource, String profile) throws Exception {
 			long t = System.nanoTime();
     StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
     sdTime = sdTime + (System.nanoTime() - t);
     if (p == null)
       throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    validate(errors, resource, p);
+    return validate(errors, resource, p);
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, Resource resource, StructureDefinition profile) throws Exception {
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, Resource resource, StructureDefinition profile) throws Exception {
     throw new Exception("Not done yet");
 //    ParserBase parser = new ObjectParser(context);
 //    parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
@@ -212,8 +216,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, org.w3c.dom.Element element) throws Exception {
-    validate(errors, element, (StructureDefinition) null);
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Element element) throws Exception {
+    return validate(errors, element, (StructureDefinition) null);
   }
 
   @Override
@@ -227,73 +231,76 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, org.w3c.dom.Element element, String profile) throws Exception {
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Element element, String profile) throws Exception {
 		long t = System.nanoTime();
     StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
     sdTime = sdTime + (System.nanoTime() - t);
     if (p == null)
       throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    validate(errors, element, p);
+    return validate(errors, element, p);
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, org.w3c.dom.Element element, StructureDefinition profile) throws Exception {
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Element element, StructureDefinition profile) throws Exception {
     XmlParser parser = new XmlParser(context);
     parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
     long t = System.nanoTime();
     Element e = parser.parse(element);
     loadTime = System.nanoTime() - t;
     validate(errors, e, profile);
+    return e;
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, Document document) throws Exception {
-    validate(errors, document, (StructureDefinition) null);
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, Document document) throws Exception {
+    return validate(errors, document, (StructureDefinition) null);
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, Document document, String profile) throws Exception {
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, Document document, String profile) throws Exception {
 			long t = System.nanoTime();
     StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
     sdTime = sdTime + (System.nanoTime() - t);
     if (p == null)
       throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    validate(errors, document, p);
+    return validate(errors, document, p);
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, Document document, StructureDefinition profile) throws Exception {
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, Document document, StructureDefinition profile) throws Exception {
     XmlParser parser = new XmlParser(context);
     parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
     long t = System.nanoTime();
     Element e = parser.parse(document);
     loadTime = System.nanoTime() - t;
     validate(errors, e, profile);
+    return e;
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, JsonObject object) throws Exception {
-    // validate(errors, object, (StructureDefinition) null);
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, JsonObject object) throws Exception {
+    return validate(errors, object, (StructureDefinition) null);
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, JsonObject object, String profile) throws Exception {
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, JsonObject object, String profile) throws Exception {
 			long t = System.nanoTime();
     StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
     sdTime = sdTime + (System.nanoTime() - t);
     if (p == null)
       throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    validate(errors, object, p);
+    return validate(errors, object, p);
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, JsonObject object, StructureDefinition profile) throws Exception {
+  public org.hl7.fhir.dstu3.metamodel.Element validate(List<ValidationMessage> errors, JsonObject object, StructureDefinition profile) throws Exception {
     JsonParser parser = new JsonParser(context);
     parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
     long t = System.nanoTime();
     Element e = parser.parse(object);
     loadTime = System.nanoTime() - t;
     validate(errors, e, profile);
+    return e;
   }
 	
   @Override
@@ -1484,7 +1491,16 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		this.resourceIdRule = resourceIdRule;
 	}
 
-	/**
+	
+	public boolean isAllowXsiLocation() {
+    return allowXsiLocation;
+  }
+
+  public void setAllowXsiLocation(boolean allowXsiLocation) {
+    this.allowXsiLocation = allowXsiLocation;
+  }
+
+  /**
 	 * 
 	 * @param element
 	 *          - the candidate that might be in the slice
@@ -2228,7 +2244,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			} if (method == null) {
 				if (fullUrl == null)
 				  return IdStatus.REQUIRED;
-				else if (fullUrl.primitiveValue().startsWith("urn:uuid:"))
+				else if (fullUrl.primitiveValue().startsWith("urn:uuid:") || fullUrl.primitiveValue().startsWith("urn:oid:"))
 				  return IdStatus.OPTIONAL;
 				else
 				  return IdStatus.REQUIRED;

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -69,7 +69,7 @@ public class CarePlan extends DomainResource {
          */
         CANCELLED, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static CarePlanStatus fromCode(String codeString) throws FHIRException {
@@ -85,7 +85,10 @@ public class CarePlan extends DomainResource {
           return COMPLETED;
         if ("cancelled".equals(codeString))
           return CANCELLED;
-        throw new FHIRException("Unknown CarePlanStatus code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown CarePlanStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -196,7 +199,7 @@ public class CarePlan extends DomainResource {
          */
         FULFILLS, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static CarePlanRelationship fromCode(String codeString) throws FHIRException {
@@ -208,7 +211,10 @@ public class CarePlan extends DomainResource {
           return REPLACES;
         if ("fulfills".equals(codeString))
           return FULFILLS;
-        throw new FHIRException("Unknown CarePlanRelationship code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown CarePlanRelationship code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -311,7 +317,7 @@ public class CarePlan extends DomainResource {
          */
         CANCELLED, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static CarePlanActivityStatus fromCode(String codeString) throws FHIRException {
@@ -329,7 +335,10 @@ public class CarePlan extends DomainResource {
           return COMPLETED;
         if ("cancelled".equals(codeString))
           return CANCELLED;
-        throw new FHIRException("Unknown CarePlanActivityStatus code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown CarePlanActivityStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

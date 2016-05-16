@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -66,7 +66,7 @@ public class Person extends DomainResource {
          */
         LEVEL4, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static IdentityAssuranceLevel fromCode(String codeString) throws FHIRException {
@@ -80,7 +80,10 @@ public class Person extends DomainResource {
           return LEVEL3;
         if ("level4".equals(codeString))
           return LEVEL4;
-        throw new FHIRException("Unknown IdentityAssuranceLevel code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown IdentityAssuranceLevel code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {

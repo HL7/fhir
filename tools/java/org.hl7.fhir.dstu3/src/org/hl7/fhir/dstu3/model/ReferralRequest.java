@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 7, 2016 14:40+1000 for FHIR v1.4.0
+// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -69,7 +69,7 @@ public class ReferralRequest extends DomainResource {
          */
         ENTEREDINERROR, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ReferralStatus fromCode(String codeString) throws FHIRException {
@@ -85,7 +85,10 @@ public class ReferralRequest extends DomainResource {
           return COMPLETED;
         if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
-        throw new FHIRException("Unknown ReferralStatus code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ReferralStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -196,7 +199,7 @@ public class ReferralRequest extends DomainResource {
          */
         REQUEST, 
         /**
-         * added to help the parsers
+         * added to help the parsers with the generic types
          */
         NULL;
         public static ReferralCategory fromCode(String codeString) throws FHIRException {
@@ -208,7 +211,10 @@ public class ReferralRequest extends DomainResource {
           return PLAN;
         if ("request".equals(codeString))
           return REQUEST;
-        throw new FHIRException("Unknown ReferralCategory code '"+codeString+"'");
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ReferralCategory code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
