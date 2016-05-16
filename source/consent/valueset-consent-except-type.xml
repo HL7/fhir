@@ -4,7 +4,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
-  <name value="Consent Term Type Codes"/>
+  <name value="Consent Except Type Codes"/>
   <status value="draft"/>
   <publisher value="CBCC"/>
   <contact>
@@ -13,11 +13,11 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes sample Consent Term SubType codes."/>
+  <description value="This value set includes sample Consent Except Type codes."/>
   <copyright value="This is an example set."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/consenttermsubtypecodes"/>
+      <system value="http://hl7.org/fhir/consentexcepttypecodes"/>
     </include>
   </compose>
 </ValueSet>

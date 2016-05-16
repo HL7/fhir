@@ -49,10 +49,10 @@
 	  <display value="Canada Infoway"/>
    </domain>
    
-  <term>
+  <except>
      <type>
        <coding>
-	     <system value="http://hl7.org/fhir/consenttermtypecodes"/>
+	     <system value="http://hl7.org/fhir/consentexcepttypecodes"/>
 	     <code value="withhold-from"/>
 		 <display value="Withhold all data from specified actor entity."/>
 	   </coding>
@@ -61,9 +61,9 @@
     	   <reference value="Organization/2.16.840.1.113883.19.5"/>
            <display value="Good Health Clinic"/>
 	 </topic>
-     <!-- by not specifying term.actor I assume this means everyone? -->
+     <!-- by not specifying except.actor I assume this means everyone? -->
 	 <text value="Withhold this order and any results or related objects from any provider."/>
-   </term>
+   </except>
    <!-- the terms of the consent in friendly consumer speak -->
    <friendly>
      <contentAttachment>

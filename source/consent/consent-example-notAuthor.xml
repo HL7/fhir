@@ -48,10 +48,10 @@
 	  <display value="Canada Infoway"/>
    </domain>
  
-  <term>
+  <except>
      <type>
        <coding>
-	     <system value="http://hl7.org/fhir/consenttermtypecodes"/>
+	     <system value="http://hl7.org/fhir/consentexcepttypecodes"/>
 	     <code value="withhold-authored-by"/>
 		 <display value="Withhold all data authored by specified actor entity."/>
 	   </coding>
@@ -62,7 +62,7 @@
 	 </topic>
      
 	 <text value="Withhold all data authored by Good Health provider."/>
-   </term>
+   </except>
    <!-- the terms of the consent in friendly consumer speak -->
    <friendly>
      <contentAttachment>

@@ -37,7 +37,10 @@
 		It is expected that other SDOs will use the Privacy domain analysis model to create profiles (e.g., OASIS 
 		Cross-Enterprise Security and Privacy Authorization (XSPA) Technical Committee) and that for encoding 
 		capabilities, formal policy languages will be used.
-	  </p>
+	  </p><p>
+	    The Consent resource is structured with a base policy, followed by a listing of exceptions to that policy. This works for both Positive (Opt-IN)
+		and Negative (Opt-Out) consents or authorizations. 
+		</p>
       <h3>Scope</h3>
       <p>The scope of this Resource is a Privacy Consent Directive in a structured and coded way so 
 	  so that the rules can be enforced.

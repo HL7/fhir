@@ -9,18 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>John Moehrke</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-05-12T02:22:59Z</LastSaved>
+  <LastSaved>2016-05-15T21:45:14Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9084</WindowHeight>
+  <WindowHeight>8508</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1176,7 +1176,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Consent Type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Type of Consent such as an insurance policy, real estate consent, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Type of Consent such as an insurance policy, real estate consent, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc. opt-in, opt-out, etc</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">class</Data><NamedCell
@@ -1293,7 +1293,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="316.8">
+   <Row ss:AutoFitHeight="0" ss:Height="129.44999999999999">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.topic</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1314,12 +1314,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The matter of concern in the context of this agreement.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">In the context of a consent, the topic is the matter under consideration in regards to which specific rights, privileges, obligations, restrictions, and prohibitions are binding on any grantor and grantee parties upon the execution of the consent. &#10;Given the wide range of consent topics, implementers need to be cognizant of the business use case for which they are designing a FHIR Consent, and narrowly specify the topic being represented with respect to the Consent.type and any specializing Consent.subtype. &#10;The same topic, e.g., an asset such as a good or service, such as a real property, medical supply, insurance, information, a procedure or employment, or a manner of conduct, such adherence to a privacy, trust, or security policy, may be the topic of multiple types of consents. &#10;One way to determine the Consent.topic is to answer the question: “What is the object of negotiation?”&#10;Answer: The Consent.topic, which may be described with more detail in the [0..*]Consent.valuedItem @ [0..1] Consent.valuedItem.entity[x] Definition: Specific type of Consent Valued Item that may be priced. CodeableConcept|Reference(Any)&#10;Consent.topic is “the what” that a grantor is exchanging with a grantee in return for some benefit. &#10;Consent.topic is “the what” to which any Consent.action is being applied for any stipulated Consent.action.reason. &#10;AConsent.topic is “the what” governed by the execution of the consent to which any party’s rights, privileges, obligations, restrictions, and prohibitions apply.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">In the context of a consent, the topic is the matter under consideration in regards to which specific rights, privileges, obligations, restrictions, and prohibitions are binding on any grantor and grantee parties upon the execution of the consent. &#10;Given the wide range of consent topics, implementers need to be cognizant of the business use case for which they are designing a FHIR Consent, and narrowly specify the topic being represented with respect to the Consent.type.  The Consent.topic will list all the Resources that are covered by the Consent, when empty all Resources within the Consent.domain are covered.&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">what</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The Consent.topic may be an application for or offer of a policy or service (e.g., uri to a consent directive form or a health insurance policy), which becomes the Consent once accepted by both the grantor and grantee. &#10;The Consent Resource may function simply as the computable representation of the executed consent, which may be the attached to the Consent Resource as the “binding” or as the “friendly” electronic form.  For example, a Consent Resource may be automatically populated with the values expressed in a related QuestionnaireResponse. &#10;However, the Consent Resource may be considered the legally binding consent if it is the only “executed” form of this consent, and includes the signatures as *The Consent Resource may function as the computable representation of an application or offer in a pre-executed Consent if the grantor has not entered any values.  In this case, it is populated with values in a “legal” form of the application or offer or by the values in an associated Questionnaire.  If the grantor has filled in the legal form or the associated Questionnaire Response, then these values are used to populate a pre-executed Consent Resource.&#10;If the Consent.topic is considered an application or offer, then the policy is often required to be attached as the “legal” basis for the application to ensure “informed consent” to the consent, and that any discrepancy between the application and the policy are interpreted against the policy.  Implementers should check organizational and jurisdictional policies to determine the relationship among multiple representations of a consent pre- and post-execution.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1329,7 +1328,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="172.79999999999998">
+   <Row ss:AutoFitHeight="0" ss:Height="28.8">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1346,16 +1345,15 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Consent Target Entity</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Consent Patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The target entity impacted by or of interest to parties to the agreement.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The patent under which this consent applies.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">The Consent.subject is an entity that has some role with respect to the Consent.topic and Consent.topic.term, which is of focal interest to the parties to the consent and likely impacted in a significant way by the Consent.action/Consent.action.reason and the Consent.term.action/Consent.action.reason.  In many cases, the Consent.subject is a Consent.signer if the subject is an adult; has a legal interest in the consent; and incompetent to participate in the consent agreement.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">The Consent.patient is the subject for which the consent is about.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">who.focus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The Consent.subject is an entity that has some role with respect to the Consent.topic and Consent.topic.term, which is of focal interest to the parties to the consent and likely impacted in a significant way by the Consent.action/Consent.action.reason and the Consent.term.action/Consent.action.reason. &#10;In many cases, the Consent.subject is a Consent.signer if the subject is an adult; has a legal interest in the consent; and incompetent to participate in the consent agreement.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1383,7 +1381,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Authority under which this Consent has standing</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of consents and policies.  </Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A recognized organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of consents and policies.  When empty, there Consent is under the authority of he Patient alone.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1654,7 +1652,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.term</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.except</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1671,7 +1669,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Consent Term List</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">One or more Consent Provisions, which may be related and conveyed as a group, and may contain nested groups.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">One or more exceptions to the base policy of this Consent.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1686,7 +1684,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.term.identifier</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!Consent.except.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1718,7 +1716,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.term.issued</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!Consent.except.issued</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1750,7 +1748,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.term.applies</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.except.applies</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1782,7 +1780,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.term.type</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.except.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1791,8 +1789,9 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">ConsentTermType</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ConsentExceptType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1800,7 +1799,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Consent Term Type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Type of Consent Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Type exception to the base Consent policy such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1814,7 +1813,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.term.subType</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.except.subType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1824,7 +1823,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">ConsentTermSubType</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ConsentExceptSubType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1832,7 +1831,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Consent Term Subtype</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Subtype of this Consent Provision, e.g. life time maximum payment for a consent term for specific valued item, e.g. disability payment.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Subtype of this exception to the base Consent.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1845,8 +1844,8 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="100.8">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.term.topic</Data><NamedCell
+   <Row ss:AutoFitHeight="0" ss:Height="43.199999999999996">
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.except.topic</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1866,10 +1865,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The matter of concern in the context of this provision of the agrement.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">A consent term topic is typically about a portion of the consent topic which has additional or specialized rights, privileges, obligations, restrictions, and prohibitions that are binding on any grantor and grantee parties upon the execution of the consent. &#10;Consent.term.topic may be described in more detail in the [0..*] Consent.term.valuedItem @[0..1] Consent.term.valuedItem [x] Definition: Specific type of Consent Provision Valued Item that may be priced. CodeableConcept|Reference(Any) [See Consent.topic Requirements for further elaboration on this requirement.]</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Must be a subset of those topics in Consent.topic</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The Consent.term.topic, as a Consent Resource subpart, is handled in the same manner as the Consent Resource as discussed above.   </Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The Consent.except.topic, as a Consent Resource subpart, is handled in the same manner as the Consent Resource as discussed above.   </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Role</Data><NamedCell
@@ -1881,7 +1880,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">!Consent.term.subject</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!Consent.except.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1912,7 +1911,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.term.action</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.except.action</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1930,7 +1929,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Consent Term Action</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Action stipulated by this Consent Provision.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Action stipulated by this Consent Exception</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1943,8 +1942,8 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="115.2">
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Consent.term.agent</Data><NamedCell
+   <Row ss:AutoFitHeight="0" ss:Height="72">
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Consent.except.agent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1961,10 +1960,9 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Consent Term Agent List</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.  </Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">An actor having a role in this exeption</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">An agent can be a person, an organization, software, device, or other entities that may be ascribed responsibility.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.&#10;For example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1977,8 +1975,8 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.term.agent.actor</Data><NamedCell
+   <Row ss:AutoFitHeight="0" ss:Height="57.45">
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.except.agent.actor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1995,7 +1993,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Consent Term Agent List</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The agent assigned a role in this Consent Provision.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The agent assigned a role in this Consent Exception</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2009,7 +2007,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.term.agent.role</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.except.agent.role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2027,7 +2025,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Consent Term Agent Role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Role played by the agent assigned this role in the execution of this Consent Provision.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Role played by the agent assigned this role in the execution of this Consent Exception</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2041,7 +2039,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Consent.term.text</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Consent.except.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2058,7 +2056,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Human readable Consent term text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Human readable form of this Consent Provision.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Human readable form of this Consent Exception</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2072,7 +2070,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s101"><Data ss:Type="String">!Consent.term.group</Data><Comment
+    <Cell ss:StyleID="s101"><Data ss:Type="String">!Consent.except.group</Data><Comment
       ss:Author="Kathleen Connor"><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <B>         <Font
          html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Kathleen Connor:</Font>        </B>        <Font
@@ -2082,7 +2080,7 @@
     <Cell ss:StyleID="s102"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String" x:Ticked="1">@Consent.term</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String" x:Ticked="1">@Consent.except</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2250,7 +2248,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Computable Consent Language</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">List of Computable Policy Rule Language Representations of this Consent.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">List of Computable Policy Rule Language Representations of this Consent. For example the equivilant consent provisioned rules in a different rules engine language, such as XACML.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4019,13 +4017,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>34</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4033,15 +4030,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>35</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4624,7 +4621,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Consent.patient</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">The identity of the subject of the consent</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">The identity of the patient of the consent</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s127"><Data ss:Type="String">identifier</Data></Cell>
@@ -4638,7 +4635,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s130"><Data ss:Type="String">Consent.agent.actor</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">Agent to the Contact</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">Agent to the consent</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s127"><Data ss:Type="String">authority</Data></Cell>
@@ -4665,29 +4662,29 @@
     <Cell ss:StyleID="s127"><Data ss:Type="String">ttopic</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Consent.term.topic</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Consent.except.topic</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">The identity of the topic of the consent terms</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">applies</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Consent.applies</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">The effective date/time range of the consent</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">status</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Consent.status</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">The status of the consent</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">type</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Consent.type</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">The type of the consent</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s127"/>
@@ -4802,12 +4799,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4815,16 +4813,13 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R6</RangeSelection>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6663,11 +6658,11 @@
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ConsentTermType</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Detailed codes for the types of consent provisions.</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ConsentExceptType</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Detailed codes for the types of exceptions to the base consent provisions.</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-consent-term-type</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-consent-except-type</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
@@ -6678,11 +6673,11 @@
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ConsentTermSubType</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Detailed codes for the subtypes of consent provisions.</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ConsentExceptSubType</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Detailed codes for the subtypes of eception to the base consent provisions.</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-consent-term-subtype</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-consent-except-subtype</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
@@ -7052,7 +7047,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>

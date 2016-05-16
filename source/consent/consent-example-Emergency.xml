@@ -49,11 +49,11 @@
    </domain>
 
  <!-- no special terms (exceptions) -->
-   <term>
+   <except>
      <type>
        <coding>
 	     <!-- made up code system -->
-	     <system value="http://hl7.org/fhir/consenttermtypecodes"/>
+	     <system value="http://hl7.org/fhir/consentexcepttypecodes"/>
 	     <code value="Authorized-Action"/>
 		 <display value="Authorize a specified action."/>
 	   </coding>
@@ -67,7 +67,7 @@
     </action>
 
 	 <text value="Allow Emergency Treatment."/>
-   </term>
+   </except>
 
  
    <!-- the terms of the consent in friendly consumer speak -->
