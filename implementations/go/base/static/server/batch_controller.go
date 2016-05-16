@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"net/url"
 	"reflect"
 	"regexp"
 	"sort"
@@ -35,7 +36,7 @@ func (b *BatchController) Post(c *gin.Context) {
 		return
 	}
 
-	// TODO: If type is batch, ensure there are no interdendent resources
+	// TODO: If type is batch, ensure there are no interdependent resources
 
 	// Loop through the entries, ensuring they have a request and that we support the method,
 	// while also creating a new entries array that can be sorted by method.
@@ -92,7 +93,7 @@ func (b *BatchController) Post(c *gin.Context) {
 			entry.FullUrl = responseURL(c.Request, entry.Request.Url, id).String()
 		} else if entry.Request.Method == "PUT" && isConditional(entry) {
 			// We need to process conditionals referencing temp IDs in a second pass, so skip them here
-			if strings.Contains(entry.Request.Url, "urn:uuid:") {
+			if strings.Contains(entry.Request.Url, "urn:uuid:") || strings.Contains(entry.Request.Url, "urn%3Auuid%3A") {
 				continue
 			}
 
@@ -110,11 +111,11 @@ func (b *BatchController) Post(c *gin.Context) {
 		if entry.Request.Method == "PUT" && isConditional(entry) {
 			// Use a regex to swap out the temp IDs with the new IDs
 			for oldID, ref := range refMap {
-				re := regexp.MustCompile("([=,])" + oldID + "(&|,|$)")
-				entry.Request.Url = re.ReplaceAllString(entry.Request.Url, "${1}"+ref.Reference+"${2}")
+				re := regexp.MustCompile("([=,])(" + oldID + "|" + url.QueryEscape(oldID) + ")(&|,|$)")
+				entry.Request.Url = re.ReplaceAllString(entry.Request.Url, "${1}"+ref.Reference+"${3}")
 			}
 
-			if strings.Contains(entry.Request.Url, "urn:uuid:") {
+			if strings.Contains(entry.Request.Url, "urn:uuid:") || strings.Contains(entry.Request.Url, "urn%3Auuid%3A") {
 				c.AbortWithError(http.StatusNotImplemented,
 					errors.New("Cannot resolve conditionals referencing other conditionals"))
 				return

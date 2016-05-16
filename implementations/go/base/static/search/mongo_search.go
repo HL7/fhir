@@ -289,7 +289,8 @@ func (m *MongoSearcher) createDateQueryObject(d *DateParam) bson.M {
 // searches.  An easy example is that while 2012-01-01 should be compared as the range from
 // 00:00:00.000 to 23:59:59.999, we currently only compare against 00:00:00.000 -- so some things
 // that should match, might not.
-// TODO: Fix this via more complex search criteria or by a different representation in the database.
+// TODO: Fix this via more complex search criteria (not likely feasible) or by a different representation in the
+// database (e.g., storing upper and lower bounds of dates in the DB).
 func dateSelector(d *DateParam) bson.M {
 	var timeCriteria bson.M
 	switch d.Prefix {
@@ -298,11 +299,11 @@ func dateSelector(d *DateParam) bson.M {
 			"$gte": d.Date.RangeLowIncl(),
 			"$lt":  d.Date.RangeHighExcl(),
 		}
-	case GT:
+	case GT, SA:
 		timeCriteria = bson.M{
 			"$gt": d.Date.RangeLowIncl(),
 		}
-	case LT:
+	case LT, EB:
 		timeCriteria = bson.M{
 			"$lt": d.Date.RangeLowIncl(),
 		}
@@ -326,7 +327,8 @@ func dateSelector(d *DateParam) bson.M {
 // searches.  An easy example is that while 2012-01-01 should be compared as the range from
 // 00:00:00.000 to 23:59:59.999, we currently only compare against 00:00:00.000 -- so some things
 // that should match, might not.
-// TODO: Fix this via more complex search criteria or by a different representation in the database.
+// TODO: Fix this via more complex search criteria (not likely feasible) or by a different representation in the
+// database (e.g., storing upper and lower bounds of dates in the DB).
 func periodSelector(d *DateParam) bson.M {
 	switch d.Prefix {
 	case EQ:
@@ -406,6 +408,18 @@ func periodSelector(d *DateParam) bson.M {
 					"$ne":   nil,
 					"start": nil,
 				},
+			},
+		}
+	case SA:
+		return bson.M{
+			"start.time": bson.M{
+				"$gte": d.Date.RangeHighExcl(),
+			},
+		}
+	case EB:
+		return bson.M{
+			"end.time": bson.M{
+				"$lt": d.Date.RangeLowIncl(),
 			},
 		}
 	}

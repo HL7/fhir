@@ -1004,6 +1004,8 @@ const (
 	LT Prefix = "lt"
 	GE Prefix = "ge"
 	LE Prefix = "le"
+	SA Prefix = "sa"
+	EB Prefix = "eb"
 	AP Prefix = "ap"
 )
 
@@ -1016,7 +1018,7 @@ func (p Prefix) String() string {
 // prefix and value.
 func ExtractPrefixAndValue(s string) (Prefix, string) {
 	prefix := EQ
-	for _, p := range []Prefix{EQ, NE, GT, LT, GE, LE, AP} {
+	for _, p := range []Prefix{EQ, NE, GT, LT, GE, LE, SA, EB, AP} {
 		if strings.HasPrefix(s, p.String()) {
 			prefix = p
 			break
