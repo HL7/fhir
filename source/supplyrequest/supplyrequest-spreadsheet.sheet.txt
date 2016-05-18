@@ -29,6 +29,13 @@
   Definition = Why the supply item was requested
   Conformance = example
 
+ -- Row 5 -----------------------------------
+  Binding Name = SupplyRequestItem
+  Binding = value set
+  Reference = valueset-supply-item
+  Definition = The item that was requested
+  Conformance = example
+
 === Sheet supplyrequest-status =====================================
 
  -- Row 1 -----------------------------------
@@ -135,11 +142,12 @@
   Committee Notes = [3417]
 
  -- Row 8 -----------------------------------
-  Element = SupplyRequest.orderedItem
+  Element = SupplyRequest.orderedItem[x]
   Card. = 0..1
-  Type = Reference(Medication|Substance|Device)
+  Type = CodeableConcept|Reference(Medication|Substance|Device)
+  Binding = SupplyRequestItem
   Short Label = Medication, Substance, or Device requested to be supplied
-  Definition = The item that is requested to be supplied
+  Definition = The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
   Comments = Note that there\'s a difference between a prescription - an instruction to take a medication, along with a (sometimes) implicit supply, and an explicit request to supply, with no explicit instructions.
   RIM Mapping = .participation[typeCode=PRD].role
 

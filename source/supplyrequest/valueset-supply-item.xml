@@ -1,0 +1,36 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<id value="supply-item"/>
+	<url value="http://hl7.org/fhir/ValueSet/supply-item"/>
+	<version value="1.0"/>
+	<name value="SNOMED CT Supply Item"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="FHIR Project team"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<date value="2016-05-18T16:57:59+00:00"/>
+	<description value="This value set includes all substance and physical object codes from SNOMED CT and provided as an example value set."/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright &#169; 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+			<filter>
+				<property value="concept"/>
+				<op value="is-a"/>
+				<value value="105590001"/>
+			</filter>
+		</include>
+		<include>
+			<system value="http://snomed.info/sct"/>
+			<filter>
+				<property value="concept"/>
+				<op value="is-a"/>
+				<value value="260787004"/>
+			</filter>
+		</include>
+	</compose>
+</ValueSet>

@@ -6,12 +6,21 @@
   Binding = code list
   Reference = #supplydelivery-status
   Definition = Status of the supply delivery.
+  Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = SupplyDeliveryType
   Binding = value set
   Reference = valueset-supplydelivery-type
   Definition = The type of supply dispense.
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = SupplyDeliveryItem
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/supply-item
+  Definition = The item that was delivered.
+  Conformance = example
 
 === Sheet supplydelivery-status =====================================
 
@@ -144,11 +153,12 @@
   RIM Mapping = .quantity
 
  -- Row 13 -----------------------------------
-  Element = SupplyDelivery.suppliedItem
+  Element = SupplyDelivery.suppliedItem[x]
   Card. = 0..1
-  Type = Reference(Medication|Substance|Device)
+  Type = CodeableConcept|Reference(Medication|Substance|Device)
+  Binding = SupplyDeliveryItem
   Short Label = Medication, Substance, or Device supplied
-  Definition = Identifies the medication, substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.
+  Definition = Identifies the medication, substance or device being dispensed. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
   RIM Mapping = .participation[typeCode=PRD].role
 
  -- Row 14 -----------------------------------
