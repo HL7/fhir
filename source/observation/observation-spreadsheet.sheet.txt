@@ -604,11 +604,11 @@
  -- Row 1 -----------------------------------
   Name = code
   Type = token
-  Description = The code of the observation type
-  Path = Observation.code
+  Description = The code of the observation type or component type
+  Path = Observation.code|Observation.component.code
 
  -- Row 2 -----------------------------------
-  Name = component-code
+  Name = !component-code
   Type = token
   Description = The component code of the observation type
   Path = Observation.component.code
@@ -616,11 +616,11 @@
  -- Row 3 -----------------------------------
   Name = value-quantity
   Type = quantity
-  Description = The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)
-  Path = Observation.valueQuantity
+  Description = The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)
+  Path = Observation.valueQuantity|Observation.component.valueQuantity
 
  -- Row 4 -----------------------------------
-  Name = component-value-quantity
+  Name = !component-value-quantity
   Type = quantity
   Description = The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)
   Path = Observation.component.valueQuantity
@@ -628,11 +628,11 @@
  -- Row 5 -----------------------------------
   Name = value-concept
   Type = token
-  Description = The value of the observation, if the value is a CodeableConcept
-  Path = Observation.valueCodeableConcept
+  Description = The value or component value of the observation, if the value is a CodeableConcept
+  Path = Observation.valueCodeableConcept|Observation.component.valueCodeableConcept
 
  -- Row 6 -----------------------------------
-  Name = component-value-concept
+  Name = !component-value-concept
   Type = token
   Description = The value of the component observation, if the value is a CodeableConcept
   Path = Observation.component.valueCodeableConcept
@@ -646,11 +646,11 @@
  -- Row 8 -----------------------------------
   Name = value-string
   Type = string
-  Description = The value of the observation, if the value is a string, and also searches in CodeableConcept.text
-  Path = Observation.valueString
+  Description = The value or component value of the observation, if the value is a string, and also searches in CodeableConcept.text
+  Path = Observation.valueString|Observation.component.valueString
 
  -- Row 9 -----------------------------------
-  Name = component-value-string
+  Name = !component-value-string
   Type = string
   Description = The value of the component observation, if the value is a string, and also searches in CodeableConcept.text
   Path = Observation.component.valueString
@@ -658,11 +658,11 @@
  -- Row 10 -----------------------------------
   Name = code-value-[x]
   Type = composite
-  Description = Both code and one of the value parameters
+  Description = Code and value parameter pair
   Path = code & value[x]
 
  -- Row 11 -----------------------------------
-  Name = component-code-value-[x]
+  Name = !component-code-value-[x]
   Type = composite
   Description = Both component code and one of the component value parameters
   Path = component-code & component-value[x]
@@ -728,10 +728,10 @@
   Name = data-absent-reason
   Type = token
   Description = The reason why the expected value in the element Observation.value[x] is missing.
-  Path = Observation.dataAbsentReason
+  Path = Observation.dataAbsentReason|Observation.component.dataAbsentReason
 
  -- Row 23 -----------------------------------
-  Name = component-data-absent-reason
+  Name = !component-data-absent-reason
   Type = token
   Description = The reason why the expected value in the element Observation.component.value[x] is missing.
   Path = Observation.component.dataAbsentReason
