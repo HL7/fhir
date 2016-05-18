@@ -20,7 +20,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>460</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -966,9 +966,9 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R107C26" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R108C26" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="48" ss:ExpandedRowCount="107" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="48" ss:ExpandedRowCount="108" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="28.5">
    <Column ss:StyleID="s69" ss:Width="227"/>
@@ -2308,7 +2308,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">400;300</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">400;310</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2573,6 +2573,50 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">[#3434], preapply [#5629]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.component.interpretation</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Abnormal Flag</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">ObservationInterpretation</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">High, low, normal, etc.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The component interpretation is applies only to the indivual component value.  For an overall interpretation all components together use Observation.interpretation element.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">interpretationCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OBX-8</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">unique(./interpretationCode)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="32"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.component.referenceRange</Data><NamedCell
@@ -4614,12 +4658,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>24</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>16</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4627,6 +4672,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4634,14 +4680,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>37</ActiveRow>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R107C26"
+  <AutoFilter x:Range="R1C1:R108C26"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -5469,8 +5515,8 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <PageLayoutZoom>0</PageLayoutZoom>
-   <Selected/>
+   <Zoom>110</Zoom>
+   <PageLayoutZoom>110</PageLayoutZoom>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5491,8 +5537,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6134,6 +6180,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R2C9" xmlns="urn:schemas-microsoft-com:office:excel">
@@ -8770,6 +8817,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -9396,6 +9444,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
@@ -10035,6 +10084,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">

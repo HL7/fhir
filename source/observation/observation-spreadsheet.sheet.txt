@@ -589,6 +589,19 @@
   Committee Notes = [#3434], preapply [#5629]
 
  -- Row 35 -----------------------------------
+  Element = Observation.component.interpretation
+  Card. = 0..1
+  Aliases = Abnormal Flag
+  Type = CodeableConcept
+  Binding = ObservationInterpretation
+  Short Label = High, low, normal, etc.
+  Definition = The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
+  Requirements = For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.
+  Comments = The component interpretation is applies only to the indivual component value.  For an overall interpretation all components together use Observation.interpretation element.
+  v2 Mapping = OBX-8
+  RIM Mapping = interpretationCode
+
+ -- Row 36 -----------------------------------
   Element = Observation.component.referenceRange
   Card. = 0..*
   Type = @Observation.referenceRange
