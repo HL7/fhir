@@ -60,6 +60,9 @@ public class ShExGenerator {
   // Additional type for Coding
   private static String CODING_TEMPLATE = "fhir:concept IRI?";
 
+  // Additional type for Coded
+  private static String CODEABLECONCEPT_TEMPLATE = "fhir:concept IRI*";
+
   // A typed reference -- a fhir:uri with an optional type and the possibility of a resolvable shape
 //  fhir:Element.id @<id>?,
 //  fhir:Element.extension @<Extension>*,
@@ -250,6 +253,8 @@ public class ShExGenerator {
 
     if (sd.getName().equals("Coding"))
       elements.add(tmplt(CODING_TEMPLATE).render());
+    else if (sd.getName().equals("CodeableConcept"))
+      elements.add(tmplt(CODEABLECONCEPT_TEMPLATE).render());
 
     for (ElementDefinition ed : sd.getSnapshot().getElement()) {
       if(StringUtils.countMatches(ed.getPath(), ".") == 1) {
@@ -325,7 +330,7 @@ public class ShExGenerator {
       if(!xt.contains("xs:"))
         xt = "xs:" + xt;
       return tmplt(PRIMITIVE_ELEMENT_TEMPLATE).add("typ",
-              xt.replaceAll(",\\s*", " OR ").replaceAll("xs:", "xsd:").replaceAll("xsd:anyURI", "IRI").replace("xsd:token", "xsd:string")).render();
+              xt.replaceAll(",\\s*", " OR ").replaceAll("xs:", "xsd:").replaceAll("xsd:anyURI", "xsd:string").replace("xsd:token", "xsd:string")).render();
 
     } else if (typ.getCode() == null) {
       ST primitive_entry = tmplt(PRIMITIVE_ELEMENT_TEMPLATE);
