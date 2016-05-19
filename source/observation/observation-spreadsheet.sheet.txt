@@ -1042,4 +1042,10 @@
   Description = 5 minute Apgar overall score
   Filename = observation-example-apgar-score.xml
 
+ -- Row 33 -----------------------------------
+  Name = Eye Color
+  Identity = eye-color
+  Description = Example of a very simple personal characteristic observation
+  Filename = observation-example-eye-color.xml
+
 === Sheet Examples =====================================

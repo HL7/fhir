@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+	<id value="eye-color"/>
+	<status value="final"/>
+	<code>
+		<text value='eye color'/>
+	</code>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<effectiveDateTime value="2016-05-18"/>
+	<valueString value="blue">
+	</valueString>
+</Observation>

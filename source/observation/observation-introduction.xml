@@ -12,20 +12,20 @@ provides a clinical or workflow context for a set of observations. </p>
 <p>Uses for the Observation resource include:
 </p>
 <ul>
-  <li>Vital signs such as<a href="observation-example.html">body weight</a>,  <a href="observation-example-bloodpressure.html">blood pressure</a>, and <a href="observation-example-f202-temperature.html">temperature</a></li>
+  <li>Vital signs such as <a href="observation-example.html">body weight</a>,  <a href="observation-example-bloodpressure.html">blood pressure</a>, and <a href="observation-example-f202-temperature.html">temperature</a></li>
 	<li>Laboratory Data llike <a href="observation-example-f001-glucose.html">blood glucose</a>, or an <a href="observation-example-f205-egfr.html">estimated GFR</a></li>
-	<li>Imaging results like  <a href="observation-example-f001-glucose.html">bone densityt</a> or  <a href="observation-example-f001-glucose.html">fetal measurementst</a></li>
-	<li>Devices Measurements such as  <a href="observation-example-f001-glucose.html">EKG datat</a> or  <a href="observation-example-f001-glucose.html">Pulse Oximetry datat</a></li>
-  <li>Clinical assessment tools such as <a href="observation-apgar-panel.html">APGAR</a></li>
-  <li>Personal characteristics: such as  <a href="observation-example-f001-glucose.html">eye-colot</a>r</li>
+	<li>Imaging results like  <a href="observation-example-bone-density.html">bone density</a> or  <a href="observation-example-fetal-measurement.html">fetal measurementst</a></li>
+	<li>Devices Measurements such as  <a href="observation-example-sample-data.html">EKG data</a> or  <a href="observation-example-satO2.html">Pulse Oximetry data</a></li>
+  <li>Clinical assessment tools such as <a href="observation-example-apgar-panel.html">APGAR</a> or a <a href="observation-example-glasgow.html">Glasgow Coma Score</a> </li>
+  <li>Personal characteristics: such as  <a href="observation-example-eye-color.html">eye-color</a></li>
   <!--EH 12/7/2014 
   <li>Diagnoses (Note: trackable conditions, allergies, adverse reactions and more complex structures are handled elsewhere)</li>
   -->
-  <li>Social history:  <a href="observation-example-f001-glucose.html">tobacco uset</a>,  <a href="observation-example-f001-glucose.html">family supportst</a>,  <a href="observation-example-f001-glucose.html">cognitive statust</a></li>
-  <li>Core characteristics:  <a href="observation-example-f001-glucose.html">pregnancy statust</a>,  <a href="observation-example-f001-glucose.html">death assertiont</a></li>
+  <li>Social history like  <a href="observation-example-f001-glucose.html">tobacco use</a>,  <a href="observation-example-family-support.html">family support</a>, or <a href="observation-example-cognitive-status.html">cognitive status</a></li>
+  <li>Core characteristics like  <a href="observation-example-pregnancy.html">pregnancy status</a>, or a <a href="observation-example-death.html">death assertion</a></li>
 </ul>
 
-<p>The following core <a href="profiling.html">profiles</a> for the Observation resource have been defined as well. <strong>If implementations use the Observation Resource, they SHALL conform to these profiles when supporting these specific use cases. :</strong> 
+<p>The following core <a href="profiling.html">profiles</a> for the Observation resource have been defined as well. <strong>If implementations use the Observation Resource, they SHALL conform to these profiles when expressing the profile-specific concepts as structured data:</strong> 
 </p>
 <ul>
   <li><a href="observation-vitalsigns.html">Vital signs:</a> temperature, blood pressure, respiration rate</li>
