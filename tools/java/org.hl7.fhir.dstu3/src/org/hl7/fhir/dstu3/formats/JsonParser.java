@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
+// Generated on Fri, May 20, 2016 07:25+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -5013,12 +5013,8 @@ public class JsonParser extends JsonParserBase {
         res.getTopic().add(parseReference(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("patient")) {
-      JsonArray array = json.getAsJsonArray("patient");
-      for (int i = 0; i < array.size(); i++) {
-        res.getPatient().add(parseReference(array.get(i).getAsJsonObject()));
-      }
-    };
+    if (json.has("patient"))
+      res.setPatient(parseReference(json.getAsJsonObject("patient")));
     if (json.has("authority")) {
       JsonArray array = json.getAsJsonArray("authority");
       for (int i = 0; i < array.size(); i++) {
@@ -22810,11 +22806,8 @@ public class JsonParser extends JsonParserBase {
         closeArray();
       };
       if (element.hasPatient()) {
-        openArray("patient");
-        for (Reference e : element.getPatient()) 
-          composeReference(null, e);
-        closeArray();
-      };
+        composeReference("patient", element.getPatient());
+      }
       if (element.hasAuthority()) {
         openArray("authority");
         for (Reference e : element.getAuthority()) 

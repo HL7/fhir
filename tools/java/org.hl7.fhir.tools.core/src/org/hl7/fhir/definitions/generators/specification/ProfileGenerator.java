@@ -254,7 +254,13 @@ public class ProfileGenerator {
     TypeRefComponent t = ec.addType();
     t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type\r\n      e.g. this is compiler magic\r\n      XML and JSON types provided by extension");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
-    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, type.getSchemaType());
+    String xst = type.getSchemaType().replace(", ", " OR ");
+    if (xst.contains("xs:"))
+      xst = xst.replace("xs:", "xsd:");
+    if (!xst.startsWith("xsd:"))
+      xst = "xsd:" + xst;
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, xst);
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_RDF_TYPE, xst.replace("anyURI", "string"));
     if (!Utilities.noString(type.getRegEx())) {
       ToolingExtensions.addStringExtension(t, ToolingExtensions.EXT_REGEX, type.getRegEx());
     }
@@ -298,7 +304,8 @@ public class ProfileGenerator {
     t = ec3.addType();
     t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type\r\n      e.g. this is compiler magic\r\n      XML and JSON types provided by extension");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
-    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, type.getSchemaType());
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, xst);
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_RDF_TYPE, xst.replace("anyURI", "string"));
     if (!Utilities.noString(type.getRegEx()))
       ToolingExtensions.addStringExtension(t, ToolingExtensions.EXT_REGEX, type.getRegEx());
     addSpecificDetails(type, ec3);
@@ -382,7 +389,9 @@ public class ProfileGenerator {
     TypeRefComponent t = ec2.addType();
     t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type\r\n      e.g. this is compiler magic\r\n      XML and JSON types provided by extension");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
-    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, type.getSchema());
+    String xst = type.getSchema().replace("xs:", "xsd:").replace("+", "");
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, xst);
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_RDF_TYPE, xst.replace("anyURI", "string"));
     if (!Utilities.noString(type.getRegex())) {
       ToolingExtensions.addStringExtension(t, ToolingExtensions.EXT_REGEX, type.getRegex());
     }
@@ -422,7 +431,8 @@ public class ProfileGenerator {
     t = ecB.addType();
     t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type\r\n      e.g. this is compiler magic\r\n      XML and JSON types provided by extension");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
-    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, type.getSchema());
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, xst);
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_RDF_TYPE, xst.replace("anyURI", "string"));
     if (!Utilities.noString(type.getRegex()))
       ToolingExtensions.addStringExtension(t, ToolingExtensions.EXT_REGEX, type.getRegex());
 //    generateElementDefinition(ecB, ecA);

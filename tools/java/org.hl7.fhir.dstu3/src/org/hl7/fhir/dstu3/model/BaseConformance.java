@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
+// Generated on Fri, May 20, 2016 07:25+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -89,14 +89,7 @@ public abstract class BaseConformance extends DomainResource {
     @Description(shortDefinition="Content intends to support these contexts", formalDefinition="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions." )
     protected List<CodeableConcept> useContext;
 
-    /**
-     * A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.
-     */
-    @Child(name = "copyright", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set." )
-    protected StringType copyright;
-
-    private static final long serialVersionUID = -1293454854L;
+    private static final long serialVersionUID = -809730886L;
 
   /**
    * Constructor
@@ -394,55 +387,6 @@ public abstract class BaseConformance extends DomainResource {
       return this;
     }
 
-    /**
-     * @return {@link #copyright} (A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
-     */
-    public StringType getCopyrightElement() { 
-      if (this.copyright == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create BaseConformance.copyright");
-        else if (Configuration.doAutoCreate())
-          this.copyright = new StringType(); // bb
-      return this.copyright;
-    }
-
-    public boolean hasCopyrightElement() { 
-      return this.copyright != null && !this.copyright.isEmpty();
-    }
-
-    public boolean hasCopyright() { 
-      return this.copyright != null && !this.copyright.isEmpty();
-    }
-
-    /**
-     * @param value {@link #copyright} (A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
-     */
-    public BaseConformance setCopyrightElement(StringType value) { 
-      this.copyright = value;
-      return this;
-    }
-
-    /**
-     * @return A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.
-     */
-    public String getCopyright() { 
-      return this.copyright == null ? null : this.copyright.getValue();
-    }
-
-    /**
-     * @param value A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.
-     */
-    public BaseConformance setCopyright(String value) { 
-      if (Utilities.noString(value))
-        this.copyright = null;
-      else {
-        if (this.copyright == null)
-          this.copyright = new StringType();
-        this.copyright.setValue(value);
-      }
-      return this;
-    }
-
       protected void listChildren(List<Property> childrenList) {
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this value set is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("version", "string", "Used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
@@ -450,7 +394,6 @@ public abstract class BaseConformance extends DomainResource {
         childrenList.add(new Property("status", "code", "The status of the value set.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("date", "dateTime", "The date that the value set status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes (e.g. the 'content logical definition').", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
-        childrenList.add(new Property("copyright", "string", "A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.", 0, java.lang.Integer.MAX_VALUE, copyright));
       }
 
       @Override
@@ -462,7 +405,6 @@ public abstract class BaseConformance extends DomainResource {
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
-        case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -489,9 +431,6 @@ public abstract class BaseConformance extends DomainResource {
         case -669707736: // useContext
           this.getUseContext().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case 1522889671: // copyright
-          this.copyright = castToString(value); // StringType
-          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -511,8 +450,6 @@ public abstract class BaseConformance extends DomainResource {
           this.date = castToDateTime(value); // DateTimeType
         else if (name.equals("useContext"))
           this.getUseContext().add(castToCodeableConcept(value));
-        else if (name.equals("copyright"))
-          this.copyright = castToString(value); // StringType
         else
           super.setProperty(name, value);
       }
@@ -526,7 +463,6 @@ public abstract class BaseConformance extends DomainResource {
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
         case -669707736:  return addUseContext(); // CodeableConcept
-        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
         default: return super.makeProperty(hash, name);
         }
 
@@ -552,9 +488,6 @@ public abstract class BaseConformance extends DomainResource {
         else if (name.equals("useContext")) {
           return addUseContext();
         }
-        else if (name.equals("copyright")) {
-          throw new FHIRException("Cannot call addChild on a primitive type BaseConformance.copyright");
-        }
         else
           return super.addChild(name);
       }
@@ -577,7 +510,6 @@ public abstract class BaseConformance extends DomainResource {
           for (CodeableConcept i : useContext)
             dst.useContext.add(i.copy());
         };
-        dst.copyright = copyright == null ? null : copyright.copy();
       }
 
       @Override
@@ -589,7 +521,7 @@ public abstract class BaseConformance extends DomainResource {
         BaseConformance o = (BaseConformance) other;
         return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
            && compareDeep(status, o.status, true) && compareDeep(date, o.date, true) && compareDeep(useContext, o.useContext, true)
-           && compareDeep(copyright, o.copyright, true);
+          ;
       }
 
       @Override
@@ -600,15 +532,13 @@ public abstract class BaseConformance extends DomainResource {
           return false;
         BaseConformance o = (BaseConformance) other;
         return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
-           && compareValues(status, o.status, true) && compareValues(date, o.date, true) && compareValues(copyright, o.copyright, true)
-          ;
+           && compareValues(status, o.status, true) && compareValues(date, o.date, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (url == null || url.isEmpty()) && (version == null || version.isEmpty())
            && (name == null || name.isEmpty()) && (status == null || status.isEmpty()) && (date == null || date.isEmpty())
-           && (useContext == null || useContext.isEmpty()) && (copyright == null || copyright.isEmpty())
-          ;
+           && (useContext == null || useContext.isEmpty());
       }
 
 

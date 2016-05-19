@@ -1,4 +1,4 @@
-package org.hl7.fhir.igtools.publisher;
+package org.hl7.fhir.igtools.renderers;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,9 +9,8 @@ import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
-import org.hl7.fhir.igtools.publisher.ValidationPresenter.ValiationOutcomes;
+import org.hl7.fhir.igtools.publisher.FetchedFile;
 import org.hl7.fhir.utilities.TextFile;
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 import org.stringtemplate.v4.ST;
 
 public class ValidationPresenter {
@@ -38,7 +37,7 @@ public class ValidationPresenter {
     this.context = context;
   }
 
-  public void generate(String title, List<ValiationOutcomes> errs, String path) throws IOException {
+  public String generate(String title, List<ValiationOutcomes> errs, String path) throws IOException {
     StringBuilder b = new StringBuilder();
     b.append(genHeader(title));
     for (ValiationOutcomes v : errs) 
@@ -52,6 +51,7 @@ public class ValidationPresenter {
     }    
     b.append(genFooter(title));
     TextFile.stringToFile(b.toString(), path);
+    return path;
   }
 
   // HTML templating

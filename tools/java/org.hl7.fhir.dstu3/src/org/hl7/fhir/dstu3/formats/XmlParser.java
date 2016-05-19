@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
+// Generated on Fri, May 20, 2016 07:25+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -4468,7 +4468,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("topic")) {
         res.getTopic().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("patient")) {
-        res.getPatient().add(parseReference(xpp));
+        res.setPatient(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("authority")) {
         res.getAuthority().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("domain")) {
@@ -19833,9 +19833,8 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getTopic()) 
           composeReference("topic", e);
       }
-      if (element.hasPatient()) { 
-        for (Reference e : element.getPatient()) 
-          composeReference("patient", e);
+      if (element.hasPatient()) {
+        composeReference("patient", element.getPatient());
       }
       if (element.hasAuthority()) { 
         for (Reference e : element.getAuthority()) 

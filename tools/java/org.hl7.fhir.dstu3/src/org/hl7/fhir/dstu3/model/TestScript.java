@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
+// Generated on Fri, May 20, 2016 07:25+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -9262,37 +9262,44 @@ public class TestScript extends BaseConformance {
     protected StringType requirements;
 
     /**
+     * A copyright statement relating to the Test Script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
+     */
+    @Child(name = "copyright", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the Test Script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings." )
+    protected StringType copyright;
+
+    /**
      * An abstract server used in operations within this test script in the origin element.
      */
-    @Child(name = "origin", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "origin", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="An abstract server representing a client or sender in a message exchange", formalDefinition="An abstract server used in operations within this test script in the origin element." )
     protected List<TestScriptOriginComponent> origin;
 
     /**
      * An abstract server used in operations within this test script in the destination element.
      */
-    @Child(name = "destination", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "destination", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="An abstract server representing a destination or receiver in a message exchange", formalDefinition="An abstract server used in operations within this test script in the destination element." )
     protected List<TestScriptDestinationComponent> destination;
 
     /**
      * The required capability must exist and are assumed to function correctly on the FHIR server being tested.
      */
-    @Child(name = "metadata", type = {}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "metadata", type = {}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Required capability that is assumed to function correctly on the FHIR server being tested", formalDefinition="The required capability must exist and are assumed to function correctly on the FHIR server being tested." )
     protected TestScriptMetadataComponent metadata;
 
     /**
      * Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute.
      */
-    @Child(name = "fixture", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "fixture", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Fixture in the test script - by reference (uri)", formalDefinition="Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute." )
     protected List<TestScriptFixtureComponent> fixture;
 
     /**
      * Reference to the profile to be used for validation.
      */
-    @Child(name = "profile", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "profile", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reference of the validation profile", formalDefinition="Reference to the profile to be used for validation." )
     protected List<Reference> profile;
     /**
@@ -9304,46 +9311,46 @@ public class TestScript extends BaseConformance {
     /**
      * Variable is set based either on element value in response body or on header field value in the response headers.
      */
-    @Child(name = "variable", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "variable", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Placeholder for evaluated elements", formalDefinition="Variable is set based either on element value in response body or on header field value in the response headers." )
     protected List<TestScriptVariableComponent> variable;
 
     /**
      * Assert rule to be used in one or more asserts within the test script.
      */
-    @Child(name = "rule", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "rule", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Assert rule used within the test script", formalDefinition="Assert rule to be used in one or more asserts within the test script." )
     protected List<TestScriptRuleComponent> rule;
 
     /**
      * Contains one or more rules.  Offers a way to group rules so assertions could reference the group of rules and have them all applied.
      */
-    @Child(name = "ruleset", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "ruleset", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Assert ruleset used within the test script", formalDefinition="Contains one or more rules.  Offers a way to group rules so assertions could reference the group of rules and have them all applied." )
     protected List<TestScriptRulesetComponent> ruleset;
 
     /**
      * A series of required setup operations before tests are executed.
      */
-    @Child(name = "setup", type = {}, order=14, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "setup", type = {}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="A series of required setup operations before tests are executed", formalDefinition="A series of required setup operations before tests are executed." )
     protected TestScriptSetupComponent setup;
 
     /**
      * A test in this script.
      */
-    @Child(name = "test", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "test", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A test in this script", formalDefinition="A test in this script." )
     protected List<TestScriptTestComponent> test;
 
     /**
      * A series of operations required to clean up after the all the tests are executed (successfully or otherwise).
      */
-    @Child(name = "teardown", type = {}, order=16, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "teardown", type = {}, order=17, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="A series of required clean up steps", formalDefinition="A series of operations required to clean up after the all the tests are executed (successfully or otherwise)." )
     protected TestScriptTeardownComponent teardown;
 
-    private static final long serialVersionUID = 444211593L;
+    private static final long serialVersionUID = 766187407L;
 
   /**
    * Constructor
@@ -9674,6 +9681,41 @@ public class TestScript extends BaseConformance {
         this.requirements.setValue(value);
       }
       return this;
+    }
+
+    /**
+     * @return {@link #copyright} (A copyright statement relating to the Test Script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     */
+    public StringType getCopyrightElement() { 
+      if (this.copyright == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create TestScript.copyright");
+        else if (Configuration.doAutoCreate())
+          this.copyright = new StringType(); // bb
+      return this.copyright;
+    }
+
+    public boolean hasCopyrightElement() { 
+      return this.copyright != null && !this.copyright.isEmpty();
+    }
+
+    public boolean hasCopyright() { 
+      return this.copyright != null && !this.copyright.isEmpty();
+    }
+
+    /**
+     * @param value {@link #copyright} (A copyright statement relating to the Test Script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     */
+    public TestScript setCopyrightElement(StringType value) { 
+      this.copyright = value;
+      return this;
+    }
+
+    /**
+     * @return A copyright statement relating to the Test Script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
+     */
+    public String getCopyright() { 
+      return this.copyright == null ? null : this.copyright.getValue();
     }
 
     /**
@@ -10099,6 +10141,7 @@ public class TestScript extends BaseConformance {
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("description", "string", "A free text natural language description of the TestScript and its use.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("requirements", "string", "Explains why this Test Script is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
+        childrenList.add(new Property("copyright", "string", "A copyright statement relating to the Test Script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("origin", "", "An abstract server used in operations within this test script in the origin element.", 0, java.lang.Integer.MAX_VALUE, origin));
         childrenList.add(new Property("destination", "", "An abstract server used in operations within this test script in the destination element.", 0, java.lang.Integer.MAX_VALUE, destination));
         childrenList.add(new Property("metadata", "", "The required capability must exist and are assumed to function correctly on the FHIR server being tested.", 0, java.lang.Integer.MAX_VALUE, metadata));
@@ -10480,11 +10523,11 @@ public class TestScript extends BaseConformance {
         TestScript o = (TestScript) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(experimental, o.experimental, true)
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true)
-           && compareDeep(requirements, o.requirements, true) && compareDeep(origin, o.origin, true) && compareDeep(destination, o.destination, true)
-           && compareDeep(metadata, o.metadata, true) && compareDeep(fixture, o.fixture, true) && compareDeep(profile, o.profile, true)
-           && compareDeep(variable, o.variable, true) && compareDeep(rule, o.rule, true) && compareDeep(ruleset, o.ruleset, true)
-           && compareDeep(setup, o.setup, true) && compareDeep(test, o.test, true) && compareDeep(teardown, o.teardown, true)
-          ;
+           && compareDeep(requirements, o.requirements, true) && compareDeep(copyright, o.copyright, true)
+           && compareDeep(origin, o.origin, true) && compareDeep(destination, o.destination, true) && compareDeep(metadata, o.metadata, true)
+           && compareDeep(fixture, o.fixture, true) && compareDeep(profile, o.profile, true) && compareDeep(variable, o.variable, true)
+           && compareDeep(rule, o.rule, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(setup, o.setup, true)
+           && compareDeep(test, o.test, true) && compareDeep(teardown, o.teardown, true);
       }
 
       @Override
@@ -10496,17 +10539,18 @@ public class TestScript extends BaseConformance {
         TestScript o = (TestScript) other;
         return compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
            && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
-          ;
+           && compareValues(copyright, o.copyright, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (origin == null || origin.isEmpty())
-           && (destination == null || destination.isEmpty()) && (metadata == null || metadata.isEmpty())
-           && (fixture == null || fixture.isEmpty()) && (profile == null || profile.isEmpty()) && (variable == null || variable.isEmpty())
-           && (rule == null || rule.isEmpty()) && (ruleset == null || ruleset.isEmpty()) && (setup == null || setup.isEmpty())
-           && (test == null || test.isEmpty()) && (teardown == null || teardown.isEmpty());
+           && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
+           && (origin == null || origin.isEmpty()) && (destination == null || destination.isEmpty())
+           && (metadata == null || metadata.isEmpty()) && (fixture == null || fixture.isEmpty()) && (profile == null || profile.isEmpty())
+           && (variable == null || variable.isEmpty()) && (rule == null || rule.isEmpty()) && (ruleset == null || ruleset.isEmpty())
+           && (setup == null || setup.isEmpty()) && (test == null || test.isEmpty()) && (teardown == null || teardown.isEmpty())
+          ;
       }
 
   @Override

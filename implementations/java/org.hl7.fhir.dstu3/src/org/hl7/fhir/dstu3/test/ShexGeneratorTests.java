@@ -77,4 +77,9 @@ public class ShexGeneratorTests {
   public void testTiming() throws FHIRException, IOException {
     doTest("Timing");
   }
+
+  @Test
+  public void testSignature() throws FHIRException, IOException {
+    doTest("Signature");
+  }
 }

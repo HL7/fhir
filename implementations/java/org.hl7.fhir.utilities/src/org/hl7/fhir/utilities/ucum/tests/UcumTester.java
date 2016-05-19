@@ -14,7 +14,6 @@ package org.hl7.fhir.utilities.ucum.tests;
  ******************************************************************************/
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.hl7.fhir.exceptions.UcumException;

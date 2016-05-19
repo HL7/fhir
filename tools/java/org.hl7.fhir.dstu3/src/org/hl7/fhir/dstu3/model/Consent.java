@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
+// Generated on Fri, May 20, 2016 07:25+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1590,14 +1590,14 @@ public class Consent extends DomainResource {
     /**
      * The target entity impacted by or of interest to parties to the agreement.
      */
-    @Child(name = "patient", type = {Patient.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "patient", type = {Patient.class}, order=6, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Consent Target Entity", formalDefinition="The target entity impacted by or of interest to parties to the agreement." )
-    protected List<Reference> patient;
-    /**
-     * The actual objects that are the target of the reference (The target entity impacted by or of interest to parties to the agreement.)
-     */
-    protected List<Patient> patientTarget;
+    protected Reference patient;
 
+    /**
+     * The actual object that is the target of the reference (The target entity impacted by or of interest to parties to the agreement.)
+     */
+    protected Patient patientTarget;
 
     /**
      * A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of consents and policies.
@@ -1665,13 +1665,21 @@ public class Consent extends DomainResource {
     @Description(shortDefinition="Computable Consent Language", formalDefinition="List of Computable Policy Rule Language Representations of this Consent." )
     protected List<Attachment> rule;
 
-    private static final long serialVersionUID = 778791328L;
+    private static final long serialVersionUID = 417387720L;
 
   /**
    * Constructor
    */
     public Consent() {
       super();
+    }
+
+  /**
+   * Constructor
+   */
+    public Consent(Reference patient) {
+      super();
+      this.patient = patient;
     }
 
     /**
@@ -1896,62 +1904,45 @@ public class Consent extends DomainResource {
     /**
      * @return {@link #patient} (The target entity impacted by or of interest to parties to the agreement.)
      */
-    public List<Reference> getPatient() { 
+    public Reference getPatient() { 
       if (this.patient == null)
-        this.patient = new ArrayList<Reference>();
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Consent.patient");
+        else if (Configuration.doAutoCreate())
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
     public boolean hasPatient() { 
-      if (this.patient == null)
-        return false;
-      for (Reference item : this.patient)
-        if (!item.isEmpty())
-          return true;
-      return false;
+      return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
-     * @return {@link #patient} (The target entity impacted by or of interest to parties to the agreement.)
+     * @param value {@link #patient} (The target entity impacted by or of interest to parties to the agreement.)
      */
-    // syntactic sugar
-    public Reference addPatient() { //3
-      Reference t = new Reference();
-      if (this.patient == null)
-        this.patient = new ArrayList<Reference>();
-      this.patient.add(t);
-      return t;
-    }
-
-    // syntactic sugar
-    public Consent addPatient(Reference t) { //3
-      if (t == null)
-        return this;
-      if (this.patient == null)
-        this.patient = new ArrayList<Reference>();
-      this.patient.add(t);
+    public Consent setPatient(Reference value) { 
+      this.patient = value;
       return this;
     }
 
     /**
-     * @return {@link #patient} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The target entity impacted by or of interest to parties to the agreement.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The target entity impacted by or of interest to parties to the agreement.)
      */
-    public List<Patient> getPatientTarget() { 
+    public Patient getPatientTarget() { 
       if (this.patientTarget == null)
-        this.patientTarget = new ArrayList<Patient>();
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Consent.patient");
+        else if (Configuration.doAutoCreate())
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #patient} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The target entity impacted by or of interest to parties to the agreement.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The target entity impacted by or of interest to parties to the agreement.)
      */
-    public Patient addPatientTarget() { 
-      Patient r = new Patient();
-      if (this.patientTarget == null)
-        this.patientTarget = new ArrayList<Patient>();
-      this.patientTarget.add(r);
-      return r;
+    public Consent setPatientTarget(Patient value) { 
+      this.patientTarget = value;
+      return this;
     }
 
     /**
@@ -2344,7 +2335,7 @@ public class Consent extends DomainResource {
         case -1179159893: /*issued*/ return this.issued == null ? new Base[0] : new Base[] {this.issued}; // DateTimeType
         case -793235316: /*applies*/ return this.applies == null ? new Base[0] : new Base[] {this.applies}; // Period
         case 110546223: /*topic*/ return this.topic == null ? new Base[0] : this.topic.toArray(new Base[this.topic.size()]); // Reference
-        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : this.patient.toArray(new Base[this.patient.size()]); // Reference
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         case 1475610435: /*authority*/ return this.authority == null ? new Base[0] : this.authority.toArray(new Base[this.authority.size()]); // Reference
         case -1326197564: /*domain*/ return this.domain == null ? new Base[0] : this.domain.toArray(new Base[this.domain.size()]); // Reference
         case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // CodeableConcept
@@ -2380,7 +2371,7 @@ public class Consent extends DomainResource {
           this.getTopic().add(castToReference(value)); // Reference
           break;
         case -791418107: // patient
-          this.getPatient().add(castToReference(value)); // Reference
+          this.patient = castToReference(value); // Reference
           break;
         case 1475610435: // authority
           this.getAuthority().add(castToReference(value)); // Reference
@@ -2426,7 +2417,7 @@ public class Consent extends DomainResource {
         else if (name.equals("topic"))
           this.getTopic().add(castToReference(value));
         else if (name.equals("patient"))
-          this.getPatient().add(castToReference(value));
+          this.patient = castToReference(value); // Reference
         else if (name.equals("authority"))
           this.getAuthority().add(castToReference(value));
         else if (name.equals("domain"))
@@ -2456,7 +2447,7 @@ public class Consent extends DomainResource {
         case -1179159893: throw new FHIRException("Cannot make property issued as it is not a complex type"); // DateTimeType
         case -793235316:  return getApplies(); // Period
         case 110546223:  return addTopic(); // Reference
-        case -791418107:  return addPatient(); // Reference
+        case -791418107:  return getPatient(); // Reference
         case 1475610435:  return addAuthority(); // Reference
         case -1326197564:  return addDomain(); // Reference
         case -1422950858:  return addAction(); // CodeableConcept
@@ -2494,7 +2485,8 @@ public class Consent extends DomainResource {
           return addTopic();
         }
         else if (name.equals("patient")) {
-          return addPatient();
+          this.patient = new Reference();
+          return this.patient;
         }
         else if (name.equals("authority")) {
           return addAuthority();
@@ -2542,11 +2534,7 @@ public class Consent extends DomainResource {
           for (Reference i : topic)
             dst.topic.add(i.copy());
         };
-        if (patient != null) {
-          dst.patient = new ArrayList<Reference>();
-          for (Reference i : patient)
-            dst.patient.add(i.copy());
-        };
+        dst.patient = patient == null ? null : patient.copy();
         if (authority != null) {
           dst.authority = new ArrayList<Reference>();
           for (Reference i : authority)

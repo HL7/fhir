@@ -2,14 +2,10 @@ package org.hl7.fhir.igtools.publisher;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.io.OutputStream;
 
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
-import org.hl7.fhir.utilities.CSFile;
-import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
 public class SimpleFetcher implements IFetchFile {

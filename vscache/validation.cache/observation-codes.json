@@ -88,11 +88,6 @@
       "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
-      "hash": "#|http://acme.org/lab/codes/tests|null|60558|Tetracycline",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set LOINC Codes"
-    },
-    {
       "hash": "#|http://acme.org/lab/codes/tests|null|60561|Trimethoprim/Sulfamethoxazole",
       "severity": "error",
       "message": "The code provided is not  valid in the value set LOINC Codes"
@@ -955,17 +950,6 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|49464-1|CD13 Ag [Presence] in Tissue by Immune stain",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "CD13 Ag [Presence] in Tissue by Immune stain"
-      }
-    },
-    {
       "hash": "#|http://loinc.org|null|49466-6|CD2 Ag [Presence] in Tissue by Immune stain",
       "severity": null,
       "message": null,
@@ -1018,17 +1002,6 @@
         "code": null,
         "definition": null,
         "display": "FLT3 gene mutation analysis in Bone marrow by Molecular genetics method Narrative"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|55201-8|KIT gene mutation analysis in Bone marrow by Molecular genetics method Narrative",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "KIT gene mutation analysis in Blood or Tissue by Molecular genetics method Narrative"
       }
     },
     {
@@ -1390,11 +1363,6 @@
     },
     {
       "hash": "#|https://intranet.aumc.nl/labtestcodes|null|20005|Creatinine(Serum)",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set LOINC Codes"
-    },
-    {
-      "hash": "#|https://rtmms.nist.gov|null|150456|MDC_PULS_OXIM_SAT_O2",
       "severity": "error",
       "message": "The code provided is not  valid in the value set LOINC Codes"
     },

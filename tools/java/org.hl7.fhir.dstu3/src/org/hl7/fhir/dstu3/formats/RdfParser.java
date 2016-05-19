@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
+// Generated on Fri, May 20, 2016 07:25+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -53,7 +53,7 @@ import org.xmlpull.v1.*;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
-import org.hl7.fhir.dstu3.formats.RdfGenerator.Complex;
+import org.hl7.fhir.dstu3.utils.Turtle.Complex;
 import java.io.IOException;
 
 public class RdfParser extends RdfParserBase {
@@ -3753,8 +3753,8 @@ public class RdfParser extends RdfParserBase {
       composePeriod(t, "Consent", "applies", element.getApplies(), -1);
     for (int i = 0; i < element.getTopic().size(); i++)
       composeReference(t, "Consent", "topic", element.getTopic().get(i), i);
-    for (int i = 0; i < element.getPatient().size(); i++)
-      composeReference(t, "Consent", "patient", element.getPatient().get(i), i);
+    if (element.hasPatient())
+      composeReference(t, "Consent", "patient", element.getPatient(), -1);
     for (int i = 0; i < element.getAuthority().size(); i++)
       composeReference(t, "Consent", "authority", element.getAuthority().get(i), i);
     for (int i = 0; i < element.getDomain().size(); i++)

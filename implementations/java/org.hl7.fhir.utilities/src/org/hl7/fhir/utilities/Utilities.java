@@ -50,17 +50,16 @@ import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.SourceDataLine;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import net.sf.saxon.TransformerFactoryImpl;
-
 import org.apache.commons.io.FileUtils;
 import org.hl7.fhir.exceptions.FHIRException;
+
+import net.sf.saxon.TransformerFactoryImpl;
 
 public class Utilities {
 

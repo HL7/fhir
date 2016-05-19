@@ -2,11 +2,8 @@ package org.hl7.fhir.igtools.publisher;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.attribute.FileTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,32 +11,35 @@ import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
-import org.hl7.fhir.dstu3.exceptions.FHIRException;
-import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.metamodel.Element;
 import org.hl7.fhir.dstu3.metamodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
-import org.hl7.fhir.dstu3.model.ResourceType;
-import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.Resource;
-import org.hl7.fhir.dstu3.utils.IWorkerContext;
+import org.hl7.fhir.dstu3.model.ResourceType;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
-import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.dstu3.utils.Turtle;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
-import org.hl7.fhir.igtools.publisher.ValidationPresenter.ValiationOutcomes;
+import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
+import org.hl7.fhir.igtools.renderers.ValidationPresenter;
+import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
+import org.hl7.fhir.igtools.renderers.ValidationPresenter.ValiationOutcomes;
+import org.hl7.fhir.rdf.RdfGenerator;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.w3c.dom.Document;
 
 import com.google.gson.JsonElement;
@@ -96,6 +96,7 @@ public class Publisher {
   private List<FetchedFile> fileList = new ArrayList<FetchedFile>();
   private List<Resource> loaded = new ArrayList<Resource>();
   private ImplementationGuide ig;
+  private List<ValiationOutcomes> errs = new ArrayList<ValiationOutcomes>();
 
   private void execute() throws Exception {
     initialize();
@@ -119,6 +120,8 @@ public class Publisher {
     JsonObject obj = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
     igName = Utilities.path(Utilities.getDirectoryForFile(configFile), obj.get("source").getAsString());
 
+    log("Publish "+igName);
+    
     log("Check destination");
     File f = new File(output);
     if (!f.exists())
@@ -146,7 +149,7 @@ public class Publisher {
 
     fileList.clear();
     boolean needToBuild = false;
-    log("Load Implementation Guide from "+igName);
+    log("Load Implementation Guide");
     FetchedFile igf = fetcher.fetch(igName);
     needToBuild = noteFile(null, igf) || needToBuild;
     if (needToBuild) {
@@ -239,6 +242,8 @@ public class Publisher {
   private void load(ResourceType type) throws Exception {
     for (FetchedFile f : fileList) {
       if (f.getType() == type) {
+        if (f.getElement() == null)
+          validate(f);
         if (f.getResource() == null)
           f.setResource(parse(f));
         context.seeResource(((BaseConformance) f.getResource()).getUrl(), f.getResource());
@@ -258,13 +263,14 @@ public class Publisher {
   private void validate() throws Exception {
     log("Validating Resources");
 
-    List<ValiationOutcomes> errs = new ArrayList<ValiationOutcomes>();
-    for (FetchedFile f : fileList) 
-      validate(errs, f);
-    new ValidationPresenter(context).generate(ig.getName(), errs, Utilities.path(output, "validation.html"));
+    for (FetchedFile f : fileList)
+      if (f.getElement() == null)
+        validate(f);
+    
+    log("  ... Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errs, Utilities.path(output, "validation.html")));
   }
 
-  private void validate(List<ValiationOutcomes> errs, FetchedFile file) throws Exception {
+  private void validate(FetchedFile file) throws Exception {
     ValiationOutcomes e = new ValiationOutcomes(file);
     errs.add(e);
     if (file.getContentType().contains("json"))
@@ -277,7 +283,7 @@ public class Publisher {
   }
 
   private void generate() throws Exception {
-    log("Generating Outputs");
+    log("Generating Outputs in "+output);
     for (FetchedFile f : fileList) 
       generateOutputs(f);
 
@@ -292,6 +298,122 @@ public class Publisher {
     new org.hl7.fhir.dstu3.metamodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(output, "publish", f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
     new org.hl7.fhir.dstu3.metamodel.JsonParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(output, "publish", f.getElement().fhirType()+"-"+f.getId()+".json")), OutputStyle.PRETTY, "??");
     new org.hl7.fhir.dstu3.metamodel.TurtleParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(output, "publish", f.getElement().fhirType()+"-"+f.getId()+".ttl")), OutputStyle.PRETTY, "??");
+    
+    XmlXHtmlRenderer x = new XmlXHtmlRenderer();
+    org.hl7.fhir.dstu3.metamodel.XmlParser xp = new org.hl7.fhir.dstu3.metamodel.XmlParser(context);
+    xp.setLinkResolver(new IGLinkResolver());
+    xp.compose(f.getElement(), x);
+    fragment(f.getId()+"-xml-html", x.toString());
+
+    JsonXhtmlRenderer j = new JsonXhtmlRenderer();
+    org.hl7.fhir.dstu3.metamodel.JsonParser jp = new org.hl7.fhir.dstu3.metamodel.JsonParser(context);
+    jp.setLinkResolver(new IGLinkResolver());
+    jp.compose(f.getElement(), j);
+    fragment(f.getId()+"-json-html", j.toString());
+
+    org.hl7.fhir.dstu3.metamodel.TurtleParser ttl = new org.hl7.fhir.dstu3.metamodel.TurtleParser(context);
+    ttl.setLinkResolver(new IGLinkResolver());
+    Turtle rdf = new Turtle();
+    ttl.compose(f.getElement(), rdf, "??");
+    fragment(f.getId()+"-ttl-html", rdf.asHtml());
+    
+    XhtmlNode xhtml = getXhtml(f);
+    String html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
+    fragment(f.getId()+"-html", html);
+    
+    // now, start generating resource type specific stuff 
+    if (f.getResource() != null) { // we only do this for conformance resources we've already loaded
+      switch (f.getResource().getResourceType()) {
+      case CodeSystem:
+        break;
+      case ValueSet:
+        generateOutputsValueSet((ValueSet) f.getResource());
+        break;
+      case DataElement:
+        break;
+      case StructureDefinition:
+        generateOutputsStructureDefinition((StructureDefinition) f.getResource());
+        break;
+      case ConceptMap:
+        break;
+      case StructureMap:
+        break;
+      default:
+        // nothing to do...    
+      }      
+    }
+    
+//    NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
+//    gen.generate(f.getElement(), false);
+//    xhtml = getXhtml(f);
+//    html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
+//    fragment(f.getId()+"-gen-html", html);
+  }
+
+  private void generateOutputsValueSet(ValueSet vs) throws IOException {
+    ValueSetExpansionOutcome exp = context.expandVS(vs, true);
+    if (exp.getValueset() != null) {
+      NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
+      gen.generate(exp.getValueset(), false);
+      String html = new XhtmlComposer().compose(exp.getValueset().getText().getDiv());
+      fragment(vs.getId()+"-expansion", html);
+    } else if (exp.getError() != null) 
+      fragmentError(vs.getId()+"-expansion", exp.getError());
+    else 
+      fragmentError(vs.getId()+"-expansion", exp.getError());
+  }
+
+  private void fragmentError(String name, String error) throws IOException {
+    fragment(name, "<p style=\"color: maroon; font-weight: bold\">"+Utilities.escapeXml(error)+"</p>\r\n");
+  }
+
+  private void generateOutputsStructureDefinition(StructureDefinition resource) {
+    /*
+     * shex + html
+     * schematron + html
+     * schema + html
+     * text summary
+     * snapshot logical 
+     * differnetial logical
+     * xml template
+     * json template
+     * turtle template
+     * uml svg
+     * terminology bindings summary
+     * constraints summary
+     * dictionary definitions
+     * mappings page
+     * 
+     */
+    
+  }
+
+  private XhtmlNode getXhtml(FetchedFile f) {
+    Element text = f.getElement().getNamedChild("text");
+    if (text == null)
+      return null;
+    Element div = text.getNamedChild("div");
+    if (div == null)
+      return null;
+    else
+      return div.getXhtml();
+  }
+
+  private void fragment(String name, String content) throws IOException {
+    TextFile.stringToFile(content, Utilities.path(output, "fragments", name+".xhtml"));
+    TextFile.stringToFile(pageWrap(content, name), Utilities.path(output, "pages", name+".html"));
+  }
+
+  private String pageWrap(String content, String title) {
+    return "<html>\r\n"+
+    "<head>\r\n"+
+    "  <title>"+title+"</title>\r\n"+
+    "  <link rel=\"stylesheet\" href=\"../publish/fhir.css\"/>\r\n"+
+    "</head>\r\n"+
+    "<body>\r\n"+
+    content+
+    "</body>\r\n"+
+    "</html>\r\n";
   }
 
   public static void main(String[] args) throws Exception {

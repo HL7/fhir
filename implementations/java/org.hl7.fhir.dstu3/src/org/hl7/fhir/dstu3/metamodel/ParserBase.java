@@ -25,9 +25,12 @@ import org.hl7.fhir.utilities.Utilities;
 
 public abstract class ParserBase {
 
-  interface IErrorNotifier {
-    
+  public interface ILinkResolver {
+    String resolveType(String type);
+    String resolveProperty(Property property);
+    String resolvePage(String string);
   }
+  
   public enum ValidationPolicy { NONE, QUICK, EVERYTHING }
 
 	public static boolean isPrimitive(String code) {
@@ -39,6 +42,7 @@ public abstract class ParserBase {
 	protected IWorkerContext context;
 	protected ValidationPolicy policy;
   protected List<ValidationMessage> errors;
+  protected ILinkResolver linkResolver;
 
 	public ParserBase(IWorkerContext context) {
 		super();
@@ -100,6 +104,17 @@ public abstract class ParserBase {
 	  logError(line, col, name, IssueType.STRUCTURE, "This does not appear to be a FHIR resource (unknown name '"+name+"')", IssueSeverity.FATAL);
 	  return null;
   }
+
+  public ILinkResolver getLinkResolver() {
+    return linkResolver;
+  }
+
+  public ParserBase setLinkResolver(ILinkResolver linkResolver) {
+    this.linkResolver = linkResolver;
+    return this;
+  }
+
+
 
   
 }

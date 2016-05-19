@@ -6,11 +6,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import org.hl7.fhir.utilities.TextStreamWriter;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xml.SchematronWriter.SchematronType;
-import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
 
 
 public class SchematronWriter  extends TextStreamWriter  {

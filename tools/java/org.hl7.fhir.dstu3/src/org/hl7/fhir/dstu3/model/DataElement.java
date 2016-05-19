@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
+// Generated on Fri, May 20, 2016 07:25+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -818,27 +818,34 @@ public class DataElement extends BaseConformance {
     protected List<DataElementContactComponent> contact;
 
     /**
+     * A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.
+     */
+    @Child(name = "copyright", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element." )
+    protected StringType copyright;
+
+    /**
      * Identifies how precise the data element is in its definition.
      */
-    @Child(name = "stringency", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "stringency", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="comparable | fully-specified | equivalent | convertable | scaleable | flexible", formalDefinition="Identifies how precise the data element is in its definition." )
     protected Enumeration<DataElementStringency> stringency;
 
     /**
      * Identifies a specification (other than a terminology) that the elements which make up the DataElement have some correspondence with.
      */
-    @Child(name = "mapping", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "mapping", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="External specification mapped to", formalDefinition="Identifies a specification (other than a terminology) that the elements which make up the DataElement have some correspondence with." )
     protected List<DataElementMappingComponent> mapping;
 
     /**
      * Defines the structure, type, allowed values and other constraining characteristics of the data element.
      */
-    @Child(name = "element", type = {ElementDefinition.class}, order=6, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "element", type = {ElementDefinition.class}, order=7, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Definition of element", formalDefinition="Defines the structure, type, allowed values and other constraining characteristics of the data element." )
     protected List<ElementDefinition> element;
 
-    private static final long serialVersionUID = -748228735L;
+    private static final long serialVersionUID = -821978291L;
 
   /**
    * Constructor
@@ -1096,6 +1103,41 @@ public class DataElement extends BaseConformance {
     }
 
     /**
+     * @return {@link #copyright} (A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     */
+    public StringType getCopyrightElement() { 
+      if (this.copyright == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DataElement.copyright");
+        else if (Configuration.doAutoCreate())
+          this.copyright = new StringType(); // bb
+      return this.copyright;
+    }
+
+    public boolean hasCopyrightElement() { 
+      return this.copyright != null && !this.copyright.isEmpty();
+    }
+
+    public boolean hasCopyright() { 
+      return this.copyright != null && !this.copyright.isEmpty();
+    }
+
+    /**
+     * @param value {@link #copyright} (A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     */
+    public DataElement setCopyrightElement(StringType value) { 
+      this.copyright = value;
+      return this;
+    }
+
+    /**
+     * @return A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.
+     */
+    public String getCopyright() { 
+      return this.copyright == null ? null : this.copyright.getValue();
+    }
+
+    /**
      * @param value A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.
      */
     public DataElement setCopyright(String value) { 
@@ -1244,6 +1286,7 @@ public class DataElement extends BaseConformance {
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this search data element definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the data element.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
+        childrenList.add(new Property("copyright", "string", "A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("stringency", "code", "Identifies how precise the data element is in its definition.", 0, java.lang.Integer.MAX_VALUE, stringency));
         childrenList.add(new Property("mapping", "", "Identifies a specification (other than a terminology) that the elements which make up the DataElement have some correspondence with.", 0, java.lang.Integer.MAX_VALUE, mapping));
         childrenList.add(new Property("element", "ElementDefinition", "Defines the structure, type, allowed values and other constraining characteristics of the data element.", 0, java.lang.Integer.MAX_VALUE, element));
@@ -1482,8 +1525,9 @@ public class DataElement extends BaseConformance {
           return false;
         DataElement o = (DataElement) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(experimental, o.experimental, true)
-           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(stringency, o.stringency, true)
-           && compareDeep(mapping, o.mapping, true) && compareDeep(element, o.element, true);
+           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(copyright, o.copyright, true)
+           && compareDeep(stringency, o.stringency, true) && compareDeep(mapping, o.mapping, true) && compareDeep(element, o.element, true)
+          ;
       }
 
       @Override
@@ -1494,13 +1538,14 @@ public class DataElement extends BaseConformance {
           return false;
         DataElement o = (DataElement) other;
         return compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
-           && compareValues(stringency, o.stringency, true);
+           && compareValues(copyright, o.copyright, true) && compareValues(stringency, o.stringency, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (stringency == null || stringency.isEmpty())
-           && (mapping == null || mapping.isEmpty()) && (element == null || element.isEmpty());
+           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (copyright == null || copyright.isEmpty())
+           && (stringency == null || stringency.isEmpty()) && (mapping == null || mapping.isEmpty())
+           && (element == null || element.isEmpty());
       }
 
   @Override

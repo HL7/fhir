@@ -41,6 +41,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.apache.commons.lang3.NotImplementedException;
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
@@ -284,6 +285,182 @@ public class NarrativeGenerator implements INarrativeGenerator {
     public int getMinCardinality() {
       throw new Error("todo");
 //      return definition.getMin();
+    }
+
+    @Override
+    public int getMaxCardinality() {
+      throw new Error("todo");
+    }
+
+    @Override
+    public StructureDefinition getStructure() {
+      return structure;
+    }
+
+  }
+
+  private class BaseWrapperMetaElement implements BaseWrapper {
+    private org.hl7.fhir.dstu3.metamodel.Element element;
+    private String type;
+    private StructureDefinition structure;
+    private ElementDefinition definition;
+    private List<ElementDefinition> children;
+    private List<PropertyWrapper> list;
+
+    public BaseWrapperMetaElement(org.hl7.fhir.dstu3.metamodel.Element element, String type, StructureDefinition structure, ElementDefinition definition) {
+      this.element = element;
+      this.type = type;
+      this.structure = structure;
+      this.definition = definition;
+    }
+
+    @Override
+    public Base getBase() throws UnsupportedEncodingException, IOException, FHIRException {
+      if (type == null || type.equals("Resource") || type.equals("BackboneElement") || type.equals("Element"))
+        return null;
+
+      ByteArrayOutputStream xml = new ByteArrayOutputStream();
+      try {
+        new org.hl7.fhir.dstu3.metamodel.XmlParser(context).compose(element, xml, OutputStyle.PRETTY, null);
+      } catch (Exception e) {
+        throw new FHIRException(e.getMessage(), e);
+      }
+      return context.newXmlParser().setOutputStyle(OutputStyle.PRETTY).parseType(xml.toString(), type);
+    }
+
+    @Override
+    public List<PropertyWrapper> children() {
+      if (list == null) {
+        children = ProfileUtilities.getChildList(structure, definition);
+        list = new ArrayList<NarrativeGenerator.PropertyWrapper>();
+        for (ElementDefinition child : children) {
+          List<org.hl7.fhir.dstu3.metamodel.Element> elements = new ArrayList<org.hl7.fhir.dstu3.metamodel.Element>();
+          String name = tail(child.getPath());
+          if (name.endsWith("[x]"))
+            element.getNamedChildrenWithWildcard(name, elements);
+          else
+            element.getNamedChildren(name, elements);
+          list.add(new PropertyWrapperMetaElement(structure, child, elements));
+        }
+      }
+      return list;
+    }
+
+    @Override
+    public PropertyWrapper getChildByName(String name) {
+      for (PropertyWrapper p : children())
+        if (p.getName().equals(name))
+          return p;
+      return null;
+    }
+
+  }
+  private class ResurceWrapperMetaElement implements ResourceWrapper {
+    private org.hl7.fhir.dstu3.metamodel.Element wrapped;
+    private List<ResourceWrapper> list;
+    private List<PropertyWrapper> list2;
+    private StructureDefinition definition;
+    public ResurceWrapperMetaElement(org.hl7.fhir.dstu3.metamodel.Element wrapped) {
+      this.wrapped = wrapped;
+      this.definition = wrapped.getProperty().getStructure();
+    }
+
+    @Override
+    public List<ResourceWrapper> getContained() {
+      if (list == null) {
+        List<org.hl7.fhir.dstu3.metamodel.Element> children = wrapped.getChildrenByName("contained");
+        list = new ArrayList<NarrativeGenerator.ResourceWrapper>();
+        for (org.hl7.fhir.dstu3.metamodel.Element e : children) {
+          list.add(new ResurceWrapperMetaElement(e));
+        }
+      }
+      return list;
+    }
+
+    @Override
+    public String getId() {
+      return wrapped.getNamedChildValue("id");
+    }
+
+    @Override
+    public XhtmlNode getNarrative() throws FHIRFormatError, IOException, FHIRException {
+      org.hl7.fhir.dstu3.metamodel.Element txt = wrapped.getNamedChild("text");
+      if (txt == null)
+        return null;
+      org.hl7.fhir.dstu3.metamodel.Element div = txt.getNamedChild("div");
+      if (div == null)
+        return null;
+      else
+        return div.getXhtml();
+    }
+
+    @Override
+    public String getName() {
+      return wrapped.getName();
+    }
+
+    @Override
+    public List<PropertyWrapper> children() {
+      if (list2 == null) {
+        List<ElementDefinition> children = ProfileUtilities.getChildList(definition, definition.getSnapshot().getElement().get(0));
+        list2 = new ArrayList<NarrativeGenerator.PropertyWrapper>();
+        for (ElementDefinition child : children) {
+          List<org.hl7.fhir.dstu3.metamodel.Element> elements = new ArrayList<org.hl7.fhir.dstu3.metamodel.Element>();
+          wrapped.getNamedChildrenWithWildcard(tail(child.getPath()), elements);
+          list2.add(new PropertyWrapperMetaElement(definition, child, elements));
+        }
+      }
+      return list2;
+    }
+  }
+
+  private class PropertyWrapperMetaElement implements PropertyWrapper {
+
+    private StructureDefinition structure;
+    private ElementDefinition definition;
+    private List<org.hl7.fhir.dstu3.metamodel.Element> values;
+    private List<BaseWrapper> list;
+
+    public PropertyWrapperMetaElement(StructureDefinition structure, ElementDefinition definition, List<org.hl7.fhir.dstu3.metamodel.Element> values) {
+      this.structure = structure;
+      this.definition = definition;
+      this.values = values;
+    }
+
+    @Override
+    public String getName() {
+      return tail(definition.getPath());
+    }
+
+    @Override
+    public boolean hasValues() {
+      return values.size() > 0;
+    }
+
+    @Override
+    public List<BaseWrapper> getValues() {
+      if (list == null) {
+        list = new ArrayList<NarrativeGenerator.BaseWrapper>();
+        for (org.hl7.fhir.dstu3.metamodel.Element e : values)
+          list.add(new BaseWrapperMetaElement(e, e.fhirType(), structure, definition));
+      }
+      return list;
+    }
+   
+    @Override
+    public String getTypeCode() {
+      throw new Error("todo");
+    }
+
+    @Override
+    public String getDefinition() {
+      throw new Error("todo");
+    }
+
+    @Override
+    public int getMinCardinality() {
+      throw new Error("todo");
+      //      return definition.getMin();
     }
 
     @Override
@@ -591,6 +768,24 @@ public class NarrativeGenerator implements INarrativeGenerator {
     String rt = "http://hl7.org/fhir/StructureDefinition/"+doc.getNodeName();
     StructureDefinition p = context.fetchResource(StructureDefinition.class, rt);
     return generateByProfile(doc, p, true);
+  }
+
+  // dom based version, for build program
+  public String generate(org.hl7.fhir.dstu3.metamodel.Element er, boolean showCodeDetails) throws IOException {
+    XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
+    x.addTag("p").addTag("b").addText("Generated Narrative"+(showCodeDetails ? " with Details" : ""));
+    try {
+      ResurceWrapperMetaElement resw = new ResurceWrapperMetaElement(er);
+      BaseWrapperMetaElement base = new BaseWrapperMetaElement(er, null, er.getProperty().getStructure(), er.getProperty().getDefinition());
+      base.children();
+      generateByProfile(resw, er.getProperty().getStructure(), base, er.getProperty().getStructure().getSnapshot().getElement(), er.getProperty().getDefinition(), base.children, x, er.fhirType(), showCodeDetails);
+
+    } catch (Exception e) {
+      e.printStackTrace();
+      x.addTag("p").addTag("b").setAttribute("style", "color: maroon").addText("Exception generating Narrative: "+e.getMessage());
+    }
+    inject(er, x,  NarrativeStatus.GENERATED);
+    return new XhtmlComposer().compose(x);
   }
 
   private void generateByProfile(DomainResource r, StructureDefinition profile, boolean showCodeDetails) {
@@ -1866,6 +2061,32 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (div.hasChildNodes())
       div.appendChild(er.getOwnerDocument().createElementNS(FormatUtilities.XHTML_NS, "hr"));
     new XhtmlComposer().compose(div, x);
+  }
+
+  private void inject(org.hl7.fhir.dstu3.metamodel.Element er, XhtmlNode x, NarrativeStatus status) {
+    org.hl7.fhir.dstu3.metamodel.Element txt = er.getNamedChild("text");
+    if (txt == null) {
+      txt = new org.hl7.fhir.dstu3.metamodel.Element("text");
+      int i = 0;
+      while (i < er.getChildren().size() && (er.getChildren().get(i).getName().equals("id") || er.getChildren().get(i).getName().equals("meta") || er.getChildren().get(i).getName().equals("implicitRules") || er.getChildren().get(i).getName().equals("language")))
+        i++;
+      if (i >= er.getChildren().size())
+        er.getChildren().add(txt);
+      else
+        er.getChildren().add(i, txt);
+    }
+    org.hl7.fhir.dstu3.metamodel.Element st = txt.getNamedChild("status");
+    if (st == null) {
+      st = new org.hl7.fhir.dstu3.metamodel.Element("status");
+      txt.getChildren().add(0, st);
+    }
+    st.setValue(status.toCode());
+    org.hl7.fhir.dstu3.metamodel.Element div = txt.getNamedChild("div");
+    if (div == null) {
+      div = new org.hl7.fhir.dstu3.metamodel.Element("div");
+      txt.getChildren().add(div);
+    }
+    div.setXhtml(x);
   }
 
   private String getDisplay(List<OtherElementComponent> list, String s) {

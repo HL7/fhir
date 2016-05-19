@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
+// Generated on Fri, May 20, 2016 07:25+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -3262,27 +3262,34 @@ public class ValueSet extends BaseConformance {
     protected StringType requirements;
 
     /**
+     * A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.
+     */
+    @Child(name = "copyright", type = {StringType.class}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set." )
+    protected StringType copyright;
+
+    /**
      * Whether this is intended to be used with an extensible binding or not.
      */
-    @Child(name = "extensible", type = {BooleanType.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "extensible", type = {BooleanType.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Whether this is intended to be used with an extensible binding", formalDefinition="Whether this is intended to be used with an extensible binding or not." )
     protected BooleanType extensible;
 
     /**
      * A set of criteria that provide the content logical definition of the value set by including or excluding codes from outside this value set.
      */
-    @Child(name = "compose", type = {}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "compose", type = {}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="When value set includes codes from elsewhere", formalDefinition="A set of criteria that provide the content logical definition of the value set by including or excluding codes from outside this value set." )
     protected ValueSetComposeComponent compose;
 
     /**
      * A value set can also be "expanded", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.
      */
-    @Child(name = "expansion", type = {}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "expansion", type = {}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Used when the value set is \"expanded\"", formalDefinition="A value set can also be \"expanded\", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed." )
     protected ValueSetExpansionComponent expansion;
 
-    private static final long serialVersionUID = -1869779640L;
+    private static final long serialVersionUID = 182109950L;
 
   /**
    * Constructor
@@ -3716,6 +3723,41 @@ public class ValueSet extends BaseConformance {
     }
 
     /**
+     * @return {@link #copyright} (A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     */
+    public StringType getCopyrightElement() { 
+      if (this.copyright == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ValueSet.copyright");
+        else if (Configuration.doAutoCreate())
+          this.copyright = new StringType(); // bb
+      return this.copyright;
+    }
+
+    public boolean hasCopyrightElement() { 
+      return this.copyright != null && !this.copyright.isEmpty();
+    }
+
+    public boolean hasCopyright() { 
+      return this.copyright != null && !this.copyright.isEmpty();
+    }
+
+    /**
+     * @param value {@link #copyright} (A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     */
+    public ValueSet setCopyrightElement(StringType value) { 
+      this.copyright = value;
+      return this;
+    }
+
+    /**
+     * @return A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.
+     */
+    public String getCopyright() { 
+      return this.copyright == null ? null : this.copyright.getValue();
+    }
+
+    /**
      * @param value A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.
      */
     public ValueSet setCopyright(String value) { 
@@ -3832,6 +3874,7 @@ public class ValueSet extends BaseConformance {
         childrenList.add(new Property("description", "string", "A free text natural language description of the use of the value set - reason for definition, \"the semantic space\" to be included in the value set, conditions of use, etc. The description may include a list of expected usages for the value set and can also describe the approach taken to build the value set.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("immutable", "boolean", "If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.", 0, java.lang.Integer.MAX_VALUE, immutable));
         childrenList.add(new Property("requirements", "string", "Explains why this value set is needed and why it has been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
+        childrenList.add(new Property("copyright", "string", "A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("extensible", "boolean", "Whether this is intended to be used with an extensible binding or not.", 0, java.lang.Integer.MAX_VALUE, extensible));
         childrenList.add(new Property("compose", "", "A set of criteria that provide the content logical definition of the value set by including or excluding codes from outside this value set.", 0, java.lang.Integer.MAX_VALUE, compose));
         childrenList.add(new Property("expansion", "", "A value set can also be \"expanded\", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.", 0, java.lang.Integer.MAX_VALUE, expansion));
@@ -4107,8 +4150,8 @@ public class ValueSet extends BaseConformance {
         return compareDeep(identifier, o.identifier, true) && compareDeep(experimental, o.experimental, true)
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(lockedDate, o.lockedDate, true)
            && compareDeep(description, o.description, true) && compareDeep(immutable, o.immutable, true) && compareDeep(requirements, o.requirements, true)
-           && compareDeep(extensible, o.extensible, true) && compareDeep(compose, o.compose, true) && compareDeep(expansion, o.expansion, true)
-          ;
+           && compareDeep(copyright, o.copyright, true) && compareDeep(extensible, o.extensible, true) && compareDeep(compose, o.compose, true)
+           && compareDeep(expansion, o.expansion, true);
       }
 
       @Override
@@ -4121,15 +4164,16 @@ public class ValueSet extends BaseConformance {
         return compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
            && compareValues(lockedDate, o.lockedDate, true) && compareValues(description, o.description, true)
            && compareValues(immutable, o.immutable, true) && compareValues(requirements, o.requirements, true)
-           && compareValues(extensible, o.extensible, true);
+           && compareValues(copyright, o.copyright, true) && compareValues(extensible, o.extensible, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (lockedDate == null || lockedDate.isEmpty())
            && (description == null || description.isEmpty()) && (immutable == null || immutable.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (extensible == null || extensible.isEmpty())
-           && (compose == null || compose.isEmpty()) && (expansion == null || expansion.isEmpty());
+           && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
+           && (extensible == null || extensible.isEmpty()) && (compose == null || compose.isEmpty())
+           && (expansion == null || expansion.isEmpty());
       }
 
   @Override

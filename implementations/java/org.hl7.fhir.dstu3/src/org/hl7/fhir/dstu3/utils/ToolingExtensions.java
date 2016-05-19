@@ -77,6 +77,7 @@ public class ToolingExtensions {
   public static final String EXT_DISPLAY_HINT = "http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint"; 
   public static final String EXT_REPLACED_BY = "http://hl7.org/fhir/StructureDefinition/valueset-replacedby";
   public static final String EXT_JSON_TYPE = "http://hl7.org/fhir/StructureDefinition/structuredefinition-json-type"; 
+  public static final String EXT_RDF_TYPE = "http://hl7.org/fhir/StructureDefinition/structuredefinition-json-type"; 
   public static final String EXT_XML_TYPE = "http://hl7.org/fhir/StructureDefinition/structuredefinition-xml-type"; 
   public static final String EXT_REGEX = "http://hl7.org/fhir/StructureDefinition/structuredefinition-regex"; 
   public static final String EXT_CONTROL = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"; 

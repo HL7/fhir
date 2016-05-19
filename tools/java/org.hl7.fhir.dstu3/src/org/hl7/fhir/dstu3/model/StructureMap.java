@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
+// Generated on Fri, May 20, 2016 07:25+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -4275,27 +4275,34 @@ public class StructureMap extends BaseConformance {
     protected StringType requirements;
 
     /**
+     * A copyright statement relating to the structure map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
+     */
+    @Child(name = "copyright", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the structure map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings." )
+    protected StringType copyright;
+
+    /**
      * A structure definition used by this map. The structure definition may describe instances that are converted, or the instances that are produced.
      */
-    @Child(name = "structure", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "structure", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Structure Definition used by this map", formalDefinition="A structure definition used by this map. The structure definition may describe instances that are converted, or the instances that are produced." )
     protected List<StructureMapStructureComponent> structure;
 
     /**
      * Other maps used by this map (canonical URLs).
      */
-    @Child(name = "import", type = {UriType.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "import", type = {UriType.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Other maps used by this map (canonical URLs)", formalDefinition="Other maps used by this map (canonical URLs)." )
     protected List<UriType> import_;
 
     /**
      * Named sections for reader convenience.
      */
-    @Child(name = "group", type = {}, order=8, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "group", type = {}, order=9, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Named sections for reader convenience", formalDefinition="Named sections for reader convenience." )
     protected List<StructureMapGroupComponent> group;
 
-    private static final long serialVersionUID = -1885780675L;
+    private static final long serialVersionUID = 1891400819L;
 
   /**
    * Constructor
@@ -4645,6 +4652,41 @@ public class StructureMap extends BaseConformance {
     }
 
     /**
+     * @return {@link #copyright} (A copyright statement relating to the structure map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     */
+    public StringType getCopyrightElement() { 
+      if (this.copyright == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create StructureMap.copyright");
+        else if (Configuration.doAutoCreate())
+          this.copyright = new StringType(); // bb
+      return this.copyright;
+    }
+
+    public boolean hasCopyrightElement() { 
+      return this.copyright != null && !this.copyright.isEmpty();
+    }
+
+    public boolean hasCopyright() { 
+      return this.copyright != null && !this.copyright.isEmpty();
+    }
+
+    /**
+     * @param value {@link #copyright} (A copyright statement relating to the structure map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     */
+    public StructureMap setCopyrightElement(StringType value) { 
+      this.copyright = value;
+      return this;
+    }
+
+    /**
+     * @return A copyright statement relating to the structure map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
+     */
+    public String getCopyright() { 
+      return this.copyright == null ? null : this.copyright.getValue();
+    }
+
+    /**
      * @param value A copyright statement relating to the structure map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
      */
     public StructureMap setCopyright(String value) { 
@@ -4800,6 +4842,7 @@ public class StructureMap extends BaseConformance {
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("description", "string", "A free text natural language description of the StructureMap and its use.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("requirements", "string", "Explains why this structure map is needed and why it's been designed as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
+        childrenList.add(new Property("copyright", "string", "A copyright statement relating to the structure map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("structure", "", "A structure definition used by this map. The structure definition may describe instances that are converted, or the instances that are produced.", 0, java.lang.Integer.MAX_VALUE, structure));
         childrenList.add(new Property("import", "uri", "Other maps used by this map (canonical URLs).", 0, java.lang.Integer.MAX_VALUE, import_));
         childrenList.add(new Property("group", "", "Named sections for reader convenience.", 0, java.lang.Integer.MAX_VALUE, group));
@@ -5065,8 +5108,9 @@ public class StructureMap extends BaseConformance {
         StructureMap o = (StructureMap) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(experimental, o.experimental, true)
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true)
-           && compareDeep(requirements, o.requirements, true) && compareDeep(structure, o.structure, true)
-           && compareDeep(import_, o.import_, true) && compareDeep(group, o.group, true);
+           && compareDeep(requirements, o.requirements, true) && compareDeep(copyright, o.copyright, true)
+           && compareDeep(structure, o.structure, true) && compareDeep(import_, o.import_, true) && compareDeep(group, o.group, true)
+          ;
       }
 
       @Override
@@ -5078,14 +5122,15 @@ public class StructureMap extends BaseConformance {
         StructureMap o = (StructureMap) other;
         return compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
            && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
-           && compareValues(import_, o.import_, true);
+           && compareValues(copyright, o.copyright, true) && compareValues(import_, o.import_, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (structure == null || structure.isEmpty())
-           && (import_ == null || import_.isEmpty()) && (group == null || group.isEmpty());
+           && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
+           && (structure == null || structure.isEmpty()) && (import_ == null || import_.isEmpty()) && (group == null || group.isEmpty())
+          ;
       }
 
   @Override

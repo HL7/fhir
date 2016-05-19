@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, May 15, 2016 02:34+1000 for FHIR v1.4.0
+// Generated on Fri, May 20, 2016 07:25+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1525,27 +1525,34 @@ public class ConceptMap extends BaseConformance {
     protected StringType requirements;
 
     /**
+     * A copyright statement relating to the concept map and/or its contents.
+     */
+    @Child(name = "copyright", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the concept map and/or its contents." )
+    protected StringType copyright;
+
+    /**
      * The source value set that specifies the concepts that are being mapped.
      */
-    @Child(name = "source", type = {UriType.class, ValueSet.class, StructureDefinition.class}, order=6, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "source", type = {UriType.class, ValueSet.class, StructureDefinition.class}, order=7, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Identifies the source of the concepts which are being mapped", formalDefinition="The source value set that specifies the concepts that are being mapped." )
     protected Type source;
 
     /**
      * The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.
      */
-    @Child(name = "target", type = {UriType.class, ValueSet.class, StructureDefinition.class}, order=7, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "target", type = {UriType.class, ValueSet.class, StructureDefinition.class}, order=8, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Provides context to the mappings", formalDefinition="The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made." )
     protected Type target;
 
     /**
      * Mappings for an individual concept in the source to one or more concepts in the target.
      */
-    @Child(name = "element", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "element", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Mappings for a concept from the source set", formalDefinition="Mappings for an individual concept in the source to one or more concepts in the target." )
     protected List<SourceElementComponent> element;
 
-    private static final long serialVersionUID = 114954292L;
+    private static final long serialVersionUID = 1728874476L;
 
   /**
    * Constructor
@@ -1887,6 +1894,41 @@ public class ConceptMap extends BaseConformance {
     }
 
     /**
+     * @return {@link #copyright} (A copyright statement relating to the concept map and/or its contents.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     */
+    public StringType getCopyrightElement() { 
+      if (this.copyright == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ConceptMap.copyright");
+        else if (Configuration.doAutoCreate())
+          this.copyright = new StringType(); // bb
+      return this.copyright;
+    }
+
+    public boolean hasCopyrightElement() { 
+      return this.copyright != null && !this.copyright.isEmpty();
+    }
+
+    public boolean hasCopyright() { 
+      return this.copyright != null && !this.copyright.isEmpty();
+    }
+
+    /**
+     * @param value {@link #copyright} (A copyright statement relating to the concept map and/or its contents.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     */
+    public ConceptMap setCopyrightElement(StringType value) { 
+      this.copyright = value;
+      return this;
+    }
+
+    /**
+     * @return A copyright statement relating to the concept map and/or its contents.
+     */
+    public String getCopyright() { 
+      return this.copyright == null ? null : this.copyright.getValue();
+    }
+
+    /**
      * @param value A copyright statement relating to the concept map and/or its contents.
      */
     public ConceptMap setCopyright(String value) { 
@@ -2038,6 +2080,7 @@ public class ConceptMap extends BaseConformance {
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("description", "string", "A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("requirements", "string", "Explains why this concept map is needed and why it has been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
+        childrenList.add(new Property("copyright", "string", "A copyright statement relating to the concept map and/or its contents.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("source[x]", "uri|Reference(ValueSet|StructureDefinition)", "The source value set that specifies the concepts that are being mapped.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("target[x]", "uri|Reference(ValueSet|StructureDefinition)", "The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.", 0, java.lang.Integer.MAX_VALUE, target));
         childrenList.add(new Property("element", "", "Mappings for an individual concept in the source to one or more concepts in the target.", 0, java.lang.Integer.MAX_VALUE, element));
@@ -2302,8 +2345,9 @@ public class ConceptMap extends BaseConformance {
         ConceptMap o = (ConceptMap) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(experimental, o.experimental, true)
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true)
-           && compareDeep(requirements, o.requirements, true) && compareDeep(source, o.source, true) && compareDeep(target, o.target, true)
-           && compareDeep(element, o.element, true);
+           && compareDeep(requirements, o.requirements, true) && compareDeep(copyright, o.copyright, true)
+           && compareDeep(source, o.source, true) && compareDeep(target, o.target, true) && compareDeep(element, o.element, true)
+          ;
       }
 
       @Override
@@ -2315,14 +2359,15 @@ public class ConceptMap extends BaseConformance {
         ConceptMap o = (ConceptMap) other;
         return compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
            && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
-          ;
+           && compareValues(copyright, o.copyright, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (source == null || source.isEmpty())
-           && (target == null || target.isEmpty()) && (element == null || element.isEmpty());
+           && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
+           && (source == null || source.isEmpty()) && (target == null || target.isEmpty()) && (element == null || element.isEmpty())
+          ;
       }
 
   @Override

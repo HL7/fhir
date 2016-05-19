@@ -5,15 +5,16 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
-import org.hl7.fhir.dstu3.formats.RdfGenerator.Complex;
-import org.hl7.fhir.dstu3.formats.RdfGenerator.Section;
-import org.hl7.fhir.dstu3.formats.RdfGenerator.Subject;
 import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.Type;
+import org.hl7.fhir.dstu3.utils.Turtle;
+import org.hl7.fhir.dstu3.utils.Turtle.Complex;
+import org.hl7.fhir.dstu3.utils.Turtle.Section;
+import org.hl7.fhir.dstu3.utils.Turtle.Subject;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public abstract class RdfParserBase extends ParserBase implements IParser  {
@@ -39,7 +40,7 @@ public abstract class RdfParserBase extends ParserBase implements IParser  {
 
 	@Override
 	public void compose(OutputStream stream, Resource resource) throws IOException {
-		RdfGenerator ttl = new RdfGenerator(stream);
+	  Turtle ttl = new Turtle();
 		//      ttl.setFormat(FFormat);
 		ttl.prefix("fhir", "http://hl7.org/fhir/");
 		ttl.prefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
@@ -52,7 +53,7 @@ public abstract class RdfParserBase extends ParserBase implements IParser  {
 
 		composeResource(subject, resource);
 		try {
-			ttl.commit(false);
+			ttl.commit(stream, false);
 		} catch (Exception e) {
 			throw new IOException(e); 
 		}
@@ -64,7 +65,7 @@ public abstract class RdfParserBase extends ParserBase implements IParser  {
 	}
 
 	protected String ttlLiteral(String value) {
-		return "\"" +RdfGenerator.escape(value, true) + "\"";
+		return "\"" +Turtle.escape(value, true) + "\"";
 	}
 
 	protected void composeXhtml(Complex t, String string, String string2, XhtmlNode div, int i) {

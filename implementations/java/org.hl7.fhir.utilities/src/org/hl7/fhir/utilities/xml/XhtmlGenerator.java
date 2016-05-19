@@ -28,8 +28,6 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.utilities.xml;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;

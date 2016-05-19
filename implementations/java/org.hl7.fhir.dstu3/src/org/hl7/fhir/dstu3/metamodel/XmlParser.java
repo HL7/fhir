@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
+import org.hl7.fhir.utilities.xml.IXMLWriter;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 import org.w3c.dom.Attr;
@@ -47,9 +48,21 @@ import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
 public class XmlParser extends ParserBase {
+  private boolean allowXsiLocation;
+
   public XmlParser(IWorkerContext context) {
     super(context);
   }
+
+  
+  public boolean isAllowXsiLocation() {
+    return allowXsiLocation;
+  }
+
+  public void setAllowXsiLocation(boolean allowXsiLocation) {
+    this.allowXsiLocation = allowXsiLocation;
+  }
+
 
   public Element parse(InputStream stream) throws Exception {
 		Document doc = null;
@@ -229,7 +242,7 @@ public class XmlParser extends ParserBase {
 	    			context.setValue(av);
 	    		else
 	    	    context.getChildren().add(new Element(property.getName(), property, property.getType(), av).markLocation(line(node), col(node)));
-      	} else {
+        } else if (!allowXsiLocation || !attr.getNodeName().endsWith(":schemaLocation") ) {
           logError(line(node), col(node), path, IssueType.STRUCTURE, "Undefined attribute '@"+attr.getNodeName()+"'", IssueSeverity.ERROR);      		
       	}
     	}
@@ -372,11 +385,20 @@ public class XmlParser extends ParserBase {
 
   }
 
-  private void composeElement(XMLWriter xml, Element element, String elementName) throws IOException {
+  public void compose(Element e, IXMLWriter xml) throws Exception {
+    xml.start();
+    xml.setDefaultNamespace(e.getProperty().getNamespace());
+    composeElement(xml, e, e.getType());
+    xml.end();
+  }
+
+  private void composeElement(IXMLWriter xml, Element element, String elementName) throws IOException {
     for (String s : element.getComments()) {
       xml.comment(s, true);
     }
     if (isText(element.getProperty())) {
+      if (linkResolver != null)
+        xml.link(linkResolver.resolveProperty(element.getProperty()));
       xml.enter(elementName);
       xml.text(element.getValue());
       xml.exit(elementName);      
@@ -384,10 +406,17 @@ public class XmlParser extends ParserBase {
       if (element.getType().equals("xhtml")) {
         xml.escapedText(element.getValue());
       } else if (isText(element.getProperty())) {
+        if (linkResolver != null)
+          xml.link(linkResolver.resolveProperty(element.getProperty()));
         xml.text(element.getValue());
       } else {
-				if (element.hasValue())
+        if (element.hasValue()) {
+          if (linkResolver != null)
+            xml.link(linkResolver.resolveType(element.getType()));
         xml.attribute("value", element.getValue());
+        }
+        if (linkResolver != null)
+          xml.link(linkResolver.resolveProperty(element.getProperty()));
 				if (element.hasChildren()) {
 					xml.enter(elementName);
 					for (Element child : element.getChildren()) 
@@ -398,16 +427,26 @@ public class XmlParser extends ParserBase {
       }
     } else {
       for (Element child : element.getChildren()) {
-        if (isAttr(child.getProperty()))
+        if (isAttr(child.getProperty())) {
+          if (linkResolver != null)
+            xml.link(linkResolver.resolveType(child.getType()));
           xml.attribute(child.getName(), child.getValue());
       }
+      }
+      if (linkResolver != null)
+        xml.link(linkResolver.resolveProperty(element.getProperty()));
       xml.enter(elementName);
-	    if (element.getSpecial() != null)
+      if (element.getSpecial() != null) {
+        if (linkResolver != null)
+          xml.link(linkResolver.resolveProperty(element.getProperty()));
         xml.enter(element.getType());
+      }
       for (Element child : element.getChildren()) {
-        if (isText(child.getProperty()))
+        if (isText(child.getProperty())) {
+          if (linkResolver != null)
+            xml.link(linkResolver.resolveProperty(element.getProperty()));
           xml.text(child.getValue());
-        else if (!isAttr(child.getProperty()))
+        } else if (!isAttr(child.getProperty()))
           composeElement(xml, child, child.getName());
       }
 	    if (element.getSpecial() != null)

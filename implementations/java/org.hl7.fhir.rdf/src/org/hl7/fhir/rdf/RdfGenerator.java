@@ -1,4 +1,4 @@
-package org.hl7.fhir.dstu3.formats;
+package org.hl7.fhir.rdf;
 
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.dstu3.formats.TurtleLexer;
 import org.hl7.fhir.dstu3.formats.TurtleLexer.TurtleTokenType;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -61,11 +62,46 @@ public class RdfGenerator {
 			return true;      
 		}
 
-		public Complex predicate(String predicate, String object) {
+    public boolean write(StringBuilder b, int indent) throws Exception {
+      if (predicates.isEmpty()) 
+        return false;
+      if (predicates.size() == 1 && predicates.get(0).object instanceof StringType && Utilities.noString(predicates.get(0).comment)) {
+        b.append(" "+predicates.get(0).makelink()+" "+Utilities.escapeXml(((StringType) predicates.get(0).object).value));
+        return false;
+      }
+      String left = Utilities.padLeft("", ' ', indent);
+      int i = 0;
+      for (Predicate po : predicates) {
+        b.append("\r\n");
+        if (po.getObject() instanceof StringType)
+          b.append(left+" "+po.makelink()+" "+Utilities.escapeXml(((StringType) po.getObject()).value));
+        else {
+          b.append(left+" "+po.makelink()+" [");
+          if (((Complex) po.getObject()).write(b, indent+2))
+            b.append(left+" ]");
+          else
+            b.append(" ]");
+        }
+        i++;
+        if (i < predicates.size())
+          b.append(";");
+        if (!Utilities.noString(po.comment)) 
+          b.append(" # "+Utilities.escapeXml(escape(po.comment, false)));
+      }
+      return true;      
+    }
+
+    public Complex predicate(String predicate, String object) {
 			predicateSet.add(predicate);
 			objectSet.add(object);
 			return predicate(predicate, new StringType(object));
 		}
+
+    public Complex linkedPredicate(String predicate, String object, String link) {
+      predicateSet.add(predicate);
+      objectSet.add(object);
+      return linkedPredicate(predicate, new StringType(object), link);
+    }
 
 		public Complex predicate(String predicate, Triple object) {
 			Predicate p = new Predicate();
@@ -78,12 +114,31 @@ public class RdfGenerator {
 			return this;
 		}
 
+    public Complex linkedPredicate(String predicate, Triple object, String link) {
+      Predicate p = new Predicate();
+      p.predicate = predicate;
+      p.link = link;
+      predicateSet.add(predicate);
+      if (object instanceof StringType)
+        objectSet.add(((StringType) object).value);
+      p.object = object;
+      predicates.add(p);
+      return this;
+    }
+
 		public Complex predicate(String predicate) {
 			predicateSet.add(predicate);
 			Complex c = complex();
 			predicate(predicate, c);
 			return c;
 		}
+
+    public Complex linkedPredicate(String predicate, String link) {
+      predicateSet.add(predicate);
+      Complex c = complex();
+      linkedPredicate(predicate, c, link);
+      return c;
+    }
 
 		public void prefix(String code, String url) {
 			RdfGenerator.this.prefix(code, url);
@@ -92,13 +147,21 @@ public class RdfGenerator {
 
 	private class Predicate {
 		protected String predicate;
+		protected String link;
 		protected Triple object;
 		protected String comment;
 
 		public String getPredicate() {
 			return predicate;
 		}
-		public Triple getObject() {
+		public String makelink() {
+      if (link == null)
+        return predicate;
+      else
+        return "<a href=\""+link+"\">"+predicate+"</a>";
+    }
+		
+    public Triple getObject() {
 			return object;
 		}
 		public String getComment() {
@@ -409,9 +472,9 @@ public class RdfGenerator {
 		}
 	}
 
-	protected StringType literal(String s) {
-		return new StringType("\""+escape(s, true)+"\"");
-	}
+  protected StringType literal(String s) {
+    return new StringType("\""+escape(s, true)+"\"");
+  }
 
   protected StringType literalTyped(String s, String t) {
     return new StringType("\""+escape(s, true)+"\"^^xs:"+t);
@@ -468,36 +531,54 @@ public class RdfGenerator {
 		writer.close();
 	}
 
-	private void commitPrefixes(LineOutputStreamWriter writer, boolean header) throws Exception {
-		if (header) {
-			writer.ln("# FHIR Sub-definitions");
-			writer.write("# This is work in progress, and may change rapidly \r\n");
-			writer.ln();
-			writer.write("# A note about policy: the focus here is providing the knowledge from \r\n"); 
-			writer.write("# the FHIR specification as a set of triples for knowledge processing. \r\n");
-			writer.write("# Where appopriate, predicates defined external to FHIR are used. \"Where \r\n");
-			writer.write("# appropriate\" means that the predicates are a faithful representation \r\n");
-			writer.write("# of the FHIR semantics, and do not involve insane (or owful) syntax. \r\n");
-			writer.ln();
-			writer.write("# Where the community agrees on additional predicate statements (such \r\n");
-			writer.write("# as OWL constraints) these are added in addition to the direct FHIR \r\n");
-			writer.write("# predicates \r\n");
-			writer.ln();
-			writer.write("# This it not a formal ontology, though it is possible it may start to become one eventually\r\n");
-			writer.ln();
-			writer.write("# this file refers to concepts defined in rim.ttl and to others defined elsewhere outside HL7 \r\n");
-			writer.ln();
-		}
-		for (String p : sorted(prefixes.keySet()))
-			writer.ln("@prefix "+p+": <"+prefixes.get(p)+"> .");
-		writer.ln();
-		if (header) {
-			writer.ln("# Predicates used in this file:");
-			for (String s : sorted(predicateSet)) 
-				writer.ln(" # "+s);
-			writer.ln();
-		}
-	}
+  public String asHtml() throws Exception {
+    StringBuilder b = new StringBuilder();
+    b.append("<pre class\"rdf\">\r\n");
+    commitPrefixes(b);
+    for (Section s : sections) {
+      commitSection(b, s);
+    }
+    b.append("</pre>\r\n");
+    b.append("\r\n");
+    return b.toString();
+  }
+
+  private void commitPrefixes(LineOutputStreamWriter writer, boolean header) throws Exception {
+    if (header) {
+      writer.ln("# FHIR Sub-definitions");
+      writer.write("# This is work in progress, and may change rapidly \r\n");
+      writer.ln();
+      writer.write("# A note about policy: the focus here is providing the knowledge from \r\n"); 
+      writer.write("# the FHIR specification as a set of triples for knowledge processing. \r\n");
+      writer.write("# Where appopriate, predicates defined external to FHIR are used. \"Where \r\n");
+      writer.write("# appropriate\" means that the predicates are a faithful representation \r\n");
+      writer.write("# of the FHIR semantics, and do not involve insane (or owful) syntax. \r\n");
+      writer.ln();
+      writer.write("# Where the community agrees on additional predicate statements (such \r\n");
+      writer.write("# as OWL constraints) these are added in addition to the direct FHIR \r\n");
+      writer.write("# predicates \r\n");
+      writer.ln();
+      writer.write("# This it not a formal ontology, though it is possible it may start to become one eventually\r\n");
+      writer.ln();
+      writer.write("# this file refers to concepts defined in rim.ttl and to others defined elsewhere outside HL7 \r\n");
+      writer.ln();
+    }
+    for (String p : sorted(prefixes.keySet()))
+      writer.ln("@prefix "+p+": <"+prefixes.get(p)+"> .");
+    writer.ln();
+    if (header) {
+      writer.ln("# Predicates used in this file:");
+      for (String s : sorted(predicateSet)) 
+        writer.ln(" # "+s);
+      writer.ln();
+    }
+  }
+
+  private void commitPrefixes(StringBuilder b) throws Exception {
+    for (String p : sorted(prefixes.keySet()))
+      b.append("@prefix "+p+": &lt;"+prefixes.get(p)+"&gt; .\r\n");
+    b.append("\r\n");
+  }
 
 	//  private String lastSubject = null;
 	//  private String lastComment = "";
@@ -529,10 +610,38 @@ public class RdfGenerator {
 				else
 					writer.write("."+comment+"\r\n\r\n");
 			}
-
 		}
-
 	}
+
+  private void commitSection(StringBuilder b, Section section) throws Exception {
+    b.append("# - "+section.name+" "+Utilities.padLeft("", '-', 75-section.name.length())+"\r\n");
+    b.append("\r\n");
+    for (Subject sbj : section.subjects) {
+      b.append(sbj.id);
+      b.append(" ");
+      int i = 0;
+
+      for (Predicate p : sbj.predicates) {
+        b.append(p.makelink());
+        b.append(" ");
+        if (p.getObject() instanceof StringType)
+          b.append(Utilities.escapeXml(((StringType) p.getObject()).value));
+        else {
+          b.append("[");
+          if (((Complex) p.getObject()).write(b, 4))
+            b.append("\r\n  ]");
+          else
+            b.append("]");
+        }
+        String comment = p.comment == null? "" : " # "+p.comment;
+        i++;
+        if (i < sbj.predicates.size())
+          b.append(";"+Utilities.escapeXml(comment)+"\r\n  ");
+        else
+          b.append("."+Utilities.escapeXml(comment)+"\r\n\r\n");
+      }
+    }
+  }
 
 	//  private void coomitTriple(LineOutputStreamWriter writer, Triple t) throws Exception, IOException {
 	//    boolean follow = false;

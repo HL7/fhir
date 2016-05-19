@@ -1,6 +1,8 @@
 package org.hl7.fhir.dstu3.utils;
 
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -62,6 +64,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	private Map<String, StructureDefinition> structures = new HashMap<String, StructureDefinition>();
 	private List<NamingSystem> systems = new ArrayList<NamingSystem>();
 	private Questionnaire questionnaire;
+	private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
 
 	// -- Initializations
 	/**
@@ -186,11 +189,29 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 				String name = ze.getName();
 				loadFromFile(zip, name);
 			}
+			if (ze.getName().endsWith(".css")) {
+			  loadBytes(ze.getName(), ze, zip);
+			}
 			zip.closeEntry();
 		}
 		zip.close();
 	}
 
+
+	private void loadBytes(String name, ZipEntry entry, ZipInputStream zip) throws IOException {
+    int size;
+    byte[] buffer = new byte[2048];
+
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    BufferedOutputStream bos = new BufferedOutputStream(bytes, buffer.length);
+
+    while ((size = zip.read(buffer, 0, buffer.length)) != -1) {
+      bos.write(buffer, 0, size);
+    }
+    bos.flush();
+    bos.close();
+	  binaries.put(name, bytes.toByteArray());
+  }
 
 	@Override
 	public IParser getParser(ParserType type) {
@@ -431,4 +452,9 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     
   }
 
+  public Map<String, byte[]> getBinaries() {
+    return binaries;
+  }
+
+  
 }

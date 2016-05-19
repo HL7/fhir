@@ -49,7 +49,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -218,7 +217,6 @@ import org.hl7.fhir.tools.implementations.csharp.CSharpGenerator;
 import org.hl7.fhir.tools.implementations.delphi.DelphiGenerator;
 import org.hl7.fhir.tools.implementations.java.JavaGenerator;
 import org.hl7.fhir.tools.implementations.javascript.JavaScriptGenerator;
-
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CloseProtectedZipInputStream;
@@ -4915,7 +4913,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           logError(" ...validate " + n, LogMessageType.Process);
           validateXmlFile(schema, n, validator, null);
           validateJsonFile(n, validator, null);
-//          validateTurtleFile(n, validator, null);
+          validateTurtleFile(n, validator, null);
         }
         // todo-profile: how this works has to change (to use profile tag)
         for (Profile e : r.getConformancePackages()) {
@@ -5128,6 +5126,14 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void validateJsonFile(String n, InstanceValidator validator, StructureDefinition profile) throws Exception {
+    /* todo: json schema
+     * try (InputStream inputStream = getClass().getResourceAsStream("/path/to/your/schema.json")) {
+  JSONObject rawSchema = new JSONObject(new JSONTokener(inputStream));
+  Schema schema = SchemaLoader.load(rawSchema);
+  schema.validate(new JSONObject("{\"hello\" : \"world\"}")); // throws a ValidationException if this object is invalid
+}
+     * 
+     */
     com.google.gson.JsonParser parser = new com.google.gson.JsonParser();
     JsonObject obj = parser.parse(TextFile.fileToString(Utilities.path(page.getFolders().dstDir, n + ".json"))).getAsJsonObject();
 
@@ -5151,6 +5157,11 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void validateTurtleFile(String n, InstanceValidator validator, StructureDefinition profile) throws Exception {
+    // instance validator
+    FileInputStream f = new FileInputStream(Utilities.path(page.getFolders().dstDir, n + ".json"));
+    List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
+    validator.validate(issues, f, FhirFormat.TURTLE);
+    
 //  first, ShEx validation
     if (!(new File(Utilities.path(page.getFolders().dstDir, n + ".ttl")).exists()))
       return;

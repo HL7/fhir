@@ -19,7 +19,6 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.model.W5Entry;
-import org.hl7.fhir.dstu3.formats.RdfGenerator;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
@@ -35,6 +34,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
+import org.hl7.fhir.rdf.RdfGenerator;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 
