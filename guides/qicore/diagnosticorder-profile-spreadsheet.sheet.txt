@@ -130,7 +130,7 @@
   Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation} | Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition} | Reference(DocumentReference)
 
  -- Row 15 -----------------------------------
-  Element = DiagnosticOrder.specimen
+  Element = !DiagnosticOrder.specimen
   Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/qicore-specimen}
 
  -- Row 16 -----------------------------------
@@ -160,7 +160,7 @@
   QDM Mapping = primary code
 
  -- Row 22 -----------------------------------
-  Element = DiagnosticOrder.item.specimen
+  Element = !DiagnosticOrder.item.specimen
   Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/qicore-specimen}
 
  -- Row 23 -----------------------------------

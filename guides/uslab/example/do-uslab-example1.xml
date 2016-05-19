@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><!--
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
 file: diagnosticorder-uslab-example1.xml
 id: uslab-example1
 Name: USLabOrder DiagnosticOrder Example1
@@ -8,19 +9,18 @@ Published by HL7 Orders and Observation Work Group
 Authored by: Eric M Haas  Health eData Inc.
 
   Narrative: A male child of age 3 is taken by his aunt, who is his legal guardian, to be seen by a physician. The child has his blood tested for blood lead. A blood sample is taken from his left finger, using a capillary collection method on a filter paper card. The specimen collection date is 6/15/2012; date of result is 6/17/2012. Both his medical record ID and SSN are included in the patient information along with name, DOB, race/ethnicity, current and home address, and his aunt's business, home and mobile phone number and email address. The lab result is a blood lead level by electrothermal atomic absorption spectrophotometry (AAS) of 9.2 ug/dL and the jurisdiction threshold is 5.0 (reference range of 0.0-5.0). This results in an abnormal flag of “High”. University Hospital has an on-site lab and results blood level tests under the performing lab name of “University Hospital Chem Lab”. These results are sent to the local public health agency.
---><DiagnosticOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticorder.xsd"><!-- comment out to see if causing build to hang extension for a CC to a non ordering party in this case another provider
+-->
+<DiagnosticOrder xmlns="http://hl7.org/fhir">
+	<!-- comment out to see if causing build to hang extension for a CC to a non ordering party in this case another provider
 	<extension url="http://hl7.org/fhir/StructureDefinition/uslab-cc-practitioner">
 		<valueReference>
 			<reference value="Practitioner/uslab-example2"/>
 			<display value="Dr Bill T Lookafter Jr"/>
 		</valueReference>
 	</extension>
---><!--  EH this specimen is for when lab has existing
-<specimen>
-		<reference value="Specimen/uslab-example1"/>
-		<display value="Whole blood"/>
-	</specimen>
---><!-- EH this is set to 'requested' by the Placer--><id value="do-uslab-example1"/>
+-->
+<!-- EH this is set to 'requested' by the Placer-->
+	<id value="do-uslab-example1"/>
 	<identifier>
 		<use value="official"/>
 		<!-- EH Using an OID here but could any URI  eg  http://aceclinic.com -->
@@ -65,7 +65,8 @@ Authored by: Eric M Haas  Health eData Inc.
 		<!-- EH: Showing dateTime to ss with TZO although only needed to Day -->
 		<dateTime value="2014-12-04T15:42:15-08:00"/>
 		<!-- EH:  the event is the order placer requesting a test-->
-	</event><item>
+	</event>
+	<item>
 		<!--EH :  The local and /or LOINC test codes go here -->
 		<code>
 			<!-- EH: LOINC code gos here-->
@@ -82,10 +83,6 @@ Authored by: Eric M Haas  Health eData Inc.
 			</coding>
 			<text value="Blood Lead"/>
 		</code>
-		<specimen>
-			<reference value="Specimen/spec-uslab-example1"/>
-			<display value="Whole blood"/>
-		</specimen>
 		<!-- EH this is set to 'requested' by the Placer -->
 		<status value="requested"/>
 	</item>

@@ -1000,4 +1000,46 @@
   Description = Genetics example 5
   Filename = observation-example-genetics-5.xml
 
+ -- Row 26 -----------------------------------
+  Name = 5 minute Apgar panel
+  Identity = apgar-panel
+  Description = Example of a 5 minute Apgar panel listing 5 components and the score.
+  Filename = observation-example-apgar-panel.xml
+
+ -- Row 27 -----------------------------------
+  Name = 5 minute Apgar Color
+  Identity = color
+  Description = 5 minute Apgar Color category score
+  Filename = observation-example-color.xml
+
+ -- Row 28 -----------------------------------
+  Name = 5 minute Apgar Heart rate
+  Identity = heart-rate
+  Description = 5 minute Apgar Heart rate category score
+  Filename = observation-example-heart-rate.xml
+
+ -- Row 29 -----------------------------------
+  Name = 5 minute Apgar Reflex irritability
+  Identity = reflex-irritability
+  Description = 5 minute Apgar Reflex irritability category score
+  Filename = observation-example-reflex-irritability.xml
+
+ -- Row 30 -----------------------------------
+  Name = 5 minute Apgar Muscle tone
+  Identity = muscle-tone
+  Description = 5 minute Apgar Muscle tone category score
+  Filename = observation-example-muscle-tone.xml
+
+ -- Row 31 -----------------------------------
+  Name = 5 minute Apgar Respiratory effort
+  Identity = respiratory-effort
+  Description = 5 minute Apgar Respiratory effort category score
+  Filename = observation-example-respiratory-effort.xml
+
+ -- Row 32 -----------------------------------
+  Name = 5 minute Apgar Score
+  Identity = apgar-score
+  Description = 5 minute Apgar overall score
+  Filename = observation-example-apgar-score.xml
+
 === Sheet Examples =====================================

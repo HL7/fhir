@@ -12,17 +12,17 @@ provides a clinical or workflow context for a set of observations. </p>
 <p>Uses for the Observation resource include:
 </p>
 <ul>
-  <li>Vital signs: temperature, blood pressure, respiration rate</li>
-	<li>Laboratory Data</li>
-	<li>Imaging results like bone density or fetal measurements</li>
-	<li>Devices Measurements such as EKG data or Pulse Oximetry data</li>
-  <li>Clinical assessment tools such as APGAR</li>
-  <li>Personal characteristics: height, weight, eye-color</li>
+  <li>Vital signs such as<a href="observation-example.html">body weight</a>,  <a href="observation-example-bloodpressure.html">blood pressure</a>, and <a href="observation-example-f202-temperature.html">temperature</a></li>
+	<li>Laboratory Data llike <a href="observation-example-f001-glucose.html">blood glucose</a>, or an <a href="observation-example-f205-egfr.html">estimated GFR</a></li>
+	<li>Imaging results like  <a href="observation-example-f001-glucose.html">bone densityt</a> or  <a href="observation-example-f001-glucose.html">fetal measurementst</a></li>
+	<li>Devices Measurements such as  <a href="observation-example-f001-glucose.html">EKG datat</a> or  <a href="observation-example-f001-glucose.html">Pulse Oximetry datat</a></li>
+  <li>Clinical assessment tools such as <a href="observation-apgar-panel.html">APGAR</a></li>
+  <li>Personal characteristics: such as  <a href="observation-example-f001-glucose.html">eye-colot</a>r</li>
   <!--EH 12/7/2014 
   <li>Diagnoses (Note: trackable conditions, allergies, adverse reactions and more complex structures are handled elsewhere)</li>
   -->
-  <li>Social history: tobacco use, family supports, cognitive status</li>
-  <li>Core characteristics: pregnancy status, death assertion</li>
+  <li>Social history:  <a href="observation-example-f001-glucose.html">tobacco uset</a>,  <a href="observation-example-f001-glucose.html">family supportst</a>,  <a href="observation-example-f001-glucose.html">cognitive statust</a></li>
+  <li>Core characteristics:  <a href="observation-example-f001-glucose.html">pregnancy statust</a>,  <a href="observation-example-f001-glucose.html">death assertiont</a></li>
 </ul>
 
 <p>The following core <a href="profiling.html">profiles</a> for the Observation resource have been defined as well. <strong>If implementations use the Observation Resource, they SHALL conform to these profiles when supporting these specific use cases. :</strong> 

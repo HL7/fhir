@@ -47,6 +47,9 @@
 		<display value="Peter Patient"/>
 	</subject>
 	<receivedTime value="2011-03-04T07:03:00Z"/>
+	<request>
+	<!-- this points to the order that caused the sample to be drawn -->
+	<reference value="DiagnosticOrder/example"/></request>
 	<collection>
 		<collector>
 			<!-- in practice, collecter is almost always recorded -->

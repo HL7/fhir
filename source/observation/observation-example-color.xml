@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+	<id value="color"/>
+	<status value="final"/>
+		<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="survey"/>
+			<display value="Survey"/>
+		</coding>
+		<text value="Survey"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="32411-1"/>
+			<display value="5 minute Apgar Color"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/infant"/>
+	</subject>
+	<effectiveDateTime value="2016-05-18T22:33:22Z"/>
+	<valueCodeableConcept>
+		<coding>
+			<system value="http:/acme.ped/apgarcolor"/>
+			<code value="2"/>
+			<display value="Good color all over"/>
+		</coding>
+		<text value="2. Good color all over"/>
+	</valueCodeableConcept>
+</Observation>

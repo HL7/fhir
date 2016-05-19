@@ -8,7 +8,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Microsoft Office User</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-05-18T23:48:56Z</LastSaved>
+  <LastSaved>2016-05-19T13:59:20Z</LastSaved>
   <Version>15.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>10</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -6700,13 +6700,13 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="26" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="33" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s154" ss:DefaultColumnWidth="260"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s154" ss:AutoFitWidth="0" ss:Width="143"/>
    <Column ss:StyleID="s154" ss:AutoFitWidth="0" ss:Width="112"/>
    <Column ss:StyleID="s154" ss:Width="328"/>
-   <Column ss:StyleID="s154" ss:AutoFitWidth="0" ss:Width="118"/>
+   <Column ss:StyleID="s154" ss:AutoFitWidth="0" ss:Width="156"/>
    <Column ss:StyleID="s154" ss:AutoFitWidth="0" ss:Width="240"/>
    <Column ss:StyleID="s154" ss:Width="206"/>
    <Column ss:StyleID="s154" ss:Width="40"/>
@@ -6965,6 +6965,55 @@
     <Cell><Data ss:Type="String">observation-example-genetics-5.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">5 minute Apgar panel</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of a 5 minute Apgar panel listing 5 components and the score.</Data></Cell>
+    <Cell><Data ss:Type="String">apgar-panel</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-apgar-panel.xml</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">5 minute Apgar Color</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">5 minute Apgar Color category score</Data></Cell>
+    <Cell><Data ss:Type="String">color</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-color.xml</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">5 minute Apgar Heart rate</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">5 minute Apgar Heart rate category score</Data></Cell>
+    <Cell><Data ss:Type="String">heart-rate</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-heart-rate.xml</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">5 minute Apgar Reflex irritability</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">5 minute Apgar Reflex irritability category score</Data></Cell>
+    <Cell><Data ss:Type="String">reflex-irritability</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-reflex-irritability.xml</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">5 minute Apgar Muscle tone</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">5 minute Apgar Muscle tone category score</Data></Cell>
+    <Cell><Data ss:Type="String">muscle-tone</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-muscle-tone.xml</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">5 minute Apgar Respiratory effort</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">5 minute Apgar Respiratory effort category score</Data></Cell>
+    <Cell><Data ss:Type="String">respiratory-effort</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-respiratory-effort.xml</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">5 minute Apgar Score</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">5 minute Apgar overall score</Data></Cell>
+    <Cell><Data ss:Type="String">apgar-score</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-apgar-score.xml</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -6980,12 +7029,13 @@
    </Print>
    <Zoom>125</Zoom>
    <PageLayoutZoom>0</PageLayoutZoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>9</TopRowBottomPane>
+   <TopRowBottomPane>11</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6993,7 +7043,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -7001,8 +7050,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>30</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>15</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8791,13 +8839,12 @@
    </Print>
    <Zoom>150</Zoom>
    <PageLayoutZoom>0</PageLayoutZoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -8812,8 +8859,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>9</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

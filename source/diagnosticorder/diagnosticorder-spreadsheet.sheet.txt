@@ -263,7 +263,7 @@
   Committee Notes = [#3113][#3739]
 
  -- Row 10 -----------------------------------
-  Element = DiagnosticOrder.specimen
+  Element = !DiagnosticOrder.specimen
   Card. = 0..*
   Type = Reference(Specimen)
   Short Label = If the whole order relates to specific specimens
@@ -340,7 +340,7 @@
   RIM Mapping = .code
 
  -- Row 18 -----------------------------------
-  Element = DiagnosticOrder.item.specimen
+  Element = !DiagnosticOrder.item.specimen
   Card. = 0..*
   Type = Reference(Specimen)
   Short Label = If this item relates to specific specimens
@@ -388,3 +388,143 @@
   Definition = Any other notes associated with this patient, specimen or order (e.g. \"patient hates needles\")
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
   Committee Notes = 7134,8147
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = actor
+  Type = reference
+  Path = DiagnosticOrder.event.actor | DiagnosticOrder.item.event.actor
+
+ -- Row 2 -----------------------------------
+  Name = bodysite
+  Type = token
+  Path = DiagnosticOrder.item.bodySite
+
+ -- Row 3 -----------------------------------
+  Name = code
+  Type = token
+  Path = DiagnosticOrder.item.code
+
+ -- Row 4 -----------------------------------
+  Name = event-date
+  Type = date
+  Path = DiagnosticOrder.event.dateTime
+
+ -- Row 5 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = DiagnosticOrder.encounter
+
+ -- Row 6 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = DiagnosticOrder.identifier
+
+ -- Row 7 -----------------------------------
+  Name = item-date
+  Type = date
+  Path = DiagnosticOrder.item.event.dateTime
+
+ -- Row 8 -----------------------------------
+  Name = item-past-status
+  Type = token
+  Path = DiagnosticOrder.item.event.status
+
+ -- Row 9 -----------------------------------
+  Name = item-status
+  Type = token
+  Path = DiagnosticOrder.item.status
+
+ -- Row 10 -----------------------------------
+  Name = item-status-date
+  Type = composite
+  Description = A combination of item-past-status and item-date
+  Path = item-past-status & item-date
+
+ -- Row 11 -----------------------------------
+  Name = orderer
+  Type = reference
+  Path = DiagnosticOrder.orderer
+
+ -- Row 12 -----------------------------------
+  Name = event-status
+  Type = token
+  Path = DiagnosticOrder.event.status
+
+ -- Row 13 -----------------------------------
+  Name = !specimen
+  Type = reference
+  Path = DiagnosticOrder.specimen | DiagnosticOrder.item.specimen
+
+ -- Row 14 -----------------------------------
+  Name = status
+  Type = token
+  Path = DiagnosticOrder.status
+
+ -- Row 15 -----------------------------------
+  Name = event-status-date
+  Type = composite
+  Description = A combination of past-status and date
+  Path = event-status & event-date
+
+ -- Row 16 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = DiagnosticOrder.subject
+
+ -- Row 17 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = DiagnosticOrder.subject
+  Target Types = Patient
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = diagnosticorder-extensions
+  IG Name = core
+  Filename = diagnosticorder-extensions.xml
+  Type = spreadsheet
+
+ -- Row 2 -----------------------------------
+  Name = Diagnostic Order for Genetics
+  IG Name = core
+  Filename = diagnosticorder-genetics-profile.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Lipids
+  Identity = example
+  Description = Lipid Panel Order
+  Filename = diagnosticorder-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = DI Order
+  Identity = di
+  Description = CT Scan order
+  Filename = diagnosticorder-example-di.xml
+
+ -- Row 3 -----------------------------------
+  Name = Free T4
+  Identity = ft4
+  Description = Free T4 Add on Order
+  Filename = diagnosticorder-example-ft4.xml
+
+ -- Row 4 -----------------------------------
+  Name = Order-genetics-1
+  Identity = og-example1
+  Description = Order for ABCB4 gene mutation analysis
+  Filename = diagnosticorder-genetics-example-1.xml
+  Profile = Diagnostic Order for Genetics
+
+ -- Row 5 -----------------------------------
+  Name = Order-genetics-2
+  Identity = og-example2
+  Description = Order for a specific variant
+  Filename = diagnosticorder-genetics-example-2.xml
+  Profile = Diagnostic Order for Genetics
+
+=== Sheet Examples =====================================

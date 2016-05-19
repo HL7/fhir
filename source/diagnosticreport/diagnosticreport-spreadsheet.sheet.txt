@@ -540,4 +540,10 @@
   Filename = diagnosticreport-genetics-comprehensive-bone-marrow-report.xml
   Profile = Diagnostic Report for Genetics
 
+ -- Row 15 -----------------------------------
+  Name = Pap smear
+  Identity = pap
+  Description = An example of a  principally narrative anatomic pathology report
+  Filename = diagnosticreport-example-papsmear.xml
+
 === Sheet Examples =====================================

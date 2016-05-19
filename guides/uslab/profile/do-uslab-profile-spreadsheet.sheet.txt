@@ -212,7 +212,7 @@
   Committee Notes = 2015EH: DAF196
 
  -- Row 22 -----------------------------------
-  Element = DiagnosticOrder.specimen
+  Element = !DiagnosticOrder.specimen
   Card. = 0..*
   Must Support = Y
   Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
@@ -356,7 +356,7 @@
   Committee Notes = original or display text OBR-4.9 RE 1..1
 
  -- Row 42 -----------------------------------
-  Element = DiagnosticOrder.item.specimen
+  Element = !DiagnosticOrder.item.specimen
   Card. = 0..*
   Must Support = Y
   Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}

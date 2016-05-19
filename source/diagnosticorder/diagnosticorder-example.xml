@@ -2,91 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="file://Mac/Home/Documents/FHIRBuild/reorder-nodes-template.xslt"?>
 <DiagnosticOrder xmlns="http://hl7.org/fhir">
 	<id value="example"/>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<p>
-				<b>Generated Narrative with Details</b>
-			</p>
-			<p>
-				<b>id</b>: example</p>
-			<p>
-				<b>contained</b>: </p>
-			<p>
-				<b>subject</b>: <a>Patient/example</a>
-			</p>
-			<p>
-				<b>orderer</b>: <a>Practitioner/example</a>
-			</p>
-			<p>
-				<b>identifier</b>: Placer = 2345234234234</p>
-			<p>
-				<b>encounter</b>: <a>Encounter/example</a>
-			</p>
-			<p>
-				<b>reason</b>: Fam hx-ischem heart dis <span>(Details : {ICD-9 code 'V173' = '??', given as 'Fam hx-ischem heart dis'})</span>
-			</p>
-			<p>
-				<b>supportingInformation</b>: id: fasting; status: final; Fasting status - Reported <span>(Details : {LOINC code '49541-6' = 'Fasting status - Reported', given as 'Fasting status - Reported'})</span>; Patient/example; Yes <span>(Details : {http://hl7.org/fhir/v2/0136 code 'Y' = 'Yes', given as 'Yes'})</span>
-			</p>
-			<p>
-				<b>status</b>: received</p>
-			<h3>Events</h3>
-			<table>
-				<tr>
-					<td>-</td>
-					<td>
-						<b>Status</b>
-					</td>
-					<td>
-						<b>DateTime</b>
-					</td>
-					<td>
-						<b>Actor</b>
-					</td>
-				</tr>
-				<tr>
-					<td>*</td>
-					<td>requested</td>
-					<td>May 2, 2013 4:16:00 PM</td>
-					<td>
-						<a>Practitioner/example</a>
-					</td>
-				</tr>
-			</table>
-			<h3>Items</h3>
-			<table>
-				<tr>
-					<td>-</td>
-					<td>
-						<b>Code</b>
-					</td>
-					<td>
-						<b>Specimen</b>
-					</td>
-				</tr>
-				<tr>
-					<td>*</td>
-					<td>Lipid Panel <span>(Details : {http://acme.org/tests code 'LIPID' = '??)</span>
-					</td>
-					<td>
-						<a>Specimen/101</a>
-					</td>
-				</tr>
-			</table>
-			<p>
-				<b>note</b>: patient is afraid of needles</p>
-		</div>
-	</text>
 	<contained>
-		<!--    remove text element and let build render it..
-		<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml"> 
-        Example Diagnostic Order
-        </div>
-	</text>
-	   -->
 		<Observation>
 			<id value="fasting"/>
 			<!--    the mandatory quality flag:    -->
@@ -156,9 +72,6 @@
 			</coding>
 			<text value="Lipid Panel"/>
 		</code>
-		<specimen>
-			<reference value="Specimen/101"/>
-		</specimen>
 	</item>
 	<note>
 		<text value="patient is afraid of needles"/>

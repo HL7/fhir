@@ -72,7 +72,7 @@
   Binding = LOINCOrderables
 
  -- Row 14 -----------------------------------
-  Element = DiagnosticOrder.item.specimen
+  Element = !DiagnosticOrder.item.specimen
   Card. = 0..1
 
  -- Row 15 -----------------------------------

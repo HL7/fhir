@@ -193,6 +193,18 @@
   RIM Mapping = [self]
 
  -- Row 11 -----------------------------------
+  Element = Specimen.request
+  Card. = 0..*
+  Type = Reference(DiagnosticOrder|ProcedureRequest)
+  Short Label = Why the specimen was collected
+  Definition = Details concerning a test or procedure request that required a specimen to be collected.
+  Comments = The request may be explicit or implied such with a DiagnosticOrder that requires a blood draw.
+  v2 Mapping = ORC? OBR-2/3?
+  RIM Mapping = outboundRelationship[typeCode=FLFS].target
+  Committee Notes = [#9663]
+  w5 = why
+
+ -- Row 12 -----------------------------------
   Element = Specimen.collection
   Card. = 0..1
   UML = up
@@ -201,7 +213,7 @@
   v2 Mapping = SPM-14
   RIM Mapping = .participation[typeCode=SBJ].act[classCode=SPECCOLLECT, moodCode=EVN]
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Specimen.collection.collector
   Card. = 0..1
   Summary = Y
@@ -212,7 +224,7 @@
   RIM Mapping = .participation[typeCode=PFM].role
   w5 = who.actor
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Specimen.collection.comment
   Card. = 0..1
   Type = string
@@ -221,7 +233,7 @@
   v2 Mapping = OBX
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Specimen.collection.collected[x]
   Card. = 0..1
   Summary = Y
@@ -232,7 +244,7 @@
   RIM Mapping = .effectiveTime
   w5 = when.init
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Specimen.collection.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -241,7 +253,7 @@
   v2 Mapping = SPM-12
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=SPEC].player.quantity
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Specimen.collection.method
   Card. = 0..1
   Type = CodeableConcept
@@ -251,7 +263,7 @@
   v2 Mapping = SPM-7
   RIM Mapping = .methodCode
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Specimen.collection.bodySite
   Card. = 0..1
   Type = CodeableConcept
@@ -263,7 +275,7 @@
   RIM Mapping = .targetSiteCode
   Committee Notes = #6253
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Specimen.treatment
   Card. = 0..*
   UML = down
@@ -271,14 +283,14 @@
   Definition = Details concerning treatment and processing steps for the specimen
   RIM Mapping = .participation[typeCode=SBJ].act[code=SPCTRT, moodCode=EVN]
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Specimen.treatment.description
   Card. = 0..1
   Type = string
   Short Label = Textual description of procedure
   RIM Mapping = .text
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Specimen.treatment.procedure
   Card. = 0..1
   Type = CodeableConcept
@@ -287,7 +299,7 @@
   Definition = A coded value specifying the procedure used to process the specimen
   RIM Mapping = .code
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Specimen.treatment.additive
   Card. = 0..*
   Type = Reference(Substance)
@@ -295,7 +307,7 @@
   v2 Mapping = SPM-6
   RIM Mapping = .participation[typeCode=CSM].role[classCode=ADTV].code
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Specimen.container
   Card. = 0..*
   UML = right
@@ -303,7 +315,7 @@
   Definition = The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.
   RIM Mapping = .player.scopingRole[classCode=CONT].scoper
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Specimen.container.identifier
   Card. = 0..*
   Summary = Y
@@ -313,14 +325,14 @@
   v2 Mapping = SAC-3
   RIM Mapping = .id
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Specimen.container.description
   Card. = 0..1
   Type = string
   Short Label = Textual description of the container
   RIM Mapping = .desc
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Specimen.container.type
   Card. = 0..1
   Type = CodeableConcept
@@ -330,7 +342,7 @@
   v2 Mapping = SPM-27
   RIM Mapping = .code
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Specimen.container.capacity
   Card. = 0..1
   Type = SimpleQuantity
@@ -339,7 +351,7 @@
   v2 Mapping = one of: SAC 16, SAC17 and SAC 20, or SAC 21 and SAC 20
   RIM Mapping = .quantity
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Specimen.container.specimenQuantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -348,7 +360,7 @@
   v2 Mapping = SAC-23 (value) SAC-24 (units
   RIM Mapping = .playedRole[classCode=CONT].quantity
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Specimen.container.additive[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Substance)
@@ -358,102 +370,3 @@
   v2 Mapping = SAC-27
   RIM Mapping = .scopesRole[classCode=ADTV].player
   Committee Notes = #3634
-
-=== Sheet Search =====================================
-
- -- Row 1 -----------------------------------
-  Name = subject
-  Type = reference
-  Description = The subject of the specimen
-  Path = Specimen.subject
-
- -- Row 2 -----------------------------------
-  Name = patient
-  Type = reference
-  Description = The patient the specimen comes from
-  Path = Specimen.subject
-  Target Types = Patient
-
- -- Row 3 -----------------------------------
-  Name = identifier
-  Type = token
-  Description = The unique identifier associated with the specimen
-  Path = Specimen.identifier
-
- -- Row 4 -----------------------------------
-  Name = type
-  Type = token
-  Description = The specimen type
-  Path = Specimen.type
-
- -- Row 5 -----------------------------------
-  Name = parent
-  Type = reference
-  Description = The parent of the specimen
-  Path = Specimen.parent
-
- -- Row 6 -----------------------------------
-  Name = accession
-  Type = token
-  Description = The accession number associated with the specimen
-  Path = Specimen.accessionIdentifier
-
- -- Row 7 -----------------------------------
-  Name = collected
-  Type = date
-  Description = The date the specimen was collected
-  Path = Specimen.collection.collected[x]
-
- -- Row 8 -----------------------------------
-  Name = collector
-  Type = reference
-  Description = Who collected the specimen
-  Path = Specimen.collection.collector
-
- -- Row 9 -----------------------------------
-  Name = bodysite
-  Type = token
-  Description = The code for the body site from where the specimen originated
-  Path = Specimen.collection.bodySite
-
- -- Row 10 -----------------------------------
-  Name = container-id
-  Type = token
-  Description = The unique identifier associated with the specimen container
-  Path = Specimen.container.identifier
-
- -- Row 11 -----------------------------------
-  Name = container
-  Type = token
-  Description = The kind of specimen container
-  Path = Specimen.container.type
-
-=== Sheet Profiles =====================================
-
- -- Row 1 -----------------------------------
-  Name = specimen-extensions
-  IG Name = core
-  Filename = specimen-extensions.xml
-  Type = spreadsheet
-
-=== Sheet Examples =====================================
-
- -- Row 1 -----------------------------------
-  Name = General
-  Identity = 101
-  Description = General Specimen Example
-  Filename = specimen-example.xml
-
- -- Row 2 -----------------------------------
-  Name = Isolate
-  Identity = isolate
-  Description = Bacterial Isolate from Stool sample
-  Filename = specimen-example-isolate.xml
-
- -- Row 3 -----------------------------------
-  Name = urine
-  Identity = vma-urine
-  Description = VMA, Random Urine Sample
-  Filename = specimen-example-urine.xml
-
-=== Sheet Examples =====================================
