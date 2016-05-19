@@ -58,18 +58,20 @@ public class ShExGenerator {
   private static String XHTML_TEMPLATE = "xsd:string";
 
   // Additional type for Coding
-  private static String CODING_TEMPLATE = "fhir:uri IRI?";
+  private static String CODING_TEMPLATE = "fhir:concept IRI?";
 
   // A typed reference -- a fhir:uri with an optional type and the possibility of a resolvable shape
 //  fhir:Element.id @<id>?,
 //  fhir:Element.extension @<Extension>*,
 //  fhir:Reference.reference @<string>?,
 //  fhir:Reference.display @<string>?
+  // Note: link was originally "fhir:link (@<$refType$> OR IRI)?", but we pulled the refType until we can figure
+  //       out how best to address it
   private static String TYPED_REFERENCE_TEMPLATE = "\n<$refType$Reference> {\n" +
                                                    "\ta [fhir:$refType$Reference]?,\n" +
                                                    "\tfhir:Element.id @<id>?,\n" +
                                                    "\tfhir:Element.extension @<Extension>*,\n" +
-                                                   "\tfhir:link (@<$refType$> OR IRI)?,\n" +
+                                                   "\tfhir:link IRI?,\n" +
                                                    "\tfhir:Reference.reference @<string>?,\n" +
                                                    "\tfhir:Reference.display @<string>?,\n" +
                                                    "\tfhir:index xsd:integer?\n" +
@@ -284,6 +286,11 @@ public class ShExGenerator {
     } else if (ed.getType().size() == 1) {
       // Single entry
       defn = genTypeRef(ed.getType().get(0));
+    } else if (ed.getContentReference() != null) {
+      String typ = id.substring(0, id.indexOf(".") + 1) + ed.getContentReference().substring(1);
+      ST defn_ref = tmplt(SIMPLE_ELEMENT_TEMPLATE);
+      defn_ref.add("typ", typ);
+      defn = defn_ref.render();
     } else { 
       // multiple types
       // todo: figure out how to do this with the API
@@ -318,7 +325,7 @@ public class ShExGenerator {
       if(!xt.contains("xs:"))
         xt = "xs:" + xt;
       return tmplt(PRIMITIVE_ELEMENT_TEMPLATE).add("typ",
-              xt.replaceAll(",\\s*", " OR ").replaceAll("xs:", "xsd:").replaceAll("xsd:anyURI", "IRI")).render();
+              xt.replaceAll(",\\s*", " OR ").replaceAll("xs:", "xsd:").replaceAll("xsd:anyURI", "IRI").replace("xsd:token", "xsd:string")).render();
 
     } else if (typ.getCode() == null) {
       ST primitive_entry = tmplt(PRIMITIVE_ELEMENT_TEMPLATE);
