@@ -84,13 +84,13 @@
   Id = 3
   Code = final
   Display = Final
-  Definition = The observation is complete and verified by an authorized person  (who may be the same person who entered the observation based on policy).
+  Definition = The observation is complete.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = amended
   Display = Amended
-  Definition = The observation has been modified subsequent to being Final, and is complete and verified by an authorized person.
+  Definition = The observation has been modified subsequent to being Final.
 
  -- Row 5 -----------------------------------
   Id = 5
@@ -504,7 +504,7 @@
   Element = Observation.related
   Card. = 0..*
   Summary = Y
-  UML = 400;300
+  UML = 400;310
   Short Label = Resource related to this observation
   Definition = A  reference to another resource (usually another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.
   Requirements = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and a set of related observations or sometimes QuestionnaireResponse  from which the measure is derived.
@@ -600,6 +600,7 @@
   Comments = The component interpretation is applies only to the indivual component value.  For an overall interpretation all components together use Observation.interpretation element.
   v2 Mapping = OBX-8
   RIM Mapping = interpretationCode
+  Committee Notes = #9676
 
  -- Row 36 -----------------------------------
   Element = Observation.component.referenceRange

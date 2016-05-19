@@ -6,21 +6,21 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Eric Haas</LastAuthor>
+  <LastAuthor>Microsoft Office User</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-05-18T22:15:25Z</LastSaved>
+  <LastSaved>2016-05-18T23:48:56Z</LastSaved>
   <Version>15.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>15860</WindowHeight>
+  <WindowHeight>18000</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
-  <WindowTopY>460</WindowTopY>
+  <WindowTopY>0</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>10</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -951,6 +951,8 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+   </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Panes>
     <Pane>
@@ -2611,8 +2613,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="26" ss:StyleID="s90"><Data ss:Type="String">#9676</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="28"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="32"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="36"><Data ss:Type="String">y</Data></Cell>
@@ -4657,14 +4659,14 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <PageLayoutZoom>0</PageLayoutZoom>
-   <Selected/>
+   <Zoom>120</Zoom>
+   <PageLayoutZoom>120</PageLayoutZoom>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>24</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>16</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4672,16 +4674,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>37</ActiveRow>
-     <ActiveCol>18</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7530,8 +7530,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8267,10 +8267,10 @@
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"><Data ss:Type="String">Final</Data></Cell>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">The observation is complete and verified by an authorized person  (who may be the same person who entered the observation based on policy).</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">The observation is complete.</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">[#9675]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s158"><Data ss:Type="String">amended</Data></Cell>
@@ -8278,10 +8278,10 @@
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"><Data ss:Type="String">Amended</Data></Cell>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">The observation has been modified subsequent to being Final, and is complete and verified by an authorized person.</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">The observation has been modified subsequent to being Final.</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">[#9675]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s158"><Data ss:Type="String">cancelled</Data></Cell>
@@ -8791,12 +8791,13 @@
    </Print>
    <Zoom>150</Zoom>
    <PageLayoutZoom>0</PageLayoutZoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -8804,14 +8805,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
