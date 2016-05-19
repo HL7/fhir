@@ -55,7 +55,7 @@
 			<!-- in practice, collecter is almost always recorded -->
 			<reference value="Practitioner/example"/>
 		</collector>
-		<comment value="Specimen is grossly lipemic"/>
+
 		<!-- the time of collection is usually required. Usually a point in time, but can be a period 
       (collectedPeriod) if it's a timed collection (e.g. a 24 hour urine) -->
 		<collectedDateTime value="2011-05-30T06:15:00Z"/>		
@@ -104,4 +104,6 @@
 			<reference value="#hep"/>
 		</additiveReference>
 	</container>
+<note>
+<text value="Specimen is grossly lipemic"/></note>
 </Specimen>

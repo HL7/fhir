@@ -1,56 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Specimen xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="isolate"/>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<p>
-				<b>Generated Narrative with Details</b>
-			</p>
-			<p>
-				<b>id</b>: isolate</p>
-			<p>
-				<b>contained</b>: </p>
-			<p>
-				<b>status</b>: available</p>
-			<p>
-				<b>type</b>: Bacterial isolate specimen <span>(Details : {SNOMED CT code '429951000124103' = '429951000124103', given as 'Bacterial isolate specimen'})</span>
-			</p>
-			<p>
-				<b>parent</b>: id: stool; status: unavailable; Stool specimen <span>(Details : {SNOMED CT code '119339001' = '119339001', given as 'Stool specimen'})</span>; Patient/example; X352356; receivedTime: Aug 16, 2015 7:03:00 AM</p>
-			<p>
-				<b>subject</b>: <a>Patient/example</a>
-			</p>
-			<p>
-				<b>accessionIdentifier</b>: X352356-ISO1</p>
-			<p>
-				<b>receivedTime</b>: Aug 18, 2015 7:03:00 AM</p>
-			<h3>Collections</h3>
-			<table>
-				<tr>
-					<td>-</td>
-					<td>
-						<b>Collector</b>
-					</td>
-					<td>
-						<b>Collected[x]</b>
-					</td>
-					<td>
-						<b>Method</b>
-					</td>
-				</tr>
-				<tr>
-					<td>*</td>
-					<td>
-						<a>Practitioner/f202</a>
-					</td>
-					<td>Aug 16, 2015 7:03:00 AM</td>
-					<td>Plates, Blood Agar <span>(Details : {http://hl7.org/fhir/v2/0488 code 'BAP' = 'Plates, Blood Agar)</span>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</text>
+		<!--text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+  </text>-->
+
 	<contained>
 		<Specimen>
 			<id value="stool"/>
@@ -88,7 +43,6 @@
 					<!--   in practice, collecter is almost always recorded   -->
 					<display value="Patient"/>
 				</collector>
-				<comment value="Patient dropped off specimen"/>
 				<!--   the time of collection is usually required. Usually a point in time, but can be a period 
       (collectedPeriod) if it's a timed collection (e.g. a 24 hour urine)   -->
 				<collectedDateTime value="2011-08-16T06:15:00Z"/>
@@ -137,4 +91,7 @@
 			</coding>
 		</method>
 	</collection>
+	<note>
+		<text value="Patient dropped off specimen"/>
+	</note>
 </Specimen>

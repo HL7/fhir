@@ -225,7 +225,7 @@
   w5 = who.actor
 
  -- Row 14 -----------------------------------
-  Element = Specimen.collection.comment
+  Element = !Specimen.collection.comment
   Card. = 0..1
   Type = string
   Short Label = Collector comments
@@ -370,3 +370,117 @@
   v2 Mapping = SAC-27
   RIM Mapping = .scopesRole[classCode=ADTV].player
   Committee Notes = #3634
+
+ -- Row 30 -----------------------------------
+  Element = Specimen.note
+  Card. = 0..*
+  Type = Annotation
+  Short Label = Comments
+  Definition = To communicate any details or issues about the specimen or during the specimen collection. (for example: broken vial, sent with patient, frozen)
+  v2 Mapping = OBX
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = The subject of the specimen
+  Path = Specimen.subject
+
+ -- Row 2 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The patient the specimen comes from
+  Path = Specimen.subject
+  Target Types = Patient
+
+ -- Row 3 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = The unique identifier associated with the specimen
+  Path = Specimen.identifier
+
+ -- Row 4 -----------------------------------
+  Name = type
+  Type = token
+  Description = The specimen type
+  Path = Specimen.type
+
+ -- Row 5 -----------------------------------
+  Name = parent
+  Type = reference
+  Description = The parent of the specimen
+  Path = Specimen.parent
+
+ -- Row 6 -----------------------------------
+  Name = accession
+  Type = token
+  Description = The accession number associated with the specimen
+  Path = Specimen.accessionIdentifier
+
+ -- Row 7 -----------------------------------
+  Name = collected
+  Type = date
+  Description = The date the specimen was collected
+  Path = Specimen.collection.collected[x]
+
+ -- Row 8 -----------------------------------
+  Name = collector
+  Type = reference
+  Description = Who collected the specimen
+  Path = Specimen.collection.collector
+
+ -- Row 9 -----------------------------------
+  Name = bodysite
+  Type = token
+  Description = The code for the body site from where the specimen originated
+  Path = Specimen.collection.bodySite
+
+ -- Row 10 -----------------------------------
+  Name = container-id
+  Type = token
+  Description = The unique identifier associated with the specimen container
+  Path = Specimen.container.identifier
+
+ -- Row 11 -----------------------------------
+  Name = container
+  Type = token
+  Description = The kind of specimen container
+  Path = Specimen.container.type
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = specimen-extensions
+  IG Name = core
+  Filename = specimen-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = 101
+  Description = General Specimen Example
+  Filename = specimen-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Isolate
+  Identity = isolate
+  Description = Bacterial Isolate from Stool sample
+  Filename = specimen-example-isolate.xml
+
+ -- Row 3 -----------------------------------
+  Name = urine
+  Identity = vma-urine
+  Description = VMA, Random Urine Sample
+  Filename = specimen-example-urine.xml
+
+ -- Row 4 -----------------------------------
+  Name = serum
+  Identity = sst
+  Description = Serum Sample
+  Filename = specimen-example-serum.xml
+
+=== Sheet Examples =====================================
