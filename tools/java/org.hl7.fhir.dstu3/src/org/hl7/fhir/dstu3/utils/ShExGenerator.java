@@ -400,7 +400,7 @@ public class ShExGenerator {
   private String genChoiceTypes(ElementDefinition ed, String id, String shortId, String card) {
     ST shex_choice = tmplt(CHOICE_TEMPLATE);
     List<String> choiceEntries = new ArrayList<String>();
-    String base = shortId.replace("[x]", "");
+    String base = id.replace("[x]", "");
 
     for(ElementDefinition.TypeRefComponent typ : ed.getType())  {
       if(typ.getCode().equals("Reference")) {
@@ -429,7 +429,7 @@ public class ShExGenerator {
     ST shex_choice_entry = tmplt(ELEMENT_TEMPLATE);
 
     String ext = typ.getCode();
-    shex_choice_entry.add("id", base+ext);
+    shex_choice_entry.add("id", base+Character.toUpperCase(ext.charAt(0)) + ext.substring(1));
     shex_choice_entry.add("card", "");
     shex_choice_entry.add("defn", genTypeRef(typ));
     return shex_choice_entry.render();
