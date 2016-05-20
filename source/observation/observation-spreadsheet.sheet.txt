@@ -173,7 +173,7 @@
  -- Row 3 -----------------------------------
   Id = 7
   Context = Observation
-  English = Component code SHALL not be same as observation code
+  English = If code is the same as a component code then the value SHALL NOT be present
   XPath = not(exists(f:component/f:code)) or count(for $coding in f:code/f:coding return parent::*/f:component/f:code/f:coding[f:code/@value=$coding/f:code/@value and f:system/@value=$coding/f:system/@value])=0
   Expression = component.where(code = %resource.code).empty()
 
@@ -220,12 +220,13 @@
 
  -- Row 4 -----------------------------------
   Element = Observation.category
-  Card. = 0..1
+  Card. = 0..*
   Type = CodeableConcept
   Binding = ObservationCategory
   Short Label = Classification of  type of observation
-  Definition = A code that classifies the general type of observation being made.  This is used  for searching, sorting and display purposes.
-  Comments = The level of granularity is defined by the category concepts in the value set.   More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in Observation.code.
+  Definition = A code that classifies the general type of observation being made.
+  Requirements = Used for filtering what observations are retreived and displayed.
+  Comments = There may be multiple axis of categoriization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set.   More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in Observation.code.
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
   Committee Notes = #7879
   w5 = class
@@ -542,7 +543,7 @@
   Short Label = Component results
   Definition = Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
   Requirements = Component observations share the same attributes in the Observation resource as the primary observation and are always treated a part of a single observation (they are not separable).   However, the reference range for the primary observation value is not inherited by the component values and is required when appropriate for each component observation.
-  Comments = For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4).
+  Comments = For a discussion on the ways Observations can assembled in groups together see [Notes](observation.html#notes) below.
   v2 Mapping = containment by OBX-4?
   RIM Mapping = outBoundRelationship[typeCode=COMP]
   Committee Notes = 5/15/2015:#7517
