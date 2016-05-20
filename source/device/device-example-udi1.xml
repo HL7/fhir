@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/fhir-all-xsd/device.xsd">
+<!--The use case illustrates the use of an  UDI for an implant  is built with GS-1 format UDI data-->
+<Device xmlns="http://hl7.org/fhir">
 	<id value="example-udi1"/>
 
 	<identifier>
@@ -36,6 +37,7 @@
 			<code value="468063009"/>
 			<display value="Coated femoral stem prosthesis, modular"/>
 		</coding>
+		<text value="Coated femoral stem prosthesis, modular"/><!-- note: optional text value added here for a prettier generated narrative -->
 	</type>
 	<lotNumber value="7654321D"/>
 	<manufacturer value="Acme Devices, Inc"/>

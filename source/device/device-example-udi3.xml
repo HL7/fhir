@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--The use case illustrates the use of an HIBBC UDI -->
+<Device xmlns="http://hl7.org/fhir">
+	<id value="example-udi3"/>
+	<identifier>
+		<!--The serial number which is a component of the the production identifier (PI), a conditional, variable portion of a UDI. The identifier.type code should be set to “SNO”(Serial Number) and the system left empty. -->
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/identifier-type"/>
+				<code value="SNO"/>
+			</coding>
+		</type>
+		<value value="XYZ4567890123 45678"/>
+		<!--  this is the serial number -->
+	</identifier>
+	<udiCarrier>
+		<!--The 'type' component should be set to “UDI” and the 'system' component to the the appropriate repository url. -->
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/identifier-type"/>
+				<code value="UDI"/>
+			</coding>
+		</type>
+		<system value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
+		<!--UDIs of devices managed in the U.S. by the FDA,-->
+		<value value="+H123PARTNO1234567890120/$$420020216LOT123456789012345/SXYZ4567890123 45678/16D20130202C"/>
+		<!--With appropriate settings, the scanning device provides this data string:-->
+	</udiCarrier>
+	<status value="not-available"/>
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/NamingSystem/hibcc-di"/>
+			<code value="H123PARTNO1234567890120"/>
+			<!--this is the Device Identifier or DI-->
+		</coding>
+		<text value="DI =H123PARTNO1234567890120"/><!-- note: optional text value added here for a prettier generated narrative -->
+	</type>
+	<lotNumber value="LOT123456789012345"/>
+	<manufacturer value="GlobalMed, Inc"/>
+	<manufactureDate value="2013-02-02"/>
+	<!--20130202= this is the manufacturing date expressed in  [YYYYMMDD]-->
+	<expirationDate value="2020-02-02"/>
+	<!--20020216 = this is the expiration date expressed in YYMMDDHH-->
+	<model value="Ultra Implantable"/>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+</Device>

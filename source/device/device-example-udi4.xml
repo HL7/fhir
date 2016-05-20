@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--The use case illustrates the use of Example of ICCBBA UDI for blood bags -->
+<Device xmlns="http://hl7.org/fhir">
+	<id value="example-udi4"/>
+	<udiCarrier>
+		<!--The 'type' component should be set to “UDI” and the 'system' component to the the appropriate repository url. -->
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/identifier-type"/>
+				<code value="UDI"/>
+			</coding>
+		</type>
+		<system value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
+		<!--UDIs of devices managed in the U.S. by the FDA,-->
+		<value value="=)1TE123456A&amp;)RZ12345678"/>
+		<!--With appropriate settings, the scanning device provides this data string which includes an "&"-->
+	</udiCarrier>
+	<status value="not-available"/>
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/NamingSystem/iccbba-blood-di"/>
+			<code value="1TE123456A"/>
+			<!--this is the Device Identifier or DI-->
+		</coding>
+		<text value="DI = 1TE123456A"/><!-- note: optional text value added here for a prettier generated narrative -->
+	</type>
+	<lotNumber value="RZ12345678"/>
+	<manufacturer value="GlobalMed, Inc"/>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+</Device>

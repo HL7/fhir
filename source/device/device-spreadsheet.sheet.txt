@@ -360,9 +360,27 @@
   Filename = device-example-software.xml
 
  -- Row 6 -----------------------------------
-  Name = UDI Implant 1
+  Name = UDI Implantable 1
   Identity = example-udi1
-  Description = Implantable device/UDI example
+  Description = Implantable device/UDI example GS-1 Format
   Filename = device-example-udi1.xml
+
+ -- Row 7 -----------------------------------
+  Name = UDI Implantable 2
+  Identity = example-udi2
+  Description = Implantable device/UDI example ICCBBA Format
+  Filename = device-example-udi2.xml
+
+ -- Row 8 -----------------------------------
+  Name = UDI Implantable 3
+  Identity = example-udi3
+  Description = Implantable device/UDI example HIBBC Format
+  Filename = device-example-udi3.xml
+
+ -- Row 9 -----------------------------------
+  Name = UDI Blood Bag
+  Identity = example-udi4
+  Description = Blood Bag UDI example ICCBBA Format
+  Filename = device-example-udi4.xml
 
 === Sheet Examples =====================================

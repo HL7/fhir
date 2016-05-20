@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--The use case illustrates the use of an HCT/P (Human Cells and Tissues Product), which UDI is built with ISBT 128 (ICCBBA) and includes traceability to the donor.-->
+<Device xmlns="http://hl7.org/fhir">
+	<id value="example-udi2"/>
+	<extension url="http://hl7.org/fhir/StructureDefinition/device-din">
+		<!-- from Element: extension -->
+		<valueIdentifier>
+			<system value="http://hl7.org/fhir/NamingSystem/iccbba-din"/>
+			<!--  If the content is from an ICCBBA-encoded UDI, this is the URI to use for the system -->
+			<value value="A99971312345600"/>
+			<!--  this is the donation identification number -->
+		</valueIdentifier>
+	</extension>
+	<udiCarrier>
+		<!--The 'type' component should be set to “UDI” and the 'system' component to the the appropriate repository url. -->
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/identifier-type"/>
+				<code value="UDI"/>
+			</coding>
+		</type>
+		<system value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
+		<!--UDIs of devices managed in the U.S. by the FDA,-->
+		<value value="=+05037=/A9999XYZ100T0474=,000025=A99971312345600=>014032=}013032"/>
+		<!--With appropriate settings, the scanning device provides this data string:-->
+	</udiCarrier>
+	<status value="not-available"/>
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/NamingSystem/iccbba-other-di"/>
+			<code value="A9999XYZ100T0474"/>
+			<!--this is the PPIC, or DI-->
+		</coding>
+		<text value="DI = A9999XYZ100T0474"></text><!-- note: optional text value added here for a prettier generated narrative -->
+	</type>
+	<manufacturer value="Acme Devices, Inc"/>
+	<manufactureDate value="2013-02-01"/>
+	<!--	013032 = this is the manufacturing date expressed in YYYDDD (three digit year, three digit day number)-->
+	<expirationDate value="2014-02-01"/>
+	<!--014032 = this is the expiration date expressed in YYYDDD (three digit year, three digit day number)-->
+	<model value="Bone,Putty Demineralized"/>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+</Device>
