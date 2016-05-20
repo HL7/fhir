@@ -276,7 +276,7 @@ public class ShExGenerator {
 
     String id = ed.hasBase() ? ed.getBase().getPath() : ed.getPath();
     String shortId = id.substring(id.lastIndexOf(".") + 1);
-    String card = "*".equals(ed.getMax()) ? (ed.getMin() == 0 ? "*" : "+") : "?";
+    String card = "*".equals(ed.getMax()) ? (ed.getMin() == 0 ? "*" : "+") : (ed.getMin() == 0 ? "?" : "");
     String defn;
     element_def.add("id", id.charAt(0) == id.toLowerCase().charAt(0)? shortId : id);
     element_def.add("card", card);
