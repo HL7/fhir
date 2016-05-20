@@ -22,6 +22,13 @@
   Definition = Category or classification of substance
   Conformance = extensible
 
+ -- Row 4 -----------------------------------
+  Binding Name = SubstanceIngredient
+  Binding = value set
+  Reference = valueset-substance-code
+  Definition = Substance Ingredient codes
+  Conformance = example
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -141,13 +148,15 @@
   RIM Mapping = .quantity
 
  -- Row 12 -----------------------------------
-  Element = Substance.ingredient.substance
+  Element = Substance.ingredient.substance[x]
   Card. = 1..1
   Summary = Y
-  Type = Reference(Substance)
+  Type = CodeableConcept|Reference(Substance)
+  Binding = SubstanceIngredient
   Short Label = A component of the substance
   Definition = Another substance that is a component of this substance
   RIM Mapping = .player
+  Committee Notes = [#9233]
 
  -- Row 13 -----------------------------------
   Element = !Substance.quantityMode
@@ -163,8 +172,8 @@
  -- Row 1 -----------------------------------
   Name = code
   Type = token
-  Description = The code of the substance
-  Path = Substance.code
+  Description = The code of the substance or ingredient
+  Path = Substance.code|Substance.ingredient.substanceCodeableConcept
 
  -- Row 2 -----------------------------------
   Name = category
@@ -191,10 +200,10 @@
   Path = Substance.instance.quantity
 
  -- Row 6 -----------------------------------
-  Name = substance
+  Name = substance-reference
   Type = reference
   Description = A component of the substance
-  Path = Substance.ingredient.substance
+  Path = Substance.ingredient.substanceReference
 
  -- Row 7 -----------------------------------
   Name = identifier

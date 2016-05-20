@@ -55,9 +55,9 @@
 				<code value="mg"/>
 			</denominator>
 		</quantity>
-		<substance>
+		<substanceReference>
 			<reference value="#ingr1"/>
-		</substance>
+		</substanceReference>
 	</ingredient>
 	<ingredient>
 		<quantity>
@@ -74,8 +74,8 @@
 				<code value="mg"/>
 			</denominator>
 		</quantity>
-		<substance>
+		<substanceReference>
 			<reference value="#ingr2"/>
-		</substance>
+		</substanceReference>
 	</ingredient>
 </Substance>
