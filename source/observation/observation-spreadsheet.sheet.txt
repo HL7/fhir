@@ -173,9 +173,9 @@
  -- Row 3 -----------------------------------
   Id = 7
   Context = Observation
-  English = If code is the same as a component code then the value SHALL NOT be present
-  XPath = not(exists(f:component/f:code)) or count(for $coding in f:code/f:coding return parent::*/f:component/f:code/f:coding[f:code/@value=$coding/f:code/@value and f:system/@value=$coding/f:system/@value])=0
-  Expression = component.where(code = %resource.code).empty()
+  English = If code is the same as a component code then the value element associated with the code SHALL NOT be present
+  XPath = not(exists(f:value)) or not(count(for $coding in f:code/f:coding return parent::*/f:component/f:code/f:coding[f:code/@value=$coding/f:code/@value and f:system/@value=$coding/f:system/@value])=0)
+  Expression = value.empty() or code!=component.code
 
 === Sheet Data Elements =====================================
 
@@ -312,6 +312,7 @@
   Element = Observation.value[x]
   Card. = 0..1
   Summary = Y
+  Inv. = 7
   Type = Quantity|CodeableConcept|string|Range|Ratio|SampledData|Attachment|time|dateTime|Period
   Short Label = Actual result
   Definition = The information determined as a result of making the observation, if the information has a simple value
@@ -552,7 +553,6 @@
   Element = Observation.component.code
   Card. = 1..1
   Summary = Y
-  Inv. = 7
   Type = CodeableConcept
   Binding = ObservationCode
   Short Label = Type of component observation (code / type)
