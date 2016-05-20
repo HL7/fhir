@@ -1863,6 +1863,8 @@ public class Publisher implements URIResolver, SectionNumberer {
           page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), true, page.getWorkerContext());
       new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
           page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), false, page.getWorkerContext());
+      new org.hl7.fhir.definitions.generators.specification.json.SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
+          page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), page.getWorkerContext());
 
       List<StructureDefinition> list = new ArrayList<StructureDefinition>();
       for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
@@ -5158,9 +5160,12 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void validateTurtleFile(String n, InstanceValidator validator, StructureDefinition profile) throws Exception {
     // instance validator
-    FileInputStream f = new FileInputStream(Utilities.path(page.getFolders().dstDir, n + ".json"));
+    File f = new File(Utilities.path(page.getFolders().dstDir, n + ".ttl"));
+    if (!f.exists())
+      return;
+    
     List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
-    validator.validate(issues, f, FhirFormat.TURTLE);
+    validator.validate(issues, new FileInputStream(f), FhirFormat.TURTLE);
     
 //  first, ShEx validation
     if (!(new File(Utilities.path(page.getFolders().dstDir, n + ".ttl")).exists()))

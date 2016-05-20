@@ -690,6 +690,11 @@ public class Utilities {
     return false;
   }
 
+
+  public static boolean charInRange(char ch, char a, char z) {
+    return ch >= a && ch <= z;
+  }
+
   public static boolean existsInList(String value, String... array) {
     if (value == null)
       return false;
@@ -957,6 +962,7 @@ public class Utilities {
     r = r.toLowerCase().trim(); // not that this should make any difference
     return l.startsWith(r) || r.startsWith(l);
   }
+
 
 
 }

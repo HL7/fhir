@@ -27,7 +27,8 @@ public class TurtleParser extends ParserBase {
   public Element parse(InputStream input) throws Exception {
     Turtle src = new Turtle();
     src.parse(TextFile.streamToString(input));
-    throw new NotImplementedException("not done yet");
+    return null;
+//    throw new NotImplementedException("not done yet");
   }
   @Override
   public void compose(Element e, OutputStream stream, OutputStyle style, String base) throws Exception {
@@ -75,14 +76,24 @@ public class TurtleParser extends ParserBase {
 			return;
 		if ("http://snomed.info/sct".equals(system)) {
 			t.prefix("sct", "http://snomed.info/id/");
-			t.linkedPredicate("fhir:concept", "sct:"+code, linkResolver == null ? null : linkResolver.resolvePage("rdf.html#concept"));
+			t.linkedPredicate("fhir:concept", "sct:"+urlescape(code), linkResolver == null ? null : linkResolver.resolvePage("rdf.html#concept"));
 		} else if ("http://loinc.org".equals(system)) {
 			t.prefix("loinc", "http://loinc.org/owl#");
-			t.linkedPredicate("fhir:concept", "loinc:"+code, linkResolver == null ? null : linkResolver.resolvePage("rdf.html#concept"));
+			t.linkedPredicate("fhir:concept", "loinc:"+urlescape(code), linkResolver == null ? null : linkResolver.resolvePage("rdf.html#concept"));
 		}  
 	}
 	
-	private void composeElement(Complex ctxt, Element element) {
+	private String urlescape(String s) {
+	  StringBuilder b = new StringBuilder();
+	  for (char ch : s.toCharArray()) {
+	    if (Utilities.charInSet(ch,  ':', ';', '=', ','))
+	      b.append("%"+Integer.toHexString(ch));
+	    else
+	      b.append(ch);
+	  }
+	  return b.toString();
+  }
+  private void composeElement(Complex ctxt, Element element) {
 		if ("xhtml".equals(element.getType())) // need to decide what to do with this
 			return;
 		String en = element.getProperty().getDefinition().getBase().getPath();
