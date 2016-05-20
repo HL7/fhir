@@ -30,13 +30,11 @@
 		<reference value="Practitioner/example"/>
 	</orderer>
 	<reason>
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://hl7.org/fhir/v3/ActReason"/>
-				<code value="PHY"/>
-				<display value="Physician request"/>
-			</coding>
-		</valueCodeableConcept>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/ActReason"/>
+      <code value="PHY"/>
+      <display value="Physician request"/>
+    </coding>
 	</reason>
 	<event>
 		<status value="requested"/>

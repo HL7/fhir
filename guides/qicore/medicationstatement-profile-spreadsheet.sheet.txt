@@ -86,7 +86,7 @@
   QDM Mapping = route
 
  -- Row 14 -----------------------------------
-  Element = MedicationStatement.dosage.quantity
+  Element = MedicationStatement.dosage.dose
   Must Support = Y
   QDM Mapping = dose
 
