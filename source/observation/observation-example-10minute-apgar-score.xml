@@ -27,6 +27,9 @@
 		<reference value="Patient/infant"/>
 	</subject>
 	<effectiveDateTime value="2016-05-18T22:33:22Z"/>
+	<performer>
+		<reference value="Practitioner/example"/>
+	</performer>
 	<valueQuantity>
 		<value value="10"/>
 		<system value="http://unitsofmeasure.org"/>
@@ -36,7 +39,7 @@
 		<code>
 			<coding>
 				<system value="http://loinc.org"/>
-				<code value="32411-1"/>
+				<code value="32401-2"/>
 				<display value="10 minute Apgar Color"/>
 			</coding>
 			<coding>
@@ -67,7 +70,7 @@
 		<code>
 			<coding>
 				<system value="http://loinc.org"/>
-				<code value="32412-9"/>
+				<code value="32402-0"/>
 				<display value="10 minute Apgar Heart Rate"/>
 			</coding>
 			<coding>
@@ -98,7 +101,7 @@
 		<code>
 			<coding>
 				<system value="http://loinc.org"/>
-				<code value="32414-5"/>
+				<code value="32404-6"/>
 				<display value="10 minute Apgar Reflex Irritability"/>
 			</coding>
 			<coding>
@@ -129,7 +132,7 @@
 		<code>
 			<coding>
 				<system value="http://loinc.org"/>
-				<code value="32413-7"/>
+				<code value="32403-8"/>
 				<display value="10 minute Apgar Muscle Tone"/>
 			</coding>
 			<coding>
@@ -160,7 +163,7 @@
 		<code>
 			<coding>
 				<system value="http://loinc.org"/>
-				<code value="32415-2"/>
+				<code value="32405-3"/>
 				<display value="10 minute Apgar Respiratory effort"/>
 			</coding>
 			<coding>

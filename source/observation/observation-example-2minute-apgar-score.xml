@@ -22,6 +22,9 @@
 		<reference value="Patient/infant"/>
 	</subject>
 	<effectiveDateTime value="2016-05-18T22:33:22Z"/>
+	<performer>
+		<reference value="Practitioner/example"/>
+	</performer>
 	<valueQuantity>
 		<value value="5"/>
 		<system value="http://unitsofmeasure.org"/>
@@ -30,11 +33,11 @@
 	<component>
 		<code>
 			<coding>
-				<system value="http://loinc.org"/>
-				<code value="32411-1"/>
-				<display value="2 minute Apgar Color"/>
+				<system value="http://snomed.info/sct"/>
+				<code value="249227004"/>
+				<display value="Apgar color score"/>
 			</coding>
-			<text value="2 minute Apgar Color"/>
+			<text value="Apgar color score"/>
 		</code>
 		<valueCodeableConcept>
 			<coding>
@@ -56,11 +59,11 @@
 	<component>
 		<code>
 			<coding>
-				<system value="http://loinc.org"/>
-				<code value="32412-9"/>
-				<display value="2 minute Apgar Heart Rate"/>
+				<system value="http://snomed.info/sct"/>
+				<code value="249223000"/>
+				<display value="Apgar heart rate score"/>
 			</coding>
-			<text value="2 minute Apgar Heart Rate"/>
+			<text value="Apgar respiratory effort score"/>
 		</code>
 		<valueCodeableConcept>
 			<coding>
@@ -82,11 +85,11 @@
 	<component>
 		<code>
 			<coding>
-				<system value="http://loinc.org"/>
-				<code value="32414-5"/>
-				<display value="2 minute Apgar Reflex Irritability"/>
+				<system value="http://snomed.info/sct"/>
+				<code value="249226008"/>
+				<display value="Apgar response to stimulus score"/>
 			</coding>
-			<text value="2 minute Apgar Reflex Irritability"/>
+			<text value="Apgar response to stimulus score"/>
 		</code>
 		<valueCodeableConcept>
 			<coding>
@@ -108,11 +111,11 @@
 	<component>
 		<code>
 			<coding>
-				<system value="http://loinc.org"/>
-				<code value="32413-7"/>
-				<display value="2 minute Apgar Muscle Tone"/>
+				<system value="http://snomed.info/sct"/>
+				<code value="249225007"/>
+				<display value="Apgar muscle tone score"/>
 			</coding>
-			<text value="2 minute Apgar Muscle Tone"/>
+			<text value="Apgar muscle tone score"/>
 		</code>
 		<valueCodeableConcept>
 			<coding>
@@ -134,11 +137,11 @@
 	<component>
 		<code>
 			<coding>
-				<system value="http://loinc.org"/>
-				<code value="32415-2"/>
-				<display value="2 minute Apgar Respiratory effort"/>
+				<system value="http://snomed.info/sct"/>
+				<code value="249224006"/>
+				<display value="Apgar respiratory effort score"/>
 			</coding>
-			<text value="2 minute Apgar Respiratory effort"/>
+			<text value="Apgar respiratory effort score"/>
 		</code>
 		<valueCodeableConcept>
 			<coding>
