@@ -9,7 +9,10 @@ import java.util.HashSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 import java.util.Map;
+
+import org.hl7.fhir.dstu3.utils.Turtle.TTLObject;
 import org.hl7.fhir.utilities.Utilities;
 
 public class Turtle {
@@ -49,25 +52,38 @@ public class Turtle {
     }
 
     public Complex predicate(String predicate, Triple object) {
-      Predicate p = new Predicate();
-      p.predicate = predicate;
-      predicateSet.add(predicate);
+      Predicate p = getPredicate(predicate);
+      if (p == null) {
+        p = new Predicate();
+        p.predicate = predicate;
+        predicateSet.add(predicate);
+        predicates.add(p);
+      }
       if (object instanceof StringType)
         objectSet.add(((StringType) object).value);
-      p.object = object;
-      predicates.add(p);
+      p.objects.add(object);
       return this;
     }
 
+    protected Predicate getPredicate(String predicate) {
+      for (Predicate p : predicates)
+        if (p.predicate.equals(predicate))
+          return p;
+      return null;
+    }
+
     public Complex linkedPredicate(String predicate, Triple object, String link) {
-      Predicate p = new Predicate();
-      p.predicate = predicate;
-      p.link = link;
-      predicateSet.add(predicate);
+      Predicate p = getPredicate(predicate);
+      if (p == null) {
+        p = new Predicate();
+        p.predicate = predicate;
+        p.link = link;
+        predicateSet.add(predicate);
+        predicates.add(p);
+      }
       if (object instanceof StringType)
         objectSet.add(((StringType) object).value);
-      p.object = object;
-      predicates.add(p);
+      p.objects.add(object);
       return this;
     }
 
@@ -93,7 +109,7 @@ public class Turtle {
   private class Predicate {
     protected String predicate;
     protected String link;
-    protected Triple object;
+    protected List<Triple> objects = new ArrayList<Turtle.Triple>();
     protected String comment;
 
     public String getPredicate() {
@@ -106,8 +122,8 @@ public class Turtle {
         return "<a href=\""+link+"\">"+predicate+"</a>";
     }
 
-    public Triple getObject() {
-      return object;
+    public List<Triple> getObjects() {
+      return objects;
     }
     public String getComment() {
       return comment;
@@ -118,14 +134,17 @@ public class Turtle {
     private String id;
 
     public Predicate predicate(String predicate, Triple object, String comment) {
-      Predicate p = new Predicate();
-      p.predicate = predicate;
-      predicateSet.add(predicate);
+      Predicate p = getPredicate(predicate);
+      if (p == null) {
+        p = new Predicate();
+        p.predicate = predicate;
+        predicateSet.add(predicate);
+        predicates.add(p);
+        p.comment = comment; 
+      }
       if (object instanceof StringType)
         objectSet.add(((StringType) object).value);
-      p.object = object;
-      predicates.add(p);
-      p.comment = comment; 
+      p.objects.add(object);
       return p;
     }
 
@@ -234,7 +253,8 @@ public class Turtle {
       Complex obj = (Complex) object;
       for (Predicate po : obj.predicates) {
         checkPrefix(po.getPredicate());
-        checkPrefix(po.getObject());
+        for (Triple o : po.getObjects())
+          checkPrefix(o);
       }
     }
   }
@@ -379,28 +399,42 @@ public class Turtle {
     writer.ln("# - "+section.name+" "+Utilities.padLeft("", '-', 75-section.name.length()));
     writer.ln();
     for (Subject sbj : section.subjects) {
-      writer.write(sbj.id);
-      writer.write(" ");
+      if (Utilities.noString(sbj.id)) {
+        writer.write("[");
+      } else {
+        writer.write(sbj.id);
+        writer.write(" ");
+      }
       int i = 0;
 
       for (Predicate p : sbj.predicates) {
         writer.write(p.getPredicate());
         writer.write(" ");
-        if (p.getObject() instanceof StringType)
-          writer.write(((StringType) p.getObject()).value);
-        else {
-          writer.write("[");
-          if (write((Complex) p.getObject(), writer, 4))
-            writer.write("\r\n  ]");
+        boolean first = true;
+        for (Triple o : p.getObjects()) {
+          if (first)
+            first = false;
           else
-            writer.write("]");
+            writer.write(", ");
+          if (o instanceof StringType)
+            writer.write(((StringType) o).value);
+          else {
+            writer.write("[");
+            if (write((Complex) o, writer, 4))
+              writer.write("\r\n  ]");
+            else
+              writer.write("]");
+          }
         }
         String comment = p.comment == null? "" : " # "+p.comment;
         i++;
         if (i < sbj.predicates.size())
           writer.write(";"+comment+"\r\n  ");
-        else
+        else {
+          if (Utilities.noString(sbj.id)) 
+            writer.write("]");
           writer.write("."+comment+"\r\n\r\n");
+        }
       }
     }
   }
@@ -416,14 +450,21 @@ public class Turtle {
       for (Predicate p : sbj.predicates) {
         b.append(p.makelink());
         b.append(" ");
-        if (p.getObject() instanceof StringType)
-          b.append(Utilities.escapeXml(((StringType) p.getObject()).value));
-        else {
-          b.append("[");
-          if (write((Complex) p.getObject(), b, 4))
-            b.append("\r\n  ]");
+        boolean first = true;
+        for (Triple o : p.getObjects()) {
+          if (first)
+            first = false;
           else
-            b.append("]");
+            b.append(", ");
+          if (o instanceof StringType)
+            b.append(Utilities.escapeXml(((StringType) o).value));
+          else {
+            b.append("[");
+            if (write((Complex) o, b, 4))
+              b.append("\r\n  ]");
+            else
+              b.append("]");
+          }
         }
         String comment = p.comment == null? "" : " # "+p.comment;
         i++;
@@ -453,22 +494,30 @@ public class Turtle {
   public boolean write(Complex complex, LineOutputStreamWriter writer, int indent) throws Exception {
     if (complex.predicates.isEmpty()) 
       return false;
-    if (complex.predicates.size() == 1 && complex.predicates.get(0).object instanceof StringType && Utilities.noString(complex.predicates.get(0).comment)) {
-      writer.write(" "+complex.predicates.get(0).predicate+" "+((StringType) complex.predicates.get(0).object).value);
+    if (complex.predicates.size() == 1 && complex.predicates.get(0).getObjects().size()== 1 && complex.predicates.get(0).getObjects().get(0) instanceof StringType && Utilities.noString(complex.predicates.get(0).comment)) {
+      writer.write(" "+complex.predicates.get(0).predicate+" "+((StringType) complex.predicates.get(0).getObjects().get(0)).value);
       return false;
     }
     String left = Utilities.padLeft("", ' ', indent);
     int i = 0;
     for (Predicate po : complex.predicates) {
       writer.write("\r\n");
-      if (po.getObject() instanceof StringType)
-        writer.write(left+" "+po.getPredicate()+" "+((StringType) po.getObject()).value);
-      else {
-        writer.write(left+" "+po.getPredicate()+" [");
-        if (write((Complex) po.getObject(), writer, indent+2))
-          writer.write(left+" ]");
-        else
-          writer.write(" ]");
+      boolean first = true;
+      for (Triple o : po.getObjects()) {
+        if (first) {
+          first = false;
+          writer.write(left+" "+po.getPredicate()+" ");
+        } else
+          writer.write(", ");
+        if (o instanceof StringType)
+          writer.write(((StringType) o).value);
+        else {
+          writer.write("[");
+          if (write((Complex) o, writer, indent+2))
+            writer.write("\r\n"+left+" ]");
+          else
+            writer.write(" ]");
+        }
       }
       i++;
       if (i < complex.predicates.size())
@@ -482,22 +531,30 @@ public class Turtle {
   public boolean write(Complex complex, StringBuilder b, int indent) throws Exception {
     if (complex.predicates.isEmpty()) 
       return false;
-    if (complex.predicates.size() == 1 && complex.predicates.get(0).object instanceof StringType && Utilities.noString(complex.predicates.get(0).comment)) {
-      b.append(" "+complex.predicates.get(0).makelink()+" "+Utilities.escapeXml(((StringType) complex.predicates.get(0).object).value));
+    if (complex.predicates.size() == 1 && complex.predicates.get(0).getObjects().size()== 1 && complex.predicates.get(0).getObjects().get(0) instanceof StringType && Utilities.noString(complex.predicates.get(0).comment)) {
+      b.append(" "+complex.predicates.get(0).makelink()+" "+Utilities.escapeXml(((StringType) complex.predicates.get(0).getObjects().get(0)).value));
       return false;
     }
     String left = Utilities.padLeft("", ' ', indent);
     int i = 0;
     for (Predicate po : complex.predicates) {
       b.append("\r\n");
-      if (po.getObject() instanceof StringType)
-        b.append(left+" "+po.makelink()+" "+Utilities.escapeXml(((StringType) po.getObject()).value));
-      else {
-        b.append(left+" "+po.makelink()+" [");
-        if (write((Complex) po.getObject(), b, indent+2))
-          b.append(left+" ]");
-        else
-          b.append(" ]");
+      boolean first = true;
+      for (Triple o : po.getObjects()) {
+        if (first) {
+          first = false;
+          b.append(left+" "+po.makelink()+" ");
+        } else
+          b.append(", ");
+        if (o instanceof StringType)
+          b.append(Utilities.escapeXml(((StringType) o).value));
+        else {
+          b.append("[");
+          if (write((Complex) o, b, indent+2))
+            b.append(left+" ]");
+          else
+            b.append(" ]");
+        }
       }
       i++;
       if (i < complex.predicates.size())
@@ -509,10 +566,21 @@ public class Turtle {
   }
 
 
-  public class TTLObject {
+  public abstract class TTLObject {
     protected int line;
     protected int col;
 
+    abstract public boolean hasValue(String value);
+
+    public int getLine() {
+      return line;
+    }
+
+    public int getCol() {
+      return col;
+    }
+    
+    
   }
 
 
@@ -523,6 +591,16 @@ public class Turtle {
     protected TTLLiteral(int line, int col) {
       this.line = line;
       this.col = col;
+    }
+    @Override
+    public boolean hasValue(String value) {
+      return value.equals(this.value);
+    }
+    public String getValue() {
+      return value;
+    }
+    public String getType() {
+      return type;
     }
 
   }
@@ -545,18 +623,69 @@ public class Turtle {
       this.uri = uri;
     }
 
+    @Override
+    public boolean hasValue(String value) {
+      return value.equals(this.uri);
+    }
   }
 
+  public class TTLList extends TTLObject {
+    private List<TTLObject> list = new ArrayList<Turtle.TTLObject>();
+
+    public TTLList(TTLObject obj) {
+      super();
+      list.add(obj);
+    }
+    
+    @Override
+    public boolean hasValue(String value) {
+      for (TTLObject obj : list)
+        if (obj.hasValue(value))
+          return true;
+      return false;
+    }
+
+    public List<TTLObject> getList() {
+      return list;
+    }
+    
+  }
   public class TTLComplex extends TTLObject {
     private Map<String, TTLObject> predicates = new HashMap<String, Turtle.TTLObject>();
     protected TTLComplex(int line, int col) {
       this.line = line;
       this.col = col;
     }
-
+    public Map<String, TTLObject> getPredicates() {
+      return predicates;
+    }
+    @Override
+    public boolean hasValue(String value) {
+      return false;
+    }
+    public void addPredicate(String uri, TTLObject obj) {
+      if (!predicates.containsKey(uri))
+        predicates.put(uri, obj);
+      else {
+        TTLObject eo = predicates.get(uri);
+        TTLList list = null; 
+        if (eo instanceof TTLList) 
+          list = (TTLList) eo; 
+        else {
+          list = new TTLList(eo);
+          predicates.put(uri, list);
+        }
+        list.list.add(obj);
+      }
+    }
+    public void addPredicates(Map<String, TTLObject> values) {
+      for (String s : values.keySet()) {
+        addPredicate(s, values.get(s));
+      }
+    }
   }
 
-  private Map<TTLObject, TTLComplex> objects = new HashMap<TTLObject, Turtle.TTLComplex>();
+  private Map<TTLURL, TTLComplex> objects = new HashMap<TTLURL, Turtle.TTLComplex>();
 
   private Object base;
 
@@ -935,13 +1064,23 @@ public class Turtle {
         TTLComplex bnode = parseComplex(lexer);
         lexer.token("]");
         TTLComplex complex = null;
-        if (!lexer.peek(LexerTokenType.TOKEN, "."))
+        if (!lexer.peek(LexerTokenType.TOKEN, ".")) {
           complex = parseComplex(lexer);
-        objects.put(bnode, complex);
+          // at this point, we collapse bnode and complex, and give bnode a fictional identity
+          bnode.addPredicates(complex.predicates);
+        }
+        
+        objects.put(anonymousId(), bnode);
         lexer.token(".");
       } else 
         throw lexer.error("Unknown token "+lexer.token);
     }
+  }
+
+  private TTLURL anonymousId() throws Exception {
+    TTLURL url = new TTLURL(-1, -1);
+    url.setUri("urn:uuid:"+UUID.randomUUID().toString().toLowerCase());
+    return url;
   }
 
   private TTLComplex parseComplex(Lexer lexer) throws Exception {
@@ -975,12 +1114,12 @@ public class Turtle {
       do {
         if (lexer.peek(LexerTokenType.TOKEN, "[")) {
           lexer.token("[");
-          result.predicates.put(uri, parseComplex(lexer));
+          result.addPredicate(uri, parseComplex(lexer));
           lexer.token("]");
         } else if (lexer.peekType() == LexerTokenType.URI) {
           TTLURL u = new TTLURL(lexer.startLine, lexer.startCol);
           u.setUri(lexer.uri());
-          result.predicates.put(uri, u);
+          result.addPredicate(uri, u);
         } else if (lexer.peekType() == LexerTokenType.LITERAL) {
           TTLLiteral u = new TTLLiteral(lexer.startLine, lexer.startCol);
           u.value = lexer.literal();
@@ -1003,7 +1142,7 @@ public class Turtle {
               throw new Exception("Invalid Language tag "+lang);
             }
           }
-          result.predicates.put(uri, u);
+          result.addPredicate(uri, u);
         } else if (lexer.peekType() == LexerTokenType.WORD || lexer.peek(LexerTokenType.TOKEN, ":")) {
           int sl = lexer.startLine;
           int sc = lexer.startCol;
@@ -1011,18 +1150,18 @@ public class Turtle {
           if (Utilities.isDecimal(pfx) && !lexer.peek(LexerTokenType.TOKEN, ":")) {
             TTLLiteral u = new TTLLiteral(sl, sc);
             u.value = pfx;
-            result.predicates.put(uri, u);					
+            result.addPredicate(uri, u);					
           } else if (("false".equals(pfx) || "true".equals(pfx)) && !lexer.peek(LexerTokenType.TOKEN, ":")) {
             TTLLiteral u = new TTLLiteral(sl, sc);
             u.value = pfx;
-            result.predicates.put(uri, u);					
+            result.addPredicate(uri, u);					
           } else {
             if (!prefixes.containsKey(pfx))
               throw new Exception("Unknown prefix "+(pfx == null ? "''" : pfx));						
             TTLURL u = new TTLURL(sl, sc);
             lexer.token(":");
             u.setUri(prefixes.get(pfx)+lexer.word());
-            result.predicates.put(uri, u);
+            result.addPredicate(uri, u);
           } 
         } else if (!lexer.peek(LexerTokenType.TOKEN, ";") && (!inlist || !lexer.peek(LexerTokenType.TOKEN, ")"))) {
           throw new Exception("unexpected token "+lexer.token);
@@ -1048,6 +1187,10 @@ public class Turtle {
       }
     }
     return result;
+  }
+
+  public Map<TTLURL, TTLComplex> getObjects() {
+    return objects;
   }
 
   //	public void parseFragment(Lexer lexer) throws Exception {

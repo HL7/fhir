@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, May 20, 2016 07:25+1000 for FHIR v1.4.0
+// Generated on Sat, May 21, 2016 13:32+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -305,16 +305,11 @@ public class Substance extends DomainResource {
         /**
          * Another substance that is a component of this substance.
          */
-        @Child(name = "substance", type = {Substance.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "substance", type = {CodeableConcept.class, Substance.class}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="A component of the substance", formalDefinition="Another substance that is a component of this substance." )
-        protected Reference substance;
+        protected Type substance;
 
-        /**
-         * The actual object that is the target of the reference (Another substance that is a component of this substance.)
-         */
-        protected Substance substanceTarget;
-
-        private static final long serialVersionUID = -1783242034L;
+        private static final long serialVersionUID = -469805322L;
 
     /**
      * Constructor
@@ -326,7 +321,7 @@ public class Substance extends DomainResource {
     /**
      * Constructor
      */
-      public SubstanceIngredientComponent(Reference substance) {
+      public SubstanceIngredientComponent(Type substance) {
         super();
         this.substance = substance;
       }
@@ -358,13 +353,34 @@ public class Substance extends DomainResource {
         /**
          * @return {@link #substance} (Another substance that is a component of this substance.)
          */
-        public Reference getSubstance() { 
-          if (this.substance == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SubstanceIngredientComponent.substance");
-            else if (Configuration.doAutoCreate())
-              this.substance = new Reference(); // cc
+        public Type getSubstance() { 
           return this.substance;
+        }
+
+        /**
+         * @return {@link #substance} (Another substance that is a component of this substance.)
+         */
+        public CodeableConcept getSubstanceCodeableConcept() throws FHIRException { 
+          if (!(this.substance instanceof CodeableConcept))
+            throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.substance.getClass().getName()+" was encountered");
+          return (CodeableConcept) this.substance;
+        }
+
+        public boolean hasSubstanceCodeableConcept() { 
+          return this.substance instanceof CodeableConcept;
+        }
+
+        /**
+         * @return {@link #substance} (Another substance that is a component of this substance.)
+         */
+        public Reference getSubstanceReference() throws FHIRException { 
+          if (!(this.substance instanceof Reference))
+            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.substance.getClass().getName()+" was encountered");
+          return (Reference) this.substance;
+        }
+
+        public boolean hasSubstanceReference() { 
+          return this.substance instanceof Reference;
         }
 
         public boolean hasSubstance() { 
@@ -374,42 +390,22 @@ public class Substance extends DomainResource {
         /**
          * @param value {@link #substance} (Another substance that is a component of this substance.)
          */
-        public SubstanceIngredientComponent setSubstance(Reference value) { 
+        public SubstanceIngredientComponent setSubstance(Type value) { 
           this.substance = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #substance} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Another substance that is a component of this substance.)
-         */
-        public Substance getSubstanceTarget() { 
-          if (this.substanceTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SubstanceIngredientComponent.substance");
-            else if (Configuration.doAutoCreate())
-              this.substanceTarget = new Substance(); // aa
-          return this.substanceTarget;
-        }
-
-        /**
-         * @param value {@link #substance} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Another substance that is a component of this substance.)
-         */
-        public SubstanceIngredientComponent setSubstanceTarget(Substance value) { 
-          this.substanceTarget = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("quantity", "Ratio", "The amount of the ingredient in the substance - a concentration ratio.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("substance", "Reference(Substance)", "Another substance that is a component of this substance.", 0, java.lang.Integer.MAX_VALUE, substance));
+          childrenList.add(new Property("substance[x]", "CodeableConcept|Reference(Substance)", "Another substance that is a component of this substance.", 0, java.lang.Integer.MAX_VALUE, substance));
         }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Ratio
-        case 530040176: /*substance*/ return this.substance == null ? new Base[0] : new Base[] {this.substance}; // Reference
+        case 530040176: /*substance*/ return this.substance == null ? new Base[0] : new Base[] {this.substance}; // Type
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -422,7 +418,7 @@ public class Substance extends DomainResource {
           this.quantity = castToRatio(value); // Ratio
           break;
         case 530040176: // substance
-          this.substance = castToReference(value); // Reference
+          this.substance = (Type) value; // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -433,8 +429,8 @@ public class Substance extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("quantity"))
           this.quantity = castToRatio(value); // Ratio
-        else if (name.equals("substance"))
-          this.substance = castToReference(value); // Reference
+        else if (name.equals("substance[x]"))
+          this.substance = (Type) value; // Type
         else
           super.setProperty(name, value);
       }
@@ -443,7 +439,7 @@ public class Substance extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1285004149:  return getQuantity(); // Ratio
-        case 530040176:  return getSubstance(); // Reference
+        case 2127194384:  return getSubstance(); // Type
         default: return super.makeProperty(hash, name);
         }
 
@@ -455,7 +451,11 @@ public class Substance extends DomainResource {
           this.quantity = new Ratio();
           return this.quantity;
         }
-        else if (name.equals("substance")) {
+        else if (name.equals("substanceCodeableConcept")) {
+          this.substance = new CodeableConcept();
+          return this.substance;
+        }
+        else if (name.equals("substanceReference")) {
           this.substance = new Reference();
           return this.substance;
         }
@@ -973,32 +973,6 @@ public class Substance extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>substance</b>
-   * <p>
-   * Description: <b>A component of the substance</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Substance.ingredient.substance</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="substance", path="Substance.ingredient.substance", description="A component of the substance", type="reference" )
-  public static final String SP_SUBSTANCE = "substance";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>substance</b>
-   * <p>
-   * Description: <b>A component of the substance</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Substance.ingredient.substance</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBSTANCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBSTANCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Substance:substance</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBSTANCE = new ca.uhn.fhir.model.api.Include("Substance:substance").toLocked();
-
- /**
    * Search parameter: <b>container-identifier</b>
    * <p>
    * Description: <b>Identifier of the package/container</b><br>
@@ -1039,6 +1013,32 @@ public class Substance extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
  /**
+   * Search parameter: <b>substance-reference</b>
+   * <p>
+   * Description: <b>A component of the substance</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Substance.ingredient.substanceReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="substance-reference", path="Substance.ingredient.substance.as(Reference)", description="A component of the substance", type="reference" )
+  public static final String SP_SUBSTANCE_REFERENCE = "substance-reference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>substance-reference</b>
+   * <p>
+   * Description: <b>A component of the substance</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Substance.ingredient.substanceReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBSTANCE_REFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBSTANCE_REFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Substance:substance-reference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBSTANCE_REFERENCE = new ca.uhn.fhir.model.api.Include("Substance:substance-reference").toLocked();
+
+ /**
    * Search parameter: <b>quantity</b>
    * <p>
    * Description: <b>Amount of substance in the package</b><br>
@@ -1061,19 +1061,19 @@ public class Substance extends DomainResource {
  /**
    * Search parameter: <b>code</b>
    * <p>
-   * Description: <b>The code of the substance</b><br>
+   * Description: <b>The code of the substance or ingredient</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Substance.code</b><br>
+   * Path: <b>Substance.code, Substance.ingredient.substanceCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="Substance.code", description="The code of the substance", type="token" )
+  @SearchParamDefinition(name="code", path="Substance.code | Substance.ingredient.substance.as(CodeableConcept)", description="The code of the substance or ingredient", type="token" )
   public static final String SP_CODE = "code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
-   * Description: <b>The code of the substance</b><br>
+   * Description: <b>The code of the substance or ingredient</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Substance.code</b><br>
+   * Path: <b>Substance.code, Substance.ingredient.substanceCodeableConcept</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);

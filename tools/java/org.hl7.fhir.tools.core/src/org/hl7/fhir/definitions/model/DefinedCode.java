@@ -176,6 +176,14 @@ public class DefinedCode {
   public boolean hasDisplay() {
     return !Utilities.noString(display);
   }
+
+  public String getJsonType() {
+    return null;
+  }
+
+  public String getRegex() {
+    return null;
+  }
   
   
   

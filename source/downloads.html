@@ -22,13 +22,21 @@
   </tr>
 
   <tr>
-    <td>Schema</td>
+    <td>XML Schema</td>
     <td>
       The FHIR XML schemas come in 2 forms: 
       <ul>
        <li><a href="fhir-all-xsd.zip">Validation Schemas</a> (includes support schemas, resource schemas, modular &amp; combined schemas, and Schematrons)</li>
        <li><a href="fhir-codegen-xsd.zip">Code Generation Schemas</a> (See <a href="xml.html#schema-gen">notes about code-generation schemas</a>)</li>
       </ul>
+      Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources valid. Implementers 
+      will still need to be familiar with the content of the specification and with any <a href="profiling.html">profiles that apply to the resources</a> in order to make a conformant implementation.
+    </td>
+  </tr>
+
+  <tr>
+    <td>JSON Schema</td>
+    <td><a href="fhir.schema.json.zip">JSON Schemas</a> (includes both modular and combined schema)<br/>
       Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources valid. Implementers 
       will still need to be familiar with the content of the specification and with any <a href="profiling.html">profiles that apply to the resources</a> in order to make a conformant implementation.
     </td>

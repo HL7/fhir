@@ -13,6 +13,17 @@
       }
     },
     {
+      "hash": "#|http://hl7.org/fhir/observation-category|null|survey|Survey",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "survey",
+        "definition": null,
+        "display": "Survey"
+      }
+    },
+    {
       "hash": "#|http://hl7.org/fhir/observation-category|null|vital-signs|Vital Signs",
       "severity": null,
       "message": null,

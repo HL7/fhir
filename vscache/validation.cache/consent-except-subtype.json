@@ -1,0 +1,15 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/consent-except-subtype",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/resource-types|null|OrderResponse|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/resource-types|null|Order|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    }
+  ]
+}

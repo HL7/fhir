@@ -678,7 +678,7 @@ public class SourceParser {
     prim.setComment(sheet.getColumn(row, "Comments"));
     prim.setSchemaType(sheet.getColumn(row, "Schema"));
     prim.setJsonType(sheet.getColumn(row, "Json"));
-    prim.setRegEx(sheet.getColumn(row, "RegEx"));
+    prim.setRegex(sheet.getColumn(row, "RegEx"));
     prim.setV2(sheet.getColumn(row, "v2"));
     prim.setV3(sheet.getColumn(row, "v3"));
     TypeRef td = new TypeRef();

@@ -172,6 +172,7 @@ import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
 import org.hl7.fhir.dstu3.model.Narrative;
 import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.dstu3.model.OperationDefinition;
+import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.Questionnaire;
@@ -254,6 +255,9 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import com.google.gson.JsonObject;
+import org.everit.json.schema.loader.SchemaLoader;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
 /**
  * This is the entry point for the publication method for FHIR The general order
@@ -3161,6 +3165,15 @@ public class Publisher implements URIResolver, SectionNumberer {
     zip.addFiles(page.getFolders().xsdDir+"codegen"+File.separator, "", ".xsd", null);
     zip.close();
     Utilities.copyFile(new CSFile(page.getFolders().tmpResDir + "fhir-codegen-xsd.zip"), f);
+
+    f = new CSFile(page.getFolders().dstDir + "fhir.schema.json.zip");
+    if (f.exists())
+      f.delete();
+    zip = new ZipGenerator(page.getFolders().tmpResDir + "fhir.schema.json.zip");
+    zip.addFiles(page.getFolders().dstDir, "", ".schema.json", null);
+    zip.close();
+    Utilities.copyFile(new CSFile(page.getFolders().tmpResDir + "fhir.schema.json.zip"), f);
+
   }
 
   private void produceResource1(ResourceDefn resource, boolean isAbstract) throws Exception {
@@ -5128,23 +5141,21 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void validateJsonFile(String n, InstanceValidator validator, StructureDefinition profile) throws Exception {
-    /* todo: json schema
-     * try (InputStream inputStream = getClass().getResourceAsStream("/path/to/your/schema.json")) {
-  JSONObject rawSchema = new JSONObject(new JSONTokener(inputStream));
-  Schema schema = SchemaLoader.load(rawSchema);
-  schema.validate(new JSONObject("{\"hello\" : \"world\"}")); // throws a ValidationException if this object is invalid
-}
-     * 
-     */
-    com.google.gson.JsonParser parser = new com.google.gson.JsonParser();
-    JsonObject obj = parser.parse(TextFile.fileToString(Utilities.path(page.getFolders().dstDir, n + ".json"))).getAsJsonObject();
-
-    // the build tool validation focuses on codes and identifiers
     List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
-    validator.validate(issues, obj);
-//    System.out.println("  -j- "+validator.reportTimes());
-    // if (profile != null)
-    // validator.validateInstanceByProfile(issues, root, profile);
+
+//    String source = TextFile.fileToString(Utilities.path(page.getFolders().dstDir, "fhir.schema.json"));
+//    JSONObject rawSchema = new JSONObject(new JSONTokener(source));
+//    org.everit.json.schema.Schema schema = SchemaLoader.load(rawSchema);
+//    try {
+//      schema.validate(new FileInputStream(Utilities.path(page.getFolders().dstDir, n+".json")));
+//    } catch (Exception e) {
+//      issues.add(new ValidationMessage(Source.Schema, IssueType.INVALID, "#", e.getMessage(), IssueSeverity.ERROR));
+//    }
+
+    validator.validate(issues, new FileInputStream(Utilities.path(page.getFolders().dstDir, n+".json")), FhirFormat.JSON);
+    if (profile != null)
+      validator.validate(issues, new FileInputStream(Utilities.path(page.getFolders().dstDir, n+".json")), FhirFormat.JSON, profile);
+    
     for (ValidationMessage m : issues) {
       if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING))
         logError("  " + m.summary(), typeforSeverity(m.getLevel()));
@@ -5167,14 +5178,14 @@ public class Publisher implements URIResolver, SectionNumberer {
     List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
     validator.validate(issues, new FileInputStream(f), FhirFormat.TURTLE);
     
-//  first, ShEx validation
-    if (!(new File(Utilities.path(page.getFolders().dstDir, n + ".ttl")).exists()))
-      return;
-    
-    ShExValidator shexval = new ShExValidator();
-    
-    shexval.validate(Utilities.path(page.getFolders().dstDir, n + ".ttl"), Utilities.path(page.getFolders().dstDir, "fhir.shex"), "SHEXC");
-    
+////  first, ShEx validation
+//    if (!(new File(Utilities.path(page.getFolders().dstDir, n + ".ttl")).exists()))
+//      return;
+//    
+//    ShExValidator shexval = new ShExValidator();
+//    
+//    shexval.validate(Utilities.path(page.getFolders().dstDir, n + ".ttl"), Utilities.path(page.getFolders().dstDir, "fhir.shex"), "SHEXC");
+//    
  
 //    
 //    com.google.gson.JsonParser parser = new com.google.gson.JsonParser();

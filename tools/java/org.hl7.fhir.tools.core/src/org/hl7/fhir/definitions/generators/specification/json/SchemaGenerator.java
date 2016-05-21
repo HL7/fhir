@@ -29,6 +29,7 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -39,11 +40,19 @@ import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.definitions.model.TypeDefn;
+import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 
 public class SchemaGenerator {
 
@@ -65,10 +74,21 @@ public class SchemaGenerator {
 	    }
 	  }
 
-	  JsonBaseGenerator xsdb = new JsonBaseGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-base.schema.json")), "UTF-8"), false, workerContext);
-	  xsdb.setDefinitions(definitions);
-	  xsdb.generate(version, genDate, true);
-	  xsdb.getWriter().close();
+	  JsonObject schema = new JsonObject();
+	  schema.addProperty("$schema", "http://json-schema.org/draft-04/schema#");
+	  schema.addProperty("id", "http://hl7.org/fhir/json-schema/fhir");
+	  schema.addProperty("$ref", "#/definitions/ResourceList");
+	  schema.addProperty("description", "see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas");
+	  schema.add("definitions", new JsonObject());
+
+	  for (TypeRef tr : definitions.getKnownTypes()) {
+	    if (!definitions.getPrimitives().containsKey(tr.getName()) && !definitions.getConstraints().containsKey(tr.getName())) {
+        TypeDefn root = definitions.getElementDefn(tr.getName());
+        JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root, version, genDate, null);
+        save(s, xsdDir+root.getName()+".schema.json");
+        new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root, version, genDate, schema);
+      }
+    }
 
     List<String> names = new ArrayList<String>();
     names.addAll(definitions.getResources().keySet());
@@ -76,65 +96,13 @@ public class SchemaGenerator {
     Collections.sort(names);
     for (String name : names) {
       ResourceDefn root = definitions.getResourceByName(name);
-		  JsonGenerator sgen = new JsonGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+root.getName().toLowerCase()+".schema.json")), "UTF-8"), definitions, workerContext);
-		  sgen.setDataTypes(definitions.getKnownTypes());
-		  sgen.generate(root.getRoot(), version, genDate, true);
-		  sgen.getWriter().close();
+      JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, null);
+      save(s, xsdDir+root.getName()+".schema.json");
+      new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, schema);
 	  }
 
-	  OutputStreamWriter single = new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-single.schema.json")), "UTF-8");
-	  
-	  single.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
-	  single.write("<!-- \r\n");
-	  single.write(Config.FULL_LICENSE_CODE);
-	  single.write("\r\n");
-	  single.write("  Generated on " + genDate + " for FHIR v" + version + " \r\n");
-	  single.write("-->\r\n");
-	  single.write("<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://hl7.org/fhir\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\" "
-	      + "xmlns:xml=\"http://www.w3.org/XML/1998/namespace\" targetNamespace=\"http://hl7.org/fhir\" elementFormDefault=\"qualified\" version=\""+version+"\">\r\n");
-	  single.write("  <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml=\"http://www.w3.org/XML/1998/namespace\", however this causes performance issues with other tools and thus is not in the base schemas. -->\r\n");
-
-    xsdb = new JsonBaseGenerator(single, false, workerContext);
-    xsdb.setDefinitions(definitions);
-    xsdb.generate(version, genDate, false);
- 
-//    single.write("  <xs:simpleType name=\"ResourceNamesPlusBinary\">\r\n");
-//    single.write("    <xs:union memberTypes=\"ResourceType\">\r\n");
-//    single.write("      <xs:simpleType>\r\n");
-//    single.write("      <xs:restriction base=\"xs:NMTOKEN\">\r\n");
-//    single.write("        <xs:enumeration value=\"Binary\"/>\r\n");
-//    single.write("      </xs:restriction>\r\n");
-//    single.write("    </xs:simpleType>\r\n");
-//    single.write("  </xs:union>\r\n");
-//    single.write("  </xs:simpleType>\r\n");
-//    single.write("  <xs:complexType name=\"Binary\">\r\n");
-//    single.write("    <xs:simpleContent>\r\n");
-//    single.write("      <xs:extension base=\"xs:base64Binary\">\r\n");
-//    single.write("        <xs:attribute name=\"contentType\" type=\"xs:string\" use=\"required\"/>\r\n");
-//    single.write("        <xs:attribute name=\"id\" type=\"id-primitive\"/>\r\n");
-//    single.write("      </xs:extension>\r\n");
-//    single.write("    </xs:simpleContent>\r\n");
-//    single.write("  </xs:complexType>\r\n");
-//    single.write("  <xs:element name=\"Binary\" type=\"Binary\"/>\r\n");
-//  
-    for (String name : names) {
-      ResourceDefn root = definitions.getResourceByName(name);
-      JsonGenerator sgen = new JsonGenerator(single, definitions, workerContext);
-      sgen.setDataTypes(definitions.getKnownTypes());
-      sgen.generate(root.getRoot(), version, genDate, false);
-    }
-
-    single.write("</xs:schema>\r\n");
-    single.flush();
-    single.close();
-	  for (String n : ini.getPropertyNames("schema")) {
-		  String xsd = TextFile.fileToString(srcDir + n);
-		  xsd = processSchemaIncludes(definitions, n, xsd, false);
-		  TextFile.stringToFile(xsd, xsdDir + n);
-	  }
-
-//    if (!forCodeGeneration) {
-//      produceCombinedSchema(definitions, xsdDir, dstDir, srcDir);
+    addAllResourcesChoice(schema, names);
+    save(schema, xsdDir+"fhir.schema.json");
 
 	  dir = new CSFile(xsdDir);
 	  list = dir.listFiles();
@@ -142,6 +110,25 @@ public class SchemaGenerator {
 	    if (!f.isDirectory() && f.getName().endsWith(".schema.json"))
 	      Utilities.copyFile(f, new CSFile(dstDir+f.getName()));
     }
+  }
+
+  private void addAllResourcesChoice(JsonObject schema, List<String> names) {
+    JsonObject definitions = schema.getAsJsonObject("definitions");
+    JsonObject rlist = new JsonObject();
+    definitions.add("ResourceList", rlist);
+    JsonArray oneOf = new JsonArray();
+    rlist.add("oneOf", oneOf);
+    for (String n : names) {
+      JsonObject ref = new JsonObject();
+      ref.addProperty("$ref", "#/definitions/"+n);
+      oneOf.add(ref);
+    }
+  }
+
+  private void save(JsonObject s, String filename) throws IOException {
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    String json = gson.toJson(s);
+    TextFile.stringToFile(json, filename);
   }
 
   private void produceCombinedSchema(Definitions definitions, String xsdDir, String dstDir, String srcDir) throws Exception {

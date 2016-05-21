@@ -18,6 +18,21 @@
       }
     },
     {
+      "hash": "#|http://hl7.org/fhir/NamingSystem/hibcc-di|null|H123PARTNO1234567890120|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Device Types"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/NamingSystem/iccbba-blood-di|null|1TE123456A|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Device Types"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/NamingSystem/iccbba-other-di|null|A9999XYZ100T0474|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Device Types"
+    },
+    {
       "hash": "#|http://ncimeta.nci.nih.gov|null|C1961478|Information Systems, Decision Support, Clinical",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Device Types"

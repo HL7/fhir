@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, May 20, 2016 07:25+1000 for FHIR v1.4.0
+// Generated on Sat, May 21, 2016 13:32+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -796,39 +796,27 @@ public class DiagnosticOrder extends DomainResource {
         protected CodeableConcept code;
 
         /**
-         * If the item is related to a specific specimen.
-         */
-        @Child(name = "specimen", type = {Specimen.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="If this item relates to specific specimens", formalDefinition="If the item is related to a specific specimen." )
-        protected List<Reference> specimen;
-        /**
-         * The actual objects that are the target of the reference (If the item is related to a specific specimen.)
-         */
-        protected List<Specimen> specimenTarget;
-
-
-        /**
          * Anatomical location where the request test should be performed.  This is the target site.
          */
-        @Child(name = "bodySite", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "bodySite", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Location of requested test (if applicable)", formalDefinition="Anatomical location where the request test should be performed.  This is the target site." )
         protected CodeableConcept bodySite;
 
         /**
          * The status of this individual item within the order.
          */
-        @Child(name = "status", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "status", type = {CodeType.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error", formalDefinition="The status of this individual item within the order." )
         protected Enumeration<DiagnosticOrderStatus> status;
 
         /**
          * A summary of the events of interest that have occurred as this item of the request is processed.
          */
-        @Child(name = "event", type = {DiagnosticOrderEventComponent.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "event", type = {DiagnosticOrderEventComponent.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Events specific to this item", formalDefinition="A summary of the events of interest that have occurred as this item of the request is processed." )
         protected List<DiagnosticOrderEventComponent> event;
 
-        private static final long serialVersionUID = 381238192L;
+        private static final long serialVersionUID = -1049554732L;
 
     /**
      * Constructor
@@ -867,67 +855,6 @@ public class DiagnosticOrder extends DomainResource {
         public DiagnosticOrderItemComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
-        }
-
-        /**
-         * @return {@link #specimen} (If the item is related to a specific specimen.)
-         */
-        public List<Reference> getSpecimen() { 
-          if (this.specimen == null)
-            this.specimen = new ArrayList<Reference>();
-          return this.specimen;
-        }
-
-        public boolean hasSpecimen() { 
-          if (this.specimen == null)
-            return false;
-          for (Reference item : this.specimen)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #specimen} (If the item is related to a specific specimen.)
-         */
-    // syntactic sugar
-        public Reference addSpecimen() { //3
-          Reference t = new Reference();
-          if (this.specimen == null)
-            this.specimen = new ArrayList<Reference>();
-          this.specimen.add(t);
-          return t;
-        }
-
-    // syntactic sugar
-        public DiagnosticOrderItemComponent addSpecimen(Reference t) { //3
-          if (t == null)
-            return this;
-          if (this.specimen == null)
-            this.specimen = new ArrayList<Reference>();
-          this.specimen.add(t);
-          return this;
-        }
-
-        /**
-         * @return {@link #specimen} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. If the item is related to a specific specimen.)
-         */
-        public List<Specimen> getSpecimenTarget() { 
-          if (this.specimenTarget == null)
-            this.specimenTarget = new ArrayList<Specimen>();
-          return this.specimenTarget;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #specimen} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. If the item is related to a specific specimen.)
-         */
-        public Specimen addSpecimenTarget() { 
-          Specimen r = new Specimen();
-          if (this.specimenTarget == null)
-            this.specimenTarget = new ArrayList<Specimen>();
-          this.specimenTarget.add(r);
-          return r;
         }
 
         /**
@@ -1046,7 +973,6 @@ public class DiagnosticOrder extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("specimen", "Reference(Specimen)", "If the item is related to a specific specimen.", 0, java.lang.Integer.MAX_VALUE, specimen));
           childrenList.add(new Property("bodySite", "CodeableConcept", "Anatomical location where the request test should be performed.  This is the target site.", 0, java.lang.Integer.MAX_VALUE, bodySite));
           childrenList.add(new Property("status", "code", "The status of this individual item within the order.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("event", "@DiagnosticOrder.event", "A summary of the events of interest that have occurred as this item of the request is processed.", 0, java.lang.Integer.MAX_VALUE, event));
@@ -1056,7 +982,6 @@ public class DiagnosticOrder extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : this.specimen.toArray(new Base[this.specimen.size()]); // Reference
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DiagnosticOrderStatus>
         case 96891546: /*event*/ return this.event == null ? new Base[0] : this.event.toArray(new Base[this.event.size()]); // DiagnosticOrderEventComponent
@@ -1070,9 +995,6 @@ public class DiagnosticOrder extends DomainResource {
         switch (hash) {
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
-          break;
-        case -2132868344: // specimen
-          this.getSpecimen().add(castToReference(value)); // Reference
           break;
         case 1702620169: // bodySite
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
@@ -1092,8 +1014,6 @@ public class DiagnosticOrder extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("specimen"))
-          this.getSpecimen().add(castToReference(value));
         else if (name.equals("bodySite"))
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("status"))
@@ -1108,7 +1028,6 @@ public class DiagnosticOrder extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181:  return getCode(); // CodeableConcept
-        case -2132868344:  return addSpecimen(); // Reference
         case 1702620169:  return getBodySite(); // CodeableConcept
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DiagnosticOrderStatus>
         case 96891546:  return addEvent(); // DiagnosticOrderEventComponent
@@ -1122,9 +1041,6 @@ public class DiagnosticOrder extends DomainResource {
         if (name.equals("code")) {
           this.code = new CodeableConcept();
           return this.code;
-        }
-        else if (name.equals("specimen")) {
-          return addSpecimen();
         }
         else if (name.equals("bodySite")) {
           this.bodySite = new CodeableConcept();
@@ -1144,11 +1060,6 @@ public class DiagnosticOrder extends DomainResource {
         DiagnosticOrderItemComponent dst = new DiagnosticOrderItemComponent();
         copyValues(dst);
         dst.code = code == null ? null : code.copy();
-        if (specimen != null) {
-          dst.specimen = new ArrayList<Reference>();
-          for (Reference i : specimen)
-            dst.specimen.add(i.copy());
-        };
         dst.bodySite = bodySite == null ? null : bodySite.copy();
         dst.status = status == null ? null : status.copy();
         if (event != null) {
@@ -1166,8 +1077,8 @@ public class DiagnosticOrder extends DomainResource {
         if (!(other instanceof DiagnosticOrderItemComponent))
           return false;
         DiagnosticOrderItemComponent o = (DiagnosticOrderItemComponent) other;
-        return compareDeep(code, o.code, true) && compareDeep(specimen, o.specimen, true) && compareDeep(bodySite, o.bodySite, true)
-           && compareDeep(status, o.status, true) && compareDeep(event, o.event, true);
+        return compareDeep(code, o.code, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(status, o.status, true)
+           && compareDeep(event, o.event, true);
       }
 
       @Override
@@ -1181,9 +1092,8 @@ public class DiagnosticOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (specimen == null || specimen.isEmpty())
-           && (bodySite == null || bodySite.isEmpty()) && (status == null || status.isEmpty()) && (event == null || event.isEmpty())
-          ;
+        return super.isEmpty() && (code == null || code.isEmpty()) && (bodySite == null || bodySite.isEmpty())
+           && (status == null || status.isEmpty()) && (event == null || event.isEmpty());
       }
 
   public String fhirType() {
@@ -1270,39 +1180,27 @@ public class DiagnosticOrder extends DomainResource {
 
 
     /**
-     * One or more specimens that the diagnostic investigation is about.
-     */
-    @Child(name = "specimen", type = {Specimen.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="If the whole order relates to specific specimens", formalDefinition="One or more specimens that the diagnostic investigation is about." )
-    protected List<Reference> specimen;
-    /**
-     * The actual objects that are the target of the reference (One or more specimens that the diagnostic investigation is about.)
-     */
-    protected List<Specimen> specimenTarget;
-
-
-    /**
      * A summary of the events of interest that have occurred as the request is processed; e.g. when the order was made, various processing steps (specimens received), when it was completed.
      */
-    @Child(name = "event", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "event", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A list of events of interest in the lifecycle", formalDefinition="A summary of the events of interest that have occurred as the request is processed; e.g. when the order was made, various processing steps (specimens received), when it was completed." )
     protected List<DiagnosticOrderEventComponent> event;
 
     /**
      * The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.
      */
-    @Child(name = "item", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "item", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="The items the orderer requested", formalDefinition="The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested." )
     protected List<DiagnosticOrderItemComponent> item;
 
     /**
      * Any other notes associated with this patient, specimen or order (e.g. "patient hates needles").
      */
-    @Child(name = "note", type = {Annotation.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Other notes and comments", formalDefinition="Any other notes associated with this patient, specimen or order (e.g. \"patient hates needles\")." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = 1170289657L;
+    private static final long serialVersionUID = -112775275L;
 
   /**
    * Constructor
@@ -1674,67 +1572,6 @@ public class DiagnosticOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #specimen} (One or more specimens that the diagnostic investigation is about.)
-     */
-    public List<Reference> getSpecimen() { 
-      if (this.specimen == null)
-        this.specimen = new ArrayList<Reference>();
-      return this.specimen;
-    }
-
-    public boolean hasSpecimen() { 
-      if (this.specimen == null)
-        return false;
-      for (Reference item : this.specimen)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #specimen} (One or more specimens that the diagnostic investigation is about.)
-     */
-    // syntactic sugar
-    public Reference addSpecimen() { //3
-      Reference t = new Reference();
-      if (this.specimen == null)
-        this.specimen = new ArrayList<Reference>();
-      this.specimen.add(t);
-      return t;
-    }
-
-    // syntactic sugar
-    public DiagnosticOrder addSpecimen(Reference t) { //3
-      if (t == null)
-        return this;
-      if (this.specimen == null)
-        this.specimen = new ArrayList<Reference>();
-      this.specimen.add(t);
-      return this;
-    }
-
-    /**
-     * @return {@link #specimen} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. One or more specimens that the diagnostic investigation is about.)
-     */
-    public List<Specimen> getSpecimenTarget() { 
-      if (this.specimenTarget == null)
-        this.specimenTarget = new ArrayList<Specimen>();
-      return this.specimenTarget;
-    }
-
-    // syntactic sugar
-    /**
-     * @return {@link #specimen} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. One or more specimens that the diagnostic investigation is about.)
-     */
-    public Specimen addSpecimenTarget() { 
-      Specimen r = new Specimen();
-      if (this.specimenTarget == null)
-        this.specimenTarget = new ArrayList<Specimen>();
-      this.specimenTarget.add(r);
-      return r;
-    }
-
-    /**
      * @return {@link #event} (A summary of the events of interest that have occurred as the request is processed; e.g. when the order was made, various processing steps (specimens received), when it was completed.)
      */
     public List<DiagnosticOrderEventComponent> getEvent() { 
@@ -1864,7 +1701,6 @@ public class DiagnosticOrder extends DomainResource {
         childrenList.add(new Property("orderer", "Reference(Practitioner)", "The practitioner that holds legal responsibility for ordering the investigation.", 0, java.lang.Integer.MAX_VALUE, orderer));
         childrenList.add(new Property("reason", "CodeableConcept", "An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("supportingInformation", "Reference(Observation|Condition|DocumentReference)", "Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
-        childrenList.add(new Property("specimen", "Reference(Specimen)", "One or more specimens that the diagnostic investigation is about.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("event", "", "A summary of the events of interest that have occurred as the request is processed; e.g. when the order was made, various processing steps (specimens received), when it was completed.", 0, java.lang.Integer.MAX_VALUE, event));
         childrenList.add(new Property("item", "", "The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.", 0, java.lang.Integer.MAX_VALUE, item));
         childrenList.add(new Property("note", "Annotation", "Any other notes associated with this patient, specimen or order (e.g. \"patient hates needles\").", 0, java.lang.Integer.MAX_VALUE, note));
@@ -1881,7 +1717,6 @@ public class DiagnosticOrder extends DomainResource {
         case -1207109509: /*orderer*/ return this.orderer == null ? new Base[0] : new Base[] {this.orderer}; // Reference
         case -934964668: /*reason*/ return this.reason == null ? new Base[0] : this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
         case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
-        case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : this.specimen.toArray(new Base[this.specimen.size()]); // Reference
         case 96891546: /*event*/ return this.event == null ? new Base[0] : this.event.toArray(new Base[this.event.size()]); // DiagnosticOrderEventComponent
         case 3242771: /*item*/ return this.item == null ? new Base[0] : this.item.toArray(new Base[this.item.size()]); // DiagnosticOrderItemComponent
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
@@ -1917,9 +1752,6 @@ public class DiagnosticOrder extends DomainResource {
         case -1248768647: // supportingInformation
           this.getSupportingInformation().add(castToReference(value)); // Reference
           break;
-        case -2132868344: // specimen
-          this.getSpecimen().add(castToReference(value)); // Reference
-          break;
         case 96891546: // event
           this.getEvent().add((DiagnosticOrderEventComponent) value); // DiagnosticOrderEventComponent
           break;
@@ -1952,8 +1784,6 @@ public class DiagnosticOrder extends DomainResource {
           this.getReason().add(castToCodeableConcept(value));
         else if (name.equals("supportingInformation"))
           this.getSupportingInformation().add(castToReference(value));
-        else if (name.equals("specimen"))
-          this.getSpecimen().add(castToReference(value));
         else if (name.equals("event"))
           this.getEvent().add((DiagnosticOrderEventComponent) value);
         else if (name.equals("item"))
@@ -1975,7 +1805,6 @@ public class DiagnosticOrder extends DomainResource {
         case -1207109509:  return getOrderer(); // Reference
         case -934964668:  return addReason(); // CodeableConcept
         case -1248768647:  return addSupportingInformation(); // Reference
-        case -2132868344:  return addSpecimen(); // Reference
         case 96891546:  return addEvent(); // DiagnosticOrderEventComponent
         case 3242771:  return addItem(); // DiagnosticOrderItemComponent
         case 3387378:  return addNote(); // Annotation
@@ -2012,9 +1841,6 @@ public class DiagnosticOrder extends DomainResource {
         }
         else if (name.equals("supportingInformation")) {
           return addSupportingInformation();
-        }
-        else if (name.equals("specimen")) {
-          return addSpecimen();
         }
         else if (name.equals("event")) {
           return addEvent();
@@ -2057,11 +1883,6 @@ public class DiagnosticOrder extends DomainResource {
           for (Reference i : supportingInformation)
             dst.supportingInformation.add(i.copy());
         };
-        if (specimen != null) {
-          dst.specimen = new ArrayList<Reference>();
-          for (Reference i : specimen)
-            dst.specimen.add(i.copy());
-        };
         if (event != null) {
           dst.event = new ArrayList<DiagnosticOrderEventComponent>();
           for (DiagnosticOrderEventComponent i : event)
@@ -2094,8 +1915,8 @@ public class DiagnosticOrder extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(priority, o.priority, true)
            && compareDeep(subject, o.subject, true) && compareDeep(encounter, o.encounter, true) && compareDeep(orderer, o.orderer, true)
            && compareDeep(reason, o.reason, true) && compareDeep(supportingInformation, o.supportingInformation, true)
-           && compareDeep(specimen, o.specimen, true) && compareDeep(event, o.event, true) && compareDeep(item, o.item, true)
-           && compareDeep(note, o.note, true);
+           && compareDeep(event, o.event, true) && compareDeep(item, o.item, true) && compareDeep(note, o.note, true)
+          ;
       }
 
       @Override
@@ -2112,8 +1933,8 @@ public class DiagnosticOrder extends DomainResource {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
            && (priority == null || priority.isEmpty()) && (subject == null || subject.isEmpty()) && (encounter == null || encounter.isEmpty())
            && (orderer == null || orderer.isEmpty()) && (reason == null || reason.isEmpty()) && (supportingInformation == null || supportingInformation.isEmpty())
-           && (specimen == null || specimen.isEmpty()) && (event == null || event.isEmpty()) && (item == null || item.isEmpty())
-           && (note == null || note.isEmpty());
+           && (event == null || event.isEmpty()) && (item == null || item.isEmpty()) && (note == null || note.isEmpty())
+          ;
       }
 
   @Override
@@ -2390,32 +2211,6 @@ public class DiagnosticOrder extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam ITEM_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ITEM_DATE);
-
- /**
-   * Search parameter: <b>specimen</b>
-   * <p>
-   * Description: <b>If the whole order relates to specific specimens</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DiagnosticOrder.specimen, DiagnosticOrder.item.specimen</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="specimen", path="DiagnosticOrder.specimen | DiagnosticOrder.item.specimen", description="If the whole order relates to specific specimens", type="reference" )
-  public static final String SP_SPECIMEN = "specimen";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>specimen</b>
-   * <p>
-   * Description: <b>If the whole order relates to specific specimens</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DiagnosticOrder.specimen, DiagnosticOrder.item.specimen</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SPECIMEN = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SPECIMEN);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DiagnosticOrder:specimen</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SPECIMEN = new ca.uhn.fhir.model.api.Include("DiagnosticOrder:specimen").toLocked();
 
  /**
    * Search parameter: <b>event-status-date</b>

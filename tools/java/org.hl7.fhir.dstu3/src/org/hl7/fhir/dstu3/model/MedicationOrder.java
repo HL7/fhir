@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, May 20, 2016 07:25+1000 for FHIR v1.4.0
+// Generated on Sat, May 21, 2016 13:32+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -218,10 +218,10 @@ public class MedicationOrder extends DomainResource {
         protected List<CodeableConcept> additionalInstructions;
 
         /**
-         * The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
+         * The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
          */
         @Child(name = "timing", type = {Timing.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="When medication should be administered", formalDefinition="The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"." )
+        @Description(shortDefinition="When medication should be administered", formalDefinition="The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period." )
         protected Timing timing;
 
         /**
@@ -281,10 +281,10 @@ public class MedicationOrder extends DomainResource {
         protected SimpleQuantity maxDosePerLifetime;
 
         /**
-         * Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.
+         * Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
          */
         @Child(name = "rate", type = {Ratio.class, Range.class, SimpleQuantity.class}, order=12, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Amount of medication per unit of time", formalDefinition="Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours." )
+        @Description(shortDefinition="Amount of medication per unit of time", formalDefinition="Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period." )
         protected Type rate;
 
         private static final long serialVersionUID = 1105546987L;
@@ -386,7 +386,7 @@ public class MedicationOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #timing} (The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+         * @return {@link #timing} (The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.)
          */
         public Timing getTiming() { 
           if (this.timing == null)
@@ -402,7 +402,7 @@ public class MedicationOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #timing} (The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+         * @param value {@link #timing} (The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.)
          */
         public MedicationOrderDosageInstructionComponent setTiming(Timing value) { 
           this.timing = value;
@@ -665,14 +665,14 @@ public class MedicationOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
+         * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.)
          */
         public Type getRate() { 
           return this.rate;
         }
 
         /**
-         * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
+         * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.)
          */
         public Ratio getRateRatio() throws FHIRException { 
           if (!(this.rate instanceof Ratio))
@@ -685,7 +685,7 @@ public class MedicationOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
+         * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.)
          */
         public Range getRateRange() throws FHIRException { 
           if (!(this.rate instanceof Range))
@@ -698,7 +698,7 @@ public class MedicationOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
+         * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.)
          */
         public SimpleQuantity getRateSimpleQuantity() throws FHIRException { 
           if (!(this.rate instanceof SimpleQuantity))
@@ -715,7 +715,7 @@ public class MedicationOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
+         * @param value {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.)
          */
         public MedicationOrderDosageInstructionComponent setRate(Type value) { 
           this.rate = value;
@@ -726,7 +726,7 @@ public class MedicationOrder extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("text", "string", "Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("additionalInstructions", "CodeableConcept", "Additional instructions such as \"Swallow with plenty of water\" which may or may not be coded.", 0, java.lang.Integer.MAX_VALUE, additionalInstructions));
-          childrenList.add(new Property("timing", "Timing", "The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".", 0, java.lang.Integer.MAX_VALUE, timing));
+          childrenList.add(new Property("timing", "Timing", "The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.", 0, java.lang.Integer.MAX_VALUE, timing));
           childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).", 0, java.lang.Integer.MAX_VALUE, asNeeded));
           childrenList.add(new Property("site[x]", "CodeableConcept|Reference(BodySite)", "A coded specification of the anatomic site where the medication first enters the body.", 0, java.lang.Integer.MAX_VALUE, site));
           childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient's body.", 0, java.lang.Integer.MAX_VALUE, route));
@@ -735,7 +735,7 @@ public class MedicationOrder extends DomainResource {
           childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
           childrenList.add(new Property("maxDosePerAdministration", "SimpleQuantity", "The maximum total quantity of a therapeutic substance that may be administered to a subject per administration.", 0, java.lang.Integer.MAX_VALUE, maxDosePerAdministration));
           childrenList.add(new Property("maxDosePerLifetime", "SimpleQuantity", "The maximum total quantity of a therapeutic substance that may be administered per lifetime of the subject.", 0, java.lang.Integer.MAX_VALUE, maxDosePerLifetime));
-          childrenList.add(new Property("rate[x]", "Ratio|Range|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, java.lang.Integer.MAX_VALUE, rate));
+          childrenList.add(new Property("rate[x]", "Ratio|Range|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.", 0, java.lang.Integer.MAX_VALUE, rate));
         }
 
       @Override
@@ -1480,6 +1480,391 @@ public class MedicationOrder extends DomainResource {
 
   }
 
+    @Block()
+    public static class MedicationOrderEventHistoryComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The status for the event.
+         */
+        @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="active | on-hold | completed | entered-in-error | stopped | draft", formalDefinition="The status for the event." )
+        protected Enumeration<MedicationOrderStatus> status;
+
+        /**
+         * The action that was taken (e.g. verify, discontinue).
+         */
+        @Child(name = "action", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Action taken (e.g. verify, discontinue)", formalDefinition="The action that was taken (e.g. verify, discontinue)." )
+        protected CodeableConcept action;
+
+        /**
+         * The date/time at which the event occurred.
+         */
+        @Child(name = "dateTime", type = {DateTimeType.class}, order=3, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="The date at which the event happened", formalDefinition="The date/time at which the event occurred." )
+        protected DateTimeType dateTime;
+
+        /**
+         * The person responsible for taking the action.
+         */
+        @Child(name = "actor", type = {Practitioner.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Who took the action", formalDefinition="The person responsible for taking the action." )
+        protected Reference actor;
+
+        /**
+         * The actual object that is the target of the reference (The person responsible for taking the action.)
+         */
+        protected Practitioner actorTarget;
+
+        /**
+         * The reason why the action was taken.
+         */
+        @Child(name = "reason", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Reason the action was taken", formalDefinition="The reason why the action was taken." )
+        protected CodeableConcept reason;
+
+        private static final long serialVersionUID = -1282522846L;
+
+    /**
+     * Constructor
+     */
+      public MedicationOrderEventHistoryComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public MedicationOrderEventHistoryComponent(Enumeration<MedicationOrderStatus> status, DateTimeType dateTime) {
+        super();
+        this.status = status;
+        this.dateTime = dateTime;
+      }
+
+        /**
+         * @return {@link #status} (The status for the event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+         */
+        public Enumeration<MedicationOrderStatus> getStatusElement() { 
+          if (this.status == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationOrderEventHistoryComponent.status");
+            else if (Configuration.doAutoCreate())
+              this.status = new Enumeration<MedicationOrderStatus>(new MedicationOrderStatusEnumFactory()); // bb
+          return this.status;
+        }
+
+        public boolean hasStatusElement() { 
+          return this.status != null && !this.status.isEmpty();
+        }
+
+        public boolean hasStatus() { 
+          return this.status != null && !this.status.isEmpty();
+        }
+
+        /**
+         * @param value {@link #status} (The status for the event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+         */
+        public MedicationOrderEventHistoryComponent setStatusElement(Enumeration<MedicationOrderStatus> value) { 
+          this.status = value;
+          return this;
+        }
+
+        /**
+         * @return The status for the event.
+         */
+        public MedicationOrderStatus getStatus() { 
+          return this.status == null ? null : this.status.getValue();
+        }
+
+        /**
+         * @param value The status for the event.
+         */
+        public MedicationOrderEventHistoryComponent setStatus(MedicationOrderStatus value) { 
+            if (this.status == null)
+              this.status = new Enumeration<MedicationOrderStatus>(new MedicationOrderStatusEnumFactory());
+            this.status.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #action} (The action that was taken (e.g. verify, discontinue).)
+         */
+        public CodeableConcept getAction() { 
+          if (this.action == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationOrderEventHistoryComponent.action");
+            else if (Configuration.doAutoCreate())
+              this.action = new CodeableConcept(); // cc
+          return this.action;
+        }
+
+        public boolean hasAction() { 
+          return this.action != null && !this.action.isEmpty();
+        }
+
+        /**
+         * @param value {@link #action} (The action that was taken (e.g. verify, discontinue).)
+         */
+        public MedicationOrderEventHistoryComponent setAction(CodeableConcept value) { 
+          this.action = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #dateTime} (The date/time at which the event occurred.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
+         */
+        public DateTimeType getDateTimeElement() { 
+          if (this.dateTime == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationOrderEventHistoryComponent.dateTime");
+            else if (Configuration.doAutoCreate())
+              this.dateTime = new DateTimeType(); // bb
+          return this.dateTime;
+        }
+
+        public boolean hasDateTimeElement() { 
+          return this.dateTime != null && !this.dateTime.isEmpty();
+        }
+
+        public boolean hasDateTime() { 
+          return this.dateTime != null && !this.dateTime.isEmpty();
+        }
+
+        /**
+         * @param value {@link #dateTime} (The date/time at which the event occurred.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
+         */
+        public MedicationOrderEventHistoryComponent setDateTimeElement(DateTimeType value) { 
+          this.dateTime = value;
+          return this;
+        }
+
+        /**
+         * @return The date/time at which the event occurred.
+         */
+        public Date getDateTime() { 
+          return this.dateTime == null ? null : this.dateTime.getValue();
+        }
+
+        /**
+         * @param value The date/time at which the event occurred.
+         */
+        public MedicationOrderEventHistoryComponent setDateTime(Date value) { 
+            if (this.dateTime == null)
+              this.dateTime = new DateTimeType();
+            this.dateTime.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #actor} (The person responsible for taking the action.)
+         */
+        public Reference getActor() { 
+          if (this.actor == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationOrderEventHistoryComponent.actor");
+            else if (Configuration.doAutoCreate())
+              this.actor = new Reference(); // cc
+          return this.actor;
+        }
+
+        public boolean hasActor() { 
+          return this.actor != null && !this.actor.isEmpty();
+        }
+
+        /**
+         * @param value {@link #actor} (The person responsible for taking the action.)
+         */
+        public MedicationOrderEventHistoryComponent setActor(Reference value) { 
+          this.actor = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person responsible for taking the action.)
+         */
+        public Practitioner getActorTarget() { 
+          if (this.actorTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationOrderEventHistoryComponent.actor");
+            else if (Configuration.doAutoCreate())
+              this.actorTarget = new Practitioner(); // aa
+          return this.actorTarget;
+        }
+
+        /**
+         * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person responsible for taking the action.)
+         */
+        public MedicationOrderEventHistoryComponent setActorTarget(Practitioner value) { 
+          this.actorTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #reason} (The reason why the action was taken.)
+         */
+        public CodeableConcept getReason() { 
+          if (this.reason == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationOrderEventHistoryComponent.reason");
+            else if (Configuration.doAutoCreate())
+              this.reason = new CodeableConcept(); // cc
+          return this.reason;
+        }
+
+        public boolean hasReason() { 
+          return this.reason != null && !this.reason.isEmpty();
+        }
+
+        /**
+         * @param value {@link #reason} (The reason why the action was taken.)
+         */
+        public MedicationOrderEventHistoryComponent setReason(CodeableConcept value) { 
+          this.reason = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("status", "code", "The status for the event.", 0, java.lang.Integer.MAX_VALUE, status));
+          childrenList.add(new Property("action", "CodeableConcept", "The action that was taken (e.g. verify, discontinue).", 0, java.lang.Integer.MAX_VALUE, action));
+          childrenList.add(new Property("dateTime", "dateTime", "The date/time at which the event occurred.", 0, java.lang.Integer.MAX_VALUE, dateTime));
+          childrenList.add(new Property("actor", "Reference(Practitioner)", "The person responsible for taking the action.", 0, java.lang.Integer.MAX_VALUE, actor));
+          childrenList.add(new Property("reason", "CodeableConcept", "The reason why the action was taken.", 0, java.lang.Integer.MAX_VALUE, reason));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationOrderStatus>
+        case -1422950858: /*action*/ return this.action == null ? new Base[0] : new Base[] {this.action}; // CodeableConcept
+        case 1792749467: /*dateTime*/ return this.dateTime == null ? new Base[0] : new Base[] {this.dateTime}; // DateTimeType
+        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // CodeableConcept
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case -892481550: // status
+          this.status = new MedicationOrderStatusEnumFactory().fromType(value); // Enumeration<MedicationOrderStatus>
+          break;
+        case -1422950858: // action
+          this.action = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 1792749467: // dateTime
+          this.dateTime = castToDateTime(value); // DateTimeType
+          break;
+        case 92645877: // actor
+          this.actor = castToReference(value); // Reference
+          break;
+        case -934964668: // reason
+          this.reason = castToCodeableConcept(value); // CodeableConcept
+          break;
+        default: super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("status"))
+          this.status = new MedicationOrderStatusEnumFactory().fromType(value); // Enumeration<MedicationOrderStatus>
+        else if (name.equals("action"))
+          this.action = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("dateTime"))
+          this.dateTime = castToDateTime(value); // DateTimeType
+        else if (name.equals("actor"))
+          this.actor = castToReference(value); // Reference
+        else if (name.equals("reason"))
+          this.reason = castToCodeableConcept(value); // CodeableConcept
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<MedicationOrderStatus>
+        case -1422950858:  return getAction(); // CodeableConcept
+        case 1792749467: throw new FHIRException("Cannot make property dateTime as it is not a complex type"); // DateTimeType
+        case 92645877:  return getActor(); // Reference
+        case -934964668:  return getReason(); // CodeableConcept
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type MedicationOrder.status");
+        }
+        else if (name.equals("action")) {
+          this.action = new CodeableConcept();
+          return this.action;
+        }
+        else if (name.equals("dateTime")) {
+          throw new FHIRException("Cannot call addChild on a primitive type MedicationOrder.dateTime");
+        }
+        else if (name.equals("actor")) {
+          this.actor = new Reference();
+          return this.actor;
+        }
+        else if (name.equals("reason")) {
+          this.reason = new CodeableConcept();
+          return this.reason;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public MedicationOrderEventHistoryComponent copy() {
+        MedicationOrderEventHistoryComponent dst = new MedicationOrderEventHistoryComponent();
+        copyValues(dst);
+        dst.status = status == null ? null : status.copy();
+        dst.action = action == null ? null : action.copy();
+        dst.dateTime = dateTime == null ? null : dateTime.copy();
+        dst.actor = actor == null ? null : actor.copy();
+        dst.reason = reason == null ? null : reason.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MedicationOrderEventHistoryComponent))
+          return false;
+        MedicationOrderEventHistoryComponent o = (MedicationOrderEventHistoryComponent) other;
+        return compareDeep(status, o.status, true) && compareDeep(action, o.action, true) && compareDeep(dateTime, o.dateTime, true)
+           && compareDeep(actor, o.actor, true) && compareDeep(reason, o.reason, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MedicationOrderEventHistoryComponent))
+          return false;
+        MedicationOrderEventHistoryComponent o = (MedicationOrderEventHistoryComponent) other;
+        return compareValues(status, o.status, true) && compareValues(dateTime, o.dateTime, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (status == null || status.isEmpty()) && (action == null || action.isEmpty())
+           && (dateTime == null || dateTime.isEmpty()) && (actor == null || actor.isEmpty()) && (reason == null || reason.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "MedicationOrder.eventHistory";
+
+  }
+
+  }
+
     /**
      * External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records have to be tracked through an entire system.
      */
@@ -1526,21 +1911,21 @@ public class MedicationOrder extends DomainResource {
     protected Encounter encounterTarget;
 
     /**
-     * The date (and perhaps time) when the prescription was written.
+     * The date (and perhaps time) when the prescription was initially written.
      */
     @Child(name = "dateWritten", type = {DateTimeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="When prescription was authorized", formalDefinition="The date (and perhaps time) when the prescription was written." )
+    @Description(shortDefinition="When prescription was initially authorized", formalDefinition="The date (and perhaps time) when the prescription was initially written." )
     protected DateTimeType dateWritten;
 
     /**
-     * The healthcare professional responsible for authorizing the prescription.
+     * The healthcare professional responsible for authorizing the initial prescription.
      */
     @Child(name = "prescriber", type = {Practitioner.class}, order=6, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who ordered the medication(s)", formalDefinition="The healthcare professional responsible for authorizing the prescription." )
+    @Description(shortDefinition="Who ordered the initial medication(s)", formalDefinition="The healthcare professional responsible for authorizing the initial prescription." )
     protected Reference prescriber;
 
     /**
-     * The actual object that is the target of the reference (The healthcare professional responsible for authorizing the prescription.)
+     * The actual object that is the target of the reference (The healthcare professional responsible for authorizing the initial prescription.)
      */
     protected Practitioner prescriberTarget;
 
@@ -1564,51 +1949,37 @@ public class MedicationOrder extends DomainResource {
 
 
     /**
-     * The date (and perhaps time) when the prescription was stopped.
-     */
-    @Child(name = "dateEnded", type = {DateTimeType.class}, order=9, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="When prescription was stopped", formalDefinition="The date (and perhaps time) when the prescription was stopped." )
-    protected DateTimeType dateEnded;
-
-    /**
-     * The reason why the prescription was stopped, if it was.
-     */
-    @Child(name = "reasonEnded", type = {CodeableConcept.class}, order=10, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Why prescription was stopped", formalDefinition="The reason why the prescription was stopped, if it was." )
-    protected CodeableConcept reasonEnded;
-
-    /**
      * Extra information about the prescription that could not be conveyed by the other attributes.
      */
-    @Child(name = "note", type = {Annotation.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Information about the prescription", formalDefinition="Extra information about the prescription that could not be conveyed by the other attributes." )
     protected List<Annotation> note;
 
     /**
      * Indicates how the medication is to be used by the patient.
      */
-    @Child(name = "dosageInstruction", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "dosageInstruction", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="How medication should be taken", formalDefinition="Indicates how the medication is to be used by the patient." )
     protected List<MedicationOrderDosageInstructionComponent> dosageInstruction;
 
     /**
      * Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
      */
-    @Child(name = "dispenseRequest", type = {}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "dispenseRequest", type = {}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Medication supply authorization", formalDefinition="Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department." )
     protected MedicationOrderDispenseRequestComponent dispenseRequest;
 
     /**
      * Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.
      */
-    @Child(name = "substitution", type = {}, order=14, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "substitution", type = {}, order=12, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Any restrictions on medication substitution", formalDefinition="Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done." )
     protected MedicationOrderSubstitutionComponent substitution;
 
     /**
      * A link to a resource representing an earlier order or prescription that this order supersedes.
      */
-    @Child(name = "priorPrescription", type = {MedicationOrder.class}, order=15, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "priorPrescription", type = {MedicationOrder.class}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="An order/prescription that this supersedes", formalDefinition="A link to a resource representing an earlier order or prescription that this order supersedes." )
     protected Reference priorPrescription;
 
@@ -1617,7 +1988,14 @@ public class MedicationOrder extends DomainResource {
      */
     protected MedicationOrder priorPrescriptionTarget;
 
-    private static final long serialVersionUID = -1031457736L;
+    /**
+     * A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.
+     */
+    @Child(name = "eventHistory", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="A list of events of interest in the lifecycle", formalDefinition="A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed." )
+    protected List<MedicationOrderEventHistoryComponent> eventHistory;
+
+    private static final long serialVersionUID = -352434064L;
 
   /**
    * Constructor
@@ -1857,7 +2235,7 @@ public class MedicationOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #dateWritten} (The date (and perhaps time) when the prescription was written.). This is the underlying object with id, value and extensions. The accessor "getDateWritten" gives direct access to the value
+     * @return {@link #dateWritten} (The date (and perhaps time) when the prescription was initially written.). This is the underlying object with id, value and extensions. The accessor "getDateWritten" gives direct access to the value
      */
     public DateTimeType getDateWrittenElement() { 
       if (this.dateWritten == null)
@@ -1877,7 +2255,7 @@ public class MedicationOrder extends DomainResource {
     }
 
     /**
-     * @param value {@link #dateWritten} (The date (and perhaps time) when the prescription was written.). This is the underlying object with id, value and extensions. The accessor "getDateWritten" gives direct access to the value
+     * @param value {@link #dateWritten} (The date (and perhaps time) when the prescription was initially written.). This is the underlying object with id, value and extensions. The accessor "getDateWritten" gives direct access to the value
      */
     public MedicationOrder setDateWrittenElement(DateTimeType value) { 
       this.dateWritten = value;
@@ -1885,14 +2263,14 @@ public class MedicationOrder extends DomainResource {
     }
 
     /**
-     * @return The date (and perhaps time) when the prescription was written.
+     * @return The date (and perhaps time) when the prescription was initially written.
      */
     public Date getDateWritten() { 
       return this.dateWritten == null ? null : this.dateWritten.getValue();
     }
 
     /**
-     * @param value The date (and perhaps time) when the prescription was written.
+     * @param value The date (and perhaps time) when the prescription was initially written.
      */
     public MedicationOrder setDateWritten(Date value) { 
       if (value == null)
@@ -1906,7 +2284,7 @@ public class MedicationOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #prescriber} (The healthcare professional responsible for authorizing the prescription.)
+     * @return {@link #prescriber} (The healthcare professional responsible for authorizing the initial prescription.)
      */
     public Reference getPrescriber() { 
       if (this.prescriber == null)
@@ -1922,7 +2300,7 @@ public class MedicationOrder extends DomainResource {
     }
 
     /**
-     * @param value {@link #prescriber} (The healthcare professional responsible for authorizing the prescription.)
+     * @param value {@link #prescriber} (The healthcare professional responsible for authorizing the initial prescription.)
      */
     public MedicationOrder setPrescriber(Reference value) { 
       this.prescriber = value;
@@ -1930,7 +2308,7 @@ public class MedicationOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #prescriber} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The healthcare professional responsible for authorizing the prescription.)
+     * @return {@link #prescriber} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The healthcare professional responsible for authorizing the initial prescription.)
      */
     public Practitioner getPrescriberTarget() { 
       if (this.prescriberTarget == null)
@@ -1942,7 +2320,7 @@ public class MedicationOrder extends DomainResource {
     }
 
     /**
-     * @param value {@link #prescriber} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The healthcare professional responsible for authorizing the prescription.)
+     * @param value {@link #prescriber} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The healthcare professional responsible for authorizing the initial prescription.)
      */
     public MedicationOrder setPrescriberTarget(Practitioner value) { 
       this.prescriberTarget = value;
@@ -2048,79 +2426,6 @@ public class MedicationOrder extends DomainResource {
         this.reasonReferenceTarget = new ArrayList<Condition>();
       this.reasonReferenceTarget.add(r);
       return r;
-    }
-
-    /**
-     * @return {@link #dateEnded} (The date (and perhaps time) when the prescription was stopped.). This is the underlying object with id, value and extensions. The accessor "getDateEnded" gives direct access to the value
-     */
-    public DateTimeType getDateEndedElement() { 
-      if (this.dateEnded == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.dateEnded");
-        else if (Configuration.doAutoCreate())
-          this.dateEnded = new DateTimeType(); // bb
-      return this.dateEnded;
-    }
-
-    public boolean hasDateEndedElement() { 
-      return this.dateEnded != null && !this.dateEnded.isEmpty();
-    }
-
-    public boolean hasDateEnded() { 
-      return this.dateEnded != null && !this.dateEnded.isEmpty();
-    }
-
-    /**
-     * @param value {@link #dateEnded} (The date (and perhaps time) when the prescription was stopped.). This is the underlying object with id, value and extensions. The accessor "getDateEnded" gives direct access to the value
-     */
-    public MedicationOrder setDateEndedElement(DateTimeType value) { 
-      this.dateEnded = value;
-      return this;
-    }
-
-    /**
-     * @return The date (and perhaps time) when the prescription was stopped.
-     */
-    public Date getDateEnded() { 
-      return this.dateEnded == null ? null : this.dateEnded.getValue();
-    }
-
-    /**
-     * @param value The date (and perhaps time) when the prescription was stopped.
-     */
-    public MedicationOrder setDateEnded(Date value) { 
-      if (value == null)
-        this.dateEnded = null;
-      else {
-        if (this.dateEnded == null)
-          this.dateEnded = new DateTimeType();
-        this.dateEnded.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #reasonEnded} (The reason why the prescription was stopped, if it was.)
-     */
-    public CodeableConcept getReasonEnded() { 
-      if (this.reasonEnded == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.reasonEnded");
-        else if (Configuration.doAutoCreate())
-          this.reasonEnded = new CodeableConcept(); // cc
-      return this.reasonEnded;
-    }
-
-    public boolean hasReasonEnded() { 
-      return this.reasonEnded != null && !this.reasonEnded.isEmpty();
-    }
-
-    /**
-     * @param value {@link #reasonEnded} (The reason why the prescription was stopped, if it was.)
-     */
-    public MedicationOrder setReasonEnded(CodeableConcept value) { 
-      this.reasonEnded = value;
-      return this;
     }
 
     /**
@@ -2295,6 +2600,46 @@ public class MedicationOrder extends DomainResource {
       return this;
     }
 
+    /**
+     * @return {@link #eventHistory} (A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.)
+     */
+    public List<MedicationOrderEventHistoryComponent> getEventHistory() { 
+      if (this.eventHistory == null)
+        this.eventHistory = new ArrayList<MedicationOrderEventHistoryComponent>();
+      return this.eventHistory;
+    }
+
+    public boolean hasEventHistory() { 
+      if (this.eventHistory == null)
+        return false;
+      for (MedicationOrderEventHistoryComponent item : this.eventHistory)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #eventHistory} (A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.)
+     */
+    // syntactic sugar
+    public MedicationOrderEventHistoryComponent addEventHistory() { //3
+      MedicationOrderEventHistoryComponent t = new MedicationOrderEventHistoryComponent();
+      if (this.eventHistory == null)
+        this.eventHistory = new ArrayList<MedicationOrderEventHistoryComponent>();
+      this.eventHistory.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public MedicationOrder addEventHistory(MedicationOrderEventHistoryComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.eventHistory == null)
+        this.eventHistory = new ArrayList<MedicationOrderEventHistoryComponent>();
+      this.eventHistory.add(t);
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records have to be tracked through an entire system.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -2302,17 +2647,16 @@ public class MedicationOrder extends DomainResource {
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("patient", "Reference(Patient)", "A link to a resource representing the person to whom the medication will be given.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "A link to a resource that identifies the particular occurrence of contact between patient and health care provider.", 0, java.lang.Integer.MAX_VALUE, encounter));
-        childrenList.add(new Property("dateWritten", "dateTime", "The date (and perhaps time) when the prescription was written.", 0, java.lang.Integer.MAX_VALUE, dateWritten));
-        childrenList.add(new Property("prescriber", "Reference(Practitioner)", "The healthcare professional responsible for authorizing the prescription.", 0, java.lang.Integer.MAX_VALUE, prescriber));
+        childrenList.add(new Property("dateWritten", "dateTime", "The date (and perhaps time) when the prescription was initially written.", 0, java.lang.Integer.MAX_VALUE, dateWritten));
+        childrenList.add(new Property("prescriber", "Reference(Practitioner)", "The healthcare professional responsible for authorizing the initial prescription.", 0, java.lang.Integer.MAX_VALUE, prescriber));
         childrenList.add(new Property("reasonCode", "CodeableConcept", "Can be the reason or the indication for writing the prescription.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         childrenList.add(new Property("reasonReference", "Reference(Condition)", "Condition that supports why the prescription is being written.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
-        childrenList.add(new Property("dateEnded", "dateTime", "The date (and perhaps time) when the prescription was stopped.", 0, java.lang.Integer.MAX_VALUE, dateEnded));
-        childrenList.add(new Property("reasonEnded", "CodeableConcept", "The reason why the prescription was stopped, if it was.", 0, java.lang.Integer.MAX_VALUE, reasonEnded));
         childrenList.add(new Property("note", "Annotation", "Extra information about the prescription that could not be conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("dosageInstruction", "", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
         childrenList.add(new Property("dispenseRequest", "", "Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.", 0, java.lang.Integer.MAX_VALUE, dispenseRequest));
         childrenList.add(new Property("substitution", "", "Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.", 0, java.lang.Integer.MAX_VALUE, substitution));
         childrenList.add(new Property("priorPrescription", "Reference(MedicationOrder)", "A link to a resource representing an earlier order or prescription that this order supersedes.", 0, java.lang.Integer.MAX_VALUE, priorPrescription));
+        childrenList.add(new Property("eventHistory", "", "A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.", 0, java.lang.Integer.MAX_VALUE, eventHistory));
       }
 
       @Override
@@ -2327,13 +2671,12 @@ public class MedicationOrder extends DomainResource {
         case 1430631077: /*prescriber*/ return this.prescriber == null ? new Base[0] : new Base[] {this.prescriber}; // Reference
         case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
-        case -273053780: /*dateEnded*/ return this.dateEnded == null ? new Base[0] : new Base[] {this.dateEnded}; // DateTimeType
-        case 913248982: /*reasonEnded*/ return this.reasonEnded == null ? new Base[0] : new Base[] {this.reasonEnded}; // CodeableConcept
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case -1201373865: /*dosageInstruction*/ return this.dosageInstruction == null ? new Base[0] : this.dosageInstruction.toArray(new Base[this.dosageInstruction.size()]); // MedicationOrderDosageInstructionComponent
         case 824620658: /*dispenseRequest*/ return this.dispenseRequest == null ? new Base[0] : new Base[] {this.dispenseRequest}; // MedicationOrderDispenseRequestComponent
         case 826147581: /*substitution*/ return this.substitution == null ? new Base[0] : new Base[] {this.substitution}; // MedicationOrderSubstitutionComponent
         case -486355964: /*priorPrescription*/ return this.priorPrescription == null ? new Base[0] : new Base[] {this.priorPrescription}; // Reference
+        case 1835190426: /*eventHistory*/ return this.eventHistory == null ? new Base[0] : this.eventHistory.toArray(new Base[this.eventHistory.size()]); // MedicationOrderEventHistoryComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2369,12 +2712,6 @@ public class MedicationOrder extends DomainResource {
         case -1146218137: // reasonReference
           this.getReasonReference().add(castToReference(value)); // Reference
           break;
-        case -273053780: // dateEnded
-          this.dateEnded = castToDateTime(value); // DateTimeType
-          break;
-        case 913248982: // reasonEnded
-          this.reasonEnded = castToCodeableConcept(value); // CodeableConcept
-          break;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
           break;
@@ -2389,6 +2726,9 @@ public class MedicationOrder extends DomainResource {
           break;
         case -486355964: // priorPrescription
           this.priorPrescription = castToReference(value); // Reference
+          break;
+        case 1835190426: // eventHistory
+          this.getEventHistory().add((MedicationOrderEventHistoryComponent) value); // MedicationOrderEventHistoryComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -2415,10 +2755,6 @@ public class MedicationOrder extends DomainResource {
           this.getReasonCode().add(castToCodeableConcept(value));
         else if (name.equals("reasonReference"))
           this.getReasonReference().add(castToReference(value));
-        else if (name.equals("dateEnded"))
-          this.dateEnded = castToDateTime(value); // DateTimeType
-        else if (name.equals("reasonEnded"))
-          this.reasonEnded = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("note"))
           this.getNote().add(castToAnnotation(value));
         else if (name.equals("dosageInstruction"))
@@ -2429,6 +2765,8 @@ public class MedicationOrder extends DomainResource {
           this.substitution = (MedicationOrderSubstitutionComponent) value; // MedicationOrderSubstitutionComponent
         else if (name.equals("priorPrescription"))
           this.priorPrescription = castToReference(value); // Reference
+        else if (name.equals("eventHistory"))
+          this.getEventHistory().add((MedicationOrderEventHistoryComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -2445,13 +2783,12 @@ public class MedicationOrder extends DomainResource {
         case 1430631077:  return getPrescriber(); // Reference
         case 722137681:  return addReasonCode(); // CodeableConcept
         case -1146218137:  return addReasonReference(); // Reference
-        case -273053780: throw new FHIRException("Cannot make property dateEnded as it is not a complex type"); // DateTimeType
-        case 913248982:  return getReasonEnded(); // CodeableConcept
         case 3387378:  return addNote(); // Annotation
         case -1201373865:  return addDosageInstruction(); // MedicationOrderDosageInstructionComponent
         case 824620658:  return getDispenseRequest(); // MedicationOrderDispenseRequestComponent
         case 826147581:  return getSubstitution(); // MedicationOrderSubstitutionComponent
         case -486355964:  return getPriorPrescription(); // Reference
+        case 1835190426:  return addEventHistory(); // MedicationOrderEventHistoryComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -2494,13 +2831,6 @@ public class MedicationOrder extends DomainResource {
         else if (name.equals("reasonReference")) {
           return addReasonReference();
         }
-        else if (name.equals("dateEnded")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationOrder.dateEnded");
-        }
-        else if (name.equals("reasonEnded")) {
-          this.reasonEnded = new CodeableConcept();
-          return this.reasonEnded;
-        }
         else if (name.equals("note")) {
           return addNote();
         }
@@ -2518,6 +2848,9 @@ public class MedicationOrder extends DomainResource {
         else if (name.equals("priorPrescription")) {
           this.priorPrescription = new Reference();
           return this.priorPrescription;
+        }
+        else if (name.equals("eventHistory")) {
+          return addEventHistory();
         }
         else
           return super.addChild(name);
@@ -2552,8 +2885,6 @@ public class MedicationOrder extends DomainResource {
           for (Reference i : reasonReference)
             dst.reasonReference.add(i.copy());
         };
-        dst.dateEnded = dateEnded == null ? null : dateEnded.copy();
-        dst.reasonEnded = reasonEnded == null ? null : reasonEnded.copy();
         if (note != null) {
           dst.note = new ArrayList<Annotation>();
           for (Annotation i : note)
@@ -2567,6 +2898,11 @@ public class MedicationOrder extends DomainResource {
         dst.dispenseRequest = dispenseRequest == null ? null : dispenseRequest.copy();
         dst.substitution = substitution == null ? null : substitution.copy();
         dst.priorPrescription = priorPrescription == null ? null : priorPrescription.copy();
+        if (eventHistory != null) {
+          dst.eventHistory = new ArrayList<MedicationOrderEventHistoryComponent>();
+          for (MedicationOrderEventHistoryComponent i : eventHistory)
+            dst.eventHistory.add(i.copy());
+        };
         return dst;
       }
 
@@ -2584,9 +2920,9 @@ public class MedicationOrder extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(medication, o.medication, true)
            && compareDeep(patient, o.patient, true) && compareDeep(encounter, o.encounter, true) && compareDeep(dateWritten, o.dateWritten, true)
            && compareDeep(prescriber, o.prescriber, true) && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
-           && compareDeep(dateEnded, o.dateEnded, true) && compareDeep(reasonEnded, o.reasonEnded, true) && compareDeep(note, o.note, true)
-           && compareDeep(dosageInstruction, o.dosageInstruction, true) && compareDeep(dispenseRequest, o.dispenseRequest, true)
-           && compareDeep(substitution, o.substitution, true) && compareDeep(priorPrescription, o.priorPrescription, true)
+           && compareDeep(note, o.note, true) && compareDeep(dosageInstruction, o.dosageInstruction, true)
+           && compareDeep(dispenseRequest, o.dispenseRequest, true) && compareDeep(substitution, o.substitution, true)
+           && compareDeep(priorPrescription, o.priorPrescription, true) && compareDeep(eventHistory, o.eventHistory, true)
           ;
       }
 
@@ -2597,8 +2933,7 @@ public class MedicationOrder extends DomainResource {
         if (!(other instanceof MedicationOrder))
           return false;
         MedicationOrder o = (MedicationOrder) other;
-        return compareValues(status, o.status, true) && compareValues(dateWritten, o.dateWritten, true) && compareValues(dateEnded, o.dateEnded, true)
-          ;
+        return compareValues(status, o.status, true) && compareValues(dateWritten, o.dateWritten, true);
       }
 
       public boolean isEmpty() {
@@ -2606,10 +2941,10 @@ public class MedicationOrder extends DomainResource {
            && (medication == null || medication.isEmpty()) && (patient == null || patient.isEmpty())
            && (encounter == null || encounter.isEmpty()) && (dateWritten == null || dateWritten.isEmpty())
            && (prescriber == null || prescriber.isEmpty()) && (reasonCode == null || reasonCode.isEmpty())
-           && (reasonReference == null || reasonReference.isEmpty()) && (dateEnded == null || dateEnded.isEmpty())
-           && (reasonEnded == null || reasonEnded.isEmpty()) && (note == null || note.isEmpty()) && (dosageInstruction == null || dosageInstruction.isEmpty())
-           && (dispenseRequest == null || dispenseRequest.isEmpty()) && (substitution == null || substitution.isEmpty())
-           && (priorPrescription == null || priorPrescription.isEmpty());
+           && (reasonReference == null || reasonReference.isEmpty()) && (note == null || note.isEmpty())
+           && (dosageInstruction == null || dosageInstruction.isEmpty()) && (dispenseRequest == null || dispenseRequest.isEmpty())
+           && (substitution == null || substitution.isEmpty()) && (priorPrescription == null || priorPrescription.isEmpty())
+           && (eventHistory == null || eventHistory.isEmpty());
       }
 
   @Override
@@ -2712,17 +3047,17 @@ public class MedicationOrder extends DomainResource {
  /**
    * Search parameter: <b>prescriber</b>
    * <p>
-   * Description: <b>Who ordered the medication(s)</b><br>
+   * Description: <b>Who ordered the initial medication(s)</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>MedicationOrder.prescriber</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="prescriber", path="MedicationOrder.prescriber", description="Who ordered the medication(s)", type="reference" )
+  @SearchParamDefinition(name="prescriber", path="MedicationOrder.prescriber", description="Who ordered the initial medication(s)", type="reference" )
   public static final String SP_PRESCRIBER = "prescriber";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>prescriber</b>
    * <p>
-   * Description: <b>Who ordered the medication(s)</b><br>
+   * Description: <b>Who ordered the initial medication(s)</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>MedicationOrder.prescriber</b><br>
    * </p>

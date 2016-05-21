@@ -261,8 +261,8 @@ public class ProfileGenerator {
       xst = "xsd:" + xst;
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, xst);
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_RDF_TYPE, xst.replace("anyURI", "string"));
-    if (!Utilities.noString(type.getRegEx())) {
-      ToolingExtensions.addStringExtension(t, ToolingExtensions.EXT_REGEX, type.getRegEx());
+    if (!Utilities.noString(type.getRegex())) {
+      ToolingExtensions.addStringExtension(t, ToolingExtensions.EXT_REGEX, type.getRegex());
     }
     addSpecificDetails(type, ec);
 
@@ -306,8 +306,8 @@ public class ProfileGenerator {
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, xst);
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_RDF_TYPE, xst.replace("anyURI", "string"));
-    if (!Utilities.noString(type.getRegEx()))
-      ToolingExtensions.addStringExtension(t, ToolingExtensions.EXT_REGEX, type.getRegEx());
+    if (!Utilities.noString(type.getRegex()))
+      ToolingExtensions.addStringExtension(t, ToolingExtensions.EXT_REGEX, type.getRegex());
     addSpecificDetails(type, ec3);
     generateElementDefinition(ec3, ec);
 

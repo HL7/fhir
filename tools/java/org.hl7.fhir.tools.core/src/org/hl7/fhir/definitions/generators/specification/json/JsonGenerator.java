@@ -39,8 +39,11 @@ import java.util.Set;
 
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
+import org.hl7.fhir.definitions.model.DefinedCode;
+import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
@@ -54,10 +57,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 
 public class JsonGenerator  {
 
-  private OutputStreamWriter writer;
 	private Definitions definitions;
 	private List<ElementDefn> structures = new ArrayList<ElementDefn>();
 	private Map<ElementDefn, String> types = new HashMap<ElementDefn, String>();
@@ -67,105 +70,40 @@ public class JsonGenerator  {
 	private Map<String, String> enumDefs = new HashMap<String, String>();
   private BuildWorkerContext workerContext;
 
-	public JsonGenerator(OutputStreamWriter out, Definitions definitions, BuildWorkerContext workerContext) throws UnsupportedEncodingException {
-    writer = out;
+	public JsonGenerator(Definitions definitions, BuildWorkerContext workerContext, List<TypeRef> types) throws UnsupportedEncodingException {
 		this.definitions = definitions;
 		this.workerContext = workerContext;
+    datatypes.addAll(types);
 	}
-
-  private void write(String s) throws IOException {
-//    writer.write(s);
-  }
   
-	public void setDataTypes(List<TypeRef> types) throws Exception {
-		datatypes.addAll(types);
-	}
-
-	public void generate(ElementDefn root, String version, String genDate, boolean outer) throws Exception {
+	public JsonObject generate(ElementDefn root, String version, String genDate, JsonObject mainSchema) throws Exception {
 		enums.clear();
 		enumDefs.clear();
 
-		JsonObject schema = new JsonObject();
-    schema.addProperty("$schema", "http://json-schema.org/draft-04/schema#");
-    schema.addProperty("id", "http://hl7.org/fhir/json-schema/"+root.getName());
-    schema.addProperty("$ref", "#/definitions/"+root.getName());
-    schema.addProperty("description", "see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas");
-    JsonObject definitions = new JsonObject();
-    schema.add("definitions", definitions);
+		JsonObject schema = mainSchema;
+    JsonObject definitions;
+		if (schema == null) {
+		  schema = new JsonObject();
+		  schema.addProperty("$schema", "http://json-schema.org/draft-04/schema#");
+		  schema.addProperty("id", "http://hl7.org/fhir/json-schema/"+root.getName());
+		  schema.addProperty("$ref", "#/definitions/"+root.getName());
+		  schema.addProperty("description", "see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas");
+      definitions = new JsonObject();
+		  schema.add("definitions", definitions);
+		} else 
+		  definitions = schema.getAsJsonObject("definitions");
     
 		scanTypes(root, root);
 		
-		generateType(root, root.getName(), root, true, definitions);
-
+		generateType(root, root.getName(), root, true, definitions, mainSchema != null);
 		for (ElementDefn e : structures) {
-			generateType(root, types.get(e), e, false, definitions);
+			generateType(root, types.get(e), e, false, definitions, mainSchema != null);
 		}
 
-//		for (String en : enums.keySet()) {
-//			generateEnum(en);
-//		}
-		if (outer) {
-		  Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		  String json = gson.toJson(schema);
-	    writer.write(json);
-		  writer.flush();
-		} 
+		return schema;
 	}
 
-	private void generateEnum(String en) throws IOException {
-		write("  <xs:simpleType name=\""+en+"-list\">\r\n");
-		write("    <xs:restriction base=\"xs:string\">\r\n");
-		ValueSet vs = enums.get(en);
-		ValueSet ex = workerContext.expandVS(vs, true).getValueset();
-      for (ValueSetExpansionContainsComponent cc : ex.getExpansion().getContains()) {
-        genIncludedCode(cc);
-      }
-		
-		write("    </xs:restriction>\r\n");
-		write("  </xs:simpleType>\r\n");
-
-		write("  <xs:complexType name=\""+en+"\">\r\n");
-		write("    <xs:annotation>\r\n");
-		write("      <xs:documentation xml:lang=\"en\">"+Utilities.escapeXml(enumDefs.get(en))+"</xs:documentation>\r\n");
-		write("      <xs:documentation xml:lang=\"en\">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>\r\n");
-		write("    </xs:annotation>\r\n");
-		write("    <xs:complexContent>\r\n");
-		write("      <xs:extension base=\"Element\">\r\n");
-		write("        <xs:attribute name=\"value\" type=\""+en + "-list\" use=\"optional\"/>\r\n");
-		write("      </xs:extension>\r\n");
-		write("    </xs:complexContent>\r\n");
-		write("  </xs:complexType>\r\n");
-	}
-
-	private void genIncludedCode(ValueSetExpansionContainsComponent cc) throws IOException {
-	  write("      <xs:enumeration value=\"" + Utilities.escapeXml(cc.getCode()) + "\">\r\n");
-	  write("        <xs:annotation>\r\n");
-	  write("          <xs:documentation xml:lang=\"en\">" + Utilities.escapeXml(cc.getDisplay()) + "</xs:documentation>\r\n"); // todo: do we need to look the definition up?
-	  CodeSystem cs = workerContext.fetchCodeSystem(cc.getSystem());
-	  if (cs != null && cc.hasCode()) {
-	    ConceptDefinitionComponent c = getCodeDefinition(cc.getCode(), cs.getConcept());
-	    for (ConceptDefinitionDesignationComponent l : c.getDesignation())
-	      if (l.hasLanguage())
-	        write("          <xs:documentation xml:lang=\""+l.getLanguage()+"\">"+Utilities.escapeXml(l.getValue())+"</xs:documentation>\r\n");
-	  }
-	  write("        </xs:annotation>\r\n");
-	  write("      </xs:enumeration>\r\n");
-	}
-
-
-  private ConceptDefinitionComponent getCodeDefinition(String code, List<ConceptDefinitionComponent> list) {
-    for (ConceptDefinitionComponent cc : list) {
-      if (code.equals(cc.getCode())) {
-        return cc;
-      }
-      ConceptDefinitionComponent t = getCodeDefinition(code, cc.getConcept());
-      if (t != null)
-        return t;
-    }
-    return null;
-  }
-
-  private void generateType(ElementDefn root, String name, ElementDefn struc, boolean isResource, JsonObject base) throws IOException, Exception {
+  private JsonObject generateType(ElementDefn root, String name, ElementDefn struc, boolean isResource, JsonObject base, boolean relative) throws IOException, Exception {
     String parent = isResource ? root.typeCode() : "BackboneElement"; 
 
     JsonObject r = new JsonObject();
@@ -174,138 +112,180 @@ public class JsonGenerator  {
     r.add("allOf", ao);
     JsonObject sup = new JsonObject();
     ao.add(sup);
-    sup.addProperty("$ref", parent+"/definitions/"+parent);
+    sup.addProperty("$ref", (relative ? "#" : parent+".schema.json") +"/definitions/"+parent);
     JsonObject self = new JsonObject();
     ao.add(self);
     self.addProperty("description", root.getDefinition());
     Set<String> required = new HashSet<String>();
     JsonObject props = new JsonObject();
     self.add("properties", props);
+
+    if (isResource && definitions.hasResource(root.getName())) {
+      JsonObject rt = new JsonObject();
+      props.add("resourceType", rt);
+      rt.addProperty("description", "This is a "+root.getName()+" resource");
+      rt.addProperty("type", "string");
+      JsonArray enums = new JsonArray();
+      enums.add(new JsonPrimitive(root.getName()));
+      rt.add("enum", enums);
+      required.add("resourceType");
+    }
     
 		for (ElementDefn e : struc.getElements()) {
 			if (e.getName().equals("[type]"))
-				generateAny(root, e, required, props);
+				generateAny(root, e, "", props, relative);
 			else 
-				generateElement(root, e, required, props);
+				generateElement(root, e, required, props, relative);
 		}
-//		write("        </xs:sequence>\r\n");
-//		write("      </xs:extension>\r\n");
-//		write("    </xs:complexContent>\r\n");
-//		write("  </xs:complexType>\r\n");
+		if (required.size() > 0) {
+		  JsonArray req = new JsonArray();
+		  self.add("required", req);
+		  for (String s : required) {
+		    req.add(new JsonPrimitive(s));
+		  }
+		}
+		return props;
 	}
 
-	private void generateAny(ElementDefn root, ElementDefn e, Set<String> required, JsonObject props) throws Exception {
-	  JsonObject property = new JsonObject();
-    props.add(e.getName(), property);
-	  property.addProperty("type", "[any]");
+	private void generateAny(ElementDefn root, ElementDefn e, String prefix, JsonObject props, boolean relative) throws Exception {
 		for (TypeRef t : datatypes) {
-//			if (t.isResourceReference()) {
-//				write("           <xs:element name=\"Resource\" type=\"Reference\""+close+"\r\n");				
-//			} else {
-//				write("           <xs:element name=\""+t.getName()+"\" type=\""+t.getName()+"\""+close+"\r\n");				
-//			}
-//	    if (forCodeGeneration) {
-//        write("            <xs:annotation>\r\n");
-//	      if (e.hasDefinition()) {
-//	        write("              <xs:documentation xml:lang=\"en\">"+Utilities.escapeXml(e.getDefinition())+" (choose any one of the elements, but only one)</xs:documentation>\r\n");
-//	      } else {
-//          write("              <xs:documentation xml:lang=\"en\">(choose any one of the elements, but only one)</xs:documentation>\r\n");	        
-//	      }
-//        write("            </xs:annotation>\r\n");
-//        write("           </xs:element>\r\n");       
-//	    }
+      JsonObject property = new JsonObject();
+      JsonObject property_ = null;
+      String en = e.getName().replace("[x]",  "");
+      props.add(en+upFirst(t.getName()), property);
+      property.addProperty("description", e.getDefinition());
+      String tref = null;
+      String type = null;
+      String pattern = null;
+      if (definitions.getPrimitives().containsKey(t.getName())) {
+        DefinedCode def = definitions.getPrimitives().get(t.getName());
+        type = def.getJsonType();
+        pattern = def.getRegex();
+        if (!Utilities.noString(pattern))
+          property.addProperty("pattern", pattern);
+        property.addProperty("type", type);
+        property_ = new JsonObject();
+        props.add(en+upFirst(t.getName())+"_", property_);
+        property_.addProperty("description", "Extensions for "+en+upFirst(t.getName()));
+        tref = (relative ? "#" : "Element.schema.json") +"/definitions/Element";
+        property_.addProperty("$ref", tref);
+      } else {
+        String tn = encodeType(e, t, true);
+        tref = (relative ? "#" : tn+".schema.json") +"/definitions/"+tn;
+        property.addProperty("$ref", tref);
+      }
 		}
 	}
 
 
-	private void generateAny(ElementDefn root, ElementDefn e, String prefix, String close) throws Exception {
-		for (TypeRef t : definitions.getKnownTypes()) {
-			if (!definitions.getInfrastructure().containsKey(t.getName()) && !definitions.getConstraints().containsKey(t.getName())) {
-			  String en = prefix != null ? prefix + upFirst(t.getName()) : t.getName();
-			  //write("       <xs:element name=\""+t.getName()+"\" type=\""+t.getName()+"\"/>\r\n");        
-  	    write("            <xs:element name=\""+en+"\" type=\""+t.getName()+"\""+close+"\r\n");
-//        if (forCodeGeneration) {
-//          write("              <xs:annotation>\r\n");
-//          if (e.hasDefinition()) {
-//            write("                <xs:documentation xml:lang=\"en\">"+Utilities.escapeXml(e.getDefinition())+" (choose any one of "+prefix+"*, but only one)</xs:documentation>\r\n");
-//          } else {
-//            write("                <xs:documentation xml:lang=\"en\">(choose any one of "+prefix+"*, but only one)</xs:documentation>\r\n");         
-//          }
-//          write("              </xs:annotation>\r\n");
-//          write("             </xs:element>\r\n");       
-//        }
-			}
-		}
-	}
 
-	private void generateElement(ElementDefn root, ElementDefn e, Set<String> required, JsonObject props) throws Exception {
+	private void generateElement(ElementDefn root, ElementDefn e, Set<String> required, JsonObject props, boolean relative) throws Exception {
 		if (e.getTypes().size() > 1 || (e.getTypes().size() == 1 && e.getTypes().get(0).isWildcardType())) {
-//			if (!e.getName().contains("[x]"))
-//				throw new Exception("Element "+e.getName()+" in "+root.getName()+" has multiple types as a choice doesn't have a [x] in the element name");
-//	    String close = " minOccurs=\"0\">";
-//	    if (!forCodeGeneration) {
-//	      write("<xs:choice minOccurs=\""+e.getMinCardinality().toString()+"\" maxOccurs=\""+(e.unbounded() ? "unbounded" : "1")+"\" ");
-//	      write(">\r\n");
-//	      if (e.hasDefinition()) {
-//	        write("            <xs:annotation>\r\n");
-//	        write("              <xs:documentation xml:lang=\"en\">"+Utilities.escapeXml(e.getDefinition())+"</xs:documentation>\r\n");
-//	        write("            </xs:annotation>\r\n");
-//	      }
-//	      close = "/>";
-//	    }
-//			if (e.getTypes().size() == 1)
-//				generateAny(root, e, e.getName().replace("[x]", ""), close);
-//			else
-//				for (TypeRef t : e.getTypes()) {
-//					String tn = encodeType(e, t, true);
-//					String n = e.getName().replace("[x]", nameForType(tn));
-//					if (t.getName().equals("Reference"))
-// 	          n = e.getName().replace("[x]", "Reference");
-//  			  write("            <xs:element name=\""+n+"\" type=\""+encodeType(e, t, true)+"\""+close+"\r\n");
-//          if (forCodeGeneration) {
-//            write("              <xs:annotation>\r\n");
-//            if (e.hasDefinition()) {
-//              write("                <xs:documentation xml:lang=\"en\">"+Utilities.escapeXml(e.getDefinition())+" (choose any one of "+e.getName().replace("[x]", "")+"*, but only one)</xs:documentation>\r\n");
-//            } else {
-//              write("                <xs:documentation xml:lang=\"en\">(choose any one of "+e.getName().replace("[x]", "")+"*, but only one)</xs:documentation>\r\n");         
-//            }
-//            write("              </xs:annotation>\r\n");
-//            write("             </xs:element>\r\n");       
-//          }
-//				}
-//	    if (!forCodeGeneration) {
-//  			write("          </xs:choice>\r\n");
-//	    }
+			if (!e.getName().contains("[x]"))
+				throw new Exception("Element "+e.getName()+" in "+root.getName()+" has multiple types as a choice doesn't have a [x] in the element name");
+			if (e.getTypes().size() == 1)
+				generateAny(root, e, e.getName().replace("[x]", ""), props, relative);
+			else {
+				for (TypeRef t : e.getTypes()) {
+	        JsonObject property = new JsonObject();
+	        JsonObject property_ = null;
+	        String en = e.getName().replace("[x]",  "");
+	        props.add(en+upFirst(t.getName()), property);
+	        property.addProperty("description", e.getDefinition());
+	        String tref = null;
+	        String type = null;
+	        String pattern = null;
+	        if (definitions.getPrimitives().containsKey(t.getName())) {
+	          DefinedCode def = definitions.getPrimitives().get(t.getName());
+	          type = def.getJsonType();
+	          pattern = def.getRegex();
+            if (!Utilities.noString(pattern))
+              property.addProperty("pattern", pattern);
+            property.addProperty("type", type);
+	          property_ = new JsonObject();
+	          props.add(en+upFirst(t.getName())+"_", property_);
+	          property_.addProperty("description", "Extensions for "+en+upFirst(t.getName()));
+	          tref = (relative ? "#" : "Element.schema.json") +"/definitions/Element";
+            property_.addProperty("$ref", tref);
+	        } else {
+	          String tn = encodeType(e, t, true);
+	          tref = (relative ? "#" : tn+".schema.json") +"/definitions/"+tn;
+            property.addProperty("$ref", tref);
+	        }
+	      }
+			}
 		} else {
-	    JsonObject property = new JsonObject();
+      JsonObject property = new JsonObject();
+      JsonObject property_ = null;
 	    props.add(e.getName(), property);
 	    property.addProperty("description", e.getDefinition());
-      String tref;
+      String tref = null;
+      String type = null;
+      String pattern = null;
 
-			if ("extension".equals(e.getName())) {
-				tref = "Extension.schema.json/definitions/Extension";
-			} else if (e.usesCompositeType()/* && types.containsKey(root.getElementByName(e.typeCode().substring(1)))*/) {
+			if (e.usesCompositeType()/* && types.containsKey(root.getElementByName(e.typeCode().substring(1)))*/) {
 				ElementDefn ref = root.getElementByName(definitions, e.typeCode().substring(1), true, false);
 				String rtn = types.get(ref);
 				if (rtn == null)
 				  throw new Exception("logic error in schema generator (null composite reference in "+types.toString()+")");
-				tref = "#definitions/"+rtn;
+				tref = "#/definitions/"+rtn;
 			} else if (e.getTypes().size() == 0 && e.getElements().size() > 0){
-			  tref = "#definitions/"+types.get(e);
+			  tref = "#/definitions/"+types.get(e);
 			}	else if (e.getTypes().size() == 1) {
-        String tn = encodeType(e, e.getTypes().get(0), true);
-        tref = tn+".schema.json/definitions/"+tn;
+			  if (definitions.getPrimitives().containsKey(e.typeCode())) {
+			    DefinedCode def = definitions.getPrimitives().get(e.typeCode());
+			    type = def.getJsonType();
+   	      pattern = def.getRegex();
+		      property_ = new JsonObject();
+		      props.add(e.getName()+"_", property_);
+		      property_.addProperty("description", "Extensions for "+e.getName());
+			    tref = (relative ? "#" : "Element.schema.json") +"/definitions/Element";
+			    if (e.getBinding() != null) {
+			      ValueSet vs = enums.get(e.getBinding().getName());
+			      if (vs!= null) {
+			        ValueSet ex = workerContext.expandVS(vs, true).getValueset();
+			        JsonArray enums = new JsonArray();
+			        for (ValueSetExpansionContainsComponent cc : ex.getExpansion().getContains()) {
+			          enums.add(new JsonPrimitive(cc.getCode()));
+			        }
+			        property.add("enum", enums);
+			        pattern = null;
+			      }
+			    } 
+			  } else {
+	        String tn = encodeType(e, e.getTypes().get(0), true);
+          tref = (relative ? "#" : tn+".schema.json") +"/definitions/"+tn;
+			  }
 			} else
 				throw new Exception("how do we get here? "+e.getName()+" in "+root.getName()+" "+Integer.toString(e.getTypes().size()));
 
       if (e.unbounded()) {
         property.addProperty("type", "array");
-        JsonObject items = new JsonObject();
-        property.add("items", items);
-        items.addProperty("$ref", tref);
-      } else
+        if (property_ != null) {
+          JsonObject items = new JsonObject();
+          property.add("items", items);
+          items.addProperty("type", type);
+          if (!Utilities.noString(pattern))
+            items.addProperty("pattern", pattern);
+          items = new JsonObject();
+          property_.add("items", items);
+          items.addProperty("$ref", tref);
+        } else { 
+          JsonObject items = new JsonObject();
+          property.add("items", items);
+          items.addProperty("$ref", tref);
+        }
+      } else {
+        if (property_ != null) {
+          property.addProperty("type", type);
+          if (!Utilities.noString(pattern))
+            property.addProperty("pattern", pattern);
+          property_.addProperty("$ref", tref);
+        } else
         property.addProperty("$ref", tref);
-			
+      }
+			if (e.getMinCardinality() > 0 && property_ == null)
+			  required.add(e.getName());
 		}
 	}
 
@@ -366,9 +346,6 @@ public class JsonGenerator  {
 			return type.getName()+"_"+upFirst(type.getParams().get(0));
 	}
 
-  public OutputStreamWriter getWriter() {
-    return writer;
-  }
 	
 	
 }

@@ -1,0 +1,20 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/administration-method-codes",
+  "outcomes": [
+    {
+      "hash": "#|http://snomed.info/sct|null|320276009|Salmeterol+fluticasone 25/250ug inhaler",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|322236009|Paracetamol 500mg tablet",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|323493005|Injected floxacillin",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    }
+  ]
+}

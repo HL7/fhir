@@ -37,6 +37,7 @@ public class DefinedStringPattern extends DefinedCode {
 
   private String jsonType;
   
+  @Override
   public String getRegex() {
     return regex;
   }
@@ -53,6 +54,7 @@ public class DefinedStringPattern extends DefinedCode {
     this.schema = schema;
   }
 
+  @Override
   public String getJsonType() {
     return jsonType;
   }

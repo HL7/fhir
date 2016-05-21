@@ -7,14 +7,17 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
+import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.metamodel.Element;
 import org.hl7.fhir.dstu3.metamodel.Manager;
 import org.hl7.fhir.dstu3.metamodel.Manager.FhirFormat;
+import org.hl7.fhir.dstu3.metamodel.TurtleParser;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
@@ -24,24 +27,39 @@ import junit.framework.Assert;
 
 public class ParserTests {
 
-	private String root = "C:\\work\\org.hl7.fhir.2016May\\build\\publish";
+	private String root = "C:\\work\\org.hl7.fhir\\build\\publish";
 
 	@Test
-	public void testSpecific() throws Exception {
-		String examples = Utilities.path(root, "examples");
-		String fn = "organization-example-f002-burgers-card(f002).xml";
-		testRoundTrip(Utilities.path(examples, fn), fn);	  
+	public void testBundleTurtle() throws Exception {
+    if (TestingUtilities.context == null) {
+      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
+      ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://local.healthintersections.com.au:960/open");
+    }
+    org.hl7.fhir.dstu3.metamodel.XmlParser xp = new org.hl7.fhir.dstu3.metamodel.XmlParser(TestingUtilities.context);
+    Element e = xp.parse(new FileInputStream(Utilities.path(root, "bundle-example.xml")));
+    TurtleParser tp = new TurtleParser(TestingUtilities.context);
+    tp.compose(e, new FileOutputStream(Utilities.path(root, "bundle-example.ttl")), OutputStyle.PRETTY, "http://hl7.org/fhir");
+    tp = new TurtleParser(TestingUtilities.context);
+    e = tp.parse(new FileInputStream(Utilities.path(root, "bundle-example.ttl")));
+    xp = new org.hl7.fhir.dstu3.metamodel.XmlParser(TestingUtilities.context);
+    xp.compose(e, new FileOutputStream(Utilities.path(root, "bundle-example-1.xml")), OutputStyle.PRETTY, null); //"http://hl7.org/fhir");
 	}
-
-	@Test
-	public void testAll() throws Exception {
-		String examples = Utilities.path(root, "examples");
-		for (String fn : new File(examples).list()) {
-			if (fn.endsWith(".xml")) {
-				testRoundTrip(Utilities.path(examples, fn), fn);
-			}
-		}
-	}
+//	@Test
+//	public void testSpecific() throws Exception {
+//		String examples = Utilities.path(root, "examples");
+//		String fn = "organization-example-f002-burgers-card(f002).xml";
+//		testRoundTrip(Utilities.path(examples, fn), fn);	  
+//	}
+//
+//	@Test
+//	public void testAll() throws Exception {
+//		String examples = Utilities.path(root, "examples");
+//		for (String fn : new File(examples).list()) {
+//			if (fn.endsWith(".xml")) {
+//				testRoundTrip(Utilities.path(examples, fn), fn);
+//			}
+//		}
+//	}
 
 	@SuppressWarnings("deprecation")
 	private void testRoundTrip(String filename, String name) throws Exception {

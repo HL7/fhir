@@ -60,17 +60,19 @@ public class PrimitiveType extends DefinedCode {
     
   }
 
+  @Override
   public String getJsonType() {
     return jsonType;
   }
 
   
-  public void setRegEx(String value)
+  public void setRegex(String value)
   {
 	regEx = value;  
   }
 
-  public String getRegEx()
+  @Override
+  public String getRegex()
   {
 	  return regEx;
   }

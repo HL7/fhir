@@ -12,6 +12,11 @@
       "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
     },
     {
+      "hash": "#|http://hl7.org/fhir/v3/ActReason|null|PHY|Physician request",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|10001005|Bacterial sepsis",
       "severity": null,
       "message": null,
