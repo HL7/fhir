@@ -465,15 +465,16 @@
 
  -- Row 24 -----------------------------------
   Element = Observation.referenceRange.meaning
-  Card. = 0..1
+  Card. = 0..*
   Type = CodeableConcept
   Binding = ObservationRangeMeaning
-  Short Label = Indicates the meaning/use of this range of this range
-  Definition = Code for the meaning of the reference range
-  Requirements = Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, or perhaps what state this reference range applies to (i.e. age, hormonal cycles, etc.)
-  Comments = This SHOULD be populated if there is more than one range
+  Short Label = Reference range qualifier
+  Definition = Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex, race, therapeutic status, or endocrine or reproductive status.
+  Requirements = Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc  - for proper interpretation.
+  Comments = This SHOULD be populated if there is more than one range.  If this element is not present then the norma population is assumed.
   v2 Mapping = OBX-10?
   RIM Mapping = interpretationCode
+  Committee Notes = [$8941]
 
  -- Row 25 -----------------------------------
   Element = Observation.referenceRange.age
@@ -1009,51 +1010,41 @@
   Filename = observation-example-genetics-5.xml
 
  -- Row 26 -----------------------------------
-  Name = 5 minute Apgar panel
-  Identity = apgar-panel
-  Description = Example of a 5 minute Apgar panel listing 5 components and the score.
-  Filename = observation-example-apgar-panel.xml
+  Name = 1 minute Apgar Score
+  Identity = 1minute-apgar-score
+  Description = Example of a 1 minute Apgar score including the individual score components
+  Filename = observation-example-1minute-apgar-score.xml
 
  -- Row 27 -----------------------------------
-  Name = 5 minute Apgar Color
-  Identity = color
-  Description = 5 minute Apgar Color category score
-  Filename = observation-example-color.xml
+  Name = 2 minute Apgar Score
+  Identity = 2minute-apgar-score
+  Description = Example of a 2 minute Apgar score including the individual score components
+  Filename = observation-example-2minute-apgar-score.xml
 
  -- Row 28 -----------------------------------
-  Name = 5 minute Apgar Heart rate
-  Identity = heart-rate
-  Description = 5 minute Apgar Heart rate category score
-  Filename = observation-example-heart-rate.xml
+  Name = 5 minute Apgar Score
+  Identity = 5minute-apgar-score
+  Description = Example of a 5 minute Apgar score including the individual score components
+  Filename = observation-example-5minute-apgar-score.xml
 
  -- Row 29 -----------------------------------
-  Name = 5 minute Apgar Reflex irritability
-  Identity = reflex-irritability
-  Description = 5 minute Apgar Reflex irritability category score
-  Filename = observation-example-reflex-irritability.xml
+  Name = 10 minute Apgar Score
+  Identity = 10minute-apgar-score
+  Description = Example of a 10 minute Apgar score including the individual score components
+  Filename = observation-example-10minute-apgar-score.xml
 
  -- Row 30 -----------------------------------
-  Name = 5 minute Apgar Muscle tone
-  Identity = muscle-tone
-  Description = 5 minute Apgar Muscle tone category score
-  Filename = observation-example-muscle-tone.xml
+  Name = 20 minute Apgar Score
+  Identity = 20minute-apgar-score
+  Description = Example of a 20 minute Apgar score including the individual score components
+  Filename = observation-example-20minute-apgar-score.xml
 
  -- Row 31 -----------------------------------
-  Name = 5 minute Apgar Respiratory effort
-  Identity = respiratory-effort
-  Description = 5 minute Apgar Respiratory effort category score
-  Filename = observation-example-respiratory-effort.xml
-
- -- Row 32 -----------------------------------
-  Name = 5 minute Apgar Score
-  Identity = apgar-score
-  Description = 5 minute Apgar overall score
-  Filename = observation-example-apgar-score.xml
-
- -- Row 33 -----------------------------------
   Name = Eye Color
   Identity = eye-color
   Description = Example of a very simple personal characteristic observation
   Filename = observation-example-eye-color.xml
+
+ -- Row 32 -----------------------------------
 
 === Sheet Examples =====================================

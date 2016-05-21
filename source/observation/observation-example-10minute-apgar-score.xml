@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+	<id value="10minute-apgar-score"/>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="survey"/>
+			<display value="Survey"/>
+		</coding>
+		<text value="Survey"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="9271-8"/>
+			<display value="10 minute Apgar Score"/>
+		</coding>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="169922007"/>
+			<display value="Apgar at 10 minutes"/>
+		</coding>
+		<text value="10 minute Apgar Score"/>
+	</code>
+	<subject>
+		<reference value="Patient/infant"/>
+	</subject>
+	<effectiveDateTime value="2016-05-18T22:33:22Z"/>
+	<valueQuantity>
+		<value value="10"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="{score}"/>
+	</valueQuantity>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="32411-1"/>
+				<display value="10 minute Apgar Color"/>
+			</coding>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="249227004"/>
+				<display value="Apgar color score"/>
+			</coding>
+			<text value="Apgar color score"/>
+		</code>
+		<valueCodeableConcept>
+			<coding>
+				<!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
+				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
+					<valueDecimal value="2"/>
+				</extension>
+				<system value="http://loinc.org/la"/>
+				<code value="LA6724-4"/>
+				<display value="Good color all over"/>
+			</coding>
+			<coding>
+				<system value="http:/acme.ped/apgarcolor"/>
+				<code value="2"/>
+			</coding>
+			<text value="2. Good color all over"/>
+		</valueCodeableConcept>
+	</component>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="32412-9"/>
+				<display value="10 minute Apgar Heart Rate"/>
+			</coding>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="249223000"/>
+				<display value="Apgar heart rate score"/>
+			</coding>
+			<text value="Apgar respiratory effort score"/>
+		</code>
+		<valueCodeableConcept>
+			<coding>
+				<!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
+				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
+					<valueDecimal value="2"/>
+				</extension>
+				<system value="http://loinc.org/la"/>
+				<code value="LA6718-6"/>
+				<display value="At least 100 beats per minute"/>
+			</coding>
+			<coding>
+				<system value="http:/acme.ped/apgarheartrate"/>
+				<code value="2"/>
+			</coding>
+			<text value="2. At least 100 beats per minute"/>
+		</valueCodeableConcept>
+	</component>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="32414-5"/>
+				<display value="10 minute Apgar Reflex Irritability"/>
+			</coding>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="249226008"/>
+				<display value="Apgar response to stimulus score"/>
+			</coding>
+			<text value="Apgar response to stimulus score"/>
+		</code>
+		<valueCodeableConcept>
+			<coding>
+				<!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
+				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
+					<valueDecimal value="2"/>
+				</extension>
+				<system value="http://loinc.org/la"/>
+				<code value="LA6721-0"/>
+				<display value="Grimace and pulling away, cough, or sneeze during suctioning"/>
+			</coding>
+			<coding>
+				<system value="http:/acme.ped/apgarreflexirritability"/>
+				<code value="2"/>
+			</coding>
+			<text value="2. Grimace and pulling away, cough, or sneeze during suctioning"/>
+		</valueCodeableConcept>
+	</component>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="32413-7"/>
+				<display value="10 minute Apgar Muscle Tone"/>
+			</coding>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="249225007"/>
+				<display value="Apgar muscle tone score"/>
+			</coding>
+			<text value="Apgar muscle tone score"/>
+		</code>
+		<valueCodeableConcept>
+			<coding>
+				<!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
+				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
+					<valueDecimal value="2"/>
+				</extension>
+				<system value="http://loinc.org/la"/>
+				<code value="LA6715-2"/>
+				<display value="Active motion "/>
+			</coding>
+			<coding>
+				<system value="http:/acme.ped/apgarmuscletone"/>
+				<code value="2"/>
+			</coding>
+			<text value="2. Active motion"/>
+		</valueCodeableConcept>
+	</component>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="32415-2"/>
+				<display value="10 minute Apgar Respiratory effort"/>
+			</coding>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="249224006"/>
+				<display value="Apgar respiratory effort score"/>
+			</coding>
+			<text value="Apgar respiratory effort score"/>
+		</code>
+		<valueCodeableConcept>
+			<coding>
+				<!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
+				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
+					<valueDecimal value="2"/>
+				</extension>
+				<system value="http://loinc.org/la"/>
+				<code value="LA6727-7"/>
+				<display value="Good, strong cry; normal rate and effort of breathing    "/>
+			</coding>
+			<coding>
+				<system value="http:/acme.ped/apgarrespiratoryeffort"/>
+				<code value="2"/>
+			</coding>
+			<text value="2. Good, strong cry; normal rate and effort of breathing"/>
+		</valueCodeableConcept>
+	</component>
+</Observation>

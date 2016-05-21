@@ -8,19 +8,19 @@
   <Author>Grahame</Author>
   <LastAuthor>Microsoft Office User</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-05-20T00:57:23Z</LastSaved>
+  <LastSaved>2016-05-21T16:23:34Z</LastSaved>
   <Version>15.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>15860</WindowHeight>
+  <WindowHeight>15940</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>460</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -963,6 +963,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>
  </Worksheet>
@@ -2140,7 +2141,7 @@
     <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.referenceRange.meaning</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data><NamedCell
@@ -2154,13 +2155,13 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates the meaning/use of this range of this range</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference range qualifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Code for the meaning of the reference range</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex, race, therapeutic status, or endocrine or reproductive status.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, or perhaps what state this reference range applies to (i.e. age, hormonal cycles, etc.)</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc  - for proper interpretation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">This SHOULD be populated if there is more than one range</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">This SHOULD be populated if there is more than one range.  If this element is not present then the norma population is assumed. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">interpretationCode</Data><NamedCell
@@ -2173,7 +2174,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">[$8941]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.referenceRange.age</Data><NamedCell
@@ -4667,9 +4669,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>15</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>16</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4677,7 +4679,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4685,8 +4686,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>17</ActiveCol>
+     <ActiveRow>25</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5525,7 +5526,6 @@
    </Print>
    <Zoom>110</Zoom>
    <PageLayoutZoom>0</PageLayoutZoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6192,6 +6192,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R2C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -6710,7 +6711,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="34" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="33" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s154" ss:DefaultColumnWidth="260"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s154" ss:AutoFitWidth="0" ss:Width="143"/>
@@ -6976,52 +6977,38 @@
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">5 minute Apgar panel</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Example of a 5 minute Apgar panel listing 5 components and the score.</Data></Cell>
-    <Cell><Data ss:Type="String">apgar-panel</Data></Cell>
-    <Cell><Data ss:Type="String">observation-example-apgar-panel.xml</Data></Cell>
+    <Cell><Data ss:Type="String">1 minute Apgar Score</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of a 1 minute Apgar score including the individual score components</Data></Cell>
+    <Cell><Data ss:Type="String">1minute-apgar-score</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-1minute-apgar-score.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">5 minute Apgar Color</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">5 minute Apgar Color category score</Data></Cell>
-    <Cell><Data ss:Type="String">color</Data></Cell>
-    <Cell><Data ss:Type="String">observation-example-color.xml</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">5 minute Apgar Heart rate</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">5 minute Apgar Heart rate category score</Data></Cell>
-    <Cell><Data ss:Type="String">heart-rate</Data></Cell>
-    <Cell><Data ss:Type="String">observation-example-heart-rate.xml</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">5 minute Apgar Reflex irritability</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">5 minute Apgar Reflex irritability category score</Data></Cell>
-    <Cell><Data ss:Type="String">reflex-irritability</Data></Cell>
-    <Cell><Data ss:Type="String">observation-example-reflex-irritability.xml</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">5 minute Apgar Muscle tone</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">5 minute Apgar Muscle tone category score</Data></Cell>
-    <Cell><Data ss:Type="String">muscle-tone</Data></Cell>
-    <Cell><Data ss:Type="String">observation-example-muscle-tone.xml</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">5 minute Apgar Respiratory effort</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">5 minute Apgar Respiratory effort category score</Data></Cell>
-    <Cell><Data ss:Type="String">respiratory-effort</Data></Cell>
-    <Cell><Data ss:Type="String">observation-example-respiratory-effort.xml</Data></Cell>
+    <Cell><Data ss:Type="String">2 minute Apgar Score</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of a 2 minute Apgar score including the individual score components</Data></Cell>
+    <Cell><Data ss:Type="String">2minute-apgar-score</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-2minute-apgar-score.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">5 minute Apgar Score</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">5 minute Apgar overall score</Data></Cell>
-    <Cell><Data ss:Type="String">apgar-score</Data></Cell>
-    <Cell><Data ss:Type="String">observation-example-apgar-score.xml</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of a 5 minute Apgar score including the individual score components</Data></Cell>
+    <Cell><Data ss:Type="String">5minute-apgar-score</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-5minute-apgar-score.xml</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">10 minute Apgar Score</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of a 10 minute Apgar score including the individual score components</Data></Cell>
+    <Cell><Data ss:Type="String">10minute-apgar-score</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-10minute-apgar-score.xml</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">20 minute Apgar Score</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of a 20 minute Apgar score including the individual score components</Data></Cell>
+    <Cell><Data ss:Type="String">20minute-apgar-score</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-20minute-apgar-score.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -7029,6 +7016,9 @@
     <Cell ss:Index="3"><Data ss:Type="String">Example of a very simple personal characteristic observation</Data></Cell>
     <Cell><Data ss:Type="String">eye-color</Data></Cell>
     <Cell><Data ss:Type="String">observation-example-eye-color.xml</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
   </Table>
@@ -7046,10 +7036,11 @@
    </Print>
    <Zoom>125</Zoom>
    <PageLayoutZoom>0</PageLayoutZoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7067,8 +7058,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>26</ActiveRow>
+     <RangeSelection>R27C3:R31C3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7596,8 +7587,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8885,6 +8876,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -9511,6 +9503,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
@@ -10152,6 +10145,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
