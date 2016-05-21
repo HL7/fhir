@@ -104,7 +104,6 @@ public class ValidationEngine {
   private Map<String, byte[]> definitions = new HashMap<String, byte[]>();
   private List<ValidationMessage> outputs;  
   private OperationOutcome outcome;
-	private boolean noSchematron;
 	private StructureDefinition profile;
 	private Questionnaire questionnaire;
 	private String profileURI;
@@ -188,16 +187,6 @@ public class ValidationEngine {
     DocumentBuilder builder = factory.newDocumentBuilder();
     builder.setErrorHandler(new ValidationErrorHandler(outputs, "XML Source"));
       doc = builder.parse(new ByteArrayInputStream(source));
-
-    if (!noSchematron) {
-    	// 2. schematron validation
-			if (schCache == null) {
-    	String sch = "fhir-invariants.sch";
-			  schCache = Utilities.saxonTransform(definitions, definitions.get(sch), definitions.get("iso_svrl_for_xslt2.xsl"));
-			}
-			byte[] out = Utilities.saxonTransform(definitions, source, schCache);
-    	processSchematronOutput(out);
-    }
 
 		// 3. internal validation. reparse without schema to "help", and use a special parser that keeps location data for us
     factory = DocumentBuilderFactory.newInstance();
@@ -359,14 +348,6 @@ public class ValidationEngine {
   public void setSource(byte[] source) {
     this.source = source;
   }
-
-	public boolean isNoSchematron() {
-		return noSchematron;
-	}
-
-	public void setNoSchematron(boolean noSchematron) {
-		this.noSchematron = noSchematron;
-	}
 
   public StructureDefinition getProfile() {
     return profile;

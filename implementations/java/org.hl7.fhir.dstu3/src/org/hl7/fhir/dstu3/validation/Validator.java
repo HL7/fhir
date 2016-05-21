@@ -60,8 +60,10 @@ public class Validator {
       System.out.println("The FHIR validation tool validates a FHIR resource or bundle.");
       System.out.println("The validation tool compares a resource against the base definitions and whatever");
       System.out.println("profiles are declared in the resource or specificed on the command line");
-      System.out.println("For XML: Schema and schematron checking is also performed");
-      System.out.println("RDF/Json-LD are not supported at this time");
+      System.out.println("");
+      System.out.println("The following resource formats are supported: XML, JSON, Turtle");
+      System.out.println("");
+      System.out.println("In addition, schema is also checked (W3C XML Schema | JSON schema | ShEx)");
       System.out.println("");
       System.out.println("Usage: org.hl7.fhir.validator.jar [source] (-defn [definitions]) (-folder [name]) (-profile [profile]) (-questionnaire [questionnaire]) (-output [output]) (-tsserver [server]) where: ");
       System.out.println("* [source] is a file name or url of the resource or bundle feed to validate");
@@ -131,8 +133,6 @@ public class Validator {
             exe.setTsServer(args[i+1]);
           if (args[i].equals("-folder"))
             exe.addFolder(args[i+1]);
-          if (args[i].equals("-noxslt"))
-          	exe.engine.setNoSchematron(true);
         }
         exe.process();
         if (output == null) {
