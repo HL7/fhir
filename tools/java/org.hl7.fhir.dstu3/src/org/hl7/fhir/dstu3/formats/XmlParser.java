@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sat, May 21, 2016 13:32+1000 for FHIR v1.4.0
+// Generated on Sun, May 22, 2016 06:42+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -3422,6 +3422,8 @@ public class XmlParser extends XmlParserBase {
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
         res.setCodeElement(parseCode(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("uri")) {
+        res.setUriElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
@@ -18794,6 +18796,9 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElements(element);
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
+      }
+      if (element.hasUriElement()) {
+        composeUri("uri", element.getUriElement());
       }
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());

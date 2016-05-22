@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="concept-properties"/>
+  <url value="http://hl7.org/fhir/concept-properties"/>
+  <name value="FHIR Defined Concept Properties"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project"/>
+  <description value="A set of common concept properties for use on coded systems through out the FHIR eco-system."/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/concept-properties"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="inactive"/>
+    <display value="Inactive"/>
+    <definition value="True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false"/>
+  </concept>
+  <concept>
+    <code value="deprecated"/>
+    <display value="Deprecated"/>
+    <definition value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged, and they should be expected to be made inactive in a future release. Property type is dateTime"/>
+  </concept>
+  <concept>
+    <code value="notSelectable"/>
+    <display value="Not Selectable"/>
+    <definition value="The concept is not intended to be chosen by the user. Note, though, that the interpretation of this is highly contextual; all concepts are selectable in some context. Property type is boolean, default value is false"/>
+  </concept>
+</CodeSystem>

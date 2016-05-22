@@ -161,7 +161,7 @@ public class ICPC2Importer {
     List<Element> children = new ArrayList<Element>(); 
     XMLUtil.getNamedChildren(cls, "SubClass", children);
     if (children.size() > 0)
-      CodeSystemUtilities.setAbstract(define, concept);
+      CodeSystemUtilities.setNotSelectable(define, concept);
     
     Element parent = XMLUtil.getNamedChild(cls, "SuperClass");
     if (parent == null) {

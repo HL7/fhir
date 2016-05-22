@@ -39,8 +39,10 @@
 
  -- Row 6 -----------------------------------
   Binding Name = MedicationAdministrationMethod
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/administration-method-codes
   Definition = A coded concept describing the technique by which the medicine is administered.
+  Conformance = example
 
  -- Row 7 -----------------------------------
   Binding Name = MedicationCode
@@ -48,6 +50,16 @@
   Reference = http://hl7.org/fhir/ValueSet/medication-codes
   Definition = Codes identifying substance or product that can be administered.
   Conformance = example
+
+ -- Row 8 -----------------------------------
+  Binding Name = MedicationAdministrationAction
+  Binding = unbound
+  Definition = A coded concept describing an action taken on a medication administration.
+
+ -- Row 9 -----------------------------------
+  Binding Name = MedicationAdminstrationActionReason
+  Binding = unbound
+  Definition = A coded concept describing the reason for an action taken on a medication administration.
 
 === Sheet medication-admin-status =====================================
 
@@ -314,14 +326,59 @@
   RIM Mapping = doseQuantity
 
  -- Row 21 -----------------------------------
-  Element = MedicationAdministration.dosage.rate
+  Element = MedicationAdministration.dosage.rate[x]
   Card. = 0..1
-  Type = Ratio
+  Type = Ratio| SimpleQuantity
   Short Label = Dose quantity per unit of time
-  Definition = Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Currently we do not specify a default of \'1\' in the denominator, but this is being discussed.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.
+  Definition = Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.
   Comments = If the rate changes over time, and you want to capture this in MedicationAdministration, then each change should be captured as a distinct MedicationAdministration, with a specific MedicationAdministration.dosage.rate, and the date time when the rate change occurred. Typically, the MedicationAdministration.dosage.rate element is not used to convey an average rate.
   v2 Mapping = RXA-12-Administered Per (Time Unit)
   RIM Mapping = rateQuantity
+
+ -- Row 22 -----------------------------------
+  Element = MedicationAdministration.eventHistory
+  Card. = 0..*
+  Short Label = A list of events of interest in the lifecycle
+  Definition = A summary of the events of interest that have occurred, such as when the administration was verified.
+  Comments = This is not the same as an audit trail. It is a view of the important things that happened in the past. Typically, there would only be one entry for any given status, and systems may not record all the status events
+
+ -- Row 23 -----------------------------------
+  Element = MedicationAdministration.eventHistory.status
+  Card. = 1..1
+  Type = code
+  Binding = MedicationAdministrationStatus
+  Short Label = in-progress | on-hold | completed | entered-in-error | stopped
+  Definition = The status for the event
+
+ -- Row 24 -----------------------------------
+  Element = MedicationAdministration.eventHistory.action
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationAdministrationAction
+  Short Label = Action taken (e.g. verify)
+  Definition = The action that was taken (e.g. verify)
+
+ -- Row 25 -----------------------------------
+  Element = MedicationAdministration.eventHistory.dateTime
+  Card. = 1..1
+  Type = dateTime
+  Short Label = The date at which the event happened
+  Definition = The date/time at which the event occurred
+
+ -- Row 26 -----------------------------------
+  Element = MedicationAdministration.eventHistory.actor
+  Card. = 0..1
+  Type = Reference(Practitioner)
+  Short Label = Who took the action
+  Definition = The person responsible for taking the action
+
+ -- Row 27 -----------------------------------
+  Element = MedicationAdministration.eventHistory.reason
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationAdminstrationActionReason
+  Short Label = Reason the action was taken
+  Definition = The reason why the action was taken
 
 === Sheet Search =====================================
 

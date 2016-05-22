@@ -257,7 +257,6 @@
   Short Label = Use and/or publishing restrictions
   Definition = A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element
   Comments = The copyright statement does not apply to values for the data element, only to its definition
-  Object Impl = BaseConformance.copyright
   RIM Mapping = ./inboundRelationship[typeCode=SUBJ]/source[classCode=CONTRACT,moodCode=EVN].text
 
  -- Row 15 -----------------------------------

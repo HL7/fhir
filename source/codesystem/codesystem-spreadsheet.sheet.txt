@@ -376,10 +376,18 @@
   Summary = y
   Type = code
   Binding = !
-  Short Label = Identifies the property, both internally and externally
+  Short Label = Identifies the property on the concepts, and when referred to in operations
   Definition = A code that is used to identify the property. The code is used internally (in CodeSystem.concept.property.code) and also externally, such as in property filters
 
  -- Row 30 -----------------------------------
+  Element = CodeSystem.property.uri
+  Card. = 0..1
+  Summary = y
+  Type = uri
+  Short Label = Formal identifier for the property
+  Definition = Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system
+
+ -- Row 31 -----------------------------------
   Element = CodeSystem.property.description
   Card. = 0..1
   Summary = y
@@ -387,16 +395,16 @@
   Short Label = Why the property is defined, and/or what it conveys
   Definition = A description of the property- why it is defined, and how it\'s value might be used
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = CodeSystem.property.type
   Card. = 1..1
   Summary = y
   Type = code
   Binding = PropertyType
   Short Label = code | Coding | string | integer | boolean | dateTime
-  Definition = The type of the property value
+  Definition = The type of the property value. Properties of type \"code\" contain a code defined by the code system (e.g. a reference to anotherr defined concept)
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = CodeSystem.concept
   Card. = 0..*
   UML = -190;140
@@ -405,7 +413,7 @@
   Definition = Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are
   Comments = If this is empty, it means that the code system resource does not represent the content of the code system
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = CodeSystem.concept.code
   Card. = 1..1
   Type = code
@@ -413,21 +421,21 @@
   Short Label = Code that identifies concept
   Definition = A code - a text symbol - that uniquely identifies the concept within the code system
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = CodeSystem.concept.display
   Card. = 0..1
   Type = string
   Short Label = Text to display to the user
   Definition = A human readable string that is the recommended default way to present this concept to a user
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = CodeSystem.concept.definition
   Card. = 0..1
   Type = string
   Short Label = Formal definition
   Definition = The formal definition of the concept. The code system resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = CodeSystem.concept.designation
   Card. = 0..*
   UML = -190;280
@@ -435,7 +443,7 @@
   Definition = Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.
   Requirements = Many concept definition systems support multiple representations, in multiple languages, and for multiple purposes
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = CodeSystem.concept.designation.language
   Card. = 0..1
   Type = code
@@ -444,7 +452,7 @@
   Definition = The language this designation is defined for
   Comments = In the absence of a language, the resource language applies
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = CodeSystem.concept.designation.use
   Card. = 0..1
   Type = Coding
@@ -453,20 +461,20 @@
   Definition = A code that details how this designation would be used
   Comments = If no use is provided, the designation can be assumed to be suitable for general display to a human user
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = CodeSystem.concept.designation.value
   Card. = 1..1
   Type = string
   Short Label = The text value for this designation
   Definition = The text value for this designation
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = CodeSystem.concept.property
   Card. = 0..*
   Short Label = Property value for the concept
   Definition = A property value for this concept
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = CodeSystem.concept.property.code
   Card. = 1..1
   Type = code
@@ -474,268 +482,16 @@
   Short Label = Reference to CodeSystem.property.code
   Definition = A code that is a reference to CodeSystem.property.code
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = CodeSystem.concept.property.value[x]
   Card. = 1..1
   Type = code | Coding | string | integer | boolean | dateTime
   Short Label = Value of the property for this concept
   Definition = The value of this property
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = CodeSystem.concept.concept
   Card. = 0..*
   Type = @CodeSystem.concept
   Short Label = Child Concepts (is-a/contains/categorizes)
   Definition = Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) and can only be determined by examining the definitions of the concepts
-
-=== Sheet Search =====================================
-
- -- Row 1 -----------------------------------
-  Name = url
-  Type = uri
-  Description = The logical URL for the code system
-  Path = CodeSystem.url
-
- -- Row 2 -----------------------------------
-  Name = identifier
-  Type = token
-  Description = The identifier for the code system
-  Path = CodeSystem.identifier
-
- -- Row 3 -----------------------------------
-  Name = version
-  Type = token
-  Description = The version identifier of the code system
-  Path = CodeSystem.version
-
- -- Row 4 -----------------------------------
-  Name = name
-  Type = string
-  Description = The name of the code system
-  Path = CodeSystem.name
-
- -- Row 5 -----------------------------------
-  Name = publisher
-  Type = string
-  Description = Name of the publisher of the code system
-  Path = CodeSystem.publisher
-
- -- Row 6 -----------------------------------
-  Name = description
-  Type = string
-  Description = Text search in the description of the code system
-  Path = CodeSystem.description
-
- -- Row 7 -----------------------------------
-  Name = status
-  Type = token
-  Description = The status of the code system
-  Path = CodeSystem.status
-
- -- Row 8 -----------------------------------
-  Name = date
-  Type = date
-  Description = The code system publication date
-  Path = CodeSystem.date
-
- -- Row 9 -----------------------------------
-  Name = system
-  Type = uri
-  Description = The system for any codes defined by this code system (same as \'url\')
-  Path = CodeSystem.url
-
- -- Row 10 -----------------------------------
-  Name = code
-  Type = token
-  Description = A code defined in the code system
-  Path = CodeSystem.concept.code
-
- -- Row 11 -----------------------------------
-  Name = context
-  Type = token
-  Description = A use context assigned to the code system
-  Path = CodeSystem.useContext
-
- -- Row 12 -----------------------------------
-  Name = language
-  Type = token
-  Description = A language in which a designation is provided
-  Path = CodeSystem.concept.designation.language
-
- -- Row 13 -----------------------------------
-  Name = content
-  Type = token
-  Path = CodeSystem.content
-
-=== Sheet Profiles =====================================
-
- -- Row 1 -----------------------------------
-  Name = CodeSystem Extensions
-  IG Name = core
-  Filename = codesystem-extensions.xml
-  Type = spreadsheet
-
- -- Row 2 -----------------------------------
-  Name = Shareable Code System
-  IG Name = core
-  Filename = codesystem-shareable.xml
-  Type = spreadsheet
-
-=== Sheet Examples =====================================
-
- -- Row 1 -----------------------------------
-  Name = Simple
-  Identity = example
-  Description = Simple Code System
-  Filename = codesystem-example.xml
-
- -- Row 2 -----------------------------------
-  Name = DICOM DICM
-  Identity = dicom-dcim
-  Description = Codes defined by DICOM
-  Filename = codesystem-dicom-dcim.xml
-
- -- Row 3 -----------------------------------
-  Name = NHIN PurposeOfUse
-  Identity = nhin-purposeofuse
-  Description = NHIN Purpose of Use
-  Filename = codesystem-nhin-purposeofuse.xml
-
-=== Sheet Examples =====================================
-
- -- Row 1 -----------------------------------
-  Name = lookup
-  Use = Resource
-  Documentation = Given a code/system, or a Coding, get additional details about the concept
-  Type = operation
-  Example.Request = $lookup-request.txt
-  Example.Response = $lookup-response.txt
-  Title = Concept Look Up
-  Footer = Note that the $lookup operation is more than just a code system search  - the server finds the concept, and gathers the return information from the value set and the underlying code system definitions.
-
- -- Row 2 -----------------------------------
-  Name = lookup.code
-  Use = in
-  Documentation = The code that is to be validated. If a code is provided, a system must be provided
-  Type = code
-  Min = 0
-  Max = 1
-
- -- Row 3 -----------------------------------
-  Name = lookup.system
-  Use = in
-  Documentation = The system for the code that is to be validated
-  Type = uri
-  Min = 0
-  Max = 1
-
- -- Row 4 -----------------------------------
-  Name = lookup.version
-  Use = in
-  Documentation = The version of the system, if one was provided in the source data
-  Type = string
-  Min = 0
-  Max = 1
-
- -- Row 5 -----------------------------------
-  Name = lookup.coding
-  Use = in
-  Documentation = A coding to look up
-  Type = Coding
-  Min = 0
-  Max = 1
-
- -- Row 6 -----------------------------------
-  Name = lookup.date
-  Use = in
-  Documentation = The date for which the information should be returned. Normally, this is the current conditions (which is the default value) but under some circumstances, systems need to acccess this information as it would have been in the past. A typical example of this would be where code selection is constrained to the set of codes that were available when the patient was treated, not when the record is being edited. Note that which date is appropriate is a matter for implementation policy.
-  Type = dateTime
-  Min = 0
-  Max = 1
-
- -- Row 7 -----------------------------------
-  Name = lookup.property
-  Use = in
-  Documentation = A property that the client wishes to be returned in the output. If no properties are specified, the server chooses what to return
-  Type = code
-  Min = 0
-  Max = *
-
- -- Row 8 -----------------------------------
-  Name = lookup.name
-  Use = out
-  Documentation = A display name for the code system
-  Type = string
-  Min = 1
-  Max = 1
-
- -- Row 9 -----------------------------------
-  Name = lookup.version
-  Use = out
-  Documentation = The version that these details are based on
-  Type = string
-  Min = 0
-  Max = 1
-
- -- Row 10 -----------------------------------
-  Name = lookup.display
-  Use = out
-  Documentation = The preferred display for this concept
-  Type = string
-  Min = 1
-  Max = 1
-
- -- Row 11 -----------------------------------
-  Name = lookup.property
-  Use = out
-  Type = Tuple
-  Min = 0
-  Max = *
-
- -- Row 12 -----------------------------------
-  Name = lookup.property.code
-  Type = code
-  Min = 0
-  Max = 1
-
- -- Row 13 -----------------------------------
-  Name = lookup.property.value
-  Type = string
-  Min = 1
-  Max = 1
-
- -- Row 14 -----------------------------------
-  Name = lookup.property.description
-  Documentation = Human Readable representation of the propery value
-  Type = string
-  Min = 0
-  Max = 1
-
- -- Row 15 -----------------------------------
-  Name = lookup.designation
-  Use = out
-  Documentation = Additional representations for this concept
-  Type = Tuple
-  Min = 0
-  Max = *
-
- -- Row 16 -----------------------------------
-  Name = lookup.designation.language
-  Documentation = The language this designation is defined for
-  Type = code
-  Min = 0
-  Max = 1
-
- -- Row 17 -----------------------------------
-  Name = lookup.designation.use
-  Documentation = A code that details how this designation would be used
-  Type = Coding
-  Min = 0
-  Max = 1
-
- -- Row 18 -----------------------------------
-  Name = lookup.designation.value
-  Documentation = The text value for this designation
-  Type = string
-  Min = 1
-  Max = 1

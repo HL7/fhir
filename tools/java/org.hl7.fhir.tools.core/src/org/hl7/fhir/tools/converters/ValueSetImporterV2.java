@@ -500,6 +500,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     Map<String, String> cases = new HashMap<String, String>();
     Map<String, String> codes = new HashMap<String, String>();
     Map<String, String> comments = new HashMap<String, String>();
+    Map<String, String> commentVersions = new HashMap<String, String>();
     while (c != null) {
       String ver = c.getAttribute("version");
       if (!ver.contains(" ")) {
@@ -511,8 +512,11 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
         while (g != null) {
           cases.put(g.getAttribute("code").toLowerCase(), g.getAttribute("code"));
           codes.put(g.getAttribute("code").toLowerCase(), g.getAttribute("desc"));
-          if (!Utilities.noString(g.getAttribute("comments")))
+          if (!Utilities.noString(g.getAttribute("comments"))) {
+            if (!comments.containsKey(g.getAttribute("code").toLowerCase()))
+              commentVersions.put(g.getAttribute("code").toLowerCase(), ver);
             comments.put(g.getAttribute("code").toLowerCase(), g.getAttribute("comments"));
+          }
           g = XMLUtil.getNextSibling(g);
         }
       }
@@ -548,15 +552,17 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
       concept.setCode(cases.get(cd));
       concept.setDisplay(codes.get(cd)); // we deem the v2 description to
       String comment = "";
+      String commentVer = "";
       if (comments.containsKey(cd)) {
         comment = comments.get(cd);
+        commentVer = commentVersions.get(cd);
         ToolingExtensions.addComment(concept, comment);
       }
       // be display name, not
       // definition. Open for
       // consideration
       if (!(MAX_VER.equals(max)) || comment.equalsIgnoreCase("deprecated")) {
-        CodeSystemUtilities.setDeprecated(cs, concept);
+        CodeSystemUtilities.setDeprecated(cs, concept, dateForVersion(Utilities.noString(commentVer) ? max : commentVer));
         concept.addProperty().setCode("deprecated").setValue(new BooleanType(true));
         if (Utilities.noString(comment))
           comment = "deprecated";
@@ -590,6 +596,40 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     page.getVsValidator().validate(errors, "v2 table "+id, vs, false, true);
     page.getValueSets().put(vp.vs.getUrl(), vp.vs);
 
+  }
+
+  private DateTimeType dateForVersion(String version) throws Exception {
+    if (Utilities.noString(version))
+      throw new Exception("Unknown deprecation time");
+    if (version.equals("2.1"))
+      return new DateTimeType("1990-01");
+    if (version.equals("2.2"))
+      return new DateTimeType("1994-12");
+    if (version.equals("2.3"))
+      return new DateTimeType("1997-03");
+    if (version.equals("2.3"))
+      return new DateTimeType("1997-03");
+    if (version.equals("2.3.1"))
+      return new DateTimeType("1999-05");
+    if (version.equals("2.4"))
+      return new DateTimeType("2000-11");
+    if (version.equals("2.5"))
+      return new DateTimeType("2003-07");
+    if (version.equals("2.5.1"))
+      return new DateTimeType("2007-04");
+    if (version.equals("2.6"))
+      return new DateTimeType("2007-10");
+    if (version.equals("2.7"))
+      return new DateTimeType("2011-01");
+    if (version.equals("2.7.1"))
+      return new DateTimeType("2011-01");
+    if (version.equals("2.8"))
+      return new DateTimeType("2014-02");
+    if (version.equals("2.8.1"))
+      return new DateTimeType("2014-08");
+    if (version.equals("2.8.2"))
+      return new DateTimeType("2015-09");
+    throw new Exception("Unknown version "+version);
   }
 
   private void buildV2CodeSystemVersioned(VSPack vp, String id, String version, String endVersion, Element e) throws Exception {

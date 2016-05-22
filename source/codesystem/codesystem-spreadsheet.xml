@@ -9,19 +9,19 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-01-28T04:31:45Z</LastSaved>
+  <LastSaved>2016-05-21T21:17:11Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>4980</WindowHeight>
-  <WindowWidth>7470</WindowWidth>
+  <WindowHeight>14010</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -821,9 +821,9 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R118C25" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R119C25" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="27" ss:ExpandedRowCount="118" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="27" ss:ExpandedRowCount="119" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:Width="227.25"/>
@@ -1938,9 +1938,42 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Identifies the property, both internally and externally</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Identifies the property on the concepts, and when referred to in operations</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A code that is used to identify the property. The code is used internally (in CodeSystem.concept.property.code) and also externally, such as in property filters</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s86"><Data ss:Type="String">CodeSystem.property.uri</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">uri</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Formal identifier for the property</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2007,7 +2040,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">code | Coding | string | integer | boolean | dateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The type of the property value </Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The type of the property value. Properties of type &quot;code&quot; contain a code defined by the code system (e.g. a reference to anotherr defined concept)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4426,7 +4459,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>21</TopRowBottomPane>
+   <TopRowBottomPane>32</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4443,14 +4476,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>32</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>39</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R118C25"
+  <AutoFilter x:Range="R1C1:R119C25"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -5168,7 +5201,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R1C9"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="67" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="74" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s114" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="171"/>
@@ -5421,157 +5454,238 @@
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Resource | Instance</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">operation</Data></Cell>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Subsumption Testing</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Test whether code &quot;sub&quot; is subsumed by code &quot;super&quot; given the semantics of subsumption in the underlying code system</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell><Data ss:Type="String">$subsumes-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$subsumes-response.txt</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.codeSub</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The &quot;sub&quot; code that is to be tested. If a code is provided, a system must be provided</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.codeSuper</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The &quot;super&quot; code that is to be validated. If a code is provided, a system must be provided</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.system</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The system in which subsumption testing is to be performed. This must be provided unless the operation is invoked on a code system instance</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.version</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The version of the system, if one was provided in the source data</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.codingSub</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Coding</Data></Cell>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The &quot;sub&quot; coding to test. If the coding system does not match the specified subsumption system, the srever may choose to attempt to translate it to the specified system, or reject the operation</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.codingSuper</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Coding</Data></Cell>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The &quot;super&quot; coding to test. If the coding system does not match the specified subsumption system, the srever may choose to attempt to translate it to the specified system, or reject the operation</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="90">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.date</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The date for which the subsumption test should be performed. Normally, this is the current conditions (which is the default value) but under some circumstances, systems need to acccess this information as it would have been in the past. A typical example of this would be where code selection is constrained to the set of codes that were available when the patient was treated, not when the record is being edited. Note that which date is appropriate is a matter for implementation policy.</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.outcome</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Whether &quot;sub&quot; is subsumed by &quot;super&quot;. If the server is unable to determine whether one code is subsumed by the other, then it returns an error (i.e. an OperationOutcome)</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">infer</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Resource | Instance</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">operation</Data></Cell>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Performing inferencing based on a set of codes - e.g. a mix of composition and decomposition</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Given a set of property/concept pairs, return a set of concepts for requested properties. &#10;&#10;Typically, this operation is used to perform composition - given one or more properties, see if there is a common single code for all of them - or decomposition - given a code or expression, find out what it implies about the value of a specific property. It is defined a single operation, though, because it may be necessary to provide multiple inputs and outputs for both cases. &#10;&#10;To use this operation, a client provides a set of property / concept pairs. One (or more) of the properties may be be labeled with the special property name $main which indicates that is a full code. In addition, the client provides one or more &quot;request&quot; parameter listing the properties it wishes returned, which may include $main. The server determines what of the request properties it is able to return, and returns a set of property/concept pairs as requested. In addition, the server can return a message with information about the inferencing it was able to perform. If the server cannot process the request at all, it should return an OperationOutcome with one or more errors.</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell><Data ss:Type="String">$infer-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$infer-response.txt</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">infer.system</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The system in which inferencing is to be performed. This must be provided unless the operation is invoked on a code system instance</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">infer.version</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The version of the system for the inferencing to be performed</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">infer.concept</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Tuple</Data></Cell>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Concepts provided by the client on which inferencing is to be performed</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">infer.concept.property</Data></Cell>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The property that this concept represents, or $main if it doesn't represent a particular property</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">infer.concept.code</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The code or expression for the property</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">infer.property</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A property that is requested to be returned</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">infer.message</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Information from the server about the request. Note that if there is an error processing the request, an operation outcome will be returned instead. The message may be used when the operation is partially successful</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s132"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">infer.output</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Tuple</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s132"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s132"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Concepts returned by the server as a result of the inferencing operation</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">infer.output.property</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The property that this concept represents, or $main if it doesn't represent a particular property</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">infer.output.code</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The code or expression for the property</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">infer.output.display</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Display for the returned code, to save the client from performing a $lookup immediately (recommended)</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -5695,7 +5809,7 @@
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s132"/>
    </Row>
-   <Row ss:Index="48" ss:AutoFitHeight="0">
+   <Row ss:Index="55" ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s130"/>
@@ -5919,12 +6033,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5932,6 +6047,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -5939,8 +6055,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>30</ActiveRow>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6523,7 +6639,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6954,7 +7071,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

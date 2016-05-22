@@ -934,7 +934,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
           def = new ConceptDefinitionComponent();
           o = (JsonObject) j;
           if (o.get("abstract").getAsBoolean())
-            CodeSystemUtilities.setAbstract(null, def);
+            CodeSystemUtilities.setNotSelectable(null, def);
           if (!(o.get("code") instanceof JsonNull))
             def.setCode(o.get("code").getAsString());
           if (!(o.get("definition") instanceof JsonNull))

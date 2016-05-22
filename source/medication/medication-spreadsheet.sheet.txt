@@ -112,6 +112,7 @@
   Type = Ratio
   Short Label = Quantity of ingredient present
   Definition = Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet
+  Comments = The amount ratio has both a numerator and denominator.  The denominator could be one of the form (e.g. 50 mg / 1 tablet), total bag volume (e.g. 50 mg / 500mL), or generically one each (e.g. 5 mg / 1 each, such as when the form is cream and the ratio is the amount in the tube).
   v2 Mapping = RXC-3-Component Amount & RXC-4-Component Units  if medication: RXO-2-Requested Give Amount - Minimum & RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum & RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount & RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum & RXE-5-Give Units / RXE-4-Give Amount - Maximum & RXE-5-Give Units / RXE-10-Dispense Amount & RXE-10-Dispense Units
   RIM Mapping = .quantity
 

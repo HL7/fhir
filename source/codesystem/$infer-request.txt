@@ -1,0 +1,58 @@
+// Using simple parameters: what's the method for this LOINC code? (there isn't one)
+GET [base]/CodeSystem/$infer?system=http://loinc.org&code=1977-8&property=METHOD_TYP
+
+--------------------------------------
+// SNOMED Composition - provide 3 properties, and ask for a single code for the whole: 417163006 (Traumatic AND/OR non-traumatic injury) + 246112005 (Severity) = 24484000 (Severe)+ 363698007 (Finding site) = 40983000 (Upper arm structure)
+
+POST [base]/CodeSystem/$infer
+[other headers]
+
+<Parameters xmlns="http://hl7.org/fhir">
+  <!-- Inferencing - use SNOMED CT rules -->
+  <parameter>
+    <name value="system"/>
+    <valuUri value="http://snomed.info/sct"/>
+  </parameter>
+  <!-- Traumatic injury -->
+  <parameter>
+    <name value="concept"/>
+    <part>
+      <name value="property"/>
+      <valueCode value="$main"/>
+    <part>
+    <part>
+      <name value="code"/>
+      <valueCode value="417163006"/>
+    <part>
+  </parameter>
+  <!-- Finding site: upper arm -->
+  <parameter>
+    <name value="concept"/>
+    <part>
+      <name value="property"/>
+      <valueCode value="363698007"/>
+    <part>
+    <part>
+      <name value="code"/>
+      <valueCode value="40983000"/>
+    <part>
+  </parameter>
+  <!-- Severity = severe -->
+  <parameter>
+    <name value="concept"/>
+    <part>
+      <name value="property"/>
+      <valueCode value="246112005"/>
+    <part>
+    <part>
+      <name value="code"/>
+      <valueCode value="24484000"/>
+    <part>
+  </parameter>
+  <!-- compose a code with those in it -->
+  <parameter>
+    <name value="request"/>
+    <valueCode value="$main"/>
+  </parameter>
+</Parameters>
+

@@ -47,97 +47,92 @@
   Must Support = Y
 
  -- Row 5 -----------------------------------
-  Element = MedicationOrder.dateEnded
-  Card. = 0..1
-  Must Support = Y
-
- -- Row 6 -----------------------------------
   Element = MedicationOrder.patient
   Card. = 1..1
   Must Support = Y
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = MedicationOrder.prescriber
   Must Support = Y
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = MedicationOrder.encounter
   Must Support = Y
   Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/daf-encounter}
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = MedicationOrder.medication[x]
   Card. = 1..1
   Must Support = Y
   Type = CodeableConcept | Reference(Medication){http://hl7.org/fhir/StructureDefinition/daf-medication}
   Binding = DAFMedications
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = MedicationOrder.dosageInstruction
   Card. = 0..*
   Must Support = Y
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = MedicationOrder.dosageInstruction.text
   Card. = 0..1
   Must Support = Y
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MedicationOrder.dosageInstruction.timing
   Card. = 0..1
   Must Support = Y
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MedicationOrder.dosageInstruction.asNeeded[x]
   Card. = 0..1
   Must Support = Y
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MedicationOrder.dosageInstruction.siteCodeableConcept
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
   Binding = DAFBodySite
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MedicationOrder.dosageInstruction.route
   Card. = 0..1
   Must Support = Y
   Binding = DAFRoute
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MedicationOrder.dosageInstruction.dose[x]
   Card. = 0..1
   Must Support = Y
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationOrder.dosageInstruction.rate[x]
   Card. = 0..1
   Must Support = Y
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationOrder.dispenseRequest
   Card. = 0..1
   Must Support = Y
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationOrder.dispenseRequest.validityPeriod
   Card. = 0..1
   Must Support = Y
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationOrder.dispenseRequest.numberOfRepeatsAllowed
   Card. = 0..1
   Must Support = Y
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MedicationOrder.dispenseRequest.quantity
   Card. = 0..1
   Must Support = Y
 
- -- Row 22 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationOrder.dispenseRequest.expectedSupplyDuration
   Card. = 0..1
   Must Support = Y

@@ -34,8 +34,10 @@
 
  -- Row 5 -----------------------------------
   Binding Name = MedicationAdministrationMethod
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/administration-method-codes
   Definition = A coded concept describing the technique by which the medicine is administered
+  Conformance = example
 
  -- Row 6 -----------------------------------
   Binding Name = MedicationAsNeededReason
@@ -73,6 +75,16 @@
   Reference = http://hl7.org/fhir/ValueSet/medication-codes
   Definition = Codes identifying which substance or product can be dispensed
   Conformance = example
+
+ -- Row 11 -----------------------------------
+  Binding Name = MedicationDispenseAction
+  Binding = unbound
+  Definition = A coded concept describing an action taken on a medication dispense.
+
+ -- Row 12 -----------------------------------
+  Binding Name = MedicationDispenseActionReason
+  Binding = unbound
+  Definition = A coded concept describing the reason for an action taken on a medication dispense.
 
 === Sheet medication-dispense-status =====================================
 
@@ -304,7 +316,7 @@
   Card. = 0..1
   Type = Timing
   Short Label = When medication should be administered
-  Definition = The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions.  For example, \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"
+  Definition = The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions.  For example, \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn\'t imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
   RIM Mapping = .effectiveTime
 
  -- Row 20 -----------------------------------
@@ -360,9 +372,9 @@
  -- Row 25 -----------------------------------
   Element = MedicationDispense.dosageInstruction.rate[x]
   Card. = 0..1
-  Type = Ratio|Range
+  Type = Ratio|Range| SimpleQuantity
   Short Label = Amount of medication per unit of time
-  Definition = Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of \'1\' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours
+  Definition = Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn\'t imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
   v2 Mapping = RXE-22-Give Per (Time Unit)
   RIM Mapping = .rateQuantity
 
@@ -412,6 +424,51 @@
   Definition = The person or organization that has primary responsibility for the substitution
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGN]
   Committee Notes = Who is this handled?  Elsewhere attribution is handled by FHIR
+
+ -- Row 31 -----------------------------------
+  Element = MedicationDispense.eventHistory
+  Card. = 0..*
+  Short Label = A list of events of interest in the lifecycle
+  Definition = A summary of the events of interest that have occurred, such as when the dispense was verified.
+  Comments = This is not the same as an audit trail. It is a view of the important things that happened in the past. Typically, there would only be one entry for any given status, and systems may not record all the status events
+
+ -- Row 32 -----------------------------------
+  Element = MedicationDispense.eventHistory.status
+  Card. = 1..1
+  Type = code
+  Binding = MedicationDispenseStatus
+  Short Label = in-progress | on-hold | completed | entered-in-error | stopped
+  Definition = The status for the event
+
+ -- Row 33 -----------------------------------
+  Element = MedicationDispense.eventHistory.action
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationDispenseAction
+  Short Label = Action taken (e.g. verify)
+  Definition = The action that was taken (e.g. verify)
+
+ -- Row 34 -----------------------------------
+  Element = MedicationDispense.eventHistory.dateTime
+  Card. = 1..1
+  Type = dateTime
+  Short Label = The date at which the event happened
+  Definition = The date/time at which the event occurred
+
+ -- Row 35 -----------------------------------
+  Element = MedicationDispense.eventHistory.actor
+  Card. = 0..1
+  Type = Reference(Practitioner)
+  Short Label = Who took the action
+  Definition = The person responsible for taking the action
+
+ -- Row 36 -----------------------------------
+  Element = MedicationDispense.eventHistory.reason
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationDispenseActionReason
+  Short Label = Reason the action was taken
+  Definition = The reason why the action was taken
 
 === Sheet Search =====================================
 

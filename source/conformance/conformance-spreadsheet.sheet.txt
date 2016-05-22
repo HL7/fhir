@@ -656,7 +656,6 @@
   Type = string
   Short Label = Use and/or publishing restrictions
   Definition = A copyright statement relating to the conformance statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement
-  Object Impl = BaseConformance.copyright
 
  -- Row 16 -----------------------------------
   Element = Conformance.kind

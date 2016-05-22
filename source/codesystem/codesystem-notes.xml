@@ -10,4 +10,69 @@ on the possible values of these elements.  These elements are generally not need
 implementations, as they can make use of the innate identifier and versioning mechanism associated with the resource.
 </p>
 
+<a name="properties"> </a>
+<h2>Properties</h2>
+<p>
+Each code system can have one or more properties. Each concept defined by the code system
+may have one more values for each property defined by the code system. Typical uses for 
+properties include:
+</p>
+<ul>
+ <li>Tracking administrative status (inactive, deprecation date)</li>
+ <li>Providing additional statements about the meaning of the concept</li>
+ <li>Defining structured relationships with other concepts in the code system</li>
+ <li>Assigning scoring values to the concepts</li>
+</ul>
+<p>
+Properties are identified by their code (<code>CodeSystem.property.code</code>), which is used both internally within the 
+code system resource (<code>CodeSystem.concept.property.code</code>) and also externally, in the following
+places:
+</p>
+<ul>
+ <li><a href="">ConceptMap</a>: <code>ConceptMap.element.target.dependsOn.property</code> and <code>ConceptMap.element.target.product.property</code></li>
+ <li><a href="">ValueSet</a>: <code>ValueSet.compose.include.filter.property</code> can refer to any defined code system property</li>
+ <li><a href="">$lookup operation</a>: In <code>Parameters.parameter.name</code> when returning information about a code</li>
+ <li><a href="">$translate operation</a>: In <code>Parameters.parameter.part.name</code> for dependencies and products</li>
+ <li><a href="">$infer operation</a>: In <code>Parameters.parameter.name</code> when providing codes, and in <code>Parameters.parameter.name</code> when asking for codes</li>
+</ul>
+<p>
+Properties are defined using the following elements:
+</p>
+<table class="grid">
+ <tr>
+  <td><b>Name</b></td>
+  <td><b>Details</b></td>
+  <td><b>Description</b></td>
+ </tr>
+ <tr>
+  <td>code</td>
+  <td><a href="datatypes.html#code">code</a></td>
+  <td>Used to identify the property, as enumerated above</td>
+ </tr>
+ <tr>
+  <td>uri</td>
+  <td>optional <a href="datatypes.html#code">uri</a></td>
+  <td>Reference to the formal meaning of the property. One possible source of meaning is the <a href="codesystem-concept-properties.html">Concept Properties</a> code system. 
+    This part of the definition is optional, but is recommended to provide an additional level of definitional consistency</td>
+ </tr>
+ <tr>
+  <td>description</td>
+  <td>optional <a href="datatypes.html#code">string</a></td>
+  <td>A description of the property- why it is defined, and how it's value might be used</td>
+ </tr>
+ <tr>
+  <td>type</td>
+  <td>code | Coding | string | integer | boolean | dateTime</td>
+  <td>The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to anotherr defined concept)</td>
+ </tr>
+</table>
+<p>
+Note that properties provide a common view of concept relationships that is common across all code systems.
+Some code systems define properties with more sophistication, such as groups of properties, or subsumption
+relationships between properties (e.g. SNOMED CT). Servers providing support for these code systems will need
+to know full details about the underlying relationships in order to provide the correct information about 
+concepts and their properties, but this information does not surface in the resources or operations defined
+by the FHIR specification.
+</p>
+
 </div>

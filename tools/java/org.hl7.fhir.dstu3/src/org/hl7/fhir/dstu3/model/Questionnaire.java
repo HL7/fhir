@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 21, 2016 13:32+1000 for FHIR v1.4.0
+// Generated on Sun, May 22, 2016 06:42+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -534,7 +534,7 @@ public class Questionnaire extends DomainResource {
          * Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
          */
         @Child(name = "type", type = {CodeType.class}, order=5, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="group | display | boolean | decimal | integer | date | dateTime +", formalDefinition="Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.)." )
+        @Description(shortDefinition="group | display | question | boolean | decimal | integer | date | dateTime +", formalDefinition="Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.)." )
         protected Enumeration<QuestionnaireItemType> type;
 
         /**

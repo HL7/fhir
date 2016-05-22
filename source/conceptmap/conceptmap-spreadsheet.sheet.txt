@@ -180,7 +180,6 @@
   Short Label = Use and/or publishing restrictions
   Definition = A copyright statement relating to the concept map and/or its contents
   Comments = Frequently, the copyright differs between the concept map, and codes that are included. The copyright statement should clearly differentiate between these when required
-  Object Impl = BaseConformance.copyright
 
  -- Row 17 -----------------------------------
   Element = ConceptMap.source[x]
@@ -422,6 +421,12 @@
 
 === Sheet Profiles =====================================
 
+ -- Row 1 -----------------------------------
+  Name = CodeSystem Extensions
+  IG Name = core
+  Filename = conceptmap-extensions.xml
+  Type = spreadsheet
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
@@ -478,7 +483,7 @@
   Max = 1
 
  -- Row 5 -----------------------------------
-  Name = translate.valueSet
+  Name = translate.source
   Use = in
   Documentation = Identifies the value set used when the concept (system/code pair) was chosen. May be a logical id, or an absolute or relative location
   Type = uri
@@ -504,12 +509,20 @@
  -- Row 8 -----------------------------------
   Name = translate.target
   Use = in
-  Documentation = Identifies the value set in which a translation is sought. May be a logical id, or an absolute or relative location
+  Documentation = Identifies the value set in which a translation is sought. May be a logical id, or an absolute or relative location. If there\'s no target specified, the server should return all known translations, along with their source
   Type = uri
-  Min = 1
+  Min = 0
   Max = 1
 
  -- Row 9 -----------------------------------
+  Name = translate.targetsystem
+  Use = in
+  Documentation = identifies a target code system in which a mapping is sought. This parameter is an alternative to the target parameter - only one is required. Searching for any translation to a target code system irrespective of the context (e.g. target valueset) may lead to unsafe results, and it is at the discretion of the server to decide when to support this operation
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 10 -----------------------------------
   Name = translate.dependency
   Use = in
   Documentation = Another element that may help produce the correct mapping
@@ -517,21 +530,29 @@
   Min = 0
   Max = *
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = translate.dependency.element
   Documentation = The element for this dependency
   Type = uri
   Min = 0
   Max = 1
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = translate.dependency.concept
   Documentation = The value for this dependency
   Type = CodeableConcept
   Min = 0
   Max = 1
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
+  Name = translate.reverse
+  Use = in
+  Documentation = if this is true, then the operation should return all the codes that might be mapped to this code. This parameter reverses the meaning of the source and target parameters
+  Type = boolean
+  Min = 0
+  Max = 1
+
+ -- Row 14 -----------------------------------
   Name = translate.result
   Use = out
   Documentation = True if the concept could be translated successfully. The value can only be true if at least one returned match has an equivalence which is not  unmatched or disjoint
@@ -539,7 +560,7 @@
   Min = 1
   Max = 1
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = translate.message
   Use = out
   Documentation = Error details, for display to a human. If this is provided when result = true, the message carries hints and warnings (e.g. a note that the matches could be improved by providing additional detail)
@@ -547,7 +568,7 @@
   Min = 0
   Max = 1
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = translate.match
   Use = out
   Documentation = A concept in the target value set with an equivalence. Note that there may be multiple matches of equal or differing equivalence, and the matches may include equivalence values that mean that there is no match
@@ -555,42 +576,49 @@
   Min = 0
   Max = *
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = translate.match.equivalence
   Documentation = A code indicating the equivalence of the translation, using values from [ConceptMapEquivalence]{concept-map-equivalence.html}
   Type = code
   Min = 0
   Max = 1
 
- -- Row 16 -----------------------------------
+ -- Row 18 -----------------------------------
   Name = translate.match.concept
   Documentation = The translation outcome. Note that this would never have userSelected = true, since the process of translations implies that the user is not selecting the code (and only the client could know differently)
   Type = Coding
   Min = 0
   Max = 1
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Name = translate.match.product
   Documentation = Another element that is the product of this mapping
   Type = Tuple
   Min = 0
   Max = *
 
- -- Row 18 -----------------------------------
+ -- Row 20 -----------------------------------
   Name = translate.match.product.element
   Documentation = The element for this product
   Type = uri
   Min = 0
   Max = 1
 
- -- Row 19 -----------------------------------
+ -- Row 21 -----------------------------------
   Name = translate.match.product.concept
   Documentation = The value for this product
   Type = Coding
   Min = 0
   Max = 1
 
- -- Row 20 -----------------------------------
+ -- Row 22 -----------------------------------
+  Name = translate.match.source
+  Documentation = The canonical URI for the concept map from which this mapping comes from
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 23 -----------------------------------
   Name = closure
   Use = System
   Documentation = This operation provides support for ongoing maintenance of a client-side closure table based on server-side terminological logic. For details of how this is used, see [Maintaining a Closure Table](terminology-service.html#closure)
@@ -599,7 +627,7 @@
   Example.Response = $closure-response.txt
   Title = Closure Table Maintenance
 
- -- Row 21 -----------------------------------
+ -- Row 24 -----------------------------------
   Name = closure.name
   Use = in
   Documentation = The name that defines the particular context for the subsumption based closure table
@@ -607,7 +635,7 @@
   Min = 1
   Max = 1
 
- -- Row 22 -----------------------------------
+ -- Row 25 -----------------------------------
   Name = closure.concept
   Use = in
   Documentation = Concepts to add to the closure table
@@ -615,7 +643,7 @@
   Min = 0
   Max = *
 
- -- Row 23 -----------------------------------
+ -- Row 26 -----------------------------------
   Name = closure.version
   Use = in
   Documentation = A request to resynchronise - request to send all new entries since the nominated version was sent by the server
@@ -623,7 +651,7 @@
   Min = 0
   Max = 1
 
- -- Row 24 -----------------------------------
+ -- Row 27 -----------------------------------
   Name = closure.return
   Use = out
   Documentation = A list of new entries (code / system --> code/system) that the client should add to its closure table. The only kind of entry mapping equivalences that can be returned are equal, narrower, wider, and unmatched

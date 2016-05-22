@@ -658,6 +658,17 @@
       }
     },
     {
+      "hash": "#|http://loinc.org|null|26515-7|Platelets [#/volume] in Blood",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Platelets [#/volume] in Blood"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|2756-5|pH of Urine",
       "severity": null,
       "message": null,
@@ -977,6 +988,17 @@
       }
     },
     {
+      "hash": "#|http://loinc.org|null|47016-1|CD4 Ag [Presence] in Tissue by Immune stain",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "CD4 Ag [Presence] in Tissue by Immune stain"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|48333-9|5 minute Apgar panel",
       "severity": null,
       "message": null,
@@ -1062,6 +1084,17 @@
         "code": null,
         "definition": null,
         "display": "Genetic disease sequence variation interpretation in Blood or Tissue by Molecular genetics method"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|54447-8|FLT3 gene mutation analysis in Bone marrow by Molecular genetics method Narrative",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "FLT3 gene mutation analysis in Bone marrow by Molecular genetics method Narrative"
       }
     },
     {

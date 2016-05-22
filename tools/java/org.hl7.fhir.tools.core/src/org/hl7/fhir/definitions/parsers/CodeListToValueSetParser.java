@@ -98,7 +98,7 @@ public class CodeListToValueSetParser {
           codesById.put(cc.getUserString("id"), cc);
           cc.setDisplay(sheet.getColumn(row, "Display"));
           if (sheet.getColumn(row, "Abstract").toUpperCase().equals("Y"))
-          	CodeSystemUtilities.setAbstract(cs, cc);
+          	CodeSystemUtilities.setNotSelectable(cs, cc);
           if (cc.hasCode() && !cc.hasDisplay())
             cc.setDisplay(Utilities.humanize(cc.getCode()));
           cc.setDefinition(sheet.getColumn(row, "Definition"));

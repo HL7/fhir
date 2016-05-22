@@ -1,0 +1,35 @@
+// Using simple parameters: is viral hepatitis a disorder of the liver?
+GET [base]/CodeSystem/$subsumes?system=http://snomed.info/sct&codeSub=3738000&codeSuper=235856003
+
+--------------------------------------
+// Using Codings 
+POST [base]/CodeSystem/$subsumes
+[other headers]
+
+<Parameters xmlns="http://hl7.org/fhir">
+  <!-- Subsumption testing - use SNOMED CT rules -->
+  <parameter>
+    <name value="system"/>
+    <valuUri value="http://snomed.info/sct"/>
+  </parameter>
+  <!-- Australian distribution -->
+  <parameter>
+    <name value="version"/>
+    <valuString value="http://snomed.info/sct/32506021000036107/version/20160430"/>
+  </parameter>
+  <parameter>
+    <name value="codingSub"/>
+    <valueCoding>
+      <system value="http://snomed.info/sct"/>
+      <code value="3738000"/>
+    </valueCoding>
+  </parameter>
+  <parameter>
+    <name value="codingSuper"/>
+    <valueCoding>
+      <system value="http://snomed.info/sct"/>
+      <code value="235856003"/>
+    </valueCoding>
+  </parameter>
+</Parameters>
+

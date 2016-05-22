@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>690</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4099,7 +4099,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4976,7 +4975,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="52" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="55" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s114" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="236.25"/>
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="124.5"/>
@@ -5079,7 +5078,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">translate.valueSet</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">translate.source</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="Number">1</Data></Cell>
@@ -5114,12 +5113,23 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s119"><Data ss:Type="String">translate.target</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Identifies the value set in which a translation is sought. May be a logical id, or an absolute or relative location</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Identifies the value set in which a translation is sought. May be a logical id, or an absolute or relative location. If there's no target specified, the server should return all known translations, along with their source </Data></Cell>
+    <Cell ss:StyleID="s135"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">translate.targetsystem</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">identifies a target code system in which a mapping is sought. This parameter is an alternative to the target parameter - only one is required. Searching for any translation to a target code system irrespective of the context (e.g. target valueset) may lead to unsafe results, and it is at the discretion of the server to decide when to support this operation </Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5153,6 +5163,17 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s134"><Data ss:Type="String">The value for this dependency</Data></Cell>
+    <Cell ss:StyleID="s135"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">translate.reverse</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">if this is true, then the operation should return all the codes that might be mapped to this code. This parameter reverses the meaning of the source and target parameters</Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5241,6 +5262,17 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s134"><Data ss:Type="String">The value for this product</Data></Cell>
+    <Cell ss:StyleID="s135"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">translate.match.source</Data></Cell>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s133"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">The canonical URI for the concept map from which this mapping comes from</Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5614,8 +5646,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5927,7 +5959,7 @@
   <Names>
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R2C4"/>
   </Names>
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="41" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="41" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s114" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="281.25"/>
@@ -5950,12 +5982,18 @@
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">Type of source (spreadsheet or profile XML file).  Default is spreadsheet</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">IG Name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">CodeSystem Extensions</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">conceptmap-extensions.xml</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">conceptmap-extensions-spreadsheet.xml</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">spreadsheet</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">core</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"/>
@@ -6194,6 +6232,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6213,7 +6252,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -489,7 +489,6 @@
   Type = string
   Short Label = Use and/or publishing restrictions
   Definition = A copyright statement relating to the Test Script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings
-  Object Impl = BaseConformance.copyright
 
  -- Row 17 -----------------------------------
   Element = TestScript.origin

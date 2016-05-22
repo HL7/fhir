@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, May 21, 2016 13:32+1000 for FHIR v1.4.0
+// Generated on Sun, May 22, 2016 06:42+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -923,24 +923,31 @@ public class CodeSystem extends DomainResource {
          * A code that is used to identify the property. The code is used internally (in CodeSystem.concept.property.code) and also externally, such as in property filters.
          */
         @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Identifies the property, both internally and externally", formalDefinition="A code that is used to identify the property. The code is used internally (in CodeSystem.concept.property.code) and also externally, such as in property filters." )
+        @Description(shortDefinition="Identifies the property on the concepts, and when referred to in operations", formalDefinition="A code that is used to identify the property. The code is used internally (in CodeSystem.concept.property.code) and also externally, such as in property filters." )
         protected CodeType code;
+
+        /**
+         * Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system.
+         */
+        @Child(name = "uri", type = {UriType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Formal identifier for the property", formalDefinition="Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system." )
+        protected UriType uri;
 
         /**
          * A description of the property- why it is defined, and how it's value might be used.
          */
-        @Child(name = "description", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "description", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Why the property is defined, and/or what it conveys", formalDefinition="A description of the property- why it is defined, and how it's value might be used." )
         protected StringType description;
 
         /**
-         * The type of the property value.
+         * The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to anotherr defined concept).
          */
-        @Child(name = "type", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="code | Coding | string | integer | boolean | dateTime", formalDefinition="The type of the property value." )
+        @Child(name = "type", type = {CodeType.class}, order=4, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="code | Coding | string | integer | boolean | dateTime", formalDefinition="The type of the property value. Properties of type \"code\" contain a code defined by the code system (e.g. a reference to anotherr defined concept)." )
         protected Enumeration<PropertyType> type;
 
-        private static final long serialVersionUID = -1346176181L;
+        private static final long serialVersionUID = -1810713373L;
 
     /**
      * Constructor
@@ -1004,6 +1011,55 @@ public class CodeSystem extends DomainResource {
         }
 
         /**
+         * @return {@link #uri} (Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
+         */
+        public UriType getUriElement() { 
+          if (this.uri == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CodeSystemPropertyComponent.uri");
+            else if (Configuration.doAutoCreate())
+              this.uri = new UriType(); // bb
+          return this.uri;
+        }
+
+        public boolean hasUriElement() { 
+          return this.uri != null && !this.uri.isEmpty();
+        }
+
+        public boolean hasUri() { 
+          return this.uri != null && !this.uri.isEmpty();
+        }
+
+        /**
+         * @param value {@link #uri} (Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
+         */
+        public CodeSystemPropertyComponent setUriElement(UriType value) { 
+          this.uri = value;
+          return this;
+        }
+
+        /**
+         * @return Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system.
+         */
+        public String getUri() { 
+          return this.uri == null ? null : this.uri.getValue();
+        }
+
+        /**
+         * @param value Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system.
+         */
+        public CodeSystemPropertyComponent setUri(String value) { 
+          if (Utilities.noString(value))
+            this.uri = null;
+          else {
+            if (this.uri == null)
+              this.uri = new UriType();
+            this.uri.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #description} (A description of the property- why it is defined, and how it's value might be used.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
         public StringType getDescriptionElement() { 
@@ -1053,7 +1109,7 @@ public class CodeSystem extends DomainResource {
         }
 
         /**
-         * @return {@link #type} (The type of the property value.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         * @return {@link #type} (The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to anotherr defined concept).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
         public Enumeration<PropertyType> getTypeElement() { 
           if (this.type == null)
@@ -1073,7 +1129,7 @@ public class CodeSystem extends DomainResource {
         }
 
         /**
-         * @param value {@link #type} (The type of the property value.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         * @param value {@link #type} (The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to anotherr defined concept).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
         public CodeSystemPropertyComponent setTypeElement(Enumeration<PropertyType> value) { 
           this.type = value;
@@ -1081,14 +1137,14 @@ public class CodeSystem extends DomainResource {
         }
 
         /**
-         * @return The type of the property value.
+         * @return The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to anotherr defined concept).
          */
         public PropertyType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
-         * @param value The type of the property value.
+         * @param value The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to anotherr defined concept).
          */
         public CodeSystemPropertyComponent setType(PropertyType value) { 
             if (this.type == null)
@@ -1100,14 +1156,16 @@ public class CodeSystem extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "A code that is used to identify the property. The code is used internally (in CodeSystem.concept.property.code) and also externally, such as in property filters.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("uri", "uri", "Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system.", 0, java.lang.Integer.MAX_VALUE, uri));
           childrenList.add(new Property("description", "string", "A description of the property- why it is defined, and how it's value might be used.", 0, java.lang.Integer.MAX_VALUE, description));
-          childrenList.add(new Property("type", "code", "The type of the property value.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("type", "code", "The type of the property value. Properties of type \"code\" contain a code defined by the code system (e.g. a reference to anotherr defined concept).", 0, java.lang.Integer.MAX_VALUE, type));
         }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case 116076: /*uri*/ return this.uri == null ? new Base[0] : new Base[] {this.uri}; // UriType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<PropertyType>
         default: return super.getProperty(hash, name, checkValid);
@@ -1120,6 +1178,9 @@ public class CodeSystem extends DomainResource {
         switch (hash) {
         case 3059181: // code
           this.code = castToCode(value); // CodeType
+          break;
+        case 116076: // uri
+          this.uri = castToUri(value); // UriType
           break;
         case -1724546052: // description
           this.description = castToString(value); // StringType
@@ -1136,6 +1197,8 @@ public class CodeSystem extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = castToCode(value); // CodeType
+        else if (name.equals("uri"))
+          this.uri = castToUri(value); // UriType
         else if (name.equals("description"))
           this.description = castToString(value); // StringType
         else if (name.equals("type"))
@@ -1148,6 +1211,7 @@ public class CodeSystem extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
+        case 116076: throw new FHIRException("Cannot make property uri as it is not a complex type"); // UriType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<PropertyType>
         default: return super.makeProperty(hash, name);
@@ -1159,6 +1223,9 @@ public class CodeSystem extends DomainResource {
       public Base addChild(String name) throws FHIRException {
         if (name.equals("code")) {
           throw new FHIRException("Cannot call addChild on a primitive type CodeSystem.code");
+        }
+        else if (name.equals("uri")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CodeSystem.uri");
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type CodeSystem.description");
@@ -1174,6 +1241,7 @@ public class CodeSystem extends DomainResource {
         CodeSystemPropertyComponent dst = new CodeSystemPropertyComponent();
         copyValues(dst);
         dst.code = code == null ? null : code.copy();
+        dst.uri = uri == null ? null : uri.copy();
         dst.description = description == null ? null : description.copy();
         dst.type = type == null ? null : type.copy();
         return dst;
@@ -1186,8 +1254,8 @@ public class CodeSystem extends DomainResource {
         if (!(other instanceof CodeSystemPropertyComponent))
           return false;
         CodeSystemPropertyComponent o = (CodeSystemPropertyComponent) other;
-        return compareDeep(code, o.code, true) && compareDeep(description, o.description, true) && compareDeep(type, o.type, true)
-          ;
+        return compareDeep(code, o.code, true) && compareDeep(uri, o.uri, true) && compareDeep(description, o.description, true)
+           && compareDeep(type, o.type, true);
       }
 
       @Override
@@ -1197,13 +1265,13 @@ public class CodeSystem extends DomainResource {
         if (!(other instanceof CodeSystemPropertyComponent))
           return false;
         CodeSystemPropertyComponent o = (CodeSystemPropertyComponent) other;
-        return compareValues(code, o.code, true) && compareValues(description, o.description, true) && compareValues(type, o.type, true)
-          ;
+        return compareValues(code, o.code, true) && compareValues(uri, o.uri, true) && compareValues(description, o.description, true)
+           && compareValues(type, o.type, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (description == null || description.isEmpty())
-           && (type == null || type.isEmpty());
+        return super.isEmpty() && (code == null || code.isEmpty()) && (uri == null || uri.isEmpty())
+           && (description == null || description.isEmpty()) && (type == null || type.isEmpty());
       }
 
   public String fhirType() {

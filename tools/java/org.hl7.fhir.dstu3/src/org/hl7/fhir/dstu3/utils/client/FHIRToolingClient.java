@@ -38,6 +38,7 @@ import java.util.Map;
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.hl7.fhir.dstu3.model.Bundle;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.Conformance;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.Parameters;
@@ -649,7 +650,7 @@ public class FHIRToolingClient {
 
 
   public Parameters lookupCode(Map<String, String> params) {
-    ResourceRequest<Resource> result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveOperationUri(ValueSet.class, "lookup", params), getPreferredResourceFormat(), proxy);
+    ResourceRequest<Resource> result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveOperationUri(CodeSystem.class, "lookup", params), getPreferredResourceFormat(), proxy);
     result.addErrorStatus(410);//gone
     result.addErrorStatus(404);//unknown
     result.addErrorStatus(405);
