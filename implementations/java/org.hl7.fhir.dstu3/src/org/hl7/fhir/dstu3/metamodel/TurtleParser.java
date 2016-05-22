@@ -110,12 +110,12 @@ public class TurtleParser extends ParserBase {
     Element result = new Element(name, new Property(context, sd.getSnapshot().getElement().get(0), sd));
     result.markLocation(cmp.getLine(), cmp.getCol());
     result.setType(name);
-    parseChildren(path, cmp, result, false);
+    parseChildren(src, path, cmp, result, false);
     result.numberChildren();
     return result;  
   }
   
-  private void parseChildren(String path, TTLComplex object, Element context, boolean primitive) throws Exception {
+  private void parseChildren(Turtle src, String path, TTLComplex object, Element context, boolean primitive) throws Exception {
 
     List<Property> properties = context.getProperty().getChildProperties(context.getName(), null);
     Set<String> processed = new HashSet<String>();
@@ -128,10 +128,10 @@ public class TurtleParser extends ParserBase {
       if (property.isChoice()) {
         for (TypeRefComponent type : property.getDefinition().getType()) {
           String eName = property.getName().substring(0, property.getName().length()-3) + Utilities.capitalize(type.getCode());
-          parseChild(object, context, processed, property, path, property.getName());
+          parseChild(src, object, context, processed, property, path, property.getName());
         }
       } else  {
-        parseChild(object, context, processed, property, path, getFormalName(property));
+        parseChild(src, object, context, processed, property, path, getFormalName(property));
       } 
     }
 
@@ -146,7 +146,7 @@ public class TurtleParser extends ParserBase {
     }
   }
   
-  private void parseChild(TTLComplex object, Element context, Set<String> processed, Property property, String path, String name) throws Exception {
+  private void parseChild(Turtle src, TTLComplex object, Element context, Set<String> processed, Property property, String path, String name) throws Exception {
     processed.add(name);
     String npath = path+"/"+property.getName();
     TTLObject e = object.getPredicates().get("http://hl7.org/fhir/"+name);
@@ -155,21 +155,21 @@ public class TurtleParser extends ParserBase {
     if (property.isList() && (e instanceof TTLList)) {
       TTLList arr = (TTLList) e;
       for (TTLObject am : arr.getList()) {
-        parseChildInstance(npath, object, context, property, name, am);
+        parseChildInstance(src, npath, object, context, property, name, am);
       }
     } else {
-      parseChildInstance(npath, object, context, property, name, e);
+      parseChildInstance(src, npath, object, context, property, name, e);
     }
   }
-  private void parseChildInstance(String npath, TTLComplex object, Element context, Property property, String name, TTLObject e) throws Exception {
+  private void parseChildInstance(Turtle src, String npath, TTLComplex object, Element context, Property property, String name, TTLObject e) throws Exception {
     if (property.isResource())
-      parseResource(npath, object, context, property, name, e);
+      parseResource(src, npath, object, context, property, name, e);
     else  if (e instanceof TTLComplex) {
       TTLComplex child = (TTLComplex) e;
       Element n = new Element(tail(name), property).markLocation(e.getLine(), e.getCol());
       context.getChildren().add(n);
       if (property.isPrimitive(null)) {
-        parseChildren(npath, child, n, true);
+        parseChildren(src, npath, child, n, true);
         TTLObject val = child.getPredicates().get("http://hl7.org/fhir/value");
         if (val != null) {
           if (val instanceof TTLLiteral) {
@@ -181,7 +181,7 @@ public class TurtleParser extends ParserBase {
             logError(object.getLine(), object.getCol(), npath, IssueType.INVALID, "This property must be a Literal, not a "+e.getClass().getName(), IssueSeverity.ERROR);
         }
       } else 
-        parseChildren(npath, child, n, false);
+        parseChildren(src, npath, child, n, false);
 
     } else 
       logError(object.getLine(), object.getCol(), npath, IssueType.INVALID, "This property must be a URI or bnode, not a "+e.getClass().getName(), IssueSeverity.ERROR);
@@ -191,18 +191,23 @@ public class TurtleParser extends ParserBase {
   private String tail(String name) {
     return name.substring(name.lastIndexOf(".")+1);
   }
-  private void parseResource(String npath, TTLComplex object, Element context, Property property, String name, TTLObject e) throws Exception {
+  private void parseResource(Turtle src, String npath, TTLComplex object, Element context, Property property, String name, TTLObject e) throws Exception {
     TTLComplex obj;
     if (e instanceof TTLComplex) 
       obj = (TTLComplex) e;
-    else if (e instanceof TTLURL)
-      throw new Exception("URL refer not supported yet");
-    else
+    else if (e instanceof TTLURL) {
+      String url = ((TTLURL) e).getUri();
+      obj = src.getObject(url);
+      if (obj == null) {
+        logError(e.getLine(), e.getCol(), npath, IssueType.INVALID, "reference to "+url+" cannot be resolved", IssueSeverity.FATAL);
+        return;
+      }
+    } else
       throw new Exception("Wrong type for resource");
       
     TTLObject type = obj.getPredicates().get("http://www.w3.org/2000/01/rdf-schema#type");
     if (type == null) {
-      logError(object.getLine(), object.getCol(), "(document)", IssueType.INVALID, "Unknown resource type (missing rdfs:type)", IssueSeverity.FATAL);
+      logError(object.getLine(), object.getCol(), npath, IssueType.INVALID, "Unknown resource type (missing rdfs:type)", IssueSeverity.FATAL);
       return;
   }
     if (type instanceof TTLList) {
@@ -215,7 +220,7 @@ public class TurtleParser extends ParserBase {
       }
     }
     if (!(type instanceof TTLURL)) {
-      logError(object.getLine(), object.getCol(), "(document)", IssueType.INVALID, "Unexpected datatype for rdfs:type)", IssueSeverity.FATAL);
+      logError(object.getLine(), object.getCol(), npath, IssueType.INVALID, "Unexpected datatype for rdfs:type)", IssueSeverity.FATAL);
       return;
     }
     String rt = ((TTLURL) type).getUri();
@@ -230,7 +235,7 @@ public class TurtleParser extends ParserBase {
     context.getChildren().add(n);
     n.updateProperty(new Property(this.context, sd.getSnapshot().getElement().get(0), sd), n.getProperty().getName().equals("contained") ? SpecialElement.CONTAINED : SpecialElement.BUNDLE_ENTRY);
     n.setType(rt);
-    parseChildren(npath, obj, n, false);
+    parseChildren(src, npath, obj, n, false);
   }
   
   private String getFormalName(Property property) {
@@ -274,7 +279,7 @@ public class TurtleParser extends ParserBase {
 		subject.linkedPredicate("fhir:nodeRole", "fhir:treeRoot", linkResolver == null ? null : linkResolver.resolvePage("rdf.html#tree-root"));
 
 		for (Element child : e.getChildren()) {
-			composeElement(subject, child);
+			composeElement(section, subject, child, null);
 		}
   }
   
@@ -312,12 +317,19 @@ public class TurtleParser extends ParserBase {
 	  }
 	  return b.toString();
   }
-	private void composeElement(Complex ctxt, Element element) {
+  private void composeElement(Section section, Complex ctxt, Element element, Element parent) {
 		if ("xhtml".equals(element.getType())) // need to decide what to do with this
 			return;
 		String en = getFormalName(element);
 
-	  Complex t = ctxt.linkedPredicate("fhir:"+en, linkResolver == null ? null : linkResolver.resolveProperty(element.getProperty()));
+	  Complex t;
+	  if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY && parent != null && parent.getNamedChildValue("fullUrl") != null) {
+	    String url = "<"+parent.getNamedChildValue("fullUrl")+">";
+	    ctxt.linkedPredicate("fhir:"+en, url, linkResolver == null ? null : linkResolver.resolveProperty(element.getProperty()));
+	    t = section.subject(url);
+	  } else {
+	    t = ctxt.linkedPredicate("fhir:"+en, linkResolver == null ? null : linkResolver.resolveProperty(element.getProperty()));
+	  }
     if (element.getSpecial() != null)
       t.linkedPredicate("a", "fhir:"+element.fhirType(), linkResolver == null ? null : linkResolver.resolveType(element.fhirType()));
 	  if (element.hasValue())
@@ -331,7 +343,7 @@ public class TurtleParser extends ParserBase {
       decorateReference(t, element);
 	  		
 		for (Element child : element.getChildren()) {
-			composeElement(t, child);
+			composeElement(section, t, child, element);
 		}
 	}
   private String getFormalName(Element element) {

@@ -144,7 +144,8 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   }
 
   private void includeCodes(ConceptSetComponent inc, List<ValueSetExpansionParameterComponent> params) throws TerminologyServiceException, ETooCostly {
-	  if (context.supportsSystem(inc.getSystem())) {
+    CodeSystem cs = context.fetchCodeSystem(inc.getSystem());
+	  if (cs == null && context.supportsSystem(inc.getSystem())) {
       try {
         int i = codes.size();
         addCodes(context.expandVS(inc), params);
@@ -155,7 +156,6 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       }
 	  }
 	    
-	  CodeSystem cs = context.fetchCodeSystem(inc.getSystem());
 	  if (cs == null)
 	  	throw new TerminologyServiceException("unable to find code system "+inc.getSystem().toString());
 	  if (cs.hasVersion())
