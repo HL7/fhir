@@ -402,7 +402,7 @@ public class XmlParser extends ParserBase {
       xml.enter(elementName);
       xml.text(element.getValue());
       xml.exit(elementName);      
-    } else if (element.isPrimitive() || (element.hasType() && ParserBase.isPrimitive(element.getType()))) {
+    } else if (element.isPrimitive() || (element.hasType() && isPrimitive(element.getType()))) {
       if (element.getType().equals("xhtml")) {
         xml.escapedText(element.getValue());
       } else if (isText(element.getProperty())) {

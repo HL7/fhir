@@ -2,51 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/questionnaire-questions",
   "outcomes": [
     {
-      "hash": "|http://example.org/system/code/lifelines/nl|null|VL 1-1, 18-65_1.2.2|Lifelines Questionnaire 1 part 1",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/questions|null|COMCAR00|Angina Pectoris",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/questions|null|COMORBCAR|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/questions|null|COMORB|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/questions|null|STADPT|pT category",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|ABDOMINAL|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|CARDIAL|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|COMORBIDITY|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|HISTOPATHOLOGY|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
       "hash": "|http://loinc.org|null|21112-8|Birth Date",
       "severity": null,
       "message": null,
@@ -518,60 +473,6 @@
         "definition": null,
         "display": "Body height"
       }
-    },
-    {
-      "hash": "|http://loinc.org|null|9267-6|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glasgow coma score eye opening"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|9268-4|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glasgow coma score motor"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|9269-2|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glasgow coma score total"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|9270-0|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glasgow coma score verbal"
-      }
-    },
-    {
-      "hash": "|http://snomed.info/sct|null|194828000|Angina (disorder)",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://snomed.info/sct|null|22298006|Myocardial infarction (disorder)",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
     }
   ]
 }

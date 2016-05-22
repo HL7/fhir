@@ -691,9 +691,7 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("width", Double.toString(item.width));
     xml.attribute("height", Double.toString(item.height));
     xml.attribute("filter", "url(#shadow"+id+")");
-    if (fakes.values().contains(e) && primitive == null)
-      xml.attribute("style", "fill:#f8ddf8;stroke:black;stroke-width:1");
-    else if (primitive instanceof DefinedStringPattern)
+    if (e.getName().equals("SimpleQuantity"))
       xml.attribute("style", "fill:#f8ddf8;stroke:black;stroke-width:1");
     else if (e.getName().equals("Element"))
       xml.attribute("style", "fill:#ffffff;stroke:black;stroke-width:1");

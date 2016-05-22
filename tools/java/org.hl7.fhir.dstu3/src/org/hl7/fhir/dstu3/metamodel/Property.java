@@ -64,7 +64,7 @@ public class Property {
       String tail = definition.getPath().substring(definition.getPath().lastIndexOf(".")+1);
       if (tail.endsWith("[x]") && elementName != null && elementName.startsWith(tail.substring(0, tail.length()-3))) {
         String name = elementName.substring(tail.length()-3);
-        return ParserBase.isPrimitive(lowFirst(name)) ? lowFirst(name) : name;        
+        return isPrimitive(lowFirst(name)) ? lowFirst(name) : name;        
       } else
         throw new Error("logic error, gettype when types > 1, name mismatch for "+elementName+" on at "+definition.getPath());
     } else if (definition.getType().get(0).getCode() == null) {
@@ -100,8 +100,10 @@ public class Property {
 	}
 
 	public boolean isPrimitive(String name) {
-    return ParserBase.isPrimitive(getType(name));
-	}
+	  String code = name;
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+    return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
+}
 
 	private String lowFirst(String t) {
 		return t.substring(0, 1).toLowerCase()+t.substring(1);
@@ -140,7 +142,7 @@ public class Property {
   	if (sd == null || sd.getKind() != StructureDefinitionKind.LOGICAL)
   		return false;
   	for (ElementDefinition ed : sd.getSnapshot().getElement()) {
-  		if (ed.getPath().equals(sd.getId()+".value") && ed.getType().size() == 1 && ParserBase.isPrimitive(ed.getType().get(0).getCode())) {
+  		if (ed.getPath().equals(sd.getId()+".value") && ed.getType().size() == 1 && isPrimitive(ed.getType().get(0).getCode())) {
   			canBePrimitive = true;
   			return true;
   		}
@@ -194,7 +196,7 @@ public class Property {
             
           } else {
             t = elementName.substring(tail(ed.getPath()).length() - 3);
-            if (ParserBase.isPrimitive(lowFirst(t)))
+            if (isPrimitive(lowFirst(t)))
               t = lowFirst(t);
           }
         }

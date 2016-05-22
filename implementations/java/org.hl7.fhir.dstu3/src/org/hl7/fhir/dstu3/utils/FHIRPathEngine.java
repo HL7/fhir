@@ -40,6 +40,7 @@ import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.TemporalPrecisionEnum;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.TimeType;
 import org.hl7.fhir.dstu3.model.Type;
@@ -129,19 +130,11 @@ public class FHIRPathEngine {
     for (StructureDefinition sd : worker.allStructures()) {
       if (sd.getDerivation() == TypeDerivationRule.SPECIALIZATION)
         allTypes.put(sd.getName(), sd);
-      if (sd.getDerivation() == TypeDerivationRule.SPECIALIZATION && isPrimitive(sd)) {
+      if (sd.getDerivation() == TypeDerivationRule.SPECIALIZATION && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE) {
         primitiveTypes.add(sd.getName());
       }
     }
   }
-
-
-  private boolean isPrimitive(StructureDefinition sd) {
-    for (ElementDefinition ed : sd.getSnapshot().getElement())
-      if (ed.getPath().equals(sd.getName()+".value") && ed.hasRepresentation(PropertyRepresentation.XMLATTR))
-        return true;
-    return false;
-	}
 
 
 	// --- 3 methods to override in children -------------------------------------------------------
@@ -2587,7 +2580,7 @@ public class FHIRPathEngine {
 				return new ElementDefinitionMatch(ed, null);
       if (allowTypedName && ed.getPath().endsWith("[x]") && path.startsWith(ed.getPath().substring(0, ed.getPath().length()-3)) && path.length() > ed.getPath().length()-3) {
     	String s = Utilities.uncapitalize(path.substring(ed.getPath().length()-3));
-    	if (ParserBase.isPrimitive(s))
+    	if (primitiveTypes.contains(s))
           return new ElementDefinitionMatch(ed, s);
     	else
         return new ElementDefinitionMatch(ed, path.substring(ed.getPath().length()-3));

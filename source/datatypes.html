@@ -1,6 +1,4 @@
 <!DOCTYPE HTML>
-
-
       
 [%settitle Data Types%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -12,11 +10,6 @@
 
 <div class="col-9">
 
-
-<!--
- no repeating primitives in datatypes? No id's on primitives in datatypes...No dar on primitives in datatypes. It would be worthwhile to document that and the reason for it.
--->
-
 <%dtheader base%>
 
 <h1>Data Types</h1>
@@ -25,7 +18,7 @@
 <p>
 The FHIR specification defines a set of data types that are used for the 
 resource elements. There are two categories of data types: simple / primitive types, which are single elements, and complex types, which are re-usable clusters of elements.
-This page describes the data types. See also the <a href="datatypes-examples.html">Examples</a>, <a href="datatypes-definitions.html">Detailed Descriptions</a> and 
+This page describes the common reusable data types. See also the <a href="datatypes-examples.html">Examples</a>, <a href="datatypes-definitions.html">Detailed Descriptions</a> and 
 <a href="datatypes-mappings.html">Mappings</a>.
 </p>
 
@@ -38,8 +31,7 @@ This page describes the data types. See also the <a href="datatypes-examples.htm
 </table>
 
 <p>
-White = abstract type. Light blue - types. Light Pink - Profile on Type.
-The data types are also available as a <a href="fhir-base.xsd">W3C Schema</a>.
+Legend: White = abstract type. Light blue = concrete types. Light Pink = Profile on Type.
 </p>
 
 <a name="primitive"></a>
@@ -57,7 +49,7 @@ all types, they have <a href="extensibility.html">extensions</a>).
 
 <table class="list">
  <tr>
-   <td colspan="3"><b>Primitive Types</b></td>
+   <td colspan="4"><b>Primitive Types</b></td>
  </tr>
  <tr>
    <th>FHIR Name</th>
@@ -158,13 +150,69 @@ all types, they have <a href="extensibility.html">extensions</a>).
    <td style="border-top: 0px silver solid"></td>
    <td colspan="3" style="border-top: 0px silver solid">Regex: ([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?</td>
  </tr>
+ <tr>
+   <td>code<a name="code"> </a></td>
+   <td>Indicates that the value is taken from a set of controlled strings defined elsewhere (see <a href="terminologies.html">Using codes</a> for further discussion). Technically, a code is restricted to a string which has at least one character and no leading or trailing whitespace, and where there is no whitespace other than single spaces in the contents</td>
+   <td>xs:token</td>
+   <td>JSON string</td>
+  </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: [^\s]+([\s]?[^\s]+)*</td>
+ </tr>
+ <tr>
+   <td>oid<a name="oid"> </a></td>
+   <td>An OID represented as a URI (<a href="http://www.ietf.org/rfc/rfc3001.txt">RFC 3001</a>); e.g. urn:oid:1.2.3.4.5</td>
+   <td>xs:anyURI</td>
+   <td>JSON string - uri</td>
+  </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: urn:oid:[0-2](\.[1-9]\d*)+</td>
+ </tr>
+ <tr>
+   <td>id<a name="id"> </a></td>
+   <td>Any combination of upper or lower case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)</td>
+   <td>xs:string</td>
+   <td>JSON string</td>
+ </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: [%id_regex%]</td>
+ </tr>
+ <tr>
+   <td>markdown<a name="markdown"> </a></td>
+   <td>A string that may contain markdown syntax for optional processing by a markdown presentation engine</td>
+   <td>xs:string</td>
+   <td>JSON string</td>
+ </tr>
+ <tr>
+   <td>unsignedInt<a name="unsignedInt"> </a></td>
+   <td>Any non-negative integer (e.g. >= 0)</td>
+   <td>xs:nonNegativeInteger </td>
+   <td>JSON number</td>
+ </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: [0]|([1-9][0-9]*)</td>
+ </tr>
+ <tr>
+   <td>positiveInt<a name="positiveInt"> </a></td>
+   <td>Any positive integer (e.g. >= 1)</td>
+   <td>xs:positiveInteger</td>
+   <td>JSON number</td>
+ </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: [1-9][0-9]*</td>
+ </tr>
 </table>
 
 <p>
 Notes:
 </p>
 <ul>
- <li>For all the types, the XML and JSON representations are the same except for different escaping in XML and JSON</li>
+ <li>For all the types, the XML, JSON and Turtle representations of the primitive values are the same except for different escaping in XML and JSON</li>
  <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 v2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use</li>
  <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is needed</li>
  <li>The precision of the decimal value has signficance:<a name="precision"> </a>
@@ -177,93 +225,24 @@ Notes:
       <li>Note that there is no absolute limit to the magnitude of the value, though large and/or highly precise values are extremely rare in medicine. One element where highly precise decimals may be encountered is the <a href="location.html">Location</a> coordinates</li>
     </ul>
  </li>
+ <li>About the id datatype:
+   <ul>
+     <li>Ids are case sensitive. UUIDs SHALL be sent using lowercase letters</li>
+     <li>The ID type includes identifiers consistent with <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=38610">ISO 18232</a>, but also includes other identifier formats as well, and is not case insensitive like ISO 18232.</li>
+     <li>In a typical FHIR URL, like <code>http://example.com/fhir/Patient/<span style="color: maroon">1234</span></code>, the last part "1234" (highlighted in red) is the part that is an id datatype</li>
+     <li>A full UUID is a <code>uri</code>, not an <code>id</code>. UUIDs in URIs SHALL also be represented in lowercase (urn:uuid:59bf0ef4-e89c-4628-9b51-12ae3fdbe22b)</li>
+   </ul>
+ </li>
+ <li>About the markdown datatype:
+   <ul>
+     <li>Systems are not required to have markdown support, and there is considerable variation in markdown syntax, 
+       so the content of a string should be readable without markdown processing, per markdown philosophy</li>
+     <li>The preferred markdown syntax is described at <a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a>
+       (see tests here: <a href="http://daringfireball.net/projects/downloads/MarkdownTest_1.0.zip">http://daringfireball.net/projects/downloads/MarkdownTest_1.0.zip</a>)</li> 
+     <li>Markdown content should not contain Unicode character points below 32, except for u0009 (horizontal tab), u0010 (carriage return) and u0013 (line feed). <i>Todo: is there any reason not to make this a SHALL?</i></li>
+   </ul>
+ </li>
 </ul>
-
-
-<h3>XML and JSON representations</h3>
-
-<p>
-All elements using these primitive types have some combination of value as described above, an internal identity (e.g. xml:id), and extensions. 
-The value is represented in XML as an attribute named "value":
-</p>
-<pre>
-  &lt;count value="2"/&gt;
-</pre>
-<p>
- and as the value of the property in JSON:
-</p>
-<pre>
-  "count" : 2
-</pre>
-<p>
-For additional details, including how the internal identity and extensions are represented, see the <a href="xml.html">XML</a> and <a href="json.html">JSON</a> formats. 
-When the value is missing, it is not represented in the instance; the XML value attribute or the JSON property are not represented at all. This means that 
-in xml, attributes are never present with a length of 0 (value=""), and properties are never a 0 length string or null in JSON ("name" : "" is not valid). 
-(note: there is one specific <a href="json.html#null">use of the null</a> in the JSON representation).
-</p>
-<p>
-According to XML schema, leading and trailing whitespace in the value attribute is ignored for the types 
-boolean, integer, decimal, base64Binary, instant, uri, date, dateTime, oid, and uri. Note that this means that the 
-schema aware XML libraries give different attribute values to non schema aware libraries when reading the 
-XML instances. For this reason, the value attribute for these types SHOULD not have leading and trailing spaces.
-String values should only have leading and trailing spaces if they are part of the content of the value. 
-In JSON, whitespace in string values is always significant. Primitive types other than string SHALL NOT have leading or trailing whitespace.
-</p>
-
-<h3>Simple Restrictions</h3>
-<p>
-In addition to the base primitive types, a few additional primitive types are defined as restrictions on one of the other primitive types.
-</p>
-
-<a name="patterns"></a>
-<a name="code"> </a>
-<a name="oid"> </a>
-<a name="uuid"> </a>
-<a name="id"> </a>
-<a name="unsignedInt"> </a>
-<a name="positiveInt"> </a>
-<a name="markdown"> </a>
-
-<table class="list">
- <tr>
-   <th>FHIR Name</th><th>Base FHIR Type</th><th>Description</th>
- </tr>
- <tr><td>code</td><td>string</td><td>Indicates that the value is taken from a set of controlled strings defined elsewhere (see <a href="terminologies.html">Using codes</a> for further discussion). Technically, a code is restricted to a string which has at least one character and no leading or trailing whitespace, and where there is no whitespace other than single spaces in the contents <br/>regex: [^\s]+([\s]?[^\s]+)*</td></tr>
- 
- 
- <tr><td>oid</td><td>uri</td><td>An OID represented as a URI (<a href="http://www.ietf.org/rfc/rfc3001.txt">RFC 3001</a>); e.g. urn:oid:1.2.3.4.5  <br/>regex: urn:oid:[0-2](\.[1-9]\d*)+</td></tr>
-<!--
- <tr><td>uuid</td><td>uri</td><td>A UUID, represented as a URI (<a href="http://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a>): urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11. Note the RFC comments about case: UUID values SHALL be represented in lower case, but systems SHOULD interpret them case insensitively</td></tr>
--->
- <tr><td>id</td><td>string</td><td>Any combination of upper or lower case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)  
-   <br/>regex: [%id_regex%]</td></tr>
-
- <tr><td>markdown</td><td>string</td><td>A string that may contain markdown syntax for optional processing by a markdown presentation engine</td></tr>
- <tr><td>unsignedInt</td><td>int</td><td>Any non-negative integer (e.g. >= 0)<br/>regex: [0-9]+</td></tr>
- <tr><td>positiveInt</td><td>int</td><td>Any positive integer (e.g. > 0)<br/>regex: [1-9][0-9]*</td></tr>
-</table>
-
-<p>
-Some additional notes about the <code>id</code> datatype:
-</p>
-<ul>
- <li>Ids are case sensitive. UUIDs SHALL be sent using lowercase letters</li>
- <li>The ID type includes identifiers consistent with <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=38610">ISO 18232</a>, but also includes other identifier formats as well, and is not case insensitive like ISO 18232.</li>
- <li>In a typical FHIR URL, like <code>http://example.com/fhir/Patient/<span style="color: maroon">1234</span></code>, the last part "1234" (highlighted in red) is the part that is an id datatype</li>
- <li>A full UUID is a <code>uri</code>, not an <code>id</code>. UUIDs in URIs SHALL also be represented in lowercase (urn:uuid:59bf0ef4-e89c-4628-9b51-12ae3fdbe22b)</li>
-</ul>
-
-<p>
-Some additional notes about the <code>markdown</code> datatype:
-</p>
-<ul>
- <li>Systems are not required to have markdown support, and there is considerable variation in markdown syntax, 
-   so the content of a string should be readable without markdown processing, per markdown philosophy</li>
- <li>The preferred markdown syntax is described at <a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a>
-   (see tests here: <a href="http://daringfireball.net/projects/downloads/MarkdownTest_1.0.zip">http://daringfireball.net/projects/downloads/MarkdownTest_1.0.zip</a>)</li> 
- <li>Markdown content should not contain Unicode character points below 32, except for u0009 (horizontal tab), u0010 (carriage return) and u0013 (line feed). <i>Todo: is there any reason not to make this a SHALL?</i></li>
-</ul>
-
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
 <p>
@@ -273,6 +252,90 @@ Some additional notes about the <code>markdown</code> datatype:
 Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
 </p>
 </blockquote>
+
+
+<h3>Representations in XML, JSON, and Turtle</h3>
+
+<p>
+All elements using these primitive types may have one or more of a value as described above, an internal identity (e.g. xml:id), and extensions. 
+For an example, take an element of name "count" and type "integer".
+</p>
+<p><b>XML</b></p>
+<p>
+The value is represented in XML as an attribute named "value":
+</p>
+<pre class="xml">
+  &lt;count value="2"/&gt;
+</pre>
+<p>
+The full representation, with id, extensions and value:
+</p>
+<pre class="xml">
+  &lt;count id="a1" value="2"&gt;
+    &lt;extension url="..."&gt;
+      &lt;valueXX.../&gt;
+    &lt;/extension&gt;
+  &lt;/count&gt;
+</pre>
+<p><b>JSON</b></p>
+<p>
+In JSON, for convenience, the value is represented as the property itself:
+</p>
+<pre class="json">
+  "count" : 2
+</pre>
+<p>
+The full representation, with id, extensions and value, showing the id and extensions in the sibling property:
+</p>
+<pre class="json">
+  "count" : 2
+  "count_" : {
+    "id" : "a1",
+    "extension" : [{
+      "url" : "...",
+      "valueXXX" : "...."
+    }]
+  }
+</pre>
+<p><b>RDF</b></p>
+<p>
+The value is represented in RDF as an relationship with the URI "http://h;7.org/fhir/value". Using the normal prefix, this becomes:
+</p>
+<pre class="rdf">
+  fhir:Type.count [ fhir:value "2"^^xsd:integer ]
+</pre>
+<p>
+For the types date and DateTime, the type must be specified explicitly. 
+Otherwise it is optional. 
+The full representation, with id, extensions and value:
+</p>
+<pre class="rdf">
+  fhir:Type.count [ 
+    Element.id "a1";
+    fhir:value "2"^^xsd:integer;
+    Element.extension [ 
+      fhir:Extension.url ".."; 
+      fhir:Extension.valueXX...
+    ]
+  ]
+</pre>
+<p>
+For additional details, see the <a href="xml.html">XML</a>, <a href="json.html">JSON</a> and <a href="rdf.html">Turtle</a> formats. 
+When the value is missing, and there are no extensions, the element is not represented at all. This means that 
+in xml, attributes are never present with a length of 0 (value=""), and properties are never a 0 length string or null in JSON ("name" : "" is not valid). 
+(note: there is one specific <a href="json.html#null">use of the null</a> in the JSON representation).
+</p>
+<p>
+According to XML schema, leading and trailing whitespace in the value attribute is ignored for the types 
+boolean, integer, decimal, base64Binary, instant, uri, date, dateTime, oid, and uri. Note that this means that the 
+schema aware XML libraries give different attribute values to non schema aware libraries when reading the 
+XML instances. For this reason, the value attribute for these types SHOULD not have leading and trailing spaces.
+String values should only have leading and trailing spaces if they are part of the content of the value. 
+In JSON and Turtle whitespace in string values is always significant. Primitive types other than string SHALL NOT have leading or trailing whitespace.
+</p>
+
+
+
 
 <!-- 
 boolean: [%dtusage boolean%]

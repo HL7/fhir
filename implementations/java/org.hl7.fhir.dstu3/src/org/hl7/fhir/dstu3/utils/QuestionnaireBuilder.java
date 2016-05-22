@@ -32,6 +32,7 @@ import org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireStatus;
 import org.hl7.fhir.dstu3.model.QuestionnaireResponse;
 import org.hl7.fhir.dstu3.model.QuestionnaireResponse.QuestionnaireResponseItemAnswerComponent;
 import org.hl7.fhir.dstu3.model.QuestionnaireResponse.QuestionnaireResponseStatus;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StringType;
@@ -669,10 +670,9 @@ public class QuestionnaireBuilder {
   }
 
   private boolean isPrimitive(TypeRefComponent t) {
-    return (t != null) && 
-          (t.getCode().equals("string") || t.getCode().equals("code") || t.getCode().equals("boolean") || t.getCode().equals("integer") || t.getCode().equals("unsignedInt") || t.getCode().equals("positiveInt") ||
-              t.getCode().equals("decimal") || t.getCode().equals("date") || t.getCode().equals("dateTime") || 
-              t.getCode().equals("instant") || t.getCode().equals("time") || t.getCode().equals("Reference"));
+    String code = t.getCode();
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+    return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
   }
 
   private void processDataType(StructureDefinition profile, QuestionnaireItemComponent group, ElementDefinition element, String path, TypeRefComponent t, List<QuestionnaireResponse.QuestionnaireResponseItemComponent> answerGroups) throws FHIRException {

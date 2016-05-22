@@ -36,13 +36,13 @@ public class ParserTests {
       ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://local.healthintersections.com.au:960/open");
     }
     org.hl7.fhir.dstu3.metamodel.XmlParser xp = new org.hl7.fhir.dstu3.metamodel.XmlParser(TestingUtilities.context);
-    Element e = xp.parse(new FileInputStream(Utilities.path(root, "bundle-example.xml")));
+    Element e = xp.parse(new FileInputStream(Utilities.path(root, "account-example.xml")));
     TurtleParser tp = new TurtleParser(TestingUtilities.context);
-    tp.compose(e, new FileOutputStream(Utilities.path(root, "bundle-example.ttl")), OutputStyle.PRETTY, "http://hl7.org/fhir");
+    tp.compose(e, new FileOutputStream(Utilities.path(root, "account-example.ttl")), OutputStyle.PRETTY, "http://hl7.org/fhir");
     tp = new TurtleParser(TestingUtilities.context);
-    e = tp.parse(new FileInputStream(Utilities.path(root, "bundle-example.ttl")));
+    e = tp.parse(new FileInputStream(Utilities.path(root, "account-example.ttl")));
     xp = new org.hl7.fhir.dstu3.metamodel.XmlParser(TestingUtilities.context);
-    xp.compose(e, new FileOutputStream(Utilities.path(root, "bundle-example-1.xml")), OutputStyle.PRETTY, null); //"http://hl7.org/fhir");
+    xp.compose(e, new FileOutputStream(Utilities.path(root, "account-example-1.xml")), OutputStyle.PRETTY, null); //"http://hl7.org/fhir");
 	}
 //	@Test
 //	public void testSpecific() throws Exception {

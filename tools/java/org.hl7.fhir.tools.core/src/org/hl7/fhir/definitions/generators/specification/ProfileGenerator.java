@@ -252,7 +252,7 @@ public class ProfileGenerator {
     ec.setMin(0);
     ec.setMax("1");
     TypeRefComponent t = ec.addType();
-    t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type\r\n      e.g. this is compiler magic\r\n      XML and JSON types provided by extension");
+    t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML, JSON and RDF types provided by extension");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
     String xst = type.getSchemaType().replace(", ", " OR ");
     if (xst.contains("xs:"))
@@ -302,7 +302,7 @@ public class ProfileGenerator {
     ec3.setMax("1");
     ec3.setShort("Primitive value for " +type.getCode());
     t = ec3.addType();
-    t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type\r\n      e.g. this is compiler magic\r\n      XML and JSON types provided by extension");
+    t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML, JSON and RDF types provided by extension");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, xst);
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_RDF_TYPE, xst.replace("anyURI", "string"));
@@ -332,6 +332,112 @@ public class ProfileGenerator {
     }    
   }
 
+  public StructureDefinition generateXhtml() throws Exception {
+    StructureDefinition p = new StructureDefinition();
+    p.setId("xhtml");
+    p.setUrl("http://hl7.org/fhir/StructureDefinition/xhtml");
+    p.setKind(StructureDefinitionKind.PRIMITIVETYPE);
+    p.setAbstract(false);
+    p.setUserData("filename", "xhtml");
+    p.setUserData("path", "narrrative.html#xhtml");
+    p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Element");
+    p.setBaseType("Element");
+    p.setDerivation(TypeDerivationRule.SPECIALIZATION);
+    p.setFhirVersion(version);
+
+    
+    ToolResourceUtilities.updateUsage(p, "core");
+    p.setName("xhtml");
+    p.setPublisher("HL7 FHIR Standard");
+    p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
+    p.setDescription("Base StructureDefinition for xhtml Type");
+    p.setDate(genDate.getTime());
+    p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
+
+    Set<String> containedSlices = new HashSet<String>();
+
+    // first, the differential
+    p.setDifferential(new StructureDefinitionDifferentialComponent());
+    ElementDefinition ec = new ElementDefinition();
+    p.getDifferential().getElement().add(ec);
+    ec.setPath("xhtml");
+    ec.setShort("Primitive Type " +"xhtml");
+    ec.setDefinition("XHTML");
+    ec.setMin(0);
+    ec.setMax("*");
+    ec.getType().add(new TypeRefComponent().setCode("Element"));
+    ec = new ElementDefinition();
+    ec = new ElementDefinition();
+    p.getDifferential().getElement().add(ec);
+    ec.setPath("xhtml"+".extension");
+    ec.setMax("0");
+    p.getDifferential().getElement().add(ec);
+    ec.setPath("xhtml"+".value");
+    ec.addRepresentation(PropertyRepresentation.XHTML);
+    ec.setShort("Actual xhtml");
+    ec.setDefinition("Actual xhtml");
+    ec.setMin(1);
+    ec.setMax("1");
+    TypeRefComponent t = ec.addType();
+    t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML, JSON and RDF types provided by extension");
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, "string");
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, "xhtml:div");
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_RDF_TYPE, "string");
+
+    reset();
+    // now. the snapshot
+    p.setSnapshot(new StructureDefinitionSnapshotComponent());
+    ElementDefinition ec1 = new ElementDefinition();
+    p.getSnapshot().getElement().add(ec1);
+    ec1.setPath("xhtml");
+    ec1.setShort("Primitive Type " +"xhtml");
+    ec1.setDefinition("XHTML");
+    ec1.setMin(0);
+    ec1.getType().add(new TypeRefComponent().setCode("Element"));
+    ec1.setMin(0);
+    ec1.setMax("*");
+    generateElementDefinition(ec1, null);
+
+    ElementDefinition ec2 = new ElementDefinition();
+    p.getSnapshot().getElement().add(ec2);
+    ec2.setPath("xhtml.id");
+    ec2.addRepresentation(PropertyRepresentation.XMLATTR);
+    ec2.setDefinition("unique id for the element within a resource (for internal references)");
+    ec2.setMin(0);
+    ec2.setMax("1");
+    ec2.setShort("xml:id (or equivalent in JSON)");
+    ec2.getType().add(new TypeRefComponent().setCode("id"));
+    generateElementDefinition(ec2, ec1);
+
+    ElementDefinition ex = makeExtensionSlice("extension", p, p.getSnapshot(), null, "xhtml");
+    ex.getBase().setMax("0");
+    
+    ElementDefinition ec3 = new ElementDefinition();
+    p.getSnapshot().getElement().add(ec3);
+    ec3.setPath("xhtml.value");
+    ec3.addRepresentation(PropertyRepresentation.XHTML);
+    ec3.setShort("Actual xhtml");
+    ec3.setDefinition("Actual xhtml");
+    ec3.setMin(1);
+    ec3.setMax("1");
+    t = ec3.addType();
+    t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML, JSON and RDF types provided by extension");
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, "string");
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, "xhtml:div");
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_RDF_TYPE, "string");
+    generateElementDefinition(ec3, ec);
+
+    containedSlices.clear();
+
+    XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
+    div.addText("to do");
+    p.setText(new Narrative());
+    p.getText().setStatus(NarrativeStatus.GENERATED);
+    p.getText().setDiv(div);
+    checkHasTypes(p);
+    return p;
+  }
+
   private String prefix(String prefix, String value) {
     if (value == null)
       return prefix;
@@ -348,7 +454,7 @@ public class ProfileGenerator {
     p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+ type.getBase());
     p.setBaseType(type.getBase());
     p.setDerivation(TypeDerivationRule.SPECIALIZATION);
-    p.setKind(StructureDefinitionKind.COMPLEXTYPE);
+    p.setKind(StructureDefinitionKind.PRIMITIVETYPE);
     p.setAbstract(false);
     p.setUserData("filename", type.getCode().toLowerCase());
     p.setUserData("path", "datatypes.html#"+type.getCode());
@@ -387,7 +493,7 @@ public class ProfileGenerator {
     ec2.setMin(0);
     ec2.setMax("1");
     TypeRefComponent t = ec2.addType();
-    t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type\r\n      e.g. this is compiler magic\r\n      XML and JSON types provided by extension");
+    t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML, JSON and RDF types provided by extension");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
     String xst = type.getSchema().replace("xs:", "xsd:").replace("+", "");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, xst);
@@ -429,7 +535,7 @@ public class ProfileGenerator {
     ecB.getBase().setMin(0);
     ecB.getBase().setMax("1");
     t = ecB.addType();
-    t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type\r\n      e.g. this is compiler magic\r\n      XML and JSON types provided by extension");
+    t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML, JSON and RDF types provided by extension");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, xst);
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_RDF_TYPE, xst.replace("anyURI", "string"));
@@ -1052,40 +1158,10 @@ public class ProfileGenerator {
               expandedTypes.add(childType);
             }
           } else if (t.isWildcardType()) {
-            // this list is filled out manually because it may be running before the types rerred to have been loaded
-            expandedTypes.add(new TypeRef("boolean"));
-            expandedTypes.add(new TypeRef("integer"));
-            expandedTypes.add(new TypeRef("decimal"));
-            expandedTypes.add(new TypeRef("base64Binary"));
-            expandedTypes.add(new TypeRef("instant"));
-            expandedTypes.add(new TypeRef("string"));
-            expandedTypes.add(new TypeRef("uri"));
-            expandedTypes.add(new TypeRef("date"));
-            expandedTypes.add(new TypeRef("dateTime"));
-            expandedTypes.add(new TypeRef("time"));
-            expandedTypes.add(new TypeRef("code"));
-            expandedTypes.add(new TypeRef("oid"));
-            expandedTypes.add(new TypeRef("id"));
-            expandedTypes.add(new TypeRef("unsignedInt"));
-            expandedTypes.add(new TypeRef("positiveInt"));
-            expandedTypes.add(new TypeRef("markdown"));
-            expandedTypes.add(new TypeRef("Annotation"));
-            expandedTypes.add(new TypeRef("Attachment"));
-            expandedTypes.add(new TypeRef("Identifier"));
-            expandedTypes.add(new TypeRef("CodeableConcept"));
-            expandedTypes.add(new TypeRef("Coding"));
-            expandedTypes.add(new TypeRef("Quantity"));
-            expandedTypes.add(new TypeRef("Range"));
-            expandedTypes.add(new TypeRef("Period"));
-            expandedTypes.add(new TypeRef("Ratio"));
-            expandedTypes.add(new TypeRef("SampledData"));
-            expandedTypes.add(new TypeRef("Signature"));
-            expandedTypes.add(new TypeRef("HumanName"));
-            expandedTypes.add(new TypeRef("Address"));
-            expandedTypes.add(new TypeRef("ContactPoint"));
-            expandedTypes.add(new TypeRef("Timing"));
-            expandedTypes.add(new TypeRef("Reference"));
-            expandedTypes.add(new TypeRef("Meta"));
+            // this list is filled out manually because it may be running before the types referred to have been loaded
+            for (String n : definitions.wildcardTypes()) 
+              expandedTypes.add(new TypeRef(n));
+
           } else if (!t.getName().startsWith("=")) {
             if (definitions.isLoaded() && (!definitions.hasResource(t.getName()) && !definitions.hasType(t.getName()) 
                 && !definitions.hasElementDefn(t.getName()) && !definitions.getBaseResources().containsKey(t.getName()) &&!t.getName().equals("xhtml") )) {
@@ -1340,12 +1416,13 @@ public class ProfileGenerator {
     return path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path;
   }
 
-  private void makeExtensionSlice(String extensionName, StructureDefinition p, StructureDefinitionSnapshotComponent c, ElementDefn e, String path) throws URISyntaxException, Exception {
+  private ElementDefinition makeExtensionSlice(String extensionName, StructureDefinition p, StructureDefinitionSnapshotComponent c, ElementDefn e, String path) throws URISyntaxException, Exception {
     ElementDefinition ex = createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName(definitions, extensionName, false, false));
     c.getElement().add(ex);
     ex.getBase().setPath(path+".extension");
     ex.getBase().setMin(0);
     ex.getBase().setMax("*");
+    return ex;
   }
 
   private void addMapping(StructureDefinition p, ElementDefinition definition, String target, String map, Profile pack) {
@@ -1464,39 +1541,8 @@ public class ProfileGenerator {
           dst.getType().add(type);
         }
       } else if (t.isWildcardType()) {
-        dst.addType().setCode("boolean");
-        dst.addType().setCode("integer");
-        dst.addType().setCode("decimal");
-        dst.addType().setCode("base64Binary");
-        dst.addType().setCode("instant");
-        dst.addType().setCode("string");
-        dst.addType().setCode("uri");
-        dst.addType().setCode("date");
-        dst.addType().setCode("dateTime");
-        dst.addType().setCode("time");
-        dst.addType().setCode("code");
-        dst.addType().setCode("oid");
-        dst.addType().setCode("id");
-        dst.addType().setCode("unsignedInt");
-        dst.addType().setCode("positiveInt");
-        dst.addType().setCode("markdown");
-        dst.addType().setCode("Annotation");
-        dst.addType().setCode("Attachment");
-        dst.addType().setCode("Identifier");
-        dst.addType().setCode("CodeableConcept");
-        dst.addType().setCode("Coding");
-        dst.addType().setCode("Quantity");
-        dst.addType().setCode("Range");
-        dst.addType().setCode("Period");
-        dst.addType().setCode("Ratio");
-        dst.addType().setCode("SampledData");
-        dst.addType().setCode("Signature");
-        dst.addType().setCode("HumanName");
-        dst.addType().setCode("Address");
-        dst.addType().setCode("ContactPoint");
-        dst.addType().setCode("Timing");
-        dst.addType().setCode("Reference");
-        dst.addType().setCode("Meta");
+        for (String n : definitions.wildcardTypes()) 
+          dst.addType().setCode(n);
       } else {
         ElementDefinition.TypeRefComponent type = new ElementDefinition.TypeRefComponent();
         if (definitions != null && definitions.getConstraints().containsKey(t.getName())) {

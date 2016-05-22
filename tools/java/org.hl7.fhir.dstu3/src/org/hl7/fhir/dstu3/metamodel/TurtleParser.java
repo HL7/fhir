@@ -168,7 +168,7 @@ public class TurtleParser extends ParserBase {
       TTLComplex child = (TTLComplex) e;
       Element n = new Element(tail(name), property).markLocation(e.getLine(), e.getCol());
       context.getChildren().add(n);
-      if (property.isPrimitive(null)) {
+      if (property.isPrimitive(property.getType(null))) {
         parseChildren(src, npath, child, n, true);
         TTLObject val = child.getPredicates().get("http://hl7.org/fhir/value");
         if (val != null) {

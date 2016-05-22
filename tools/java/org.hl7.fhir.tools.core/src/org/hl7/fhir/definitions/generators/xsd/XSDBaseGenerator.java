@@ -648,12 +648,12 @@ public class XSDBaseGenerator {
       }
       close = "/>";
     }
-    for (TypeRef t : definitions.getKnownTypes()) {
-      if (!definitions.getInfrastructure().containsKey(t.getName()) && !definitions.getConstraints().containsKey(t.getName()) && !definitions.getShared().contains(t.getName())) {
-        if (t.isResourceReference()) {
+    for (String t : definitions.wildcardTypes()) {
+      if (!definitions.getInfrastructure().containsKey(t) && !definitions.getConstraints().containsKey(t) && !definitions.getShared().contains(t)) {
+        if (t.equals("ReferenceXX")) {
           write("           <xs:element name=\""+prefix+"Resource\" type=\"Reference\""+close+"\r\n");        
         } else {
-          write("           <xs:element name=\""+prefix+Utilities.capitalize(t.getName())+"\" type=\""+t.getName()+"\""+close+"\r\n");       
+          write("           <xs:element name=\""+prefix+Utilities.capitalize(t)+"\" type=\""+t+"\""+close+"\r\n");       
         }
         if (forCodeGeneration) {
           write("            <xs:annotation>\r\n");

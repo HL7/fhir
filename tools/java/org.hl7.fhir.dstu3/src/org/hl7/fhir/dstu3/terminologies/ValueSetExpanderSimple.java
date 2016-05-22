@@ -46,6 +46,7 @@ import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
@@ -145,7 +146,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 
   private void includeCodes(ConceptSetComponent inc, List<ValueSetExpansionParameterComponent> params) throws TerminologyServiceException, ETooCostly {
     CodeSystem cs = context.fetchCodeSystem(inc.getSystem());
-	  if (cs == null && context.supportsSystem(inc.getSystem())) {
+	  if ((cs == null || cs.getContent() != CodeSystemContentMode.COMPLETE) && context.supportsSystem(inc.getSystem())) {
       try {
         int i = codes.size();
         addCodes(context.expandVS(inc), params);
@@ -156,8 +157,10 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       }
 	  }
 	    
-	  if (cs == null)
-	  	throw new TerminologyServiceException("unable to find code system "+inc.getSystem().toString());
+    if (cs == null)
+      throw new TerminologyServiceException("unable to find code system "+inc.getSystem().toString());
+    if (cs.getContent() != CodeSystemContentMode.COMPLETE)
+      throw new TerminologyServiceException("Code system "+inc.getSystem().toString()+" is incomplete");
 	  if (cs.hasVersion())
       if (!existsInParams(params, "version", new UriType(cs.getUrl()+"?version="+cs.getVersion())))
         params.add(new ValueSetExpansionParameterComponent().setName("version").setValue(new UriType(cs.getUrl()+"?version="+cs.getVersion())));

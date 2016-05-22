@@ -106,7 +106,7 @@ public class JsonLDParser extends ParserBase {
     openArray(en);
     for (Element item : list) { 
       open(null);
-      if (item.isPrimitive() || ParserBase.isPrimitive(item.getType())) {
+      if (item.isPrimitive() || isPrimitive(item.getType())) {
         if (item.hasValue())
           primitiveValue(item);
       }
@@ -147,7 +147,7 @@ public class JsonLDParser extends ParserBase {
     if (element.hasChildren() || element.hasComments() || element.hasValue()) {
 			open(en);
 			  
-	    if (element.isPrimitive() || ParserBase.isPrimitive(element.getType())) {
+	    if (element.isPrimitive() || isPrimitive(element.getType())) {
 	      if (element.hasValue())
 	        primitiveValue(element);
 	    }

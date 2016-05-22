@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, May 22, 2016 14:38+1000 for FHIR v1.4.0
+// Generated on Mon, May 23, 2016 03:29+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -65,6 +65,10 @@ public class ElementDefinition extends Type implements ICompositeType {
          */
         CDATEXT, 
         /**
+         * The property is represented using XHTML
+         */
+        XHTML, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -79,6 +83,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           return TYPEATTR;
         if ("cdaText".equals(codeString))
           return CDATEXT;
+        if ("xhtml".equals(codeString))
+          return XHTML;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -90,6 +96,7 @@ public class ElementDefinition extends Type implements ICompositeType {
             case XMLTEXT: return "xmlText";
             case TYPEATTR: return "typeAttr";
             case CDATEXT: return "cdaText";
+            case XHTML: return "xhtml";
             default: return "?";
           }
         }
@@ -99,6 +106,7 @@ public class ElementDefinition extends Type implements ICompositeType {
             case XMLTEXT: return "http://hl7.org/fhir/property-representation";
             case TYPEATTR: return "http://hl7.org/fhir/property-representation";
             case CDATEXT: return "http://hl7.org/fhir/property-representation";
+            case XHTML: return "http://hl7.org/fhir/property-representation";
             default: return "?";
           }
         }
@@ -108,6 +116,7 @@ public class ElementDefinition extends Type implements ICompositeType {
             case XMLTEXT: return "This element is represented using the XML text attribute (primitives only)";
             case TYPEATTR: return "The type of this element is indicated using xsi:type";
             case CDATEXT: return "Use CDA narrative instead of XHTML";
+            case XHTML: return "The property is represented using XHTML";
             default: return "?";
           }
         }
@@ -117,6 +126,7 @@ public class ElementDefinition extends Type implements ICompositeType {
             case XMLTEXT: return "XML Text";
             case TYPEATTR: return "Type Attribute";
             case CDATEXT: return "CDA Text Format";
+            case XHTML: return "XHTML";
             default: return "?";
           }
         }
@@ -135,6 +145,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           return PropertyRepresentation.TYPEATTR;
         if ("cdaText".equals(codeString))
           return PropertyRepresentation.CDATEXT;
+        if ("xhtml".equals(codeString))
+          return PropertyRepresentation.XHTML;
         throw new IllegalArgumentException("Unknown PropertyRepresentation code '"+codeString+"'");
         }
         public Enumeration<PropertyRepresentation> fromType(Base code) throws FHIRException {
@@ -151,6 +163,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           return new Enumeration<PropertyRepresentation>(this, PropertyRepresentation.TYPEATTR);
         if ("cdaText".equals(codeString))
           return new Enumeration<PropertyRepresentation>(this, PropertyRepresentation.CDATEXT);
+        if ("xhtml".equals(codeString))
+          return new Enumeration<PropertyRepresentation>(this, PropertyRepresentation.XHTML);
         throw new FHIRException("Unknown PropertyRepresentation code '"+codeString+"'");
         }
     public String toCode(PropertyRepresentation code) {
@@ -162,6 +176,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         return "typeAttr";
       if (code == PropertyRepresentation.CDATEXT)
         return "cdaText";
+      if (code == PropertyRepresentation.XHTML)
+        return "xhtml";
       return "?";
       }
     public String toSystem(PropertyRepresentation code) {
@@ -2732,7 +2748,7 @@ public class ElementDefinition extends Type implements ICompositeType {
      * Codes that define how this element is represented in instances, when the deviation varies from the normal case.
      */
     @Child(name = "representation", type = {CodeType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="xmlAttr | xmlText | typeAttr | cdaText", formalDefinition="Codes that define how this element is represented in instances, when the deviation varies from the normal case." )
+    @Description(shortDefinition="xmlAttr | xmlText | typeAttr | cdaText | xhtml", formalDefinition="Codes that define how this element is represented in instances, when the deviation varies from the normal case." )
     protected List<Enumeration<PropertyRepresentation>> representation;
 
     /**

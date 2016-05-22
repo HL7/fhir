@@ -1276,11 +1276,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		return false;
 	}
 
-	private boolean isPrimitiveType(String type) {
-		return type.equalsIgnoreCase("boolean") || type.equalsIgnoreCase("integer") || type.equalsIgnoreCase("string") || type.equalsIgnoreCase("decimal") || type.equalsIgnoreCase("uri")
-				|| type.equalsIgnoreCase("base64Binary") || type.equalsIgnoreCase("instant") || type.equalsIgnoreCase("date") || type.equalsIgnoreCase("uuid") || type.equalsIgnoreCase("id")
-				|| type.equalsIgnoreCase("xhtml") || type.equalsIgnoreCase("markdown") || type.equalsIgnoreCase("dateTime") || type.equalsIgnoreCase("time") || type.equalsIgnoreCase("code")
-				|| type.equalsIgnoreCase("oid") || type.equalsIgnoreCase("id");
+	private boolean isPrimitiveType(String code) {
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+    return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
 	}
 
 

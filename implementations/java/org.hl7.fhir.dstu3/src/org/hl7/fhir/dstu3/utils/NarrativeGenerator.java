@@ -97,6 +97,7 @@ import org.hl7.fhir.dstu3.model.OperationDefinition.OperationDefinitionParameter
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.OperationOutcomeIssueComponent;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.Period;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Property;
@@ -265,10 +266,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (allReference)
         return "Reference";
 
-      if (ProfileUtilities.isPrimitive(t))
+      if (isPrimitive(Utilities.uncapitalize(t)))
         return Utilities.uncapitalize(t);
       else
         return t;
+    }
+
+    private boolean isPrimitive(String code) {
+      StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+      return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
     }
 
     @Override
@@ -819,6 +825,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     BaseWrapperElement base = new BaseWrapperElement(ee, null, profile, profile.getSnapshot().getElement().get(0));
     generateByProfile(resw, profile, base, allElements, defn, children, x, path, showCodeDetails);
   }
+
 
   private void generateByProfile(Resource res, StructureDefinition profile, Base e, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails) throws FHIRException, UnsupportedEncodingException, IOException {
     generateByProfile(new ResourceWrapperDirect(res), profile, new BaseWrapperDirect(e), allElements, defn, children, x, path, showCodeDetails);

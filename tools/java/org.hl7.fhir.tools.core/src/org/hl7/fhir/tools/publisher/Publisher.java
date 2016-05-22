@@ -754,6 +754,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       else
         genPrimitiveTypeProfile((DefinedStringPattern) t);
     }
+    genXhtmlProfile();
     for (TypeDefn t : page.getDefinitions().getTypes().values())
       genTypeProfile(t);
     for (TypeDefn t : page.getDefinitions().getStructures().values())
@@ -874,6 +875,19 @@ public class Publisher implements URIResolver, SectionNumberer {
     page.getProfiles().put(profile.getUrl(), profile);
     page.getProfiles().put(profile.getName(), profile);
     // todo: what to do in the narrative?
+  }
+
+  private void genXhtmlProfile() throws Exception {
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generateXhtml();
+    if (page.getProfiles().containsKey(profile.getUrl()))
+      throw new Exception("Duplicate Profile URL "+profile.getUrl());
+    page.getProfiles().put(profile.getUrl(), profile);
+    page.getProfiles().put(profile.getName(), profile);
+
+    //    DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getCode(), true);
+    //    t.setProfile(profile);
+    //    t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
+    //    t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t));
   }
 
   private void genPrimitiveTypeProfile(PrimitiveType t) throws Exception {
@@ -2995,6 +3009,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     for (DefinedCode pt : page.getDefinitions().getPrimitives().values())
       producePrimitiveTypeProfile(pt);
+    produceXhtmlProfile();
     for (TypeDefn e : page.getDefinitions().getTypes().values())
       produceTypeProfile(e);
     for (TypeDefn e : page.getDefinitions().getInfrastructure().values())
@@ -3030,6 +3045,37 @@ public class Publisher implements URIResolver, SectionNumberer {
     TextFile.stringToFile(shex, Utilities.changeFileExt(page.getFolders().dstDir + fn, ".shex"));
     shexToXhtml(pt.getName().toLowerCase(), "ShEx statement for " + pt.getName(), shex, "profile-instance:type:" + pt.getName(), "Type");
   }
+
+  private void produceXhtmlProfile() throws Exception {
+
+    String fn = "xhtml.profile.xml";
+    StructureDefinition rp = page.getProfiles().get("xhtml");
+
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + fn);
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, rp);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".canonical.xml"));
+    new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, rp);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json"));
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, rp);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".canonical.json"));
+    new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, rp);
+    s.close();
+
+    String shex = new ShExGenerator(page.getWorkerContext()).generate(HTMLLinkPolicy.NONE, rp);
+    TextFile.stringToFile(shex, Utilities.changeFileExt(page.getFolders().dstDir + fn, ".shex"));
+    
+    Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
+    addToResourceFeed(rp, typeBundle, (fn));
+    // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html"
+    // + File.separator + "datatypes.html"));
+    cloneToXhtml("xhtml.profile", "StructureDefinition for xhtml", false, "profile-instance:type:xhtml", "Type");
+    jsonToXhtml("xhtml.profile", "StructureDefinition for xhtml", resource2Json(rp), "profile-instance:type:xhtml", "Type");
+    shexToXhtml("xhtml", "ShEx statement for xhtml", shex, "profile-instance:type:xhtml", "Type");
+  }
+
 
   private void producePrimitiveTypeProfile(DefinedCode type) throws Exception {
 
@@ -3200,7 +3246,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     bs = new ByteArrayOutputStream();
     TurtleSpecGenerator gent = new TurtleSpecGenerator(bs, n + "-definitions.html", null, page, "");
-    gent.generate(resource.getRoot(), true);
+    gent.generate(resource.getRoot(), isAbstract);
     gent.close();
     String ttl = new String(bs.toByteArray());
 

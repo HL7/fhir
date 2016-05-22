@@ -16,6 +16,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
@@ -33,10 +34,9 @@ public abstract class ParserBase {
   
   public enum ValidationPolicy { NONE, QUICK, EVERYTHING }
 
-	public static boolean isPrimitive(String code) {
-		return Utilities.existsInList(code, 
-				"xhtml", "boolean", "integer", "string", "decimal", "uri", "base64Binary", "instant", "date", "dateTime", 
-				"time", "code", "oid", "id", "markdown", "unsignedInt", "positiveInt", "xhtml", "base64Binary");
+  public boolean isPrimitive(String code) {
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+    return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
 	}
 
 	protected IWorkerContext context;

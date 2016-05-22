@@ -130,15 +130,15 @@ public class JsonParser extends ParserBase {
 			if (property.isChoice()) {
 				for (TypeRefComponent type : property.getDefinition().getType()) {
 					String eName = property.getName().substring(0, property.getName().length()-3) + Utilities.capitalize(type.getCode());
-					if (!ParserBase.isPrimitive(type.getCode()) && object.has(eName)) {
+					if (!isPrimitive(type.getCode()) && object.has(eName)) {
 						parseChildComplex(path, object, context, processed, property, eName);
 						break;
-					} else if (ParserBase.isPrimitive(type.getCode()) && (object.has(eName) || object.has("_"+eName))) {
+					} else if (isPrimitive(type.getCode()) && (object.has(eName) || object.has("_"+eName))) {
 						parseChildPrimitive(object, context, processed, property, path, eName);
 						break;
 					}
 				}
-			} else if (property.isPrimitive(null)) {
+			} else if (property.isPrimitive(property.getType(null))) {
 				parseChildPrimitive(object, context, processed, property, path, property.getName());
 			} else if (object.has(property.getName())) {
 				parseChildComplex(path, object, context, processed, property, property.getName());
@@ -426,7 +426,7 @@ public class JsonParser extends ParserBase {
 
 	private void compose(String path, Element element) throws IOException {
 		String name = element.getName();
-		if (element.isPrimitive() || ParserBase.isPrimitive(element.getType())) {
+		if (element.isPrimitive() || isPrimitive(element.getType())) {
 			if (element.hasValue())
 				primitiveValue(name, element);
 			name = "_"+name;

@@ -97,6 +97,7 @@ import org.hl7.fhir.dstu3.model.OperationDefinition.OperationDefinitionParameter
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.OperationOutcomeIssueComponent;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.Period;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Property;
@@ -265,10 +266,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (allReference)
         return "Reference";
 
-      if (ProfileUtilities.isPrimitive(t))
+      if (isPrimitive(Utilities.uncapitalize(t)))
         return Utilities.uncapitalize(t);
       else
         return t;
+    }
+
+    private boolean isPrimitive(String code) {
+      StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+      return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
     }
 
     @Override

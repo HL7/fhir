@@ -233,11 +233,11 @@ public class XSDGenerator  {
 
 
 	private void generateAny(ElementDefn root, ElementDefn e, String prefix, String close) throws Exception {
-		for (TypeRef t : definitions.getKnownTypes()) {
-			if (!definitions.getInfrastructure().containsKey(t.getName()) && !definitions.getConstraints().containsKey(t.getName())) {
-			  String en = prefix != null ? prefix + upFirst(t.getName()) : t.getName();
+		for (String t : definitions.wildcardTypes()) {
+			if (!definitions.getInfrastructure().containsKey(t) && !definitions.getConstraints().containsKey(t)) {
+			  String en = prefix != null ? prefix + upFirst(t) : t;
 			  //write("       <xs:element name=\""+t.getName()+"\" type=\""+t.getName()+"\"/>\r\n");        
-  	    write("            <xs:element name=\""+en+"\" type=\""+t.getName()+"\""+close+"\r\n");
+  	    write("            <xs:element name=\""+en+"\" type=\""+t+"\""+close+"\r\n");
         if (forCodeGeneration) {
           write("              <xs:annotation>\r\n");
           if (e.hasDefinition()) {

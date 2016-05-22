@@ -73,6 +73,7 @@ import org.hl7.fhir.definitions.generators.specification.ResourceTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
+import org.hl7.fhir.definitions.generators.specification.TurtleSpecGenerator;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
@@ -364,6 +365,24 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return val; 
   }
 
+  private String ttlForDt(String dt, String pn) throws Exception {
+    ByteArrayOutputStream b = new ByteArrayOutputStream();
+    TurtleSpecGenerator gen = new TurtleSpecGenerator(b, pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this, "");
+    TypeParser tp = new TypeParser();
+    TypeRef t = tp.parse(dt, false, null, workerContext, true).get(0);
+    ElementDefn e = definitions.getElementDefn(t.getName());
+    if (e == null) {
+      gen.close();
+      throw new Exception("unable to find definition for "+ dt);
+    } 
+    else {
+      gen.generate(e, false);
+      gen.close();
+    }
+    String val = new String(b.toByteArray())+"\r\n";
+    return val; 
+  }
+
  
   private String generateSideBar(String prefix) throws Exception {
     if (prevSidebars.containsKey(prefix))
@@ -472,11 +491,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (com.length == 4 && com[0].equals("edt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
-        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[3]), umlForDt(com[1], com[3]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]))+s3;
+        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[3]), umlForDt(com[1], com[3]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]), ttlForDt(com[1], file))+s3;
       } else if (com.length == 3 && com[0].equals("dt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
-        src = s1+orgDT(com[1], xmlForDt(com[1], file), treeForDt(com[1]), umlForDt(com[1], com[2]), umlForDt(com[1], com[2]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], file))+s3;
+        src = s1+orgDT(com[1], xmlForDt(com[1], file), treeForDt(com[1]), umlForDt(com[1], com[2]), umlForDt(com[1], com[2]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], file), ttlForDt(com[1], file))+s3;
       } else if (com.length == 2 && com[0].equals("dt.constraints")) 
         src = s1+genConstraints(com[1], genlevel(level))+s3;
       else if (com.length == 2 && com[0].equals("dt.restrictions")) 
@@ -1380,7 +1399,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return " at <a href=\""+cs.getContact().get(0).getTelecom().get(0).getValue()+"\">"+cs.getContact().get(0).getTelecom().get(0).getValue()+"</a>";
   }
 
-  private String orgDT(String name, String xml, String tree, String uml1, String uml2, String ref, String ts, String json) {
+  private String orgDT(String name, String xml, String tree, String uml1, String uml2, String ref, String ts, String json, String ttl) {
     StringBuilder b = new StringBuilder();
     b.append("<div id=\"tabs-").append(name).append("\">\r\n");
     b.append(" <ul>\r\n");
@@ -1388,6 +1407,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("  <li><a href=\"#tabs-"+name+"-uml\">UML</a></li>\r\n");
     b.append("  <li><a href=\"#tabs-"+name+"-xml\">XML</a></li>\r\n");
     b.append("  <li><a href=\"#tabs-"+name+"-json\">JSON</a></li>\r\n");
+    b.append("  <li><a href=\"#tabs-"+name+"-ttl\">Turtle</a></li>\r\n");
     b.append("  <li><a href=\"#tabs-"+name+"-all\">All</a></li>\r\n");
     b.append(" </ul>\r\n");
     b.append(" <div id=\"tabs-"+name+"-struc\">\r\n");
@@ -1426,6 +1446,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("  </div>\r\n");
     b.append(" </div>\r\n");
     b.append("\r\n");
+    b.append(" <div id=\"tabs-"+name+"-ttl\">\r\n");
+    b.append("  <div id=\"json\">\r\n");
+    b.append("   <p><b>Turtle Template</b></p>\r\b");
+    b.append("   <div id=\"ttl-inner\">\r\n");
+    b.append("    "+ttl+"\r\n");
+    b.append("   </div>\r\n");
+    b.append("  </div>\r\n");
+    b.append(" </div>\r\n");
+    b.append("\r\n");
     b.append(" <div id=\"tabs-"+name+"-all\">\r\n");
     b.append("  <div id=\"tbla\">\r\n");
     b.append("   <a name=\"tbl\"> </a>\r\n");
@@ -1456,6 +1485,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("   <p><b>JSON Template</b></p>\r\n");
     b.append("   <div id=\"json-inner\">\r\n");
     b.append("     "+json+"\r\n");
+    b.append("   </div>\r\n");
+    b.append("  </div>\r\n");
+    b.append("  <div id=\"ttla\">\r\n");
+    b.append("   <a name=\"ttl\"> </a>\r\n");
+    b.append("   <p><b>Turtle Template</b></p>\r\n");
+    b.append("   <div id=\"ttl-inner\">\r\n");
+    b.append("     "+ttl+"\r\n");
     b.append("   </div>\r\n");
     b.append("  </div>\r\n");
     b.append(" </div>\r\n");
@@ -3514,7 +3550,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (com.length == 3 && com[0].equals("edt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
-        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[2]), umlForDt(com[1], com[2]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]))+s3;
+        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[2]), umlForDt(com[1], com[2]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]), ttlForDt(com[1], com[2]))+s3;
       } else if (com.length == 2 && com[0].equals("dt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
@@ -3911,7 +3947,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (com.length == 3 && com[0].equals("edt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
-        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[2]), umlForDt(com[1], com[2]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]))+s3;
+        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[2]), umlForDt(com[1], com[2]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]), ttlForDt(com[1], com[2]))+s3;
       } else if (com.length == 3 && com[0].equals("dt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
