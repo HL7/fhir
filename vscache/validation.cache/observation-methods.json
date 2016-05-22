@@ -2,7 +2,22 @@
   "url": "http://hl7.org/fhir/ValueSet/observation-methods",
   "outcomes": [
     {
+      "hash": "#|http://snomed.info/id|null|702668005|MDRD",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|104177005|Blood culture for bacteria, including anaerobic screen",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|120220003|Injection to forearm",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|89003005|Oral temperature taking",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }
