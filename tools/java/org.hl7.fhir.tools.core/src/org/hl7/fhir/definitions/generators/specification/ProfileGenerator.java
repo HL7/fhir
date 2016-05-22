@@ -212,7 +212,7 @@ public class ProfileGenerator {
     StructureDefinition p = new StructureDefinition();
     p.setId(type.getCode());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ type.getCode());
-    p.setKind(StructureDefinitionKind.DATATYPE);
+    p.setKind(StructureDefinitionKind.PRIMITIVETYPE);
     p.setAbstract(false);
     p.setUserData("filename", type.getCode().toLowerCase());
     p.setUserData("path", "datatypes.html#"+type.getCode());
@@ -348,7 +348,7 @@ public class ProfileGenerator {
     p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+ type.getBase());
     p.setBaseType(type.getBase());
     p.setDerivation(TypeDerivationRule.SPECIALIZATION);
-    p.setKind(StructureDefinitionKind.DATATYPE);
+    p.setKind(StructureDefinitionKind.COMPLEXTYPE);
     p.setAbstract(false);
     p.setUserData("filename", type.getCode().toLowerCase());
     p.setUserData("path", "datatypes.html#"+type.getCode());
@@ -452,7 +452,7 @@ public class ProfileGenerator {
     StructureDefinition p = new StructureDefinition();
     p.setId(t.getName());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ t.getName());
-    p.setKind(StructureDefinitionKind.DATATYPE);
+    p.setKind(StructureDefinitionKind.COMPLEXTYPE);
     p.setAbstract(t.getName().equals("Element") || t.getName().equals("BackboneElement") );
     p.setUserData("filename", t.getName().toLowerCase());
     p.setUserData("path", "datatypes.html#"+t.getName());
@@ -512,7 +512,7 @@ public class ProfileGenerator {
     p.setId(pt.getName());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ pt.getName());
     p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+pt.getBaseType());
-    p.setKind(StructureDefinitionKind.DATATYPE);
+    p.setKind(StructureDefinitionKind.COMPLEXTYPE);
     p.setBaseType(pt.getBaseType());
     p.setDerivation(TypeDerivationRule.CONSTRAINT);
     p.setAbstract(false);

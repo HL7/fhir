@@ -20,7 +20,7 @@
   <description value="Identifies the device performing the evaluation of the order"></description>
   <requirements value="A reference to the Device resource describing the Decision Support Service Actor SHALL be provided unless the evaluation was issued manually, in which case it is optional. This SHALL be a reference to one of the Devices specified in the dss parameter."></requirements>
   <fhirVersion value="1.4.0"></fhirVersion>
-  <kind value="datatype"></kind>
+  <kind value="complex-type"></kind>
   <abstract value="false"></abstract>
   <contextType value="resource"></contextType>
   <context value="Basic"></context>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, May 22, 2016 06:42+1000 for FHIR v1.4.0
+// Generated on Sun, May 22, 2016 14:38+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -50,9 +50,13 @@ public class StructureDefinition extends DomainResource {
 
     public enum StructureDefinitionKind {
         /**
-         * A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions.
+         * A data type, which is a primitive type that has a value and an extension. These can be used throughout Resource and extension definitions. Only tbe base specification can define primitive types.
          */
-        DATATYPE, 
+        PRIMITIVETYPE, 
+        /**
+         * A data type - either a complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions, and in logical models.
+         */
+        COMPLEXTYPE, 
         /**
          * A resource defined by the FHIR specification.
          */
@@ -68,8 +72,10 @@ public class StructureDefinition extends DomainResource {
         public static StructureDefinitionKind fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("datatype".equals(codeString))
-          return DATATYPE;
+        if ("primitive-type".equals(codeString))
+          return PRIMITIVETYPE;
+        if ("complex-type".equals(codeString))
+          return COMPLEXTYPE;
         if ("resource".equals(codeString))
           return RESOURCE;
         if ("logical".equals(codeString))
@@ -81,7 +87,8 @@ public class StructureDefinition extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case DATATYPE: return "datatype";
+            case PRIMITIVETYPE: return "primitive-type";
+            case COMPLEXTYPE: return "complex-type";
             case RESOURCE: return "resource";
             case LOGICAL: return "logical";
             default: return "?";
@@ -89,7 +96,8 @@ public class StructureDefinition extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case DATATYPE: return "http://hl7.org/fhir/structure-definition-kind";
+            case PRIMITIVETYPE: return "http://hl7.org/fhir/structure-definition-kind";
+            case COMPLEXTYPE: return "http://hl7.org/fhir/structure-definition-kind";
             case RESOURCE: return "http://hl7.org/fhir/structure-definition-kind";
             case LOGICAL: return "http://hl7.org/fhir/structure-definition-kind";
             default: return "?";
@@ -97,7 +105,8 @@ public class StructureDefinition extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case DATATYPE: return "A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions.";
+            case PRIMITIVETYPE: return "A data type, which is a primitive type that has a value and an extension. These can be used throughout Resource and extension definitions. Only tbe base specification can define primitive types.";
+            case COMPLEXTYPE: return "A data type - either a complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions, and in logical models.";
             case RESOURCE: return "A resource defined by the FHIR specification.";
             case LOGICAL: return "A logical model - a conceptual package of data that will be mapped to resources for implementation.";
             default: return "?";
@@ -105,7 +114,8 @@ public class StructureDefinition extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case DATATYPE: return "Data Type";
+            case PRIMITIVETYPE: return "Primitive Data Type";
+            case COMPLEXTYPE: return "Complex Data Type";
             case RESOURCE: return "Resource";
             case LOGICAL: return "Logical Model";
             default: return "?";
@@ -118,8 +128,10 @@ public class StructureDefinition extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("datatype".equals(codeString))
-          return StructureDefinitionKind.DATATYPE;
+        if ("primitive-type".equals(codeString))
+          return StructureDefinitionKind.PRIMITIVETYPE;
+        if ("complex-type".equals(codeString))
+          return StructureDefinitionKind.COMPLEXTYPE;
         if ("resource".equals(codeString))
           return StructureDefinitionKind.RESOURCE;
         if ("logical".equals(codeString))
@@ -132,8 +144,10 @@ public class StructureDefinition extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("datatype".equals(codeString))
-          return new Enumeration<StructureDefinitionKind>(this, StructureDefinitionKind.DATATYPE);
+        if ("primitive-type".equals(codeString))
+          return new Enumeration<StructureDefinitionKind>(this, StructureDefinitionKind.PRIMITIVETYPE);
+        if ("complex-type".equals(codeString))
+          return new Enumeration<StructureDefinitionKind>(this, StructureDefinitionKind.COMPLEXTYPE);
         if ("resource".equals(codeString))
           return new Enumeration<StructureDefinitionKind>(this, StructureDefinitionKind.RESOURCE);
         if ("logical".equals(codeString))
@@ -141,8 +155,10 @@ public class StructureDefinition extends DomainResource {
         throw new FHIRException("Unknown StructureDefinitionKind code '"+codeString+"'");
         }
     public String toCode(StructureDefinitionKind code) {
-      if (code == StructureDefinitionKind.DATATYPE)
-        return "datatype";
+      if (code == StructureDefinitionKind.PRIMITIVETYPE)
+        return "primitive-type";
+      if (code == StructureDefinitionKind.COMPLEXTYPE)
+        return "complex-type";
       if (code == StructureDefinitionKind.RESOURCE)
         return "resource";
       if (code == StructureDefinitionKind.LOGICAL)
@@ -1362,7 +1378,7 @@ public class StructureDefinition extends DomainResource {
      * Defines the kind of structure that this definition is describing.
      */
     @Child(name = "kind", type = {CodeType.class}, order=17, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="datatype | resource | logical", formalDefinition="Defines the kind of structure that this definition is describing." )
+    @Description(shortDefinition="primitive-type | complex-type | resource | logical", formalDefinition="Defines the kind of structure that this definition is describing." )
     protected Enumeration<StructureDefinitionKind> kind;
 
     /**
@@ -3233,17 +3249,17 @@ public class StructureDefinition extends DomainResource {
  /**
    * Search parameter: <b>kind</b>
    * <p>
-   * Description: <b>datatype | resource | logical</b><br>
+   * Description: <b>primitive-type | complex-type | resource | logical</b><br>
    * Type: <b>token</b><br>
    * Path: <b>StructureDefinition.kind</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="kind", path="StructureDefinition.kind", description="datatype | resource | logical", type="token" )
+  @SearchParamDefinition(name="kind", path="StructureDefinition.kind", description="primitive-type | complex-type | resource | logical", type="token" )
   public static final String SP_KIND = "kind";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>kind</b>
    * <p>
-   * Description: <b>datatype | resource | logical</b><br>
+   * Description: <b>primitive-type | complex-type | resource | logical</b><br>
    * Type: <b>token</b><br>
    * Path: <b>StructureDefinition.kind</b><br>
    * </p>

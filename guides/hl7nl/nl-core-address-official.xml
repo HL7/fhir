@@ -19,7 +19,7 @@
         <uri value="http://hl7.org/v3"/>
         <name value="RIM"/>
     </mapping>
-    <kind value="datatype"/>
+    <kind value="complex-type"/>
     <abstract value="false"/>
     <contextType value="resource"/>
     <context value="Address"/>

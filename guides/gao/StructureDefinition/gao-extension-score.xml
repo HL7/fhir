@@ -20,7 +20,7 @@
   <description value="An optional value which can be used to record a score associated with the evaluation process. The interpretation of this value may vary depending upon guidelines and Decision Support Service actors used. It is present to enable quality improvement efforts related to ordering."></description>
   <requirements value="An evaluation result can return a decimal valued score.  The scale and precision is implementation dependent."></requirements>
   <fhirVersion value="1.4.0"></fhirVersion>
-  <kind value="datatype"></kind>
+  <kind value="complex-type"></kind>
   <abstract value="false"></abstract>
   <contextType value="resource"></contextType>
   <context value="Basic"></context>

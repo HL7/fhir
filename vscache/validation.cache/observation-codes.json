@@ -33,11 +33,6 @@
       "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
-      "hash": "#|http://acme.org/lab/codes/tests|null|60036|Oxacillin",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set LOINC Codes"
-    },
-    {
       "hash": "#|http://acme.org/lab/codes/tests|null|60504|Ampicillin",
       "severity": "error",
       "message": "The code provided is not  valid in the value set LOINC Codes"
@@ -281,17 +276,6 @@
         "code": null,
         "definition": null,
         "display": "Carbon dioxide [Partial pressure] in Blood"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|13457-7|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
       }
     },
     {
@@ -1029,17 +1013,6 @@
         "code": null,
         "definition": null,
         "display": "Glomerular filtration rate/1.73 sq M predicted among blacks [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|49464-1|CD13 Ag [Presence] in Tissue by Immune stain",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "CD13 Ag [Presence] in Tissue by Immune stain"
       }
     },
     {

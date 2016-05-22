@@ -4361,7 +4361,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return false;
   }
 
-  String processResourceIncludes(String name, ResourceDefn resource, String xml, String json, String tx, String dict, String src, String mappings, String mappingsList, String type, String pagePath, ImplementationGuideDefn ig) throws Exception {
+  String processResourceIncludes(String name, ResourceDefn resource, String xml, String json, String ttl, String tx, String dict, String src, String mappings, String mappingsList, String type, String pagePath, ImplementationGuideDefn ig) throws Exception {
     String workingTitle = Utilities.escapeXml(resource.getName());
     List<String> tabs = new ArrayList<String>();
     int level = (ig == null || ig.isCore()) ? 0 : 1;  
@@ -4459,6 +4459,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+xml+s3;
       else if (com[0].equals("json"))
         src = s1+json+s3;
+      else if (com[0].equals("ttl"))
+        src = s1+ttl+s3;
       else if (com[0].equals("tx"))
         src = s1+tx+s3;
       else if (com[0].equals("inv"))
@@ -5828,7 +5830,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return path.contains(".") ? path.substring(0, path.lastIndexOf('.')) : path;
   }
 
-  public String processExtensionIncludes(String filename, StructureDefinition ed, String xml, String json, String tx, String src, String pagePath, ImplementationGuideDefn ig) throws Exception {
+  public String processExtensionIncludes(String filename, StructureDefinition ed, String xml, String json, String ttl, String tx, String src, String pagePath, ImplementationGuideDefn ig) throws Exception {
     String workingTitle = null;
     int level = ig.isCore() ? 0 : 1;
 
@@ -5903,6 +5905,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+xml+s3;
       else if (com[0].equals("json"))
         src = s1+json+s3;
+      else if (com[0].equals("ttl"))
+        src = s1+ttl+s3;
       else if (com[0].equals("tx"))
         src = s1+tx+s3;
       else if (com[0].equals("inv"))

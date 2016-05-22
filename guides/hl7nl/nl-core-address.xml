@@ -72,7 +72,7 @@
         <uri value="https://nl.wikipedia.org/wiki/Basisregistratie_Personen"/>
         <name value="09.10 Gemeente van inschrijving"/>
     </mapping>
-    <kind value="datatype"/>
+    <kind value="complex-type"/>
     <abstract value="false"/>
     <baseType value="Address"/>
     <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Address"/>

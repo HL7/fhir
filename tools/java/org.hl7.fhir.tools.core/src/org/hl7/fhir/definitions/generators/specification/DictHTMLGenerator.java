@@ -312,7 +312,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
         else {
           if (p.hasBaseType() )
             b.append("<a href=\""+prefix+p.getUserString("path")+"\" title=\""+pt.getValue()+"\">");
-          else if (p.getKind() == StructureDefinitionKind.DATATYPE)
+          else if (p.getKind() == StructureDefinitionKind.COMPLEXTYPE || p.getKind() == StructureDefinitionKind.PRIMITIVETYPE)
             b.append("<a href=\""+prefix+definitions.getSrcFile(p.getName())+ ".html#" + p.getName()+"\" title=\""+p.getName()+"\">");
           else // if (p.getKind() == StructureDefinitionType.RESOURCE)
             b.append("<a href=\""+prefix+p.getName().toLowerCase()+".html\">");

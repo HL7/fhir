@@ -40,18 +40,24 @@
 === Sheet structure-definition-kind =====================================
 
  -- Row 1 -----------------------------------
-  Id = 1
-  Code = datatype
-  Display = Data Type
-  Definition = A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions.
+  Id = 4
+  Code = primitive-type
+  Display = Primitive Data Type
+  Definition = A data type, which is a primitive type that has a value and an extension. These can be used throughout Resource and extension definitions. Only tbe base specification can define primitive types.
 
  -- Row 2 -----------------------------------
+  Id = 1
+  Code = complex-type
+  Display = Complex Data Type
+  Definition = A data type - either a complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions, and in logical models.
+
+ -- Row 3 -----------------------------------
   Id = 2
   Code = resource
   Display = Resource
   Definition = A resource defined by the FHIR specification.
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Id = 3
   Code = logical
   Display = Logical Model
@@ -420,7 +426,7 @@
   Summary = Y
   Type = code
   Binding = StructureDefinitionKind
-  Short Label = datatype | resource | logical
+  Short Label = primitive-type | complex-type | resource | logical
   Definition = Defines the kind of structure that this definition is describing
 
  -- Row 26 -----------------------------------

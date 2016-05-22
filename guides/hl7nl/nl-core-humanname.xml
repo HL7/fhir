@@ -29,7 +29,7 @@
         <uri value="http://www.omg.org/spec/ServD/1.0/"/>
         <name value="ServD"/>
     </mapping>
-    <kind value="datatype"/>
+    <kind value="complex-type"/>
     <abstract value="false"/>
     <baseType value="HumanName"/>
     <baseDefinition value="http://hl7.org/fhir/StructureDefinition/HumanName"/>

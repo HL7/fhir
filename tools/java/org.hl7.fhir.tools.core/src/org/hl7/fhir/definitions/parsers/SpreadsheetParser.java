@@ -1999,7 +1999,7 @@ public class SpreadsheetParser {
 	  // first, we build the extension definition
     StructureDefinition ex = new StructureDefinition();
     ex.setUserData(ToolResourceUtilities.NAME_RES_IG, ig == null ? "core" : ig.getCode());
-    ex.setKind(StructureDefinitionKind.DATATYPE);
+    ex.setKind(StructureDefinitionKind.COMPLEXTYPE);
     ex.setBaseType("Extension");
     ex.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Extension");
     ex.setDerivation(TypeDerivationRule.CONSTRAINT);
