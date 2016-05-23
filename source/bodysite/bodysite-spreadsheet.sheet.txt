@@ -83,8 +83,8 @@
   Binding = BodySite
   Short Label = Named anatomical location
   Definition = Named anatomical location - ideally coded where possible.
-  OpenEHR mapping = Name of location
   v2 Mapping = OBX-20
+  OpenEHR mapping = Name of location
 
  -- Row 6 -----------------------------------
   Element = BodySite.modifier
@@ -93,8 +93,8 @@
   Binding = BodySiteModifier
   Short Label = Modification to location code
   Definition = Modifier to refine the anatomical location.  These include modifiers for laterality, relative location, directionality, number, and plane.
-  OpenEHR mapping = Combines Side, Numerical identifier, Anatomical plane,and Aspect
   v2 Mapping = No distinct element defined in V2.x. The IHE Radiology Technical Framework directs the use of OBR-15-specimen source to contain laterality for imaging studies.
+  OpenEHR mapping = Combines Side, Numerical identifier, Anatomical plane,and Aspect
 
  -- Row 7 -----------------------------------
   Element = !BodySite.specificLocation.side
@@ -205,5 +205,23 @@
   Identity = example
   Description = Simple Body Site Example
   Filename = bodysite-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Fetus
+  Identity = fetus
+  Description = This example demonstrates using the bodysite resource to identify a fetus within systems that choose not to treat a fetus as a Patient
+  Filename = bodysite-example-fetus.xml
+
+ -- Row 3 -----------------------------------
+  Name = Tumor
+  Identity = tumor
+  Description = This example demonstrates using the bodysite resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time
+  Filename = bodysite-example-tumor.xml
+
+ -- Row 4 -----------------------------------
+  Name = Skin Patch
+  Identity = skin-patch
+  Description = This example demonstrates using the bodysite resource to identify skin patches or other portions of a person or animal that are a focus of a clinical trial and that are subject to repeated observations and/or procedures over time
+  Filename = bodysite-example-skin-patch.xml
 
 === Sheet Examples =====================================

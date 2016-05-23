@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This example demonstrates using the bodysite resource to identify skin patches or other portions of a person or animal that are a focus of a clinical trial and that are subject to repeated observations and/or procedures over time-->
+<BodySite xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+	<id value="skin-patch"/>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+	<identifier>
+		<system value="http://goodhealth.org/bodysite/identifiers"/>
+		<value value="12345"/>
+	</identifier>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="39937001"/>
+			<display value="Skin structure (body structure)"/>
+		</coding>
+		<text value="Skin patch"/>
+	</code>
+	<description value="inner surface (volar) of the left forearm"/>
+</BodySite>

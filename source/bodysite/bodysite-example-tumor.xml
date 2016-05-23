@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This example demonstrates using the bodysite resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time-->
+<BodySite xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+	<id value="tumor"/>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+	<identifier>
+		<system value="http://goodhealth.org/bodysite/identifiers"/>
+		<value value="12345"/>
+	</identifier>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="4147007"/>
+			<display value="Mass (morphologic abnormality)"/>
+		</coding>
+		<text value="Splenic mass"/>
+	</code>
+	<modifier>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="78961009"/>
+			<display value="Splenic structure (body structure)"/>
+		</coding>
+		<text value="Splenic mass"/>
+	</modifier>
+	<description value="7 cm maximum diameter"/>
+	<image>
+		<contentType value="application/dicom"/>
+		<url value="http://10.1.2.3:1000/wado?requestType=WADO&amp;amp;wado_details…"/>
+	</image>
+</BodySite>
