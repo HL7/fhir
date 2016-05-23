@@ -198,7 +198,7 @@
   Short Label = Unique Id for this particular observation
   Definition = A unique identifier for the simple observation instance.
   Requirements = Allows observations to be distinguished and referenced
-  v2 Mapping = OBX.21
+  v2 Mapping = OBX.21  For OBX segments from systems without OBX-21 support a combination of ORC/OBR and OBX must be negotiated between trading partners to uniquely identify the OBX segment. Depending on how V2 has been implemented each of these may be an option: 1) OBR-3 + OBX-3 + OBX-4 or 2) OBR-3 + OBR-4 + OBX-3 + OBX-4 or 2) some other way to uniquely ID the OBR/ORC + OBX-3 + OBX-4.
   RIM Mapping = id
   Committee Notes = 2/26/2015 EH: #5666
   w5 = id
