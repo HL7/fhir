@@ -31,10 +31,10 @@ public class ShExGenerator {
 
   // A shape definition template -- an id followed by an optional resource declaration (type + treeRoot) +
   // a list of definition elements
-  private static String SHAPE_DEFINITION_TEMPLATE = "<$id$> {$resourceDecl$$elements$,\n\tfhir:index xsd:integer?\n}\n";
+  private static String SHAPE_DEFINITION_TEMPLATE = "<$id$> {$resourceDecl$$elements$;\n\tfhir:index xsd:integer?\n}\n";
 
   // Additional declaration that appears only in a resource definition
-  private static String RESOURCE_DECL_TEMPLATE = "\n\ta [fhir:$id$],\n\tfhir:nodeRole [fhir:treeRoot],\n\t";
+  private static String RESOURCE_DECL_TEMPLATE = "\n\ta [fhir:$id$];\n\tfhir:nodeRole [fhir:treeRoot];\n\t";
 
   // An element definition within a shape
   private static String ELEMENT_TEMPLATE = "fhir:$id$ $defn$$card$";
@@ -64,19 +64,19 @@ public class ShExGenerator {
   private static String CODEABLECONCEPT_TEMPLATE = "fhir:concept IRI*";
 
   // A typed reference -- a fhir:uri with an optional type and the possibility of a resolvable shape
-//  fhir:Element.id @<id>?,
-//  fhir:Element.extension @<Extension>*,
-//  fhir:Reference.reference @<string>?,
+//  fhir:Element.id @<id>?;
+//  fhir:Element.extension @<Extension>*;
+//  fhir:Reference.reference @<string>?;
 //  fhir:Reference.display @<string>?
-  // Note: link was originally "fhir:link (@<$refType$> OR IRI)?", but we pulled the refType until we can figure
+  // Note: link was originally "fhir:link (@<$refType$> OR IRI)?"; but we pulled the refType until we can figure
   //       out how best to address it
   private static String TYPED_REFERENCE_TEMPLATE = "\n<$refType$Reference> {\n" +
-                                                   "\ta [fhir:$refType$Reference]?,\n" +
-                                                   "\tfhir:Element.id @<id>?,\n" +
-                                                   "\tfhir:Element.extension @<Extension>*,\n" +
-                                                   "\tfhir:link IRI?,\n" +
-                                                   "\tfhir:Reference.reference @<string>?,\n" +
-                                                   "\tfhir:Reference.display @<string>?,\n" +
+                                                   "\ta [fhir:$refType$Reference];\n" +
+                                                   "\tfhir:Element.id @<id>?;\n" +
+                                                   "\tfhir:Element.extension @<Extension>*;\n" +
+                                                   "\tfhir:link IRI?;\n" +
+                                                   "\tfhir:Reference.reference @<string>?;\n" +
+                                                   "\tfhir:Reference.display @<string>?;\n" +
                                                    "\tfhir:index xsd:integer?\n" +
                                                    "}";
 
@@ -261,7 +261,7 @@ public class ShExGenerator {
         elements.add(genElementDefinition(sd, ed));
       }
     }
-    struct_def.add("elements", StringUtils.join(elements, ",\n\t"));
+    struct_def.add("elements", StringUtils.join(elements, ";\n\t"));
     return struct_def.render();
   }
 
@@ -457,7 +457,7 @@ public class ShExGenerator {
       elements.add(genElementDefinition(sd, child));
     }
 
-    element_reference.add("elements", StringUtils.join(elements, ",\n\t"));
+    element_reference.add("elements", StringUtils.join(elements, ";\n\t"));
     return element_reference.render();
   }
 
