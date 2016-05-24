@@ -169,6 +169,7 @@
   Type = Identifier
   Short Label = Identifiers assigned to this order
   Definition = Identifiers assigned to this order by the order sender or by the order receiver
+  Comments = The Identifier.type element can be to indicate filler vs placer if needed.  This is explained in further detail [here](diagnosticorder.html#notes)
   RIM Mapping = .id
   w5 = id
 
@@ -319,7 +320,7 @@
   Card. = 0..*
   UML = down
   Short Label = Required  nutrient modifications
-  Definition = Class that defines the quantity and type of nutrient modifications required for the oral diet.
+  Definition = Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet.
   RIM Mapping = .participation{typeCode=PRD].role{classCode=MANU), manufacturedFoodKind
 
  -- Row 18 -----------------------------------
