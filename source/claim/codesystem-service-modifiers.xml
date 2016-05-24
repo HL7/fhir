@@ -10,12 +10,12 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="SR"/>
+    <code value="sr"/>
     <display value="Side of the Road"/>
     <definition value="Services provided on the side of the raod or such other non-conventional setting."/>
   </concept>
   <concept>
-    <code value="AH"/>
+    <code value="ah"/>
     <display value="After hours"/>
     <definition value="Services provided outside or normal business hours."/>
   </concept>

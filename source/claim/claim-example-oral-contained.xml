@@ -143,9 +143,11 @@
     <type>
       <code value="service"/>
     </type>
+   <careTeam>
     <providerReference>
       <reference value="#practitioner-1"/>
     </providerReference>
+   </careTeam>
     <service>
       <code value="1200"/>
     </service>

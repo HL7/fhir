@@ -10,17 +10,17 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="LXM"/>
+    <code value="lxm"/>
     <display value="Last Exam"/>
     <definition value="Date of last examination."/>
   </concept>
   <concept>
-    <code value="SYM"/>
+    <code value="sym"/>
     <display value="Start of Symptoms"/>
     <definition value="Date when symptoms were first noticed.."/>
   </concept>
   <concept>
-    <code value="LMN"/>
+    <code value="lmn"/>
     <display value="Last Menstruation"/>
     <definition value="Start date of last menstruation."/>
   </concept>

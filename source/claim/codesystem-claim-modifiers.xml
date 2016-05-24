@@ -10,27 +10,27 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="A"/>
+    <code value="a"/>
     <display value="Repair of prior service or installation"/>
     <definition value="Repair of prior service or installation."/>
   </concept>
   <concept>
-    <code value="B"/>
+    <code value="b"/>
     <display value="Temporary service or installation"/>
     <definition value="Temporary service or installation."/>
   </concept>
   <concept>
-    <code value="C"/>
+    <code value="c"/>
     <display value="TMJ treatment"/>
     <definition value="Treatment associated with TMJ."/>
   </concept>
   <concept>
-    <code value="E"/>
+    <code value="e"/>
     <display value="Implant or associated with an implant"/>
     <definition value="Implant or associated with an implant."/>
   </concept>
   <concept>
-    <code value="X"/>
+    <code value="x"/>
     <display value="None"/>
     <definition value="None."/>
   </concept>

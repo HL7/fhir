@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/claimcareteamrole"/>
+  <name value="Claim Care Team Role Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Claim Care Team Role codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="primary"/>
+    <display value="Primary provider"/>
+    <definition value="The primary care provider."/>
+  </concept>
+  <concept>
+    <code value="assist"/>
+    <display value="Assisting Provider"/>
+    <definition value="Assisting care provider."/>
+  </concept>
+  <concept>
+    <code value="supervisor"/>
+    <display value="Supervising Provider"/>
+    <definition value="Supervising care provider."/>
+  </concept>
+  <concept>
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="Other role on the care team."/>
+  </concept>
+</CodeSystem>

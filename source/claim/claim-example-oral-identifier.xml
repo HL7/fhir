@@ -64,10 +64,12 @@
     <type>
       <code value="service"/>
     </type>
-    <providerIdentifier>
-      <system value="http://www.jurisdiction.com/providerId"/>
-      <value value="MD98765"/>
-    </providerIdentifier>
+   <careTeam>
+      <providerIdentifier>
+        <system value="http://www.jurisdiction.com/providerId"/>
+        <value value="MD98765"/>
+      </providerIdentifier>
+   </careTeam>
     <service>
       <code value="1200"/>
     </service>

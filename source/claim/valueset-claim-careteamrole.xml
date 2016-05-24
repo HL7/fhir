@@ -4,7 +4,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
-  <name value="Item Type Codes"/>
+  <name value="Claim Care Team Role Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>
@@ -13,11 +13,11 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes sample Item Type codes."/>
+  <description value="This value set includes sample Claim Care Team Role codes."/>
   <copyright value="This is an example set."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/ex-claimitemtype"/>
+      <system value="http://hl7.org/fhir/claimcareteamrole"/>
     </include>
   </compose>
 </ValueSet>

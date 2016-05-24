@@ -10,17 +10,17 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="AS"/>
+    <code value="as"/>
     <display value="Child Asthma"/>
     <definition value="Child Asthma Program"/>
   </concept>
   <concept>
-    <code value="HD"/>
+    <code value="hd"/>
     <display value="Heamodialisis"/>
     <definition value="Heamodialisis Program."/>
   </concept>
   <concept>
-    <code value="AUSCR"/>
+    <code value="auscr"/>
     <display value="Autism Screening"/>
     <definition value="Autism Screening Program."/>
   </concept>

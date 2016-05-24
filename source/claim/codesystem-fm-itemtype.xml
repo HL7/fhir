@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/ex-claimsubtype"/>
+  <url value="http://hl7.org/fhir/ex-claimitemtype"/>
   <name value="Claim Item Type Codes"/>
   <status value="draft"/>
   <experimental value="false"/>

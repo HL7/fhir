@@ -64,9 +64,11 @@
    <type>
      <code value="group"/>
    </type>
-   <providerReference>
-     <reference value="Practitioner/example"/>
-   </providerReference>
+   <careTeam>
+     <providerReference>
+       <reference value="Practitioner/example"/>
+     </providerReference>
+   </careTeam>
    <service>
      <system value="http://hl7.org/fhir/ex-visionservice"/>
      <code value="glasses"/>

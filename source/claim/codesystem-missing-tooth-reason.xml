@@ -10,22 +10,22 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="E"/>
+    <code value="e"/>
     <display value="E"/>
     <definition value="Extraction"/>
   </concept>
   <concept>
-    <code value="C"/>
+    <code value="c"/>
     <display value="C"/>
     <definition value="Congenital"/>
   </concept>
   <concept>
-    <code value="U"/>
+    <code value="u"/>
     <display value="U"/>
     <definition value="Unknown"/>
   </concept>
   <concept>
-    <code value="O"/>
+    <code value="o"/>
     <display value="O"/>
     <definition value="Other"/>
   </concept>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/claiminformationcategory"/>
+  <name value="Claim Information Category Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Information Category codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="info"/>
+    <display value="Information"/>
+    <definition value="Codes conveying additional situation and condition information."/>
+  </concept>
+  <concept>
+    <code value="business"/>
+    <display value="Business Arrangement"/>
+    <definition value="Insurance business arrangement identifier."/>
+  </concept>
+  <concept>
+    <code value="school"/>
+    <display value="Name of School"/>
+    <definition value="Name of School."/>
+  </concept>
+  <concept>
+    <code value="accident"/>
+    <display value="Accident Information"/>
+    <definition value="The type, date and place of an Accident."/>
+  </concept>
+  <concept>
+    <code value="onset"/>
+    <display value="Onset"/>
+    <definition value="Period, start or end dates of aspects of the Condition."/>
+  </concept>
+  <concept>
+    <code value="related"/>
+    <display value="Related Services"/>
+    <definition value="Nature and date of the related event eg. Last exam, service, Xray etc."/>
+  </concept>
+  <concept>
+    <code value="employment"/>
+    <display value="Employment"/>
+    <definition value="The start and optional end dates of when the patient was precluded from working due to the treatable condition(s)."/>
+  </concept>
+  <concept>
+    <code value="hospitalization"/>
+    <display value="Hospitalization"/>
+    <definition value="The start and optional end dates of when the patient was confined to a treatment center."/>
+  </concept>
+  <concept>
+    <code value="missingtooth"/>
+    <display value="Missing Tooth"/>
+    <definition value="Missing tooth with tooth code, reason and extraction date."/>
+  </concept>
+  <concept>
+    <code value="material"/>
+    <display value="Materials Forwarded"/>
+    <definition value="Materials being forwarded, eg. Models, molds, images, documents."/>
+  </concept>
+  <concept>
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="Other information identified by the type.system."/>
+  </concept>
+</CodeSystem>

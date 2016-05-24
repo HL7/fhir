@@ -60,9 +60,11 @@
    <type>
      <code value="service"/>
    </type>
-   <providerReference>
-     <reference value="Practitioner/example"/>
-   </providerReference>
+   <careTeam>
+     <providerReference>
+       <reference value="Practitioner/example"/>
+     </providerReference>
+   </careTeam>
    <service>
      <system value="http://hl7.org/fhir/ex-serviceproduct"/>
      <code value="exam"/> 
