@@ -21,6 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -755,6 +756,13 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s166">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FF0000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#D9E1F2" ss:Pattern="Solid"/>
+  </Style>
   <Style ss:ID="s167">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
@@ -1254,23 +1262,6 @@
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
-  </Style>
-  <Style ss:ID="s228">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FF0000"
-    ss:Bold="1"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s229">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FF0000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#D9E1F2" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Names>
@@ -2380,7 +2371,7 @@
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">Patient, Provider, Organization</Data><NamedCell
+    <Cell ss:StyleID="s131"><Data ss:Type="String">organization | patient | practitioner | relatedperson</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6173,7 +6164,7 @@
     <Cell><Data ss:Type="String">!Additional Materials</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s229"><Data ss:Type="String">!Claim.additionalMaterial</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">!Claim.additionalMaterial</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Coding</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">AdditionalMaterials</Data></Cell>
@@ -6192,7 +6183,7 @@
     <Cell><Data ss:Type="String">The practitioner who is supervising the work of the servicing provider(s).</Data></Cell>
    </Row>
    <Row ss:Index="150" ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s228"><Data ss:Type="String">!Oral Health Specific</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">!Oral Health Specific</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
@@ -6220,7 +6211,7 @@
     <Cell ss:StyleID="s93"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s228"><Data ss:Type="String">!Claim.missingTeeth</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">!Claim.missingTeeth</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s88"/>
@@ -6248,7 +6239,7 @@
     <Cell ss:StyleID="s93"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s228"><Data ss:Type="String">!Claim.missingTeeth.tooth</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">!Claim.missingTeeth.tooth</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s88"/>
@@ -6276,7 +6267,7 @@
     <Cell ss:StyleID="s93"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s228"><Data ss:Type="String">!Claim.missingTeeth.reason</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">!Claim.missingTeeth.reason</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s88"/>
@@ -6304,7 +6295,7 @@
     <Cell ss:StyleID="s93"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s228"><Data ss:Type="String">!Claim.missingTeeth.extractionDate</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">!Claim.missingTeeth.extractionDate</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s88"/>
@@ -6349,9 +6340,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>124</TopRowBottomPane>
+   <TopRowBottomPane>25</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>17</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6367,8 +6358,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>126</ActiveRow>
-     <ActiveCol>23</ActiveCol>
+     <ActiveRow>28</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
