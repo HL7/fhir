@@ -308,6 +308,13 @@
   RIM Mapping = .participation[typeCode=CSM].role[classCode=ADTV].code
 
  -- Row 23 -----------------------------------
+  Element = Specimen.treatment.time[x]
+  Card. = 0..1
+  Type = dateTime|Period
+  Short Label = Date and time of specimen treatment
+  Definition = A record of the time or period when the specimen treatment occurred.  For example the time of Fixation or the period of time in formalin.
+
+ -- Row 24 -----------------------------------
   Element = Specimen.container
   Card. = 0..*
   UML = right
@@ -315,7 +322,7 @@
   Definition = The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.
   RIM Mapping = .player.scopingRole[classCode=CONT].scoper
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Specimen.container.identifier
   Card. = 0..*
   Summary = Y
@@ -325,14 +332,14 @@
   v2 Mapping = SAC-3
   RIM Mapping = .id
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Specimen.container.description
   Card. = 0..1
   Type = string
   Short Label = Textual description of the container
   RIM Mapping = .desc
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Specimen.container.type
   Card. = 0..1
   Type = CodeableConcept
@@ -342,7 +349,7 @@
   v2 Mapping = SPM-27
   RIM Mapping = .code
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Specimen.container.capacity
   Card. = 0..1
   Type = SimpleQuantity
@@ -351,7 +358,7 @@
   v2 Mapping = one of: SAC 16, SAC17 and SAC 20, or SAC 21 and SAC 20
   RIM Mapping = .quantity
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Specimen.container.specimenQuantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -360,7 +367,7 @@
   v2 Mapping = SAC-23 (value) SAC-24 (units
   RIM Mapping = .playedRole[classCode=CONT].quantity
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Specimen.container.additive[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Substance)
@@ -371,7 +378,7 @@
   RIM Mapping = .scopesRole[classCode=ADTV].player
   Committee Notes = #3634
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Specimen.note
   Card. = 0..*
   Type = Annotation

@@ -14,9 +14,9 @@ provides a clinical or workflow context for a set of observations. </p>
 <ul>
   <li>Vital signs such as <a href="observation-example.html">body weight</a>,  <a href="observation-example-bloodpressure.html">blood pressure</a>, and <a href="observation-example-f202-temperature.html">temperature</a></li>
 	<li>Laboratory Data llike <a href="observation-example-f001-glucose.html">blood glucose</a>, or an <a href="observation-example-f205-egfr.html">estimated GFR</a></li>
-	<li>Imaging results like  <a href="observation-example-bone-density.html">bone density</a> or  <a href="observation-example-fetal-measurement.html">fetal measurements</a></li>
+	<li>Imaging results like  <a href="observation-example-bmd.html">bone density</a> or  <a href="observation-example-fetal-measurement.html">fetal measurements</a></li>
 	<li>Devices Measurements such as  <a href="observation-example-sample-data.html">EKG data</a> or  <a href="observation-example-satO2.html">Pulse Oximetry data</a></li>
-  <li>Clinical assessment tools such as <a href="observation-example-apgar-panel.html">APGAR</a> or a <a href="observation-example-glasgow.html">Glasgow Coma Score</a> </li>
+  <li>Clinical assessment tools such as <a href="observation-example-5minute-apgar-score.html">APGAR</a> or a <a href="observation-example-glasgow.html">Glasgow Coma Score</a> </li>
   <li>Personal characteristics: such as  <a href="observation-example-eye-color.html">eye-color</a></li>
   <!--EH 12/7/2014 
   <li>Diagnoses (Note: trackable conditions, allergies, adverse reactions and more complex structures are handled elsewhere)</li>

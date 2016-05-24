@@ -214,7 +214,7 @@
 
  -- Row 10 -----------------------------------
   Element = DiagnosticReport.performer
-  Card. = 1..1
+  Card. = 1..*
   Aliases = Laboratory, Service, Practitioner, Department, Company
   Summary = y
   Type = Reference(Practitioner|Organization)
