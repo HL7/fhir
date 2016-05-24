@@ -39,11 +39,12 @@
       </coding>
       <text value='Heart Attack'/>
     </code>
-    <onsetQuantity>
+    <onsetAge>
       <value value="74" />
-      <unit value="a" />
+      <unit value="yr" />
       <system value="http://unitsofmeasure.org" />
-    </onsetQuantity>
+      <code value="a" />
+    </onsetAge>
     <note>
       <text value="Was fishing at the time. At least he went doing someting he loved." />
     </note>

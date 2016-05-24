@@ -1,0 +1,27 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/specimen-collection-method",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0488|null|BAP|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "BAP",
+        "definition": null,
+        "display": "Plates, Blood Agar"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0488|null|LNV|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "LNV",
+        "definition": null,
+        "display": "Line, Venous"
+      }
+    }
+  ]
+}

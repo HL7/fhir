@@ -33,12 +33,12 @@
          <display value="Severe"/>
       </coding>
    </severity>
-   <onsetQuantity>
+   <onsetAge>
       <value value="52"/>
       <unit value="years"/>
-      <system value="http://snomed.info/sct"/>
-      <code value="258707000"/>
-   </onsetQuantity>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="a"/>
+   </onsetAge>
    <!--No remission means no <rebatement>-->
    <evidence>
       <!--Problem is confirmed in diagnostic report-->

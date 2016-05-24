@@ -2601,9 +2601,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String genConstraints(String name, String prefix) throws Exception {
-    ElementDefn e = definitions.getElementDefn(name);
     Map<String, String> invs = new HashMap<String, String>();
-    generateConstraints(name, e, invs, true, prefix);
+    if (definitions.getConstraints().containsKey(name)) {
+      ProfiledType cnst = definitions.getConstraints().get(name);
+      generateConstraints(name, cnst, invs, true, prefix);
+    } else {
+      ElementDefn e = definitions.getElementDefn(name);
+      generateConstraints(name, e, invs, true, prefix);
+    }
     List<String> ids = new ArrayList<String>();
     for (String n : invs.keySet()) {
       ids.add(n);
@@ -2629,6 +2634,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (ElementDefn c : e.getElements()) {
       generateConstraints(path + "." + c.getName(), c, invs, false, prefix);
     }    
+  }
+
+  private void generateConstraints(String path, ProfiledType pt, Map<String, String> invs, boolean base, String prefix) {  
+    invs.put("sqty-1", "<li><b title=\"Formal Invariant Identifier\">sqty-1</b>: "+Utilities.escapeXml(pt.getInvariant().getEnglish())+" (<a href=\""+prefix+"fluentpath.html\">expression</a>: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(pt.getInvariant().getExpression())+"</span>)</li>");
   }
 
   private String presentPath(String path) {

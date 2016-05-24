@@ -1,0 +1,51 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QuantityComparator
+  Binding = code list
+  Reference = #quantity-comparator
+  Definition = How the Quantity should be understood and represented.
+
+=== Sheet quantity-comparator =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = <
+  Display = Less than
+  Definition = The actual value is less than the given value.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = <=
+  Display = Less or Equal to
+  Definition = The actual value is less than or equal to the given value.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = >=
+  Display = Greater or Equal to
+  Definition = The actual value is greater than or equal to the given value.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = >
+  Display = Greater than
+  Definition = The actual value is greater than the given value.
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Age
+  English = There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.  If value is present, it SHALL be positive.
+  XPath = (f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value=\'http://unitsofmeasure.org\') and not(contains(f:value/@value, \'-\'))
+  Expression = (code or value.empty()) and (system.empty() or system = %ucum) and (value.empty() or value.toString().contains(\'.\').not())
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Age
+  Type = Quantity
+  Short Label = A duration of time during which an organism (or a process) has existed
+  RIM Mapping = PQ

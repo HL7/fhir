@@ -1,0 +1,16 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/vaccination-protocol-dose-status-reason",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/vaccination-protocol-dose-status-reason|null|coldchbrk|Cold chain break",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "coldchbrk",
+        "definition": null,
+        "display": "Cold chain break"
+      }
+    }
+  ]
+}

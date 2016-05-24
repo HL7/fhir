@@ -39,6 +39,7 @@ import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
@@ -379,7 +380,10 @@ public class XSDGenerator  {
 		} else if (!type.hasParams() || !params) {
 			if (type.getName().equals("Resource"))
 			  return "ResourceContainer";
-			else
+			else if (definitions.getConstraints().containsKey(type.getName())) {
+			  ProfiledType pt = definitions.getConstraints().get(type.getName());
+			  return pt.getBaseType();
+			} else
 			  return type.getName();
 		} else if (type.getParams().size() > 1)
 			throw new Exception("multiple type parameters are only supported on resource");

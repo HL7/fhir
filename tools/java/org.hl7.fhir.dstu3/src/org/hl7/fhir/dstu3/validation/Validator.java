@@ -172,7 +172,7 @@ public class Validator {
 
 
 
-  private void setTsServer(String txServer) {
+  public void setTsServer(String txServer) {
 	  this.txServer = txServer;
 	}
 
@@ -187,7 +187,7 @@ public class Validator {
   }
   
 
-	private List<ValidationMessage> outputs() {
+	public List<ValidationMessage> outputs() {
     return engine.getOutputs();
   }
 

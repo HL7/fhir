@@ -1,0 +1,51 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QuantityComparator
+  Binding = code list
+  Reference = #quantity-comparator
+  Definition = How the Quantity should be understood and represented.
+
+=== Sheet quantity-comparator =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = <
+  Display = Less than
+  Definition = The actual value is less than the given value.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = <=
+  Display = Less or Equal to
+  Definition = The actual value is less than or equal to the given value.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = >=
+  Display = Greater or Equal to
+  Definition = The actual value is greater than or equal to the given value.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = >
+  Display = Greater than
+  Definition = The actual value is greater than the given value.
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Money
+  English = There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = \"urn:iso:std:iso:4217\" - currency).
+  XPath = (f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value=\'urn:iso:std:iso:4217\')
+  Expression = (code or value.empty()) and (system.empty() or system = \'urn:iso:std:iso:4217\')
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Money
+  Type = Quantity
+  Short Label = An amount of economic utility in some recognised currency
+  RIM Mapping = MO

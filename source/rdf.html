@@ -99,10 +99,10 @@ Using this format:
  </li> -->
  <li>Relationship names are case-sensitive (though duplicates that differ only in case are never defined)</li>
  <li>Relationships can appear in any order</li>
- <li>Content within a resource is always represented with anonymous notes</li>
- <li>Objects are never empty. If an element is present in the resource, it SHALL have properties as defined for its type, or 1 or more <a href="extensibility.html">extensions</a></li>
+ <li>Content within a resource is always represented with anonymous nodes - only resources can be identified</li>
+ <li>Nodes are never empty. If an element is present in the resource, it SHALL have properties as defined for its type, or 1 or more <a href="extensibility.html">extensions</a></li>
  <li>The <span style="color: brown"><b>R!</b></span> denotes that a relationship is mandatory - it must be present (or in an array, at least one item must be present)</li>
- <li>Note that this specification produces nicely formatted well laid out Turtle, but this is not required</li>
+ <li>Note that this specification produces turtle that is nicely formatted and well laid out, but this is not required nor expected</li>
  <li>The MIME-type for this format is <code>text/turtle</code>.</li>
 </ul>
 

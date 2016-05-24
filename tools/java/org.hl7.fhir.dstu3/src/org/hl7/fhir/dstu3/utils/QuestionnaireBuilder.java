@@ -710,10 +710,8 @@ public class QuestionnaireBuilder {
       addIntegerQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Coding"))
       addCodingQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Quantity"))
+    else if (Utilities.existsInList(t.getCode(), "Quantity", "Count", "Age", "Duration", "Distance", "Money"))
       addQuantityQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("SimpleQuantity"))
-      addSimpleQuantityQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Money"))
       addMoneyQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Reference"))

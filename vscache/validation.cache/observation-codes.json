@@ -219,6 +219,11 @@
       "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
+      "hash": "#|http://example.org/local|null|TOB|TOBRAMYCIN",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
       "hash": "#|http://example.org/local|null|TRSUV|TRIMETH/SULFA",
       "severity": "error",
       "message": "The code provided is not  valid in the value set LOINC Codes"
@@ -903,17 +908,6 @@
         "code": null,
         "definition": null,
         "display": "Glomerular filtration rate/1.73 sq M.predicted [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|35200-5|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Cholesterol [Mass or Moles/volume] in Serum or Plasma"
       }
     },
     {

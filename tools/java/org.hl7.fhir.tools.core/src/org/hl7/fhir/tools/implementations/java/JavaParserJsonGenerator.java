@@ -299,25 +299,33 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     if (tn.contains(".")) {
       write("  protected "+tn+" parse"+upFirst(tn).replace(".", "")+"(JsonObject json, "+pathClass(tn)+" owner) throws IOException, FHIRFormatError {\r\n");
       write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
+      write("    parse"+upFirst(tn).replace(".", "")+"Properties(json, owner, res);\r\n");
       bUseOwner = true;
     } else {
       write("  protected "+tn+" parse"+upFirst(tn).replace(".", "")+"(JsonObject json) throws IOException, FHIRFormatError {\r\n");
       write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
+      write("    parse"+upFirst(tn).replace(".", "")+"Properties(json, res);\r\n");
+    }
+    write("    return res;\r\n");
+    write("  }\r\n\r\n");
+    if (tn.contains(".")) {
+      write("  protected void parse"+upFirst(tn).replace(".", "")+"Properties(JsonObject json, "+pathClass(tn)+" owner, "+tn+" res) throws IOException, FHIRFormatError {\r\n");
+    } else {
+      write("  protected void parse"+upFirst(tn).replace(".", "")+"Properties(JsonObject json, "+tn+" res) throws IOException, FHIRFormatError {\r\n");
     }
     if (clss == JavaGenClass.Resource)
       write("    parse"+n.typeCode()+"Properties(json, res);\r\n");
     else if (clss == JavaGenClass.Backbone)
       write("    parseBackboneProperties(json, res);\r\n");
-    else if (clss == JavaGenClass.Type && !tn.contains("."))
+//    else if (clss == JavaGenClass.Type && !tn.contains("."))
+//      write("    parseTypeProperties(json, res);\r\n");
+    else if (Utilities.noString(n.typeCode()) || n.typeCode().equals("Type") || n.typeCode().equals("Structure"))
       write("    parseTypeProperties(json, res);\r\n");
     else
-      write("    parseElementProperties(json, res);\r\n");
-    boolean first = true;
+      write("    parse"+n.typeCode()+"Properties(json, res);\r\n");
     for (ElementDefn e : n.getElements()) {
-      genElementParser(n, e, first, clss, bUseOwner);
-      first = false;
+      genElementParser(n, e, clss, bUseOwner);
     }
-    write("    return res;\r\n");
     write("  }\r\n\r\n");
   }
 
@@ -332,15 +340,13 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     if (!Utilities.noString(n.typeCode()))
       write("    parse"+n.typeCode()+"Properties(json, res);\r\n");
 
-    boolean first = true;
     for (ElementDefn e : n.getElements()) {
-      genElementParser(n, e, first, JavaGenClass.Resource, bUseOwner);
-      first = false;
+      genElementParser(n, e, JavaGenClass.Resource, bUseOwner);
     }
     write("  }\r\n\r\n");
   }
 
-  private void genElementParser(ElementDefn root, ElementDefn e, boolean first, JavaGenClass clss, boolean bUseOwner) throws Exception {
+  private void genElementParser(ElementDefn root, ElementDefn e, JavaGenClass clss, boolean bUseOwner) throws Exception {
     String name = e.getName();
     if (name.endsWith("[x]") || name.equals("[type]")) {
       String en = name.endsWith("[x]") && !name.equals("[x]") ? name.replace("[x]", "") : "value";
@@ -840,8 +846,10 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       write("      compose"+n.typeCode()+"Elements(element);\r\n");
     else if (clss == JavaGenClass.Backbone)
       write("      composeBackbone(element);\r\n");
-    else
+    else if (Utilities.noString(n.typeCode()) || n.typeCode().equals("Type") || n.typeCode().equals("Structure") || n.typeCode().equals("Element"))
       write("      composeElement(element);\r\n");
+    else
+      write("      compose"+n.typeCode()+"Inner(element);\r\n");
     for (ElementDefn e : n.getElements())
       genElementComposer(n, e, clss);
     write("  }\r\n\r\n");

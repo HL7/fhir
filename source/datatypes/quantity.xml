@@ -10,17 +10,17 @@
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-11-12T02:46:12Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12975</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>14010</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4093,7 +4093,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4148,48 +4147,11 @@
     <Cell><Data ss:Type="String">not(exists(f:comparator))</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">comparator.max=0;comparator.defn=Not allowed to be used in this context</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Duration</Data></Cell>
-    <Cell><Data ss:Type="String">A length of time</Data></Cell>
-    <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.</Data></Cell>
-    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum)</Data></Cell>
-    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Distance</Data></Cell>
-    <Cell><Data ss:Type="String">A measure of distance</Data></Cell>
-    <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of length.  If system is present, it SHALL be UCUM.</Data></Cell>
-    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum)</Data></Cell>
-    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Count</Data></Cell>
-    <Cell><Data ss:Type="String">A count of a discrete element (no unit)</Data></Cell>
-    <Cell><Data ss:Type="String">There SHALL be a code with a value of &quot;1&quot; if there is a value and it SHALL be an expression of length.  If system is present, it SHALL be UCUM.  If present, the value SHALL a whole number.</Data></Cell>
-    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum) and (code.empty() or code = '1') and (value.empty() or value.toString().contains('.').not())</Data></Cell>
-    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or (f:system/@value='http://unitsofmeasure.org' and f:code/@value='1')) and not(contains(f:value/@value, '.')) </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">Money</Data></Cell>
-    <Cell><Data ss:Type="String">An amount of money. With regard to precision, see [Decimal Precision](datatypes.html#precision)</Data></Cell>
-    <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = &quot;urn:iso:std:iso:4217&quot; - currency).</Data></Cell>
-    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = 'urn:iso:std:iso:4217')</Data></Cell>
-    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='urn:iso:std:iso:4217')</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">CodedQuantity</Data></Cell>
-    <Cell><Data ss:Type="String">A quantity with a UCUM unit</Data></Cell>
-    <Cell><Data ss:Type="String">There SHALL be a code if there is a value.  If system is present, it SHALL be UCUM.</Data></Cell>
-    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum)</Data></Cell>
-    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Age</Data></Cell>
-    <Cell><Data ss:Type="String">A duration (length of time) with a UCUM code</Data></Cell>
-    <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.  If value is present, it SHALL be positive.</Data></Cell>
-    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum) and (value.empty() or value.toString().contains('.').not())</Data></Cell>
-    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org') and not(contains(f:value/@value, '-'))</Data></Cell>
-   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:Span="1"/>
+   <Row ss:Index="5" ss:AutoFitHeight="0" ss:Height="45"/>
+   <Row ss:AutoFitHeight="0" ss:Height="75"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30"/>
+   <Row ss:AutoFitHeight="0" ss:Height="45"/>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -4199,12 +4161,12 @@
    </PageSetup>
    <Unsynced/>
    <TabColorIndex>9</TabColorIndex>
-   <LeftColumnVisible>2</LeftColumnVisible>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

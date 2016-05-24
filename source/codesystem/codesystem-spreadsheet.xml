@@ -5201,7 +5201,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R1C9"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="74" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="73" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s114" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="171"/>
@@ -5518,7 +5518,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">Coding</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">The &quot;sub&quot; coding to test. If the coding system does not match the specified subsumption system, the srever may choose to attempt to translate it to the specified system, or reject the operation</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The &quot;sub&quot; coding to test. If the coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -5529,18 +5529,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">Coding</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">The &quot;super&quot; coding to test. If the coding system does not match the specified subsumption system, the srever may choose to attempt to translate it to the specified system, or reject the operation</Data></Cell>
-    <Cell ss:StyleID="s132"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.date</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">The date for which the subsumption test should be performed. Normally, this is the current conditions (which is the default value) but under some circumstances, systems need to acccess this information as it would have been in the past. A typical example of this would be where code selection is constrained to the set of codes that were available when the patient was treated, not when the record is being edited. Note that which date is appropriate is a matter for implementation policy.</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The &quot;super&quot; coding to test. If the coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5548,10 +5537,10 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">out</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">Whether &quot;sub&quot; is subsumed by &quot;super&quot;. If the server is unable to determine whether one code is subsumed by the other, then it returns an error (i.e. an OperationOutcome)</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Whether &quot;sub&quot; is subsumed by &quot;super&quot;. There are 4 possible codes to be returned: equivalent, subsumes, subsumed-by, and not-subsumed. If the server is unable to determine the relationship between the codes, then it returns an error (i.e. an OperationOutcome)</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5809,7 +5798,7 @@
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s132"/>
    </Row>
-   <Row ss:Index="55" ss:AutoFitHeight="0">
+   <Row ss:Index="54" ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s130"/>
@@ -6037,9 +6026,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6047,7 +6036,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -6055,8 +6043,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>30</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

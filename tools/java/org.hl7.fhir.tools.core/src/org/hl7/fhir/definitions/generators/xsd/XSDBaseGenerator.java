@@ -120,8 +120,6 @@ public class XSDBaseGenerator {
       genInfrastructure(e);
     for (ElementDefn e : definitions.getTypes().values())
       genType(e);
-    for (ProfiledType cd : definitions.getConstraints().values())
-      genConstraint(cd);
     for (ElementDefn e : definitions.getStructures().values())
       genStructure(e);
     for (String n : definitions.getBaseResources().keySet()) {
@@ -222,34 +220,6 @@ public class XSDBaseGenerator {
 //    }
 //    write("    </xs:restriction>\r\n");
 //    write("  </xs:simpleType>\r\n");
-  }
-
-  private void genConstraint(ProfiledType cd) throws Exception {
-    write("  <xs:complexType name=\"" + cd.getName() + "\">\r\n");
-    write("    <xs:complexContent>\r\n");
-    write("      <xs:restriction base=\"" + cd.getBaseType() + "\">\r\n");
-    write("        <xs:sequence>\r\n");
-
-    write("          <xs:element name=\"extension\" type=\"Extension\" minOccurs=\"0\" maxOccurs=\"unbounded\">\r\n");
-    write("            <xs:annotation>\r\n");
-    write("              <xs:documentation xml:lang=\"en\">Exception as inherited from Element</xs:documentation>\r\n");
-    write("            </xs:annotation>\r\n");
-    write("          </xs:element>\r\n");
-
-    ElementDefn elem = definitions.getTypes().get(cd.getBaseType());
-    for (ElementDefn e : elem.getElements()) {
-      if (e.getName().equals("[type]"))
-        generateAny(elem, e, null, cd.getRules());
-      else 
-        generateElement(elem, e, null, cd.getRules());
-    }
-    write("        </xs:sequence>\r\n");
-
-    write("        <xs:attribute name=\"id\" type=\"id-primitive\"/>\r\n");
-    write("      </xs:restriction>\r\n");
-    write("    </xs:complexContent>\r\n");
-    write("  </xs:complexType>\r\n");
-
   }
 
   private void genPrimitives() throws Exception {
@@ -361,7 +331,7 @@ public class XSDBaseGenerator {
     write("    </xs:annotation>\r\n");
     if (!elem.getName().equals("Element")) {
       write("    <xs:complexContent>\r\n");
-      write("      <xs:extension base=\"Element\">\r\n");
+      write("      <xs:extension base=\""+getParentType(elem)+"\">\r\n");
     }
     write("        <xs:sequence>\r\n");
 
@@ -397,6 +367,13 @@ public class XSDBaseGenerator {
 
   }
 
+  private String getParentType(ElementDefn elem) {
+    if (Utilities.noString(elem.typeCode()) || elem.typeCode().equals("Type") || elem.typeCode().equals("Structure"))
+      return "Element"; 
+    else
+      return elem.typeCode();
+  }
+
   private void generateAttribute(ElementDefn elem, ElementDefn e, Object object) throws Exception {
     if (e.unbounded())
       throw new Exception("Repeating Element marked as an attribute in XML ("+e.getName()+")");
@@ -415,7 +392,7 @@ public class XSDBaseGenerator {
     write("      <xs:documentation xml:lang=\"en\">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>\r\n");
     write("    </xs:annotation>\r\n");
     write("    <xs:complexContent>\r\n");
-    write("      <xs:extension base=\"Element\">\r\n");
+    write("      <xs:extension base=\""+getParentType(elem)+"\">\r\n");
 
     write("        <xs:sequence>\r\n");
 
@@ -529,7 +506,7 @@ public class XSDBaseGenerator {
     write("      <xs:documentation xml:lang=\"en\">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>\r\n");
     write("    </xs:annotation>\r\n");
     write("    <xs:complexContent>\r\n");
-    write("      <xs:extension base=\"Element\">\r\n");
+    write("      <xs:extension base=\""+getParentType(elem)+"\">\r\n");
     write("        <xs:sequence>\r\n");
 
     for (ElementDefn e : elem.getElements()) {
@@ -622,7 +599,7 @@ public class XSDBaseGenerator {
     write("      <xs:documentation xml:lang=\"en\">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>\r\n");
     write("    </xs:annotation>\r\n");
     write("    <xs:complexContent>\r\n");
-    write("      <xs:extension base=\"Element\">\r\n");
+    write("      <xs:extension base=\""+getParentType(root)+"\">\r\n");
     write("        <xs:sequence>\r\n");
 
     for (ElementDefn e : struc.getElements()) {
@@ -813,7 +790,10 @@ public class XSDBaseGenerator {
       //      else
       if (type.getName().equals("Resource"))
         return "ResourceContainer";
-      else
+      else if (definitions.getConstraints().containsKey(type.getName())) {
+        ProfiledType pt = definitions.getConstraints().get(type.getName());
+        return pt.getBaseType();
+      } else
         return type.getName();
     } else if (type.getParams().size() > 1)
       throw new Exception(

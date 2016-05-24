@@ -306,8 +306,7 @@ The value is represented in RDF as an relationship with the URI "http://h;7.org/
 </pre>
 <p>
 For the types date and DateTime, the type must be specified explicitly. 
-Otherwise it is optional. 
-The full representation, with id, extensions and value:
+For all other types, it is optional. The full representation, with id, extensions and value:
 </p>
 <pre class="rdf">
   fhir:Type.count [ 
@@ -320,7 +319,7 @@ The full representation, with id, extensions and value:
   ]
 </pre>
 <p>
-For additional details, see the <a href="xml.html">XML</a>, <a href="json.html">JSON</a> and <a href="rdf.html">Turtle</a> formats. 
+For additional details, see the <a href="xml.html">XML</a>, <a href="json.html">JSON</a> and <a href="rdf.html">Turtle</a> format definitions. 
 When the value is missing, and there are no extensions, the element is not represented at all. This means that 
 in xml, attributes are never present with a length of 0 (value=""), and properties are never a 0 length string or null in JSON ("name" : "" is not valid). 
 (note: there is one specific <a href="json.html#null">use of the null</a> in the JSON representation).
@@ -641,9 +640,92 @@ Quantity is used in the following places: [%dtusage Quantity%]
 Defined Variations on Quantity
 </h3>
 <p>
-These are used as types in resource content models, but they are really just a Quantity with some rules:
+There are several additional data types that are specializations of Quantity 
+that only introduce new restrictions on the existing elements defined as part
+of the Quantity data type:
 </p>
-[%dt.restrictions Quantity%]
+
+<table class="list">
+ <tr>
+   <td><b>Type Name</b></td>
+   <td><b>Rules</b></td>
+   <td><b>Formal Definitions</b></td>
+ </tr>
+ 
+ <tr>
+   <td>Age</td>
+   <td>[%dt.constraints Age%]</td>
+   <td><a href="age.profile.xml.html">XML</a>, <a href="age.profile.json.html">JSON</a></td>
+ </tr>
+ <tr>
+   <td></td>
+   <td colspan="2">Usage: [%dtusage Age%]</td>
+ </tr>
+ 
+ <tr>
+   <td>Count</td>
+   <td>[%dt.constraints Count%]</td>
+   <td><a href="count.profile.xml.html">XML</a>, <a href="count.profile.json.html">JSON</a></td>
+ </tr>
+ <tr>
+   <td></td>
+   <td colspan="2">Usage: [%dtusage Count%]</td>
+ </tr>
+ 
+ <tr>
+   <td>Distance</td>
+   <td>[%dt.constraints Distance%]</td>
+   <td><a href="distance.profile.xml.html">XML</a>, <a href="distance.profile.json.html">JSON</a></td>
+ </tr>
+ <tr>
+   <td></td>
+   <td colspan="2">Usage: [%dtusage Distance%]</td>
+ </tr>
+ 
+ <tr>
+   <td>Duration</td>
+   <td>[%dt.constraints Duration%]</td>
+   <td><a href="duration.profile.xml.html">XML</a>, <a href="duration.profile.json.html">JSON</a></td>
+ </tr>
+ <tr>
+   <td></td>
+   <td colspan="2">Usage: [%dtusage Duration%]</td>
+ </tr>
+ 
+ <tr>
+   <td>Money</td>
+   <td>[%dt.constraints Money%]</td>
+   <td><a href="money.profile.xml.html">XML</a>, <a href="money.profile.json.html">JSON</a></td>
+ </tr>
+ <tr>
+   <td></td>
+   <td colspan="2">Usage: [%dtusage Money%]</td>
+ </tr>
+ <tr>
+  <td colspan="3"><hr/>In addition to the specializations, there is one profile on Quantity used in several resources:</td>
+ </tr>
+ <tr>
+   <td><b>Profile Name</b></td>
+   <td><b>Rules</b></td>
+   <td><b>Formal Definitions</b></td>
+ </tr>
+ <tr>
+   <td>Simple Quantity</td>
+   <td>[%dt.constraints SimpleQuantity%]</td>
+   <td><a href="simplequantity.profile.xml.html">XML</a>, <a href="simplequantity.profile.json.html">JSON</a></td>
+ </tr>
+ <tr>
+   <td></td>
+   <td colspan="2">Usage: [%dtusage SimpleQuantity%]</td>
+ </tr>
+</table>
+
+<p>
+Note that the profile is different from the other specializations because it is not a type,
+just rules applied where the Quantity type is used.
+</p>
+
+
 
 <a name="Range"></a>
 <a name="range"></a>

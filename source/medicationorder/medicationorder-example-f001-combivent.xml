@@ -78,13 +78,13 @@
         <quantity>
             <value value="100"/>
             <unit value="mcg"/>
-            <system value="urn:oid:2.16.840.1.113883.6.8"/> <!-- http://unitsofmeasure.org (UCUM code system) -->
+            <system value="http://unitsofmeasure.org"/>
             <code value="ug"/>
         </quantity>
         <expectedSupplyDuration>
             <value value="40"/>
             <unit value="days"/>
-            <system value="urn:oid:2.16.840.1.113883.6.8"/> <!-- http://unitsofmeasure.org (UCUM code system) -->
+            <system value="http://unitsofmeasure.org"/>
             <code value="d"/>
         </expectedSupplyDuration>
     </dispenseRequest>   

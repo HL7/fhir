@@ -1423,11 +1423,11 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">onsetquantity</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">onsetAge</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Condition.onsetQuantity</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Condition.onsetAge</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
@@ -8050,7 +8050,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="String">age</Data></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">number</Data></Cell>
     <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Condition.onsetQuantity</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Condition.onsetAge</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Search based on Condition onsetAge</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

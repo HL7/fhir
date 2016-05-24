@@ -364,19 +364,10 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("    next(xpp);\r\n");
     write("    int eventType = nextNoWhitespace(xpp);\r\n");
     write("    while (eventType != XmlPullParser.END_TAG) {\r\n");
-    boolean first = true;
-    for (ElementDefn e : n.getElements()) {
-      if (!e.typeCode().equals("xml:lang") && !e.isXmlAttribute()) {
-        genElement(n, e, first, clss, bUseOwner);
-        first = false;
-      }
-    }
-    if (clss == JavaGenClass.Resource)
-      write("      } else if (!parse"+n.typeCode()+"Content(eventType, xpp, res))\r\n");
-    else if (clss == JavaGenClass.BackboneElement)
-        write("      } else if (!parseBackboneContent(eventType, xpp, res))\r\n");
-      else
-      write("      } else if (!parseElementContent(eventType, xpp, res))\r\n");
+    if (tn.contains(".")) 
+      write("  if (!parse"+upFirst(tn).replace(".", "")+"Content(eventType, xpp, owner, res))\r\n");
+    else
+      write("  if (!parse"+upFirst(tn).replace(".", "")+"Content(eventType, xpp, res))\r\n");
     write("        unknownContent(xpp);\r\n");
     write("      eventType = nextNoWhitespace(xpp);\r\n");
     write("    }\r\n");
@@ -384,6 +375,33 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("    parseElementClose(res);\r\n");
     write("    return res;\r\n");
     write("  }\r\n\r\n");    
+
+    if (tn.contains(".")) 
+      write("  protected boolean parse"+upFirst(tn).replace(".", "")+"Content(int eventType, XmlPullParser xpp, "+pathClass(tn)+" owner, "+tn+" res) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
+    else
+      write("  protected boolean parse"+upFirst(tn).replace(".", "")+"Content(int eventType, XmlPullParser xpp, "+tn+" res) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
+    boolean first = true;
+    for (ElementDefn e : n.getElements()) {
+      if (!e.typeCode().equals("xml:lang") && !e.isXmlAttribute()) {
+        genElement(n, e, first, clss, bUseOwner);
+        first = false;
+      }
+    }
+    if (!first)
+      write("      } else ");
+    else
+      write("      ");
+    if (clss == JavaGenClass.Resource)
+      write("if (!parse"+n.typeCode()+"Content(eventType, xpp, res))\r\n");
+    else if (clss == JavaGenClass.BackboneElement)
+        write("if (!parseBackboneContent(eventType, xpp, res))\r\n");
+    else if (Utilities.noString(n.typeCode()) || n.typeCode().equals("Type") || n.typeCode().equals("Structure") )
+      write("if (!parseElementContent(eventType, xpp, res))\r\n");
+    else
+      write("if (!parse"+n.typeCode()+"Content(eventType, xpp, res))\r\n");
+    write("        return false;\r\n");
+    write("    return true;\r\n");
+    write("  }\r\n\r\n");
   }
 
   private void genInnerAbstract(ElementDefn n) throws IOException, Exception {
@@ -854,7 +872,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 //      scanNestedTypes(n, n.getName(), e);
 //    }
 //    typeNames.put(n, tn);
-////    write("  protected "+tn+" parse"+tn.replace("<", "_").replace(">", "")+"(XmlPullParser xpp) {\r\n");
+////    write("  protected "+tn+" parse"+tn+"(XmlPullParser xpp) {\r\n");
 //    context = n.getName();
 //
 //    genInner(n, false);
@@ -915,7 +933,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   private void genInnerComposer(ElementDefn n, JavaGenClass type) throws IOException, Exception {
     String tn = typeNames.containsKey(n) ? typeNames.get(n) : javaClassName(n.getName());
     
-    write("  protected void compose"+upFirst(tn).replace(".", "").replace("<", "_").replace(">", "")+"(String name, "+tn+" element) throws IOException {\r\n");
+    write("  protected void compose"+upFirst(tn).replace(".", "")+"(String name, "+tn+" element) throws IOException {\r\n");
     write("    if (element != null) {\r\n");
     if (type == JavaGenClass.Resource) 
       write("      compose"+n.typeCode()+"Attributes(element);\r\n");
@@ -935,20 +953,27 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       }
     }
     write("      xml.enter(FHIR_NS, name);\r\n");
+    write("      compose"+upFirst(tn).replace(".", "")+"Elements(element);\r\n");
+    
+    write("      composeElementClose(element);\r\n");
+    write("      xml.exit(FHIR_NS, name);\r\n");
+    write("    }\r\n");    
+    write("  }\r\n\r\n");    
+
+    write("  protected void compose"+upFirst(tn).replace(".", "")+"Elements("+tn+" element) throws IOException {\r\n");
     if (type == JavaGenClass.Resource) 
       write("      compose"+n.typeCode()+"Elements(element);\r\n");
     else if (type == JavaGenClass.BackboneElement) 
       write("      composeBackboneElements(element);\r\n");
-    else
+    else if (Utilities.noString(n.typeCode()) || n.typeCode().equals("Structure") || n.typeCode().equals("Type") )
       write("      composeElementElements(element);\r\n");
+    else
+      write("      compose"+n.typeCode()+"Elements(element);\r\n");
     
     for (ElementDefn e : n.getElements()) {
       if (!e.typeCode().equals("xml:lang") && !e.isXmlAttribute()) 
         genElement(n, e, type);
     }
-    write("      composeElementClose(element);\r\n");
-    write("      xml.exit(FHIR_NS, name);\r\n");
-    write("    }\r\n");    
     write("  }\r\n\r\n");    
   }
 

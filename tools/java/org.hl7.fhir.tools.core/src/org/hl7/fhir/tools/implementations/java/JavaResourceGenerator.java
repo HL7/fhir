@@ -205,7 +205,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       write("public class "+upFirst(name)+" extends BaseReference implements IBaseReference, ICompositeType ");
 		} else {
       write("@DatatypeDef(name=\""+upFirst(name)+"\")\r\n");
-			write("public class "+upFirst(name)+" extends Type implements ICompositeType ");
+			write("public class "+upFirst(name)+" extends "+(root.typeCode().equals("Structure") ? "Type" : root.typeCode())+" implements ICompositeType ");
 		}
 		
 		write("{\r\n");
@@ -1492,17 +1492,12 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
   private void generateIsEmpty(ElementDefn e, String tn, boolean owner, boolean isAbstract) throws Exception {
     write("      public boolean isEmpty() {\r\n");
-    write("        return super.isEmpty() && ");
-    boolean first = true;
+    write("        return super.isEmpty()");
     int col = 34;
     for (ElementDefn c : e.getElements()) {
       if (processObjectImpl(c)) {
-        if (first)
-          first = false;
-        else {
-          write(" && ");
-          col = col+4;
-        }
+        write(" && ");
+        col = col+4;
         String name = getElementName(c.getName(), true);
         if (name.endsWith("[x]"))
           name = name.substring(0, name.length()-3);
@@ -1514,7 +1509,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         }
       }
     }
-      write(";\r\n");
+    write(";\r\n");
     write("      }\r\n\r\n");
   }
 

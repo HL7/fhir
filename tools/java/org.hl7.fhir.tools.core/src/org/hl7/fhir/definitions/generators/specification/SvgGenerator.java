@@ -670,8 +670,15 @@ public class SvgGenerator extends BaseGenerator {
         ElementDefn fake = fakes.get(cn);
         ClassItem parent = classes.get(definitions.getElementDefn(cd.getBaseType()));
         links.add(new Link(parent, drawClass(xml, fake, false, null, true, null, null), null, null, PointKind.unknown, null, null));        
-      } else if (!onlyElement) 
-        links.add(new Link(item, drawClass(xml, definitions.getElementDefn(cn), false, null, true, cn, null), null, null, PointKind.unknown, null, null));        
+      } else if (!onlyElement) {
+        ElementDefn e = definitions.getElementDefn(cn);
+        ClassItem parent = item;
+        if (!(Utilities.noString(e.typeCode()) || e.typeCode().equals("Type") || e.typeCode().equals("Structure")))
+          parent = classes.get(definitions.getElementDefn(e.typeCode()));
+        if (parent == null)
+          parent = item;
+        links.add(new Link(parent, drawClass(xml, e, false, null, true, cn, null), null, null, PointKind.unknown, null, null));
+      }
     }
     xml.exit("g");
     return item;

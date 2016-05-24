@@ -33,8 +33,8 @@
  <length>
     <value value="56"/>
     <unit value="minutes"/>
-    <system value="http://snomed.info/sct"/>
-    <code value="258701004"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="min"/>
  </length>
  <reason>
 		<extension url="http://hl7.org/fhir/StructureDefinition/encounter-primaryDiagnosis">

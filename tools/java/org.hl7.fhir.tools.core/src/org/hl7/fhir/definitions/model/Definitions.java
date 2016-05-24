@@ -760,6 +760,11 @@ public class Definitions {
     res.add("CodeableConcept");
     res.add("Coding");
     res.add("Quantity");
+    res.add("Count");
+    res.add("Age");
+    res.add("Duration");
+    res.add("Distance");
+    res.add("Money");
     res.add("Range");
     res.add("Period");
     res.add("Ratio");

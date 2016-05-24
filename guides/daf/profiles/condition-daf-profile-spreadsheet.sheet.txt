@@ -90,8 +90,8 @@
   Card. = 0..1
 
  -- Row 12 -----------------------------------
-  Element = Condition.onsetQuantity
-  Profile Name = onsetquantity
+  Element = Condition.onsetAge
+  Profile Name = onsetAge
   Card. = 0..1
   Must Support = Y
   Type = Age
@@ -122,4 +122,4 @@
   Name = age
   Type = number
   Description = Search based on Condition onsetAge
-  Path = Condition.onsetQuantity
+  Path = Condition.onsetAge
