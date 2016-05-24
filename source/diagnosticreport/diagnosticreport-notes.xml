@@ -48,7 +48,7 @@ If the report has been withdrawn following a previous final release, the Diagnos
 
 	<h3>Report Content</h3>
 	<p>
-This resource provides for 3 different ways of presenting the Diagnostic Report:
+Typically, a report is either:all data, no narrative (e.g. Core lab) or a mix of data with some concluding narrative (e.g. Structured Pathology Report, Bone Density), or all narrative (for example a typical imaging report, histopathology).  This resource provides for these 3 different presentations:
 </p>
 	<ul>
 		<li>As atomic data items: a hierarchical set of nested references to Observation resources often including pathologist/radiologist interpretation(s),  one or more images, and possibly with a conclusion and/or one or more coded diagnoses</li>

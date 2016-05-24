@@ -1677,12 +1677,11 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Clinical Interpretation of test results</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Concise and clinically contextualized narrative interpretation of the diagnostic report</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Concise and clinically contextualized impression / summary of the diagnostic report.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Need to be able to provide a conclusion that is not lost among the basic result data</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Typically, a report is either [all data, no narrative (e.g. Core lab)] or [a mix of data with some concluding narrative (e.g. Structured Pathology Report, Bone Density)], or [all narrative (e.g. typical imaging report, histopathology)]. In all of these cases, the narrative goes in &quot;text&quot;.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">inboundRelationship[typeCode=&quot;SPRT&quot;].source[classCode=OBS, moodCode=EVN, code=LOINC:48767-8].value (type=ST)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3943,9 +3942,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3953,14 +3952,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
