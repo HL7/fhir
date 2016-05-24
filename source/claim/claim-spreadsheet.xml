@@ -2602,8 +2602,10 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Additional information codes regarding the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Typically these information codes are required to support the services rendered or the adjudication of the services rendered.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2707,7 +2709,8 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Supporting Reason </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">A reason code which supports the reporting of the information code or provides further details for the information code. </Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2772,7 +2775,7 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Additional Data</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Additional daat such as the </Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Additional data. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4389,8 +4392,10 @@
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s154"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s155"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The members of the team who provided the overall service as well as their role and whether responsible and qualifications.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">Role and Responsible may not be required when there is only a single provider listed.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s154"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s154"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s156"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4418,7 +4423,8 @@
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s154"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The members of the team who provided the overall service.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s155"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s154"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s154"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6340,7 +6346,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>25</TopRowBottomPane>
+   <TopRowBottomPane>88</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6358,8 +6364,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>28</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>91</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
