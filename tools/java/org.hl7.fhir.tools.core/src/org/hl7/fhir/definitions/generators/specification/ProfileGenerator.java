@@ -563,8 +563,9 @@ public class ProfileGenerator {
     p.setUserData("filename", t.getName().toLowerCase());
     p.setUserData("path", "datatypes.html#"+t.getName());
     if (!Utilities.noString(t.typeCode())) {
-      p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Element"); // all deemd to be element whether they say Type or Structure
-      p.setBaseType("Element");
+      String b = (t.typeCode().equals("Type") || t.typeCode().equals("Structure")) ? "Element" : t.typeCode();
+      p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+b); 
+      p.setBaseType(b);
       p.setDerivation(TypeDerivationRule.SPECIALIZATION);
     }
     p.setFhirVersion(version);

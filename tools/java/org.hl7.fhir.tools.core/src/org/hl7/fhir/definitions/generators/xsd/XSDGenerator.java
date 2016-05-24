@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.Config;
+import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -124,6 +125,7 @@ public class XSDGenerator  {
 		write("  <xs:simpleType name=\""+en+"-list\">\r\n");
 		write("    <xs:restriction base=\"xs:string\">\r\n");
 		ValueSet vs = enums.get(en);
+    vs.setUserData(ToolResourceUtilities.NAME_VS_USE_MARKER, true);
 		ValueSet ex = workerContext.expandVS(vs, true).getValueset();
       for (ValueSetExpansionContainsComponent cc : ex.getExpansion().getContains()) {
         genIncludedCode(cc);
