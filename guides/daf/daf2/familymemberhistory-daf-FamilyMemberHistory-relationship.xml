@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
+  <id value="familymemberhistory-daf-FamilyMemberHistory-relationship"/>
+  <url value="http://hl7.org/fhir/SearchParameter/familymemberhistory-daf-FamilyMemberHistory-relationship"/>
+  <name value="relationship"/>
+  <code value="relationship"/>
+  <base value="FamilyMemberHistory"/>
+  <type value="token"/>
+  <description value="Search for family history of members based on relationship"/>
+  <xpathUsage value="normal"/>
+</SearchParameter>

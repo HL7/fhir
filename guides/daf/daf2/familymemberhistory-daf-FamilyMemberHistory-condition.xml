@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
+  <id value="familymemberhistory-daf-FamilyMemberHistory-condition"/>
+  <url value="http://hl7.org/fhir/SearchParameter/familymemberhistory-daf-FamilyMemberHistory-condition"/>
+  <name value="condition"/>
+  <code value="condition"/>
+  <base value="FamilyMemberHistory"/>
+  <type value="token"/>
+  <description value="Search for a history of a particular condition within a patient&#39;s family."/>
+  <xpathUsage value="normal"/>
+</SearchParameter>

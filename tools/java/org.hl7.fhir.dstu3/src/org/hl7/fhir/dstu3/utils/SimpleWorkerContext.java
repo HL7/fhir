@@ -65,6 +65,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	private List<NamingSystem> systems = new ArrayList<NamingSystem>();
 	private Questionnaire questionnaire;
 	private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
+  private boolean allowLoadingDuplicates;
 
 	// -- Initializations
 	/**
@@ -137,7 +138,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	private void seeValueSet(String url, ValueSet vs) throws DefinitionException {
 	  if (Utilities.noString(url))
 	    url = vs.getUrl();
-		if (valueSets.containsKey(vs.getUrl()))
+		if (valueSets.containsKey(vs.getUrl()) && !allowLoadingDuplicates)
 			throw new DefinitionException("Duplicate Profile " + vs.getUrl());
 		valueSets.put(vs.getId(), vs);
 		valueSets.put(vs.getUrl(), vs);
@@ -454,6 +455,14 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 
   public Map<String, byte[]> getBinaries() {
     return binaries;
+  }
+
+  public boolean isAllowLoadingDuplicates() {
+    return allowLoadingDuplicates;
+  }
+
+  public void setAllowLoadingDuplicates(boolean allowLoadingDuplicates) {
+    this.allowLoadingDuplicates = allowLoadingDuplicates;
   }
 
   

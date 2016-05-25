@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="daf-ingredient-name"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.20"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/daf-ingredient-name"/>
+  <name value="Ingredient Name"/>
+  <status value="active"/>
+  <publisher value="HL7 FHIR"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Unique ingredient identifiers (UNIIs) for substances in drugs, biologics, foods, and devices. (http://ccda.sitenv.org/Value+Sets+Used+in+C-CDA)"/>
+  <compose>
+    <include>
+      <system value="http://fdasis.nlm.nih.gov"/>
+    </include>
+  </compose>
+</ValueSet>

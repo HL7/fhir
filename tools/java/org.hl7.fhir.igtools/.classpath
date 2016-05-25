@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/xpp3-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/ST4-4.0.7.jar"/>
 	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/antlr-runtime-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/txtmark-0.11.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

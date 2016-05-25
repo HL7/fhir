@@ -35,5 +35,6 @@
 	<classpathentry kind="lib" path="../imports/scala-library-2.11.8.jar"/>
 	<classpathentry kind="lib" path="../imports/org.everit.json.schema-1.3.0.jar"/>
 	<classpathentry kind="lib" path="../imports/json-20160212.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.igtools"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

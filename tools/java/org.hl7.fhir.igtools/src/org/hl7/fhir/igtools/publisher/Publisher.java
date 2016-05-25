@@ -2,6 +2,7 @@ package org.hl7.fhir.igtools.publisher;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,6 +13,8 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.hl7.fhir.dstu3.exceptions.DefinitionException;
+import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
@@ -19,6 +22,8 @@ import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.metamodel.Element;
 import org.hl7.fhir.dstu3.metamodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.model.BaseConformance;
+import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
@@ -28,10 +33,13 @@ import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
+import org.hl7.fhir.dstu3.utils.ProfileUtilities;
+import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.utils.Turtle;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
+import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
 import org.hl7.fhir.igtools.renderers.ValidationPresenter;
 import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
 import org.hl7.fhir.igtools.renderers.ValidationPresenter.ValiationOutcomes;
@@ -83,7 +91,7 @@ public class Publisher {
   private String pathToSpec;
   private String configFile;
   private String output;
-  private String txServer = "http://fhir3.healthintersections.com.au/open";
+  private String txServer = "http://local.healthintersections.com.au:960/open";
   private boolean reside;
 
   private String igName;
@@ -91,6 +99,7 @@ public class Publisher {
   private IFetchFile fetcher = new SimpleFetcher();
   private SimpleWorkerContext context;
   private InstanceValidator validator;
+  private IGKnowledgeProvider igpkp;
 
   private Map<ImplementationGuidePackageResourceComponent, FetchedFile> fileMap = new HashMap<ImplementationGuidePackageResourceComponent, FetchedFile>();
   private List<FetchedFile> fileList = new ArrayList<FetchedFile>();
@@ -135,11 +144,13 @@ public class Publisher {
     log("Load Validation Pack");
     //    context = SimpleWorkerContext.fromClassPath();
     context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation.xml.zip");
+    context.setAllowLoadingDuplicates(true);
     log("Connect to Terminology Server");
     context.connectToTSServer(txServer);
     validator = new InstanceValidator(context);
     validator.setAllowXsiLocation(true);
-    
+
+    igpkp = new IGKnowledgeProvider(context);
     TextFile.bytesToFile(context.getBinaries().get("fhir.css"), Utilities.path(output, "publish", "fhir.css"));    
   }
 
@@ -176,6 +187,7 @@ public class Publisher {
       load(ResourceType.StructureDefinition);
       load(ResourceType.ConceptMap);
       load(ResourceType.StructureMap);
+      generateSnapshots();
     }
     return needToBuild;
   }
@@ -241,12 +253,24 @@ public class Publisher {
 
   private void load(ResourceType type) throws Exception {
     for (FetchedFile f : fileList) {
+      System.out.println("Load "+f.getName());
       if (f.getType() == type) {
         if (f.getElement() == null)
           validate(f);
         if (f.getResource() == null)
           f.setResource(parse(f));
         context.seeResource(((BaseConformance) f.getResource()).getUrl(), f.getResource());
+      }
+    }
+  }
+
+  private void generateSnapshots() throws DefinitionException, FHIRException {
+    ProfileUtilities utils = new ProfileUtilities(context, null, null);
+    for (StructureDefinition derived : context.allStructures()) {
+      if (!derived.hasSnapshot()) {
+        StructureDefinition base = context.fetchResource(StructureDefinition.class, derived.getBaseDefinition());
+        if (base != null)
+          utils.generateSnapshot(base, derived, derived.getUrl(), derived.getName());
       }
     }
   }
@@ -295,6 +319,50 @@ public class Publisher {
   }
 
   private void generateOutputs(FetchedFile f) throws Exception {
+    saveDirectResourceOutputs(f);
+    
+    // now, start generating resource type specific stuff 
+    if (f.getResource() != null) { // we only do this for conformance resources we've already loaded
+      switch (f.getResource().getResourceType()) {
+      case CodeSystem:
+        generateOutputsCodeSystem((CodeSystem) f.getResource());
+        break;
+      case ValueSet:
+        generateOutputsValueSet((ValueSet) f.getResource());
+        break;
+      case ConceptMap:
+        generateOutputsConceptMap((ConceptMap) f.getResource());
+        break;
+        
+      case DataElement:
+        break;
+      case StructureDefinition:
+        generateOutputsStructureDefinition((StructureDefinition) f.getResource());
+        break;
+      case StructureMap:
+        break;
+      default:
+        // nothing to do...    
+      }      
+    }
+    
+//    NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
+//    gen.generate(f.getElement(), false);
+//    xhtml = getXhtml(f);
+//    html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
+//    fragment(f.getId()+"-gen-html", html);
+  }
+
+  /**
+   * saves the resource as XML, JSON, Turtle, 
+   * then all 3 of those as html with embedded links to the definitions
+   * then the narrative as html
+   *  
+   * @param f
+   * @throws FileNotFoundException
+   * @throws Exception
+   */
+  private void saveDirectResourceOutputs(FetchedFile f) throws FileNotFoundException, Exception {
     new org.hl7.fhir.dstu3.metamodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(output, "publish", f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
     new org.hl7.fhir.dstu3.metamodel.JsonParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(output, "publish", f.getElement().fhirType()+"-"+f.getId()+".json")), OutputStyle.PRETTY, "??");
     new org.hl7.fhir.dstu3.metamodel.TurtleParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(output, "publish", f.getElement().fhirType()+"-"+f.getId()+".ttl")), OutputStyle.PRETTY, "??");
@@ -319,38 +387,39 @@ public class Publisher {
     
     XhtmlNode xhtml = getXhtml(f);
     String html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
-    fragment(f.getId()+"-html", html);
-    
-    // now, start generating resource type specific stuff 
-    if (f.getResource() != null) { // we only do this for conformance resources we've already loaded
-      switch (f.getResource().getResourceType()) {
-      case CodeSystem:
-        break;
-      case ValueSet:
-        generateOutputsValueSet((ValueSet) f.getResource());
-        break;
-      case DataElement:
-        break;
-      case StructureDefinition:
-        generateOutputsStructureDefinition((StructureDefinition) f.getResource());
-        break;
-      case ConceptMap:
-        break;
-      case StructureMap:
-        break;
-      default:
-        // nothing to do...    
-      }      
-    }
-    
-//    NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
-//    gen.generate(f.getElement(), false);
-//    xhtml = getXhtml(f);
-//    html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
-//    fragment(f.getId()+"-gen-html", html);
+    fragment(f.getId()+"-html", html);    
   }
 
+  /**
+   * Generate:
+   *   summary
+   *   content as html
+   *   xref
+   * @param resource
+   * @throws IOException 
+   */
+  private void generateOutputsCodeSystem(CodeSystem cs) throws IOException {
+    // TODO Auto-generated method stub
+    fragmentError(cs.getId()+"-summary", "yet to be done: code system summary");
+    fragmentError(cs.getId()+"-content", "yet to be done: code system definition");
+    fragmentError(cs.getId()+"-xref", "yet to be done: list of all value sets where the code system is used");
+  }
+
+  /**
+   * Save the expansion as html 
+   * Genrate: 
+   *   summary
+   *   Content logical definition
+   *   cross-reference
+   *   
+   * todo: should we save it as a resource too? at this time, no: it's not safe to do that; encourages abuse
+   * @param vs
+   * @throws IOException
+   */
   private void generateOutputsValueSet(ValueSet vs) throws IOException {
+    fragmentError(vs.getId()+"-summary", "yet to be done: value set summary");
+    fragmentError(vs.getId()+"-cld", "yet to be done: value statement of content logical definition");
+    fragmentError(vs.getId()+"-xref", "yet to be done: list of all places where value set is used");
     ValueSetExpansionOutcome exp = context.expandVS(vs, true);
     if (exp.getValueset() != null) {
       NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
@@ -367,25 +436,43 @@ public class Publisher {
     fragment(name, "<p style=\"color: maroon; font-weight: bold\">"+Utilities.escapeXml(error)+"</p>\r\n");
   }
 
-  private void generateOutputsStructureDefinition(StructureDefinition resource) {
-    /*
-     * shex + html
-     * schematron + html
-     * schema + html
-     * text summary
-     * snapshot logical 
-     * differnetial logical
-     * xml template
-     * json template
-     * turtle template
-     * uml svg
-     * terminology bindings summary
-     * constraints summary
-     * dictionary definitions
-     * mappings page
-     * 
-     */
+  /**
+   * Generate:
+   *   summary
+   *   content as html
+   *   xref
+   * @param resource
+   * @throws IOException 
+   */
+  private void generateOutputsConceptMap(ConceptMap cm) throws IOException {
+    fragmentError(cm.getId()+"-summary", "yet to be done: concept map summary");
+    fragmentError(cm.getId()+"-cld", "yet to be done: table presentation of the concept map");
+    fragmentError(cm.getId()+"-xref", "yet to be done: list of all places where concept map is used");
     
+  }
+
+  private void generateOutputsStructureDefinition(StructureDefinition sd) throws Exception {
+    // todo : generate shex itself
+    fragmentError(sd.getId()+"-shex", "yet to be done: shex as html");
+    
+    // todo : generate schematron itself
+    fragmentError(sd.getId()+"-sch", "yet to be done: schematron as html");
+
+    // todo : generate json schema itself
+    fragmentError(sd.getId()+"-json-schema", "yet to be done: json schema as html");
+    
+    StructureDefinitionRenderer sdr = new StructureDefinitionRenderer(context, "", sd, output, igpkp);
+    fragmentError(sd.getId()+"-summary", sdr.summary());
+    fragmentError(sd.getId()+"-diff", sdr.diff("test"));
+    fragmentError(sd.getId()+"-snapshot", sdr.snapshot("test"));
+    fragmentError(sd.getId()+"-xml", "yet to be done: Xml template");
+    fragmentError(sd.getId()+"-json", "yet to be done: Json template");
+    fragmentError(sd.getId()+"-ttl", "yet to be done: Turtle template");
+    fragmentError(sd.getId()+"-uml", "yet to be done: UML as SVG");
+    fragmentError(sd.getId()+"-tx", sdr.tx());
+    fragmentError(sd.getId()+"-inv", sdr.inv());
+    fragmentError(sd.getId()+"-dict", sdr.dict());
+    fragmentError(sd.getId()+"-maps", "yet to be done: Mappings page");
   }
 
   private XhtmlNode getXhtml(FetchedFile f) {

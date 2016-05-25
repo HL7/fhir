@@ -12,6 +12,7 @@ public class SimpleFetcher implements IFetchFile {
 
   @Override
   public FetchedFile fetch(String path) throws Exception {
+    System.out.println("Fetch "+path);        
     File f = new File(path);
     if (!f.exists())
       throw new Exception("Unable to find file "+path);

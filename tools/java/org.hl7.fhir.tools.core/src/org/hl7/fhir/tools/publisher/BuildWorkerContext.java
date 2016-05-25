@@ -950,6 +950,9 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   private void saveValidationCache() throws IOException {
+    if (noTerminologyServer)
+      return;
+    
     File dir = new File(validationCachePath);
     if (dir.exists())
       Utilities.clearDirectory(validationCachePath);

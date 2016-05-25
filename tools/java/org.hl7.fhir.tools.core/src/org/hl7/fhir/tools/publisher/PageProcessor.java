@@ -5564,7 +5564,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("schematron"))
         src = s1+(isDict ? "<i>None</i>" : "<a href=\""+filename+".sch\">Schematron</a>")+s3;
       else if (com[0].equals("summary"))
-        src = s1+generateHumanSummary(pack, profile.getResource(), genlevel(level))+s3;
+        src = s1+generateHumanSummary(profile.getResource(), genlevel(level))+s3;
       else if (com[0].equals("profile-examples"))
         src = s1+generateProfileExamples(pack, profile)+s3;      
       else if (com[0].equals("profile-extensions-table"))
@@ -5630,7 +5630,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           " resource must be a valid Observation as defined in the data dictionary <a href=\""+uri+".html\">"+dict.getName()+"</a>.</p>";
   }
 
-  private String generateHumanSummary(Profile pack, StructureDefinition profile, String prefix) {
+  private String generateHumanSummary(StructureDefinition profile, String prefix) {
     try {
       if (profile.getDifferential() == null)
         return "<p>No Summary, as this profile has no differential</p>";

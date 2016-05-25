@@ -1514,6 +1514,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private boolean initialize(String folder) throws Exception {
     page.setDefinitions(new Definitions());
+    page.getWorkerContext().setCanRunWithoutTerminology(!web);
 
     page.log("Checking Source for " + folder, LogMessageType.Process);
 
