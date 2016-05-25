@@ -198,6 +198,7 @@
   Type = DomainResource
   Short Label = Structural Definition
   Definition = A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.
+  Object Impl = BaseConformance
   RIM Mapping = n/a
   w5 = conformance.content
 
@@ -211,6 +212,7 @@
   Short Label = Absolute URL used to reference this StructureDefinition
   Definition = An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published
   Requirements = So you can say, in a StructureDefinition, what the full extension URLs should be. This is required to allow hosting StructureDefinitions on multiple different servers, and to allow for the editorial process
+  Object Impl = BaseConformance.url
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -231,6 +233,7 @@
   Short Label = Logical id for this version of the StructureDefinition
   Definition = The identifier that is used to identify this version of the StructureDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the StructureDefinition author manually
   Requirements = There may be multiple resource versions of the StructureDefinition that have this same identifier. The resource version id will change for technical reasons, whereas the stated version number needs to be under the author\'s control
+  Object Impl = BaseConformance.version
   11179 Mapping = Version
   w5 = id.version
 
@@ -242,6 +245,7 @@
   Short Label = Informal name for this StructureDefinition
   Definition = A free text natural language name identifying the StructureDefinition
   Comments = Not expected to be globally unique
+  Object Impl = BaseConformance.name
 
  -- Row 6 -----------------------------------
   Element = StructureDefinition.display
@@ -262,6 +266,7 @@
   Short Label = draft | active | retired
   Definition = The status of the StructureDefinition
   Requirements = Allows filtering of StructureDefinitions that are appropriate for use vs. not
+  Object Impl = BaseConformance.status
   11179 Mapping = Registration status
   w5 = status
 
@@ -322,6 +327,7 @@
   Short Label = Date for this version of the StructureDefinition
   Definition = The date this version of the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes
   Comments = Additional specific dates may be added as extensions
+  Object Impl = BaseConformance.date
   w5 = when.recorded
 
  -- Row 14 -----------------------------------
@@ -342,6 +348,7 @@
   Short Label = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of structure definitions.
   Requirements = Assist in searching for appropriate content
+  Object Impl = BaseConformance.useContext
   11179 Mapping = COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, METHOD_TYP, CLASS, CLASSTYPE, ORDER_OBS, DOCUMENT_SECTION, HL7_ATTACHMENT_STRUCTURE
 
  -- Row 16 -----------------------------------

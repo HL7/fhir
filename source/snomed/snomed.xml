@@ -735,6 +735,24 @@
     <display value="CT of thorax"/>
     <display value="CT of chest (procedure)"/>
   </concept>
+  <concept id="169895004" display="Apgar at 1 minute">
+    <display value="Apgar at 1 minute"/>
+    <display value="Apgar score at 1 minute (observable entity)"/>
+    <display value="Apgar score at 1 minute"/>
+    <display value="Apgar at 1 minute (observable entity)"/>
+  </concept>
+  <concept id="169909004" display="Apgar at 5 minutes">
+    <display value="Apgar at 5 minutes"/>
+    <display value="Apgar score at 5 minutes (observable entity)"/>
+    <display value="Apgar score at 5 minutes"/>
+    <display value="Apgar at 5 minutes (observable entity)"/>
+  </concept>
+  <concept id="169922007" display="Apgar at 10 minutes">
+    <display value="Apgar at 10 minutes"/>
+    <display value="Apgar score at 10 minutes (observable entity)"/>
+    <display value="Apgar score at 10 minutes"/>
+    <display value="Apgar at 10 minutes (observable entity)"/>
+  </concept>
   <concept id="17120007" display="Biofeedback, strain gage (regime/therapy)">
     <display value="Biofeedback, strain gage (regime/therapy)"/>
     <display value="Biofeedback, strain gage"/>
@@ -1288,6 +1306,27 @@
     <display value="EDC - Estimated date of conception"/>
     <display value="Estimated date of conception"/>
     <display value="Estimated date of conception (observable entity)"/>
+  </concept>
+  <concept id="249223000" display="Apgar heart rate score (observable entity)">
+    <display value="Apgar heart rate score"/>
+    <display value="Apgar heart rate score (observable entity)"/>
+  </concept>
+  <concept id="249224006" display="Apgar respiratory effort score (observable entity)">
+    <display value="Apgar respiratory effort score"/>
+    <display value="Apgar respiratory effort score (observable entity)"/>
+  </concept>
+  <concept id="249225007" display="Apgar muscle tone score (observable entity)">
+    <display value="Apgar muscle tone score"/>
+    <display value="Apgar muscle tone score (observable entity)"/>
+  </concept>
+  <concept id="249226008" display="Apgar response to stimulus score (observable entity)">
+    <display value="Apgar response to stimulus score"/>
+    <display value="Apgar response to stimulus score (observable entity)"/>
+  </concept>
+  <concept id="249227004" display="Apgar color score (observable entity)">
+    <display value="Apgar color score"/>
+    <display value="Apgar colour score"/>
+    <display value="Apgar color score (observable entity)"/>
   </concept>
   <concept id="249943000:363698007=72098002,260868000=6934004" display="Weakness of distal arms and legs (finding) where Finding site (attribute) = Entire left upper arm (body structure), and Permanence (attribute) = Permanent (qualifier value)"/>
   <concept id="25062003" display="Feeding tube, device (physical object)">
@@ -4603,6 +4642,10 @@
     <display value="Hydrolyzed protein formula (product)"/>
     <display value="Hydrolyzed protein formula"/>
     <display value="Liquid formula intended for enteral and/or oral method of delivery, formulated to provide protein hydrolyzed into peptides."/>
+  </concept>
+  <concept id="443849008" display="Apgar score at 20 minutes (observable entity)">
+    <display value="Apgar score at 20 minutes (observable entity)"/>
+    <display value="Apgar score at 20 minutes"/>
   </concept>
   <concept id="444321000124108" display="Standard pudding oral supplement (product)">
     <display value="Standard pudding oral supplement (product)"/>
