@@ -71,7 +71,6 @@ public class ShExGenerator {
   // Note: link was originally "fhir:link (@<$refType$> OR IRI)?"; but we pulled the refType until we can figure
   //       out how best to address it
   private static String TYPED_REFERENCE_TEMPLATE = "\n<$refType$Reference> {\n" +
-                                                   "\ta [fhir:$refType$Reference];\n" +
                                                    "\tfhir:Element.id @<id>?;\n" +
                                                    "\tfhir:Element.extension @<Extension>*;\n" +
                                                    "\tfhir:link IRI?;\n" +
@@ -81,7 +80,7 @@ public class ShExGenerator {
                                                    "}";
 
   // TODO: find the literal for this
-  private static String XML_DEFN_TYPE = "http://hl7.org/fhir/StructureDefinition/structuredefinition-xml-type";
+  private static String RDF_DEFN_TYPE = "http://hl7.org/fhir/StructureDefinition/structuredefinition-rdf-type";
 
   /**
    * this makes internal metadata services available to the generator - retrieving structure definitions, and value set expansion etc
@@ -95,8 +94,7 @@ public class ShExGenerator {
    * references -- Reference types (Patient, Specimen, etc)
    * doDataTypes -- whether or not to emit the data types.
    */
-  private LinkedList<Pair<StructureDefinition, ElementDefinition>> innerTypes;
-  private LinkedList<String> emittedInnerTypes;
+  private HashSet<Pair<StructureDefinition, ElementDefinition>> innerTypes, emittedInnerTypes;
   private HashSet<String> datatypes, emittedDatatypes;
   private HashSet<String> references;
   private boolean doDatatypes = true;
@@ -104,8 +102,8 @@ public class ShExGenerator {
   public ShExGenerator(IWorkerContext context) {
     super();
     this.context = context;
-    innerTypes = new LinkedList<Pair<StructureDefinition, ElementDefinition>>();
-    emittedInnerTypes = new LinkedList<String>();
+    innerTypes = new HashSet<Pair<StructureDefinition, ElementDefinition>>();
+    emittedInnerTypes = new HashSet<Pair<StructureDefinition, ElementDefinition>>();
     datatypes = new HashSet<String>();
     emittedDatatypes = new HashSet<String>();
     references = new HashSet<String>();
@@ -192,18 +190,17 @@ public class ShExGenerator {
    */
   private void emitInnerTypes(StringBuilder shapeDefinitions) {
     while(emittedInnerTypes.size() < innerTypes.size()) {
-      LinkedList<Pair<StructureDefinition, ElementDefinition>> sdedicopy =
-              new LinkedList<Pair<StructureDefinition, ElementDefinition>>();
+      HashSet<Pair<StructureDefinition, ElementDefinition>> sdedicopy =
+              new HashSet<Pair<StructureDefinition, ElementDefinition>>();
       for(Pair<StructureDefinition, ElementDefinition> e : innerTypes)
         sdedicopy.add(e);
       Iterator<Pair<StructureDefinition, ElementDefinition>> sdedi = sdedicopy.iterator();
       while(sdedi.hasNext()) {
         Pair<StructureDefinition, ElementDefinition> sded = sdedi.next();
-        StructureDefinition sd = sded.getLeft();
-        ElementDefinition ed = sded.getRight();
-        if (!emittedInnerTypes.contains(ed.getPath()))
-          shapeDefinitions.append("\n").append(genElementReference(sd, ed));
-        emittedInnerTypes.add(ed.getPath());
+        if(!emittedInnerTypes.contains(sded)) {
+          shapeDefinitions.append("\n").append(genElementReference(sded.getLeft(), sded.getRight()));
+          emittedInnerTypes.add(sded);
+        }
       }
     }
   }
@@ -318,19 +315,15 @@ public class ShExGenerator {
       else
         return tmplt(SIMPLE_ELEMENT_TEMPLATE).add("typ", getProfiledType(typ)).render();
 
-    } else if (typ.getCodeElement().getExtensionsByUrl(XML_DEFN_TYPE).size() > 0) {
+    } else if (typ.getCodeElement().getExtensionsByUrl(RDF_DEFN_TYPE).size() > 0) {
       String xt = null;
       try {
-        xt = typ.getCodeElement().getExtensionString(XML_DEFN_TYPE);
+        xt = typ.getCodeElement().getExtensionString(RDF_DEFN_TYPE);
       } catch (FHIRException e) {
         e.printStackTrace();
       }
-      // TODO: Remove the next three lines when id.profile, etc gets fixed
-      xt = xt.replace("+", "");
-      if(!xt.contains("xs:"))
-        xt = "xs:" + xt;
-      return tmplt(PRIMITIVE_ELEMENT_TEMPLATE).add("typ",
-              xt.replaceAll(",\\s*", " OR ").replaceAll("xs:", "xsd:").replaceAll("xsd:anyURI", "xsd:string").replace("xsd:token", "xsd:string")).render();
+      // TODO: Remove the next line when the type of token gets switched to string
+      return tmplt(PRIMITIVE_ELEMENT_TEMPLATE).add("typ", xt.replace("xsd:token", "xsd:string")).render();
 
     } else if (typ.getCode() == null) {
       ST primitive_entry = tmplt(PRIMITIVE_ELEMENT_TEMPLATE);
