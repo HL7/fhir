@@ -66,6 +66,13 @@
   Description = SNOMED CT Body site concepts
   Conformance = example
 
+ -- Row 10 -----------------------------------
+  Binding Name = ParamCode
+  Binding = code list
+  Reference = #observation-paramcode
+  Definition = The statistical operation parameter -\"params\" -  codes
+  Conformance = required
+
 === Sheet observation-status =====================================
 
  -- Row 1 -----------------------------------
@@ -153,6 +160,32 @@
   Display = Interfered By
   Definition = The value of the target observation interferes (degrades quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value).
   v3 = =ActRrelationshipType.INTF
+
+=== Sheet observation-paramcode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = average
+  Display = Average
+  Definition = The [mean](https://en.wikipedia.org/wiki/Arithmetic_mean)of N measurements over the stated period
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = max
+  Display = Maximum
+  Definition = The [maximum](https://en.wikipedia.org/wiki/Maximal_element) value of N measurements over the stated period
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = min
+  Display = Minimum
+  Definition = The [minimum](https://en.wikipedia.org/wiki/Minimal_element) value of N measurements over the stated period
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = count
+  Display = Count
+  Definition = The [number] of measurements over the stated period
 
 === Sheet Invariants =====================================
 
@@ -1052,3 +1085,51 @@
   Filename = observation-example-bmd.xml
 
 === Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = stats
+  Use = Resource|Instance
+  Documentation = The Statistics operation performs a set of statistical calculations on a set of clinical measurements such as a blood pressure.  This operation is limited to [Observation](observation.html) resources with valueQuantity elements.\r\rThe set of Observations is defined by a the input parameters `patient`,`code` and `duration` and `params`. The set of statistical calculation depends upon the value of the `params` parameter:\r\r- **average** - for example if code = 55284-4 the mean of 55284-4 over the stated period from an operation\r- **max** - for example if code = 55284-4 the max of 55284-4 over the stated period from an operation\r- **min** - for example if code = 55284-4 the min of 55284-4 over the stated period from an operation\r- **count** - for example if code = 55284-4 the number of occurances of value x of 55284-4 over the stated period from an operation\r\rIf successful, the operation returns an Observation resource with the results of the statistical calculations as component value pairs where the component code = the params code. The Observation also contains the the input parameters `patient`,`code` and `duration` parameters. If unsuccessful, an [OperationOutcome](operationoutcome.html) with an error message will be returned.
+  Type = operation
+  Title = Observation Statistics
+  Footer = Example:\r\r- patient resource id = 123\r- code = 55284-4 = \'Blood pressure systolic and diastolic\'\r- duration = last hour\r\rfor the following data:\r\r1. 107 mmHg/60 mmHg\r2. 121 mmHg/56 mmHg\r3. 125 mmHg/62 mmHg\r4. 140 mmHg/80 mmHg\r5. 145 mmHg/90 mmHg\r6. 165 mmHg/100 mmHg\r7. 180 mmHg/110 mmHg\r\rThe FHIR API:\r\r`GET [base]/Observation/$stats?patient=13&code=55284-4&duration=1&params=average,min,max,count`\r\rwill produce this Bundle containing 2 Observation resources:\r\r     {\r       \"resourceType\" : \"Bundle\",\r       \"type\" : \"searchset\",\r       \"total\" : 2,\r       \"entry\" : [\r      {\r        \"fullUrl\" : \"https://example.com/base/Observation/????\",\r        \"resource\" : {\r       \"resourceType\" : \"Observation\",\r       \"id\" : \"stats-diastolic\",\r       \"identifier\" : [\r         {\r        \"system\" : \"urn:ietf:rfc:3986\",\r        \"value\" : \"urn:uuid:187e0c12-8dd2-67e2-99b2-bf273c878281\"\r         }\r       ],\r       \"status\" : \"final\",\r       \"category\" : {\r         \"coding\" : [\r        {\r          \"system\" : \"http://hl7.org/fhir/observation-category\",\r          \"code\" : \"vital-signs\",\r          \"display\" : \"Vital Signs\"\r        }\r         ]\r       },\r       \"code\" : {\r         \"coding\" : [\r        {\r          \"system\" : \"http://loinc.org\",\r          \"code\" : \"8462-4\",\r          \"display\" : \"Diastolic blood pressure\"\r        }\r         ]\r       },\r       \"subject\" : {\r         \"reference\" : \"Patient/123\"\r       },\r       \"effectivePeriod\" : {\r         \"start\" : \"2016-05-25T19:26:16Z\",\r         \"end\" : \"2016-05-25T20:26:16Z\"\r       },\r       \"component\" : [\r         {\r        \"code\" : {\r          \"coding\" : [\r         {\r           \"system\" : \"http://hl7.org/fhir/observation-paramcode\",\r           \"code\" : \"average\",\r           \"display\" : \"Average\"\r         }\r          ]\r        },\r        \"valueQuantity\" : {\r          \"value\" : 79.7,\r          \"unit\" : \"mmHg\",\r          \"system\" : \"http://unitsofmeasure.org\",\r          \"code\" : \"mm[Hg]\"\r        }\r         },\r         {\r        \"code\" : {\r          \"coding\" : [\r         {\r           \"system\" : \"http://hl7.org/fhir/observation-paramcode\",\r           \"code\" : \"max\",\r           \"display\" : \"Maximum\"\r         }\r          ]\r        },\r        \"valueQuantity\" : {\r          \"value\" : 110,\r          \"unit\" : \"mmHg\",\r          \"system\" : \"http://unitsofmeasure.org\",\r          \"code\" : \"mm[Hg]\"\r        }\r         },\r         {\r        \"code\" : {\r          \"coding\" : [\r         {\r           \"system\" : \"http://hl7.org/fhir/observation-paramcode\",\r           \"code\" : \"min\",\r           \"display\" : \"Minimum\"\r         }\r          ]\r        },\r        \"valueQuantity\" : {\r          \"value\" : 56,\r          \"unit\" : \"mmHg\",\r          \"system\" : \"http://unitsofmeasure.org\",\r          \"code\" : \"mm[Hg]\"\r        }\r         },\r         {\r        \"code\" : {\r          \"coding\" : [\r         {\r           \"system\" : \"http://hl7.org/fhir/observation-paramcode\",\r           \"code\" : \"min\",\r           \"display\" : \"Minimum\"\r         }\r          ]\r        },\r        \"valueQuantity\" : {\r          \"value\" : 7,\r          \"system\" : \"http://unitsofmeasure.org\",\r          \"code\" : \"{observations}\"\r        }\r         }\r       ]\r        },\r        \"search\" : {\r       \"mode\" : \"match\"\r        }\r      },\r      {\r        \"resource\" : {\r       \"resourceType\" : \"Observation\",\r       \"id\" : \"stats-diastolic\",\r       \"identifier\" : [\r         {\r        \"system\" : \"urn:ietf:rfc:3986\",\r        \"value\" : \"urn:uuid:187e0c12-8dd2-67e2-99b2-bf273c878281\"\r         }\r       ],\r       \"status\" : \"final\",\r       \"category\" : {\r         \"coding\" : [\r        {\r          \"system\" : \"http://hl7.org/fhir/observation-category\",\r          \"code\" : \"vital-signs\",\r          \"display\" : \"Vital Signs\"\r        }\r         ]\r       },\r       \"code\" : {\r         \"coding\" : [\r        {\r          \"system\" : \"http://loinc.org\",\r          \"code\" : \"8462-4\",\r          \"display\" : \"Diastolic blood pressure\"\r        }\r         ]\r       },\r       \"subject\" : {\r         \"reference\" : \"Patient/123\"\r       },\r       \"effectivePeriod\" : {\r         \"start\" : \"2016-05-25T19:26:16Z\",\r         \"end\" : \"2016-05-25T20:26:16Z\"\r       },\r       \"component\" : [\r         {\r        \"code\" : {\r          \"coding\" : [\r         {\r           \"system\" : \"http://hl7.org/fhir/observation-paramcode\",\r           \"code\" : \"average\",\r           \"display\" : \"Average\"\r         }\r          ]\r        },\r        \"valueQuantity\" : {\r          \"value\" : 79.7,\r          \"unit\" : \"mmHg\",\r          \"system\" : \"http://unitsofmeasure.org\",\r          \"code\" : \"mm[Hg]\"\r        }\r         },\r         {\r        \"code\" : {\r          \"coding\" : [\r         {\r           \"system\" : \"http://hl7.org/fhir/observation-paramcode\",\r           \"code\" : \"max\",\r           \"display\" : \"Maximum\"\r         }\r          ]\r        },\r        \"valueQuantity\" : {\r          \"value\" : 110,\r          \"unit\" : \"mmHg\",\r          \"system\" : \"http://unitsofmeasure.org\",\r          \"code\" : \"mm[Hg]\"\r        }\r         },\r         {\r        \"code\" : {\r          \"coding\" : [\r         {\r           \"system\" : \"http://hl7.org/fhir/observation-paramcode\",\r           \"code\" : \"min\",\r           \"display\" : \"Minimum\"\r         }\r          ]\r        },\r        \"valueQuantity\" : {\r          \"value\" : 56,\r          \"unit\" : \"mmHg\",\r          \"system\" : \"http://unitsofmeasure.org\",\r          \"code\" : \"mm[Hg]\"\r        }\r         },\r         {\r        \"code\" : {\r          \"coding\" : [\r         {\r           \"system\" : \"http://hl7.org/fhir/observation-paramcode\",\r           \"code\" : \"min\",\r           \"display\" : \"Minimum\"\r         }\r          ]\r        },\r        \"valueQuantity\" : {\r          \"value\" : 7,\r          \"system\" : \"http://unitsofmeasure.org\",\r          \"code\" : \"{observations}\"\r        }\r         }\r       ]\r        },\r        \"search\" : {\r       \"mode\" : \"match\"\r        }\r      }\r       ]\r     }
+
+ -- Row 2 -----------------------------------
+  Name = stats.patient
+  Use = in
+  Documentation = The FHIR Patient resource id of the relevant Observations. For example  The patient id  = \"123\"  in Observation.subject.reference = Patient/123.
+  Type = id
+  Min = 1
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = stats.code
+  Use = in
+  Documentation = The test code upon which the statistics are being performed.   For example, the code  = \"45667-2\"  will evaluate all relevant Observations with this code in Observation.code.
+  Type = string
+  Min = 1
+  Max = 1
+
+ -- Row 4 -----------------------------------
+  Name = stats.duration
+  Use = in
+  Documentation = The time period of interest given as hours.  For example, the duration = \"1\" is the last hour
+  Type = decimal
+  Min = 1
+  Max = 1
+
+ -- Row 5 -----------------------------------
+  Name = stats.params
+  Use = in
+  Documentation = average|max|min|count  The statistical operations to be performed on the relevant operations.   These codes are defined [here]()
+  Type = code
+  Min = 1
+  Max = 4
+
+ -- Row 6 -----------------------------------
+  Name = stats.obs
+  Use = out
+  Documentation = The Observation.component.code is relative to the Observation.code and cannot be interpreted independently.  The code input parameter is returned as the code element. The \'patient\' parameter is returned as the patient element.  The `period` input parameter is returned as the appliesPeriod element.  The status is fixed to `final`.
+  Type = Observation
+  Min = 1
+  Max = 2
