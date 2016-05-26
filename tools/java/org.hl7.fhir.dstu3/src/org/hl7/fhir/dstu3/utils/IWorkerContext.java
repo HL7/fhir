@@ -12,6 +12,7 @@ import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
@@ -139,6 +140,7 @@ public interface IWorkerContext {
   
   public List<String> getResourceNames();
   public List<StructureDefinition> allStructures();
+  public List<BaseConformance> allConformanceResources();
   
   // -- Terminology services ------------------------------------------------------
 

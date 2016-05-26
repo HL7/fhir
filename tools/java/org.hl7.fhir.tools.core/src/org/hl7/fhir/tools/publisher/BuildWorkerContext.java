@@ -32,6 +32,7 @@ import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.ParserType;
 import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
@@ -1051,6 +1052,17 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     result.addAll(profiles.values());
     return result;
   }
+
+  @Override
+  public List<BaseConformance> allConformanceResources() {
+    List<BaseConformance> result = new ArrayList<BaseConformance>();
+    result.addAll(profiles.values());
+    result.addAll(valueSets.values());
+    result.addAll(codeSystems.values());
+    result.addAll(maps.values());
+    return result;
+  }
+
 
   @Override
   public String oid2Uri(String oid) {

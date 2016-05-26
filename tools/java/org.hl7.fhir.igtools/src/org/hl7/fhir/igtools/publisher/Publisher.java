@@ -151,6 +151,7 @@ public class Publisher {
     validator.setAllowXsiLocation(true);
 
     igpkp = new IGKnowledgeProvider(context);
+    igpkp.loadMap(context.getBinaries().get("spec.pathlist"));
     TextFile.bytesToFile(context.getBinaries().get("fhir.css"), Utilities.path(output, "publish", "fhir.css"));    
   }
 
@@ -258,7 +259,9 @@ public class Publisher {
           validate(f);
         if (f.getResource() == null)
           f.setResource(parse(f));
-        context.seeResource(((BaseConformance) f.getResource()).getUrl(), f.getResource());
+        BaseConformance bc = (BaseConformance) f.getResource();
+        igpkp.checkForPath(bc);
+        context.seeResource(bc.getUrl(), bc);
       }
     }
   }
@@ -463,16 +466,16 @@ public class Publisher {
     fragmentError(sd.getId()+"-json-schema", "yet to be done: json schema as html");
     
     StructureDefinitionRenderer sdr = new StructureDefinitionRenderer(context, "", sd, output, igpkp);
-    fragmentError(sd.getId()+"-summary", sdr.summary());
-    fragmentError(sd.getId()+"-diff", sdr.diff("test"));
-    fragmentError(sd.getId()+"-snapshot", sdr.snapshot("test"));
+    fragment(sd.getId()+"-summary", sdr.summary());
+    fragment(sd.getId()+"-diff", sdr.diff("test"));
+    fragment(sd.getId()+"-snapshot", sdr.snapshot("test"));
     fragmentError(sd.getId()+"-xml", "yet to be done: Xml template");
     fragmentError(sd.getId()+"-json", "yet to be done: Json template");
     fragmentError(sd.getId()+"-ttl", "yet to be done: Turtle template");
     fragmentError(sd.getId()+"-uml", "yet to be done: UML as SVG");
-    fragmentError(sd.getId()+"-tx", sdr.tx());
-    fragmentError(sd.getId()+"-inv", sdr.inv());
-    fragmentError(sd.getId()+"-dict", sdr.dict());
+    fragment(sd.getId()+"-tx", sdr.tx());
+    fragment(sd.getId()+"-inv", sdr.inv());
+    fragment(sd.getId()+"-dict", sdr.dict());
     fragmentError(sd.getId()+"-maps", "yet to be done: Mappings page");
   }
 

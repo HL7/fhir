@@ -29,6 +29,7 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.utilities;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -145,5 +146,9 @@ public class TextFile {
 
   public static byte[] fileToBytes(String srcFile) throws FileNotFoundException, IOException {
     return streamToBytes(new FileInputStream(new CSFile(srcFile)));
+  }
+
+  public static String bytesToString(byte[] bs) throws IOException {
+    return streamToString(new ByteArrayInputStream(bs));
   }
 }
