@@ -134,6 +134,17 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|39937001|Skin structure (body structure)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Skin structure"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|40768004|Left thorax",
       "severity": null,
       "message": null,
@@ -143,6 +154,11 @@
         "definition": null,
         "display": "Left thorax structure"
       }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|4147007|Mass (morphologic abnormality)",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Body Structures"
     },
     {
       "hash": "#|http://snomed.info/sct|null|49521004|Left external ear structure",
@@ -175,17 +191,6 @@
         "code": null,
         "definition": null,
         "display": "Thoracic structure"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|53120007|Arm",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Arm"
       }
     },
     {
@@ -230,6 +235,17 @@
         "code": null,
         "definition": null,
         "display": "Retropharyngeal area"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|83418008|Entire fetus (body structure)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Fetus"
       }
     },
     {

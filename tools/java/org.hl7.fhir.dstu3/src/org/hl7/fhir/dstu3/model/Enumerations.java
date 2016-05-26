@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, May 23, 2016 03:29+1000 for FHIR v1.4.0
+// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -1044,7 +1044,7 @@ public class Enumerations {
          */
         ADDRESS, 
         /**
-         * null
+         * A duration of time during which an organism (or a process) has existed.
          */
         AGE, 
         /**
@@ -1072,7 +1072,7 @@ public class Enumerations {
          */
         CONTACTPOINT, 
         /**
-         * null
+         * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
          */
         COUNT, 
         /**
@@ -1080,11 +1080,11 @@ public class Enumerations {
          */
         DATAREQUIREMENT, 
         /**
-         * null
+         * A length - a value with a unit that is a physical distance.
          */
         DISTANCE, 
         /**
-         * null
+         * A length of time.
          */
         DURATION, 
         /**
@@ -1116,7 +1116,7 @@ public class Enumerations {
          */
         MODULEMETADATA, 
         /**
-         * null
+         * An amount of economic utility in some recognised currency.
          */
         MONEY, 
         /**
@@ -1466,17 +1466,17 @@ public class Enumerations {
           switch (this) {
             case ACTIONDEFINITION: return "The definition of an action to be performed. Some aspects of the definition are specified statically, and some aspects can be specified dynamically by referencing logic defined in a library.";
             case ADDRESS: return "An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.";
-            case AGE: return "";
+            case AGE: return "A duration of time during which an organism (or a process) has existed.";
             case ANNOTATION: return "A  text note which also  contains information about who made the statement and when.";
             case ATTACHMENT: return "For referring to data content defined in other formats.";
             case BACKBONEELEMENT: return "Base definition for all elements that are defined inside a resource - but not those in a data type.";
             case CODEABLECONCEPT: return "A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.";
             case CODING: return "A reference to a code defined by a terminology system.";
             case CONTACTPOINT: return "Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.";
-            case COUNT: return "";
+            case COUNT: return "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.";
             case DATAREQUIREMENT: return "Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.";
-            case DISTANCE: return "";
-            case DURATION: return "";
+            case DISTANCE: return "A length - a value with a unit that is a physical distance.";
+            case DURATION: return "A length of time.";
             case ELEMENT: return "Base definition for all elements in a resource.";
             case ELEMENTDEFINITION: return "Captures constraints on each element within the resource, profile, or extension.";
             case EXTENSION: return "Optional Extensions Element - found in all resources.";
@@ -1484,7 +1484,7 @@ public class Enumerations {
             case IDENTIFIER: return "A technical identifier - identifies some entity uniquely and unambiguously.";
             case META: return "The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.";
             case MODULEMETADATA: return "The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.";
-            case MONEY: return "";
+            case MONEY: return "An amount of economic utility in some recognised currency.";
             case NARRATIVE: return "A human-readable formatted text, including images.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
             case PERIOD: return "A time period defined by a start and end date and optionally time.";
@@ -2018,7 +2018,7 @@ public class Enumerations {
          */
         ADDRESS, 
         /**
-         * null
+         * A duration of time during which an organism (or a process) has existed.
          */
         AGE, 
         /**
@@ -2046,7 +2046,7 @@ public class Enumerations {
          */
         CONTACTPOINT, 
         /**
-         * null
+         * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
          */
         COUNT, 
         /**
@@ -2054,11 +2054,11 @@ public class Enumerations {
          */
         DATAREQUIREMENT, 
         /**
-         * null
+         * A length - a value with a unit that is a physical distance.
          */
         DISTANCE, 
         /**
-         * null
+         * A length of time.
          */
         DURATION, 
         /**
@@ -2090,7 +2090,7 @@ public class Enumerations {
          */
         MODULEMETADATA, 
         /**
-         * null
+         * An amount of economic utility in some recognised currency.
          */
         MONEY, 
         /**
@@ -3392,17 +3392,17 @@ public class Enumerations {
           switch (this) {
             case ACTIONDEFINITION: return "The definition of an action to be performed. Some aspects of the definition are specified statically, and some aspects can be specified dynamically by referencing logic defined in a library.";
             case ADDRESS: return "An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.";
-            case AGE: return "";
+            case AGE: return "A duration of time during which an organism (or a process) has existed.";
             case ANNOTATION: return "A  text note which also  contains information about who made the statement and when.";
             case ATTACHMENT: return "For referring to data content defined in other formats.";
             case BACKBONEELEMENT: return "Base definition for all elements that are defined inside a resource - but not those in a data type.";
             case CODEABLECONCEPT: return "A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.";
             case CODING: return "A reference to a code defined by a terminology system.";
             case CONTACTPOINT: return "Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.";
-            case COUNT: return "";
+            case COUNT: return "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.";
             case DATAREQUIREMENT: return "Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.";
-            case DISTANCE: return "";
-            case DURATION: return "";
+            case DISTANCE: return "A length - a value with a unit that is a physical distance.";
+            case DURATION: return "A length of time.";
             case ELEMENT: return "Base definition for all elements in a resource.";
             case ELEMENTDEFINITION: return "Captures constraints on each element within the resource, profile, or extension.";
             case EXTENSION: return "Optional Extensions Element - found in all resources.";
@@ -3410,7 +3410,7 @@ public class Enumerations {
             case IDENTIFIER: return "A technical identifier - identifies some entity uniquely and unambiguously.";
             case META: return "The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.";
             case MODULEMETADATA: return "The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.";
-            case MONEY: return "";
+            case MONEY: return "An amount of economic utility in some recognised currency.";
             case NARRATIVE: return "A human-readable formatted text, including images.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
             case PERIOD: return "A time period defined by a start and end date and optionally time.";
@@ -4793,7 +4793,7 @@ public class Enumerations {
          */
         ADDRESS, 
         /**
-         * null
+         * A duration of time during which an organism (or a process) has existed.
          */
         AGE, 
         /**
@@ -4821,7 +4821,7 @@ public class Enumerations {
          */
         CONTACTPOINT, 
         /**
-         * null
+         * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
          */
         COUNT, 
         /**
@@ -4829,11 +4829,11 @@ public class Enumerations {
          */
         DATAREQUIREMENT, 
         /**
-         * null
+         * A length - a value with a unit that is a physical distance.
          */
         DISTANCE, 
         /**
-         * null
+         * A length of time.
          */
         DURATION, 
         /**
@@ -4865,7 +4865,7 @@ public class Enumerations {
          */
         MODULEMETADATA, 
         /**
-         * null
+         * An amount of economic utility in some recognised currency.
          */
         MONEY, 
         /**
@@ -6151,17 +6151,17 @@ public class Enumerations {
           switch (this) {
             case ACTIONDEFINITION: return "The definition of an action to be performed. Some aspects of the definition are specified statically, and some aspects can be specified dynamically by referencing logic defined in a library.";
             case ADDRESS: return "An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.";
-            case AGE: return "";
+            case AGE: return "A duration of time during which an organism (or a process) has existed.";
             case ANNOTATION: return "A  text note which also  contains information about who made the statement and when.";
             case ATTACHMENT: return "For referring to data content defined in other formats.";
             case BACKBONEELEMENT: return "Base definition for all elements that are defined inside a resource - but not those in a data type.";
             case CODEABLECONCEPT: return "A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.";
             case CODING: return "A reference to a code defined by a terminology system.";
             case CONTACTPOINT: return "Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.";
-            case COUNT: return "";
+            case COUNT: return "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.";
             case DATAREQUIREMENT: return "Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.";
-            case DISTANCE: return "";
-            case DURATION: return "";
+            case DISTANCE: return "A length - a value with a unit that is a physical distance.";
+            case DURATION: return "A length of time.";
             case ELEMENT: return "Base definition for all elements in a resource.";
             case ELEMENTDEFINITION: return "Captures constraints on each element within the resource, profile, or extension.";
             case EXTENSION: return "Optional Extensions Element - found in all resources.";
@@ -6169,7 +6169,7 @@ public class Enumerations {
             case IDENTIFIER: return "A technical identifier - identifies some entity uniquely and unambiguously.";
             case META: return "The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.";
             case MODULEMETADATA: return "The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.";
-            case MONEY: return "";
+            case MONEY: return "An amount of economic utility in some recognised currency.";
             case NARRATIVE: return "A human-readable formatted text, including images.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
             case PERIOD: return "A time period defined by a start and end date and optionally time.";

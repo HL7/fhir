@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, May 23, 2016 03:29+1000 for FHIR v1.4.0
+// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -376,8 +376,9 @@ public abstract class Resource extends BaseResource implements IAnyResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (id == null || id.isEmpty()) && (meta == null || meta.isEmpty()) && (implicitRules == null || implicitRules.isEmpty())
-           && (language == null || language.isEmpty());
+        return super.isEmpty() && (id == null || id.isEmpty()) && (meta == null || meta.isEmpty())
+           && (implicitRules == null || implicitRules.isEmpty()) && (language == null || language.isEmpty())
+          ;
       }
 
   public abstract ResourceType getResourceType();

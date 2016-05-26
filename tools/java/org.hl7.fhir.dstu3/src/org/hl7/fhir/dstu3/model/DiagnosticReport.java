@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, May 23, 2016 03:29+1000 for FHIR v1.4.0
+// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -520,14 +520,14 @@ public class DiagnosticReport extends DomainResource {
     /**
      * The diagnostic service that is responsible for issuing the report.
      */
-    @Child(name = "performer", type = {Practitioner.class, Organization.class}, order=8, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "performer", type = {Practitioner.class, Organization.class}, order=8, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Responsible Diagnostic Service", formalDefinition="The diagnostic service that is responsible for issuing the report." )
-    protected Reference performer;
-
+    protected List<Reference> performer;
     /**
-     * The actual object that is the target of the reference (The diagnostic service that is responsible for issuing the report.)
+     * The actual objects that are the target of the reference (The diagnostic service that is responsible for issuing the report.)
      */
-    protected Resource performerTarget;
+    protected List<Resource> performerTarget;
+
 
     /**
      * Details concerning a test or procedure requested.
@@ -585,10 +585,10 @@ public class DiagnosticReport extends DomainResource {
     protected List<DiagnosticReportImageComponent> image;
 
     /**
-     * Concise and clinically contextualized narrative interpretation of the diagnostic report.
+     * Concise and clinically contextualized impression / summary of the diagnostic report.
      */
     @Child(name = "conclusion", type = {StringType.class}, order=14, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Clinical Interpretation of test results", formalDefinition="Concise and clinically contextualized narrative interpretation of the diagnostic report." )
+    @Description(shortDefinition="Clinical Interpretation of test results", formalDefinition="Concise and clinically contextualized impression / summary of the diagnostic report." )
     protected StringType conclusion;
 
     /**
@@ -605,7 +605,7 @@ public class DiagnosticReport extends DomainResource {
     @Description(shortDefinition="Entire report as issued", formalDefinition="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent." )
     protected List<Attachment> presentedForm;
 
-    private static final long serialVersionUID = 920334551L;
+    private static final long serialVersionUID = 432918265L;
 
   /**
    * Constructor
@@ -617,14 +617,13 @@ public class DiagnosticReport extends DomainResource {
   /**
    * Constructor
    */
-    public DiagnosticReport(Enumeration<DiagnosticReportStatus> status, CodeableConcept code, Reference subject, Type effective, InstantType issued, Reference performer) {
+    public DiagnosticReport(Enumeration<DiagnosticReportStatus> status, CodeableConcept code, Reference subject, Type effective, InstantType issued) {
       super();
       this.status = status;
       this.code = code;
       this.subject = subject;
       this.effective = effective;
       this.issued = issued;
-      this.performer = performer;
     }
 
     /**
@@ -936,40 +935,50 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #performer} (The diagnostic service that is responsible for issuing the report.)
      */
-    public Reference getPerformer() { 
+    public List<Reference> getPerformer() { 
       if (this.performer == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DiagnosticReport.performer");
-        else if (Configuration.doAutoCreate())
-          this.performer = new Reference(); // cc
+        this.performer = new ArrayList<Reference>();
       return this.performer;
     }
 
     public boolean hasPerformer() { 
-      return this.performer != null && !this.performer.isEmpty();
+      if (this.performer == null)
+        return false;
+      for (Reference item : this.performer)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #performer} (The diagnostic service that is responsible for issuing the report.)
+     * @return {@link #performer} (The diagnostic service that is responsible for issuing the report.)
      */
-    public DiagnosticReport setPerformer(Reference value) { 
-      this.performer = value;
+    // syntactic sugar
+    public Reference addPerformer() { //3
+      Reference t = new Reference();
+      if (this.performer == null)
+        this.performer = new ArrayList<Reference>();
+      this.performer.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public DiagnosticReport addPerformer(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.performer == null)
+        this.performer = new ArrayList<Reference>();
+      this.performer.add(t);
       return this;
     }
 
     /**
-     * @return {@link #performer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The diagnostic service that is responsible for issuing the report.)
+     * @return {@link #performer} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The diagnostic service that is responsible for issuing the report.)
      */
-    public Resource getPerformerTarget() { 
+    public List<Resource> getPerformerTarget() { 
+      if (this.performerTarget == null)
+        this.performerTarget = new ArrayList<Resource>();
       return this.performerTarget;
-    }
-
-    /**
-     * @param value {@link #performer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The diagnostic service that is responsible for issuing the report.)
-     */
-    public DiagnosticReport setPerformerTarget(Resource value) { 
-      this.performerTarget = value;
-      return this;
     }
 
     /**
@@ -1233,7 +1242,7 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @return {@link #conclusion} (Concise and clinically contextualized narrative interpretation of the diagnostic report.). This is the underlying object with id, value and extensions. The accessor "getConclusion" gives direct access to the value
+     * @return {@link #conclusion} (Concise and clinically contextualized impression / summary of the diagnostic report.). This is the underlying object with id, value and extensions. The accessor "getConclusion" gives direct access to the value
      */
     public StringType getConclusionElement() { 
       if (this.conclusion == null)
@@ -1253,7 +1262,7 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @param value {@link #conclusion} (Concise and clinically contextualized narrative interpretation of the diagnostic report.). This is the underlying object with id, value and extensions. The accessor "getConclusion" gives direct access to the value
+     * @param value {@link #conclusion} (Concise and clinically contextualized impression / summary of the diagnostic report.). This is the underlying object with id, value and extensions. The accessor "getConclusion" gives direct access to the value
      */
     public DiagnosticReport setConclusionElement(StringType value) { 
       this.conclusion = value;
@@ -1261,14 +1270,14 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @return Concise and clinically contextualized narrative interpretation of the diagnostic report.
+     * @return Concise and clinically contextualized impression / summary of the diagnostic report.
      */
     public String getConclusion() { 
       return this.conclusion == null ? null : this.conclusion.getValue();
     }
 
     /**
-     * @param value Concise and clinically contextualized narrative interpretation of the diagnostic report.
+     * @param value Concise and clinically contextualized impression / summary of the diagnostic report.
      */
     public DiagnosticReport setConclusion(String value) { 
       if (Utilities.noString(value))
@@ -1377,7 +1386,7 @@ public class DiagnosticReport extends DomainResource {
         childrenList.add(new Property("result", "Reference(Observation)", "Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. \"atomic\" results), or they can be grouping observations that include references to other members of the group (e.g. \"panels\").", 0, java.lang.Integer.MAX_VALUE, result));
         childrenList.add(new Property("imagingStudy", "Reference(ImagingStudy|ImagingObjectSelection)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy));
         childrenList.add(new Property("image", "", "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).", 0, java.lang.Integer.MAX_VALUE, image));
-        childrenList.add(new Property("conclusion", "string", "Concise and clinically contextualized narrative interpretation of the diagnostic report.", 0, java.lang.Integer.MAX_VALUE, conclusion));
+        childrenList.add(new Property("conclusion", "string", "Concise and clinically contextualized impression / summary of the diagnostic report.", 0, java.lang.Integer.MAX_VALUE, conclusion));
         childrenList.add(new Property("codedDiagnosis", "CodeableConcept", "Codes for the conclusion.", 0, java.lang.Integer.MAX_VALUE, codedDiagnosis));
         childrenList.add(new Property("presentedForm", "Attachment", "Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.", 0, java.lang.Integer.MAX_VALUE, presentedForm));
       }
@@ -1393,7 +1402,7 @@ public class DiagnosticReport extends DomainResource {
         case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
         case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
         case -1179159893: /*issued*/ return this.issued == null ? new Base[0] : new Base[] {this.issued}; // InstantType
-        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
+        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // Reference
         case 1095692943: /*request*/ return this.request == null ? new Base[0] : this.request.toArray(new Base[this.request.size()]); // Reference
         case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : this.specimen.toArray(new Base[this.specimen.size()]); // Reference
         case -934426595: /*result*/ return this.result == null ? new Base[0] : this.result.toArray(new Base[this.result.size()]); // Reference
@@ -1435,7 +1444,7 @@ public class DiagnosticReport extends DomainResource {
           this.issued = castToInstant(value); // InstantType
           break;
         case 481140686: // performer
-          this.performer = castToReference(value); // Reference
+          this.getPerformer().add(castToReference(value)); // Reference
           break;
         case 1095692943: // request
           this.getRequest().add(castToReference(value)); // Reference
@@ -1485,7 +1494,7 @@ public class DiagnosticReport extends DomainResource {
         else if (name.equals("issued"))
           this.issued = castToInstant(value); // InstantType
         else if (name.equals("performer"))
-          this.performer = castToReference(value); // Reference
+          this.getPerformer().add(castToReference(value));
         else if (name.equals("request"))
           this.getRequest().add(castToReference(value));
         else if (name.equals("specimen"))
@@ -1517,7 +1526,7 @@ public class DiagnosticReport extends DomainResource {
         case 1524132147:  return getEncounter(); // Reference
         case 247104889:  return getEffective(); // Type
         case -1179159893: throw new FHIRException("Cannot make property issued as it is not a complex type"); // InstantType
-        case 481140686:  return getPerformer(); // Reference
+        case 481140686:  return addPerformer(); // Reference
         case 1095692943:  return addRequest(); // Reference
         case -2132868344:  return addSpecimen(); // Reference
         case -934426595:  return addResult(); // Reference
@@ -1567,8 +1576,7 @@ public class DiagnosticReport extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type DiagnosticReport.issued");
         }
         else if (name.equals("performer")) {
-          this.performer = new Reference();
-          return this.performer;
+          return addPerformer();
         }
         else if (name.equals("request")) {
           return addRequest();
@@ -1618,7 +1626,11 @@ public class DiagnosticReport extends DomainResource {
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.effective = effective == null ? null : effective.copy();
         dst.issued = issued == null ? null : issued.copy();
-        dst.performer = performer == null ? null : performer.copy();
+        if (performer != null) {
+          dst.performer = new ArrayList<Reference>();
+          for (Reference i : performer)
+            dst.performer.add(i.copy());
+        };
         if (request != null) {
           dst.request = new ArrayList<Reference>();
           for (Reference i : request)

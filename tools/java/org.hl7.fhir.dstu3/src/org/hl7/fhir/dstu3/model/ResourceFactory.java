@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, May 23, 2016 03:29+1000 for FHIR v1.4.0
+// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
@@ -275,10 +275,10 @@ public class ResourceFactory extends Factory {
             return new Period();
         if ("Age".equals(name))
             return new Age();
-        if ("Attachment".equals(name))
-            return new Attachment();
         if ("Count".equals(name))
             return new Count();
+        if ("Attachment".equals(name))
+            return new Attachment();
         if ("SimpleQuantity".equals(name))
             return new SimpleQuantity();
         if ("Signature".equals(name))
@@ -572,10 +572,10 @@ public class ResourceFactory extends Factory {
             return new Period();
         if ("Age".equals(name))
             return new Age();
-        if ("Attachment".equals(name))
-            return new Attachment();
         if ("Count".equals(name))
             return new Count();
+        if ("Attachment".equals(name))
+            return new Attachment();
         if ("SimpleQuantity".equals(name))
             return new SimpleQuantity();
         if ("Signature".equals(name))

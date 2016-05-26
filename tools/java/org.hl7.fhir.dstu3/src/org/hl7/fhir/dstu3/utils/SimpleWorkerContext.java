@@ -170,7 +170,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
         throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot");
       pu = null;
     }
-		if (structures.containsKey(p.getUrl()))
+		if (structures.containsKey(p.getUrl()) && !allowLoadingDuplicates)
 			throw new DefinitionException("Duplicate structures " + p.getUrl());
 		structures.put(p.getId(), p);
 		structures.put(p.getUrl(), p);
@@ -190,7 +190,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 				String name = ze.getName();
 				loadFromFile(zip, name);
 			}
-			if (ze.getName().endsWith(".css")) {
+			if (ze.getName().endsWith(".css") || ze.getName().endsWith(".pathlist")) {
 			  loadBytes(ze.getName(), ze, zip);
 			}
 			zip.closeEntry();

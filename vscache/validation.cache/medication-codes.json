@@ -33,43 +33,91 @@
     },
     {
       "hash": "#|http://snomed.info/sct|null|108806006|Docetaxel",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Docetaxel (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|134623009|Capecitabine 150mg tablet (product)",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Capecitabine 150mg tablet (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|3127006|Fluorouracil",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Fluorouracil (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|318475005|Metoprolol tartrate 50mg tablet",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Metoprolol tartrate 50mg tablet (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|318851002|Enalapril maleate 5mg tablet",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Enalapril maleate 5mg tablet (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|320442002|Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|323733007|Amoxcycillin 250mg/5ml oral suspension (product)#|http://hc-sc.gc.ca|null|0131314003|Amoxicillin (Amoxcillin Trihydrate) 250mg/5mL",
-      "severity": "error",
-      "message": "None of the codes provided are  valid in the value set SNOMED CT Medication Codes"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Amoxycillin 250mg/5mL oral suspension (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|325267004|Tolbutamide 500mg tablet",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Tolbutamide 500mg tablet (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|387517004|Paracetamol",
@@ -95,28 +143,58 @@
     },
     {
       "hash": "#|http://snomed.info/sct|null|389245004|Gentamicin sulfate 80mg/100ml infusion (product)",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Gentamicin sulfate 80mg/100mL infusion (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|400352007|Paclitaxel 6mg/mL injection solution 5mL vial (product)",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Paclitaxel 6mg/mL injection solution solution 5mL vial (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|408036003|Rosuvastatin 10mg tablet",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Rosuvastatin 10mg tablet (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|411106009|25ug Flutacisone + 250ug Salmeterol",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Fluticasone propionate+salmeterol xinafoate (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|57066004|Cisplatin",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Cisplatin (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|66493003|null",
@@ -152,11 +230,6 @@
     },
     {
       "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|200371|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
-    },
-    {
-      "hash": "#|null|null|200371|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
     }

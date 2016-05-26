@@ -2,31 +2,9 @@
   "url": "http://hl7.org/fhir/ValueSet/bodysite-relative-location",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|255549009|Anterior",
+      "hash": "#|http://snomed.info/sct|null|78961009|Splenic structure (body structure)",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|261183002|Upper",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "261183002",
-        "definition": null,
-        "display": "Upper"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|419161000|Unilateral left",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "419161000",
-        "definition": null,
-        "display": "Unilateral left"
-      }
     }
   ]
 }

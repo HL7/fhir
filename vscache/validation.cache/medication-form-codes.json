@@ -106,11 +106,6 @@
         "definition": null,
         "display": "Drug powder"
       }
-    },
-    {
-      "hash": "#|null|null|385055001|Tablet dose form",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
     }
   ]
 }

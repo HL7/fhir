@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, May 23, 2016 03:29+1000 for FHIR v1.4.0
+// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -558,7 +558,14 @@ public class Specimen extends DomainResource {
         protected List<Substance> additiveTarget;
 
 
-        private static final long serialVersionUID = -373251521L;
+        /**
+         * A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.
+         */
+        @Child(name = "time", type = {DateTimeType.class, Period.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Date and time of specimen treatment", formalDefinition="A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin." )
+        protected Type time;
+
+        private static final long serialVersionUID = 1467214742L;
 
     /**
      * Constructor
@@ -701,11 +708,57 @@ public class Specimen extends DomainResource {
           return r;
         }
 
+        /**
+         * @return {@link #time} (A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.)
+         */
+        public Type getTime() { 
+          return this.time;
+        }
+
+        /**
+         * @return {@link #time} (A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.)
+         */
+        public DateTimeType getTimeDateTimeType() throws FHIRException { 
+          if (!(this.time instanceof DateTimeType))
+            throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.time.getClass().getName()+" was encountered");
+          return (DateTimeType) this.time;
+        }
+
+        public boolean hasTimeDateTimeType() { 
+          return this.time instanceof DateTimeType;
+        }
+
+        /**
+         * @return {@link #time} (A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.)
+         */
+        public Period getTimePeriod() throws FHIRException { 
+          if (!(this.time instanceof Period))
+            throw new FHIRException("Type mismatch: the type Period was expected, but "+this.time.getClass().getName()+" was encountered");
+          return (Period) this.time;
+        }
+
+        public boolean hasTimePeriod() { 
+          return this.time instanceof Period;
+        }
+
+        public boolean hasTime() { 
+          return this.time != null && !this.time.isEmpty();
+        }
+
+        /**
+         * @param value {@link #time} (A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.)
+         */
+        public SpecimenTreatmentComponent setTime(Type value) { 
+          this.time = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("description", "string", "Textual description of procedure.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("procedure", "CodeableConcept", "A coded value specifying the procedure used to process the specimen.", 0, java.lang.Integer.MAX_VALUE, procedure));
           childrenList.add(new Property("additive", "Reference(Substance)", "Material used in the processing step.", 0, java.lang.Integer.MAX_VALUE, additive));
+          childrenList.add(new Property("time[x]", "dateTime|Period", "A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.", 0, java.lang.Integer.MAX_VALUE, time));
         }
 
       @Override
@@ -714,6 +767,7 @@ public class Specimen extends DomainResource {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -1095204141: /*procedure*/ return this.procedure == null ? new Base[0] : new Base[] {this.procedure}; // CodeableConcept
         case -1226589236: /*additive*/ return this.additive == null ? new Base[0] : this.additive.toArray(new Base[this.additive.size()]); // Reference
+        case 3560141: /*time*/ return this.time == null ? new Base[0] : new Base[] {this.time}; // Type
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -731,6 +785,9 @@ public class Specimen extends DomainResource {
         case -1226589236: // additive
           this.getAdditive().add(castToReference(value)); // Reference
           break;
+        case 3560141: // time
+          this.time = (Type) value; // Type
+          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -744,6 +801,8 @@ public class Specimen extends DomainResource {
           this.procedure = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("additive"))
           this.getAdditive().add(castToReference(value));
+        else if (name.equals("time[x]"))
+          this.time = (Type) value; // Type
         else
           super.setProperty(name, value);
       }
@@ -754,6 +813,7 @@ public class Specimen extends DomainResource {
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -1095204141:  return getProcedure(); // CodeableConcept
         case -1226589236:  return addAdditive(); // Reference
+        case -1313930605:  return getTime(); // Type
         default: return super.makeProperty(hash, name);
         }
 
@@ -771,6 +831,14 @@ public class Specimen extends DomainResource {
         else if (name.equals("additive")) {
           return addAdditive();
         }
+        else if (name.equals("timeDateTime")) {
+          this.time = new DateTimeType();
+          return this.time;
+        }
+        else if (name.equals("timePeriod")) {
+          this.time = new Period();
+          return this.time;
+        }
         else
           return super.addChild(name);
       }
@@ -785,6 +853,7 @@ public class Specimen extends DomainResource {
           for (Reference i : additive)
             dst.additive.add(i.copy());
         };
+        dst.time = time == null ? null : time.copy();
         return dst;
       }
 
@@ -796,7 +865,7 @@ public class Specimen extends DomainResource {
           return false;
         SpecimenTreatmentComponent o = (SpecimenTreatmentComponent) other;
         return compareDeep(description, o.description, true) && compareDeep(procedure, o.procedure, true)
-           && compareDeep(additive, o.additive, true);
+           && compareDeep(additive, o.additive, true) && compareDeep(time, o.time, true);
       }
 
       @Override
@@ -811,7 +880,7 @@ public class Specimen extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (description == null || description.isEmpty()) && (procedure == null || procedure.isEmpty())
-           && (additive == null || additive.isEmpty());
+           && (additive == null || additive.isEmpty()) && (time == null || time.isEmpty());
       }
 
   public String fhirType() {

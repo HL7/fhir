@@ -312,7 +312,7 @@
   Card. = 0..1
   Type = dateTime|Period
   Short Label = Date and time of specimen treatment
-  Definition = A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the smaple was in formalin.
+  Definition = A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.
 
  -- Row 24 -----------------------------------
   Element = Specimen.container

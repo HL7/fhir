@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, May 23, 2016 03:29+1000 for FHIR v1.4.0
+// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -388,11 +388,11 @@ public class Observation extends DomainResource {
         protected SimpleQuantity high;
 
         /**
-         * Code for the meaning of the reference range.
+         * Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex, race, therapeutic status, or endocrine or reproductive status.
          */
-        @Child(name = "meaning", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Indicates the meaning/use of this range of this range", formalDefinition="Code for the meaning of the reference range." )
-        protected CodeableConcept meaning;
+        @Child(name = "meaning", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Reference range qualifier", formalDefinition="Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex, race, therapeutic status, or endocrine or reproductive status." )
+        protected List<CodeableConcept> meaning;
 
         /**
          * The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.
@@ -408,7 +408,7 @@ public class Observation extends DomainResource {
         @Description(shortDefinition="Text based reference range in an observation", formalDefinition="Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of \"Negative\" or a list or table of 'normals'." )
         protected StringType text;
 
-        private static final long serialVersionUID = -238694788L;
+        private static final long serialVersionUID = 1287235362L;
 
     /**
      * Constructor
@@ -466,26 +466,42 @@ public class Observation extends DomainResource {
         }
 
         /**
-         * @return {@link #meaning} (Code for the meaning of the reference range.)
+         * @return {@link #meaning} (Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex, race, therapeutic status, or endocrine or reproductive status.)
          */
-        public CodeableConcept getMeaning() { 
+        public List<CodeableConcept> getMeaning() { 
           if (this.meaning == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ObservationReferenceRangeComponent.meaning");
-            else if (Configuration.doAutoCreate())
-              this.meaning = new CodeableConcept(); // cc
+            this.meaning = new ArrayList<CodeableConcept>();
           return this.meaning;
         }
 
         public boolean hasMeaning() { 
-          return this.meaning != null && !this.meaning.isEmpty();
+          if (this.meaning == null)
+            return false;
+          for (CodeableConcept item : this.meaning)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
-         * @param value {@link #meaning} (Code for the meaning of the reference range.)
+         * @return {@link #meaning} (Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex, race, therapeutic status, or endocrine or reproductive status.)
          */
-        public ObservationReferenceRangeComponent setMeaning(CodeableConcept value) { 
-          this.meaning = value;
+    // syntactic sugar
+        public CodeableConcept addMeaning() { //3
+          CodeableConcept t = new CodeableConcept();
+          if (this.meaning == null)
+            this.meaning = new ArrayList<CodeableConcept>();
+          this.meaning.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public ObservationReferenceRangeComponent addMeaning(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.meaning == null)
+            this.meaning = new ArrayList<CodeableConcept>();
+          this.meaning.add(t);
           return this;
         }
 
@@ -566,7 +582,7 @@ public class Observation extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("low", "SimpleQuantity", "The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9).   If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is <=2.3).", 0, java.lang.Integer.MAX_VALUE, low));
           childrenList.add(new Property("high", "SimpleQuantity", "The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9).   If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is >= 2.3).", 0, java.lang.Integer.MAX_VALUE, high));
-          childrenList.add(new Property("meaning", "CodeableConcept", "Code for the meaning of the reference range.", 0, java.lang.Integer.MAX_VALUE, meaning));
+          childrenList.add(new Property("meaning", "CodeableConcept", "Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex, race, therapeutic status, or endocrine or reproductive status.", 0, java.lang.Integer.MAX_VALUE, meaning));
           childrenList.add(new Property("age", "Range", "The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.", 0, java.lang.Integer.MAX_VALUE, age));
           childrenList.add(new Property("text", "string", "Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of \"Negative\" or a list or table of 'normals'.", 0, java.lang.Integer.MAX_VALUE, text));
         }
@@ -576,7 +592,7 @@ public class Observation extends DomainResource {
         switch (hash) {
         case 107348: /*low*/ return this.low == null ? new Base[0] : new Base[] {this.low}; // SimpleQuantity
         case 3202466: /*high*/ return this.high == null ? new Base[0] : new Base[] {this.high}; // SimpleQuantity
-        case 938160637: /*meaning*/ return this.meaning == null ? new Base[0] : new Base[] {this.meaning}; // CodeableConcept
+        case 938160637: /*meaning*/ return this.meaning == null ? new Base[0] : this.meaning.toArray(new Base[this.meaning.size()]); // CodeableConcept
         case 96511: /*age*/ return this.age == null ? new Base[0] : new Base[] {this.age}; // Range
         case 3556653: /*text*/ return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
         default: return super.getProperty(hash, name, checkValid);
@@ -594,7 +610,7 @@ public class Observation extends DomainResource {
           this.high = castToSimpleQuantity(value); // SimpleQuantity
           break;
         case 938160637: // meaning
-          this.meaning = castToCodeableConcept(value); // CodeableConcept
+          this.getMeaning().add(castToCodeableConcept(value)); // CodeableConcept
           break;
         case 96511: // age
           this.age = castToRange(value); // Range
@@ -614,7 +630,7 @@ public class Observation extends DomainResource {
         else if (name.equals("high"))
           this.high = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("meaning"))
-          this.meaning = castToCodeableConcept(value); // CodeableConcept
+          this.getMeaning().add(castToCodeableConcept(value));
         else if (name.equals("age"))
           this.age = castToRange(value); // Range
         else if (name.equals("text"))
@@ -628,7 +644,7 @@ public class Observation extends DomainResource {
         switch (hash) {
         case 107348:  return getLow(); // SimpleQuantity
         case 3202466:  return getHigh(); // SimpleQuantity
-        case 938160637:  return getMeaning(); // CodeableConcept
+        case 938160637:  return addMeaning(); // CodeableConcept
         case 96511:  return getAge(); // Range
         case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
         default: return super.makeProperty(hash, name);
@@ -647,8 +663,7 @@ public class Observation extends DomainResource {
           return this.high;
         }
         else if (name.equals("meaning")) {
-          this.meaning = new CodeableConcept();
-          return this.meaning;
+          return addMeaning();
         }
         else if (name.equals("age")) {
           this.age = new Range();
@@ -666,7 +681,11 @@ public class Observation extends DomainResource {
         copyValues(dst);
         dst.low = low == null ? null : low.copy();
         dst.high = high == null ? null : high.copy();
-        dst.meaning = meaning == null ? null : meaning.copy();
+        if (meaning != null) {
+          dst.meaning = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : meaning)
+            dst.meaning.add(i.copy());
+        };
         dst.age = age == null ? null : age.copy();
         dst.text = text == null ? null : text.copy();
         return dst;

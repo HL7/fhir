@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, May 23, 2016 03:29+1000 for FHIR v1.4.0
+// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -266,10 +266,10 @@ public class NutritionOrder extends DomainResource {
         protected List<Timing> schedule;
 
         /**
-         * Class that defines the quantity and type of nutrient modifications required for the oral diet.
+         * Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet.
          */
         @Child(name = "nutrient", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Required  nutrient modifications", formalDefinition="Class that defines the quantity and type of nutrient modifications required for the oral diet." )
+        @Description(shortDefinition="Required  nutrient modifications", formalDefinition="Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet." )
         protected List<NutritionOrderOralDietNutrientComponent> nutrient;
 
         /**
@@ -383,7 +383,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #nutrient} (Class that defines the quantity and type of nutrient modifications required for the oral diet.)
+         * @return {@link #nutrient} (Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet.)
          */
         public List<NutritionOrderOralDietNutrientComponent> getNutrient() { 
           if (this.nutrient == null)
@@ -401,7 +401,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #nutrient} (Class that defines the quantity and type of nutrient modifications required for the oral diet.)
+         * @return {@link #nutrient} (Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet.)
          */
     // syntactic sugar
         public NutritionOrderOralDietNutrientComponent addNutrient() { //3
@@ -555,7 +555,7 @@ public class NutritionOrder extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("schedule", "Timing", "The time period and frequency at which the diet should be given.", 0, java.lang.Integer.MAX_VALUE, schedule));
-          childrenList.add(new Property("nutrient", "", "Class that defines the quantity and type of nutrient modifications required for the oral diet.", 0, java.lang.Integer.MAX_VALUE, nutrient));
+          childrenList.add(new Property("nutrient", "", "Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet.", 0, java.lang.Integer.MAX_VALUE, nutrient));
           childrenList.add(new Property("texture", "", "Class that describes any texture modifications required for the patient to safely consume various types of solid foods.", 0, java.lang.Integer.MAX_VALUE, texture));
           childrenList.add(new Property("fluidConsistencyType", "CodeableConcept", "The required consistency (e.g. honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.", 0, java.lang.Integer.MAX_VALUE, fluidConsistencyType));
           childrenList.add(new Property("instruction", "string", "Free text or additional instructions or information pertaining to the oral diet.", 0, java.lang.Integer.MAX_VALUE, instruction));

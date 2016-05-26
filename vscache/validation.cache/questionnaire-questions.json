@@ -22,6 +22,11 @@
       "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
     },
     {
+      "hash": "|http://example.org/system/code/questions|null|STADPT|pT category",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+    },
+    {
       "hash": "|http://example.org/system/code/sections|null|ABDOMINAL|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Questionnaire Question Codes"

@@ -45,7 +45,7 @@
   Card. = 0..1
   Type = boolean
   Short Label = Is a Payment Agreement
-  Definition = This is a self, or other, payment agreement not an insurance policy.
+  Definition = A self, or other, payment agreement not an insurance policy.
   Requirements = Only insurance policies receive Claims, agreements receive bills.
 
  -- Row 4 -----------------------------------

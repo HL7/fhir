@@ -801,7 +801,117 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|32411-1|5 minute Apgar Color",
+      "hash": "#|http://loinc.org|null|32401-2|10 minute Apgar Color#|http://snomed.info/sct|null|249227004|Apgar color score",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "10 minute Apgar Color"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|32402-0|10 minute Apgar Heart Rate#|http://snomed.info/sct|null|249223000|Apgar heart rate score",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "10 minute Apgar Heart rate"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|32403-8|10 minute Apgar Muscle Tone#|http://snomed.info/sct|null|249225007|Apgar muscle tone score",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "10 minute Apgar Muscle tone"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|32404-6|10 minute Apgar Reflex Irritability#|http://snomed.info/sct|null|249226008|Apgar response to stimulus score",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "10 minute Apgar Reflex irritability"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|32405-3|10 minute Apgar Respiratory effort#|http://snomed.info/sct|null|249224006|Apgar respiratory effort score",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "10 minute Apgar Respiratory effort"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|32406-1|1 minute Apgar Color#|http://snomed.info/sct|null|249227004|Apgar color score",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "1 minute Apgar Color"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|32407-9|1 minute Apgar Heart Rate#|http://snomed.info/sct|null|249223000|Apgar heart rate score",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "1 minute Apgar Heart rate"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|32408-7|1 minute Apgar Muscle Tone#|http://snomed.info/sct|null|249225007|Apgar muscle tone score",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "1 minute Apgar Muscle tone"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|32409-5|1 minute Apgar Reflex Irritability#|http://snomed.info/sct|null|249226008|Apgar response to stimulus score",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "1 minute Apgar Reflex irritability"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|32410-3|1 minute Apgar Respiratory effort#|http://snomed.info/sct|null|249224006|Apgar respiratory effort score",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "1 minute Apgar Respiratory effort"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|32411-1|5 minute Apgar Color#|http://snomed.info/sct|null|249227004|Apgar color score",
       "severity": null,
       "message": null,
       "definition": {
@@ -812,51 +922,7 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|32411-1|5 minute Apgar Muscle Tone",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "5 minute Apgar Color"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|32411-1|5 minute Apgar Reflex Irritability",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "5 minute Apgar Color"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|32411-1|5 minute Apgar Respiratory effort",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "5 minute Apgar Color"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|32411-1|5 minute Apgar Score",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "5 minute Apgar Color"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|32412-9|5 minute Apgar Heart Rate",
+      "hash": "#|http://loinc.org|null|32412-9|5 minute Apgar Heart Rate#|http://snomed.info/sct|null|249223000|Apgar heart rate score",
       "severity": null,
       "message": null,
       "definition": {
@@ -864,6 +930,39 @@
         "code": null,
         "definition": null,
         "display": "5 minute Apgar Heart rate"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|32413-7|5 minute Apgar Muscle Tone#|http://snomed.info/sct|null|249225007|Apgar muscle tone score",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "5 minute Apgar Muscle tone"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|32414-5|5 minute Apgar Reflex Irritability#|http://snomed.info/sct|null|249226008|Apgar response to stimulus score",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "5 minute Apgar Reflex irritability"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|32415-2|5 minute Apgar Respiratory effort#|http://snomed.info/sct|null|249224006|Apgar respiratory effort score",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "5 minute Apgar Respiratory effort"
       }
     },
     {
@@ -908,6 +1007,17 @@
         "code": null,
         "definition": null,
         "display": "Glomerular filtration rate/1.73 sq M.predicted [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|35200-5|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Cholesterol [Mass or Moles/volume] in Serum or Plasma"
       }
     },
     {
@@ -985,17 +1095,6 @@
         "code": null,
         "definition": null,
         "display": "CD4 Ag [Presence] in Tissue by Immune stain"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|48333-9|5 minute Apgar panel",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "5 minute Apgar panel"
       }
     },
     {
@@ -1448,6 +1547,80 @@
         "definition": null,
         "display": "Glasgow coma score verbal"
       }
+    },
+    {
+      "hash": "#|http://loinc.org|null|9271-8|10 minute Apgar Score#|http://snomed.info/sct|null|169922007|Apgar at 10 minutes",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "10 minute Apgar Score"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|9272-6|1 minute Apgar Score#|http://snomed.info/sct|null|169895004|Apgar at 1 minute",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "1 minute Apgar Score"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|9273-4|2 minute Apgar Score",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "2 minute Apgar Score"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|9274-2|5 minute Apgar Score#|http://snomed.info/sct|null|169909004|Apgar at 5 minutes",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "5 minute Apgar Score"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|249223000|Apgar heart rate score",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|249224006|Apgar respiratory effort score",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|249225007|Apgar muscle tone score",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|249226008|Apgar response to stimulus score",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|249227004|Apgar color score",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|443849008|Apgar score at 20 minutes",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://snomed.info/sct|null|53786006|pT1 category",

@@ -125,6 +125,7 @@ import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.metamodel.Manager;
 import org.hl7.fhir.dstu3.metamodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.metamodel.ParserBase.ValidationPolicy;
+import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
@@ -255,6 +256,9 @@ import org.xml.sax.SAXParseException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONObject;
@@ -2337,10 +2341,12 @@ public class Publisher implements URIResolver, SectionNumberer {
 
 
       produceComparisons();
+      produceSpecMap();
 
       page.log("....validator", LogMessageType.Process);
       ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "validation.xml.zip");
       zip.addFileName("fhir.css", page.getFolders().dstDir + "fhir.css", false);
+      zip.addFileName("spec.pathlist", page.getFolders().dstDir + "spec.pathlist", false);
       zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml", false);
       zip.addFileName("profiles-resources.xml", page.getFolders().dstDir + "profiles-resources.xml", false);
       zip.addFileName("profiles-others.xml", page.getFolders().dstDir + "profiles-others.xml", false);
@@ -2359,6 +2365,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       zip = new ZipGenerator(page.getFolders().dstDir + "validation.json.zip");
       zip.addFileName("fhir.css", page.getFolders().dstDir + "fhir.css", false);
+      zip.addFileName("spec.pathlist", page.getFolders().dstDir + "spec.pathlist", false);
       zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json", false);
       zip.addFileName("profiles-resources.json", page.getFolders().dstDir + "profiles-resources.json", false);
       zip.addFileName("profiles-others.json", page.getFolders().dstDir + "profiles-others.json", false);
@@ -2369,8 +2376,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
       zip.addFileName("conceptmaps.json", page.getFolders().dstDir + "conceptmaps.json", false);
       zip.addFileName("dataelements.json", page.getFolders().dstDir + "dataelements.json", false);
-      zip.addFiles(page.getFolders().dstDir, "", ".xsd", null);
-      zip.addFiles(page.getFolders().dstDir, "", ".sch", null);
+      zip.addFiles(page.getFolders().dstDir, "", ".schema.json", null);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xsl", null);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xslt", null);
       zip.close();
@@ -2416,6 +2422,33 @@ public class Publisher implements URIResolver, SectionNumberer {
       checkAllOk();
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
+  }
+
+  private void produceSpecMap() throws IOException {
+    JsonObject specMap = new JsonObject();
+    specMap.addProperty("version", page.getVersion());
+    specMap.addProperty("build", page.getSvnRevision());
+    specMap.addProperty("date", page.getGenDate().toString());
+    for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
+      if (sd.hasUserData("path"))
+        specMap.addProperty(sd.getUrl(), sd.getUserString("path").replace("\\", "/"));
+    }
+    for (CodeSystem cs : page.getCodeSystems().values()) {
+      if (cs.hasUserData("path"))
+        specMap.addProperty(cs.getUrl(), cs.getUserString("path").replace("\\", "/"));
+    }
+    for (ValueSet vs : page.getValueSets().values()) {
+      if (vs.hasUserData("path"))
+        specMap.addProperty(vs.getUrl(), vs.getUserString("path").replace("\\", "/"));
+    }
+    for (ConceptMap cm : page.getConceptMaps().values()) {
+      if (cm.hasUserData("path"))
+        specMap.addProperty(cm.getUrl(), cm.getUserString("path").replace("\\", "/"));
+    }
+
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    String json = gson.toJson(specMap);
+    TextFile.stringToFile(json, page.getFolders().dstDir + "spec.pathlist");
   }
 
   private void checkStructureDefinitions(Bundle bnd) {
@@ -2631,7 +2664,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       if (name.endsWith(".xsd"))
         dest.addStream(entry.getName(), stripXsd(source), false);
-      else if (name.endsWith(".json"))
+      else if (name.endsWith(".json") && !name.endsWith(".schema.json"))
         dest.addStream(entry.getName(), stripJson(source), false);
       else if (name.endsWith(".xml"))
         dest.addStream(entry.getName(), stripXml(source), false);

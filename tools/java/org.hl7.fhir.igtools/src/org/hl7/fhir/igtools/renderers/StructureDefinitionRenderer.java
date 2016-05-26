@@ -60,7 +60,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     this.sd = sd;
     this.destDir = destDir;
     this.pkp = pkp;
-    utils = new ProfileUtilities(context, null, null);
+    utils = new ProfileUtilities(context, null, pkp);
   }
 
   public String summary() {

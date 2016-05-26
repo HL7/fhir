@@ -23,6 +23,8 @@ import org.hl7.fhir.dstu3.validation.Validator;
 import org.hl7.fhir.utilities.TextFile;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.layout.RowData;
 
 public class FHIRTools {
   private static Text text;
@@ -35,12 +37,12 @@ public class FHIRTools {
    */
   public static void main(String[] args) {
     Display display = Display.getDefault();
-    final Shell shell = new Shell();
-    shell.setSize(686, 300);
-    shell.setText("SWT Application");
-    shell.setLayout(new BorderLayout(0, 0));
+    final Shell shlFhirBuildTools = new Shell();
+    shlFhirBuildTools.setSize(686, 300);
+    shlFhirBuildTools.setText("FHIR Build Tools");
+    shlFhirBuildTools.setLayout(new BorderLayout(0, 0));
     
-    TabFolder tabFolder = new TabFolder(shell, SWT.NONE);
+    TabFolder tabFolder = new TabFolder(shlFhirBuildTools, SWT.NONE);
     
     TabItem tabItem = new TabItem(tabFolder, SWT.NONE);
     tabItem.setText("New Item");
@@ -65,7 +67,7 @@ public class FHIRTools {
     tltmChooseFile.addSelectionListener(new SelectionAdapter() {
       @Override
       public void widgetSelected(SelectionEvent e) {
-        FileDialog fd = new FileDialog(shell);
+        FileDialog fd = new FileDialog(shlFhirBuildTools);
         fd.setFilterExtensions(new String [] {"*.xml", "*.json", "*.ttl"});
         tltmDropdownItem.setText(fd.open());
       }
@@ -78,8 +80,12 @@ public class FHIRTools {
     text = new Text(composite, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
     text.setLayoutData(BorderLayout.CENTER);
     
-    TabItem tbtmNewItem_1 = new TabItem(tabFolder, SWT.NONE);
-    tbtmNewItem_1.setText("Publish IG");
+    TabItem tbtmPublishIg = new TabItem(tabFolder, SWT.NONE);
+    tbtmPublishIg.setText("Publish IG");
+    
+    Composite composite_1 = new Composite(tabFolder, SWT.NONE);
+    tbtmPublishIg.setControl(composite_1);
+    composite_1.setLayout(new RowLayout(SWT.HORIZONTAL));
     
     TabItem tbtmNewItem_2 = new TabItem(tabFolder, SWT.NONE);
     tbtmNewItem_2.setText("Publish Specification");
@@ -87,9 +93,9 @@ public class FHIRTools {
     TabItem tbtmNewItem_3 = new TabItem(tabFolder, SWT.NONE);
     tbtmNewItem_3.setText("Closure Table Testing");
 
-    shell.open();
-    shell.layout();
-    while (!shell.isDisposed()) {
+    shlFhirBuildTools.open();
+    shlFhirBuildTools.layout();
+    while (!shlFhirBuildTools.isDisposed()) {
       if (!display.readAndDispatch()) {
         display.sleep();
       }

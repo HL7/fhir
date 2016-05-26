@@ -253,7 +253,6 @@ public class Publisher {
 
   private void load(ResourceType type) throws Exception {
     for (FetchedFile f : fileList) {
-      System.out.println("Load "+f.getName());
       if (f.getType() == type) {
         if (f.getElement() == null)
           validate(f);
@@ -319,6 +318,8 @@ public class Publisher {
   }
 
   private void generateOutputs(FetchedFile f) throws Exception {
+    System.out.println("Generating outputs for "+f.getName());
+    
     saveDirectResourceOutputs(f);
     
     // now, start generating resource type specific stuff 
@@ -420,16 +421,16 @@ public class Publisher {
     fragmentError(vs.getId()+"-summary", "yet to be done: value set summary");
     fragmentError(vs.getId()+"-cld", "yet to be done: value statement of content logical definition");
     fragmentError(vs.getId()+"-xref", "yet to be done: list of all places where value set is used");
-    ValueSetExpansionOutcome exp = context.expandVS(vs, true);
-    if (exp.getValueset() != null) {
-      NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
-      gen.generate(exp.getValueset(), false);
-      String html = new XhtmlComposer().compose(exp.getValueset().getText().getDiv());
-      fragment(vs.getId()+"-expansion", html);
-    } else if (exp.getError() != null) 
-      fragmentError(vs.getId()+"-expansion", exp.getError());
-    else 
-      fragmentError(vs.getId()+"-expansion", exp.getError());
+//    ValueSetExpansionOutcome exp = context.expandVS(vs, true);
+//    if (exp.getValueset() != null) {
+//      NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
+//      gen.generate(exp.getValueset(), false);
+//      String html = new XhtmlComposer().compose(exp.getValueset().getText().getDiv());
+//      fragment(vs.getId()+"-expansion", html);
+//    } else if (exp.getError() != null) 
+//      fragmentError(vs.getId()+"-expansion", exp.getError());
+//    else 
+//      fragmentError(vs.getId()+"-expansion", exp.getError());
   }
 
   private void fragmentError(String name, String error) throws IOException {

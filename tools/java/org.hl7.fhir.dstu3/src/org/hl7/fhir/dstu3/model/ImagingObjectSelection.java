@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, May 23, 2016 03:29+1000 for FHIR v1.4.0
+// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -398,8 +398,9 @@ public class ImagingObjectSelection extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (uid == null || uid.isEmpty()) && (url == null || url.isEmpty()) && (imagingStudy == null || imagingStudy.isEmpty())
-           && (series == null || series.isEmpty());
+        return super.isEmpty() && (uid == null || uid.isEmpty()) && (url == null || url.isEmpty())
+           && (imagingStudy == null || imagingStudy.isEmpty()) && (series == null || series.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -691,8 +692,8 @@ public class ImagingObjectSelection extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (uid == null || uid.isEmpty()) && (url == null || url.isEmpty()) && (instance == null || instance.isEmpty())
-          ;
+        return super.isEmpty() && (uid == null || uid.isEmpty()) && (url == null || url.isEmpty())
+           && (instance == null || instance.isEmpty());
       }
 
   public String fhirType() {

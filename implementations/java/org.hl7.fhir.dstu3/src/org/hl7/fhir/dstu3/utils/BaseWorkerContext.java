@@ -56,6 +56,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   protected FHIRToolingClient txServer;
   private Bundle bndCodeSystems;
+  private boolean canRunWithoutTerminology;
+  protected boolean noTerminologyServer;
 
   @Override
   public CodeSystem fetchCodeSystem(String system) {
@@ -71,9 +73,21 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     else if (system.startsWith("http://example.org") || system.startsWith("http://acme.com") || system.startsWith("http://hl7.org/fhir/valueset-") || system.startsWith("urn:oid:"))
       return false;
     else {
+      if (noTerminologyServer)
+        return false;
       System.out.println("check system "+system);
       if (bndCodeSystems == null)
+        try {
         bndCodeSystems = txServer.fetchFeed(txServer.getAddress()+"/CodeSystem?content=not-present&_summary=true&_count=1000");
+        } catch (Exception e) {
+          if (canRunWithoutTerminology) {
+            noTerminologyServer = true;
+            System.out.println("==============!! Running without terminology server !!==============");
+            return false;
+          } else
+            throw new Error(e);
+        }
+      if (bndCodeSystems == null)
       for (BundleEntryComponent be : bndCodeSystems.getEntry()) {
       	CodeSystem cs = (CodeSystem) be.getResource();
       	if (!codeSystems.containsKey(cs.getUrl())) {
@@ -93,6 +107,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   @Override
   public ValueSetExpansionOutcome expandVS(ValueSet vs, boolean cacheOk) {
+    if (noTerminologyServer)
+      return new ValueSetExpansionOutcome("Error expanding ValueSet: running without terminology services");
+      
     try {
       Map<String, String> params = new HashMap<String, String>();
       params.put("_limit", "10000");
@@ -212,6 +229,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   }
 
   private ValidationResult serverValidateCode(Parameters pin) {
+    if (noTerminologyServer)
+      return new ValidationResult(null);
   Parameters pout = txServer.operateType(ValueSet.class, "validate-code", pin);
   boolean ok = false;
   String message = "No Message returned";
@@ -416,6 +435,14 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   public Set<String> getNonSupportedCodeSystems() {
     return nonSupportedCodeSystems;
+  }
+
+  public boolean isCanRunWithoutTerminology() {
+    return canRunWithoutTerminology;
+  }
+
+  public void setCanRunWithoutTerminology(boolean canRunWithoutTerminology) {
+    this.canRunWithoutTerminology = canRunWithoutTerminology;
   }
 
   

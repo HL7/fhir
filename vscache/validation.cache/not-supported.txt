@@ -39,6 +39,7 @@ urn:ietf:bcp:47
 http://hl7.org/fhir/familial-relationship
 http://hl7.org.fhir/substance-category
 http://orionhealth.com/fhir/apps/specialties
+http://loinc.org/la
 http://www.cms.gov/Medicare/Coding/ICD9ProviderDiagnosticCodes/codes.html
 http://ihe.net/connectathon/practiceSettingCodes
 http://hl7.org/fhir/oralservicecodes

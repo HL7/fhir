@@ -40,7 +40,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider {
 
   @Override
   public BindingResolution resolveBinding(ElementDefinitionBindingComponent binding) {
-    return null;
+    return new BindingResolution();
   }
 
   @Override

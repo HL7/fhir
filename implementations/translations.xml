@@ -27,7 +27,7 @@
       en     :  English
       fr     :  French
     
-    NOTE: while translations on Resources are possible they should be used for rendering purposes
+    NOTE: while translations on Resources are provided they should be used for rendering purposes
           only, and not in the URI, as XML node name, or JSON label.
     -->
     <!-- Resources -->
