@@ -5,6 +5,7 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -274,7 +275,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     long t = System.nanoTime();
     Element e = parser.parse(document);
     loadTime = System.nanoTime() - t;
-    validate(errors, e, profile);
+    if (e != null) {
+   	 validate(errors, e, profile);
+    }
     return e;
   }
 
