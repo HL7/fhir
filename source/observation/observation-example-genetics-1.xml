@@ -2,7 +2,7 @@
 
 <Observation xmlns="http://hl7.org/fhir">
   <id value="example-observation-genetics-1"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariation" >
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariant" >
     <valueString value="NG_007726.3:g.146252T&gt;G" />
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene" >

@@ -10,9 +10,9 @@
                 <text value="ABCB4 gene mutation analysis"/>
             </valueCodeableConcept>
         </extension>
-        <extension url="sequence">
+        <extension url="geneticsObservation">
             <valueReference>
-                <reference value="Sequence/example"/>
+                <reference value="Observation/example"/>
             </valueReference>
         </extension>
     </extension>
