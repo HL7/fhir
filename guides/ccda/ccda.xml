@@ -149,6 +149,14 @@
       <sourceUri value="StructureDefinition/ccda-referral-note-composition.xml"/>
     </resource>
     <resource>
+	  <example value="false"/>
+      <name value="C-CDA on FHIR Transfer Summary"/>
+      <description
+        value="TBD"/>
+      <acronym value="ccda-transfer-summary-composition"/>
+      <sourceUri value="StructureDefinition/ccda-transfer-summary-composition.xml"/>
+    </resource>
+    <resource>
       <example value="false"/>
       <name value="HL7 BasicConfidentialityKind"/>
       <description
