@@ -1,7 +1,6 @@
 package org.hl7.fhir.dstu3.utils;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.EnumSet;
@@ -10,47 +9,40 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TimeZone;
 
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.exceptions.PathEngineException;
-import org.hl7.fhir.dstu3.metamodel.ParserBase;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BooleanType;
-import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DecimalType;
-import org.hl7.fhir.dstu3.model.Element;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
-import org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.ExpressionNode.CollectionStatus;
 import org.hl7.fhir.dstu3.model.ExpressionNode.Function;
-import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
 import org.hl7.fhir.dstu3.model.ExpressionNode.Kind;
 import org.hl7.fhir.dstu3.model.ExpressionNode.Operation;
 import org.hl7.fhir.dstu3.model.ExpressionNode.SourceLocation;
-import org.hl7.fhir.dstu3.model.Factory;
+import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
 import org.hl7.fhir.dstu3.model.IntegerType;
-import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.TemporalPrecisionEnum;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.dstu3.model.TemporalPrecisionEnum;
 import org.hl7.fhir.dstu3.model.TimeType;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext.FunctionDetails;
 import org.hl7.fhir.exceptions.UcumException;
-import org.hl7.fhir.utilities.Table;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ucum.Decimal;
 
+import ca.uhn.fhir.rest.server.exceptions.InternalErrorException;
 import ca.uhn.fhir.util.ElementUtil;
 
 /**
@@ -1244,7 +1236,7 @@ public class FHIRPathEngine {
 			if (Base.compareDeep(lUnit, rUnit, true)) {
 				return opLessThen(left.get(0).listChildrenByName("value"), right.get(0).listChildrenByName("value"));
 			} else {
-				throw new Error("Canonical Comparison isn't done yet");
+				throw new InternalErrorException("Canonical Comparison isn't done yet");
 			}
 		}
 		return new ArrayList<Base>();
@@ -1268,7 +1260,7 @@ public class FHIRPathEngine {
 			if (Base.compareDeep(lUnit, rUnit, true)) {
 				return opGreater(left.get(0).listChildrenByName("value"), right.get(0).listChildrenByName("value"));
 			} else {
-				throw new Error("Canonical Comparison isn't done yet");
+				throw new InternalErrorException("Canonical Comparison isn't done yet");
 			}
 		}
 		return new ArrayList<Base>();
@@ -1294,7 +1286,7 @@ public class FHIRPathEngine {
 			if ((lunit == null && runit == null) || lunit.equals(runit)) {
 				return opLessOrEqual(left.get(0).listChildrenByName("value"), right.get(0).listChildrenByName("value"));
 			} else {
-				throw new Error("Canonical Comparison isn't done yet");
+				throw new InternalErrorException("Canonical Comparison isn't done yet");
 			}
 		}
 		return new ArrayList<Base>();
@@ -1318,7 +1310,7 @@ public class FHIRPathEngine {
 			if (Base.compareDeep(lUnit, rUnit, true)) {
 				return opGreaterOrEqual(left.get(0).listChildrenByName("value"), right.get(0).listChildrenByName("value"));
 			} else {
-				throw new Error("Canonical Comparison isn't done yet");
+				throw new InternalErrorException("Canonical Comparison isn't done yet");
 			}
 		}
 		return new ArrayList<Base>();
