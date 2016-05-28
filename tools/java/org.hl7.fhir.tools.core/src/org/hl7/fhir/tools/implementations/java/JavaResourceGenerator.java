@@ -37,14 +37,19 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.apache.commons.lang3.Validate;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
+import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
+import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
@@ -225,8 +230,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       allfields = "";
       int i = 0;
 			for (ElementDefn e : root.getElements()) {
-			  if (processObjectImpl(e))
+			  if (processObjectImpl(e)) {
 				  generateField(root, e, "    ", i++);
+			  }
 			}
 	    write("    private static final long serialVersionUID = "+Long.toString(allfields.hashCode())+"L;\r\n\r\n");
 	    hashSum = hashSum + allfields.hashCode();
@@ -407,6 +413,35 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       }
       write("}");
     }
+
+    Set<String> providesMembershipIn = new TreeSet<String>();
+    for (Compartment next : this.definitions.getCompartments()) {
+      for (Entry<ResourceDefn, String> nextEntry : next.getResources().entrySet()) {
+        if (nextEntry.getKey().getName().equals(upFirst(name))) {
+          String[] parts = nextEntry.getValue().split("\\|");
+          for (String nextPart : parts) {
+            if (nextPart.trim().equals(code)) {
+              providesMembershipIn.add(next.getName());
+            }
+          }
+        }
+      }
+    }
+
+    if (providesMembershipIn.size() > 0) {
+      write(", providesMembershipIn={ ");
+      boolean first = true;
+      for (String next : providesMembershipIn) {
+        if (first) {
+          first = false;
+        } else {
+          write(", ");
+        }
+        write("@ca.uhn.fhir.model.api.annotation.Compartment(name=\"" + upFirst(next) + "\")");
+      }
+      write(" }");
+    }
+    
     write(" )\r\n");
     write("  public static final String SP_"+constName+" = \""+code+"\";\r\n");
 
@@ -1492,24 +1527,29 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
   private void generateIsEmpty(ElementDefn e, String tn, boolean owner, boolean isAbstract) throws Exception {
     write("      public boolean isEmpty() {\r\n");
-    write("        return super.isEmpty()");
-    int col = 34;
+    write("        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(");
+    int col = 70;
+    boolean first = true;
     for (ElementDefn c : e.getElements()) {
       if (processObjectImpl(c)) {
-        write(" && ");
-        col = col+4;
+        if (first) {
+          first = false;
+        } else {
+          write(", ");
+        }
+        col = col + 2;
         String name = getElementName(c.getName(), true);
         if (name.endsWith("[x]"))
           name = name.substring(0, name.length()-3);
-        write("("+name+" == null || "+name+".isEmpty())");
-        col = col+25 + name.length()*2;
+        write(name);
+        col = col + name.length() + 2;
         if (col > 100) {
           col = 10;
           write("\r\n          ");
         }
       }
     }
-    write(";\r\n");
+    write(");\r\n");
     write("      }\r\n\r\n");
   }
 
