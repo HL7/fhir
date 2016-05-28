@@ -884,9 +884,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   // note that we don't check the type here; it could be string, uri or code.
   private void checkPrimitiveBinding(List<ValidationMessage> errors, String path, String type, ElementDefinition elementContext, Element element, StructureDefinition profile) {
-    if (!element.hasPrimitiveValue())
-      return;
-
+    if (!isPrimitiveType(type)) {
+   	 return;
+    }
+    
     String value = element.primitiveValue();
     // System.out.println("check "+value+" in "+path);
 
@@ -2125,7 +2126,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition != null, "Element is unknown or does not match any slice (url=\"" + ei.element.getNamedChildValue("url") + "\")");
       else
         rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition != null), "Element is unknown or does not match any slice");
-      rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last), "Element is out of order");
+      rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last), "Element \"{0}\" is out of order", ei.name);
       last = ei.index;
     }
 
@@ -2197,9 +2198,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         boolean thisIsCodeableConcept = false;
 
         if (type != null) {
-          if (isPrimitiveType(type))
+          if (isPrimitiveType(type)) {
             checkPrimitive(errors, ei.path, type, ei.definition, ei.element, profile);
-          else {
+          } else {
             if (type.equals("Identifier"))
               checkIdentifier(errors, ei.path, ei.element, ei.definition);
             else if (type.equals("Coding"))
