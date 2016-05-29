@@ -1314,8 +1314,8 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">on-hold</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">stopped</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
@@ -1802,7 +1802,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>54</ActiveRow>
+     <ActiveRow>47</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
