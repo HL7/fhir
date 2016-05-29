@@ -262,10 +262,10 @@
  -- Row 14 -----------------------------------
   Element = DiagnosticReport.imagingStudy
   Card. = 0..*
-  Type = Reference(ImagingStudy|ImagingObjectSelection)
+  Type = Reference(ImagingStudy|ImagingManifest)
   Short Label = Reference to full details of imaging associated with the diagnostic report
   Definition = One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.
-  Comments = ImagingStudy and ImageObjectStudy and the image element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However each caters to different types of displays for different types of purposes. Neither, either, or both may be provided.
+  Comments = ImagingStudy and ImageManifest and the image element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However each caters to different types of displays for different types of purposes. Neither, either, or both may be provided.
   RIM Mapping = outboundRelationship[typeCode=COMP].target[classsCode=DGIMG, moodCode=EVN]
   Committee Notes = 6246
 

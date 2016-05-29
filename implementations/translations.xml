@@ -327,13 +327,9 @@
         <translation lang="es">EstudioImagen</translation>
         <translation lang="fr">EtudeImagerie</translation>
     </item>
-    <item id="ImagingExcerpt">
-        <translation lang="en">ImagingExcerpt</translation>
-		
-    </item>
-    <item id="ImagingObjectSelection">
-        <translation lang="en">ImagingObjectSelection</translation>
-        <translation lang="fr">ImagingObjectSelection</translation>
+    <item id="ImagingManifest">
+        <translation lang="en">ImagingManifest</translation>
+        <translation lang="fr">ImagingManifest</translation>
     </item>
     <item id="Immunization">
         <translation lang="en">Immunization</translation>

@@ -85,7 +85,7 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 </blockquote>
 
 <p>
-Image and media representations of the report and supporting images are referenced in the DiagnosticReport resource.  The details and actual image instances can be referenced directly in Diagnostic report using the "imaging" element or by indirect reference through the <a href="imagingobjectselection.html">ImagingObjectSelection</a> or <a href="imagingobjectselection.html">ImagingStudy</a> resources which represent the content produced in a DICOM imaging study or set of DICOM Instances of a patient.
+Image and media representations of the report and supporting images are referenced in the DiagnosticReport resource.  The details and actual image instances can be referenced directly in Diagnostic report using the "imaging" element or by indirect reference through the <a href="imagingmanifest.html">ImagingManifest</a> or <a href="imagingstudy.html">ImagingStudy</a> resources which represent the content produced in a DICOM imaging study or set of DICOM Instances of a patient.
 </p>
 
 </div>

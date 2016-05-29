@@ -7,20 +7,21 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Moehrke, John (GE Healthcare)</LastAuthor>
+  <LastAuthor>John Moehrke</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-03-18T23:53:11Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2016-05-27T22:06:23Z</LastSaved>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8400</WindowHeight>
-  <WindowWidth>19170</WindowWidth>
+  <WindowHeight>5100</WindowHeight>
+  <WindowWidth>17268</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>11</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -885,7 +886,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -900,26 +902,28 @@
   <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="123" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s71" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="306"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="77.25"/>
-   <Column ss:StyleID="s71" ss:Width="29.25"/>
-   <Column ss:StyleID="s71" ss:Width="34.5"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="119.25"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="28.5"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="77.399999999999991"/>
+   <Column ss:StyleID="s71" ss:Width="29.4"/>
+   <Column ss:StyleID="s71" ss:Width="34.799999999999997"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="119.4"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="28.8"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="27"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="106.5" ss:Span="1"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="106.80000000000001"
+    ss:Span="1"/>
    <Column ss:Index="10" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="81"/>
-   <Column ss:StyleID="s71" ss:Width="51.75" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="80.25"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="120.75"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="221.25"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="224.25"/>
+   <Column ss:StyleID="s71" ss:Width="51.6" ss:Span="1"/>
+   <Column ss:Index="13" ss:StyleID="s71" ss:AutoFitWidth="0"
+    ss:Width="80.400000000000006"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="120.60000000000001"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="221.4"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="224.4"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="174"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="120"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="135"/>
-   <Column ss:Index="21" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="103.5"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="50.25"/>
+   <Column ss:Index="21" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="103.8"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="50.4"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="66"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="219.75"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="219.6"/>
    <Row ss:AutoFitHeight="0" ss:Height="45.75" ss:StyleID="s73">
     <Cell ss:StyleID="s74"><Data ss:Type="String">Element</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -1017,7 +1021,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="270">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Manifest, XDS-I summary, Key Images, KOS</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1036,7 +1040,7 @@
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Key Object Selection</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingExcerpt resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance (&quot;cine&quot; video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.</Data><NamedCell
+    <Cell ss:StyleID="s81"><Data ss:Type="String">A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance (&quot;cine&quot; video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">A FHIR representation of DICOM Key Object Selection (KOS) SOP Instances enables access to a set of selected DICOM SOP Instances.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1052,7 +1056,7 @@
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.uid</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.uid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">SOPInstanceUID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1089,7 +1093,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.patient</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1109,11 +1113,11 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">Patient of the selected objects</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">A patient resource reference which is the patient subject of all DICOM SOP Instances in this ImagingExcerpt.</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">A patient resource reference which is the patient subject of all DICOM SOP Instances in this ImagingManifest.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">SOP Instances in ImagingExcerpt must be from the same patient.</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">SOP Instances in ImagingManifest must be from the same patient.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">SOP instances selected in the ImagingExcerpt can be from different studies, but must be of the same patient.</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">SOP instances selected in the ImagingManifest can be from different studies, but must be of the same patient.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.participation[typeCode=SBJ].role</Data><NamedCell
@@ -1126,7 +1130,7 @@
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.authoringTime</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.authoringTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">ObservationDateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1163,7 +1167,7 @@
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.author</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.author</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1183,7 +1187,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">Author (human or machine)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Author of ImagingExcerpt. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Author of ImagingManifest. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Track the selection decision maker. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1198,7 +1202,7 @@
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.title</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.title</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1220,9 +1224,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">The reason for, or significance of, the selection of objects referenced in the resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Need to represent the application purpose that the SOP instances in ImagingExcerpt are selected for.</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Need to represent the application purpose that the SOP instances in ImagingManifest are selected for.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Coded concept of kind of the ImagingExcerpt. Value set is defined in the DICOM standard Part 16, CID-7010.  </Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Coded concept of kind of the ImagingManifest. Value set is defined in the DICOM standard Part 16, CID-7010.  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1234,7 +1238,7 @@
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.description</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">TextValue</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1254,11 +1258,11 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">Description text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Text description of the DICOM SOP instances selected in the ImagingExcerpt. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection.</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Text description of the DICOM SOP instances selected in the ImagingManifest. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">Need to provide a narrative description of the SOP instances in the selection.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Free text narrative description of the ImagingExcerpt</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Free text narrative description of the ImagingManifest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1270,7 +1274,7 @@
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">ImagingExcerpt.study</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">ImagingManifest.study</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">1..*</Data><NamedCell
@@ -1305,7 +1309,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.study.uid</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.study.uid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">StudyInstanceUID, Referenced study instance UID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1340,7 +1344,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">!ImagingExcerpt.study.retrieveAETitle</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">!ImagingManifest.study.retrieveAETitle</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1374,7 +1378,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">!ImagingExcerpt.study.retrieveLocationUid</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">!ImagingManifest.study.retrieveLocationUid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1408,7 +1412,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">!ImagingExcerpt.study.url</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">!ImagingManifest.study.url</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">RetrieveURL</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1443,7 +1447,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.study.imagingStudy</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.study.imagingStudy</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1476,7 +1480,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.study.dicom</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.study.baseLocation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1499,7 +1503,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Access method for applications that understand the DICOM web protocols for higher fidelity access.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">likely change to Endpoint Resource reference</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1509,13 +1514,13 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.study.dicom.type</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.study.baseLocation.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">code</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1541,7 +1546,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.study.dicom.url</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.study.baseLocation.url</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1564,8 +1569,7 @@
     <Cell ss:StyleID="s95"><Data ss:Type="String">URL enables retrieval of the entire study using DICOM Web API.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="19" ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1573,7 +1577,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.study.viewable</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">!ImagingManifest.study.viewable</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1605,7 +1609,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s101"><Data ss:Type="String">!ImagingExcerpt.study.viewable.type</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">!ImagingManifest.study.viewable.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1638,7 +1642,7 @@
     <Cell ss:StyleID="s104"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s101"><Data ss:Type="String">!ImagingExcerpt.study.viewable.subtype</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">!ImagingManifest.study.viewable.subtype</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1672,7 +1676,7 @@
     <Cell ss:StyleID="s104"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s101"><Data ss:Type="String">ImagingExcerpt.study.viewable.contentType</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">!ImagingManifest.study.viewable.contentType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1707,7 +1711,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s101"><Data ss:Type="String">ImagingExcerpt.study.viewable.height</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">!ImagingManifest.study.viewable.height</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1740,7 +1744,7 @@
     <Cell ss:StyleID="s104"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s101"><Data ss:Type="String">ImagingExcerpt.study.viewable.width</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">!ImagingManifest.study.viewable.width</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1773,7 +1777,7 @@
     <Cell ss:StyleID="s104"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s101"><Data ss:Type="String">ImagingExcerpt.study.viewable.frames</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">!ImagingManifest.study.viewable.frames</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1808,7 +1812,7 @@
     <Cell ss:StyleID="s104"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s101"><Data ss:Type="String">ImagingExcerpt.study.viewable.duration</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">!ImagingManifest.study.viewable.duration</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1841,7 +1845,7 @@
     <Cell ss:StyleID="s104"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s101"><Data ss:Type="String">ImagingExcerpt.study.viewable.size</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">!ImagingManifest.study.viewable.size</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1875,7 +1879,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s101"><Data ss:Type="String">ImagingExcerpt.study.viewable.title</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">!ImagingManifest.study.viewable.title</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1910,7 +1914,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s101"><Data ss:Type="String">ImagingExcerpt.study.viewable.url</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">!ImagingManifest.study.viewable.url</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1944,7 +1948,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">ImagingExcerpt.study.series</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">ImagingManifest.study.series</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">1..*</Data><NamedCell
@@ -1973,13 +1977,13 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">50;450</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">0;300</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.study.series.uid</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.study.series.uid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">SeriesInstanceUID, Referenced series instance UID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2014,7 +2018,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">!ImagingExcerpt.study.series.retrieveAETitle</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">!ImagingManifest.study.series.retrieveAETitle</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2048,7 +2052,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">!ImagingExcerpt.study.series.retrieveLocationUid</Data><NamedCell
+    <Cell><Data ss:Type="String">!ImagingManifest.study.series.retrieveLocationUid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2082,7 +2086,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">!ImagingExcerpt.study.series.url</Data><NamedCell
+    <Cell><Data ss:Type="String">!ImagingManifest.study.series.url</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">RetrieveURL</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2117,7 +2121,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.study.series.dicom</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.study.series.baseLocation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2140,23 +2144,24 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Access method for applications that understand the DICOM web protocols for higher fidelity access.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">likely change to Endpoint Resource reference</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">300;450</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">300;300</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.study.series.dicom.type</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.study.series.baseLocation.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">code</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2182,7 +2187,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.study.series.dicom.url</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.study.series.baseLocation.url</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2205,8 +2210,7 @@
     <Cell ss:StyleID="s95"><Data ss:Type="String">URL enables retrieval of the entire series using DICOM Web API.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="19" ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2214,7 +2218,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">ImagingExcerpt.study.series.instance</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">ImagingManifest.study.series.instance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..*</Data><NamedCell
@@ -2243,13 +2247,13 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">0;600</Data><NamedCell
+    <Cell ss:StyleID="Default"><Data ss:Type="String">0;400</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">ImagingExcerpt.study.series.instance.sopClass</Data><NamedCell
+    <Cell><Data ss:Type="String">ImagingManifest.study.series.instance.sopClass</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">SOPClassUID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2286,7 +2290,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell><Data ss:Type="String">ImagingExcerpt.study.series.instance.uid</Data><NamedCell
+    <Cell><Data ss:Type="String">ImagingManifest.study.series.instance.uid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">SOPInstanceUID, Referenced SOP instance UID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2323,7 +2327,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.study.series.instance.dicom</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">!ImagingManifest.study.series.instance.dicom</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2356,7 +2360,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.study.series.instance.dicom.type</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">!ImagingManifest.study.series.instance.dicom.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2388,7 +2392,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingExcerpt.study.series.instance.dicom.url</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">!ImagingManifest.study.series.instance.dicom.url</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2420,7 +2424,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">!ImagingExcerpt.study.series.instance.retrieveAETitle</Data><NamedCell
+    <Cell><Data ss:Type="String">!ImagingManifest.study.series.instance.retrieveAETitle</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2454,7 +2458,7 @@
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">!ImagingExcerpt.study.series.instance.retrieveLocationUid</Data><NamedCell
+    <Cell><Data ss:Type="String">!ImagingManifest.study.series.instance.retrieveLocationUid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2487,7 +2491,7 @@
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">!ImagingExcerpt.study.series.instance.url</Data><NamedCell
+    <Cell><Data ss:Type="String">!ImagingManifest.study.series.instance.url</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">RetrieveURL</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2522,7 +2526,7 @@
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!ImagingExcerpt.study.series.instance.frame</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!ImagingManifest.study.series.instance.frame</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2554,7 +2558,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">ImagingExcerpt.study.series.instance.frameNumbers</Data><NamedCell
+    <Cell><Data ss:Type="String">!ImagingManifest.study.series.instance.frameNumbers</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2587,7 +2591,7 @@
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">!ImagingExcerpt.study.series.instance.frame.url</Data><NamedCell
+    <Cell><Data ss:Type="String">!ImagingManifest.study.series.instance.frame.url</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">1..1</Data><NamedCell
@@ -4583,13 +4587,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>33</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4597,16 +4600,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>40</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>37</ActiveRow>
+     <ActiveCol>21</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4623,12 +4624,13 @@
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="50" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s116" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="115.5"/>
-   <Column ss:StyleID="s116" ss:Width="55.5"/>
+   <Column ss:Index="2" ss:StyleID="s116" ss:AutoFitWidth="0"
+    ss:Width="115.80000000000001"/>
+   <Column ss:StyleID="s116" ss:Width="55.800000000000004"/>
    <Column ss:StyleID="s116" ss:Width="165"/>
-   <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="204.60000000000002"/>
+   <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="198.6"/>
+   <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="188.4"/>
    <Row ss:AutoFitHeight="0" ss:Height="30.75" ss:StyleID="s73">
     <Cell ss:StyleID="s117"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -5141,11 +5143,11 @@
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s125" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s125" ss:Width="76.5"/>
+   <Column ss:StyleID="s125" ss:Width="76.8"/>
    <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="57"/>
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="109.5"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="109.8"/>
    <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="210"/>
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="382.5"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="382.79999999999995"/>
    <Row ss:AutoFitHeight="0" ss:Height="31.5" ss:StyleID="s126">
     <Cell ss:StyleID="s117"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">Unique name for search parameter - required, lower-case, dash-delimited string    </ss:Data></Comment><NamedCell
@@ -5171,42 +5173,42 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">identifier</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s83"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingExcerpt.uid</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingManifest.uid</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">UID of key DICOM object selection</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">title</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingExcerpt.title</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingManifest.title</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Title of key DICOM object selection</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">author</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingExcerpt.author</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingManifest.author</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Author of key DICOM object selection</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">authoring-time</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingExcerpt.authoringTime</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingManifest.authoringTime</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Time of key DICOM object selection authoring</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingExcerpt.patient</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingManifest.patient</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Subject of key DICOM object selection</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">selected-study</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingExcerpt.study.uid</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingManifest.study.uid</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Study selected in key DICOM object selection</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5391,7 +5393,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5407,13 +5410,16 @@
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s125" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="130.5"/>
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="124.5"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="130.80000000000001"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="124.80000000000001"/>
    <Column ss:StyleID="s125" ss:Width="24"/>
-   <Column ss:StyleID="s125" ss:Width="25.5"/>
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="106.5" ss:Span="1"/>
-   <Column ss:Index="7" ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="222.75"/>
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="253.5" ss:Span="1"/>
+   <Column ss:StyleID="s125" ss:Width="25.8"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="106.80000000000001"
+    ss:Span="1"/>
+   <Column ss:Index="7" ss:StyleID="s125" ss:AutoFitWidth="0"
+    ss:Width="222.60000000000002"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="253.79999999999998"
+    ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s135"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -6035,14 +6041,14 @@
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="21" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s125" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="82.5" ss:Span="1"/>
-   <Column ss:Index="3" ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="157.5"/>
-   <Column ss:StyleID="s125" ss:Width="106.5"/>
-   <Column ss:StyleID="s125" ss:Width="113.25"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="82.8" ss:Span="1"/>
+   <Column ss:Index="3" ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="198.6"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="157.80000000000001"/>
+   <Column ss:StyleID="s125" ss:Width="106.80000000000001"/>
+   <Column ss:StyleID="s125" ss:Width="113.39999999999999"/>
    <Column ss:StyleID="s125" ss:Width="120"/>
-   <Column ss:StyleID="s125" ss:Width="127.5"/>
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="74.25"/>
+   <Column ss:StyleID="s125" ss:Width="127.8"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="74.400000000000006"/>
    <Row ss:AutoFitHeight="0" ss:Height="30.75">
     <Cell ss:StyleID="s117"><Data ss:Type="String">Event Code</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -6334,7 +6340,7 @@
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="41" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s125" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="281.25"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="281.39999999999998"/>
    <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="252"/>
    <Column ss:StyleID="s125" ss:Width="63"/>
    <Row ss:AutoFitHeight="0" ss:Height="30.75">
@@ -6632,14 +6638,14 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="41" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s152" ss:DefaultColumnWidth="260.25"
+   x:FullRows="1" ss:StyleID="s152" ss:DefaultColumnWidth="260.39999999999998"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s152" ss:Width="88.5"/>
-   <Column ss:StyleID="s152" ss:Width="27.75"/>
-   <Column ss:StyleID="s152" ss:Width="327.75"/>
+   <Column ss:StyleID="s152" ss:Width="88.800000000000011"/>
+   <Column ss:StyleID="s152" ss:Width="27.6"/>
+   <Column ss:StyleID="s152" ss:Width="327.59999999999997"/>
    <Column ss:StyleID="s152" ss:Width="57"/>
-   <Column ss:StyleID="s152" ss:Width="205.5" ss:Span="1"/>
-   <Column ss:Index="7" ss:StyleID="s152" ss:Width="39.75"/>
+   <Column ss:StyleID="s152" ss:Width="205.8" ss:Span="1"/>
+   <Column ss:Index="7" ss:StyleID="s152" ss:Width="39.6"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s117"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -7065,18 +7071,19 @@
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s125" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s125" ss:Width="114.75"/>
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="274.5"/>
+   <Column ss:StyleID="s125" ss:Width="114.6"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="274.8"/>
    <Column ss:StyleID="s125" ss:Width="51"/>
-   <Column ss:StyleID="s125" ss:Width="45"/>
-   <Column ss:StyleID="s125" ss:Width="146.25"/>
-   <Column ss:StyleID="s125" ss:Width="172.5"/>
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="146.25"/>
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="88.5"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="100.19999999999999"/>
+   <Column ss:StyleID="s125" ss:Width="146.39999999999998"/>
+   <Column ss:StyleID="s125" ss:Width="172.79999999999998"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="146.39999999999998"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="88.800000000000011"/>
    <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="172.5"/>
-   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="165.75" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="106.5"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="172.79999999999998"/>
+   <Column ss:StyleID="s125" ss:AutoFitWidth="0" ss:Width="165.6" ss:Span="1"/>
+   <Column ss:Index="13" ss:StyleID="s125" ss:AutoFitWidth="0"
+    ss:Width="106.80000000000001"/>
    <Row ss:AutoFitHeight="0" ss:Height="30.75">
     <Cell ss:StyleID="s117"><Data ss:Type="String">Binding Name</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -7150,7 +7157,7 @@
     <Cell ss:StyleID="s162"><Data ss:Type="String">dWebType</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The type of DICOM web technology available</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">#dWebType</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
@@ -7585,7 +7592,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -7593,6 +7600,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -7600,7 +7608,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7617,13 +7625,15 @@
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s152" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s152" ss:Width="80.25"/>
-   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="34.5"/>
-   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="155.25"/>
-   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="244.5"/>
+   <Column ss:StyleID="s152" ss:Width="80.400000000000006"/>
+   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="34.799999999999997"/>
+   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="155.39999999999998"/>
+   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="80.400000000000006"
+    ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s152" ss:AutoFitWidth="0"
+    ss:Width="244.79999999999998"/>
    <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="242.25"/>
+   <Column ss:Index="9" ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="242.4"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s117"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -8221,13 +8231,15 @@
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s152" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s152" ss:Width="80.25"/>
-   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="34.5"/>
-   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="155.25"/>
-   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="244.5"/>
+   <Column ss:StyleID="s152" ss:Width="80.400000000000006"/>
+   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="34.799999999999997"/>
+   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="155.39999999999998"/>
+   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="80.400000000000006"
+    ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s152" ss:AutoFitWidth="0"
+    ss:Width="244.79999999999998"/>
    <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="242.25"/>
+   <Column ss:Index="9" ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="242.4"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s117"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -8850,13 +8862,15 @@
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s152" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s152" ss:Width="80.25"/>
-   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="34.5"/>
-   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="155.25"/>
-   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="244.5"/>
+   <Column ss:StyleID="s152" ss:Width="80.400000000000006"/>
+   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="34.799999999999997"/>
+   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="155.39999999999998"/>
+   <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="80.400000000000006"
+    ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s152" ss:AutoFitWidth="0"
+    ss:Width="244.79999999999998"/>
    <Column ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="242.25"/>
+   <Column ss:Index="9" ss:StyleID="s152" ss:AutoFitWidth="0" ss:Width="242.4"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s117"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -9443,6 +9457,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

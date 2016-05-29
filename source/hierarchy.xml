@@ -240,8 +240,7 @@ signatures.html
 			<page type="resource" resource="DiagnosticReport"/>
 			<page type="resource" resource="DiagnosticOrder"/>
 			<page type="resource" resource="ImagingStudy"/>
-			<page type="resource" resource="ImagingObjectSelection"/>
-			<page type="resource" resource="ImagingExcerpt"/>
+			<page type="resource" resource="ImagingManifest"/>
             <page type="resource" resource="Sequence"/>
 			<page type="resource" resource="Specimen"/>
 			<!--<page type="resource" resource="DeviceObservationReport"/>-->
