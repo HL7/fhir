@@ -2,19 +2,19 @@
 <Composition xmlns="http://hl7.org/fhir">
     <id value="ccd-example"/>
     <extension url="http://hl7.org/fhir/StructureDefinition/ccda-data-enterer-extension" >
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/9372674a-58b9-4588-abe0-12452eb42c/_history/1"/>
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/d2c66c52-5a31-4158-b5a5-a6534c0f9c/_history/1"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/ccda-informant-extension" >
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/9372674a-58b9-4588-abe0-12452eb42c/_history/1"/>
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/d2c66c52-5a31-4158-b5a5-a6534c0f9c/_history/1"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/ccda-information-recipient-extension" >
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/9372674a-58b9-4588-abe0-12452eb42c/_history/1"/>
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/d2c66c52-5a31-4158-b5a5-a6534c0f9c/_history/1"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/ccda-participant-extension" >
-        <valueUri value="http://fhir3.healthintersections.com.au/open/RelatedPerson/062f5887-b24c-439a-8af9-0d7ee43bb7/_history/1"/>
+        <valueUri value="http://fhir3.healthintersections.com.au/open/RelatedPerson/ab019e53-9c1d-4158-b2fd-1a022acdb1/_history/1"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/ccda-performer-extension" >
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/9372674a-58b9-4588-abe0-12452eb42c/_history/1"/>
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/d2c66c52-5a31-4158-b5a5-a6534c0f9c/_history/1"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/ccda-authorization-extension" >
         <valueUri value="http://hl7.org/fhir/StructureDefinition/ccda-consent"/>
@@ -34,24 +34,27 @@
     <title value="Continuity of Care Document"/>
     <status value="preliminary"/>
     <confidentiality value="N"/>
+    <!--  Patient Resource  -->
     <subject>
-        <reference value="http://fhir3.healthintersections.com.au/open/Patient/d310f1b9-c909-42b4-842f-1c6973c3ad"/>
+        <reference value="http://fhir3.healthintersections.com.au/open/Patient/c30b3fdb-1e9b-4add-bbfe-4e0fbd959a/_history/1"/>
         <display value="Henry Jones"/>
     </subject>
+    <!--  Practitioner Resource  -->
     <author>
-        <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/9372674a-58b9-4588-abe0-12452eb42c/_history/1"/>
+        <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/d2c66c52-5a31-4158-b5a5-a6534c0f9c/_history/1"/>
         <display value="Adam Everyman, MD"/>
     </author> 
     <attester>
         <mode value="legal"/>
         <time value="2012-01-04T09:10:14Z"/>
         <party>
-            <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/9372674a-58b9-4588-abe0-12452eb42c/_history/1"/>
+            <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/d2c66c52-5a31-4158-b5a5-a6534c0f9c/_history/1"/>
             <display value="Adam Everyman, MD"/>
         </party>
     </attester>
+    <!--  Organization Resource  -->
     <custodian>
-        <reference value="http://fhir3.healthintersections.com.au/open/Organization/d136dd41-d880-4827-aac8-15488ba0a4/_history/1"/>
+        <reference value="http://fhir3.healthintersections.com.au/open/Organization/2c9c2215-23b5-4936-983a-9cd1bf3b8f/_history/1"/>
         <display value="Community Health and Hospitals"/>
     </custodian>
     <event>
@@ -67,10 +70,11 @@
             <end value="2015-12-12"/>
         </period>
     </event>
+    <!--  Encounter Resource -->
     <encounter>
-        <reference value="http://fhir3.healthintersections.com.au/open/Encounter/8f65f480-d87d-4eb7-bc28-4f416eb004/_history/1"/>
+        <reference value="http://fhir3.healthintersections.com.au/open/Encounter2ae55203-ff47-46ff-9877-c5249b191c/_history/1"/>
     </encounter>
-    <!-- Included all sections identified in the Trifolia C-CDA on FHIR profile http://hl7.org/fhir/StructureDefinition/ccda-ccd-composition -->
+    <!--  Allergies and Intolerances Section Narrative -->
     <section>
         <title value="Allergies and Intolerances Section"/>
         <code>
@@ -119,10 +123,12 @@
                 <display value="Sorted by Event Date"/>
             </coding>
         </orderedBy>
+        <!--  Allergy and Intolerance Section Resource -->
         <entry>
-            <reference value="http://fhir3.healthintersections.com.au/open/AllergyIntolerance/0f5b79bd-31ba-4d1e-a870-e7c16f8482/_history/1"/>
+            <reference value="http://fhir3.healthintersections.com.au/open/AllergyIntolerance/9ef4fe0f-44bb-4c4e-9c1d-9926efda91/_history/1"/>
         </entry>
     </section>
+    <!--  Medication Section Narrative -->
     <section>
         <title value="Medication Section"/>
         <code>
@@ -167,10 +173,12 @@
                 </table>
             </div>
         </text>
+        <!--  Medication Section Resource -->
         <entry>
-            <reference value="http://fhir3.healthintersections.com.au/open/Medication/d176d58e-58f4-4f85-99f0-c7d6949cbf/_history/1"/>
+            <reference value="http://fhir3.healthintersections.com.au/open/Medication/c1227151-4a79-415c-b582-e11e78068c/_history/1"/>
         </entry>
     </section>
+    <!--  Problem Section Narrative  -->
     <section>
         <title value="Problem Section"/>
         <code>
@@ -211,10 +219,12 @@
                 </table>
             </div>
         </text>
+        <!--  Problem Section Condition Resource  -->
         <entry>
-            <reference value="http://fhir3.healthintersections.com.au/open/Condition/9912a319-5b07-461f-8233-92c24beff9/_history/1"/>
+            <reference value="http://fhir3.healthintersections.com.au/open/Condition/7688fe5b-7ccc-4a60-83f5-e87ccda6af/_history/1"/>
         </entry>
     </section>
+    <!--  Procedures Section Narrative  -->
     <section>
         <title value="Procedures Section"/>
         <code>
@@ -255,10 +265,12 @@
                 </table>
             </div>
         </text>
+        <!--  Procedures Section Resource  -->
         <entry>
-            <reference value="http://fhir3.healthintersections.com.au/open/Procedure/b0ccd4f7-cec0-4c1f-995a-9ab16c9661/_history/1"/>
+            <reference value="http://fhir3.healthintersections.com.au/open/Procedure/e1092c01-8f65-4e21-a790-7ede873177/_history/1"/>
         </entry>
     </section>
+    <!--  Results Section Narrative -->
     <section>
         <title value="Results Section"/>
         <code>
@@ -295,10 +307,12 @@
                 </table>
             </div>
         </text>
+        <!--  Result Section Observation Resource  -->
        <entry>
-           <reference value="http://fhir3.healthintersections.com.au/open/Observation/7f486fa8-b863-4429-80f9-6ea86e13f4/_history/1"/>
+           <reference value="http://fhir3.healthintersections.com.au/open/Observation/3c79dde2-7c35-4ac8-a240-40aab49dad/_history/1"/>
        </entry>
     </section>
+    <!--  Advance Directive Section Narrative -->
     <section>
         <title value="Advance Directives Section"/>
         <code>
@@ -328,6 +342,7 @@
             </div>
         </text>
     </section>
+    <!--  Encounters Section Narrative -->
     <section>
         <title value="Encounters Section"/>
         <code>
@@ -365,6 +380,7 @@
             </div>
         </text>
     </section>
+    <!--  Family History Section Narrative -->
     <section>
         <title value="Family History Section"/>
         <code>
@@ -402,10 +418,12 @@
                 </table>
             </div>
         </text>
+        <!--  Family History Section Resource -->
         <entry>
-            <reference value="http://fhir3.healthintersections.com.au/open/FamilyMemberHistory/d47ebff8-4b48-418d-b88f-607273bf82/_history/1"/>
+            <reference value="http://fhir3.healthintersections.com.au/open/FamilyMemberHistory/45bb619e-c3d2-43b5-a2e6-97bae9b07e/_history/1"/>
         </entry>
     </section>
+    <!--  Functional Status Section Narrative -->
     <section>
         <title value="Functional Status Section"/>
         <code>
@@ -455,6 +473,7 @@
             </div>
         </text>
     </section>
+    <!--  Immunization Section Narrative  -->
     <section>
         <title value="Immunizations Section"/>
         <code>
@@ -480,22 +499,19 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Influenza, Seasonal, IM</td>
-                        <td>1999/11/25</td>
+                        <td>Fluvax (Influenza)</td>
+                        <td>2016-04-05</td>
                         <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>Tetanus and diptheria toxoids, IM</td>
-                        <td>1997/10/16</td>
-                        <td>Refused</td>
                     </tr>
                 </table>
             </div>
         </text>
+        <!--  Immunization Section Resource -->
        <entry>
-            <reference value="http://fhir3.healthintersections.com.au/open/Immunization/1e5931f5-0e0c-4547-8f89-db12efbc8d/_history/1"/>
+           <reference value="http://fhir3.healthintersections.com.au/open/Immunization/2baa7a87-749c-47b9-b7d9-2c047b8002/_history/1"/>
        </entry>
     </section>
+    <!--  Nutrition Section Narrative -->
     <section>
         <title value=" Nutrition Section"/>
         <code>
@@ -534,6 +550,7 @@
             </div>
         </text>
     </section>
+    <!--  Mental Status Section Narrative -->
     <section>
         <title value="Mental Status Section"/>
         <code>
@@ -572,6 +589,7 @@
             </div>
         </text>
     </section>
+    <!--  Social History Section Narrative -->
     <section>
         <title value="Social History Section"/>
         <code>
@@ -605,9 +623,11 @@
             </div>
         </text>
        <entry>
-           <reference value="http://fhir3.healthintersections.com.au/open/Observation/864f527f-fb2e-4902-9363-cb1e1dd2a9/_history/1"/>
+           <!--  Social History Section Observation Resource -->
+           <reference value="http://fhir3.healthintersections.com.au/open/Observation/af6d65ce-ec51-41b9-b9ba-0afd0b83af/_history/1"/>
        </entry>
     </section>
+    <!--  Plan of Treatment Section Narrative -->
     <section>
         <title value="Plan of Treatment Section"/>
         <code>
@@ -646,6 +666,7 @@
             </div>
         </text>
     </section>
+    <!--  Payers Section Narrative -->
     <section>
         <title value="Payers Section"/>
         <code>
@@ -684,6 +705,7 @@
             </div>
         </text>
     </section>
+    <!--  Medication Equipment Section Narrative -->
     <section>
         <title value="Medical Equipment Section"/>
         <code>
@@ -717,6 +739,7 @@
             </div>
         </text>
     </section>
+    <!--  Vital Signs Section Narrative -->
     <section>
         <title value="Vital Signs Section"/>
         <code>
@@ -749,8 +772,9 @@
                 </table>
             </div>
         </text>
+        <!--  Vital Signs Section Observation Resource -->
         <entry>
-            <reference value="http://fhir3.healthintersections.com.au/open/Observation/b2db2be2-996c-4a6c-9574-bf736ae2c8/_history/1"/>
+            <reference value="http://fhir3.healthintersections.com.au/open/Observation/c3203114-92b9-46ab-bf85-de137905b0/_history/1"/>
         </entry>
     </section>
 </Composition>  
