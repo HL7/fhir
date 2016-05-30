@@ -20,7 +20,8 @@
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>10</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1083,7 +1084,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">needs-action | draft | proposed | preferences | active | rejected | inactive</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">draft | proposed | active | rejected | inactive</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Indicates the current state of this consent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1344,7 +1345,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="43.199999999999996">
+   <Row ss:AutoFitHeight="0" ss:Height="43.199999999999996">
     <Cell ss:StyleID="s94"><Data ss:Type="String">Consent.grantor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1378,7 +1379,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="28.8">
+   <Row ss:AutoFitHeight="0" ss:Height="28.8">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Consent.data</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1548,7 +1549,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="28.8">
+   <Row ss:AutoFitHeight="0" ss:Height="28.8">
     <Cell ss:StyleID="s94"><Data ss:Type="String">Consent.except.actor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3433,7 +3434,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3454,8 +3454,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6524,30 +6524,19 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s144"><Data ss:Type="String">needs-action</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">Needs Action</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">A consent is needed but not yet been sought</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">Pending</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">The consent is in development or awaiting use but is not yet intended to be acted upon.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s144"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">Pending</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">The consent is in development or awaiting use but is not yet intended to be acted upon.</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s145"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s144"><Data ss:Type="String">proposed</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Proposed</Data></Cell>
@@ -6557,19 +6546,8 @@
     <Cell ss:StyleID="s145"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s144"><Data ss:Type="String">preferences</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">Preferences</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">The Patient has proposed preferences but not yet agreed by Authority</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s145"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s144"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Active</Data></Cell>
@@ -6580,7 +6558,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s144"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Rejected</Data></Cell>
@@ -6591,11 +6569,33 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s144"><Data ss:Type="String">inactive</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Inactive</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">The consent is terminated or replaced.</Data></Cell>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s145"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s145"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s145"/>
@@ -7071,6 +7071,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7090,8 +7091,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>8</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
