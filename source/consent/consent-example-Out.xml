@@ -50,19 +50,10 @@
 
  <!-- no special terms (exceptions) -->
  
-   <!-- the terms of the consent in friendly consumer speak -->
-   <friendly>
-     <contentAttachment>
-	   <title value="The terms of the consent in friendly consumer speak."/>
-	   <!-- likely use url pointer to common text -->
-	 </contentAttachment>
-   </friendly>
-   <!-- the legal terms of the consent in lawyer speak -->
-   <legal>
+
      <contentAttachment>
 	   <title value="The terms of the consent in lawyer speak."/>
 	   <!-- likely use url pointer to common text -->
-	   <!-- I think some think that this should be the pointer to the law by which this consent is derived under. Such as http://lois-laws.justice.gc.ca/eng/acts/P-21/index.html -->
 	 </contentAttachment>
-   </legal>
+
 </Consent>

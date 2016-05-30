@@ -51,7 +51,7 @@
        <coding>
 	     <!-- made up code system -->
 	     <system value="http://hl7.org/fhir/consentexcepttypecodes"/>
-	     <code value="Authorized-Action"/>
+	     <code value="authorized-action"/>
 		 <display value="Authorize a specified action."/>
 	   </coding>
 	 </type>
@@ -63,23 +63,14 @@
 	 </coding>
     </action>
 
-	 <text value="Allow Emergency Treatment."/>
    </except>
 
  
-   <!-- the terms of the consent in friendly consumer speak -->
-   <friendly>
-     <contentAttachment>
-	   <title value="The terms of the consent in friendly consumer speak."/>
-	   <!-- likely use url pointer to common text -->
-	 </contentAttachment>
-   </friendly>
-   <!-- the legal terms of the consent in lawyer speak -->
-   <legal>
+   <!-- the terms of the consent in scanned form from paper -->
+
      <contentAttachment>
 	   <title value="The terms of the consent in lawyer speak."/>
 	   <!-- likely use url pointer to common text -->
-	   <!-- I think some think that this should be the pointer to the law by which this consent is derived under. Such as http://lois-laws.justice.gc.ca/eng/acts/P-21/index.html -->
 	 </contentAttachment>
-   </legal>
+
 </Consent>

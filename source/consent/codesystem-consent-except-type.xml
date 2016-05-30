@@ -10,11 +10,11 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="Authorized-Action"/>
+    <code value="authorized-action"/>
 	<display value="Authorize a specified action."/>
   </concept>
   <concept>
-    <code value="Forbidden"/>
+    <code value="forbidden-action"/>
 	<display value="Forbid a specific thing."/>
   </concept>
   <concept>
@@ -22,7 +22,15 @@
 	<display value="Withhold all data authored by specified actor entity."/>
   </concept>
   <concept>
+    <code value="release-authored-by"/>
+	<display value="Withhold all data authored by specified actor entity."/>
+  </concept>
+  <concept>
   	     <code value="withhold-identified-object-and-related"/>
+		 <display value="Withhold the identified object and any other resources that are related to this object."/>
+  </concept>
+  <concept>
+  	     <code value="release-identified-object-and-related"/>
 		 <display value="Withhold the identified object and any other resources that are related to this object."/>
   </concept>
   <concept>
@@ -30,7 +38,23 @@
 		 <display value="Withold specific object types."/>
   </concept>
   <concept>
+  	     <code value="release-object-type"/>
+		 <display value="Withold specific object types."/>
+  </concept>
+  <concept>
   	     <code value="withhold-from"/>
 		 <display value="Withhold all data from specified actor entity."/>
+  </concept>
+  <concept>
+  	     <code value="release-to"/>
+		 <display value="Withhold all data from specified actor entity."/>
+  </concept>
+  <concept>
+    <code value="withhold-timeframe"/>
+	<display value="Withhold all data authored during a timeframe."/>
+  </concept>
+  <concept>
+    <code value="release-timeframe"/>
+	<display value="Withhold all data authored durng a timeframe."/>
   </concept>
 </CodeSystem>

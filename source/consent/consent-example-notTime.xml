@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
-  <id value="consent-example-notThis"/>
+  <id value="consent-example-notTime"/>
 
   <text>
     <status value="generated"/>
@@ -9,12 +9,9 @@
 	In other jurisdictions, where an express consent model is used (Opt-In), these would examples would contain the phrase "consent to" rather 
 	than "withhold" or "withdraw" consent for.
     <p>
-	specific to use-case 2. Withhold or withdraw consent for disclosure of a specific record (e.g. Lab Order/Result) 
+	specific to use-case 6. Withhold or withdraw consent for disclosure of records related published during a timeframe
 	</p><p>
-    Patient "P. van de Heuvel" Primary Care Provider, Dr. Philip Primary, has ordered a set of lab test which Adam 
-   wishes to keep as private as possible.  At the sample collection facility, he indicates that he would 
-   like withhold consent to disclose the order and all results associated with that specific order from 
-   all other providers  
+    Patient "P. van de Heuvel" wishes to withhold disclosure of all data from a timeframe to any provider. 
    </p>
    </div>
   </text>
@@ -29,8 +26,8 @@
 	   <display value="Authorization with exceptions."/>
 	 </coding>
   </type>
- 
-  <issued value="2015-11-18"/>
+
+  <issued value="2014-08-17"/>
  <!-- not bound by a timeframe - Consent.applies -->
  
   <patient>
@@ -54,22 +51,22 @@
    <except>
      <type>
        <coding>
-	     <!-- made up code system -->
 	     <system value="http://hl7.org/fhir/consentexcepttypecodes"/>
-	     <code value="withhold-identified-object-and-related"/>
-		 <display value="Withhold the identified object and any other resources that are related to this object."/>
+  	     <code value="withhold-timeframe"/>
+		 <display value="Withhold all data authored during a timeframe."/>		 
 	   </coding>
 	 </type>
-	 <data>
-       <reference value="Order/f201"/>
-	 </data>
-     <!-- by not specifying except.actor I assume this means everyone? -->
-   </except>
-   <!-- the terms of the consent in friendly consumer speak -->
+	 <period>
+		  <start value="2015-01-01"/>
+		  <end value="2015-02-01"/>
+	 </period>
+	 </except>
 
+   <!-- the terms of the consent in scanned paper form -->
+ 
      <contentAttachment>
 	   <title value="The terms of the consent in lawyer speak."/>
-	   <!-- likely use url pointer to common text -->	  
+	   <!-- likely use url pointer to common text -->
 	 </contentAttachment>
 
 </Consent>

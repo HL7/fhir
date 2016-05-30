@@ -9,11 +9,17 @@ There are context setting parameters:
 </p>
 <ol>
 <li>Who - The <td><b>patient</b></td></li>
-<li>What - The <td><b>topic</b></td> - all or specific resources are listed</li>
+<li>What - The <td><b>data</b></td> - specific resources are listed, empty list means all data covered by the consent.</li>
 <li>Where - The <td><b>domain</b></td> and <td><b>authority</b></td> - what is the location boundary and authority boundary of this consent</li>
-<li>When - The <td><b>issued</b></td> and <td><b>applies</b></td> - When was this captured and over what timeframe does it apply</li>
-<li>How - The <td><b>actions</b></td> and <td><b>actor</b></td> - What actions are covered, what actors are covered. (such as purposes of use that are covered)</li>
+<li>When - The <td><b>issued</b></td> or captured</li>
+<li>When - The timeframe for wich the Consent <td><b>applies</b></td> </li>
+<li>How - The <td><b>actions</b></td> covered. (such as purposes of use that are covered)</li>
+<li>Whom - The <td><b>recipient</b></td> are grantees by the consent. </li>
 </ol>
+<p>
+A Privacy Consent may transition through many states including: that no consent has been sought, consent has been proposed, 
+consent has been rejected, and consent approved.
+</p>
 <p>There are set of patterns.</p>
 	  <ol>
 	  <li>No consent: All settings need a policy for when no consent has been captured. Often this allows treatment only.;</li>
@@ -39,6 +45,7 @@ There are context setting parameters:
 	  <li>Opt-in: Default is that no patient health information is included; patients must actively <a href="consent-example.html">express consent</a> to be included, but if they do so then their information must be all in or all out; and</li>
 	  <li>Opt-in with restrictions: Default is that no patient health information is made available, but the patient may allow a subset of select data to be included.</li>
 	  </ol>
+	  A common exception is to explicitly exclude or explicitly include <a href="consent-example-notTIme.html">a period of time</a>.
  <h3>Canada Realm sample Use-Cases</h3>
 	  <p>
 	  The following scenarios are based on existing jurisdictional policy and are realized in existing systems in 
@@ -48,7 +55,7 @@ There are context setting parameters:
 	  or "withdraw" consent for.
 	  </p>
 	  <ol>
-	    <li>Withhold or withdraw <a href="consent-example-notLab.html">consent for disclosure of records related to specific domain</a> (e.g. DI, LAB, etc.)</li>
+	    <li>Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.) --- NOT SUPPORTED</li>
 		<li>Withhold or withdraw <a href="consent-example-notThis.html">consent for disclosure of a specific record</a> (e.g. Lab Order/Result) </li>
 		<li>Withhold or withdraw <a href="consent-example-notOrg.html">consent for disclosure to a specific provider organization</a> </li>
 		<li>Withhold or withdraw <a href="consent-example-notThem.html">consent for disclosure to a specific provider agent</a> (an individual within an organization) </li>

@@ -16,11 +16,11 @@
 		regard to their content. In addition, Privacy Consent Directives provide the ability for a healthcare client 
 		to delegate authority to a Substitute Decision Maker who may act on behalf of that individual.
 	  </p><p>
-		The Privacy Consent Directive on FHIR provides support for alternative representations for expressing 
+		The Privacy Consent Directive resource on FHIR provides support for alternative representations for expressing 
 		health information privacy consent directives in a standard form for the exchange of privacy policies 
 		that can be enforced by consuming systems (e.g., scanned documents, computable structured entries).
 	  </p><p>
-		The Resource also supports backward compatibility by enabling references to CDA Consent Directives 
+		The Resource optionally supports backward compatibility by enabling references to CDA Consent Directives 
 		following the 
 		<a href="http://gforge.hl7.org/gf/project/cbcc/frs/?action=FrsReleaseView&amp;release_id=732">HL7 CDAR2 ConsentDirective Implementation Guide</a> 
 		which incorporated the 
@@ -29,26 +29,23 @@
 		attributes captured in the CDA document according to the CDA-CD-IG specification.  This guide allows for the 
 		capture of a scanned document in the structuredBody of a CDA document to support manual interpretation of the 
 		meaning of the privacy consent directive as well as to support the capture of a client’s wet signature.
+	  
 	  </p><p>
-		This guide supports sending a computable representation of privacy consent directives using structured 
-		entries based on a mapping of the 
-		<a href="http://www.hl7.org/documentcenter/public/standards/dstu/V3DAM_MR_CPCD_DSTU_R2_2010APR.pdf">HL7 Version 3 Domain Analysis Model: Medical Records; Composite Privacy Consent Directive, Draft Standard for Trial Use (DSTU) Release 2 (CPCD DAM)</a> 
-		to HL7 FHIR Contract attributes, or by using standard access control markup languages (XACML, XrML and others).  
-		It is expected that other SDOs will use the Privacy domain analysis model to create profiles (e.g., OASIS 
-		Cross-Enterprise Security and Privacy Authorization (XSPA) Technical Committee) and that for encoding 
-		capabilities, formal policy languages will be used.
-	  </p><p>
-	    The Consent resource is structured with a base policy, followed by a listing of exceptions to that policy. This works for both Positive (Opt-IN)
-		and Negative (Opt-Out) consents or authorizations. 
+	    The Consent resource is structured with a base policy, followed by a listing of exceptions to that policy. 
+		The exceptions can be additional positive or negative exceptions upon the base policy.
 		</p>
       <h3>Scope</h3>
-      <p>The scope of this Resource is a Privacy Consent Directive in a structured and coded way so 
-	  so that the rules can be enforced.
+      <p>
+	  The scope of this Resource is a Privacy Consent Directive covering reasonable set of policies. 
+	  The Consent supports a base minimal opt-in vs opt-out indication, 
+	  with an attachment such as a scanned image of the ink on paper signature, and 
+	  possibly with exceptions in a structured and coded way to support exceptions.
+	  The set of exeptions include a list of data objects, list of authors, list of recipients, list of Organizations, list of purposeOfUse, and Date Range.
+	  
       </p><p>
 	  The enforcement of the Privacy Consent Directive is not included, but is expected that 
-	  enforcement can be done using various Access Control enforcement methodologies (e.g. XACML).
+	  enforcement can be done using various Access Control enforcement methodologies (e.g. OAuth, UMA, XACML).
 	  </p>
- 
 
 </div>
 
