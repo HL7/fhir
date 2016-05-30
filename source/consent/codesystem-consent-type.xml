@@ -17,4 +17,8 @@
     <code value="Opt-Out"/>
 	<display value="Authorization refused with explicit exceptions."/>
   </concept>
+  <concept>
+    <code value="Consumer-Preferences"/>
+	<display value="Privacy preferences of the consumer."/>
+  </concept>
 </CodeSystem>

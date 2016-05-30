@@ -61,42 +61,30 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = needs-action
-  Display = Needs Action
-  Definition = A consent is needed but not yet been sought
-
- -- Row 2 -----------------------------------
-  Id = 2
   Code = draft
   Display = Pending
   Definition = The consent is in development or awaiting use but is not yet intended to be acted upon.
 
- -- Row 3 -----------------------------------
-  Id = 3
+ -- Row 2 -----------------------------------
+  Id = 2
   Code = proposed
   Display = Proposed
-  Definition = The Authority has proposed the consent to the patient but not yet granted
+  Definition = The consent has be proposed but not yet agreed to by all parties. The negotiation stage.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = active
+  Display = Active
+  Definition = The consent is to be followed and enforced.
 
  -- Row 4 -----------------------------------
   Id = 4
-  Code = preferences
-  Display = Preferences
-  Definition = The Patient has proposed preferences but not yet agreed by Authority
+  Code = rejected
+  Display = Rejected
+  Definition = The consent has been rejected by one or more of the parties.
 
  -- Row 5 -----------------------------------
   Id = 5
-  Code = active
-  Display = Active
-  Definition = The consent is intended to be followed and enforced.
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = rejected
-  Display = Rejected
-  Definition = The consent has been rejected by parties
-
- -- Row 7 -----------------------------------
-  Id = 7
   Code = inactive
   Display = Inactive
   Definition = The consent is terminated or replaced.
@@ -131,7 +119,7 @@
   Summary = Y
   Type = code
   Binding = ConsentStatus
-  Short Label = needs-action | draft | proposed | preferences | active | rejected | inactive
+  Short Label = draft | proposed | active | rejected | inactive
   Definition = Indicates the current state of this consent
   w5 = status
 

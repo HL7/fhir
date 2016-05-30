@@ -40,11 +40,20 @@
 	  The Consent supports a base minimal opt-in vs opt-out indication, 
 	  with an attachment such as a scanned image of the ink on paper signature, and 
 	  possibly with exceptions in a structured and coded way to support exceptions.
-	  The set of exeptions include a list of data objects, list of authors, list of recipients, list of Organizations, list of purposeOfUse, and Date Range.
-	  
+	  The set of exceptions include a list of data objects, list of authors, list of recipients, list of Organizations, list of purposeOfUse, and Date Range.
       </p><p>
 	  The enforcement of the Privacy Consent Directive is not included, but is expected that 
 	  enforcement can be done using various Access Control enforcement methodologies (e.g. OAuth, UMA, XACML).
+	  </p><p>
+	  This enforcement includes the details of the enforcement meaning of the elements of the Privacy Consent Directive, 
+	  such as the rules in place when there is an opt-in consent would be specific about which 
+	  organizational roles have access to what kinds of resources (e.g. RBAC, ABAC). 
+	  The publication of these details are not in scope for the Consent resource.
+      </p><p>
+	  The enforcement of access to data will needs to have a policy to cover the case where a Consent is not achieved. 
+	  This often is driven by regional or natonal regulations, often described as 'implied consent'.
+	  For Treatment use-cases this policy would include specifics to enable appropriate medical treatment access.
+	  
 	  </p>
 
 </div>

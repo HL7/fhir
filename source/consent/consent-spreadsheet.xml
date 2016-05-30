@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>John Moehrke</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-05-30T02:23:56Z</LastSaved>
+  <LastSaved>2016-05-30T12:50:39Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -6481,8 +6481,7 @@
    <Column ss:StyleID="s140" ss:AutoFitWidth="0" ss:Width="155.39999999999998"/>
    <Column ss:StyleID="s140" ss:AutoFitWidth="0" ss:Width="80.400000000000006"
     ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s140" ss:AutoFitWidth="0"
-    ss:Width="244.79999999999998"/>
+   <Column ss:Index="6" ss:StyleID="s140" ss:AutoFitWidth="0" ss:Width="429"/>
    <Column ss:StyleID="s140" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
    <Column ss:Index="9" ss:StyleID="s140" ss:AutoFitWidth="0" ss:Width="242.4"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
@@ -6540,7 +6539,7 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Proposed</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">The Authority has proposed the consent to the patient but not yet granted</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">The consent has be proposed but not yet agreed to by all parties. The negotiation stage.</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s145"/>
@@ -6551,7 +6550,7 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Active</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">The consent is intended to be followed and enforced.</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">The consent is to be followed and enforced.</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s145"/>
@@ -6562,7 +6561,7 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Rejected</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">The consent has been rejected by parties</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">The consent has been rejected by one or more of the parties.</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s145"/>
@@ -7091,7 +7090,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
