@@ -1,0 +1,57 @@
+<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
+   <id value="med0317"/>
+   <isBrand value="false"/>
+   <product>
+      <form>
+         <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="385219001"/>
+            <display value="Injection Solution (qualifier value)"/>
+         </coding>
+         <text value="Injection Solution (qualifier value)"/>
+      </form>
+      <ingredient>
+         <itemCodeableConcept>
+            <coding>
+               <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+               <code value="204520"/>
+               <display value="Potassium Chloride"/>
+            </coding>
+         </itemCodeableConcept>
+         <amount>
+            <numerator>
+               <value value="2"/>
+               <system value="http://unitsofmeasure.org"/>
+               <code value="mEq"/>
+            </numerator>
+            <denominator>
+               <value value="1"/>
+               <system value="http://unitsofmeasure.org"/>
+               <code value="mL"/>
+            </denominator>
+         </amount>
+      </ingredient>
+      <ingredient>
+         <itemCodeableConcept>
+            <coding>
+               <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+               <code value="313002"/>
+               <display value="Sodium Chloride 0.9% injectable solution"/>
+            </coding>
+         </itemCodeableConcept>
+         <amount>
+            <numerator>
+               <value value="0.9"/>
+               <system value="http://unitsofmeasure.org"/>
+               <code value="g"/>
+            </numerator>
+            <denominator>
+               <value value="100"/>
+               <system value="http://unitsofmeasure.org"/>
+               <code value="mL"/>
+            </denominator>
+         </amount>
+      </ingredient>
+   </product>
+</Medication>

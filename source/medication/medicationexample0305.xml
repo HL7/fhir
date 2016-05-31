@@ -1,0 +1,71 @@
+<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
+  <id value="med0305"/>
+  <code>
+    <coding>
+      <system value="http://hl7.org/fhir/sid/ndc"/>
+      <code value="2501-813-16"/>
+      <display value="Timoptic 5mg/ml solution"/>
+    </coding>
+  </code>
+  <isBrand value="true"/>
+  <manufacturer>
+    <!-- Need to find out how to reference a resource for Organization - Aton Pharma Inc -->
+    <reference></reference>
+  </manufacturer>
+  <product>
+    <form>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="75359005"/>
+        <display value="Opthalmic Solution (qualifier value)"/>
+      </coding>
+    </form>
+    <ingredient>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="75359005"/>
+          <display value="Timolol Maleate (substance)"/>
+        </coding>
+      </itemCodeableConcept>
+      <amount>
+        <numerator>
+          <value value="5"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mg"/>
+        </numerator>
+        <denominator>
+          <value value="1"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mL"/>
+        </denominator>
+      </amount>
+    </ingredient>
+    <batch>
+      <lotNumber value="9494788"/>
+      <expirationDate value="2017-05-22"/>
+    </batch> 
+  </product>
+  <package>
+    <container>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="419672006"/>
+        <display value="Bottle - unit of product usage (qualifier value)"/>
+      </coding>
+    </container>
+    <content>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="376877002"/>
+          <display value="Timolol maleate 0.5% opthalmic solution (product)"/>
+        </coding>
+      </itemCodeableConcept>
+      <amount>
+        <!-- need to determine what to put in here - 10ml bottle -->
+      </amount>
+    </content>
+  </package>
+</Medication>

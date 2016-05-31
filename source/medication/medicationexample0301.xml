@@ -1,0 +1,72 @@
+<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
+  <id value="med0301"/>
+  <code>
+    <coding>
+      <system value="http://hl7.org/fhir/sid/ndc"/>
+      <code value="0069-2587-10"/>
+      <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
+    </coding>
+  </code>
+  <isBrand value="true"/>
+  <manufacturer>
+    <!-- not sure how to include reference to a resource - Pfizer Laboratories Div Pfizer Inc -->
+    <reference value="TBD" />
+  </manufacturer>
+  <product>
+    <form>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="385219001"/>
+        <display value="Injection Solution (qualifier value)"/>
+      </coding>
+    </form>
+    <ingredient>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="66955"/>
+          <display value="Vancomycin Hydrochloride"/>
+        </coding>
+      </itemCodeableConcept>
+      <amount>
+        <numerator>
+          <value value="500"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mg"/>
+        </numerator>
+        <denominator>
+          <value value="10"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mL"/>
+        </denominator>
+      </amount>
+    </ingredient>
+    <batch>
+      <lotNumber value="9494788"/>
+      <expirationDate value="2017-05-22"/>
+    </batch>
+  </product>
+  <package>
+    <container>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="415818006"/>
+        <display value="Vial"/>
+      </coding>
+    </container>
+    <content>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <!-- need to include code for vancomycin 500mg/10ml -->
+          <code value="TBD"/>
+          <display value="TBD"/>
+        </coding>
+      </itemCodeableConcept>
+      <amount>
+<!-- need to determine what to put in here - number of vials per package? -->
+      </amount>
+    </content>
+  </package>
+</Medication>

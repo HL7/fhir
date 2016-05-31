@@ -1,0 +1,71 @@
+<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
+  <id value="med0309"/>
+  <code>
+    <coding>
+      <system value="http://hl7.org/fhir/sid/ndc"/>
+      <code value="50580-506-02"/>
+      <display value="Tylenol PM"/>
+    </coding>
+  </code>
+  <isBrand value="true"/>
+  <manufacturer>
+    <!-- Need to find out how to reference a resource for Organization - Johnson & Johnson Consume Inc, McNeil Consumer Healthcare Division -->
+    <reference></reference>
+  </manufacturer>
+  <product>
+    <form>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="385057009"/>
+        <display value="Film-coated tablet (qualifier value)"/>
+      </coding>
+    </form>
+    <ingredient>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="315266"/>
+          <display value="Acetaminophen 500 MG"/>
+        </coding>
+      </itemCodeableConcept>
+      <amount>
+        <numerator>
+          <value value="500"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mg"/>
+        </numerator>
+        <denominator>
+          <value value="1"/>
+          <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+          <code value="Tab"/>
+        </denominator>
+      </amount>
+    </ingredient>
+    <ingredient>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="901813"/>
+          <display value="Diphenhydramine Hydrochloride 25 mg"/>
+        </coding>
+      </itemCodeableConcept>
+      <amount>
+        <numerator>
+          <value value="25"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mg"/>
+        </numerator>
+        <denominator>
+          <value value="1"/>
+          <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+          <code value="Tab"/>
+        </denominator>
+      </amount>
+    </ingredient>
+    <batch>
+      <lotNumber value="9494788"/>
+      <expirationDate value="2017-05-22"/>
+    </batch> 
+  </product>
+</Medication>

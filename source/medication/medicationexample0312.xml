@@ -1,0 +1,39 @@
+<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
+  <id value="med0312"/>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="324689003"/>
+      <display value="Nystatin 100,000 units/ml oral suspension (product)"/>
+    </coding>
+  </code>
+  <isBrand value="false"/>
+  <product>
+    <form>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="387048002"/>
+        <display value="Oral suspension (qualifier value)"/>
+      </coding>
+    </form>
+    <ingredient>
+      <!-- need to find out how to include reference to a substance - Nystatin (substance) SCT 387048002 -->
+      <itemReference>
+        <display></display>
+      </itemReference>
+      <amount>
+        <numerator>
+          <value value="100000"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="u"/>
+        </numerator>
+        <denominator>
+          <value value="1"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mL"/>
+        </denominator>
+      </amount>
+    </ingredient>
+  </product>
+</Medication>
