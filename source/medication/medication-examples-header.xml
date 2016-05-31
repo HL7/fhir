@@ -1,5 +1,42 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<!-- content goes here -->
+<p>The following are examples of Medication resources where the medication is a manufactured product:
+</p>
+<ul>
+    <li><a href="medicationexample0301.html">IV injection (inpatient order) - Manufactured Product - Vancomycin</a></li>
+    <li><a href="medicationexample0302.html">IV Injection with a Rate Example - Manufactured Product - Piperacillin</a></li>
+    <li><a href="medicationexample0303.html">IV Chemotherapy Example - Manufactured Product - Alemtuzumab</a></li>
+    <li><a href="medicationexample0304.html">Oral Chemotherapy Example - Manufactured Product - Myleran</a></li>
+    <li><a href="medicationexample0305.html">Eye Drop Example - Manufactured Product - Timoptic</a></li>
+    <li><a href="medicationexample0306.html">IV Chemotherapy Example - Manufactured Product - Adcetris</a></li>
+    <li><a href="medicationexample0307.html">Subcutaneous injection Example - Manufactured Product - Novolog</a></li>
+    <li><a href="medicationexample0308.html">As needed Oral tablet - Manufactured Product - Percocet </a></li>
+    <li><a href="medicationexample0309.html">Over the Counter Product - Manufactured Product - Tylenol PM</a></li>
+    <li><a href="medicationexample15.html">Oral Chemotherapy Example - Manufactured Product - Xeloda - includes a reference to a substance in ingredient element</a></li>
+</ul>
+<p>The following are examples of Medication resources where the medication is a generic formulation (ie, represents an ingredient or set of ingredients plus dosage form)
+</p>
+<ul>
+    <li><a href="medicationexample0310.html">Generic Formulation - Oxycodone</a></li>
+    <li><a href="medicationexample0311.html">Generic Formulation - Prednisone 5mg tablet</a></li>
+    <li><a href="medicationexample0312.html">Generic Formulation - Nystatin 100,000u/ml</a></li>
+    <li><a href="medicationexample0313.html">Generic Formulation - Lorazepam 2mg/ml injection</a></li>
+    <li><a href="medicationexample0314.thml">Generic Formulation - Alprazolam 0.25mg tablet</a></li>
+    <li><a href="medicationexample0315.html">Generic Formulation - Mometasone Furorate 0.05mg/Actuat</a></li>
+    <li><a href="medicationexample0316.html">Generic Formulation - Fully populated example of a Medication - Chlorthalidone</a></li>
+    <li><a href="medicationexample0321.html">Generic Formulation - Oral Chemotherapy Example - Capecitabine – includes a reference to a substance in the Ingredient element</a></li>
+    <li><a href="medicationexample0320.html">Generic Formulation - Azithromycin 250mg oral capsule - includes a reference to a substance in the Ingredient element</a></li>
+</ul>
+<p>The following are examples of Medication resources where the medication is a compounded (aka extemporaneous or magistral) product
+</p>
+<ul>
+    <li><a href="medicationexample0318.html">Compounded Preparation - KCl in D5W Admixture - includes a reference to a substance in the ingredient element</a></li>
+    <li><a href="medicationexample0317.html">Compounded Preparation - TPN Solution  - includes a reference to a substance in the ingredient element</a></li>
+    <li><a href="medicationexample0319.html">Compounded Preparation - HC 1%, Salicylic Acid 5% in Glaxal Base  - includes a reference to a substance in the ingredient element</a></li>
+</ul>
+<p>The following is an example where the medication resource that is minimally populated </p>
+    <ul>
+        <li><a href="medicationexample1.html">Name Element Only populated - Amoxicillin 250mg/5ml Suspension</a></li>
+    </ul>
+    
 
 </div>

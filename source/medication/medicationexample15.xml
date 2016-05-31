@@ -1,20 +1,70 @@
-<Medication xmlns="http://hl7.org/fhir">
+<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
   <id value="medexample015"/>
   <code>
     <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="134623009"/>
-      <display value="Capecitabine 150mg tablet (product)"/>
+      <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+      <code value="213293"/>
+      <display value="Capecitabine 500mg oral tablet (Xeloda)"/>
     </coding>
   </code>
-  <isBrand value="false"/>
+  <isBrand value="true"/>
+  <manufacturer>
+    <!-- not sure how to include reference to a resource -->
+    <reference value="http://www.gene.com/fhirresource/1" />
+  </manufacturer>
   <product>
     <form>
       <coding>
         <system value="http://snomed.info/sct"/>
-        <code value="440131009"/>
-        <display value="Oral dosage form product"/>
+        <code value="385055001"/>
+        <display value="Tablet dose form (qualifier value)"/>
       </coding>
     </form>
+    <ingredient>
+      <!-- not sure how to include reference to a resource - want to reference a substance resource -->
+    <itemCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="386906001"/>
+        <display value="Capecitabine (substance)"/>
+      </coding>
+    </itemCodeableConcept>
+      <amount>
+        <numerator>
+          <value value="500"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mg"/>
+        </numerator>
+        <denominator>
+          <value value="1"/>
+          <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+          <code value="TAB"/>
+        </denominator>
+      </amount>
+    </ingredient>
+    <batch>
+      <lotNumber value="9494788"/>
+      <expirationDate value="2017-05-22"/>
+    </batch>
   </product>
+  <package>
+    <container>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="419672006"/>
+        <display value="Bottle - unit of produce usage (qualifier value)"/>
+      </coding>
+    </container>
+    <content>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <!-- need to include code for capecitabine 500mg capsule -->
+          <code value="134622004"/>
+          <display value="Capecitabine 500mg tablets (product)"/>
+        </coding>
+      </itemCodeableConcept>
+    </content>
+  </package>
 </Medication>

@@ -496,6 +496,11 @@
     <display value="Cardiac apex"/>
     <display value="Structure of apex of heart (body structure)"/>
   </concept>
+  <concept id="134622004" display="Capecitabine 500mg tablet (product)">
+    <display value="Capecitabine 500mg tablet (product)"/>
+    <display value="Capecitabine 500mg tablet"/>
+    <display value="Capecitabine 500mg tablet (substance)"/>
+  </concept>
   <concept id="134623009" display="Capecitabine 150mg tablet (product)">
     <display value="Capecitabine 150mg tablet (product)"/>
     <display value="Capecitabine 150mg tablet"/>
@@ -3070,6 +3075,10 @@
     <display value="Pyrexial"/>
     <display value="Pyrexia"/>
     <display value="Febrile"/>
+  </concept>
+  <concept id="386906001" display="Capecitabine (substance)">
+    <display value="Capecitabine (substance)"/>
+    <display value="Capecitabine"/>
   </concept>
   <concept id="387517004" display="Acetaminophen (substance)">
     <display value="Acetaminophen (substance)"/>
