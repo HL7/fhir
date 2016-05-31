@@ -15,7 +15,7 @@ Code systems define which codes (symbols and/or expressions) exist, and how they
 select a set of codes from one or more code systems to specify which codes can be used in a particular context.
 </p>
 <p>
-The Code system resource is used to declare the existence of a code system, and it's key properties:
+The CodeSystem resource is used to declare the existence of a code system, and it's key properties:
 </p>
 <ul>
  <li>Identifying URL and version</li>
@@ -25,15 +25,15 @@ The Code system resource is used to declare the existence of a code system, and 
  <li>What properties the concepts defined by the code system</li>
 </ul>
 <p>
-In addition, the code system resource may list some or all of the concepts in the code system, along with
+In addition, the CodeSystem resource may list some or all of the concepts in the code system, along with
 their basic properties (code, display, definition), designations, and additional properties.
 </p>
 <p>
-The Code system resource is not intended to support the process of maintaining a 
+The CodeSystem resource is not intended to support the process of maintaining a 
 code system. Instead, the focus is on publishing the properties and optionally 
 the content of a code system for use throughout the FHIR eco-system, such as to support value set expansion and validation. Note that 
 the important existing (large) code systems (SNOMED CT, LOINC, RxNorm, ICD family, etc) 
-all have their own distribution formats, and there is no intent that the code system
+all have their own distribution formats, and there is no intent that the CodeSystem
 resource be used for distributing these kind of terminologies. Instead, it is 
 intended to be used for distributing the smaller ad-hoc code systems that are 
 ubiqutiously encountered through out the healthcare process.
@@ -44,13 +44,9 @@ ubiqutiously encountered through out the healthcare process.
 <h2>Boundaries and Relationships</h2>
 <ul>
  <li>Code systems are used in <a href="valueset.html">ValueSet</a> resources</li>
- <li>The <a href="datatypes.html#Coding">Coding</a> data type refers to code system resources by their canonical URL</li>
- <li>The CodeSystem resource design is based on the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification, along 
- with metadata in the HL7 Code System Definition specification. Code system resources can be converted to CTS2 
- code system and code system resources.</li>
- <li>The code system resource is aligned with the <a href="http://wiki.hl7.org/index.php?title=Value_Set_Definition_Standard_Project">Code System Definition</a> (VSD) project. 
- Not all of the elements defined by the VSD are part of the base resource - some are defined as part of the <a href="valueset-extensions.html">CodeSystem Extensions</a>.
- In the CodeSystem resource, the <code>lockedDate</code>, <code>compose</code> and <code>codeSystem</code> elements make up the VSD Content Logical definition.</li>
+ <li>The <a href="datatypes.html#Coding">Coding</a> data type refers to CodeSystem resources by their canonical URL</li>
+ <li>The CodeSystem resource design is based on the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification. CodeSystem resources can be converted to CTS2 
+ code system resources.</li>
 </ul>
 </div>
 
