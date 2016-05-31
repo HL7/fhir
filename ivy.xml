@@ -47,7 +47,8 @@
     <dependency org="com.github.rjeschke" name="txtmark" rev="0.11"/>        
     <dependency org="org.pegdown" name="pegdown" rev="1.5.0"/>
     <dependency org="net.sf.saxon" name="Saxon-HE" rev="9.5.1-5" />
-    <dependency org="es.weso" name="shexcala_2.11" rev="0.7.11" />
+    <dependency org="es.weso" name="shexcala_2.11" rev="0.7.14" />
+    <dependency org='es.weso' name='srdf-jena_2.11' rev='0.0.6' />
     <dependency org="org.scala-lang" name="scala-library" rev="2.11.8"/>
     <dependency org="org.everit.json" name="org.everit.json.schema" rev="1.3.0"/>
     <dependency org="org.json" name="json" rev="20160212"/>
