@@ -1,0 +1,214 @@
+{
+  "source" : "daf.xml",
+  "dependencies" : [
+  ],
+  "canonicalBase" : "http://hl7.org/fhir/",
+  "paths" : [{
+    "url" : "daf-allergyintolerance",
+    "defns" : "daf-allergyintolerance-definitions.html",
+    "base" : "daf-allergyintolerance.html"
+  },{
+    "url" : "daf-allergylist",
+    "defns" : "daf-allergylist-definitions.html",
+    "base" : "daf-allergylist.html"
+  },{
+    "url" : "daf-condition",
+    "defns" : "daf-condition-definitions.html",
+    "base" : "daf-condition.html"
+  },{
+    "url" : "daf-diagnosticorder",
+    "defns" : "daf-diagnosticorder-definitions.html",
+    "base" : "daf-diagnosticorder.html"
+  },{
+    "url" : "daf-diagnosticreport",
+    "defns" : "daf-diagnosticreport-definitions.html",
+    "base" : "daf-diagnosticreport.html"
+  },{
+    "url" : "daf-encounter",
+    "defns" : "daf-encounter-definitions.html",
+    "base" : "daf-encounter.html"
+  },{
+    "url" : "daf-encounterlist",
+    "defns" : "daf-encounterlist-definitions.html",
+    "base" : "daf-encounterlist.html"
+  },{
+    "url" : "daf-familymemberhistory",
+    "defns" : "daf-familymemberhistory-definitions.html",
+    "base" : "daf-familymemberhistory.html"
+  },{
+    "url" : "daf-immunizationlist",
+    "defns" : "daf-immunizationlist-definitions.html",
+    "base" : "daf-immunizationlist.html"
+  },{
+    "url" : "daf-location",
+    "defns" : "daf-location-definitions.html",
+    "base" : "daf-location.html"
+  },{
+    "url" : "daf-medication",
+    "defns" : "daf-medication-definitions.html",
+    "base" : "daf-medication.html"
+  },{
+    "url" : "daf-medicationadministration",
+    "defns" : "daf-medicationadministration-definitions.html",
+    "base" : "daf-medicationadministration.html"
+  },{
+    "url" : "daf-medicationlist",
+    "defns" : "daf-medicationlist-definitions.html",
+    "base" : "daf-medicationlist.html"
+  },{
+    "url" : "daf-medicationstatement",
+    "defns" : "daf-medicationstatement-definitions.html",
+    "base" : "daf-medicationstatement.html"
+  },{
+    "url" : "daf-organization",
+    "defns" : "daf-organization-definitions.html",
+    "base" : "daf-organization.html"
+  },{
+    "url" : "daf-patient",
+    "defns" : "daf-patient-definitions.html",
+    "base" : "daf-patient.html"
+  },{
+    "url" : "daf-pract",
+    "defns" : "daf-pract-definitions.html",
+    "base" : "daf-pract.html"
+  },{
+    "url" : "daf-problemlist",
+    "defns" : "daf-problemlist-definitions.html",
+    "base" : "daf-problemlist.html"
+  },{
+    "url" : "daf-procedure",
+    "defns" : "daf-procedure-definitions.html",
+    "base" : "daf-procedure.html"
+  },{
+    "url" : "daf-relatedperson",
+    "defns" : "daf-relatedperson-definitions.html",
+    "base" : "daf-relatedperson.html"
+  },{
+    "url" : "daf-resultlist",
+    "defns" : "daf-resultlist-definitions.html",
+    "base" : "daf-resultlist.html"
+  },{
+    "url" : "daf-resultobs",
+    "defns" : "daf-resultobs-definitions.html",
+    "base" : "daf-resultobs.html"
+  },{
+    "url" : "daf-smokingstatus",
+    "defns" : "daf-smokingstatus-definitions.html",
+    "base" : "daf-smokingstatus.html"
+  },{
+    "url" : "daf-spec",
+    "defns" : "daf-spec-definitions.html",
+    "base" : "daf-spec.html"
+  },{
+    "url" : "StructureDefinition/daf-substance",
+    "defns" : "daf-substance-definitions.html",
+    "base" : "daf-substance.html"
+  },{
+    "url" : "daf-vitalsigns",
+    "defns" : "daf-vitalsigns-definitions.html",
+    "base" : "daf-vitalsigns.html"
+  },{
+    "url" : "daf-immunization",
+    "defns" : "daf-immunization-definitions.html",
+    "base" : "daf-immunization.html"
+  },{
+    "url" : "daf-medicationdispense",
+    "defns" : "daf-medicationdispense-definitions.html",
+    "base" : "daf-medicationdispense.html"
+  },{
+    "url" : "daf-medicationorder",
+    "defns" : "daf-medicationorder-definitions.html",
+    "base" : "daf-medicationorder.html"
+  },{
+    "url" : "daf-procedurelist",
+    "defns" : "daf-procedurelist-definitions.html",
+    "base" : "daf-procedurelist.html"
+  },{
+    "url" : "ValueSet/daf-substance",
+    "base" : "valueset-daf-substance.html"
+  },{
+    "url" : "daf-procedure-type",
+    "base" : "valueset-daf-procedure-type.html"
+  },{
+    "url" : "daf-product-form",
+    "base" : "valueset-daf-product-form.html"
+  },{
+    "url" : "daf-race",
+    "base" : "valueset-daf-race.html"
+  },{
+    "url" : "daf-substance-ndfrt",
+    "base" : "valueset-daf-substance-ndfrt.html"
+  },{
+    "url" : "daf-substance-rxnorm",
+    "base" : "valueset-daf-substance-rxnorm.html"
+  },{
+    "url" : "daf-substance-sct",
+    "base" : "valueset-daf-substance-sct.html"
+  },{
+    "url" : "daf-substance-unii",
+    "base" : "valueset-daf-substance-unii.html"
+  },{
+    "url" : "daf-ucum-vitals-common",
+    "base" : "valueset-daf-ucum-vitals-common.html"
+  },{
+    "url" : "daf-ingredient-name",
+    "base" : "valueset-daf-ingredient-name.html"
+  },{
+    "url" : "daf-medication-brandname",
+    "base" : "valueset-daf-medication-brandname.html"
+  },{
+    "url" : "daf-medication-clinicalname",
+    "base" : "valueset-daf-medication-clinicalname.html"
+  },{
+    "url" : "daf-medication-drugclass",
+    "base" : "valueset-daf-medication-drugclass.html"
+  },{
+    "url" : "daf-problem-severity",
+    "base" : "valueset-daf-problem-severity.html"
+  },{
+    "url" : "daf-problem-type",
+    "base" : "valueset-daf-problem-type.html"
+  },{
+    "url" : "daf-bodysite",
+    "base" : "valueset-daf-bodysite.html"
+  },{
+    "url" : "daf-concern-status",
+    "base" : "valueset-daf-concern-status.html"
+  },{
+    "url" : "daf-cvx",
+    "base" : "valueset-daf-cvx.html"
+  },{
+    "url" : "daf-encounter-dischargedisposition",
+    "base" : "valueset-daf-encounter-dischargedisposition.html"
+  },{
+    "url" : "daf-encounter-reason",
+    "base" : "valueset-daf-encounter-reason.html"
+  },{
+    "url" : "daf-encounter-type",
+    "base" : "valueset-daf-encounter-type.html"
+  },{
+    "url" : "daf-ethnicity",
+    "base" : "valueset-daf-ethnicity.html"
+  },{
+    "url" : "daf-list-DAFMedListCode",
+    "base" : "valueset-daf-list-DAFMedListCode.html"
+  },{
+    "url" : "daf-manifestation-ccda-codes",
+    "base" : "valueset-daf-manifestation-ccda-codes.html"
+  },{
+    "url" : "daf-medication-codes",
+    "base" : "valueset-daf-medication-codes.html"
+  },{
+    "url" : "daf-medication-route",
+    "base" : "valueset-daf-medication-route.html"
+  },{
+    "url" : "daf-observation-ccdasmokingstatus",
+    "base" : "valueset-daf-observation-ccdasmokingstatus.html"
+  },{
+    "url" : "daf-observation-CCDAVitalSignResult",
+    "base" : "valueset-daf-observation-CCDAVitalSignResult.html"
+  },{
+    "url" : "daf-problem",
+    "base" : "valueset-daf-problem.html"
+  }]
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="daf-medication-drugclass"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.18"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/daf-medication-drugclass"/>
+  <name value="Medication Drug Class Value Set"/>
+  <status value="active"/>
+  <publisher value="PHIN VADS"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?id=77FDBFB5-A277-DE11-9B52-0015173D1785"/>
+    </telecom>
+  </contact>
+  <description value="This identifies the pharmacological drug class, such as Cephalosporins. Shall contain a value descending from the NDF-RT concept types of “Mechanism of Action - N0000000223”, “Physiologic Effect - N0000009802” or “Chemical Structure - N0000000002”`. NUI will be used as the concept code."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ndfrt"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="N0000000223”"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/ndfrt"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="N0000009802”"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/ndfrt"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="N0000000002”"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

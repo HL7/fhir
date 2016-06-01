@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="daf-race"/>
+  <meta>
+    <lastUpdated value="2016-05-25T16:59:08.250+10:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h2>MU Race Value Set</h2>
+      <p>Meaningful use race code. The 5 base codes (see http://forum.sitenv.org/viewtopic.php?f=16&amp;t=23&amp;sid=8fb101254557843fa05ac94d8d83a095) from PHIN VADS https://phinvads.cdc.gov/vads/ViewValueSet.action?id=94E75E17-176B-DE11-9B52-0015173D1785 (oid: 2.16.840.1.113883.1.11.14914).</p>
+      <p>This value set includes codes from the following code systems:</p>
+      <ul>
+        <li>Include these codes as defined in 
+          <a href="../v3/Race/cs.html">http://hl7.org/fhir/v3/Race</a>
+          <table>
+            <tr>
+              <td>
+                <b>Code</b>
+              </td>
+              <td>
+                <b>Display</b>
+              </td>
+            </tr>
+            <tr>
+              <td>1002-5</td>
+              <td>American Indian or Alaska Native</td>
+              <td>American Indian or Alaska Native</td>
+            </tr>
+            <tr>
+              <td>2028-9</td>
+              <td>Asian</td>
+              <td>Asian</td>
+            </tr>
+            <tr>
+              <td>2054-5</td>
+              <td>Black or African American</td>
+              <td>Black or African American</td>
+            </tr>
+            <tr>
+              <td>2076-8</td>
+              <td>Native Hawaiian or Other Pacific Islander</td>
+              <td>Native Hawaiian or Other Pacific Islander</td>
+            </tr>
+            <tr>
+              <td>2106-3</td>
+              <td>White</td>
+              <td>White</td>
+            </tr>
+          </table>
+        </li>
+        <li>Include these codes as defined in 
+          <a href="../v3/NullFlavor/cs.html">http://hl7.org/fhir/v3/NullFlavor</a>
+          <table>
+            <tr>
+              <td>
+                <b>Code</b>
+              </td>
+              <td>
+                <b>Display</b>
+              </td>
+            </tr>
+            <tr>
+              <td>UNK</td>
+              <td>Unknown</td>
+              <td>Description:A proper value is applicable, but not known.
+                <br/>
+                        
+                           Usage Notes: This means the actual value is not known.  If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used.  No properties should be included for a datatype with this property unless:
+                <br/>
+                        
+                           Those properties themselves directly translate to a semantic of &quot;unknown&quot;.  (E.g. a local code sent as a translation that conveys &#39;unknown&#39;)
+                           Those properties further qualify the nature of what is unknown.  (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)
+              </td>
+            </tr>
+            <tr>
+              <td>ASKU</td>
+              <td>Asked but no answer</td>
+              <td>Information was sought but not found (e.g., patient was asked but didn&#39;t know)</td>
+            </tr>
+          </table>
+        </li>
+      </ul>
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.4.642.2.575"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/daf-race"/>
+  <version value="1.4.0"/>
+  <name value="MU Race Value Set"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="DAF Project"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://wiki.siframework.org/Data+Access+Framework+Homepage"/>
+    </telecom>
+  </contact>
+  <date value="2016-05-25T16:59:08+10:00"/>
+  <description value="Meaningful use race code. The 5 base codes (see http://forum.sitenv.org/viewtopic.php?f=16&amp;t=23&amp;sid=8fb101254557843fa05ac94d8d83a095) from PHIN VADS https://phinvads.cdc.gov/vads/ViewValueSet.action?id=94E75E17-176B-DE11-9B52-0015173D1785 (oid: 2.16.840.1.113883.1.11.14914)."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/Race"/>
+      <concept>
+        <code value="1002-5"/>
+        <display value="American Indian or Alaska Native"/>
+      </concept>
+      <concept>
+        <code value="2028-9"/>
+        <display value="Asian"/>
+      </concept>
+      <concept>
+        <code value="2054-5"/>
+        <display value="Black or African American"/>
+      </concept>
+      <concept>
+        <code value="2076-8"/>
+        <display value="Native Hawaiian or Other Pacific Islander"/>
+      </concept>
+      <concept>
+        <code value="2106-3"/>
+        <display value="White"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+      <concept>
+        <code value="UNK"/>
+        <display value="Unknown"/>
+      </concept>
+      <concept>
+        <code value="ASKU"/>
+        <display value="Asked but no answer"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

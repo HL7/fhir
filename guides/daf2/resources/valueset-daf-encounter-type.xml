@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="daf-encounter-type"/>
+  <meta>
+    <lastUpdated value="2016-05-25T16:59:08.250+10:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h2>DAF Encounter Type</h2>
+      <p>The type of encounter: a specific code indicating type of service provided, from CPT</p>
+      <p>
+        <b>Copyright Statement:</b> CPT copyright 2014 American Medical Association. All rights reserved.
+      </p>
+      <p>This value set includes codes from the following code systems:</p>
+      <ul>
+        <li>Include all codes defined in http://www.ama-assn.org/go/cpt</li>
+      </ul>
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.4.642.2.590"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/daf-encounter-type"/>
+  <version value="1.4.0"/>
+  <name value="DAF Encounter Type"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <date value="2016-05-25T16:59:08+10:00"/>
+  <description value="The type of encounter: a specific code indicating type of service provided, from CPT"/>
+  <copyright value="CPT copyright 2014 American Medical Association. All rights reserved."/>
+  <compose>
+    <include>
+      <system value="http://www.ama-assn.org/go/cpt"/>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="daf-problem-type"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.3221.7.2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/daf-problem-type"/>
+  <name value="Problem Type Value Set"/>
+  <status value="active"/>
+  <publisher value="PHIN VADS"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?id=71FDBFB5-A277-DE11-9B52-0015173D1785"/>
+    </telecom>
+  </contact>
+  <description value="The SNOMED CT® has been limited by HITSP to the value set reproduced below in Table 2-60 Problem Type Value Set Definition. This indicates the level of medical judgment used to determine the existence of a problem"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="404684003"/>
+        <display value="Finding"/>
+      </concept>
+      <concept>
+        <code value="409586006"/>
+        <display value="Complaint"/>
+      </concept>
+      <concept>
+        <code value="282291009"/>
+        <display value="Diagnosis"/>
+      </concept>
+      <concept>
+        <code value="64572001"/>
+        <display value="Condition"/>
+      </concept>
+      <concept>
+        <code value="248536006"/>
+        <display value="Functional limitation"/>
+      </concept>
+      <concept>
+        <code value="418799008"/>
+        <display value="Symptom"/>
+      </concept>
+      <concept>
+        <code value="55607006"/>
+        <display value="Problem"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
