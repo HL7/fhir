@@ -19,5 +19,6 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/jena-iri-3.1.0.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/jena-base-3.1.0.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/jena-shaded-guava-3.1.0.jar"/>
+	<classpathentry kind="lib" path="../../../java/imports/scala-parser-combinators_2.11-1.0.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

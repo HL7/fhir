@@ -67,10 +67,7 @@ public class ShExValidator {
 
     String contents = new String(Files.readAllBytes(Paths.get(schemaFile)));
 
-//    scala.util.parsing.input.Positional pos = new scala.util.parsing.input.Positional();
-    
-//    return Schema.fromString(contents,"ShExC",none).get();
-    return null;
+    return Schema.fromString(contents,"ShExC",none).get();
   }
 
 }
