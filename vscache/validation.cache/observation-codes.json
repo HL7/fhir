@@ -189,11 +189,6 @@
       "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
-      "hash": "#|http://example.org/local|null|GM|GENTAMICIN",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set LOINC Codes"
-    },
-    {
       "hash": "#|http://example.org/local|null|IPM|IMIPENEM",
       "severity": "error",
       "message": "The code provided is not  valid in the value set LOINC Codes"
