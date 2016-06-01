@@ -112,7 +112,6 @@
   Type = Ratio
   Short Label = Quantity of ingredient present
   Definition = Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet
-  Comments = The amount ratio has both a numerator and denominator.  The denominator could be one of the form (e.g. 50 mg / 1 tablet), total bag volume (e.g. 50 mg / 500mL), or generically one each (e.g. 5 mg / 1 each, such as when the form is cream and the ratio is the amount in the tube).
   v2 Mapping = RXC-3-Component Amount & RXC-4-Component Units  if medication: RXO-2-Requested Give Amount - Minimum & RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum & RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount & RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum & RXE-5-Give Units / RXE-4-Give Amount - Maximum & RXE-5-Give Units / RXE-10-Dispense Amount & RXE-10-Dispense Units
   RIM Mapping = .quantity
 
@@ -234,140 +233,119 @@
 
  -- Row 1 -----------------------------------
   Name = Name Only
-  Identity = medexample001
-  Description = Medication with <name> element only
+  Identity = medicationexample1
+  Description = Name element only populated - Amoxicillin 250mg/5ml Suspension
   Filename = medicationexample1.xml
 
  -- Row 2 -----------------------------------
-  Name = Code Generic
-  Identity = medexample002
-  Description = Medication with coded generic medication
-  Filename = medicationexample2.xml
-
- -- Row 3 -----------------------------------
-  Name = Coded Manufactured
-  Identity = medexample003
-  Description = Medication with coded Manufactured medication
-  Filename = medicationexample3.xml
-
- -- Row 4 -----------------------------------
-  Name = Full Populated
-  Identity = medexample004
-  Description = Fully populated Medication resource
-  Filename = medicationexample4.xml
-
- -- Row 5 -----------------------------------
-  Name = Package
-  Identity = medexample005
-  Description = Medication popluated as a package
-  Filename = medicationexample5.xml
-
- -- Row 6 -----------------------------------
-  Name = Compound
-  Identity = medexample008
-  Description = Compound medication - includes chemicals that are combined
-  Filename = medicationexample8.xml
-
- -- Row 7 -----------------------------------
-  Name = Over the Counter
-  Identity = medexample007
-  Description = Over the Counter Product
-  Filename = medicationexample7.xml
-
- -- Row 8 -----------------------------------
-  Name = Coded 2
-  Identity = medexample006
-  Description = Medication with coded Manufactured medication
-  Filename = medicationexample6.xml
-
- -- Row 9 -----------------------------------
-  Name = Coded 3
-  Identity = medexample011
-  Description = Medication with coded Manufactured medication
-  Filename = medicationexample11.xml
-
- -- Row 10 -----------------------------------
-  Name = Coded 4
-  Identity = medexample012
-  Description = Medication with coded Manufactured medication
-  Filename = medicationexample12.xml
-
- -- Row 11 -----------------------------------
-  Name = Coded 5
-  Identity = medexample013
-  Description = Medication with coded Manufactured medication
-  Filename = medicationexample13.xml
-
- -- Row 12 -----------------------------------
-  Name = Code Generic 2
-  Identity = medexample014
-  Description = Medication with coded generic medication
-  Filename = medicationexample14.xml
-
- -- Row 13 -----------------------------------
   Name = Oncology
   Identity = medexample015
-  Description = Oncology Medication - Oral
+  Description = Oral Chemotherapy Example - Manufactured Product - Xeloda - includes a reference to a substance in ingredient element
   Filename = medicationexample15.xml
 
+ -- Row 3 -----------------------------------
+  Identity = med0301
+  Description = IV injection (inpatient order) - Manufactured Product - Vancomycin
+  Filename = medicationexample0301.xml
+
+ -- Row 4 -----------------------------------
+  Identity = med0302
+  Description = IV Injection with a Rate Example - Manufactured Product - Piperacillin
+  Filename = medicationexample0302.xml
+
+ -- Row 5 -----------------------------------
+  Identity = med0303
+  Description = IV Chemotherapy Example - Manufactured Product - Alemtuzumab
+  Filename = medicationexample0303.xml
+
+ -- Row 6 -----------------------------------
+  Identity = med0304
+  Description = Oral Chemotherapy Example - Manufactured Product - Myleran
+  Filename = medicationexample0304.xml
+
+ -- Row 7 -----------------------------------
+  Identity = med0305
+  Description = Eye Drop Example - Manufactured Product - Timoptic
+  Filename = medicationexample0305.xml
+
+ -- Row 8 -----------------------------------
+  Identity = med0306
+  Description = IV Chemotherapy Example - Manufactured Product - Adcetris
+  Filename = medicationexample0306.xml
+
+ -- Row 9 -----------------------------------
+  Identity = med0307
+  Description = Subcutaneous injection Example - Manufactured Product - Novolog
+  Filename = medicationexample0307.xml
+
+ -- Row 10 -----------------------------------
+  Identity = med0308
+  Description = As needed Oral tablet - Manufactured Product - Percocet
+  Filename = medicationexample0308.xml
+
+ -- Row 11 -----------------------------------
+  Identity = med0309
+  Description = As needed dosage range - Manufactured Product - Tylenol No 1 Caplet
+  Filename = medicationexample0309.xml
+
+ -- Row 12 -----------------------------------
+  Identity = med0310
+  Description = Generic Formulation - Oxycodone
+  Filename = medicationexample0310.xml
+
+ -- Row 13 -----------------------------------
+  Identity = med0311
+  Description = Generic Formulation - Prednisone 5mg tablet
+  Filename = medicationexample0311.xml
+
  -- Row 14 -----------------------------------
-  Name = Injectable
-  Identity = medexample016
-  Description = Oncology Medication - Injectable
-  Filename = medicationexample16.xml
+  Identity = med0312
+  Description = Generic Formulation - Nystatin 100,000 u/ml suspension
+  Filename = medicationexample0312.xml
 
  -- Row 15 -----------------------------------
-  Name = Intravenous
-  Identity = medexample017
-  Description = Intravenous medication
-  Filename = medicationexample17.xml
+  Identity = med0313
+  Description = Generic Formulation - Lorazepam 2mg/ml injection
+  Filename = medicationexample0313.xml
 
  -- Row 16 -----------------------------------
-  Name = Combivent
-  Identity = f001
-  Description = Real-world medication example
-  Filename = medication-example-f001-combivent.xml
+  Identity = med0314
+  Description = Generic Formulation - Alprazolam 0.25mg tablet
+  Filename = medicationexample0314.xml
 
  -- Row 17 -----------------------------------
-  Name = Salmeterol
-  Identity = f201
-  Description = Real-world medication example
-  Filename = medication-example-f201-salmeterol.xml
+  Identity = med0315
+  Description = Generic Formulation - Mometasone Furoate 0.05mg/Actuat
+  Filename = medicationexample0315.xml
 
  -- Row 18 -----------------------------------
-  Name = Flucloxacilline
-  Identity = f202
-  Description = Real-world medication example
-  Filename = medication-example-f202-flucloxacilline.xml
+  Identity = med0316
+  Description = Generic Formulation - Fully populated example of a Medication - Chlorthalidone
+  Filename = medicationexample0316.xml
 
  -- Row 19 -----------------------------------
-  Name = Paracetamol
-  Identity = f203
-  Description = Real-world medication example
-  Filename = medication-example-f203-paracetamol.xml
+  Identity = med0317
+  Description = Compounded Preparation - KCl in D5W Admixture - includes a reference to a substance in the ingredient element
+  Filename = medicationexample0317.xml
 
  -- Row 20 -----------------------------------
-  Name = Crestor
-  Identity = f002
-  Description = Real-world medication example
-  Filename = medication-example-f002-crestor.xml
+  Identity = med0318
+  Description = Compounded Preparation - TPN Solution  - includes a reference to a substance in the ingredient element
+  Filename = medicationexample0318.xml
 
  -- Row 21 -----------------------------------
-  Name = Tolbutamide
-  Identity = f003
-  Description = Real-world medication example
-  Filename = medication-example-f003-tolbutamide.xml
+  Identity = med0319
+  Description = Compounded Preparation - HC 1%, Salicylic Acid 5% in Glaxal Base  - includes a reference to a substance in the ingredient element
+  Filename = medicationexample0319.xml
 
  -- Row 22 -----------------------------------
-  Name = Metoprolol
-  Identity = f004
-  Description = Real-world medication example
-  Filename = medication-example-f004-metoprolol.xml
+  Identity = med0320
+  Description = Generic Formulation - Azithromycin 250mg oral capsule - includes a reference to a substance in the Ingredient element
+  Filename = medicationexample0320.xml
 
  -- Row 23 -----------------------------------
-  Name = Enalapril
-  Identity = f005
-  Description = Real-world medication example
-  Filename = medication-example-f005-enalapril.xml
+  Identity = med0321
+  Description = Generic Formulation - Oral Chemotherapy Example - Capecitabine – includes a reference to a substance in the Ingredient element
+  Filename = medicationexample0321.xml
 
 === Sheet Examples =====================================
