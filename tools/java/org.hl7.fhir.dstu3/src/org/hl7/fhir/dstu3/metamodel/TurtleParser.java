@@ -267,7 +267,7 @@ public class TurtleParser extends ParserBase {
 		ttl.prefix("fhir", "http://hl7.org/fhir/");
 		ttl.prefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
 		ttl.prefix("owl", "http://www.w3.org/2002/07/owl#");
-		ttl.prefix("xs", "http://www.w3.org/2001/XMLSchema#");
+		ttl.prefix("xsd", "http://www.w3.org/2001/XMLSchema#");
 		
 		Section section = ttl.section("resource");
 		Subject subject;
@@ -318,9 +318,7 @@ public class TurtleParser extends ParserBase {
 	  return b.toString();
   }
   private void composeElement(Section section, Complex ctxt, Element element, Element parent) {
-		if ("xhtml".equals(element.getType())) // need to decide what to do with this
-			return;
-		String en = getFormalName(element);
+	String en = getFormalName(element);
 		
 	  Complex t;
 	  if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY && parent != null && parent.getNamedChildValue("fullUrl") != null) {
@@ -343,7 +341,11 @@ public class TurtleParser extends ParserBase {
       decorateReference(t, element);
 	  		
 		for (Element child : element.getChildren()) {
-			composeElement(section, t, child, element);
+			if("xhtml".equals(child.getType())) {
+				String childfn = getFormalName(child);
+				t.predicate("fhir:"+childfn, ttlLiteral(child.getValue(), child.getType()));
+			} else
+				composeElement(section, t, child, element);
 		}
 	}
   private String getFormalName(Element element) {
