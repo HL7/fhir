@@ -69,6 +69,7 @@ import org.hl7.fhir.dstu3.utils.client.EFhirClientException;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
 import org.hl7.fhir.dstu3.validation.IResourceValidator;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
+import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.exceptions.UcumException;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -351,7 +352,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   @Override
-  public boolean supportsSystem(String system) {
+  public boolean supportsSystem(String system) throws TerminologyServiceException {
     return "http://snomed.info/sct".equals(system) || "http://loinc.org".equals(system) || "http://unitsofmeasure.org".equals(system) || super.supportsSystem(system) ;
   }
   
@@ -882,7 +883,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().getInclude().add(inc);
     ValueSetExpansionOutcome vse = expandVS(vs, true);
-    return vse.getValueset().getExpansion();
+    if (vse.getValueset() == null)
+      return null;
+    else
+      return vse.getValueset().getExpansion();
   }
 
   public void initTS(String path, String tsServer) throws Exception {
@@ -1093,6 +1097,11 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         return true;
     }
     return false;
+  }
+
+  @Override
+  public boolean hasCache() {
+    return true;
   }
 
 

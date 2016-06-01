@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -506,6 +506,14 @@ public class Appointment extends DomainResource {
           return this.type;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AppointmentParticipantComponent setType(List<CodeableConcept> theType) { 
+          this.type = theType;
+          return this;
+        }
+
         public boolean hasType() { 
           if (this.type == null)
             return false;
@@ -515,10 +523,6 @@ public class Appointment extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #type} (Role of participant in the appointment.)
-         */
-    // syntactic sugar
         public CodeableConcept addType() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.type == null)
@@ -527,7 +531,6 @@ public class Appointment extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public AppointmentParticipantComponent addType(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -535,6 +538,16 @@ public class Appointment extends DomainResource {
             this.type = new ArrayList<CodeableConcept>();
           this.type.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #type}, creating it if it does not already exist
+         */
+        public CodeableConcept getTypeFirstRep() { 
+          if (getType().isEmpty()) {
+            addType();
+          }
+          return getType().get(0);
         }
 
         /**
@@ -791,8 +804,8 @@ public class Appointment extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (actor == null || actor.isEmpty())
-           && (required == null || required.isEmpty()) && (status == null || status.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, actor, required, status
+          );
       }
 
   public String fhirType() {
@@ -945,6 +958,14 @@ public class Appointment extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Appointment setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -954,10 +975,6 @@ public class Appointment extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (This records identifiers associated with this appointment concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -966,7 +983,6 @@ public class Appointment extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Appointment addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -974,6 +990,16 @@ public class Appointment extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1054,6 +1080,14 @@ public class Appointment extends DomainResource {
       return this.serviceType;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Appointment setServiceType(List<CodeableConcept> theServiceType) { 
+      this.serviceType = theServiceType;
+      return this;
+    }
+
     public boolean hasServiceType() { 
       if (this.serviceType == null)
         return false;
@@ -1063,10 +1097,6 @@ public class Appointment extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #serviceType} (The specific service that is to be performed during this appointment.)
-     */
-    // syntactic sugar
     public CodeableConcept addServiceType() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.serviceType == null)
@@ -1075,7 +1105,6 @@ public class Appointment extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Appointment addServiceType(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1083,6 +1112,16 @@ public class Appointment extends DomainResource {
         this.serviceType = new ArrayList<CodeableConcept>();
       this.serviceType.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #serviceType}, creating it if it does not already exist
+     */
+    public CodeableConcept getServiceTypeFirstRep() { 
+      if (getServiceType().isEmpty()) {
+        addServiceType();
+      }
+      return getServiceType().get(0);
     }
 
     /**
@@ -1094,6 +1133,14 @@ public class Appointment extends DomainResource {
       return this.specialty;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Appointment setSpecialty(List<CodeableConcept> theSpecialty) { 
+      this.specialty = theSpecialty;
+      return this;
+    }
+
     public boolean hasSpecialty() { 
       if (this.specialty == null)
         return false;
@@ -1103,10 +1150,6 @@ public class Appointment extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #specialty} (The specialty of a practitioner that would be required to perform the service requested in this appointment.)
-     */
-    // syntactic sugar
     public CodeableConcept addSpecialty() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.specialty == null)
@@ -1115,7 +1158,6 @@ public class Appointment extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Appointment addSpecialty(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1123,6 +1165,16 @@ public class Appointment extends DomainResource {
         this.specialty = new ArrayList<CodeableConcept>();
       this.specialty.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #specialty}, creating it if it does not already exist
+     */
+    public CodeableConcept getSpecialtyFirstRep() { 
+      if (getSpecialty().isEmpty()) {
+        addSpecialty();
+      }
+      return getSpecialty().get(0);
     }
 
     /**
@@ -1419,6 +1471,14 @@ public class Appointment extends DomainResource {
       return this.slot;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Appointment setSlot(List<Reference> theSlot) { 
+      this.slot = theSlot;
+      return this;
+    }
+
     public boolean hasSlot() { 
       if (this.slot == null)
         return false;
@@ -1428,10 +1488,6 @@ public class Appointment extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #slot} (The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.)
-     */
-    // syntactic sugar
     public Reference addSlot() { //3
       Reference t = new Reference();
       if (this.slot == null)
@@ -1440,7 +1496,6 @@ public class Appointment extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Appointment addSlot(Reference t) { //3
       if (t == null)
         return this;
@@ -1451,18 +1506,29 @@ public class Appointment extends DomainResource {
     }
 
     /**
-     * @return {@link #slot} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.)
+     * @return The first repetition of repeating field {@link #slot}, creating it if it does not already exist
      */
+    public Reference getSlotFirstRep() { 
+      if (getSlot().isEmpty()) {
+        addSlot();
+      }
+      return getSlot().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Slot> getSlotTarget() { 
       if (this.slotTarget == null)
         this.slotTarget = new ArrayList<Slot>();
       return this.slotTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #slot} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Slot addSlotTarget() { 
       Slot r = new Slot();
       if (this.slotTarget == null)
@@ -1578,6 +1644,14 @@ public class Appointment extends DomainResource {
       return this.participant;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Appointment setParticipant(List<AppointmentParticipantComponent> theParticipant) { 
+      this.participant = theParticipant;
+      return this;
+    }
+
     public boolean hasParticipant() { 
       if (this.participant == null)
         return false;
@@ -1587,10 +1661,6 @@ public class Appointment extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #participant} (List of participants involved in the appointment.)
-     */
-    // syntactic sugar
     public AppointmentParticipantComponent addParticipant() { //3
       AppointmentParticipantComponent t = new AppointmentParticipantComponent();
       if (this.participant == null)
@@ -1599,7 +1669,6 @@ public class Appointment extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Appointment addParticipant(AppointmentParticipantComponent t) { //3
       if (t == null)
         return this;
@@ -1607,6 +1676,16 @@ public class Appointment extends DomainResource {
         this.participant = new ArrayList<AppointmentParticipantComponent>();
       this.participant.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #participant}, creating it if it does not already exist
+     */
+    public AppointmentParticipantComponent getParticipantFirstRep() { 
+      if (getParticipant().isEmpty()) {
+        addParticipant();
+      }
+      return getParticipant().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1907,19 +1986,127 @@ public class Appointment extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (serviceCategory == null || serviceCategory.isEmpty()) && (serviceType == null || serviceType.isEmpty())
-           && (specialty == null || specialty.isEmpty()) && (appointmentType == null || appointmentType.isEmpty())
-           && (reason == null || reason.isEmpty()) && (priority == null || priority.isEmpty()) && (description == null || description.isEmpty())
-           && (start == null || start.isEmpty()) && (end == null || end.isEmpty()) && (minutesDuration == null || minutesDuration.isEmpty())
-           && (slot == null || slot.isEmpty()) && (created == null || created.isEmpty()) && (comment == null || comment.isEmpty())
-           && (participant == null || participant.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, serviceCategory
+          , serviceType, specialty, appointmentType, reason, priority, description, start
+          , end, minutesDuration, slot, created, comment, participant);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Appointment;
    }
+
+ /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>Appointment date/time.</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Appointment.start</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date", path="Appointment.start", description="Appointment date/time.", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>Appointment date/time.</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Appointment.start</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>actor</b>
+   * <p>
+   * Description: <b>Any one of the individuals participating in the appointment</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Appointment.participant.actor</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="actor", path="Appointment.participant.actor", description="Any one of the individuals participating in the appointment", type="reference" )
+  public static final String SP_ACTOR = "actor";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>actor</b>
+   * <p>
+   * Description: <b>Any one of the individuals participating in the appointment</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Appointment.participant.actor</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ACTOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ACTOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Appointment:actor</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ACTOR = new ca.uhn.fhir.model.api.Include("Appointment:actor").toLocked();
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>An Identifier of the Appointment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Appointment.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Appointment.identifier", description="An Identifier of the Appointment", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>An Identifier of the Appointment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Appointment.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>practitioner</b>
+   * <p>
+   * Description: <b>One of the individuals of the appointment is this practitioner</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Appointment.participant.actor</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="practitioner", path="Appointment.participant.actor", description="One of the individuals of the appointment is this practitioner", type="reference" )
+  public static final String SP_PRACTITIONER = "practitioner";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>practitioner</b>
+   * <p>
+   * Description: <b>One of the individuals of the appointment is this practitioner</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Appointment.participant.actor</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRACTITIONER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRACTITIONER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Appointment:practitioner</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRACTITIONER = new ca.uhn.fhir.model.api.Include("Appointment:practitioner").toLocked();
+
+ /**
+   * Search parameter: <b>part-status</b>
+   * <p>
+   * Description: <b>The Participation status of the subject, or other participant on the appointment. Can be used to locate participants that have not responded to meeting requests.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Appointment.participant.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="part-status", path="Appointment.participant.status", description="The Participation status of the subject, or other participant on the appointment. Can be used to locate participants that have not responded to meeting requests.", type="token" )
+  public static final String SP_PART_STATUS = "part-status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>part-status</b>
+   * <p>
+   * Description: <b>The Participation status of the subject, or other participant on the appointment. Can be used to locate participants that have not responded to meeting requests.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Appointment.participant.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PART_STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PART_STATUS);
 
  /**
    * Search parameter: <b>patient</b>
@@ -1948,6 +2135,26 @@ public class Appointment extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Appointment:patient").toLocked();
 
  /**
+   * Search parameter: <b>appointment-type</b>
+   * <p>
+   * Description: <b>The style of appointment or patient that has been booked in the slot (not service type)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Appointment.appointmentType</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="appointment-type", path="Appointment.appointmentType", description="The style of appointment or patient that has been booked in the slot (not service type)", type="token" )
+  public static final String SP_APPOINTMENT_TYPE = "appointment-type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>appointment-type</b>
+   * <p>
+   * Description: <b>The style of appointment or patient that has been booked in the slot (not service type)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Appointment.appointmentType</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam APPOINTMENT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_APPOINTMENT_TYPE);
+
+ /**
    * Search parameter: <b>service-type</b>
    * <p>
    * Description: <b>The specific service that is to be performed during this appointment</b><br>
@@ -1966,32 +2173,6 @@ public class Appointment extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SERVICE_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SERVICE_TYPE);
-
- /**
-   * Search parameter: <b>practitioner</b>
-   * <p>
-   * Description: <b>One of the individuals of the appointment is this practitioner</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Appointment.participant.actor</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="practitioner", path="Appointment.participant.actor", description="One of the individuals of the appointment is this practitioner", type="reference" )
-  public static final String SP_PRACTITIONER = "practitioner";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>practitioner</b>
-   * <p>
-   * Description: <b>One of the individuals of the appointment is this practitioner</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Appointment.participant.actor</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRACTITIONER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRACTITIONER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Appointment:practitioner</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRACTITIONER = new ca.uhn.fhir.model.api.Include("Appointment:practitioner").toLocked();
 
  /**
    * Search parameter: <b>location</b>
@@ -2038,112 +2219,6 @@ public class Appointment extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>appointment-type</b>
-   * <p>
-   * Description: <b>The style of appointment or patient that has been booked in the slot (not service type)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Appointment.appointmentType</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="appointment-type", path="Appointment.appointmentType", description="The style of appointment or patient that has been booked in the slot (not service type)", type="token" )
-  public static final String SP_APPOINTMENT_TYPE = "appointment-type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>appointment-type</b>
-   * <p>
-   * Description: <b>The style of appointment or patient that has been booked in the slot (not service type)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Appointment.appointmentType</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam APPOINTMENT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_APPOINTMENT_TYPE);
-
- /**
-   * Search parameter: <b>part-status</b>
-   * <p>
-   * Description: <b>The Participation status of the subject, or other participant on the appointment. Can be used to locate participants that have not responded to meeting requests.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Appointment.participant.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="part-status", path="Appointment.participant.status", description="The Participation status of the subject, or other participant on the appointment. Can be used to locate participants that have not responded to meeting requests.", type="token" )
-  public static final String SP_PART_STATUS = "part-status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>part-status</b>
-   * <p>
-   * Description: <b>The Participation status of the subject, or other participant on the appointment. Can be used to locate participants that have not responded to meeting requests.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Appointment.participant.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PART_STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PART_STATUS);
-
- /**
-   * Search parameter: <b>actor</b>
-   * <p>
-   * Description: <b>Any one of the individuals participating in the appointment</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Appointment.participant.actor</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="actor", path="Appointment.participant.actor", description="Any one of the individuals participating in the appointment", type="reference" )
-  public static final String SP_ACTOR = "actor";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>actor</b>
-   * <p>
-   * Description: <b>Any one of the individuals participating in the appointment</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Appointment.participant.actor</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ACTOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ACTOR);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Appointment:actor</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ACTOR = new ca.uhn.fhir.model.api.Include("Appointment:actor").toLocked();
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>Appointment date/time.</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Appointment.start</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="Appointment.start", description="Appointment date/time.", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>Appointment date/time.</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Appointment.start</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>An Identifier of the Appointment</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Appointment.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Appointment.identifier", description="An Identifier of the Appointment", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>An Identifier of the Appointment</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Appointment.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

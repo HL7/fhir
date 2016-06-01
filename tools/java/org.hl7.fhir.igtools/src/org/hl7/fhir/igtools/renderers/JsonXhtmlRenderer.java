@@ -36,7 +36,7 @@ public class JsonXhtmlRenderer implements JsonCreator {
     checkInArray();
     if (b == null) {
       b = new StringBuilder();
-      b.append("<pre class\"json\">\r\n");
+      b.append("<pre class=\"json\">\r\n");
     }
     levels.add(0, new LevelInfo(false));
     b.append("{\r\n");

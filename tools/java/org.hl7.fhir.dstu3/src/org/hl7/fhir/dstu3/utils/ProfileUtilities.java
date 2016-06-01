@@ -159,9 +159,10 @@ public class ProfileUtilities {
     boolean isDatatype(String typeSimple);
     boolean isResource(String typeSimple);
     boolean hasLinkFor(String typeSimple);
-    String getLinkFor(String typeSimple);
+    String getLinkFor(String corePath, String typeSimple);
     BindingResolution resolveBinding(ElementDefinitionBindingComponent binding);
     String getLinkForProfile(StructureDefinition profile, String url);
+    boolean prependLinks();
   }
 
 
@@ -1135,7 +1136,7 @@ public class ProfileUtilities {
   }
 
 
-  public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, boolean full, String corePath) throws IOException, FHIRException {
+  public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, boolean full, String corePath, String imagePath) throws IOException, FHIRException {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable(corePath, false);
 
@@ -1158,7 +1159,7 @@ public class ProfileUtilities {
       List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
       for (ElementDefinition child : children)
         if (!child.getPath().endsWith(".id"))
-          genElement(defFile == null ? "" : defFile+"-definitions.html#extension.", gen, r.getSubRows(), child, ed.getSnapshot().getElement(), null, true, defFile, true, full, corePath, true, false);
+          genElement(defFile == null ? "" : defFile+"-definitions.html#extension.", gen, r.getSubRows(), child, ed.getSnapshot().getElement(), null, true, defFile, true, full, corePath, imagePath, true, false);
     } else if (deep) {
       List<ElementDefinition> children = new ArrayList<ElementDefinition>();
       for (ElementDefinition ted : ed.getSnapshot().getElement()) {
@@ -1178,7 +1179,7 @@ public class ProfileUtilities {
           r1.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"-definitions.html#extension."+ed.getName(), ((UriType) ued.getFixed()).getValue(), null, null));
           r1.getCells().add(gen.new Cell());
           r1.getCells().add(gen.new Cell(null, null, describeCardinality(c, null, new UnusedTracker()), null, null));
-          genTypes(gen, r1, ved, defFile, ed, corePath);
+          genTypes(gen, r1, ved, defFile, ed, corePath, imagePath);
           r1.getCells().add(gen.new Cell(null, null, c.getDefinition(), null, null));
           r1.setIcon("icon_extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);      
         }
@@ -1190,7 +1191,7 @@ public class ProfileUtilities {
           ved = ted;
       }
 
-      genTypes(gen, r, ved, defFile, ed, corePath);
+      genTypes(gen, r, ved, defFile, ed, corePath, imagePath);
 
       r.setIcon("icon_extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);      
     }
@@ -1228,7 +1229,7 @@ public class ProfileUtilities {
   }
 
 
-  private Cell genTypes(HierarchicalTableGenerator gen, Row r, ElementDefinition e, String profileBaseFileName, StructureDefinition profile, String corePath) {
+  private Cell genTypes(HierarchicalTableGenerator gen, Row r, ElementDefinition e, String profileBaseFileName, StructureDefinition profile, String corePath, String imagePath) {
     Cell c = gen.new Cell();
     r.getCells().add(c);
     List<TypeRefComponent> types = e.getType();
@@ -1279,10 +1280,10 @@ public class ProfileUtilities {
           StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getProfile().get(0).getValue());
           if (sd != null) {
             String disp = sd.hasDisplay() ? sd.getDisplay() : sd.getName();
-            c.addPiece(checkForNoChange(t, gen.new Piece(corePath+sd.getUserString("path"), disp, null)));
+            c.addPiece(checkForNoChange(t, gen.new Piece(checkPrepend(corePath, sd.getUserString("path")), disp, null)));
           } else {
             String rn = t.getProfile().get(0).getValue().substring(40);
-            c.addPiece(checkForNoChange(t, gen.new Piece(corePath+pkp.getLinkFor(rn), rn, null)));
+            c.addPiece(checkForNoChange(t, gen.new Piece(pkp.getLinkFor(corePath, rn), rn, null)));
           }
         } else if (t.getProfile().size() == 0) {
           c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getCode(), null)));
@@ -1302,7 +1303,7 @@ public class ProfileUtilities {
         } else
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+ref, t.getCode(), null)));
       } else if (pkp.hasLinkFor(t.getCode())) {
-        c.addPiece(checkForNoChange(t, gen.new Piece(corePath+pkp.getLinkFor(t.getCode()), t.getCode(), null)));
+        c.addPiece(checkForNoChange(t, gen.new Piece(pkp.getLinkFor(corePath, t.getCode()), t.getCode(), null)));
       } else
         c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getCode(), null)));
     }
@@ -1311,6 +1312,14 @@ public class ProfileUtilities {
     }
     return c;
   }
+
+  private String checkPrepend(String corePath, String path) {
+    if (pkp.prependLinks())
+      return corePath+path;
+    else 
+      return path;
+  }
+
 
   private ElementDefinition getElementByName(List<ElementDefinition> elements, String contentReference) {
     for (ElementDefinition ed : elements)
@@ -1396,22 +1405,22 @@ public class ProfileUtilities {
     return piece;
   }
 
-  public XhtmlNode generateTable(String defFile, StructureDefinition profile, boolean diff, String imageFolder, boolean inlineGraphics, String profileBaseFileName, boolean snapshot, String corePath, boolean logicalModel) throws IOException, FHIRException {
+  public XhtmlNode generateTable(String defFile, StructureDefinition profile, boolean diff, String imageFolder, boolean inlineGraphics, String profileBaseFileName, boolean snapshot, String corePath, String imagePath, boolean logicalModel) throws IOException, FHIRException {
     assert(diff != snapshot);// check it's ok to get rid of one of these
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable(corePath, false);
     List<ElementDefinition> list = diff ? profile.getDifferential().getElement() : profile.getSnapshot().getElement();
     List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
     profiles.add(profile);
-    genElement(defFile == null ? null : defFile+"#"+profile.getId()+".", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath, true, logicalModel);
+    genElement(defFile == null ? null : defFile+"#"+profile.getId()+".", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath, imagePath, true, logicalModel);
     try {
-		return gen.generate(model, corePath);
-	} catch (org.hl7.fhir.exceptions.FHIRException e) {
-		throw new FHIRException(e.getMessage(), e);
-	}
+      return gen.generate(model, imagePath);
+    } catch (org.hl7.fhir.exceptions.FHIRException e) {
+      throw new FHIRException(e.getMessage(), e);
+    }
   }
 
-  private void genElement(String defPath, HierarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, boolean showMissing, String profileBaseFileName, Boolean extensions, boolean snapshot, String corePath, boolean root, boolean logicalModel) throws IOException {
+  private void genElement(String defPath, HierarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, boolean showMissing, String profileBaseFileName, Boolean extensions, boolean snapshot, String corePath, String imagePath, boolean root, boolean logicalModel) throws IOException {
     StructureDefinition profile = profiles == null ? null : profiles.get(profiles.size()-1);
     String s = tail(element.getPath());
     List<ElementDefinition> children = getChildren(all, element);
@@ -1456,13 +1465,13 @@ public class ProfileUtilities {
       Cell gc = gen.new Cell();
       row.getCells().add(gc);
       if (element != null && element.getIsModifier())
-        checkForNoChange(element.getIsModifierElement(), gc.addImage(corePath+"modifier.png", "This element is a modifier element", "?!"));
+        checkForNoChange(element.getIsModifierElement(), gc.addImage(imagePath+"modifier.png", "This element is a modifier element", "?!"));
       if (element != null && element.getMustSupport())
-        checkForNoChange(element.getMustSupportElement(), gc.addImage(corePath+"mustsupport.png", "This element must be supported", "S"));
+        checkForNoChange(element.getMustSupportElement(), gc.addImage(imagePath+"mustsupport.png", "This element must be supported", "S"));
       if (element != null && element.getIsSummary())
-        checkForNoChange(element.getIsSummaryElement(), gc.addImage(corePath+"summary.png", "This element is included in summaries", "∑"));
+        checkForNoChange(element.getIsSummaryElement(), gc.addImage(imagePath+"summary.png", "This element is included in summaries", "∑"));
       if (element != null && (!element.getConstraint().isEmpty() || !element.getCondition().isEmpty()))
-        gc.addImage(corePath+"lock.png", "This element has or is affected by some invariants", "I");
+        gc.addImage(imagePath+"lock.png", "This element has or is affected by some invariants", "I");
 
       ExtensionContext extDefn = null;
       if (ext) {
@@ -1471,7 +1480,7 @@ public class ProfileUtilities {
           if (extDefn == null) {
             genCardinality(gen, element, row, hasDef, used, null);
             row.getCells().add(gen.new Cell(null, null, "?? "+element.getType().get(0).getProfile(), null, null));
-            generateDescription(gen, row, element, null, used.used, profile.getUrl(), element.getType().get(0).getProfile().get(0).getValue(), profile, corePath, root, logicalModel);
+            generateDescription(gen, row, element, null, used.used, profile.getUrl(), element.getType().get(0).getProfile().get(0).getValue(), profile, corePath, imagePath, root, logicalModel);
           } else {
             String name = urltail(element.getType().get(0).getProfile().get(0).getValue());
             left.getPieces().get(0).setText(name);
@@ -1480,27 +1489,27 @@ public class ProfileUtilities {
             genCardinality(gen, element, row, hasDef, used, extDefn.getElement());
             ElementDefinition valueDefn = extDefn.getExtensionValueDefinition();
             if (valueDefn != null && !"0".equals(valueDefn.getMax()))
-               genTypes(gen, row, valueDefn, profileBaseFileName, profile, corePath);
+               genTypes(gen, row, valueDefn, profileBaseFileName, profile, corePath, imagePath);
              else // if it's complex, we just call it nothing
                 // genTypes(gen, row, extDefn.getSnapshot().getElement().get(0), profileBaseFileName, profile);
               row.getCells().add(gen.new Cell(null, null, "(Complex)", null, null));
-            generateDescription(gen, row, element, extDefn.getElement(), used.used, null, extDefn.getUrl(), profile, corePath, root, logicalModel);
+            generateDescription(gen, row, element, extDefn.getElement(), used.used, null, extDefn.getUrl(), profile, corePath, imagePath, root, logicalModel);
           }
         } else {
           genCardinality(gen, element, row, hasDef, used, null);
           if ("0".equals(element.getMax()))
             row.getCells().add(gen.new Cell());            
           else
-            genTypes(gen, row, element, profileBaseFileName, profile, corePath);
-          generateDescription(gen, row, element, null, used.used, null, null, profile, corePath, root, logicalModel);
+            genTypes(gen, row, element, profileBaseFileName, profile, corePath, imagePath);
+          generateDescription(gen, row, element, null, used.used, null, null, profile, corePath, imagePath, root, logicalModel);
         }
       } else {
         genCardinality(gen, element, row, hasDef, used, null);
         if (hasDef && !"0".equals(element.getMax()))
-          genTypes(gen, row, element, profileBaseFileName, profile, corePath);
+          genTypes(gen, row, element, profileBaseFileName, profile, corePath, imagePath);
         else
           row.getCells().add(gen.new Cell());
-        generateDescription(gen, row, element, null, used.used, null, null, profile, corePath, root, logicalModel);
+        generateDescription(gen, row, element, null, used.used, null, null, profile, corePath, imagePath, root, logicalModel);
       }
       if (element.hasSlicing()) {
         if (standardExtensionSlicing(element)) {
@@ -1526,11 +1535,11 @@ public class ProfileUtilities {
       } else{
         for (ElementDefinition child : children)
           if (logicalModel || !child.getPath().endsWith(".id"))
-            genElement(defPath, gen, row.getSubRows(), child, all, profiles, showMissing, profileBaseFileName, isExtension, snapshot, corePath, false, logicalModel);
+            genElement(defPath, gen, row.getSubRows(), child, all, profiles, showMissing, profileBaseFileName, isExtension, snapshot, corePath, imagePath, false, logicalModel);
         if (!snapshot && (extensions == null || !extensions))
           for (ElementDefinition child : children)
             if (child.getPath().endsWith(".extension"))
-              genElement(defPath, gen, row.getSubRows(), child, all, profiles, showMissing, profileBaseFileName, true, false, corePath, false, logicalModel);
+              genElement(defPath, gen, row.getSubRows(), child, all, profiles, showMissing, profileBaseFileName, true, false, corePath, imagePath, false, logicalModel);
       }
     }
   }
@@ -1624,7 +1633,7 @@ public class ProfileUtilities {
 
   }
 
-  private Cell generateDescription(HierarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, StructureDefinition profile, String corePath, boolean root, boolean logicalModel) throws IOException {
+  private Cell generateDescription(HierarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, StructureDefinition profile, String corePath, String imagePath, boolean root, boolean logicalModel) throws IOException {
     Cell c = gen.new Cell();
     row.getCells().add(c);
 
@@ -1673,10 +1682,11 @@ public class ProfileUtilities {
         }
         if (definition != null) {
           if (definition.hasBinding()) {
-            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            if (!c.getPieces().isEmpty()) 
+              c.addPiece(gen.new Piece("br"));
             BindingResolution br = pkp.resolveBinding(definition.getBinding());
             c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, "Binding: ", null).addStyle("font-weight:bold")));
-            c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(br.url == null ? null : Utilities.isAbsoluteUrl(br.url)? br.url : corePath+br.url, br.display, null)));
+            c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(br.url == null ? null : Utilities.isAbsoluteUrl(br.url) || !pkp.prependLinks() ? br.url : corePath+br.url, br.display, null)));
             if (definition.getBinding().hasStrength()) {
               c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, " (", null)));
               c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(corePath+"terminologies.html#"+definition.getBinding().getStrength().toCode(), definition.getBinding().getStrength().toCode(), definition.getBinding().getStrength().getDefinition())));

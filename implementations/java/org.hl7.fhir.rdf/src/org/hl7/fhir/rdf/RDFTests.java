@@ -3,7 +3,7 @@ package org.hl7.fhir.rdf;
 import org.apache.jena.riot.RDFDataMgr;
 import org.hl7.fhir.utilities.Utilities;
 
-import com.hp.hpl.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Model;
 
 public class RDFTests {
 	private static final String prefixes =

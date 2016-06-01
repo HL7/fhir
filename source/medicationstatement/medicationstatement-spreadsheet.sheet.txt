@@ -39,10 +39,8 @@
 
  -- Row 6 -----------------------------------
   Binding Name = MedicationAdministrationNegationReason
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes
+  Binding = unbound
   Definition = A set of codes indicating the reason why the MedicationAdministration is negated.
-  Conformance = example
 
  -- Row 7 -----------------------------------
   Binding Name = MedicationReason
@@ -94,6 +92,20 @@
   Display = Intended
   Definition = The medication may be taken at some time in the future.
 
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = stopped
+  Display = Stopped
+  Definition = Actions implied by the statement have been permanently halted, before all of them occurred.
+  v3 = ActStatus.aborted
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = on-hold
+  Display = On Hold
+  Definition = Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called \"suspended\".
+  v3 = ActStatus.suspended
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -143,7 +155,7 @@
   Summary = y
   Type = code
   Binding = MedicationStatementStatus
-  Short Label = active | completed | entered-in-error | intended
+  Short Label = active | completed | entered-in-error | intended | stopped | on-hold
   Definition = A code representing the patient or other source\'s judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
   Comments = MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.
   RIM Mapping = .statusCode

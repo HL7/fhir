@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -228,6 +228,14 @@ public class Patient extends DomainResource {
           return this.relationship;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ContactComponent setRelationship(List<CodeableConcept> theRelationship) { 
+          this.relationship = theRelationship;
+          return this;
+        }
+
         public boolean hasRelationship() { 
           if (this.relationship == null)
             return false;
@@ -237,10 +245,6 @@ public class Patient extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #relationship} (The nature of the relationship between the patient and the contact person.)
-         */
-    // syntactic sugar
         public CodeableConcept addRelationship() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.relationship == null)
@@ -249,7 +253,6 @@ public class Patient extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ContactComponent addRelationship(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -257,6 +260,16 @@ public class Patient extends DomainResource {
             this.relationship = new ArrayList<CodeableConcept>();
           this.relationship.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #relationship}, creating it if it does not already exist
+         */
+        public CodeableConcept getRelationshipFirstRep() { 
+          if (getRelationship().isEmpty()) {
+            addRelationship();
+          }
+          return getRelationship().get(0);
         }
 
         /**
@@ -292,6 +305,14 @@ public class Patient extends DomainResource {
           return this.telecom;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+          this.telecom = theTelecom;
+          return this;
+        }
+
         public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
@@ -301,10 +322,6 @@ public class Patient extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
-         */
-    // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           if (this.telecom == null)
@@ -313,7 +330,6 @@ public class Patient extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
@@ -321,6 +337,16 @@ public class Patient extends DomainResource {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+         */
+        public ContactPoint getTelecomFirstRep() { 
+          if (getTelecom().isEmpty()) {
+            addTelecom();
+          }
+          return getTelecom().get(0);
         }
 
         /**
@@ -629,10 +655,8 @@ public class Patient extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (relationship == null || relationship.isEmpty()) && (name == null || name.isEmpty())
-           && (telecom == null || telecom.isEmpty()) && (address == null || address.isEmpty()) && (gender == null || gender.isEmpty())
-           && (organization == null || organization.isEmpty()) && (period == null || period.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(relationship, name, telecom
+          , address, gender, organization, period);
       }
 
   public String fhirType() {
@@ -861,8 +885,8 @@ public class Patient extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (species == null || species.isEmpty()) && (breed == null || breed.isEmpty())
-           && (genderStatus == null || genderStatus.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(species, breed, genderStatus
+          );
       }
 
   public String fhirType() {
@@ -1066,8 +1090,7 @@ public class Patient extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (language == null || language.isEmpty()) && (preferred == null || preferred.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(language, preferred);
       }
 
   public String fhirType() {
@@ -1297,8 +1320,7 @@ public class Patient extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (other == null || other.isEmpty()) && (type == null || type.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(other, type);
       }
 
   public String fhirType() {
@@ -1455,6 +1477,14 @@ public class Patient extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Patient setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -1464,10 +1494,6 @@ public class Patient extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (An identifier for this patient.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -1476,7 +1502,6 @@ public class Patient extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Patient addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -1484,6 +1509,16 @@ public class Patient extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1540,6 +1575,14 @@ public class Patient extends DomainResource {
       return this.name;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Patient setName(List<HumanName> theName) { 
+      this.name = theName;
+      return this;
+    }
+
     public boolean hasName() { 
       if (this.name == null)
         return false;
@@ -1549,10 +1592,6 @@ public class Patient extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #name} (A name associated with the individual.)
-     */
-    // syntactic sugar
     public HumanName addName() { //3
       HumanName t = new HumanName();
       if (this.name == null)
@@ -1561,7 +1600,6 @@ public class Patient extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Patient addName(HumanName t) { //3
       if (t == null)
         return this;
@@ -1569,6 +1607,16 @@ public class Patient extends DomainResource {
         this.name = new ArrayList<HumanName>();
       this.name.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #name}, creating it if it does not already exist
+     */
+    public HumanName getNameFirstRep() { 
+      if (getName().isEmpty()) {
+        addName();
+      }
+      return getName().get(0);
     }
 
     /**
@@ -1580,6 +1628,14 @@ public class Patient extends DomainResource {
       return this.telecom;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Patient setTelecom(List<ContactPoint> theTelecom) { 
+      this.telecom = theTelecom;
+      return this;
+    }
+
     public boolean hasTelecom() { 
       if (this.telecom == null)
         return false;
@@ -1589,10 +1645,6 @@ public class Patient extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.)
-     */
-    // syntactic sugar
     public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       if (this.telecom == null)
@@ -1601,7 +1653,6 @@ public class Patient extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Patient addTelecom(ContactPoint t) { //3
       if (t == null)
         return this;
@@ -1609,6 +1660,16 @@ public class Patient extends DomainResource {
         this.telecom = new ArrayList<ContactPoint>();
       this.telecom.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+     */
+    public ContactPoint getTelecomFirstRep() { 
+      if (getTelecom().isEmpty()) {
+        addTelecom();
+      }
+      return getTelecom().get(0);
     }
 
     /**
@@ -1763,6 +1824,14 @@ public class Patient extends DomainResource {
       return this.address;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Patient setAddress(List<Address> theAddress) { 
+      this.address = theAddress;
+      return this;
+    }
+
     public boolean hasAddress() { 
       if (this.address == null)
         return false;
@@ -1772,10 +1841,6 @@ public class Patient extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #address} (Addresses for the individual.)
-     */
-    // syntactic sugar
     public Address addAddress() { //3
       Address t = new Address();
       if (this.address == null)
@@ -1784,7 +1849,6 @@ public class Patient extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Patient addAddress(Address t) { //3
       if (t == null)
         return this;
@@ -1792,6 +1856,16 @@ public class Patient extends DomainResource {
         this.address = new ArrayList<Address>();
       this.address.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #address}, creating it if it does not already exist
+     */
+    public Address getAddressFirstRep() { 
+      if (getAddress().isEmpty()) {
+        addAddress();
+      }
+      return getAddress().get(0);
     }
 
     /**
@@ -1872,6 +1946,14 @@ public class Patient extends DomainResource {
       return this.photo;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Patient setPhoto(List<Attachment> thePhoto) { 
+      this.photo = thePhoto;
+      return this;
+    }
+
     public boolean hasPhoto() { 
       if (this.photo == null)
         return false;
@@ -1881,10 +1963,6 @@ public class Patient extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #photo} (Image of the patient.)
-     */
-    // syntactic sugar
     public Attachment addPhoto() { //3
       Attachment t = new Attachment();
       if (this.photo == null)
@@ -1893,7 +1971,6 @@ public class Patient extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Patient addPhoto(Attachment t) { //3
       if (t == null)
         return this;
@@ -1901,6 +1978,16 @@ public class Patient extends DomainResource {
         this.photo = new ArrayList<Attachment>();
       this.photo.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #photo}, creating it if it does not already exist
+     */
+    public Attachment getPhotoFirstRep() { 
+      if (getPhoto().isEmpty()) {
+        addPhoto();
+      }
+      return getPhoto().get(0);
     }
 
     /**
@@ -1912,6 +1999,14 @@ public class Patient extends DomainResource {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Patient setContact(List<ContactComponent> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -1921,10 +2016,6 @@ public class Patient extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (A contact party (e.g. guardian, partner, friend) for the patient.)
-     */
-    // syntactic sugar
     public ContactComponent addContact() { //3
       ContactComponent t = new ContactComponent();
       if (this.contact == null)
@@ -1933,7 +2024,6 @@ public class Patient extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Patient addContact(ContactComponent t) { //3
       if (t == null)
         return this;
@@ -1941,6 +2031,16 @@ public class Patient extends DomainResource {
         this.contact = new ArrayList<ContactComponent>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public ContactComponent getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -1976,6 +2076,14 @@ public class Patient extends DomainResource {
       return this.communication;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Patient setCommunication(List<PatientCommunicationComponent> theCommunication) { 
+      this.communication = theCommunication;
+      return this;
+    }
+
     public boolean hasCommunication() { 
       if (this.communication == null)
         return false;
@@ -1985,10 +2093,6 @@ public class Patient extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #communication} (Languages which may be used to communicate with the patient about his or her health.)
-     */
-    // syntactic sugar
     public PatientCommunicationComponent addCommunication() { //3
       PatientCommunicationComponent t = new PatientCommunicationComponent();
       if (this.communication == null)
@@ -1997,7 +2101,6 @@ public class Patient extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Patient addCommunication(PatientCommunicationComponent t) { //3
       if (t == null)
         return this;
@@ -2005,6 +2108,16 @@ public class Patient extends DomainResource {
         this.communication = new ArrayList<PatientCommunicationComponent>();
       this.communication.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #communication}, creating it if it does not already exist
+     */
+    public PatientCommunicationComponent getCommunicationFirstRep() { 
+      if (getCommunication().isEmpty()) {
+        addCommunication();
+      }
+      return getCommunication().get(0);
     }
 
     /**
@@ -2016,6 +2129,14 @@ public class Patient extends DomainResource {
       return this.careProvider;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Patient setCareProvider(List<Reference> theCareProvider) { 
+      this.careProvider = theCareProvider;
+      return this;
+    }
+
     public boolean hasCareProvider() { 
       if (this.careProvider == null)
         return false;
@@ -2025,10 +2146,6 @@ public class Patient extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #careProvider} (Patient's nominated care provider.)
-     */
-    // syntactic sugar
     public Reference addCareProvider() { //3
       Reference t = new Reference();
       if (this.careProvider == null)
@@ -2037,7 +2154,6 @@ public class Patient extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Patient addCareProvider(Reference t) { //3
       if (t == null)
         return this;
@@ -2048,8 +2164,19 @@ public class Patient extends DomainResource {
     }
 
     /**
-     * @return {@link #careProvider} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Patient's nominated care provider.)
+     * @return The first repetition of repeating field {@link #careProvider}, creating it if it does not already exist
      */
+    public Reference getCareProviderFirstRep() { 
+      if (getCareProvider().isEmpty()) {
+        addCareProvider();
+      }
+      return getCareProvider().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getCareProviderTarget() { 
       if (this.careProviderTarget == null)
         this.careProviderTarget = new ArrayList<Resource>();
@@ -2109,6 +2236,14 @@ public class Patient extends DomainResource {
       return this.link;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Patient setLink(List<PatientLinkComponent> theLink) { 
+      this.link = theLink;
+      return this;
+    }
+
     public boolean hasLink() { 
       if (this.link == null)
         return false;
@@ -2118,10 +2253,6 @@ public class Patient extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #link} (Link to another patient resource that concerns the same actual patient.)
-     */
-    // syntactic sugar
     public PatientLinkComponent addLink() { //3
       PatientLinkComponent t = new PatientLinkComponent();
       if (this.link == null)
@@ -2130,7 +2261,6 @@ public class Patient extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Patient addLink(PatientLinkComponent t) { //3
       if (t == null)
         return this;
@@ -2138,6 +2268,16 @@ public class Patient extends DomainResource {
         this.link = new ArrayList<PatientLinkComponent>();
       this.link.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #link}, creating it if it does not already exist
+     */
+    public PatientLinkComponent getLinkFirstRep() { 
+      if (getLink().isEmpty()) {
+        addLink();
+      }
+      return getLink().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2476,14 +2616,10 @@ public class Patient extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (active == null || active.isEmpty())
-           && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty()) && (gender == null || gender.isEmpty())
-           && (birthDate == null || birthDate.isEmpty()) && (deceased == null || deceased.isEmpty())
-           && (address == null || address.isEmpty()) && (maritalStatus == null || maritalStatus.isEmpty())
-           && (multipleBirth == null || multipleBirth.isEmpty()) && (photo == null || photo.isEmpty())
-           && (contact == null || contact.isEmpty()) && (animal == null || animal.isEmpty()) && (communication == null || communication.isEmpty())
-           && (careProvider == null || careProvider.isEmpty()) && (managingOrganization == null || managingOrganization.isEmpty())
-           && (link == null || link.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, name
+          , telecom, gender, birthDate, deceased, address, maritalStatus, multipleBirth
+          , photo, contact, animal, communication, careProvider, managingOrganization, link
+          );
       }
 
   @Override
@@ -2492,44 +2628,104 @@ public class Patient extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>phone</b>
+   * Search parameter: <b>birthdate</b>
    * <p>
-   * Description: <b>A value in a phone contact</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Patient.telecom(system=phone)</b><br>
+   * Description: <b>The patient's date of birth</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Patient.birthDate</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="phone", path="Patient.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
-  public static final String SP_PHONE = "phone";
+  @SearchParamDefinition(name="birthdate", path="Patient.birthDate", description="The patient's date of birth", type="date" )
+  public static final String SP_BIRTHDATE = "birthdate";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>phone</b>
+   * <b>Fluent Client</b> search parameter constant for <b>birthdate</b>
    * <p>
-   * Description: <b>A value in a phone contact</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Patient.telecom(system=phone)</b><br>
+   * Description: <b>The patient's date of birth</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Patient.birthDate</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PHONE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PHONE);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam BIRTHDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_BIRTHDATE);
 
  /**
-   * Search parameter: <b>phonetic</b>
+   * Search parameter: <b>deceased</b>
    * <p>
-   * Description: <b>A portion of either family or given name using some kind of phonetic matching algorithm</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Patient.name</b><br>
+   * Description: <b>This patient has been marked as deceased, or as a death date entered</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Patient.deceased[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="phonetic", path="Patient.name", description="A portion of either family or given name using some kind of phonetic matching algorithm", type="string" )
-  public static final String SP_PHONETIC = "phonetic";
+  @SearchParamDefinition(name="deceased", path="Patient.deceased.exists()", description="This patient has been marked as deceased, or as a death date entered", type="token" )
+  public static final String SP_DECEASED = "deceased";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>phonetic</b>
+   * <b>Fluent Client</b> search parameter constant for <b>deceased</b>
    * <p>
-   * Description: <b>A portion of either family or given name using some kind of phonetic matching algorithm</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Patient.name</b><br>
+   * Description: <b>This patient has been marked as deceased, or as a death date entered</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Patient.deceased[x]</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PHONETIC = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PHONETIC);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam DECEASED = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_DECEASED);
+
+ /**
+   * Search parameter: <b>address-state</b>
+   * <p>
+   * Description: <b>A state specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Patient.address.state</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="address-state", path="Patient.address.state", description="A state specified in an address", type="string" )
+  public static final String SP_ADDRESS_STATE = "address-state";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>address-state</b>
+   * <p>
+   * Description: <b>A state specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Patient.address.state</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_STATE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_STATE);
+
+ /**
+   * Search parameter: <b>gender</b>
+   * <p>
+   * Description: <b>Gender of the patient</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Patient.gender</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="gender", path="Patient.gender", description="Gender of the patient", type="token" )
+  public static final String SP_GENDER = "gender";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>gender</b>
+   * <p>
+   * Description: <b>Gender of the patient</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Patient.gender</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam GENDER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_GENDER);
+
+ /**
+   * Search parameter: <b>animal-species</b>
+   * <p>
+   * Description: <b>The species for animal patients</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Patient.animal.species</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="animal-species", path="Patient.animal.species", description="The species for animal patients", type="token" )
+  public static final String SP_ANIMAL_SPECIES = "animal-species";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>animal-species</b>
+   * <p>
+   * Description: <b>The species for animal patients</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Patient.animal.species</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ANIMAL_SPECIES = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ANIMAL_SPECIES);
 
  /**
    * Search parameter: <b>link</b>
@@ -2558,256 +2754,24 @@ public class Patient extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_LINK = new ca.uhn.fhir.model.api.Include("Patient:link").toLocked();
 
  /**
-   * Search parameter: <b>animal-species</b>
+   * Search parameter: <b>language</b>
    * <p>
-   * Description: <b>The species for animal patients</b><br>
+   * Description: <b>Language code (irrespective of use value)</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Patient.animal.species</b><br>
+   * Path: <b>Patient.communication.language</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="animal-species", path="Patient.animal.species", description="The species for animal patients", type="token" )
-  public static final String SP_ANIMAL_SPECIES = "animal-species";
+  @SearchParamDefinition(name="language", path="Patient.communication.language", description="Language code (irrespective of use value)", type="token" )
+  public static final String SP_LANGUAGE = "language";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>animal-species</b>
+   * <b>Fluent Client</b> search parameter constant for <b>language</b>
    * <p>
-   * Description: <b>The species for animal patients</b><br>
+   * Description: <b>Language code (irrespective of use value)</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Patient.animal.species</b><br>
+   * Path: <b>Patient.communication.language</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ANIMAL_SPECIES = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ANIMAL_SPECIES);
-
- /**
-   * Search parameter: <b>organization</b>
-   * <p>
-   * Description: <b>The organization at which this person is a patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Patient.managingOrganization</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="organization", path="Patient.managingOrganization", description="The organization at which this person is a patient", type="reference" )
-  public static final String SP_ORGANIZATION = "organization";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>organization</b>
-   * <p>
-   * Description: <b>The organization at which this person is a patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Patient.managingOrganization</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Patient:organization</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("Patient:organization").toLocked();
-
- /**
-   * Search parameter: <b>address-city</b>
-   * <p>
-   * Description: <b>A city specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Patient.address.city</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="address-city", path="Patient.address.city", description="A city specified in an address", type="string" )
-  public static final String SP_ADDRESS_CITY = "address-city";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-city</b>
-   * <p>
-   * Description: <b>A city specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Patient.address.city</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_CITY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_CITY);
-
- /**
-   * Search parameter: <b>given</b>
-   * <p>
-   * Description: <b>A portion of the given name of the patient</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Patient.name.given</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="given", path="Patient.name.given", description="A portion of the given name of the patient", type="string" )
-  public static final String SP_GIVEN = "given";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>given</b>
-   * <p>
-   * Description: <b>A portion of the given name of the patient</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Patient.name.given</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam GIVEN = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_GIVEN);
-
- /**
-   * Search parameter: <b>careprovider</b>
-   * <p>
-   * Description: <b>Patient's nominated care provider, could be a care manager, not the organization that manages the record</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Patient.careProvider</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="careprovider", path="Patient.careProvider", description="Patient's nominated care provider, could be a care manager, not the organization that manages the record", type="reference" )
-  public static final String SP_CAREPROVIDER = "careprovider";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>careprovider</b>
-   * <p>
-   * Description: <b>Patient's nominated care provider, could be a care manager, not the organization that manages the record</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Patient.careProvider</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CAREPROVIDER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CAREPROVIDER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Patient:careprovider</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CAREPROVIDER = new ca.uhn.fhir.model.api.Include("Patient:careprovider").toLocked();
-
- /**
-   * Search parameter: <b>family</b>
-   * <p>
-   * Description: <b>A portion of the family name of the patient</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Patient.name.family</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="family", path="Patient.name.family", description="A portion of the family name of the patient", type="string" )
-  public static final String SP_FAMILY = "family";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>family</b>
-   * <p>
-   * Description: <b>A portion of the family name of the patient</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Patient.name.family</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam FAMILY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_FAMILY);
-
- /**
-   * Search parameter: <b>death-date</b>
-   * <p>
-   * Description: <b>The date of death has been provided and satisfies this search value</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Patient.deceasedDateTime</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="death-date", path="Patient.deceased.as(DateTime)", description="The date of death has been provided and satisfies this search value", type="date" )
-  public static final String SP_DEATH_DATE = "death-date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>death-date</b>
-   * <p>
-   * Description: <b>The date of death has been provided and satisfies this search value</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Patient.deceasedDateTime</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DEATH_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DEATH_DATE);
-
- /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>A portion of either family or given name of the patient</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Patient.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="Patient.name", description="A portion of either family or given name of the patient", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>A portion of either family or given name of the patient</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Patient.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
-   * Search parameter: <b>telecom</b>
-   * <p>
-   * Description: <b>The value in any kind of telecom details of the patient</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Patient.telecom</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="telecom", path="Patient.telecom", description="The value in any kind of telecom details of the patient", type="token" )
-  public static final String SP_TELECOM = "telecom";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>telecom</b>
-   * <p>
-   * Description: <b>The value in any kind of telecom details of the patient</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Patient.telecom</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TELECOM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TELECOM);
-
- /**
-   * Search parameter: <b>birthdate</b>
-   * <p>
-   * Description: <b>The patient's date of birth</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Patient.birthDate</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="birthdate", path="Patient.birthDate", description="The patient's date of birth", type="date" )
-  public static final String SP_BIRTHDATE = "birthdate";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>birthdate</b>
-   * <p>
-   * Description: <b>The patient's date of birth</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Patient.birthDate</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam BIRTHDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_BIRTHDATE);
-
- /**
-   * Search parameter: <b>gender</b>
-   * <p>
-   * Description: <b>Gender of the patient</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Patient.gender</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="gender", path="Patient.gender", description="Gender of the patient", type="token" )
-  public static final String SP_GENDER = "gender";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>gender</b>
-   * <p>
-   * Description: <b>Gender of the patient</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Patient.gender</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam GENDER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_GENDER);
-
- /**
-   * Search parameter: <b>deceased</b>
-   * <p>
-   * Description: <b>This patient has been marked as deceased, or as a death date entered</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Patient.deceased[x]</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="deceased", path="Patient.deceased.exists()", description="This patient has been marked as deceased, or as a death date entered", type="token" )
-  public static final String SP_DECEASED = "deceased";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>deceased</b>
-   * <p>
-   * Description: <b>This patient has been marked as deceased, or as a death date entered</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Patient.deceased[x]</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam DECEASED = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_DECEASED);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam LANGUAGE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_LANGUAGE);
 
  /**
    * Search parameter: <b>animal-breed</b>
@@ -2850,44 +2814,84 @@ public class Patient extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_COUNTRY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_COUNTRY);
 
  /**
-   * Search parameter: <b>address-state</b>
+   * Search parameter: <b>death-date</b>
    * <p>
-   * Description: <b>A state specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Patient.address.state</b><br>
+   * Description: <b>The date of death has been provided and satisfies this search value</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Patient.deceasedDateTime</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address-state", path="Patient.address.state", description="A state specified in an address", type="string" )
-  public static final String SP_ADDRESS_STATE = "address-state";
+  @SearchParamDefinition(name="death-date", path="Patient.deceased.as(DateTime)", description="The date of death has been provided and satisfies this search value", type="date" )
+  public static final String SP_DEATH_DATE = "death-date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-state</b>
+   * <b>Fluent Client</b> search parameter constant for <b>death-date</b>
    * <p>
-   * Description: <b>A state specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Patient.address.state</b><br>
+   * Description: <b>The date of death has been provided and satisfies this search value</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Patient.deceasedDateTime</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_STATE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_STATE);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DEATH_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DEATH_DATE);
 
  /**
-   * Search parameter: <b>address</b>
+   * Search parameter: <b>phonetic</b>
    * <p>
-   * Description: <b>An address in any kind of address/part of the patient</b><br>
+   * Description: <b>A portion of either family or given name using some kind of phonetic matching algorithm</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>Patient.address</b><br>
+   * Path: <b>Patient.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address", path="Patient.address", description="An address in any kind of address/part of the patient", type="string" )
-  public static final String SP_ADDRESS = "address";
+  @SearchParamDefinition(name="phonetic", path="Patient.name", description="A portion of either family or given name using some kind of phonetic matching algorithm", type="string" )
+  public static final String SP_PHONETIC = "phonetic";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>address</b>
+   * <b>Fluent Client</b> search parameter constant for <b>phonetic</b>
    * <p>
-   * Description: <b>An address in any kind of address/part of the patient</b><br>
+   * Description: <b>A portion of either family or given name using some kind of phonetic matching algorithm</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>Patient.address</b><br>
+   * Path: <b>Patient.name</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PHONETIC = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PHONETIC);
+
+ /**
+   * Search parameter: <b>telecom</b>
+   * <p>
+   * Description: <b>The value in any kind of telecom details of the patient</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Patient.telecom</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="telecom", path="Patient.telecom", description="The value in any kind of telecom details of the patient", type="token" )
+  public static final String SP_TELECOM = "telecom";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>telecom</b>
+   * <p>
+   * Description: <b>The value in any kind of telecom details of the patient</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Patient.telecom</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TELECOM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TELECOM);
+
+ /**
+   * Search parameter: <b>address-city</b>
+   * <p>
+   * Description: <b>A city specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Patient.address.city</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="address-city", path="Patient.address.city", description="A city specified in an address", type="string" )
+  public static final String SP_ADDRESS_CITY = "address-city";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>address-city</b>
+   * <p>
+   * Description: <b>A city specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Patient.address.city</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_CITY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_CITY);
 
  /**
    * Search parameter: <b>email</b>
@@ -2910,24 +2914,64 @@ public class Patient extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam EMAIL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EMAIL);
 
  /**
-   * Search parameter: <b>address-use</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>A use code specified in an address</b><br>
+   * Description: <b>A patient identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Patient.address.use</b><br>
+   * Path: <b>Patient.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address-use", path="Patient.address.use", description="A use code specified in an address", type="token" )
-  public static final String SP_ADDRESS_USE = "address-use";
+  @SearchParamDefinition(name="identifier", path="Patient.identifier", description="A patient identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-use</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>A use code specified in an address</b><br>
+   * Description: <b>A patient identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Patient.address.use</b><br>
+   * Path: <b>Patient.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ADDRESS_USE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ADDRESS_USE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>given</b>
+   * <p>
+   * Description: <b>A portion of the given name of the patient</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Patient.name.given</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="given", path="Patient.name.given", description="A portion of the given name of the patient", type="string" )
+  public static final String SP_GIVEN = "given";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>given</b>
+   * <p>
+   * Description: <b>A portion of the given name of the patient</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Patient.name.given</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam GIVEN = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_GIVEN);
+
+ /**
+   * Search parameter: <b>address</b>
+   * <p>
+   * Description: <b>An address in any kind of address/part of the patient</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Patient.address</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="address", path="Patient.address", description="An address in any kind of address/part of the patient", type="string" )
+  public static final String SP_ADDRESS = "address";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>address</b>
+   * <p>
+   * Description: <b>An address in any kind of address/part of the patient</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Patient.address</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS);
 
  /**
    * Search parameter: <b>active</b>
@@ -2950,46 +2994,6 @@ public class Patient extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTIVE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTIVE);
 
  /**
-   * Search parameter: <b>language</b>
-   * <p>
-   * Description: <b>Language code (irrespective of use value)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Patient.communication.language</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="language", path="Patient.communication.language", description="Language code (irrespective of use value)", type="token" )
-  public static final String SP_LANGUAGE = "language";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>language</b>
-   * <p>
-   * Description: <b>Language code (irrespective of use value)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Patient.communication.language</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam LANGUAGE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_LANGUAGE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>A patient identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Patient.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Patient.identifier", description="A patient identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>A patient identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Patient.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
    * Search parameter: <b>address-postalcode</b>
    * <p>
    * Description: <b>A postalCode specified in an address</b><br>
@@ -3008,6 +3012,138 @@ public class Patient extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_POSTALCODE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_POSTALCODE);
+
+ /**
+   * Search parameter: <b>careprovider</b>
+   * <p>
+   * Description: <b>Patient's nominated care provider, could be a care manager, not the organization that manages the record</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Patient.careProvider</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="careprovider", path="Patient.careProvider", description="Patient's nominated care provider, could be a care manager, not the organization that manages the record", type="reference" )
+  public static final String SP_CAREPROVIDER = "careprovider";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>careprovider</b>
+   * <p>
+   * Description: <b>Patient's nominated care provider, could be a care manager, not the organization that manages the record</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Patient.careProvider</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CAREPROVIDER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CAREPROVIDER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Patient:careprovider</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CAREPROVIDER = new ca.uhn.fhir.model.api.Include("Patient:careprovider").toLocked();
+
+ /**
+   * Search parameter: <b>phone</b>
+   * <p>
+   * Description: <b>A value in a phone contact</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Patient.telecom(system=phone)</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="phone", path="Patient.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
+  public static final String SP_PHONE = "phone";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>phone</b>
+   * <p>
+   * Description: <b>A value in a phone contact</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Patient.telecom(system=phone)</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PHONE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PHONE);
+
+ /**
+   * Search parameter: <b>organization</b>
+   * <p>
+   * Description: <b>The organization at which this person is a patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Patient.managingOrganization</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="organization", path="Patient.managingOrganization", description="The organization at which this person is a patient", type="reference" )
+  public static final String SP_ORGANIZATION = "organization";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>organization</b>
+   * <p>
+   * Description: <b>The organization at which this person is a patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Patient.managingOrganization</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Patient:organization</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("Patient:organization").toLocked();
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>A portion of either family or given name of the patient</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Patient.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="Patient.name", description="A portion of either family or given name of the patient", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>A portion of either family or given name of the patient</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Patient.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>address-use</b>
+   * <p>
+   * Description: <b>A use code specified in an address</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Patient.address.use</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="address-use", path="Patient.address.use", description="A use code specified in an address", type="token" )
+  public static final String SP_ADDRESS_USE = "address-use";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>address-use</b>
+   * <p>
+   * Description: <b>A use code specified in an address</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Patient.address.use</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ADDRESS_USE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ADDRESS_USE);
+
+ /**
+   * Search parameter: <b>family</b>
+   * <p>
+   * Description: <b>A portion of the family name of the patient</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Patient.name.family</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="family", path="Patient.name.family", description="A portion of the family name of the patient", type="string" )
+  public static final String SP_FAMILY = "family";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>family</b>
+   * <p>
+   * Description: <b>A portion of the family name of the patient</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Patient.name.family</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam FAMILY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_FAMILY);
 
 
 }

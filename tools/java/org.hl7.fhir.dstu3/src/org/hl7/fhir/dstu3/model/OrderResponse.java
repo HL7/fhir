@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -340,6 +340,14 @@ public class OrderResponse extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public OrderResponse setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -349,10 +357,6 @@ public class OrderResponse extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Identifiers assigned to this order. The identifiers are usually assigned by the system responding to the order, but they may be provided or added to by other systems.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -361,7 +365,6 @@ public class OrderResponse extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public OrderResponse addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -369,6 +372,16 @@ public class OrderResponse extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -606,6 +619,14 @@ public class OrderResponse extends DomainResource {
       return this.fulfillment;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public OrderResponse setFulfillment(List<Reference> theFulfillment) { 
+      this.fulfillment = theFulfillment;
+      return this;
+    }
+
     public boolean hasFulfillment() { 
       if (this.fulfillment == null)
         return false;
@@ -615,10 +636,6 @@ public class OrderResponse extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #fulfillment} (Links to resources that provide details of the outcome of performing the order; e.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.)
-     */
-    // syntactic sugar
     public Reference addFulfillment() { //3
       Reference t = new Reference();
       if (this.fulfillment == null)
@@ -627,7 +644,6 @@ public class OrderResponse extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public OrderResponse addFulfillment(Reference t) { //3
       if (t == null)
         return this;
@@ -638,8 +654,19 @@ public class OrderResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #fulfillment} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Links to resources that provide details of the outcome of performing the order; e.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.)
+     * @return The first repetition of repeating field {@link #fulfillment}, creating it if it does not already exist
      */
+    public Reference getFulfillmentFirstRep() { 
+      if (getFulfillment().isEmpty()) {
+        addFulfillment();
+      }
+      return getFulfillment().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getFulfillmentTarget() { 
       if (this.fulfillmentTarget == null)
         this.fulfillmentTarget = new ArrayList<Resource>();
@@ -819,10 +846,8 @@ public class OrderResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (request == null || request.isEmpty())
-           && (date == null || date.isEmpty()) && (who == null || who.isEmpty()) && (orderStatus == null || orderStatus.isEmpty())
-           && (description == null || description.isEmpty()) && (fulfillment == null || fulfillment.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, request, date
+          , who, orderStatus, description, fulfillment);
       }
 
   @Override
@@ -831,30 +856,24 @@ public class OrderResponse extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>fulfillment</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>Details of the outcome of performing the order</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>OrderResponse.fulfillment</b><br>
+   * Description: <b>When the response was made</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>OrderResponse.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="fulfillment", path="OrderResponse.fulfillment", description="Details of the outcome of performing the order", type="reference" )
-  public static final String SP_FULFILLMENT = "fulfillment";
+  @SearchParamDefinition(name="date", path="OrderResponse.date", description="When the response was made", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>fulfillment</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>Details of the outcome of performing the order</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>OrderResponse.fulfillment</b><br>
+   * Description: <b>When the response was made</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>OrderResponse.date</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam FULFILLMENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_FULFILLMENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>OrderResponse:fulfillment</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_FULFILLMENT = new ca.uhn.fhir.model.api.Include("OrderResponse:fulfillment").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
    * Search parameter: <b>request</b>
@@ -883,6 +902,26 @@ public class OrderResponse extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUEST = new ca.uhn.fhir.model.api.Include("OrderResponse:request").toLocked();
 
  /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Identifiers assigned to this order by the orderer or by the receiver</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OrderResponse.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="OrderResponse.identifier", description="Identifiers assigned to this order by the orderer or by the receiver", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Identifiers assigned to this order by the orderer or by the receiver</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OrderResponse.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
    * Search parameter: <b>code</b>
    * <p>
    * Description: <b>pending | review | rejected | error | accepted | cancelled | replaced | aborted | completed</b><br>
@@ -903,44 +942,30 @@ public class OrderResponse extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
-   * Search parameter: <b>date</b>
+   * Search parameter: <b>fulfillment</b>
    * <p>
-   * Description: <b>When the response was made</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>OrderResponse.date</b><br>
+   * Description: <b>Details of the outcome of performing the order</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OrderResponse.fulfillment</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="OrderResponse.date", description="When the response was made", type="date" )
-  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="fulfillment", path="OrderResponse.fulfillment", description="Details of the outcome of performing the order", type="reference" )
+  public static final String SP_FULFILLMENT = "fulfillment";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <b>Fluent Client</b> search parameter constant for <b>fulfillment</b>
    * <p>
-   * Description: <b>When the response was made</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>OrderResponse.date</b><br>
+   * Description: <b>Details of the outcome of performing the order</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OrderResponse.fulfillment</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam FULFILLMENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_FULFILLMENT);
 
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Identifiers assigned to this order by the orderer or by the receiver</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OrderResponse.identifier</b><br>
-   * </p>
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>OrderResponse:fulfillment</b>".
    */
-  @SearchParamDefinition(name="identifier", path="OrderResponse.identifier", description="Identifiers assigned to this order by the orderer or by the receiver", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Identifiers assigned to this order by the orderer or by the receiver</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OrderResponse.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_FULFILLMENT = new ca.uhn.fhir.model.api.Include("OrderResponse:fulfillment").toLocked();
 
  /**
    * Search parameter: <b>who</b>

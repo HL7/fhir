@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1579,6 +1579,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.telecom;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+          this.telecom = theTelecom;
+          return this;
+        }
+
         public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
@@ -1588,10 +1596,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
-         */
-    // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           if (this.telecom == null)
@@ -1600,7 +1604,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConformanceContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
@@ -1608,6 +1611,16 @@ public class Conformance extends BaseConformance implements IBaseConformance {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+         */
+        public ContactPoint getTelecomFirstRep() { 
+          if (getTelecom().isEmpty()) {
+            addTelecom();
+          }
+          return getTelecom().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1705,8 +1718,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, telecom);
       }
 
   public String fhirType() {
@@ -2004,8 +2016,8 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (version == null || version.isEmpty())
-           && (releaseDate == null || releaseDate.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, version, releaseDate
+          );
       }
 
   public String fhirType() {
@@ -2233,8 +2245,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (description == null || description.isEmpty()) && (url == null || url.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, url);
       }
 
   public String fhirType() {
@@ -2453,6 +2464,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.resource;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestComponent setResource(List<ConformanceRestResourceComponent> theResource) { 
+          this.resource = theResource;
+          return this;
+        }
+
         public boolean hasResource() { 
           if (this.resource == null)
             return false;
@@ -2462,10 +2481,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #resource} (A specification of the restful capabilities of the solution for a specific resource type.)
-         */
-    // syntactic sugar
         public ConformanceRestResourceComponent addResource() { //3
           ConformanceRestResourceComponent t = new ConformanceRestResourceComponent();
           if (this.resource == null)
@@ -2474,7 +2489,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConformanceRestComponent addResource(ConformanceRestResourceComponent t) { //3
           if (t == null)
             return this;
@@ -2482,6 +2496,16 @@ public class Conformance extends BaseConformance implements IBaseConformance {
             this.resource = new ArrayList<ConformanceRestResourceComponent>();
           this.resource.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #resource}, creating it if it does not already exist
+         */
+        public ConformanceRestResourceComponent getResourceFirstRep() { 
+          if (getResource().isEmpty()) {
+            addResource();
+          }
+          return getResource().get(0);
         }
 
         /**
@@ -2493,6 +2517,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.interaction;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestComponent setInteraction(List<SystemInteractionComponent> theInteraction) { 
+          this.interaction = theInteraction;
+          return this;
+        }
+
         public boolean hasInteraction() { 
           if (this.interaction == null)
             return false;
@@ -2502,10 +2534,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #interaction} (A specification of restful operations supported by the system.)
-         */
-    // syntactic sugar
         public SystemInteractionComponent addInteraction() { //3
           SystemInteractionComponent t = new SystemInteractionComponent();
           if (this.interaction == null)
@@ -2514,7 +2542,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConformanceRestComponent addInteraction(SystemInteractionComponent t) { //3
           if (t == null)
             return this;
@@ -2522,6 +2549,16 @@ public class Conformance extends BaseConformance implements IBaseConformance {
             this.interaction = new ArrayList<SystemInteractionComponent>();
           this.interaction.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #interaction}, creating it if it does not already exist
+         */
+        public SystemInteractionComponent getInteractionFirstRep() { 
+          if (getInteraction().isEmpty()) {
+            addInteraction();
+          }
+          return getInteraction().get(0);
         }
 
         /**
@@ -2582,6 +2619,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.searchParam;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestComponent setSearchParam(List<ConformanceRestResourceSearchParamComponent> theSearchParam) { 
+          this.searchParam = theSearchParam;
+          return this;
+        }
+
         public boolean hasSearchParam() { 
           if (this.searchParam == null)
             return false;
@@ -2591,10 +2636,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #searchParam} (Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.)
-         */
-    // syntactic sugar
         public ConformanceRestResourceSearchParamComponent addSearchParam() { //3
           ConformanceRestResourceSearchParamComponent t = new ConformanceRestResourceSearchParamComponent();
           if (this.searchParam == null)
@@ -2603,7 +2644,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConformanceRestComponent addSearchParam(ConformanceRestResourceSearchParamComponent t) { //3
           if (t == null)
             return this;
@@ -2611,6 +2651,16 @@ public class Conformance extends BaseConformance implements IBaseConformance {
             this.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
           this.searchParam.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #searchParam}, creating it if it does not already exist
+         */
+        public ConformanceRestResourceSearchParamComponent getSearchParamFirstRep() { 
+          if (getSearchParam().isEmpty()) {
+            addSearchParam();
+          }
+          return getSearchParam().get(0);
         }
 
         /**
@@ -2622,6 +2672,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.operation;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestComponent setOperation(List<ConformanceRestOperationComponent> theOperation) { 
+          this.operation = theOperation;
+          return this;
+        }
+
         public boolean hasOperation() { 
           if (this.operation == null)
             return false;
@@ -2631,10 +2689,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #operation} (Definition of an operation or a named query and with its parameters and their meaning and type.)
-         */
-    // syntactic sugar
         public ConformanceRestOperationComponent addOperation() { //3
           ConformanceRestOperationComponent t = new ConformanceRestOperationComponent();
           if (this.operation == null)
@@ -2643,7 +2697,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConformanceRestComponent addOperation(ConformanceRestOperationComponent t) { //3
           if (t == null)
             return this;
@@ -2654,12 +2707,30 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         }
 
         /**
+         * @return The first repetition of repeating field {@link #operation}, creating it if it does not already exist
+         */
+        public ConformanceRestOperationComponent getOperationFirstRep() { 
+          if (getOperation().isEmpty()) {
+            addOperation();
+          }
+          return getOperation().get(0);
+        }
+
+        /**
          * @return {@link #compartment} (An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL.)
          */
         public List<UriType> getCompartment() { 
           if (this.compartment == null)
             this.compartment = new ArrayList<UriType>();
           return this.compartment;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestComponent setCompartment(List<UriType> theCompartment) { 
+          this.compartment = theCompartment;
+          return this;
         }
 
         public boolean hasCompartment() { 
@@ -2674,7 +2745,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         /**
          * @return {@link #compartment} (An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL.)
          */
-    // syntactic sugar
         public UriType addCompartmentElement() {//2 
           UriType t = new UriType();
           if (this.compartment == null)
@@ -2907,11 +2977,8 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (mode == null || mode.isEmpty()) && (documentation == null || documentation.isEmpty())
-           && (security == null || security.isEmpty()) && (resource == null || resource.isEmpty()) && (interaction == null || interaction.isEmpty())
-           && (transactionMode == null || transactionMode.isEmpty()) && (searchParam == null || searchParam.isEmpty())
-           && (operation == null || operation.isEmpty()) && (compartment == null || compartment.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(mode, documentation, security
+          , resource, interaction, transactionMode, searchParam, operation, compartment);
       }
 
   public String fhirType() {
@@ -3014,6 +3081,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.service;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestSecurityComponent setService(List<CodeableConcept> theService) { 
+          this.service = theService;
+          return this;
+        }
+
         public boolean hasService() { 
           if (this.service == null)
             return false;
@@ -3023,10 +3098,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #service} (Types of security services are supported/required by the system.)
-         */
-    // syntactic sugar
         public CodeableConcept addService() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.service == null)
@@ -3035,7 +3106,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConformanceRestSecurityComponent addService(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -3043,6 +3113,16 @@ public class Conformance extends BaseConformance implements IBaseConformance {
             this.service = new ArrayList<CodeableConcept>();
           this.service.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #service}, creating it if it does not already exist
+         */
+        public CodeableConcept getServiceFirstRep() { 
+          if (getService().isEmpty()) {
+            addService();
+          }
+          return getService().get(0);
         }
 
         /**
@@ -3103,6 +3183,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.certificate;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestSecurityComponent setCertificate(List<ConformanceRestSecurityCertificateComponent> theCertificate) { 
+          this.certificate = theCertificate;
+          return this;
+        }
+
         public boolean hasCertificate() { 
           if (this.certificate == null)
             return false;
@@ -3112,10 +3200,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #certificate} (Certificates associated with security profiles.)
-         */
-    // syntactic sugar
         public ConformanceRestSecurityCertificateComponent addCertificate() { //3
           ConformanceRestSecurityCertificateComponent t = new ConformanceRestSecurityCertificateComponent();
           if (this.certificate == null)
@@ -3124,7 +3208,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConformanceRestSecurityComponent addCertificate(ConformanceRestSecurityCertificateComponent t) { //3
           if (t == null)
             return this;
@@ -3132,6 +3215,16 @@ public class Conformance extends BaseConformance implements IBaseConformance {
             this.certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
           this.certificate.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #certificate}, creating it if it does not already exist
+         */
+        public ConformanceRestSecurityCertificateComponent getCertificateFirstRep() { 
+          if (getCertificate().isEmpty()) {
+            addCertificate();
+          }
+          return getCertificate().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -3258,9 +3351,8 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (cors == null || cors.isEmpty()) && (service == null || service.isEmpty())
-           && (description == null || description.isEmpty()) && (certificate == null || certificate.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(cors, service, description
+          , certificate);
       }
 
   public String fhirType() {
@@ -3484,8 +3576,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (blob == null || blob.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, blob);
       }
 
   public String fhirType() {
@@ -3701,6 +3792,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.interaction;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestResourceComponent setInteraction(List<ResourceInteractionComponent> theInteraction) { 
+          this.interaction = theInteraction;
+          return this;
+        }
+
         public boolean hasInteraction() { 
           if (this.interaction == null)
             return false;
@@ -3710,10 +3809,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #interaction} (Identifies a restful operation supported by the solution.)
-         */
-    // syntactic sugar
         public ResourceInteractionComponent addInteraction() { //3
           ResourceInteractionComponent t = new ResourceInteractionComponent();
           if (this.interaction == null)
@@ -3722,7 +3817,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConformanceRestResourceComponent addInteraction(ResourceInteractionComponent t) { //3
           if (t == null)
             return this;
@@ -3730,6 +3824,16 @@ public class Conformance extends BaseConformance implements IBaseConformance {
             this.interaction = new ArrayList<ResourceInteractionComponent>();
           this.interaction.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #interaction}, creating it if it does not already exist
+         */
+        public ResourceInteractionComponent getInteractionFirstRep() { 
+          if (getInteraction().isEmpty()) {
+            addInteraction();
+          }
+          return getInteraction().get(0);
         }
 
         /**
@@ -4019,6 +4123,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.searchInclude;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestResourceComponent setSearchInclude(List<StringType> theSearchInclude) { 
+          this.searchInclude = theSearchInclude;
+          return this;
+        }
+
         public boolean hasSearchInclude() { 
           if (this.searchInclude == null)
             return false;
@@ -4031,7 +4143,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         /**
          * @return {@link #searchInclude} (A list of _include values supported by the server.)
          */
-    // syntactic sugar
         public StringType addSearchIncludeElement() {//2 
           StringType t = new StringType();
           if (this.searchInclude == null)
@@ -4073,6 +4184,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.searchRevInclude;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestResourceComponent setSearchRevInclude(List<StringType> theSearchRevInclude) { 
+          this.searchRevInclude = theSearchRevInclude;
+          return this;
+        }
+
         public boolean hasSearchRevInclude() { 
           if (this.searchRevInclude == null)
             return false;
@@ -4085,7 +4204,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         /**
          * @return {@link #searchRevInclude} (A list of _revinclude (reverse include) values supported by the server.)
          */
-    // syntactic sugar
         public StringType addSearchRevIncludeElement() {//2 
           StringType t = new StringType();
           if (this.searchRevInclude == null)
@@ -4127,6 +4245,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.searchParam;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestResourceComponent setSearchParam(List<ConformanceRestResourceSearchParamComponent> theSearchParam) { 
+          this.searchParam = theSearchParam;
+          return this;
+        }
+
         public boolean hasSearchParam() { 
           if (this.searchParam == null)
             return false;
@@ -4136,10 +4262,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #searchParam} (Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.)
-         */
-    // syntactic sugar
         public ConformanceRestResourceSearchParamComponent addSearchParam() { //3
           ConformanceRestResourceSearchParamComponent t = new ConformanceRestResourceSearchParamComponent();
           if (this.searchParam == null)
@@ -4148,7 +4270,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConformanceRestResourceComponent addSearchParam(ConformanceRestResourceSearchParamComponent t) { //3
           if (t == null)
             return this;
@@ -4156,6 +4277,16 @@ public class Conformance extends BaseConformance implements IBaseConformance {
             this.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
           this.searchParam.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #searchParam}, creating it if it does not already exist
+         */
+        public ConformanceRestResourceSearchParamComponent getSearchParamFirstRep() { 
+          if (getSearchParam().isEmpty()) {
+            addSearchParam();
+          }
+          return getSearchParam().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -4395,13 +4526,9 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty())
-           && (interaction == null || interaction.isEmpty()) && (versioning == null || versioning.isEmpty())
-           && (readHistory == null || readHistory.isEmpty()) && (updateCreate == null || updateCreate.isEmpty())
-           && (conditionalCreate == null || conditionalCreate.isEmpty()) && (conditionalUpdate == null || conditionalUpdate.isEmpty())
-           && (conditionalDelete == null || conditionalDelete.isEmpty()) && (searchInclude == null || searchInclude.isEmpty())
-           && (searchRevInclude == null || searchRevInclude.isEmpty()) && (searchParam == null || searchParam.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, profile, interaction
+          , versioning, readHistory, updateCreate, conditionalCreate, conditionalUpdate, conditionalDelete
+          , searchInclude, searchRevInclude, searchParam);
       }
 
   public String fhirType() {
@@ -4629,8 +4756,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (documentation == null || documentation.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, documentation);
       }
 
   public String fhirType() {
@@ -4906,6 +5032,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.target;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestResourceSearchParamComponent setTarget(List<CodeType> theTarget) { 
+          this.target = theTarget;
+          return this;
+        }
+
         public boolean hasTarget() { 
           if (this.target == null)
             return false;
@@ -4918,7 +5052,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         /**
          * @return {@link #target} (Types of resource (if a resource is referenced).)
          */
-    // syntactic sugar
         public CodeType addTargetElement() {//2 
           CodeType t = new CodeType();
           if (this.target == null)
@@ -4960,6 +5093,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.modifier;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestResourceSearchParamComponent setModifier(List<Enumeration<SearchModifierCode>> theModifier) { 
+          this.modifier = theModifier;
+          return this;
+        }
+
         public boolean hasModifier() { 
           if (this.modifier == null)
             return false;
@@ -4972,7 +5113,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         /**
          * @return {@link #modifier} (A modifier supported for the search parameter.)
          */
-    // syntactic sugar
         public Enumeration<SearchModifierCode> addModifierElement() {//2 
           Enumeration<SearchModifierCode> t = new Enumeration<SearchModifierCode>(new SearchModifierCodeEnumFactory());
           if (this.modifier == null)
@@ -5014,6 +5154,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.chain;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestResourceSearchParamComponent setChain(List<StringType> theChain) { 
+          this.chain = theChain;
+          return this;
+        }
+
         public boolean hasChain() { 
           if (this.chain == null)
             return false;
@@ -5026,7 +5174,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         /**
          * @return {@link #chain} (Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type.)
          */
-    // syntactic sugar
         public StringType addChainElement() {//2 
           StringType t = new StringType();
           if (this.chain == null)
@@ -5226,10 +5373,8 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (definition == null || definition.isEmpty())
-           && (type == null || type.isEmpty()) && (documentation == null || documentation.isEmpty())
-           && (target == null || target.isEmpty()) && (modifier == null || modifier.isEmpty()) && (chain == null || chain.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, definition, type, documentation
+          , target, modifier, chain);
       }
 
   public String fhirType() {
@@ -5457,8 +5602,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (documentation == null || documentation.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, documentation);
       }
 
   public String fhirType() {
@@ -5688,8 +5832,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (definition == null || definition.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, definition);
       }
 
   public String fhirType() {
@@ -5747,6 +5890,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.endpoint;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceMessagingComponent setEndpoint(List<ConformanceMessagingEndpointComponent> theEndpoint) { 
+          this.endpoint = theEndpoint;
+          return this;
+        }
+
         public boolean hasEndpoint() { 
           if (this.endpoint == null)
             return false;
@@ -5756,10 +5907,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #endpoint} (An endpoint (network accessible address) to which messages and/or replies are to be sent.)
-         */
-    // syntactic sugar
         public ConformanceMessagingEndpointComponent addEndpoint() { //3
           ConformanceMessagingEndpointComponent t = new ConformanceMessagingEndpointComponent();
           if (this.endpoint == null)
@@ -5768,7 +5915,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConformanceMessagingComponent addEndpoint(ConformanceMessagingEndpointComponent t) { //3
           if (t == null)
             return this;
@@ -5776,6 +5922,16 @@ public class Conformance extends BaseConformance implements IBaseConformance {
             this.endpoint = new ArrayList<ConformanceMessagingEndpointComponent>();
           this.endpoint.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #endpoint}, creating it if it does not already exist
+         */
+        public ConformanceMessagingEndpointComponent getEndpointFirstRep() { 
+          if (getEndpoint().isEmpty()) {
+            addEndpoint();
+          }
+          return getEndpoint().get(0);
         }
 
         /**
@@ -5881,6 +6037,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return this.event;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceMessagingComponent setEvent(List<ConformanceMessagingEventComponent> theEvent) { 
+          this.event = theEvent;
+          return this;
+        }
+
         public boolean hasEvent() { 
           if (this.event == null)
             return false;
@@ -5890,10 +6054,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #event} (A description of the solution's support for an event at this end-point.)
-         */
-    // syntactic sugar
         public ConformanceMessagingEventComponent addEvent() { //3
           ConformanceMessagingEventComponent t = new ConformanceMessagingEventComponent();
           if (this.event == null)
@@ -5902,7 +6062,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConformanceMessagingComponent addEvent(ConformanceMessagingEventComponent t) { //3
           if (t == null)
             return this;
@@ -5910,6 +6069,16 @@ public class Conformance extends BaseConformance implements IBaseConformance {
             this.event = new ArrayList<ConformanceMessagingEventComponent>();
           this.event.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #event}, creating it if it does not already exist
+         */
+        public ConformanceMessagingEventComponent getEventFirstRep() { 
+          if (getEvent().isEmpty()) {
+            addEvent();
+          }
+          return getEvent().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -6037,9 +6206,8 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (endpoint == null || endpoint.isEmpty()) && (reliableCache == null || reliableCache.isEmpty())
-           && (documentation == null || documentation.isEmpty()) && (event == null || event.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(endpoint, reliableCache, documentation
+          , event);
       }
 
   public String fhirType() {
@@ -6244,8 +6412,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (protocol == null || protocol.isEmpty()) && (address == null || address.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(protocol, address);
       }
 
   public String fhirType() {
@@ -6794,10 +6961,8 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (category == null || category.isEmpty())
-           && (mode == null || mode.isEmpty()) && (focus == null || focus.isEmpty()) && (request == null || request.isEmpty())
-           && (response == null || response.isEmpty()) && (documentation == null || documentation.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, category, mode, focus
+          , request, response, documentation);
       }
 
   public String fhirType() {
@@ -7096,8 +7261,8 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (mode == null || mode.isEmpty()) && (documentation == null || documentation.isEmpty())
-           && (profile == null || profile.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(mode, documentation, profile
+          );
       }
 
   public String fhirType() {
@@ -7410,6 +7575,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Conformance setContact(List<ConformanceContactComponent> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -7419,10 +7592,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
-     */
-    // syntactic sugar
     public ConformanceContactComponent addContact() { //3
       ConformanceContactComponent t = new ConformanceContactComponent();
       if (this.contact == null)
@@ -7431,7 +7600,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public Conformance addContact(ConformanceContactComponent t) { //3
       if (t == null)
         return this;
@@ -7439,6 +7607,16 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         this.contact = new ArrayList<ConformanceContactComponent>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public ConformanceContactComponent getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -7780,6 +7958,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return this.format;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Conformance setFormat(List<CodeType> theFormat) { 
+      this.format = theFormat;
+      return this;
+    }
+
     public boolean hasFormat() { 
       if (this.format == null)
         return false;
@@ -7792,7 +7978,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
     /**
      * @return {@link #format} (A list of the formats supported by this implementation using their content types.)
      */
-    // syntactic sugar
     public CodeType addFormatElement() {//2 
       CodeType t = new CodeType();
       if (this.format == null)
@@ -7834,6 +8019,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return this.profile;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Conformance setProfile(List<Reference> theProfile) { 
+      this.profile = theProfile;
+      return this;
+    }
+
     public boolean hasProfile() { 
       if (this.profile == null)
         return false;
@@ -7843,10 +8036,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #profile} (A list of profiles that represent different use cases supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.)
-     */
-    // syntactic sugar
     public Reference addProfile() { //3
       Reference t = new Reference();
       if (this.profile == null)
@@ -7855,7 +8044,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public Conformance addProfile(Reference t) { //3
       if (t == null)
         return this;
@@ -7866,18 +8054,29 @@ public class Conformance extends BaseConformance implements IBaseConformance {
     }
 
     /**
-     * @return {@link #profile} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A list of profiles that represent different use cases supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.)
+     * @return The first repetition of repeating field {@link #profile}, creating it if it does not already exist
      */
+    public Reference getProfileFirstRep() { 
+      if (getProfile().isEmpty()) {
+        addProfile();
+      }
+      return getProfile().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<StructureDefinition> getProfileTarget() { 
       if (this.profileTarget == null)
         this.profileTarget = new ArrayList<StructureDefinition>();
       return this.profileTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #profile} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A list of profiles that represent different use cases supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public StructureDefinition addProfileTarget() { 
       StructureDefinition r = new StructureDefinition();
       if (this.profileTarget == null)
@@ -7895,6 +8094,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return this.rest;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Conformance setRest(List<ConformanceRestComponent> theRest) { 
+      this.rest = theRest;
+      return this;
+    }
+
     public boolean hasRest() { 
       if (this.rest == null)
         return false;
@@ -7904,10 +8111,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #rest} (A definition of the restful capabilities of the solution, if any.)
-     */
-    // syntactic sugar
     public ConformanceRestComponent addRest() { //3
       ConformanceRestComponent t = new ConformanceRestComponent();
       if (this.rest == null)
@@ -7916,7 +8119,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public Conformance addRest(ConformanceRestComponent t) { //3
       if (t == null)
         return this;
@@ -7924,6 +8126,16 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         this.rest = new ArrayList<ConformanceRestComponent>();
       this.rest.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #rest}, creating it if it does not already exist
+     */
+    public ConformanceRestComponent getRestFirstRep() { 
+      if (getRest().isEmpty()) {
+        addRest();
+      }
+      return getRest().get(0);
     }
 
     /**
@@ -7935,6 +8147,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return this.messaging;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Conformance setMessaging(List<ConformanceMessagingComponent> theMessaging) { 
+      this.messaging = theMessaging;
+      return this;
+    }
+
     public boolean hasMessaging() { 
       if (this.messaging == null)
         return false;
@@ -7944,10 +8164,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #messaging} (A description of the messaging capabilities of the solution.)
-     */
-    // syntactic sugar
     public ConformanceMessagingComponent addMessaging() { //3
       ConformanceMessagingComponent t = new ConformanceMessagingComponent();
       if (this.messaging == null)
@@ -7956,7 +8172,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public Conformance addMessaging(ConformanceMessagingComponent t) { //3
       if (t == null)
         return this;
@@ -7964,6 +8179,16 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         this.messaging = new ArrayList<ConformanceMessagingComponent>();
       this.messaging.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #messaging}, creating it if it does not already exist
+     */
+    public ConformanceMessagingComponent getMessagingFirstRep() { 
+      if (getMessaging().isEmpty()) {
+        addMessaging();
+      }
+      return getMessaging().get(0);
     }
 
     /**
@@ -7975,6 +8200,14 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return this.document;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Conformance setDocument(List<ConformanceDocumentComponent> theDocument) { 
+      this.document = theDocument;
+      return this;
+    }
+
     public boolean hasDocument() { 
       if (this.document == null)
         return false;
@@ -7984,10 +8217,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #document} (A document definition.)
-     */
-    // syntactic sugar
     public ConformanceDocumentComponent addDocument() { //3
       ConformanceDocumentComponent t = new ConformanceDocumentComponent();
       if (this.document == null)
@@ -7996,7 +8225,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public Conformance addDocument(ConformanceDocumentComponent t) { //3
       if (t == null)
         return this;
@@ -8004,6 +8232,16 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         this.document = new ArrayList<ConformanceDocumentComponent>();
       this.document.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #document}, creating it if it does not already exist
+     */
+    public ConformanceDocumentComponent getDocumentFirstRep() { 
+      if (getDocument().isEmpty()) {
+        addDocument();
+      }
+      return getDocument().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -8379,14 +8617,9 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (experimental == null || experimental.isEmpty()) && (publisher == null || publisher.isEmpty())
-           && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (kind == null || kind.isEmpty()) && (software == null || software.isEmpty()) && (implementation == null || implementation.isEmpty())
-           && (fhirVersion == null || fhirVersion.isEmpty()) && (acceptUnknown == null || acceptUnknown.isEmpty())
-           && (format == null || format.isEmpty()) && (profile == null || profile.isEmpty()) && (rest == null || rest.isEmpty())
-           && (messaging == null || messaging.isEmpty()) && (document == null || document.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(experimental, publisher, contact
+          , description, requirements, copyright, kind, software, implementation, fhirVersion
+          , acceptUnknown, format, profile, rest, messaging, document);
       }
 
   @Override
@@ -8395,44 +8628,44 @@ public class Conformance extends BaseConformance implements IBaseConformance {
    }
 
  /**
-   * Search parameter: <b>securityservice</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Conformance.rest.security.service</b><br>
+   * Description: <b>The conformance statement publication date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Conformance.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="securityservice", path="Conformance.rest.security.service", description="OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates", type="token" )
-  public static final String SP_SECURITYSERVICE = "securityservice";
+  @SearchParamDefinition(name="date", path="Conformance.date", description="The conformance statement publication date", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>securityservice</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Conformance.rest.security.service</b><br>
+   * Description: <b>The conformance statement publication date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Conformance.date</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SECURITYSERVICE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SECURITYSERVICE);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>software</b>
    * <p>
-   * Description: <b>The current status of the conformance statement</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Conformance.status</b><br>
+   * Description: <b>Part of a the name of a software application</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Conformance.software.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="Conformance.status", description="The current status of the conformance statement", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="software", path="Conformance.software.name", description="Part of a the name of a software application", type="string" )
+  public static final String SP_SOFTWARE = "software";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>software</b>
    * <p>
-   * Description: <b>The current status of the conformance statement</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Conformance.status</b><br>
+   * Description: <b>Part of a the name of a software application</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Conformance.software.name</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam SOFTWARE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_SOFTWARE);
 
  /**
    * Search parameter: <b>resource</b>
@@ -8475,44 +8708,44 @@ public class Conformance extends BaseConformance implements IBaseConformance {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam FORMAT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FORMAT);
 
  /**
-   * Search parameter: <b>date</b>
+   * Search parameter: <b>description</b>
    * <p>
-   * Description: <b>The conformance statement publication date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Conformance.date</b><br>
+   * Description: <b>Text search in the description of the conformance statement</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Conformance.description</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="Conformance.date", description="The conformance statement publication date", type="date" )
-  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="description", path="Conformance.description", description="Text search in the description of the conformance statement", type="string" )
+  public static final String SP_DESCRIPTION = "description";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
    * <p>
-   * Description: <b>The conformance statement publication date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Conformance.date</b><br>
+   * Description: <b>Text search in the description of the conformance statement</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Conformance.description</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
-   * Search parameter: <b>url</b>
+   * Search parameter: <b>fhirversion</b>
    * <p>
-   * Description: <b>The uri that identifies the conformance statement</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>Conformance.url</b><br>
+   * Description: <b>The version of FHIR</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Conformance.version</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="url", path="Conformance.url", description="The uri that identifies the conformance statement", type="uri" )
-  public static final String SP_URL = "url";
+  @SearchParamDefinition(name="fhirversion", path="Conformance.version", description="The version of FHIR", type="token" )
+  public static final String SP_FHIRVERSION = "fhirversion";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <b>Fluent Client</b> search parameter constant for <b>fhirversion</b>
    * <p>
-   * Description: <b>The uri that identifies the conformance statement</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>Conformance.url</b><br>
+   * Description: <b>The version of FHIR</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Conformance.version</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FHIRVERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FHIRVERSION);
 
  /**
    * Search parameter: <b>version</b>
@@ -8535,24 +8768,70 @@ public class Conformance extends BaseConformance implements IBaseConformance {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
 
  /**
-   * Search parameter: <b>publisher</b>
+   * Search parameter: <b>securityservice</b>
    * <p>
-   * Description: <b>Name of the publisher of the conformance statement</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Conformance.publisher</b><br>
+   * Description: <b>OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Conformance.rest.security.service</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="publisher", path="Conformance.publisher", description="Name of the publisher of the conformance statement", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="securityservice", path="Conformance.rest.security.service", description="OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates", type="token" )
+  public static final String SP_SECURITYSERVICE = "securityservice";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <b>Fluent Client</b> search parameter constant for <b>securityservice</b>
    * <p>
-   * Description: <b>Name of the publisher of the conformance statement</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Conformance.publisher</b><br>
+   * Description: <b>OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Conformance.rest.security.service</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SECURITYSERVICE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SECURITYSERVICE);
+
+ /**
+   * Search parameter: <b>url</b>
+   * <p>
+   * Description: <b>The uri that identifies the conformance statement</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>Conformance.url</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="url", path="Conformance.url", description="The uri that identifies the conformance statement", type="uri" )
+  public static final String SP_URL = "url";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <p>
+   * Description: <b>The uri that identifies the conformance statement</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>Conformance.url</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>supported-profile</b>
+   * <p>
+   * Description: <b>Profiles for use cases supported</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Conformance.profile</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="supported-profile", path="Conformance.profile", description="Profiles for use cases supported", type="reference" )
+  public static final String SP_SUPPORTED_PROFILE = "supported-profile";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>supported-profile</b>
+   * <p>
+   * Description: <b>Profiles for use cases supported</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Conformance.profile</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUPPORTED_PROFILE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUPPORTED_PROFILE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Conformance:supported-profile</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUPPORTED_PROFILE = new ca.uhn.fhir.model.api.Include("Conformance:supported-profile").toLocked();
 
  /**
    * Search parameter: <b>mode</b>
@@ -8601,66 +8880,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_RESOURCEPROFILE = new ca.uhn.fhir.model.api.Include("Conformance:resourceprofile").toLocked();
 
  /**
-   * Search parameter: <b>software</b>
-   * <p>
-   * Description: <b>Part of a the name of a software application</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Conformance.software.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="software", path="Conformance.software.name", description="Part of a the name of a software application", type="string" )
-  public static final String SP_SOFTWARE = "software";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>software</b>
-   * <p>
-   * Description: <b>Part of a the name of a software application</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Conformance.software.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam SOFTWARE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_SOFTWARE);
-
- /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the conformance statement</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Conformance.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="Conformance.description", description="Text search in the description of the conformance statement", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the conformance statement</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Conformance.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
-   * Search parameter: <b>event</b>
-   * <p>
-   * Description: <b>Event code in a conformance statement</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Conformance.messaging.event.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="event", path="Conformance.messaging.event.code", description="Event code in a conformance statement", type="token" )
-  public static final String SP_EVENT = "event";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>event</b>
-   * <p>
-   * Description: <b>Event code in a conformance statement</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Conformance.messaging.event.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EVENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EVENT);
-
- /**
    * Search parameter: <b>name</b>
    * <p>
    * Description: <b>Name of the conformance statement</b><br>
@@ -8701,50 +8920,64 @@ public class Conformance extends BaseConformance implements IBaseConformance {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
-   * Search parameter: <b>supported-profile</b>
+   * Search parameter: <b>publisher</b>
    * <p>
-   * Description: <b>Profiles for use cases supported</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Conformance.profile</b><br>
+   * Description: <b>Name of the publisher of the conformance statement</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Conformance.publisher</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="supported-profile", path="Conformance.profile", description="Profiles for use cases supported", type="reference" )
-  public static final String SP_SUPPORTED_PROFILE = "supported-profile";
+  @SearchParamDefinition(name="publisher", path="Conformance.publisher", description="Name of the publisher of the conformance statement", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>supported-profile</b>
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
    * <p>
-   * Description: <b>Profiles for use cases supported</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Conformance.profile</b><br>
+   * Description: <b>Name of the publisher of the conformance statement</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Conformance.publisher</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUPPORTED_PROFILE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUPPORTED_PROFILE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Conformance:supported-profile</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUPPORTED_PROFILE = new ca.uhn.fhir.model.api.Include("Conformance:supported-profile").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
-   * Search parameter: <b>fhirversion</b>
+   * Search parameter: <b>event</b>
    * <p>
-   * Description: <b>The version of FHIR</b><br>
+   * Description: <b>Event code in a conformance statement</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Conformance.version</b><br>
+   * Path: <b>Conformance.messaging.event.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="fhirversion", path="Conformance.version", description="The version of FHIR", type="token" )
-  public static final String SP_FHIRVERSION = "fhirversion";
+  @SearchParamDefinition(name="event", path="Conformance.messaging.event.code", description="Event code in a conformance statement", type="token" )
+  public static final String SP_EVENT = "event";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>fhirversion</b>
+   * <b>Fluent Client</b> search parameter constant for <b>event</b>
    * <p>
-   * Description: <b>The version of FHIR</b><br>
+   * Description: <b>Event code in a conformance statement</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Conformance.version</b><br>
+   * Path: <b>Conformance.messaging.event.code</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FHIRVERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FHIRVERSION);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EVENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EVENT);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>The current status of the conformance statement</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Conformance.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="Conformance.status", description="The current status of the conformance statement", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>The current status of the conformance statement</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Conformance.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

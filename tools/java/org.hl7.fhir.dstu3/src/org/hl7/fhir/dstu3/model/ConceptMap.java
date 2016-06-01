@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -131,6 +131,14 @@ public class ConceptMap extends BaseConformance {
           return this.telecom;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConceptMapContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+          this.telecom = theTelecom;
+          return this;
+        }
+
         public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
@@ -140,10 +148,6 @@ public class ConceptMap extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
-         */
-    // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           if (this.telecom == null)
@@ -152,7 +156,6 @@ public class ConceptMap extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConceptMapContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
@@ -160,6 +163,16 @@ public class ConceptMap extends BaseConformance {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+         */
+        public ContactPoint getTelecomFirstRep() { 
+          if (getTelecom().isEmpty()) {
+            addTelecom();
+          }
+          return getTelecom().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -257,8 +270,7 @@ public class ConceptMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, telecom);
       }
 
   public String fhirType() {
@@ -463,6 +475,14 @@ public class ConceptMap extends BaseConformance {
           return this.target;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SourceElementComponent setTarget(List<TargetElementComponent> theTarget) { 
+          this.target = theTarget;
+          return this;
+        }
+
         public boolean hasTarget() { 
           if (this.target == null)
             return false;
@@ -472,10 +492,6 @@ public class ConceptMap extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #target} (A concept from the target value set that this concept maps to.)
-         */
-    // syntactic sugar
         public TargetElementComponent addTarget() { //3
           TargetElementComponent t = new TargetElementComponent();
           if (this.target == null)
@@ -484,7 +500,6 @@ public class ConceptMap extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public SourceElementComponent addTarget(TargetElementComponent t) { //3
           if (t == null)
             return this;
@@ -492,6 +507,16 @@ public class ConceptMap extends BaseConformance {
             this.target = new ArrayList<TargetElementComponent>();
           this.target.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #target}, creating it if it does not already exist
+         */
+        public TargetElementComponent getTargetFirstRep() { 
+          if (getTarget().isEmpty()) {
+            addTarget();
+          }
+          return getTarget().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -615,8 +640,8 @@ public class ConceptMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
-           && (code == null || code.isEmpty()) && (target == null || target.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, version, code, target
+          );
       }
 
   public String fhirType() {
@@ -944,6 +969,14 @@ public class ConceptMap extends BaseConformance {
           return this.dependsOn;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TargetElementComponent setDependsOn(List<OtherElementComponent> theDependsOn) { 
+          this.dependsOn = theDependsOn;
+          return this;
+        }
+
         public boolean hasDependsOn() { 
           if (this.dependsOn == null)
             return false;
@@ -953,10 +986,6 @@ public class ConceptMap extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #dependsOn} (A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value.)
-         */
-    // syntactic sugar
         public OtherElementComponent addDependsOn() { //3
           OtherElementComponent t = new OtherElementComponent();
           if (this.dependsOn == null)
@@ -965,7 +994,6 @@ public class ConceptMap extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public TargetElementComponent addDependsOn(OtherElementComponent t) { //3
           if (t == null)
             return this;
@@ -973,6 +1001,16 @@ public class ConceptMap extends BaseConformance {
             this.dependsOn = new ArrayList<OtherElementComponent>();
           this.dependsOn.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #dependsOn}, creating it if it does not already exist
+         */
+        public OtherElementComponent getDependsOnFirstRep() { 
+          if (getDependsOn().isEmpty()) {
+            addDependsOn();
+          }
+          return getDependsOn().get(0);
         }
 
         /**
@@ -984,6 +1022,14 @@ public class ConceptMap extends BaseConformance {
           return this.product;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TargetElementComponent setProduct(List<OtherElementComponent> theProduct) { 
+          this.product = theProduct;
+          return this;
+        }
+
         public boolean hasProduct() { 
           if (this.product == null)
             return false;
@@ -993,10 +1039,6 @@ public class ConceptMap extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #product} (A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.)
-         */
-    // syntactic sugar
         public OtherElementComponent addProduct() { //3
           OtherElementComponent t = new OtherElementComponent();
           if (this.product == null)
@@ -1005,7 +1047,6 @@ public class ConceptMap extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public TargetElementComponent addProduct(OtherElementComponent t) { //3
           if (t == null)
             return this;
@@ -1013,6 +1054,16 @@ public class ConceptMap extends BaseConformance {
             this.product = new ArrayList<OtherElementComponent>();
           this.product.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #product}, creating it if it does not already exist
+         */
+        public OtherElementComponent getProductFirstRep() { 
+          if (getProduct().isEmpty()) {
+            addProduct();
+          }
+          return getProduct().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1177,9 +1228,8 @@ public class ConceptMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
-           && (code == null || code.isEmpty()) && (equivalence == null || equivalence.isEmpty()) && (comments == null || comments.isEmpty())
-           && (dependsOn == null || dependsOn.isEmpty()) && (product == null || product.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, version, code, equivalence
+          , comments, dependsOn, product);
       }
 
   public String fhirType() {
@@ -1471,8 +1521,7 @@ public class ConceptMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (element == null || element.isEmpty()) && (system == null || system.isEmpty())
-           && (code == null || code.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(element, system, code);
       }
 
   public String fhirType() {
@@ -1750,6 +1799,14 @@ public class ConceptMap extends BaseConformance {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ConceptMap setContact(List<ConceptMapContactComponent> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -1759,10 +1816,6 @@ public class ConceptMap extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
-     */
-    // syntactic sugar
     public ConceptMapContactComponent addContact() { //3
       ConceptMapContactComponent t = new ConceptMapContactComponent();
       if (this.contact == null)
@@ -1771,7 +1824,6 @@ public class ConceptMap extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public ConceptMap addContact(ConceptMapContactComponent t) { //3
       if (t == null)
         return this;
@@ -1779,6 +1831,16 @@ public class ConceptMap extends BaseConformance {
         this.contact = new ArrayList<ConceptMapContactComponent>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public ConceptMapContactComponent getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -2041,6 +2103,14 @@ public class ConceptMap extends BaseConformance {
       return this.element;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ConceptMap setElement(List<SourceElementComponent> theElement) { 
+      this.element = theElement;
+      return this;
+    }
+
     public boolean hasElement() { 
       if (this.element == null)
         return false;
@@ -2050,10 +2120,6 @@ public class ConceptMap extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #element} (Mappings for an individual concept in the source to one or more concepts in the target.)
-     */
-    // syntactic sugar
     public SourceElementComponent addElement() { //3
       SourceElementComponent t = new SourceElementComponent();
       if (this.element == null)
@@ -2062,7 +2128,6 @@ public class ConceptMap extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public ConceptMap addElement(SourceElementComponent t) { //3
       if (t == null)
         return this;
@@ -2070,6 +2135,16 @@ public class ConceptMap extends BaseConformance {
         this.element = new ArrayList<SourceElementComponent>();
       this.element.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #element}, creating it if it does not already exist
+     */
+    public SourceElementComponent getElementFirstRep() { 
+      if (getElement().isEmpty()) {
+        addElement();
+      }
+      return getElement().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2363,77 +2438,14 @@ public class ConceptMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (source == null || source.isEmpty()) && (target == null || target.isEmpty()) && (element == null || element.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, experimental, publisher
+          , contact, description, requirements, copyright, source, target, element);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.ConceptMap;
    }
-
- /**
-   * Search parameter: <b>source-system</b>
-   * <p>
-   * Description: <b>Code System (if value set crosses code systems)</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.system</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="source-system", path="ConceptMap.element.system", description="Code System (if value set crosses code systems)", type="uri" )
-  public static final String SP_SOURCE_SYSTEM = "source-system";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>source-system</b>
-   * <p>
-   * Description: <b>Code System (if value set crosses code systems)</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.system</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam SOURCE_SYSTEM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SOURCE_SYSTEM);
-
- /**
-   * Search parameter: <b>dependson</b>
-   * <p>
-   * Description: <b>Reference to element/field/ValueSet mapping depends on</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.target.dependsOn.element</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="dependson", path="ConceptMap.element.target.dependsOn.element", description="Reference to element/field/ValueSet mapping depends on", type="uri" )
-  public static final String SP_DEPENDSON = "dependson";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>dependson</b>
-   * <p>
-   * Description: <b>Reference to element/field/ValueSet mapping depends on</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.target.dependsOn.element</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam DEPENDSON = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DEPENDSON);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>Status of the concept map</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ConceptMap.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="ConceptMap.status", description="Status of the concept map", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>Status of the concept map</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ConceptMap.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
  /**
    * Search parameter: <b>date</b>
@@ -2456,44 +2468,130 @@ public class ConceptMap extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>url</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The URL of the concept map</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.url</b><br>
+   * Description: <b>Additional identifier for the concept map</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ConceptMap.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="url", path="ConceptMap.url", description="The URL of the concept map", type="uri" )
-  public static final String SP_URL = "url";
+  @SearchParamDefinition(name="identifier", path="ConceptMap.identifier", description="Additional identifier for the concept map", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The URL of the concept map</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.url</b><br>
+   * Description: <b>Additional identifier for the concept map</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ConceptMap.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>target-code</b>
+   * Search parameter: <b>product</b>
    * <p>
-   * Description: <b>Code that identifies the target element</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ConceptMap.element.target.code</b><br>
+   * Description: <b>Reference to element/field/ValueSet mapping depends on</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ConceptMap.element.target.product.element</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="target-code", path="ConceptMap.element.target.code", description="Code that identifies the target element", type="token" )
-  public static final String SP_TARGET_CODE = "target-code";
+  @SearchParamDefinition(name="product", path="ConceptMap.element.target.product.element", description="Reference to element/field/ValueSet mapping depends on", type="uri" )
+  public static final String SP_PRODUCT = "product";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>target-code</b>
+   * <b>Fluent Client</b> search parameter constant for <b>product</b>
    * <p>
-   * Description: <b>Code that identifies the target element</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ConceptMap.element.target.code</b><br>
+   * Description: <b>Reference to element/field/ValueSet mapping depends on</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ConceptMap.element.target.product.element</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TARGET_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TARGET_CODE);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam PRODUCT = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_PRODUCT);
+
+ /**
+   * Search parameter: <b>target-system</b>
+   * <p>
+   * Description: <b>System of the target (if necessary)</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ConceptMap.element.target.system</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="target-system", path="ConceptMap.element.target.system", description="System of the target (if necessary)", type="uri" )
+  public static final String SP_TARGET_SYSTEM = "target-system";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>target-system</b>
+   * <p>
+   * Description: <b>System of the target (if necessary)</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ConceptMap.element.target.system</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam TARGET_SYSTEM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_TARGET_SYSTEM);
+
+ /**
+   * Search parameter: <b>dependson</b>
+   * <p>
+   * Description: <b>Reference to element/field/ValueSet mapping depends on</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ConceptMap.element.target.dependsOn.element</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="dependson", path="ConceptMap.element.target.dependsOn.element", description="Reference to element/field/ValueSet mapping depends on", type="uri" )
+  public static final String SP_DEPENDSON = "dependson";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>dependson</b>
+   * <p>
+   * Description: <b>Reference to element/field/ValueSet mapping depends on</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ConceptMap.element.target.dependsOn.element</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam DEPENDSON = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DEPENDSON);
+
+ /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the concept map</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ConceptMap.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="ConceptMap.description", description="Text search in the description of the concept map", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the concept map</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ConceptMap.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>source</b>
+   * <p>
+   * Description: <b>Identifies the source of the concepts which are being mapped</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ConceptMap.sourceReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="source", path="ConceptMap.source.as(Reference)", description="Identifies the source of the concepts which are being mapped", type="reference" )
+  public static final String SP_SOURCE = "source";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>source</b>
+   * <p>
+   * Description: <b>Identifies the source of the concepts which are being mapped</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ConceptMap.sourceReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SOURCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SOURCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ConceptMap:source</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("ConceptMap:source").toLocked();
 
  /**
    * Search parameter: <b>version</b>
@@ -2516,44 +2614,50 @@ public class ConceptMap extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
 
  /**
-   * Search parameter: <b>publisher</b>
+   * Search parameter: <b>url</b>
    * <p>
-   * Description: <b>Name of the publisher of the concept map</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ConceptMap.publisher</b><br>
+   * Description: <b>The URL of the concept map</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ConceptMap.url</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="publisher", path="ConceptMap.publisher", description="Name of the publisher of the concept map", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="url", path="ConceptMap.url", description="The URL of the concept map", type="uri" )
+  public static final String SP_URL = "url";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <b>Fluent Client</b> search parameter constant for <b>url</b>
    * <p>
-   * Description: <b>Name of the publisher of the concept map</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ConceptMap.publisher</b><br>
+   * Description: <b>The URL of the concept map</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ConceptMap.url</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
-   * Search parameter: <b>product</b>
+   * Search parameter: <b>target</b>
    * <p>
-   * Description: <b>Reference to element/field/ValueSet mapping depends on</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.target.product.element</b><br>
+   * Description: <b>Provides context to the mappings</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ConceptMap.target[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="product", path="ConceptMap.element.target.product.element", description="Reference to element/field/ValueSet mapping depends on", type="uri" )
-  public static final String SP_PRODUCT = "product";
+  @SearchParamDefinition(name="target", path="ConceptMap.target", description="Provides context to the mappings", type="reference" )
+  public static final String SP_TARGET = "target";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>product</b>
+   * <b>Fluent Client</b> search parameter constant for <b>target</b>
    * <p>
-   * Description: <b>Reference to element/field/ValueSet mapping depends on</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.target.product.element</b><br>
+   * Description: <b>Provides context to the mappings</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ConceptMap.target[x]</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam PRODUCT = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_PRODUCT);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TARGET = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TARGET);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ConceptMap:target</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_TARGET = new ca.uhn.fhir.model.api.Include("ConceptMap:target").toLocked();
 
  /**
    * Search parameter: <b>source-code</b>
@@ -2602,52 +2706,6 @@ public class ConceptMap extends BaseConformance {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE_URI = new ca.uhn.fhir.model.api.Include("ConceptMap:source-uri").toLocked();
 
  /**
-   * Search parameter: <b>source</b>
-   * <p>
-   * Description: <b>Identifies the source of the concepts which are being mapped</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ConceptMap.sourceReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="source", path="ConceptMap.source.as(Reference)", description="Identifies the source of the concepts which are being mapped", type="reference" )
-  public static final String SP_SOURCE = "source";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>source</b>
-   * <p>
-   * Description: <b>Identifies the source of the concepts which are being mapped</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ConceptMap.sourceReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SOURCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SOURCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ConceptMap:source</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("ConceptMap:source").toLocked();
-
- /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the concept map</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ConceptMap.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="ConceptMap.description", description="Text search in the description of the concept map", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the concept map</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ConceptMap.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
    * Search parameter: <b>name</b>
    * <p>
    * Description: <b>Name of the concept map</b><br>
@@ -2688,70 +2746,84 @@ public class ConceptMap extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
-   * Search parameter: <b>target</b>
+   * Search parameter: <b>publisher</b>
    * <p>
-   * Description: <b>Provides context to the mappings</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ConceptMap.target[x]</b><br>
+   * Description: <b>Name of the publisher of the concept map</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ConceptMap.publisher</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="target", path="ConceptMap.target", description="Provides context to the mappings", type="reference" )
-  public static final String SP_TARGET = "target";
+  @SearchParamDefinition(name="publisher", path="ConceptMap.publisher", description="Name of the publisher of the concept map", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>target</b>
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
    * <p>
-   * Description: <b>Provides context to the mappings</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ConceptMap.target[x]</b><br>
+   * Description: <b>Name of the publisher of the concept map</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ConceptMap.publisher</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TARGET = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TARGET);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ConceptMap:target</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_TARGET = new ca.uhn.fhir.model.api.Include("ConceptMap:target").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>source-system</b>
    * <p>
-   * Description: <b>Additional identifier for the concept map</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ConceptMap.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="ConceptMap.identifier", description="Additional identifier for the concept map", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Additional identifier for the concept map</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ConceptMap.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>target-system</b>
-   * <p>
-   * Description: <b>System of the target (if necessary)</b><br>
+   * Description: <b>Code System (if value set crosses code systems)</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.target.system</b><br>
+   * Path: <b>ConceptMap.element.system</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="target-system", path="ConceptMap.element.target.system", description="System of the target (if necessary)", type="uri" )
-  public static final String SP_TARGET_SYSTEM = "target-system";
+  @SearchParamDefinition(name="source-system", path="ConceptMap.element.system", description="Code System (if value set crosses code systems)", type="uri" )
+  public static final String SP_SOURCE_SYSTEM = "source-system";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>target-system</b>
+   * <b>Fluent Client</b> search parameter constant for <b>source-system</b>
    * <p>
-   * Description: <b>System of the target (if necessary)</b><br>
+   * Description: <b>Code System (if value set crosses code systems)</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.target.system</b><br>
+   * Path: <b>ConceptMap.element.system</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam TARGET_SYSTEM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_TARGET_SYSTEM);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam SOURCE_SYSTEM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SOURCE_SYSTEM);
+
+ /**
+   * Search parameter: <b>target-code</b>
+   * <p>
+   * Description: <b>Code that identifies the target element</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ConceptMap.element.target.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="target-code", path="ConceptMap.element.target.code", description="Code that identifies the target element", type="token" )
+  public static final String SP_TARGET_CODE = "target-code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>target-code</b>
+   * <p>
+   * Description: <b>Code that identifies the target element</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ConceptMap.element.target.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TARGET_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TARGET_CODE);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>Status of the concept map</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ConceptMap.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="ConceptMap.status", description="Status of the concept map", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>Status of the concept map</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ConceptMap.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

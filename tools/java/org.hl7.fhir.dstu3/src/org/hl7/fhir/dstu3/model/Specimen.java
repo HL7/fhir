@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -518,9 +518,8 @@ public class Specimen extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (collector == null || collector.isEmpty()) && (collected == null || collected.isEmpty())
-           && (quantity == null || quantity.isEmpty()) && (method == null || method.isEmpty()) && (bodySite == null || bodySite.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(collector, collected, quantity
+          , method, bodySite);
       }
 
   public String fhirType() {
@@ -656,6 +655,14 @@ public class Specimen extends DomainResource {
           return this.additive;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SpecimenTreatmentComponent setAdditive(List<Reference> theAdditive) { 
+          this.additive = theAdditive;
+          return this;
+        }
+
         public boolean hasAdditive() { 
           if (this.additive == null)
             return false;
@@ -665,10 +672,6 @@ public class Specimen extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #additive} (Material used in the processing step.)
-         */
-    // syntactic sugar
         public Reference addAdditive() { //3
           Reference t = new Reference();
           if (this.additive == null)
@@ -677,7 +680,6 @@ public class Specimen extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public SpecimenTreatmentComponent addAdditive(Reference t) { //3
           if (t == null)
             return this;
@@ -688,18 +690,29 @@ public class Specimen extends DomainResource {
         }
 
         /**
-         * @return {@link #additive} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Material used in the processing step.)
+         * @return The first repetition of repeating field {@link #additive}, creating it if it does not already exist
          */
+        public Reference getAdditiveFirstRep() { 
+          if (getAdditive().isEmpty()) {
+            addAdditive();
+          }
+          return getAdditive().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Substance> getAdditiveTarget() { 
           if (this.additiveTarget == null)
             this.additiveTarget = new ArrayList<Substance>();
           return this.additiveTarget;
         }
 
-    // syntactic sugar
         /**
-         * @return {@link #additive} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Material used in the processing step.)
+         * @deprecated Use Reference#setResource(IBaseResource) instead
          */
+        @Deprecated
         public Substance addAdditiveTarget() { 
           Substance r = new Substance();
           if (this.additiveTarget == null)
@@ -879,8 +892,8 @@ public class Specimen extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (description == null || description.isEmpty()) && (procedure == null || procedure.isEmpty())
-           && (additive == null || additive.isEmpty()) && (time == null || time.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, procedure, additive
+          , time);
       }
 
   public String fhirType() {
@@ -952,6 +965,14 @@ public class Specimen extends DomainResource {
           return this.identifier;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SpecimenContainerComponent setIdentifier(List<Identifier> theIdentifier) { 
+          this.identifier = theIdentifier;
+          return this;
+        }
+
         public boolean hasIdentifier() { 
           if (this.identifier == null)
             return false;
@@ -961,10 +982,6 @@ public class Specimen extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #identifier} (Id for container. There may be multiple; a manufacturer's bar code, lab assigned identifier, etc. The container ID may differ from the specimen id in some circumstances.)
-         */
-    // syntactic sugar
         public Identifier addIdentifier() { //3
           Identifier t = new Identifier();
           if (this.identifier == null)
@@ -973,7 +990,6 @@ public class Specimen extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public SpecimenContainerComponent addIdentifier(Identifier t) { //3
           if (t == null)
             return this;
@@ -981,6 +997,16 @@ public class Specimen extends DomainResource {
             this.identifier = new ArrayList<Identifier>();
           this.identifier.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+         */
+        public Identifier getIdentifierFirstRep() { 
+          if (getIdentifier().isEmpty()) {
+            addIdentifier();
+          }
+          return getIdentifier().get(0);
         }
 
         /**
@@ -1302,9 +1328,8 @@ public class Specimen extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (description == null || description.isEmpty())
-           && (type == null || type.isEmpty()) && (capacity == null || capacity.isEmpty()) && (specimenQuantity == null || specimenQuantity.isEmpty())
-           && (additive == null || additive.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, description, type
+          , capacity, specimenQuantity, additive);
       }
 
   public String fhirType() {
@@ -1439,6 +1464,14 @@ public class Specimen extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Specimen setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -1448,10 +1481,6 @@ public class Specimen extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Id for specimen.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -1460,7 +1489,6 @@ public class Specimen extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Specimen addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -1468,6 +1496,16 @@ public class Specimen extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1664,6 +1702,14 @@ public class Specimen extends DomainResource {
       return this.parent;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Specimen setParent(List<Reference> theParent) { 
+      this.parent = theParent;
+      return this;
+    }
+
     public boolean hasParent() { 
       if (this.parent == null)
         return false;
@@ -1673,10 +1719,6 @@ public class Specimen extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #parent} (Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.)
-     */
-    // syntactic sugar
     public Reference addParent() { //3
       Reference t = new Reference();
       if (this.parent == null)
@@ -1685,7 +1727,6 @@ public class Specimen extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Specimen addParent(Reference t) { //3
       if (t == null)
         return this;
@@ -1696,18 +1737,29 @@ public class Specimen extends DomainResource {
     }
 
     /**
-     * @return {@link #parent} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.)
+     * @return The first repetition of repeating field {@link #parent}, creating it if it does not already exist
      */
+    public Reference getParentFirstRep() { 
+      if (getParent().isEmpty()) {
+        addParent();
+      }
+      return getParent().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Specimen> getParentTarget() { 
       if (this.parentTarget == null)
         this.parentTarget = new ArrayList<Specimen>();
       return this.parentTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #parent} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Specimen addParentTarget() { 
       Specimen r = new Specimen();
       if (this.parentTarget == null)
@@ -1725,6 +1777,14 @@ public class Specimen extends DomainResource {
       return this.request;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Specimen setRequest(List<Reference> theRequest) { 
+      this.request = theRequest;
+      return this;
+    }
+
     public boolean hasRequest() { 
       if (this.request == null)
         return false;
@@ -1734,10 +1794,6 @@ public class Specimen extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #request} (Details concerning a test or procedure request that required a specimen to be collected.)
-     */
-    // syntactic sugar
     public Reference addRequest() { //3
       Reference t = new Reference();
       if (this.request == null)
@@ -1746,7 +1802,6 @@ public class Specimen extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Specimen addRequest(Reference t) { //3
       if (t == null)
         return this;
@@ -1757,8 +1812,19 @@ public class Specimen extends DomainResource {
     }
 
     /**
-     * @return {@link #request} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Details concerning a test or procedure request that required a specimen to be collected.)
+     * @return The first repetition of repeating field {@link #request}, creating it if it does not already exist
      */
+    public Reference getRequestFirstRep() { 
+      if (getRequest().isEmpty()) {
+        addRequest();
+      }
+      return getRequest().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getRequestTarget() { 
       if (this.requestTarget == null)
         this.requestTarget = new ArrayList<Resource>();
@@ -1798,6 +1864,14 @@ public class Specimen extends DomainResource {
       return this.treatment;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Specimen setTreatment(List<SpecimenTreatmentComponent> theTreatment) { 
+      this.treatment = theTreatment;
+      return this;
+    }
+
     public boolean hasTreatment() { 
       if (this.treatment == null)
         return false;
@@ -1807,10 +1881,6 @@ public class Specimen extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #treatment} (Details concerning treatment and processing steps for the specimen.)
-     */
-    // syntactic sugar
     public SpecimenTreatmentComponent addTreatment() { //3
       SpecimenTreatmentComponent t = new SpecimenTreatmentComponent();
       if (this.treatment == null)
@@ -1819,7 +1889,6 @@ public class Specimen extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Specimen addTreatment(SpecimenTreatmentComponent t) { //3
       if (t == null)
         return this;
@@ -1827,6 +1896,16 @@ public class Specimen extends DomainResource {
         this.treatment = new ArrayList<SpecimenTreatmentComponent>();
       this.treatment.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #treatment}, creating it if it does not already exist
+     */
+    public SpecimenTreatmentComponent getTreatmentFirstRep() { 
+      if (getTreatment().isEmpty()) {
+        addTreatment();
+      }
+      return getTreatment().get(0);
     }
 
     /**
@@ -1838,6 +1917,14 @@ public class Specimen extends DomainResource {
       return this.container;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Specimen setContainer(List<SpecimenContainerComponent> theContainer) { 
+      this.container = theContainer;
+      return this;
+    }
+
     public boolean hasContainer() { 
       if (this.container == null)
         return false;
@@ -1847,10 +1934,6 @@ public class Specimen extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #container} (The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.)
-     */
-    // syntactic sugar
     public SpecimenContainerComponent addContainer() { //3
       SpecimenContainerComponent t = new SpecimenContainerComponent();
       if (this.container == null)
@@ -1859,7 +1942,6 @@ public class Specimen extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Specimen addContainer(SpecimenContainerComponent t) { //3
       if (t == null)
         return this;
@@ -1867,6 +1949,16 @@ public class Specimen extends DomainResource {
         this.container = new ArrayList<SpecimenContainerComponent>();
       this.container.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #container}, creating it if it does not already exist
+     */
+    public SpecimenContainerComponent getContainerFirstRep() { 
+      if (getContainer().isEmpty()) {
+        addContainer();
+      }
+      return getContainer().get(0);
     }
 
     /**
@@ -1878,6 +1970,14 @@ public class Specimen extends DomainResource {
       return this.note;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Specimen setNote(List<Annotation> theNote) { 
+      this.note = theNote;
+      return this;
+    }
+
     public boolean hasNote() { 
       if (this.note == null)
         return false;
@@ -1887,10 +1987,6 @@ public class Specimen extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #note} (To communicate any details or issues about the specimen or during the specimen collection. (for example: broken vial, sent with patient, frozen).)
-     */
-    // syntactic sugar
     public Annotation addNote() { //3
       Annotation t = new Annotation();
       if (this.note == null)
@@ -1899,7 +1995,6 @@ public class Specimen extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Specimen addNote(Annotation t) { //3
       if (t == null)
         return this;
@@ -1907,6 +2002,16 @@ public class Specimen extends DomainResource {
         this.note = new ArrayList<Annotation>();
       this.note.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
+     */
+    public Annotation getNoteFirstRep() { 
+      if (getNote().isEmpty()) {
+        addNote();
+      }
+      return getNote().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2161,110 +2266,15 @@ public class Specimen extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (accessionIdentifier == null || accessionIdentifier.isEmpty())
-           && (status == null || status.isEmpty()) && (type == null || type.isEmpty()) && (subject == null || subject.isEmpty())
-           && (receivedTime == null || receivedTime.isEmpty()) && (parent == null || parent.isEmpty())
-           && (request == null || request.isEmpty()) && (collection == null || collection.isEmpty())
-           && (treatment == null || treatment.isEmpty()) && (container == null || container.isEmpty())
-           && (note == null || note.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, accessionIdentifier
+          , status, type, subject, receivedTime, parent, request, collection, treatment
+          , container, note);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Specimen;
    }
-
- /**
-   * Search parameter: <b>collector</b>
-   * <p>
-   * Description: <b>Who collected the specimen</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Specimen.collection.collector</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="collector", path="Specimen.collection.collector", description="Who collected the specimen", type="reference" )
-  public static final String SP_COLLECTOR = "collector";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>collector</b>
-   * <p>
-   * Description: <b>Who collected the specimen</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Specimen.collection.collector</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam COLLECTOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_COLLECTOR);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Specimen:collector</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_COLLECTOR = new ca.uhn.fhir.model.api.Include("Specimen:collector").toLocked();
-
- /**
-   * Search parameter: <b>container-id</b>
-   * <p>
-   * Description: <b>The unique identifier associated with the specimen container</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Specimen.container.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="container-id", path="Specimen.container.identifier", description="The unique identifier associated with the specimen container", type="token" )
-  public static final String SP_CONTAINER_ID = "container-id";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>container-id</b>
-   * <p>
-   * Description: <b>The unique identifier associated with the specimen container</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Specimen.container.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTAINER_ID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTAINER_ID);
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>The patient the specimen comes from</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Specimen.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="Specimen.subject", description="The patient the specimen comes from", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>The patient the specimen comes from</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Specimen.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Specimen:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Specimen:patient").toLocked();
-
- /**
-   * Search parameter: <b>bodysite</b>
-   * <p>
-   * Description: <b>The code for the body site from where the specimen originated</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Specimen.collection.bodySite</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="bodysite", path="Specimen.collection.bodySite", description="The code for the body site from where the specimen originated", type="token" )
-  public static final String SP_BODYSITE = "bodysite";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>bodysite</b>
-   * <p>
-   * Description: <b>The code for the body site from where the specimen originated</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Specimen.collection.bodySite</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BODYSITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BODYSITE);
 
  /**
    * Search parameter: <b>container</b>
@@ -2287,70 +2297,24 @@ public class Specimen extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTAINER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTAINER);
 
  /**
-   * Search parameter: <b>collected</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The date the specimen was collected</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Specimen.collection.collected[x]</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="collected", path="Specimen.collection.collected", description="The date the specimen was collected", type="date" )
-  public static final String SP_COLLECTED = "collected";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>collected</b>
-   * <p>
-   * Description: <b>The date the specimen was collected</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Specimen.collection.collected[x]</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam COLLECTED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_COLLECTED);
-
- /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>The subject of the specimen</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Specimen.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subject", path="Specimen.subject", description="The subject of the specimen", type="reference" )
-  public static final String SP_SUBJECT = "subject";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
-   * <p>
-   * Description: <b>The subject of the specimen</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Specimen.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Specimen:subject</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Specimen:subject").toLocked();
-
- /**
-   * Search parameter: <b>accession</b>
-   * <p>
-   * Description: <b>The accession number associated with the specimen</b><br>
+   * Description: <b>The unique identifier associated with the specimen</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Specimen.accessionIdentifier</b><br>
+   * Path: <b>Specimen.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="accession", path="Specimen.accessionIdentifier", description="The accession number associated with the specimen", type="token" )
-  public static final String SP_ACCESSION = "accession";
+  @SearchParamDefinition(name="identifier", path="Specimen.identifier", description="The unique identifier associated with the specimen", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>accession</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The accession number associated with the specimen</b><br>
+   * Description: <b>The unique identifier associated with the specimen</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Specimen.accessionIdentifier</b><br>
+   * Path: <b>Specimen.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACCESSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACCESSION);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>parent</b>
@@ -2379,6 +2343,138 @@ public class Specimen extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PARENT = new ca.uhn.fhir.model.api.Include("Specimen:parent").toLocked();
 
  /**
+   * Search parameter: <b>container-id</b>
+   * <p>
+   * Description: <b>The unique identifier associated with the specimen container</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.container.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="container-id", path="Specimen.container.identifier", description="The unique identifier associated with the specimen container", type="token" )
+  public static final String SP_CONTAINER_ID = "container-id";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>container-id</b>
+   * <p>
+   * Description: <b>The unique identifier associated with the specimen container</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.container.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTAINER_ID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTAINER_ID);
+
+ /**
+   * Search parameter: <b>bodysite</b>
+   * <p>
+   * Description: <b>The code for the body site from where the specimen originated</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.collection.bodySite</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="bodysite", path="Specimen.collection.bodySite", description="The code for the body site from where the specimen originated", type="token" )
+  public static final String SP_BODYSITE = "bodysite";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>bodysite</b>
+   * <p>
+   * Description: <b>The code for the body site from where the specimen originated</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.collection.bodySite</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BODYSITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BODYSITE);
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>The subject of the specimen</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Specimen.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="Specimen.subject", description="The subject of the specimen", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>The subject of the specimen</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Specimen.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Specimen:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Specimen:subject").toLocked();
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>The patient the specimen comes from</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Specimen.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="Specimen.subject", description="The patient the specimen comes from", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>The patient the specimen comes from</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Specimen.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Specimen:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Specimen:patient").toLocked();
+
+ /**
+   * Search parameter: <b>collected</b>
+   * <p>
+   * Description: <b>The date the specimen was collected</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Specimen.collection.collected[x]</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="collected", path="Specimen.collection.collected", description="The date the specimen was collected", type="date" )
+  public static final String SP_COLLECTED = "collected";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>collected</b>
+   * <p>
+   * Description: <b>The date the specimen was collected</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Specimen.collection.collected[x]</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam COLLECTED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_COLLECTED);
+
+ /**
+   * Search parameter: <b>accession</b>
+   * <p>
+   * Description: <b>The accession number associated with the specimen</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.accessionIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="accession", path="Specimen.accessionIdentifier", description="The accession number associated with the specimen", type="token" )
+  public static final String SP_ACCESSION = "accession";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>accession</b>
+   * <p>
+   * Description: <b>The accession number associated with the specimen</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.accessionIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACCESSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACCESSION);
+
+ /**
    * Search parameter: <b>type</b>
    * <p>
    * Description: <b>The specimen type</b><br>
@@ -2399,24 +2495,30 @@ public class Specimen extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>collector</b>
    * <p>
-   * Description: <b>The unique identifier associated with the specimen</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Specimen.identifier</b><br>
+   * Description: <b>Who collected the specimen</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Specimen.collection.collector</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Specimen.identifier", description="The unique identifier associated with the specimen", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="collector", path="Specimen.collection.collector", description="Who collected the specimen", type="reference" )
+  public static final String SP_COLLECTOR = "collector";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>collector</b>
    * <p>
-   * Description: <b>The unique identifier associated with the specimen</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Specimen.identifier</b><br>
+   * Description: <b>Who collected the specimen</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Specimen.collection.collector</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam COLLECTOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_COLLECTOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Specimen:collector</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_COLLECTOR = new ca.uhn.fhir.model.api.Include("Specimen:collector").toLocked();
 
 
 }

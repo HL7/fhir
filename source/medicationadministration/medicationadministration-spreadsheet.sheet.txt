@@ -222,6 +222,7 @@
   Element = MedicationAdministration.wasNotGiven
   Card. = 0..1
   Is Modifier = Y
+  Summary = y
   Type = boolean
   Short Label = True if medication not administered
   Definition = Set this to true if the record is saying that the medication was NOT administered.
@@ -321,7 +322,7 @@
   Type = SimpleQuantity
   Short Label = Amount of medication per dose
   Definition = The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.
-  Comments = If the administration is not instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount administered over period of time of a single administration (as indicated by schedule)
+  Comments = If the administration is not instantaneous (rate is present), this can be specified to convey the total amount administered over period of time of a single administration.
   v2 Mapping = RXA-6 Administered Amount / RXA-7 Administered Units
   RIM Mapping = doseQuantity
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1449,12 +1449,9 @@ public class VisionPrescription extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (product == null || product.isEmpty()) && (eye == null || eye.isEmpty())
-           && (sphere == null || sphere.isEmpty()) && (cylinder == null || cylinder.isEmpty()) && (axis == null || axis.isEmpty())
-           && (prism == null || prism.isEmpty()) && (base == null || base.isEmpty()) && (add == null || add.isEmpty())
-           && (power == null || power.isEmpty()) && (backCurve == null || backCurve.isEmpty()) && (diameter == null || diameter.isEmpty())
-           && (duration == null || duration.isEmpty()) && (color == null || color.isEmpty()) && (brand == null || brand.isEmpty())
-           && (notes == null || notes.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(product, eye, sphere, cylinder
+          , axis, prism, base, add, power, backCurve, diameter, duration, color, brand
+          , notes);
       }
 
   public String fhirType() {
@@ -1546,6 +1543,14 @@ public class VisionPrescription extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public VisionPrescription setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -1555,10 +1560,6 @@ public class VisionPrescription extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Business identifier which may be used by other parties to reference or identify the prescription.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -1567,7 +1568,6 @@ public class VisionPrescription extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public VisionPrescription addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -1575,6 +1575,16 @@ public class VisionPrescription extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1812,6 +1822,14 @@ public class VisionPrescription extends DomainResource {
       return this.dispense;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public VisionPrescription setDispense(List<VisionPrescriptionDispenseComponent> theDispense) { 
+      this.dispense = theDispense;
+      return this;
+    }
+
     public boolean hasDispense() { 
       if (this.dispense == null)
         return false;
@@ -1821,10 +1839,6 @@ public class VisionPrescription extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #dispense} (Deals with details of the dispense part of the supply specification.)
-     */
-    // syntactic sugar
     public VisionPrescriptionDispenseComponent addDispense() { //3
       VisionPrescriptionDispenseComponent t = new VisionPrescriptionDispenseComponent();
       if (this.dispense == null)
@@ -1833,7 +1847,6 @@ public class VisionPrescription extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public VisionPrescription addDispense(VisionPrescriptionDispenseComponent t) { //3
       if (t == null)
         return this;
@@ -1841,6 +1854,16 @@ public class VisionPrescription extends DomainResource {
         this.dispense = new ArrayList<VisionPrescriptionDispenseComponent>();
       this.dispense.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #dispense}, creating it if it does not already exist
+     */
+    public VisionPrescriptionDispenseComponent getDispenseFirstRep() { 
+      if (getDispense().isEmpty()) {
+        addDispense();
+      }
+      return getDispense().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2021,62 +2044,14 @@ public class VisionPrescription extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (dateWritten == null || dateWritten.isEmpty())
-           && (patient == null || patient.isEmpty()) && (prescriber == null || prescriber.isEmpty())
-           && (encounter == null || encounter.isEmpty()) && (reason == null || reason.isEmpty()) && (dispense == null || dispense.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, dateWritten, patient
+          , prescriber, encounter, reason, dispense);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.VisionPrescription;
    }
-
- /**
-   * Search parameter: <b>datewritten</b>
-   * <p>
-   * Description: <b>Return prescriptions written on this date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>VisionPrescription.dateWritten</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="datewritten", path="VisionPrescription.dateWritten", description="Return prescriptions written on this date", type="date" )
-  public static final String SP_DATEWRITTEN = "datewritten";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>datewritten</b>
-   * <p>
-   * Description: <b>Return prescriptions written on this date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>VisionPrescription.dateWritten</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATEWRITTEN = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATEWRITTEN);
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>The identity of a patient to list dispenses for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>VisionPrescription.patient</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="VisionPrescription.patient", description="The identity of a patient to list dispenses for", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>The identity of a patient to list dispenses for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>VisionPrescription.patient</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>VisionPrescription:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("VisionPrescription:patient").toLocked();
 
  /**
    * Search parameter: <b>prescriber</b>
@@ -2105,6 +2080,72 @@ public class VisionPrescription extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PRESCRIBER = new ca.uhn.fhir.model.api.Include("VisionPrescription:prescriber").toLocked();
 
  /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Return prescriptions with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>VisionPrescription.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="VisionPrescription.identifier", description="Return prescriptions with this external identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Return prescriptions with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>VisionPrescription.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>The identity of a patient to list dispenses for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>VisionPrescription.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="VisionPrescription.patient", description="The identity of a patient to list dispenses for", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>The identity of a patient to list dispenses for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>VisionPrescription.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>VisionPrescription:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("VisionPrescription:patient").toLocked();
+
+ /**
+   * Search parameter: <b>datewritten</b>
+   * <p>
+   * Description: <b>Return prescriptions written on this date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>VisionPrescription.dateWritten</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="datewritten", path="VisionPrescription.dateWritten", description="Return prescriptions written on this date", type="date" )
+  public static final String SP_DATEWRITTEN = "datewritten";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>datewritten</b>
+   * <p>
+   * Description: <b>Return prescriptions written on this date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>VisionPrescription.dateWritten</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATEWRITTEN = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATEWRITTEN);
+
+ /**
    * Search parameter: <b>encounter</b>
    * <p>
    * Description: <b>Return prescriptions with this encounter identifier</b><br>
@@ -2129,26 +2170,6 @@ public class VisionPrescription extends DomainResource {
    * the path value of "<b>VisionPrescription:encounter</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("VisionPrescription:encounter").toLocked();
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Return prescriptions with this external identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>VisionPrescription.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="VisionPrescription.identifier", description="Return prescriptions with this external identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Return prescriptions with this external identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>VisionPrescription.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

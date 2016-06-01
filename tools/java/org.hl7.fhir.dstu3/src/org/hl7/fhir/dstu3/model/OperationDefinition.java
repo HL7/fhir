@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -311,6 +311,14 @@ public class OperationDefinition extends BaseConformance {
           return this.telecom;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public OperationDefinitionContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+          this.telecom = theTelecom;
+          return this;
+        }
+
         public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
@@ -320,10 +328,6 @@ public class OperationDefinition extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
-         */
-    // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           if (this.telecom == null)
@@ -332,7 +336,6 @@ public class OperationDefinition extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public OperationDefinitionContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
@@ -340,6 +343,16 @@ public class OperationDefinition extends BaseConformance {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+         */
+        public ContactPoint getTelecomFirstRep() { 
+          if (getTelecom().isEmpty()) {
+            addTelecom();
+          }
+          return getTelecom().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -437,8 +450,7 @@ public class OperationDefinition extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, telecom);
       }
 
   public String fhirType() {
@@ -949,6 +961,14 @@ public class OperationDefinition extends BaseConformance {
           return this.part;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public OperationDefinitionParameterComponent setPart(List<OperationDefinitionParameterComponent> thePart) { 
+          this.part = thePart;
+          return this;
+        }
+
         public boolean hasPart() { 
           if (this.part == null)
             return false;
@@ -958,10 +978,6 @@ public class OperationDefinition extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #part} (The parts of a Tuple Parameter.)
-         */
-    // syntactic sugar
         public OperationDefinitionParameterComponent addPart() { //3
           OperationDefinitionParameterComponent t = new OperationDefinitionParameterComponent();
           if (this.part == null)
@@ -970,7 +986,6 @@ public class OperationDefinition extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public OperationDefinitionParameterComponent addPart(OperationDefinitionParameterComponent t) { //3
           if (t == null)
             return this;
@@ -978,6 +993,16 @@ public class OperationDefinition extends BaseConformance {
             this.part = new ArrayList<OperationDefinitionParameterComponent>();
           this.part.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #part}, creating it if it does not already exist
+         */
+        public OperationDefinitionParameterComponent getPartFirstRep() { 
+          if (getPart().isEmpty()) {
+            addPart();
+          }
+          return getPart().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1178,10 +1203,8 @@ public class OperationDefinition extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (use == null || use.isEmpty())
-           && (min == null || min.isEmpty()) && (max == null || max.isEmpty()) && (documentation == null || documentation.isEmpty())
-           && (type == null || type.isEmpty()) && (searchType == null || searchType.isEmpty()) && (profile == null || profile.isEmpty())
-           && (binding == null || binding.isEmpty()) && (part == null || part.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, use, min, max, documentation
+          , type, searchType, profile, binding, part);
       }
 
   public String fhirType() {
@@ -1411,8 +1434,7 @@ public class OperationDefinition extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (strength == null || strength.isEmpty()) && (valueSet == null || valueSet.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(strength, valueSet);
       }
 
   public String fhirType() {
@@ -1757,6 +1779,14 @@ public class OperationDefinition extends BaseConformance {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public OperationDefinition setContact(List<OperationDefinitionContactComponent> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -1766,10 +1796,6 @@ public class OperationDefinition extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
-     */
-    // syntactic sugar
     public OperationDefinitionContactComponent addContact() { //3
       OperationDefinitionContactComponent t = new OperationDefinitionContactComponent();
       if (this.contact == null)
@@ -1778,7 +1804,6 @@ public class OperationDefinition extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public OperationDefinition addContact(OperationDefinitionContactComponent t) { //3
       if (t == null)
         return this;
@@ -1786,6 +1811,16 @@ public class OperationDefinition extends BaseConformance {
         this.contact = new ArrayList<OperationDefinitionContactComponent>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public OperationDefinitionContactComponent getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -2123,6 +2158,14 @@ public class OperationDefinition extends BaseConformance {
       return this.type;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public OperationDefinition setType(List<CodeType> theType) { 
+      this.type = theType;
+      return this;
+    }
+
     public boolean hasType() { 
       if (this.type == null)
         return false;
@@ -2135,7 +2178,6 @@ public class OperationDefinition extends BaseConformance {
     /**
      * @return {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
-    // syntactic sugar
     public CodeType addTypeElement() {//2 
       CodeType t = new CodeType();
       if (this.type == null)
@@ -2222,6 +2264,14 @@ public class OperationDefinition extends BaseConformance {
       return this.parameter;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public OperationDefinition setParameter(List<OperationDefinitionParameterComponent> theParameter) { 
+      this.parameter = theParameter;
+      return this;
+    }
+
     public boolean hasParameter() { 
       if (this.parameter == null)
         return false;
@@ -2231,10 +2281,6 @@ public class OperationDefinition extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #parameter} (The parameters for the operation/query.)
-     */
-    // syntactic sugar
     public OperationDefinitionParameterComponent addParameter() { //3
       OperationDefinitionParameterComponent t = new OperationDefinitionParameterComponent();
       if (this.parameter == null)
@@ -2243,7 +2289,6 @@ public class OperationDefinition extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public OperationDefinition addParameter(OperationDefinitionParameterComponent t) { //3
       if (t == null)
         return this;
@@ -2251,6 +2296,16 @@ public class OperationDefinition extends BaseConformance {
         this.parameter = new ArrayList<OperationDefinitionParameterComponent>();
       this.parameter.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #parameter}, creating it if it does not already exist
+     */
+    public OperationDefinitionParameterComponent getParameterFirstRep() { 
+      if (getParameter().isEmpty()) {
+        addParameter();
+      }
+      return getParameter().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2588,12 +2643,9 @@ public class OperationDefinition extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (kind == null || kind.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (idempotent == null || idempotent.isEmpty())
-           && (code == null || code.isEmpty()) && (comment == null || comment.isEmpty()) && (base == null || base.isEmpty())
-           && (system == null || system.isEmpty()) && (type == null || type.isEmpty()) && (instance == null || instance.isEmpty())
-           && (parameter == null || parameter.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, experimental, publisher
+          , contact, description, requirements, idempotent, code, comment, base, system
+          , type, instance, parameter);
       }
 
   @Override
@@ -2602,24 +2654,124 @@ public class OperationDefinition extends BaseConformance {
    }
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>draft | active | retired</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.status</b><br>
+   * Description: <b>Date for this version of the operation definition</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>OperationDefinition.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="OperationDefinition.status", description="draft | active | retired", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="date", path="OperationDefinition.date", description="Date for this version of the operation definition", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>draft | active | retired</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.status</b><br>
+   * Description: <b>Date for this version of the operation definition</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>OperationDefinition.date</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>Name used to invoke the operation</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="OperationDefinition.code", description="Name used to invoke the operation", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>Name used to invoke the operation</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>instance</b>
+   * <p>
+   * Description: <b>Invoke on an instance?</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.instance</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="instance", path="OperationDefinition.instance", description="Invoke on an instance?", type="token" )
+  public static final String SP_INSTANCE = "instance";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>instance</b>
+   * <p>
+   * Description: <b>Invoke on an instance?</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.instance</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam INSTANCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_INSTANCE);
+
+ /**
+   * Search parameter: <b>kind</b>
+   * <p>
+   * Description: <b>operation | query</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.kind</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="kind", path="OperationDefinition.kind", description="operation | query", type="token" )
+  public static final String SP_KIND = "kind";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>kind</b>
+   * <p>
+   * Description: <b>operation | query</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.kind</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam KIND = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_KIND);
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>Invoke at resource level for these type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="OperationDefinition.type", description="Invoke at resource level for these type", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>Invoke at resource level for these type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>version</b>
+   * <p>
+   * Description: <b>Logical id for this version of the operation definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.version</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="version", path="OperationDefinition.version", description="Logical id for this version of the operation definition", type="token" )
+  public static final String SP_VERSION = "version";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>version</b>
+   * <p>
+   * Description: <b>Logical id for this version of the operation definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.version</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
 
  /**
    * Search parameter: <b>paramprofile</b>
@@ -2648,66 +2800,6 @@ public class OperationDefinition extends BaseConformance {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PARAMPROFILE = new ca.uhn.fhir.model.api.Include("OperationDefinition:paramprofile").toLocked();
 
  /**
-   * Search parameter: <b>code</b>
-   * <p>
-   * Description: <b>Name used to invoke the operation</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code", path="OperationDefinition.code", description="Name used to invoke the operation", type="token" )
-  public static final String SP_CODE = "code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
-   * <p>
-   * Description: <b>Name used to invoke the operation</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>Date for this version of the operation definition</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>OperationDefinition.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="OperationDefinition.date", description="Date for this version of the operation definition", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>Date for this version of the operation definition</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>OperationDefinition.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>Invoke at resource level for these type</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="OperationDefinition.type", description="Invoke at resource level for these type", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>Invoke at resource level for these type</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
    * Search parameter: <b>url</b>
    * <p>
    * Description: <b>Logical URL to reference this operation definition</b><br>
@@ -2726,66 +2818,6 @@ public class OperationDefinition extends BaseConformance {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
-
- /**
-   * Search parameter: <b>kind</b>
-   * <p>
-   * Description: <b>operation | query</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.kind</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="kind", path="OperationDefinition.kind", description="operation | query", type="token" )
-  public static final String SP_KIND = "kind";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>kind</b>
-   * <p>
-   * Description: <b>operation | query</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.kind</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam KIND = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_KIND);
-
- /**
-   * Search parameter: <b>version</b>
-   * <p>
-   * Description: <b>Logical id for this version of the operation definition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.version</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="version", path="OperationDefinition.version", description="Logical id for this version of the operation definition", type="token" )
-  public static final String SP_VERSION = "version";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>version</b>
-   * <p>
-   * Description: <b>Logical id for this version of the operation definition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.version</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
-
- /**
-   * Search parameter: <b>publisher</b>
-   * <p>
-   * Description: <b>Name of the publisher (Organization or individual)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>OperationDefinition.publisher</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="publisher", path="OperationDefinition.publisher", description="Name of the publisher (Organization or individual)", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
-   * <p>
-   * Description: <b>Name of the publisher (Organization or individual)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>OperationDefinition.publisher</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
    * Search parameter: <b>system</b>
@@ -2848,6 +2880,46 @@ public class OperationDefinition extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
+   * Search parameter: <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher (Organization or individual)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>OperationDefinition.publisher</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="publisher", path="OperationDefinition.publisher", description="Name of the publisher (Organization or individual)", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher (Organization or individual)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>OperationDefinition.publisher</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>draft | active | retired</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="OperationDefinition.status", description="draft | active | retired", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>draft | active | retired</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+
+ /**
    * Search parameter: <b>base</b>
    * <p>
    * Description: <b>Marks this as a profile of the base</b><br>
@@ -2872,26 +2944,6 @@ public class OperationDefinition extends BaseConformance {
    * the path value of "<b>OperationDefinition:base</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_BASE = new ca.uhn.fhir.model.api.Include("OperationDefinition:base").toLocked();
-
- /**
-   * Search parameter: <b>instance</b>
-   * <p>
-   * Description: <b>Invoke on an instance?</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.instance</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="instance", path="OperationDefinition.instance", description="Invoke on an instance?", type="token" )
-  public static final String SP_INSTANCE = "instance";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>instance</b>
-   * <p>
-   * Description: <b>Invoke on an instance?</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.instance</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam INSTANCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_INSTANCE);
 
 
 }

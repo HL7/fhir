@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -326,6 +326,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           return this.additionalInstructions;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public MedicationDispenseDosageInstructionComponent setAdditionalInstructions(List<CodeableConcept> theAdditionalInstructions) { 
+          this.additionalInstructions = theAdditionalInstructions;
+          return this;
+        }
+
         public boolean hasAdditionalInstructions() { 
           if (this.additionalInstructions == null)
             return false;
@@ -335,10 +343,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           return false;
         }
 
-        /**
-         * @return {@link #additionalInstructions} (Additional instructions such as "Swallow with plenty of water" which may or may not be coded.)
-         */
-    // syntactic sugar
         public CodeableConcept addAdditionalInstructions() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.additionalInstructions == null)
@@ -347,7 +351,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           return t;
         }
 
-    // syntactic sugar
         public MedicationDispenseDosageInstructionComponent addAdditionalInstructions(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -355,6 +358,16 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
             this.additionalInstructions = new ArrayList<CodeableConcept>();
           this.additionalInstructions.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #additionalInstructions}, creating it if it does not already exist
+         */
+        public CodeableConcept getAdditionalInstructionsFirstRep() { 
+          if (getAdditionalInstructions().isEmpty()) {
+            addAdditionalInstructions();
+          }
+          return getAdditionalInstructions().get(0);
         }
 
         /**
@@ -876,11 +889,8 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (text == null || text.isEmpty()) && (additionalInstructions == null || additionalInstructions.isEmpty())
-           && (timing == null || timing.isEmpty()) && (asNeeded == null || asNeeded.isEmpty()) && (site == null || site.isEmpty())
-           && (route == null || route.isEmpty()) && (method == null || method.isEmpty()) && (dose == null || dose.isEmpty())
-           && (rate == null || rate.isEmpty()) && (maxDosePerPeriod == null || maxDosePerPeriod.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(text, additionalInstructions
+          , timing, asNeeded, site, route, method, dose, rate, maxDosePerPeriod);
       }
 
   public String fhirType() {
@@ -968,6 +978,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           return this.reason;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public MedicationDispenseSubstitutionComponent setReason(List<CodeableConcept> theReason) { 
+          this.reason = theReason;
+          return this;
+        }
+
         public boolean hasReason() { 
           if (this.reason == null)
             return false;
@@ -977,10 +995,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           return false;
         }
 
-        /**
-         * @return {@link #reason} (Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.)
-         */
-    // syntactic sugar
         public CodeableConcept addReason() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.reason == null)
@@ -989,7 +1003,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           return t;
         }
 
-    // syntactic sugar
         public MedicationDispenseSubstitutionComponent addReason(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -997,6 +1010,16 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
             this.reason = new ArrayList<CodeableConcept>();
           this.reason.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #reason}, creating it if it does not already exist
+         */
+        public CodeableConcept getReasonFirstRep() { 
+          if (getReason().isEmpty()) {
+            addReason();
+          }
+          return getReason().get(0);
         }
 
         /**
@@ -1008,6 +1031,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           return this.responsibleParty;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public MedicationDispenseSubstitutionComponent setResponsibleParty(List<Reference> theResponsibleParty) { 
+          this.responsibleParty = theResponsibleParty;
+          return this;
+        }
+
         public boolean hasResponsibleParty() { 
           if (this.responsibleParty == null)
             return false;
@@ -1017,10 +1048,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           return false;
         }
 
-        /**
-         * @return {@link #responsibleParty} (The person or organization that has primary responsibility for the substitution.)
-         */
-    // syntactic sugar
         public Reference addResponsibleParty() { //3
           Reference t = new Reference();
           if (this.responsibleParty == null)
@@ -1029,7 +1056,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           return t;
         }
 
-    // syntactic sugar
         public MedicationDispenseSubstitutionComponent addResponsibleParty(Reference t) { //3
           if (t == null)
             return this;
@@ -1040,18 +1066,29 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         }
 
         /**
-         * @return {@link #responsibleParty} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The person or organization that has primary responsibility for the substitution.)
+         * @return The first repetition of repeating field {@link #responsibleParty}, creating it if it does not already exist
          */
+        public Reference getResponsiblePartyFirstRep() { 
+          if (getResponsibleParty().isEmpty()) {
+            addResponsibleParty();
+          }
+          return getResponsibleParty().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Practitioner> getResponsiblePartyTarget() { 
           if (this.responsiblePartyTarget == null)
             this.responsiblePartyTarget = new ArrayList<Practitioner>();
           return this.responsiblePartyTarget;
         }
 
-    // syntactic sugar
         /**
-         * @return {@link #responsibleParty} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The person or organization that has primary responsibility for the substitution.)
+         * @deprecated Use Reference#setResource(IBaseResource) instead
          */
+        @Deprecated
         public Practitioner addResponsiblePartyTarget() { 
           Practitioner r = new Practitioner();
           if (this.responsiblePartyTarget == null)
@@ -1173,8 +1210,8 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (reason == null || reason.isEmpty())
-           && (responsibleParty == null || responsibleParty.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, reason, responsibleParty
+          );
       }
 
   public String fhirType() {
@@ -1557,9 +1594,8 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (status == null || status.isEmpty()) && (action == null || action.isEmpty())
-           && (dateTime == null || dateTime.isEmpty()) && (actor == null || actor.isEmpty()) && (reason == null || reason.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(status, action, dateTime
+          , actor, reason);
       }
 
   public String fhirType() {
@@ -1945,6 +1981,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return this.authorizingPrescription;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationDispense setAuthorizingPrescription(List<Reference> theAuthorizingPrescription) { 
+      this.authorizingPrescription = theAuthorizingPrescription;
+      return this;
+    }
+
     public boolean hasAuthorizingPrescription() { 
       if (this.authorizingPrescription == null)
         return false;
@@ -1954,10 +1998,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return false;
     }
 
-    /**
-     * @return {@link #authorizingPrescription} (Indicates the medication order that is being dispensed against.)
-     */
-    // syntactic sugar
     public Reference addAuthorizingPrescription() { //3
       Reference t = new Reference();
       if (this.authorizingPrescription == null)
@@ -1966,7 +2006,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return t;
     }
 
-    // syntactic sugar
     public MedicationDispense addAuthorizingPrescription(Reference t) { //3
       if (t == null)
         return this;
@@ -1977,18 +2016,29 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     }
 
     /**
-     * @return {@link #authorizingPrescription} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Indicates the medication order that is being dispensed against.)
+     * @return The first repetition of repeating field {@link #authorizingPrescription}, creating it if it does not already exist
      */
+    public Reference getAuthorizingPrescriptionFirstRep() { 
+      if (getAuthorizingPrescription().isEmpty()) {
+        addAuthorizingPrescription();
+      }
+      return getAuthorizingPrescription().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<MedicationOrder> getAuthorizingPrescriptionTarget() { 
       if (this.authorizingPrescriptionTarget == null)
         this.authorizingPrescriptionTarget = new ArrayList<MedicationOrder>();
       return this.authorizingPrescriptionTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #authorizingPrescription} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Indicates the medication order that is being dispensed against.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public MedicationOrder addAuthorizingPrescriptionTarget() { 
       MedicationOrder r = new MedicationOrder();
       if (this.authorizingPrescriptionTarget == null)
@@ -2220,6 +2270,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return this.receiver;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationDispense setReceiver(List<Reference> theReceiver) { 
+      this.receiver = theReceiver;
+      return this;
+    }
+
     public boolean hasReceiver() { 
       if (this.receiver == null)
         return false;
@@ -2229,10 +2287,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return false;
     }
 
-    /**
-     * @return {@link #receiver} (Identifies the person who picked up the medication.  This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional.)
-     */
-    // syntactic sugar
     public Reference addReceiver() { //3
       Reference t = new Reference();
       if (this.receiver == null)
@@ -2241,7 +2295,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return t;
     }
 
-    // syntactic sugar
     public MedicationDispense addReceiver(Reference t) { //3
       if (t == null)
         return this;
@@ -2252,8 +2305,19 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     }
 
     /**
-     * @return {@link #receiver} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies the person who picked up the medication.  This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional.)
+     * @return The first repetition of repeating field {@link #receiver}, creating it if it does not already exist
      */
+    public Reference getReceiverFirstRep() { 
+      if (getReceiver().isEmpty()) {
+        addReceiver();
+      }
+      return getReceiver().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getReceiverTarget() { 
       if (this.receiverTarget == null)
         this.receiverTarget = new ArrayList<Resource>();
@@ -2269,6 +2333,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return this.note;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationDispense setNote(List<Annotation> theNote) { 
+      this.note = theNote;
+      return this;
+    }
+
     public boolean hasNote() { 
       if (this.note == null)
         return false;
@@ -2278,10 +2350,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return false;
     }
 
-    /**
-     * @return {@link #note} (Extra information about the dispense that could not be conveyed in the other attributes.)
-     */
-    // syntactic sugar
     public Annotation addNote() { //3
       Annotation t = new Annotation();
       if (this.note == null)
@@ -2290,7 +2358,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return t;
     }
 
-    // syntactic sugar
     public MedicationDispense addNote(Annotation t) { //3
       if (t == null)
         return this;
@@ -2298,6 +2365,16 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         this.note = new ArrayList<Annotation>();
       this.note.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
+     */
+    public Annotation getNoteFirstRep() { 
+      if (getNote().isEmpty()) {
+        addNote();
+      }
+      return getNote().get(0);
     }
 
     /**
@@ -2309,6 +2386,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return this.dosageInstruction;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationDispense setDosageInstruction(List<MedicationDispenseDosageInstructionComponent> theDosageInstruction) { 
+      this.dosageInstruction = theDosageInstruction;
+      return this;
+    }
+
     public boolean hasDosageInstruction() { 
       if (this.dosageInstruction == null)
         return false;
@@ -2318,10 +2403,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return false;
     }
 
-    /**
-     * @return {@link #dosageInstruction} (Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.)
-     */
-    // syntactic sugar
     public MedicationDispenseDosageInstructionComponent addDosageInstruction() { //3
       MedicationDispenseDosageInstructionComponent t = new MedicationDispenseDosageInstructionComponent();
       if (this.dosageInstruction == null)
@@ -2330,7 +2411,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return t;
     }
 
-    // syntactic sugar
     public MedicationDispense addDosageInstruction(MedicationDispenseDosageInstructionComponent t) { //3
       if (t == null)
         return this;
@@ -2338,6 +2418,16 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         this.dosageInstruction = new ArrayList<MedicationDispenseDosageInstructionComponent>();
       this.dosageInstruction.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #dosageInstruction}, creating it if it does not already exist
+     */
+    public MedicationDispenseDosageInstructionComponent getDosageInstructionFirstRep() { 
+      if (getDosageInstruction().isEmpty()) {
+        addDosageInstruction();
+      }
+      return getDosageInstruction().get(0);
     }
 
     /**
@@ -2373,6 +2463,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return this.eventHistory;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationDispense setEventHistory(List<MedicationDispenseEventHistoryComponent> theEventHistory) { 
+      this.eventHistory = theEventHistory;
+      return this;
+    }
+
     public boolean hasEventHistory() { 
       if (this.eventHistory == null)
         return false;
@@ -2382,10 +2480,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return false;
     }
 
-    /**
-     * @return {@link #eventHistory} (A summary of the events of interest that have occurred, such as when the dispense was verified.)
-     */
-    // syntactic sugar
     public MedicationDispenseEventHistoryComponent addEventHistory() { //3
       MedicationDispenseEventHistoryComponent t = new MedicationDispenseEventHistoryComponent();
       if (this.eventHistory == null)
@@ -2394,7 +2488,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return t;
     }
 
-    // syntactic sugar
     public MedicationDispense addEventHistory(MedicationDispenseEventHistoryComponent t) { //3
       if (t == null)
         return this;
@@ -2402,6 +2495,16 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         this.eventHistory = new ArrayList<MedicationDispenseEventHistoryComponent>();
       this.eventHistory.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #eventHistory}, creating it if it does not already exist
+     */
+    public MedicationDispenseEventHistoryComponent getEventHistoryFirstRep() { 
+      if (getEventHistory().isEmpty()) {
+        addEventHistory();
+      }
+      return getEventHistory().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2724,15 +2827,10 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (medication == null || medication.isEmpty()) && (patient == null || patient.isEmpty())
-           && (dispenser == null || dispenser.isEmpty()) && (authorizingPrescription == null || authorizingPrescription.isEmpty())
-           && (type == null || type.isEmpty()) && (quantity == null || quantity.isEmpty()) && (daysSupply == null || daysSupply.isEmpty())
-           && (whenPrepared == null || whenPrepared.isEmpty()) && (whenHandedOver == null || whenHandedOver.isEmpty())
-           && (destination == null || destination.isEmpty()) && (receiver == null || receiver.isEmpty())
-           && (note == null || note.isEmpty()) && (dosageInstruction == null || dosageInstruction.isEmpty())
-           && (substitution == null || substitution.isEmpty()) && (eventHistory == null || eventHistory.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, medication
+          , patient, dispenser, authorizingPrescription, type, quantity, daysSupply, whenPrepared
+          , whenHandedOver, destination, receiver, note, dosageInstruction, substitution, eventHistory
+          );
       }
 
   @Override
@@ -2741,56 +2839,44 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
    }
 
  /**
-   * Search parameter: <b>medication</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Return dispenses of this medicine resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationDispense.medicationReference</b><br>
+   * Description: <b>Return dispenses with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationDispense.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="medication", path="MedicationDispense.medication.as(Reference)", description="Return dispenses of this medicine resource", type="reference" )
-  public static final String SP_MEDICATION = "medication";
+  @SearchParamDefinition(name="identifier", path="MedicationDispense.identifier", description="Return dispenses with this external identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>medication</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Return dispenses of this medicine resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationDispense.medicationReference</b><br>
+   * Description: <b>Return dispenses with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationDispense.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MEDICATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MEDICATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationDispense:medication</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_MEDICATION = new ca.uhn.fhir.model.api.Include("MedicationDispense:medication").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>patient</b>
+   * Search parameter: <b>code</b>
    * <p>
-   * Description: <b>The identity of a patient to list dispenses  for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationDispense.patient</b><br>
+   * Description: <b>Return dispenses of this medicine code</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationDispense.medicationCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="MedicationDispense.patient", description="The identity of a patient to list dispenses  for", type="reference" )
-  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="code", path="MedicationDispense.medication.as(CodeableConcept)", description="Return dispenses of this medicine code", type="token" )
+  public static final String SP_CODE = "code";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
-   * Description: <b>The identity of a patient to list dispenses  for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationDispense.patient</b><br>
+   * Description: <b>Return dispenses of this medicine code</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationDispense.medicationCodeableConcept</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationDispense:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationDispense:patient").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
    * Search parameter: <b>receiver</b>
@@ -2819,50 +2905,56 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
   public static final ca.uhn.fhir.model.api.Include INCLUDE_RECEIVER = new ca.uhn.fhir.model.api.Include("MedicationDispense:receiver").toLocked();
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>destination</b>
    * <p>
-   * Description: <b>Status of the dispense</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationDispense.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="MedicationDispense.status", description="Status of the dispense", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>Status of the dispense</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationDispense.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>prescription</b>
-   * <p>
-   * Description: <b>The identity of a prescription to list dispenses from</b><br>
+   * Description: <b>Return dispenses that should be sent to a specific destination</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationDispense.authorizingPrescription</b><br>
+   * Path: <b>MedicationDispense.destination</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="prescription", path="MedicationDispense.authorizingPrescription", description="The identity of a prescription to list dispenses from", type="reference" )
-  public static final String SP_PRESCRIPTION = "prescription";
+  @SearchParamDefinition(name="destination", path="MedicationDispense.destination", description="Return dispenses that should be sent to a specific destination", type="reference" )
+  public static final String SP_DESTINATION = "destination";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>prescription</b>
+   * <b>Fluent Client</b> search parameter constant for <b>destination</b>
    * <p>
-   * Description: <b>The identity of a prescription to list dispenses from</b><br>
+   * Description: <b>Return dispenses that should be sent to a specific destination</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationDispense.authorizingPrescription</b><br>
+   * Path: <b>MedicationDispense.destination</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRESCRIPTION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRESCRIPTION);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DESTINATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DESTINATION);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationDispense:prescription</b>".
+   * the path value of "<b>MedicationDispense:destination</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRESCRIPTION = new ca.uhn.fhir.model.api.Include("MedicationDispense:prescription").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DESTINATION = new ca.uhn.fhir.model.api.Include("MedicationDispense:destination").toLocked();
+
+ /**
+   * Search parameter: <b>medication</b>
+   * <p>
+   * Description: <b>Return dispenses of this medicine resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationDispense.medicationReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="medication", path="MedicationDispense.medication.as(Reference)", description="Return dispenses of this medicine resource", type="reference" )
+  public static final String SP_MEDICATION = "medication";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>medication</b>
+   * <p>
+   * Description: <b>Return dispenses of this medicine resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationDispense.medicationReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MEDICATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MEDICATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationDispense:medication</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_MEDICATION = new ca.uhn.fhir.model.api.Include("MedicationDispense:medication").toLocked();
 
  /**
    * Search parameter: <b>responsibleparty</b>
@@ -2891,6 +2983,66 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
   public static final ca.uhn.fhir.model.api.Include INCLUDE_RESPONSIBLEPARTY = new ca.uhn.fhir.model.api.Include("MedicationDispense:responsibleparty").toLocked();
 
  /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>Return all dispenses of a specific type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationDispense.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="MedicationDispense.type", description="Return all dispenses of a specific type", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>Return all dispenses of a specific type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationDispense.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>whenhandedover</b>
+   * <p>
+   * Description: <b>Date when medication handed over to patient (outpatient setting), or supplied to ward or clinic (inpatient setting)</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>MedicationDispense.whenHandedOver</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="whenhandedover", path="MedicationDispense.whenHandedOver", description="Date when medication handed over to patient (outpatient setting), or supplied to ward or clinic (inpatient setting)", type="date" )
+  public static final String SP_WHENHANDEDOVER = "whenhandedover";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>whenhandedover</b>
+   * <p>
+   * Description: <b>Date when medication handed over to patient (outpatient setting), or supplied to ward or clinic (inpatient setting)</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>MedicationDispense.whenHandedOver</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam WHENHANDEDOVER = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_WHENHANDEDOVER);
+
+ /**
+   * Search parameter: <b>whenprepared</b>
+   * <p>
+   * Description: <b>Date when medication prepared</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>MedicationDispense.whenPrepared</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="whenprepared", path="MedicationDispense.whenPrepared", description="Date when medication prepared", type="date" )
+  public static final String SP_WHENPREPARED = "whenprepared";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>whenprepared</b>
+   * <p>
+   * Description: <b>Date when medication prepared</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>MedicationDispense.whenPrepared</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam WHENPREPARED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_WHENPREPARED);
+
+ /**
    * Search parameter: <b>dispenser</b>
    * <p>
    * Description: <b>Return all dispenses performed by a specific individual</b><br>
@@ -2917,130 +3069,76 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
   public static final ca.uhn.fhir.model.api.Include INCLUDE_DISPENSER = new ca.uhn.fhir.model.api.Include("MedicationDispense:dispenser").toLocked();
 
  /**
-   * Search parameter: <b>code</b>
+   * Search parameter: <b>prescription</b>
    * <p>
-   * Description: <b>Return dispenses of this medicine code</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationDispense.medicationCodeableConcept</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code", path="MedicationDispense.medication.as(CodeableConcept)", description="Return dispenses of this medicine code", type="token" )
-  public static final String SP_CODE = "code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
-   * <p>
-   * Description: <b>Return dispenses of this medicine code</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationDispense.medicationCodeableConcept</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
-
- /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>Return all dispenses of a specific type</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationDispense.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="MedicationDispense.type", description="Return all dispenses of a specific type", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>Return all dispenses of a specific type</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationDispense.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Return dispenses with this external identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationDispense.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="MedicationDispense.identifier", description="Return dispenses with this external identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Return dispenses with this external identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationDispense.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>whenprepared</b>
-   * <p>
-   * Description: <b>Date when medication prepared</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>MedicationDispense.whenPrepared</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="whenprepared", path="MedicationDispense.whenPrepared", description="Date when medication prepared", type="date" )
-  public static final String SP_WHENPREPARED = "whenprepared";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>whenprepared</b>
-   * <p>
-   * Description: <b>Date when medication prepared</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>MedicationDispense.whenPrepared</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam WHENPREPARED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_WHENPREPARED);
-
- /**
-   * Search parameter: <b>whenhandedover</b>
-   * <p>
-   * Description: <b>Date when medication handed over to patient (outpatient setting), or supplied to ward or clinic (inpatient setting)</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>MedicationDispense.whenHandedOver</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="whenhandedover", path="MedicationDispense.whenHandedOver", description="Date when medication handed over to patient (outpatient setting), or supplied to ward or clinic (inpatient setting)", type="date" )
-  public static final String SP_WHENHANDEDOVER = "whenhandedover";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>whenhandedover</b>
-   * <p>
-   * Description: <b>Date when medication handed over to patient (outpatient setting), or supplied to ward or clinic (inpatient setting)</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>MedicationDispense.whenHandedOver</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam WHENHANDEDOVER = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_WHENHANDEDOVER);
-
- /**
-   * Search parameter: <b>destination</b>
-   * <p>
-   * Description: <b>Return dispenses that should be sent to a specific destination</b><br>
+   * Description: <b>The identity of a prescription to list dispenses from</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationDispense.destination</b><br>
+   * Path: <b>MedicationDispense.authorizingPrescription</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="destination", path="MedicationDispense.destination", description="Return dispenses that should be sent to a specific destination", type="reference" )
-  public static final String SP_DESTINATION = "destination";
+  @SearchParamDefinition(name="prescription", path="MedicationDispense.authorizingPrescription", description="The identity of a prescription to list dispenses from", type="reference" )
+  public static final String SP_PRESCRIPTION = "prescription";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>destination</b>
+   * <b>Fluent Client</b> search parameter constant for <b>prescription</b>
    * <p>
-   * Description: <b>Return dispenses that should be sent to a specific destination</b><br>
+   * Description: <b>The identity of a prescription to list dispenses from</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationDispense.destination</b><br>
+   * Path: <b>MedicationDispense.authorizingPrescription</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DESTINATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DESTINATION);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRESCRIPTION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRESCRIPTION);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationDispense:destination</b>".
+   * the path value of "<b>MedicationDispense:prescription</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_DESTINATION = new ca.uhn.fhir.model.api.Include("MedicationDispense:destination").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRESCRIPTION = new ca.uhn.fhir.model.api.Include("MedicationDispense:prescription").toLocked();
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>The identity of a patient to list dispenses  for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationDispense.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="MedicationDispense.patient", description="The identity of a patient to list dispenses  for", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>The identity of a patient to list dispenses  for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationDispense.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationDispense:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationDispense:patient").toLocked();
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>Status of the dispense</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationDispense.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="MedicationDispense.status", description="Status of the dispense", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>Status of the dispense</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationDispense.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

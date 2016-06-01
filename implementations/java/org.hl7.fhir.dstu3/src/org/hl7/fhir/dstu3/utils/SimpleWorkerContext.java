@@ -27,6 +27,7 @@ import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.ParserType;
 import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem;
@@ -90,6 +91,12 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		res.loadFromStream(SimpleWorkerContext.class.getResourceAsStream("validation.json.zip"));
 		return res;
 	}
+
+	 public static SimpleWorkerContext fromClassPath(String name) throws IOException, FHIRException {
+	    SimpleWorkerContext res = new SimpleWorkerContext();
+	    res.loadFromStream(SimpleWorkerContext.class.getResourceAsStream(name));
+	    return res;
+	  }
 
 	public static SimpleWorkerContext fromDefinitions(Map<String, byte[]> source) throws IOException, FHIRException {
 		SimpleWorkerContext res = new SimpleWorkerContext();
@@ -189,10 +196,8 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 			if (ze.getName().endsWith(".xml")) {
 				String name = ze.getName();
 				loadFromFile(zip, name);
-			}
-			if (ze.getName().endsWith(".css")) {
+			} else
 			  loadBytes(ze.getName(), ze, zip);
-			}
 			zip.closeEntry();
 		}
 		zip.close();
@@ -355,7 +360,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   }
 
   @Override
-  public String getLinkFor(String typeSimple) {
+  public String getLinkFor(String corePath, String typeSimple) {
     return null;
   }
 
@@ -386,6 +391,16 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   public List<StructureDefinition> allStructures() {
     List<StructureDefinition> result = new ArrayList<StructureDefinition>();
     result.addAll(structures.values());
+    return result;
+  }
+
+	@Override
+  public List<BaseConformance> allConformanceResources() {
+    List<BaseConformance> result = new ArrayList<BaseConformance>();
+    result.addAll(structures.values());
+    result.addAll(codeSystems.values());
+    result.addAll(valueSets.values());
+    result.addAll(maps.values());
     return result;
   }
 
@@ -463,6 +478,16 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 
   public void setAllowLoadingDuplicates(boolean allowLoadingDuplicates) {
     this.allowLoadingDuplicates = allowLoadingDuplicates;
+  }
+
+  @Override
+  public boolean prependLinks() {
+    return false;
+  }
+
+  @Override
+  public boolean hasCache() {
+    return false;
   }
 
   

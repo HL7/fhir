@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -925,6 +925,14 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
           return this.location;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public OperationOutcomeIssueComponent setLocation(List<StringType> theLocation) { 
+          this.location = theLocation;
+          return this;
+        }
+
         public boolean hasLocation() { 
           if (this.location == null)
             return false;
@@ -937,7 +945,6 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         /**
          * @return {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
-    // syntactic sugar
         public StringType addLocationElement() {//2 
           StringType t = new StringType();
           if (this.location == null)
@@ -979,6 +986,14 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
           return this.expression;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public OperationOutcomeIssueComponent setExpression(List<StringType> theExpression) { 
+          this.expression = theExpression;
+          return this;
+        }
+
         public boolean hasExpression() { 
           if (this.expression == null)
             return false;
@@ -991,7 +1006,6 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         /**
          * @return {@link #expression} (A simple FluentPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
-    // syntactic sugar
         public StringType addExpressionElement() {//2 
           StringType t = new StringType();
           if (this.expression == null)
@@ -1175,10 +1189,8 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (severity == null || severity.isEmpty()) && (code == null || code.isEmpty())
-           && (details == null || details.isEmpty()) && (diagnostics == null || diagnostics.isEmpty())
-           && (location == null || location.isEmpty()) && (expression == null || expression.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(severity, code, details
+          , diagnostics, location, expression);
       }
 
   public String fhirType() {
@@ -1213,6 +1225,14 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       return this.issue;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public OperationOutcome setIssue(List<OperationOutcomeIssueComponent> theIssue) { 
+      this.issue = theIssue;
+      return this;
+    }
+
     public boolean hasIssue() { 
       if (this.issue == null)
         return false;
@@ -1222,10 +1242,6 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       return false;
     }
 
-    /**
-     * @return {@link #issue} (An error, warning or information message that results from a system action.)
-     */
-    // syntactic sugar
     public OperationOutcomeIssueComponent addIssue() { //3
       OperationOutcomeIssueComponent t = new OperationOutcomeIssueComponent();
       if (this.issue == null)
@@ -1234,7 +1250,6 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       return t;
     }
 
-    // syntactic sugar
     public OperationOutcome addIssue(OperationOutcomeIssueComponent t) { //3
       if (t == null)
         return this;
@@ -1242,6 +1257,16 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         this.issue = new ArrayList<OperationOutcomeIssueComponent>();
       this.issue.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #issue}, creating it if it does not already exist
+     */
+    public OperationOutcomeIssueComponent getIssueFirstRep() { 
+      if (getIssue().isEmpty()) {
+        addIssue();
+      }
+      return getIssue().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1336,7 +1361,7 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (issue == null || issue.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(issue);
       }
 
   @Override

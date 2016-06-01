@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -788,6 +788,14 @@ public class Protocol extends DomainResource {
           return this.activity;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ProtocolStepComponent setActivity(List<ProtocolStepActivityComponent> theActivity) { 
+          this.activity = theActivity;
+          return this;
+        }
+
         public boolean hasActivity() { 
           if (this.activity == null)
             return false;
@@ -797,10 +805,6 @@ public class Protocol extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #activity} (Activities that occur within timepoint.)
-         */
-    // syntactic sugar
         public ProtocolStepActivityComponent addActivity() { //3
           ProtocolStepActivityComponent t = new ProtocolStepActivityComponent();
           if (this.activity == null)
@@ -809,7 +813,6 @@ public class Protocol extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ProtocolStepComponent addActivity(ProtocolStepActivityComponent t) { //3
           if (t == null)
             return this;
@@ -817,6 +820,16 @@ public class Protocol extends DomainResource {
             this.activity = new ArrayList<ProtocolStepActivityComponent>();
           this.activity.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #activity}, creating it if it does not already exist
+         */
+        public ProtocolStepActivityComponent getActivityFirstRep() { 
+          if (getActivity().isEmpty()) {
+            addActivity();
+          }
+          return getActivity().get(0);
         }
 
         /**
@@ -828,6 +841,14 @@ public class Protocol extends DomainResource {
           return this.next;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ProtocolStepComponent setNext(List<ProtocolStepNextComponent> theNext) { 
+          this.next = theNext;
+          return this;
+        }
+
         public boolean hasNext() { 
           if (this.next == null)
             return false;
@@ -837,10 +858,6 @@ public class Protocol extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #next} (What happens next?)
-         */
-    // syntactic sugar
         public ProtocolStepNextComponent addNext() { //3
           ProtocolStepNextComponent t = new ProtocolStepNextComponent();
           if (this.next == null)
@@ -849,7 +866,6 @@ public class Protocol extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ProtocolStepComponent addNext(ProtocolStepNextComponent t) { //3
           if (t == null)
             return this;
@@ -857,6 +873,16 @@ public class Protocol extends DomainResource {
             this.next = new ArrayList<ProtocolStepNextComponent>();
           this.next.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #next}, creating it if it does not already exist
+         */
+        public ProtocolStepNextComponent getNextFirstRep() { 
+          if (getNext().isEmpty()) {
+            addNext();
+          }
+          return getNext().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1036,10 +1062,8 @@ public class Protocol extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (description == null || description.isEmpty())
-           && (duration == null || duration.isEmpty()) && (precondition == null || precondition.isEmpty())
-           && (exit == null || exit.isEmpty()) && (firstActivity == null || firstActivity.isEmpty())
-           && (activity == null || activity.isEmpty()) && (next == null || next.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, description, duration
+          , precondition, exit, firstActivity, activity, next);
       }
 
   public String fhirType() {
@@ -1177,6 +1201,14 @@ public class Protocol extends DomainResource {
           return this.intersection;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ProtocolStepPreconditionComponent setIntersection(List<ProtocolStepPreconditionComponent> theIntersection) { 
+          this.intersection = theIntersection;
+          return this;
+        }
+
         public boolean hasIntersection() { 
           if (this.intersection == null)
             return false;
@@ -1186,10 +1218,6 @@ public class Protocol extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #intersection} (Lists a set of conditions that must all be met.)
-         */
-    // syntactic sugar
         public ProtocolStepPreconditionComponent addIntersection() { //3
           ProtocolStepPreconditionComponent t = new ProtocolStepPreconditionComponent();
           if (this.intersection == null)
@@ -1198,7 +1226,6 @@ public class Protocol extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ProtocolStepPreconditionComponent addIntersection(ProtocolStepPreconditionComponent t) { //3
           if (t == null)
             return this;
@@ -1206,6 +1233,16 @@ public class Protocol extends DomainResource {
             this.intersection = new ArrayList<ProtocolStepPreconditionComponent>();
           this.intersection.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #intersection}, creating it if it does not already exist
+         */
+        public ProtocolStepPreconditionComponent getIntersectionFirstRep() { 
+          if (getIntersection().isEmpty()) {
+            addIntersection();
+          }
+          return getIntersection().get(0);
         }
 
         /**
@@ -1217,6 +1254,14 @@ public class Protocol extends DomainResource {
           return this.union;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ProtocolStepPreconditionComponent setUnion(List<ProtocolStepPreconditionComponent> theUnion) { 
+          this.union = theUnion;
+          return this;
+        }
+
         public boolean hasUnion() { 
           if (this.union == null)
             return false;
@@ -1226,10 +1271,6 @@ public class Protocol extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #union} (Lists alternative conditions, at least one of must be met.)
-         */
-    // syntactic sugar
         public ProtocolStepPreconditionComponent addUnion() { //3
           ProtocolStepPreconditionComponent t = new ProtocolStepPreconditionComponent();
           if (this.union == null)
@@ -1238,7 +1279,6 @@ public class Protocol extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ProtocolStepPreconditionComponent addUnion(ProtocolStepPreconditionComponent t) { //3
           if (t == null)
             return this;
@@ -1246,6 +1286,16 @@ public class Protocol extends DomainResource {
             this.union = new ArrayList<ProtocolStepPreconditionComponent>();
           this.union.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #union}, creating it if it does not already exist
+         */
+        public ProtocolStepPreconditionComponent getUnionFirstRep() { 
+          if (getUnion().isEmpty()) {
+            addUnion();
+          }
+          return getUnion().get(0);
         }
 
         /**
@@ -1257,6 +1307,14 @@ public class Protocol extends DomainResource {
           return this.exclude;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ProtocolStepPreconditionComponent setExclude(List<ProtocolStepPreconditionComponent> theExclude) { 
+          this.exclude = theExclude;
+          return this;
+        }
+
         public boolean hasExclude() { 
           if (this.exclude == null)
             return false;
@@ -1266,10 +1324,6 @@ public class Protocol extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #exclude} (Lists conditions of which none must be met.)
-         */
-    // syntactic sugar
         public ProtocolStepPreconditionComponent addExclude() { //3
           ProtocolStepPreconditionComponent t = new ProtocolStepPreconditionComponent();
           if (this.exclude == null)
@@ -1278,7 +1332,6 @@ public class Protocol extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ProtocolStepPreconditionComponent addExclude(ProtocolStepPreconditionComponent t) { //3
           if (t == null)
             return this;
@@ -1286,6 +1339,16 @@ public class Protocol extends DomainResource {
             this.exclude = new ArrayList<ProtocolStepPreconditionComponent>();
           this.exclude.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #exclude}, creating it if it does not already exist
+         */
+        public ProtocolStepPreconditionComponent getExcludeFirstRep() { 
+          if (getExclude().isEmpty()) {
+            addExclude();
+          }
+          return getExclude().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1430,9 +1493,8 @@ public class Protocol extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (description == null || description.isEmpty()) && (condition == null || condition.isEmpty())
-           && (intersection == null || intersection.isEmpty()) && (union == null || union.isEmpty())
-           && (exclude == null || exclude.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, condition, intersection
+          , union, exclude);
       }
 
   public String fhirType() {
@@ -1676,8 +1738,7 @@ public class Protocol extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, value);
       }
 
   public String fhirType() {
@@ -1750,6 +1811,14 @@ public class Protocol extends DomainResource {
           return this.alternative;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ProtocolStepActivityComponent setAlternative(List<UriType> theAlternative) { 
+          this.alternative = theAlternative;
+          return this;
+        }
+
         public boolean hasAlternative() { 
           if (this.alternative == null)
             return false;
@@ -1762,7 +1831,6 @@ public class Protocol extends DomainResource {
         /**
          * @return {@link #alternative} (What can be done instead?)
          */
-    // syntactic sugar
         public UriType addAlternativeElement() {//2 
           UriType t = new UriType();
           if (this.alternative == null)
@@ -1804,6 +1872,14 @@ public class Protocol extends DomainResource {
           return this.component;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ProtocolStepActivityComponent setComponent(List<ProtocolStepActivityComponentComponent> theComponent) { 
+          this.component = theComponent;
+          return this;
+        }
+
         public boolean hasComponent() { 
           if (this.component == null)
             return false;
@@ -1813,10 +1889,6 @@ public class Protocol extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #component} (Activities that are part of this activity.)
-         */
-    // syntactic sugar
         public ProtocolStepActivityComponentComponent addComponent() { //3
           ProtocolStepActivityComponentComponent t = new ProtocolStepActivityComponentComponent();
           if (this.component == null)
@@ -1825,7 +1897,6 @@ public class Protocol extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ProtocolStepActivityComponent addComponent(ProtocolStepActivityComponentComponent t) { //3
           if (t == null)
             return this;
@@ -1836,12 +1907,30 @@ public class Protocol extends DomainResource {
         }
 
         /**
+         * @return The first repetition of repeating field {@link #component}, creating it if it does not already exist
+         */
+        public ProtocolStepActivityComponentComponent getComponentFirstRep() { 
+          if (getComponent().isEmpty()) {
+            addComponent();
+          }
+          return getComponent().get(0);
+        }
+
+        /**
          * @return {@link #following} (What happens next.)
          */
         public List<UriType> getFollowing() { 
           if (this.following == null)
             this.following = new ArrayList<UriType>();
           return this.following;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ProtocolStepActivityComponent setFollowing(List<UriType> theFollowing) { 
+          this.following = theFollowing;
+          return this;
         }
 
         public boolean hasFollowing() { 
@@ -1856,7 +1945,6 @@ public class Protocol extends DomainResource {
         /**
          * @return {@link #following} (What happens next.)
          */
-    // syntactic sugar
         public UriType addFollowingElement() {//2 
           UriType t = new UriType();
           if (this.following == null)
@@ -2081,9 +2169,8 @@ public class Protocol extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (alternative == null || alternative.isEmpty()) && (component == null || component.isEmpty())
-           && (following == null || following.isEmpty()) && (wait == null || wait.isEmpty()) && (detail == null || detail.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(alternative, component, following
+          , wait, detail);
       }
 
   public String fhirType() {
@@ -2307,8 +2394,7 @@ public class Protocol extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (activity == null || activity.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, activity);
       }
 
   public String fhirType() {
@@ -2566,6 +2652,14 @@ public class Protocol extends DomainResource {
           return this.performer;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ProtocolStepActivityDetailComponent setPerformer(List<Reference> thePerformer) { 
+          this.performer = thePerformer;
+          return this;
+        }
+
         public boolean hasPerformer() { 
           if (this.performer == null)
             return false;
@@ -2575,10 +2669,6 @@ public class Protocol extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #performer} (Identifies who's expected to be involved in the activity.)
-         */
-    // syntactic sugar
         public Reference addPerformer() { //3
           Reference t = new Reference();
           if (this.performer == null)
@@ -2587,7 +2677,6 @@ public class Protocol extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ProtocolStepActivityDetailComponent addPerformer(Reference t) { //3
           if (t == null)
             return this;
@@ -2598,8 +2687,19 @@ public class Protocol extends DomainResource {
         }
 
         /**
-         * @return {@link #performer} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies who's expected to be involved in the activity.)
+         * @return The first repetition of repeating field {@link #performer}, creating it if it does not already exist
          */
+        public Reference getPerformerFirstRep() { 
+          if (getPerformer().isEmpty()) {
+            addPerformer();
+          }
+          return getPerformer().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Resource> getPerformerTarget() { 
           if (this.performerTarget == null)
             this.performerTarget = new ArrayList<Resource>();
@@ -2907,10 +3007,8 @@ public class Protocol extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (category == null || category.isEmpty()) && (code == null || code.isEmpty())
-           && (timing == null || timing.isEmpty()) && (location == null || location.isEmpty()) && (performer == null || performer.isEmpty())
-           && (product == null || product.isEmpty()) && (quantity == null || quantity.isEmpty()) && (description == null || description.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, code, timing, location
+          , performer, product, quantity, description);
       }
 
   public String fhirType() {
@@ -3180,8 +3278,8 @@ public class Protocol extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (description == null || description.isEmpty()) && (reference == null || reference.isEmpty())
-           && (condition == null || condition.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, reference, condition
+          );
       }
 
   public String fhirType() {
@@ -3297,6 +3395,14 @@ public class Protocol extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Protocol setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -3306,10 +3412,6 @@ public class Protocol extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (A unique identifier for the protocol instance.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -3318,7 +3420,6 @@ public class Protocol extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Protocol addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -3326,6 +3427,16 @@ public class Protocol extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -3648,6 +3759,14 @@ public class Protocol extends DomainResource {
       return this.step;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Protocol setStep(List<ProtocolStepComponent> theStep) { 
+      this.step = theStep;
+      return this;
+    }
+
     public boolean hasStep() { 
       if (this.step == null)
         return false;
@@ -3657,10 +3776,6 @@ public class Protocol extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #step} (What's done as part of protocol.)
-     */
-    // syntactic sugar
     public ProtocolStepComponent addStep() { //3
       ProtocolStepComponent t = new ProtocolStepComponent();
       if (this.step == null)
@@ -3669,7 +3784,6 @@ public class Protocol extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Protocol addStep(ProtocolStepComponent t) { //3
       if (t == null)
         return this;
@@ -3677,6 +3791,16 @@ public class Protocol extends DomainResource {
         this.step = new ArrayList<ProtocolStepComponent>();
       this.step.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #step}, creating it if it does not already exist
+     */
+    public ProtocolStepComponent getStepFirstRep() { 
+      if (getStep().isEmpty()) {
+        addStep();
+      }
+      return getStep().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -3878,16 +4002,34 @@ public class Protocol extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (title == null || title.isEmpty())
-           && (status == null || status.isEmpty()) && (type == null || type.isEmpty()) && (subject == null || subject.isEmpty())
-           && (group == null || group.isEmpty()) && (purpose == null || purpose.isEmpty()) && (author == null || author.isEmpty())
-           && (step == null || step.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, title, status
+          , type, subject, group, purpose, author, step);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Protocol;
    }
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>The unique id for a particular protocol</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Protocol.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Protocol.identifier", description="The unique id for a particular protocol", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>The unique id for a particular protocol</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Protocol.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>subject</b>
@@ -3914,26 +4056,6 @@ public class Protocol extends DomainResource {
    * the path value of "<b>Protocol:subject</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Protocol:subject").toLocked();
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>The unique id for a particular protocol</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Protocol.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Protocol.identifier", description="The unique id for a particular protocol", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>The unique id for a particular protocol</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Protocol.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

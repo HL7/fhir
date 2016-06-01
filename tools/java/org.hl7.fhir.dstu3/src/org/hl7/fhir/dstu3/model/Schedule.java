@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -127,6 +127,14 @@ public class Schedule extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Schedule setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -136,10 +144,6 @@ public class Schedule extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (External Ids for this item.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -148,7 +152,6 @@ public class Schedule extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Schedule addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -156,6 +159,16 @@ public class Schedule extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -191,6 +204,14 @@ public class Schedule extends DomainResource {
       return this.serviceType;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Schedule setServiceType(List<CodeableConcept> theServiceType) { 
+      this.serviceType = theServiceType;
+      return this;
+    }
+
     public boolean hasServiceType() { 
       if (this.serviceType == null)
         return false;
@@ -200,10 +221,6 @@ public class Schedule extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #serviceType} (The specific service that is to be performed during this appointment.)
-     */
-    // syntactic sugar
     public CodeableConcept addServiceType() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.serviceType == null)
@@ -212,7 +229,6 @@ public class Schedule extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Schedule addServiceType(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -220,6 +236,16 @@ public class Schedule extends DomainResource {
         this.serviceType = new ArrayList<CodeableConcept>();
       this.serviceType.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #serviceType}, creating it if it does not already exist
+     */
+    public CodeableConcept getServiceTypeFirstRep() { 
+      if (getServiceType().isEmpty()) {
+        addServiceType();
+      }
+      return getServiceType().get(0);
     }
 
     /**
@@ -231,6 +257,14 @@ public class Schedule extends DomainResource {
       return this.specialty;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Schedule setSpecialty(List<CodeableConcept> theSpecialty) { 
+      this.specialty = theSpecialty;
+      return this;
+    }
+
     public boolean hasSpecialty() { 
       if (this.specialty == null)
         return false;
@@ -240,10 +274,6 @@ public class Schedule extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #specialty} (The specialty of a practitioner that would be required to perform the service requested in this appointment.)
-     */
-    // syntactic sugar
     public CodeableConcept addSpecialty() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.specialty == null)
@@ -252,7 +282,6 @@ public class Schedule extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Schedule addSpecialty(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -260,6 +289,16 @@ public class Schedule extends DomainResource {
         this.specialty = new ArrayList<CodeableConcept>();
       this.specialty.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #specialty}, creating it if it does not already exist
+     */
+    public CodeableConcept getSpecialtyFirstRep() { 
+      if (getSpecialty().isEmpty()) {
+        addSpecialty();
+      }
+      return getSpecialty().get(0);
     }
 
     /**
@@ -552,10 +591,8 @@ public class Schedule extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (serviceCategory == null || serviceCategory.isEmpty())
-           && (serviceType == null || serviceType.isEmpty()) && (specialty == null || specialty.isEmpty())
-           && (actor == null || actor.isEmpty()) && (planningHorizon == null || planningHorizon.isEmpty())
-           && (comment == null || comment.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, serviceCategory
+          , serviceType, specialty, actor, planningHorizon, comment);
       }
 
   @Override
@@ -610,26 +647,6 @@ public class Schedule extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>The type of appointments that can be booked into associated slot(s)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Schedule.serviceType</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="Schedule.serviceType", description="The type of appointments that can be booked into associated slot(s)", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>The type of appointments that can be booked into associated slot(s)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Schedule.serviceType</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
    * Search parameter: <b>identifier</b>
    * <p>
    * Description: <b>A Schedule Identifier</b><br>
@@ -648,6 +665,26 @@ public class Schedule extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>The type of appointments that can be booked into associated slot(s)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Schedule.serviceType</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="Schedule.serviceType", description="The type of appointments that can be booked into associated slot(s)", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>The type of appointments that can be booked into associated slot(s)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Schedule.serviceType</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
 
 }

@@ -44,6 +44,8 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
+import com.google.gson.JsonObject;
+
 public class StructureDefinitionRenderer extends BaseRenderer {
   public static final String RIM_MAPPING = "http://hl7.org/v3";
   public static final String v2_MAPPING = "http://hl7.org/v2";
@@ -54,12 +56,14 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   private StructureDefinition sd;
   private String destDir;
   private ProfileKnowledgeProvider pkp;
-  
-  public StructureDefinitionRenderer(IWorkerContext context, String prefix, StructureDefinition sd, String destDir, ProfileKnowledgeProvider pkp) {
+  private JsonObject preambles;
+
+  public StructureDefinitionRenderer(IWorkerContext context, String prefix, StructureDefinition sd, String destDir, ProfileKnowledgeProvider pkp, JsonObject preambles) {
     super(context, prefix);
     this.sd = sd;
     this.destDir = destDir;
     this.pkp = pkp;
+    this.preambles = preambles;
     utils = new ProfileUtilities(context, null, pkp);
   }
 
@@ -80,7 +84,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       int requiredNesteds = 0;
       int fixeds = 0;
       int prohibits = 0;
-  
+
       for (ElementDefinition ed : sd.getDifferential().getElement()) {
         if (ed.getPath().contains(".")) {
           if (ed.getMin() == 1)
@@ -94,7 +98,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
             supports++;
           if (ed.hasFixed())
             fixeds++;
-          
+
           for (TypeRefComponent t : ed.getType()) {
             if (t.hasProfile() && !pkp.isDatatype(t.getProfile().get(0).getValue().substring(40))) {
               if (ed.getPath().endsWith(".extension"))
@@ -166,25 +170,25 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       return "<p><i>"+Utilities.escapeXml(e.getMessage())+"</i></p>";
     }
   }
-  
-  
+
+
 
   private boolean parentChainHasOptional(ElementDefinition ed, StructureDefinition profile) {
     if (!ed.getPath().contains("."))
       return false;
-    
+
     ElementDefinition match = (ElementDefinition) ed.getUserData(ProfileUtilities.DERIVATION_POINTER);
     if (match == null)
       return true; // really, we shouldn't get here, but this appears to be common in the existing profiles?  
-      // throw new Error("no matches for "+ed.getPath()+"/"+ed.getName()+" in "+profile.getUrl());
-    
+    // throw new Error("no matches for "+ed.getPath()+"/"+ed.getName()+" in "+profile.getUrl());
+
     while (match.getPath().contains(".")) {
       if (match.getMin() == 0) {
         return true;
       }
       match = getElementParent(profile.getSnapshot().getElement(), match);
     }
-    
+
     return false;
   }
 
@@ -207,14 +211,14 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       s = "ordered";
     if (slicing.getRules() != SlicingRules.OPEN)
       s = Utilities.noString(s) ? slicing.getRules().getDisplay() : s+", "+ slicing.getRules().getDisplay();
-    if (!Utilities.noString(s))
-      s = " ("+s+")";
-    if (slicing.getDiscriminator().size() == 1)
-      return "<li>The element "+path+" is sliced based on the value of "+slicing.getDiscriminator().get(0).asStringValue()+s+"</li>\r\n";
-    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-    for (StringType d : slicing.getDiscriminator()) 
-      b.append(d.asStringValue());
-    return "<li>The element "+path+" is sliced based on the values of "+slicing.getDiscriminator().get(0).asStringValue()+s+"</li>\r\n";
+      if (!Utilities.noString(s))
+        s = " ("+s+")";
+      if (slicing.getDiscriminator().size() == 1)
+        return "<li>The element "+path+" is sliced based on the value of "+slicing.getDiscriminator().get(0).asStringValue()+s+"</li>\r\n";
+      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+      for (StringType d : slicing.getDiscriminator()) 
+        b.append(d.asStringValue());
+      return "<li>The element "+path+" is sliced based on the values of "+slicing.getDiscriminator().get(0).asStringValue()+s+"</li>\r\n";
   }
 
   private void tryAdd(List<String> ext, String s) {
@@ -235,7 +239,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   private String describeProfile(String url, String prefix) throws Exception {
     if (url.startsWith("http://hl7.org/fhir/StructureDefinition/") && (pkp.isDatatype(url.substring(40)) || pkp.isResource(url.substring(40)) || "Resource".equals(url.substring(40))))
       return null;
-    
+
     StructureDefinition ed = context.fetchResource(StructureDefinition.class, url);
     if (ed == null)
       return "<li>unable to summarise profile "+url+" (no profile found)</li>";
@@ -304,11 +308,11 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   }
 
   public String diff(String defnFile) throws IOException, FHIRException {
-    return new XhtmlComposer().compose(utils.generateTable(defnFile, sd, true, destDir, false, sd.getId(), false, prefix, false));
+    return new XhtmlComposer().compose(utils.generateTable(defnFile, sd, true, destDir, false, sd.getId(), false, prefix, "", false));
   }
 
   public String snapshot(String defnFile) throws IOException, FHIRException {
-    return new XhtmlComposer().compose(utils.generateTable(defnFile, sd, false, destDir, false, sd.getId(), true, prefix, false));
+    return new XhtmlComposer().compose(utils.generateTable(defnFile, sd, false, destDir, false, sd.getId(), true, prefix, "", false));
   }
 
   public String tx() {
@@ -349,12 +353,12 @@ public class StructureDefinitionRenderer extends BaseRenderer {
           }
         }
         b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
-                  append(prefix).append("terminologies.html#").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).
-                  append("\">").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
+        append(prefix).append("terminologies.html#").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).
+        append("\">").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
       }
       b.append("</table>\r\n");
       return b.toString();
-      
+
     }
   }
 
@@ -378,7 +382,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         List<ElementDefinitionConstraintComponent> invs = txmap.get(path);
         for (ElementDefinitionConstraintComponent inv : invs) {
           b.append("<tr><td>").append(inv.getKey()).append("</td><td>").append(path).append("</td><td>").append(Utilities.escapeXml(inv.getHuman()))
-           .append("<br/>XPath: ").append(Utilities.escapeXml(inv.getXpath())).append("</td><td>").append(Utilities.escapeXml(inv.getRequirements())).append("</td></tr>\r\n");
+          .append("<br/>XPath: ").append(Utilities.escapeXml(inv.getXpath())).append("</td><td>").append(Utilities.escapeXml(inv.getRequirements())).append("</td></tr>\r\n");
         }
       }
       b.append("</table>\r\n");
@@ -432,7 +436,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       return element.getName();
     return element.getPath().substring(0, element.getPath().lastIndexOf("."))+"."+element.getName();
   }
-  
+
   private ElementDefinition getExtensionValueDefinition(StructureDefinition extDefn) {
     for (ElementDefinition ed : extDefn.getSnapshot().getElement()) {
       if (ed.getPath().startsWith("Extension.value"))
@@ -467,7 +471,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     tableRowNE(b, "Invariants", null, invariants(d.getConstraint()));
     tableRow(b, "LOINC Code", null, getMapping(profile, d, LOINC_MAPPING));
     tableRow(b, "SNOMED-CT Code", null, getMapping(profile, d, SNOMED_MAPPING));
-   }
+  }
 
   private void generateSlicing(StructureDefinition profile, ElementDefinitionSlicingComponent slicing) throws IOException {
     StringBuilder b = new StringBuilder();
@@ -501,7 +505,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
   }
 
-  
+
   private void tableRowHint(StringBuilder b, String name, String hint, String defRef, String value) throws IOException {
     if (value != null && !"".equals(value)) {
       if (defRef != null) 
@@ -511,7 +515,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
   }
 
-  
+
   private void tableRowNE(StringBuilder b, String name, String defRef, String value) throws IOException {
     if (value != null && !"".equals(value))
       if (defRef != null) 
@@ -558,7 +562,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   private String describeTypes(List<TypeRefComponent> types) throws Exception {
     if (types.isEmpty())
       return "";
-    
+
     StringBuilder b = new StringBuilder();
     if (types.size() == 1)
       describeType(b, types.get(0));
@@ -581,13 +585,13 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       return;
     if (t.getCode().startsWith("="))
       return;
-    
+
     if (t.getCode().startsWith("xs:")) {
       b.append(t.getCode());
     } else {
       b.append("<a href=\"");
       b.append(prefix);         
-      b.append(pkp.getLinkFor(t.getCode()));
+      b.append(pkp.getLinkFor("", t.getCode()));
       b.append(".html#");
       String type = t.getCode();
       if (type.equals("*"))
@@ -613,7 +617,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
           if (p.hasBaseType() )
             b.append("<a href=\""+prefix+p.getUserString("path")+"\" title=\""+pt.getValue()+"\">");
           else if (p.getKind() == StructureDefinitionKind.COMPLEXTYPE || p.getKind() == StructureDefinitionKind.PRIMITIVETYPE)
-            b.append("<a href=\""+prefix+pkp.getLinkFor(p.getName())+ ".html#" + p.getName()+"\" title=\""+p.getName()+"\">");
+            b.append("<a href=\""+prefix+pkp.getLinkFor("", p.getName())+ ".html#" + p.getName()+"\" title=\""+p.getName()+"\">");
           else // if (p.getKind() == StructureDefinitionType.RESOURCE)
             b.append("<a href=\""+prefix+p.getName().toLowerCase()+".html\">");
           b.append(p.getName());
@@ -660,7 +664,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         s.append("<b title=\"Formal Invariant Identifier\">"+id+"</b>: "+Utilities.escapeXml(inv.getHuman())+" (xpath: "+Utilities.escapeXml(inv.getXpath())+")");
       }
     }
-    
+
     return s.toString();
   }
 
@@ -677,7 +681,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     if (!d.hasBinding())
       return null;
     else {
-     // return TerminologyNotesGenerator.describeBinding(prefix, d.getBinding(), page);
+      // return TerminologyNotesGenerator.describeBinding(prefix, d.getBinding(), page);
       ElementDefinitionBindingComponent def = d.getBinding();
       if (!def.hasValueSet()) 
         return def.getDescription();
@@ -685,7 +689,10 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       ValueSet vs = context.fetchResource(ValueSet.class, ref);
       if (vs != null) {
         String pp = (String) vs.getUserData("path");
-        return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a>"+confTail(def);
+        if (pp == null) {
+          return null;
+        } else 
+          return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a>"+confTail(def);
       }
       if (ref.startsWith("http:") || ref.startsWith("https:"))
         return def.getDescription()+"<br/>"+conf(def)+" <a href=\""+ref+"\">"+ref+"</a>"+confTail(def);
@@ -722,7 +729,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       return null;
     if (value instanceof PrimitiveType)
       return Utilities.escapeXml(((PrimitiveType) value).asStringValue());
-    
+
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     XmlParser parser = new XmlParser();
     parser.setOutputStyle(OutputStyle.PRETTY);
@@ -735,7 +742,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       }
     }
     return b.toString();  
-    
+
   }
 
   private String getMapping(StructureDefinition profile, ElementDefinition d, String uri) {
@@ -761,5 +768,83 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     return b.toString();
   }
 
+  public String mappings() {
+    if (sd.getMapping().isEmpty())
+      return "<p>No Mappings</p>";
+    else {
+      StringBuilder s = new StringBuilder();
+      for (StructureDefinitionMappingComponent map : sd.getMapping()) {
+
+        s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
+        if (map.hasComments())
+          s.append("<p>"+Utilities.escapeXml(map.getComments())+"</p>");
+        else if (preambles.has(map.getUri()))   
+          s.append(preambles.get(map.getUri()).getAsString());
+
+        s.append("<table class=\"grid\">\r\n");
+
+        s.append(" <tr><td colspan=\"3\"><b>"+Utilities.escapeXml(sd.getName())+"</b></td></tr>\r\n");
+        String path = null;
+        for (ElementDefinition e : sd.getSnapshot().getElement()) {
+          if (path == null || !e.getPath().startsWith(path)) {
+            path = null;
+            if (e.hasMax() && e.getMax().equals("0")) {
+              path = e.getPath()+".";
+            } else
+              genElement(s, e, map.getIdentity());
+          }
+        }
+        s.append("</table>\r\n");
+      }
+      return s.toString();
+    }
+  }
+
+  private void genElement(StringBuilder s, ElementDefinition e, String id) {
+    s.append(" <tr><td>");
+    boolean root = true;
+    for (char c : e.getPath().toCharArray()) 
+      if (c == '.') {
+        s.append("&nbsp;");
+        s.append("&nbsp;");
+        s.append("&nbsp;");
+        root = false;
+      }
+    if (root)
+      s.append(e.getPath());
+    else
+      s.append(tail(e.getPath()));
+    s.append("</td><td>"+Utilities.escapeXml(e.getName())+"</td>");
+    ElementDefinitionMappingComponent m = getMap(e, id);
+    if (m == null)
+      s.append("<td></td>");
+    else
+      s.append("<td>"+Utilities.escapeXml(m.getMap())+"</td>");
+    s.append(" </tr>\r\n");
+  }
+
+
+  private ElementDefinitionMappingComponent getMap(ElementDefinition e, String id) {
+    for (ElementDefinitionMappingComponent m : e.getMapping()) {
+      if (m.getIdentity().equals(id))
+        return m;
+    }
+    return null;
+  }
+
+  public String header() {
+    StringBuilder b = new StringBuilder();
+    b.append("<p>\r\n");
+    b.append("The official URL for this profile is:\r\n");
+    b.append("</p>\r\n");
+    b.append("<pre>"+sd.getUrl()+"</pre>\r\n");
+    b.append("<p>\r\n");
+    b.append(sd.getDescription());
+    b.append("</p>\r\n");
+    b.append("<p>\r\n");
+    b.append("This profile was published on "+sd.getDate().toString()+" as a "+sd.getStatus().toCode()+" by "+sd.getPublisher()+".\r\n");
+    b.append("</p>\r\n");
+    return b.toString();
+  }
 
 }

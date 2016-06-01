@@ -168,8 +168,8 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
  <tr>
    <td>Confidentiality codes</td>
    <td>
-     These <a href="v3/Confidentiality/vs.html">confidentiality codes</a> (system = http://hl7.org/fhir/v3/Confidentiality) can be applied to any resource or bundle. They are generally assigned by the author of the resource, 
-     but can be modified subsequently as a matter of operational management. The Confidentiality codes describe the sensitivity of the information in a resource with regard to 
+     These <a href="v3/ConfidentialityClassification/vs.html">confidentiality class</a> (system = http://hl7.org/fhir/v3/Confidentiality) can be applied to any resource or bundle. They are generally assigned by the author of the resource, 
+     but can be modified subsequently as a matter of operational management. The Confidentiality classifications describe the sensitivity of the information in a resource with regard to 
      whether it should made available or disclosed to unauthorized individuals, entities, or processes.  <br/> Notes:
      <ul>
       <li>In the absence of a confidentiality code, the basic confidentiality of a resource may be implied by its definition and content; e.g. a patient's condition is far more likely to be confidential than a practitioner resource, and a Diagnostic Report with an HIV test is always highly confidential, where as a routine electrolytes is rarely particularly confidential</li>
@@ -323,7 +323,7 @@ labels that may be applied to a resource:
 <table class="grid">
  <tr> <td><b>Security Label</b></td> <td><b>Card.</b></td> <td><b>Values</b></td>  <td><b>Description</b></td> </tr>
  
- <tr> <td>Confidentiality Classification</td> <td>0..1</td> <td><a href="v3/Confidentiality/vs.html">Confidentiality</a></td>  <td>Security label metadata classifying an IT 
+ <tr> <td>Confidentiality Classification</td> <td>0..1</td> <td><a href="v3/ConfidentialityClassification/vs.html">ConfidentialityClassification</a></td>  <td>Security label metadata classifying an IT 
 resource (clinical fact, data, information 
 object, service, or system capability) 
 according to its level of sensitivity, which is 

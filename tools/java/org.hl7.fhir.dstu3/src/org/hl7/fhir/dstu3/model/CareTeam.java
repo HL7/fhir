@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -278,8 +278,7 @@ public class CareTeam extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (role == null || role.isEmpty()) && (member == null || member.isEmpty())
-           && (period == null || period.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, member, period);
       }
 
   public String fhirType() {
@@ -373,6 +372,14 @@ public class CareTeam extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CareTeam setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -382,10 +389,6 @@ public class CareTeam extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (This records identifiers associated with this care team that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -394,7 +397,6 @@ public class CareTeam extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public CareTeam addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -402,6 +404,16 @@ public class CareTeam extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -437,6 +449,14 @@ public class CareTeam extends DomainResource {
       return this.type;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CareTeam setType(List<CodeableConcept> theType) { 
+      this.type = theType;
+      return this;
+    }
+
     public boolean hasType() { 
       if (this.type == null)
         return false;
@@ -446,10 +466,6 @@ public class CareTeam extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #type} (Identifies what kind of team.  This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team.)
-     */
-    // syntactic sugar
     public CodeableConcept addType() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.type == null)
@@ -458,7 +474,6 @@ public class CareTeam extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public CareTeam addType(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -466,6 +481,16 @@ public class CareTeam extends DomainResource {
         this.type = new ArrayList<CodeableConcept>();
       this.type.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #type}, creating it if it does not already exist
+     */
+    public CodeableConcept getTypeFirstRep() { 
+      if (getType().isEmpty()) {
+        addType();
+      }
+      return getType().get(0);
     }
 
     /**
@@ -589,6 +614,14 @@ public class CareTeam extends DomainResource {
       return this.participant;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CareTeam setParticipant(List<CareTeamParticipantComponent> theParticipant) { 
+      this.participant = theParticipant;
+      return this;
+    }
+
     public boolean hasParticipant() { 
       if (this.participant == null)
         return false;
@@ -598,10 +631,6 @@ public class CareTeam extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #participant} (Identifies all people and organizations who are expected to be involved in the care team.)
-     */
-    // syntactic sugar
     public CareTeamParticipantComponent addParticipant() { //3
       CareTeamParticipantComponent t = new CareTeamParticipantComponent();
       if (this.participant == null)
@@ -610,7 +639,6 @@ public class CareTeam extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public CareTeam addParticipant(CareTeamParticipantComponent t) { //3
       if (t == null)
         return this;
@@ -618,6 +646,16 @@ public class CareTeam extends DomainResource {
         this.participant = new ArrayList<CareTeamParticipantComponent>();
       this.participant.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #participant}, creating it if it does not already exist
+     */
+    public CareTeamParticipantComponent getParticipantFirstRep() { 
+      if (getParticipant().isEmpty()) {
+        addParticipant();
+      }
+      return getParticipant().get(0);
     }
 
     /**
@@ -855,134 +893,14 @@ public class CareTeam extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (type == null || type.isEmpty()) && (name == null || name.isEmpty()) && (subject == null || subject.isEmpty())
-           && (period == null || period.isEmpty()) && (participant == null || participant.isEmpty())
-           && (managingOrganization == null || managingOrganization.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, type
+          , name, subject, period, participant, managingOrganization);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.CareTeam;
    }
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Who care team is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CareTeam.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="CareTeam.subject", description="Who care team is for", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Who care team is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CareTeam.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CareTeam:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("CareTeam:patient").toLocked();
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>active | suspended | inactive | entered in error</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CareTeam.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="CareTeam.status", description="active | suspended | inactive | entered in error", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>active | suspended | inactive | entered in error</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CareTeam.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>Who care team is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CareTeam.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subject", path="CareTeam.subject", description="Who care team is for", type="reference" )
-  public static final String SP_SUBJECT = "subject";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
-   * <p>
-   * Description: <b>Who care team is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CareTeam.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CareTeam:subject</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("CareTeam:subject").toLocked();
-
- /**
-   * Search parameter: <b>participant</b>
-   * <p>
-   * Description: <b>Who is involved</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CareTeam.participant.member</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="participant", path="CareTeam.participant.member", description="Who is involved", type="reference" )
-  public static final String SP_PARTICIPANT = "participant";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>participant</b>
-   * <p>
-   * Description: <b>Who is involved</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CareTeam.participant.member</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARTICIPANT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARTICIPANT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CareTeam:participant</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTICIPANT = new ca.uhn.fhir.model.api.Include("CareTeam:participant").toLocked();
-
- /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>Type of team</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CareTeam.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="CareTeam.type", description="Type of team", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>Type of team</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CareTeam.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
    * Search parameter: <b>date</b>
@@ -1023,6 +941,124 @@ public class CareTeam extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Who care team is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CareTeam.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="CareTeam.subject", description="Who care team is for", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Who care team is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CareTeam.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CareTeam:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("CareTeam:patient").toLocked();
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>Who care team is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CareTeam.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="CareTeam.subject", description="Who care team is for", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>Who care team is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CareTeam.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CareTeam:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("CareTeam:subject").toLocked();
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>Type of team</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CareTeam.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="CareTeam.type", description="Type of team", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>Type of team</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CareTeam.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>participant</b>
+   * <p>
+   * Description: <b>Who is involved</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CareTeam.participant.member</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="participant", path="CareTeam.participant.member", description="Who is involved", type="reference" )
+  public static final String SP_PARTICIPANT = "participant";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>participant</b>
+   * <p>
+   * Description: <b>Who is involved</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CareTeam.participant.member</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARTICIPANT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARTICIPANT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CareTeam:participant</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTICIPANT = new ca.uhn.fhir.model.api.Include("CareTeam:participant").toLocked();
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>active | suspended | inactive | entered in error</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CareTeam.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="CareTeam.status", description="active | suspended | inactive | entered in error", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>active | suspended | inactive | entered in error</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CareTeam.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

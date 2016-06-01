@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -407,6 +407,14 @@ public class CodeSystem extends BaseConformance {
           return this.telecom;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CodeSystemContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+          this.telecom = theTelecom;
+          return this;
+        }
+
         public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
@@ -416,10 +424,6 @@ public class CodeSystem extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
-         */
-    // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           if (this.telecom == null)
@@ -428,7 +432,6 @@ public class CodeSystem extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public CodeSystemContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
@@ -436,6 +439,16 @@ public class CodeSystem extends BaseConformance {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+         */
+        public ContactPoint getTelecomFirstRep() { 
+          if (getTelecom().isEmpty()) {
+            addTelecom();
+          }
+          return getTelecom().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -533,8 +546,7 @@ public class CodeSystem extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, telecom);
       }
 
   public String fhirType() {
@@ -695,6 +707,14 @@ public class CodeSystem extends BaseConformance {
           return this.operator;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CodeSystemFilterComponent setOperator(List<CodeType> theOperator) { 
+          this.operator = theOperator;
+          return this;
+        }
+
         public boolean hasOperator() { 
           if (this.operator == null)
             return false;
@@ -707,7 +727,6 @@ public class CodeSystem extends BaseConformance {
         /**
          * @return {@link #operator} (A list of operators that can be used with the filter.)
          */
-    // syntactic sugar
         public CodeType addOperatorElement() {//2 
           CodeType t = new CodeType();
           if (this.operator == null)
@@ -906,8 +925,8 @@ public class CodeSystem extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (description == null || description.isEmpty())
-           && (operator == null || operator.isEmpty()) && (value == null || value.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, description, operator
+          , value);
       }
 
   public String fhirType() {
@@ -1270,8 +1289,8 @@ public class CodeSystem extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (uri == null || uri.isEmpty())
-           && (description == null || description.isEmpty()) && (type == null || type.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, uri, description, type
+          );
       }
 
   public String fhirType() {
@@ -1494,6 +1513,14 @@ public class CodeSystem extends BaseConformance {
           return this.designation;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConceptDefinitionComponent setDesignation(List<ConceptDefinitionDesignationComponent> theDesignation) { 
+          this.designation = theDesignation;
+          return this;
+        }
+
         public boolean hasDesignation() { 
           if (this.designation == null)
             return false;
@@ -1503,10 +1530,6 @@ public class CodeSystem extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #designation} (Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.)
-         */
-    // syntactic sugar
         public ConceptDefinitionDesignationComponent addDesignation() { //3
           ConceptDefinitionDesignationComponent t = new ConceptDefinitionDesignationComponent();
           if (this.designation == null)
@@ -1515,7 +1538,6 @@ public class CodeSystem extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConceptDefinitionComponent addDesignation(ConceptDefinitionDesignationComponent t) { //3
           if (t == null)
             return this;
@@ -1523,6 +1545,16 @@ public class CodeSystem extends BaseConformance {
             this.designation = new ArrayList<ConceptDefinitionDesignationComponent>();
           this.designation.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #designation}, creating it if it does not already exist
+         */
+        public ConceptDefinitionDesignationComponent getDesignationFirstRep() { 
+          if (getDesignation().isEmpty()) {
+            addDesignation();
+          }
+          return getDesignation().get(0);
         }
 
         /**
@@ -1534,6 +1566,14 @@ public class CodeSystem extends BaseConformance {
           return this.property;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConceptDefinitionComponent setProperty(List<ConceptDefinitionPropertyComponent> theProperty) { 
+          this.property = theProperty;
+          return this;
+        }
+
         public boolean hasProperty() { 
           if (this.property == null)
             return false;
@@ -1543,10 +1583,6 @@ public class CodeSystem extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #property} (A property value for this concept.)
-         */
-    // syntactic sugar
         public ConceptDefinitionPropertyComponent addProperty() { //3
           ConceptDefinitionPropertyComponent t = new ConceptDefinitionPropertyComponent();
           if (this.property == null)
@@ -1555,7 +1591,6 @@ public class CodeSystem extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConceptDefinitionComponent addProperty(ConceptDefinitionPropertyComponent t) { //3
           if (t == null)
             return this;
@@ -1563,6 +1598,16 @@ public class CodeSystem extends BaseConformance {
             this.property = new ArrayList<ConceptDefinitionPropertyComponent>();
           this.property.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #property}, creating it if it does not already exist
+         */
+        public ConceptDefinitionPropertyComponent getPropertyFirstRep() { 
+          if (getProperty().isEmpty()) {
+            addProperty();
+          }
+          return getProperty().get(0);
         }
 
         /**
@@ -1574,6 +1619,14 @@ public class CodeSystem extends BaseConformance {
           return this.concept;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConceptDefinitionComponent setConcept(List<ConceptDefinitionComponent> theConcept) { 
+          this.concept = theConcept;
+          return this;
+        }
+
         public boolean hasConcept() { 
           if (this.concept == null)
             return false;
@@ -1583,10 +1636,6 @@ public class CodeSystem extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #concept} (Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) and can only be determined by examining the definitions of the concepts.)
-         */
-    // syntactic sugar
         public ConceptDefinitionComponent addConcept() { //3
           ConceptDefinitionComponent t = new ConceptDefinitionComponent();
           if (this.concept == null)
@@ -1595,7 +1644,6 @@ public class CodeSystem extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConceptDefinitionComponent addConcept(ConceptDefinitionComponent t) { //3
           if (t == null)
             return this;
@@ -1603,6 +1651,16 @@ public class CodeSystem extends BaseConformance {
             this.concept = new ArrayList<ConceptDefinitionComponent>();
           this.concept.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #concept}, creating it if it does not already exist
+         */
+        public ConceptDefinitionComponent getConceptFirstRep() { 
+          if (getConcept().isEmpty()) {
+            addConcept();
+          }
+          return getConcept().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1759,9 +1817,8 @@ public class CodeSystem extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (display == null || display.isEmpty())
-           && (definition == null || definition.isEmpty()) && (designation == null || designation.isEmpty())
-           && (property == null || property.isEmpty()) && (concept == null || concept.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, display, definition
+          , designation, property, concept);
       }
 
   public String fhirType() {
@@ -2034,8 +2091,7 @@ public class CodeSystem extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (language == null || language.isEmpty()) && (use == null || use.isEmpty())
-           && (value == null || value.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(language, use, value);
       }
 
   public String fhirType() {
@@ -2333,8 +2389,7 @@ public class CodeSystem extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, value);
       }
 
   public String fhirType() {
@@ -2653,6 +2708,14 @@ public class CodeSystem extends BaseConformance {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CodeSystem setContact(List<CodeSystemContactComponent> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -2662,10 +2725,6 @@ public class CodeSystem extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
-     */
-    // syntactic sugar
     public CodeSystemContactComponent addContact() { //3
       CodeSystemContactComponent t = new CodeSystemContactComponent();
       if (this.contact == null)
@@ -2674,7 +2733,6 @@ public class CodeSystem extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public CodeSystem addContact(CodeSystemContactComponent t) { //3
       if (t == null)
         return this;
@@ -2682,6 +2740,16 @@ public class CodeSystem extends BaseConformance {
         this.contact = new ArrayList<CodeSystemContactComponent>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public CodeSystemContactComponent getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -3128,6 +3196,14 @@ public class CodeSystem extends BaseConformance {
       return this.filter;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CodeSystem setFilter(List<CodeSystemFilterComponent> theFilter) { 
+      this.filter = theFilter;
+      return this;
+    }
+
     public boolean hasFilter() { 
       if (this.filter == null)
         return false;
@@ -3137,10 +3213,6 @@ public class CodeSystem extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #filter} (A filter that can be used in a value set compose statement when selecting concepts using a filter.)
-     */
-    // syntactic sugar
     public CodeSystemFilterComponent addFilter() { //3
       CodeSystemFilterComponent t = new CodeSystemFilterComponent();
       if (this.filter == null)
@@ -3149,7 +3221,6 @@ public class CodeSystem extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public CodeSystem addFilter(CodeSystemFilterComponent t) { //3
       if (t == null)
         return this;
@@ -3157,6 +3228,16 @@ public class CodeSystem extends BaseConformance {
         this.filter = new ArrayList<CodeSystemFilterComponent>();
       this.filter.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #filter}, creating it if it does not already exist
+     */
+    public CodeSystemFilterComponent getFilterFirstRep() { 
+      if (getFilter().isEmpty()) {
+        addFilter();
+      }
+      return getFilter().get(0);
     }
 
     /**
@@ -3168,6 +3249,14 @@ public class CodeSystem extends BaseConformance {
       return this.property;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CodeSystem setProperty(List<CodeSystemPropertyComponent> theProperty) { 
+      this.property = theProperty;
+      return this;
+    }
+
     public boolean hasProperty() { 
       if (this.property == null)
         return false;
@@ -3177,10 +3266,6 @@ public class CodeSystem extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #property} (A property defines an additional slot through which additional information can be provided about a concept.)
-     */
-    // syntactic sugar
     public CodeSystemPropertyComponent addProperty() { //3
       CodeSystemPropertyComponent t = new CodeSystemPropertyComponent();
       if (this.property == null)
@@ -3189,7 +3274,6 @@ public class CodeSystem extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public CodeSystem addProperty(CodeSystemPropertyComponent t) { //3
       if (t == null)
         return this;
@@ -3197,6 +3281,16 @@ public class CodeSystem extends BaseConformance {
         this.property = new ArrayList<CodeSystemPropertyComponent>();
       this.property.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #property}, creating it if it does not already exist
+     */
+    public CodeSystemPropertyComponent getPropertyFirstRep() { 
+      if (getProperty().isEmpty()) {
+        addProperty();
+      }
+      return getProperty().get(0);
     }
 
     /**
@@ -3208,6 +3302,14 @@ public class CodeSystem extends BaseConformance {
       return this.concept;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CodeSystem setConcept(List<ConceptDefinitionComponent> theConcept) { 
+      this.concept = theConcept;
+      return this;
+    }
+
     public boolean hasConcept() { 
       if (this.concept == null)
         return false;
@@ -3217,10 +3319,6 @@ public class CodeSystem extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #concept} (Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are.)
-     */
-    // syntactic sugar
     public ConceptDefinitionComponent addConcept() { //3
       ConceptDefinitionComponent t = new ConceptDefinitionComponent();
       if (this.concept == null)
@@ -3229,7 +3327,6 @@ public class CodeSystem extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public CodeSystem addConcept(ConceptDefinitionComponent t) { //3
       if (t == null)
         return this;
@@ -3237,6 +3334,16 @@ public class CodeSystem extends BaseConformance {
         this.concept = new ArrayList<ConceptDefinitionComponent>();
       this.concept.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #concept}, creating it if it does not already exist
+     */
+    public ConceptDefinitionComponent getConceptFirstRep() { 
+      if (getConcept().isEmpty()) {
+        addConcept();
+      }
+      return getConcept().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -3605,179 +3712,15 @@ public class CodeSystem extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (caseSensitive == null || caseSensitive.isEmpty()) && (valueSet == null || valueSet.isEmpty())
-           && (compositional == null || compositional.isEmpty()) && (versionNeeded == null || versionNeeded.isEmpty())
-           && (content == null || content.isEmpty()) && (count == null || count.isEmpty()) && (filter == null || filter.isEmpty())
-           && (property == null || property.isEmpty()) && (concept == null || concept.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, experimental, publisher
+          , contact, description, requirements, copyright, caseSensitive, valueSet, compositional
+          , versionNeeded, content, count, filter, property, concept);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.CodeSystem;
    }
-
- /**
-   * Search parameter: <b>content</b>
-   * <p>
-   * Description: <b>not-present | examplar | fragment | complete</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.content</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="content", path="CodeSystem.content", description="not-present | examplar | fragment | complete", type="token" )
-  public static final String SP_CONTENT = "content";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>content</b>
-   * <p>
-   * Description: <b>not-present | examplar | fragment | complete</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.content</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTENT);
-
- /**
-   * Search parameter: <b>system</b>
-   * <p>
-   * Description: <b>The system for any codes defined by this code system (same as 'url')</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>CodeSystem.url</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="system", path="CodeSystem.url", description="The system for any codes defined by this code system (same as 'url')", type="uri" )
-  public static final String SP_SYSTEM = "system";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>system</b>
-   * <p>
-   * Description: <b>The system for any codes defined by this code system (same as 'url')</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>CodeSystem.url</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam SYSTEM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SYSTEM);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>The status of the code system</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="CodeSystem.status", description="The status of the code system", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>The status of the code system</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the code system</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>CodeSystem.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="CodeSystem.description", description="Text search in the description of the code system", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the code system</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>CodeSystem.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>The name of the code system</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>CodeSystem.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="CodeSystem.name", description="The name of the code system", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>The name of the code system</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>CodeSystem.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
-   * Search parameter: <b>context</b>
-   * <p>
-   * Description: <b>A use context assigned to the code system</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.useContext</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="context", path="CodeSystem.useContext", description="A use context assigned to the code system", type="token" )
-  public static final String SP_CONTEXT = "context";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>context</b>
-   * <p>
-   * Description: <b>A use context assigned to the code system</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.useContext</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
-
- /**
-   * Search parameter: <b>language</b>
-   * <p>
-   * Description: <b>A language in which a designation is provided</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.concept.designation.language</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="language", path="CodeSystem.concept.designation.language", description="A language in which a designation is provided", type="token" )
-  public static final String SP_LANGUAGE = "language";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>language</b>
-   * <p>
-   * Description: <b>A language in which a designation is provided</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.concept.designation.language</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam LANGUAGE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_LANGUAGE);
-
- /**
-   * Search parameter: <b>code</b>
-   * <p>
-   * Description: <b>A code defined in the code system</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.concept.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code", path="CodeSystem.concept.code", description="A code defined in the code system", type="token" )
-  public static final String SP_CODE = "code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
-   * <p>
-   * Description: <b>A code defined in the code system</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.concept.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
    * Search parameter: <b>date</b>
@@ -3820,6 +3763,86 @@ public class CodeSystem extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>A code defined in the code system</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.concept.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="CodeSystem.concept.code", description="A code defined in the code system", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>A code defined in the code system</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.concept.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the code system</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>CodeSystem.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="CodeSystem.description", description="Text search in the description of the code system", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the code system</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>CodeSystem.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>language</b>
+   * <p>
+   * Description: <b>A language in which a designation is provided</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.concept.designation.language</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="language", path="CodeSystem.concept.designation.language", description="A language in which a designation is provided", type="token" )
+  public static final String SP_LANGUAGE = "language";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>language</b>
+   * <p>
+   * Description: <b>A language in which a designation is provided</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.concept.designation.language</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam LANGUAGE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_LANGUAGE);
+
+ /**
+   * Search parameter: <b>version</b>
+   * <p>
+   * Description: <b>The version identifier of the code system</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.version</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="version", path="CodeSystem.version", description="The version identifier of the code system", type="token" )
+  public static final String SP_VERSION = "version";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>version</b>
+   * <p>
+   * Description: <b>The version identifier of the code system</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.version</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
+
+ /**
    * Search parameter: <b>url</b>
    * <p>
    * Description: <b>The logical URL for the code system</b><br>
@@ -3838,6 +3861,86 @@ public class CodeSystem extends BaseConformance {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>content</b>
+   * <p>
+   * Description: <b>not-present | examplar | fragment | complete</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.content</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="content", path="CodeSystem.content", description="not-present | examplar | fragment | complete", type="token" )
+  public static final String SP_CONTENT = "content";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>content</b>
+   * <p>
+   * Description: <b>not-present | examplar | fragment | complete</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.content</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTENT);
+
+ /**
+   * Search parameter: <b>system</b>
+   * <p>
+   * Description: <b>The system for any codes defined by this code system (same as 'url')</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>CodeSystem.url</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="system", path="CodeSystem.url", description="The system for any codes defined by this code system (same as 'url')", type="uri" )
+  public static final String SP_SYSTEM = "system";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>system</b>
+   * <p>
+   * Description: <b>The system for any codes defined by this code system (same as 'url')</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>CodeSystem.url</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam SYSTEM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SYSTEM);
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>The name of the code system</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>CodeSystem.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="CodeSystem.name", description="The name of the code system", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>The name of the code system</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>CodeSystem.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the code system</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.useContext</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="CodeSystem.useContext", description="A use context assigned to the code system", type="token" )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the code system</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.useContext</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
    * Search parameter: <b>publisher</b>
@@ -3860,24 +3963,24 @@ public class CodeSystem extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
-   * Search parameter: <b>version</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>The version identifier of the code system</b><br>
+   * Description: <b>The status of the code system</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.version</b><br>
+   * Path: <b>CodeSystem.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="CodeSystem.version", description="The version identifier of the code system", type="token" )
-  public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="status", path="CodeSystem.status", description="The status of the code system", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>version</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>The version identifier of the code system</b><br>
+   * Description: <b>The status of the code system</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.version</b><br>
+   * Path: <b>CodeSystem.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

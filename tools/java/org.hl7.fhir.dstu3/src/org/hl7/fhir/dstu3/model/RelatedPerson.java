@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -149,6 +149,14 @@ public class RelatedPerson extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public RelatedPerson setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -158,10 +166,6 @@ public class RelatedPerson extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Identifier for a person within a particular scope.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -170,7 +174,6 @@ public class RelatedPerson extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public RelatedPerson addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -178,6 +181,16 @@ public class RelatedPerson extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -281,6 +294,14 @@ public class RelatedPerson extends DomainResource {
       return this.telecom;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public RelatedPerson setTelecom(List<ContactPoint> theTelecom) { 
+      this.telecom = theTelecom;
+      return this;
+    }
+
     public boolean hasTelecom() { 
       if (this.telecom == null)
         return false;
@@ -290,10 +311,6 @@ public class RelatedPerson extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
-     */
-    // syntactic sugar
     public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       if (this.telecom == null)
@@ -302,7 +319,6 @@ public class RelatedPerson extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public RelatedPerson addTelecom(ContactPoint t) { //3
       if (t == null)
         return this;
@@ -310,6 +326,16 @@ public class RelatedPerson extends DomainResource {
         this.telecom = new ArrayList<ContactPoint>();
       this.telecom.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+     */
+    public ContactPoint getTelecomFirstRep() { 
+      if (getTelecom().isEmpty()) {
+        addTelecom();
+      }
+      return getTelecom().get(0);
     }
 
     /**
@@ -419,6 +445,14 @@ public class RelatedPerson extends DomainResource {
       return this.address;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public RelatedPerson setAddress(List<Address> theAddress) { 
+      this.address = theAddress;
+      return this;
+    }
+
     public boolean hasAddress() { 
       if (this.address == null)
         return false;
@@ -428,10 +462,6 @@ public class RelatedPerson extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #address} (Address where the related person can be contacted or visited.)
-     */
-    // syntactic sugar
     public Address addAddress() { //3
       Address t = new Address();
       if (this.address == null)
@@ -440,7 +470,6 @@ public class RelatedPerson extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public RelatedPerson addAddress(Address t) { //3
       if (t == null)
         return this;
@@ -448,6 +477,16 @@ public class RelatedPerson extends DomainResource {
         this.address = new ArrayList<Address>();
       this.address.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #address}, creating it if it does not already exist
+     */
+    public Address getAddressFirstRep() { 
+      if (getAddress().isEmpty()) {
+        addAddress();
+      }
+      return getAddress().get(0);
     }
 
     /**
@@ -459,6 +498,14 @@ public class RelatedPerson extends DomainResource {
       return this.photo;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public RelatedPerson setPhoto(List<Attachment> thePhoto) { 
+      this.photo = thePhoto;
+      return this;
+    }
+
     public boolean hasPhoto() { 
       if (this.photo == null)
         return false;
@@ -468,10 +515,6 @@ public class RelatedPerson extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #photo} (Image of the person.)
-     */
-    // syntactic sugar
     public Attachment addPhoto() { //3
       Attachment t = new Attachment();
       if (this.photo == null)
@@ -480,7 +523,6 @@ public class RelatedPerson extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public RelatedPerson addPhoto(Attachment t) { //3
       if (t == null)
         return this;
@@ -488,6 +530,16 @@ public class RelatedPerson extends DomainResource {
         this.photo = new ArrayList<Attachment>();
       this.photo.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #photo}, creating it if it does not already exist
+     */
+    public Attachment getPhotoFirstRep() { 
+      if (getPhoto().isEmpty()) {
+        addPhoto();
+      }
+      return getPhoto().get(0);
     }
 
     /**
@@ -733,10 +785,8 @@ public class RelatedPerson extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (patient == null || patient.isEmpty())
-           && (relationship == null || relationship.isEmpty()) && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
-           && (gender == null || gender.isEmpty()) && (birthDate == null || birthDate.isEmpty()) && (address == null || address.isEmpty())
-           && (photo == null || photo.isEmpty()) && (period == null || period.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, patient, relationship
+          , name, telecom, gender, birthDate, address, photo, period);
       }
 
   @Override
@@ -745,24 +795,144 @@ public class RelatedPerson extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>phone</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>A value in a phone contact</b><br>
+   * Description: <b>A patient Identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>RelatedPerson.telecom(system=phone)</b><br>
+   * Path: <b>RelatedPerson.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="phone", path="RelatedPerson.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
-  public static final String SP_PHONE = "phone";
+  @SearchParamDefinition(name="identifier", path="RelatedPerson.identifier", description="A patient Identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>phone</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>A value in a phone contact</b><br>
+   * Description: <b>A patient Identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>RelatedPerson.telecom(system=phone)</b><br>
+   * Path: <b>RelatedPerson.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PHONE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PHONE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>address</b>
+   * <p>
+   * Description: <b>An address in any kind of address/part</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>RelatedPerson.address</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="address", path="RelatedPerson.address", description="An address in any kind of address/part", type="string" )
+  public static final String SP_ADDRESS = "address";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>address</b>
+   * <p>
+   * Description: <b>An address in any kind of address/part</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>RelatedPerson.address</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS);
+
+ /**
+   * Search parameter: <b>birthdate</b>
+   * <p>
+   * Description: <b>The Related Person's date of birth</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>RelatedPerson.birthDate</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="birthdate", path="RelatedPerson.birthDate", description="The Related Person's date of birth", type="date" )
+  public static final String SP_BIRTHDATE = "birthdate";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>birthdate</b>
+   * <p>
+   * Description: <b>The Related Person's date of birth</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>RelatedPerson.birthDate</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam BIRTHDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_BIRTHDATE);
+
+ /**
+   * Search parameter: <b>address-state</b>
+   * <p>
+   * Description: <b>A state specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>RelatedPerson.address.state</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="address-state", path="RelatedPerson.address.state", description="A state specified in an address", type="string" )
+  public static final String SP_ADDRESS_STATE = "address-state";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>address-state</b>
+   * <p>
+   * Description: <b>A state specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>RelatedPerson.address.state</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_STATE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_STATE);
+
+ /**
+   * Search parameter: <b>gender</b>
+   * <p>
+   * Description: <b>Gender of the person</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>RelatedPerson.gender</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="gender", path="RelatedPerson.gender", description="Gender of the person", type="token" )
+  public static final String SP_GENDER = "gender";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>gender</b>
+   * <p>
+   * Description: <b>Gender of the person</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>RelatedPerson.gender</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam GENDER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_GENDER);
+
+ /**
+   * Search parameter: <b>address-postalcode</b>
+   * <p>
+   * Description: <b>A postal code specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>RelatedPerson.address.postalCode</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="address-postalcode", path="RelatedPerson.address.postalCode", description="A postal code specified in an address", type="string" )
+  public static final String SP_ADDRESS_POSTALCODE = "address-postalcode";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>address-postalcode</b>
+   * <p>
+   * Description: <b>A postal code specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>RelatedPerson.address.postalCode</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_POSTALCODE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_POSTALCODE);
+
+ /**
+   * Search parameter: <b>address-country</b>
+   * <p>
+   * Description: <b>A country specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>RelatedPerson.address.country</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="address-country", path="RelatedPerson.address.country", description="A country specified in an address", type="string" )
+  public static final String SP_ADDRESS_COUNTRY = "address-country";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>address-country</b>
+   * <p>
+   * Description: <b>A country specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>RelatedPerson.address.country</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_COUNTRY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_COUNTRY);
 
  /**
    * Search parameter: <b>phonetic</b>
@@ -785,24 +955,24 @@ public class RelatedPerson extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PHONETIC = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PHONETIC);
 
  /**
-   * Search parameter: <b>address-country</b>
+   * Search parameter: <b>phone</b>
    * <p>
-   * Description: <b>A country specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>RelatedPerson.address.country</b><br>
+   * Description: <b>A value in a phone contact</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>RelatedPerson.telecom(system=phone)</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address-country", path="RelatedPerson.address.country", description="A country specified in an address", type="string" )
-  public static final String SP_ADDRESS_COUNTRY = "address-country";
+  @SearchParamDefinition(name="phone", path="RelatedPerson.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
+  public static final String SP_PHONE = "phone";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-country</b>
+   * <b>Fluent Client</b> search parameter constant for <b>phone</b>
    * <p>
-   * Description: <b>A country specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>RelatedPerson.address.country</b><br>
+   * Description: <b>A value in a phone contact</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>RelatedPerson.telecom(system=phone)</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_COUNTRY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_COUNTRY);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PHONE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PHONE);
 
  /**
    * Search parameter: <b>patient</b>
@@ -831,84 +1001,24 @@ public class RelatedPerson extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("RelatedPerson:patient").toLocked();
 
  /**
-   * Search parameter: <b>address-city</b>
+   * Search parameter: <b>name</b>
    * <p>
-   * Description: <b>A city specified in an address</b><br>
+   * Description: <b>A portion of name in any name part</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>RelatedPerson.address.city</b><br>
+   * Path: <b>RelatedPerson.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address-city", path="RelatedPerson.address.city", description="A city specified in an address", type="string" )
-  public static final String SP_ADDRESS_CITY = "address-city";
+  @SearchParamDefinition(name="name", path="RelatedPerson.name", description="A portion of name in any name part", type="string" )
+  public static final String SP_NAME = "name";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-city</b>
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
    * <p>
-   * Description: <b>A city specified in an address</b><br>
+   * Description: <b>A portion of name in any name part</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>RelatedPerson.address.city</b><br>
+   * Path: <b>RelatedPerson.name</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_CITY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_CITY);
-
- /**
-   * Search parameter: <b>address-state</b>
-   * <p>
-   * Description: <b>A state specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>RelatedPerson.address.state</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="address-state", path="RelatedPerson.address.state", description="A state specified in an address", type="string" )
-  public static final String SP_ADDRESS_STATE = "address-state";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-state</b>
-   * <p>
-   * Description: <b>A state specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>RelatedPerson.address.state</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_STATE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_STATE);
-
- /**
-   * Search parameter: <b>email</b>
-   * <p>
-   * Description: <b>A value in an email contact</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>RelatedPerson.telecom(system=email)</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="email", path="RelatedPerson.telecom.where(system='email')", description="A value in an email contact", type="token" )
-  public static final String SP_EMAIL = "email";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>email</b>
-   * <p>
-   * Description: <b>A value in an email contact</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>RelatedPerson.telecom(system=email)</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EMAIL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EMAIL);
-
- /**
-   * Search parameter: <b>address</b>
-   * <p>
-   * Description: <b>An address in any kind of address/part</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>RelatedPerson.address</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="address", path="RelatedPerson.address", description="An address in any kind of address/part", type="string" )
-  public static final String SP_ADDRESS = "address";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>address</b>
-   * <p>
-   * Description: <b>An address in any kind of address/part</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>RelatedPerson.address</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
 
  /**
    * Search parameter: <b>address-use</b>
@@ -931,46 +1041,6 @@ public class RelatedPerson extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ADDRESS_USE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ADDRESS_USE);
 
  /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>A portion of name in any name part</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>RelatedPerson.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="RelatedPerson.name", description="A portion of name in any name part", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>A portion of name in any name part</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>RelatedPerson.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
-   * Search parameter: <b>birthdate</b>
-   * <p>
-   * Description: <b>The Related Person's date of birth</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>RelatedPerson.birthDate</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="birthdate", path="RelatedPerson.birthDate", description="The Related Person's date of birth", type="date" )
-  public static final String SP_BIRTHDATE = "birthdate";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>birthdate</b>
-   * <p>
-   * Description: <b>The Related Person's date of birth</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>RelatedPerson.birthDate</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam BIRTHDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_BIRTHDATE);
-
- /**
    * Search parameter: <b>telecom</b>
    * <p>
    * Description: <b>The value in any kind of contact</b><br>
@@ -991,64 +1061,44 @@ public class RelatedPerson extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TELECOM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TELECOM);
 
  /**
-   * Search parameter: <b>gender</b>
+   * Search parameter: <b>address-city</b>
    * <p>
-   * Description: <b>Gender of the person</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>RelatedPerson.gender</b><br>
+   * Description: <b>A city specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>RelatedPerson.address.city</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="gender", path="RelatedPerson.gender", description="Gender of the person", type="token" )
-  public static final String SP_GENDER = "gender";
+  @SearchParamDefinition(name="address-city", path="RelatedPerson.address.city", description="A city specified in an address", type="string" )
+  public static final String SP_ADDRESS_CITY = "address-city";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>gender</b>
+   * <b>Fluent Client</b> search parameter constant for <b>address-city</b>
    * <p>
-   * Description: <b>Gender of the person</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>RelatedPerson.gender</b><br>
+   * Description: <b>A city specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>RelatedPerson.address.city</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam GENDER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_GENDER);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_CITY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_CITY);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>email</b>
    * <p>
-   * Description: <b>A patient Identifier</b><br>
+   * Description: <b>A value in an email contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>RelatedPerson.identifier</b><br>
+   * Path: <b>RelatedPerson.telecom(system=email)</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="RelatedPerson.identifier", description="A patient Identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="email", path="RelatedPerson.telecom.where(system='email')", description="A value in an email contact", type="token" )
+  public static final String SP_EMAIL = "email";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>email</b>
    * <p>
-   * Description: <b>A patient Identifier</b><br>
+   * Description: <b>A value in an email contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>RelatedPerson.identifier</b><br>
+   * Path: <b>RelatedPerson.telecom(system=email)</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>address-postalcode</b>
-   * <p>
-   * Description: <b>A postal code specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>RelatedPerson.address.postalCode</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="address-postalcode", path="RelatedPerson.address.postalCode", description="A postal code specified in an address", type="string" )
-  public static final String SP_ADDRESS_POSTALCODE = "address-postalcode";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-postalcode</b>
-   * <p>
-   * Description: <b>A postal code specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>RelatedPerson.address.postalCode</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_POSTALCODE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_POSTALCODE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EMAIL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EMAIL);
 
 
 }

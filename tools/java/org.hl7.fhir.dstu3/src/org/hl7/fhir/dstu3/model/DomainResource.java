@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -115,6 +115,14 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
       return this.contained;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DomainResource setContained(List<Resource> theContained) { 
+      this.contained = theContained;
+      return this;
+    }
+
     public boolean hasContained() { 
       if (this.contained == null)
         return false;
@@ -124,10 +132,6 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
       return false;
     }
 
-    /**
-     * @return {@link #contained} (These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.)
-     */
-    // syntactic sugar
     public DomainResource addContained(Resource t) { //3
       if (t == null)
         return this;
@@ -146,6 +150,14 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
       return this.extension;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DomainResource setExtension(List<Extension> theExtension) { 
+      this.extension = theExtension;
+      return this;
+    }
+
     public boolean hasExtension() { 
       if (this.extension == null)
         return false;
@@ -155,10 +167,6 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
       return false;
     }
 
-    /**
-     * @return {@link #extension} (May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.)
-     */
-    // syntactic sugar
     public Extension addExtension() { //3
       Extension t = new Extension();
       if (this.extension == null)
@@ -167,7 +175,6 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
       return t;
     }
 
-    // syntactic sugar
     public DomainResource addExtension(Extension t) { //3
       if (t == null)
         return this;
@@ -186,6 +193,14 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
       return this.modifierExtension;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DomainResource setModifierExtension(List<Extension> theModifierExtension) { 
+      this.modifierExtension = theModifierExtension;
+      return this;
+    }
+
     public boolean hasModifierExtension() { 
       if (this.modifierExtension == null)
         return false;
@@ -195,10 +210,6 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
       return false;
     }
 
-    /**
-     * @return {@link #modifierExtension} (May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.)
-     */
-    // syntactic sugar
     public Extension addModifierExtension() { //3
       Extension t = new Extension();
       if (this.modifierExtension == null)
@@ -207,7 +218,6 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
       return t;
     }
 
-    // syntactic sugar
     public DomainResource addModifierExtension(Extension t) { //3
       if (t == null)
         return this;
@@ -379,9 +389,8 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (text == null || text.isEmpty()) && (contained == null || contained.isEmpty())
-           && (extension == null || extension.isEmpty()) && (modifierExtension == null || modifierExtension.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(text, contained, extension
+          , modifierExtension);
       }
 
 

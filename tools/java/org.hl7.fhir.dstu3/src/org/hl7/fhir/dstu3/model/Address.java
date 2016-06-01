@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -509,6 +509,14 @@ public class Address extends Type implements ICompositeType {
       return this.line;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Address setLine(List<StringType> theLine) { 
+      this.line = theLine;
+      return this;
+    }
+
     public boolean hasLine() { 
       if (this.line == null)
         return false;
@@ -521,7 +529,6 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return {@link #line} (This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.)
      */
-    // syntactic sugar
     public StringType addLineElement() {//2 
       StringType t = new StringType();
       if (this.line == null)
@@ -1030,10 +1037,8 @@ public class Address extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (use == null || use.isEmpty()) && (type == null || type.isEmpty())
-           && (text == null || text.isEmpty()) && (line == null || line.isEmpty()) && (city == null || city.isEmpty())
-           && (district == null || district.isEmpty()) && (state == null || state.isEmpty()) && (postalCode == null || postalCode.isEmpty())
-           && (country == null || country.isEmpty()) && (period == null || period.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(use, type, text, line
+          , city, district, state, postalCode, country, period);
       }
 
 

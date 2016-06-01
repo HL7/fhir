@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -787,8 +787,8 @@ public class ActionDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (relationship == null || relationship.isEmpty())
-           && (offset == null || offset.isEmpty()) && (anchor == null || anchor.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, relationship
+          , offset, anchor);
       }
 
   public String fhirType() {
@@ -973,8 +973,7 @@ public class ActionDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, value);
       }
 
   public String fhirType() {
@@ -1199,8 +1198,7 @@ public class ActionDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (path == null || path.isEmpty()) && (expression == null || expression.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, expression);
       }
 
   public String fhirType() {
@@ -1558,6 +1556,14 @@ public class ActionDefinition extends Type implements ICompositeType {
       return this.concept;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ActionDefinition setConcept(List<CodeableConcept> theConcept) { 
+      this.concept = theConcept;
+      return this;
+    }
+
     public boolean hasConcept() { 
       if (this.concept == null)
         return false;
@@ -1567,10 +1573,6 @@ public class ActionDefinition extends Type implements ICompositeType {
       return false;
     }
 
-    /**
-     * @return {@link #concept} (The concept represented by this action or its sub-actions.)
-     */
-    // syntactic sugar
     public CodeableConcept addConcept() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.concept == null)
@@ -1579,7 +1581,6 @@ public class ActionDefinition extends Type implements ICompositeType {
       return t;
     }
 
-    // syntactic sugar
     public ActionDefinition addConcept(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1587,6 +1588,16 @@ public class ActionDefinition extends Type implements ICompositeType {
         this.concept = new ArrayList<CodeableConcept>();
       this.concept.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #concept}, creating it if it does not already exist
+     */
+    public CodeableConcept getConceptFirstRep() { 
+      if (getConcept().isEmpty()) {
+        addConcept();
+      }
+      return getConcept().get(0);
     }
 
     /**
@@ -1598,6 +1609,14 @@ public class ActionDefinition extends Type implements ICompositeType {
       return this.supportingEvidence;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ActionDefinition setSupportingEvidence(List<Attachment> theSupportingEvidence) { 
+      this.supportingEvidence = theSupportingEvidence;
+      return this;
+    }
+
     public boolean hasSupportingEvidence() { 
       if (this.supportingEvidence == null)
         return false;
@@ -1607,10 +1626,6 @@ public class ActionDefinition extends Type implements ICompositeType {
       return false;
     }
 
-    /**
-     * @return {@link #supportingEvidence} (The evidence grade and the sources of evidence for this action.)
-     */
-    // syntactic sugar
     public Attachment addSupportingEvidence() { //3
       Attachment t = new Attachment();
       if (this.supportingEvidence == null)
@@ -1619,7 +1634,6 @@ public class ActionDefinition extends Type implements ICompositeType {
       return t;
     }
 
-    // syntactic sugar
     public ActionDefinition addSupportingEvidence(Attachment t) { //3
       if (t == null)
         return this;
@@ -1627,6 +1641,16 @@ public class ActionDefinition extends Type implements ICompositeType {
         this.supportingEvidence = new ArrayList<Attachment>();
       this.supportingEvidence.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #supportingEvidence}, creating it if it does not already exist
+     */
+    public Attachment getSupportingEvidenceFirstRep() { 
+      if (getSupportingEvidence().isEmpty()) {
+        addSupportingEvidence();
+      }
+      return getSupportingEvidence().get(0);
     }
 
     /**
@@ -1638,6 +1662,14 @@ public class ActionDefinition extends Type implements ICompositeType {
       return this.documentation;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ActionDefinition setDocumentation(List<Attachment> theDocumentation) { 
+      this.documentation = theDocumentation;
+      return this;
+    }
+
     public boolean hasDocumentation() { 
       if (this.documentation == null)
         return false;
@@ -1647,10 +1679,6 @@ public class ActionDefinition extends Type implements ICompositeType {
       return false;
     }
 
-    /**
-     * @return {@link #documentation} (Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.)
-     */
-    // syntactic sugar
     public Attachment addDocumentation() { //3
       Attachment t = new Attachment();
       if (this.documentation == null)
@@ -1659,7 +1687,6 @@ public class ActionDefinition extends Type implements ICompositeType {
       return t;
     }
 
-    // syntactic sugar
     public ActionDefinition addDocumentation(Attachment t) { //3
       if (t == null)
         return this;
@@ -1667,6 +1694,16 @@ public class ActionDefinition extends Type implements ICompositeType {
         this.documentation = new ArrayList<Attachment>();
       this.documentation.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #documentation}, creating it if it does not already exist
+     */
+    public Attachment getDocumentationFirstRep() { 
+      if (getDocumentation().isEmpty()) {
+        addDocumentation();
+      }
+      return getDocumentation().get(0);
     }
 
     /**
@@ -1702,6 +1739,14 @@ public class ActionDefinition extends Type implements ICompositeType {
       return this.participantType;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ActionDefinition setParticipantType(List<Enumeration<ParticipantType>> theParticipantType) { 
+      this.participantType = theParticipantType;
+      return this;
+    }
+
     public boolean hasParticipantType() { 
       if (this.participantType == null)
         return false;
@@ -1714,7 +1759,6 @@ public class ActionDefinition extends Type implements ICompositeType {
     /**
      * @return {@link #participantType} (The type of participant in the action.)
      */
-    // syntactic sugar
     public Enumeration<ParticipantType> addParticipantTypeElement() {//2 
       Enumeration<ParticipantType> t = new Enumeration<ParticipantType>(new ParticipantTypeEnumFactory());
       if (this.participantType == null)
@@ -1805,6 +1849,14 @@ public class ActionDefinition extends Type implements ICompositeType {
       return this.behavior;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ActionDefinition setBehavior(List<ActionDefinitionBehaviorComponent> theBehavior) { 
+      this.behavior = theBehavior;
+      return this;
+    }
+
     public boolean hasBehavior() { 
       if (this.behavior == null)
         return false;
@@ -1814,10 +1866,6 @@ public class ActionDefinition extends Type implements ICompositeType {
       return false;
     }
 
-    /**
-     * @return {@link #behavior} (A behavior associated with the action. Behaviors define how the action is to be presented and/or executed within the receiving environment.)
-     */
-    // syntactic sugar
     public ActionDefinitionBehaviorComponent addBehavior() { //3
       ActionDefinitionBehaviorComponent t = new ActionDefinitionBehaviorComponent();
       if (this.behavior == null)
@@ -1826,7 +1874,6 @@ public class ActionDefinition extends Type implements ICompositeType {
       return t;
     }
 
-    // syntactic sugar
     public ActionDefinition addBehavior(ActionDefinitionBehaviorComponent t) { //3
       if (t == null)
         return this;
@@ -1834,6 +1881,16 @@ public class ActionDefinition extends Type implements ICompositeType {
         this.behavior = new ArrayList<ActionDefinitionBehaviorComponent>();
       this.behavior.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #behavior}, creating it if it does not already exist
+     */
+    public ActionDefinitionBehaviorComponent getBehaviorFirstRep() { 
+      if (getBehavior().isEmpty()) {
+        addBehavior();
+      }
+      return getBehavior().get(0);
     }
 
     /**
@@ -1884,6 +1941,14 @@ public class ActionDefinition extends Type implements ICompositeType {
       return this.customization;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ActionDefinition setCustomization(List<ActionDefinitionCustomizationComponent> theCustomization) { 
+      this.customization = theCustomization;
+      return this;
+    }
+
     public boolean hasCustomization() { 
       if (this.customization == null)
         return false;
@@ -1893,10 +1958,6 @@ public class ActionDefinition extends Type implements ICompositeType {
       return false;
     }
 
-    /**
-     * @return {@link #customization} (Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result.)
-     */
-    // syntactic sugar
     public ActionDefinitionCustomizationComponent addCustomization() { //3
       ActionDefinitionCustomizationComponent t = new ActionDefinitionCustomizationComponent();
       if (this.customization == null)
@@ -1905,7 +1966,6 @@ public class ActionDefinition extends Type implements ICompositeType {
       return t;
     }
 
-    // syntactic sugar
     public ActionDefinition addCustomization(ActionDefinitionCustomizationComponent t) { //3
       if (t == null)
         return this;
@@ -1913,6 +1973,16 @@ public class ActionDefinition extends Type implements ICompositeType {
         this.customization = new ArrayList<ActionDefinitionCustomizationComponent>();
       this.customization.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #customization}, creating it if it does not already exist
+     */
+    public ActionDefinitionCustomizationComponent getCustomizationFirstRep() { 
+      if (getCustomization().isEmpty()) {
+        addCustomization();
+      }
+      return getCustomization().get(0);
     }
 
     /**
@@ -1924,6 +1994,14 @@ public class ActionDefinition extends Type implements ICompositeType {
       return this.action;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ActionDefinition setAction(List<ActionDefinition> theAction) { 
+      this.action = theAction;
+      return this;
+    }
+
     public boolean hasAction() { 
       if (this.action == null)
         return false;
@@ -1933,10 +2011,6 @@ public class ActionDefinition extends Type implements ICompositeType {
       return false;
     }
 
-    /**
-     * @return {@link #action} (Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition.)
-     */
-    // syntactic sugar
     public ActionDefinition addAction() { //3
       ActionDefinition t = new ActionDefinition();
       if (this.action == null)
@@ -1945,7 +2019,6 @@ public class ActionDefinition extends Type implements ICompositeType {
       return t;
     }
 
-    // syntactic sugar
     public ActionDefinition addAction(ActionDefinition t) { //3
       if (t == null)
         return this;
@@ -1953,6 +2026,16 @@ public class ActionDefinition extends Type implements ICompositeType {
         this.action = new ArrayList<ActionDefinition>();
       this.action.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #action}, creating it if it does not already exist
+     */
+    public ActionDefinition getActionFirstRep() { 
+      if (getAction().isEmpty()) {
+        addAction();
+      }
+      return getAction().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2250,13 +2333,9 @@ public class ActionDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (label == null || label.isEmpty())
-           && (title == null || title.isEmpty()) && (description == null || description.isEmpty()) && (textEquivalent == null || textEquivalent.isEmpty())
-           && (concept == null || concept.isEmpty()) && (supportingEvidence == null || supportingEvidence.isEmpty())
-           && (documentation == null || documentation.isEmpty()) && (relatedAction == null || relatedAction.isEmpty())
-           && (participantType == null || participantType.isEmpty()) && (type == null || type.isEmpty())
-           && (behavior == null || behavior.isEmpty()) && (resource == null || resource.isEmpty()) && (customization == null || customization.isEmpty())
-           && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, label, title
+          , description, textEquivalent, concept, supportingEvidence, documentation, relatedAction
+          , participantType, type, behavior, resource, customization, action);
       }
 
 

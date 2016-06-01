@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -281,6 +281,14 @@ public class ImmunizationRecommendation extends DomainResource {
           return this.dateCriterion;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ImmunizationRecommendationRecommendationComponent setDateCriterion(List<ImmunizationRecommendationRecommendationDateCriterionComponent> theDateCriterion) { 
+          this.dateCriterion = theDateCriterion;
+          return this;
+        }
+
         public boolean hasDateCriterion() { 
           if (this.dateCriterion == null)
             return false;
@@ -290,10 +298,6 @@ public class ImmunizationRecommendation extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #dateCriterion} (Vaccine date recommendations.  For example, earliest date to administer, latest date to administer, etc.)
-         */
-    // syntactic sugar
         public ImmunizationRecommendationRecommendationDateCriterionComponent addDateCriterion() { //3
           ImmunizationRecommendationRecommendationDateCriterionComponent t = new ImmunizationRecommendationRecommendationDateCriterionComponent();
           if (this.dateCriterion == null)
@@ -302,7 +306,6 @@ public class ImmunizationRecommendation extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ImmunizationRecommendationRecommendationComponent addDateCriterion(ImmunizationRecommendationRecommendationDateCriterionComponent t) { //3
           if (t == null)
             return this;
@@ -310,6 +313,16 @@ public class ImmunizationRecommendation extends DomainResource {
             this.dateCriterion = new ArrayList<ImmunizationRecommendationRecommendationDateCriterionComponent>();
           this.dateCriterion.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #dateCriterion}, creating it if it does not already exist
+         */
+        public ImmunizationRecommendationRecommendationDateCriterionComponent getDateCriterionFirstRep() { 
+          if (getDateCriterion().isEmpty()) {
+            addDateCriterion();
+          }
+          return getDateCriterion().get(0);
         }
 
         /**
@@ -345,6 +358,14 @@ public class ImmunizationRecommendation extends DomainResource {
           return this.supportingImmunization;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ImmunizationRecommendationRecommendationComponent setSupportingImmunization(List<Reference> theSupportingImmunization) { 
+          this.supportingImmunization = theSupportingImmunization;
+          return this;
+        }
+
         public boolean hasSupportingImmunization() { 
           if (this.supportingImmunization == null)
             return false;
@@ -354,10 +375,6 @@ public class ImmunizationRecommendation extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #supportingImmunization} (Immunization event history that supports the status and recommendation.)
-         */
-    // syntactic sugar
         public Reference addSupportingImmunization() { //3
           Reference t = new Reference();
           if (this.supportingImmunization == null)
@@ -366,7 +383,6 @@ public class ImmunizationRecommendation extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ImmunizationRecommendationRecommendationComponent addSupportingImmunization(Reference t) { //3
           if (t == null)
             return this;
@@ -377,18 +393,29 @@ public class ImmunizationRecommendation extends DomainResource {
         }
 
         /**
-         * @return {@link #supportingImmunization} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Immunization event history that supports the status and recommendation.)
+         * @return The first repetition of repeating field {@link #supportingImmunization}, creating it if it does not already exist
          */
+        public Reference getSupportingImmunizationFirstRep() { 
+          if (getSupportingImmunization().isEmpty()) {
+            addSupportingImmunization();
+          }
+          return getSupportingImmunization().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Immunization> getSupportingImmunizationTarget() { 
           if (this.supportingImmunizationTarget == null)
             this.supportingImmunizationTarget = new ArrayList<Immunization>();
           return this.supportingImmunizationTarget;
         }
 
-    // syntactic sugar
         /**
-         * @return {@link #supportingImmunization} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Immunization event history that supports the status and recommendation.)
+         * @deprecated Use Reference#setResource(IBaseResource) instead
          */
+        @Deprecated
         public Immunization addSupportingImmunizationTarget() { 
           Immunization r = new Immunization();
           if (this.supportingImmunizationTarget == null)
@@ -406,6 +433,14 @@ public class ImmunizationRecommendation extends DomainResource {
           return this.supportingPatientInformation;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ImmunizationRecommendationRecommendationComponent setSupportingPatientInformation(List<Reference> theSupportingPatientInformation) { 
+          this.supportingPatientInformation = theSupportingPatientInformation;
+          return this;
+        }
+
         public boolean hasSupportingPatientInformation() { 
           if (this.supportingPatientInformation == null)
             return false;
@@ -415,10 +450,6 @@ public class ImmunizationRecommendation extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #supportingPatientInformation} (Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.)
-         */
-    // syntactic sugar
         public Reference addSupportingPatientInformation() { //3
           Reference t = new Reference();
           if (this.supportingPatientInformation == null)
@@ -427,7 +458,6 @@ public class ImmunizationRecommendation extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ImmunizationRecommendationRecommendationComponent addSupportingPatientInformation(Reference t) { //3
           if (t == null)
             return this;
@@ -438,8 +468,19 @@ public class ImmunizationRecommendation extends DomainResource {
         }
 
         /**
-         * @return {@link #supportingPatientInformation} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.)
+         * @return The first repetition of repeating field {@link #supportingPatientInformation}, creating it if it does not already exist
          */
+        public Reference getSupportingPatientInformationFirstRep() { 
+          if (getSupportingPatientInformation().isEmpty()) {
+            addSupportingPatientInformation();
+          }
+          return getSupportingPatientInformation().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Resource> getSupportingPatientInformationTarget() { 
           if (this.supportingPatientInformationTarget == null)
             this.supportingPatientInformationTarget = new ArrayList<Resource>();
@@ -627,11 +668,9 @@ public class ImmunizationRecommendation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (date == null || date.isEmpty()) && (vaccineCode == null || vaccineCode.isEmpty())
-           && (doseNumber == null || doseNumber.isEmpty()) && (forecastStatus == null || forecastStatus.isEmpty())
-           && (dateCriterion == null || dateCriterion.isEmpty()) && (protocol == null || protocol.isEmpty())
-           && (supportingImmunization == null || supportingImmunization.isEmpty()) && (supportingPatientInformation == null || supportingPatientInformation.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(date, vaccineCode, doseNumber
+          , forecastStatus, dateCriterion, protocol, supportingImmunization, supportingPatientInformation
+          );
       }
 
   public String fhirType() {
@@ -836,8 +875,7 @@ public class ImmunizationRecommendation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, value);
       }
 
   public String fhirType() {
@@ -1196,8 +1234,8 @@ public class ImmunizationRecommendation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (doseSequence == null || doseSequence.isEmpty()) && (description == null || description.isEmpty())
-           && (authority == null || authority.isEmpty()) && (series == null || series.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(doseSequence, description
+          , authority, series);
       }
 
   public String fhirType() {
@@ -1259,6 +1297,14 @@ public class ImmunizationRecommendation extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ImmunizationRecommendation setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -1268,10 +1314,6 @@ public class ImmunizationRecommendation extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (A unique identifier assigned to this particular recommendation record.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -1280,7 +1322,6 @@ public class ImmunizationRecommendation extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ImmunizationRecommendation addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -1288,6 +1329,16 @@ public class ImmunizationRecommendation extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1343,6 +1394,14 @@ public class ImmunizationRecommendation extends DomainResource {
       return this.recommendation;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ImmunizationRecommendation setRecommendation(List<ImmunizationRecommendationRecommendationComponent> theRecommendation) { 
+      this.recommendation = theRecommendation;
+      return this;
+    }
+
     public boolean hasRecommendation() { 
       if (this.recommendation == null)
         return false;
@@ -1352,10 +1411,6 @@ public class ImmunizationRecommendation extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #recommendation} (Vaccine administration recommendations.)
-     */
-    // syntactic sugar
     public ImmunizationRecommendationRecommendationComponent addRecommendation() { //3
       ImmunizationRecommendationRecommendationComponent t = new ImmunizationRecommendationRecommendationComponent();
       if (this.recommendation == null)
@@ -1364,7 +1419,6 @@ public class ImmunizationRecommendation extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ImmunizationRecommendation addRecommendation(ImmunizationRecommendationRecommendationComponent t) { //3
       if (t == null)
         return this;
@@ -1372,6 +1426,16 @@ public class ImmunizationRecommendation extends DomainResource {
         this.recommendation = new ArrayList<ImmunizationRecommendationRecommendationComponent>();
       this.recommendation.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #recommendation}, creating it if it does not already exist
+     */
+    public ImmunizationRecommendationRecommendationComponent getRecommendationFirstRep() { 
+      if (getRecommendation().isEmpty()) {
+        addRecommendation();
+      }
+      return getRecommendation().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1496,8 +1560,8 @@ public class ImmunizationRecommendation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (patient == null || patient.isEmpty())
-           && (recommendation == null || recommendation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, patient, recommendation
+          );
       }
 
   @Override
@@ -1506,30 +1570,44 @@ public class ImmunizationRecommendation extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>information</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>Patient observations supporting recommendation</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.supportingPatientInformation</b><br>
+   * Description: <b>Date recommendation created</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="information", path="ImmunizationRecommendation.recommendation.supportingPatientInformation", description="Patient observations supporting recommendation", type="reference" )
-  public static final String SP_INFORMATION = "information";
+  @SearchParamDefinition(name="date", path="ImmunizationRecommendation.recommendation.date", description="Date recommendation created", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>information</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>Patient observations supporting recommendation</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.supportingPatientInformation</b><br>
+   * Description: <b>Date recommendation created</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.date</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INFORMATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INFORMATION);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ImmunizationRecommendation:information</b>".
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Business identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImmunizationRecommendation.identifier</b><br>
+   * </p>
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_INFORMATION = new ca.uhn.fhir.model.api.Include("ImmunizationRecommendation:information").toLocked();
+  @SearchParamDefinition(name="identifier", path="ImmunizationRecommendation.identifier", description="Business identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Business identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImmunizationRecommendation.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>dose-sequence</b>
@@ -1578,6 +1656,72 @@ public class ImmunizationRecommendation extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ImmunizationRecommendation:patient").toLocked();
 
  /**
+   * Search parameter: <b>vaccine-type</b>
+   * <p>
+   * Description: <b>Vaccine recommendation applies to</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.vaccineCode</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="vaccine-type", path="ImmunizationRecommendation.recommendation.vaccineCode", description="Vaccine recommendation applies to", type="token" )
+  public static final String SP_VACCINE_TYPE = "vaccine-type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>vaccine-type</b>
+   * <p>
+   * Description: <b>Vaccine recommendation applies to</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.vaccineCode</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VACCINE_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VACCINE_TYPE);
+
+ /**
+   * Search parameter: <b>dose-number</b>
+   * <p>
+   * Description: <b>Recommended dose number</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.doseNumber</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="dose-number", path="ImmunizationRecommendation.recommendation.doseNumber", description="Recommended dose number", type="number" )
+  public static final String SP_DOSE_NUMBER = "dose-number";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>dose-number</b>
+   * <p>
+   * Description: <b>Recommended dose number</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.doseNumber</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.NumberClientParam DOSE_NUMBER = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_DOSE_NUMBER);
+
+ /**
+   * Search parameter: <b>information</b>
+   * <p>
+   * Description: <b>Patient observations supporting recommendation</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.supportingPatientInformation</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="information", path="ImmunizationRecommendation.recommendation.supportingPatientInformation", description="Patient observations supporting recommendation", type="reference" )
+  public static final String SP_INFORMATION = "information";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>information</b>
+   * <p>
+   * Description: <b>Patient observations supporting recommendation</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImmunizationRecommendation.recommendation.supportingPatientInformation</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INFORMATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INFORMATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ImmunizationRecommendation:information</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INFORMATION = new ca.uhn.fhir.model.api.Include("ImmunizationRecommendation:information").toLocked();
+
+ /**
    * Search parameter: <b>support</b>
    * <p>
    * Description: <b>Past immunizations supporting recommendation</b><br>
@@ -1604,26 +1748,6 @@ public class ImmunizationRecommendation extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUPPORT = new ca.uhn.fhir.model.api.Include("ImmunizationRecommendation:support").toLocked();
 
  /**
-   * Search parameter: <b>vaccine-type</b>
-   * <p>
-   * Description: <b>Vaccine recommendation applies to</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.vaccineCode</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="vaccine-type", path="ImmunizationRecommendation.recommendation.vaccineCode", description="Vaccine recommendation applies to", type="token" )
-  public static final String SP_VACCINE_TYPE = "vaccine-type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>vaccine-type</b>
-   * <p>
-   * Description: <b>Vaccine recommendation applies to</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.vaccineCode</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VACCINE_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VACCINE_TYPE);
-
- /**
    * Search parameter: <b>status</b>
    * <p>
    * Description: <b>Vaccine administration status</b><br>
@@ -1642,66 +1766,6 @@ public class ImmunizationRecommendation extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>dose-number</b>
-   * <p>
-   * Description: <b>Recommended dose number</b><br>
-   * Type: <b>number</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.doseNumber</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="dose-number", path="ImmunizationRecommendation.recommendation.doseNumber", description="Recommended dose number", type="number" )
-  public static final String SP_DOSE_NUMBER = "dose-number";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>dose-number</b>
-   * <p>
-   * Description: <b>Recommended dose number</b><br>
-   * Type: <b>number</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.doseNumber</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.NumberClientParam DOSE_NUMBER = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_DOSE_NUMBER);
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>Date recommendation created</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="ImmunizationRecommendation.recommendation.date", description="Date recommendation created", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>Date recommendation created</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImmunizationRecommendation.recommendation.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Business identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImmunizationRecommendation.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="ImmunizationRecommendation.identifier", description="Business identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Business identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImmunizationRecommendation.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

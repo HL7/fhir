@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -131,6 +131,14 @@ public class ExpansionProfile extends BaseConformance {
           return this.telecom;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ExpansionProfileContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+          this.telecom = theTelecom;
+          return this;
+        }
+
         public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
@@ -140,10 +148,6 @@ public class ExpansionProfile extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
-         */
-    // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           if (this.telecom == null)
@@ -152,7 +156,6 @@ public class ExpansionProfile extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ExpansionProfileContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
@@ -160,6 +163,16 @@ public class ExpansionProfile extends BaseConformance {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+         */
+        public ContactPoint getTelecomFirstRep() { 
+          if (getTelecom().isEmpty()) {
+            addTelecom();
+          }
+          return getTelecom().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -257,8 +270,7 @@ public class ExpansionProfile extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, telecom);
       }
 
   public String fhirType() {
@@ -434,8 +446,7 @@ public class ExpansionProfile extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (include == null || include.isEmpty()) && (exclude == null || exclude.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(include, exclude);
       }
 
   public String fhirType() {
@@ -472,6 +483,14 @@ public class ExpansionProfile extends BaseConformance {
           return this.codeSystem;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CodeSystemIncludeComponent setCodeSystem(List<CodeSystemIncludeCodeSystemComponent> theCodeSystem) { 
+          this.codeSystem = theCodeSystem;
+          return this;
+        }
+
         public boolean hasCodeSystem() { 
           if (this.codeSystem == null)
             return false;
@@ -481,10 +500,6 @@ public class ExpansionProfile extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #codeSystem} (A data group for each code system to be included.)
-         */
-    // syntactic sugar
         public CodeSystemIncludeCodeSystemComponent addCodeSystem() { //3
           CodeSystemIncludeCodeSystemComponent t = new CodeSystemIncludeCodeSystemComponent();
           if (this.codeSystem == null)
@@ -493,7 +508,6 @@ public class ExpansionProfile extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public CodeSystemIncludeComponent addCodeSystem(CodeSystemIncludeCodeSystemComponent t) { //3
           if (t == null)
             return this;
@@ -501,6 +515,16 @@ public class ExpansionProfile extends BaseConformance {
             this.codeSystem = new ArrayList<CodeSystemIncludeCodeSystemComponent>();
           this.codeSystem.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #codeSystem}, creating it if it does not already exist
+         */
+        public CodeSystemIncludeCodeSystemComponent getCodeSystemFirstRep() { 
+          if (getCodeSystem().isEmpty()) {
+            addCodeSystem();
+          }
+          return getCodeSystem().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -586,7 +610,7 @@ public class ExpansionProfile extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (codeSystem == null || codeSystem.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(codeSystem);
       }
 
   public String fhirType() {
@@ -814,8 +838,7 @@ public class ExpansionProfile extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, version);
       }
 
   public String fhirType() {
@@ -852,6 +875,14 @@ public class ExpansionProfile extends BaseConformance {
           return this.codeSystem;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CodeSystemExcludeComponent setCodeSystem(List<CodeSystemExcludeCodeSystemComponent> theCodeSystem) { 
+          this.codeSystem = theCodeSystem;
+          return this;
+        }
+
         public boolean hasCodeSystem() { 
           if (this.codeSystem == null)
             return false;
@@ -861,10 +892,6 @@ public class ExpansionProfile extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #codeSystem} (A data group for each code system to be excluded.)
-         */
-    // syntactic sugar
         public CodeSystemExcludeCodeSystemComponent addCodeSystem() { //3
           CodeSystemExcludeCodeSystemComponent t = new CodeSystemExcludeCodeSystemComponent();
           if (this.codeSystem == null)
@@ -873,7 +900,6 @@ public class ExpansionProfile extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public CodeSystemExcludeComponent addCodeSystem(CodeSystemExcludeCodeSystemComponent t) { //3
           if (t == null)
             return this;
@@ -881,6 +907,16 @@ public class ExpansionProfile extends BaseConformance {
             this.codeSystem = new ArrayList<CodeSystemExcludeCodeSystemComponent>();
           this.codeSystem.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #codeSystem}, creating it if it does not already exist
+         */
+        public CodeSystemExcludeCodeSystemComponent getCodeSystemFirstRep() { 
+          if (getCodeSystem().isEmpty()) {
+            addCodeSystem();
+          }
+          return getCodeSystem().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -966,7 +1002,7 @@ public class ExpansionProfile extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (codeSystem == null || codeSystem.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(codeSystem);
       }
 
   public String fhirType() {
@@ -1194,8 +1230,7 @@ public class ExpansionProfile extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, version);
       }
 
   public String fhirType() {
@@ -1371,8 +1406,7 @@ public class ExpansionProfile extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (include == null || include.isEmpty()) && (exclude == null || exclude.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(include, exclude);
       }
 
   public String fhirType() {
@@ -1409,6 +1443,14 @@ public class ExpansionProfile extends BaseConformance {
           return this.designation;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DesignationIncludeComponent setDesignation(List<DesignationIncludeDesignationComponent> theDesignation) { 
+          this.designation = theDesignation;
+          return this;
+        }
+
         public boolean hasDesignation() { 
           if (this.designation == null)
             return false;
@@ -1418,10 +1460,6 @@ public class ExpansionProfile extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #designation} (A data group for each designation to be included.)
-         */
-    // syntactic sugar
         public DesignationIncludeDesignationComponent addDesignation() { //3
           DesignationIncludeDesignationComponent t = new DesignationIncludeDesignationComponent();
           if (this.designation == null)
@@ -1430,7 +1468,6 @@ public class ExpansionProfile extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public DesignationIncludeComponent addDesignation(DesignationIncludeDesignationComponent t) { //3
           if (t == null)
             return this;
@@ -1438,6 +1475,16 @@ public class ExpansionProfile extends BaseConformance {
             this.designation = new ArrayList<DesignationIncludeDesignationComponent>();
           this.designation.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #designation}, creating it if it does not already exist
+         */
+        public DesignationIncludeDesignationComponent getDesignationFirstRep() { 
+          if (getDesignation().isEmpty()) {
+            addDesignation();
+          }
+          return getDesignation().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1523,7 +1570,7 @@ public class ExpansionProfile extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (designation == null || designation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(designation);
       }
 
   public String fhirType() {
@@ -1723,8 +1770,7 @@ public class ExpansionProfile extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (language == null || language.isEmpty()) && (use == null || use.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(language, use);
       }
 
   public String fhirType() {
@@ -1761,6 +1807,14 @@ public class ExpansionProfile extends BaseConformance {
           return this.designation;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DesignationExcludeComponent setDesignation(List<DesignationExcludeDesignationComponent> theDesignation) { 
+          this.designation = theDesignation;
+          return this;
+        }
+
         public boolean hasDesignation() { 
           if (this.designation == null)
             return false;
@@ -1770,10 +1824,6 @@ public class ExpansionProfile extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #designation} (A data group for each designation to be excluded.)
-         */
-    // syntactic sugar
         public DesignationExcludeDesignationComponent addDesignation() { //3
           DesignationExcludeDesignationComponent t = new DesignationExcludeDesignationComponent();
           if (this.designation == null)
@@ -1782,7 +1832,6 @@ public class ExpansionProfile extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public DesignationExcludeComponent addDesignation(DesignationExcludeDesignationComponent t) { //3
           if (t == null)
             return this;
@@ -1790,6 +1839,16 @@ public class ExpansionProfile extends BaseConformance {
             this.designation = new ArrayList<DesignationExcludeDesignationComponent>();
           this.designation.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #designation}, creating it if it does not already exist
+         */
+        public DesignationExcludeDesignationComponent getDesignationFirstRep() { 
+          if (getDesignation().isEmpty()) {
+            addDesignation();
+          }
+          return getDesignation().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1875,7 +1934,7 @@ public class ExpansionProfile extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (designation == null || designation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(designation);
       }
 
   public String fhirType() {
@@ -2075,8 +2134,7 @@ public class ExpansionProfile extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (language == null || language.isEmpty()) && (use == null || use.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(language, use);
       }
 
   public String fhirType() {
@@ -2387,6 +2445,14 @@ public class ExpansionProfile extends BaseConformance {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ExpansionProfile setContact(List<ExpansionProfileContactComponent> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -2396,10 +2462,6 @@ public class ExpansionProfile extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
-     */
-    // syntactic sugar
     public ExpansionProfileContactComponent addContact() { //3
       ExpansionProfileContactComponent t = new ExpansionProfileContactComponent();
       if (this.contact == null)
@@ -2408,7 +2470,6 @@ public class ExpansionProfile extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public ExpansionProfile addContact(ExpansionProfileContactComponent t) { //3
       if (t == null)
         return this;
@@ -2416,6 +2477,16 @@ public class ExpansionProfile extends BaseConformance {
         this.contact = new ArrayList<ExpansionProfileContactComponent>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public ExpansionProfileContactComponent getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -3223,80 +3294,16 @@ public class ExpansionProfile extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
-           && (codeSystem == null || codeSystem.isEmpty()) && (includeDesignations == null || includeDesignations.isEmpty())
-           && (designation == null || designation.isEmpty()) && (includeDefinition == null || includeDefinition.isEmpty())
-           && (includeInactive == null || includeInactive.isEmpty()) && (excludeNested == null || excludeNested.isEmpty())
-           && (excludeNotForUI == null || excludeNotForUI.isEmpty()) && (excludePostCoordinated == null || excludePostCoordinated.isEmpty())
-           && (displayLanguage == null || displayLanguage.isEmpty()) && (limitedExpansion == null || limitedExpansion.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, experimental, publisher
+          , contact, description, codeSystem, includeDesignations, designation, includeDefinition
+          , includeInactive, excludeNested, excludeNotForUI, excludePostCoordinated, displayLanguage
+          , limitedExpansion);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.ExpansionProfile;
    }
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>The status of the expansion profile</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ExpansionProfile.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="ExpansionProfile.status", description="The status of the expansion profile", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>The status of the expansion profile</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ExpansionProfile.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the expansion profile</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ExpansionProfile.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="ExpansionProfile.description", description="Text search in the description of the expansion profile", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the expansion profile</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ExpansionProfile.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>The name of the expansion profile</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ExpansionProfile.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="ExpansionProfile.name", description="The name of the expansion profile", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>The name of the expansion profile</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ExpansionProfile.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
 
  /**
    * Search parameter: <b>date</b>
@@ -3339,24 +3346,24 @@ public class ExpansionProfile extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>url</b>
+   * Search parameter: <b>name</b>
    * <p>
-   * Description: <b>The logical URL for the expansion profile</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ExpansionProfile.url</b><br>
+   * Description: <b>The name of the expansion profile</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ExpansionProfile.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="url", path="ExpansionProfile.url", description="The logical URL for the expansion profile", type="uri" )
-  public static final String SP_URL = "url";
+  @SearchParamDefinition(name="name", path="ExpansionProfile.name", description="The name of the expansion profile", type="string" )
+  public static final String SP_NAME = "name";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
    * <p>
-   * Description: <b>The logical URL for the expansion profile</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ExpansionProfile.url</b><br>
+   * Description: <b>The name of the expansion profile</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ExpansionProfile.name</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
 
  /**
    * Search parameter: <b>publisher</b>
@@ -3379,6 +3386,26 @@ public class ExpansionProfile extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the expansion profile</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ExpansionProfile.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="ExpansionProfile.description", description="Text search in the description of the expansion profile", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the expansion profile</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ExpansionProfile.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
    * Search parameter: <b>version</b>
    * <p>
    * Description: <b>The version identifier of the expansion profile</b><br>
@@ -3397,6 +3424,46 @@ public class ExpansionProfile extends BaseConformance {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
+
+ /**
+   * Search parameter: <b>url</b>
+   * <p>
+   * Description: <b>The logical URL for the expansion profile</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ExpansionProfile.url</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="url", path="ExpansionProfile.url", description="The logical URL for the expansion profile", type="uri" )
+  public static final String SP_URL = "url";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <p>
+   * Description: <b>The logical URL for the expansion profile</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ExpansionProfile.url</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>The status of the expansion profile</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ExpansionProfile.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="ExpansionProfile.status", description="The status of the expansion profile", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>The status of the expansion profile</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ExpansionProfile.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -260,6 +260,14 @@ public class DeviceUseStatement extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DeviceUseStatement setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -269,10 +277,6 @@ public class DeviceUseStatement extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (An external identifier for this statement such as an IRI.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -281,7 +285,6 @@ public class DeviceUseStatement extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DeviceUseStatement addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -289,6 +292,16 @@ public class DeviceUseStatement extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -300,6 +313,14 @@ public class DeviceUseStatement extends DomainResource {
       return this.indication;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DeviceUseStatement setIndication(List<CodeableConcept> theIndication) { 
+      this.indication = theIndication;
+      return this;
+    }
+
     public boolean hasIndication() { 
       if (this.indication == null)
         return false;
@@ -309,10 +330,6 @@ public class DeviceUseStatement extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #indication} (Reason or justification for the use of the device.)
-     */
-    // syntactic sugar
     public CodeableConcept addIndication() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.indication == null)
@@ -321,7 +338,6 @@ public class DeviceUseStatement extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DeviceUseStatement addIndication(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -332,12 +348,30 @@ public class DeviceUseStatement extends DomainResource {
     }
 
     /**
+     * @return The first repetition of repeating field {@link #indication}, creating it if it does not already exist
+     */
+    public CodeableConcept getIndicationFirstRep() { 
+      if (getIndication().isEmpty()) {
+        addIndication();
+      }
+      return getIndication().get(0);
+    }
+
+    /**
      * @return {@link #notes} (Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.)
      */
     public List<StringType> getNotes() { 
       if (this.notes == null)
         this.notes = new ArrayList<StringType>();
       return this.notes;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DeviceUseStatement setNotes(List<StringType> theNotes) { 
+      this.notes = theNotes;
+      return this;
     }
 
     public boolean hasNotes() { 
@@ -352,7 +386,6 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @return {@link #notes} (Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.)
      */
-    // syntactic sugar
     public StringType addNotesElement() {//2 
       StringType t = new StringType();
       if (this.notes == null)
@@ -752,42 +785,14 @@ public class DeviceUseStatement extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (bodySite == null || bodySite.isEmpty()) && (whenUsed == null || whenUsed.isEmpty())
-           && (device == null || device.isEmpty()) && (identifier == null || identifier.isEmpty()) && (indication == null || indication.isEmpty())
-           && (notes == null || notes.isEmpty()) && (recordedOn == null || recordedOn.isEmpty()) && (subject == null || subject.isEmpty())
-           && (timing == null || timing.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(bodySite, whenUsed, device
+          , identifier, indication, notes, recordedOn, subject, timing);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.DeviceUseStatement;
    }
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Search by subject - a patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DeviceUseStatement.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="DeviceUseStatement.subject", description="Search by subject - a patient", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Search by subject - a patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DeviceUseStatement.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DeviceUseStatement:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("DeviceUseStatement:patient").toLocked();
 
  /**
    * Search parameter: <b>subject</b>
@@ -814,6 +819,32 @@ public class DeviceUseStatement extends DomainResource {
    * the path value of "<b>DeviceUseStatement:subject</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("DeviceUseStatement:subject").toLocked();
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Search by subject - a patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DeviceUseStatement.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="DeviceUseStatement.subject", description="Search by subject - a patient", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Search by subject - a patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DeviceUseStatement.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DeviceUseStatement:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("DeviceUseStatement:patient").toLocked();
 
  /**
    * Search parameter: <b>device</b>

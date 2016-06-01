@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -337,6 +337,14 @@ public class Composition extends DomainResource {
           return this.mode;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CompositionAttesterComponent setMode(List<Enumeration<CompositionAttestationMode>> theMode) { 
+          this.mode = theMode;
+          return this;
+        }
+
         public boolean hasMode() { 
           if (this.mode == null)
             return false;
@@ -349,7 +357,6 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #mode} (The type of attestation the authenticator offers.)
          */
-    // syntactic sugar
         public Enumeration<CompositionAttestationMode> addModeElement() {//2 
           Enumeration<CompositionAttestationMode> t = new Enumeration<CompositionAttestationMode>(new CompositionAttestationModeEnumFactory());
           if (this.mode == null)
@@ -579,8 +586,7 @@ public class Composition extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (mode == null || mode.isEmpty()) && (time == null || time.isEmpty())
-           && (party == null || party.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(mode, time, party);
       }
 
   public String fhirType() {
@@ -636,6 +642,14 @@ public class Composition extends DomainResource {
           return this.code;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CompositionEventComponent setCode(List<CodeableConcept> theCode) { 
+          this.code = theCode;
+          return this;
+        }
+
         public boolean hasCode() { 
           if (this.code == null)
             return false;
@@ -645,10 +659,6 @@ public class Composition extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #code} (This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.)
-         */
-    // syntactic sugar
         public CodeableConcept addCode() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.code == null)
@@ -657,7 +667,6 @@ public class Composition extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public CompositionEventComponent addCode(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -665,6 +674,16 @@ public class Composition extends DomainResource {
             this.code = new ArrayList<CodeableConcept>();
           this.code.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #code}, creating it if it does not already exist
+         */
+        public CodeableConcept getCodeFirstRep() { 
+          if (getCode().isEmpty()) {
+            addCode();
+          }
+          return getCode().get(0);
         }
 
         /**
@@ -700,6 +719,14 @@ public class Composition extends DomainResource {
           return this.detail;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CompositionEventComponent setDetail(List<Reference> theDetail) { 
+          this.detail = theDetail;
+          return this;
+        }
+
         public boolean hasDetail() { 
           if (this.detail == null)
             return false;
@@ -709,10 +736,6 @@ public class Composition extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #detail} (The description and/or reference of the event(s) being documented. For example, this could be used to document such a colonoscopy or an appendectomy.)
-         */
-    // syntactic sugar
         public Reference addDetail() { //3
           Reference t = new Reference();
           if (this.detail == null)
@@ -721,7 +744,6 @@ public class Composition extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public CompositionEventComponent addDetail(Reference t) { //3
           if (t == null)
             return this;
@@ -732,8 +754,19 @@ public class Composition extends DomainResource {
         }
 
         /**
-         * @return {@link #detail} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The description and/or reference of the event(s) being documented. For example, this could be used to document such a colonoscopy or an appendectomy.)
+         * @return The first repetition of repeating field {@link #detail}, creating it if it does not already exist
          */
+        public Reference getDetailFirstRep() { 
+          if (getDetail().isEmpty()) {
+            addDetail();
+          }
+          return getDetail().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Resource> getDetailTarget() { 
           if (this.detailTarget == null)
             this.detailTarget = new ArrayList<Resource>();
@@ -853,8 +886,7 @@ public class Composition extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (period == null || period.isEmpty())
-           && (detail == null || detail.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, period, detail);
       }
 
   public String fhirType() {
@@ -1115,6 +1147,14 @@ public class Composition extends DomainResource {
           return this.entry;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SectionComponent setEntry(List<Reference> theEntry) { 
+          this.entry = theEntry;
+          return this;
+        }
+
         public boolean hasEntry() { 
           if (this.entry == null)
             return false;
@@ -1124,10 +1164,6 @@ public class Composition extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #entry} (A reference to the actual resource from which the narrative in the section is derived.)
-         */
-    // syntactic sugar
         public Reference addEntry() { //3
           Reference t = new Reference();
           if (this.entry == null)
@@ -1136,7 +1172,6 @@ public class Composition extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public SectionComponent addEntry(Reference t) { //3
           if (t == null)
             return this;
@@ -1147,8 +1182,19 @@ public class Composition extends DomainResource {
         }
 
         /**
-         * @return {@link #entry} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A reference to the actual resource from which the narrative in the section is derived.)
+         * @return The first repetition of repeating field {@link #entry}, creating it if it does not already exist
          */
+        public Reference getEntryFirstRep() { 
+          if (getEntry().isEmpty()) {
+            addEntry();
+          }
+          return getEntry().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Resource> getEntryTarget() { 
           if (this.entryTarget == null)
             this.entryTarget = new ArrayList<Resource>();
@@ -1188,6 +1234,14 @@ public class Composition extends DomainResource {
           return this.section;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SectionComponent setSection(List<SectionComponent> theSection) { 
+          this.section = theSection;
+          return this;
+        }
+
         public boolean hasSection() { 
           if (this.section == null)
             return false;
@@ -1197,10 +1251,6 @@ public class Composition extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #section} (A nested sub-section within this section.)
-         */
-    // syntactic sugar
         public SectionComponent addSection() { //3
           SectionComponent t = new SectionComponent();
           if (this.section == null)
@@ -1209,7 +1259,6 @@ public class Composition extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public SectionComponent addSection(SectionComponent t) { //3
           if (t == null)
             return this;
@@ -1217,6 +1266,16 @@ public class Composition extends DomainResource {
             this.section = new ArrayList<SectionComponent>();
           this.section.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #section}, creating it if it does not already exist
+         */
+        public SectionComponent getSectionFirstRep() { 
+          if (getSection().isEmpty()) {
+            addSection();
+          }
+          return getSection().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1396,10 +1455,8 @@ public class Composition extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (title == null || title.isEmpty()) && (code == null || code.isEmpty())
-           && (text == null || text.isEmpty()) && (mode == null || mode.isEmpty()) && (orderedBy == null || orderedBy.isEmpty())
-           && (entry == null || entry.isEmpty()) && (emptyReason == null || emptyReason.isEmpty()) && (section == null || section.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(title, code, text, mode
+          , orderedBy, entry, emptyReason, section);
       }
 
   public String fhirType() {
@@ -1852,6 +1909,14 @@ public class Composition extends DomainResource {
       return this.author;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Composition setAuthor(List<Reference> theAuthor) { 
+      this.author = theAuthor;
+      return this;
+    }
+
     public boolean hasAuthor() { 
       if (this.author == null)
         return false;
@@ -1861,10 +1926,6 @@ public class Composition extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #author} (Identifies who is responsible for the information in the composition, not necessarily who typed it in.)
-     */
-    // syntactic sugar
     public Reference addAuthor() { //3
       Reference t = new Reference();
       if (this.author == null)
@@ -1873,7 +1934,6 @@ public class Composition extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Composition addAuthor(Reference t) { //3
       if (t == null)
         return this;
@@ -1884,8 +1944,19 @@ public class Composition extends DomainResource {
     }
 
     /**
-     * @return {@link #author} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies who is responsible for the information in the composition, not necessarily who typed it in.)
+     * @return The first repetition of repeating field {@link #author}, creating it if it does not already exist
      */
+    public Reference getAuthorFirstRep() { 
+      if (getAuthor().isEmpty()) {
+        addAuthor();
+      }
+      return getAuthor().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getAuthorTarget() { 
       if (this.authorTarget == null)
         this.authorTarget = new ArrayList<Resource>();
@@ -1901,6 +1972,14 @@ public class Composition extends DomainResource {
       return this.attester;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Composition setAttester(List<CompositionAttesterComponent> theAttester) { 
+      this.attester = theAttester;
+      return this;
+    }
+
     public boolean hasAttester() { 
       if (this.attester == null)
         return false;
@@ -1910,10 +1989,6 @@ public class Composition extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #attester} (A participant who has attested to the accuracy of the composition/document.)
-     */
-    // syntactic sugar
     public CompositionAttesterComponent addAttester() { //3
       CompositionAttesterComponent t = new CompositionAttesterComponent();
       if (this.attester == null)
@@ -1922,7 +1997,6 @@ public class Composition extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Composition addAttester(CompositionAttesterComponent t) { //3
       if (t == null)
         return this;
@@ -1930,6 +2004,16 @@ public class Composition extends DomainResource {
         this.attester = new ArrayList<CompositionAttesterComponent>();
       this.attester.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #attester}, creating it if it does not already exist
+     */
+    public CompositionAttesterComponent getAttesterFirstRep() { 
+      if (getAttester().isEmpty()) {
+        addAttester();
+      }
+      return getAttester().get(0);
     }
 
     /**
@@ -1985,6 +2069,14 @@ public class Composition extends DomainResource {
       return this.event;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Composition setEvent(List<CompositionEventComponent> theEvent) { 
+      this.event = theEvent;
+      return this;
+    }
+
     public boolean hasEvent() { 
       if (this.event == null)
         return false;
@@ -1994,10 +2086,6 @@ public class Composition extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #event} (The clinical service, such as a colonoscopy or an appendectomy, being documented.)
-     */
-    // syntactic sugar
     public CompositionEventComponent addEvent() { //3
       CompositionEventComponent t = new CompositionEventComponent();
       if (this.event == null)
@@ -2006,7 +2094,6 @@ public class Composition extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Composition addEvent(CompositionEventComponent t) { //3
       if (t == null)
         return this;
@@ -2014,6 +2101,16 @@ public class Composition extends DomainResource {
         this.event = new ArrayList<CompositionEventComponent>();
       this.event.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #event}, creating it if it does not already exist
+     */
+    public CompositionEventComponent getEventFirstRep() { 
+      if (getEvent().isEmpty()) {
+        addEvent();
+      }
+      return getEvent().get(0);
     }
 
     /**
@@ -2069,6 +2166,14 @@ public class Composition extends DomainResource {
       return this.section;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Composition setSection(List<SectionComponent> theSection) { 
+      this.section = theSection;
+      return this;
+    }
+
     public boolean hasSection() { 
       if (this.section == null)
         return false;
@@ -2078,10 +2183,6 @@ public class Composition extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #section} (The root of the sections that make up the composition.)
-     */
-    // syntactic sugar
     public SectionComponent addSection() { //3
       SectionComponent t = new SectionComponent();
       if (this.section == null)
@@ -2090,7 +2191,6 @@ public class Composition extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Composition addSection(SectionComponent t) { //3
       if (t == null)
         return this;
@@ -2098,6 +2198,16 @@ public class Composition extends DomainResource {
         this.section = new ArrayList<SectionComponent>();
       this.section.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #section}, creating it if it does not already exist
+     */
+    public SectionComponent getSectionFirstRep() { 
+      if (getSection().isEmpty()) {
+        addSection();
+      }
+      return getSection().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2372,12 +2482,9 @@ public class Composition extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (date == null || date.isEmpty())
-           && (type == null || type.isEmpty()) && (class_ == null || class_.isEmpty()) && (title == null || title.isEmpty())
-           && (status == null || status.isEmpty()) && (confidentiality == null || confidentiality.isEmpty())
-           && (subject == null || subject.isEmpty()) && (author == null || author.isEmpty()) && (attester == null || attester.isEmpty())
-           && (custodian == null || custodian.isEmpty()) && (event == null || event.isEmpty()) && (encounter == null || encounter.isEmpty())
-           && (section == null || section.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, date, type, class_
+          , title, status, confidentiality, subject, author, attester, custodian, event
+          , encounter, section);
       }
 
   @Override
@@ -2386,24 +2493,64 @@ public class Composition extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>preliminary | final | amended | entered-in-error</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Composition.status</b><br>
+   * Description: <b>Composition editing time</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Composition.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="Composition.status", description="preliminary | final | amended | entered-in-error", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="date", path="Composition.date", description="Composition editing time", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>preliminary | final | amended | entered-in-error</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Composition.status</b><br>
+   * Description: <b>Composition editing time</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Composition.date</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Logical identifier of composition (version-independent)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Composition.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Composition.identifier", description="Logical identifier of composition (version-independent)", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Logical identifier of composition (version-independent)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Composition.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>period</b>
+   * <p>
+   * Description: <b>The period covered by the documentation</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Composition.event.period</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="period", path="Composition.event.period", description="The period covered by the documentation", type="date" )
+  public static final String SP_PERIOD = "period";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>period</b>
+   * <p>
+   * Description: <b>The period covered by the documentation</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Composition.event.period</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam PERIOD = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_PERIOD);
 
  /**
    * Search parameter: <b>subject</b>
@@ -2432,24 +2579,70 @@ public class Composition extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Composition:subject").toLocked();
 
  /**
-   * Search parameter: <b>class</b>
+   * Search parameter: <b>author</b>
    * <p>
-   * Description: <b>Categorization of Composition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Composition.class</b><br>
+   * Description: <b>Who and/or what authored the composition</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Composition.author</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="class", path="Composition.class", description="Categorization of Composition", type="token" )
-  public static final String SP_CLASS = "class";
+  @SearchParamDefinition(name="author", path="Composition.author", description="Who and/or what authored the composition", type="reference" )
+  public static final String SP_AUTHOR = "author";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>class</b>
+   * <b>Fluent Client</b> search parameter constant for <b>author</b>
    * <p>
-   * Description: <b>Categorization of Composition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Composition.class</b><br>
+   * Description: <b>Who and/or what authored the composition</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Composition.author</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CLASS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CLASS);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Composition:author</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("Composition:author").toLocked();
+
+ /**
+   * Search parameter: <b>confidentiality</b>
+   * <p>
+   * Description: <b>As defined by affinity domain</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Composition.confidentiality</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="confidentiality", path="Composition.confidentiality", description="As defined by affinity domain", type="token" )
+  public static final String SP_CONFIDENTIALITY = "confidentiality";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>confidentiality</b>
+   * <p>
+   * Description: <b>As defined by affinity domain</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Composition.confidentiality</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONFIDENTIALITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONFIDENTIALITY);
+
+ /**
+   * Search parameter: <b>section</b>
+   * <p>
+   * Description: <b>Classification of section (recommended)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Composition.section.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="section", path="Composition.section.code", description="Classification of section (recommended)", type="token" )
+  public static final String SP_SECTION = "section";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>section</b>
+   * <p>
+   * Description: <b>Classification of section (recommended)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Composition.section.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SECTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SECTION);
 
  /**
    * Search parameter: <b>encounter</b>
@@ -2478,26 +2671,6 @@ public class Composition extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("Composition:encounter").toLocked();
 
  /**
-   * Search parameter: <b>period</b>
-   * <p>
-   * Description: <b>The period covered by the documentation</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Composition.event.period</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="period", path="Composition.event.period", description="The period covered by the documentation", type="date" )
-  public static final String SP_PERIOD = "period";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>period</b>
-   * <p>
-   * Description: <b>The period covered by the documentation</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Composition.event.period</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam PERIOD = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_PERIOD);
-
- /**
    * Search parameter: <b>type</b>
    * <p>
    * Description: <b>Kind of composition (LOINC if possible)</b><br>
@@ -2518,72 +2691,6 @@ public class Composition extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>Composition editing time</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Composition.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="Composition.date", description="Composition editing time", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>Composition editing time</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Composition.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>section</b>
-   * <p>
-   * Description: <b>Classification of section (recommended)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Composition.section.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="section", path="Composition.section.code", description="Classification of section (recommended)", type="token" )
-  public static final String SP_SECTION = "section";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>section</b>
-   * <p>
-   * Description: <b>Classification of section (recommended)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Composition.section.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SECTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SECTION);
-
- /**
-   * Search parameter: <b>author</b>
-   * <p>
-   * Description: <b>Who and/or what authored the composition</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Composition.author</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="author", path="Composition.author", description="Who and/or what authored the composition", type="reference" )
-  public static final String SP_AUTHOR = "author";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>author</b>
-   * <p>
-   * Description: <b>Who and/or what authored the composition</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Composition.author</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Composition:author</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("Composition:author").toLocked();
-
- /**
    * Search parameter: <b>title</b>
    * <p>
    * Description: <b>Human Readable name/title</b><br>
@@ -2602,52 +2709,6 @@ public class Composition extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Who and/or what the composition is about</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Composition.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="Composition.subject", description="Who and/or what the composition is about", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Who and/or what the composition is about</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Composition.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Composition:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Composition:patient").toLocked();
-
- /**
-   * Search parameter: <b>confidentiality</b>
-   * <p>
-   * Description: <b>As defined by affinity domain</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Composition.confidentiality</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="confidentiality", path="Composition.confidentiality", description="As defined by affinity domain", type="token" )
-  public static final String SP_CONFIDENTIALITY = "confidentiality";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>confidentiality</b>
-   * <p>
-   * Description: <b>As defined by affinity domain</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Composition.confidentiality</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONFIDENTIALITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONFIDENTIALITY);
 
  /**
    * Search parameter: <b>attester</b>
@@ -2702,6 +2763,32 @@ public class Composition extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENTRY = new ca.uhn.fhir.model.api.Include("Composition:entry").toLocked();
 
  /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Who and/or what the composition is about</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Composition.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="Composition.subject", description="Who and/or what the composition is about", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Who and/or what the composition is about</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Composition.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Composition:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Composition:patient").toLocked();
+
+ /**
    * Search parameter: <b>context</b>
    * <p>
    * Description: <b>Code(s) that apply to the event being documented</b><br>
@@ -2722,24 +2809,44 @@ public class Composition extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>class</b>
    * <p>
-   * Description: <b>Logical identifier of composition (version-independent)</b><br>
+   * Description: <b>Categorization of Composition</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Composition.identifier</b><br>
+   * Path: <b>Composition.class</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Composition.identifier", description="Logical identifier of composition (version-independent)", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="class", path="Composition.class", description="Categorization of Composition", type="token" )
+  public static final String SP_CLASS = "class";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>class</b>
    * <p>
-   * Description: <b>Logical identifier of composition (version-independent)</b><br>
+   * Description: <b>Categorization of Composition</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Composition.identifier</b><br>
+   * Path: <b>Composition.class</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CLASS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CLASS);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>preliminary | final | amended | entered-in-error</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Composition.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="Composition.status", description="preliminary | final | amended | entered-in-error", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>preliminary | final | amended | entered-in-error</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Composition.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -396,8 +396,7 @@ public class EpisodeOfCare extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (status == null || status.isEmpty()) && (period == null || period.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(status, period);
       }
 
   public String fhirType() {
@@ -541,6 +540,14 @@ public class EpisodeOfCare extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public EpisodeOfCare setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -550,10 +557,6 @@ public class EpisodeOfCare extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Identifier(s) by which this EpisodeOfCare is known.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -562,7 +565,6 @@ public class EpisodeOfCare extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public EpisodeOfCare addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -570,6 +572,16 @@ public class EpisodeOfCare extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -626,6 +638,14 @@ public class EpisodeOfCare extends DomainResource {
       return this.statusHistory;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public EpisodeOfCare setStatusHistory(List<EpisodeOfCareStatusHistoryComponent> theStatusHistory) { 
+      this.statusHistory = theStatusHistory;
+      return this;
+    }
+
     public boolean hasStatusHistory() { 
       if (this.statusHistory == null)
         return false;
@@ -635,10 +655,6 @@ public class EpisodeOfCare extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #statusHistory} (The history of statuses that the EpisodeOfCare has been through (without requiring processing the history of the resource).)
-     */
-    // syntactic sugar
     public EpisodeOfCareStatusHistoryComponent addStatusHistory() { //3
       EpisodeOfCareStatusHistoryComponent t = new EpisodeOfCareStatusHistoryComponent();
       if (this.statusHistory == null)
@@ -647,7 +663,6 @@ public class EpisodeOfCare extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public EpisodeOfCare addStatusHistory(EpisodeOfCareStatusHistoryComponent t) { //3
       if (t == null)
         return this;
@@ -655,6 +670,16 @@ public class EpisodeOfCare extends DomainResource {
         this.statusHistory = new ArrayList<EpisodeOfCareStatusHistoryComponent>();
       this.statusHistory.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #statusHistory}, creating it if it does not already exist
+     */
+    public EpisodeOfCareStatusHistoryComponent getStatusHistoryFirstRep() { 
+      if (getStatusHistory().isEmpty()) {
+        addStatusHistory();
+      }
+      return getStatusHistory().get(0);
     }
 
     /**
@@ -666,6 +691,14 @@ public class EpisodeOfCare extends DomainResource {
       return this.type;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public EpisodeOfCare setType(List<CodeableConcept> theType) { 
+      this.type = theType;
+      return this;
+    }
+
     public boolean hasType() { 
       if (this.type == null)
         return false;
@@ -675,10 +708,6 @@ public class EpisodeOfCare extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #type} (A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care.)
-     */
-    // syntactic sugar
     public CodeableConcept addType() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.type == null)
@@ -687,7 +716,6 @@ public class EpisodeOfCare extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public EpisodeOfCare addType(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -695,6 +723,16 @@ public class EpisodeOfCare extends DomainResource {
         this.type = new ArrayList<CodeableConcept>();
       this.type.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #type}, creating it if it does not already exist
+     */
+    public CodeableConcept getTypeFirstRep() { 
+      if (getType().isEmpty()) {
+        addType();
+      }
+      return getType().get(0);
     }
 
     /**
@@ -706,6 +744,14 @@ public class EpisodeOfCare extends DomainResource {
       return this.condition;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public EpisodeOfCare setCondition(List<Reference> theCondition) { 
+      this.condition = theCondition;
+      return this;
+    }
+
     public boolean hasCondition() { 
       if (this.condition == null)
         return false;
@@ -715,10 +761,6 @@ public class EpisodeOfCare extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #condition} (A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.)
-     */
-    // syntactic sugar
     public Reference addCondition() { //3
       Reference t = new Reference();
       if (this.condition == null)
@@ -727,7 +769,6 @@ public class EpisodeOfCare extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public EpisodeOfCare addCondition(Reference t) { //3
       if (t == null)
         return this;
@@ -738,18 +779,29 @@ public class EpisodeOfCare extends DomainResource {
     }
 
     /**
-     * @return {@link #condition} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.)
+     * @return The first repetition of repeating field {@link #condition}, creating it if it does not already exist
      */
+    public Reference getConditionFirstRep() { 
+      if (getCondition().isEmpty()) {
+        addCondition();
+      }
+      return getCondition().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Condition> getConditionTarget() { 
       if (this.conditionTarget == null)
         this.conditionTarget = new ArrayList<Condition>();
       return this.conditionTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #condition} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Condition addConditionTarget() { 
       Condition r = new Condition();
       if (this.conditionTarget == null)
@@ -879,6 +931,14 @@ public class EpisodeOfCare extends DomainResource {
       return this.referralRequest;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public EpisodeOfCare setReferralRequest(List<Reference> theReferralRequest) { 
+      this.referralRequest = theReferralRequest;
+      return this;
+    }
+
     public boolean hasReferralRequest() { 
       if (this.referralRequest == null)
         return false;
@@ -888,10 +948,6 @@ public class EpisodeOfCare extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #referralRequest} (Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.)
-     */
-    // syntactic sugar
     public Reference addReferralRequest() { //3
       Reference t = new Reference();
       if (this.referralRequest == null)
@@ -900,7 +956,6 @@ public class EpisodeOfCare extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public EpisodeOfCare addReferralRequest(Reference t) { //3
       if (t == null)
         return this;
@@ -911,18 +966,29 @@ public class EpisodeOfCare extends DomainResource {
     }
 
     /**
-     * @return {@link #referralRequest} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.)
+     * @return The first repetition of repeating field {@link #referralRequest}, creating it if it does not already exist
      */
+    public Reference getReferralRequestFirstRep() { 
+      if (getReferralRequest().isEmpty()) {
+        addReferralRequest();
+      }
+      return getReferralRequest().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<ReferralRequest> getReferralRequestTarget() { 
       if (this.referralRequestTarget == null)
         this.referralRequestTarget = new ArrayList<ReferralRequest>();
       return this.referralRequestTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #referralRequest} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public ReferralRequest addReferralRequestTarget() { 
       ReferralRequest r = new ReferralRequest();
       if (this.referralRequestTarget == null)
@@ -984,6 +1050,14 @@ public class EpisodeOfCare extends DomainResource {
       return this.team;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public EpisodeOfCare setTeam(List<Reference> theTeam) { 
+      this.team = theTeam;
+      return this;
+    }
+
     public boolean hasTeam() { 
       if (this.team == null)
         return false;
@@ -993,10 +1067,6 @@ public class EpisodeOfCare extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #team} (The list of practitioners that may be facilitating this episode of care for specific purposes.)
-     */
-    // syntactic sugar
     public Reference addTeam() { //3
       Reference t = new Reference();
       if (this.team == null)
@@ -1005,7 +1075,6 @@ public class EpisodeOfCare extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public EpisodeOfCare addTeam(Reference t) { //3
       if (t == null)
         return this;
@@ -1016,18 +1085,29 @@ public class EpisodeOfCare extends DomainResource {
     }
 
     /**
-     * @return {@link #team} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The list of practitioners that may be facilitating this episode of care for specific purposes.)
+     * @return The first repetition of repeating field {@link #team}, creating it if it does not already exist
      */
+    public Reference getTeamFirstRep() { 
+      if (getTeam().isEmpty()) {
+        addTeam();
+      }
+      return getTeam().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<CareTeam> getTeamTarget() { 
       if (this.teamTarget == null)
         this.teamTarget = new ArrayList<CareTeam>();
       return this.teamTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #team} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The list of practitioners that may be facilitating this episode of care for specific purposes.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public CareTeam addTeamTarget() { 
       CareTeam r = new CareTeam();
       if (this.teamTarget == null)
@@ -1276,11 +1356,9 @@ public class EpisodeOfCare extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (statusHistory == null || statusHistory.isEmpty()) && (type == null || type.isEmpty())
-           && (condition == null || condition.isEmpty()) && (patient == null || patient.isEmpty()) && (managingOrganization == null || managingOrganization.isEmpty())
-           && (period == null || period.isEmpty()) && (referralRequest == null || referralRequest.isEmpty())
-           && (careManager == null || careManager.isEmpty()) && (team == null || team.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, statusHistory
+          , type, condition, patient, managingOrganization, period, referralRequest, careManager
+          , team);
       }
 
   @Override
@@ -1289,56 +1367,44 @@ public class EpisodeOfCare extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>organization</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>The organization that has assumed the specific responsibilities of this EpisodeOfCare</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EpisodeOfCare.managingOrganization</b><br>
+   * Description: <b>The provided date search value falls within the episode of care's period</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>EpisodeOfCare.period</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organization", path="EpisodeOfCare.managingOrganization", description="The organization that has assumed the specific responsibilities of this EpisodeOfCare", type="reference" )
-  public static final String SP_ORGANIZATION = "organization";
+  @SearchParamDefinition(name="date", path="EpisodeOfCare.period", description="The provided date search value falls within the episode of care's period", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>organization</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>The organization that has assumed the specific responsibilities of this EpisodeOfCare</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EpisodeOfCare.managingOrganization</b><br>
+   * Description: <b>The provided date search value falls within the episode of care's period</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>EpisodeOfCare.period</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EpisodeOfCare:organization</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:organization").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>patient</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Patient for this episode of care</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EpisodeOfCare.patient</b><br>
+   * Description: <b>Identifier(s) for the EpisodeOfCare</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EpisodeOfCare.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="EpisodeOfCare.patient", description="Patient for this episode of care", type="reference" )
-  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="identifier", path="EpisodeOfCare.identifier", description="Identifier(s) for the EpisodeOfCare", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Patient for this episode of care</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EpisodeOfCare.patient</b><br>
+   * Description: <b>Identifier(s) for the EpisodeOfCare</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EpisodeOfCare.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EpisodeOfCare:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:patient").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>condition</b>
@@ -1367,24 +1433,102 @@ public class EpisodeOfCare extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_CONDITION = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:condition").toLocked();
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>incomingreferral</b>
    * <p>
-   * Description: <b>The current status of the Episode of Care as provided (does not check the status history collection)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EpisodeOfCare.status</b><br>
+   * Description: <b>Incoming Referral Request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EpisodeOfCare.referralRequest</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="EpisodeOfCare.status", description="The current status of the Episode of Care as provided (does not check the status history collection)", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="incomingreferral", path="EpisodeOfCare.referralRequest", description="Incoming Referral Request", type="reference" )
+  public static final String SP_INCOMINGREFERRAL = "incomingreferral";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>incomingreferral</b>
    * <p>
-   * Description: <b>The current status of the Episode of Care as provided (does not check the status history collection)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EpisodeOfCare.status</b><br>
+   * Description: <b>Incoming Referral Request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EpisodeOfCare.referralRequest</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INCOMINGREFERRAL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INCOMINGREFERRAL);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EpisodeOfCare:incomingreferral</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INCOMINGREFERRAL = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:incomingreferral").toLocked();
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Patient for this episode of care</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EpisodeOfCare.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="EpisodeOfCare.patient", description="Patient for this episode of care", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Patient for this episode of care</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EpisodeOfCare.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EpisodeOfCare:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:patient").toLocked();
+
+ /**
+   * Search parameter: <b>organization</b>
+   * <p>
+   * Description: <b>The organization that has assumed the specific responsibilities of this EpisodeOfCare</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EpisodeOfCare.managingOrganization</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="organization", path="EpisodeOfCare.managingOrganization", description="The organization that has assumed the specific responsibilities of this EpisodeOfCare", type="reference" )
+  public static final String SP_ORGANIZATION = "organization";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>organization</b>
+   * <p>
+   * Description: <b>The organization that has assumed the specific responsibilities of this EpisodeOfCare</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EpisodeOfCare.managingOrganization</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EpisodeOfCare:organization</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:organization").toLocked();
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>Type/class  - e.g. specialist referral, disease management</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EpisodeOfCare.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="EpisodeOfCare.type", description="Type/class  - e.g. specialist referral, disease management", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>Type/class  - e.g. specialist referral, disease management</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EpisodeOfCare.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
    * Search parameter: <b>care-manager</b>
@@ -1413,90 +1557,24 @@ public class EpisodeOfCare extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_CARE_MANAGER = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:care-manager").toLocked();
 
  /**
-   * Search parameter: <b>type</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>Type/class  - e.g. specialist referral, disease management</b><br>
+   * Description: <b>The current status of the Episode of Care as provided (does not check the status history collection)</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>EpisodeOfCare.type</b><br>
+   * Path: <b>EpisodeOfCare.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="type", path="EpisodeOfCare.type", description="Type/class  - e.g. specialist referral, disease management", type="token" )
-  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="status", path="EpisodeOfCare.status", description="The current status of the Episode of Care as provided (does not check the status history collection)", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>Type/class  - e.g. specialist referral, disease management</b><br>
+   * Description: <b>The current status of the Episode of Care as provided (does not check the status history collection)</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>EpisodeOfCare.type</b><br>
+   * Path: <b>EpisodeOfCare.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>The provided date search value falls within the episode of care's period</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>EpisodeOfCare.period</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="EpisodeOfCare.period", description="The provided date search value falls within the episode of care's period", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>The provided date search value falls within the episode of care's period</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>EpisodeOfCare.period</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>incomingreferral</b>
-   * <p>
-   * Description: <b>Incoming Referral Request</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EpisodeOfCare.referralRequest</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="incomingreferral", path="EpisodeOfCare.referralRequest", description="Incoming Referral Request", type="reference" )
-  public static final String SP_INCOMINGREFERRAL = "incomingreferral";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>incomingreferral</b>
-   * <p>
-   * Description: <b>Incoming Referral Request</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EpisodeOfCare.referralRequest</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INCOMINGREFERRAL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INCOMINGREFERRAL);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EpisodeOfCare:incomingreferral</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_INCOMINGREFERRAL = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:incomingreferral").toLocked();
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Identifier(s) for the EpisodeOfCare</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EpisodeOfCare.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="EpisodeOfCare.identifier", description="Identifier(s) for the EpisodeOfCare", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Identifier(s) for the EpisodeOfCare</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EpisodeOfCare.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

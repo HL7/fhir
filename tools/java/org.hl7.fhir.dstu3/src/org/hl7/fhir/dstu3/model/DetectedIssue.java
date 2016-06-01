@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -421,8 +421,7 @@ public class DetectedIssue extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (action == null || action.isEmpty()) && (date == null || date.isEmpty())
-           && (author == null || author.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action, date, author);
       }
 
   public String fhirType() {
@@ -652,6 +651,14 @@ public class DetectedIssue extends DomainResource {
       return this.implicated;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DetectedIssue setImplicated(List<Reference> theImplicated) { 
+      this.implicated = theImplicated;
+      return this;
+    }
+
     public boolean hasImplicated() { 
       if (this.implicated == null)
         return false;
@@ -661,10 +668,6 @@ public class DetectedIssue extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #implicated} (Indicates the resource representing the current activity or proposed activity that is potentially problematic.)
-     */
-    // syntactic sugar
     public Reference addImplicated() { //3
       Reference t = new Reference();
       if (this.implicated == null)
@@ -673,7 +676,6 @@ public class DetectedIssue extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DetectedIssue addImplicated(Reference t) { //3
       if (t == null)
         return this;
@@ -684,8 +686,19 @@ public class DetectedIssue extends DomainResource {
     }
 
     /**
-     * @return {@link #implicated} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Indicates the resource representing the current activity or proposed activity that is potentially problematic.)
+     * @return The first repetition of repeating field {@link #implicated}, creating it if it does not already exist
      */
+    public Reference getImplicatedFirstRep() { 
+      if (getImplicated().isEmpty()) {
+        addImplicated();
+      }
+      return getImplicated().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getImplicatedTarget() { 
       if (this.implicatedTarget == null)
         this.implicatedTarget = new ArrayList<Resource>();
@@ -911,6 +924,14 @@ public class DetectedIssue extends DomainResource {
       return this.mitigation;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DetectedIssue setMitigation(List<DetectedIssueMitigationComponent> theMitigation) { 
+      this.mitigation = theMitigation;
+      return this;
+    }
+
     public boolean hasMitigation() { 
       if (this.mitigation == null)
         return false;
@@ -920,10 +941,6 @@ public class DetectedIssue extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #mitigation} (Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the detected issue from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.)
-     */
-    // syntactic sugar
     public DetectedIssueMitigationComponent addMitigation() { //3
       DetectedIssueMitigationComponent t = new DetectedIssueMitigationComponent();
       if (this.mitigation == null)
@@ -932,7 +949,6 @@ public class DetectedIssue extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DetectedIssue addMitigation(DetectedIssueMitigationComponent t) { //3
       if (t == null)
         return this;
@@ -940,6 +956,16 @@ public class DetectedIssue extends DomainResource {
         this.mitigation = new ArrayList<DetectedIssueMitigationComponent>();
       this.mitigation.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #mitigation}, creating it if it does not already exist
+     */
+    public DetectedIssueMitigationComponent getMitigationFirstRep() { 
+      if (getMitigation().isEmpty()) {
+        addMitigation();
+      }
+      return getMitigation().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1154,115 +1180,14 @@ public class DetectedIssue extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (patient == null || patient.isEmpty()) && (category == null || category.isEmpty())
-           && (severity == null || severity.isEmpty()) && (implicated == null || implicated.isEmpty())
-           && (detail == null || detail.isEmpty()) && (date == null || date.isEmpty()) && (author == null || author.isEmpty())
-           && (identifier == null || identifier.isEmpty()) && (reference == null || reference.isEmpty())
-           && (mitigation == null || mitigation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(patient, category, severity
+          , implicated, detail, date, author, identifier, reference, mitigation);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.DetectedIssue;
    }
-
- /**
-   * Search parameter: <b>author</b>
-   * <p>
-   * Description: <b>The provider or device that identified the issue</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DetectedIssue.author</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="author", path="DetectedIssue.author", description="The provider or device that identified the issue", type="reference" )
-  public static final String SP_AUTHOR = "author";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>author</b>
-   * <p>
-   * Description: <b>The provider or device that identified the issue</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DetectedIssue.author</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DetectedIssue:author</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("DetectedIssue:author").toLocked();
-
- /**
-   * Search parameter: <b>category</b>
-   * <p>
-   * Description: <b>Issue Category, e.g. drug-drug, duplicate therapy, etc.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DetectedIssue.category</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="category", path="DetectedIssue.category", description="Issue Category, e.g. drug-drug, duplicate therapy, etc.", type="token" )
-  public static final String SP_CATEGORY = "category";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>category</b>
-   * <p>
-   * Description: <b>Issue Category, e.g. drug-drug, duplicate therapy, etc.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DetectedIssue.category</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
-
- /**
-   * Search parameter: <b>implicated</b>
-   * <p>
-   * Description: <b>Problem resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DetectedIssue.implicated</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="implicated", path="DetectedIssue.implicated", description="Problem resource", type="reference" )
-  public static final String SP_IMPLICATED = "implicated";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>implicated</b>
-   * <p>
-   * Description: <b>Problem resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DetectedIssue.implicated</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam IMPLICATED = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_IMPLICATED);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DetectedIssue:implicated</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_IMPLICATED = new ca.uhn.fhir.model.api.Include("DetectedIssue:implicated").toLocked();
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Associated patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DetectedIssue.patient</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="DetectedIssue.patient", description="Associated patient", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Associated patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DetectedIssue.patient</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DetectedIssue:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("DetectedIssue:patient").toLocked();
 
  /**
    * Search parameter: <b>date</b>
@@ -1303,6 +1228,104 @@ public class DetectedIssue extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Associated patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DetectedIssue.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="DetectedIssue.patient", description="Associated patient", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Associated patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DetectedIssue.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DetectedIssue:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("DetectedIssue:patient").toLocked();
+
+ /**
+   * Search parameter: <b>author</b>
+   * <p>
+   * Description: <b>The provider or device that identified the issue</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DetectedIssue.author</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="author", path="DetectedIssue.author", description="The provider or device that identified the issue", type="reference" )
+  public static final String SP_AUTHOR = "author";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>author</b>
+   * <p>
+   * Description: <b>The provider or device that identified the issue</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DetectedIssue.author</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DetectedIssue:author</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("DetectedIssue:author").toLocked();
+
+ /**
+   * Search parameter: <b>implicated</b>
+   * <p>
+   * Description: <b>Problem resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DetectedIssue.implicated</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="implicated", path="DetectedIssue.implicated", description="Problem resource", type="reference" )
+  public static final String SP_IMPLICATED = "implicated";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>implicated</b>
+   * <p>
+   * Description: <b>Problem resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DetectedIssue.implicated</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam IMPLICATED = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_IMPLICATED);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DetectedIssue:implicated</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_IMPLICATED = new ca.uhn.fhir.model.api.Include("DetectedIssue:implicated").toLocked();
+
+ /**
+   * Search parameter: <b>category</b>
+   * <p>
+   * Description: <b>Issue Category, e.g. drug-drug, duplicate therapy, etc.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DetectedIssue.category</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="category", path="DetectedIssue.category", description="Issue Category, e.g. drug-drug, duplicate therapy, etc.", type="token" )
+  public static final String SP_CATEGORY = "category";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <p>
+   * Description: <b>Issue Category, e.g. drug-drug, duplicate therapy, etc.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DetectedIssue.category</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
 
 }

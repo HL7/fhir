@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1539,12 +1539,9 @@ public class Timing extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (bounds == null || bounds.isEmpty()) && (count == null || count.isEmpty())
-           && (countMax == null || countMax.isEmpty()) && (duration == null || duration.isEmpty()) && (durationMax == null || durationMax.isEmpty())
-           && (durationUnit == null || durationUnit.isEmpty()) && (frequency == null || frequency.isEmpty())
-           && (frequencyMax == null || frequencyMax.isEmpty()) && (period == null || period.isEmpty())
-           && (periodMax == null || periodMax.isEmpty()) && (periodUnit == null || periodUnit.isEmpty())
-           && (when == null || when.isEmpty()) && (offset == null || offset.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(bounds, count, countMax
+          , duration, durationMax, durationUnit, frequency, frequencyMax, period, periodMax
+          , periodUnit, when, offset);
       }
 
   public String fhirType() {
@@ -1593,6 +1590,14 @@ public class Timing extends Type implements ICompositeType {
       return this.event;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Timing setEvent(List<DateTimeType> theEvent) { 
+      this.event = theEvent;
+      return this;
+    }
+
     public boolean hasEvent() { 
       if (this.event == null)
         return false;
@@ -1605,7 +1610,6 @@ public class Timing extends Type implements ICompositeType {
     /**
      * @return {@link #event} (Identifies specific times when the event occurs.)
      */
-    // syntactic sugar
     public DateTimeType addEventElement() {//2 
       DateTimeType t = new DateTimeType();
       if (this.event == null)
@@ -1805,8 +1809,7 @@ public class Timing extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (event == null || event.isEmpty()) && (repeat == null || repeat.isEmpty())
-           && (code == null || code.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(event, repeat, code);
       }
 
 

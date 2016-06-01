@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -212,8 +212,7 @@ public class Order extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (schedule == null || schedule.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, schedule);
       }
 
   public String fhirType() {
@@ -317,6 +316,14 @@ public class Order extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Order setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -326,10 +333,6 @@ public class Order extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Identifiers assigned to this order by the orderer or by the receiver.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -338,7 +341,6 @@ public class Order extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Order addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -346,6 +348,16 @@ public class Order extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -592,6 +604,14 @@ public class Order extends DomainResource {
       return this.detail;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Order setDetail(List<Reference> theDetail) { 
+      this.detail = theDetail;
+      return this;
+    }
+
     public boolean hasDetail() { 
       if (this.detail == null)
         return false;
@@ -601,10 +621,6 @@ public class Order extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #detail} (What action is being ordered.)
-     */
-    // syntactic sugar
     public Reference addDetail() { //3
       Reference t = new Reference();
       if (this.detail == null)
@@ -613,7 +629,6 @@ public class Order extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Order addDetail(Reference t) { //3
       if (t == null)
         return this;
@@ -624,8 +639,19 @@ public class Order extends DomainResource {
     }
 
     /**
-     * @return {@link #detail} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. What action is being ordered.)
+     * @return The first repetition of repeating field {@link #detail}, creating it if it does not already exist
      */
+    public Reference getDetailFirstRep() { 
+      if (getDetail().isEmpty()) {
+        addDetail();
+      }
+      return getDetail().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getDetailTarget() { 
       if (this.detailTarget == null)
         this.detailTarget = new ArrayList<Resource>();
@@ -823,10 +849,8 @@ public class Order extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (date == null || date.isEmpty())
-           && (subject == null || subject.isEmpty()) && (source == null || source.isEmpty()) && (target == null || target.isEmpty())
-           && (reason == null || reason.isEmpty()) && (when == null || when.isEmpty()) && (detail == null || detail.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, date, subject
+          , source, target, reason, when, detail);
       }
 
   @Override
@@ -835,30 +859,70 @@ public class Order extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>detail</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>What action is being ordered</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Order.detail</b><br>
+   * Description: <b>When the order was made</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Order.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="detail", path="Order.detail", description="What action is being ordered", type="reference" )
-  public static final String SP_DETAIL = "detail";
+  @SearchParamDefinition(name="date", path="Order.date", description="When the order was made", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>detail</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>What action is being ordered</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Order.detail</b><br>
+   * Description: <b>When the order was made</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Order.date</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DETAIL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DETAIL);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Instance id from source, target, and/or  others</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Order.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Order.identifier", description="Instance id from source, target, and/or  others", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Instance id from source, target, and/or  others</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Order.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>Patient this order is about</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Order.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="Order.subject", description="Patient this order is about", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>Patient this order is about</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Order.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Order:detail</b>".
+   * the path value of "<b>Order:subject</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_DETAIL = new ca.uhn.fhir.model.api.Include("Order:detail").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Order:subject").toLocked();
 
  /**
    * Search parameter: <b>patient</b>
@@ -913,30 +977,30 @@ public class Order extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("Order:source").toLocked();
 
  /**
-   * Search parameter: <b>subject</b>
+   * Search parameter: <b>detail</b>
    * <p>
-   * Description: <b>Patient this order is about</b><br>
+   * Description: <b>What action is being ordered</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Order.subject</b><br>
+   * Path: <b>Order.detail</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="Order.subject", description="Patient this order is about", type="reference" )
-  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="detail", path="Order.detail", description="What action is being ordered", type="reference" )
+  public static final String SP_DETAIL = "detail";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <b>Fluent Client</b> search parameter constant for <b>detail</b>
    * <p>
-   * Description: <b>Patient this order is about</b><br>
+   * Description: <b>What action is being ordered</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Order.subject</b><br>
+   * Path: <b>Order.detail</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DETAIL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DETAIL);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Order:subject</b>".
+   * the path value of "<b>Order:detail</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Order:subject").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DETAIL = new ca.uhn.fhir.model.api.Include("Order:detail").toLocked();
 
  /**
    * Search parameter: <b>when</b>
@@ -1003,46 +1067,6 @@ public class Order extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam WHENCODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_WHENCODE);
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>When the order was made</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Order.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="Order.date", description="When the order was made", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>When the order was made</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Order.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Instance id from source, target, and/or  others</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Order.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Order.identifier", description="Instance id from source, target, and/or  others", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Instance id from source, target, and/or  others</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Order.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

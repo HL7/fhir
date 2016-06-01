@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -140,6 +140,14 @@ public class AppointmentResponse extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public AppointmentResponse setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -149,10 +157,6 @@ public class AppointmentResponse extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (This records identifiers associated with this appointment response concern that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -161,7 +165,6 @@ public class AppointmentResponse extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public AppointmentResponse addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -169,6 +172,16 @@ public class AppointmentResponse extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -322,6 +335,14 @@ public class AppointmentResponse extends DomainResource {
       return this.participantType;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public AppointmentResponse setParticipantType(List<CodeableConcept> theParticipantType) { 
+      this.participantType = theParticipantType;
+      return this;
+    }
+
     public boolean hasParticipantType() { 
       if (this.participantType == null)
         return false;
@@ -331,10 +352,6 @@ public class AppointmentResponse extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #participantType} (Role of participant in the appointment.)
-     */
-    // syntactic sugar
     public CodeableConcept addParticipantType() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.participantType == null)
@@ -343,7 +360,6 @@ public class AppointmentResponse extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public AppointmentResponse addParticipantType(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -351,6 +367,16 @@ public class AppointmentResponse extends DomainResource {
         this.participantType = new ArrayList<CodeableConcept>();
       this.participantType.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #participantType}, creating it if it does not already exist
+     */
+    public CodeableConcept getParticipantTypeFirstRep() { 
+      if (getParticipantType().isEmpty()) {
+        addParticipantType();
+      }
+      return getParticipantType().get(0);
     }
 
     /**
@@ -672,114 +698,14 @@ public class AppointmentResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (appointment == null || appointment.isEmpty())
-           && (start == null || start.isEmpty()) && (end == null || end.isEmpty()) && (participantType == null || participantType.isEmpty())
-           && (actor == null || actor.isEmpty()) && (participantStatus == null || participantStatus.isEmpty())
-           && (comment == null || comment.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, appointment, start
+          , end, participantType, actor, participantStatus, comment);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.AppointmentResponse;
    }
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>This Response is for this Patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>AppointmentResponse.actor</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="AppointmentResponse.actor", description="This Response is for this Patient", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>This Response is for this Patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>AppointmentResponse.actor</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>AppointmentResponse:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("AppointmentResponse:patient").toLocked();
-
- /**
-   * Search parameter: <b>practitioner</b>
-   * <p>
-   * Description: <b>This Response is for this Practitioner</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>AppointmentResponse.actor</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="practitioner", path="AppointmentResponse.actor", description="This Response is for this Practitioner", type="reference" )
-  public static final String SP_PRACTITIONER = "practitioner";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>practitioner</b>
-   * <p>
-   * Description: <b>This Response is for this Practitioner</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>AppointmentResponse.actor</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRACTITIONER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRACTITIONER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>AppointmentResponse:practitioner</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRACTITIONER = new ca.uhn.fhir.model.api.Include("AppointmentResponse:practitioner").toLocked();
-
- /**
-   * Search parameter: <b>location</b>
-   * <p>
-   * Description: <b>This Response is for this Location</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>AppointmentResponse.actor</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="location", path="AppointmentResponse.actor", description="This Response is for this Location", type="reference" )
-  public static final String SP_LOCATION = "location";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>location</b>
-   * <p>
-   * Description: <b>This Response is for this Location</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>AppointmentResponse.actor</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam LOCATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_LOCATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>AppointmentResponse:location</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("AppointmentResponse:location").toLocked();
-
- /**
-   * Search parameter: <b>part-status</b>
-   * <p>
-   * Description: <b>The participants acceptance status for this appointment</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AppointmentResponse.participantStatus</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="part-status", path="AppointmentResponse.participantStatus", description="The participants acceptance status for this appointment", type="token" )
-  public static final String SP_PART_STATUS = "part-status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>part-status</b>
-   * <p>
-   * Description: <b>The participants acceptance status for this appointment</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AppointmentResponse.participantStatus</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PART_STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PART_STATUS);
 
  /**
    * Search parameter: <b>actor</b>
@@ -828,6 +754,78 @@ public class AppointmentResponse extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
+   * Search parameter: <b>practitioner</b>
+   * <p>
+   * Description: <b>This Response is for this Practitioner</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>AppointmentResponse.actor</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="practitioner", path="AppointmentResponse.actor", description="This Response is for this Practitioner", type="reference" )
+  public static final String SP_PRACTITIONER = "practitioner";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>practitioner</b>
+   * <p>
+   * Description: <b>This Response is for this Practitioner</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>AppointmentResponse.actor</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRACTITIONER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRACTITIONER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>AppointmentResponse:practitioner</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRACTITIONER = new ca.uhn.fhir.model.api.Include("AppointmentResponse:practitioner").toLocked();
+
+ /**
+   * Search parameter: <b>part-status</b>
+   * <p>
+   * Description: <b>The participants acceptance status for this appointment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AppointmentResponse.participantStatus</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="part-status", path="AppointmentResponse.participantStatus", description="The participants acceptance status for this appointment", type="token" )
+  public static final String SP_PART_STATUS = "part-status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>part-status</b>
+   * <p>
+   * Description: <b>The participants acceptance status for this appointment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AppointmentResponse.participantStatus</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PART_STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PART_STATUS);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>This Response is for this Patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>AppointmentResponse.actor</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="AppointmentResponse.actor", description="This Response is for this Patient", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>This Response is for this Patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>AppointmentResponse.actor</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>AppointmentResponse:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("AppointmentResponse:patient").toLocked();
+
+ /**
    * Search parameter: <b>appointment</b>
    * <p>
    * Description: <b>The appointment that the response is attached to</b><br>
@@ -852,6 +850,32 @@ public class AppointmentResponse extends DomainResource {
    * the path value of "<b>AppointmentResponse:appointment</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_APPOINTMENT = new ca.uhn.fhir.model.api.Include("AppointmentResponse:appointment").toLocked();
+
+ /**
+   * Search parameter: <b>location</b>
+   * <p>
+   * Description: <b>This Response is for this Location</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>AppointmentResponse.actor</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="location", path="AppointmentResponse.actor", description="This Response is for this Location", type="reference" )
+  public static final String SP_LOCATION = "location";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>location</b>
+   * <p>
+   * Description: <b>This Response is for this Location</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>AppointmentResponse.actor</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam LOCATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_LOCATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>AppointmentResponse:location</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("AppointmentResponse:location").toLocked();
 
 
 }

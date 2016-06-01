@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -117,6 +117,14 @@ public class Basic extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Basic setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -126,10 +134,6 @@ public class Basic extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Identifier assigned to the resource for business purposes, outside the context of FHIR.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -138,7 +142,6 @@ public class Basic extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Basic addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -146,6 +149,16 @@ public class Basic extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -443,9 +456,8 @@ public class Basic extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (code == null || code.isEmpty())
-           && (subject == null || subject.isEmpty()) && (created == null || created.isEmpty()) && (author == null || author.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, code, subject
+          , created, author);
       }
 
   @Override
@@ -454,76 +466,44 @@ public class Basic extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>author</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Who created</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Basic.author</b><br>
+   * Description: <b>Business identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Basic.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="author", path="Basic.author", description="Who created", type="reference" )
-  public static final String SP_AUTHOR = "author";
+  @SearchParamDefinition(name="identifier", path="Basic.identifier", description="Business identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>author</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Who created</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Basic.author</b><br>
+   * Description: <b>Business identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Basic.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Basic:author</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("Basic:author").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>patient</b>
+   * Search parameter: <b>code</b>
    * <p>
-   * Description: <b>Identifies the focus of this resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Basic.subject</b><br>
+   * Description: <b>Kind of Resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Basic.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="Basic.subject", description="Identifies the focus of this resource", type="reference" )
-  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="code", path="Basic.code", description="Kind of Resource", type="token" )
+  public static final String SP_CODE = "code";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
-   * Description: <b>Identifies the focus of this resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Basic.subject</b><br>
+   * Description: <b>Kind of Resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Basic.code</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Basic:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Basic:patient").toLocked();
-
- /**
-   * Search parameter: <b>created</b>
-   * <p>
-   * Description: <b>When created</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Basic.created</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="created", path="Basic.created", description="When created", type="date" )
-  public static final String SP_CREATED = "created";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>created</b>
-   * <p>
-   * Description: <b>When created</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Basic.created</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
    * Search parameter: <b>subject</b>
@@ -552,44 +532,76 @@ public class Basic extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Basic:subject").toLocked();
 
  /**
-   * Search parameter: <b>code</b>
+   * Search parameter: <b>created</b>
    * <p>
-   * Description: <b>Kind of Resource</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Basic.code</b><br>
+   * Description: <b>When created</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Basic.created</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="Basic.code", description="Kind of Resource", type="token" )
-  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="created", path="Basic.created", description="When created", type="date" )
+  public static final String SP_CREATED = "created";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <b>Fluent Client</b> search parameter constant for <b>created</b>
    * <p>
-   * Description: <b>Kind of Resource</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Basic.code</b><br>
+   * Description: <b>When created</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Basic.created</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>patient</b>
    * <p>
-   * Description: <b>Business identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Basic.identifier</b><br>
+   * Description: <b>Identifies the focus of this resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Basic.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Basic.identifier", description="Business identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="patient", path="Basic.subject", description="Identifies the focus of this resource", type="reference" )
+  public static final String SP_PATIENT = "patient";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
-   * Description: <b>Business identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Basic.identifier</b><br>
+   * Description: <b>Identifies the focus of this resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Basic.subject</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Basic:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Basic:patient").toLocked();
+
+ /**
+   * Search parameter: <b>author</b>
+   * <p>
+   * Description: <b>Who created</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Basic.author</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="author", path="Basic.author", description="Who created", type="reference" )
+  public static final String SP_AUTHOR = "author";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>author</b>
+   * <p>
+   * Description: <b>Who created</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Basic.author</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Basic:author</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("Basic:author").toLocked();
 
 
 }

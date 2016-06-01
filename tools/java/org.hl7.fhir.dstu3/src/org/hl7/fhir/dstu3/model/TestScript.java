@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -779,6 +779,14 @@ public class TestScript extends BaseConformance {
           return this.telecom;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TestScriptContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+          this.telecom = theTelecom;
+          return this;
+        }
+
         public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
@@ -788,10 +796,6 @@ public class TestScript extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
-         */
-    // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           if (this.telecom == null)
@@ -800,7 +804,6 @@ public class TestScript extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public TestScriptContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
@@ -808,6 +811,16 @@ public class TestScript extends BaseConformance {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+         */
+        public ContactPoint getTelecomFirstRep() { 
+          if (getTelecom().isEmpty()) {
+            addTelecom();
+          }
+          return getTelecom().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -905,8 +918,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, telecom);
       }
 
   public String fhirType() {
@@ -1111,8 +1123,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (index == null || index.isEmpty()) && (profile == null || profile.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(index, profile);
       }
 
   public String fhirType() {
@@ -1317,8 +1328,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (index == null || index.isEmpty()) && (profile == null || profile.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(index, profile);
       }
 
   public String fhirType() {
@@ -1362,6 +1372,14 @@ public class TestScript extends BaseConformance {
           return this.link;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TestScriptMetadataComponent setLink(List<TestScriptMetadataLinkComponent> theLink) { 
+          this.link = theLink;
+          return this;
+        }
+
         public boolean hasLink() { 
           if (this.link == null)
             return false;
@@ -1371,10 +1389,6 @@ public class TestScript extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #link} (A link to the FHIR specification that this test is covering.)
-         */
-    // syntactic sugar
         public TestScriptMetadataLinkComponent addLink() { //3
           TestScriptMetadataLinkComponent t = new TestScriptMetadataLinkComponent();
           if (this.link == null)
@@ -1383,7 +1397,6 @@ public class TestScript extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public TestScriptMetadataComponent addLink(TestScriptMetadataLinkComponent t) { //3
           if (t == null)
             return this;
@@ -1391,6 +1404,16 @@ public class TestScript extends BaseConformance {
             this.link = new ArrayList<TestScriptMetadataLinkComponent>();
           this.link.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #link}, creating it if it does not already exist
+         */
+        public TestScriptMetadataLinkComponent getLinkFirstRep() { 
+          if (getLink().isEmpty()) {
+            addLink();
+          }
+          return getLink().get(0);
         }
 
         /**
@@ -1402,6 +1425,14 @@ public class TestScript extends BaseConformance {
           return this.capability;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TestScriptMetadataComponent setCapability(List<TestScriptMetadataCapabilityComponent> theCapability) { 
+          this.capability = theCapability;
+          return this;
+        }
+
         public boolean hasCapability() { 
           if (this.capability == null)
             return false;
@@ -1411,10 +1442,6 @@ public class TestScript extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #capability} (Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.)
-         */
-    // syntactic sugar
         public TestScriptMetadataCapabilityComponent addCapability() { //3
           TestScriptMetadataCapabilityComponent t = new TestScriptMetadataCapabilityComponent();
           if (this.capability == null)
@@ -1423,7 +1450,6 @@ public class TestScript extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public TestScriptMetadataComponent addCapability(TestScriptMetadataCapabilityComponent t) { //3
           if (t == null)
             return this;
@@ -1431,6 +1457,16 @@ public class TestScript extends BaseConformance {
             this.capability = new ArrayList<TestScriptMetadataCapabilityComponent>();
           this.capability.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #capability}, creating it if it does not already exist
+         */
+        public TestScriptMetadataCapabilityComponent getCapabilityFirstRep() { 
+          if (getCapability().isEmpty()) {
+            addCapability();
+          }
+          return getCapability().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1532,8 +1568,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (link == null || link.isEmpty()) && (capability == null || capability.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(link, capability);
       }
 
   public String fhirType() {
@@ -1761,8 +1796,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (url == null || url.isEmpty()) && (description == null || description.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, description);
       }
 
   public String fhirType() {
@@ -1993,6 +2027,14 @@ public class TestScript extends BaseConformance {
           return this.origin;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TestScriptMetadataCapabilityComponent setOrigin(List<IntegerType> theOrigin) { 
+          this.origin = theOrigin;
+          return this;
+        }
+
         public boolean hasOrigin() { 
           if (this.origin == null)
             return false;
@@ -2005,7 +2047,6 @@ public class TestScript extends BaseConformance {
         /**
          * @return {@link #origin} (Which origin server these requirements apply to.)
          */
-    // syntactic sugar
         public IntegerType addOriginElement() {//2 
           IntegerType t = new IntegerType();
           if (this.origin == null)
@@ -2092,6 +2133,14 @@ public class TestScript extends BaseConformance {
           return this.link;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TestScriptMetadataCapabilityComponent setLink(List<UriType> theLink) { 
+          this.link = theLink;
+          return this;
+        }
+
         public boolean hasLink() { 
           if (this.link == null)
             return false;
@@ -2104,7 +2153,6 @@ public class TestScript extends BaseConformance {
         /**
          * @return {@link #link} (Links to the FHIR specification that describes this interaction and the resources involved in more detail.)
          */
-    // syntactic sugar
         public UriType addLinkElement() {//2 
           UriType t = new UriType();
           if (this.link == null)
@@ -2345,10 +2393,8 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (required == null || required.isEmpty()) && (validated == null || validated.isEmpty())
-           && (description == null || description.isEmpty()) && (origin == null || origin.isEmpty())
-           && (destination == null || destination.isEmpty()) && (link == null || link.isEmpty()) && (conformance == null || conformance.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(required, validated, description
+          , origin, destination, link, conformance);
       }
 
   public String fhirType() {
@@ -2630,8 +2676,8 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (autocreate == null || autocreate.isEmpty()) && (autodelete == null || autodelete.isEmpty())
-           && (resource == null || resource.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(autocreate, autodelete, resource
+          );
       }
 
   public String fhirType() {
@@ -3065,9 +3111,8 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (defaultValue == null || defaultValue.isEmpty())
-           && (headerField == null || headerField.isEmpty()) && (path == null || path.isEmpty()) && (sourceId == null || sourceId.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, defaultValue, headerField
+          , path, sourceId);
       }
 
   public String fhirType() {
@@ -3163,6 +3208,14 @@ public class TestScript extends BaseConformance {
           return this.param;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TestScriptRuleComponent setParam(List<TestScriptRuleParamComponent> theParam) { 
+          this.param = theParam;
+          return this;
+        }
+
         public boolean hasParam() { 
           if (this.param == null)
             return false;
@@ -3172,10 +3225,6 @@ public class TestScript extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
-         */
-    // syntactic sugar
         public TestScriptRuleParamComponent addParam() { //3
           TestScriptRuleParamComponent t = new TestScriptRuleParamComponent();
           if (this.param == null)
@@ -3184,7 +3233,6 @@ public class TestScript extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public TestScriptRuleComponent addParam(TestScriptRuleParamComponent t) { //3
           if (t == null)
             return this;
@@ -3192,6 +3240,16 @@ public class TestScript extends BaseConformance {
             this.param = new ArrayList<TestScriptRuleParamComponent>();
           this.param.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #param}, creating it if it does not already exist
+         */
+        public TestScriptRuleParamComponent getParamFirstRep() { 
+          if (getParam().isEmpty()) {
+            addParam();
+          }
+          return getParam().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -3290,8 +3348,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (resource == null || resource.isEmpty()) && (param == null || param.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(resource, param);
       }
 
   public String fhirType() {
@@ -3519,8 +3576,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
       }
 
   public String fhirType() {
@@ -3616,6 +3672,14 @@ public class TestScript extends BaseConformance {
           return this.rule;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TestScriptRulesetComponent setRule(List<TestScriptRulesetRuleComponent> theRule) { 
+          this.rule = theRule;
+          return this;
+        }
+
         public boolean hasRule() { 
           if (this.rule == null)
             return false;
@@ -3625,10 +3689,6 @@ public class TestScript extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #rule} (The referenced rule within the external ruleset template.)
-         */
-    // syntactic sugar
         public TestScriptRulesetRuleComponent addRule() { //3
           TestScriptRulesetRuleComponent t = new TestScriptRulesetRuleComponent();
           if (this.rule == null)
@@ -3637,7 +3697,6 @@ public class TestScript extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public TestScriptRulesetComponent addRule(TestScriptRulesetRuleComponent t) { //3
           if (t == null)
             return this;
@@ -3645,6 +3704,16 @@ public class TestScript extends BaseConformance {
             this.rule = new ArrayList<TestScriptRulesetRuleComponent>();
           this.rule.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #rule}, creating it if it does not already exist
+         */
+        public TestScriptRulesetRuleComponent getRuleFirstRep() { 
+          if (getRule().isEmpty()) {
+            addRule();
+          }
+          return getRule().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -3743,8 +3812,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (resource == null || resource.isEmpty()) && (rule == null || rule.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(resource, rule);
       }
 
   public String fhirType() {
@@ -3841,6 +3909,14 @@ public class TestScript extends BaseConformance {
           return this.param;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TestScriptRulesetRuleComponent setParam(List<TestScriptRulesetRuleParamComponent> theParam) { 
+          this.param = theParam;
+          return this;
+        }
+
         public boolean hasParam() { 
           if (this.param == null)
             return false;
@@ -3850,10 +3926,6 @@ public class TestScript extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
-         */
-    // syntactic sugar
         public TestScriptRulesetRuleParamComponent addParam() { //3
           TestScriptRulesetRuleParamComponent t = new TestScriptRulesetRuleParamComponent();
           if (this.param == null)
@@ -3862,7 +3934,6 @@ public class TestScript extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public TestScriptRulesetRuleComponent addParam(TestScriptRulesetRuleParamComponent t) { //3
           if (t == null)
             return this;
@@ -3870,6 +3941,16 @@ public class TestScript extends BaseConformance {
             this.param = new ArrayList<TestScriptRulesetRuleParamComponent>();
           this.param.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #param}, creating it if it does not already exist
+         */
+        public TestScriptRulesetRuleParamComponent getParamFirstRep() { 
+          if (getParam().isEmpty()) {
+            addParam();
+          }
+          return getParam().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -3967,8 +4048,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (ruleId == null || ruleId.isEmpty()) && (param == null || param.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(ruleId, param);
       }
 
   public String fhirType() {
@@ -4196,8 +4276,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
       }
 
   public String fhirType() {
@@ -4265,6 +4344,14 @@ public class TestScript extends BaseConformance {
           return this.action;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TestScriptSetupComponent setAction(List<SetupActionComponent> theAction) { 
+          this.action = theAction;
+          return this;
+        }
+
         public boolean hasAction() { 
           if (this.action == null)
             return false;
@@ -4274,10 +4361,6 @@ public class TestScript extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #action} (Action would contain either an operation or an assertion.)
-         */
-    // syntactic sugar
         public SetupActionComponent addAction() { //3
           SetupActionComponent t = new SetupActionComponent();
           if (this.action == null)
@@ -4286,7 +4369,6 @@ public class TestScript extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public TestScriptSetupComponent addAction(SetupActionComponent t) { //3
           if (t == null)
             return this;
@@ -4294,6 +4376,16 @@ public class TestScript extends BaseConformance {
             this.action = new ArrayList<SetupActionComponent>();
           this.action.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #action}, creating it if it does not already exist
+         */
+        public SetupActionComponent getActionFirstRep() { 
+          if (getAction().isEmpty()) {
+            addAction();
+          }
+          return getAction().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -4392,8 +4484,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (metadata == null || metadata.isEmpty()) && (action == null || action.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(metadata, action);
       }
 
   public String fhirType() {
@@ -4569,8 +4660,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (operation == null || operation.isEmpty()) && (assert_ == null || assert_.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation, assert_);
       }
 
   public String fhirType() {
@@ -5158,6 +5248,14 @@ public class TestScript extends BaseConformance {
           return this.requestHeader;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SetupActionOperationComponent setRequestHeader(List<SetupActionOperationRequestHeaderComponent> theRequestHeader) { 
+          this.requestHeader = theRequestHeader;
+          return this;
+        }
+
         public boolean hasRequestHeader() { 
           if (this.requestHeader == null)
             return false;
@@ -5167,10 +5265,6 @@ public class TestScript extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #requestHeader} (Header elements would be used to set HTTP headers.)
-         */
-    // syntactic sugar
         public SetupActionOperationRequestHeaderComponent addRequestHeader() { //3
           SetupActionOperationRequestHeaderComponent t = new SetupActionOperationRequestHeaderComponent();
           if (this.requestHeader == null)
@@ -5179,7 +5273,6 @@ public class TestScript extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public SetupActionOperationComponent addRequestHeader(SetupActionOperationRequestHeaderComponent t) { //3
           if (t == null)
             return this;
@@ -5187,6 +5280,16 @@ public class TestScript extends BaseConformance {
             this.requestHeader = new ArrayList<SetupActionOperationRequestHeaderComponent>();
           this.requestHeader.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #requestHeader}, creating it if it does not already exist
+         */
+        public SetupActionOperationRequestHeaderComponent getRequestHeaderFirstRep() { 
+          if (getRequestHeader().isEmpty()) {
+            addRequestHeader();
+          }
+          return getRequestHeader().get(0);
         }
 
         /**
@@ -5646,13 +5749,9 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (resource == null || resource.isEmpty())
-           && (label == null || label.isEmpty()) && (description == null || description.isEmpty()) && (accept == null || accept.isEmpty())
-           && (contentType == null || contentType.isEmpty()) && (destination == null || destination.isEmpty())
-           && (encodeRequestUrl == null || encodeRequestUrl.isEmpty()) && (origin == null || origin.isEmpty())
-           && (params == null || params.isEmpty()) && (requestHeader == null || requestHeader.isEmpty())
-           && (responseId == null || responseId.isEmpty()) && (sourceId == null || sourceId.isEmpty())
-           && (targetId == null || targetId.isEmpty()) && (url == null || url.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, resource, label, description
+          , accept, contentType, destination, encodeRequestUrl, origin, params, requestHeader
+          , responseId, sourceId, targetId, url);
       }
 
   public String fhirType() {
@@ -5877,8 +5976,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (field == null || field.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(field, value);
       }
 
   public String fhirType() {
@@ -7284,15 +7382,10 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (label == null || label.isEmpty()) && (description == null || description.isEmpty())
-           && (direction == null || direction.isEmpty()) && (compareToSourceId == null || compareToSourceId.isEmpty())
-           && (compareToSourcePath == null || compareToSourcePath.isEmpty()) && (contentType == null || contentType.isEmpty())
-           && (headerField == null || headerField.isEmpty()) && (minimumId == null || minimumId.isEmpty())
-           && (navigationLinks == null || navigationLinks.isEmpty()) && (operator == null || operator.isEmpty())
-           && (path == null || path.isEmpty()) && (resource == null || resource.isEmpty()) && (response == null || response.isEmpty())
-           && (responseCode == null || responseCode.isEmpty()) && (rule == null || rule.isEmpty()) && (ruleset == null || ruleset.isEmpty())
-           && (sourceId == null || sourceId.isEmpty()) && (validateProfileId == null || validateProfileId.isEmpty())
-           && (value == null || value.isEmpty()) && (warningOnly == null || warningOnly.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(label, description, direction
+          , compareToSourceId, compareToSourcePath, contentType, headerField, minimumId, navigationLinks
+          , operator, path, resource, response, responseCode, rule, ruleset, sourceId
+          , validateProfileId, value, warningOnly);
       }
 
   public String fhirType() {
@@ -7389,6 +7482,14 @@ public class TestScript extends BaseConformance {
           return this.param;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SetupActionAssertRuleComponent setParam(List<SetupActionAssertRuleParamComponent> theParam) { 
+          this.param = theParam;
+          return this;
+        }
+
         public boolean hasParam() { 
           if (this.param == null)
             return false;
@@ -7398,10 +7499,6 @@ public class TestScript extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
-         */
-    // syntactic sugar
         public SetupActionAssertRuleParamComponent addParam() { //3
           SetupActionAssertRuleParamComponent t = new SetupActionAssertRuleParamComponent();
           if (this.param == null)
@@ -7410,7 +7507,6 @@ public class TestScript extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public SetupActionAssertRuleComponent addParam(SetupActionAssertRuleParamComponent t) { //3
           if (t == null)
             return this;
@@ -7418,6 +7514,16 @@ public class TestScript extends BaseConformance {
             this.param = new ArrayList<SetupActionAssertRuleParamComponent>();
           this.param.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #param}, creating it if it does not already exist
+         */
+        public SetupActionAssertRuleParamComponent getParamFirstRep() { 
+          if (getParam().isEmpty()) {
+            addParam();
+          }
+          return getParam().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -7515,8 +7621,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (ruleId == null || ruleId.isEmpty()) && (param == null || param.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(ruleId, param);
       }
 
   public String fhirType() {
@@ -7741,8 +7846,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
       }
 
   public String fhirType() {
@@ -7839,6 +7943,14 @@ public class TestScript extends BaseConformance {
           return this.rule;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SetupActionAssertRulesetComponent setRule(List<SetupActionAssertRulesetRuleComponent> theRule) { 
+          this.rule = theRule;
+          return this;
+        }
+
         public boolean hasRule() { 
           if (this.rule == null)
             return false;
@@ -7848,10 +7960,6 @@ public class TestScript extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #rule} (The referenced rule within the external ruleset template.)
-         */
-    // syntactic sugar
         public SetupActionAssertRulesetRuleComponent addRule() { //3
           SetupActionAssertRulesetRuleComponent t = new SetupActionAssertRulesetRuleComponent();
           if (this.rule == null)
@@ -7860,7 +7968,6 @@ public class TestScript extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public SetupActionAssertRulesetComponent addRule(SetupActionAssertRulesetRuleComponent t) { //3
           if (t == null)
             return this;
@@ -7868,6 +7975,16 @@ public class TestScript extends BaseConformance {
             this.rule = new ArrayList<SetupActionAssertRulesetRuleComponent>();
           this.rule.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #rule}, creating it if it does not already exist
+         */
+        public SetupActionAssertRulesetRuleComponent getRuleFirstRep() { 
+          if (getRule().isEmpty()) {
+            addRule();
+          }
+          return getRule().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -7965,8 +8082,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (rulesetId == null || rulesetId.isEmpty()) && (rule == null || rule.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(rulesetId, rule);
       }
 
   public String fhirType() {
@@ -8063,6 +8179,14 @@ public class TestScript extends BaseConformance {
           return this.param;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SetupActionAssertRulesetRuleComponent setParam(List<SetupActionAssertRulesetRuleParamComponent> theParam) { 
+          this.param = theParam;
+          return this;
+        }
+
         public boolean hasParam() { 
           if (this.param == null)
             return false;
@@ -8072,10 +8196,6 @@ public class TestScript extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
-         */
-    // syntactic sugar
         public SetupActionAssertRulesetRuleParamComponent addParam() { //3
           SetupActionAssertRulesetRuleParamComponent t = new SetupActionAssertRulesetRuleParamComponent();
           if (this.param == null)
@@ -8084,7 +8204,6 @@ public class TestScript extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public SetupActionAssertRulesetRuleComponent addParam(SetupActionAssertRulesetRuleParamComponent t) { //3
           if (t == null)
             return this;
@@ -8092,6 +8211,16 @@ public class TestScript extends BaseConformance {
             this.param = new ArrayList<SetupActionAssertRulesetRuleParamComponent>();
           this.param.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #param}, creating it if it does not already exist
+         */
+        public SetupActionAssertRulesetRuleParamComponent getParamFirstRep() { 
+          if (getParam().isEmpty()) {
+            addParam();
+          }
+          return getParam().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -8189,8 +8318,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (ruleId == null || ruleId.isEmpty()) && (param == null || param.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(ruleId, param);
       }
 
   public String fhirType() {
@@ -8415,8 +8543,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
       }
 
   public String fhirType() {
@@ -8596,6 +8723,14 @@ public class TestScript extends BaseConformance {
           return this.action;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TestScriptTestComponent setAction(List<TestActionComponent> theAction) { 
+          this.action = theAction;
+          return this;
+        }
+
         public boolean hasAction() { 
           if (this.action == null)
             return false;
@@ -8605,10 +8740,6 @@ public class TestScript extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #action} (Action would contain either an operation or an assertion.)
-         */
-    // syntactic sugar
         public TestActionComponent addAction() { //3
           TestActionComponent t = new TestActionComponent();
           if (this.action == null)
@@ -8617,7 +8748,6 @@ public class TestScript extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public TestScriptTestComponent addAction(TestActionComponent t) { //3
           if (t == null)
             return this;
@@ -8625,6 +8755,16 @@ public class TestScript extends BaseConformance {
             this.action = new ArrayList<TestActionComponent>();
           this.action.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #action}, creating it if it does not already exist
+         */
+        public TestActionComponent getActionFirstRep() { 
+          if (getAction().isEmpty()) {
+            addAction();
+          }
+          return getAction().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -8748,8 +8888,8 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (description == null || description.isEmpty())
-           && (metadata == null || metadata.isEmpty()) && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, description, metadata
+          , action);
       }
 
   public String fhirType() {
@@ -8925,8 +9065,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (operation == null || operation.isEmpty()) && (assert_ == null || assert_.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation, assert_);
       }
 
   public String fhirType() {
@@ -8963,6 +9102,14 @@ public class TestScript extends BaseConformance {
           return this.action;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TestScriptTeardownComponent setAction(List<TeardownActionComponent> theAction) { 
+          this.action = theAction;
+          return this;
+        }
+
         public boolean hasAction() { 
           if (this.action == null)
             return false;
@@ -8972,10 +9119,6 @@ public class TestScript extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #action} (The teardown action will only contain an operation.)
-         */
-    // syntactic sugar
         public TeardownActionComponent addAction() { //3
           TeardownActionComponent t = new TeardownActionComponent();
           if (this.action == null)
@@ -8984,7 +9127,6 @@ public class TestScript extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public TestScriptTeardownComponent addAction(TeardownActionComponent t) { //3
           if (t == null)
             return this;
@@ -8992,6 +9134,16 @@ public class TestScript extends BaseConformance {
             this.action = new ArrayList<TeardownActionComponent>();
           this.action.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #action}, creating it if it does not already exist
+         */
+        public TeardownActionComponent getActionFirstRep() { 
+          if (getAction().isEmpty()) {
+            addAction();
+          }
+          return getAction().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -9077,7 +9229,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action);
       }
 
   public String fhirType() {
@@ -9209,7 +9361,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (operation == null || operation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation);
       }
 
   public String fhirType() {
@@ -9540,6 +9692,14 @@ public class TestScript extends BaseConformance {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public TestScript setContact(List<TestScriptContactComponent> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -9549,10 +9709,6 @@ public class TestScript extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
-     */
-    // syntactic sugar
     public TestScriptContactComponent addContact() { //3
       TestScriptContactComponent t = new TestScriptContactComponent();
       if (this.contact == null)
@@ -9561,7 +9717,6 @@ public class TestScript extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public TestScript addContact(TestScriptContactComponent t) { //3
       if (t == null)
         return this;
@@ -9569,6 +9724,16 @@ public class TestScript extends BaseConformance {
         this.contact = new ArrayList<TestScriptContactComponent>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public TestScriptContactComponent getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -9741,6 +9906,14 @@ public class TestScript extends BaseConformance {
       return this.origin;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public TestScript setOrigin(List<TestScriptOriginComponent> theOrigin) { 
+      this.origin = theOrigin;
+      return this;
+    }
+
     public boolean hasOrigin() { 
       if (this.origin == null)
         return false;
@@ -9750,10 +9923,6 @@ public class TestScript extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #origin} (An abstract server used in operations within this test script in the origin element.)
-     */
-    // syntactic sugar
     public TestScriptOriginComponent addOrigin() { //3
       TestScriptOriginComponent t = new TestScriptOriginComponent();
       if (this.origin == null)
@@ -9762,7 +9931,6 @@ public class TestScript extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public TestScript addOrigin(TestScriptOriginComponent t) { //3
       if (t == null)
         return this;
@@ -9770,6 +9938,16 @@ public class TestScript extends BaseConformance {
         this.origin = new ArrayList<TestScriptOriginComponent>();
       this.origin.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #origin}, creating it if it does not already exist
+     */
+    public TestScriptOriginComponent getOriginFirstRep() { 
+      if (getOrigin().isEmpty()) {
+        addOrigin();
+      }
+      return getOrigin().get(0);
     }
 
     /**
@@ -9781,6 +9959,14 @@ public class TestScript extends BaseConformance {
       return this.destination;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public TestScript setDestination(List<TestScriptDestinationComponent> theDestination) { 
+      this.destination = theDestination;
+      return this;
+    }
+
     public boolean hasDestination() { 
       if (this.destination == null)
         return false;
@@ -9790,10 +9976,6 @@ public class TestScript extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #destination} (An abstract server used in operations within this test script in the destination element.)
-     */
-    // syntactic sugar
     public TestScriptDestinationComponent addDestination() { //3
       TestScriptDestinationComponent t = new TestScriptDestinationComponent();
       if (this.destination == null)
@@ -9802,7 +9984,6 @@ public class TestScript extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public TestScript addDestination(TestScriptDestinationComponent t) { //3
       if (t == null)
         return this;
@@ -9810,6 +9991,16 @@ public class TestScript extends BaseConformance {
         this.destination = new ArrayList<TestScriptDestinationComponent>();
       this.destination.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #destination}, creating it if it does not already exist
+     */
+    public TestScriptDestinationComponent getDestinationFirstRep() { 
+      if (getDestination().isEmpty()) {
+        addDestination();
+      }
+      return getDestination().get(0);
     }
 
     /**
@@ -9845,6 +10036,14 @@ public class TestScript extends BaseConformance {
       return this.fixture;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public TestScript setFixture(List<TestScriptFixtureComponent> theFixture) { 
+      this.fixture = theFixture;
+      return this;
+    }
+
     public boolean hasFixture() { 
       if (this.fixture == null)
         return false;
@@ -9854,10 +10053,6 @@ public class TestScript extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #fixture} (Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute.)
-     */
-    // syntactic sugar
     public TestScriptFixtureComponent addFixture() { //3
       TestScriptFixtureComponent t = new TestScriptFixtureComponent();
       if (this.fixture == null)
@@ -9866,7 +10061,6 @@ public class TestScript extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public TestScript addFixture(TestScriptFixtureComponent t) { //3
       if (t == null)
         return this;
@@ -9874,6 +10068,16 @@ public class TestScript extends BaseConformance {
         this.fixture = new ArrayList<TestScriptFixtureComponent>();
       this.fixture.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #fixture}, creating it if it does not already exist
+     */
+    public TestScriptFixtureComponent getFixtureFirstRep() { 
+      if (getFixture().isEmpty()) {
+        addFixture();
+      }
+      return getFixture().get(0);
     }
 
     /**
@@ -9885,6 +10089,14 @@ public class TestScript extends BaseConformance {
       return this.profile;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public TestScript setProfile(List<Reference> theProfile) { 
+      this.profile = theProfile;
+      return this;
+    }
+
     public boolean hasProfile() { 
       if (this.profile == null)
         return false;
@@ -9894,10 +10106,6 @@ public class TestScript extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #profile} (Reference to the profile to be used for validation.)
-     */
-    // syntactic sugar
     public Reference addProfile() { //3
       Reference t = new Reference();
       if (this.profile == null)
@@ -9906,7 +10114,6 @@ public class TestScript extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public TestScript addProfile(Reference t) { //3
       if (t == null)
         return this;
@@ -9917,8 +10124,19 @@ public class TestScript extends BaseConformance {
     }
 
     /**
-     * @return {@link #profile} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Reference to the profile to be used for validation.)
+     * @return The first repetition of repeating field {@link #profile}, creating it if it does not already exist
      */
+    public Reference getProfileFirstRep() { 
+      if (getProfile().isEmpty()) {
+        addProfile();
+      }
+      return getProfile().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getProfileTarget() { 
       if (this.profileTarget == null)
         this.profileTarget = new ArrayList<Resource>();
@@ -9934,6 +10152,14 @@ public class TestScript extends BaseConformance {
       return this.variable;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public TestScript setVariable(List<TestScriptVariableComponent> theVariable) { 
+      this.variable = theVariable;
+      return this;
+    }
+
     public boolean hasVariable() { 
       if (this.variable == null)
         return false;
@@ -9943,10 +10169,6 @@ public class TestScript extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #variable} (Variable is set based either on element value in response body or on header field value in the response headers.)
-     */
-    // syntactic sugar
     public TestScriptVariableComponent addVariable() { //3
       TestScriptVariableComponent t = new TestScriptVariableComponent();
       if (this.variable == null)
@@ -9955,7 +10177,6 @@ public class TestScript extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public TestScript addVariable(TestScriptVariableComponent t) { //3
       if (t == null)
         return this;
@@ -9963,6 +10184,16 @@ public class TestScript extends BaseConformance {
         this.variable = new ArrayList<TestScriptVariableComponent>();
       this.variable.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #variable}, creating it if it does not already exist
+     */
+    public TestScriptVariableComponent getVariableFirstRep() { 
+      if (getVariable().isEmpty()) {
+        addVariable();
+      }
+      return getVariable().get(0);
     }
 
     /**
@@ -9974,6 +10205,14 @@ public class TestScript extends BaseConformance {
       return this.rule;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public TestScript setRule(List<TestScriptRuleComponent> theRule) { 
+      this.rule = theRule;
+      return this;
+    }
+
     public boolean hasRule() { 
       if (this.rule == null)
         return false;
@@ -9983,10 +10222,6 @@ public class TestScript extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #rule} (Assert rule to be used in one or more asserts within the test script.)
-     */
-    // syntactic sugar
     public TestScriptRuleComponent addRule() { //3
       TestScriptRuleComponent t = new TestScriptRuleComponent();
       if (this.rule == null)
@@ -9995,7 +10230,6 @@ public class TestScript extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public TestScript addRule(TestScriptRuleComponent t) { //3
       if (t == null)
         return this;
@@ -10003,6 +10237,16 @@ public class TestScript extends BaseConformance {
         this.rule = new ArrayList<TestScriptRuleComponent>();
       this.rule.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #rule}, creating it if it does not already exist
+     */
+    public TestScriptRuleComponent getRuleFirstRep() { 
+      if (getRule().isEmpty()) {
+        addRule();
+      }
+      return getRule().get(0);
     }
 
     /**
@@ -10014,6 +10258,14 @@ public class TestScript extends BaseConformance {
       return this.ruleset;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public TestScript setRuleset(List<TestScriptRulesetComponent> theRuleset) { 
+      this.ruleset = theRuleset;
+      return this;
+    }
+
     public boolean hasRuleset() { 
       if (this.ruleset == null)
         return false;
@@ -10023,10 +10275,6 @@ public class TestScript extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #ruleset} (Contains one or more rules.  Offers a way to group rules so assertions could reference the group of rules and have them all applied.)
-     */
-    // syntactic sugar
     public TestScriptRulesetComponent addRuleset() { //3
       TestScriptRulesetComponent t = new TestScriptRulesetComponent();
       if (this.ruleset == null)
@@ -10035,7 +10283,6 @@ public class TestScript extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public TestScript addRuleset(TestScriptRulesetComponent t) { //3
       if (t == null)
         return this;
@@ -10043,6 +10290,16 @@ public class TestScript extends BaseConformance {
         this.ruleset = new ArrayList<TestScriptRulesetComponent>();
       this.ruleset.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #ruleset}, creating it if it does not already exist
+     */
+    public TestScriptRulesetComponent getRulesetFirstRep() { 
+      if (getRuleset().isEmpty()) {
+        addRuleset();
+      }
+      return getRuleset().get(0);
     }
 
     /**
@@ -10078,6 +10335,14 @@ public class TestScript extends BaseConformance {
       return this.test;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public TestScript setTest(List<TestScriptTestComponent> theTest) { 
+      this.test = theTest;
+      return this;
+    }
+
     public boolean hasTest() { 
       if (this.test == null)
         return false;
@@ -10087,10 +10352,6 @@ public class TestScript extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #test} (A test in this script.)
-     */
-    // syntactic sugar
     public TestScriptTestComponent addTest() { //3
       TestScriptTestComponent t = new TestScriptTestComponent();
       if (this.test == null)
@@ -10099,7 +10360,6 @@ public class TestScript extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public TestScript addTest(TestScriptTestComponent t) { //3
       if (t == null)
         return this;
@@ -10107,6 +10367,16 @@ public class TestScript extends BaseConformance {
         this.test = new ArrayList<TestScriptTestComponent>();
       this.test.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #test}, creating it if it does not already exist
+     */
+    public TestScriptTestComponent getTestFirstRep() { 
+      if (getTest().isEmpty()) {
+        addTest();
+      }
+      return getTest().get(0);
     }
 
     /**
@@ -10543,20 +10813,35 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (origin == null || origin.isEmpty()) && (destination == null || destination.isEmpty())
-           && (metadata == null || metadata.isEmpty()) && (fixture == null || fixture.isEmpty()) && (profile == null || profile.isEmpty())
-           && (variable == null || variable.isEmpty()) && (rule == null || rule.isEmpty()) && (ruleset == null || ruleset.isEmpty())
-           && (setup == null || setup.isEmpty()) && (test == null || test.isEmpty()) && (teardown == null || teardown.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, experimental, publisher
+          , contact, description, requirements, copyright, origin, destination, metadata
+          , fixture, profile, variable, rule, ruleset, setup, test, teardown);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.TestScript;
    }
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>External identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>TestScript.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="TestScript.identifier", description="External identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>External identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>TestScript.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>testscript-test-capability</b>
@@ -10599,26 +10884,6 @@ public class TestScript extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam TESTSCRIPT_SETUP_CAPABILITY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TESTSCRIPT_SETUP_CAPABILITY);
 
  /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Natural language description of the TestScript</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>TestScript.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="TestScript.description", description="Natural language description of the TestScript", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Natural language description of the TestScript</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>TestScript.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
    * Search parameter: <b>name</b>
    * <p>
    * Description: <b>Informal name for this TestScript</b><br>
@@ -10639,6 +10904,26 @@ public class TestScript extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
 
  /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Natural language description of the TestScript</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>TestScript.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="TestScript.description", description="Natural language description of the TestScript", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Natural language description of the TestScript</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>TestScript.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
    * Search parameter: <b>testscript-capability</b>
    * <p>
    * Description: <b>TestScript required and validated capability</b><br>
@@ -10657,26 +10942,6 @@ public class TestScript extends BaseConformance {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam TESTSCRIPT_CAPABILITY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TESTSCRIPT_CAPABILITY);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>External identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>TestScript.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="TestScript.identifier", description="External identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>External identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>TestScript.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>url</b>

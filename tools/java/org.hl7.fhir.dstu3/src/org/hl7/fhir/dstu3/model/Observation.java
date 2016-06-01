@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -474,6 +474,14 @@ public class Observation extends DomainResource {
           return this.meaning;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ObservationReferenceRangeComponent setMeaning(List<CodeableConcept> theMeaning) { 
+          this.meaning = theMeaning;
+          return this;
+        }
+
         public boolean hasMeaning() { 
           if (this.meaning == null)
             return false;
@@ -483,10 +491,6 @@ public class Observation extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #meaning} (Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex, race, therapeutic status, or endocrine or reproductive status.)
-         */
-    // syntactic sugar
         public CodeableConcept addMeaning() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.meaning == null)
@@ -495,7 +499,6 @@ public class Observation extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ObservationReferenceRangeComponent addMeaning(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -503,6 +506,16 @@ public class Observation extends DomainResource {
             this.meaning = new ArrayList<CodeableConcept>();
           this.meaning.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #meaning}, creating it if it does not already exist
+         */
+        public CodeableConcept getMeaningFirstRep() { 
+          if (getMeaning().isEmpty()) {
+            addMeaning();
+          }
+          return getMeaning().get(0);
         }
 
         /**
@@ -713,9 +726,8 @@ public class Observation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (low == null || low.isEmpty()) && (high == null || high.isEmpty())
-           && (meaning == null || meaning.isEmpty()) && (age == null || age.isEmpty()) && (text == null || text.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(low, high, meaning, age
+          , text);
       }
 
   public String fhirType() {
@@ -943,8 +955,7 @@ public class Observation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (target == null || target.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, target);
       }
 
   public String fhirType() {
@@ -1238,6 +1249,14 @@ public class Observation extends DomainResource {
           return this.referenceRange;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ObservationComponentComponent setReferenceRange(List<ObservationReferenceRangeComponent> theReferenceRange) { 
+          this.referenceRange = theReferenceRange;
+          return this;
+        }
+
         public boolean hasReferenceRange() { 
           if (this.referenceRange == null)
             return false;
@@ -1247,10 +1266,6 @@ public class Observation extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #referenceRange} (Guidance on how to interpret the value by comparison to a normal or recommended range.)
-         */
-    // syntactic sugar
         public ObservationReferenceRangeComponent addReferenceRange() { //3
           ObservationReferenceRangeComponent t = new ObservationReferenceRangeComponent();
           if (this.referenceRange == null)
@@ -1259,7 +1274,6 @@ public class Observation extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ObservationComponentComponent addReferenceRange(ObservationReferenceRangeComponent t) { //3
           if (t == null)
             return this;
@@ -1267,6 +1281,16 @@ public class Observation extends DomainResource {
             this.referenceRange = new ArrayList<ObservationReferenceRangeComponent>();
           this.referenceRange.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #referenceRange}, creating it if it does not already exist
+         */
+        public ObservationReferenceRangeComponent getReferenceRangeFirstRep() { 
+          if (getReferenceRange().isEmpty()) {
+            addReferenceRange();
+          }
+          return getReferenceRange().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1442,9 +1466,8 @@ public class Observation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (value == null || value.isEmpty())
-           && (dataAbsentReason == null || dataAbsentReason.isEmpty()) && (interpretation == null || interpretation.isEmpty())
-           && (referenceRange == null || referenceRange.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, value, dataAbsentReason
+          , interpretation, referenceRange);
       }
 
   public String fhirType() {
@@ -1646,6 +1669,14 @@ public class Observation extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Observation setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -1655,10 +1686,6 @@ public class Observation extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (A unique identifier for the simple observation instance.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -1667,7 +1694,6 @@ public class Observation extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Observation addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -1675,6 +1701,16 @@ public class Observation extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1731,6 +1767,14 @@ public class Observation extends DomainResource {
       return this.category;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Observation setCategory(List<CodeableConcept> theCategory) { 
+      this.category = theCategory;
+      return this;
+    }
+
     public boolean hasCategory() { 
       if (this.category == null)
         return false;
@@ -1740,10 +1784,6 @@ public class Observation extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #category} (A code that classifies the general type of observation being made.)
-     */
-    // syntactic sugar
     public CodeableConcept addCategory() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.category == null)
@@ -1752,7 +1792,6 @@ public class Observation extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Observation addCategory(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1760,6 +1799,16 @@ public class Observation extends DomainResource {
         this.category = new ArrayList<CodeableConcept>();
       this.category.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #category}, creating it if it does not already exist
+     */
+    public CodeableConcept getCategoryFirstRep() { 
+      if (getCategory().isEmpty()) {
+        addCategory();
+      }
+      return getCategory().get(0);
     }
 
     /**
@@ -1972,6 +2021,14 @@ public class Observation extends DomainResource {
       return this.performer;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Observation setPerformer(List<Reference> thePerformer) { 
+      this.performer = thePerformer;
+      return this;
+    }
+
     public boolean hasPerformer() { 
       if (this.performer == null)
         return false;
@@ -1981,10 +2038,6 @@ public class Observation extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #performer} (Who was responsible for asserting the observed value as "true".)
-     */
-    // syntactic sugar
     public Reference addPerformer() { //3
       Reference t = new Reference();
       if (this.performer == null)
@@ -1993,7 +2046,6 @@ public class Observation extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Observation addPerformer(Reference t) { //3
       if (t == null)
         return this;
@@ -2004,8 +2056,19 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @return {@link #performer} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Who was responsible for asserting the observed value as "true".)
+     * @return The first repetition of repeating field {@link #performer}, creating it if it does not already exist
      */
+    public Reference getPerformerFirstRep() { 
+      if (getPerformer().isEmpty()) {
+        addPerformer();
+      }
+      return getPerformer().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getPerformerTarget() { 
       if (this.performerTarget == null)
         this.performerTarget = new ArrayList<Resource>();
@@ -2398,6 +2461,14 @@ public class Observation extends DomainResource {
       return this.referenceRange;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Observation setReferenceRange(List<ObservationReferenceRangeComponent> theReferenceRange) { 
+      this.referenceRange = theReferenceRange;
+      return this;
+    }
+
     public boolean hasReferenceRange() { 
       if (this.referenceRange == null)
         return false;
@@ -2407,10 +2478,6 @@ public class Observation extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #referenceRange} (Guidance on how to interpret the value by comparison to a normal or recommended range.)
-     */
-    // syntactic sugar
     public ObservationReferenceRangeComponent addReferenceRange() { //3
       ObservationReferenceRangeComponent t = new ObservationReferenceRangeComponent();
       if (this.referenceRange == null)
@@ -2419,7 +2486,6 @@ public class Observation extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Observation addReferenceRange(ObservationReferenceRangeComponent t) { //3
       if (t == null)
         return this;
@@ -2427,6 +2493,16 @@ public class Observation extends DomainResource {
         this.referenceRange = new ArrayList<ObservationReferenceRangeComponent>();
       this.referenceRange.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #referenceRange}, creating it if it does not already exist
+     */
+    public ObservationReferenceRangeComponent getReferenceRangeFirstRep() { 
+      if (getReferenceRange().isEmpty()) {
+        addReferenceRange();
+      }
+      return getReferenceRange().get(0);
     }
 
     /**
@@ -2438,6 +2514,14 @@ public class Observation extends DomainResource {
       return this.related;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Observation setRelated(List<ObservationRelatedComponent> theRelated) { 
+      this.related = theRelated;
+      return this;
+    }
+
     public boolean hasRelated() { 
       if (this.related == null)
         return false;
@@ -2447,10 +2531,6 @@ public class Observation extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #related} (A  reference to another resource (usually another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.)
-     */
-    // syntactic sugar
     public ObservationRelatedComponent addRelated() { //3
       ObservationRelatedComponent t = new ObservationRelatedComponent();
       if (this.related == null)
@@ -2459,7 +2539,6 @@ public class Observation extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Observation addRelated(ObservationRelatedComponent t) { //3
       if (t == null)
         return this;
@@ -2467,6 +2546,16 @@ public class Observation extends DomainResource {
         this.related = new ArrayList<ObservationRelatedComponent>();
       this.related.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #related}, creating it if it does not already exist
+     */
+    public ObservationRelatedComponent getRelatedFirstRep() { 
+      if (getRelated().isEmpty()) {
+        addRelated();
+      }
+      return getRelated().get(0);
     }
 
     /**
@@ -2478,6 +2567,14 @@ public class Observation extends DomainResource {
       return this.component;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Observation setComponent(List<ObservationComponentComponent> theComponent) { 
+      this.component = theComponent;
+      return this;
+    }
+
     public boolean hasComponent() { 
       if (this.component == null)
         return false;
@@ -2487,10 +2584,6 @@ public class Observation extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #component} (Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.)
-     */
-    // syntactic sugar
     public ObservationComponentComponent addComponent() { //3
       ObservationComponentComponent t = new ObservationComponentComponent();
       if (this.component == null)
@@ -2499,7 +2592,6 @@ public class Observation extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Observation addComponent(ObservationComponentComponent t) { //3
       if (t == null)
         return this;
@@ -2507,6 +2599,16 @@ public class Observation extends DomainResource {
         this.component = new ArrayList<ObservationComponentComponent>();
       this.component.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #component}, creating it if it does not already exist
+     */
+    public ObservationComponentComponent getComponentFirstRep() { 
+      if (getComponent().isEmpty()) {
+        addComponent();
+      }
+      return getComponent().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2908,14 +3010,10 @@ public class Observation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (category == null || category.isEmpty()) && (code == null || code.isEmpty()) && (subject == null || subject.isEmpty())
-           && (encounter == null || encounter.isEmpty()) && (effective == null || effective.isEmpty())
-           && (issued == null || issued.isEmpty()) && (performer == null || performer.isEmpty()) && (value == null || value.isEmpty())
-           && (dataAbsentReason == null || dataAbsentReason.isEmpty()) && (interpretation == null || interpretation.isEmpty())
-           && (comment == null || comment.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (method == null || method.isEmpty())
-           && (specimen == null || specimen.isEmpty()) && (device == null || device.isEmpty()) && (referenceRange == null || referenceRange.isEmpty())
-           && (related == null || related.isEmpty()) && (component == null || component.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
+          , code, subject, encounter, effective, issued, performer, value, dataAbsentReason
+          , interpretation, comment, bodySite, method, specimen, device, referenceRange
+          , related, component);
       }
 
   @Override
@@ -2924,44 +3022,210 @@ public class Observation extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>value-string</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>The value or component value of the observation, if the value is a string, and also searches in CodeableConcept.text</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Observation.valueString, Observation.component.valueString</b><br>
+   * Description: <b>Obtained date/time. If the obtained element is a period, a date that falls in the period</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Observation.effective[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="value-string", path="Observation.value.as(String) | Observation.component.value.as(String)", description="The value or component value of the observation, if the value is a string, and also searches in CodeableConcept.text", type="string" )
-  public static final String SP_VALUE_STRING = "value-string";
+  @SearchParamDefinition(name="date", path="Observation.effective", description="Obtained date/time. If the obtained element is a period, a date that falls in the period", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>value-string</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>The value or component value of the observation, if the value is a string, and also searches in CodeableConcept.text</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Observation.valueString, Observation.component.valueString</b><br>
+   * Description: <b>Obtained date/time. If the obtained element is a period, a date that falls in the period</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Observation.effective[x]</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam VALUE_STRING = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_VALUE_STRING);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The status of the observation</b><br>
+   * Description: <b>The unique id for a particular observation</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Observation.status</b><br>
+   * Path: <b>Observation.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="Observation.status", description="The status of the observation", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="identifier", path="Observation.identifier", description="The unique id for a particular observation", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The status of the observation</b><br>
+   * Description: <b>The unique id for a particular observation</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Observation.status</b><br>
+   * Path: <b>Observation.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>The code of the observation type or component type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Observation.code, Observation.component.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="Observation.code | Observation.component.code", description="The code of the observation type or component type", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>The code of the observation type or component type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Observation.code, Observation.component.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>code-value-quantity</b>
+   * <p>
+   * Description: <b>Code and value parameter pair</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code-value-quantity", path="", description="Code and value parameter pair", type="composite", compositeOf={"code", "value-quantity"} )
+  public static final String SP_CODE_VALUE_QUANTITY = "code-value-quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code-value-quantity</b>
+   * <p>
+   * Description: <b>Code and value parameter pair</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam> CODE_VALUE_QUANTITY = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam>(SP_CODE_VALUE_QUANTITY);
+
+ /**
+   * Search parameter: <b>code-value-concept</b>
+   * <p>
+   * Description: <b>Code and value parameter pair</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code-value-concept", path="", description="Code and value parameter pair", type="composite", compositeOf={"code", "value-concept"} )
+  public static final String SP_CODE_VALUE_CONCEPT = "code-value-concept";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code-value-concept</b>
+   * <p>
+   * Description: <b>Code and value parameter pair</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam> CODE_VALUE_CONCEPT = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam>(SP_CODE_VALUE_CONCEPT);
+
+ /**
+   * Search parameter: <b>code-value-date</b>
+   * <p>
+   * Description: <b>Code and value parameter pair</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code-value-date", path="", description="Code and value parameter pair", type="composite", compositeOf={"code", "value-date"} )
+  public static final String SP_CODE_VALUE_DATE = "code-value-date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code-value-date</b>
+   * <p>
+   * Description: <b>Code and value parameter pair</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.DateClientParam> CODE_VALUE_DATE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.DateClientParam>(SP_CODE_VALUE_DATE);
+
+ /**
+   * Search parameter: <b>code-value-string</b>
+   * <p>
+   * Description: <b>Code and value parameter pair</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code-value-string", path="", description="Code and value parameter pair", type="composite", compositeOf={"code", "value-string"} )
+  public static final String SP_CODE_VALUE_STRING = "code-value-string";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code-value-string</b>
+   * <p>
+   * Description: <b>Code and value parameter pair</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.StringClientParam> CODE_VALUE_STRING = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.StringClientParam>(SP_CODE_VALUE_STRING);
+
+ /**
+   * Search parameter: <b>performer</b>
+   * <p>
+   * Description: <b>Who performed the observation</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Observation.performer</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="performer", path="Observation.performer", description="Who performed the observation", type="reference" )
+  public static final String SP_PERFORMER = "performer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>performer</b>
+   * <p>
+   * Description: <b>Who performed the observation</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Observation.performer</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PERFORMER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Observation:performer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("Observation:performer").toLocked();
+
+ /**
+   * Search parameter: <b>method</b>
+   * <p>
+   * Description: <b>The method used for the observation</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Observation.method</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="method", path="Observation.method", description="The method used for the observation", type="token" )
+  public static final String SP_METHOD = "method";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>method</b>
+   * <p>
+   * Description: <b>The method used for the observation</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Observation.method</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam METHOD = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_METHOD);
+
+ /**
+   * Search parameter: <b>value-quantity</b>
+   * <p>
+   * Description: <b>The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>Observation.valueQuantity, Observation.component.valueQuantity</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="value-quantity", path="Observation.value.as(Quantity) | Observation.component.value.as(Quantity)", description="The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
+  public static final String SP_VALUE_QUANTITY = "value-quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>value-quantity</b>
+   * <p>
+   * Description: <b>The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>Observation.valueQuantity, Observation.component.valueQuantity</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.QuantityClientParam VALUE_QUANTITY = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_VALUE_QUANTITY);
 
  /**
    * Search parameter: <b>subject</b>
@@ -3010,6 +3274,46 @@ public class Observation extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam VALUE_CONCEPT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VALUE_CONCEPT);
 
  /**
+   * Search parameter: <b>value-date</b>
+   * <p>
+   * Description: <b>The value of the observation, if the value is a date or period of time</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Observation.valueDateTime, Observation.valuePeriod</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="value-date", path="Observation.value.as(DateTime) | Observation.value.as(Period)", description="The value of the observation, if the value is a date or period of time", type="date" )
+  public static final String SP_VALUE_DATE = "value-date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>value-date</b>
+   * <p>
+   * Description: <b>The value of the observation, if the value is a date or period of time</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Observation.valueDateTime, Observation.valuePeriod</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam VALUE_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_VALUE_DATE);
+
+ /**
+   * Search parameter: <b>data-absent-reason</b>
+   * <p>
+   * Description: <b>The reason why the expected value in the element Observation.value[x] is missing.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Observation.dataAbsentReason, Observation.component.dataAbsentReason</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="data-absent-reason", path="Observation.dataAbsentReason | Observation.component.dataAbsentReason", description="The reason why the expected value in the element Observation.value[x] is missing.", type="token" )
+  public static final String SP_DATA_ABSENT_REASON = "data-absent-reason";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>data-absent-reason</b>
+   * <p>
+   * Description: <b>The reason why the expected value in the element Observation.value[x] is missing.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Observation.dataAbsentReason, Observation.component.dataAbsentReason</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam DATA_ABSENT_REASON = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_DATA_ABSENT_REASON);
+
+ /**
    * Search parameter: <b>encounter</b>
    * <p>
    * Description: <b>Healthcare event related to the observation</b><br>
@@ -3036,44 +3340,24 @@ public class Observation extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("Observation:encounter").toLocked();
 
  /**
-   * Search parameter: <b>code</b>
+   * Search parameter: <b>related-type</b>
    * <p>
-   * Description: <b>The code of the observation type or component type</b><br>
+   * Description: <b>has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Observation.code, Observation.component.code</b><br>
+   * Path: <b>Observation.related.type</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="Observation.code | Observation.component.code", description="The code of the observation type or component type", type="token" )
-  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="related-type", path="Observation.related.type", description="has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by", type="token" )
+  public static final String SP_RELATED_TYPE = "related-type";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <b>Fluent Client</b> search parameter constant for <b>related-type</b>
    * <p>
-   * Description: <b>The code of the observation type or component type</b><br>
+   * Description: <b>has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Observation.code, Observation.component.code</b><br>
+   * Path: <b>Observation.related.type</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>Obtained date/time. If the obtained element is a period, a date that falls in the period</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Observation.effective[x]</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="Observation.effective", description="Obtained date/time. If the obtained element is a period, a date that falls in the period", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>Obtained date/time. If the obtained element is a period, a date that falls in the period</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Observation.effective[x]</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RELATED_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RELATED_TYPE);
 
  /**
    * Search parameter: <b>related-target</b>
@@ -3102,26 +3386,6 @@ public class Observation extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_RELATED_TARGET = new ca.uhn.fhir.model.api.Include("Observation:related-target").toLocked();
 
  /**
-   * Search parameter: <b>data-absent-reason</b>
-   * <p>
-   * Description: <b>The reason why the expected value in the element Observation.value[x] is missing.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Observation.dataAbsentReason, Observation.component.dataAbsentReason</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="data-absent-reason", path="Observation.dataAbsentReason | Observation.component.dataAbsentReason", description="The reason why the expected value in the element Observation.value[x] is missing.", type="token" )
-  public static final String SP_DATA_ABSENT_REASON = "data-absent-reason";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>data-absent-reason</b>
-   * <p>
-   * Description: <b>The reason why the expected value in the element Observation.value[x] is missing.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Observation.dataAbsentReason, Observation.component.dataAbsentReason</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam DATA_ABSENT_REASON = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_DATA_ABSENT_REASON);
-
- /**
    * Search parameter: <b>related</b>
    * <p>
    * Description: <b>Related Observations - search on related-type and related-target together</b><br>
@@ -3140,26 +3404,6 @@ public class Observation extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.ReferenceClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam> RELATED = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.ReferenceClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam>(SP_RELATED);
-
- /**
-   * Search parameter: <b>category</b>
-   * <p>
-   * Description: <b>The classification of the type of observation</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Observation.category</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="category", path="Observation.category", description="The classification of the type of observation", type="token" )
-  public static final String SP_CATEGORY = "category";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>category</b>
-   * <p>
-   * Description: <b>The classification of the type of observation</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Observation.category</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
  /**
    * Search parameter: <b>patient</b>
@@ -3214,6 +3458,46 @@ public class Observation extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SPECIMEN = new ca.uhn.fhir.model.api.Include("Observation:specimen").toLocked();
 
  /**
+   * Search parameter: <b>category</b>
+   * <p>
+   * Description: <b>The classification of the type of observation</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Observation.category</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="category", path="Observation.category", description="The classification of the type of observation", type="token" )
+  public static final String SP_CATEGORY = "category";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <p>
+   * Description: <b>The classification of the type of observation</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Observation.category</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
+
+ /**
+   * Search parameter: <b>value-string</b>
+   * <p>
+   * Description: <b>The value or component value of the observation, if the value is a string, and also searches in CodeableConcept.text</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Observation.valueString, Observation.component.valueString</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="value-string", path="Observation.value.as(String) | Observation.component.value.as(String)", description="The value or component value of the observation, if the value is a string, and also searches in CodeableConcept.text", type="string" )
+  public static final String SP_VALUE_STRING = "value-string";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>value-string</b>
+   * <p>
+   * Description: <b>The value or component value of the observation, if the value is a string, and also searches in CodeableConcept.text</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Observation.valueString, Observation.component.valueString</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam VALUE_STRING = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_VALUE_STRING);
+
+ /**
    * Search parameter: <b>device</b>
    * <p>
    * Description: <b>The Device that generated the observation data.</b><br>
@@ -3240,210 +3524,24 @@ public class Observation extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_DEVICE = new ca.uhn.fhir.model.api.Include("Observation:device").toLocked();
 
  /**
-   * Search parameter: <b>related-type</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by</b><br>
+   * Description: <b>The status of the observation</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Observation.related.type</b><br>
+   * Path: <b>Observation.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="related-type", path="Observation.related.type", description="has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by", type="token" )
-  public static final String SP_RELATED_TYPE = "related-type";
+  @SearchParamDefinition(name="status", path="Observation.status", description="The status of the observation", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>related-type</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by</b><br>
+   * Description: <b>The status of the observation</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Observation.related.type</b><br>
+   * Path: <b>Observation.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RELATED_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RELATED_TYPE);
-
- /**
-   * Search parameter: <b>performer</b>
-   * <p>
-   * Description: <b>Who performed the observation</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Observation.performer</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="performer", path="Observation.performer", description="Who performed the observation", type="reference" )
-  public static final String SP_PERFORMER = "performer";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>performer</b>
-   * <p>
-   * Description: <b>Who performed the observation</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Observation.performer</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PERFORMER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Observation:performer</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("Observation:performer").toLocked();
-
- /**
-   * Search parameter: <b>method</b>
-   * <p>
-   * Description: <b>The method used for the observation</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Observation.method</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="method", path="Observation.method", description="The method used for the observation", type="token" )
-  public static final String SP_METHOD = "method";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>method</b>
-   * <p>
-   * Description: <b>The method used for the observation</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Observation.method</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam METHOD = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_METHOD);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>The unique id for a particular observation</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Observation.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Observation.identifier", description="The unique id for a particular observation", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>The unique id for a particular observation</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Observation.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>value-quantity</b>
-   * <p>
-   * Description: <b>The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</b><br>
-   * Type: <b>quantity</b><br>
-   * Path: <b>Observation.valueQuantity, Observation.component.valueQuantity</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="value-quantity", path="Observation.value.as(Quantity) | Observation.component.value.as(Quantity)", description="The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
-  public static final String SP_VALUE_QUANTITY = "value-quantity";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>value-quantity</b>
-   * <p>
-   * Description: <b>The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</b><br>
-   * Type: <b>quantity</b><br>
-   * Path: <b>Observation.valueQuantity, Observation.component.valueQuantity</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.QuantityClientParam VALUE_QUANTITY = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_VALUE_QUANTITY);
-
- /**
-   * Search parameter: <b>code-value-string</b>
-   * <p>
-   * Description: <b>Code and value parameter pair</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code-value-string", path="", description="Code and value parameter pair", type="composite", compositeOf={"code", "value-string"} )
-  public static final String SP_CODE_VALUE_STRING = "code-value-string";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code-value-string</b>
-   * <p>
-   * Description: <b>Code and value parameter pair</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.StringClientParam> CODE_VALUE_STRING = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.StringClientParam>(SP_CODE_VALUE_STRING);
-
- /**
-   * Search parameter: <b>code-value-concept</b>
-   * <p>
-   * Description: <b>Code and value parameter pair</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code-value-concept", path="", description="Code and value parameter pair", type="composite", compositeOf={"code", "value-concept"} )
-  public static final String SP_CODE_VALUE_CONCEPT = "code-value-concept";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code-value-concept</b>
-   * <p>
-   * Description: <b>Code and value parameter pair</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam> CODE_VALUE_CONCEPT = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam>(SP_CODE_VALUE_CONCEPT);
-
- /**
-   * Search parameter: <b>code-value-quantity</b>
-   * <p>
-   * Description: <b>Code and value parameter pair</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code-value-quantity", path="", description="Code and value parameter pair", type="composite", compositeOf={"code", "value-quantity"} )
-  public static final String SP_CODE_VALUE_QUANTITY = "code-value-quantity";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code-value-quantity</b>
-   * <p>
-   * Description: <b>Code and value parameter pair</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam> CODE_VALUE_QUANTITY = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam>(SP_CODE_VALUE_QUANTITY);
-
- /**
-   * Search parameter: <b>code-value-date</b>
-   * <p>
-   * Description: <b>Code and value parameter pair</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code-value-date", path="", description="Code and value parameter pair", type="composite", compositeOf={"code", "value-date"} )
-  public static final String SP_CODE_VALUE_DATE = "code-value-date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code-value-date</b>
-   * <p>
-   * Description: <b>Code and value parameter pair</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.DateClientParam> CODE_VALUE_DATE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.DateClientParam>(SP_CODE_VALUE_DATE);
-
- /**
-   * Search parameter: <b>value-date</b>
-   * <p>
-   * Description: <b>The value of the observation, if the value is a date or period of time</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Observation.valueDateTime, Observation.valuePeriod</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="value-date", path="Observation.value.as(DateTime) | Observation.value.as(Period)", description="The value of the observation, if the value is a date or period of time", type="date" )
-  public static final String SP_VALUE_DATE = "value-date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>value-date</b>
-   * <p>
-   * Description: <b>The value of the observation, if the value is a date or period of time</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Observation.valueDateTime, Observation.valuePeriod</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam VALUE_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_VALUE_DATE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

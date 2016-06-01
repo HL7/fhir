@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -679,6 +679,14 @@ public class ImagingStudy extends DomainResource {
           return this.instance;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ImagingStudySeriesComponent setInstance(List<ImagingStudySeriesInstanceComponent> theInstance) { 
+          this.instance = theInstance;
+          return this;
+        }
+
         public boolean hasInstance() { 
           if (this.instance == null)
             return false;
@@ -688,10 +696,6 @@ public class ImagingStudy extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #instance} (A single SOP Instance within the series, e.g. an image, or presentation state.)
-         */
-    // syntactic sugar
         public ImagingStudySeriesInstanceComponent addInstance() { //3
           ImagingStudySeriesInstanceComponent t = new ImagingStudySeriesInstanceComponent();
           if (this.instance == null)
@@ -700,7 +704,6 @@ public class ImagingStudy extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ImagingStudySeriesComponent addInstance(ImagingStudySeriesInstanceComponent t) { //3
           if (t == null)
             return this;
@@ -708,6 +711,16 @@ public class ImagingStudy extends DomainResource {
             this.instance = new ArrayList<ImagingStudySeriesInstanceComponent>();
           this.instance.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #instance}, creating it if it does not already exist
+         */
+        public ImagingStudySeriesInstanceComponent getInstanceFirstRep() { 
+          if (getInstance().isEmpty()) {
+            addInstance();
+          }
+          return getInstance().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -922,11 +935,9 @@ public class ImagingStudy extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (uid == null || uid.isEmpty()) && (number == null || number.isEmpty())
-           && (modality == null || modality.isEmpty()) && (description == null || description.isEmpty())
-           && (numberOfInstances == null || numberOfInstances.isEmpty()) && (availability == null || availability.isEmpty())
-           && (url == null || url.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (laterality == null || laterality.isEmpty())
-           && (started == null || started.isEmpty()) && (instance == null || instance.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(uid, number, modality, description
+          , numberOfInstances, availability, url, bodySite, laterality, started, instance
+          );
       }
 
   public String fhirType() {
@@ -1240,6 +1251,14 @@ public class ImagingStudy extends DomainResource {
           return this.content;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ImagingStudySeriesInstanceComponent setContent(List<Attachment> theContent) { 
+          this.content = theContent;
+          return this;
+        }
+
         public boolean hasContent() { 
           if (this.content == null)
             return false;
@@ -1249,10 +1268,6 @@ public class ImagingStudy extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #content} (Content of the instance or a rendering thereof (e.g. a JPEG of an image, or an XML of a structured report). May be represented for example by inline encoding; by a URL reference to a WADO-RS service that makes the instance available; or to a FHIR Resource (e.g. Media, Document, etc.). Multiple content attachments may be used for alternate representations of the instance.)
-         */
-    // syntactic sugar
         public Attachment addContent() { //3
           Attachment t = new Attachment();
           if (this.content == null)
@@ -1261,7 +1276,6 @@ public class ImagingStudy extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ImagingStudySeriesInstanceComponent addContent(Attachment t) { //3
           if (t == null)
             return this;
@@ -1269,6 +1283,16 @@ public class ImagingStudy extends DomainResource {
             this.content = new ArrayList<Attachment>();
           this.content.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #content}, creating it if it does not already exist
+         */
+        public Attachment getContentFirstRep() { 
+          if (getContent().isEmpty()) {
+            addContent();
+          }
+          return getContent().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1417,9 +1441,8 @@ public class ImagingStudy extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (uid == null || uid.isEmpty()) && (number == null || number.isEmpty())
-           && (sopClass == null || sopClass.isEmpty()) && (type == null || type.isEmpty()) && (title == null || title.isEmpty())
-           && (content == null || content.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(uid, number, sopClass, type
+          , title, content);
       }
 
   public String fhirType() {
@@ -1664,6 +1687,14 @@ public class ImagingStudy extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ImagingStudy setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -1673,10 +1704,6 @@ public class ImagingStudy extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Other identifiers for the study.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -1685,7 +1712,6 @@ public class ImagingStudy extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ImagingStudy addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -1693,6 +1719,16 @@ public class ImagingStudy extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1753,6 +1789,14 @@ public class ImagingStudy extends DomainResource {
       return this.modalityList;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ImagingStudy setModalityList(List<Coding> theModalityList) { 
+      this.modalityList = theModalityList;
+      return this;
+    }
+
     public boolean hasModalityList() { 
       if (this.modalityList == null)
         return false;
@@ -1762,10 +1806,6 @@ public class ImagingStudy extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #modalityList} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
-     */
-    // syntactic sugar
     public Coding addModalityList() { //3
       Coding t = new Coding();
       if (this.modalityList == null)
@@ -1774,7 +1814,6 @@ public class ImagingStudy extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ImagingStudy addModalityList(Coding t) { //3
       if (t == null)
         return this;
@@ -1782,6 +1821,16 @@ public class ImagingStudy extends DomainResource {
         this.modalityList = new ArrayList<Coding>();
       this.modalityList.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #modalityList}, creating it if it does not already exist
+     */
+    public Coding getModalityListFirstRep() { 
+      if (getModalityList().isEmpty()) {
+        addModalityList();
+      }
+      return getModalityList().get(0);
     }
 
     /**
@@ -1886,6 +1935,14 @@ public class ImagingStudy extends DomainResource {
       return this.order;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ImagingStudy setOrder(List<Reference> theOrder) { 
+      this.order = theOrder;
+      return this;
+    }
+
     public boolean hasOrder() { 
       if (this.order == null)
         return false;
@@ -1895,10 +1952,6 @@ public class ImagingStudy extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #order} (A list of the diagnostic orders that resulted in this imaging study being performed.)
-     */
-    // syntactic sugar
     public Reference addOrder() { //3
       Reference t = new Reference();
       if (this.order == null)
@@ -1907,7 +1960,6 @@ public class ImagingStudy extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ImagingStudy addOrder(Reference t) { //3
       if (t == null)
         return this;
@@ -1918,18 +1970,29 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @return {@link #order} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A list of the diagnostic orders that resulted in this imaging study being performed.)
+     * @return The first repetition of repeating field {@link #order}, creating it if it does not already exist
      */
+    public Reference getOrderFirstRep() { 
+      if (getOrder().isEmpty()) {
+        addOrder();
+      }
+      return getOrder().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<DiagnosticOrder> getOrderTarget() { 
       if (this.orderTarget == null)
         this.orderTarget = new ArrayList<DiagnosticOrder>();
       return this.orderTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #order} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A list of the diagnostic orders that resulted in this imaging study being performed.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public DiagnosticOrder addOrderTarget() { 
       DiagnosticOrder r = new DiagnosticOrder();
       if (this.orderTarget == null)
@@ -2174,6 +2237,14 @@ public class ImagingStudy extends DomainResource {
       return this.procedure;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ImagingStudy setProcedure(List<Reference> theProcedure) { 
+      this.procedure = theProcedure;
+      return this;
+    }
+
     public boolean hasProcedure() { 
       if (this.procedure == null)
         return false;
@@ -2183,10 +2254,6 @@ public class ImagingStudy extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #procedure} (Type of procedure performed.)
-     */
-    // syntactic sugar
     public Reference addProcedure() { //3
       Reference t = new Reference();
       if (this.procedure == null)
@@ -2195,7 +2262,6 @@ public class ImagingStudy extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ImagingStudy addProcedure(Reference t) { //3
       if (t == null)
         return this;
@@ -2206,18 +2272,29 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @return {@link #procedure} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Type of procedure performed.)
+     * @return The first repetition of repeating field {@link #procedure}, creating it if it does not already exist
      */
+    public Reference getProcedureFirstRep() { 
+      if (getProcedure().isEmpty()) {
+        addProcedure();
+      }
+      return getProcedure().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Procedure> getProcedureTarget() { 
       if (this.procedureTarget == null)
         this.procedureTarget = new ArrayList<Procedure>();
       return this.procedureTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #procedure} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Type of procedure performed.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Procedure addProcedureTarget() { 
       Procedure r = new Procedure();
       if (this.procedureTarget == null)
@@ -2284,6 +2361,14 @@ public class ImagingStudy extends DomainResource {
       return this.series;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ImagingStudy setSeries(List<ImagingStudySeriesComponent> theSeries) { 
+      this.series = theSeries;
+      return this;
+    }
+
     public boolean hasSeries() { 
       if (this.series == null)
         return false;
@@ -2293,10 +2378,6 @@ public class ImagingStudy extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #series} (Each study has one or more series of images or other content.)
-     */
-    // syntactic sugar
     public ImagingStudySeriesComponent addSeries() { //3
       ImagingStudySeriesComponent t = new ImagingStudySeriesComponent();
       if (this.series == null)
@@ -2305,7 +2386,6 @@ public class ImagingStudy extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ImagingStudy addSeries(ImagingStudySeriesComponent t) { //3
       if (t == null)
         return this;
@@ -2313,6 +2393,16 @@ public class ImagingStudy extends DomainResource {
         this.series = new ArrayList<ImagingStudySeriesComponent>();
       this.series.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #series}, creating it if it does not already exist
+     */
+    public ImagingStudySeriesComponent getSeriesFirstRep() { 
+      if (getSeries().isEmpty()) {
+        addSeries();
+      }
+      return getSeries().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2615,20 +2705,35 @@ public class ImagingStudy extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (uid == null || uid.isEmpty()) && (accession == null || accession.isEmpty())
-           && (identifier == null || identifier.isEmpty()) && (availability == null || availability.isEmpty())
-           && (modalityList == null || modalityList.isEmpty()) && (patient == null || patient.isEmpty())
-           && (started == null || started.isEmpty()) && (order == null || order.isEmpty()) && (referrer == null || referrer.isEmpty())
-           && (interpreter == null || interpreter.isEmpty()) && (url == null || url.isEmpty()) && (numberOfSeries == null || numberOfSeries.isEmpty())
-           && (numberOfInstances == null || numberOfInstances.isEmpty()) && (procedure == null || procedure.isEmpty())
-           && (description == null || description.isEmpty()) && (series == null || series.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(uid, accession, identifier
+          , availability, modalityList, patient, started, order, referrer, interpreter, url
+          , numberOfSeries, numberOfInstances, procedure, description, series);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.ImagingStudy;
    }
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Other identifiers for the Study</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="ImagingStudy.identifier", description="Other identifiers for the Study", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Other identifiers for the Study</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>uid</b>
@@ -2651,24 +2756,84 @@ public class ImagingStudy extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.UriClientParam UID = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_UID);
 
  /**
-   * Search parameter: <b>series</b>
+   * Search parameter: <b>study</b>
    * <p>
-   * Description: <b>The identifier of the series of images</b><br>
+   * Description: <b>The study identifier for the image</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>ImagingStudy.series.uid</b><br>
+   * Path: <b>ImagingStudy.uid</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="series", path="ImagingStudy.series.uid", description="The identifier of the series of images", type="uri" )
-  public static final String SP_SERIES = "series";
+  @SearchParamDefinition(name="study", path="ImagingStudy.uid", description="The study identifier for the image", type="uri" )
+  public static final String SP_STUDY = "study";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>series</b>
+   * <b>Fluent Client</b> search parameter constant for <b>study</b>
    * <p>
-   * Description: <b>The identifier of the series of images</b><br>
+   * Description: <b>The study identifier for the image</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>ImagingStudy.series.uid</b><br>
+   * Path: <b>ImagingStudy.uid</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam SERIES = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SERIES);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam STUDY = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_STUDY);
+
+ /**
+   * Search parameter: <b>dicom-class</b>
+   * <p>
+   * Description: <b>The type of the instance</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ImagingStudy.series.instance.sopClass</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="dicom-class", path="ImagingStudy.series.instance.sopClass", description="The type of the instance", type="uri" )
+  public static final String SP_DICOM_CLASS = "dicom-class";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>dicom-class</b>
+   * <p>
+   * Description: <b>The type of the instance</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ImagingStudy.series.instance.sopClass</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam DICOM_CLASS = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DICOM_CLASS);
+
+ /**
+   * Search parameter: <b>modality</b>
+   * <p>
+   * Description: <b>The modality of the series</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.series.modality</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="modality", path="ImagingStudy.series.modality", description="The modality of the series", type="token" )
+  public static final String SP_MODALITY = "modality";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>modality</b>
+   * <p>
+   * Description: <b>The modality of the series</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.series.modality</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam MODALITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_MODALITY);
+
+ /**
+   * Search parameter: <b>bodysite</b>
+   * <p>
+   * Description: <b>The body site studied</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.series.bodySite</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="bodysite", path="ImagingStudy.series.bodySite", description="The body site studied", type="token" )
+  public static final String SP_BODYSITE = "bodysite";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>bodysite</b>
+   * <p>
+   * Description: <b>The body site studied</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.series.bodySite</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BODYSITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BODYSITE);
 
  /**
    * Search parameter: <b>patient</b>
@@ -2697,6 +2862,66 @@ public class ImagingStudy extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ImagingStudy:patient").toLocked();
 
  /**
+   * Search parameter: <b>series</b>
+   * <p>
+   * Description: <b>The identifier of the series of images</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ImagingStudy.series.uid</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="series", path="ImagingStudy.series.uid", description="The identifier of the series of images", type="uri" )
+  public static final String SP_SERIES = "series";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>series</b>
+   * <p>
+   * Description: <b>The identifier of the series of images</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ImagingStudy.series.uid</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam SERIES = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SERIES);
+
+ /**
+   * Search parameter: <b>started</b>
+   * <p>
+   * Description: <b>When the study was started</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImagingStudy.started</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="started", path="ImagingStudy.started", description="When the study was started", type="date" )
+  public static final String SP_STARTED = "started";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>started</b>
+   * <p>
+   * Description: <b>When the study was started</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImagingStudy.started</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam STARTED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_STARTED);
+
+ /**
+   * Search parameter: <b>accession</b>
+   * <p>
+   * Description: <b>The accession identifier for the study</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.accession</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="accession", path="ImagingStudy.accession", description="The accession identifier for the study", type="token" )
+  public static final String SP_ACCESSION = "accession";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>accession</b>
+   * <p>
+   * Description: <b>The accession identifier for the study</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingStudy.accession</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACCESSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACCESSION);
+
+ /**
    * Search parameter: <b>order</b>
    * <p>
    * Description: <b>The order for the image</b><br>
@@ -2721,146 +2946,6 @@ public class ImagingStudy extends DomainResource {
    * the path value of "<b>ImagingStudy:order</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORDER = new ca.uhn.fhir.model.api.Include("ImagingStudy:order").toLocked();
-
- /**
-   * Search parameter: <b>bodysite</b>
-   * <p>
-   * Description: <b>The body site studied</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.series.bodySite</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="bodysite", path="ImagingStudy.series.bodySite", description="The body site studied", type="token" )
-  public static final String SP_BODYSITE = "bodysite";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>bodysite</b>
-   * <p>
-   * Description: <b>The body site studied</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.series.bodySite</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BODYSITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BODYSITE);
-
- /**
-   * Search parameter: <b>accession</b>
-   * <p>
-   * Description: <b>The accession identifier for the study</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.accession</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="accession", path="ImagingStudy.accession", description="The accession identifier for the study", type="token" )
-  public static final String SP_ACCESSION = "accession";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>accession</b>
-   * <p>
-   * Description: <b>The accession identifier for the study</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.accession</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACCESSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACCESSION);
-
- /**
-   * Search parameter: <b>study</b>
-   * <p>
-   * Description: <b>The study identifier for the image</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImagingStudy.uid</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="study", path="ImagingStudy.uid", description="The study identifier for the image", type="uri" )
-  public static final String SP_STUDY = "study";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>study</b>
-   * <p>
-   * Description: <b>The study identifier for the image</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImagingStudy.uid</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam STUDY = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_STUDY);
-
- /**
-   * Search parameter: <b>modality</b>
-   * <p>
-   * Description: <b>The modality of the series</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.series.modality</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="modality", path="ImagingStudy.series.modality", description="The modality of the series", type="token" )
-  public static final String SP_MODALITY = "modality";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>modality</b>
-   * <p>
-   * Description: <b>The modality of the series</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.series.modality</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam MODALITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_MODALITY);
-
- /**
-   * Search parameter: <b>started</b>
-   * <p>
-   * Description: <b>When the study was started</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImagingStudy.started</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="started", path="ImagingStudy.started", description="When the study was started", type="date" )
-  public static final String SP_STARTED = "started";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>started</b>
-   * <p>
-   * Description: <b>When the study was started</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImagingStudy.started</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam STARTED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_STARTED);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Other identifiers for the Study</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="ImagingStudy.identifier", description="Other identifiers for the Study", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Other identifiers for the Study</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImagingStudy.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>dicom-class</b>
-   * <p>
-   * Description: <b>The type of the instance</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImagingStudy.series.instance.sopClass</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="dicom-class", path="ImagingStudy.series.instance.sopClass", description="The type of the instance", type="uri" )
-  public static final String SP_DICOM_CLASS = "dicom-class";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>dicom-class</b>
-   * <p>
-   * Description: <b>The type of the instance</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImagingStudy.series.instance.sopClass</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam DICOM_CLASS = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DICOM_CLASS);
 
 
 }

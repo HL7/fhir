@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -545,8 +545,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (claim == null || claim.isEmpty()) && (relationship == null || relationship.isEmpty())
-           && (reference == null || reference.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(claim, relationship, reference
+          );
       }
 
   public String fhirType() {
@@ -800,8 +800,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (resourceType == null || resourceType.isEmpty())
-           && (party == null || party.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, resourceType, party
+          );
       }
 
   public String fhirType() {
@@ -1271,9 +1271,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (category == null || category.isEmpty()) && (code == null || code.isEmpty())
-           && (reason == null || reason.isEmpty()) && (timing == null || timing.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, code, reason, timing
+          , value);
       }
 
   public String fhirType() {
@@ -1478,8 +1477,7 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (diagnosis == null || diagnosis.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, diagnosis);
       }
 
   public String fhirType() {
@@ -1778,8 +1776,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (date == null || date.isEmpty())
-           && (procedure == null || procedure.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, date, procedure
+          );
       }
 
   public String fhirType() {
@@ -2001,6 +1999,14 @@ public class Claim extends DomainResource {
           return this.preAuthRef;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CoverageComponent setPreAuthRef(List<StringType> thePreAuthRef) { 
+          this.preAuthRef = thePreAuthRef;
+          return this;
+        }
+
         public boolean hasPreAuthRef() { 
           if (this.preAuthRef == null)
             return false;
@@ -2013,7 +2019,6 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
          */
-    // syntactic sugar
         public StringType addPreAuthRefElement() {//2 
           StringType t = new StringType();
           if (this.preAuthRef == null)
@@ -2267,10 +2272,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (focal == null || focal.isEmpty())
-           && (coverage == null || coverage.isEmpty()) && (preAuthRef == null || preAuthRef.isEmpty())
-           && (claimResponse == null || claimResponse.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, focal, coverage
+          , preAuthRef, claimResponse, originalRuleset);
       }
 
   public String fhirType() {
@@ -2524,6 +2527,14 @@ public class Claim extends DomainResource {
           return this.careTeam;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setCareTeam(List<CareTeamComponent> theCareTeam) { 
+          this.careTeam = theCareTeam;
+          return this;
+        }
+
         public boolean hasCareTeam() { 
           if (this.careTeam == null)
             return false;
@@ -2533,10 +2544,6 @@ public class Claim extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #careTeam} (The members of the team who provided the overall service as well as their role and whether responsible and qualifications.)
-         */
-    // syntactic sugar
         public CareTeamComponent addCareTeam() { //3
           CareTeamComponent t = new CareTeamComponent();
           if (this.careTeam == null)
@@ -2545,7 +2552,6 @@ public class Claim extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addCareTeam(CareTeamComponent t) { //3
           if (t == null)
             return this;
@@ -2556,12 +2562,30 @@ public class Claim extends DomainResource {
         }
 
         /**
+         * @return The first repetition of repeating field {@link #careTeam}, creating it if it does not already exist
+         */
+        public CareTeamComponent getCareTeamFirstRep() { 
+          if (getCareTeam().isEmpty()) {
+            addCareTeam();
+          }
+          return getCareTeam().get(0);
+        }
+
+        /**
          * @return {@link #diagnosisLinkId} (Diagnosis applicable for this service or product line.)
          */
         public List<PositiveIntType> getDiagnosisLinkId() { 
           if (this.diagnosisLinkId == null)
             this.diagnosisLinkId = new ArrayList<PositiveIntType>();
           return this.diagnosisLinkId;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setDiagnosisLinkId(List<PositiveIntType> theDiagnosisLinkId) { 
+          this.diagnosisLinkId = theDiagnosisLinkId;
+          return this;
         }
 
         public boolean hasDiagnosisLinkId() { 
@@ -2576,7 +2600,6 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #diagnosisLinkId} (Diagnosis applicable for this service or product line.)
          */
-    // syntactic sugar
         public PositiveIntType addDiagnosisLinkIdElement() {//2 
           PositiveIntType t = new PositiveIntType();
           if (this.diagnosisLinkId == null)
@@ -2642,6 +2665,14 @@ public class Claim extends DomainResource {
           return this.serviceModifier;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setServiceModifier(List<Coding> theServiceModifier) { 
+          this.serviceModifier = theServiceModifier;
+          return this;
+        }
+
         public boolean hasServiceModifier() { 
           if (this.serviceModifier == null)
             return false;
@@ -2651,10 +2682,6 @@ public class Claim extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #serviceModifier} (Unusual circumstances which may influence adjudication.)
-         */
-    // syntactic sugar
         public Coding addServiceModifier() { //3
           Coding t = new Coding();
           if (this.serviceModifier == null)
@@ -2663,7 +2690,6 @@ public class Claim extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addServiceModifier(Coding t) { //3
           if (t == null)
             return this;
@@ -2671,6 +2697,16 @@ public class Claim extends DomainResource {
             this.serviceModifier = new ArrayList<Coding>();
           this.serviceModifier.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #serviceModifier}, creating it if it does not already exist
+         */
+        public Coding getServiceModifierFirstRep() { 
+          if (getServiceModifier().isEmpty()) {
+            addServiceModifier();
+          }
+          return getServiceModifier().get(0);
         }
 
         /**
@@ -2682,6 +2718,14 @@ public class Claim extends DomainResource {
           return this.modifier;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setModifier(List<Coding> theModifier) { 
+          this.modifier = theModifier;
+          return this;
+        }
+
         public boolean hasModifier() { 
           if (this.modifier == null)
             return false;
@@ -2691,10 +2735,6 @@ public class Claim extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.)
-         */
-    // syntactic sugar
         public Coding addModifier() { //3
           Coding t = new Coding();
           if (this.modifier == null)
@@ -2703,7 +2743,6 @@ public class Claim extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addModifier(Coding t) { //3
           if (t == null)
             return this;
@@ -2711,6 +2750,16 @@ public class Claim extends DomainResource {
             this.modifier = new ArrayList<Coding>();
           this.modifier.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #modifier}, creating it if it does not already exist
+         */
+        public Coding getModifierFirstRep() { 
+          if (getModifier().isEmpty()) {
+            addModifier();
+          }
+          return getModifier().get(0);
         }
 
         /**
@@ -2722,6 +2771,14 @@ public class Claim extends DomainResource {
           return this.programCode;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setProgramCode(List<Coding> theProgramCode) { 
+          this.programCode = theProgramCode;
+          return this;
+        }
+
         public boolean hasProgramCode() { 
           if (this.programCode == null)
             return false;
@@ -2731,10 +2788,6 @@ public class Claim extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #programCode} (For programs which require reason codes for the inclusion or covering of this billed item under the program or sub-program.)
-         */
-    // syntactic sugar
         public Coding addProgramCode() { //3
           Coding t = new Coding();
           if (this.programCode == null)
@@ -2743,7 +2796,6 @@ public class Claim extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addProgramCode(Coding t) { //3
           if (t == null)
             return this;
@@ -2751,6 +2803,16 @@ public class Claim extends DomainResource {
             this.programCode = new ArrayList<Coding>();
           this.programCode.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #programCode}, creating it if it does not already exist
+         */
+        public Coding getProgramCodeFirstRep() { 
+          if (getProgramCode().isEmpty()) {
+            addProgramCode();
+          }
+          return getProgramCode().get(0);
         }
 
         /**
@@ -3071,6 +3133,14 @@ public class Claim extends DomainResource {
           return this.udi;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setUdi(List<Reference> theUdi) { 
+          this.udi = theUdi;
+          return this;
+        }
+
         public boolean hasUdi() { 
           if (this.udi == null)
             return false;
@@ -3080,10 +3150,6 @@ public class Claim extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
-         */
-    // syntactic sugar
         public Reference addUdi() { //3
           Reference t = new Reference();
           if (this.udi == null)
@@ -3092,7 +3158,6 @@ public class Claim extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addUdi(Reference t) { //3
           if (t == null)
             return this;
@@ -3103,18 +3168,29 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #udi} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         * @return The first repetition of repeating field {@link #udi}, creating it if it does not already exist
          */
+        public Reference getUdiFirstRep() { 
+          if (getUdi().isEmpty()) {
+            addUdi();
+          }
+          return getUdi().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Device> getUdiTarget() { 
           if (this.udiTarget == null)
             this.udiTarget = new ArrayList<Device>();
           return this.udiTarget;
         }
 
-    // syntactic sugar
         /**
-         * @return {@link #udi} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         * @deprecated Use Reference#setResource(IBaseResource) instead
          */
+        @Deprecated
         public Device addUdiTarget() { 
           Device r = new Device();
           if (this.udiTarget == null)
@@ -3156,6 +3232,14 @@ public class Claim extends DomainResource {
           return this.subSite;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setSubSite(List<Coding> theSubSite) { 
+          this.subSite = theSubSite;
+          return this;
+        }
+
         public boolean hasSubSite() { 
           if (this.subSite == null)
             return false;
@@ -3165,10 +3249,6 @@ public class Claim extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #subSite} (A region or surface of the site, eg. limb region or tooth surface(s).)
-         */
-    // syntactic sugar
         public Coding addSubSite() { //3
           Coding t = new Coding();
           if (this.subSite == null)
@@ -3177,7 +3257,6 @@ public class Claim extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addSubSite(Coding t) { //3
           if (t == null)
             return this;
@@ -3185,6 +3264,16 @@ public class Claim extends DomainResource {
             this.subSite = new ArrayList<Coding>();
           this.subSite.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #subSite}, creating it if it does not already exist
+         */
+        public Coding getSubSiteFirstRep() { 
+          if (getSubSite().isEmpty()) {
+            addSubSite();
+          }
+          return getSubSite().get(0);
         }
 
         /**
@@ -3196,6 +3285,14 @@ public class Claim extends DomainResource {
           return this.detail;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setDetail(List<DetailComponent> theDetail) { 
+          this.detail = theDetail;
+          return this;
+        }
+
         public boolean hasDetail() { 
           if (this.detail == null)
             return false;
@@ -3205,10 +3302,6 @@ public class Claim extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #detail} (Second tier of goods and services.)
-         */
-    // syntactic sugar
         public DetailComponent addDetail() { //3
           DetailComponent t = new DetailComponent();
           if (this.detail == null)
@@ -3217,7 +3310,6 @@ public class Claim extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addDetail(DetailComponent t) { //3
           if (t == null)
             return this;
@@ -3225,6 +3317,16 @@ public class Claim extends DomainResource {
             this.detail = new ArrayList<DetailComponent>();
           this.detail.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #detail}, creating it if it does not already exist
+         */
+        public DetailComponent getDetailFirstRep() { 
+          if (getDetail().isEmpty()) {
+            addDetail();
+          }
+          return getDetail().get(0);
         }
 
         /**
@@ -3619,15 +3721,10 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
-           && (careTeam == null || careTeam.isEmpty()) && (diagnosisLinkId == null || diagnosisLinkId.isEmpty())
-           && (service == null || service.isEmpty()) && (serviceModifier == null || serviceModifier.isEmpty())
-           && (modifier == null || modifier.isEmpty()) && (programCode == null || programCode.isEmpty())
-           && (serviced == null || serviced.isEmpty()) && (serviceLocation == null || serviceLocation.isEmpty())
-           && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
-           && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty()) && (net == null || net.isEmpty())
-           && (udi == null || udi.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (subSite == null || subSite.isEmpty())
-           && (detail == null || detail.isEmpty()) && (prosthesis == null || prosthesis.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, type, careTeam
+          , diagnosisLinkId, service, serviceModifier, modifier, programCode, serviced, serviceLocation
+          , quantity, unitPrice, factor, points, net, udi, bodySite, subSite, detail
+          , prosthesis);
       }
 
   public String fhirType() {
@@ -3945,9 +4042,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (provider == null || provider.isEmpty()) && (responsible == null || responsible.isEmpty())
-           && (role == null || role.isEmpty()) && (qualification == null || qualification.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(provider, responsible, role
+          , qualification);
       }
 
   public String fhirType() {
@@ -4162,6 +4258,14 @@ public class Claim extends DomainResource {
           return this.programCode;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DetailComponent setProgramCode(List<Coding> theProgramCode) { 
+          this.programCode = theProgramCode;
+          return this;
+        }
+
         public boolean hasProgramCode() { 
           if (this.programCode == null)
             return false;
@@ -4171,10 +4275,6 @@ public class Claim extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #programCode} (For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.)
-         */
-    // syntactic sugar
         public Coding addProgramCode() { //3
           Coding t = new Coding();
           if (this.programCode == null)
@@ -4183,7 +4283,6 @@ public class Claim extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public DetailComponent addProgramCode(Coding t) { //3
           if (t == null)
             return this;
@@ -4191,6 +4290,16 @@ public class Claim extends DomainResource {
             this.programCode = new ArrayList<Coding>();
           this.programCode.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #programCode}, creating it if it does not already exist
+         */
+        public Coding getProgramCodeFirstRep() { 
+          if (getProgramCode().isEmpty()) {
+            addProgramCode();
+          }
+          return getProgramCode().get(0);
         }
 
         /**
@@ -4408,6 +4517,14 @@ public class Claim extends DomainResource {
           return this.udi;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DetailComponent setUdi(List<Reference> theUdi) { 
+          this.udi = theUdi;
+          return this;
+        }
+
         public boolean hasUdi() { 
           if (this.udi == null)
             return false;
@@ -4417,10 +4534,6 @@ public class Claim extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
-         */
-    // syntactic sugar
         public Reference addUdi() { //3
           Reference t = new Reference();
           if (this.udi == null)
@@ -4429,7 +4542,6 @@ public class Claim extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public DetailComponent addUdi(Reference t) { //3
           if (t == null)
             return this;
@@ -4440,18 +4552,29 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #udi} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         * @return The first repetition of repeating field {@link #udi}, creating it if it does not already exist
          */
+        public Reference getUdiFirstRep() { 
+          if (getUdi().isEmpty()) {
+            addUdi();
+          }
+          return getUdi().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Device> getUdiTarget() { 
           if (this.udiTarget == null)
             this.udiTarget = new ArrayList<Device>();
           return this.udiTarget;
         }
 
-    // syntactic sugar
         /**
-         * @return {@link #udi} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         * @deprecated Use Reference#setResource(IBaseResource) instead
          */
+        @Deprecated
         public Device addUdiTarget() { 
           Device r = new Device();
           if (this.udiTarget == null)
@@ -4469,6 +4592,14 @@ public class Claim extends DomainResource {
           return this.subDetail;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DetailComponent setSubDetail(List<SubDetailComponent> theSubDetail) { 
+          this.subDetail = theSubDetail;
+          return this;
+        }
+
         public boolean hasSubDetail() { 
           if (this.subDetail == null)
             return false;
@@ -4478,10 +4609,6 @@ public class Claim extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #subDetail} (Third tier of goods and services.)
-         */
-    // syntactic sugar
         public SubDetailComponent addSubDetail() { //3
           SubDetailComponent t = new SubDetailComponent();
           if (this.subDetail == null)
@@ -4490,7 +4617,6 @@ public class Claim extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public DetailComponent addSubDetail(SubDetailComponent t) { //3
           if (t == null)
             return this;
@@ -4498,6 +4624,16 @@ public class Claim extends DomainResource {
             this.subDetail = new ArrayList<SubDetailComponent>();
           this.subDetail.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #subDetail}, creating it if it does not already exist
+         */
+        public SubDetailComponent getSubDetailFirstRep() { 
+          if (getSubDetail().isEmpty()) {
+            addSubDetail();
+          }
+          return getSubDetail().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -4720,11 +4856,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
-           && (service == null || service.isEmpty()) && (programCode == null || programCode.isEmpty())
-           && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
-           && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty()) && (net == null || net.isEmpty())
-           && (udi == null || udi.isEmpty()) && (subDetail == null || subDetail.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, type, service
+          , programCode, quantity, unitPrice, factor, points, net, udi, subDetail);
       }
 
   public String fhirType() {
@@ -4932,6 +5065,14 @@ public class Claim extends DomainResource {
           return this.programCode;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SubDetailComponent setProgramCode(List<Coding> theProgramCode) { 
+          this.programCode = theProgramCode;
+          return this;
+        }
+
         public boolean hasProgramCode() { 
           if (this.programCode == null)
             return false;
@@ -4941,10 +5082,6 @@ public class Claim extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #programCode} (For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.)
-         */
-    // syntactic sugar
         public Coding addProgramCode() { //3
           Coding t = new Coding();
           if (this.programCode == null)
@@ -4953,7 +5090,6 @@ public class Claim extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public SubDetailComponent addProgramCode(Coding t) { //3
           if (t == null)
             return this;
@@ -4961,6 +5097,16 @@ public class Claim extends DomainResource {
             this.programCode = new ArrayList<Coding>();
           this.programCode.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #programCode}, creating it if it does not already exist
+         */
+        public Coding getProgramCodeFirstRep() { 
+          if (getProgramCode().isEmpty()) {
+            addProgramCode();
+          }
+          return getProgramCode().get(0);
         }
 
         /**
@@ -5178,6 +5324,14 @@ public class Claim extends DomainResource {
           return this.udi;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SubDetailComponent setUdi(List<Reference> theUdi) { 
+          this.udi = theUdi;
+          return this;
+        }
+
         public boolean hasUdi() { 
           if (this.udi == null)
             return false;
@@ -5187,10 +5341,6 @@ public class Claim extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
-         */
-    // syntactic sugar
         public Reference addUdi() { //3
           Reference t = new Reference();
           if (this.udi == null)
@@ -5199,7 +5349,6 @@ public class Claim extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public SubDetailComponent addUdi(Reference t) { //3
           if (t == null)
             return this;
@@ -5210,18 +5359,29 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #udi} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         * @return The first repetition of repeating field {@link #udi}, creating it if it does not already exist
          */
+        public Reference getUdiFirstRep() { 
+          if (getUdi().isEmpty()) {
+            addUdi();
+          }
+          return getUdi().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Device> getUdiTarget() { 
           if (this.udiTarget == null)
             this.udiTarget = new ArrayList<Device>();
           return this.udiTarget;
         }
 
-    // syntactic sugar
         /**
-         * @return {@link #udi} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         * @deprecated Use Reference#setResource(IBaseResource) instead
          */
+        @Deprecated
         public Device addUdiTarget() { 
           Device r = new Device();
           if (this.udiTarget == null)
@@ -5434,11 +5594,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
-           && (service == null || service.isEmpty()) && (programCode == null || programCode.isEmpty())
-           && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
-           && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty()) && (net == null || net.isEmpty())
-           && (udi == null || udi.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, type, service
+          , programCode, quantity, unitPrice, factor, points, net, udi);
       }
 
   public String fhirType() {
@@ -5703,8 +5860,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (initial == null || initial.isEmpty()) && (priorDate == null || priorDate.isEmpty())
-           && (priorMaterial == null || priorMaterial.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(initial, priorDate, priorMaterial
+          );
       }
 
   public String fhirType() {
@@ -5975,6 +6132,14 @@ public class Claim extends DomainResource {
       return this.subType;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Claim setSubType(List<Coding> theSubType) { 
+      this.subType = theSubType;
+      return this;
+    }
+
     public boolean hasSubType() { 
       if (this.subType == null)
         return false;
@@ -5984,10 +6149,6 @@ public class Claim extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #subType} (A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType.)
-     */
-    // syntactic sugar
     public Coding addSubType() { //3
       Coding t = new Coding();
       if (this.subType == null)
@@ -5996,7 +6157,6 @@ public class Claim extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Claim addSubType(Coding t) { //3
       if (t == null)
         return this;
@@ -6004,6 +6164,16 @@ public class Claim extends DomainResource {
         this.subType = new ArrayList<Coding>();
       this.subType.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #subType}, creating it if it does not already exist
+     */
+    public Coding getSubTypeFirstRep() { 
+      if (getSubType().isEmpty()) {
+        addSubType();
+      }
+      return getSubType().get(0);
     }
 
     /**
@@ -6015,6 +6185,14 @@ public class Claim extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Claim setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -6024,10 +6202,6 @@ public class Claim extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (The business identifier for the instance: claim number, pre-determination or pre-authorization number.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -6036,7 +6210,6 @@ public class Claim extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Claim addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -6044,6 +6217,16 @@ public class Claim extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -6498,6 +6681,14 @@ public class Claim extends DomainResource {
       return this.related;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Claim setRelated(List<RelatedClaimComponent> theRelated) { 
+      this.related = theRelated;
+      return this;
+    }
+
     public boolean hasRelated() { 
       if (this.related == null)
         return false;
@@ -6507,10 +6698,6 @@ public class Claim extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #related} (Other claims which are related to this claim such as prior claim versions or for related services.)
-     */
-    // syntactic sugar
     public RelatedClaimComponent addRelated() { //3
       RelatedClaimComponent t = new RelatedClaimComponent();
       if (this.related == null)
@@ -6519,7 +6706,6 @@ public class Claim extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Claim addRelated(RelatedClaimComponent t) { //3
       if (t == null)
         return this;
@@ -6527,6 +6713,16 @@ public class Claim extends DomainResource {
         this.related = new ArrayList<RelatedClaimComponent>();
       this.related.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #related}, creating it if it does not already exist
+     */
+    public RelatedClaimComponent getRelatedFirstRep() { 
+      if (getRelated().isEmpty()) {
+        addRelated();
+      }
+      return getRelated().get(0);
     }
 
     /**
@@ -6697,6 +6893,14 @@ public class Claim extends DomainResource {
       return this.information;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Claim setInformation(List<InformationComponent> theInformation) { 
+      this.information = theInformation;
+      return this;
+    }
+
     public boolean hasInformation() { 
       if (this.information == null)
         return false;
@@ -6706,10 +6910,6 @@ public class Claim extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #information} (Additional information codes regarding the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.)
-     */
-    // syntactic sugar
     public InformationComponent addInformation() { //3
       InformationComponent t = new InformationComponent();
       if (this.information == null)
@@ -6718,7 +6918,6 @@ public class Claim extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Claim addInformation(InformationComponent t) { //3
       if (t == null)
         return this;
@@ -6726,6 +6925,16 @@ public class Claim extends DomainResource {
         this.information = new ArrayList<InformationComponent>();
       this.information.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #information}, creating it if it does not already exist
+     */
+    public InformationComponent getInformationFirstRep() { 
+      if (getInformation().isEmpty()) {
+        addInformation();
+      }
+      return getInformation().get(0);
     }
 
     /**
@@ -6737,6 +6946,14 @@ public class Claim extends DomainResource {
       return this.diagnosis;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Claim setDiagnosis(List<DiagnosisComponent> theDiagnosis) { 
+      this.diagnosis = theDiagnosis;
+      return this;
+    }
+
     public boolean hasDiagnosis() { 
       if (this.diagnosis == null)
         return false;
@@ -6746,10 +6963,6 @@ public class Claim extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #diagnosis} (Ordered list of patient diagnosis for which care is sought.)
-     */
-    // syntactic sugar
     public DiagnosisComponent addDiagnosis() { //3
       DiagnosisComponent t = new DiagnosisComponent();
       if (this.diagnosis == null)
@@ -6758,7 +6971,6 @@ public class Claim extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Claim addDiagnosis(DiagnosisComponent t) { //3
       if (t == null)
         return this;
@@ -6766,6 +6978,16 @@ public class Claim extends DomainResource {
         this.diagnosis = new ArrayList<DiagnosisComponent>();
       this.diagnosis.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #diagnosis}, creating it if it does not already exist
+     */
+    public DiagnosisComponent getDiagnosisFirstRep() { 
+      if (getDiagnosis().isEmpty()) {
+        addDiagnosis();
+      }
+      return getDiagnosis().get(0);
     }
 
     /**
@@ -6777,6 +6999,14 @@ public class Claim extends DomainResource {
       return this.procedure;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Claim setProcedure(List<ProcedureComponent> theProcedure) { 
+      this.procedure = theProcedure;
+      return this;
+    }
+
     public boolean hasProcedure() { 
       if (this.procedure == null)
         return false;
@@ -6786,10 +7016,6 @@ public class Claim extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #procedure} (Ordered list of patient procedures performed to support the adjudication.)
-     */
-    // syntactic sugar
     public ProcedureComponent addProcedure() { //3
       ProcedureComponent t = new ProcedureComponent();
       if (this.procedure == null)
@@ -6798,7 +7024,6 @@ public class Claim extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Claim addProcedure(ProcedureComponent t) { //3
       if (t == null)
         return this;
@@ -6806,6 +7031,16 @@ public class Claim extends DomainResource {
         this.procedure = new ArrayList<ProcedureComponent>();
       this.procedure.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #procedure}, creating it if it does not already exist
+     */
+    public ProcedureComponent getProcedureFirstRep() { 
+      if (getProcedure().isEmpty()) {
+        addProcedure();
+      }
+      return getProcedure().get(0);
     }
 
     /**
@@ -6862,6 +7097,14 @@ public class Claim extends DomainResource {
       return this.coverage;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Claim setCoverage(List<CoverageComponent> theCoverage) { 
+      this.coverage = theCoverage;
+      return this;
+    }
+
     public boolean hasCoverage() { 
       if (this.coverage == null)
         return false;
@@ -6871,10 +7114,6 @@ public class Claim extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #coverage} (Financial instrument by which payment information for health care.)
-     */
-    // syntactic sugar
     public CoverageComponent addCoverage() { //3
       CoverageComponent t = new CoverageComponent();
       if (this.coverage == null)
@@ -6883,7 +7122,6 @@ public class Claim extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Claim addCoverage(CoverageComponent t) { //3
       if (t == null)
         return this;
@@ -6891,6 +7129,16 @@ public class Claim extends DomainResource {
         this.coverage = new ArrayList<CoverageComponent>();
       this.coverage.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #coverage}, creating it if it does not already exist
+     */
+    public CoverageComponent getCoverageFirstRep() { 
+      if (getCoverage().isEmpty()) {
+        addCoverage();
+      }
+      return getCoverage().get(0);
     }
 
     /**
@@ -6902,6 +7150,14 @@ public class Claim extends DomainResource {
       return this.item;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Claim setItem(List<ItemComponent> theItem) { 
+      this.item = theItem;
+      return this;
+    }
+
     public boolean hasItem() { 
       if (this.item == null)
         return false;
@@ -6911,10 +7167,6 @@ public class Claim extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #item} (First tier of goods and services.)
-     */
-    // syntactic sugar
     public ItemComponent addItem() { //3
       ItemComponent t = new ItemComponent();
       if (this.item == null)
@@ -6923,7 +7175,6 @@ public class Claim extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Claim addItem(ItemComponent t) { //3
       if (t == null)
         return this;
@@ -6931,6 +7182,16 @@ public class Claim extends DomainResource {
         this.item = new ArrayList<ItemComponent>();
       this.item.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #item}, creating it if it does not already exist
+     */
+    public ItemComponent getItemFirstRep() { 
+      if (getItem().isEmpty()) {
+        addItem();
+      }
+      return getItem().get(0);
     }
 
     /**
@@ -7452,24 +7713,37 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (subType == null || subType.isEmpty())
-           && (identifier == null || identifier.isEmpty()) && (ruleset == null || ruleset.isEmpty())
-           && (originalRuleset == null || originalRuleset.isEmpty()) && (created == null || created.isEmpty())
-           && (billablePeriod == null || billablePeriod.isEmpty()) && (target == null || target.isEmpty())
-           && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
-           && (use == null || use.isEmpty()) && (priority == null || priority.isEmpty()) && (fundsReserve == null || fundsReserve.isEmpty())
-           && (enterer == null || enterer.isEmpty()) && (facility == null || facility.isEmpty()) && (related == null || related.isEmpty())
-           && (prescription == null || prescription.isEmpty()) && (originalPrescription == null || originalPrescription.isEmpty())
-           && (payee == null || payee.isEmpty()) && (referral == null || referral.isEmpty()) && (information == null || information.isEmpty())
-           && (diagnosis == null || diagnosis.isEmpty()) && (procedure == null || procedure.isEmpty())
-           && (patient == null || patient.isEmpty()) && (coverage == null || coverage.isEmpty()) && (item == null || item.isEmpty())
-           && (total == null || total.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, subType, identifier
+          , ruleset, originalRuleset, created, billablePeriod, target, provider, organization
+          , use, priority, fundsReserve, enterer, facility, related, prescription, originalPrescription
+          , payee, referral, information, diagnosis, procedure, patient, coverage, item
+          , total);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Claim;
    }
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>The primary identifier of the financial resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Claim.identifier", description="The primary identifier of the financial resource", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>The primary identifier of the financial resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>patientidentifier</b>
@@ -7490,6 +7764,230 @@ public class Claim extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PATIENTIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PATIENTIDENTIFIER);
+
+ /**
+   * Search parameter: <b>organizationidentifier</b>
+   * <p>
+   * Description: <b>The reference to the providing organization</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.organizationIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="organizationidentifier", path="Claim.organization.as(Identifier)", description="The reference to the providing organization", type="token" )
+  public static final String SP_ORGANIZATIONIDENTIFIER = "organizationidentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>organizationidentifier</b>
+   * <p>
+   * Description: <b>The reference to the providing organization</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.organizationIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONIDENTIFIER);
+
+ /**
+   * Search parameter: <b>use</b>
+   * <p>
+   * Description: <b>The kind of financial resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.use</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="use", path="Claim.use", description="The kind of financial resource", type="token" )
+  public static final String SP_USE = "use";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>use</b>
+   * <p>
+   * Description: <b>The kind of financial resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.use</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam USE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_USE);
+
+ /**
+   * Search parameter: <b>created</b>
+   * <p>
+   * Description: <b>The creation date for the Claim</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Claim.created</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="created", path="Claim.created", description="The creation date for the Claim", type="date" )
+  public static final String SP_CREATED = "created";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>created</b>
+   * <p>
+   * Description: <b>The creation date for the Claim</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Claim.created</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
+
+ /**
+   * Search parameter: <b>patientreference</b>
+   * <p>
+   * Description: <b>Patient receiving the services</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.patientReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patientreference", path="Claim.patient.as(Reference)", description="Patient receiving the services", type="reference" )
+  public static final String SP_PATIENTREFERENCE = "patientreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patientreference</b>
+   * <p>
+   * Description: <b>Patient receiving the services</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.patientReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENTREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENTREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Claim:patientreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENTREFERENCE = new ca.uhn.fhir.model.api.Include("Claim:patientreference").toLocked();
+
+ /**
+   * Search parameter: <b>providerreference</b>
+   * <p>
+   * Description: <b>Provider responsible for the Claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.providerReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="providerreference", path="Claim.provider.as(Reference)", description="Provider responsible for the Claim", type="reference" )
+  public static final String SP_PROVIDERREFERENCE = "providerreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
+   * <p>
+   * Description: <b>Provider responsible for the Claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.providerReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDERREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Claim:providerreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDERREFERENCE = new ca.uhn.fhir.model.api.Include("Claim:providerreference").toLocked();
+
+ /**
+   * Search parameter: <b>organizationreference</b>
+   * <p>
+   * Description: <b>The reference to the providing organization</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.organizationReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="organizationreference", path="Claim.organization.as(Reference)", description="The reference to the providing organization", type="reference" )
+  public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>
+   * <p>
+   * Description: <b>The reference to the providing organization</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.organizationReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATIONREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATIONREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Claim:organizationreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("Claim:organizationreference").toLocked();
+
+ /**
+   * Search parameter: <b>priority</b>
+   * <p>
+   * Description: <b>Processing priority requested</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.priority</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="priority", path="Claim.priority", description="Processing priority requested", type="token" )
+  public static final String SP_PRIORITY = "priority";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>priority</b>
+   * <p>
+   * Description: <b>Processing priority requested</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.priority</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRIORITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRIORITY);
+
+ /**
+   * Search parameter: <b>provideridentifier</b>
+   * <p>
+   * Description: <b>Provider responsible for the Claim</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.providerIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="provideridentifier", path="Claim.provider.as(Identifier)", description="Provider responsible for the Claim", type="token" )
+  public static final String SP_PROVIDERIDENTIFIER = "provideridentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>provideridentifier</b>
+   * <p>
+   * Description: <b>Provider responsible for the Claim</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.providerIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PROVIDERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PROVIDERIDENTIFIER);
+
+ /**
+   * Search parameter: <b>targetidentifier</b>
+   * <p>
+   * Description: <b>The target payor/insurer for the Claim</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.targetIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="targetidentifier", path="Claim.target.as(Identifier)", description="The target payor/insurer for the Claim", type="token" )
+  public static final String SP_TARGETIDENTIFIER = "targetidentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>targetidentifier</b>
+   * <p>
+   * Description: <b>The target payor/insurer for the Claim</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.targetIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TARGETIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TARGETIDENTIFIER);
+
+ /**
+   * Search parameter: <b>facilityreference</b>
+   * <p>
+   * Description: <b>Facility responsible for the goods and services</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.facilityReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="facilityreference", path="Claim.facility.as(Reference)", description="Facility responsible for the goods and services", type="reference" )
+  public static final String SP_FACILITYREFERENCE = "facilityreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>facilityreference</b>
+   * <p>
+   * Description: <b>Facility responsible for the goods and services</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.facilityReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam FACILITYREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_FACILITYREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Claim:facilityreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_FACILITYREFERENCE = new ca.uhn.fhir.model.api.Include("Claim:facilityreference").toLocked();
 
  /**
    * Search parameter: <b>targetreference</b>
@@ -7536,250 +8034,6 @@ public class Claim extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam FACILITYIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FACILITYIDENTIFIER);
-
- /**
-   * Search parameter: <b>facilityreference</b>
-   * <p>
-   * Description: <b>Facility responsible for the goods and services</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Claim.facilityReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="facilityreference", path="Claim.facility.as(Reference)", description="Facility responsible for the goods and services", type="reference" )
-  public static final String SP_FACILITYREFERENCE = "facilityreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>facilityreference</b>
-   * <p>
-   * Description: <b>Facility responsible for the goods and services</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Claim.facilityReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam FACILITYREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_FACILITYREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Claim:facilityreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_FACILITYREFERENCE = new ca.uhn.fhir.model.api.Include("Claim:facilityreference").toLocked();
-
- /**
-   * Search parameter: <b>use</b>
-   * <p>
-   * Description: <b>The kind of financial resource</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Claim.use</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="use", path="Claim.use", description="The kind of financial resource", type="token" )
-  public static final String SP_USE = "use";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>use</b>
-   * <p>
-   * Description: <b>The kind of financial resource</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Claim.use</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam USE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_USE);
-
- /**
-   * Search parameter: <b>providerreference</b>
-   * <p>
-   * Description: <b>Provider responsible for the Claim</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Claim.providerReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="providerreference", path="Claim.provider.as(Reference)", description="Provider responsible for the Claim", type="reference" )
-  public static final String SP_PROVIDERREFERENCE = "providerreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
-   * <p>
-   * Description: <b>Provider responsible for the Claim</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Claim.providerReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDERREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Claim:providerreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDERREFERENCE = new ca.uhn.fhir.model.api.Include("Claim:providerreference").toLocked();
-
- /**
-   * Search parameter: <b>organizationidentifier</b>
-   * <p>
-   * Description: <b>The reference to the providing organization</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Claim.organizationIdentifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="organizationidentifier", path="Claim.organization.as(Identifier)", description="The reference to the providing organization", type="token" )
-  public static final String SP_ORGANIZATIONIDENTIFIER = "organizationidentifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>organizationidentifier</b>
-   * <p>
-   * Description: <b>The reference to the providing organization</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Claim.organizationIdentifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONIDENTIFIER);
-
- /**
-   * Search parameter: <b>patientreference</b>
-   * <p>
-   * Description: <b>Patient receiving the services</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Claim.patientReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patientreference", path="Claim.patient.as(Reference)", description="Patient receiving the services", type="reference" )
-  public static final String SP_PATIENTREFERENCE = "patientreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patientreference</b>
-   * <p>
-   * Description: <b>Patient receiving the services</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Claim.patientReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENTREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENTREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Claim:patientreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENTREFERENCE = new ca.uhn.fhir.model.api.Include("Claim:patientreference").toLocked();
-
- /**
-   * Search parameter: <b>created</b>
-   * <p>
-   * Description: <b>The creation date for the Claim</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Claim.created</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="created", path="Claim.created", description="The creation date for the Claim", type="date" )
-  public static final String SP_CREATED = "created";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>created</b>
-   * <p>
-   * Description: <b>The creation date for the Claim</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Claim.created</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
-
- /**
-   * Search parameter: <b>priority</b>
-   * <p>
-   * Description: <b>Processing priority requested</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Claim.priority</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="priority", path="Claim.priority", description="Processing priority requested", type="token" )
-  public static final String SP_PRIORITY = "priority";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>priority</b>
-   * <p>
-   * Description: <b>Processing priority requested</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Claim.priority</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRIORITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRIORITY);
-
- /**
-   * Search parameter: <b>targetidentifier</b>
-   * <p>
-   * Description: <b>The target payor/insurer for the Claim</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Claim.targetIdentifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="targetidentifier", path="Claim.target.as(Identifier)", description="The target payor/insurer for the Claim", type="token" )
-  public static final String SP_TARGETIDENTIFIER = "targetidentifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>targetidentifier</b>
-   * <p>
-   * Description: <b>The target payor/insurer for the Claim</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Claim.targetIdentifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TARGETIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TARGETIDENTIFIER);
-
- /**
-   * Search parameter: <b>organizationreference</b>
-   * <p>
-   * Description: <b>The reference to the providing organization</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Claim.organizationReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="organizationreference", path="Claim.organization.as(Reference)", description="The reference to the providing organization", type="reference" )
-  public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>
-   * <p>
-   * Description: <b>The reference to the providing organization</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Claim.organizationReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATIONREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATIONREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Claim:organizationreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("Claim:organizationreference").toLocked();
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>The primary identifier of the financial resource</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Claim.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Claim.identifier", description="The primary identifier of the financial resource", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>The primary identifier of the financial resource</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Claim.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>provideridentifier</b>
-   * <p>
-   * Description: <b>Provider responsible for the Claim</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Claim.providerIdentifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="provideridentifier", path="Claim.provider.as(Identifier)", description="Provider responsible for the Claim", type="token" )
-  public static final String SP_PROVIDERIDENTIFIER = "provideridentifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>provideridentifier</b>
-   * <p>
-   * Description: <b>Provider responsible for the Claim</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Claim.providerIdentifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PROVIDERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PROVIDERIDENTIFIER);
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -269,6 +269,14 @@ public class CompartmentDefinition extends BaseConformance {
           return this.telecom;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CompartmentDefinitionContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+          this.telecom = theTelecom;
+          return this;
+        }
+
         public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
@@ -278,10 +286,6 @@ public class CompartmentDefinition extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
-         */
-    // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           if (this.telecom == null)
@@ -290,7 +294,6 @@ public class CompartmentDefinition extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public CompartmentDefinitionContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
@@ -298,6 +301,16 @@ public class CompartmentDefinition extends BaseConformance {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+         */
+        public ContactPoint getTelecomFirstRep() { 
+          if (getTelecom().isEmpty()) {
+            addTelecom();
+          }
+          return getTelecom().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -395,8 +408,7 @@ public class CompartmentDefinition extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, telecom);
       }
 
   public String fhirType() {
@@ -500,6 +512,14 @@ public class CompartmentDefinition extends BaseConformance {
           return this.param;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CompartmentDefinitionResourceComponent setParam(List<StringType> theParam) { 
+          this.param = theParam;
+          return this;
+        }
+
         public boolean hasParam() { 
           if (this.param == null)
             return false;
@@ -512,7 +532,6 @@ public class CompartmentDefinition extends BaseConformance {
         /**
          * @return {@link #param} (The name of a search parameter that represents the link to the compartment. More than one may be listed because a resource may be linked to a compartment more than one way.)
          */
-    // syntactic sugar
         public StringType addParamElement() {//2 
           StringType t = new StringType();
           if (this.param == null)
@@ -703,8 +722,8 @@ public class CompartmentDefinition extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (param == null || param.isEmpty())
-           && (documentation == null || documentation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, param, documentation
+          );
       }
 
   public String fhirType() {
@@ -927,6 +946,14 @@ public class CompartmentDefinition extends BaseConformance {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CompartmentDefinition setContact(List<CompartmentDefinitionContactComponent> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -936,10 +963,6 @@ public class CompartmentDefinition extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
-     */
-    // syntactic sugar
     public CompartmentDefinitionContactComponent addContact() { //3
       CompartmentDefinitionContactComponent t = new CompartmentDefinitionContactComponent();
       if (this.contact == null)
@@ -948,7 +971,6 @@ public class CompartmentDefinition extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public CompartmentDefinition addContact(CompartmentDefinitionContactComponent t) { //3
       if (t == null)
         return this;
@@ -956,6 +978,16 @@ public class CompartmentDefinition extends BaseConformance {
         this.contact = new ArrayList<CompartmentDefinitionContactComponent>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public CompartmentDefinitionContactComponent getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -1169,6 +1201,14 @@ public class CompartmentDefinition extends BaseConformance {
       return this.resource;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CompartmentDefinition setResource(List<CompartmentDefinitionResourceComponent> theResource) { 
+      this.resource = theResource;
+      return this;
+    }
+
     public boolean hasResource() { 
       if (this.resource == null)
         return false;
@@ -1178,10 +1218,6 @@ public class CompartmentDefinition extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #resource} (Information about how a resource it related to the compartment.)
-     */
-    // syntactic sugar
     public CompartmentDefinitionResourceComponent addResource() { //3
       CompartmentDefinitionResourceComponent t = new CompartmentDefinitionResourceComponent();
       if (this.resource == null)
@@ -1190,7 +1226,6 @@ public class CompartmentDefinition extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public CompartmentDefinition addResource(CompartmentDefinitionResourceComponent t) { //3
       if (t == null)
         return this;
@@ -1198,6 +1233,16 @@ public class CompartmentDefinition extends BaseConformance {
         this.resource = new ArrayList<CompartmentDefinitionResourceComponent>();
       this.resource.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #resource}, creating it if it does not already exist
+     */
+    public CompartmentDefinitionResourceComponent getResourceFirstRep() { 
+      if (getResource().isEmpty()) {
+        addResource();
+      }
+      return getResource().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1429,96 +1474,14 @@ public class CompartmentDefinition extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (experimental == null || experimental.isEmpty()) && (publisher == null || publisher.isEmpty())
-           && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (code == null || code.isEmpty()) && (search == null || search.isEmpty())
-           && (resource == null || resource.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(experimental, publisher, contact
+          , description, requirements, code, search, resource);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.CompartmentDefinition;
    }
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>draft | active | retired</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CompartmentDefinition.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="CompartmentDefinition.status", description="draft | active | retired", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>draft | active | retired</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CompartmentDefinition.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Informal name for this compartment definition</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>CompartmentDefinition.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="CompartmentDefinition.name", description="Informal name for this compartment definition", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Informal name for this compartment definition</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>CompartmentDefinition.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
-   * Search parameter: <b>resource</b>
-   * <p>
-   * Description: <b>Name of resource type</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CompartmentDefinition.resource.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="resource", path="CompartmentDefinition.resource.code", description="Name of resource type", type="token" )
-  public static final String SP_RESOURCE = "resource";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>resource</b>
-   * <p>
-   * Description: <b>Name of resource type</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CompartmentDefinition.resource.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RESOURCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RESOURCE);
-
- /**
-   * Search parameter: <b>code</b>
-   * <p>
-   * Description: <b>Patient | Encounter | RelatedPerson | Practitioner | Device</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CompartmentDefinition.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code", path="CompartmentDefinition.code", description="Patient | Encounter | RelatedPerson | Practitioner | Device", type="token" )
-  public static final String SP_CODE = "code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
-   * <p>
-   * Description: <b>Patient | Encounter | RelatedPerson | Practitioner | Device</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CompartmentDefinition.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
    * Search parameter: <b>date</b>
@@ -1541,6 +1504,66 @@ public class CompartmentDefinition extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>Patient | Encounter | RelatedPerson | Practitioner | Device</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CompartmentDefinition.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="CompartmentDefinition.code", description="Patient | Encounter | RelatedPerson | Practitioner | Device", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>Patient | Encounter | RelatedPerson | Practitioner | Device</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CompartmentDefinition.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>resource</b>
+   * <p>
+   * Description: <b>Name of resource type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CompartmentDefinition.resource.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="resource", path="CompartmentDefinition.resource.code", description="Name of resource type", type="token" )
+  public static final String SP_RESOURCE = "resource";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>resource</b>
+   * <p>
+   * Description: <b>Name of resource type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CompartmentDefinition.resource.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RESOURCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RESOURCE);
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>Informal name for this compartment definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>CompartmentDefinition.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="CompartmentDefinition.name", description="Informal name for this compartment definition", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>Informal name for this compartment definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>CompartmentDefinition.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
    * Search parameter: <b>url</b>
    * <p>
    * Description: <b>Absolute URL used to reference this compartment definition</b><br>
@@ -1559,6 +1582,26 @@ public class CompartmentDefinition extends BaseConformance {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>draft | active | retired</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CompartmentDefinition.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="CompartmentDefinition.status", description="draft | active | retired", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>draft | active | retired</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CompartmentDefinition.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

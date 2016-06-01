@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -423,8 +423,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (claim == null || claim.isEmpty()) && (relationship == null || relationship.isEmpty())
-           && (reference == null || reference.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(claim, relationship, reference
+          );
       }
 
   public String fhirType() {
@@ -625,8 +625,7 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (party == null || party.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, party);
       }
 
   public String fhirType() {
@@ -1096,9 +1095,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (category == null || category.isEmpty()) && (code == null || code.isEmpty())
-           && (reason == null || reason.isEmpty()) && (timing == null || timing.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, code, reason, timing
+          , value);
       }
 
   public String fhirType() {
@@ -1303,8 +1301,7 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (diagnosis == null || diagnosis.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, diagnosis);
       }
 
   public String fhirType() {
@@ -1603,8 +1600,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (date == null || date.isEmpty())
-           && (procedure == null || procedure.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, date, procedure
+          );
       }
 
   public String fhirType() {
@@ -1693,6 +1690,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.preAuthRef;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CoverageComponent setPreAuthRef(List<StringType> thePreAuthRef) { 
+          this.preAuthRef = thePreAuthRef;
+          return this;
+        }
+
         public boolean hasPreAuthRef() { 
           if (this.preAuthRef == null)
             return false;
@@ -1705,7 +1710,6 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @return {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
          */
-    // syntactic sugar
         public StringType addPreAuthRefElement() {//2 
           StringType t = new StringType();
           if (this.preAuthRef == null)
@@ -1838,8 +1842,7 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (coverage == null || coverage.isEmpty()) && (preAuthRef == null || preAuthRef.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(coverage, preAuthRef);
       }
 
   public String fhirType() {
@@ -2107,6 +2110,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.careTeam;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setCareTeam(List<CareTeamComponent> theCareTeam) { 
+          this.careTeam = theCareTeam;
+          return this;
+        }
+
         public boolean hasCareTeam() { 
           if (this.careTeam == null)
             return false;
@@ -2116,10 +2127,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #careTeam} (The members of the team who provided the overall service as well as their role and whether responsible and qualifications.)
-         */
-    // syntactic sugar
         public CareTeamComponent addCareTeam() { //3
           CareTeamComponent t = new CareTeamComponent();
           if (this.careTeam == null)
@@ -2128,7 +2135,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addCareTeam(CareTeamComponent t) { //3
           if (t == null)
             return this;
@@ -2139,12 +2145,30 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
+         * @return The first repetition of repeating field {@link #careTeam}, creating it if it does not already exist
+         */
+        public CareTeamComponent getCareTeamFirstRep() { 
+          if (getCareTeam().isEmpty()) {
+            addCareTeam();
+          }
+          return getCareTeam().get(0);
+        }
+
+        /**
          * @return {@link #diagnosisLinkId} (Diagnosis applicable for this service or product line.)
          */
         public List<PositiveIntType> getDiagnosisLinkId() { 
           if (this.diagnosisLinkId == null)
             this.diagnosisLinkId = new ArrayList<PositiveIntType>();
           return this.diagnosisLinkId;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setDiagnosisLinkId(List<PositiveIntType> theDiagnosisLinkId) { 
+          this.diagnosisLinkId = theDiagnosisLinkId;
+          return this;
         }
 
         public boolean hasDiagnosisLinkId() { 
@@ -2159,7 +2183,6 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @return {@link #diagnosisLinkId} (Diagnosis applicable for this service or product line.)
          */
-    // syntactic sugar
         public PositiveIntType addDiagnosisLinkIdElement() {//2 
           PositiveIntType t = new PositiveIntType();
           if (this.diagnosisLinkId == null)
@@ -2225,6 +2248,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.serviceModifier;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setServiceModifier(List<Coding> theServiceModifier) { 
+          this.serviceModifier = theServiceModifier;
+          return this;
+        }
+
         public boolean hasServiceModifier() { 
           if (this.serviceModifier == null)
             return false;
@@ -2234,10 +2265,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #serviceModifier} (Unusual circumstances which may influence adjudication.)
-         */
-    // syntactic sugar
         public Coding addServiceModifier() { //3
           Coding t = new Coding();
           if (this.serviceModifier == null)
@@ -2246,7 +2273,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addServiceModifier(Coding t) { //3
           if (t == null)
             return this;
@@ -2254,6 +2280,16 @@ public class ExplanationOfBenefit extends DomainResource {
             this.serviceModifier = new ArrayList<Coding>();
           this.serviceModifier.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #serviceModifier}, creating it if it does not already exist
+         */
+        public Coding getServiceModifierFirstRep() { 
+          if (getServiceModifier().isEmpty()) {
+            addServiceModifier();
+          }
+          return getServiceModifier().get(0);
         }
 
         /**
@@ -2265,6 +2301,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.modifier;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setModifier(List<Coding> theModifier) { 
+          this.modifier = theModifier;
+          return this;
+        }
+
         public boolean hasModifier() { 
           if (this.modifier == null)
             return false;
@@ -2274,10 +2318,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.)
-         */
-    // syntactic sugar
         public Coding addModifier() { //3
           Coding t = new Coding();
           if (this.modifier == null)
@@ -2286,7 +2326,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addModifier(Coding t) { //3
           if (t == null)
             return this;
@@ -2294,6 +2333,16 @@ public class ExplanationOfBenefit extends DomainResource {
             this.modifier = new ArrayList<Coding>();
           this.modifier.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #modifier}, creating it if it does not already exist
+         */
+        public Coding getModifierFirstRep() { 
+          if (getModifier().isEmpty()) {
+            addModifier();
+          }
+          return getModifier().get(0);
         }
 
         /**
@@ -2305,6 +2354,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.programCode;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setProgramCode(List<Coding> theProgramCode) { 
+          this.programCode = theProgramCode;
+          return this;
+        }
+
         public boolean hasProgramCode() { 
           if (this.programCode == null)
             return false;
@@ -2314,10 +2371,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #programCode} (For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.)
-         */
-    // syntactic sugar
         public Coding addProgramCode() { //3
           Coding t = new Coding();
           if (this.programCode == null)
@@ -2326,7 +2379,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addProgramCode(Coding t) { //3
           if (t == null)
             return this;
@@ -2334,6 +2386,16 @@ public class ExplanationOfBenefit extends DomainResource {
             this.programCode = new ArrayList<Coding>();
           this.programCode.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #programCode}, creating it if it does not already exist
+         */
+        public Coding getProgramCodeFirstRep() { 
+          if (getProgramCode().isEmpty()) {
+            addProgramCode();
+          }
+          return getProgramCode().get(0);
         }
 
         /**
@@ -2620,6 +2682,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.udi;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setUdi(List<Reference> theUdi) { 
+          this.udi = theUdi;
+          return this;
+        }
+
         public boolean hasUdi() { 
           if (this.udi == null)
             return false;
@@ -2629,10 +2699,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
-         */
-    // syntactic sugar
         public Reference addUdi() { //3
           Reference t = new Reference();
           if (this.udi == null)
@@ -2641,7 +2707,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addUdi(Reference t) { //3
           if (t == null)
             return this;
@@ -2652,18 +2717,29 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @return {@link #udi} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         * @return The first repetition of repeating field {@link #udi}, creating it if it does not already exist
          */
+        public Reference getUdiFirstRep() { 
+          if (getUdi().isEmpty()) {
+            addUdi();
+          }
+          return getUdi().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Device> getUdiTarget() { 
           if (this.udiTarget == null)
             this.udiTarget = new ArrayList<Device>();
           return this.udiTarget;
         }
 
-    // syntactic sugar
         /**
-         * @return {@link #udi} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         * @deprecated Use Reference#setResource(IBaseResource) instead
          */
+        @Deprecated
         public Device addUdiTarget() { 
           Device r = new Device();
           if (this.udiTarget == null)
@@ -2705,6 +2781,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.subSite;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setSubSite(List<Coding> theSubSite) { 
+          this.subSite = theSubSite;
+          return this;
+        }
+
         public boolean hasSubSite() { 
           if (this.subSite == null)
             return false;
@@ -2714,10 +2798,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #subSite} (A region or surface of the site, eg. limb region or tooth surface(s).)
-         */
-    // syntactic sugar
         public Coding addSubSite() { //3
           Coding t = new Coding();
           if (this.subSite == null)
@@ -2726,7 +2806,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addSubSite(Coding t) { //3
           if (t == null)
             return this;
@@ -2737,12 +2816,30 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
+         * @return The first repetition of repeating field {@link #subSite}, creating it if it does not already exist
+         */
+        public Coding getSubSiteFirstRep() { 
+          if (getSubSite().isEmpty()) {
+            addSubSite();
+          }
+          return getSubSite().get(0);
+        }
+
+        /**
          * @return {@link #noteNumber} (A list of note references to the notes provided below.)
          */
         public List<PositiveIntType> getNoteNumber() { 
           if (this.noteNumber == null)
             this.noteNumber = new ArrayList<PositiveIntType>();
           return this.noteNumber;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setNoteNumber(List<PositiveIntType> theNoteNumber) { 
+          this.noteNumber = theNoteNumber;
+          return this;
         }
 
         public boolean hasNoteNumber() { 
@@ -2757,7 +2854,6 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @return {@link #noteNumber} (A list of note references to the notes provided below.)
          */
-    // syntactic sugar
         public PositiveIntType addNoteNumberElement() {//2 
           PositiveIntType t = new PositiveIntType();
           if (this.noteNumber == null)
@@ -2799,6 +2895,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.adjudication;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setAdjudication(List<AdjudicationComponent> theAdjudication) { 
+          this.adjudication = theAdjudication;
+          return this;
+        }
+
         public boolean hasAdjudication() { 
           if (this.adjudication == null)
             return false;
@@ -2808,10 +2912,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #adjudication} (The adjudications results.)
-         */
-    // syntactic sugar
         public AdjudicationComponent addAdjudication() { //3
           AdjudicationComponent t = new AdjudicationComponent();
           if (this.adjudication == null)
@@ -2820,7 +2920,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addAdjudication(AdjudicationComponent t) { //3
           if (t == null)
             return this;
@@ -2828,6 +2927,16 @@ public class ExplanationOfBenefit extends DomainResource {
             this.adjudication = new ArrayList<AdjudicationComponent>();
           this.adjudication.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #adjudication}, creating it if it does not already exist
+         */
+        public AdjudicationComponent getAdjudicationFirstRep() { 
+          if (getAdjudication().isEmpty()) {
+            addAdjudication();
+          }
+          return getAdjudication().get(0);
         }
 
         /**
@@ -2839,6 +2948,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.detail;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setDetail(List<DetailComponent> theDetail) { 
+          this.detail = theDetail;
+          return this;
+        }
+
         public boolean hasDetail() { 
           if (this.detail == null)
             return false;
@@ -2848,10 +2965,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #detail} (Second tier of goods and services.)
-         */
-    // syntactic sugar
         public DetailComponent addDetail() { //3
           DetailComponent t = new DetailComponent();
           if (this.detail == null)
@@ -2860,7 +2973,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ItemComponent addDetail(DetailComponent t) { //3
           if (t == null)
             return this;
@@ -2868,6 +2980,16 @@ public class ExplanationOfBenefit extends DomainResource {
             this.detail = new ArrayList<DetailComponent>();
           this.detail.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #detail}, creating it if it does not already exist
+         */
+        public DetailComponent getDetailFirstRep() { 
+          if (getDetail().isEmpty()) {
+            addDetail();
+          }
+          return getDetail().get(0);
         }
 
         /**
@@ -3288,16 +3410,10 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
-           && (careTeam == null || careTeam.isEmpty()) && (diagnosisLinkId == null || diagnosisLinkId.isEmpty())
-           && (service == null || service.isEmpty()) && (serviceModifier == null || serviceModifier.isEmpty())
-           && (modifier == null || modifier.isEmpty()) && (programCode == null || programCode.isEmpty())
-           && (serviced == null || serviced.isEmpty()) && (place == null || place.isEmpty()) && (quantity == null || quantity.isEmpty())
-           && (unitPrice == null || unitPrice.isEmpty()) && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty())
-           && (net == null || net.isEmpty()) && (udi == null || udi.isEmpty()) && (bodySite == null || bodySite.isEmpty())
-           && (subSite == null || subSite.isEmpty()) && (noteNumber == null || noteNumber.isEmpty())
-           && (adjudication == null || adjudication.isEmpty()) && (detail == null || detail.isEmpty())
-           && (prosthesis == null || prosthesis.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, type, careTeam
+          , diagnosisLinkId, service, serviceModifier, modifier, programCode, serviced, place
+          , quantity, unitPrice, factor, points, net, udi, bodySite, subSite, noteNumber
+          , adjudication, detail, prosthesis);
       }
 
   public String fhirType() {
@@ -3615,9 +3731,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (provider == null || provider.isEmpty()) && (responsible == null || responsible.isEmpty())
-           && (role == null || role.isEmpty()) && (qualification == null || qualification.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(provider, responsible, role
+          , qualification);
       }
 
   public String fhirType() {
@@ -3932,8 +4047,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (category == null || category.isEmpty()) && (reason == null || reason.isEmpty())
-           && (amount == null || amount.isEmpty()) && (value == null || value.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, reason, amount
+          , value);
       }
 
   public String fhirType() {
@@ -4155,6 +4270,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.programCode;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DetailComponent setProgramCode(List<Coding> theProgramCode) { 
+          this.programCode = theProgramCode;
+          return this;
+        }
+
         public boolean hasProgramCode() { 
           if (this.programCode == null)
             return false;
@@ -4164,10 +4287,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #programCode} (For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.)
-         */
-    // syntactic sugar
         public Coding addProgramCode() { //3
           Coding t = new Coding();
           if (this.programCode == null)
@@ -4176,7 +4295,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public DetailComponent addProgramCode(Coding t) { //3
           if (t == null)
             return this;
@@ -4184,6 +4302,16 @@ public class ExplanationOfBenefit extends DomainResource {
             this.programCode = new ArrayList<Coding>();
           this.programCode.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #programCode}, creating it if it does not already exist
+         */
+        public Coding getProgramCodeFirstRep() { 
+          if (getProgramCode().isEmpty()) {
+            addProgramCode();
+          }
+          return getProgramCode().get(0);
         }
 
         /**
@@ -4401,6 +4529,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.udi;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DetailComponent setUdi(List<Reference> theUdi) { 
+          this.udi = theUdi;
+          return this;
+        }
+
         public boolean hasUdi() { 
           if (this.udi == null)
             return false;
@@ -4410,10 +4546,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
-         */
-    // syntactic sugar
         public Reference addUdi() { //3
           Reference t = new Reference();
           if (this.udi == null)
@@ -4422,7 +4554,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public DetailComponent addUdi(Reference t) { //3
           if (t == null)
             return this;
@@ -4433,18 +4564,29 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @return {@link #udi} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         * @return The first repetition of repeating field {@link #udi}, creating it if it does not already exist
          */
+        public Reference getUdiFirstRep() { 
+          if (getUdi().isEmpty()) {
+            addUdi();
+          }
+          return getUdi().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Device> getUdiTarget() { 
           if (this.udiTarget == null)
             this.udiTarget = new ArrayList<Device>();
           return this.udiTarget;
         }
 
-    // syntactic sugar
         /**
-         * @return {@link #udi} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         * @deprecated Use Reference#setResource(IBaseResource) instead
          */
+        @Deprecated
         public Device addUdiTarget() { 
           Device r = new Device();
           if (this.udiTarget == null)
@@ -4462,6 +4604,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.adjudication;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DetailComponent setAdjudication(List<AdjudicationComponent> theAdjudication) { 
+          this.adjudication = theAdjudication;
+          return this;
+        }
+
         public boolean hasAdjudication() { 
           if (this.adjudication == null)
             return false;
@@ -4471,10 +4621,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #adjudication} (The adjudications results.)
-         */
-    // syntactic sugar
         public AdjudicationComponent addAdjudication() { //3
           AdjudicationComponent t = new AdjudicationComponent();
           if (this.adjudication == null)
@@ -4483,7 +4629,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public DetailComponent addAdjudication(AdjudicationComponent t) { //3
           if (t == null)
             return this;
@@ -4491,6 +4636,16 @@ public class ExplanationOfBenefit extends DomainResource {
             this.adjudication = new ArrayList<AdjudicationComponent>();
           this.adjudication.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #adjudication}, creating it if it does not already exist
+         */
+        public AdjudicationComponent getAdjudicationFirstRep() { 
+          if (getAdjudication().isEmpty()) {
+            addAdjudication();
+          }
+          return getAdjudication().get(0);
         }
 
         /**
@@ -4502,6 +4657,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.subDetail;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DetailComponent setSubDetail(List<SubDetailComponent> theSubDetail) { 
+          this.subDetail = theSubDetail;
+          return this;
+        }
+
         public boolean hasSubDetail() { 
           if (this.subDetail == null)
             return false;
@@ -4511,10 +4674,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #subDetail} (Third tier of goods and services.)
-         */
-    // syntactic sugar
         public SubDetailComponent addSubDetail() { //3
           SubDetailComponent t = new SubDetailComponent();
           if (this.subDetail == null)
@@ -4523,7 +4682,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public DetailComponent addSubDetail(SubDetailComponent t) { //3
           if (t == null)
             return this;
@@ -4531,6 +4689,16 @@ public class ExplanationOfBenefit extends DomainResource {
             this.subDetail = new ArrayList<SubDetailComponent>();
           this.subDetail.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #subDetail}, creating it if it does not already exist
+         */
+        public SubDetailComponent getSubDetailFirstRep() { 
+          if (getSubDetail().isEmpty()) {
+            addSubDetail();
+          }
+          return getSubDetail().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -4770,12 +4938,9 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
-           && (service == null || service.isEmpty()) && (programCode == null || programCode.isEmpty())
-           && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
-           && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty()) && (net == null || net.isEmpty())
-           && (udi == null || udi.isEmpty()) && (adjudication == null || adjudication.isEmpty()) && (subDetail == null || subDetail.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, type, service
+          , programCode, quantity, unitPrice, factor, points, net, udi, adjudication, subDetail
+          );
       }
 
   public String fhirType() {
@@ -4990,6 +5155,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.programCode;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SubDetailComponent setProgramCode(List<Coding> theProgramCode) { 
+          this.programCode = theProgramCode;
+          return this;
+        }
+
         public boolean hasProgramCode() { 
           if (this.programCode == null)
             return false;
@@ -4999,10 +5172,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #programCode} (For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.)
-         */
-    // syntactic sugar
         public Coding addProgramCode() { //3
           Coding t = new Coding();
           if (this.programCode == null)
@@ -5011,7 +5180,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public SubDetailComponent addProgramCode(Coding t) { //3
           if (t == null)
             return this;
@@ -5019,6 +5187,16 @@ public class ExplanationOfBenefit extends DomainResource {
             this.programCode = new ArrayList<Coding>();
           this.programCode.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #programCode}, creating it if it does not already exist
+         */
+        public Coding getProgramCodeFirstRep() { 
+          if (getProgramCode().isEmpty()) {
+            addProgramCode();
+          }
+          return getProgramCode().get(0);
         }
 
         /**
@@ -5236,6 +5414,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.udi;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SubDetailComponent setUdi(List<Reference> theUdi) { 
+          this.udi = theUdi;
+          return this;
+        }
+
         public boolean hasUdi() { 
           if (this.udi == null)
             return false;
@@ -5245,10 +5431,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
-         */
-    // syntactic sugar
         public Reference addUdi() { //3
           Reference t = new Reference();
           if (this.udi == null)
@@ -5257,7 +5439,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public SubDetailComponent addUdi(Reference t) { //3
           if (t == null)
             return this;
@@ -5268,18 +5449,29 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @return {@link #udi} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         * @return The first repetition of repeating field {@link #udi}, creating it if it does not already exist
          */
+        public Reference getUdiFirstRep() { 
+          if (getUdi().isEmpty()) {
+            addUdi();
+          }
+          return getUdi().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Device> getUdiTarget() { 
           if (this.udiTarget == null)
             this.udiTarget = new ArrayList<Device>();
           return this.udiTarget;
         }
 
-    // syntactic sugar
         /**
-         * @return {@link #udi} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         * @deprecated Use Reference#setResource(IBaseResource) instead
          */
+        @Deprecated
         public Device addUdiTarget() { 
           Device r = new Device();
           if (this.udiTarget == null)
@@ -5297,6 +5489,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.adjudication;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SubDetailComponent setAdjudication(List<AdjudicationComponent> theAdjudication) { 
+          this.adjudication = theAdjudication;
+          return this;
+        }
+
         public boolean hasAdjudication() { 
           if (this.adjudication == null)
             return false;
@@ -5306,10 +5506,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #adjudication} (The adjudications results.)
-         */
-    // syntactic sugar
         public AdjudicationComponent addAdjudication() { //3
           AdjudicationComponent t = new AdjudicationComponent();
           if (this.adjudication == null)
@@ -5318,7 +5514,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public SubDetailComponent addAdjudication(AdjudicationComponent t) { //3
           if (t == null)
             return this;
@@ -5326,6 +5521,16 @@ public class ExplanationOfBenefit extends DomainResource {
             this.adjudication = new ArrayList<AdjudicationComponent>();
           this.adjudication.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #adjudication}, creating it if it does not already exist
+         */
+        public AdjudicationComponent getAdjudicationFirstRep() { 
+          if (getAdjudication().isEmpty()) {
+            addAdjudication();
+          }
+          return getAdjudication().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -5548,11 +5753,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
-           && (service == null || service.isEmpty()) && (programCode == null || programCode.isEmpty())
-           && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
-           && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty()) && (net == null || net.isEmpty())
-           && (udi == null || udi.isEmpty()) && (adjudication == null || adjudication.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, type, service
+          , programCode, quantity, unitPrice, factor, points, net, udi, adjudication);
       }
 
   public String fhirType() {
@@ -5817,8 +6019,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (initial == null || initial.isEmpty()) && (priorDate == null || priorDate.isEmpty())
-           && (priorMaterial == null || priorMaterial.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(initial, priorDate, priorMaterial
+          );
       }
 
   public String fhirType() {
@@ -5898,6 +6100,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.sequenceLinkId;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AddedItemComponent setSequenceLinkId(List<PositiveIntType> theSequenceLinkId) { 
+          this.sequenceLinkId = theSequenceLinkId;
+          return this;
+        }
+
         public boolean hasSequenceLinkId() { 
           if (this.sequenceLinkId == null)
             return false;
@@ -5910,7 +6120,6 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @return {@link #sequenceLinkId} (List of input service items which this service line is intended to replace.)
          */
-    // syntactic sugar
         public PositiveIntType addSequenceLinkIdElement() {//2 
           PositiveIntType t = new PositiveIntType();
           if (this.sequenceLinkId == null)
@@ -6000,6 +6209,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.noteNumberLinkId;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AddedItemComponent setNoteNumberLinkId(List<PositiveIntType> theNoteNumberLinkId) { 
+          this.noteNumberLinkId = theNoteNumberLinkId;
+          return this;
+        }
+
         public boolean hasNoteNumberLinkId() { 
           if (this.noteNumberLinkId == null)
             return false;
@@ -6012,7 +6229,6 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @return {@link #noteNumberLinkId} (A list of note references to the notes provided below.)
          */
-    // syntactic sugar
         public PositiveIntType addNoteNumberLinkIdElement() {//2 
           PositiveIntType t = new PositiveIntType();
           if (this.noteNumberLinkId == null)
@@ -6054,6 +6270,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.adjudication;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AddedItemComponent setAdjudication(List<AdjudicationComponent> theAdjudication) { 
+          this.adjudication = theAdjudication;
+          return this;
+        }
+
         public boolean hasAdjudication() { 
           if (this.adjudication == null)
             return false;
@@ -6063,10 +6287,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #adjudication} (The adjudications results.)
-         */
-    // syntactic sugar
         public AdjudicationComponent addAdjudication() { //3
           AdjudicationComponent t = new AdjudicationComponent();
           if (this.adjudication == null)
@@ -6075,7 +6295,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public AddedItemComponent addAdjudication(AdjudicationComponent t) { //3
           if (t == null)
             return this;
@@ -6083,6 +6302,16 @@ public class ExplanationOfBenefit extends DomainResource {
             this.adjudication = new ArrayList<AdjudicationComponent>();
           this.adjudication.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #adjudication}, creating it if it does not already exist
+         */
+        public AdjudicationComponent getAdjudicationFirstRep() { 
+          if (getAdjudication().isEmpty()) {
+            addAdjudication();
+          }
+          return getAdjudication().get(0);
         }
 
         /**
@@ -6094,6 +6323,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.detail;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AddedItemComponent setDetail(List<AddedItemsDetailComponent> theDetail) { 
+          this.detail = theDetail;
+          return this;
+        }
+
         public boolean hasDetail() { 
           if (this.detail == null)
             return false;
@@ -6103,10 +6340,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #detail} (The second tier service adjudications for payor added services.)
-         */
-    // syntactic sugar
         public AddedItemsDetailComponent addDetail() { //3
           AddedItemsDetailComponent t = new AddedItemsDetailComponent();
           if (this.detail == null)
@@ -6115,7 +6348,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public AddedItemComponent addDetail(AddedItemsDetailComponent t) { //3
           if (t == null)
             return this;
@@ -6123,6 +6355,16 @@ public class ExplanationOfBenefit extends DomainResource {
             this.detail = new ArrayList<AddedItemsDetailComponent>();
           this.detail.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #detail}, creating it if it does not already exist
+         */
+        public AddedItemsDetailComponent getDetailFirstRep() { 
+          if (getDetail().isEmpty()) {
+            addDetail();
+          }
+          return getDetail().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -6285,10 +6527,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequenceLinkId == null || sequenceLinkId.isEmpty()) && (service == null || service.isEmpty())
-           && (fee == null || fee.isEmpty()) && (noteNumberLinkId == null || noteNumberLinkId.isEmpty())
-           && (adjudication == null || adjudication.isEmpty()) && (detail == null || detail.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId, service, fee
+          , noteNumberLinkId, adjudication, detail);
       }
 
   public String fhirType() {
@@ -6395,6 +6635,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.adjudication;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AddedItemsDetailComponent setAdjudication(List<AdjudicationComponent> theAdjudication) { 
+          this.adjudication = theAdjudication;
+          return this;
+        }
+
         public boolean hasAdjudication() { 
           if (this.adjudication == null)
             return false;
@@ -6404,10 +6652,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #adjudication} (The adjudications results.)
-         */
-    // syntactic sugar
         public AdjudicationComponent addAdjudication() { //3
           AdjudicationComponent t = new AdjudicationComponent();
           if (this.adjudication == null)
@@ -6416,7 +6660,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public AddedItemsDetailComponent addAdjudication(AdjudicationComponent t) { //3
           if (t == null)
             return this;
@@ -6424,6 +6667,16 @@ public class ExplanationOfBenefit extends DomainResource {
             this.adjudication = new ArrayList<AdjudicationComponent>();
           this.adjudication.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #adjudication}, creating it if it does not already exist
+         */
+        public AdjudicationComponent getAdjudicationFirstRep() { 
+          if (getAdjudication().isEmpty()) {
+            addAdjudication();
+          }
+          return getAdjudication().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -6536,8 +6789,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (service == null || service.isEmpty()) && (fee == null || fee.isEmpty())
-           && (adjudication == null || adjudication.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(service, fee, adjudication
+          );
       }
 
   public String fhirType() {
@@ -6802,8 +7055,7 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (number == null || number.isEmpty()) && (type == null || type.isEmpty())
-           && (text == null || text.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(number, type, text);
       }
 
   public String fhirType() {
@@ -7003,6 +7255,14 @@ public class ExplanationOfBenefit extends DomainResource {
           return this.financial;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public BenefitBalanceComponent setFinancial(List<BenefitComponent> theFinancial) { 
+          this.financial = theFinancial;
+          return this;
+        }
+
         public boolean hasFinancial() { 
           if (this.financial == null)
             return false;
@@ -7012,10 +7272,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #financial} (Benefits Used to date.)
-         */
-    // syntactic sugar
         public BenefitComponent addFinancial() { //3
           BenefitComponent t = new BenefitComponent();
           if (this.financial == null)
@@ -7024,7 +7280,6 @@ public class ExplanationOfBenefit extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public BenefitBalanceComponent addFinancial(BenefitComponent t) { //3
           if (t == null)
             return this;
@@ -7032,6 +7287,16 @@ public class ExplanationOfBenefit extends DomainResource {
             this.financial = new ArrayList<BenefitComponent>();
           this.financial.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #financial}, creating it if it does not already exist
+         */
+        public BenefitComponent getFinancialFirstRep() { 
+          if (getFinancial().isEmpty()) {
+            addFinancial();
+          }
+          return getFinancial().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -7184,9 +7449,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (category == null || category.isEmpty()) && (subCategory == null || subCategory.isEmpty())
-           && (network == null || network.isEmpty()) && (unit == null || unit.isEmpty()) && (term == null || term.isEmpty())
-           && (financial == null || financial.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, subCategory, network
+          , unit, term, financial);
       }
 
   public String fhirType() {
@@ -7465,8 +7729,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (benefit == null || benefit.isEmpty())
-           && (benefitUsed == null || benefitUsed.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, benefit, benefitUsed
+          );
       }
 
   public String fhirType() {
@@ -7770,6 +8034,14 @@ public class ExplanationOfBenefit extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ExplanationOfBenefit setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -7779,10 +8051,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (The EOB Business Identifier.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -7791,7 +8059,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ExplanationOfBenefit addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -7799,6 +8066,16 @@ public class ExplanationOfBenefit extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -7945,6 +8222,14 @@ public class ExplanationOfBenefit extends DomainResource {
       return this.subType;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ExplanationOfBenefit setSubType(List<Coding> theSubType) { 
+      this.subType = theSubType;
+      return this;
+    }
+
     public boolean hasSubType() { 
       if (this.subType == null)
         return false;
@@ -7954,10 +8239,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #subType} (A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType.)
-     */
-    // syntactic sugar
     public Coding addSubType() { //3
       Coding t = new Coding();
       if (this.subType == null)
@@ -7966,7 +8247,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ExplanationOfBenefit addSubType(Coding t) { //3
       if (t == null)
         return this;
@@ -7974,6 +8254,16 @@ public class ExplanationOfBenefit extends DomainResource {
         this.subType = new ArrayList<Coding>();
       this.subType.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #subType}, creating it if it does not already exist
+     */
+    public Coding getSubTypeFirstRep() { 
+      if (getSubType().isEmpty()) {
+        addSubType();
+      }
+      return getSubType().get(0);
     }
 
     /**
@@ -8290,6 +8580,14 @@ public class ExplanationOfBenefit extends DomainResource {
       return this.related;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ExplanationOfBenefit setRelated(List<RelatedClaimComponent> theRelated) { 
+      this.related = theRelated;
+      return this;
+    }
+
     public boolean hasRelated() { 
       if (this.related == null)
         return false;
@@ -8299,10 +8597,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #related} (Other claims which are related to this claim such as prior claim versions or for related services.)
-     */
-    // syntactic sugar
     public RelatedClaimComponent addRelated() { //3
       RelatedClaimComponent t = new RelatedClaimComponent();
       if (this.related == null)
@@ -8311,7 +8605,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ExplanationOfBenefit addRelated(RelatedClaimComponent t) { //3
       if (t == null)
         return this;
@@ -8319,6 +8612,16 @@ public class ExplanationOfBenefit extends DomainResource {
         this.related = new ArrayList<RelatedClaimComponent>();
       this.related.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #related}, creating it if it does not already exist
+     */
+    public RelatedClaimComponent getRelatedFirstRep() { 
+      if (getRelated().isEmpty()) {
+        addRelated();
+      }
+      return getRelated().get(0);
     }
 
     /**
@@ -8489,6 +8792,14 @@ public class ExplanationOfBenefit extends DomainResource {
       return this.information;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ExplanationOfBenefit setInformation(List<InformationComponent> theInformation) { 
+      this.information = theInformation;
+      return this;
+    }
+
     public boolean hasInformation() { 
       if (this.information == null)
         return false;
@@ -8498,10 +8809,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #information} (Additional information codes regarding the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.)
-     */
-    // syntactic sugar
     public InformationComponent addInformation() { //3
       InformationComponent t = new InformationComponent();
       if (this.information == null)
@@ -8510,7 +8817,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ExplanationOfBenefit addInformation(InformationComponent t) { //3
       if (t == null)
         return this;
@@ -8518,6 +8824,16 @@ public class ExplanationOfBenefit extends DomainResource {
         this.information = new ArrayList<InformationComponent>();
       this.information.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #information}, creating it if it does not already exist
+     */
+    public InformationComponent getInformationFirstRep() { 
+      if (getInformation().isEmpty()) {
+        addInformation();
+      }
+      return getInformation().get(0);
     }
 
     /**
@@ -8529,6 +8845,14 @@ public class ExplanationOfBenefit extends DomainResource {
       return this.diagnosis;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ExplanationOfBenefit setDiagnosis(List<DiagnosisComponent> theDiagnosis) { 
+      this.diagnosis = theDiagnosis;
+      return this;
+    }
+
     public boolean hasDiagnosis() { 
       if (this.diagnosis == null)
         return false;
@@ -8538,10 +8862,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #diagnosis} (Ordered list of patient diagnosis for which care is sought.)
-     */
-    // syntactic sugar
     public DiagnosisComponent addDiagnosis() { //3
       DiagnosisComponent t = new DiagnosisComponent();
       if (this.diagnosis == null)
@@ -8550,7 +8870,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ExplanationOfBenefit addDiagnosis(DiagnosisComponent t) { //3
       if (t == null)
         return this;
@@ -8558,6 +8877,16 @@ public class ExplanationOfBenefit extends DomainResource {
         this.diagnosis = new ArrayList<DiagnosisComponent>();
       this.diagnosis.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #diagnosis}, creating it if it does not already exist
+     */
+    public DiagnosisComponent getDiagnosisFirstRep() { 
+      if (getDiagnosis().isEmpty()) {
+        addDiagnosis();
+      }
+      return getDiagnosis().get(0);
     }
 
     /**
@@ -8569,6 +8898,14 @@ public class ExplanationOfBenefit extends DomainResource {
       return this.procedure;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ExplanationOfBenefit setProcedure(List<ProcedureComponent> theProcedure) { 
+      this.procedure = theProcedure;
+      return this;
+    }
+
     public boolean hasProcedure() { 
       if (this.procedure == null)
         return false;
@@ -8578,10 +8915,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #procedure} (Ordered list of patient procedures performed to support the adjudication.)
-     */
-    // syntactic sugar
     public ProcedureComponent addProcedure() { //3
       ProcedureComponent t = new ProcedureComponent();
       if (this.procedure == null)
@@ -8590,7 +8923,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ExplanationOfBenefit addProcedure(ProcedureComponent t) { //3
       if (t == null)
         return this;
@@ -8598,6 +8930,16 @@ public class ExplanationOfBenefit extends DomainResource {
         this.procedure = new ArrayList<ProcedureComponent>();
       this.procedure.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #procedure}, creating it if it does not already exist
+     */
+    public ProcedureComponent getProcedureFirstRep() { 
+      if (getProcedure().isEmpty()) {
+        addProcedure();
+      }
+      return getProcedure().get(0);
     }
 
     /**
@@ -8723,6 +9065,14 @@ public class ExplanationOfBenefit extends DomainResource {
       return this.item;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ExplanationOfBenefit setItem(List<ItemComponent> theItem) { 
+      this.item = theItem;
+      return this;
+    }
+
     public boolean hasItem() { 
       if (this.item == null)
         return false;
@@ -8732,10 +9082,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #item} (First tier of goods and services.)
-     */
-    // syntactic sugar
     public ItemComponent addItem() { //3
       ItemComponent t = new ItemComponent();
       if (this.item == null)
@@ -8744,7 +9090,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ExplanationOfBenefit addItem(ItemComponent t) { //3
       if (t == null)
         return this;
@@ -8752,6 +9097,16 @@ public class ExplanationOfBenefit extends DomainResource {
         this.item = new ArrayList<ItemComponent>();
       this.item.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #item}, creating it if it does not already exist
+     */
+    public ItemComponent getItemFirstRep() { 
+      if (getItem().isEmpty()) {
+        addItem();
+      }
+      return getItem().get(0);
     }
 
     /**
@@ -8763,6 +9118,14 @@ public class ExplanationOfBenefit extends DomainResource {
       return this.addItem;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ExplanationOfBenefit setAddItem(List<AddedItemComponent> theAddItem) { 
+      this.addItem = theAddItem;
+      return this;
+    }
+
     public boolean hasAddItem() { 
       if (this.addItem == null)
         return false;
@@ -8772,10 +9135,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #addItem} (The first tier service adjudications for payor added services.)
-     */
-    // syntactic sugar
     public AddedItemComponent addAddItem() { //3
       AddedItemComponent t = new AddedItemComponent();
       if (this.addItem == null)
@@ -8784,7 +9143,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ExplanationOfBenefit addAddItem(AddedItemComponent t) { //3
       if (t == null)
         return this;
@@ -8792,6 +9150,16 @@ public class ExplanationOfBenefit extends DomainResource {
         this.addItem = new ArrayList<AddedItemComponent>();
       this.addItem.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #addItem}, creating it if it does not already exist
+     */
+    public AddedItemComponent getAddItemFirstRep() { 
+      if (getAddItem().isEmpty()) {
+        addAddItem();
+      }
+      return getAddItem().get(0);
     }
 
     /**
@@ -9068,6 +9436,14 @@ public class ExplanationOfBenefit extends DomainResource {
       return this.note;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ExplanationOfBenefit setNote(List<NoteComponent> theNote) { 
+      this.note = theNote;
+      return this;
+    }
+
     public boolean hasNote() { 
       if (this.note == null)
         return false;
@@ -9077,10 +9453,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #note} (Note text.)
-     */
-    // syntactic sugar
     public NoteComponent addNote() { //3
       NoteComponent t = new NoteComponent();
       if (this.note == null)
@@ -9089,7 +9461,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ExplanationOfBenefit addNote(NoteComponent t) { //3
       if (t == null)
         return this;
@@ -9097,6 +9468,16 @@ public class ExplanationOfBenefit extends DomainResource {
         this.note = new ArrayList<NoteComponent>();
       this.note.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
+     */
+    public NoteComponent getNoteFirstRep() { 
+      if (getNote().isEmpty()) {
+        addNote();
+      }
+      return getNote().get(0);
     }
 
     /**
@@ -9108,6 +9489,14 @@ public class ExplanationOfBenefit extends DomainResource {
       return this.benefitBalance;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ExplanationOfBenefit setBenefitBalance(List<BenefitBalanceComponent> theBenefitBalance) { 
+      this.benefitBalance = theBenefitBalance;
+      return this;
+    }
+
     public boolean hasBenefitBalance() { 
       if (this.benefitBalance == null)
         return false;
@@ -9117,10 +9506,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #benefitBalance} (Balance by Benefit Category.)
-     */
-    // syntactic sugar
     public BenefitBalanceComponent addBenefitBalance() { //3
       BenefitBalanceComponent t = new BenefitBalanceComponent();
       if (this.benefitBalance == null)
@@ -9129,7 +9514,6 @@ public class ExplanationOfBenefit extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ExplanationOfBenefit addBenefitBalance(BenefitBalanceComponent t) { //3
       if (t == null)
         return this;
@@ -9137,6 +9521,16 @@ public class ExplanationOfBenefit extends DomainResource {
         this.benefitBalance = new ArrayList<BenefitBalanceComponent>();
       this.benefitBalance.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #benefitBalance}, creating it if it does not already exist
+     */
+    public BenefitBalanceComponent getBenefitBalanceFirstRep() { 
+      if (getBenefitBalance().isEmpty()) {
+        addBenefitBalance();
+      }
+      return getBenefitBalance().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -9786,30 +10180,39 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (claim == null || claim.isEmpty())
-           && (claimResponse == null || claimResponse.isEmpty()) && (type == null || type.isEmpty())
-           && (subType == null || subType.isEmpty()) && (ruleset == null || ruleset.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
-           && (created == null || created.isEmpty()) && (billablePeriod == null || billablePeriod.isEmpty())
-           && (disposition == null || disposition.isEmpty()) && (provider == null || provider.isEmpty())
-           && (organization == null || organization.isEmpty()) && (facility == null || facility.isEmpty())
-           && (related == null || related.isEmpty()) && (prescription == null || prescription.isEmpty())
-           && (originalPrescription == null || originalPrescription.isEmpty()) && (payee == null || payee.isEmpty())
-           && (referral == null || referral.isEmpty()) && (information == null || information.isEmpty())
-           && (diagnosis == null || diagnosis.isEmpty()) && (procedure == null || procedure.isEmpty())
-           && (patient == null || patient.isEmpty()) && (precedence == null || precedence.isEmpty())
-           && (coverage == null || coverage.isEmpty()) && (item == null || item.isEmpty()) && (addItem == null || addItem.isEmpty())
-           && (totalCost == null || totalCost.isEmpty()) && (unallocDeductable == null || unallocDeductable.isEmpty())
-           && (totalBenefit == null || totalBenefit.isEmpty()) && (paymentAdjustment == null || paymentAdjustment.isEmpty())
-           && (paymentAdjustmentReason == null || paymentAdjustmentReason.isEmpty()) && (paymentDate == null || paymentDate.isEmpty())
-           && (paymentAmount == null || paymentAmount.isEmpty()) && (paymentRef == null || paymentRef.isEmpty())
-           && (reserved == null || reserved.isEmpty()) && (form == null || form.isEmpty()) && (note == null || note.isEmpty())
-           && (benefitBalance == null || benefitBalance.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, claim, claimResponse
+          , type, subType, ruleset, originalRuleset, created, billablePeriod, disposition
+          , provider, organization, facility, related, prescription, originalPrescription
+          , payee, referral, information, diagnosis, procedure, patient, precedence, coverage
+          , item, addItem, totalCost, unallocDeductable, totalBenefit, paymentAdjustment, paymentAdjustmentReason
+          , paymentDate, paymentAmount, paymentRef, reserved, form, note, benefitBalance
+          );
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.ExplanationOfBenefit;
    }
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>The business identifier of the Explanation of Benefit</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ExplanationOfBenefit.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="ExplanationOfBenefit.identifier", description="The business identifier of the Explanation of Benefit", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>The business identifier of the Explanation of Benefit</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ExplanationOfBenefit.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>patientidentifier</b>
@@ -9832,98 +10235,6 @@ public class ExplanationOfBenefit extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PATIENTIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PATIENTIDENTIFIER);
 
  /**
-   * Search parameter: <b>claimindentifier</b>
-   * <p>
-   * Description: <b>The reference to the claim</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ExplanationOfBenefit.claimIdentifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="claimindentifier", path="ExplanationOfBenefit.claim.as(Identifier)", description="The reference to the claim", type="token" )
-  public static final String SP_CLAIMINDENTIFIER = "claimindentifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>claimindentifier</b>
-   * <p>
-   * Description: <b>The reference to the claim</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ExplanationOfBenefit.claimIdentifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CLAIMINDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CLAIMINDENTIFIER);
-
- /**
-   * Search parameter: <b>facilityreference</b>
-   * <p>
-   * Description: <b>Facility responsible for the goods and services</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ExplanationOfBenefit.facilityReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="facilityreference", path="ExplanationOfBenefit.facility.as(Reference)", description="Facility responsible for the goods and services", type="reference" )
-  public static final String SP_FACILITYREFERENCE = "facilityreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>facilityreference</b>
-   * <p>
-   * Description: <b>Facility responsible for the goods and services</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ExplanationOfBenefit.facilityReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam FACILITYREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_FACILITYREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ExplanationOfBenefit:facilityreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_FACILITYREFERENCE = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:facilityreference").toLocked();
-
- /**
-   * Search parameter: <b>providerreference</b>
-   * <p>
-   * Description: <b>The reference to the provider</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ExplanationOfBenefit.providerReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="providerreference", path="ExplanationOfBenefit.provider.as(Reference)", description="The reference to the provider", type="reference" )
-  public static final String SP_PROVIDERREFERENCE = "providerreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
-   * <p>
-   * Description: <b>The reference to the provider</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ExplanationOfBenefit.providerReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDERREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ExplanationOfBenefit:providerreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDERREFERENCE = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:providerreference").toLocked();
-
- /**
-   * Search parameter: <b>facilityidentifier</b>
-   * <p>
-   * Description: <b>Facility responsible for the goods and services</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ExplanationOfBenefit.facilityIdentifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="facilityidentifier", path="ExplanationOfBenefit.facility.as(Identifier)", description="Facility responsible for the goods and services", type="token" )
-  public static final String SP_FACILITYIDENTIFIER = "facilityidentifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>facilityidentifier</b>
-   * <p>
-   * Description: <b>Facility responsible for the goods and services</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ExplanationOfBenefit.facilityIdentifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FACILITYIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FACILITYIDENTIFIER);
-
- /**
    * Search parameter: <b>organizationidentifier</b>
    * <p>
    * Description: <b>The reference to the providing organization</b><br>
@@ -9942,6 +10253,52 @@ public class ExplanationOfBenefit extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONIDENTIFIER);
+
+ /**
+   * Search parameter: <b>claimreference</b>
+   * <p>
+   * Description: <b>The reference to the claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ExplanationOfBenefit.claimReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="claimreference", path="ExplanationOfBenefit.claim.as(Reference)", description="The reference to the claim", type="reference" )
+  public static final String SP_CLAIMREFERENCE = "claimreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>claimreference</b>
+   * <p>
+   * Description: <b>The reference to the claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ExplanationOfBenefit.claimReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CLAIMREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CLAIMREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ExplanationOfBenefit:claimreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CLAIMREFERENCE = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:claimreference").toLocked();
+
+ /**
+   * Search parameter: <b>created</b>
+   * <p>
+   * Description: <b>The creation date for the EOB</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ExplanationOfBenefit.created</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="created", path="ExplanationOfBenefit.created", description="The creation date for the EOB", type="date" )
+  public static final String SP_CREATED = "created";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>created</b>
+   * <p>
+   * Description: <b>The creation date for the EOB</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ExplanationOfBenefit.created</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
 
  /**
    * Search parameter: <b>patientreference</b>
@@ -9970,24 +10327,30 @@ public class ExplanationOfBenefit extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENTREFERENCE = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:patientreference").toLocked();
 
  /**
-   * Search parameter: <b>created</b>
+   * Search parameter: <b>providerreference</b>
    * <p>
-   * Description: <b>The creation date for the EOB</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ExplanationOfBenefit.created</b><br>
+   * Description: <b>The reference to the provider</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ExplanationOfBenefit.providerReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="created", path="ExplanationOfBenefit.created", description="The creation date for the EOB", type="date" )
-  public static final String SP_CREATED = "created";
+  @SearchParamDefinition(name="providerreference", path="ExplanationOfBenefit.provider.as(Reference)", description="The reference to the provider", type="reference" )
+  public static final String SP_PROVIDERREFERENCE = "providerreference";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>created</b>
+   * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
    * <p>
-   * Description: <b>The creation date for the EOB</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ExplanationOfBenefit.created</b><br>
+   * Description: <b>The reference to the provider</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ExplanationOfBenefit.providerReference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDERREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ExplanationOfBenefit:providerreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDERREFERENCE = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:providerreference").toLocked();
 
  /**
    * Search parameter: <b>organizationreference</b>
@@ -10016,24 +10379,24 @@ public class ExplanationOfBenefit extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:organizationreference").toLocked();
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>provideridentifier</b>
    * <p>
-   * Description: <b>The business identifier of the Explanation of Benefit</b><br>
+   * Description: <b>The reference to the provider</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ExplanationOfBenefit.identifier</b><br>
+   * Path: <b>ExplanationOfBenefit.providerIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="ExplanationOfBenefit.identifier", description="The business identifier of the Explanation of Benefit", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="provideridentifier", path="ExplanationOfBenefit.provider.as(Identifier)", description="The reference to the provider", type="token" )
+  public static final String SP_PROVIDERIDENTIFIER = "provideridentifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>provideridentifier</b>
    * <p>
-   * Description: <b>The business identifier of the Explanation of Benefit</b><br>
+   * Description: <b>The reference to the provider</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ExplanationOfBenefit.identifier</b><br>
+   * Path: <b>ExplanationOfBenefit.providerIdentifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PROVIDERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PROVIDERIDENTIFIER);
 
  /**
    * Search parameter: <b>disposition</b>
@@ -10056,50 +10419,70 @@ public class ExplanationOfBenefit extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DISPOSITION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DISPOSITION);
 
  /**
-   * Search parameter: <b>provideridentifier</b>
+   * Search parameter: <b>facilityreference</b>
    * <p>
-   * Description: <b>The reference to the provider</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ExplanationOfBenefit.providerIdentifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="provideridentifier", path="ExplanationOfBenefit.provider.as(Identifier)", description="The reference to the provider", type="token" )
-  public static final String SP_PROVIDERIDENTIFIER = "provideridentifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>provideridentifier</b>
-   * <p>
-   * Description: <b>The reference to the provider</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ExplanationOfBenefit.providerIdentifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PROVIDERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PROVIDERIDENTIFIER);
-
- /**
-   * Search parameter: <b>claimreference</b>
-   * <p>
-   * Description: <b>The reference to the claim</b><br>
+   * Description: <b>Facility responsible for the goods and services</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ExplanationOfBenefit.claimReference</b><br>
+   * Path: <b>ExplanationOfBenefit.facilityReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="claimreference", path="ExplanationOfBenefit.claim.as(Reference)", description="The reference to the claim", type="reference" )
-  public static final String SP_CLAIMREFERENCE = "claimreference";
+  @SearchParamDefinition(name="facilityreference", path="ExplanationOfBenefit.facility.as(Reference)", description="Facility responsible for the goods and services", type="reference" )
+  public static final String SP_FACILITYREFERENCE = "facilityreference";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>claimreference</b>
+   * <b>Fluent Client</b> search parameter constant for <b>facilityreference</b>
    * <p>
-   * Description: <b>The reference to the claim</b><br>
+   * Description: <b>Facility responsible for the goods and services</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ExplanationOfBenefit.claimReference</b><br>
+   * Path: <b>ExplanationOfBenefit.facilityReference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CLAIMREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CLAIMREFERENCE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam FACILITYREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_FACILITYREFERENCE);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ExplanationOfBenefit:claimreference</b>".
+   * the path value of "<b>ExplanationOfBenefit:facilityreference</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CLAIMREFERENCE = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:claimreference").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_FACILITYREFERENCE = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:facilityreference").toLocked();
+
+ /**
+   * Search parameter: <b>claimindentifier</b>
+   * <p>
+   * Description: <b>The reference to the claim</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ExplanationOfBenefit.claimIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="claimindentifier", path="ExplanationOfBenefit.claim.as(Identifier)", description="The reference to the claim", type="token" )
+  public static final String SP_CLAIMINDENTIFIER = "claimindentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>claimindentifier</b>
+   * <p>
+   * Description: <b>The reference to the claim</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ExplanationOfBenefit.claimIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CLAIMINDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CLAIMINDENTIFIER);
+
+ /**
+   * Search parameter: <b>facilityidentifier</b>
+   * <p>
+   * Description: <b>Facility responsible for the goods and services</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ExplanationOfBenefit.facilityIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="facilityidentifier", path="ExplanationOfBenefit.facility.as(Identifier)", description="Facility responsible for the goods and services", type="token" )
+  public static final String SP_FACILITYIDENTIFIER = "facilityidentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>facilityidentifier</b>
+   * <p>
+   * Description: <b>Facility responsible for the goods and services</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ExplanationOfBenefit.facilityIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FACILITYIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FACILITYIDENTIFIER);
 
 
 }

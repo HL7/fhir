@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -668,8 +668,7 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (plan == null || plan.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, plan);
       }
 
   public String fhirType() {
@@ -737,6 +736,14 @@ public class CarePlan extends DomainResource {
           return this.actionResulting;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CarePlanActivityComponent setActionResulting(List<Reference> theActionResulting) { 
+          this.actionResulting = theActionResulting;
+          return this;
+        }
+
         public boolean hasActionResulting() { 
           if (this.actionResulting == null)
             return false;
@@ -746,10 +753,6 @@ public class CarePlan extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #actionResulting} (Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.)
-         */
-    // syntactic sugar
         public Reference addActionResulting() { //3
           Reference t = new Reference();
           if (this.actionResulting == null)
@@ -758,7 +761,6 @@ public class CarePlan extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public CarePlanActivityComponent addActionResulting(Reference t) { //3
           if (t == null)
             return this;
@@ -769,8 +771,19 @@ public class CarePlan extends DomainResource {
         }
 
         /**
-         * @return {@link #actionResulting} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.)
+         * @return The first repetition of repeating field {@link #actionResulting}, creating it if it does not already exist
          */
+        public Reference getActionResultingFirstRep() { 
+          if (getActionResulting().isEmpty()) {
+            addActionResulting();
+          }
+          return getActionResulting().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Resource> getActionResultingTarget() { 
           if (this.actionResultingTarget == null)
             this.actionResultingTarget = new ArrayList<Resource>();
@@ -786,6 +799,14 @@ public class CarePlan extends DomainResource {
           return this.progress;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CarePlanActivityComponent setProgress(List<Annotation> theProgress) { 
+          this.progress = theProgress;
+          return this;
+        }
+
         public boolean hasProgress() { 
           if (this.progress == null)
             return false;
@@ -795,10 +816,6 @@ public class CarePlan extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #progress} (Notes about the adherence/status/progress of the activity.)
-         */
-    // syntactic sugar
         public Annotation addProgress() { //3
           Annotation t = new Annotation();
           if (this.progress == null)
@@ -807,7 +824,6 @@ public class CarePlan extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public CarePlanActivityComponent addProgress(Annotation t) { //3
           if (t == null)
             return this;
@@ -815,6 +831,16 @@ public class CarePlan extends DomainResource {
             this.progress = new ArrayList<Annotation>();
           this.progress.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #progress}, creating it if it does not already exist
+         */
+        public Annotation getProgressFirstRep() { 
+          if (getProgress().isEmpty()) {
+            addProgress();
+          }
+          return getProgress().get(0);
         }
 
         /**
@@ -1006,8 +1032,8 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (actionResulting == null || actionResulting.isEmpty()) && (progress == null || progress.isEmpty())
-           && (reference == null || reference.isEmpty()) && (detail == null || detail.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionResulting, progress
+          , reference, detail);
       }
 
   public String fhirType() {
@@ -1218,6 +1244,14 @@ public class CarePlan extends DomainResource {
           return this.reasonCode;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CarePlanActivityDetailComponent setReasonCode(List<CodeableConcept> theReasonCode) { 
+          this.reasonCode = theReasonCode;
+          return this;
+        }
+
         public boolean hasReasonCode() { 
           if (this.reasonCode == null)
             return false;
@@ -1227,10 +1261,6 @@ public class CarePlan extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #reasonCode} (Provides the rationale that drove the inclusion of this particular activity as part of the plan.)
-         */
-    // syntactic sugar
         public CodeableConcept addReasonCode() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.reasonCode == null)
@@ -1239,7 +1269,6 @@ public class CarePlan extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public CarePlanActivityDetailComponent addReasonCode(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -1247,6 +1276,16 @@ public class CarePlan extends DomainResource {
             this.reasonCode = new ArrayList<CodeableConcept>();
           this.reasonCode.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #reasonCode}, creating it if it does not already exist
+         */
+        public CodeableConcept getReasonCodeFirstRep() { 
+          if (getReasonCode().isEmpty()) {
+            addReasonCode();
+          }
+          return getReasonCode().get(0);
         }
 
         /**
@@ -1258,6 +1297,14 @@ public class CarePlan extends DomainResource {
           return this.reasonReference;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CarePlanActivityDetailComponent setReasonReference(List<Reference> theReasonReference) { 
+          this.reasonReference = theReasonReference;
+          return this;
+        }
+
         public boolean hasReasonReference() { 
           if (this.reasonReference == null)
             return false;
@@ -1267,10 +1314,6 @@ public class CarePlan extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #reasonReference} (Provides the health condition(s) that drove the inclusion of this particular activity as part of the plan.)
-         */
-    // syntactic sugar
         public Reference addReasonReference() { //3
           Reference t = new Reference();
           if (this.reasonReference == null)
@@ -1279,7 +1322,6 @@ public class CarePlan extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public CarePlanActivityDetailComponent addReasonReference(Reference t) { //3
           if (t == null)
             return this;
@@ -1290,18 +1332,29 @@ public class CarePlan extends DomainResource {
         }
 
         /**
-         * @return {@link #reasonReference} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Provides the health condition(s) that drove the inclusion of this particular activity as part of the plan.)
+         * @return The first repetition of repeating field {@link #reasonReference}, creating it if it does not already exist
          */
+        public Reference getReasonReferenceFirstRep() { 
+          if (getReasonReference().isEmpty()) {
+            addReasonReference();
+          }
+          return getReasonReference().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Condition> getReasonReferenceTarget() { 
           if (this.reasonReferenceTarget == null)
             this.reasonReferenceTarget = new ArrayList<Condition>();
           return this.reasonReferenceTarget;
         }
 
-    // syntactic sugar
         /**
-         * @return {@link #reasonReference} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Provides the health condition(s) that drove the inclusion of this particular activity as part of the plan.)
+         * @deprecated Use Reference#setResource(IBaseResource) instead
          */
+        @Deprecated
         public Condition addReasonReferenceTarget() { 
           Condition r = new Condition();
           if (this.reasonReferenceTarget == null)
@@ -1319,6 +1372,14 @@ public class CarePlan extends DomainResource {
           return this.goal;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CarePlanActivityDetailComponent setGoal(List<Reference> theGoal) { 
+          this.goal = theGoal;
+          return this;
+        }
+
         public boolean hasGoal() { 
           if (this.goal == null)
             return false;
@@ -1328,10 +1389,6 @@ public class CarePlan extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #goal} (Internal reference that identifies the goals that this activity is intended to contribute towards meeting.)
-         */
-    // syntactic sugar
         public Reference addGoal() { //3
           Reference t = new Reference();
           if (this.goal == null)
@@ -1340,7 +1397,6 @@ public class CarePlan extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public CarePlanActivityDetailComponent addGoal(Reference t) { //3
           if (t == null)
             return this;
@@ -1351,18 +1407,29 @@ public class CarePlan extends DomainResource {
         }
 
         /**
-         * @return {@link #goal} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Internal reference that identifies the goals that this activity is intended to contribute towards meeting.)
+         * @return The first repetition of repeating field {@link #goal}, creating it if it does not already exist
          */
+        public Reference getGoalFirstRep() { 
+          if (getGoal().isEmpty()) {
+            addGoal();
+          }
+          return getGoal().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Goal> getGoalTarget() { 
           if (this.goalTarget == null)
             this.goalTarget = new ArrayList<Goal>();
           return this.goalTarget;
         }
 
-    // syntactic sugar
         /**
-         * @return {@link #goal} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Internal reference that identifies the goals that this activity is intended to contribute towards meeting.)
+         * @deprecated Use Reference#setResource(IBaseResource) instead
          */
+        @Deprecated
         public Goal addGoalTarget() { 
           Goal r = new Goal();
           if (this.goalTarget == null)
@@ -1600,6 +1667,14 @@ public class CarePlan extends DomainResource {
           return this.performer;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CarePlanActivityDetailComponent setPerformer(List<Reference> thePerformer) { 
+          this.performer = thePerformer;
+          return this;
+        }
+
         public boolean hasPerformer() { 
           if (this.performer == null)
             return false;
@@ -1609,10 +1684,6 @@ public class CarePlan extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #performer} (Identifies who's expected to be involved in the activity.)
-         */
-    // syntactic sugar
         public Reference addPerformer() { //3
           Reference t = new Reference();
           if (this.performer == null)
@@ -1621,7 +1692,6 @@ public class CarePlan extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public CarePlanActivityDetailComponent addPerformer(Reference t) { //3
           if (t == null)
             return this;
@@ -1632,8 +1702,19 @@ public class CarePlan extends DomainResource {
         }
 
         /**
-         * @return {@link #performer} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies who's expected to be involved in the activity.)
+         * @return The first repetition of repeating field {@link #performer}, creating it if it does not already exist
          */
+        public Reference getPerformerFirstRep() { 
+          if (getPerformer().isEmpty()) {
+            addPerformer();
+          }
+          return getPerformer().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Resource> getPerformerTarget() { 
           if (this.performerTarget == null)
             this.performerTarget = new ArrayList<Resource>();
@@ -2071,14 +2152,9 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (category == null || category.isEmpty()) && (code == null || code.isEmpty())
-           && (reasonCode == null || reasonCode.isEmpty()) && (reasonReference == null || reasonReference.isEmpty())
-           && (goal == null || goal.isEmpty()) && (status == null || status.isEmpty()) && (statusReason == null || statusReason.isEmpty())
-           && (prohibited == null || prohibited.isEmpty()) && (scheduled == null || scheduled.isEmpty())
-           && (location == null || location.isEmpty()) && (performer == null || performer.isEmpty())
-           && (product == null || product.isEmpty()) && (dailyAmount == null || dailyAmount.isEmpty())
-           && (quantity == null || quantity.isEmpty()) && (description == null || description.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, code, reasonCode
+          , reasonReference, goal, status, statusReason, prohibited, scheduled, location
+          , performer, product, dailyAmount, quantity, description);
       }
 
   public String fhirType() {
@@ -2261,6 +2337,14 @@ public class CarePlan extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CarePlan setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -2270,10 +2354,6 @@ public class CarePlan extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -2282,7 +2362,6 @@ public class CarePlan extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public CarePlan addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -2290,6 +2369,16 @@ public class CarePlan extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -2448,6 +2537,14 @@ public class CarePlan extends DomainResource {
       return this.author;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CarePlan setAuthor(List<Reference> theAuthor) { 
+      this.author = theAuthor;
+      return this;
+    }
+
     public boolean hasAuthor() { 
       if (this.author == null)
         return false;
@@ -2457,10 +2554,6 @@ public class CarePlan extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #author} (Identifies the individual(s) or ogranization who is responsible for the content of the care plan.)
-     */
-    // syntactic sugar
     public Reference addAuthor() { //3
       Reference t = new Reference();
       if (this.author == null)
@@ -2469,7 +2562,6 @@ public class CarePlan extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public CarePlan addAuthor(Reference t) { //3
       if (t == null)
         return this;
@@ -2480,8 +2572,19 @@ public class CarePlan extends DomainResource {
     }
 
     /**
-     * @return {@link #author} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies the individual(s) or ogranization who is responsible for the content of the care plan.)
+     * @return The first repetition of repeating field {@link #author}, creating it if it does not already exist
      */
+    public Reference getAuthorFirstRep() { 
+      if (getAuthor().isEmpty()) {
+        addAuthor();
+      }
+      return getAuthor().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getAuthorTarget() { 
       if (this.authorTarget == null)
         this.authorTarget = new ArrayList<Resource>();
@@ -2546,6 +2649,14 @@ public class CarePlan extends DomainResource {
       return this.category;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CarePlan setCategory(List<CodeableConcept> theCategory) { 
+      this.category = theCategory;
+      return this;
+    }
+
     public boolean hasCategory() { 
       if (this.category == null)
         return false;
@@ -2555,10 +2666,6 @@ public class CarePlan extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #category} (Identifies what "kind" of plan this is to support differentiation between multiple co-existing plans; e.g. "Home health", "psychiatric", "asthma", "disease management", "wellness plan", etc.)
-     */
-    // syntactic sugar
     public CodeableConcept addCategory() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.category == null)
@@ -2567,7 +2674,6 @@ public class CarePlan extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public CarePlan addCategory(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -2575,6 +2681,16 @@ public class CarePlan extends DomainResource {
         this.category = new ArrayList<CodeableConcept>();
       this.category.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #category}, creating it if it does not already exist
+     */
+    public CodeableConcept getCategoryFirstRep() { 
+      if (getCategory().isEmpty()) {
+        addCategory();
+      }
+      return getCategory().get(0);
     }
 
     /**
@@ -2635,6 +2751,14 @@ public class CarePlan extends DomainResource {
       return this.addresses;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CarePlan setAddresses(List<Reference> theAddresses) { 
+      this.addresses = theAddresses;
+      return this;
+    }
+
     public boolean hasAddresses() { 
       if (this.addresses == null)
         return false;
@@ -2644,10 +2768,6 @@ public class CarePlan extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #addresses} (Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.)
-     */
-    // syntactic sugar
     public Reference addAddresses() { //3
       Reference t = new Reference();
       if (this.addresses == null)
@@ -2656,7 +2776,6 @@ public class CarePlan extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public CarePlan addAddresses(Reference t) { //3
       if (t == null)
         return this;
@@ -2667,18 +2786,29 @@ public class CarePlan extends DomainResource {
     }
 
     /**
-     * @return {@link #addresses} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.)
+     * @return The first repetition of repeating field {@link #addresses}, creating it if it does not already exist
      */
+    public Reference getAddressesFirstRep() { 
+      if (getAddresses().isEmpty()) {
+        addAddresses();
+      }
+      return getAddresses().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Condition> getAddressesTarget() { 
       if (this.addressesTarget == null)
         this.addressesTarget = new ArrayList<Condition>();
       return this.addressesTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #addresses} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Condition addAddressesTarget() { 
       Condition r = new Condition();
       if (this.addressesTarget == null)
@@ -2696,6 +2826,14 @@ public class CarePlan extends DomainResource {
       return this.support;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CarePlan setSupport(List<Reference> theSupport) { 
+      this.support = theSupport;
+      return this;
+    }
+
     public boolean hasSupport() { 
       if (this.support == null)
         return false;
@@ -2705,10 +2843,6 @@ public class CarePlan extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #support} (Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include co-morbidities, recent procedures, limitations, recent assessments, etc.)
-     */
-    // syntactic sugar
     public Reference addSupport() { //3
       Reference t = new Reference();
       if (this.support == null)
@@ -2717,7 +2851,6 @@ public class CarePlan extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public CarePlan addSupport(Reference t) { //3
       if (t == null)
         return this;
@@ -2728,8 +2861,19 @@ public class CarePlan extends DomainResource {
     }
 
     /**
-     * @return {@link #support} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include co-morbidities, recent procedures, limitations, recent assessments, etc.)
+     * @return The first repetition of repeating field {@link #support}, creating it if it does not already exist
      */
+    public Reference getSupportFirstRep() { 
+      if (getSupport().isEmpty()) {
+        addSupport();
+      }
+      return getSupport().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getSupportTarget() { 
       if (this.supportTarget == null)
         this.supportTarget = new ArrayList<Resource>();
@@ -2745,6 +2889,14 @@ public class CarePlan extends DomainResource {
       return this.relatedPlan;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CarePlan setRelatedPlan(List<CarePlanRelatedPlanComponent> theRelatedPlan) { 
+      this.relatedPlan = theRelatedPlan;
+      return this;
+    }
+
     public boolean hasRelatedPlan() { 
       if (this.relatedPlan == null)
         return false;
@@ -2754,10 +2906,6 @@ public class CarePlan extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #relatedPlan} (Identifies CarePlans with some sort of formal relationship to the current plan.)
-     */
-    // syntactic sugar
     public CarePlanRelatedPlanComponent addRelatedPlan() { //3
       CarePlanRelatedPlanComponent t = new CarePlanRelatedPlanComponent();
       if (this.relatedPlan == null)
@@ -2766,7 +2914,6 @@ public class CarePlan extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public CarePlan addRelatedPlan(CarePlanRelatedPlanComponent t) { //3
       if (t == null)
         return this;
@@ -2774,6 +2921,16 @@ public class CarePlan extends DomainResource {
         this.relatedPlan = new ArrayList<CarePlanRelatedPlanComponent>();
       this.relatedPlan.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #relatedPlan}, creating it if it does not already exist
+     */
+    public CarePlanRelatedPlanComponent getRelatedPlanFirstRep() { 
+      if (getRelatedPlan().isEmpty()) {
+        addRelatedPlan();
+      }
+      return getRelatedPlan().get(0);
     }
 
     /**
@@ -2829,6 +2986,14 @@ public class CarePlan extends DomainResource {
       return this.goal;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CarePlan setGoal(List<Reference> theGoal) { 
+      this.goal = theGoal;
+      return this;
+    }
+
     public boolean hasGoal() { 
       if (this.goal == null)
         return false;
@@ -2838,10 +3003,6 @@ public class CarePlan extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #goal} (Describes the intended objective(s) of carrying out the care plan.)
-     */
-    // syntactic sugar
     public Reference addGoal() { //3
       Reference t = new Reference();
       if (this.goal == null)
@@ -2850,7 +3011,6 @@ public class CarePlan extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public CarePlan addGoal(Reference t) { //3
       if (t == null)
         return this;
@@ -2861,18 +3021,29 @@ public class CarePlan extends DomainResource {
     }
 
     /**
-     * @return {@link #goal} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Describes the intended objective(s) of carrying out the care plan.)
+     * @return The first repetition of repeating field {@link #goal}, creating it if it does not already exist
      */
+    public Reference getGoalFirstRep() { 
+      if (getGoal().isEmpty()) {
+        addGoal();
+      }
+      return getGoal().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Goal> getGoalTarget() { 
       if (this.goalTarget == null)
         this.goalTarget = new ArrayList<Goal>();
       return this.goalTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #goal} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Describes the intended objective(s) of carrying out the care plan.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Goal addGoalTarget() { 
       Goal r = new Goal();
       if (this.goalTarget == null)
@@ -2890,6 +3061,14 @@ public class CarePlan extends DomainResource {
       return this.activity;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CarePlan setActivity(List<CarePlanActivityComponent> theActivity) { 
+      this.activity = theActivity;
+      return this;
+    }
+
     public boolean hasActivity() { 
       if (this.activity == null)
         return false;
@@ -2899,10 +3078,6 @@ public class CarePlan extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #activity} (Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.)
-     */
-    // syntactic sugar
     public CarePlanActivityComponent addActivity() { //3
       CarePlanActivityComponent t = new CarePlanActivityComponent();
       if (this.activity == null)
@@ -2911,7 +3086,6 @@ public class CarePlan extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public CarePlan addActivity(CarePlanActivityComponent t) { //3
       if (t == null)
         return this;
@@ -2919,6 +3093,16 @@ public class CarePlan extends DomainResource {
         this.activity = new ArrayList<CarePlanActivityComponent>();
       this.activity.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #activity}, creating it if it does not already exist
+     */
+    public CarePlanActivityComponent getActivityFirstRep() { 
+      if (getActivity().isEmpty()) {
+        addActivity();
+      }
+      return getActivity().get(0);
     }
 
     /**
@@ -3256,137 +3440,15 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (subject == null || subject.isEmpty())
-           && (status == null || status.isEmpty()) && (context == null || context.isEmpty()) && (period == null || period.isEmpty())
-           && (author == null || author.isEmpty()) && (modified == null || modified.isEmpty()) && (category == null || category.isEmpty())
-           && (description == null || description.isEmpty()) && (addresses == null || addresses.isEmpty())
-           && (support == null || support.isEmpty()) && (relatedPlan == null || relatedPlan.isEmpty())
-           && (careTeam == null || careTeam.isEmpty()) && (goal == null || goal.isEmpty()) && (activity == null || activity.isEmpty())
-           && (note == null || note.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, subject, status
+          , context, period, author, modified, category, description, addresses, support
+          , relatedPlan, careTeam, goal, activity, note);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.CarePlan;
    }
-
- /**
-   * Search parameter: <b>careteam</b>
-   * <p>
-   * Description: <b>Who's involved in plan?</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.careTeam</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="careteam", path="CarePlan.careTeam", description="Who's involved in plan?", type="reference" )
-  public static final String SP_CARETEAM = "careteam";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>careteam</b>
-   * <p>
-   * Description: <b>Who's involved in plan?</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.careTeam</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CARETEAM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CARETEAM);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CarePlan:careteam</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CARETEAM = new ca.uhn.fhir.model.api.Include("CarePlan:careteam").toLocked();
-
- /**
-   * Search parameter: <b>activitycode</b>
-   * <p>
-   * Description: <b>Detail type of activity</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CarePlan.activity.detail.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="activitycode", path="CarePlan.activity.detail.code", description="Detail type of activity", type="token" )
-  public static final String SP_ACTIVITYCODE = "activitycode";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>activitycode</b>
-   * <p>
-   * Description: <b>Detail type of activity</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CarePlan.activity.detail.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTIVITYCODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTIVITYCODE);
-
- /**
-   * Search parameter: <b>condition</b>
-   * <p>
-   * Description: <b>Health issues this plan addresses</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.addresses</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="condition", path="CarePlan.addresses", description="Health issues this plan addresses", type="reference" )
-  public static final String SP_CONDITION = "condition";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>condition</b>
-   * <p>
-   * Description: <b>Health issues this plan addresses</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.addresses</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONDITION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONDITION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CarePlan:condition</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONDITION = new ca.uhn.fhir.model.api.Include("CarePlan:condition").toLocked();
-
- /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>Who care plan is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subject", path="CarePlan.subject", description="Who care plan is for", type="reference" )
-  public static final String SP_SUBJECT = "subject";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
-   * <p>
-   * Description: <b>Who care plan is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CarePlan:subject</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("CarePlan:subject").toLocked();
-
- /**
-   * Search parameter: <b>activitydate</b>
-   * <p>
-   * Description: <b>Specified date occurs within period specified by CarePlan.activity.timingSchedule</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>CarePlan.activity.detail.scheduled[x]</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="activitydate", path="CarePlan.activity.detail.scheduled", description="Specified date occurs within period specified by CarePlan.activity.timingSchedule", type="date" )
-  public static final String SP_ACTIVITYDATE = "activitydate";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>activitydate</b>
-   * <p>
-   * Description: <b>Specified date occurs within period specified by CarePlan.activity.timingSchedule</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>CarePlan.activity.detail.scheduled[x]</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam ACTIVITYDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ACTIVITYDATE);
 
  /**
    * Search parameter: <b>date</b>
@@ -3409,142 +3471,44 @@ public class CarePlan extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>goal</b>
+   * Search parameter: <b>activitycode</b>
    * <p>
-   * Description: <b>Desired outcome of plan</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.goal</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="goal", path="CarePlan.goal", description="Desired outcome of plan", type="reference" )
-  public static final String SP_GOAL = "goal";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>goal</b>
-   * <p>
-   * Description: <b>Desired outcome of plan</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.goal</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam GOAL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_GOAL);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CarePlan:goal</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_GOAL = new ca.uhn.fhir.model.api.Include("CarePlan:goal").toLocked();
-
- /**
-   * Search parameter: <b>related</b>
-   * <p>
-   * Description: <b>A combination of the type of relationship and the related plan</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="related", path="", description="A combination of the type of relationship and the related plan", type="composite", compositeOf={"relatedcode", "relatedplan"} )
-  public static final String SP_RELATED = "related";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>related</b>
-   * <p>
-   * Description: <b>A combination of the type of relationship and the related plan</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.ReferenceClientParam> RELATED = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.ReferenceClientParam>(SP_RELATED);
-
- /**
-   * Search parameter: <b>relatedcode</b>
-   * <p>
-   * Description: <b>includes | replaces | fulfills</b><br>
+   * Description: <b>Detail type of activity</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>CarePlan.relatedPlan.code</b><br>
+   * Path: <b>CarePlan.activity.detail.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="relatedcode", path="CarePlan.relatedPlan.code", description="includes | replaces | fulfills", type="token" )
-  public static final String SP_RELATEDCODE = "relatedcode";
+  @SearchParamDefinition(name="activitycode", path="CarePlan.activity.detail.code", description="Detail type of activity", type="token" )
+  public static final String SP_ACTIVITYCODE = "activitycode";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>relatedcode</b>
+   * <b>Fluent Client</b> search parameter constant for <b>activitycode</b>
    * <p>
-   * Description: <b>includes | replaces | fulfills</b><br>
+   * Description: <b>Detail type of activity</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>CarePlan.relatedPlan.code</b><br>
+   * Path: <b>CarePlan.activity.detail.code</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RELATEDCODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RELATEDCODE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTIVITYCODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTIVITYCODE);
 
  /**
-   * Search parameter: <b>category</b>
+   * Search parameter: <b>activitydate</b>
    * <p>
-   * Description: <b>Type of plan</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CarePlan.category</b><br>
+   * Description: <b>Specified date occurs within period specified by CarePlan.activity.timingSchedule</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>CarePlan.activity.detail.scheduled[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="category", path="CarePlan.category", description="Type of plan", type="token" )
-  public static final String SP_CATEGORY = "category";
+  @SearchParamDefinition(name="activitydate", path="CarePlan.activity.detail.scheduled", description="Specified date occurs within period specified by CarePlan.activity.timingSchedule", type="date" )
+  public static final String SP_ACTIVITYDATE = "activitydate";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <b>Fluent Client</b> search parameter constant for <b>activitydate</b>
    * <p>
-   * Description: <b>Type of plan</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CarePlan.category</b><br>
+   * Description: <b>Specified date occurs within period specified by CarePlan.activity.timingSchedule</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>CarePlan.activity.detail.scheduled[x]</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Who care plan is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="CarePlan.subject", description="Who care plan is for", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Who care plan is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CarePlan:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("CarePlan:patient").toLocked();
-
- /**
-   * Search parameter: <b>performer</b>
-   * <p>
-   * Description: <b>Matches if the practitioner is listed as a performer in any of the "simple" activities.  (For performers of the detailed activities, chain through the activitydetail search parameter.)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.activity.detail.performer</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="performer", path="CarePlan.activity.detail.performer", description="Matches if the practitioner is listed as a performer in any of the \"simple\" activities.  (For performers of the detailed activities, chain through the activitydetail search parameter.)", type="reference" )
-  public static final String SP_PERFORMER = "performer";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>performer</b>
-   * <p>
-   * Description: <b>Matches if the practitioner is listed as a performer in any of the "simple" activities.  (For performers of the detailed activities, chain through the activitydetail search parameter.)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.activity.detail.performer</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PERFORMER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CarePlan:performer</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("CarePlan:performer").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam ACTIVITYDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ACTIVITYDATE);
 
  /**
    * Search parameter: <b>activityreference</b>
@@ -3573,6 +3537,130 @@ public class CarePlan extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ACTIVITYREFERENCE = new ca.uhn.fhir.model.api.Include("CarePlan:activityreference").toLocked();
 
  /**
+   * Search parameter: <b>performer</b>
+   * <p>
+   * Description: <b>Matches if the practitioner is listed as a performer in any of the "simple" activities.  (For performers of the detailed activities, chain through the activitydetail search parameter.)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.activity.detail.performer</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="performer", path="CarePlan.activity.detail.performer", description="Matches if the practitioner is listed as a performer in any of the \"simple\" activities.  (For performers of the detailed activities, chain through the activitydetail search parameter.)", type="reference" )
+  public static final String SP_PERFORMER = "performer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>performer</b>
+   * <p>
+   * Description: <b>Matches if the practitioner is listed as a performer in any of the "simple" activities.  (For performers of the detailed activities, chain through the activitydetail search parameter.)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.activity.detail.performer</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PERFORMER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CarePlan:performer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("CarePlan:performer").toLocked();
+
+ /**
+   * Search parameter: <b>goal</b>
+   * <p>
+   * Description: <b>Desired outcome of plan</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.goal</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="goal", path="CarePlan.goal", description="Desired outcome of plan", type="reference" )
+  public static final String SP_GOAL = "goal";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>goal</b>
+   * <p>
+   * Description: <b>Desired outcome of plan</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.goal</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam GOAL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_GOAL);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CarePlan:goal</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_GOAL = new ca.uhn.fhir.model.api.Include("CarePlan:goal").toLocked();
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>Who care plan is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="CarePlan.subject", description="Who care plan is for", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>Who care plan is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CarePlan:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("CarePlan:subject").toLocked();
+
+ /**
+   * Search parameter: <b>relatedcode</b>
+   * <p>
+   * Description: <b>includes | replaces | fulfills</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CarePlan.relatedPlan.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="relatedcode", path="CarePlan.relatedPlan.code", description="includes | replaces | fulfills", type="token" )
+  public static final String SP_RELATEDCODE = "relatedcode";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>relatedcode</b>
+   * <p>
+   * Description: <b>includes | replaces | fulfills</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CarePlan.relatedPlan.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RELATEDCODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RELATEDCODE);
+
+ /**
+   * Search parameter: <b>careteam</b>
+   * <p>
+   * Description: <b>Who's involved in plan?</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.careTeam</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="careteam", path="CarePlan.careTeam", description="Who's involved in plan?", type="reference" )
+  public static final String SP_CARETEAM = "careteam";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>careteam</b>
+   * <p>
+   * Description: <b>Who's involved in plan?</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.careTeam</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CARETEAM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CARETEAM);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CarePlan:careteam</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CARETEAM = new ca.uhn.fhir.model.api.Include("CarePlan:careteam").toLocked();
+
+ /**
    * Search parameter: <b>relatedplan</b>
    * <p>
    * Description: <b>Plan relationship exists with</b><br>
@@ -3597,6 +3685,98 @@ public class CarePlan extends DomainResource {
    * the path value of "<b>CarePlan:relatedplan</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_RELATEDPLAN = new ca.uhn.fhir.model.api.Include("CarePlan:relatedplan").toLocked();
+
+ /**
+   * Search parameter: <b>condition</b>
+   * <p>
+   * Description: <b>Health issues this plan addresses</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.addresses</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="condition", path="CarePlan.addresses", description="Health issues this plan addresses", type="reference" )
+  public static final String SP_CONDITION = "condition";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>condition</b>
+   * <p>
+   * Description: <b>Health issues this plan addresses</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.addresses</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONDITION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONDITION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CarePlan:condition</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONDITION = new ca.uhn.fhir.model.api.Include("CarePlan:condition").toLocked();
+
+ /**
+   * Search parameter: <b>related</b>
+   * <p>
+   * Description: <b>A combination of the type of relationship and the related plan</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="related", path="", description="A combination of the type of relationship and the related plan", type="composite", compositeOf={"relatedcode", "relatedplan"} )
+  public static final String SP_RELATED = "related";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>related</b>
+   * <p>
+   * Description: <b>A combination of the type of relationship and the related plan</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.ReferenceClientParam> RELATED = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.ReferenceClientParam>(SP_RELATED);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Who care plan is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="CarePlan.subject", description="Who care plan is for", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Who care plan is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CarePlan:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("CarePlan:patient").toLocked();
+
+ /**
+   * Search parameter: <b>category</b>
+   * <p>
+   * Description: <b>Type of plan</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CarePlan.category</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="category", path="CarePlan.category", description="Type of plan", type="token" )
+  public static final String SP_CATEGORY = "category";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <p>
+   * Description: <b>Type of plan</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CarePlan.category</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
 
 }

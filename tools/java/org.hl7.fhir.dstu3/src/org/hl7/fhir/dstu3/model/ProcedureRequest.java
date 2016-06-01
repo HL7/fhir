@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -532,6 +532,14 @@ public class ProcedureRequest extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ProcedureRequest setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -541,10 +549,6 @@ public class ProcedureRequest extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Identifiers assigned to this order by the order or by the receiver.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -553,7 +557,6 @@ public class ProcedureRequest extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ProcedureRequest addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -561,6 +564,16 @@ public class ProcedureRequest extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -635,6 +648,14 @@ public class ProcedureRequest extends DomainResource {
       return this.bodySite;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ProcedureRequest setBodySite(List<CodeableConcept> theBodySite) { 
+      this.bodySite = theBodySite;
+      return this;
+    }
+
     public boolean hasBodySite() { 
       if (this.bodySite == null)
         return false;
@@ -644,10 +665,6 @@ public class ProcedureRequest extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #bodySite} (Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).)
-     */
-    // syntactic sugar
     public CodeableConcept addBodySite() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.bodySite == null)
@@ -656,7 +673,6 @@ public class ProcedureRequest extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ProcedureRequest addBodySite(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -664,6 +680,16 @@ public class ProcedureRequest extends DomainResource {
         this.bodySite = new ArrayList<CodeableConcept>();
       this.bodySite.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #bodySite}, creating it if it does not already exist
+     */
+    public CodeableConcept getBodySiteFirstRep() { 
+      if (getBodySite().isEmpty()) {
+        addBodySite();
+      }
+      return getBodySite().get(0);
     }
 
     /**
@@ -910,6 +936,14 @@ public class ProcedureRequest extends DomainResource {
       return this.notes;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ProcedureRequest setNotes(List<Annotation> theNotes) { 
+      this.notes = theNotes;
+      return this;
+    }
+
     public boolean hasNotes() { 
       if (this.notes == null)
         return false;
@@ -919,10 +953,6 @@ public class ProcedureRequest extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #notes} (Any other notes associated with this proposal or order - e.g. provider instructions.)
-     */
-    // syntactic sugar
     public Annotation addNotes() { //3
       Annotation t = new Annotation();
       if (this.notes == null)
@@ -931,7 +961,6 @@ public class ProcedureRequest extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ProcedureRequest addNotes(Annotation t) { //3
       if (t == null)
         return this;
@@ -939,6 +968,16 @@ public class ProcedureRequest extends DomainResource {
         this.notes = new ArrayList<Annotation>();
       this.notes.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #notes}, creating it if it does not already exist
+     */
+    public Annotation getNotesFirstRep() { 
+      if (getNotes().isEmpty()) {
+        addNotes();
+      }
+      return getNotes().get(0);
     }
 
     /**
@@ -1408,12 +1447,9 @@ public class ProcedureRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (subject == null || subject.isEmpty())
-           && (code == null || code.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (reason == null || reason.isEmpty())
-           && (scheduled == null || scheduled.isEmpty()) && (encounter == null || encounter.isEmpty())
-           && (performer == null || performer.isEmpty()) && (status == null || status.isEmpty()) && (notes == null || notes.isEmpty())
-           && (asNeeded == null || asNeeded.isEmpty()) && (orderedOn == null || orderedOn.isEmpty())
-           && (orderer == null || orderer.isEmpty()) && (priority == null || priority.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, subject, code
+          , bodySite, reason, scheduled, encounter, performer, status, notes, asNeeded
+          , orderedOn, orderer, priority);
       }
 
   @Override
@@ -1422,82 +1458,24 @@ public class ProcedureRequest extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>orderer</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Who made request</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.orderer</b><br>
+   * Description: <b>A unique identifier of the Procedure Request</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ProcedureRequest.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="orderer", path="ProcedureRequest.orderer", description="Who made request", type="reference" )
-  public static final String SP_ORDERER = "orderer";
+  @SearchParamDefinition(name="identifier", path="ProcedureRequest.identifier", description="A unique identifier of the Procedure Request", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>orderer</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Who made request</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.orderer</b><br>
+   * Description: <b>A unique identifier of the Procedure Request</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ProcedureRequest.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORDERER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORDERER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcedureRequest:orderer</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORDERER = new ca.uhn.fhir.model.api.Include("ProcedureRequest:orderer").toLocked();
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Search by subject - a patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="ProcedureRequest.subject", description="Search by subject - a patient", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Search by subject - a patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcedureRequest:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ProcedureRequest:patient").toLocked();
-
- /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>Search by subject</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subject", path="ProcedureRequest.subject", description="Search by subject", type="reference" )
-  public static final String SP_SUBJECT = "subject";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
-   * <p>
-   * Description: <b>Search by subject</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcedureRequest:subject</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("ProcedureRequest:subject").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>performer</b>
@@ -1526,6 +1504,84 @@ public class ProcedureRequest extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("ProcedureRequest:performer").toLocked();
 
  /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>Search by subject</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ProcedureRequest.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="ProcedureRequest.subject", description="Search by subject", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>Search by subject</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ProcedureRequest.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ProcedureRequest:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("ProcedureRequest:subject").toLocked();
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Search by subject - a patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ProcedureRequest.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="ProcedureRequest.subject", description="Search by subject - a patient", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Search by subject - a patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ProcedureRequest.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ProcedureRequest:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ProcedureRequest:patient").toLocked();
+
+ /**
+   * Search parameter: <b>orderer</b>
+   * <p>
+   * Description: <b>Who made request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ProcedureRequest.orderer</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="orderer", path="ProcedureRequest.orderer", description="Who made request", type="reference" )
+  public static final String SP_ORDERER = "orderer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>orderer</b>
+   * <p>
+   * Description: <b>Who made request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ProcedureRequest.orderer</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORDERER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORDERER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ProcedureRequest:orderer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORDERER = new ca.uhn.fhir.model.api.Include("ProcedureRequest:orderer").toLocked();
+
+ /**
    * Search parameter: <b>encounter</b>
    * <p>
    * Description: <b>Encounter request created during</b><br>
@@ -1550,26 +1606,6 @@ public class ProcedureRequest extends DomainResource {
    * the path value of "<b>ProcedureRequest:encounter</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("ProcedureRequest:encounter").toLocked();
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>A unique identifier of the Procedure Request</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="ProcedureRequest.identifier", description="A unique identifier of the Procedure Request", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>A unique identifier of the Procedure Request</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

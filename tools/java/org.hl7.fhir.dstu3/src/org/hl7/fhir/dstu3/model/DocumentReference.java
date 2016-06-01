@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -390,8 +390,7 @@ public class DocumentReference extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (target == null || target.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, target);
       }
 
   public String fhirType() {
@@ -467,6 +466,14 @@ public class DocumentReference extends DomainResource {
           return this.format;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DocumentReferenceContentComponent setFormat(List<Coding> theFormat) { 
+          this.format = theFormat;
+          return this;
+        }
+
         public boolean hasFormat() { 
           if (this.format == null)
             return false;
@@ -476,10 +483,6 @@ public class DocumentReference extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #format} (An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.)
-         */
-    // syntactic sugar
         public Coding addFormat() { //3
           Coding t = new Coding();
           if (this.format == null)
@@ -488,7 +491,6 @@ public class DocumentReference extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public DocumentReferenceContentComponent addFormat(Coding t) { //3
           if (t == null)
             return this;
@@ -496,6 +498,16 @@ public class DocumentReference extends DomainResource {
             this.format = new ArrayList<Coding>();
           this.format.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #format}, creating it if it does not already exist
+         */
+        public Coding getFormatFirstRep() { 
+          if (getFormat().isEmpty()) {
+            addFormat();
+          }
+          return getFormat().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -594,8 +606,7 @@ public class DocumentReference extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (attachment == null || attachment.isEmpty()) && (format == null || format.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(attachment, format);
       }
 
   public String fhirType() {
@@ -728,6 +739,14 @@ public class DocumentReference extends DomainResource {
           return this.event;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DocumentReferenceContextComponent setEvent(List<CodeableConcept> theEvent) { 
+          this.event = theEvent;
+          return this;
+        }
+
         public boolean hasEvent() { 
           if (this.event == null)
             return false;
@@ -737,10 +756,6 @@ public class DocumentReference extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #event} (This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.)
-         */
-    // syntactic sugar
         public CodeableConcept addEvent() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.event == null)
@@ -749,7 +764,6 @@ public class DocumentReference extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public DocumentReferenceContextComponent addEvent(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -757,6 +771,16 @@ public class DocumentReference extends DomainResource {
             this.event = new ArrayList<CodeableConcept>();
           this.event.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #event}, creating it if it does not already exist
+         */
+        public CodeableConcept getEventFirstRep() { 
+          if (getEvent().isEmpty()) {
+            addEvent();
+          }
+          return getEvent().get(0);
         }
 
         /**
@@ -884,6 +908,14 @@ public class DocumentReference extends DomainResource {
           return this.related;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DocumentReferenceContextComponent setRelated(List<DocumentReferenceContextRelatedComponent> theRelated) { 
+          this.related = theRelated;
+          return this;
+        }
+
         public boolean hasRelated() { 
           if (this.related == null)
             return false;
@@ -893,10 +925,6 @@ public class DocumentReference extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #related} (Related identifiers or resources associated with the DocumentReference.)
-         */
-    // syntactic sugar
         public DocumentReferenceContextRelatedComponent addRelated() { //3
           DocumentReferenceContextRelatedComponent t = new DocumentReferenceContextRelatedComponent();
           if (this.related == null)
@@ -905,7 +933,6 @@ public class DocumentReference extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public DocumentReferenceContextComponent addRelated(DocumentReferenceContextRelatedComponent t) { //3
           if (t == null)
             return this;
@@ -913,6 +940,16 @@ public class DocumentReference extends DomainResource {
             this.related = new ArrayList<DocumentReferenceContextRelatedComponent>();
           this.related.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #related}, creating it if it does not already exist
+         */
+        public DocumentReferenceContextRelatedComponent getRelatedFirstRep() { 
+          if (getRelated().isEmpty()) {
+            addRelated();
+          }
+          return getRelated().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1082,10 +1119,8 @@ public class DocumentReference extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (encounter == null || encounter.isEmpty()) && (event == null || event.isEmpty())
-           && (period == null || period.isEmpty()) && (facilityType == null || facilityType.isEmpty())
-           && (practiceSetting == null || practiceSetting.isEmpty()) && (sourcePatientInfo == null || sourcePatientInfo.isEmpty())
-           && (related == null || related.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(encounter, event, period
+          , facilityType, practiceSetting, sourcePatientInfo, related);
       }
 
   public String fhirType() {
@@ -1281,8 +1316,7 @@ public class DocumentReference extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ref == null || ref.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, ref);
       }
 
   public String fhirType() {
@@ -1483,6 +1517,14 @@ public class DocumentReference extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DocumentReference setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -1492,10 +1534,6 @@ public class DocumentReference extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Other identifiers associated with the document, including version independent identifiers.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -1504,7 +1542,6 @@ public class DocumentReference extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DocumentReference addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -1512,6 +1549,16 @@ public class DocumentReference extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1610,6 +1657,14 @@ public class DocumentReference extends DomainResource {
       return this.author;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DocumentReference setAuthor(List<Reference> theAuthor) { 
+      this.author = theAuthor;
+      return this;
+    }
+
     public boolean hasAuthor() { 
       if (this.author == null)
         return false;
@@ -1619,10 +1674,6 @@ public class DocumentReference extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #author} (Identifies who is responsible for adding the information to the document.)
-     */
-    // syntactic sugar
     public Reference addAuthor() { //3
       Reference t = new Reference();
       if (this.author == null)
@@ -1631,7 +1682,6 @@ public class DocumentReference extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DocumentReference addAuthor(Reference t) { //3
       if (t == null)
         return this;
@@ -1642,8 +1692,19 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @return {@link #author} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies who is responsible for adding the information to the document.)
+     * @return The first repetition of repeating field {@link #author}, creating it if it does not already exist
      */
+    public Reference getAuthorFirstRep() { 
+      if (getAuthor().isEmpty()) {
+        addAuthor();
+      }
+      return getAuthor().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getAuthorTarget() { 
       if (this.authorTarget == null)
         this.authorTarget = new ArrayList<Resource>();
@@ -1905,6 +1966,14 @@ public class DocumentReference extends DomainResource {
       return this.relatesTo;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DocumentReference setRelatesTo(List<DocumentReferenceRelatesToComponent> theRelatesTo) { 
+      this.relatesTo = theRelatesTo;
+      return this;
+    }
+
     public boolean hasRelatesTo() { 
       if (this.relatesTo == null)
         return false;
@@ -1914,10 +1983,6 @@ public class DocumentReference extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #relatesTo} (Relationships that this document has with other document references that already exist.)
-     */
-    // syntactic sugar
     public DocumentReferenceRelatesToComponent addRelatesTo() { //3
       DocumentReferenceRelatesToComponent t = new DocumentReferenceRelatesToComponent();
       if (this.relatesTo == null)
@@ -1926,7 +1991,6 @@ public class DocumentReference extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DocumentReference addRelatesTo(DocumentReferenceRelatesToComponent t) { //3
       if (t == null)
         return this;
@@ -1934,6 +1998,16 @@ public class DocumentReference extends DomainResource {
         this.relatesTo = new ArrayList<DocumentReferenceRelatesToComponent>();
       this.relatesTo.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #relatesTo}, creating it if it does not already exist
+     */
+    public DocumentReferenceRelatesToComponent getRelatesToFirstRep() { 
+      if (getRelatesTo().isEmpty()) {
+        addRelatesTo();
+      }
+      return getRelatesTo().get(0);
     }
 
     /**
@@ -1994,6 +2068,14 @@ public class DocumentReference extends DomainResource {
       return this.securityLabel;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DocumentReference setSecurityLabel(List<CodeableConcept> theSecurityLabel) { 
+      this.securityLabel = theSecurityLabel;
+      return this;
+    }
+
     public boolean hasSecurityLabel() { 
       if (this.securityLabel == null)
         return false;
@@ -2003,10 +2085,6 @@ public class DocumentReference extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #securityLabel} (A set of Security-Tag codes specifying the level of privacy/security of the Document. Note that DocumentReference.meta.security contains the security labels of the "reference" to the document, while DocumentReference.securityLabel contains a snapshot of the security labels on the document the reference refers to.)
-     */
-    // syntactic sugar
     public CodeableConcept addSecurityLabel() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.securityLabel == null)
@@ -2015,7 +2093,6 @@ public class DocumentReference extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DocumentReference addSecurityLabel(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -2023,6 +2100,16 @@ public class DocumentReference extends DomainResource {
         this.securityLabel = new ArrayList<CodeableConcept>();
       this.securityLabel.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #securityLabel}, creating it if it does not already exist
+     */
+    public CodeableConcept getSecurityLabelFirstRep() { 
+      if (getSecurityLabel().isEmpty()) {
+        addSecurityLabel();
+      }
+      return getSecurityLabel().get(0);
     }
 
     /**
@@ -2034,6 +2121,14 @@ public class DocumentReference extends DomainResource {
       return this.content;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DocumentReference setContent(List<DocumentReferenceContentComponent> theContent) { 
+      this.content = theContent;
+      return this;
+    }
+
     public boolean hasContent() { 
       if (this.content == null)
         return false;
@@ -2043,10 +2138,6 @@ public class DocumentReference extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #content} (The document and format referenced. There may be multiple content element repetitions, each with a different format.)
-     */
-    // syntactic sugar
     public DocumentReferenceContentComponent addContent() { //3
       DocumentReferenceContentComponent t = new DocumentReferenceContentComponent();
       if (this.content == null)
@@ -2055,7 +2146,6 @@ public class DocumentReference extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DocumentReference addContent(DocumentReferenceContentComponent t) { //3
       if (t == null)
         return this;
@@ -2063,6 +2153,16 @@ public class DocumentReference extends DomainResource {
         this.content = new ArrayList<DocumentReferenceContentComponent>();
       this.content.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #content}, creating it if it does not already exist
+     */
+    public DocumentReferenceContentComponent getContentFirstRep() { 
+      if (getContent().isEmpty()) {
+        addContent();
+      }
+      return getContent().get(0);
     }
 
     /**
@@ -2404,19 +2504,471 @@ public class DocumentReference extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (masterIdentifier == null || masterIdentifier.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (subject == null || subject.isEmpty()) && (type == null || type.isEmpty()) && (class_ == null || class_.isEmpty())
-           && (author == null || author.isEmpty()) && (custodian == null || custodian.isEmpty()) && (authenticator == null || authenticator.isEmpty())
-           && (created == null || created.isEmpty()) && (indexed == null || indexed.isEmpty()) && (status == null || status.isEmpty())
-           && (docStatus == null || docStatus.isEmpty()) && (relatesTo == null || relatesTo.isEmpty())
-           && (description == null || description.isEmpty()) && (securityLabel == null || securityLabel.isEmpty())
-           && (content == null || content.isEmpty()) && (context == null || context.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(masterIdentifier, identifier
+          , subject, type, class_, author, custodian, authenticator, created, indexed
+          , status, docStatus, relatesTo, description, securityLabel, content, context);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.DocumentReference;
    }
+
+ /**
+   * Search parameter: <b>securitylabel</b>
+   * <p>
+   * Description: <b>Document security-tags</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.securityLabel</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="securitylabel", path="DocumentReference.securityLabel", description="Document security-tags", type="token" )
+  public static final String SP_SECURITYLABEL = "securitylabel";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>securitylabel</b>
+   * <p>
+   * Description: <b>Document security-tags</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.securityLabel</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SECURITYLABEL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SECURITYLABEL);
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>Who/what is the subject of the document</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentReference.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="DocumentReference.subject", description="Who/what is the subject of the document", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>Who/what is the subject of the document</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentReference.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DocumentReference:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("DocumentReference:subject").toLocked();
+
+ /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Human-readable description (title)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DocumentReference.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="DocumentReference.description", description="Human-readable description (title)", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Human-readable description (title)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DocumentReference.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>language</b>
+   * <p>
+   * Description: <b>Human language of the content (BCP-47)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.content.attachment.language</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="language", path="DocumentReference.content.attachment.language", description="Human language of the content (BCP-47)", type="token" )
+  public static final String SP_LANGUAGE = "language";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>language</b>
+   * <p>
+   * Description: <b>Human language of the content (BCP-47)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.content.attachment.language</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam LANGUAGE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_LANGUAGE);
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>Kind of document (LOINC if possible)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="DocumentReference.type", description="Kind of document (LOINC if possible)", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>Kind of document (LOINC if possible)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>relation</b>
+   * <p>
+   * Description: <b>replaces | transforms | signs | appends</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.relatesTo.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="relation", path="DocumentReference.relatesTo.code", description="replaces | transforms | signs | appends", type="token" )
+  public static final String SP_RELATION = "relation";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>relation</b>
+   * <p>
+   * Description: <b>replaces | transforms | signs | appends</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.relatesTo.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RELATION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RELATION);
+
+ /**
+   * Search parameter: <b>setting</b>
+   * <p>
+   * Description: <b>Additional details about where the content was created (e.g. clinical specialty)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.context.practiceSetting</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="setting", path="DocumentReference.context.practiceSetting", description="Additional details about where the content was created (e.g. clinical specialty)", type="token" )
+  public static final String SP_SETTING = "setting";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>setting</b>
+   * <p>
+   * Description: <b>Additional details about where the content was created (e.g. clinical specialty)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.context.practiceSetting</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SETTING = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SETTING);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Who/what is the subject of the document</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentReference.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="DocumentReference.subject", description="Who/what is the subject of the document", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Who/what is the subject of the document</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentReference.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DocumentReference:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("DocumentReference:patient").toLocked();
+
+ /**
+   * Search parameter: <b>relationship</b>
+   * <p>
+   * Description: <b>Combination of relation and relatesTo</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="relationship", path="", description="Combination of relation and relatesTo", type="composite", compositeOf={"relatesto", "relation"} )
+  public static final String SP_RELATIONSHIP = "relationship";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>relationship</b>
+   * <p>
+   * Description: <b>Combination of relation and relatesTo</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.ReferenceClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam> RELATIONSHIP = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.ReferenceClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam>(SP_RELATIONSHIP);
+
+ /**
+   * Search parameter: <b>event</b>
+   * <p>
+   * Description: <b>Main Clinical Acts Documented</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.context.event</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="event", path="DocumentReference.context.event", description="Main Clinical Acts Documented", type="token" )
+  public static final String SP_EVENT = "event";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>event</b>
+   * <p>
+   * Description: <b>Main Clinical Acts Documented</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.context.event</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EVENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EVENT);
+
+ /**
+   * Search parameter: <b>class</b>
+   * <p>
+   * Description: <b>Categorization of document</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.class</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="class", path="DocumentReference.class", description="Categorization of document", type="token" )
+  public static final String SP_CLASS = "class";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>class</b>
+   * <p>
+   * Description: <b>Categorization of document</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.class</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CLASS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CLASS);
+
+ /**
+   * Search parameter: <b>authenticator</b>
+   * <p>
+   * Description: <b>Who/what authenticated the document</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentReference.authenticator</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="authenticator", path="DocumentReference.authenticator", description="Who/what authenticated the document", type="reference" )
+  public static final String SP_AUTHENTICATOR = "authenticator";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>authenticator</b>
+   * <p>
+   * Description: <b>Who/what authenticated the document</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentReference.authenticator</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHENTICATOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHENTICATOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DocumentReference:authenticator</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHENTICATOR = new ca.uhn.fhir.model.api.Include("DocumentReference:authenticator").toLocked();
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Master Version Specific Identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.masterIdentifier, DocumentReference.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="DocumentReference.masterIdentifier | DocumentReference.identifier", description="Master Version Specific Identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Master Version Specific Identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.masterIdentifier, DocumentReference.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>period</b>
+   * <p>
+   * Description: <b>Time of service that is being documented</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>DocumentReference.context.period</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="period", path="DocumentReference.context.period", description="Time of service that is being documented", type="date" )
+  public static final String SP_PERIOD = "period";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>period</b>
+   * <p>
+   * Description: <b>Time of service that is being documented</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>DocumentReference.context.period</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam PERIOD = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_PERIOD);
+
+ /**
+   * Search parameter: <b>related-id</b>
+   * <p>
+   * Description: <b>Identifier of related objects or events</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.context.related.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="related-id", path="DocumentReference.context.related.identifier", description="Identifier of related objects or events", type="token" )
+  public static final String SP_RELATED_ID = "related-id";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>related-id</b>
+   * <p>
+   * Description: <b>Identifier of related objects or events</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.context.related.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RELATED_ID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RELATED_ID);
+
+ /**
+   * Search parameter: <b>custodian</b>
+   * <p>
+   * Description: <b>Organization which maintains the document</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentReference.custodian</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="custodian", path="DocumentReference.custodian", description="Organization which maintains the document", type="reference" )
+  public static final String SP_CUSTODIAN = "custodian";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>custodian</b>
+   * <p>
+   * Description: <b>Organization which maintains the document</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentReference.custodian</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CUSTODIAN = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CUSTODIAN);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DocumentReference:custodian</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CUSTODIAN = new ca.uhn.fhir.model.api.Include("DocumentReference:custodian").toLocked();
+
+ /**
+   * Search parameter: <b>indexed</b>
+   * <p>
+   * Description: <b>When this document reference created</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>DocumentReference.indexed</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="indexed", path="DocumentReference.indexed", description="When this document reference created", type="date" )
+  public static final String SP_INDEXED = "indexed";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>indexed</b>
+   * <p>
+   * Description: <b>When this document reference created</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>DocumentReference.indexed</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam INDEXED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_INDEXED);
+
+ /**
+   * Search parameter: <b>author</b>
+   * <p>
+   * Description: <b>Who and/or what authored the document</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentReference.author</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="author", path="DocumentReference.author", description="Who and/or what authored the document", type="reference" )
+  public static final String SP_AUTHOR = "author";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>author</b>
+   * <p>
+   * Description: <b>Who and/or what authored the document</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentReference.author</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DocumentReference:author</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("DocumentReference:author").toLocked();
+
+ /**
+   * Search parameter: <b>created</b>
+   * <p>
+   * Description: <b>Document creation time</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>DocumentReference.created</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="created", path="DocumentReference.created", description="Document creation time", type="date" )
+  public static final String SP_CREATED = "created";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>created</b>
+   * <p>
+   * Description: <b>Document creation time</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>DocumentReference.created</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
+
+ /**
+   * Search parameter: <b>format</b>
+   * <p>
+   * Description: <b>Format/content rules for the document</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.content.format</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="format", path="DocumentReference.content.format", description="Format/content rules for the document", type="token" )
+  public static final String SP_FORMAT = "format";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>format</b>
+   * <p>
+   * Description: <b>Format/content rules for the document</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentReference.content.format</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FORMAT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FORMAT);
+
+ /**
+   * Search parameter: <b>encounter</b>
+   * <p>
+   * Description: <b>Context of the document  content</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentReference.context.encounter</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="encounter", path="DocumentReference.context.encounter", description="Context of the document  content", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
+   * <p>
+   * Description: <b>Context of the document  content</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentReference.context.encounter</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DocumentReference:encounter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("DocumentReference:encounter").toLocked();
 
  /**
    * Search parameter: <b>related-ref</b>
@@ -2443,46 +2995,6 @@ public class DocumentReference extends DomainResource {
    * the path value of "<b>DocumentReference:related-ref</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_RELATED_REF = new ca.uhn.fhir.model.api.Include("DocumentReference:related-ref").toLocked();
-
- /**
-   * Search parameter: <b>related-id</b>
-   * <p>
-   * Description: <b>Identifier of related objects or events</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.context.related.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="related-id", path="DocumentReference.context.related.identifier", description="Identifier of related objects or events", type="token" )
-  public static final String SP_RELATED_ID = "related-id";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>related-id</b>
-   * <p>
-   * Description: <b>Identifier of related objects or events</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.context.related.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RELATED_ID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RELATED_ID);
-
- /**
-   * Search parameter: <b>indexed</b>
-   * <p>
-   * Description: <b>When this document reference created</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>DocumentReference.indexed</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="indexed", path="DocumentReference.indexed", description="When this document reference created", type="date" )
-  public static final String SP_INDEXED = "indexed";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>indexed</b>
-   * <p>
-   * Description: <b>When this document reference created</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>DocumentReference.indexed</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam INDEXED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_INDEXED);
 
  /**
    * Search parameter: <b>location</b>
@@ -2531,196 +3043,6 @@ public class DocumentReference extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_RELATESTO = new ca.uhn.fhir.model.api.Include("DocumentReference:relatesto").toLocked();
 
  /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>Who/what is the subject of the document</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentReference.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subject", path="DocumentReference.subject", description="Who/what is the subject of the document", type="reference" )
-  public static final String SP_SUBJECT = "subject";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
-   * <p>
-   * Description: <b>Who/what is the subject of the document</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentReference.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DocumentReference:subject</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("DocumentReference:subject").toLocked();
-
- /**
-   * Search parameter: <b>encounter</b>
-   * <p>
-   * Description: <b>Context of the document  content</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentReference.context.encounter</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="encounter", path="DocumentReference.context.encounter", description="Context of the document  content", type="reference" )
-  public static final String SP_ENCOUNTER = "encounter";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
-   * <p>
-   * Description: <b>Context of the document  content</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentReference.context.encounter</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DocumentReference:encounter</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("DocumentReference:encounter").toLocked();
-
- /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>Kind of document (LOINC if possible)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="DocumentReference.type", description="Kind of document (LOINC if possible)", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>Kind of document (LOINC if possible)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>securitylabel</b>
-   * <p>
-   * Description: <b>Document security-tags</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.securityLabel</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="securitylabel", path="DocumentReference.securityLabel", description="Document security-tags", type="token" )
-  public static final String SP_SECURITYLABEL = "securitylabel";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>securitylabel</b>
-   * <p>
-   * Description: <b>Document security-tags</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.securityLabel</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SECURITYLABEL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SECURITYLABEL);
-
- /**
-   * Search parameter: <b>setting</b>
-   * <p>
-   * Description: <b>Additional details about where the content was created (e.g. clinical specialty)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.context.practiceSetting</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="setting", path="DocumentReference.context.practiceSetting", description="Additional details about where the content was created (e.g. clinical specialty)", type="token" )
-  public static final String SP_SETTING = "setting";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>setting</b>
-   * <p>
-   * Description: <b>Additional details about where the content was created (e.g. clinical specialty)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.context.practiceSetting</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SETTING = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SETTING);
-
- /**
-   * Search parameter: <b>author</b>
-   * <p>
-   * Description: <b>Who and/or what authored the document</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentReference.author</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="author", path="DocumentReference.author", description="Who and/or what authored the document", type="reference" )
-  public static final String SP_AUTHOR = "author";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>author</b>
-   * <p>
-   * Description: <b>Who and/or what authored the document</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentReference.author</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DocumentReference:author</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("DocumentReference:author").toLocked();
-
- /**
-   * Search parameter: <b>custodian</b>
-   * <p>
-   * Description: <b>Organization which maintains the document</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentReference.custodian</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="custodian", path="DocumentReference.custodian", description="Organization which maintains the document", type="reference" )
-  public static final String SP_CUSTODIAN = "custodian";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>custodian</b>
-   * <p>
-   * Description: <b>Organization which maintains the document</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentReference.custodian</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CUSTODIAN = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CUSTODIAN);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DocumentReference:custodian</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CUSTODIAN = new ca.uhn.fhir.model.api.Include("DocumentReference:custodian").toLocked();
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Who/what is the subject of the document</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentReference.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="DocumentReference.subject", description="Who/what is the subject of the document", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Who/what is the subject of the document</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentReference.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DocumentReference:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("DocumentReference:patient").toLocked();
-
- /**
    * Search parameter: <b>facility</b>
    * <p>
    * Description: <b>Kind of facility where patient was seen</b><br>
@@ -2741,66 +3063,6 @@ public class DocumentReference extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam FACILITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FACILITY);
 
  /**
-   * Search parameter: <b>created</b>
-   * <p>
-   * Description: <b>Document creation time</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>DocumentReference.created</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="created", path="DocumentReference.created", description="Document creation time", type="date" )
-  public static final String SP_CREATED = "created";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>created</b>
-   * <p>
-   * Description: <b>Document creation time</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>DocumentReference.created</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
-
- /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Human-readable description (title)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>DocumentReference.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="DocumentReference.description", description="Human-readable description (title)", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Human-readable description (title)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>DocumentReference.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
-   * Search parameter: <b>event</b>
-   * <p>
-   * Description: <b>Main Clinical Acts Documented</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.context.event</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="event", path="DocumentReference.context.event", description="Main Clinical Acts Documented", type="token" )
-  public static final String SP_EVENT = "event";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>event</b>
-   * <p>
-   * Description: <b>Main Clinical Acts Documented</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.context.event</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EVENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EVENT);
-
- /**
    * Search parameter: <b>status</b>
    * <p>
    * Description: <b>current | superseded | entered-in-error</b><br>
@@ -2819,172 +3081,6 @@ public class DocumentReference extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>relation</b>
-   * <p>
-   * Description: <b>replaces | transforms | signs | appends</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.relatesTo.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="relation", path="DocumentReference.relatesTo.code", description="replaces | transforms | signs | appends", type="token" )
-  public static final String SP_RELATION = "relation";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>relation</b>
-   * <p>
-   * Description: <b>replaces | transforms | signs | appends</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.relatesTo.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RELATION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RELATION);
-
- /**
-   * Search parameter: <b>class</b>
-   * <p>
-   * Description: <b>Categorization of document</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.class</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="class", path="DocumentReference.class", description="Categorization of document", type="token" )
-  public static final String SP_CLASS = "class";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>class</b>
-   * <p>
-   * Description: <b>Categorization of document</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.class</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CLASS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CLASS);
-
- /**
-   * Search parameter: <b>format</b>
-   * <p>
-   * Description: <b>Format/content rules for the document</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.content.format</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="format", path="DocumentReference.content.format", description="Format/content rules for the document", type="token" )
-  public static final String SP_FORMAT = "format";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>format</b>
-   * <p>
-   * Description: <b>Format/content rules for the document</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.content.format</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FORMAT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FORMAT);
-
- /**
-   * Search parameter: <b>period</b>
-   * <p>
-   * Description: <b>Time of service that is being documented</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>DocumentReference.context.period</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="period", path="DocumentReference.context.period", description="Time of service that is being documented", type="date" )
-  public static final String SP_PERIOD = "period";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>period</b>
-   * <p>
-   * Description: <b>Time of service that is being documented</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>DocumentReference.context.period</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam PERIOD = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_PERIOD);
-
- /**
-   * Search parameter: <b>authenticator</b>
-   * <p>
-   * Description: <b>Who/what authenticated the document</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentReference.authenticator</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="authenticator", path="DocumentReference.authenticator", description="Who/what authenticated the document", type="reference" )
-  public static final String SP_AUTHENTICATOR = "authenticator";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>authenticator</b>
-   * <p>
-   * Description: <b>Who/what authenticated the document</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentReference.authenticator</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHENTICATOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHENTICATOR);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DocumentReference:authenticator</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHENTICATOR = new ca.uhn.fhir.model.api.Include("DocumentReference:authenticator").toLocked();
-
- /**
-   * Search parameter: <b>relationship</b>
-   * <p>
-   * Description: <b>Combination of relation and relatesTo</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="relationship", path="", description="Combination of relation and relatesTo", type="composite", compositeOf={"relatesto", "relation"} )
-  public static final String SP_RELATIONSHIP = "relationship";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>relationship</b>
-   * <p>
-   * Description: <b>Combination of relation and relatesTo</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.ReferenceClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam> RELATIONSHIP = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.ReferenceClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam>(SP_RELATIONSHIP);
-
- /**
-   * Search parameter: <b>language</b>
-   * <p>
-   * Description: <b>Human language of the content (BCP-47)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.content.attachment.language</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="language", path="DocumentReference.content.attachment.language", description="Human language of the content (BCP-47)", type="token" )
-  public static final String SP_LANGUAGE = "language";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>language</b>
-   * <p>
-   * Description: <b>Human language of the content (BCP-47)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.content.attachment.language</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam LANGUAGE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_LANGUAGE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Master Version Specific Identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.masterIdentifier, DocumentReference.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="DocumentReference.masterIdentifier | DocumentReference.identifier", description="Master Version Specific Identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Master Version Specific Identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentReference.masterIdentifier, DocumentReference.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

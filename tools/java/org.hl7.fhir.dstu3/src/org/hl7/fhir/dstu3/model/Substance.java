@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -282,8 +282,8 @@ public class Substance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (expiry == null || expiry.isEmpty())
-           && (quantity == null || quantity.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, expiry, quantity
+          );
       }
 
   public String fhirType() {
@@ -492,8 +492,7 @@ public class Substance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (quantity == null || quantity.isEmpty()) && (substance == null || substance.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(quantity, substance);
       }
 
   public String fhirType() {
@@ -571,6 +570,14 @@ public class Substance extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Substance setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -580,10 +587,6 @@ public class Substance extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Unique identifier for the substance.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -592,7 +595,6 @@ public class Substance extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Substance addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -600,6 +602,16 @@ public class Substance extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -611,6 +623,14 @@ public class Substance extends DomainResource {
       return this.category;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Substance setCategory(List<CodeableConcept> theCategory) { 
+      this.category = theCategory;
+      return this;
+    }
+
     public boolean hasCategory() { 
       if (this.category == null)
         return false;
@@ -620,10 +640,6 @@ public class Substance extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #category} (A code that classifies the general type of substance.  This is used  for searching, sorting and display purposes.)
-     */
-    // syntactic sugar
     public CodeableConcept addCategory() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.category == null)
@@ -632,7 +648,6 @@ public class Substance extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Substance addCategory(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -640,6 +655,16 @@ public class Substance extends DomainResource {
         this.category = new ArrayList<CodeableConcept>();
       this.category.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #category}, creating it if it does not already exist
+     */
+    public CodeableConcept getCategoryFirstRep() { 
+      if (getCategory().isEmpty()) {
+        addCategory();
+      }
+      return getCategory().get(0);
     }
 
     /**
@@ -724,6 +749,14 @@ public class Substance extends DomainResource {
       return this.instance;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Substance setInstance(List<SubstanceInstanceComponent> theInstance) { 
+      this.instance = theInstance;
+      return this;
+    }
+
     public boolean hasInstance() { 
       if (this.instance == null)
         return false;
@@ -733,10 +766,6 @@ public class Substance extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #instance} (Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance.)
-     */
-    // syntactic sugar
     public SubstanceInstanceComponent addInstance() { //3
       SubstanceInstanceComponent t = new SubstanceInstanceComponent();
       if (this.instance == null)
@@ -745,7 +774,6 @@ public class Substance extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Substance addInstance(SubstanceInstanceComponent t) { //3
       if (t == null)
         return this;
@@ -753,6 +781,16 @@ public class Substance extends DomainResource {
         this.instance = new ArrayList<SubstanceInstanceComponent>();
       this.instance.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #instance}, creating it if it does not already exist
+     */
+    public SubstanceInstanceComponent getInstanceFirstRep() { 
+      if (getInstance().isEmpty()) {
+        addInstance();
+      }
+      return getInstance().get(0);
     }
 
     /**
@@ -764,6 +802,14 @@ public class Substance extends DomainResource {
       return this.ingredient;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Substance setIngredient(List<SubstanceIngredientComponent> theIngredient) { 
+      this.ingredient = theIngredient;
+      return this;
+    }
+
     public boolean hasIngredient() { 
       if (this.ingredient == null)
         return false;
@@ -773,10 +819,6 @@ public class Substance extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #ingredient} (A substance can be composed of other substances.)
-     */
-    // syntactic sugar
     public SubstanceIngredientComponent addIngredient() { //3
       SubstanceIngredientComponent t = new SubstanceIngredientComponent();
       if (this.ingredient == null)
@@ -785,7 +827,6 @@ public class Substance extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Substance addIngredient(SubstanceIngredientComponent t) { //3
       if (t == null)
         return this;
@@ -793,6 +834,16 @@ public class Substance extends DomainResource {
         this.ingredient = new ArrayList<SubstanceIngredientComponent>();
       this.ingredient.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #ingredient}, creating it if it does not already exist
+     */
+    public SubstanceIngredientComponent getIngredientFirstRep() { 
+      if (getIngredient().isEmpty()) {
+        addIngredient();
+      }
+      return getIngredient().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -962,15 +1013,34 @@ public class Substance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (category == null || category.isEmpty())
-           && (code == null || code.isEmpty()) && (description == null || description.isEmpty()) && (instance == null || instance.isEmpty())
-           && (ingredient == null || ingredient.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, category, code
+          , description, instance, ingredient);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Substance;
    }
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Unique identifier for the substance</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Substance.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Substance.identifier", description="Unique identifier for the substance", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Unique identifier for the substance</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Substance.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>container-identifier</b>
@@ -993,24 +1063,44 @@ public class Substance extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTAINER_IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTAINER_IDENTIFIER);
 
  /**
-   * Search parameter: <b>category</b>
+   * Search parameter: <b>code</b>
    * <p>
-   * Description: <b>The category of the substance</b><br>
+   * Description: <b>The code of the substance or ingredient</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Substance.category</b><br>
+   * Path: <b>Substance.code, Substance.ingredient.substanceCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="category", path="Substance.category", description="The category of the substance", type="token" )
-  public static final String SP_CATEGORY = "category";
+  @SearchParamDefinition(name="code", path="Substance.code | Substance.ingredient.substance.as(CodeableConcept)", description="The code of the substance or ingredient", type="token" )
+  public static final String SP_CODE = "code";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
-   * Description: <b>The category of the substance</b><br>
+   * Description: <b>The code of the substance or ingredient</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Substance.category</b><br>
+   * Path: <b>Substance.code, Substance.ingredient.substanceCodeableConcept</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>quantity</b>
+   * <p>
+   * Description: <b>Amount of substance in the package</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>Substance.instance.quantity</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="quantity", path="Substance.instance.quantity", description="Amount of substance in the package", type="quantity" )
+  public static final String SP_QUANTITY = "quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>quantity</b>
+   * <p>
+   * Description: <b>Amount of substance in the package</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>Substance.instance.quantity</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.QuantityClientParam QUANTITY = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_QUANTITY);
 
  /**
    * Search parameter: <b>substance-reference</b>
@@ -1039,66 +1129,6 @@ public class Substance extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBSTANCE_REFERENCE = new ca.uhn.fhir.model.api.Include("Substance:substance-reference").toLocked();
 
  /**
-   * Search parameter: <b>quantity</b>
-   * <p>
-   * Description: <b>Amount of substance in the package</b><br>
-   * Type: <b>quantity</b><br>
-   * Path: <b>Substance.instance.quantity</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="quantity", path="Substance.instance.quantity", description="Amount of substance in the package", type="quantity" )
-  public static final String SP_QUANTITY = "quantity";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>quantity</b>
-   * <p>
-   * Description: <b>Amount of substance in the package</b><br>
-   * Type: <b>quantity</b><br>
-   * Path: <b>Substance.instance.quantity</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.QuantityClientParam QUANTITY = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_QUANTITY);
-
- /**
-   * Search parameter: <b>code</b>
-   * <p>
-   * Description: <b>The code of the substance or ingredient</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Substance.code, Substance.ingredient.substanceCodeableConcept</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code", path="Substance.code | Substance.ingredient.substance.as(CodeableConcept)", description="The code of the substance or ingredient", type="token" )
-  public static final String SP_CODE = "code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
-   * <p>
-   * Description: <b>The code of the substance or ingredient</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Substance.code, Substance.ingredient.substanceCodeableConcept</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Unique identifier for the substance</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Substance.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Substance.identifier", description="Unique identifier for the substance", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Unique identifier for the substance</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Substance.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
    * Search parameter: <b>expiry</b>
    * <p>
    * Description: <b>Expiry date of package or container of substance</b><br>
@@ -1117,6 +1147,26 @@ public class Substance extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam EXPIRY = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_EXPIRY);
+
+ /**
+   * Search parameter: <b>category</b>
+   * <p>
+   * Description: <b>The category of the substance</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Substance.category</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="category", path="Substance.category", description="The category of the substance", type="token" )
+  public static final String SP_CATEGORY = "category";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <p>
+   * Description: <b>The category of the substance</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Substance.category</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
 
 }

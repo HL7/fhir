@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -354,6 +354,14 @@ public class MedicationOrder extends DomainResource {
           return this.additionalInstructions;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public MedicationOrderDosageInstructionComponent setAdditionalInstructions(List<CodeableConcept> theAdditionalInstructions) { 
+          this.additionalInstructions = theAdditionalInstructions;
+          return this;
+        }
+
         public boolean hasAdditionalInstructions() { 
           if (this.additionalInstructions == null)
             return false;
@@ -363,10 +371,6 @@ public class MedicationOrder extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #additionalInstructions} (Additional instructions such as "Swallow with plenty of water" which may or may not be coded.)
-         */
-    // syntactic sugar
         public CodeableConcept addAdditionalInstructions() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.additionalInstructions == null)
@@ -375,7 +379,6 @@ public class MedicationOrder extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public MedicationOrderDosageInstructionComponent addAdditionalInstructions(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -383,6 +386,16 @@ public class MedicationOrder extends DomainResource {
             this.additionalInstructions = new ArrayList<CodeableConcept>();
           this.additionalInstructions.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #additionalInstructions}, creating it if it does not already exist
+         */
+        public CodeableConcept getAdditionalInstructionsFirstRep() { 
+          if (getAdditionalInstructions().isEmpty()) {
+            addAdditionalInstructions();
+          }
+          return getAdditionalInstructions().get(0);
         }
 
         /**
@@ -972,12 +985,9 @@ public class MedicationOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (text == null || text.isEmpty()) && (additionalInstructions == null || additionalInstructions.isEmpty())
-           && (timing == null || timing.isEmpty()) && (asNeeded == null || asNeeded.isEmpty()) && (site == null || site.isEmpty())
-           && (route == null || route.isEmpty()) && (method == null || method.isEmpty()) && (dose == null || dose.isEmpty())
-           && (maxDosePerPeriod == null || maxDosePerPeriod.isEmpty()) && (maxDosePerAdministration == null || maxDosePerAdministration.isEmpty())
-           && (maxDosePerLifetime == null || maxDosePerLifetime.isEmpty()) && (rate == null || rate.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(text, additionalInstructions
+          , timing, asNeeded, site, route, method, dose, maxDosePerPeriod, maxDosePerAdministration
+          , maxDosePerLifetime, rate);
       }
 
   public String fhirType() {
@@ -1263,9 +1273,8 @@ public class MedicationOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (validityPeriod == null || validityPeriod.isEmpty()) && (numberOfRepeatsAllowed == null || numberOfRepeatsAllowed.isEmpty())
-           && (quantity == null || quantity.isEmpty()) && (expectedSupplyDuration == null || expectedSupplyDuration.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(validityPeriod, numberOfRepeatsAllowed
+          , quantity, expectedSupplyDuration);
       }
 
   public String fhirType() {
@@ -1469,8 +1478,7 @@ public class MedicationOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (allowed == null || allowed.isEmpty()) && (reason == null || reason.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(allowed, reason);
       }
 
   public String fhirType() {
@@ -1853,9 +1861,8 @@ public class MedicationOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (status == null || status.isEmpty()) && (action == null || action.isEmpty())
-           && (dateTime == null || dateTime.isEmpty()) && (actor == null || actor.isEmpty()) && (reason == null || reason.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(status, action, dateTime
+          , actor, reason);
       }
 
   public String fhirType() {
@@ -2021,6 +2028,14 @@ public class MedicationOrder extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationOrder setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -2030,10 +2045,6 @@ public class MedicationOrder extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records have to be tracked through an entire system.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -2042,7 +2053,6 @@ public class MedicationOrder extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public MedicationOrder addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -2050,6 +2060,16 @@ public class MedicationOrder extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -2336,6 +2356,14 @@ public class MedicationOrder extends DomainResource {
       return this.reasonCode;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationOrder setReasonCode(List<CodeableConcept> theReasonCode) { 
+      this.reasonCode = theReasonCode;
+      return this;
+    }
+
     public boolean hasReasonCode() { 
       if (this.reasonCode == null)
         return false;
@@ -2345,10 +2373,6 @@ public class MedicationOrder extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #reasonCode} (Can be the reason or the indication for writing the prescription.)
-     */
-    // syntactic sugar
     public CodeableConcept addReasonCode() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.reasonCode == null)
@@ -2357,7 +2381,6 @@ public class MedicationOrder extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public MedicationOrder addReasonCode(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -2365,6 +2388,16 @@ public class MedicationOrder extends DomainResource {
         this.reasonCode = new ArrayList<CodeableConcept>();
       this.reasonCode.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #reasonCode}, creating it if it does not already exist
+     */
+    public CodeableConcept getReasonCodeFirstRep() { 
+      if (getReasonCode().isEmpty()) {
+        addReasonCode();
+      }
+      return getReasonCode().get(0);
     }
 
     /**
@@ -2376,6 +2409,14 @@ public class MedicationOrder extends DomainResource {
       return this.reasonReference;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationOrder setReasonReference(List<Reference> theReasonReference) { 
+      this.reasonReference = theReasonReference;
+      return this;
+    }
+
     public boolean hasReasonReference() { 
       if (this.reasonReference == null)
         return false;
@@ -2385,10 +2426,6 @@ public class MedicationOrder extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #reasonReference} (Condition that supports why the prescription is being written.)
-     */
-    // syntactic sugar
     public Reference addReasonReference() { //3
       Reference t = new Reference();
       if (this.reasonReference == null)
@@ -2397,7 +2434,6 @@ public class MedicationOrder extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public MedicationOrder addReasonReference(Reference t) { //3
       if (t == null)
         return this;
@@ -2408,18 +2444,29 @@ public class MedicationOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #reasonReference} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Condition that supports why the prescription is being written.)
+     * @return The first repetition of repeating field {@link #reasonReference}, creating it if it does not already exist
      */
+    public Reference getReasonReferenceFirstRep() { 
+      if (getReasonReference().isEmpty()) {
+        addReasonReference();
+      }
+      return getReasonReference().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Condition> getReasonReferenceTarget() { 
       if (this.reasonReferenceTarget == null)
         this.reasonReferenceTarget = new ArrayList<Condition>();
       return this.reasonReferenceTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #reasonReference} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Condition that supports why the prescription is being written.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Condition addReasonReferenceTarget() { 
       Condition r = new Condition();
       if (this.reasonReferenceTarget == null)
@@ -2437,6 +2484,14 @@ public class MedicationOrder extends DomainResource {
       return this.note;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationOrder setNote(List<Annotation> theNote) { 
+      this.note = theNote;
+      return this;
+    }
+
     public boolean hasNote() { 
       if (this.note == null)
         return false;
@@ -2446,10 +2501,6 @@ public class MedicationOrder extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #note} (Extra information about the prescription that could not be conveyed by the other attributes.)
-     */
-    // syntactic sugar
     public Annotation addNote() { //3
       Annotation t = new Annotation();
       if (this.note == null)
@@ -2458,7 +2509,6 @@ public class MedicationOrder extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public MedicationOrder addNote(Annotation t) { //3
       if (t == null)
         return this;
@@ -2466,6 +2516,16 @@ public class MedicationOrder extends DomainResource {
         this.note = new ArrayList<Annotation>();
       this.note.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
+     */
+    public Annotation getNoteFirstRep() { 
+      if (getNote().isEmpty()) {
+        addNote();
+      }
+      return getNote().get(0);
     }
 
     /**
@@ -2477,6 +2537,14 @@ public class MedicationOrder extends DomainResource {
       return this.dosageInstruction;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationOrder setDosageInstruction(List<MedicationOrderDosageInstructionComponent> theDosageInstruction) { 
+      this.dosageInstruction = theDosageInstruction;
+      return this;
+    }
+
     public boolean hasDosageInstruction() { 
       if (this.dosageInstruction == null)
         return false;
@@ -2486,10 +2554,6 @@ public class MedicationOrder extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #dosageInstruction} (Indicates how the medication is to be used by the patient.)
-     */
-    // syntactic sugar
     public MedicationOrderDosageInstructionComponent addDosageInstruction() { //3
       MedicationOrderDosageInstructionComponent t = new MedicationOrderDosageInstructionComponent();
       if (this.dosageInstruction == null)
@@ -2498,7 +2562,6 @@ public class MedicationOrder extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public MedicationOrder addDosageInstruction(MedicationOrderDosageInstructionComponent t) { //3
       if (t == null)
         return this;
@@ -2506,6 +2569,16 @@ public class MedicationOrder extends DomainResource {
         this.dosageInstruction = new ArrayList<MedicationOrderDosageInstructionComponent>();
       this.dosageInstruction.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #dosageInstruction}, creating it if it does not already exist
+     */
+    public MedicationOrderDosageInstructionComponent getDosageInstructionFirstRep() { 
+      if (getDosageInstruction().isEmpty()) {
+        addDosageInstruction();
+      }
+      return getDosageInstruction().get(0);
     }
 
     /**
@@ -2609,6 +2682,14 @@ public class MedicationOrder extends DomainResource {
       return this.eventHistory;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationOrder setEventHistory(List<MedicationOrderEventHistoryComponent> theEventHistory) { 
+      this.eventHistory = theEventHistory;
+      return this;
+    }
+
     public boolean hasEventHistory() { 
       if (this.eventHistory == null)
         return false;
@@ -2618,10 +2699,6 @@ public class MedicationOrder extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #eventHistory} (A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.)
-     */
-    // syntactic sugar
     public MedicationOrderEventHistoryComponent addEventHistory() { //3
       MedicationOrderEventHistoryComponent t = new MedicationOrderEventHistoryComponent();
       if (this.eventHistory == null)
@@ -2630,7 +2707,6 @@ public class MedicationOrder extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public MedicationOrder addEventHistory(MedicationOrderEventHistoryComponent t) { //3
       if (t == null)
         return this;
@@ -2638,6 +2714,16 @@ public class MedicationOrder extends DomainResource {
         this.eventHistory = new ArrayList<MedicationOrderEventHistoryComponent>();
       this.eventHistory.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #eventHistory}, creating it if it does not already exist
+     */
+    public MedicationOrderEventHistoryComponent getEventHistoryFirstRep() { 
+      if (getEventHistory().isEmpty()) {
+        addEventHistory();
+      }
+      return getEventHistory().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2937,112 +3023,16 @@ public class MedicationOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (medication == null || medication.isEmpty()) && (patient == null || patient.isEmpty())
-           && (encounter == null || encounter.isEmpty()) && (dateWritten == null || dateWritten.isEmpty())
-           && (prescriber == null || prescriber.isEmpty()) && (reasonCode == null || reasonCode.isEmpty())
-           && (reasonReference == null || reasonReference.isEmpty()) && (note == null || note.isEmpty())
-           && (dosageInstruction == null || dosageInstruction.isEmpty()) && (dispenseRequest == null || dispenseRequest.isEmpty())
-           && (substitution == null || substitution.isEmpty()) && (priorPrescription == null || priorPrescription.isEmpty())
-           && (eventHistory == null || eventHistory.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, medication
+          , patient, encounter, dateWritten, prescriber, reasonCode, reasonReference, note
+          , dosageInstruction, dispenseRequest, substitution, priorPrescription, eventHistory
+          );
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.MedicationOrder;
    }
-
- /**
-   * Search parameter: <b>medication</b>
-   * <p>
-   * Description: <b>Return administrations of this medication reference</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationOrder.medicationReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="medication", path="MedicationOrder.medication.as(Reference)", description="Return administrations of this medication reference", type="reference" )
-  public static final String SP_MEDICATION = "medication";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>medication</b>
-   * <p>
-   * Description: <b>Return administrations of this medication reference</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationOrder.medicationReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MEDICATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MEDICATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationOrder:medication</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_MEDICATION = new ca.uhn.fhir.model.api.Include("MedicationOrder:medication").toLocked();
-
- /**
-   * Search parameter: <b>datewritten</b>
-   * <p>
-   * Description: <b>Return prescriptions written on this date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>MedicationOrder.dateWritten</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="datewritten", path="MedicationOrder.dateWritten", description="Return prescriptions written on this date", type="date" )
-  public static final String SP_DATEWRITTEN = "datewritten";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>datewritten</b>
-   * <p>
-   * Description: <b>Return prescriptions written on this date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>MedicationOrder.dateWritten</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATEWRITTEN = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATEWRITTEN);
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>The identity of a patient to list orders  for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationOrder.patient</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="MedicationOrder.patient", description="The identity of a patient to list orders  for", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>The identity of a patient to list orders  for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationOrder.patient</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationOrder:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationOrder:patient").toLocked();
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>Status of the prescription</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationOrder.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="MedicationOrder.status", description="Status of the prescription", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>Status of the prescription</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationOrder.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
  /**
    * Search parameter: <b>prescriber</b>
@@ -3071,6 +3061,26 @@ public class MedicationOrder extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PRESCRIBER = new ca.uhn.fhir.model.api.Include("MedicationOrder:prescriber").toLocked();
 
  /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Return prescriptions with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationOrder.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="MedicationOrder.identifier", description="Return prescriptions with this external identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Return prescriptions with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationOrder.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
    * Search parameter: <b>code</b>
    * <p>
    * Description: <b>Return administrations of this medication code</b><br>
@@ -3089,6 +3099,78 @@ public class MedicationOrder extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>The identity of a patient to list orders  for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationOrder.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="MedicationOrder.patient", description="The identity of a patient to list orders  for", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>The identity of a patient to list orders  for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationOrder.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationOrder:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationOrder:patient").toLocked();
+
+ /**
+   * Search parameter: <b>datewritten</b>
+   * <p>
+   * Description: <b>Return prescriptions written on this date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>MedicationOrder.dateWritten</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="datewritten", path="MedicationOrder.dateWritten", description="Return prescriptions written on this date", type="date" )
+  public static final String SP_DATEWRITTEN = "datewritten";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>datewritten</b>
+   * <p>
+   * Description: <b>Return prescriptions written on this date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>MedicationOrder.dateWritten</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATEWRITTEN = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATEWRITTEN);
+
+ /**
+   * Search parameter: <b>medication</b>
+   * <p>
+   * Description: <b>Return administrations of this medication reference</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationOrder.medicationReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="medication", path="MedicationOrder.medication.as(Reference)", description="Return administrations of this medication reference", type="reference" )
+  public static final String SP_MEDICATION = "medication";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>medication</b>
+   * <p>
+   * Description: <b>Return administrations of this medication reference</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationOrder.medicationReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MEDICATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MEDICATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationOrder:medication</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_MEDICATION = new ca.uhn.fhir.model.api.Include("MedicationOrder:medication").toLocked();
 
  /**
    * Search parameter: <b>encounter</b>
@@ -3117,24 +3199,24 @@ public class MedicationOrder extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("MedicationOrder:encounter").toLocked();
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>Return prescriptions with this external identifier</b><br>
+   * Description: <b>Status of the prescription</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>MedicationOrder.identifier</b><br>
+   * Path: <b>MedicationOrder.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="MedicationOrder.identifier", description="Return prescriptions with this external identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="status", path="MedicationOrder.status", description="Status of the prescription", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>Return prescriptions with this external identifier</b><br>
+   * Description: <b>Status of the prescription</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>MedicationOrder.identifier</b><br>
+   * Path: <b>MedicationOrder.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

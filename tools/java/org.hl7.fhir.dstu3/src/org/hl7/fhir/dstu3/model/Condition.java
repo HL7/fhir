@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -264,6 +264,14 @@ public class Condition extends DomainResource {
           return this.assessment;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConditionStageComponent setAssessment(List<Reference> theAssessment) { 
+          this.assessment = theAssessment;
+          return this;
+        }
+
         public boolean hasAssessment() { 
           if (this.assessment == null)
             return false;
@@ -273,10 +281,6 @@ public class Condition extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #assessment} (Reference to a formal record of the evidence on which the staging assessment is based.)
-         */
-    // syntactic sugar
         public Reference addAssessment() { //3
           Reference t = new Reference();
           if (this.assessment == null)
@@ -285,7 +289,6 @@ public class Condition extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ConditionStageComponent addAssessment(Reference t) { //3
           if (t == null)
             return this;
@@ -296,8 +299,19 @@ public class Condition extends DomainResource {
         }
 
         /**
-         * @return {@link #assessment} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Reference to a formal record of the evidence on which the staging assessment is based.)
+         * @return The first repetition of repeating field {@link #assessment}, creating it if it does not already exist
          */
+        public Reference getAssessmentFirstRep() { 
+          if (getAssessment().isEmpty()) {
+            addAssessment();
+          }
+          return getAssessment().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Resource> getAssessmentTarget() { 
           if (this.assessmentTarget == null)
             this.assessmentTarget = new ArrayList<Resource>();
@@ -400,8 +414,7 @@ public class Condition extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (summary == null || summary.isEmpty()) && (assessment == null || assessment.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(summary, assessment);
       }
 
   public String fhirType() {
@@ -474,6 +487,14 @@ public class Condition extends DomainResource {
           return this.detail;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConditionEvidenceComponent setDetail(List<Reference> theDetail) { 
+          this.detail = theDetail;
+          return this;
+        }
+
         public boolean hasDetail() { 
           if (this.detail == null)
             return false;
@@ -483,10 +504,6 @@ public class Condition extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #detail} (Links to other relevant information, including pathology reports.)
-         */
-    // syntactic sugar
         public Reference addDetail() { //3
           Reference t = new Reference();
           if (this.detail == null)
@@ -495,7 +512,6 @@ public class Condition extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ConditionEvidenceComponent addDetail(Reference t) { //3
           if (t == null)
             return this;
@@ -506,8 +522,19 @@ public class Condition extends DomainResource {
         }
 
         /**
-         * @return {@link #detail} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Links to other relevant information, including pathology reports.)
+         * @return The first repetition of repeating field {@link #detail}, creating it if it does not already exist
          */
+        public Reference getDetailFirstRep() { 
+          if (getDetail().isEmpty()) {
+            addDetail();
+          }
+          return getDetail().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Resource> getDetailTarget() { 
           if (this.detailTarget == null)
             this.detailTarget = new ArrayList<Resource>();
@@ -610,8 +637,7 @@ public class Condition extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (detail == null || detail.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, detail);
       }
 
   public String fhirType() {
@@ -776,6 +802,14 @@ public class Condition extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Condition setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -785,10 +819,6 @@ public class Condition extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (This records identifiers associated with this condition that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -797,7 +827,6 @@ public class Condition extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Condition addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -805,6 +834,16 @@ public class Condition extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1363,6 +1402,14 @@ public class Condition extends DomainResource {
       return this.evidence;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Condition setEvidence(List<ConditionEvidenceComponent> theEvidence) { 
+      this.evidence = theEvidence;
+      return this;
+    }
+
     public boolean hasEvidence() { 
       if (this.evidence == null)
         return false;
@@ -1372,10 +1419,6 @@ public class Condition extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #evidence} (Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.)
-     */
-    // syntactic sugar
     public ConditionEvidenceComponent addEvidence() { //3
       ConditionEvidenceComponent t = new ConditionEvidenceComponent();
       if (this.evidence == null)
@@ -1384,7 +1427,6 @@ public class Condition extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Condition addEvidence(ConditionEvidenceComponent t) { //3
       if (t == null)
         return this;
@@ -1392,6 +1434,16 @@ public class Condition extends DomainResource {
         this.evidence = new ArrayList<ConditionEvidenceComponent>();
       this.evidence.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #evidence}, creating it if it does not already exist
+     */
+    public ConditionEvidenceComponent getEvidenceFirstRep() { 
+      if (getEvidence().isEmpty()) {
+        addEvidence();
+      }
+      return getEvidence().get(0);
     }
 
     /**
@@ -1403,6 +1455,14 @@ public class Condition extends DomainResource {
       return this.bodySite;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Condition setBodySite(List<CodeableConcept> theBodySite) { 
+      this.bodySite = theBodySite;
+      return this;
+    }
+
     public boolean hasBodySite() { 
       if (this.bodySite == null)
         return false;
@@ -1412,10 +1472,6 @@ public class Condition extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #bodySite} (The anatomical location where this condition manifests itself.)
-     */
-    // syntactic sugar
     public CodeableConcept addBodySite() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.bodySite == null)
@@ -1424,7 +1480,6 @@ public class Condition extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Condition addBodySite(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1432,6 +1487,16 @@ public class Condition extends DomainResource {
         this.bodySite = new ArrayList<CodeableConcept>();
       this.bodySite.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #bodySite}, creating it if it does not already exist
+     */
+    public CodeableConcept getBodySiteFirstRep() { 
+      if (getBodySite().isEmpty()) {
+        addBodySite();
+      }
+      return getBodySite().get(0);
     }
 
     /**
@@ -1443,6 +1508,14 @@ public class Condition extends DomainResource {
       return this.note;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Condition setNote(List<Annotation> theNote) { 
+      this.note = theNote;
+      return this;
+    }
+
     public boolean hasNote() { 
       if (this.note == null)
         return false;
@@ -1452,10 +1525,6 @@ public class Condition extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #note} (Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.)
-     */
-    // syntactic sugar
     public Annotation addNote() { //3
       Annotation t = new Annotation();
       if (this.note == null)
@@ -1464,7 +1533,6 @@ public class Condition extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Condition addNote(Annotation t) { //3
       if (t == null)
         return this;
@@ -1472,6 +1540,16 @@ public class Condition extends DomainResource {
         this.note = new ArrayList<Annotation>();
       this.note.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
+     */
+    public Annotation getNoteFirstRep() { 
+      if (getNote().isEmpty()) {
+        addNote();
+      }
+      return getNote().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1810,145 +1888,15 @@ public class Condition extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (patient == null || patient.isEmpty())
-           && (encounter == null || encounter.isEmpty()) && (asserter == null || asserter.isEmpty())
-           && (dateRecorded == null || dateRecorded.isEmpty()) && (code == null || code.isEmpty()) && (category == null || category.isEmpty())
-           && (clinicalStatus == null || clinicalStatus.isEmpty()) && (verificationStatus == null || verificationStatus.isEmpty())
-           && (severity == null || severity.isEmpty()) && (onset == null || onset.isEmpty()) && (abatement == null || abatement.isEmpty())
-           && (stage == null || stage.isEmpty()) && (evidence == null || evidence.isEmpty()) && (bodySite == null || bodySite.isEmpty())
-           && (note == null || note.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, patient, encounter
+          , asserter, dateRecorded, code, category, clinicalStatus, verificationStatus, severity
+          , onset, abatement, stage, evidence, bodySite, note);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Condition;
    }
-
- /**
-   * Search parameter: <b>date-recorded</b>
-   * <p>
-   * Description: <b>A date, when the Condition statement was documented</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Condition.dateRecorded</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date-recorded", path="Condition.dateRecorded", description="A date, when the Condition statement was documented", type="date" )
-  public static final String SP_DATE_RECORDED = "date-recorded";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date-recorded</b>
-   * <p>
-   * Description: <b>A date, when the Condition statement was documented</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Condition.dateRecorded</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE_RECORDED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE_RECORDED);
-
- /**
-   * Search parameter: <b>asserter</b>
-   * <p>
-   * Description: <b>Person who asserts this condition</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Condition.asserter</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="asserter", path="Condition.asserter", description="Person who asserts this condition", type="reference" )
-  public static final String SP_ASSERTER = "asserter";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>asserter</b>
-   * <p>
-   * Description: <b>Person who asserts this condition</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Condition.asserter</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ASSERTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ASSERTER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Condition:asserter</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ASSERTER = new ca.uhn.fhir.model.api.Include("Condition:asserter").toLocked();
-
- /**
-   * Search parameter: <b>onset</b>
-   * <p>
-   * Description: <b>Date related onsets (dateTime and Period)</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Condition.onset[x]</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="onset", path="Condition.onset.as(dateTime) | Condition.onset.as(Period)", description="Date related onsets (dateTime and Period)", type="date" )
-  public static final String SP_ONSET = "onset";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>onset</b>
-   * <p>
-   * Description: <b>Date related onsets (dateTime and Period)</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Condition.onset[x]</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam ONSET = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ONSET);
-
- /**
-   * Search parameter: <b>evidence</b>
-   * <p>
-   * Description: <b>Manifestation/symptom</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.evidence.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="evidence", path="Condition.evidence.code", description="Manifestation/symptom", type="token" )
-  public static final String SP_EVIDENCE = "evidence";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>evidence</b>
-   * <p>
-   * Description: <b>Manifestation/symptom</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.evidence.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EVIDENCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EVIDENCE);
-
- /**
-   * Search parameter: <b>body-site</b>
-   * <p>
-   * Description: <b>Anatomical location, if relevant</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.bodySite</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="body-site", path="Condition.bodySite", description="Anatomical location, if relevant", type="token" )
-  public static final String SP_BODY_SITE = "body-site";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>body-site</b>
-   * <p>
-   * Description: <b>Anatomical location, if relevant</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.bodySite</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BODY_SITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BODY_SITE);
-
- /**
-   * Search parameter: <b>onset-info</b>
-   * <p>
-   * Description: <b>Other onsets (boolean, age, range, string)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Condition.onset[x]</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="onset-info", path="Condition.onset.as(boolean) | Condition.onset.as(Quantity) | Condition.onset.as(Range) | Condition.onset.as(string)", description="Other onsets (boolean, age, range, string)", type="string" )
-  public static final String SP_ONSET_INFO = "onset-info";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>onset-info</b>
-   * <p>
-   * Description: <b>Other onsets (boolean, age, range, string)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Condition.onset[x]</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ONSET_INFO = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ONSET_INFO);
 
  /**
    * Search parameter: <b>severity</b>
@@ -1971,6 +1919,66 @@ public class Condition extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SEVERITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SEVERITY);
 
  /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>A unique identifier of the condition record</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Condition.identifier", description="A unique identifier of the condition record", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>A unique identifier of the condition record</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>clinicalstatus</b>
+   * <p>
+   * Description: <b>The clinical status of the condition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.clinicalStatus</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="clinicalstatus", path="Condition.clinicalStatus", description="The clinical status of the condition", type="token" )
+  public static final String SP_CLINICALSTATUS = "clinicalstatus";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>clinicalstatus</b>
+   * <p>
+   * Description: <b>The clinical status of the condition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.clinicalStatus</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CLINICALSTATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CLINICALSTATUS);
+
+ /**
+   * Search parameter: <b>onset-info</b>
+   * <p>
+   * Description: <b>Other onsets (boolean, age, range, string)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Condition.onset[x]</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="onset-info", path="Condition.onset.as(boolean) | Condition.onset.as(Quantity) | Condition.onset.as(Range) | Condition.onset.as(string)", description="Other onsets (boolean, age, range, string)", type="string" )
+  public static final String SP_ONSET_INFO = "onset-info";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>onset-info</b>
+   * <p>
+   * Description: <b>Other onsets (boolean, age, range, string)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Condition.onset[x]</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ONSET_INFO = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ONSET_INFO);
+
+ /**
    * Search parameter: <b>code</b>
    * <p>
    * Description: <b>Code for the condition</b><br>
@@ -1989,6 +1997,26 @@ public class Condition extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>evidence</b>
+   * <p>
+   * Description: <b>Manifestation/symptom</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.evidence.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="evidence", path="Condition.evidence.code", description="Manifestation/symptom", type="token" )
+  public static final String SP_EVIDENCE = "evidence";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>evidence</b>
+   * <p>
+   * Description: <b>Manifestation/symptom</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.evidence.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EVIDENCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EVIDENCE);
 
  /**
    * Search parameter: <b>encounter</b>
@@ -2017,6 +2045,72 @@ public class Condition extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("Condition:encounter").toLocked();
 
  /**
+   * Search parameter: <b>onset</b>
+   * <p>
+   * Description: <b>Date related onsets (dateTime and Period)</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Condition.onset[x]</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="onset", path="Condition.onset.as(dateTime) | Condition.onset.as(Period)", description="Date related onsets (dateTime and Period)", type="date" )
+  public static final String SP_ONSET = "onset";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>onset</b>
+   * <p>
+   * Description: <b>Date related onsets (dateTime and Period)</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Condition.onset[x]</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam ONSET = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ONSET);
+
+ /**
+   * Search parameter: <b>asserter</b>
+   * <p>
+   * Description: <b>Person who asserts this condition</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Condition.asserter</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="asserter", path="Condition.asserter", description="Person who asserts this condition", type="reference" )
+  public static final String SP_ASSERTER = "asserter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>asserter</b>
+   * <p>
+   * Description: <b>Person who asserts this condition</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Condition.asserter</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ASSERTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ASSERTER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Condition:asserter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ASSERTER = new ca.uhn.fhir.model.api.Include("Condition:asserter").toLocked();
+
+ /**
+   * Search parameter: <b>date-recorded</b>
+   * <p>
+   * Description: <b>A date, when the Condition statement was documented</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Condition.dateRecorded</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date-recorded", path="Condition.dateRecorded", description="A date, when the Condition statement was documented", type="date" )
+  public static final String SP_DATE_RECORDED = "date-recorded";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date-recorded</b>
+   * <p>
+   * Description: <b>A date, when the Condition statement was documented</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Condition.dateRecorded</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE_RECORDED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE_RECORDED);
+
+ /**
    * Search parameter: <b>stage</b>
    * <p>
    * Description: <b>Simple summary (disease specific)</b><br>
@@ -2035,26 +2129,6 @@ public class Condition extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STAGE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STAGE);
-
- /**
-   * Search parameter: <b>category</b>
-   * <p>
-   * Description: <b>The category of the condition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.category</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="category", path="Condition.category", description="The category of the condition", type="token" )
-  public static final String SP_CATEGORY = "category";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>category</b>
-   * <p>
-   * Description: <b>The category of the condition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.category</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
  /**
    * Search parameter: <b>patient</b>
@@ -2083,44 +2157,44 @@ public class Condition extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Condition:patient").toLocked();
 
  /**
-   * Search parameter: <b>clinicalstatus</b>
+   * Search parameter: <b>category</b>
    * <p>
-   * Description: <b>The clinical status of the condition</b><br>
+   * Description: <b>The category of the condition</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Condition.clinicalStatus</b><br>
+   * Path: <b>Condition.category</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="clinicalstatus", path="Condition.clinicalStatus", description="The clinical status of the condition", type="token" )
-  public static final String SP_CLINICALSTATUS = "clinicalstatus";
+  @SearchParamDefinition(name="category", path="Condition.category", description="The category of the condition", type="token" )
+  public static final String SP_CATEGORY = "category";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>clinicalstatus</b>
+   * <b>Fluent Client</b> search parameter constant for <b>category</b>
    * <p>
-   * Description: <b>The clinical status of the condition</b><br>
+   * Description: <b>The category of the condition</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Condition.clinicalStatus</b><br>
+   * Path: <b>Condition.category</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CLINICALSTATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CLINICALSTATUS);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>body-site</b>
    * <p>
-   * Description: <b>A unique identifier of the condition record</b><br>
+   * Description: <b>Anatomical location, if relevant</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Condition.identifier</b><br>
+   * Path: <b>Condition.bodySite</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Condition.identifier", description="A unique identifier of the condition record", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="body-site", path="Condition.bodySite", description="Anatomical location, if relevant", type="token" )
+  public static final String SP_BODY_SITE = "body-site";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>body-site</b>
    * <p>
-   * Description: <b>A unique identifier of the condition record</b><br>
+   * Description: <b>Anatomical location, if relevant</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Condition.identifier</b><br>
+   * Path: <b>Condition.bodySite</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BODY_SITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BODY_SITE);
 
 
 }

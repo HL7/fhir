@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -517,8 +517,8 @@ public class DeviceComponent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (specType == null || specType.isEmpty()) && (componentId == null || componentId.isEmpty())
-           && (productionSpec == null || productionSpec.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(specType, componentId, productionSpec
+          );
       }
 
   public String fhirType() {
@@ -817,6 +817,14 @@ public class DeviceComponent extends DomainResource {
       return this.operationalStatus;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DeviceComponent setOperationalStatus(List<CodeableConcept> theOperationalStatus) { 
+      this.operationalStatus = theOperationalStatus;
+      return this;
+    }
+
     public boolean hasOperationalStatus() { 
       if (this.operationalStatus == null)
         return false;
@@ -826,10 +834,6 @@ public class DeviceComponent extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #operationalStatus} (Indicates current operational status of the device. For example: On, Off, Standby, etc.)
-     */
-    // syntactic sugar
     public CodeableConcept addOperationalStatus() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.operationalStatus == null)
@@ -838,7 +842,6 @@ public class DeviceComponent extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DeviceComponent addOperationalStatus(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -846,6 +849,16 @@ public class DeviceComponent extends DomainResource {
         this.operationalStatus = new ArrayList<CodeableConcept>();
       this.operationalStatus.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #operationalStatus}, creating it if it does not already exist
+     */
+    public CodeableConcept getOperationalStatusFirstRep() { 
+      if (getOperationalStatus().isEmpty()) {
+        addOperationalStatus();
+      }
+      return getOperationalStatus().get(0);
     }
 
     /**
@@ -930,6 +943,14 @@ public class DeviceComponent extends DomainResource {
       return this.productionSpecification;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DeviceComponent setProductionSpecification(List<DeviceComponentProductionSpecificationComponent> theProductionSpecification) { 
+      this.productionSpecification = theProductionSpecification;
+      return this;
+    }
+
     public boolean hasProductionSpecification() { 
       if (this.productionSpecification == null)
         return false;
@@ -939,10 +960,6 @@ public class DeviceComponent extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #productionSpecification} (Describes the production specification such as component revision, serial number, etc.)
-     */
-    // syntactic sugar
     public DeviceComponentProductionSpecificationComponent addProductionSpecification() { //3
       DeviceComponentProductionSpecificationComponent t = new DeviceComponentProductionSpecificationComponent();
       if (this.productionSpecification == null)
@@ -951,7 +968,6 @@ public class DeviceComponent extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DeviceComponent addProductionSpecification(DeviceComponentProductionSpecificationComponent t) { //3
       if (t == null)
         return this;
@@ -959,6 +975,16 @@ public class DeviceComponent extends DomainResource {
         this.productionSpecification = new ArrayList<DeviceComponentProductionSpecificationComponent>();
       this.productionSpecification.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #productionSpecification}, creating it if it does not already exist
+     */
+    public DeviceComponentProductionSpecificationComponent getProductionSpecificationFirstRep() { 
+      if (getProductionSpecification().isEmpty()) {
+        addProductionSpecification();
+      }
+      return getProductionSpecification().get(0);
     }
 
     /**
@@ -1200,44 +1226,15 @@ public class DeviceComponent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (lastSystemChange == null || lastSystemChange.isEmpty()) && (source == null || source.isEmpty())
-           && (parent == null || parent.isEmpty()) && (operationalStatus == null || operationalStatus.isEmpty())
-           && (parameterGroup == null || parameterGroup.isEmpty()) && (measurementPrinciple == null || measurementPrinciple.isEmpty())
-           && (productionSpecification == null || productionSpecification.isEmpty()) && (languageCode == null || languageCode.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, identifier, lastSystemChange
+          , source, parent, operationalStatus, parameterGroup, measurementPrinciple, productionSpecification
+          , languageCode);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.DeviceComponent;
    }
-
- /**
-   * Search parameter: <b>source</b>
-   * <p>
-   * Description: <b>The device source</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DeviceComponent.source</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="source", path="DeviceComponent.source", description="The device source", type="reference" )
-  public static final String SP_SOURCE = "source";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>source</b>
-   * <p>
-   * Description: <b>The device source</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DeviceComponent.source</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SOURCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SOURCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DeviceComponent:source</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("DeviceComponent:source").toLocked();
 
  /**
    * Search parameter: <b>parent</b>
@@ -1264,6 +1261,32 @@ public class DeviceComponent extends DomainResource {
    * the path value of "<b>DeviceComponent:parent</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PARENT = new ca.uhn.fhir.model.api.Include("DeviceComponent:parent").toLocked();
+
+ /**
+   * Search parameter: <b>source</b>
+   * <p>
+   * Description: <b>The device source</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DeviceComponent.source</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="source", path="DeviceComponent.source", description="The device source", type="reference" )
+  public static final String SP_SOURCE = "source";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>source</b>
+   * <p>
+   * Description: <b>The device source</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DeviceComponent.source</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SOURCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SOURCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DeviceComponent:source</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("DeviceComponent:source").toLocked();
 
  /**
    * Search parameter: <b>type</b>

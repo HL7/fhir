@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -660,8 +660,8 @@ public class Subscription extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (endpoint == null || endpoint.isEmpty())
-           && (payload == null || payload.isEmpty()) && (header == null || header.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, endpoint, payload
+          , header);
       }
 
   public String fhirType() {
@@ -801,6 +801,14 @@ public class Subscription extends DomainResource {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Subscription setContact(List<ContactPoint> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -810,10 +818,6 @@ public class Subscription extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting.)
-     */
-    // syntactic sugar
     public ContactPoint addContact() { //3
       ContactPoint t = new ContactPoint();
       if (this.contact == null)
@@ -822,7 +826,6 @@ public class Subscription extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Subscription addContact(ContactPoint t) { //3
       if (t == null)
         return this;
@@ -830,6 +833,16 @@ public class Subscription extends DomainResource {
         this.contact = new ArrayList<ContactPoint>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public ContactPoint getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -1053,6 +1066,14 @@ public class Subscription extends DomainResource {
       return this.tag;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Subscription setTag(List<Coding> theTag) { 
+      this.tag = theTag;
+      return this;
+    }
+
     public boolean hasTag() { 
       if (this.tag == null)
         return false;
@@ -1062,10 +1083,6 @@ public class Subscription extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #tag} (A tag to add to any resource that matches the criteria, after the subscription is processed.)
-     */
-    // syntactic sugar
     public Coding addTag() { //3
       Coding t = new Coding();
       if (this.tag == null)
@@ -1074,7 +1091,6 @@ public class Subscription extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Subscription addTag(Coding t) { //3
       if (t == null)
         return this;
@@ -1082,6 +1098,16 @@ public class Subscription extends DomainResource {
         this.tag = new ArrayList<Coding>();
       this.tag.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #tag}, creating it if it does not already exist
+     */
+    public Coding getTagFirstRep() { 
+      if (getTag().isEmpty()) {
+        addTag();
+      }
+      return getTag().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1268,76 +1294,14 @@ public class Subscription extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (criteria == null || criteria.isEmpty()) && (contact == null || contact.isEmpty())
-           && (reason == null || reason.isEmpty()) && (status == null || status.isEmpty()) && (error == null || error.isEmpty())
-           && (channel == null || channel.isEmpty()) && (end == null || end.isEmpty()) && (tag == null || tag.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(criteria, contact, reason
+          , status, error, channel, end, tag);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Subscription;
    }
-
- /**
-   * Search parameter: <b>criteria</b>
-   * <p>
-   * Description: <b>Rule for server push criteria</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Subscription.criteria</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="criteria", path="Subscription.criteria", description="Rule for server push criteria", type="string" )
-  public static final String SP_CRITERIA = "criteria";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>criteria</b>
-   * <p>
-   * Description: <b>Rule for server push criteria</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Subscription.criteria</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam CRITERIA = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_CRITERIA);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>requested | active | error | off</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Subscription.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="Subscription.status", description="requested | active | error | off", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>requested | active | error | off</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Subscription.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>tag</b>
-   * <p>
-   * Description: <b>A tag to add to matching resources</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Subscription.tag</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="tag", path="Subscription.tag", description="A tag to add to matching resources", type="token" )
-  public static final String SP_TAG = "tag";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>tag</b>
-   * <p>
-   * Description: <b>A tag to add to matching resources</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Subscription.tag</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TAG = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TAG);
 
  /**
    * Search parameter: <b>payload</b>
@@ -1360,24 +1324,24 @@ public class Subscription extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PAYLOAD = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PAYLOAD);
 
  /**
-   * Search parameter: <b>type</b>
+   * Search parameter: <b>criteria</b>
    * <p>
-   * Description: <b>rest-hook | websocket | email | sms | message</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Subscription.channel.type</b><br>
+   * Description: <b>Rule for server push criteria</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Subscription.criteria</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="type", path="Subscription.channel.type", description="rest-hook | websocket | email | sms | message", type="token" )
-  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="criteria", path="Subscription.criteria", description="Rule for server push criteria", type="string" )
+  public static final String SP_CRITERIA = "criteria";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <b>Fluent Client</b> search parameter constant for <b>criteria</b>
    * <p>
-   * Description: <b>rest-hook | websocket | email | sms | message</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Subscription.channel.type</b><br>
+   * Description: <b>Rule for server push criteria</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Subscription.criteria</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam CRITERIA = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_CRITERIA);
 
  /**
    * Search parameter: <b>contact</b>
@@ -1400,6 +1364,46 @@ public class Subscription extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTACT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTACT);
 
  /**
+   * Search parameter: <b>tag</b>
+   * <p>
+   * Description: <b>A tag to add to matching resources</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.tag</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="tag", path="Subscription.tag", description="A tag to add to matching resources", type="token" )
+  public static final String SP_TAG = "tag";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>tag</b>
+   * <p>
+   * Description: <b>A tag to add to matching resources</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.tag</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TAG = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TAG);
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>rest-hook | websocket | email | sms | message</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.channel.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="Subscription.channel.type", description="rest-hook | websocket | email | sms | message", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>rest-hook | websocket | email | sms | message</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.channel.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
    * Search parameter: <b>url</b>
    * <p>
    * Description: <b>Where the channel points to</b><br>
@@ -1418,6 +1422,26 @@ public class Subscription extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>requested | active | error | off</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="Subscription.status", description="requested | active | error | off", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>requested | active | error | off</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

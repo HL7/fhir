@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -359,6 +359,14 @@ public class NamingSystem extends BaseConformance {
           return this.telecom;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public NamingSystemContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+          this.telecom = theTelecom;
+          return this;
+        }
+
         public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
@@ -368,10 +376,6 @@ public class NamingSystem extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
-         */
-    // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           if (this.telecom == null)
@@ -380,7 +384,6 @@ public class NamingSystem extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public NamingSystemContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
@@ -388,6 +391,16 @@ public class NamingSystem extends BaseConformance {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+         */
+        public ContactPoint getTelecomFirstRep() { 
+          if (getTelecom().isEmpty()) {
+            addTelecom();
+          }
+          return getTelecom().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -485,8 +498,7 @@ public class NamingSystem extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, telecom);
       }
 
   public String fhirType() {
@@ -821,8 +833,8 @@ public class NamingSystem extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (value == null || value.isEmpty())
-           && (preferred == null || preferred.isEmpty()) && (period == null || period.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, value, preferred, period
+          );
       }
 
   public String fhirType() {
@@ -1053,6 +1065,14 @@ public class NamingSystem extends BaseConformance {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public NamingSystem setContact(List<NamingSystemContactComponent> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -1062,10 +1082,6 @@ public class NamingSystem extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
-     */
-    // syntactic sugar
     public NamingSystemContactComponent addContact() { //3
       NamingSystemContactComponent t = new NamingSystemContactComponent();
       if (this.contact == null)
@@ -1074,7 +1090,6 @@ public class NamingSystem extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public NamingSystem addContact(NamingSystemContactComponent t) { //3
       if (t == null)
         return this;
@@ -1082,6 +1097,16 @@ public class NamingSystem extends BaseConformance {
         this.contact = new ArrayList<NamingSystemContactComponent>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public NamingSystemContactComponent getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -1264,6 +1289,14 @@ public class NamingSystem extends BaseConformance {
       return this.uniqueId;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public NamingSystem setUniqueId(List<NamingSystemUniqueIdComponent> theUniqueId) { 
+      this.uniqueId = theUniqueId;
+      return this;
+    }
+
     public boolean hasUniqueId() { 
       if (this.uniqueId == null)
         return false;
@@ -1273,10 +1306,6 @@ public class NamingSystem extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #uniqueId} (Indicates how the system may be identified when referenced in electronic exchange.)
-     */
-    // syntactic sugar
     public NamingSystemUniqueIdComponent addUniqueId() { //3
       NamingSystemUniqueIdComponent t = new NamingSystemUniqueIdComponent();
       if (this.uniqueId == null)
@@ -1285,7 +1314,6 @@ public class NamingSystem extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public NamingSystem addUniqueId(NamingSystemUniqueIdComponent t) { //3
       if (t == null)
         return this;
@@ -1293,6 +1321,16 @@ public class NamingSystem extends BaseConformance {
         this.uniqueId = new ArrayList<NamingSystemUniqueIdComponent>();
       this.uniqueId.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #uniqueId}, creating it if it does not already exist
+     */
+    public NamingSystemUniqueIdComponent getUniqueIdFirstRep() { 
+      if (getUniqueId().isEmpty()) {
+        addUniqueId();
+      }
+      return getUniqueId().get(0);
     }
 
     /**
@@ -1585,77 +1623,14 @@ public class NamingSystem extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (kind == null || kind.isEmpty()) && (publisher == null || publisher.isEmpty())
-           && (contact == null || contact.isEmpty()) && (responsible == null || responsible.isEmpty())
-           && (type == null || type.isEmpty()) && (description == null || description.isEmpty()) && (usage == null || usage.isEmpty())
-           && (uniqueId == null || uniqueId.isEmpty()) && (replacedBy == null || replacedBy.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, publisher, contact
+          , responsible, type, description, usage, uniqueId, replacedBy);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.NamingSystem;
    }
-
- /**
-   * Search parameter: <b>responsible</b>
-   * <p>
-   * Description: <b>Who maintains system namespace?</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>NamingSystem.responsible</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="responsible", path="NamingSystem.responsible", description="Who maintains system namespace?", type="string" )
-  public static final String SP_RESPONSIBLE = "responsible";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>responsible</b>
-   * <p>
-   * Description: <b>Who maintains system namespace?</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>NamingSystem.responsible</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam RESPONSIBLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_RESPONSIBLE);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>draft | active | retired</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NamingSystem.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="NamingSystem.status", description="draft | active | retired", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>draft | active | retired</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NamingSystem.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>e.g. driver,  provider,  patient, bank etc.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NamingSystem.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="NamingSystem.type", description="e.g. driver,  provider,  patient, bank etc.", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>e.g. driver,  provider,  patient, bank etc.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NamingSystem.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
    * Search parameter: <b>date</b>
@@ -1698,26 +1673,6 @@ public class NamingSystem extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam PERIOD = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_PERIOD);
 
  /**
-   * Search parameter: <b>contact</b>
-   * <p>
-   * Description: <b>Name of an individual to contact</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>NamingSystem.contact.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="contact", path="NamingSystem.contact.name", description="Name of an individual to contact", type="string" )
-  public static final String SP_CONTACT = "contact";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>contact</b>
-   * <p>
-   * Description: <b>Name of an individual to contact</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>NamingSystem.contact.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam CONTACT = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_CONTACT);
-
- /**
    * Search parameter: <b>kind</b>
    * <p>
    * Description: <b>codesystem | identifier | root</b><br>
@@ -1738,24 +1693,24 @@ public class NamingSystem extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam KIND = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_KIND);
 
  /**
-   * Search parameter: <b>publisher</b>
+   * Search parameter: <b>type</b>
    * <p>
-   * Description: <b>Name of the publisher (Organization or individual)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>NamingSystem.publisher</b><br>
+   * Description: <b>e.g. driver,  provider,  patient, bank etc.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NamingSystem.type</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="publisher", path="NamingSystem.publisher", description="Name of the publisher (Organization or individual)", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="type", path="NamingSystem.type", description="e.g. driver,  provider,  patient, bank etc.", type="token" )
+  public static final String SP_TYPE = "type";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
    * <p>
-   * Description: <b>Name of the publisher (Organization or individual)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>NamingSystem.publisher</b><br>
+   * Description: <b>e.g. driver,  provider,  patient, bank etc.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NamingSystem.type</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
    * Search parameter: <b>id-type</b>
@@ -1776,6 +1731,46 @@ public class NamingSystem extends BaseConformance {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ID_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ID_TYPE);
+
+ /**
+   * Search parameter: <b>responsible</b>
+   * <p>
+   * Description: <b>Who maintains system namespace?</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>NamingSystem.responsible</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="responsible", path="NamingSystem.responsible", description="Who maintains system namespace?", type="string" )
+  public static final String SP_RESPONSIBLE = "responsible";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>responsible</b>
+   * <p>
+   * Description: <b>Who maintains system namespace?</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>NamingSystem.responsible</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam RESPONSIBLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_RESPONSIBLE);
+
+ /**
+   * Search parameter: <b>contact</b>
+   * <p>
+   * Description: <b>Name of an individual to contact</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>NamingSystem.contact.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="contact", path="NamingSystem.contact.name", description="Name of an individual to contact", type="string" )
+  public static final String SP_CONTACT = "contact";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>contact</b>
+   * <p>
+   * Description: <b>Name of an individual to contact</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>NamingSystem.contact.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam CONTACT = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_CONTACT);
 
  /**
    * Search parameter: <b>name</b>
@@ -1818,24 +1813,24 @@ public class NamingSystem extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
-   * Search parameter: <b>value</b>
+   * Search parameter: <b>publisher</b>
    * <p>
-   * Description: <b>The unique identifier</b><br>
+   * Description: <b>Name of the publisher (Organization or individual)</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>NamingSystem.uniqueId.value</b><br>
+   * Path: <b>NamingSystem.publisher</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="value", path="NamingSystem.uniqueId.value", description="The unique identifier", type="string" )
-  public static final String SP_VALUE = "value";
+  @SearchParamDefinition(name="publisher", path="NamingSystem.publisher", description="Name of the publisher (Organization or individual)", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>value</b>
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
    * <p>
-   * Description: <b>The unique identifier</b><br>
+   * Description: <b>Name of the publisher (Organization or individual)</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>NamingSystem.uniqueId.value</b><br>
+   * Path: <b>NamingSystem.publisher</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam VALUE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_VALUE);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
    * Search parameter: <b>telecom</b>
@@ -1856,6 +1851,26 @@ public class NamingSystem extends BaseConformance {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TELECOM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TELECOM);
+
+ /**
+   * Search parameter: <b>value</b>
+   * <p>
+   * Description: <b>The unique identifier</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>NamingSystem.uniqueId.value</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="value", path="NamingSystem.uniqueId.value", description="The unique identifier", type="string" )
+  public static final String SP_VALUE = "value";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>value</b>
+   * <p>
+   * Description: <b>The unique identifier</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>NamingSystem.uniqueId.value</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam VALUE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_VALUE);
 
  /**
    * Search parameter: <b>replaced-by</b>
@@ -1882,6 +1897,26 @@ public class NamingSystem extends BaseConformance {
    * the path value of "<b>NamingSystem:replaced-by</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_REPLACED_BY = new ca.uhn.fhir.model.api.Include("NamingSystem:replaced-by").toLocked();
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>draft | active | retired</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NamingSystem.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="NamingSystem.status", description="draft | active | retired", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>draft | active | retired</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NamingSystem.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

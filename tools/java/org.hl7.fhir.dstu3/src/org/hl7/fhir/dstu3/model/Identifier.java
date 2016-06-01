@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -618,9 +618,8 @@ public class Identifier extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (use == null || use.isEmpty()) && (type == null || type.isEmpty())
-           && (system == null || system.isEmpty()) && (value == null || value.isEmpty()) && (period == null || period.isEmpty())
-           && (assigner == null || assigner.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(use, type, system, value
+          , period, assigner);
       }
 
 

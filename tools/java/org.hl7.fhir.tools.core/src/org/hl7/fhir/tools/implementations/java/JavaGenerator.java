@@ -61,6 +61,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.definitions.parsers.IgParser;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
@@ -769,6 +770,46 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       if (new File(destFile+".err").exists())
         throw new Exception(TextFile.fileToString(destFile+".err"));
     }
+  }
+
+  public void buildIGPublisher(String packFileName) throws Exception {
+    Manifest manifest = new Manifest();
+    manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
+    manifest.getMainAttributes().put(Attributes.Name.CLASS_PATH, ".");
+    manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "org.hl7.fhir.igtools.publisher.Publisher");
+
+    JarOutputStream jar = new JarOutputStream(new FileOutputStream(Utilities.path(folders.dstDir, "org.hl7.fhir.igpublisher.jar")), manifest);
+    List<String> names = new ArrayList<String>();
+    names.add("META-INF/");
+    names.add("META-INF/MANIFEST.MF");
+
+    String importsDir = Utilities.path(folders.rootDir, "tools", "java", "imports");
+    AddJarToJar(jar, Utilities.path(importsDir, "xpp3-1.1.4c.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "gson-2.3.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "commons-codec-1.9.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "commons-io-1.2.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "commons-lang3-3.3.2.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "commons-logging-1.1.1.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "commons-logging-api-1.1.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "httpclient-4.2.3.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "httpcore-4.2.2.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-1.3.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "Saxon-HE-9.5.1-5.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "xpp3_xpath-1.1.4c.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "ST4-4.0.7.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "txtmark-0.11.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "antlr-runtime-3.4.jar"), names);
+    
+    // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu3", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu3", "src").length()+1, names);
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.utilities", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.utilities", "src").length()+1, names);
+    // ok now add the igtools
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "bin")), Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "bin").length()+1, names);
+    
+    // last, add the igpack:
+    AddToJar(jar, new File(packFileName), packFileName.lastIndexOf(File.separatorChar)+1, names);
+    jar.close();
+    
   }
 
 

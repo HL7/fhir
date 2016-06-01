@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -112,6 +112,14 @@ public class Medication extends DomainResource {
           return this.ingredient;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public MedicationProductComponent setIngredient(List<MedicationProductIngredientComponent> theIngredient) { 
+          this.ingredient = theIngredient;
+          return this;
+        }
+
         public boolean hasIngredient() { 
           if (this.ingredient == null)
             return false;
@@ -121,10 +129,6 @@ public class Medication extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #ingredient} (Identifies a particular constituent of interest in the product.)
-         */
-    // syntactic sugar
         public MedicationProductIngredientComponent addIngredient() { //3
           MedicationProductIngredientComponent t = new MedicationProductIngredientComponent();
           if (this.ingredient == null)
@@ -133,7 +137,6 @@ public class Medication extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public MedicationProductComponent addIngredient(MedicationProductIngredientComponent t) { //3
           if (t == null)
             return this;
@@ -141,6 +144,16 @@ public class Medication extends DomainResource {
             this.ingredient = new ArrayList<MedicationProductIngredientComponent>();
           this.ingredient.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #ingredient}, creating it if it does not already exist
+         */
+        public MedicationProductIngredientComponent getIngredientFirstRep() { 
+          if (getIngredient().isEmpty()) {
+            addIngredient();
+          }
+          return getIngredient().get(0);
         }
 
         /**
@@ -152,6 +165,14 @@ public class Medication extends DomainResource {
           return this.batch;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public MedicationProductComponent setBatch(List<MedicationProductBatchComponent> theBatch) { 
+          this.batch = theBatch;
+          return this;
+        }
+
         public boolean hasBatch() { 
           if (this.batch == null)
             return false;
@@ -161,10 +182,6 @@ public class Medication extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #batch} (Information about a group of medication produced or packaged from one production run.)
-         */
-    // syntactic sugar
         public MedicationProductBatchComponent addBatch() { //3
           MedicationProductBatchComponent t = new MedicationProductBatchComponent();
           if (this.batch == null)
@@ -173,7 +190,6 @@ public class Medication extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public MedicationProductComponent addBatch(MedicationProductBatchComponent t) { //3
           if (t == null)
             return this;
@@ -181,6 +197,16 @@ public class Medication extends DomainResource {
             this.batch = new ArrayList<MedicationProductBatchComponent>();
           this.batch.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #batch}, creating it if it does not already exist
+         */
+        public MedicationProductBatchComponent getBatchFirstRep() { 
+          if (getBatch().isEmpty()) {
+            addBatch();
+          }
+          return getBatch().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -296,8 +322,8 @@ public class Medication extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (form == null || form.isEmpty()) && (ingredient == null || ingredient.isEmpty())
-           && (batch == null || batch.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(form, ingredient, batch
+          );
       }
 
   public String fhirType() {
@@ -506,8 +532,7 @@ public class Medication extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (item == null || item.isEmpty()) && (amount == null || amount.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(item, amount);
       }
 
   public String fhirType() {
@@ -733,8 +758,8 @@ public class Medication extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (lotNumber == null || lotNumber.isEmpty()) && (expirationDate == null || expirationDate.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(lotNumber, expirationDate
+          );
       }
 
   public String fhirType() {
@@ -802,6 +827,14 @@ public class Medication extends DomainResource {
           return this.content;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public MedicationPackageComponent setContent(List<MedicationPackageContentComponent> theContent) { 
+          this.content = theContent;
+          return this;
+        }
+
         public boolean hasContent() { 
           if (this.content == null)
             return false;
@@ -811,10 +844,6 @@ public class Medication extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #content} (A set of components that go to make up the described item.)
-         */
-    // syntactic sugar
         public MedicationPackageContentComponent addContent() { //3
           MedicationPackageContentComponent t = new MedicationPackageContentComponent();
           if (this.content == null)
@@ -823,7 +852,6 @@ public class Medication extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public MedicationPackageComponent addContent(MedicationPackageContentComponent t) { //3
           if (t == null)
             return this;
@@ -831,6 +859,16 @@ public class Medication extends DomainResource {
             this.content = new ArrayList<MedicationPackageContentComponent>();
           this.content.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #content}, creating it if it does not already exist
+         */
+        public MedicationPackageContentComponent getContentFirstRep() { 
+          if (getContent().isEmpty()) {
+            addContent();
+          }
+          return getContent().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -929,8 +967,7 @@ public class Medication extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (container == null || container.isEmpty()) && (content == null || content.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(container, content);
       }
 
   public String fhirType() {
@@ -1139,8 +1176,7 @@ public class Medication extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (item == null || item.isEmpty()) && (amount == null || amount.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(item, amount);
       }
 
   public String fhirType() {
@@ -1501,9 +1537,8 @@ public class Medication extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (isBrand == null || isBrand.isEmpty())
-           && (manufacturer == null || manufacturer.isEmpty()) && (product == null || product.isEmpty())
-           && (package_ == null || package_.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, isBrand, manufacturer
+          , product, package_);
       }
 
   @Override
@@ -1512,24 +1547,24 @@ public class Medication extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>form</b>
+   * Search parameter: <b>ingredient-code</b>
    * <p>
-   * Description: <b>powder | tablets | carton +</b><br>
+   * Description: <b>The product contained</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Medication.product.form</b><br>
+   * Path: <b>Medication.product.ingredient.itemCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="form", path="Medication.product.form", description="powder | tablets | carton +", type="token" )
-  public static final String SP_FORM = "form";
+  @SearchParamDefinition(name="ingredient-code", path="Medication.product.ingredient.item.as(CodeableConcept)", description="The product contained", type="token" )
+  public static final String SP_INGREDIENT_CODE = "ingredient-code";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>form</b>
+   * <b>Fluent Client</b> search parameter constant for <b>ingredient-code</b>
    * <p>
-   * Description: <b>powder | tablets | carton +</b><br>
+   * Description: <b>The product contained</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Medication.product.form</b><br>
+   * Path: <b>Medication.product.ingredient.itemCodeableConcept</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FORM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FORM);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam INGREDIENT_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_INGREDIENT_CODE);
 
  /**
    * Search parameter: <b>container</b>
@@ -1550,78 +1585,6 @@ public class Medication extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTAINER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTAINER);
-
- /**
-   * Search parameter: <b>manufacturer</b>
-   * <p>
-   * Description: <b>Manufacturer of the item</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Medication.manufacturer</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="manufacturer", path="Medication.manufacturer", description="Manufacturer of the item", type="reference" )
-  public static final String SP_MANUFACTURER = "manufacturer";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>manufacturer</b>
-   * <p>
-   * Description: <b>Manufacturer of the item</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Medication.manufacturer</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MANUFACTURER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MANUFACTURER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Medication:manufacturer</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_MANUFACTURER = new ca.uhn.fhir.model.api.Include("Medication:manufacturer").toLocked();
-
- /**
-   * Search parameter: <b>package-item-code</b>
-   * <p>
-   * Description: <b>The item in the package</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Medication.package.content.itemCodeableConcept</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="package-item-code", path="Medication.package.content.item.as(CodeableConcept)", description="The item in the package", type="token" )
-  public static final String SP_PACKAGE_ITEM_CODE = "package-item-code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>package-item-code</b>
-   * <p>
-   * Description: <b>The item in the package</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Medication.package.content.itemCodeableConcept</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PACKAGE_ITEM_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PACKAGE_ITEM_CODE);
-
- /**
-   * Search parameter: <b>ingredient</b>
-   * <p>
-   * Description: <b>The product contained</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Medication.product.ingredient.itemReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="ingredient", path="Medication.product.ingredient.item.as(Reference)", description="The product contained", type="reference" )
-  public static final String SP_INGREDIENT = "ingredient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>ingredient</b>
-   * <p>
-   * Description: <b>The product contained</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Medication.product.ingredient.itemReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INGREDIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INGREDIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Medication:ingredient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_INGREDIENT = new ca.uhn.fhir.model.api.Include("Medication:ingredient").toLocked();
 
  /**
    * Search parameter: <b>package-item</b>
@@ -1670,24 +1633,96 @@ public class Medication extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
-   * Search parameter: <b>ingredient-code</b>
+   * Search parameter: <b>ingredient</b>
    * <p>
    * Description: <b>The product contained</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Medication.product.ingredient.itemCodeableConcept</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Medication.product.ingredient.itemReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="ingredient-code", path="Medication.product.ingredient.item.as(CodeableConcept)", description="The product contained", type="token" )
-  public static final String SP_INGREDIENT_CODE = "ingredient-code";
+  @SearchParamDefinition(name="ingredient", path="Medication.product.ingredient.item.as(Reference)", description="The product contained", type="reference" )
+  public static final String SP_INGREDIENT = "ingredient";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>ingredient-code</b>
+   * <b>Fluent Client</b> search parameter constant for <b>ingredient</b>
    * <p>
    * Description: <b>The product contained</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Medication.product.ingredient.itemCodeableConcept</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Medication.product.ingredient.itemReference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam INGREDIENT_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_INGREDIENT_CODE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INGREDIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INGREDIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Medication:ingredient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INGREDIENT = new ca.uhn.fhir.model.api.Include("Medication:ingredient").toLocked();
+
+ /**
+   * Search parameter: <b>form</b>
+   * <p>
+   * Description: <b>powder | tablets | carton +</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Medication.product.form</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="form", path="Medication.product.form", description="powder | tablets | carton +", type="token" )
+  public static final String SP_FORM = "form";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>form</b>
+   * <p>
+   * Description: <b>powder | tablets | carton +</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Medication.product.form</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FORM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FORM);
+
+ /**
+   * Search parameter: <b>package-item-code</b>
+   * <p>
+   * Description: <b>The item in the package</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Medication.package.content.itemCodeableConcept</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="package-item-code", path="Medication.package.content.item.as(CodeableConcept)", description="The item in the package", type="token" )
+  public static final String SP_PACKAGE_ITEM_CODE = "package-item-code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>package-item-code</b>
+   * <p>
+   * Description: <b>The item in the package</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Medication.package.content.itemCodeableConcept</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PACKAGE_ITEM_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PACKAGE_ITEM_CODE);
+
+ /**
+   * Search parameter: <b>manufacturer</b>
+   * <p>
+   * Description: <b>Manufacturer of the item</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Medication.manufacturer</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="manufacturer", path="Medication.manufacturer", description="Manufacturer of the item", type="reference" )
+  public static final String SP_MANUFACTURER = "manufacturer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>manufacturer</b>
+   * <p>
+   * Description: <b>Manufacturer of the item</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Medication.manufacturer</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MANUFACTURER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MANUFACTURER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Medication:manufacturer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_MANUFACTURER = new ca.uhn.fhir.model.api.Include("Medication:manufacturer").toLocked();
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -561,6 +561,14 @@ public class AuditEvent extends DomainResource {
           return this.role;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AuditEventAgentComponent setRole(List<CodeableConcept> theRole) { 
+          this.role = theRole;
+          return this;
+        }
+
         public boolean hasRole() { 
           if (this.role == null)
             return false;
@@ -570,10 +578,6 @@ public class AuditEvent extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #role} (Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.)
-         */
-    // syntactic sugar
         public CodeableConcept addRole() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.role == null)
@@ -582,7 +586,6 @@ public class AuditEvent extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public AuditEventAgentComponent addRole(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -590,6 +593,16 @@ public class AuditEvent extends DomainResource {
             this.role = new ArrayList<CodeableConcept>();
           this.role.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #role}, creating it if it does not already exist
+         */
+        public CodeableConcept getRoleFirstRep() { 
+          if (getRole().isEmpty()) {
+            addRole();
+          }
+          return getRole().get(0);
         }
 
         /**
@@ -851,6 +864,14 @@ public class AuditEvent extends DomainResource {
           return this.policy;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AuditEventAgentComponent setPolicy(List<UriType> thePolicy) { 
+          this.policy = thePolicy;
+          return this;
+        }
+
         public boolean hasPolicy() { 
           if (this.policy == null)
             return false;
@@ -863,7 +884,6 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #policy} (The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used.)
          */
-    // syntactic sugar
         public UriType addPolicyElement() {//2 
           UriType t = new UriType();
           if (this.policy == null)
@@ -953,6 +973,14 @@ public class AuditEvent extends DomainResource {
           return this.purposeOfUse;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AuditEventAgentComponent setPurposeOfUse(List<Coding> thePurposeOfUse) { 
+          this.purposeOfUse = thePurposeOfUse;
+          return this;
+        }
+
         public boolean hasPurposeOfUse() { 
           if (this.purposeOfUse == null)
             return false;
@@ -962,10 +990,6 @@ public class AuditEvent extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #purposeOfUse} (The reason (purpose of use), specific to this agent, that was used during the event being recorded.)
-         */
-    // syntactic sugar
         public Coding addPurposeOfUse() { //3
           Coding t = new Coding();
           if (this.purposeOfUse == null)
@@ -974,7 +998,6 @@ public class AuditEvent extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public AuditEventAgentComponent addPurposeOfUse(Coding t) { //3
           if (t == null)
             return this;
@@ -982,6 +1005,16 @@ public class AuditEvent extends DomainResource {
             this.purposeOfUse = new ArrayList<Coding>();
           this.purposeOfUse.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #purposeOfUse}, creating it if it does not already exist
+         */
+        public Coding getPurposeOfUseFirstRep() { 
+          if (getPurposeOfUse().isEmpty()) {
+            addPurposeOfUse();
+          }
+          return getPurposeOfUse().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1204,11 +1237,8 @@ public class AuditEvent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (role == null || role.isEmpty()) && (reference == null || reference.isEmpty())
-           && (userId == null || userId.isEmpty()) && (altId == null || altId.isEmpty()) && (name == null || name.isEmpty())
-           && (requestor == null || requestor.isEmpty()) && (location == null || location.isEmpty())
-           && (policy == null || policy.isEmpty()) && (media == null || media.isEmpty()) && (network == null || network.isEmpty())
-           && (purposeOfUse == null || purposeOfUse.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, reference, userId
+          , altId, name, requestor, location, policy, media, network, purposeOfUse);
       }
 
   public String fhirType() {
@@ -1432,8 +1462,7 @@ public class AuditEvent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (address == null || address.isEmpty()) && (type == null || type.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(address, type);
       }
 
   public String fhirType() {
@@ -1565,6 +1594,14 @@ public class AuditEvent extends DomainResource {
           return this.type;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AuditEventSourceComponent setType(List<Coding> theType) { 
+          this.type = theType;
+          return this;
+        }
+
         public boolean hasType() { 
           if (this.type == null)
             return false;
@@ -1574,10 +1611,6 @@ public class AuditEvent extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #type} (Code specifying the type of source where event originated.)
-         */
-    // syntactic sugar
         public Coding addType() { //3
           Coding t = new Coding();
           if (this.type == null)
@@ -1586,7 +1619,6 @@ public class AuditEvent extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public AuditEventSourceComponent addType(Coding t) { //3
           if (t == null)
             return this;
@@ -1594,6 +1626,16 @@ public class AuditEvent extends DomainResource {
             this.type = new ArrayList<Coding>();
           this.type.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #type}, creating it if it does not already exist
+         */
+        public Coding getTypeFirstRep() { 
+          if (getType().isEmpty()) {
+            addType();
+          }
+          return getType().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1705,8 +1747,7 @@ public class AuditEvent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (site == null || site.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (type == null || type.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(site, identifier, type);
       }
 
   public String fhirType() {
@@ -1946,6 +1987,14 @@ public class AuditEvent extends DomainResource {
           return this.securityLabel;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AuditEventEntityComponent setSecurityLabel(List<Coding> theSecurityLabel) { 
+          this.securityLabel = theSecurityLabel;
+          return this;
+        }
+
         public boolean hasSecurityLabel() { 
           if (this.securityLabel == null)
             return false;
@@ -1955,10 +2004,6 @@ public class AuditEvent extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #securityLabel} (Denotes security labels for the identified entity.)
-         */
-    // syntactic sugar
         public Coding addSecurityLabel() { //3
           Coding t = new Coding();
           if (this.securityLabel == null)
@@ -1967,7 +2012,6 @@ public class AuditEvent extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public AuditEventEntityComponent addSecurityLabel(Coding t) { //3
           if (t == null)
             return this;
@@ -1975,6 +2019,16 @@ public class AuditEvent extends DomainResource {
             this.securityLabel = new ArrayList<Coding>();
           this.securityLabel.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #securityLabel}, creating it if it does not already exist
+         */
+        public Coding getSecurityLabelFirstRep() { 
+          if (getSecurityLabel().isEmpty()) {
+            addSecurityLabel();
+          }
+          return getSecurityLabel().get(0);
         }
 
         /**
@@ -2133,6 +2187,14 @@ public class AuditEvent extends DomainResource {
           return this.detail;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AuditEventEntityComponent setDetail(List<AuditEventEntityDetailComponent> theDetail) { 
+          this.detail = theDetail;
+          return this;
+        }
+
         public boolean hasDetail() { 
           if (this.detail == null)
             return false;
@@ -2142,10 +2204,6 @@ public class AuditEvent extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #detail} (Additional Information about the entity.)
-         */
-    // syntactic sugar
         public AuditEventEntityDetailComponent addDetail() { //3
           AuditEventEntityDetailComponent t = new AuditEventEntityDetailComponent();
           if (this.detail == null)
@@ -2154,7 +2212,6 @@ public class AuditEvent extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public AuditEventEntityComponent addDetail(AuditEventEntityDetailComponent t) { //3
           if (t == null)
             return this;
@@ -2162,6 +2219,16 @@ public class AuditEvent extends DomainResource {
             this.detail = new ArrayList<AuditEventEntityDetailComponent>();
           this.detail.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #detail}, creating it if it does not already exist
+         */
+        public AuditEventEntityDetailComponent getDetailFirstRep() { 
+          if (getDetail().isEmpty()) {
+            addDetail();
+          }
+          return getDetail().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -2368,11 +2435,8 @@ public class AuditEvent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (reference == null || reference.isEmpty())
-           && (type == null || type.isEmpty()) && (role == null || role.isEmpty()) && (lifecycle == null || lifecycle.isEmpty())
-           && (securityLabel == null || securityLabel.isEmpty()) && (name == null || name.isEmpty())
-           && (description == null || description.isEmpty()) && (query == null || query.isEmpty()) && (detail == null || detail.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, reference, type
+          , role, lifecycle, securityLabel, name, description, query, detail);
       }
 
   public String fhirType() {
@@ -2597,8 +2661,7 @@ public class AuditEvent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, value);
       }
 
   public String fhirType() {
@@ -2730,6 +2793,14 @@ public class AuditEvent extends DomainResource {
       return this.subtype;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public AuditEvent setSubtype(List<Coding> theSubtype) { 
+      this.subtype = theSubtype;
+      return this;
+    }
+
     public boolean hasSubtype() { 
       if (this.subtype == null)
         return false;
@@ -2739,10 +2810,6 @@ public class AuditEvent extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #subtype} (Identifier for the category of event.)
-     */
-    // syntactic sugar
     public Coding addSubtype() { //3
       Coding t = new Coding();
       if (this.subtype == null)
@@ -2751,7 +2818,6 @@ public class AuditEvent extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public AuditEvent addSubtype(Coding t) { //3
       if (t == null)
         return this;
@@ -2759,6 +2825,16 @@ public class AuditEvent extends DomainResource {
         this.subtype = new ArrayList<Coding>();
       this.subtype.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #subtype}, creating it if it does not already exist
+     */
+    public Coding getSubtypeFirstRep() { 
+      if (getSubtype().isEmpty()) {
+        addSubtype();
+      }
+      return getSubtype().get(0);
     }
 
     /**
@@ -2962,6 +3038,14 @@ public class AuditEvent extends DomainResource {
       return this.purposeOfEvent;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public AuditEvent setPurposeOfEvent(List<Coding> thePurposeOfEvent) { 
+      this.purposeOfEvent = thePurposeOfEvent;
+      return this;
+    }
+
     public boolean hasPurposeOfEvent() { 
       if (this.purposeOfEvent == null)
         return false;
@@ -2971,10 +3055,6 @@ public class AuditEvent extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #purposeOfEvent} (The purposeOfUse (reason) that was used during the event being recorded.)
-     */
-    // syntactic sugar
     public Coding addPurposeOfEvent() { //3
       Coding t = new Coding();
       if (this.purposeOfEvent == null)
@@ -2983,7 +3063,6 @@ public class AuditEvent extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public AuditEvent addPurposeOfEvent(Coding t) { //3
       if (t == null)
         return this;
@@ -2991,6 +3070,16 @@ public class AuditEvent extends DomainResource {
         this.purposeOfEvent = new ArrayList<Coding>();
       this.purposeOfEvent.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #purposeOfEvent}, creating it if it does not already exist
+     */
+    public Coding getPurposeOfEventFirstRep() { 
+      if (getPurposeOfEvent().isEmpty()) {
+        addPurposeOfEvent();
+      }
+      return getPurposeOfEvent().get(0);
     }
 
     /**
@@ -3002,6 +3091,14 @@ public class AuditEvent extends DomainResource {
       return this.agent;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public AuditEvent setAgent(List<AuditEventAgentComponent> theAgent) { 
+      this.agent = theAgent;
+      return this;
+    }
+
     public boolean hasAgent() { 
       if (this.agent == null)
         return false;
@@ -3011,10 +3108,6 @@ public class AuditEvent extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #agent} (An actor taking an active role in the event or activity that is logged.)
-     */
-    // syntactic sugar
     public AuditEventAgentComponent addAgent() { //3
       AuditEventAgentComponent t = new AuditEventAgentComponent();
       if (this.agent == null)
@@ -3023,7 +3116,6 @@ public class AuditEvent extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public AuditEvent addAgent(AuditEventAgentComponent t) { //3
       if (t == null)
         return this;
@@ -3031,6 +3123,16 @@ public class AuditEvent extends DomainResource {
         this.agent = new ArrayList<AuditEventAgentComponent>();
       this.agent.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #agent}, creating it if it does not already exist
+     */
+    public AuditEventAgentComponent getAgentFirstRep() { 
+      if (getAgent().isEmpty()) {
+        addAgent();
+      }
+      return getAgent().get(0);
     }
 
     /**
@@ -3066,6 +3168,14 @@ public class AuditEvent extends DomainResource {
       return this.entity;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public AuditEvent setEntity(List<AuditEventEntityComponent> theEntity) { 
+      this.entity = theEntity;
+      return this;
+    }
+
     public boolean hasEntity() { 
       if (this.entity == null)
         return false;
@@ -3075,10 +3185,6 @@ public class AuditEvent extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #entity} (Specific instances of data or objects that have been accessed.)
-     */
-    // syntactic sugar
     public AuditEventEntityComponent addEntity() { //3
       AuditEventEntityComponent t = new AuditEventEntityComponent();
       if (this.entity == null)
@@ -3087,7 +3193,6 @@ public class AuditEvent extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public AuditEvent addEntity(AuditEventEntityComponent t) { //3
       if (t == null)
         return this;
@@ -3095,6 +3200,16 @@ public class AuditEvent extends DomainResource {
         this.entity = new ArrayList<AuditEventEntityComponent>();
       this.entity.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #entity}, creating it if it does not already exist
+     */
+    public AuditEventEntityComponent getEntityFirstRep() { 
+      if (getEntity().isEmpty()) {
+        addEntity();
+      }
+      return getEntity().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -3315,103 +3430,14 @@ public class AuditEvent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (subtype == null || subtype.isEmpty())
-           && (action == null || action.isEmpty()) && (recorded == null || recorded.isEmpty()) && (outcome == null || outcome.isEmpty())
-           && (outcomeDesc == null || outcomeDesc.isEmpty()) && (purposeOfEvent == null || purposeOfEvent.isEmpty())
-           && (agent == null || agent.isEmpty()) && (source == null || source.isEmpty()) && (entity == null || entity.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, subtype, action, recorded
+          , outcome, outcomeDesc, purposeOfEvent, agent, source, entity);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.AuditEvent;
    }
-
- /**
-   * Search parameter: <b>site</b>
-   * <p>
-   * Description: <b>Logical source location within the enterprise</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.source.site</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="site", path="AuditEvent.source.site", description="Logical source location within the enterprise", type="token" )
-  public static final String SP_SITE = "site";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>site</b>
-   * <p>
-   * Description: <b>Logical source location within the enterprise</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.source.site</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SITE);
-
- /**
-   * Search parameter: <b>entity</b>
-   * <p>
-   * Description: <b>Specific instance of resource (e.g. versioned)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>AuditEvent.entity.reference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="entity", path="AuditEvent.entity.reference", description="Specific instance of resource (e.g. versioned)", type="reference" )
-  public static final String SP_ENTITY = "entity";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>entity</b>
-   * <p>
-   * Description: <b>Specific instance of resource (e.g. versioned)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>AuditEvent.entity.reference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENTITY = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENTITY);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>AuditEvent:entity</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENTITY = new ca.uhn.fhir.model.api.Include("AuditEvent:entity").toLocked();
-
- /**
-   * Search parameter: <b>entity-type</b>
-   * <p>
-   * Description: <b>Type of object involved</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.entity.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="entity-type", path="AuditEvent.entity.type", description="Type of object involved", type="token" )
-  public static final String SP_ENTITY_TYPE = "entity-type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>entity-type</b>
-   * <p>
-   * Description: <b>Type of object involved</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.entity.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ENTITY_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ENTITY_TYPE);
-
- /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>Type/identifier of event</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="AuditEvent.type", description="Type/identifier of event", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>Type/identifier of event</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
    * Search parameter: <b>date</b>
@@ -3432,6 +3458,26 @@ public class AuditEvent extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>entity-type</b>
+   * <p>
+   * Description: <b>Type of object involved</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.entity.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="entity-type", path="AuditEvent.entity.type", description="Type of object involved", type="token" )
+  public static final String SP_ENTITY_TYPE = "entity-type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>entity-type</b>
+   * <p>
+   * Description: <b>Type of object involved</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.entity.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ENTITY_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ENTITY_TYPE);
 
  /**
    * Search parameter: <b>agent</b>
@@ -3460,6 +3506,106 @@ public class AuditEvent extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_AGENT = new ca.uhn.fhir.model.api.Include("AuditEvent:agent").toLocked();
 
  /**
+   * Search parameter: <b>address</b>
+   * <p>
+   * Description: <b>Identifier for the network access point of the user device</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.agent.network.address</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="address", path="AuditEvent.agent.network.address", description="Identifier for the network access point of the user device", type="token" )
+  public static final String SP_ADDRESS = "address";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>address</b>
+   * <p>
+   * Description: <b>Identifier for the network access point of the user device</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.agent.network.address</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ADDRESS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ADDRESS);
+
+ /**
+   * Search parameter: <b>source</b>
+   * <p>
+   * Description: <b>The identity of source detecting the event</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.source.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="source", path="AuditEvent.source.identifier", description="The identity of source detecting the event", type="token" )
+  public static final String SP_SOURCE = "source";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>source</b>
+   * <p>
+   * Description: <b>The identity of source detecting the event</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.source.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SOURCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SOURCE);
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>Type/identifier of event</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="AuditEvent.type", description="Type/identifier of event", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>Type/identifier of event</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>altid</b>
+   * <p>
+   * Description: <b>Alternative User id e.g. authentication</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.agent.altId</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="altid", path="AuditEvent.agent.altId", description="Alternative User id e.g. authentication", type="token" )
+  public static final String SP_ALTID = "altid";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>altid</b>
+   * <p>
+   * Description: <b>Alternative User id e.g. authentication</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.agent.altId</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ALTID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ALTID);
+
+ /**
+   * Search parameter: <b>site</b>
+   * <p>
+   * Description: <b>Logical source location within the enterprise</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.source.site</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="site", path="AuditEvent.source.site", description="Logical source location within the enterprise", type="token" )
+  public static final String SP_SITE = "site";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>site</b>
+   * <p>
+   * Description: <b>Logical source location within the enterprise</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.source.site</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SITE);
+
+ /**
    * Search parameter: <b>agent-name</b>
    * <p>
    * Description: <b>Human-meaningful name for the agent</b><br>
@@ -3480,24 +3626,44 @@ public class AuditEvent extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam AGENT_NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_AGENT_NAME);
 
  /**
-   * Search parameter: <b>entity-id</b>
+   * Search parameter: <b>entity-name</b>
    * <p>
-   * Description: <b>Specific instance of object (e.g. versioned)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.entity.identifier</b><br>
+   * Description: <b>Descriptor for entity</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>AuditEvent.entity.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="entity-id", path="AuditEvent.entity.identifier", description="Specific instance of object (e.g. versioned)", type="token" )
-  public static final String SP_ENTITY_ID = "entity-id";
+  @SearchParamDefinition(name="entity-name", path="AuditEvent.entity.name", description="Descriptor for entity", type="string" )
+  public static final String SP_ENTITY_NAME = "entity-name";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>entity-id</b>
+   * <b>Fluent Client</b> search parameter constant for <b>entity-name</b>
    * <p>
-   * Description: <b>Specific instance of object (e.g. versioned)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.entity.identifier</b><br>
+   * Description: <b>Descriptor for entity</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>AuditEvent.entity.name</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ENTITY_ID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ENTITY_ID);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ENTITY_NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ENTITY_NAME);
+
+ /**
+   * Search parameter: <b>subtype</b>
+   * <p>
+   * Description: <b>More specific type/id for the event</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.subtype</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subtype", path="AuditEvent.subtype", description="More specific type/id for the event", type="token" )
+  public static final String SP_SUBTYPE = "subtype";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subtype</b>
+   * <p>
+   * Description: <b>More specific type/id for the event</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.subtype</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SUBTYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SUBTYPE);
 
  /**
    * Search parameter: <b>patient</b>
@@ -3526,86 +3692,6 @@ public class AuditEvent extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("AuditEvent:patient").toLocked();
 
  /**
-   * Search parameter: <b>source</b>
-   * <p>
-   * Description: <b>The identity of source detecting the event</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.source.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="source", path="AuditEvent.source.identifier", description="The identity of source detecting the event", type="token" )
-  public static final String SP_SOURCE = "source";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>source</b>
-   * <p>
-   * Description: <b>The identity of source detecting the event</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.source.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SOURCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SOURCE);
-
- /**
-   * Search parameter: <b>altid</b>
-   * <p>
-   * Description: <b>Alternative User id e.g. authentication</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.agent.altId</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="altid", path="AuditEvent.agent.altId", description="Alternative User id e.g. authentication", type="token" )
-  public static final String SP_ALTID = "altid";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>altid</b>
-   * <p>
-   * Description: <b>Alternative User id e.g. authentication</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.agent.altId</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ALTID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ALTID);
-
- /**
-   * Search parameter: <b>address</b>
-   * <p>
-   * Description: <b>Identifier for the network access point of the user device</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.agent.network.address</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="address", path="AuditEvent.agent.network.address", description="Identifier for the network access point of the user device", type="token" )
-  public static final String SP_ADDRESS = "address";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>address</b>
-   * <p>
-   * Description: <b>Identifier for the network access point of the user device</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.agent.network.address</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ADDRESS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ADDRESS);
-
- /**
-   * Search parameter: <b>subtype</b>
-   * <p>
-   * Description: <b>More specific type/id for the event</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.subtype</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subtype", path="AuditEvent.subtype", description="More specific type/id for the event", type="token" )
-  public static final String SP_SUBTYPE = "subtype";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subtype</b>
-   * <p>
-   * Description: <b>More specific type/id for the event</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.subtype</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SUBTYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SUBTYPE);
-
- /**
    * Search parameter: <b>action</b>
    * <p>
    * Description: <b>Type of action performed during the event</b><br>
@@ -3624,26 +3710,6 @@ public class AuditEvent extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTION);
-
- /**
-   * Search parameter: <b>policy</b>
-   * <p>
-   * Description: <b>Policy that authorized event</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>AuditEvent.agent.policy</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="policy", path="AuditEvent.agent.policy", description="Policy that authorized event", type="uri" )
-  public static final String SP_POLICY = "policy";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>policy</b>
-   * <p>
-   * Description: <b>Policy that authorized event</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>AuditEvent.agent.policy</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam POLICY = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_POLICY);
 
  /**
    * Search parameter: <b>user</b>
@@ -3666,24 +3732,70 @@ public class AuditEvent extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam USER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_USER);
 
  /**
-   * Search parameter: <b>entity-name</b>
+   * Search parameter: <b>entity</b>
    * <p>
-   * Description: <b>Descriptor for entity</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>AuditEvent.entity.name</b><br>
+   * Description: <b>Specific instance of resource (e.g. versioned)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>AuditEvent.entity.reference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="entity-name", path="AuditEvent.entity.name", description="Descriptor for entity", type="string" )
-  public static final String SP_ENTITY_NAME = "entity-name";
+  @SearchParamDefinition(name="entity", path="AuditEvent.entity.reference", description="Specific instance of resource (e.g. versioned)", type="reference" )
+  public static final String SP_ENTITY = "entity";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>entity-name</b>
+   * <b>Fluent Client</b> search parameter constant for <b>entity</b>
    * <p>
-   * Description: <b>Descriptor for entity</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>AuditEvent.entity.name</b><br>
+   * Description: <b>Specific instance of resource (e.g. versioned)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>AuditEvent.entity.reference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ENTITY_NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ENTITY_NAME);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENTITY = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENTITY);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>AuditEvent:entity</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENTITY = new ca.uhn.fhir.model.api.Include("AuditEvent:entity").toLocked();
+
+ /**
+   * Search parameter: <b>entity-id</b>
+   * <p>
+   * Description: <b>Specific instance of object (e.g. versioned)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.entity.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="entity-id", path="AuditEvent.entity.identifier", description="Specific instance of object (e.g. versioned)", type="token" )
+  public static final String SP_ENTITY_ID = "entity-id";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>entity-id</b>
+   * <p>
+   * Description: <b>Specific instance of object (e.g. versioned)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.entity.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ENTITY_ID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ENTITY_ID);
+
+ /**
+   * Search parameter: <b>policy</b>
+   * <p>
+   * Description: <b>Policy that authorized event</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>AuditEvent.agent.policy</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="policy", path="AuditEvent.agent.policy", description="Policy that authorized event", type="uri" )
+  public static final String SP_POLICY = "policy";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>policy</b>
+   * <p>
+   * Description: <b>Policy that authorized event</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>AuditEvent.agent.policy</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam POLICY = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_POLICY);
 
 
 }

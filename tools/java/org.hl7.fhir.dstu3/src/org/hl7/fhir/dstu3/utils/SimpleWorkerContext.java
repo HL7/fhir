@@ -92,6 +92,12 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		return res;
 	}
 
+	 public static SimpleWorkerContext fromClassPath(String name) throws IOException, FHIRException {
+	    SimpleWorkerContext res = new SimpleWorkerContext();
+	    res.loadFromStream(SimpleWorkerContext.class.getResourceAsStream(name));
+	    return res;
+	  }
+
 	public static SimpleWorkerContext fromDefinitions(Map<String, byte[]> source) throws IOException, FHIRException {
 		SimpleWorkerContext res = new SimpleWorkerContext();
 		for (String name : source.keySet()) {
@@ -190,10 +196,8 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 			if (ze.getName().endsWith(".xml")) {
 				String name = ze.getName();
 				loadFromFile(zip, name);
-			}
-			if (ze.getName().endsWith(".css") || ze.getName().endsWith(".pathlist")) {
+			} else
 			  loadBytes(ze.getName(), ze, zip);
-			}
 			zip.closeEntry();
 		}
 		zip.close();
@@ -356,7 +360,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   }
 
   @Override
-  public String getLinkFor(String typeSimple) {
+  public String getLinkFor(String corePath, String typeSimple) {
     return null;
   }
 
@@ -474,6 +478,16 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 
   public void setAllowLoadingDuplicates(boolean allowLoadingDuplicates) {
     this.allowLoadingDuplicates = allowLoadingDuplicates;
+  }
+
+  @Override
+  public boolean prependLinks() {
+    return false;
+  }
+
+  @Override
+  public boolean hasCache() {
+    return false;
   }
 
   

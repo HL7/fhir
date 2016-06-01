@@ -36,6 +36,7 @@ import org.hl7.fhir.dstu3.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ETooCostly;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
+import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -65,7 +66,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   } 
 
   @Override
-  public boolean supportsSystem(String system) {
+  public boolean supportsSystem(String system) throws TerminologyServiceException {
     if (codeSystems.containsKey(system))
       return true;
     else if (nonSupportedCodeSystems.contains(system))
@@ -85,7 +86,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
             System.out.println("==============!! Running without terminology server !!==============");
             return false;
           } else
-            throw new Error(e);
+            throw new TerminologyServiceException(e);
         }
       if (bndCodeSystems == null)
       for (BundleEntryComponent be : bndCodeSystems.getEntry()) {

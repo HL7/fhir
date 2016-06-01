@@ -15,7 +15,7 @@
   <date value="2014-07-28"/>
   <description value="A single value set for all security labels defined by FHIR."/>
   <compose>
-    <import value="http://hl7.org/fhir/ValueSet/v3-Confidentiality"/>
+    <import value="http://hl7.org/fhir/ValueSet/v3-ConfidentialityClassification"/>
     <import value="http://hl7.org/fhir/ValueSet/v3-InformationSensitivityPolicy"/>
     <import value="http://hl7.org/fhir/ValueSet/v3-Compartment"/>
     <import value="http://hl7.org/fhir/ValueSet/v3-SecurityIntegrityObservationValue"/>

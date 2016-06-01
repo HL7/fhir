@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -285,6 +285,14 @@ public class DataElement extends BaseConformance {
           return this.telecom;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DataElementContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+          this.telecom = theTelecom;
+          return this;
+        }
+
         public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
@@ -294,10 +302,6 @@ public class DataElement extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
-         */
-    // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           if (this.telecom == null)
@@ -306,7 +310,6 @@ public class DataElement extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public DataElementContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
@@ -314,6 +317,16 @@ public class DataElement extends BaseConformance {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+         */
+        public ContactPoint getTelecomFirstRep() { 
+          if (getTelecom().isEmpty()) {
+            addTelecom();
+          }
+          return getTelecom().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -411,8 +424,7 @@ public class DataElement extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, telecom);
       }
 
   public String fhirType() {
@@ -778,8 +790,8 @@ public class DataElement extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identity == null || identity.isEmpty()) && (uri == null || uri.isEmpty())
-           && (name == null || name.isEmpty()) && (comment == null || comment.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identity, uri, name, comment
+          );
       }
 
   public String fhirType() {
@@ -885,6 +897,14 @@ public class DataElement extends BaseConformance {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DataElement setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -894,10 +914,6 @@ public class DataElement extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -906,7 +922,6 @@ public class DataElement extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public DataElement addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -914,6 +929,16 @@ public class DataElement extends BaseConformance {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1071,6 +1096,14 @@ public class DataElement extends BaseConformance {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DataElement setContact(List<DataElementContactComponent> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -1080,10 +1113,6 @@ public class DataElement extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
-     */
-    // syntactic sugar
     public DataElementContactComponent addContact() { //3
       DataElementContactComponent t = new DataElementContactComponent();
       if (this.contact == null)
@@ -1092,7 +1121,6 @@ public class DataElement extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public DataElement addContact(DataElementContactComponent t) { //3
       if (t == null)
         return this;
@@ -1100,6 +1128,16 @@ public class DataElement extends BaseConformance {
         this.contact = new ArrayList<DataElementContactComponent>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public DataElementContactComponent getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -1209,6 +1247,14 @@ public class DataElement extends BaseConformance {
       return this.mapping;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DataElement setMapping(List<DataElementMappingComponent> theMapping) { 
+      this.mapping = theMapping;
+      return this;
+    }
+
     public boolean hasMapping() { 
       if (this.mapping == null)
         return false;
@@ -1218,10 +1264,6 @@ public class DataElement extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #mapping} (Identifies a specification (other than a terminology) that the elements which make up the DataElement have some correspondence with.)
-     */
-    // syntactic sugar
     public DataElementMappingComponent addMapping() { //3
       DataElementMappingComponent t = new DataElementMappingComponent();
       if (this.mapping == null)
@@ -1230,7 +1272,6 @@ public class DataElement extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public DataElement addMapping(DataElementMappingComponent t) { //3
       if (t == null)
         return this;
@@ -1238,6 +1279,16 @@ public class DataElement extends BaseConformance {
         this.mapping = new ArrayList<DataElementMappingComponent>();
       this.mapping.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #mapping}, creating it if it does not already exist
+     */
+    public DataElementMappingComponent getMappingFirstRep() { 
+      if (getMapping().isEmpty()) {
+        addMapping();
+      }
+      return getMapping().get(0);
     }
 
     /**
@@ -1249,6 +1300,14 @@ public class DataElement extends BaseConformance {
       return this.element;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DataElement setElement(List<ElementDefinition> theElement) { 
+      this.element = theElement;
+      return this;
+    }
+
     public boolean hasElement() { 
       if (this.element == null)
         return false;
@@ -1258,10 +1317,6 @@ public class DataElement extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #element} (Defines the structure, type, allowed values and other constraining characteristics of the data element.)
-     */
-    // syntactic sugar
     public ElementDefinition addElement() { //3
       ElementDefinition t = new ElementDefinition();
       if (this.element == null)
@@ -1270,7 +1325,6 @@ public class DataElement extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public DataElement addElement(ElementDefinition t) { //3
       if (t == null)
         return this;
@@ -1278,6 +1332,16 @@ public class DataElement extends BaseConformance {
         this.element = new ArrayList<ElementDefinition>();
       this.element.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #element}, creating it if it does not already exist
+     */
+    public ElementDefinition getElementFirstRep() { 
+      if (getElement().isEmpty()) {
+        addElement();
+      }
+      return getElement().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1542,136 +1606,14 @@ public class DataElement extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (stringency == null || stringency.isEmpty()) && (mapping == null || mapping.isEmpty())
-           && (element == null || element.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, experimental, publisher
+          , contact, copyright, stringency, mapping, element);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.DataElement;
    }
-
- /**
-   * Search parameter: <b>stringency</b>
-   * <p>
-   * Description: <b>The stringency of the data element definition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DataElement.stringency</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="stringency", path="DataElement.stringency", description="The stringency of the data element definition", type="token" )
-  public static final String SP_STRINGENCY = "stringency";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>stringency</b>
-   * <p>
-   * Description: <b>The stringency of the data element definition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DataElement.stringency</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STRINGENCY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STRINGENCY);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>The current status of the data element</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DataElement.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="DataElement.status", description="The current status of the data element", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>The current status of the data element</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DataElement.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the data element.  This corresponds to the definition of the first DataElement.element.</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>DataElement.element.definition</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="DataElement.element.definition", description="Text search in the description of the data element.  This corresponds to the definition of the first DataElement.element.", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the data element.  This corresponds to the definition of the first DataElement.element.</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>DataElement.element.definition</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Name of the data element</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>DataElement.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="DataElement.name", description="Name of the data element", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Name of the data element</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>DataElement.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
-   * Search parameter: <b>context</b>
-   * <p>
-   * Description: <b>A use context assigned to the data element</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DataElement.useContext</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="context", path="DataElement.useContext", description="A use context assigned to the data element", type="token" )
-  public static final String SP_CONTEXT = "context";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>context</b>
-   * <p>
-   * Description: <b>A use context assigned to the data element</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DataElement.useContext</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
-
- /**
-   * Search parameter: <b>code</b>
-   * <p>
-   * Description: <b>A code for the data element (server may choose to do subsumption)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DataElement.element.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code", path="DataElement.element.code", description="A code for the data element (server may choose to do subsumption)", type="token" )
-  public static final String SP_CODE = "code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
-   * <p>
-   * Description: <b>A code for the data element (server may choose to do subsumption)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DataElement.element.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
    * Search parameter: <b>date</b>
@@ -1714,24 +1656,84 @@ public class DataElement extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>url</b>
+   * Search parameter: <b>code</b>
    * <p>
-   * Description: <b>The official URL for the data element</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>DataElement.url</b><br>
+   * Description: <b>A code for the data element (server may choose to do subsumption)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DataElement.element.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="url", path="DataElement.url", description="The official URL for the data element", type="uri" )
-  public static final String SP_URL = "url";
+  @SearchParamDefinition(name="code", path="DataElement.element.code", description="A code for the data element (server may choose to do subsumption)", type="token" )
+  public static final String SP_CODE = "code";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
-   * Description: <b>The official URL for the data element</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>DataElement.url</b><br>
+   * Description: <b>A code for the data element (server may choose to do subsumption)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DataElement.element.code</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>stringency</b>
+   * <p>
+   * Description: <b>The stringency of the data element definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DataElement.stringency</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="stringency", path="DataElement.stringency", description="The stringency of the data element definition", type="token" )
+  public static final String SP_STRINGENCY = "stringency";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>stringency</b>
+   * <p>
+   * Description: <b>The stringency of the data element definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DataElement.stringency</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STRINGENCY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STRINGENCY);
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>Name of the data element</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DataElement.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="DataElement.name", description="Name of the data element", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>Name of the data element</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DataElement.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the data element</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DataElement.useContext</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="DataElement.useContext", description="A use context assigned to the data element", type="token" )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the data element</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DataElement.useContext</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
    * Search parameter: <b>publisher</b>
@@ -1754,6 +1756,26 @@ public class DataElement extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the data element.  This corresponds to the definition of the first DataElement.element.</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DataElement.element.definition</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="DataElement.element.definition", description="Text search in the description of the data element.  This corresponds to the definition of the first DataElement.element.", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the data element.  This corresponds to the definition of the first DataElement.element.</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DataElement.element.definition</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
    * Search parameter: <b>version</b>
    * <p>
    * Description: <b>The version identifier of the data element</b><br>
@@ -1772,6 +1794,46 @@ public class DataElement extends BaseConformance {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam VERSION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_VERSION);
+
+ /**
+   * Search parameter: <b>url</b>
+   * <p>
+   * Description: <b>The official URL for the data element</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>DataElement.url</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="url", path="DataElement.url", description="The official URL for the data element", type="uri" )
+  public static final String SP_URL = "url";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <p>
+   * Description: <b>The official URL for the data element</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>DataElement.url</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>The current status of the data element</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DataElement.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="DataElement.status", description="The current status of the data element", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>The current status of the data element</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DataElement.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

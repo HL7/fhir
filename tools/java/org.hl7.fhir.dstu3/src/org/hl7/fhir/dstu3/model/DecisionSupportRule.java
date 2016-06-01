@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -129,6 +129,14 @@ public class DecisionSupportRule extends DomainResource {
       return this.library;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DecisionSupportRule setLibrary(List<Reference> theLibrary) { 
+      this.library = theLibrary;
+      return this;
+    }
+
     public boolean hasLibrary() { 
       if (this.library == null)
         return false;
@@ -138,10 +146,6 @@ public class DecisionSupportRule extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #library} (A reference to a Library containing the formal logic used by the rule.)
-     */
-    // syntactic sugar
     public Reference addLibrary() { //3
       Reference t = new Reference();
       if (this.library == null)
@@ -150,7 +154,6 @@ public class DecisionSupportRule extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DecisionSupportRule addLibrary(Reference t) { //3
       if (t == null)
         return this;
@@ -161,18 +164,29 @@ public class DecisionSupportRule extends DomainResource {
     }
 
     /**
-     * @return {@link #library} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A reference to a Library containing the formal logic used by the rule.)
+     * @return The first repetition of repeating field {@link #library}, creating it if it does not already exist
      */
+    public Reference getLibraryFirstRep() { 
+      if (getLibrary().isEmpty()) {
+        addLibrary();
+      }
+      return getLibrary().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Library> getLibraryTarget() { 
       if (this.libraryTarget == null)
         this.libraryTarget = new ArrayList<Library>();
       return this.libraryTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #library} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A reference to a Library containing the formal logic used by the rule.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Library addLibraryTarget() { 
       Library r = new Library();
       if (this.libraryTarget == null)
@@ -190,6 +204,14 @@ public class DecisionSupportRule extends DomainResource {
       return this.trigger;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DecisionSupportRule setTrigger(List<TriggerDefinition> theTrigger) { 
+      this.trigger = theTrigger;
+      return this;
+    }
+
     public boolean hasTrigger() { 
       if (this.trigger == null)
         return false;
@@ -199,10 +221,6 @@ public class DecisionSupportRule extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #trigger} (The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow.)
-     */
-    // syntactic sugar
     public TriggerDefinition addTrigger() { //3
       TriggerDefinition t = new TriggerDefinition();
       if (this.trigger == null)
@@ -211,7 +229,6 @@ public class DecisionSupportRule extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DecisionSupportRule addTrigger(TriggerDefinition t) { //3
       if (t == null)
         return this;
@@ -219,6 +236,16 @@ public class DecisionSupportRule extends DomainResource {
         this.trigger = new ArrayList<TriggerDefinition>();
       this.trigger.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #trigger}, creating it if it does not already exist
+     */
+    public TriggerDefinition getTriggerFirstRep() { 
+      if (getTrigger().isEmpty()) {
+        addTrigger();
+      }
+      return getTrigger().get(0);
     }
 
     /**
@@ -279,6 +306,14 @@ public class DecisionSupportRule extends DomainResource {
       return this.action;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DecisionSupportRule setAction(List<ActionDefinition> theAction) { 
+      this.action = theAction;
+      return this;
+    }
+
     public boolean hasAction() { 
       if (this.action == null)
         return false;
@@ -288,10 +323,6 @@ public class DecisionSupportRule extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #action} (The action element defines the "when" portion of the rule that determines what actions should be performed if the condition evaluates to true.)
-     */
-    // syntactic sugar
     public ActionDefinition addAction() { //3
       ActionDefinition t = new ActionDefinition();
       if (this.action == null)
@@ -300,7 +331,6 @@ public class DecisionSupportRule extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DecisionSupportRule addAction(ActionDefinition t) { //3
       if (t == null)
         return this;
@@ -308,6 +338,16 @@ public class DecisionSupportRule extends DomainResource {
         this.action = new ArrayList<ActionDefinition>();
       this.action.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #action}, creating it if it does not already exist
+     */
+    public ActionDefinition getActionFirstRep() { 
+      if (getAction().isEmpty()) {
+        addAction();
+      }
+      return getAction().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -461,95 +501,14 @@ public class DecisionSupportRule extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (moduleMetadata == null || moduleMetadata.isEmpty()) && (library == null || library.isEmpty())
-           && (trigger == null || trigger.isEmpty()) && (condition == null || condition.isEmpty()) && (action == null || action.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(moduleMetadata, library, trigger
+          , condition, action);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.DecisionSupportRule;
    }
-
- /**
-   * Search parameter: <b>topic</b>
-   * <p>
-   * Description: <b>Topics associated with the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DecisionSupportRule.moduleMetadata.topic</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="topic", path="DecisionSupportRule.moduleMetadata.topic", description="Topics associated with the module", type="token" )
-  public static final String SP_TOPIC = "topic";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
-   * <p>
-   * Description: <b>Topics associated with the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DecisionSupportRule.moduleMetadata.topic</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
-
- /**
-   * Search parameter: <b>title</b>
-   * <p>
-   * Description: <b>Text search against the title</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>DecisionSupportRule.moduleMetadata.title</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="title", path="DecisionSupportRule.moduleMetadata.title", description="Text search against the title", type="string" )
-  public static final String SP_TITLE = "title";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>title</b>
-   * <p>
-   * Description: <b>Text search against the title</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>DecisionSupportRule.moduleMetadata.title</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>Status of the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DecisionSupportRule.moduleMetadata.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="DecisionSupportRule.moduleMetadata.status", description="Status of the module", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>Status of the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DecisionSupportRule.moduleMetadata.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Text search against the description</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>DecisionSupportRule.moduleMetadata.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="DecisionSupportRule.moduleMetadata.description", description="Text search against the description", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Text search against the description</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>DecisionSupportRule.moduleMetadata.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
    * Search parameter: <b>identifier</b>
@@ -572,6 +531,66 @@ public class DecisionSupportRule extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
+   * Search parameter: <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DecisionSupportRule.moduleMetadata.topic</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="topic", path="DecisionSupportRule.moduleMetadata.topic", description="Topics associated with the module", type="token" )
+  public static final String SP_TOPIC = "topic";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DecisionSupportRule.moduleMetadata.topic</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
+
+ /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Text search against the description</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DecisionSupportRule.moduleMetadata.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="DecisionSupportRule.moduleMetadata.description", description="Text search against the description", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Text search against the description</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DecisionSupportRule.moduleMetadata.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DecisionSupportRule.moduleMetadata.title</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="title", path="DecisionSupportRule.moduleMetadata.title", description="Text search against the title", type="string" )
+  public static final String SP_TITLE = "title";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DecisionSupportRule.moduleMetadata.title</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
+
+ /**
    * Search parameter: <b>version</b>
    * <p>
    * Description: <b>Version of the module (e.g. 1.0.0)</b><br>
@@ -590,6 +609,26 @@ public class DecisionSupportRule extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam VERSION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_VERSION);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>Status of the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DecisionSupportRule.moduleMetadata.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="DecisionSupportRule.moduleMetadata.status", description="Status of the module", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>Status of the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DecisionSupportRule.moduleMetadata.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

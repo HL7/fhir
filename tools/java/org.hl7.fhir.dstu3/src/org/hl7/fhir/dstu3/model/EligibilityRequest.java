@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -178,6 +178,14 @@ public class EligibilityRequest extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public EligibilityRequest setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -187,10 +195,6 @@ public class EligibilityRequest extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (The Response business identifier.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -199,7 +203,6 @@ public class EligibilityRequest extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public EligibilityRequest addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -207,6 +210,16 @@ public class EligibilityRequest extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1111,13 +1124,9 @@ public class EligibilityRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ruleset == null || ruleset.isEmpty())
-           && (originalRuleset == null || originalRuleset.isEmpty()) && (created == null || created.isEmpty())
-           && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
-           && (priority == null || priority.isEmpty()) && (enterer == null || enterer.isEmpty()) && (facility == null || facility.isEmpty())
-           && (patient == null || patient.isEmpty()) && (coverage == null || coverage.isEmpty()) && (businessArrangement == null || businessArrangement.isEmpty())
-           && (serviced == null || serviced.isEmpty()) && (benefitCategory == null || benefitCategory.isEmpty())
-           && (benefitSubCategory == null || benefitSubCategory.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, ruleset, originalRuleset
+          , created, target, provider, organization, priority, enterer, facility, patient
+          , coverage, businessArrangement, serviced, benefitCategory, benefitSubCategory);
       }
 
   @Override
@@ -1126,64 +1135,24 @@ public class EligibilityRequest extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>patientidentifier</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The reference to the patient</b><br>
+   * Description: <b>The business identifier of the Eligibility</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>EligibilityRequest.patientIdentifier</b><br>
+   * Path: <b>EligibilityRequest.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patientidentifier", path="EligibilityRequest.patient.as(Identifier)", description="The reference to the patient", type="token" )
-  public static final String SP_PATIENTIDENTIFIER = "patientidentifier";
+  @SearchParamDefinition(name="identifier", path="EligibilityRequest.identifier", description="The business identifier of the Eligibility", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>patientidentifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The reference to the patient</b><br>
+   * Description: <b>The business identifier of the Eligibility</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>EligibilityRequest.patientIdentifier</b><br>
+   * Path: <b>EligibilityRequest.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PATIENTIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PATIENTIDENTIFIER);
-
- /**
-   * Search parameter: <b>created</b>
-   * <p>
-   * Description: <b>The creation date for the EOB</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>EligibilityRequest.created</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="created", path="EligibilityRequest.created", description="The creation date for the EOB", type="date" )
-  public static final String SP_CREATED = "created";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>created</b>
-   * <p>
-   * Description: <b>The creation date for the EOB</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>EligibilityRequest.created</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
-
- /**
-   * Search parameter: <b>facilityidentifier</b>
-   * <p>
-   * Description: <b>Facility responsible for the goods and services</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EligibilityRequest.facilityidentifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="facilityidentifier", path="EligibilityRequest.facility.as(identifier)", description="Facility responsible for the goods and services", type="token" )
-  public static final String SP_FACILITYIDENTIFIER = "facilityidentifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>facilityidentifier</b>
-   * <p>
-   * Description: <b>Facility responsible for the goods and services</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EligibilityRequest.facilityidentifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FACILITYIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FACILITYIDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>facilityreference</b>
@@ -1212,30 +1181,24 @@ public class EligibilityRequest extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_FACILITYREFERENCE = new ca.uhn.fhir.model.api.Include("EligibilityRequest:facilityreference").toLocked();
 
  /**
-   * Search parameter: <b>providerreference</b>
+   * Search parameter: <b>patientidentifier</b>
    * <p>
-   * Description: <b>The reference to the provider</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EligibilityRequest.providerReference</b><br>
+   * Description: <b>The reference to the patient</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EligibilityRequest.patientIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="providerreference", path="EligibilityRequest.provider.as(Reference)", description="The reference to the provider", type="reference" )
-  public static final String SP_PROVIDERREFERENCE = "providerreference";
+  @SearchParamDefinition(name="patientidentifier", path="EligibilityRequest.patient.as(Identifier)", description="The reference to the patient", type="token" )
+  public static final String SP_PATIENTIDENTIFIER = "patientidentifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
+   * <b>Fluent Client</b> search parameter constant for <b>patientidentifier</b>
    * <p>
-   * Description: <b>The reference to the provider</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EligibilityRequest.providerReference</b><br>
+   * Description: <b>The reference to the patient</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EligibilityRequest.patientIdentifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDERREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EligibilityRequest:providerreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDERREFERENCE = new ca.uhn.fhir.model.api.Include("EligibilityRequest:providerreference").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PATIENTIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PATIENTIDENTIFIER);
 
  /**
    * Search parameter: <b>organizationidentifier</b>
@@ -1258,30 +1221,24 @@ public class EligibilityRequest extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONIDENTIFIER);
 
  /**
-   * Search parameter: <b>organizationreference</b>
+   * Search parameter: <b>created</b>
    * <p>
-   * Description: <b>The reference to the providing organization</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EligibilityRequest.organizationReference</b><br>
+   * Description: <b>The creation date for the EOB</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>EligibilityRequest.created</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationreference", path="EligibilityRequest.organization.as(Reference)", description="The reference to the providing organization", type="reference" )
-  public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
+  @SearchParamDefinition(name="created", path="EligibilityRequest.created", description="The creation date for the EOB", type="date" )
+  public static final String SP_CREATED = "created";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>
+   * <b>Fluent Client</b> search parameter constant for <b>created</b>
    * <p>
-   * Description: <b>The reference to the providing organization</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EligibilityRequest.organizationReference</b><br>
+   * Description: <b>The creation date for the EOB</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>EligibilityRequest.created</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATIONREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATIONREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EligibilityRequest:organizationreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("EligibilityRequest:organizationreference").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
 
  /**
    * Search parameter: <b>patientreference</b>
@@ -1310,24 +1267,56 @@ public class EligibilityRequest extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENTREFERENCE = new ca.uhn.fhir.model.api.Include("EligibilityRequest:patientreference").toLocked();
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>providerreference</b>
    * <p>
-   * Description: <b>The business identifier of the Eligibility</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EligibilityRequest.identifier</b><br>
+   * Description: <b>The reference to the provider</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EligibilityRequest.providerReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="EligibilityRequest.identifier", description="The business identifier of the Eligibility", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="providerreference", path="EligibilityRequest.provider.as(Reference)", description="The reference to the provider", type="reference" )
+  public static final String SP_PROVIDERREFERENCE = "providerreference";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
    * <p>
-   * Description: <b>The business identifier of the Eligibility</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EligibilityRequest.identifier</b><br>
+   * Description: <b>The reference to the provider</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EligibilityRequest.providerReference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDERREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EligibilityRequest:providerreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDERREFERENCE = new ca.uhn.fhir.model.api.Include("EligibilityRequest:providerreference").toLocked();
+
+ /**
+   * Search parameter: <b>organizationreference</b>
+   * <p>
+   * Description: <b>The reference to the providing organization</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EligibilityRequest.organizationReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="organizationreference", path="EligibilityRequest.organization.as(Reference)", description="The reference to the providing organization", type="reference" )
+  public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>
+   * <p>
+   * Description: <b>The reference to the providing organization</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EligibilityRequest.organizationReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATIONREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATIONREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EligibilityRequest:organizationreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("EligibilityRequest:organizationreference").toLocked();
 
  /**
    * Search parameter: <b>provideridentifier</b>
@@ -1348,6 +1337,26 @@ public class EligibilityRequest extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PROVIDERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PROVIDERIDENTIFIER);
+
+ /**
+   * Search parameter: <b>facilityidentifier</b>
+   * <p>
+   * Description: <b>Facility responsible for the goods and services</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EligibilityRequest.facilityidentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="facilityidentifier", path="EligibilityRequest.facility.as(identifier)", description="Facility responsible for the goods and services", type="token" )
+  public static final String SP_FACILITYIDENTIFIER = "facilityidentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>facilityidentifier</b>
+   * <p>
+   * Description: <b>Facility responsible for the goods and services</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EligibilityRequest.facilityidentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FACILITYIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FACILITYIDENTIFIER);
 
 
 }

@@ -42,7 +42,8 @@ import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
 import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
 import org.hl7.fhir.igtools.renderers.ValidationPresenter;
 import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
-import org.hl7.fhir.igtools.renderers.ValidationPresenter.ValiationOutcomes;
+import org.hl7.fhir.igtools.renderers.ValidationPresenter.ValidationOutcomes;
+import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
 import org.hl7.fhir.rdf.RdfGenerator;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -50,6 +51,8 @@ import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.w3c.dom.Document;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
@@ -96,16 +99,22 @@ public class Publisher {
 
   private String igName;
   
+  private String contentDir;
+  private String includesDir;
+  private String dataDir;
+  private String validationDir;
+  
   private IFetchFile fetcher = new SimpleFetcher();
   private SimpleWorkerContext context;
   private InstanceValidator validator;
   private IGKnowledgeProvider igpkp;
+  private JsonObject specDetails;
 
   private Map<ImplementationGuidePackageResourceComponent, FetchedFile> fileMap = new HashMap<ImplementationGuidePackageResourceComponent, FetchedFile>();
   private List<FetchedFile> fileList = new ArrayList<FetchedFile>();
   private List<Resource> loaded = new ArrayList<Resource>();
   private ImplementationGuide ig;
-  private List<ValiationOutcomes> errs = new ArrayList<ValiationOutcomes>();
+  private List<ValidationOutcomes> errs = new ArrayList<ValidationOutcomes>();
 
   private void execute() throws Exception {
     initialize();
@@ -113,12 +122,15 @@ public class Publisher {
     load();
     validate();
     generate();
+    log("  ... Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errs, Utilities.path(validationDir, "validation.html")));
+
     while (reside) { // terminated externally
       System.out.println("Watching for changes on a 5sec cycle");
       wait(5000);
       if (load()) {
         validate();
         generate();
+        log("  ... Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errs, Utilities.path(validationDir, "validation.html")));
       }
     }
     log("Done");
@@ -130,6 +142,7 @@ public class Publisher {
     igName = Utilities.path(Utilities.getDirectoryForFile(configFile), obj.get("source").getAsString());
 
     log("Publish "+igName);
+
     
     log("Check destination");
     File f = new File(output);
@@ -137,23 +150,61 @@ public class Publisher {
       Utilities.createDirectory(output);
     else if (!f.isDirectory())
       throw new Exception(String.format("Error: Output must be a folder (%s)", output));
-    Utilities.createDirectory(Utilities.path(output, "publish"));
-    Utilities.createDirectory(Utilities.path(output, "fragments"));
-    Utilities.createDirectory(Utilities.path(output, "pages"));
+
+    contentDir = Utilities.path(output, "html");
+    includesDir = Utilities.path(contentDir, "_includes");
+    dataDir = Utilities.path(contentDir, "_data"); 
+    validationDir = Utilities.path(output, "generation");
+
+    Utilities.createDirectory(contentDir);
+    Utilities.createDirectory(includesDir);
+    Utilities.createDirectory(dataDir);
+    Utilities.createDirectory(validationDir);
 
     log("Load Validation Pack");
-    //    context = SimpleWorkerContext.fromClassPath();
-    context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation.xml.zip");
+    try {
+    context = SimpleWorkerContext.fromClassPath("igpack.zip");
+    } catch (NullPointerException npe) {
+      context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\igpack.zip");
+    }
     context.setAllowLoadingDuplicates(true);
     log("Connect to Terminology Server");
     context.connectToTSServer(txServer);
     validator = new InstanceValidator(context);
     validator.setAllowXsiLocation(true);
 
-    igpkp = new IGKnowledgeProvider(context);
-    igpkp.loadMap(context.getBinaries().get("spec.pathlist"));
-    TextFile.bytesToFile(context.getBinaries().get("fhir.css"), Utilities.path(output, "publish", "fhir.css"));    
+    loadSpecDetails(context.getBinaries().get("spec.internals"));
+    ValidationOutcomes e = new ValidationOutcomes(new InternalFile());
+    errs.add(e);
+    igpkp = new IGKnowledgeProvider(context, pathToSpec, obj, e);
+    igpkp.loadSpecPaths(specDetails.get("paths").getAsJsonObject());
+    for (String s : context.getBinaries().keySet())
+      if (needFile(s)) {
+        TextFile.bytesToFile(context.getBinaries().get(s), Utilities.path(contentDir, s));    
+        TextFile.bytesToFile(context.getBinaries().get(s), Utilities.path(validationDir, s));
+      }
   }
+  
+  
+  private boolean needFile(String s) {
+    if (s.endsWith(".css"))
+      return true;
+    if (s.startsWith("tbl"))
+      return true;
+    if (s.startsWith("icon"))
+      return true;
+    if (Utilities.existsInList(s, "modifier.png", "mustsupport.png", "summary.png", "lock.png", "external.png", "cc0.png", "target.png"))
+      return true;
+    return false;
+  }
+
+  public void loadSpecDetails(byte[] bs) throws IOException {
+    String s = TextFile.bytesToString(bs);
+    Gson g = new Gson();
+    specDetails = g.fromJson(s, JsonObject.class);
+  }
+
+
 
   private boolean load() throws Exception {
     for (Resource r : loaded)
@@ -293,11 +344,10 @@ public class Publisher {
       if (f.getElement() == null)
         validate(f);
     
-    log("  ... Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errs, Utilities.path(output, "validation.html")));
   }
 
   private void validate(FetchedFile file) throws Exception {
-    ValiationOutcomes e = new ValiationOutcomes(file);
+    ValidationOutcomes e = new ValidationOutcomes(file);
     errs.add(e);
     if (file.getContentType().contains("json"))
       file.setElement(validator.validate(e.getErrors(), new ByteArrayInputStream(file.getSource()), FhirFormat.JSON));
@@ -313,7 +363,16 @@ public class Publisher {
     for (FetchedFile f : fileList) 
       generateOutputs(f);
 
-    //    generateSummaryOutputs();
+    generateSummaryOutputs();
+  }
+
+  private void generateSummaryOutputs() throws IOException {
+    JsonObject data = new JsonObject();
+    data.addProperty("path", pathToSpec);
+    
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    String json = gson.toJson(data);
+    TextFile.stringToFile(json, Utilities.path(dataDir, "fhir.json"));    
   }
 
   private void log(String s) {
@@ -367,24 +426,24 @@ public class Publisher {
    * @throws Exception
    */
   private void saveDirectResourceOutputs(FetchedFile f) throws FileNotFoundException, Exception {
-    new org.hl7.fhir.dstu3.metamodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(output, "publish", f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
-    new org.hl7.fhir.dstu3.metamodel.JsonParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(output, "publish", f.getElement().fhirType()+"-"+f.getId()+".json")), OutputStyle.PRETTY, "??");
-    new org.hl7.fhir.dstu3.metamodel.TurtleParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(output, "publish", f.getElement().fhirType()+"-"+f.getId()+".ttl")), OutputStyle.PRETTY, "??");
+    new org.hl7.fhir.dstu3.metamodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
+    new org.hl7.fhir.dstu3.metamodel.JsonParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".json")), OutputStyle.PRETTY, "??");
+    new org.hl7.fhir.dstu3.metamodel.TurtleParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".ttl")), OutputStyle.PRETTY, "??");
     
     XmlXHtmlRenderer x = new XmlXHtmlRenderer();
     org.hl7.fhir.dstu3.metamodel.XmlParser xp = new org.hl7.fhir.dstu3.metamodel.XmlParser(context);
-    xp.setLinkResolver(new IGLinkResolver());
+    xp.setLinkResolver(igpkp);
     xp.compose(f.getElement(), x);
     fragment(f.getId()+"-xml-html", x.toString());
 
     JsonXhtmlRenderer j = new JsonXhtmlRenderer();
     org.hl7.fhir.dstu3.metamodel.JsonParser jp = new org.hl7.fhir.dstu3.metamodel.JsonParser(context);
-    jp.setLinkResolver(new IGLinkResolver());
+    jp.setLinkResolver(igpkp);
     jp.compose(f.getElement(), j);
     fragment(f.getId()+"-json-html", j.toString());
 
     org.hl7.fhir.dstu3.metamodel.TurtleParser ttl = new org.hl7.fhir.dstu3.metamodel.TurtleParser(context);
-    ttl.setLinkResolver(new IGLinkResolver());
+    ttl.setLinkResolver(igpkp);
     Turtle rdf = new Turtle();
     ttl.compose(f.getElement(), rdf, "??");
     fragment(f.getId()+"-ttl-html", rdf.asHtml());
@@ -404,9 +463,9 @@ public class Publisher {
    */
   private void generateOutputsCodeSystem(CodeSystem cs) throws IOException {
     // TODO Auto-generated method stub
-    fragmentError(cs.getId()+"-summary", "yet to be done: code system summary");
-    fragmentError(cs.getId()+"-content", "yet to be done: code system definition");
-    fragmentError(cs.getId()+"-xref", "yet to be done: list of all value sets where the code system is used");
+    fragmentError(cs.getId()+"-cs-summary", "yet to be done: code system summary");
+    fragmentError(cs.getId()+"-cs-content", "yet to be done: code system definition");
+    fragmentError(cs.getId()+"-cs-xref", "yet to be done: list of all value sets where the code system is used");
   }
 
   /**
@@ -419,21 +478,28 @@ public class Publisher {
    * todo: should we save it as a resource too? at this time, no: it's not safe to do that; encourages abuse
    * @param vs
    * @throws IOException
+   * @throws FHIRException 
    */
-  private void generateOutputsValueSet(ValueSet vs) throws IOException {
-    fragmentError(vs.getId()+"-summary", "yet to be done: value set summary");
-    fragmentError(vs.getId()+"-cld", "yet to be done: value statement of content logical definition");
-    fragmentError(vs.getId()+"-xref", "yet to be done: list of all places where value set is used");
-//    ValueSetExpansionOutcome exp = context.expandVS(vs, true);
-//    if (exp.getValueset() != null) {
-//      NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
-//      gen.generate(exp.getValueset(), false);
-//      String html = new XhtmlComposer().compose(exp.getValueset().getText().getDiv());
-//      fragment(vs.getId()+"-expansion", html);
-//    } else if (exp.getError() != null) 
-//      fragmentError(vs.getId()+"-expansion", exp.getError());
-//    else 
-//      fragmentError(vs.getId()+"-expansion", exp.getError());
+  private void generateOutputsValueSet(ValueSet vs) throws IOException, FHIRException {
+    ValueSetRenderer vsr = new ValueSetRenderer(context, pathToSpec, vs, igpkp);
+    fragment(vs.getId()+"-vs-summary", vsr.summary());
+    try {
+      fragment(vs.getId()+"-vs-cld", vsr.cld());
+    } catch (Exception e) {
+      fragmentError(vs.getId()+"-vs-cld", e.getMessage());
+    }
+
+    fragment(vs.getId()+"-vs-xref", vsr.xref());
+    ValueSetExpansionOutcome exp = context.expandVS(vs, true);
+    if (exp.getValueset() != null) {
+      NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
+      gen.generate(exp.getValueset(), false);
+      String html = new XhtmlComposer().compose(exp.getValueset().getText().getDiv());
+      fragment(vs.getId()+"-expansion", html);
+    } else if (exp.getError() != null) 
+      fragmentError(vs.getId()+"-expansion", exp.getError());
+    else 
+      fragmentError(vs.getId()+"-expansion", exp.getError());
   }
 
   private void fragmentError(String name, String error) throws IOException {
@@ -449,10 +515,9 @@ public class Publisher {
    * @throws IOException 
    */
   private void generateOutputsConceptMap(ConceptMap cm) throws IOException {
-    fragmentError(cm.getId()+"-summary", "yet to be done: concept map summary");
-    fragmentError(cm.getId()+"-cld", "yet to be done: table presentation of the concept map");
-    fragmentError(cm.getId()+"-xref", "yet to be done: list of all places where concept map is used");
-    
+    fragmentError(cm.getId()+"-cm-summary", "yet to be done: concept map summary");
+    fragmentError(cm.getId()+"-cm-content", "yet to be done: table presentation of the concept map");
+    fragmentError(cm.getId()+"-cm-xref", "yet to be done: list of all places where concept map is used");
   }
 
   private void generateOutputsStructureDefinition(StructureDefinition sd) throws Exception {
@@ -465,10 +530,11 @@ public class Publisher {
     // todo : generate json schema itself
     fragmentError(sd.getId()+"-json-schema", "yet to be done: json schema as html");
     
-    StructureDefinitionRenderer sdr = new StructureDefinitionRenderer(context, "", sd, output, igpkp);
-    fragment(sd.getId()+"-summary", sdr.summary());
-    fragment(sd.getId()+"-diff", sdr.diff("test"));
-    fragment(sd.getId()+"-snapshot", sdr.snapshot("test"));
+    StructureDefinitionRenderer sdr = new StructureDefinitionRenderer(context, pathToSpec+"/", sd, Utilities.path(contentDir), igpkp, specDetails.getAsJsonObject("maps"));
+    fragment(sd.getId()+"-sd-summary", sdr.summary());
+    fragment(sd.getId()+"-header", sdr.header());
+    fragment(sd.getId()+"-diff", sdr.diff(igpkp.getDefinitions(sd)));
+    fragment(sd.getId()+"-snapshot", sdr.snapshot(igpkp.getDefinitions(sd)));
     fragmentError(sd.getId()+"-xml", "yet to be done: Xml template");
     fragmentError(sd.getId()+"-json", "yet to be done: Json template");
     fragmentError(sd.getId()+"-ttl", "yet to be done: Turtle template");
@@ -476,7 +542,8 @@ public class Publisher {
     fragment(sd.getId()+"-tx", sdr.tx());
     fragment(sd.getId()+"-inv", sdr.inv());
     fragment(sd.getId()+"-dict", sdr.dict());
-    fragmentError(sd.getId()+"-maps", "yet to be done: Mappings page");
+    fragment(sd.getId()+"-maps", sdr.mappings());
+    fragmentError(sd.getId()+"-sd-xref", "Yet to be done: xref");
   }
 
   private XhtmlNode getXhtml(FetchedFile f) {
@@ -491,15 +558,15 @@ public class Publisher {
   }
 
   private void fragment(String name, String content) throws IOException {
-    TextFile.stringToFile(content, Utilities.path(output, "fragments", name+".xhtml"));
-    TextFile.stringToFile(pageWrap(content, name), Utilities.path(output, "pages", name+".html"));
+    TextFile.stringToFile(content, Utilities.path(includesDir, name+".xhtml"), false);
+    TextFile.stringToFile(pageWrap(content, name), Utilities.path(validationDir, name+".html"), true);
   }
 
   private String pageWrap(String content, String title) {
     return "<html>\r\n"+
     "<head>\r\n"+
     "  <title>"+title+"</title>\r\n"+
-    "  <link rel=\"stylesheet\" href=\"../publish/fhir.css\"/>\r\n"+
+    "  <link rel=\"stylesheet\" href=\"fhir.css\"/>\r\n"+
     "</head>\r\n"+
     "<body>\r\n"+
     content+
@@ -513,7 +580,7 @@ public class Publisher {
     self.configFile = getNamedParam(args, "-ig");
     self.output = getNamedParam(args, "-out");
     self.pathToSpec = getNamedParam(args, "-spec");
-    self.txServer = getNamedParam(args, "-tx");
+    self.setTxServer(getNamedParam(args, "-tx"));
     self.reside = hasParam(args, "-reside");
 
     if (self.configFile == null || self.pathToSpec == null) {
@@ -547,6 +614,12 @@ public class Publisher {
       }
   }
 
+
+  private void setTxServer(String s) {
+    if (!Utilities.noString(s))
+      txServer = s;
+    
+  }
 
   private static boolean hasParam(String[] args, String param) {
     for (String a : args)

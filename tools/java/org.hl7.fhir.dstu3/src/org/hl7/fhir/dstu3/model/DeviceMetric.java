@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -989,8 +989,7 @@ public class DeviceMetric extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (state == null || state.isEmpty())
-           && (time == null || time.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, state, time);
       }
 
   public String fhirType() {
@@ -1435,6 +1434,14 @@ public class DeviceMetric extends DomainResource {
       return this.calibration;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DeviceMetric setCalibration(List<DeviceMetricCalibrationComponent> theCalibration) { 
+      this.calibration = theCalibration;
+      return this;
+    }
+
     public boolean hasCalibration() { 
       if (this.calibration == null)
         return false;
@@ -1444,10 +1451,6 @@ public class DeviceMetric extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #calibration} (Describes the calibrations that have been performed or that are required to be performed.)
-     */
-    // syntactic sugar
     public DeviceMetricCalibrationComponent addCalibration() { //3
       DeviceMetricCalibrationComponent t = new DeviceMetricCalibrationComponent();
       if (this.calibration == null)
@@ -1456,7 +1459,6 @@ public class DeviceMetric extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DeviceMetric addCalibration(DeviceMetricCalibrationComponent t) { //3
       if (t == null)
         return this;
@@ -1464,6 +1466,16 @@ public class DeviceMetric extends DomainResource {
         this.calibration = new ArrayList<DeviceMetricCalibrationComponent>();
       this.calibration.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #calibration}, creating it if it does not already exist
+     */
+    public DeviceMetricCalibrationComponent getCalibrationFirstRep() { 
+      if (getCalibration().isEmpty()) {
+        addCalibration();
+      }
+      return getCalibration().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1676,63 +1688,14 @@ public class DeviceMetric extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (unit == null || unit.isEmpty()) && (source == null || source.isEmpty()) && (parent == null || parent.isEmpty())
-           && (operationalStatus == null || operationalStatus.isEmpty()) && (color == null || color.isEmpty())
-           && (category == null || category.isEmpty()) && (measurementPeriod == null || measurementPeriod.isEmpty())
-           && (calibration == null || calibration.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, identifier, unit, source
+          , parent, operationalStatus, color, category, measurementPeriod, calibration);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.DeviceMetric;
    }
-
- /**
-   * Search parameter: <b>category</b>
-   * <p>
-   * Description: <b>The category of the metric</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DeviceMetric.category</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="category", path="DeviceMetric.category", description="The category of the metric", type="token" )
-  public static final String SP_CATEGORY = "category";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>category</b>
-   * <p>
-   * Description: <b>The category of the metric</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DeviceMetric.category</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
-
- /**
-   * Search parameter: <b>source</b>
-   * <p>
-   * Description: <b>The device resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DeviceMetric.source</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="source", path="DeviceMetric.source", description="The device resource", type="reference" )
-  public static final String SP_SOURCE = "source";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>source</b>
-   * <p>
-   * Description: <b>The device resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DeviceMetric.source</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SOURCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SOURCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DeviceMetric:source</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("DeviceMetric:source").toLocked();
 
  /**
    * Search parameter: <b>parent</b>
@@ -1761,6 +1724,52 @@ public class DeviceMetric extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PARENT = new ca.uhn.fhir.model.api.Include("DeviceMetric:parent").toLocked();
 
  /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>The identifier of the metric</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DeviceMetric.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="DeviceMetric.identifier", description="The identifier of the metric", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>The identifier of the metric</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DeviceMetric.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>source</b>
+   * <p>
+   * Description: <b>The device resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DeviceMetric.source</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="source", path="DeviceMetric.source", description="The device resource", type="reference" )
+  public static final String SP_SOURCE = "source";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>source</b>
+   * <p>
+   * Description: <b>The device resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DeviceMetric.source</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SOURCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SOURCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DeviceMetric:source</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("DeviceMetric:source").toLocked();
+
+ /**
    * Search parameter: <b>type</b>
    * <p>
    * Description: <b>The component type</b><br>
@@ -1781,24 +1790,24 @@ public class DeviceMetric extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>category</b>
    * <p>
-   * Description: <b>The identifier of the metric</b><br>
+   * Description: <b>The category of the metric</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>DeviceMetric.identifier</b><br>
+   * Path: <b>DeviceMetric.category</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="DeviceMetric.identifier", description="The identifier of the metric", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="category", path="DeviceMetric.category", description="The category of the metric", type="token" )
+  public static final String SP_CATEGORY = "category";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>category</b>
    * <p>
-   * Description: <b>The identifier of the metric</b><br>
+   * Description: <b>The category of the metric</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>DeviceMetric.identifier</b><br>
+   * Path: <b>DeviceMetric.category</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
 
 }

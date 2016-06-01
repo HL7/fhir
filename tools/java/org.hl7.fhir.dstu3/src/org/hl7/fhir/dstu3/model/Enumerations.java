@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2430,13 +2430,9 @@ public class Enumerations {
          */
         HEALTHCARESERVICE, 
         /**
-         * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingExcerpt resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
+         * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
          */
-        IMAGINGEXCERPT, 
-        /**
-         * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingObjectSelection resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
-         */
-        IMAGINGOBJECTSELECTION, 
+        IMAGINGMANIFEST, 
         /**
          * Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
          */
@@ -2630,7 +2626,7 @@ public class Enumerations {
          */
         SEARCHPARAMETER, 
         /**
-         * Variation and Sequence data.
+         * Variant and Sequence data.
          */
         SEQUENCE, 
         /**
@@ -2906,10 +2902,8 @@ public class Enumerations {
           return GUIDANCERESPONSE;
         if ("HealthcareService".equals(codeString))
           return HEALTHCARESERVICE;
-        if ("ImagingExcerpt".equals(codeString))
-          return IMAGINGEXCERPT;
-        if ("ImagingObjectSelection".equals(codeString))
-          return IMAGINGOBJECTSELECTION;
+        if ("ImagingManifest".equals(codeString))
+          return IMAGINGMANIFEST;
         if ("ImagingStudy".equals(codeString))
           return IMAGINGSTUDY;
         if ("Immunization".equals(codeString))
@@ -3145,8 +3139,7 @@ public class Enumerations {
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
-            case IMAGINGEXCERPT: return "ImagingExcerpt";
-            case IMAGINGOBJECTSELECTION: return "ImagingObjectSelection";
+            case IMAGINGMANIFEST: return "ImagingManifest";
             case IMAGINGSTUDY: return "ImagingStudy";
             case IMMUNIZATION: return "Immunization";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
@@ -3320,8 +3313,7 @@ public class Enumerations {
             case GROUP: return "http://hl7.org/fhir/resource-types";
             case GUIDANCERESPONSE: return "http://hl7.org/fhir/resource-types";
             case HEALTHCARESERVICE: return "http://hl7.org/fhir/resource-types";
-            case IMAGINGEXCERPT: return "http://hl7.org/fhir/resource-types";
-            case IMAGINGOBJECTSELECTION: return "http://hl7.org/fhir/resource-types";
+            case IMAGINGMANIFEST: return "http://hl7.org/fhir/resource-types";
             case IMAGINGSTUDY: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATION: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATIONRECOMMENDATION: return "http://hl7.org/fhir/resource-types";
@@ -3495,8 +3487,7 @@ public class Enumerations {
             case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
             case GUIDANCERESPONSE: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
-            case IMAGINGEXCERPT: return "A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingExcerpt resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.";
-            case IMAGINGOBJECTSELECTION: return "A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingObjectSelection resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.";
+            case IMAGINGMANIFEST: return "A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.";
             case IMAGINGSTUDY: return "Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.";
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
@@ -3545,7 +3536,7 @@ public class Enumerations {
             case RISKASSESSMENT: return "An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.";
             case SCHEDULE: return "A container for slot(s) of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
-            case SEQUENCE: return "Variation and Sequence data.";
+            case SEQUENCE: return "Variant and Sequence data.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
             case STRUCTUREDEFINITION: return "A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.";
@@ -3670,8 +3661,7 @@ public class Enumerations {
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
-            case IMAGINGEXCERPT: return "ImagingExcerpt";
-            case IMAGINGOBJECTSELECTION: return "ImagingObjectSelection";
+            case IMAGINGMANIFEST: return "ImagingManifest";
             case IMAGINGSTUDY: return "ImagingStudy";
             case IMMUNIZATION: return "Immunization";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
@@ -3955,10 +3945,8 @@ public class Enumerations {
           return FHIRAllTypes.GUIDANCERESPONSE;
         if ("HealthcareService".equals(codeString))
           return FHIRAllTypes.HEALTHCARESERVICE;
-        if ("ImagingExcerpt".equals(codeString))
-          return FHIRAllTypes.IMAGINGEXCERPT;
-        if ("ImagingObjectSelection".equals(codeString))
-          return FHIRAllTypes.IMAGINGOBJECTSELECTION;
+        if ("ImagingManifest".equals(codeString))
+          return FHIRAllTypes.IMAGINGMANIFEST;
         if ("ImagingStudy".equals(codeString))
           return FHIRAllTypes.IMAGINGSTUDY;
         if ("Immunization".equals(codeString))
@@ -4303,10 +4291,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.GUIDANCERESPONSE);
         if ("HealthcareService".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.HEALTHCARESERVICE);
-        if ("ImagingExcerpt".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.IMAGINGEXCERPT);
-        if ("ImagingObjectSelection".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.IMAGINGOBJECTSELECTION);
+        if ("ImagingManifest".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.IMAGINGMANIFEST);
         if ("ImagingStudy".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.IMAGINGSTUDY);
         if ("Immunization".equals(codeString))
@@ -4646,10 +4632,8 @@ public class Enumerations {
         return "GuidanceResponse";
       if (code == FHIRAllTypes.HEALTHCARESERVICE)
         return "HealthcareService";
-      if (code == FHIRAllTypes.IMAGINGEXCERPT)
-        return "ImagingExcerpt";
-      if (code == FHIRAllTypes.IMAGINGOBJECTSELECTION)
-        return "ImagingObjectSelection";
+      if (code == FHIRAllTypes.IMAGINGMANIFEST)
+        return "ImagingManifest";
       if (code == FHIRAllTypes.IMAGINGSTUDY)
         return "ImagingStudy";
       if (code == FHIRAllTypes.IMMUNIZATION)
@@ -5205,13 +5189,9 @@ public class Enumerations {
          */
         HEALTHCARESERVICE, 
         /**
-         * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingExcerpt resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
+         * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
          */
-        IMAGINGEXCERPT, 
-        /**
-         * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingObjectSelection resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
-         */
-        IMAGINGOBJECTSELECTION, 
+        IMAGINGMANIFEST, 
         /**
          * Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
          */
@@ -5405,7 +5385,7 @@ public class Enumerations {
          */
         SEARCHPARAMETER, 
         /**
-         * Variation and Sequence data.
+         * Variant and Sequence data.
          */
         SEQUENCE, 
         /**
@@ -5673,10 +5653,8 @@ public class Enumerations {
           return GUIDANCERESPONSE;
         if ("HealthcareService".equals(codeString))
           return HEALTHCARESERVICE;
-        if ("ImagingExcerpt".equals(codeString))
-          return IMAGINGEXCERPT;
-        if ("ImagingObjectSelection".equals(codeString))
-          return IMAGINGOBJECTSELECTION;
+        if ("ImagingManifest".equals(codeString))
+          return IMAGINGMANIFEST;
         if ("ImagingStudy".equals(codeString))
           return IMAGINGSTUDY;
         if ("Immunization".equals(codeString))
@@ -5908,8 +5886,7 @@ public class Enumerations {
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
-            case IMAGINGEXCERPT: return "ImagingExcerpt";
-            case IMAGINGOBJECTSELECTION: return "ImagingObjectSelection";
+            case IMAGINGMANIFEST: return "ImagingManifest";
             case IMAGINGSTUDY: return "ImagingStudy";
             case IMMUNIZATION: return "Immunization";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
@@ -6081,8 +6058,7 @@ public class Enumerations {
             case GROUP: return "http://hl7.org/fhir/resource-types";
             case GUIDANCERESPONSE: return "http://hl7.org/fhir/resource-types";
             case HEALTHCARESERVICE: return "http://hl7.org/fhir/resource-types";
-            case IMAGINGEXCERPT: return "http://hl7.org/fhir/resource-types";
-            case IMAGINGOBJECTSELECTION: return "http://hl7.org/fhir/resource-types";
+            case IMAGINGMANIFEST: return "http://hl7.org/fhir/resource-types";
             case IMAGINGSTUDY: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATION: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATIONRECOMMENDATION: return "http://hl7.org/fhir/resource-types";
@@ -6254,8 +6230,7 @@ public class Enumerations {
             case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
             case GUIDANCERESPONSE: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
-            case IMAGINGEXCERPT: return "A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingExcerpt resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.";
-            case IMAGINGOBJECTSELECTION: return "A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingObjectSelection resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.";
+            case IMAGINGMANIFEST: return "A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.";
             case IMAGINGSTUDY: return "Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.";
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
@@ -6304,7 +6279,7 @@ public class Enumerations {
             case RISKASSESSMENT: return "An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.";
             case SCHEDULE: return "A container for slot(s) of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
-            case SEQUENCE: return "Variation and Sequence data.";
+            case SEQUENCE: return "Variant and Sequence data.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
             case STRUCTUREDEFINITION: return "A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.";
@@ -6427,8 +6402,7 @@ public class Enumerations {
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
-            case IMAGINGEXCERPT: return "ImagingExcerpt";
-            case IMAGINGOBJECTSELECTION: return "ImagingObjectSelection";
+            case IMAGINGMANIFEST: return "ImagingManifest";
             case IMAGINGSTUDY: return "ImagingStudy";
             case IMMUNIZATION: return "Immunization";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
@@ -6710,10 +6684,8 @@ public class Enumerations {
           return FHIRDefinedType.GUIDANCERESPONSE;
         if ("HealthcareService".equals(codeString))
           return FHIRDefinedType.HEALTHCARESERVICE;
-        if ("ImagingExcerpt".equals(codeString))
-          return FHIRDefinedType.IMAGINGEXCERPT;
-        if ("ImagingObjectSelection".equals(codeString))
-          return FHIRDefinedType.IMAGINGOBJECTSELECTION;
+        if ("ImagingManifest".equals(codeString))
+          return FHIRDefinedType.IMAGINGMANIFEST;
         if ("ImagingStudy".equals(codeString))
           return FHIRDefinedType.IMAGINGSTUDY;
         if ("Immunization".equals(codeString))
@@ -7054,10 +7026,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.GUIDANCERESPONSE);
         if ("HealthcareService".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.HEALTHCARESERVICE);
-        if ("ImagingExcerpt".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.IMAGINGEXCERPT);
-        if ("ImagingObjectSelection".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.IMAGINGOBJECTSELECTION);
+        if ("ImagingManifest".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.IMAGINGMANIFEST);
         if ("ImagingStudy".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.IMAGINGSTUDY);
         if ("Immunization".equals(codeString))
@@ -7393,10 +7363,8 @@ public class Enumerations {
         return "GuidanceResponse";
       if (code == FHIRDefinedType.HEALTHCARESERVICE)
         return "HealthcareService";
-      if (code == FHIRDefinedType.IMAGINGEXCERPT)
-        return "ImagingExcerpt";
-      if (code == FHIRDefinedType.IMAGINGOBJECTSELECTION)
-        return "ImagingObjectSelection";
+      if (code == FHIRDefinedType.IMAGINGMANIFEST)
+        return "ImagingManifest";
       if (code == FHIRDefinedType.IMAGINGSTUDY)
         return "ImagingStudy";
       if (code == FHIRDefinedType.IMMUNIZATION)
@@ -8165,13 +8133,9 @@ public class Enumerations {
          */
         HEALTHCARESERVICE, 
         /**
-         * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingExcerpt resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
+         * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
          */
-        IMAGINGEXCERPT, 
-        /**
-         * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingObjectSelection resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
-         */
-        IMAGINGOBJECTSELECTION, 
+        IMAGINGMANIFEST, 
         /**
          * Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
          */
@@ -8365,7 +8329,7 @@ public class Enumerations {
          */
         SEARCHPARAMETER, 
         /**
-         * Variation and Sequence data.
+         * Variant and Sequence data.
          */
         SEQUENCE, 
         /**
@@ -8531,10 +8495,8 @@ public class Enumerations {
           return GUIDANCERESPONSE;
         if ("HealthcareService".equals(codeString))
           return HEALTHCARESERVICE;
-        if ("ImagingExcerpt".equals(codeString))
-          return IMAGINGEXCERPT;
-        if ("ImagingObjectSelection".equals(codeString))
-          return IMAGINGOBJECTSELECTION;
+        if ("ImagingManifest".equals(codeString))
+          return IMAGINGMANIFEST;
         if ("ImagingStudy".equals(codeString))
           return IMAGINGSTUDY;
         if ("Immunization".equals(codeString))
@@ -8715,8 +8677,7 @@ public class Enumerations {
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
-            case IMAGINGEXCERPT: return "ImagingExcerpt";
-            case IMAGINGOBJECTSELECTION: return "ImagingObjectSelection";
+            case IMAGINGMANIFEST: return "ImagingManifest";
             case IMAGINGSTUDY: return "ImagingStudy";
             case IMMUNIZATION: return "Immunization";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
@@ -8837,8 +8798,7 @@ public class Enumerations {
             case GROUP: return "http://hl7.org/fhir/resource-types";
             case GUIDANCERESPONSE: return "http://hl7.org/fhir/resource-types";
             case HEALTHCARESERVICE: return "http://hl7.org/fhir/resource-types";
-            case IMAGINGEXCERPT: return "http://hl7.org/fhir/resource-types";
-            case IMAGINGOBJECTSELECTION: return "http://hl7.org/fhir/resource-types";
+            case IMAGINGMANIFEST: return "http://hl7.org/fhir/resource-types";
             case IMAGINGSTUDY: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATION: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATIONRECOMMENDATION: return "http://hl7.org/fhir/resource-types";
@@ -8959,8 +8919,7 @@ public class Enumerations {
             case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
             case GUIDANCERESPONSE: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
-            case IMAGINGEXCERPT: return "A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingExcerpt resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.";
-            case IMAGINGOBJECTSELECTION: return "A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingObjectSelection resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.";
+            case IMAGINGMANIFEST: return "A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.";
             case IMAGINGSTUDY: return "Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.";
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
@@ -9009,7 +8968,7 @@ public class Enumerations {
             case RISKASSESSMENT: return "An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.";
             case SCHEDULE: return "A container for slot(s) of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
-            case SEQUENCE: return "Variation and Sequence data.";
+            case SEQUENCE: return "Variant and Sequence data.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
             case STRUCTUREDEFINITION: return "A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.";
@@ -9081,8 +9040,7 @@ public class Enumerations {
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
-            case IMAGINGEXCERPT: return "ImagingExcerpt";
-            case IMAGINGOBJECTSELECTION: return "ImagingObjectSelection";
+            case IMAGINGMANIFEST: return "ImagingManifest";
             case IMAGINGSTUDY: return "ImagingStudy";
             case IMMUNIZATION: return "Immunization";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
@@ -9262,10 +9220,8 @@ public class Enumerations {
           return ResourceType.GUIDANCERESPONSE;
         if ("HealthcareService".equals(codeString))
           return ResourceType.HEALTHCARESERVICE;
-        if ("ImagingExcerpt".equals(codeString))
-          return ResourceType.IMAGINGEXCERPT;
-        if ("ImagingObjectSelection".equals(codeString))
-          return ResourceType.IMAGINGOBJECTSELECTION;
+        if ("ImagingManifest".equals(codeString))
+          return ResourceType.IMAGINGMANIFEST;
         if ("ImagingStudy".equals(codeString))
           return ResourceType.IMAGINGSTUDY;
         if ("Immunization".equals(codeString))
@@ -9504,10 +9460,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.GUIDANCERESPONSE);
         if ("HealthcareService".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.HEALTHCARESERVICE);
-        if ("ImagingExcerpt".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.IMAGINGEXCERPT);
-        if ("ImagingObjectSelection".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.IMAGINGOBJECTSELECTION);
+        if ("ImagingManifest".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.IMAGINGMANIFEST);
         if ("ImagingStudy".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.IMAGINGSTUDY);
         if ("Immunization".equals(codeString))
@@ -9741,10 +9695,8 @@ public class Enumerations {
         return "GuidanceResponse";
       if (code == ResourceType.HEALTHCARESERVICE)
         return "HealthcareService";
-      if (code == ResourceType.IMAGINGEXCERPT)
-        return "ImagingExcerpt";
-      if (code == ResourceType.IMAGINGOBJECTSELECTION)
-        return "ImagingObjectSelection";
+      if (code == ResourceType.IMAGINGMANIFEST)
+        return "ImagingManifest";
       if (code == ResourceType.IMAGINGSTUDY)
         return "ImagingStudy";
       if (code == ResourceType.IMMUNIZATION)

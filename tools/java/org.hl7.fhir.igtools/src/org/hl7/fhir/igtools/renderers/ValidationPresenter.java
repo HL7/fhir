@@ -15,10 +15,10 @@ import org.stringtemplate.v4.ST;
 
 public class ValidationPresenter {
 
-  public static class ValiationOutcomes {
+  public static class ValidationOutcomes {
     private FetchedFile file; 
     private List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-    public ValiationOutcomes(FetchedFile file) {
+    public ValidationOutcomes(FetchedFile file) {
       super();
       this.file = file;
     }
@@ -37,13 +37,13 @@ public class ValidationPresenter {
     this.context = context;
   }
 
-  public String generate(String title, List<ValiationOutcomes> errs, String path) throws IOException {
+  public String generate(String title, List<ValidationOutcomes> errs, String path) throws IOException {
     StringBuilder b = new StringBuilder();
     b.append(genHeader(title));
-    for (ValiationOutcomes v : errs) 
+    for (ValidationOutcomes v : errs) 
       b.append(genSummaryRow(v));
     b.append(genEnd());
-    for (ValiationOutcomes v : errs) { 
+    for (ValidationOutcomes v : errs) { 
       b.append(genStart(v));
       for (ValidationMessage vm : v.errors)
         b.append(genDetails(vm));
@@ -60,7 +60,7 @@ public class ValidationPresenter {
       "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n"+
       "<head>\r\n"+
       "  <title>$title$ : Validation Results</title>\r\n"+
-      "  <link href=\"publish/fhir.css\" rel=\"stylesheet\"/>\r\n"+
+      "  <link href=\"fhir.css\" rel=\"stylesheet\"/>\r\n"+
       "</head>\r\n"+
       "<body style=\"margin: 20px; background-color: #ffffff\">\r\n"+
       " <h1>Validation Results for $title$</h1>\r\n"+
@@ -123,7 +123,7 @@ public class ValidationPresenter {
     return t.render();
   }
 
-  private String genSummaryRow(ValiationOutcomes v) {
+  private String genSummaryRow(ValidationOutcomes v) {
     ST t = template(summaryTemplate);
     t.add("link", makelink(v));
     
@@ -139,11 +139,11 @@ public class ValidationPresenter {
     return t.render();
   }
 
-  private String makelink(ValiationOutcomes v) {
+  private String makelink(ValidationOutcomes v) {
     return v.file.getName().replace("/", "_").replace("\\", "_");
   }
 
-  private String errCount(ValiationOutcomes v) {
+  private String errCount(ValidationOutcomes v) {
     int c = 0;
     for (ValidationMessage vm : v.errors) {
       if (vm.getLevel() == IssueSeverity.ERROR || vm.getLevel() == IssueSeverity.FATAL)
@@ -152,7 +152,7 @@ public class ValidationPresenter {
     return Integer.toString(c);
   }
 
-  private Object otherCount(ValiationOutcomes v) {
+  private Object otherCount(ValidationOutcomes v) {
     int c = 0;
     for (ValidationMessage vm : v.errors) {
       if (vm.getLevel() == IssueSeverity.INFORMATION || vm.getLevel() == IssueSeverity.WARNING)
@@ -161,7 +161,7 @@ public class ValidationPresenter {
     return Integer.toString(c);
   }
 
-  private String genStart(ValiationOutcomes v) {
+  private String genStart(ValidationOutcomes v) {
     ST t = template(startTemplate);
     t.add("link", makelink(v));
     t.add("filename", v.getFile().getName());

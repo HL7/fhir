@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -164,6 +164,14 @@ public class BodySite extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public BodySite setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -173,10 +181,6 @@ public class BodySite extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Identifier for this instance of the anatomical location.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -185,7 +189,6 @@ public class BodySite extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public BodySite addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -193,6 +196,16 @@ public class BodySite extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -228,6 +241,14 @@ public class BodySite extends DomainResource {
       return this.modifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public BodySite setModifier(List<CodeableConcept> theModifier) { 
+      this.modifier = theModifier;
+      return this;
+    }
+
     public boolean hasModifier() { 
       if (this.modifier == null)
         return false;
@@ -237,10 +258,6 @@ public class BodySite extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #modifier} (Modifier to refine the anatomical location.  These include modifiers for laterality, relative location, directionality, number, and plane.)
-     */
-    // syntactic sugar
     public CodeableConcept addModifier() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.modifier == null)
@@ -249,7 +266,6 @@ public class BodySite extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public BodySite addModifier(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -257,6 +273,16 @@ public class BodySite extends DomainResource {
         this.modifier = new ArrayList<CodeableConcept>();
       this.modifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #modifier}, creating it if it does not already exist
+     */
+    public CodeableConcept getModifierFirstRep() { 
+      if (getModifier().isEmpty()) {
+        addModifier();
+      }
+      return getModifier().get(0);
     }
 
     /**
@@ -317,6 +343,14 @@ public class BodySite extends DomainResource {
       return this.image;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public BodySite setImage(List<Attachment> theImage) { 
+      this.image = theImage;
+      return this;
+    }
+
     public boolean hasImage() { 
       if (this.image == null)
         return false;
@@ -326,10 +360,6 @@ public class BodySite extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #image} (Image or images used to identify a location.)
-     */
-    // syntactic sugar
     public Attachment addImage() { //3
       Attachment t = new Attachment();
       if (this.image == null)
@@ -338,7 +368,6 @@ public class BodySite extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public BodySite addImage(Attachment t) { //3
       if (t == null)
         return this;
@@ -346,6 +375,16 @@ public class BodySite extends DomainResource {
         this.image = new ArrayList<Attachment>();
       this.image.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #image}, creating it if it does not already exist
+     */
+    public Attachment getImageFirstRep() { 
+      if (getImage().isEmpty()) {
+        addImage();
+      }
+      return getImage().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -512,15 +551,54 @@ public class BodySite extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (patient == null || patient.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (code == null || code.isEmpty()) && (modifier == null || modifier.isEmpty()) && (description == null || description.isEmpty())
-           && (image == null || image.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(patient, identifier, code
+          , modifier, description, image);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.BodySite;
    }
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Identifier for this instance of the anatomical location</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>BodySite.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="BodySite.identifier", description="Identifier for this instance of the anatomical location", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Identifier for this instance of the anatomical location</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>BodySite.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>Named anatomical location</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>BodySite.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="BodySite.code", description="Named anatomical location", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>Named anatomical location</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>BodySite.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
    * Search parameter: <b>patient</b>
@@ -547,46 +625,6 @@ public class BodySite extends DomainResource {
    * the path value of "<b>BodySite:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("BodySite:patient").toLocked();
-
- /**
-   * Search parameter: <b>code</b>
-   * <p>
-   * Description: <b>Named anatomical location</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>BodySite.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code", path="BodySite.code", description="Named anatomical location", type="token" )
-  public static final String SP_CODE = "code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
-   * <p>
-   * Description: <b>Named anatomical location</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>BodySite.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Identifier for this instance of the anatomical location</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>BodySite.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="BodySite.identifier", description="Identifier for this instance of the anatomical location", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Identifier for this instance of the anatomical location</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>BodySite.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

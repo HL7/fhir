@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -126,6 +126,14 @@ public abstract class Element extends Base implements IBaseHasExtensions {
       return this.extension;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Element setExtension(List<Extension> theExtension) { 
+      this.extension = theExtension;
+      return this;
+    }
+
     public boolean hasExtension() { 
       if (this.extension == null)
         return false;
@@ -135,10 +143,6 @@ public abstract class Element extends Base implements IBaseHasExtensions {
       return false;
     }
 
-    /**
-     * @return {@link #extension} (May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.)
-     */
-    // syntactic sugar
     public Extension addExtension() { //3
       Extension t = new Extension();
       if (this.extension == null)
@@ -147,7 +151,6 @@ public abstract class Element extends Base implements IBaseHasExtensions {
       return t;
     }
 
-    // syntactic sugar
     public Element addExtension(Extension t) { //3
       if (t == null)
         return this;
@@ -155,6 +158,16 @@ public abstract class Element extends Base implements IBaseHasExtensions {
         this.extension = new ArrayList<Extension>();
       this.extension.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #extension}, creating it if it does not already exist
+     */
+    public Extension getExtensionFirstRep() { 
+      if (getExtension().isEmpty()) {
+        addExtension();
+      }
+      return getExtension().get(0);
     }
 
    /**
@@ -288,8 +301,7 @@ public abstract class Element extends Base implements IBaseHasExtensions {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (id == null || id.isEmpty()) && (extension == null || extension.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(id, extension);
       }
 
 

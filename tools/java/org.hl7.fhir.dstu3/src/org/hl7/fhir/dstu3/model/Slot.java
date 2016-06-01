@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -280,6 +280,14 @@ public class Slot extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Slot setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -289,10 +297,6 @@ public class Slot extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (External Ids for this item.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -301,7 +305,6 @@ public class Slot extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Slot addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -309,6 +312,16 @@ public class Slot extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -344,6 +357,14 @@ public class Slot extends DomainResource {
       return this.serviceType;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Slot setServiceType(List<CodeableConcept> theServiceType) { 
+      this.serviceType = theServiceType;
+      return this;
+    }
+
     public boolean hasServiceType() { 
       if (this.serviceType == null)
         return false;
@@ -353,10 +374,6 @@ public class Slot extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #serviceType} (The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource.)
-     */
-    // syntactic sugar
     public CodeableConcept addServiceType() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.serviceType == null)
@@ -365,7 +382,6 @@ public class Slot extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Slot addServiceType(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -373,6 +389,16 @@ public class Slot extends DomainResource {
         this.serviceType = new ArrayList<CodeableConcept>();
       this.serviceType.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #serviceType}, creating it if it does not already exist
+     */
+    public CodeableConcept getServiceTypeFirstRep() { 
+      if (getServiceType().isEmpty()) {
+        addServiceType();
+      }
+      return getServiceType().get(0);
     }
 
     /**
@@ -384,6 +410,14 @@ public class Slot extends DomainResource {
       return this.specialty;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Slot setSpecialty(List<CodeableConcept> theSpecialty) { 
+      this.specialty = theSpecialty;
+      return this;
+    }
+
     public boolean hasSpecialty() { 
       if (this.specialty == null)
         return false;
@@ -393,10 +427,6 @@ public class Slot extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #specialty} (The specialty of a practitioner that would be required to perform the service requested in this appointment.)
-     */
-    // syntactic sugar
     public CodeableConcept addSpecialty() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.specialty == null)
@@ -405,7 +435,6 @@ public class Slot extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Slot addSpecialty(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -413,6 +442,16 @@ public class Slot extends DomainResource {
         this.specialty = new ArrayList<CodeableConcept>();
       this.specialty.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #specialty}, creating it if it does not already exist
+     */
+    public CodeableConcept getSpecialtyFirstRep() { 
+      if (getSpecialty().isEmpty()) {
+        addSpecialty();
+      }
+      return getSpecialty().get(0);
     }
 
     /**
@@ -940,12 +979,9 @@ public class Slot extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (serviceCategory == null || serviceCategory.isEmpty())
-           && (serviceType == null || serviceType.isEmpty()) && (specialty == null || specialty.isEmpty())
-           && (appointmentType == null || appointmentType.isEmpty()) && (schedule == null || schedule.isEmpty())
-           && (status == null || status.isEmpty()) && (start == null || start.isEmpty()) && (end == null || end.isEmpty())
-           && (overbooked == null || overbooked.isEmpty()) && (comment == null || comment.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, serviceCategory
+          , serviceType, specialty, appointmentType, schedule, status, start, end, overbooked
+          , comment);
       }
 
   @Override
@@ -980,24 +1016,24 @@ public class Slot extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SCHEDULE = new ca.uhn.fhir.model.api.Include("Slot:schedule").toLocked();
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The free/busy status of the appointment</b><br>
+   * Description: <b>A Slot Identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Slot.status</b><br>
+   * Path: <b>Slot.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="Slot.status", description="The free/busy status of the appointment", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="identifier", path="Slot.identifier", description="A Slot Identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The free/busy status of the appointment</b><br>
+   * Description: <b>A Slot Identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Slot.status</b><br>
+   * Path: <b>Slot.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>start</b>
@@ -1040,24 +1076,24 @@ public class Slot extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SLOT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SLOT_TYPE);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>A Slot Identifier</b><br>
+   * Description: <b>The free/busy status of the appointment</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Slot.identifier</b><br>
+   * Path: <b>Slot.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Slot.identifier", description="A Slot Identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="status", path="Slot.status", description="The free/busy status of the appointment", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>A Slot Identifier</b><br>
+   * Description: <b>The free/busy status of the appointment</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Slot.identifier</b><br>
+   * Path: <b>Slot.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

@@ -19,6 +19,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.validation.IResourceValidator;
+import org.hl7.fhir.exceptions.TerminologyServiceException;
 
 
 /**
@@ -166,8 +167,9 @@ public interface IWorkerContext {
    * 
    * @param system
    * @return
+   * @throws Exception 
    */
-  public boolean supportsSystem(String system);
+  public boolean supportsSystem(String system) throws TerminologyServiceException;
 
   /**
    * find concept maps for a source
@@ -296,6 +298,8 @@ public interface IWorkerContext {
   public Set<String> typeTails();
 
 	public String oid2Uri(String code);
+
+  public boolean hasCache();
 
 
 }

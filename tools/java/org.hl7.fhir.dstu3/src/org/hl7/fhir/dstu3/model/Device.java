@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -306,6 +306,14 @@ public class Device extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Device setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -315,10 +323,6 @@ public class Device extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Unique instance identifiers assigned to a device by manufacturers other organizations or owners.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -327,7 +331,6 @@ public class Device extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Device addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -335,6 +338,16 @@ public class Device extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -825,6 +838,14 @@ public class Device extends DomainResource {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Device setContact(List<ContactPoint> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -834,10 +855,6 @@ public class Device extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contact details for an organization or a particular human that is responsible for the device.)
-     */
-    // syntactic sugar
     public ContactPoint addContact() { //3
       ContactPoint t = new ContactPoint();
       if (this.contact == null)
@@ -846,7 +863,6 @@ public class Device extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Device addContact(ContactPoint t) { //3
       if (t == null)
         return this;
@@ -854,6 +870,16 @@ public class Device extends DomainResource {
         this.contact = new ArrayList<ContactPoint>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public ContactPoint getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -958,6 +984,14 @@ public class Device extends DomainResource {
       return this.note;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Device setNote(List<Annotation> theNote) { 
+      this.note = theNote;
+      return this;
+    }
+
     public boolean hasNote() { 
       if (this.note == null)
         return false;
@@ -967,10 +1001,6 @@ public class Device extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #note} (Descriptive information, usage information or implantation information that is not captured in an existing element.)
-     */
-    // syntactic sugar
     public Annotation addNote() { //3
       Annotation t = new Annotation();
       if (this.note == null)
@@ -979,7 +1009,6 @@ public class Device extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Device addNote(Annotation t) { //3
       if (t == null)
         return this;
@@ -987,6 +1016,16 @@ public class Device extends DomainResource {
         this.note = new ArrayList<Annotation>();
       this.note.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
+     */
+    public Annotation getNoteFirstRep() { 
+      if (getNote().isEmpty()) {
+        addNote();
+      }
+      return getNote().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1283,19 +1322,61 @@ public class Device extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (udiCarrier == null || udiCarrier.isEmpty())
-           && (status == null || status.isEmpty()) && (type == null || type.isEmpty()) && (lotNumber == null || lotNumber.isEmpty())
-           && (manufacturer == null || manufacturer.isEmpty()) && (manufactureDate == null || manufactureDate.isEmpty())
-           && (expirationDate == null || expirationDate.isEmpty()) && (model == null || model.isEmpty())
-           && (version == null || version.isEmpty()) && (patient == null || patient.isEmpty()) && (owner == null || owner.isEmpty())
-           && (contact == null || contact.isEmpty()) && (location == null || location.isEmpty()) && (url == null || url.isEmpty())
-           && (note == null || note.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, udiCarrier, status
+          , type, lotNumber, manufacturer, manufactureDate, expirationDate, model, version
+          , patient, owner, contact, location, url, note);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Device;
    }
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Instance id from manufacturer, owner, and others</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Device.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Device.identifier", description="Instance id from manufacturer, owner, and others", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Instance id from manufacturer, owner, and others</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Device.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Patient information, if the resource is affixed to a person</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Device.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="Device.patient", description="Patient information, if the resource is affixed to a person", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Patient information, if the resource is affixed to a person</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Device.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Device:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Device:patient").toLocked();
 
  /**
    * Search parameter: <b>organization</b>
@@ -1344,52 +1425,6 @@ public class Device extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam MODEL = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_MODEL);
 
  /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Patient information, if the resource is affixed to a person</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Device.patient</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="Device.patient", description="Patient information, if the resource is affixed to a person", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Patient information, if the resource is affixed to a person</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Device.patient</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Device:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Device:patient").toLocked();
-
- /**
-   * Search parameter: <b>udicarrier</b>
-   * <p>
-   * Description: <b>Barcode string (udi)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Device.udiCarrier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="udicarrier", path="Device.udiCarrier", description="Barcode string (udi)", type="token" )
-  public static final String SP_UDICARRIER = "udicarrier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>udicarrier</b>
-   * <p>
-   * Description: <b>Barcode string (udi)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Device.udiCarrier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam UDICARRIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_UDICARRIER);
-
- /**
    * Search parameter: <b>location</b>
    * <p>
    * Description: <b>A location, where the resource is found</b><br>
@@ -1416,26 +1451,6 @@ public class Device extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("Device:location").toLocked();
 
  /**
-   * Search parameter: <b>manufacturer</b>
-   * <p>
-   * Description: <b>The manufacturer of the device</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Device.manufacturer</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="manufacturer", path="Device.manufacturer", description="The manufacturer of the device", type="string" )
-  public static final String SP_MANUFACTURER = "manufacturer";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>manufacturer</b>
-   * <p>
-   * Description: <b>The manufacturer of the device</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Device.manufacturer</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam MANUFACTURER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_MANUFACTURER);
-
- /**
    * Search parameter: <b>type</b>
    * <p>
    * Description: <b>The type of the device</b><br>
@@ -1456,24 +1471,24 @@ public class Device extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>udicarrier</b>
    * <p>
-   * Description: <b>Instance id from manufacturer, owner, and others</b><br>
+   * Description: <b>Barcode string (udi)</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Device.identifier</b><br>
+   * Path: <b>Device.udiCarrier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Device.identifier", description="Instance id from manufacturer, owner, and others", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="udicarrier", path="Device.udiCarrier", description="Barcode string (udi)", type="token" )
+  public static final String SP_UDICARRIER = "udicarrier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>udicarrier</b>
    * <p>
-   * Description: <b>Instance id from manufacturer, owner, and others</b><br>
+   * Description: <b>Barcode string (udi)</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Device.identifier</b><br>
+   * Path: <b>Device.udiCarrier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam UDICARRIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_UDICARRIER);
 
  /**
    * Search parameter: <b>url</b>
@@ -1494,6 +1509,26 @@ public class Device extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>manufacturer</b>
+   * <p>
+   * Description: <b>The manufacturer of the device</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Device.manufacturer</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="manufacturer", path="Device.manufacturer", description="The manufacturer of the device", type="string" )
+  public static final String SP_MANUFACTURER = "manufacturer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>manufacturer</b>
+   * <p>
+   * Description: <b>The manufacturer of the device</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Device.manufacturer</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam MANUFACTURER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_MANUFACTURER);
 
 
 }

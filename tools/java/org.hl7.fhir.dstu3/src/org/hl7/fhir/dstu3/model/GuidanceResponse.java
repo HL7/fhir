@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -533,6 +533,14 @@ public class GuidanceResponse extends DomainResource {
           return this.concept;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public GuidanceResponseActionComponent setConcept(List<CodeableConcept> theConcept) { 
+          this.concept = theConcept;
+          return this;
+        }
+
         public boolean hasConcept() { 
           if (this.concept == null)
             return false;
@@ -542,10 +550,6 @@ public class GuidanceResponse extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #concept} (The concept represented by this action or its sub-actions.)
-         */
-    // syntactic sugar
         public CodeableConcept addConcept() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.concept == null)
@@ -554,7 +558,6 @@ public class GuidanceResponse extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public GuidanceResponseActionComponent addConcept(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -562,6 +565,16 @@ public class GuidanceResponse extends DomainResource {
             this.concept = new ArrayList<CodeableConcept>();
           this.concept.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #concept}, creating it if it does not already exist
+         */
+        public CodeableConcept getConceptFirstRep() { 
+          if (getConcept().isEmpty()) {
+            addConcept();
+          }
+          return getConcept().get(0);
         }
 
         /**
@@ -573,6 +586,14 @@ public class GuidanceResponse extends DomainResource {
           return this.supportingEvidence;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public GuidanceResponseActionComponent setSupportingEvidence(List<Attachment> theSupportingEvidence) { 
+          this.supportingEvidence = theSupportingEvidence;
+          return this;
+        }
+
         public boolean hasSupportingEvidence() { 
           if (this.supportingEvidence == null)
             return false;
@@ -582,10 +603,6 @@ public class GuidanceResponse extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #supportingEvidence} (The evidence grade and the sources of evidence for this action.)
-         */
-    // syntactic sugar
         public Attachment addSupportingEvidence() { //3
           Attachment t = new Attachment();
           if (this.supportingEvidence == null)
@@ -594,7 +611,6 @@ public class GuidanceResponse extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public GuidanceResponseActionComponent addSupportingEvidence(Attachment t) { //3
           if (t == null)
             return this;
@@ -602,6 +618,16 @@ public class GuidanceResponse extends DomainResource {
             this.supportingEvidence = new ArrayList<Attachment>();
           this.supportingEvidence.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #supportingEvidence}, creating it if it does not already exist
+         */
+        public Attachment getSupportingEvidenceFirstRep() { 
+          if (getSupportingEvidence().isEmpty()) {
+            addSupportingEvidence();
+          }
+          return getSupportingEvidence().get(0);
         }
 
         /**
@@ -637,6 +663,14 @@ public class GuidanceResponse extends DomainResource {
           return this.documentation;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public GuidanceResponseActionComponent setDocumentation(List<Attachment> theDocumentation) { 
+          this.documentation = theDocumentation;
+          return this;
+        }
+
         public boolean hasDocumentation() { 
           if (this.documentation == null)
             return false;
@@ -646,10 +680,6 @@ public class GuidanceResponse extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #documentation} (Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.)
-         */
-    // syntactic sugar
         public Attachment addDocumentation() { //3
           Attachment t = new Attachment();
           if (this.documentation == null)
@@ -658,7 +688,6 @@ public class GuidanceResponse extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public GuidanceResponseActionComponent addDocumentation(Attachment t) { //3
           if (t == null)
             return this;
@@ -666,6 +695,16 @@ public class GuidanceResponse extends DomainResource {
             this.documentation = new ArrayList<Attachment>();
           this.documentation.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #documentation}, creating it if it does not already exist
+         */
+        public Attachment getDocumentationFirstRep() { 
+          if (getDocumentation().isEmpty()) {
+            addDocumentation();
+          }
+          return getDocumentation().get(0);
         }
 
         /**
@@ -677,6 +716,14 @@ public class GuidanceResponse extends DomainResource {
           return this.participant;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public GuidanceResponseActionComponent setParticipant(List<Reference> theParticipant) { 
+          this.participant = theParticipant;
+          return this;
+        }
+
         public boolean hasParticipant() { 
           if (this.participant == null)
             return false;
@@ -686,10 +733,6 @@ public class GuidanceResponse extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #participant} (The participant in the action.)
-         */
-    // syntactic sugar
         public Reference addParticipant() { //3
           Reference t = new Reference();
           if (this.participant == null)
@@ -698,7 +741,6 @@ public class GuidanceResponse extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public GuidanceResponseActionComponent addParticipant(Reference t) { //3
           if (t == null)
             return this;
@@ -709,8 +751,19 @@ public class GuidanceResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #participant} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The participant in the action.)
+         * @return The first repetition of repeating field {@link #participant}, creating it if it does not already exist
          */
+        public Reference getParticipantFirstRep() { 
+          if (getParticipant().isEmpty()) {
+            addParticipant();
+          }
+          return getParticipant().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Resource> getParticipantTarget() { 
           if (this.participantTarget == null)
             this.participantTarget = new ArrayList<Resource>();
@@ -775,6 +828,14 @@ public class GuidanceResponse extends DomainResource {
           return this.behavior;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public GuidanceResponseActionComponent setBehavior(List<GuidanceResponseActionBehaviorComponent> theBehavior) { 
+          this.behavior = theBehavior;
+          return this;
+        }
+
         public boolean hasBehavior() { 
           if (this.behavior == null)
             return false;
@@ -784,10 +845,6 @@ public class GuidanceResponse extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #behavior} (A behavior associated with the action. Behaviors define how the action is to be presented and/or executed within the receiving environment.)
-         */
-    // syntactic sugar
         public GuidanceResponseActionBehaviorComponent addBehavior() { //3
           GuidanceResponseActionBehaviorComponent t = new GuidanceResponseActionBehaviorComponent();
           if (this.behavior == null)
@@ -796,7 +853,6 @@ public class GuidanceResponse extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public GuidanceResponseActionComponent addBehavior(GuidanceResponseActionBehaviorComponent t) { //3
           if (t == null)
             return this;
@@ -804,6 +860,16 @@ public class GuidanceResponse extends DomainResource {
             this.behavior = new ArrayList<GuidanceResponseActionBehaviorComponent>();
           this.behavior.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #behavior}, creating it if it does not already exist
+         */
+        public GuidanceResponseActionBehaviorComponent getBehaviorFirstRep() { 
+          if (getBehavior().isEmpty()) {
+            addBehavior();
+          }
+          return getBehavior().get(0);
         }
 
         /**
@@ -854,6 +920,14 @@ public class GuidanceResponse extends DomainResource {
           return this.action;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public GuidanceResponseActionComponent setAction(List<GuidanceResponseActionComponent> theAction) { 
+          this.action = theAction;
+          return this;
+        }
+
         public boolean hasAction() { 
           if (this.action == null)
             return false;
@@ -863,10 +937,6 @@ public class GuidanceResponse extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #action} (Sub actions.)
-         */
-    // syntactic sugar
         public GuidanceResponseActionComponent addAction() { //3
           GuidanceResponseActionComponent t = new GuidanceResponseActionComponent();
           if (this.action == null)
@@ -875,7 +945,6 @@ public class GuidanceResponse extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public GuidanceResponseActionComponent addAction(GuidanceResponseActionComponent t) { //3
           if (t == null)
             return this;
@@ -883,6 +952,16 @@ public class GuidanceResponse extends DomainResource {
             this.action = new ArrayList<GuidanceResponseActionComponent>();
           this.action.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #action}, creating it if it does not already exist
+         */
+        public GuidanceResponseActionComponent getActionFirstRep() { 
+          if (getAction().isEmpty()) {
+            addAction();
+          }
+          return getAction().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1153,12 +1232,9 @@ public class GuidanceResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (label == null || label.isEmpty())
-           && (title == null || title.isEmpty()) && (description == null || description.isEmpty()) && (textEquivalent == null || textEquivalent.isEmpty())
-           && (concept == null || concept.isEmpty()) && (supportingEvidence == null || supportingEvidence.isEmpty())
-           && (relatedAction == null || relatedAction.isEmpty()) && (documentation == null || documentation.isEmpty())
-           && (participant == null || participant.isEmpty()) && (type == null || type.isEmpty()) && (behavior == null || behavior.isEmpty())
-           && (resource == null || resource.isEmpty()) && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, label, title
+          , description, textEquivalent, concept, supportingEvidence, relatedAction, documentation
+          , participant, type, behavior, resource, action);
       }
 
   public String fhirType() {
@@ -1501,8 +1577,8 @@ public class GuidanceResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (relationship == null || relationship.isEmpty())
-           && (offset == null || offset.isEmpty()) && (anchor == null || anchor.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, relationship
+          , offset, anchor);
       }
 
   public String fhirType() {
@@ -1687,8 +1763,7 @@ public class GuidanceResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, value);
       }
 
   public String fhirType() {
@@ -1922,6 +1997,14 @@ public class GuidanceResponse extends DomainResource {
       return this.evaluationMessage;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public GuidanceResponse setEvaluationMessage(List<Reference> theEvaluationMessage) { 
+      this.evaluationMessage = theEvaluationMessage;
+      return this;
+    }
+
     public boolean hasEvaluationMessage() { 
       if (this.evaluationMessage == null)
         return false;
@@ -1931,10 +2014,6 @@ public class GuidanceResponse extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #evaluationMessage} (Messages resulting from the evaluation of the artifact or artifacts. As part of evaluating the request, the engine may produce informational or warning messages. These messages will be provided by this element.)
-     */
-    // syntactic sugar
     public Reference addEvaluationMessage() { //3
       Reference t = new Reference();
       if (this.evaluationMessage == null)
@@ -1943,7 +2022,6 @@ public class GuidanceResponse extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public GuidanceResponse addEvaluationMessage(Reference t) { //3
       if (t == null)
         return this;
@@ -1954,18 +2032,29 @@ public class GuidanceResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #evaluationMessage} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Messages resulting from the evaluation of the artifact or artifacts. As part of evaluating the request, the engine may produce informational or warning messages. These messages will be provided by this element.)
+     * @return The first repetition of repeating field {@link #evaluationMessage}, creating it if it does not already exist
      */
+    public Reference getEvaluationMessageFirstRep() { 
+      if (getEvaluationMessage().isEmpty()) {
+        addEvaluationMessage();
+      }
+      return getEvaluationMessage().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<OperationOutcome> getEvaluationMessageTarget() { 
       if (this.evaluationMessageTarget == null)
         this.evaluationMessageTarget = new ArrayList<OperationOutcome>();
       return this.evaluationMessageTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #evaluationMessage} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Messages resulting from the evaluation of the artifact or artifacts. As part of evaluating the request, the engine may produce informational or warning messages. These messages will be provided by this element.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public OperationOutcome addEvaluationMessageTarget() { 
       OperationOutcome r = new OperationOutcome();
       if (this.evaluationMessageTarget == null)
@@ -2027,6 +2116,14 @@ public class GuidanceResponse extends DomainResource {
       return this.action;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public GuidanceResponse setAction(List<GuidanceResponseActionComponent> theAction) { 
+      this.action = theAction;
+      return this;
+    }
+
     public boolean hasAction() { 
       if (this.action == null)
         return false;
@@ -2036,10 +2133,6 @@ public class GuidanceResponse extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #action} (The actions, if any, produced by the evaluation of the artifact.)
-     */
-    // syntactic sugar
     public GuidanceResponseActionComponent addAction() { //3
       GuidanceResponseActionComponent t = new GuidanceResponseActionComponent();
       if (this.action == null)
@@ -2048,7 +2141,6 @@ public class GuidanceResponse extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public GuidanceResponse addAction(GuidanceResponseActionComponent t) { //3
       if (t == null)
         return this;
@@ -2056,6 +2148,16 @@ public class GuidanceResponse extends DomainResource {
         this.action = new ArrayList<GuidanceResponseActionComponent>();
       this.action.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #action}, creating it if it does not already exist
+     */
+    public GuidanceResponseActionComponent getActionFirstRep() { 
+      if (getAction().isEmpty()) {
+        addAction();
+      }
+      return getAction().get(0);
     }
 
     /**
@@ -2067,6 +2169,14 @@ public class GuidanceResponse extends DomainResource {
       return this.dataRequirement;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public GuidanceResponse setDataRequirement(List<DataRequirement> theDataRequirement) { 
+      this.dataRequirement = theDataRequirement;
+      return this;
+    }
+
     public boolean hasDataRequirement() { 
       if (this.dataRequirement == null)
         return false;
@@ -2076,10 +2186,6 @@ public class GuidanceResponse extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #dataRequirement} (If the evaluation could not be completed due to lack of information, or additional information would potentially result in a more accurate response, this element will a description of the data required in order to proceed with the evaluation. A subsequent request to the service should include this data.)
-     */
-    // syntactic sugar
     public DataRequirement addDataRequirement() { //3
       DataRequirement t = new DataRequirement();
       if (this.dataRequirement == null)
@@ -2088,7 +2194,6 @@ public class GuidanceResponse extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public GuidanceResponse addDataRequirement(DataRequirement t) { //3
       if (t == null)
         return this;
@@ -2096,6 +2201,16 @@ public class GuidanceResponse extends DomainResource {
         this.dataRequirement = new ArrayList<DataRequirement>();
       this.dataRequirement.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #dataRequirement}, creating it if it does not already exist
+     */
+    public DataRequirement getDataRequirementFirstRep() { 
+      if (getDataRequirement().isEmpty()) {
+        addDataRequirement();
+      }
+      return getDataRequirement().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2275,10 +2390,8 @@ public class GuidanceResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (requestId == null || requestId.isEmpty()) && (module == null || module.isEmpty())
-           && (status == null || status.isEmpty()) && (evaluationMessage == null || evaluationMessage.isEmpty())
-           && (outputParameters == null || outputParameters.isEmpty()) && (action == null || action.isEmpty())
-           && (dataRequirement == null || dataRequirement.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(requestId, module, status
+          , evaluationMessage, outputParameters, action, dataRequirement);
       }
 
   @Override

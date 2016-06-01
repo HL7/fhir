@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -198,6 +198,14 @@ public class Meta extends Type implements IBaseMetaType {
       return this.profile;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Meta setProfile(List<UriType> theProfile) { 
+      this.profile = theProfile;
+      return this;
+    }
+
     public boolean hasProfile() { 
       if (this.profile == null)
         return false;
@@ -210,7 +218,6 @@ public class Meta extends Type implements IBaseMetaType {
     /**
      * @return {@link #profile} (A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].)
      */
-    // syntactic sugar
     public UriType addProfileElement() {//2 
       UriType t = new UriType();
       if (this.profile == null)
@@ -252,6 +259,14 @@ public class Meta extends Type implements IBaseMetaType {
       return this.security;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Meta setSecurity(List<Coding> theSecurity) { 
+      this.security = theSecurity;
+      return this;
+    }
+
     public boolean hasSecurity() { 
       if (this.security == null)
         return false;
@@ -261,10 +276,6 @@ public class Meta extends Type implements IBaseMetaType {
       return false;
     }
 
-    /**
-     * @return {@link #security} (Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.)
-     */
-    // syntactic sugar
     public Coding addSecurity() { //3
       Coding t = new Coding();
       if (this.security == null)
@@ -273,7 +284,6 @@ public class Meta extends Type implements IBaseMetaType {
       return t;
     }
 
-    // syntactic sugar
     public Meta addSecurity(Coding t) { //3
       if (t == null)
         return this;
@@ -281,6 +291,16 @@ public class Meta extends Type implements IBaseMetaType {
         this.security = new ArrayList<Coding>();
       this.security.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #security}, creating it if it does not already exist
+     */
+    public Coding getSecurityFirstRep() { 
+      if (getSecurity().isEmpty()) {
+        addSecurity();
+      }
+      return getSecurity().get(0);
     }
 
     /**
@@ -292,6 +312,14 @@ public class Meta extends Type implements IBaseMetaType {
       return this.tag;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Meta setTag(List<Coding> theTag) { 
+      this.tag = theTag;
+      return this;
+    }
+
     public boolean hasTag() { 
       if (this.tag == null)
         return false;
@@ -301,10 +329,6 @@ public class Meta extends Type implements IBaseMetaType {
       return false;
     }
 
-    /**
-     * @return {@link #tag} (Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.)
-     */
-    // syntactic sugar
     public Coding addTag() { //3
       Coding t = new Coding();
       if (this.tag == null)
@@ -313,7 +337,6 @@ public class Meta extends Type implements IBaseMetaType {
       return t;
     }
 
-    // syntactic sugar
     public Meta addTag(Coding t) { //3
       if (t == null)
         return this;
@@ -321,6 +344,16 @@ public class Meta extends Type implements IBaseMetaType {
         this.tag = new ArrayList<Coding>();
       this.tag.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #tag}, creating it if it does not already exist
+     */
+    public Coding getTagFirstRep() { 
+      if (getTag().isEmpty()) {
+        addTag();
+      }
+      return getTag().get(0);
     }
 
     /**
@@ -523,9 +556,8 @@ public class Meta extends Type implements IBaseMetaType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (versionId == null || versionId.isEmpty()) && (lastUpdated == null || lastUpdated.isEmpty())
-           && (profile == null || profile.isEmpty()) && (security == null || security.isEmpty()) && (tag == null || tag.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(versionId, lastUpdated, profile
+          , security, tag);
       }
 
 

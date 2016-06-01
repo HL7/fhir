@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -368,6 +368,14 @@ public class Endpoint extends DomainResource {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Endpoint setContact(List<ContactPoint> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -377,10 +385,6 @@ public class Endpoint extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting.)
-     */
-    // syntactic sugar
     public ContactPoint addContact() { //3
       ContactPoint t = new ContactPoint();
       if (this.contact == null)
@@ -389,7 +393,6 @@ public class Endpoint extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Endpoint addContact(ContactPoint t) { //3
       if (t == null)
         return this;
@@ -397,6 +400,16 @@ public class Endpoint extends DomainResource {
         this.contact = new ArrayList<ContactPoint>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public ContactPoint getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -453,6 +466,14 @@ public class Endpoint extends DomainResource {
       return this.method;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Endpoint setMethod(List<Coding> theMethod) { 
+      this.method = theMethod;
+      return this;
+    }
+
     public boolean hasMethod() { 
       if (this.method == null)
         return false;
@@ -462,10 +483,6 @@ public class Endpoint extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #method} (The http verb to be used when calling this endpoint.)
-     */
-    // syntactic sugar
     public Coding addMethod() { //3
       Coding t = new Coding();
       if (this.method == null)
@@ -474,7 +491,6 @@ public class Endpoint extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Endpoint addMethod(Coding t) { //3
       if (t == null)
         return this;
@@ -482,6 +498,16 @@ public class Endpoint extends DomainResource {
         this.method = new ArrayList<Coding>();
       this.method.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #method}, creating it if it does not already exist
+     */
+    public Coding getMethodFirstRep() { 
+      if (getMethod().isEmpty()) {
+        addMethod();
+      }
+      return getMethod().get(0);
     }
 
     /**
@@ -607,6 +633,14 @@ public class Endpoint extends DomainResource {
       return this.payloadType;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Endpoint setPayloadType(List<CodeableConcept> thePayloadType) { 
+      this.payloadType = thePayloadType;
+      return this;
+    }
+
     public boolean hasPayloadType() { 
       if (this.payloadType == null)
         return false;
@@ -616,10 +650,6 @@ public class Endpoint extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #payloadType} (The payload type describes the acceptable content that can be communicated on the endpoint.)
-     */
-    // syntactic sugar
     public CodeableConcept addPayloadType() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.payloadType == null)
@@ -628,7 +658,6 @@ public class Endpoint extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Endpoint addPayloadType(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -639,12 +668,30 @@ public class Endpoint extends DomainResource {
     }
 
     /**
+     * @return The first repetition of repeating field {@link #payloadType}, creating it if it does not already exist
+     */
+    public CodeableConcept getPayloadTypeFirstRep() { 
+      if (getPayloadType().isEmpty()) {
+        addPayloadType();
+      }
+      return getPayloadType().get(0);
+    }
+
+    /**
      * @return {@link #header} (Additional headers / information to send as part of the notification.)
      */
     public List<StringType> getHeader() { 
       if (this.header == null)
         this.header = new ArrayList<StringType>();
       return this.header;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Endpoint setHeader(List<StringType> theHeader) { 
+      this.header = theHeader;
+      return this;
     }
 
     public boolean hasHeader() { 
@@ -659,7 +706,6 @@ public class Endpoint extends DomainResource {
     /**
      * @return {@link #header} (Additional headers / information to send as part of the notification.)
      */
-    // syntactic sugar
     public StringType addHeaderElement() {//2 
       StringType t = new StringType();
       if (this.header == null)
@@ -978,11 +1024,9 @@ public class Endpoint extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (status == null || status.isEmpty()) && (managingOrganization == null || managingOrganization.isEmpty())
-           && (contact == null || contact.isEmpty()) && (connectionType == null || connectionType.isEmpty())
-           && (method == null || method.isEmpty()) && (period == null || period.isEmpty()) && (address == null || address.isEmpty())
-           && (payloadFormat == null || payloadFormat.isEmpty()) && (payloadType == null || payloadType.isEmpty())
-           && (header == null || header.isEmpty()) && (publicKey == null || publicKey.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(status, managingOrganization
+          , contact, connectionType, method, period, address, payloadFormat, payloadType
+          , header, publicKey);
       }
 
   @Override

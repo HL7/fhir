@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -265,6 +265,14 @@ public class HealthcareService extends DomainResource {
           return this.daysOfWeek;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public HealthcareServiceAvailableTimeComponent setDaysOfWeek(List<Enumeration<DaysOfWeek>> theDaysOfWeek) { 
+          this.daysOfWeek = theDaysOfWeek;
+          return this;
+        }
+
         public boolean hasDaysOfWeek() { 
           if (this.daysOfWeek == null)
             return false;
@@ -277,7 +285,6 @@ public class HealthcareService extends DomainResource {
         /**
          * @return {@link #daysOfWeek} (Indicates which days of the week are available between the start and end Times.)
          */
-    // syntactic sugar
         public Enumeration<DaysOfWeek> addDaysOfWeekElement() {//2 
           Enumeration<DaysOfWeek> t = new Enumeration<DaysOfWeek>(new DaysOfWeekEnumFactory());
           if (this.daysOfWeek == null)
@@ -574,9 +581,8 @@ public class HealthcareService extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (daysOfWeek == null || daysOfWeek.isEmpty()) && (allDay == null || allDay.isEmpty())
-           && (availableStartTime == null || availableStartTime.isEmpty()) && (availableEndTime == null || availableEndTime.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(daysOfWeek, allDay, availableStartTime
+          , availableEndTime);
       }
 
   public String fhirType() {
@@ -780,8 +786,7 @@ public class HealthcareService extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (description == null || description.isEmpty()) && (during == null || during.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, during);
       }
 
   public String fhirType() {
@@ -985,6 +990,14 @@ public class HealthcareService extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HealthcareService setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -994,10 +1007,6 @@ public class HealthcareService extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (External identifiers for this item.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -1006,7 +1015,6 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public HealthcareService addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -1014,6 +1022,16 @@ public class HealthcareService extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1093,6 +1111,14 @@ public class HealthcareService extends DomainResource {
       return this.serviceType;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HealthcareService setServiceType(List<CodeableConcept> theServiceType) { 
+      this.serviceType = theServiceType;
+      return this;
+    }
+
     public boolean hasServiceType() { 
       if (this.serviceType == null)
         return false;
@@ -1102,10 +1128,6 @@ public class HealthcareService extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #serviceType} (The specific type of service that may be delivered or performed.)
-     */
-    // syntactic sugar
     public CodeableConcept addServiceType() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.serviceType == null)
@@ -1114,7 +1136,6 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public HealthcareService addServiceType(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1122,6 +1143,16 @@ public class HealthcareService extends DomainResource {
         this.serviceType = new ArrayList<CodeableConcept>();
       this.serviceType.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #serviceType}, creating it if it does not already exist
+     */
+    public CodeableConcept getServiceTypeFirstRep() { 
+      if (getServiceType().isEmpty()) {
+        addServiceType();
+      }
+      return getServiceType().get(0);
     }
 
     /**
@@ -1133,6 +1164,14 @@ public class HealthcareService extends DomainResource {
       return this.specialty;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HealthcareService setSpecialty(List<CodeableConcept> theSpecialty) { 
+      this.specialty = theSpecialty;
+      return this;
+    }
+
     public boolean hasSpecialty() { 
       if (this.specialty == null)
         return false;
@@ -1142,10 +1181,6 @@ public class HealthcareService extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #specialty} (Collection of specialties handled by the service site. This is more of a medical term.)
-     */
-    // syntactic sugar
     public CodeableConcept addSpecialty() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.specialty == null)
@@ -1154,7 +1189,6 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public HealthcareService addSpecialty(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1162,6 +1196,16 @@ public class HealthcareService extends DomainResource {
         this.specialty = new ArrayList<CodeableConcept>();
       this.specialty.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #specialty}, creating it if it does not already exist
+     */
+    public CodeableConcept getSpecialtyFirstRep() { 
+      if (getSpecialty().isEmpty()) {
+        addSpecialty();
+      }
+      return getSpecialty().get(0);
     }
 
     /**
@@ -1173,6 +1217,14 @@ public class HealthcareService extends DomainResource {
       return this.location;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HealthcareService setLocation(List<Reference> theLocation) { 
+      this.location = theLocation;
+      return this;
+    }
+
     public boolean hasLocation() { 
       if (this.location == null)
         return false;
@@ -1182,10 +1234,6 @@ public class HealthcareService extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #location} (The location(s) where this healthcare service may be provided.)
-     */
-    // syntactic sugar
     public Reference addLocation() { //3
       Reference t = new Reference();
       if (this.location == null)
@@ -1194,7 +1242,6 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public HealthcareService addLocation(Reference t) { //3
       if (t == null)
         return this;
@@ -1205,18 +1252,29 @@ public class HealthcareService extends DomainResource {
     }
 
     /**
-     * @return {@link #location} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The location(s) where this healthcare service may be provided.)
+     * @return The first repetition of repeating field {@link #location}, creating it if it does not already exist
      */
+    public Reference getLocationFirstRep() { 
+      if (getLocation().isEmpty()) {
+        addLocation();
+      }
+      return getLocation().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Location> getLocationTarget() { 
       if (this.locationTarget == null)
         this.locationTarget = new ArrayList<Location>();
       return this.locationTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #location} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The location(s) where this healthcare service may be provided.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Location addLocationTarget() { 
       Location r = new Location();
       if (this.locationTarget == null)
@@ -1405,6 +1463,14 @@ public class HealthcareService extends DomainResource {
       return this.telecom;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HealthcareService setTelecom(List<ContactPoint> theTelecom) { 
+      this.telecom = theTelecom;
+      return this;
+    }
+
     public boolean hasTelecom() { 
       if (this.telecom == null)
         return false;
@@ -1414,10 +1480,6 @@ public class HealthcareService extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #telecom} (List of contacts related to this specific healthcare service.)
-     */
-    // syntactic sugar
     public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       if (this.telecom == null)
@@ -1426,7 +1488,6 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public HealthcareService addTelecom(ContactPoint t) { //3
       if (t == null)
         return this;
@@ -1434,6 +1495,16 @@ public class HealthcareService extends DomainResource {
         this.telecom = new ArrayList<ContactPoint>();
       this.telecom.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+     */
+    public ContactPoint getTelecomFirstRep() { 
+      if (getTelecom().isEmpty()) {
+        addTelecom();
+      }
+      return getTelecom().get(0);
     }
 
     /**
@@ -1445,6 +1516,14 @@ public class HealthcareService extends DomainResource {
       return this.coverageArea;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HealthcareService setCoverageArea(List<Reference> theCoverageArea) { 
+      this.coverageArea = theCoverageArea;
+      return this;
+    }
+
     public boolean hasCoverageArea() { 
       if (this.coverageArea == null)
         return false;
@@ -1454,10 +1533,6 @@ public class HealthcareService extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #coverageArea} (The location(s) that this service is available to (not where the service is provided).)
-     */
-    // syntactic sugar
     public Reference addCoverageArea() { //3
       Reference t = new Reference();
       if (this.coverageArea == null)
@@ -1466,7 +1541,6 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public HealthcareService addCoverageArea(Reference t) { //3
       if (t == null)
         return this;
@@ -1477,18 +1551,29 @@ public class HealthcareService extends DomainResource {
     }
 
     /**
-     * @return {@link #coverageArea} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The location(s) that this service is available to (not where the service is provided).)
+     * @return The first repetition of repeating field {@link #coverageArea}, creating it if it does not already exist
      */
+    public Reference getCoverageAreaFirstRep() { 
+      if (getCoverageArea().isEmpty()) {
+        addCoverageArea();
+      }
+      return getCoverageArea().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Location> getCoverageAreaTarget() { 
       if (this.coverageAreaTarget == null)
         this.coverageAreaTarget = new ArrayList<Location>();
       return this.coverageAreaTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #coverageArea} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The location(s) that this service is available to (not where the service is provided).)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Location addCoverageAreaTarget() { 
       Location r = new Location();
       if (this.coverageAreaTarget == null)
@@ -1506,6 +1591,14 @@ public class HealthcareService extends DomainResource {
       return this.serviceProvisionCode;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HealthcareService setServiceProvisionCode(List<CodeableConcept> theServiceProvisionCode) { 
+      this.serviceProvisionCode = theServiceProvisionCode;
+      return this;
+    }
+
     public boolean hasServiceProvisionCode() { 
       if (this.serviceProvisionCode == null)
         return false;
@@ -1515,10 +1608,6 @@ public class HealthcareService extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #serviceProvisionCode} (The code(s) that detail the conditions under which the healthcare service is available/offered.)
-     */
-    // syntactic sugar
     public CodeableConcept addServiceProvisionCode() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.serviceProvisionCode == null)
@@ -1527,7 +1616,6 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public HealthcareService addServiceProvisionCode(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1535,6 +1623,16 @@ public class HealthcareService extends DomainResource {
         this.serviceProvisionCode = new ArrayList<CodeableConcept>();
       this.serviceProvisionCode.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #serviceProvisionCode}, creating it if it does not already exist
+     */
+    public CodeableConcept getServiceProvisionCodeFirstRep() { 
+      if (getServiceProvisionCode().isEmpty()) {
+        addServiceProvisionCode();
+      }
+      return getServiceProvisionCode().get(0);
     }
 
     /**
@@ -1619,6 +1717,14 @@ public class HealthcareService extends DomainResource {
       return this.programName;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HealthcareService setProgramName(List<StringType> theProgramName) { 
+      this.programName = theProgramName;
+      return this;
+    }
+
     public boolean hasProgramName() { 
       if (this.programName == null)
         return false;
@@ -1631,7 +1737,6 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #programName} (Program Names that can be used to categorize the service.)
      */
-    // syntactic sugar
     public StringType addProgramNameElement() {//2 
       StringType t = new StringType();
       if (this.programName == null)
@@ -1673,6 +1778,14 @@ public class HealthcareService extends DomainResource {
       return this.characteristic;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HealthcareService setCharacteristic(List<CodeableConcept> theCharacteristic) { 
+      this.characteristic = theCharacteristic;
+      return this;
+    }
+
     public boolean hasCharacteristic() { 
       if (this.characteristic == null)
         return false;
@@ -1682,10 +1795,6 @@ public class HealthcareService extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #characteristic} (Collection of characteristics (attributes).)
-     */
-    // syntactic sugar
     public CodeableConcept addCharacteristic() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.characteristic == null)
@@ -1694,7 +1803,6 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public HealthcareService addCharacteristic(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1702,6 +1810,16 @@ public class HealthcareService extends DomainResource {
         this.characteristic = new ArrayList<CodeableConcept>();
       this.characteristic.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #characteristic}, creating it if it does not already exist
+     */
+    public CodeableConcept getCharacteristicFirstRep() { 
+      if (getCharacteristic().isEmpty()) {
+        addCharacteristic();
+      }
+      return getCharacteristic().get(0);
     }
 
     /**
@@ -1713,6 +1831,14 @@ public class HealthcareService extends DomainResource {
       return this.referralMethod;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HealthcareService setReferralMethod(List<CodeableConcept> theReferralMethod) { 
+      this.referralMethod = theReferralMethod;
+      return this;
+    }
+
     public boolean hasReferralMethod() { 
       if (this.referralMethod == null)
         return false;
@@ -1722,10 +1848,6 @@ public class HealthcareService extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #referralMethod} (Ways that the service accepts referrals, if this is not provided then it is implied that no referral is required.)
-     */
-    // syntactic sugar
     public CodeableConcept addReferralMethod() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.referralMethod == null)
@@ -1734,7 +1856,6 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public HealthcareService addReferralMethod(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1742,6 +1863,16 @@ public class HealthcareService extends DomainResource {
         this.referralMethod = new ArrayList<CodeableConcept>();
       this.referralMethod.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #referralMethod}, creating it if it does not already exist
+     */
+    public CodeableConcept getReferralMethodFirstRep() { 
+      if (getReferralMethod().isEmpty()) {
+        addReferralMethod();
+      }
+      return getReferralMethod().get(0);
     }
 
     /**
@@ -1847,6 +1978,14 @@ public class HealthcareService extends DomainResource {
       return this.availableTime;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HealthcareService setAvailableTime(List<HealthcareServiceAvailableTimeComponent> theAvailableTime) { 
+      this.availableTime = theAvailableTime;
+      return this;
+    }
+
     public boolean hasAvailableTime() { 
       if (this.availableTime == null)
         return false;
@@ -1856,10 +1995,6 @@ public class HealthcareService extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #availableTime} (A collection of times that the Service Site is available.)
-     */
-    // syntactic sugar
     public HealthcareServiceAvailableTimeComponent addAvailableTime() { //3
       HealthcareServiceAvailableTimeComponent t = new HealthcareServiceAvailableTimeComponent();
       if (this.availableTime == null)
@@ -1868,7 +2003,6 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public HealthcareService addAvailableTime(HealthcareServiceAvailableTimeComponent t) { //3
       if (t == null)
         return this;
@@ -1876,6 +2010,16 @@ public class HealthcareService extends DomainResource {
         this.availableTime = new ArrayList<HealthcareServiceAvailableTimeComponent>();
       this.availableTime.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #availableTime}, creating it if it does not already exist
+     */
+    public HealthcareServiceAvailableTimeComponent getAvailableTimeFirstRep() { 
+      if (getAvailableTime().isEmpty()) {
+        addAvailableTime();
+      }
+      return getAvailableTime().get(0);
     }
 
     /**
@@ -1887,6 +2031,14 @@ public class HealthcareService extends DomainResource {
       return this.notAvailable;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HealthcareService setNotAvailable(List<HealthcareServiceNotAvailableComponent> theNotAvailable) { 
+      this.notAvailable = theNotAvailable;
+      return this;
+    }
+
     public boolean hasNotAvailable() { 
       if (this.notAvailable == null)
         return false;
@@ -1896,10 +2048,6 @@ public class HealthcareService extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #notAvailable} (The HealthcareService is not available during this period of time due to the provided reason.)
-     */
-    // syntactic sugar
     public HealthcareServiceNotAvailableComponent addNotAvailable() { //3
       HealthcareServiceNotAvailableComponent t = new HealthcareServiceNotAvailableComponent();
       if (this.notAvailable == null)
@@ -1908,7 +2056,6 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public HealthcareService addNotAvailable(HealthcareServiceNotAvailableComponent t) { //3
       if (t == null)
         return this;
@@ -1916,6 +2063,16 @@ public class HealthcareService extends DomainResource {
         this.notAvailable = new ArrayList<HealthcareServiceNotAvailableComponent>();
       this.notAvailable.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #notAvailable}, creating it if it does not already exist
+     */
+    public HealthcareServiceNotAvailableComponent getNotAvailableFirstRep() { 
+      if (getNotAvailable().isEmpty()) {
+        addNotAvailable();
+      }
+      return getNotAvailable().get(0);
     }
 
     /**
@@ -2384,24 +2541,37 @@ public class HealthcareService extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (providedBy == null || providedBy.isEmpty())
-           && (serviceCategory == null || serviceCategory.isEmpty()) && (serviceType == null || serviceType.isEmpty())
-           && (specialty == null || specialty.isEmpty()) && (location == null || location.isEmpty())
-           && (serviceName == null || serviceName.isEmpty()) && (comment == null || comment.isEmpty())
-           && (extraDetails == null || extraDetails.isEmpty()) && (photo == null || photo.isEmpty())
-           && (telecom == null || telecom.isEmpty()) && (coverageArea == null || coverageArea.isEmpty())
-           && (serviceProvisionCode == null || serviceProvisionCode.isEmpty()) && (eligibility == null || eligibility.isEmpty())
-           && (eligibilityNote == null || eligibilityNote.isEmpty()) && (programName == null || programName.isEmpty())
-           && (characteristic == null || characteristic.isEmpty()) && (referralMethod == null || referralMethod.isEmpty())
-           && (publicKey == null || publicKey.isEmpty()) && (appointmentRequired == null || appointmentRequired.isEmpty())
-           && (availableTime == null || availableTime.isEmpty()) && (notAvailable == null || notAvailable.isEmpty())
-           && (availabilityExceptions == null || availabilityExceptions.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, providedBy, serviceCategory
+          , serviceType, specialty, location, serviceName, comment, extraDetails, photo
+          , telecom, coverageArea, serviceProvisionCode, eligibility, eligibilityNote, programName
+          , characteristic, referralMethod, publicKey, appointmentRequired, availableTime, notAvailable
+          , availabilityExceptions);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.HealthcareService;
    }
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>External identifiers for this item</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>HealthcareService.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="HealthcareService.identifier", description="External identifiers for this item", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>External identifiers for this item</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>HealthcareService.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>servicecategory</b>
@@ -2422,6 +2592,26 @@ public class HealthcareService extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SERVICECATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SERVICECATEGORY);
+
+ /**
+   * Search parameter: <b>servicetype</b>
+   * <p>
+   * Description: <b>The type of service provided by this healthcare service</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>HealthcareService.serviceType</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="servicetype", path="HealthcareService.serviceType", description="The type of service provided by this healthcare service", type="token" )
+  public static final String SP_SERVICETYPE = "servicetype";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>servicetype</b>
+   * <p>
+   * Description: <b>The type of service provided by this healthcare service</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>HealthcareService.serviceType</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SERVICETYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SERVICETYPE);
 
  /**
    * Search parameter: <b>organization</b>
@@ -2448,52 +2638,6 @@ public class HealthcareService extends DomainResource {
    * the path value of "<b>HealthcareService:organization</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("HealthcareService:organization").toLocked();
-
- /**
-   * Search parameter: <b>servicetype</b>
-   * <p>
-   * Description: <b>The type of service provided by this healthcare service</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>HealthcareService.serviceType</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="servicetype", path="HealthcareService.serviceType", description="The type of service provided by this healthcare service", type="token" )
-  public static final String SP_SERVICETYPE = "servicetype";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>servicetype</b>
-   * <p>
-   * Description: <b>The type of service provided by this healthcare service</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>HealthcareService.serviceType</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SERVICETYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SERVICETYPE);
-
- /**
-   * Search parameter: <b>location</b>
-   * <p>
-   * Description: <b>The location of the Healthcare Service</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>HealthcareService.location</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="location", path="HealthcareService.location", description="The location of the Healthcare Service", type="reference" )
-  public static final String SP_LOCATION = "location";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>location</b>
-   * <p>
-   * Description: <b>The location of the Healthcare Service</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>HealthcareService.location</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam LOCATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_LOCATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>HealthcareService:location</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("HealthcareService:location").toLocked();
 
  /**
    * Search parameter: <b>name</b>
@@ -2536,6 +2680,32 @@ public class HealthcareService extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PROGRAMNAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PROGRAMNAME);
 
  /**
+   * Search parameter: <b>location</b>
+   * <p>
+   * Description: <b>The location of the Healthcare Service</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>HealthcareService.location</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="location", path="HealthcareService.location", description="The location of the Healthcare Service", type="reference" )
+  public static final String SP_LOCATION = "location";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>location</b>
+   * <p>
+   * Description: <b>The location of the Healthcare Service</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>HealthcareService.location</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam LOCATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_LOCATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>HealthcareService:location</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("HealthcareService:location").toLocked();
+
+ /**
    * Search parameter: <b>characteristic</b>
    * <p>
    * Description: <b>One of the HealthcareService's characteristics</b><br>
@@ -2554,26 +2724,6 @@ public class HealthcareService extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CHARACTERISTIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CHARACTERISTIC);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>External identifiers for this item</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>HealthcareService.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="HealthcareService.identifier", description="External identifiers for this item", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>External identifiers for this item</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>HealthcareService.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

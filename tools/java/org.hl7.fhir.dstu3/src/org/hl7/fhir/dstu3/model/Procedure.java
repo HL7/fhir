@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -355,8 +355,7 @@ public class Procedure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (actor == null || actor.isEmpty()) && (role == null || role.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actor, role);
       }
 
   public String fhirType() {
@@ -565,8 +564,7 @@ public class Procedure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (action == null || action.isEmpty()) && (manipulated == null || manipulated.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action, manipulated);
       }
 
   public String fhirType() {
@@ -781,6 +779,14 @@ public class Procedure extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Procedure setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -790,10 +796,6 @@ public class Procedure extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (This records identifiers associated with this procedure that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -802,7 +804,6 @@ public class Procedure extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Procedure addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -810,6 +811,16 @@ public class Procedure extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -998,6 +1009,14 @@ public class Procedure extends DomainResource {
       return this.reasonNotPerformed;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Procedure setReasonNotPerformed(List<CodeableConcept> theReasonNotPerformed) { 
+      this.reasonNotPerformed = theReasonNotPerformed;
+      return this;
+    }
+
     public boolean hasReasonNotPerformed() { 
       if (this.reasonNotPerformed == null)
         return false;
@@ -1007,10 +1026,6 @@ public class Procedure extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #reasonNotPerformed} (A code indicating why the procedure was not performed.)
-     */
-    // syntactic sugar
     public CodeableConcept addReasonNotPerformed() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.reasonNotPerformed == null)
@@ -1019,7 +1034,6 @@ public class Procedure extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Procedure addReasonNotPerformed(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1027,6 +1041,16 @@ public class Procedure extends DomainResource {
         this.reasonNotPerformed = new ArrayList<CodeableConcept>();
       this.reasonNotPerformed.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #reasonNotPerformed}, creating it if it does not already exist
+     */
+    public CodeableConcept getReasonNotPerformedFirstRep() { 
+      if (getReasonNotPerformed().isEmpty()) {
+        addReasonNotPerformed();
+      }
+      return getReasonNotPerformed().get(0);
     }
 
     /**
@@ -1038,6 +1062,14 @@ public class Procedure extends DomainResource {
       return this.bodySite;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Procedure setBodySite(List<CodeableConcept> theBodySite) { 
+      this.bodySite = theBodySite;
+      return this;
+    }
+
     public boolean hasBodySite() { 
       if (this.bodySite == null)
         return false;
@@ -1047,10 +1079,6 @@ public class Procedure extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #bodySite} (Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.)
-     */
-    // syntactic sugar
     public CodeableConcept addBodySite() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.bodySite == null)
@@ -1059,7 +1087,6 @@ public class Procedure extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Procedure addBodySite(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1067,6 +1094,16 @@ public class Procedure extends DomainResource {
         this.bodySite = new ArrayList<CodeableConcept>();
       this.bodySite.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #bodySite}, creating it if it does not already exist
+     */
+    public CodeableConcept getBodySiteFirstRep() { 
+      if (getBodySite().isEmpty()) {
+        addBodySite();
+      }
+      return getBodySite().get(0);
     }
 
     /**
@@ -1123,6 +1160,14 @@ public class Procedure extends DomainResource {
       return this.performer;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Procedure setPerformer(List<ProcedurePerformerComponent> thePerformer) { 
+      this.performer = thePerformer;
+      return this;
+    }
+
     public boolean hasPerformer() { 
       if (this.performer == null)
         return false;
@@ -1132,10 +1177,6 @@ public class Procedure extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #performer} (Limited to 'real' people rather than equipment.)
-     */
-    // syntactic sugar
     public ProcedurePerformerComponent addPerformer() { //3
       ProcedurePerformerComponent t = new ProcedurePerformerComponent();
       if (this.performer == null)
@@ -1144,7 +1185,6 @@ public class Procedure extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Procedure addPerformer(ProcedurePerformerComponent t) { //3
       if (t == null)
         return this;
@@ -1152,6 +1192,16 @@ public class Procedure extends DomainResource {
         this.performer = new ArrayList<ProcedurePerformerComponent>();
       this.performer.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #performer}, creating it if it does not already exist
+     */
+    public ProcedurePerformerComponent getPerformerFirstRep() { 
+      if (getPerformer().isEmpty()) {
+        addPerformer();
+      }
+      return getPerformer().get(0);
     }
 
     /**
@@ -1320,6 +1370,14 @@ public class Procedure extends DomainResource {
       return this.report;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Procedure setReport(List<Reference> theReport) { 
+      this.report = theReport;
+      return this;
+    }
+
     public boolean hasReport() { 
       if (this.report == null)
         return false;
@@ -1329,10 +1387,6 @@ public class Procedure extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #report} (This could be a histology result, pathology report, surgical report, etc..)
-     */
-    // syntactic sugar
     public Reference addReport() { //3
       Reference t = new Reference();
       if (this.report == null)
@@ -1341,7 +1395,6 @@ public class Procedure extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Procedure addReport(Reference t) { //3
       if (t == null)
         return this;
@@ -1352,18 +1405,29 @@ public class Procedure extends DomainResource {
     }
 
     /**
-     * @return {@link #report} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. This could be a histology result, pathology report, surgical report, etc..)
+     * @return The first repetition of repeating field {@link #report}, creating it if it does not already exist
      */
+    public Reference getReportFirstRep() { 
+      if (getReport().isEmpty()) {
+        addReport();
+      }
+      return getReport().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<DiagnosticReport> getReportTarget() { 
       if (this.reportTarget == null)
         this.reportTarget = new ArrayList<DiagnosticReport>();
       return this.reportTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #report} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. This could be a histology result, pathology report, surgical report, etc..)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public DiagnosticReport addReportTarget() { 
       DiagnosticReport r = new DiagnosticReport();
       if (this.reportTarget == null)
@@ -1381,6 +1445,14 @@ public class Procedure extends DomainResource {
       return this.complication;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Procedure setComplication(List<CodeableConcept> theComplication) { 
+      this.complication = theComplication;
+      return this;
+    }
+
     public boolean hasComplication() { 
       if (this.complication == null)
         return false;
@@ -1390,10 +1462,6 @@ public class Procedure extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #complication} (Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any 'post procedure' issues.)
-     */
-    // syntactic sugar
     public CodeableConcept addComplication() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.complication == null)
@@ -1402,7 +1470,6 @@ public class Procedure extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Procedure addComplication(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1410,6 +1477,16 @@ public class Procedure extends DomainResource {
         this.complication = new ArrayList<CodeableConcept>();
       this.complication.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #complication}, creating it if it does not already exist
+     */
+    public CodeableConcept getComplicationFirstRep() { 
+      if (getComplication().isEmpty()) {
+        addComplication();
+      }
+      return getComplication().get(0);
     }
 
     /**
@@ -1421,6 +1498,14 @@ public class Procedure extends DomainResource {
       return this.followUp;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Procedure setFollowUp(List<CodeableConcept> theFollowUp) { 
+      this.followUp = theFollowUp;
+      return this;
+    }
+
     public boolean hasFollowUp() { 
       if (this.followUp == null)
         return false;
@@ -1430,10 +1515,6 @@ public class Procedure extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #followUp} (If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or could potentially be more complex in which case the CarePlan resource can be used.)
-     */
-    // syntactic sugar
     public CodeableConcept addFollowUp() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.followUp == null)
@@ -1442,7 +1523,6 @@ public class Procedure extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Procedure addFollowUp(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1450,6 +1530,16 @@ public class Procedure extends DomainResource {
         this.followUp = new ArrayList<CodeableConcept>();
       this.followUp.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #followUp}, creating it if it does not already exist
+     */
+    public CodeableConcept getFollowUpFirstRep() { 
+      if (getFollowUp().isEmpty()) {
+        addFollowUp();
+      }
+      return getFollowUp().get(0);
     }
 
     /**
@@ -1500,6 +1590,14 @@ public class Procedure extends DomainResource {
       return this.notes;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Procedure setNotes(List<Annotation> theNotes) { 
+      this.notes = theNotes;
+      return this;
+    }
+
     public boolean hasNotes() { 
       if (this.notes == null)
         return false;
@@ -1509,10 +1607,6 @@ public class Procedure extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #notes} (Any other notes about the procedure.  E.g. the operative notes.)
-     */
-    // syntactic sugar
     public Annotation addNotes() { //3
       Annotation t = new Annotation();
       if (this.notes == null)
@@ -1521,7 +1615,6 @@ public class Procedure extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Procedure addNotes(Annotation t) { //3
       if (t == null)
         return this;
@@ -1529,6 +1622,16 @@ public class Procedure extends DomainResource {
         this.notes = new ArrayList<Annotation>();
       this.notes.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #notes}, creating it if it does not already exist
+     */
+    public Annotation getNotesFirstRep() { 
+      if (getNotes().isEmpty()) {
+        addNotes();
+      }
+      return getNotes().get(0);
     }
 
     /**
@@ -1540,6 +1643,14 @@ public class Procedure extends DomainResource {
       return this.focalDevice;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Procedure setFocalDevice(List<ProcedureFocalDeviceComponent> theFocalDevice) { 
+      this.focalDevice = theFocalDevice;
+      return this;
+    }
+
     public boolean hasFocalDevice() { 
       if (this.focalDevice == null)
         return false;
@@ -1549,10 +1660,6 @@ public class Procedure extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #focalDevice} (A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.)
-     */
-    // syntactic sugar
     public ProcedureFocalDeviceComponent addFocalDevice() { //3
       ProcedureFocalDeviceComponent t = new ProcedureFocalDeviceComponent();
       if (this.focalDevice == null)
@@ -1561,7 +1668,6 @@ public class Procedure extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Procedure addFocalDevice(ProcedureFocalDeviceComponent t) { //3
       if (t == null)
         return this;
@@ -1569,6 +1675,16 @@ public class Procedure extends DomainResource {
         this.focalDevice = new ArrayList<ProcedureFocalDeviceComponent>();
       this.focalDevice.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #focalDevice}, creating it if it does not already exist
+     */
+    public ProcedureFocalDeviceComponent getFocalDeviceFirstRep() { 
+      if (getFocalDevice().isEmpty()) {
+        addFocalDevice();
+      }
+      return getFocalDevice().get(0);
     }
 
     /**
@@ -1580,6 +1696,14 @@ public class Procedure extends DomainResource {
       return this.used;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Procedure setUsed(List<Reference> theUsed) { 
+      this.used = theUsed;
+      return this;
+    }
+
     public boolean hasUsed() { 
       if (this.used == null)
         return false;
@@ -1589,10 +1713,6 @@ public class Procedure extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #used} (Identifies medications, devices and any other substance used as part of the procedure.)
-     */
-    // syntactic sugar
     public Reference addUsed() { //3
       Reference t = new Reference();
       if (this.used == null)
@@ -1601,7 +1721,6 @@ public class Procedure extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Procedure addUsed(Reference t) { //3
       if (t == null)
         return this;
@@ -1612,8 +1731,19 @@ public class Procedure extends DomainResource {
     }
 
     /**
-     * @return {@link #used} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies medications, devices and any other substance used as part of the procedure.)
+     * @return The first repetition of repeating field {@link #used}, creating it if it does not already exist
      */
+    public Reference getUsedFirstRep() { 
+      if (getUsed().isEmpty()) {
+        addUsed();
+      }
+      return getUsed().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getUsedTarget() { 
       if (this.usedTarget == null)
         this.usedTarget = new ArrayList<Resource>();
@@ -2012,15 +2142,10 @@ public class Procedure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (subject == null || subject.isEmpty())
-           && (status == null || status.isEmpty()) && (category == null || category.isEmpty()) && (code == null || code.isEmpty())
-           && (notPerformed == null || notPerformed.isEmpty()) && (reasonNotPerformed == null || reasonNotPerformed.isEmpty())
-           && (bodySite == null || bodySite.isEmpty()) && (reason == null || reason.isEmpty()) && (performer == null || performer.isEmpty())
-           && (performed == null || performed.isEmpty()) && (encounter == null || encounter.isEmpty())
-           && (location == null || location.isEmpty()) && (outcome == null || outcome.isEmpty()) && (report == null || report.isEmpty())
-           && (complication == null || complication.isEmpty()) && (followUp == null || followUp.isEmpty())
-           && (request == null || request.isEmpty()) && (notes == null || notes.isEmpty()) && (focalDevice == null || focalDevice.isEmpty())
-           && (used == null || used.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, subject, status
+          , category, code, notPerformed, reasonNotPerformed, bodySite, reason, performer
+          , performed, encounter, location, outcome, report, complication, followUp, request
+          , notes, focalDevice, used);
       }
 
   @Override
@@ -2029,24 +2154,116 @@ public class Procedure extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>category</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>Classification of the procedure</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Procedure.category</b><br>
+   * Description: <b>Date/Period the procedure was performed</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Procedure.performed[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="category", path="Procedure.category", description="Classification of the procedure", type="token" )
-  public static final String SP_CATEGORY = "category";
+  @SearchParamDefinition(name="date", path="Procedure.performed", description="Date/Period the procedure was performed", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>Classification of the procedure</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Procedure.category</b><br>
+   * Description: <b>Date/Period the procedure was performed</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Procedure.performed[x]</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>A unique identifier for a procedure</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Procedure.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Procedure.identifier", description="A unique identifier for a procedure", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>A unique identifier for a procedure</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Procedure.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>A code to identify a  procedure</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Procedure.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="Procedure.code", description="A code to identify a  procedure", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>A code to identify a  procedure</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Procedure.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>performer</b>
+   * <p>
+   * Description: <b>The reference to the practitioner</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Procedure.performer.actor</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="performer", path="Procedure.performer.actor", description="The reference to the practitioner", type="reference" )
+  public static final String SP_PERFORMER = "performer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>performer</b>
+   * <p>
+   * Description: <b>The reference to the practitioner</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Procedure.performer.actor</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PERFORMER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Procedure:performer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("Procedure:performer").toLocked();
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>Search by subject</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Procedure.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="Procedure.subject", description="Search by subject", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>Search by subject</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Procedure.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Procedure:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Procedure:subject").toLocked();
 
  /**
    * Search parameter: <b>patient</b>
@@ -2101,58 +2318,6 @@ public class Procedure extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("Procedure:location").toLocked();
 
  /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>Search by subject</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Procedure.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subject", path="Procedure.subject", description="Search by subject", type="reference" )
-  public static final String SP_SUBJECT = "subject";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
-   * <p>
-   * Description: <b>Search by subject</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Procedure.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Procedure:subject</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Procedure:subject").toLocked();
-
- /**
-   * Search parameter: <b>performer</b>
-   * <p>
-   * Description: <b>The reference to the practitioner</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Procedure.performer.actor</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="performer", path="Procedure.performer.actor", description="The reference to the practitioner", type="reference" )
-  public static final String SP_PERFORMER = "performer";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>performer</b>
-   * <p>
-   * Description: <b>The reference to the practitioner</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Procedure.performer.actor</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PERFORMER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Procedure:performer</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("Procedure:performer").toLocked();
-
- /**
    * Search parameter: <b>encounter</b>
    * <p>
    * Description: <b>The encounter associated with the procedure</b><br>
@@ -2179,64 +2344,24 @@ public class Procedure extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("Procedure:encounter").toLocked();
 
  /**
-   * Search parameter: <b>code</b>
+   * Search parameter: <b>category</b>
    * <p>
-   * Description: <b>A code to identify a  procedure</b><br>
+   * Description: <b>Classification of the procedure</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Procedure.code</b><br>
+   * Path: <b>Procedure.category</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="Procedure.code", description="A code to identify a  procedure", type="token" )
-  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="category", path="Procedure.category", description="Classification of the procedure", type="token" )
+  public static final String SP_CATEGORY = "category";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <b>Fluent Client</b> search parameter constant for <b>category</b>
    * <p>
-   * Description: <b>A code to identify a  procedure</b><br>
+   * Description: <b>Classification of the procedure</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Procedure.code</b><br>
+   * Path: <b>Procedure.category</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>Date/Period the procedure was performed</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Procedure.performed[x]</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="Procedure.performed", description="Date/Period the procedure was performed", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>Date/Period the procedure was performed</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Procedure.performed[x]</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>A unique identifier for a procedure</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Procedure.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Procedure.identifier", description="A unique identifier for a procedure", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>A unique identifier for a procedure</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Procedure.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
 
 }

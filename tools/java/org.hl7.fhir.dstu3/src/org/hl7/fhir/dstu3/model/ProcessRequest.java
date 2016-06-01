@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -320,7 +320,7 @@ public class ProcessRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequenceLinkId == null || sequenceLinkId.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId);
       }
 
   public String fhirType() {
@@ -513,6 +513,14 @@ public class ProcessRequest extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ProcessRequest setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -522,10 +530,6 @@ public class ProcessRequest extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (The ProcessRequest business identifier.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -534,7 +538,6 @@ public class ProcessRequest extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ProcessRequest addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -542,6 +545,16 @@ public class ProcessRequest extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -969,6 +982,14 @@ public class ProcessRequest extends DomainResource {
       return this.item;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ProcessRequest setItem(List<ItemsComponent> theItem) { 
+      this.item = theItem;
+      return this;
+    }
+
     public boolean hasItem() { 
       if (this.item == null)
         return false;
@@ -978,10 +999,6 @@ public class ProcessRequest extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #item} (List of top level items to be re-adjudicated, if none specified then the entire submission is re-adjudicated.)
-     */
-    // syntactic sugar
     public ItemsComponent addItem() { //3
       ItemsComponent t = new ItemsComponent();
       if (this.item == null)
@@ -990,7 +1007,6 @@ public class ProcessRequest extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ProcessRequest addItem(ItemsComponent t) { //3
       if (t == null)
         return this;
@@ -1001,12 +1017,30 @@ public class ProcessRequest extends DomainResource {
     }
 
     /**
+     * @return The first repetition of repeating field {@link #item}, creating it if it does not already exist
+     */
+    public ItemsComponent getItemFirstRep() { 
+      if (getItem().isEmpty()) {
+        addItem();
+      }
+      return getItem().get(0);
+    }
+
+    /**
      * @return {@link #include} (Names of resource types to include.)
      */
     public List<StringType> getInclude() { 
       if (this.include == null)
         this.include = new ArrayList<StringType>();
       return this.include;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ProcessRequest setInclude(List<StringType> theInclude) { 
+      this.include = theInclude;
+      return this;
     }
 
     public boolean hasInclude() { 
@@ -1021,7 +1055,6 @@ public class ProcessRequest extends DomainResource {
     /**
      * @return {@link #include} (Names of resource types to include.)
      */
-    // syntactic sugar
     public StringType addIncludeElement() {//2 
       StringType t = new StringType();
       if (this.include == null)
@@ -1063,6 +1096,14 @@ public class ProcessRequest extends DomainResource {
       return this.exclude;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ProcessRequest setExclude(List<StringType> theExclude) { 
+      this.exclude = theExclude;
+      return this;
+    }
+
     public boolean hasExclude() { 
       if (this.exclude == null)
         return false;
@@ -1075,7 +1116,6 @@ public class ProcessRequest extends DomainResource {
     /**
      * @return {@link #exclude} (Names of resource types to exclude.)
      */
-    // syntactic sugar
     public StringType addExcludeElement() {//2 
       StringType t = new StringType();
       if (this.exclude == null)
@@ -1451,13 +1491,9 @@ public class ProcessRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (action == null || action.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (ruleset == null || ruleset.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
-           && (created == null || created.isEmpty()) && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty())
-           && (organization == null || organization.isEmpty()) && (request == null || request.isEmpty())
-           && (response == null || response.isEmpty()) && (nullify == null || nullify.isEmpty()) && (reference == null || reference.isEmpty())
-           && (item == null || item.isEmpty()) && (include == null || include.isEmpty()) && (exclude == null || exclude.isEmpty())
-           && (period == null || period.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action, identifier, ruleset
+          , originalRuleset, created, target, provider, organization, request, response
+          , nullify, reference, item, include, exclude, period);
       }
 
   @Override
@@ -1466,50 +1502,24 @@ public class ProcessRequest extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>action</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The action requested by this resource</b><br>
+   * Description: <b>The business identifier of the ProcessRequest</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcessRequest.action</b><br>
+   * Path: <b>ProcessRequest.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="action", path="ProcessRequest.action", description="The action requested by this resource", type="token" )
-  public static final String SP_ACTION = "action";
+  @SearchParamDefinition(name="identifier", path="ProcessRequest.identifier", description="The business identifier of the ProcessRequest", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>action</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The action requested by this resource</b><br>
+   * Description: <b>The business identifier of the ProcessRequest</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcessRequest.action</b><br>
+   * Path: <b>ProcessRequest.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTION);
-
- /**
-   * Search parameter: <b>providerreference</b>
-   * <p>
-   * Description: <b>The provider who regenerated this request</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ProcessRequest.providerReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="providerreference", path="ProcessRequest.provider.as(Reference)", description="The provider who regenerated this request", type="reference" )
-  public static final String SP_PROVIDERREFERENCE = "providerreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
-   * <p>
-   * Description: <b>The provider who regenerated this request</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ProcessRequest.providerReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDERREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcessRequest:providerreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDERREFERENCE = new ca.uhn.fhir.model.api.Include("ProcessRequest:providerreference").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>organizationidentifier</b>
@@ -1530,6 +1540,26 @@ public class ProcessRequest extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONIDENTIFIER);
+
+ /**
+   * Search parameter: <b>action</b>
+   * <p>
+   * Description: <b>The action requested by this resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ProcessRequest.action</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="action", path="ProcessRequest.action", description="The action requested by this resource", type="token" )
+  public static final String SP_ACTION = "action";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>action</b>
+   * <p>
+   * Description: <b>The action requested by this resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ProcessRequest.action</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTION);
 
  /**
    * Search parameter: <b>organizationreference</b>
@@ -1558,24 +1588,30 @@ public class ProcessRequest extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("ProcessRequest:organizationreference").toLocked();
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>providerreference</b>
    * <p>
-   * Description: <b>The business identifier of the ProcessRequest</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ProcessRequest.identifier</b><br>
+   * Description: <b>The provider who regenerated this request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ProcessRequest.providerReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="ProcessRequest.identifier", description="The business identifier of the ProcessRequest", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="providerreference", path="ProcessRequest.provider.as(Reference)", description="The provider who regenerated this request", type="reference" )
+  public static final String SP_PROVIDERREFERENCE = "providerreference";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
    * <p>
-   * Description: <b>The business identifier of the ProcessRequest</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ProcessRequest.identifier</b><br>
+   * Description: <b>The provider who regenerated this request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ProcessRequest.providerReference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDERREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ProcessRequest:providerreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDERREFERENCE = new ca.uhn.fhir.model.api.Include("ProcessRequest:providerreference").toLocked();
 
  /**
    * Search parameter: <b>provideridentifier</b>

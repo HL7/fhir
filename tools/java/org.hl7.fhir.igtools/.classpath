@@ -5,11 +5,10 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu3"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.rdf"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.utilities"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/gson-2.3.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/xpp3_xpath-1.1.4c.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/xpp3-1.1.4c.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/ST4-4.0.7.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/antlr-runtime-3.4.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/txtmark-0.11.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/gson-2.3.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3_xpath-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/ST4-4.0.7.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/txtmark-0.11.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -104,6 +104,7 @@ import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
 import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
 import org.hl7.fhir.definitions.model.LogicalModel;
+import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.Profile;
@@ -2345,8 +2346,6 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       page.log("....validator", LogMessageType.Process);
       ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "validation.xml.zip");
-      zip.addFileName("fhir.css", page.getFolders().dstDir + "fhir.css", false);
-      zip.addFileName("spec.pathlist", page.getFolders().dstDir + "spec.pathlist", false);
       zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml", false);
       zip.addFileName("profiles-resources.xml", page.getFolders().dstDir + "profiles-resources.xml", false);
       zip.addFileName("profiles-others.xml", page.getFolders().dstDir + "profiles-others.xml", false);
@@ -2364,8 +2363,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.close();
 
       zip = new ZipGenerator(page.getFolders().dstDir + "validation.json.zip");
-      zip.addFileName("fhir.css", page.getFolders().dstDir + "fhir.css", false);
-      zip.addFileName("spec.pathlist", page.getFolders().dstDir + "spec.pathlist", false);
       zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json", false);
       zip.addFileName("profiles-resources.json", page.getFolders().dstDir + "profiles-resources.json", false);
       zip.addFileName("profiles-others.json", page.getFolders().dstDir + "profiles-others.json", false);
@@ -2403,6 +2400,26 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
       zip.close();
 
+      page.log("....IG Builder (1)", LogMessageType.Process);
+      zip = new ZipGenerator(page.getFolders().tmpDir + "igpack.zip");
+      zip.addFileName("fhir.css", page.getFolders().dstDir + "fhir.css", false);
+      zip.addFileName("spec.internals", page.getFolders().dstDir + "spec.internals", false);
+      zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml", false);
+      zip.addFileName("profiles-resources.xml", page.getFolders().dstDir + "profiles-resources.xml", false);
+      zip.addFileName("profiles-others.xml", page.getFolders().dstDir + "profiles-others.xml", false);
+      zip.addFileName("extension-definitions.xml", page.getFolders().dstDir + "extension-definitions.xml", false);
+      zip.addFileName("search-parameters.xml", page.getFolders().dstDir + "search-parameters.xml", false);
+      zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml", false);
+      zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml", false);
+      zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml", false);
+      zip.addFileName("conceptmaps.xml", page.getFolders().dstDir + "conceptmaps.xml", false);
+      zip.addFileName("dataelements.xml", page.getFolders().dstDir + "dataelements.xml", false);
+      zip.addFiles(Utilities.path(page.getFolders().rootDir, "publish", ""), "", ".png", null);
+      zip.addFiles(Utilities.path(page.getFolders().rootDir, "publish", ""), "", ".gif", null);
+      zip.close();
+      page.log("....IG Builder (2)", LogMessageType.Process);
+      javaReferencePlatform.buildIGPublisher(page.getFolders().tmpDir + "igpack.zip");
+
       page.log(" ...zips", LogMessageType.Process);
       zip = new ZipGenerator(page.getFolders().dstDir + "examples.zip");
       zip.addFiles(page.getFolders().dstDir + "examples" + File.separator, "", null, null);
@@ -2425,30 +2442,38 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void produceSpecMap() throws IOException {
-    JsonObject specMap = new JsonObject();
-    specMap.addProperty("version", page.getVersion());
-    specMap.addProperty("build", page.getSvnRevision());
-    specMap.addProperty("date", page.getGenDate().toString());
+    JsonObject spec = new JsonObject();
+    spec.addProperty("version", page.getVersion());
+    spec.addProperty("build", page.getSvnRevision());
+    spec.addProperty("date", page.getGenDate().toString());
+    JsonObject paths = new JsonObject();
+    spec.add("paths", paths);
+    
     for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
       if (sd.hasUserData("path"))
-        specMap.addProperty(sd.getUrl(), sd.getUserString("path").replace("\\", "/"));
+        paths.addProperty(sd.getUrl(), sd.getUserString("path").replace("\\", "/"));
     }
     for (CodeSystem cs : page.getCodeSystems().values()) {
       if (cs.hasUserData("path"))
-        specMap.addProperty(cs.getUrl(), cs.getUserString("path").replace("\\", "/"));
+        paths.addProperty(cs.getUrl(), cs.getUserString("path").replace("\\", "/"));
     }
     for (ValueSet vs : page.getValueSets().values()) {
       if (vs.hasUserData("path"))
-        specMap.addProperty(vs.getUrl(), vs.getUserString("path").replace("\\", "/"));
+        paths.addProperty(vs.getUrl(), vs.getUserString("path").replace("\\", "/"));
     }
     for (ConceptMap cm : page.getConceptMaps().values()) {
       if (cm.hasUserData("path"))
-        specMap.addProperty(cm.getUrl(), cm.getUserString("path").replace("\\", "/"));
+        paths.addProperty(cm.getUrl(), cm.getUserString("path").replace("\\", "/"));
     }
 
+    JsonObject maps = new JsonObject();
+    spec.add("maps", maps);      
+    for (String url : page.getDefinitions().getMapTypes().keySet()) {
+      maps.addProperty(url, page.getDefinitions().getMapTypes().get(url).getPreamble());
+    }
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    String json = gson.toJson(specMap);
-    TextFile.stringToFile(json, page.getFolders().dstDir + "spec.pathlist");
+    String json = gson.toJson(spec);
+    TextFile.stringToFile(json, page.getFolders().dstDir + "spec.internals");
   }
 
   private void checkStructureDefinitions(Bundle bnd) {

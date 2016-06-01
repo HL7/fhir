@@ -46,7 +46,7 @@ public class XmlXHtmlRenderer implements IXMLWriter {
     attributes = null;
     started = true;
     b = new StringBuilder();
-    b.append("<pre class\"xml\">\r\n");
+    b.append("<pre class=\"xml\">\r\n");
   }
 
   private void checkStarted () throws IOException {

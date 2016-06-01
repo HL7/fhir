@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -486,6 +486,14 @@ public class Task extends DomainResource {
           return this.recipients;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TaskFulfillmentComponent setRecipients(List<Reference> theRecipients) { 
+          this.recipients = theRecipients;
+          return this;
+        }
+
         public boolean hasRecipients() { 
           if (this.recipients == null)
             return false;
@@ -495,10 +503,6 @@ public class Task extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #recipients} (For requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought?)
-         */
-    // syntactic sugar
         public Reference addRecipients() { //3
           Reference t = new Reference();
           if (this.recipients == null)
@@ -507,7 +511,6 @@ public class Task extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public TaskFulfillmentComponent addRecipients(Reference t) { //3
           if (t == null)
             return this;
@@ -518,8 +521,19 @@ public class Task extends DomainResource {
         }
 
         /**
-         * @return {@link #recipients} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. For requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought?)
+         * @return The first repetition of repeating field {@link #recipients}, creating it if it does not already exist
          */
+        public Reference getRecipientsFirstRep() { 
+          if (getRecipients().isEmpty()) {
+            addRecipients();
+          }
+          return getRecipients().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Resource> getRecipientsTarget() { 
           if (this.recipientsTarget == null)
             this.recipientsTarget = new ArrayList<Resource>();
@@ -635,8 +649,8 @@ public class Task extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (repetitions == null || repetitions.isEmpty()) && (period == null || period.isEmpty())
-           && (recipients == null || recipients.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(repetitions, period, recipients
+          );
       }
 
   public String fhirType() {
@@ -964,8 +978,7 @@ public class Task extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
       }
 
   public String fhirType() {
@@ -1293,8 +1306,7 @@ public class Task extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
       }
 
   public String fhirType() {
@@ -1568,6 +1580,14 @@ public class Task extends DomainResource {
       return this.basedOn;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Task setBasedOn(List<Reference> theBasedOn) { 
+      this.basedOn = theBasedOn;
+      return this;
+    }
+
     public boolean hasBasedOn() { 
       if (this.basedOn == null)
         return false;
@@ -1577,10 +1597,6 @@ public class Task extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #basedOn} (Identifies a plan, proposal or order that this task has been created in fulfillment of.)
-     */
-    // syntactic sugar
     public Reference addBasedOn() { //3
       Reference t = new Reference();
       if (this.basedOn == null)
@@ -1589,7 +1605,6 @@ public class Task extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Task addBasedOn(Reference t) { //3
       if (t == null)
         return this;
@@ -1600,8 +1615,19 @@ public class Task extends DomainResource {
     }
 
     /**
-     * @return {@link #basedOn} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies a plan, proposal or order that this task has been created in fulfillment of.)
+     * @return The first repetition of repeating field {@link #basedOn}, creating it if it does not already exist
      */
+    public Reference getBasedOnFirstRep() { 
+      if (getBasedOn().isEmpty()) {
+        addBasedOn();
+      }
+      return getBasedOn().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getBasedOnTarget() { 
       if (this.basedOnTarget == null)
         this.basedOnTarget = new ArrayList<Resource>();
@@ -1641,6 +1667,14 @@ public class Task extends DomainResource {
       return this.parent;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Task setParent(List<Reference> theParent) { 
+      this.parent = theParent;
+      return this;
+    }
+
     public boolean hasParent() { 
       if (this.parent == null)
         return false;
@@ -1650,10 +1684,6 @@ public class Task extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #parent} (Task that this particular task is part of.)
-     */
-    // syntactic sugar
     public Reference addParent() { //3
       Reference t = new Reference();
       if (this.parent == null)
@@ -1662,7 +1692,6 @@ public class Task extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Task addParent(Reference t) { //3
       if (t == null)
         return this;
@@ -1673,18 +1702,29 @@ public class Task extends DomainResource {
     }
 
     /**
-     * @return {@link #parent} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Task that this particular task is part of.)
+     * @return The first repetition of repeating field {@link #parent}, creating it if it does not already exist
      */
+    public Reference getParentFirstRep() { 
+      if (getParent().isEmpty()) {
+        addParent();
+      }
+      return getParent().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Task> getParentTarget() { 
       if (this.parentTarget == null)
         this.parentTarget = new ArrayList<Task>();
       return this.parentTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #parent} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Task that this particular task is part of.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Task addParentTarget() { 
       Task r = new Task();
       if (this.parentTarget == null)
@@ -2226,6 +2266,14 @@ public class Task extends DomainResource {
       return this.performerType;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Task setPerformerType(List<CodeableConcept> thePerformerType) { 
+      this.performerType = thePerformerType;
+      return this;
+    }
+
     public boolean hasPerformerType() { 
       if (this.performerType == null)
         return false;
@@ -2235,10 +2283,6 @@ public class Task extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #performerType} (The type of participant that can execute the task.)
-     */
-    // syntactic sugar
     public CodeableConcept addPerformerType() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.performerType == null)
@@ -2247,7 +2291,6 @@ public class Task extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Task addPerformerType(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -2255,6 +2298,16 @@ public class Task extends DomainResource {
         this.performerType = new ArrayList<CodeableConcept>();
       this.performerType.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #performerType}, creating it if it does not already exist
+     */
+    public CodeableConcept getPerformerTypeFirstRep() { 
+      if (getPerformerType().isEmpty()) {
+        addPerformerType();
+      }
+      return getPerformerType().get(0);
     }
 
     /**
@@ -2290,6 +2343,14 @@ public class Task extends DomainResource {
       return this.note;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Task setNote(List<Annotation> theNote) { 
+      this.note = theNote;
+      return this;
+    }
+
     public boolean hasNote() { 
       if (this.note == null)
         return false;
@@ -2299,10 +2360,6 @@ public class Task extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #note} (Free-text information captured about the task as it progresses.)
-     */
-    // syntactic sugar
     public Annotation addNote() { //3
       Annotation t = new Annotation();
       if (this.note == null)
@@ -2311,7 +2368,6 @@ public class Task extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Task addNote(Annotation t) { //3
       if (t == null)
         return this;
@@ -2319,6 +2375,16 @@ public class Task extends DomainResource {
         this.note = new ArrayList<Annotation>();
       this.note.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
+     */
+    public Annotation getNoteFirstRep() { 
+      if (getNote().isEmpty()) {
+        addNote();
+      }
+      return getNote().get(0);
     }
 
     /**
@@ -2403,6 +2469,14 @@ public class Task extends DomainResource {
       return this.input;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Task setInput(List<ParameterComponent> theInput) { 
+      this.input = theInput;
+      return this;
+    }
+
     public boolean hasInput() { 
       if (this.input == null)
         return false;
@@ -2412,10 +2486,6 @@ public class Task extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #input} (Inputs to the task.)
-     */
-    // syntactic sugar
     public ParameterComponent addInput() { //3
       ParameterComponent t = new ParameterComponent();
       if (this.input == null)
@@ -2424,7 +2494,6 @@ public class Task extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Task addInput(ParameterComponent t) { //3
       if (t == null)
         return this;
@@ -2432,6 +2501,16 @@ public class Task extends DomainResource {
         this.input = new ArrayList<ParameterComponent>();
       this.input.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #input}, creating it if it does not already exist
+     */
+    public ParameterComponent getInputFirstRep() { 
+      if (getInput().isEmpty()) {
+        addInput();
+      }
+      return getInput().get(0);
     }
 
     /**
@@ -2443,6 +2522,14 @@ public class Task extends DomainResource {
       return this.output;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Task setOutput(List<TaskOutputComponent> theOutput) { 
+      this.output = theOutput;
+      return this;
+    }
+
     public boolean hasOutput() { 
       if (this.output == null)
         return false;
@@ -2452,10 +2539,6 @@ public class Task extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #output} (Outputs produced by the Task.)
-     */
-    // syntactic sugar
     public TaskOutputComponent addOutput() { //3
       TaskOutputComponent t = new TaskOutputComponent();
       if (this.output == null)
@@ -2464,7 +2547,6 @@ public class Task extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Task addOutput(TaskOutputComponent t) { //3
       if (t == null)
         return this;
@@ -2472,6 +2554,16 @@ public class Task extends DomainResource {
         this.output = new ArrayList<TaskOutputComponent>();
       this.output.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #output}, creating it if it does not already exist
+     */
+    public TaskOutputComponent getOutputFirstRep() { 
+      if (getOutput().isEmpty()) {
+        addOutput();
+      }
+      return getOutput().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2897,17 +2989,10 @@ public class Task extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (basedOn == null || basedOn.isEmpty())
-           && (requisition == null || requisition.isEmpty()) && (parent == null || parent.isEmpty())
-           && (status == null || status.isEmpty()) && (statusReason == null || statusReason.isEmpty())
-           && (businessStatus == null || businessStatus.isEmpty()) && (stage == null || stage.isEmpty())
-           && (code == null || code.isEmpty()) && (priority == null || priority.isEmpty()) && (description == null || description.isEmpty())
-           && (focus == null || focus.isEmpty()) && (for_ == null || for_.isEmpty()) && (context == null || context.isEmpty())
-           && (created == null || created.isEmpty()) && (lastModified == null || lastModified.isEmpty())
-           && (requester == null || requester.isEmpty()) && (owner == null || owner.isEmpty()) && (performerType == null || performerType.isEmpty())
-           && (reason == null || reason.isEmpty()) && (note == null || note.isEmpty()) && (fulfillment == null || fulfillment.isEmpty())
-           && (definition == null || definition.isEmpty()) && (input == null || input.isEmpty()) && (output == null || output.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, requisition
+          , parent, status, statusReason, businessStatus, stage, code, priority, description
+          , focus, for_, context, created, lastModified, requester, owner, performerType
+          , reason, note, fulfillment, definition, input, output);
       }
 
   @Override
@@ -2916,24 +3001,30 @@ public class Task extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>statusreason</b>
+   * Search parameter: <b>owner</b>
    * <p>
-   * Description: <b>Search by status reason</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.statusReason</b><br>
+   * Description: <b>Search by task owner</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Task.owner</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="statusreason", path="Task.statusReason", description="Search by status reason", type="token" )
-  public static final String SP_STATUSREASON = "statusreason";
+  @SearchParamDefinition(name="owner", path="Task.owner", description="Search by task owner", type="reference" )
+  public static final String SP_OWNER = "owner";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>statusreason</b>
+   * <b>Fluent Client</b> search parameter constant for <b>owner</b>
    * <p>
-   * Description: <b>Search by status reason</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.statusReason</b><br>
+   * Description: <b>Search by task owner</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Task.owner</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUSREASON = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUSREASON);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam OWNER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_OWNER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Task:owner</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_OWNER = new ca.uhn.fhir.model.api.Include("Task:owner").toLocked();
 
  /**
    * Search parameter: <b>requester</b>
@@ -2962,44 +3053,24 @@ public class Task extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTER = new ca.uhn.fhir.model.api.Include("Task:requester").toLocked();
 
  /**
-   * Search parameter: <b>definition</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Search by task definition</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>Task.definition</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="definition", path="Task.definition", description="Search by task definition", type="uri" )
-  public static final String SP_DEFINITION = "definition";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>definition</b>
-   * <p>
-   * Description: <b>Search by task definition</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>Task.definition</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam DEFINITION = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DEFINITION);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>Search by task status</b><br>
+   * Description: <b>Search for a task instance by its business identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Task.status</b><br>
+   * Path: <b>Task.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="Task.status", description="Search by task status", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="identifier", path="Task.identifier", description="Search for a task instance by its business identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Search by task status</b><br>
+   * Description: <b>Search for a task instance by its business identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Task.status</b><br>
+   * Path: <b>Task.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>parent</b>
@@ -3048,70 +3119,24 @@ public class Task extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
-   * Search parameter: <b>stage</b>
+   * Search parameter: <b>performer</b>
    * <p>
-   * Description: <b>Search by task stage</b><br>
+   * Description: <b>Search by recommended type of performer (e.g., Requester, Performer, Scheduler).</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Task.stage</b><br>
+   * Path: <b>Task.performerType</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="stage", path="Task.stage", description="Search by task stage", type="token" )
-  public static final String SP_STAGE = "stage";
+  @SearchParamDefinition(name="performer", path="Task.performerType", description="Search by recommended type of performer (e.g., Requester, Performer, Scheduler).", type="token" )
+  public static final String SP_PERFORMER = "performer";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>stage</b>
+   * <b>Fluent Client</b> search parameter constant for <b>performer</b>
    * <p>
-   * Description: <b>Search by task stage</b><br>
+   * Description: <b>Search by recommended type of performer (e.g., Requester, Performer, Scheduler).</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Task.stage</b><br>
+   * Path: <b>Task.performerType</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STAGE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STAGE);
-
- /**
-   * Search parameter: <b>modified</b>
-   * <p>
-   * Description: <b>Search by last modification date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Task.lastModified</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="modified", path="Task.lastModified", description="Search by last modification date", type="date" )
-  public static final String SP_MODIFIED = "modified";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>modified</b>
-   * <p>
-   * Description: <b>Search by last modification date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Task.lastModified</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam MODIFIED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_MODIFIED);
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Search by patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.for</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="Task.for", description="Search by patient", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Search by patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.for</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Task:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Task:patient").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PERFORMER);
 
  /**
    * Search parameter: <b>created</b>
@@ -3132,72 +3157,6 @@ public class Task extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
-
- /**
-   * Search parameter: <b>priority</b>
-   * <p>
-   * Description: <b>Search by task priority</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.priority</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="priority", path="Task.priority", description="Search by task priority", type="token" )
-  public static final String SP_PRIORITY = "priority";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>priority</b>
-   * <p>
-   * Description: <b>Search by task priority</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.priority</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRIORITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRIORITY);
-
- /**
-   * Search parameter: <b>owner</b>
-   * <p>
-   * Description: <b>Search by task owner</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.owner</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="owner", path="Task.owner", description="Search by task owner", type="reference" )
-  public static final String SP_OWNER = "owner";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>owner</b>
-   * <p>
-   * Description: <b>Search by task owner</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.owner</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam OWNER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_OWNER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Task:owner</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_OWNER = new ca.uhn.fhir.model.api.Include("Task:owner").toLocked();
-
- /**
-   * Search parameter: <b>performer</b>
-   * <p>
-   * Description: <b>Search by recommended type of performer (e.g., Requester, Performer, Scheduler).</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.performerType</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="performer", path="Task.performerType", description="Search by recommended type of performer (e.g., Requester, Performer, Scheduler).", type="token" )
-  public static final String SP_PERFORMER = "performer";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>performer</b>
-   * <p>
-   * Description: <b>Search by recommended type of performer (e.g., Requester, Performer, Scheduler).</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.performerType</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PERFORMER);
 
  /**
    * Search parameter: <b>focus</b>
@@ -3226,24 +3185,150 @@ public class Task extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_FOCUS = new ca.uhn.fhir.model.api.Include("Task:focus").toLocked();
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>priority</b>
    * <p>
-   * Description: <b>Search for a task instance by its business identifier</b><br>
+   * Description: <b>Search by task priority</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Task.identifier</b><br>
+   * Path: <b>Task.priority</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Task.identifier", description="Search for a task instance by its business identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="priority", path="Task.priority", description="Search by task priority", type="token" )
+  public static final String SP_PRIORITY = "priority";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>priority</b>
    * <p>
-   * Description: <b>Search for a task instance by its business identifier</b><br>
+   * Description: <b>Search by task priority</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Task.identifier</b><br>
+   * Path: <b>Task.priority</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRIORITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRIORITY);
+
+ /**
+   * Search parameter: <b>stage</b>
+   * <p>
+   * Description: <b>Search by task stage</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.stage</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="stage", path="Task.stage", description="Search by task stage", type="token" )
+  public static final String SP_STAGE = "stage";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>stage</b>
+   * <p>
+   * Description: <b>Search by task stage</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.stage</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STAGE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STAGE);
+
+ /**
+   * Search parameter: <b>statusreason</b>
+   * <p>
+   * Description: <b>Search by status reason</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.statusReason</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="statusreason", path="Task.statusReason", description="Search by status reason", type="token" )
+  public static final String SP_STATUSREASON = "statusreason";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>statusreason</b>
+   * <p>
+   * Description: <b>Search by status reason</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.statusReason</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUSREASON = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUSREASON);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Search by patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Task.for</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="Task.for", description="Search by patient", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Search by patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Task.for</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Task:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Task:patient").toLocked();
+
+ /**
+   * Search parameter: <b>modified</b>
+   * <p>
+   * Description: <b>Search by last modification date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Task.lastModified</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="modified", path="Task.lastModified", description="Search by last modification date", type="date" )
+  public static final String SP_MODIFIED = "modified";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>modified</b>
+   * <p>
+   * Description: <b>Search by last modification date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Task.lastModified</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam MODIFIED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_MODIFIED);
+
+ /**
+   * Search parameter: <b>definition</b>
+   * <p>
+   * Description: <b>Search by task definition</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>Task.definition</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="definition", path="Task.definition", description="Search by task definition", type="uri" )
+  public static final String SP_DEFINITION = "definition";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>definition</b>
+   * <p>
+   * Description: <b>Search by task definition</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>Task.definition</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam DEFINITION = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DEFINITION);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>Search by task status</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="Task.status", description="Search by task status", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>Search by task status</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Task.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

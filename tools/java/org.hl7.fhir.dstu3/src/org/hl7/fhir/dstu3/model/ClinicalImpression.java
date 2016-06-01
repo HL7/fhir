@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -224,6 +224,14 @@ public class ClinicalImpression extends DomainResource {
           return this.item;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ClinicalImpressionInvestigationsComponent setItem(List<Reference> theItem) { 
+          this.item = theItem;
+          return this;
+        }
+
         public boolean hasItem() { 
           if (this.item == null)
             return false;
@@ -233,10 +241,6 @@ public class ClinicalImpression extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #item} (A record of a specific investigation that was undertaken.)
-         */
-    // syntactic sugar
         public Reference addItem() { //3
           Reference t = new Reference();
           if (this.item == null)
@@ -245,7 +249,6 @@ public class ClinicalImpression extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ClinicalImpressionInvestigationsComponent addItem(Reference t) { //3
           if (t == null)
             return this;
@@ -256,8 +259,19 @@ public class ClinicalImpression extends DomainResource {
         }
 
         /**
-         * @return {@link #item} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A record of a specific investigation that was undertaken.)
+         * @return The first repetition of repeating field {@link #item}, creating it if it does not already exist
          */
+        public Reference getItemFirstRep() { 
+          if (getItem().isEmpty()) {
+            addItem();
+          }
+          return getItem().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Resource> getItemTarget() { 
           if (this.itemTarget == null)
             this.itemTarget = new ArrayList<Resource>();
@@ -360,8 +374,7 @@ public class ClinicalImpression extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (item == null || item.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, item);
       }
 
   public String fhirType() {
@@ -569,8 +582,7 @@ public class ClinicalImpression extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (item == null || item.isEmpty()) && (cause == null || cause.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(item, cause);
       }
 
   public String fhirType() {
@@ -778,8 +790,7 @@ public class ClinicalImpression extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (item == null || item.isEmpty()) && (reason == null || reason.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(item, reason);
       }
 
   public String fhirType() {
@@ -1240,6 +1251,14 @@ public class ClinicalImpression extends DomainResource {
       return this.problem;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ClinicalImpression setProblem(List<Reference> theProblem) { 
+      this.problem = theProblem;
+      return this;
+    }
+
     public boolean hasProblem() { 
       if (this.problem == null)
         return false;
@@ -1249,10 +1268,6 @@ public class ClinicalImpression extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #problem} (This a list of the general problems/conditions for a patient.)
-     */
-    // syntactic sugar
     public Reference addProblem() { //3
       Reference t = new Reference();
       if (this.problem == null)
@@ -1261,7 +1276,6 @@ public class ClinicalImpression extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ClinicalImpression addProblem(Reference t) { //3
       if (t == null)
         return this;
@@ -1272,8 +1286,19 @@ public class ClinicalImpression extends DomainResource {
     }
 
     /**
-     * @return {@link #problem} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. This a list of the general problems/conditions for a patient.)
+     * @return The first repetition of repeating field {@link #problem}, creating it if it does not already exist
      */
+    public Reference getProblemFirstRep() { 
+      if (getProblem().isEmpty()) {
+        addProblem();
+      }
+      return getProblem().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getProblemTarget() { 
       if (this.problemTarget == null)
         this.problemTarget = new ArrayList<Resource>();
@@ -1334,6 +1359,14 @@ public class ClinicalImpression extends DomainResource {
       return this.investigations;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ClinicalImpression setInvestigations(List<ClinicalImpressionInvestigationsComponent> theInvestigations) { 
+      this.investigations = theInvestigations;
+      return this;
+    }
+
     public boolean hasInvestigations() { 
       if (this.investigations == null)
         return false;
@@ -1343,10 +1376,6 @@ public class ClinicalImpression extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #investigations} (One or more sets of investigations (signs, symptions, etc.). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.)
-     */
-    // syntactic sugar
     public ClinicalImpressionInvestigationsComponent addInvestigations() { //3
       ClinicalImpressionInvestigationsComponent t = new ClinicalImpressionInvestigationsComponent();
       if (this.investigations == null)
@@ -1355,7 +1384,6 @@ public class ClinicalImpression extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ClinicalImpression addInvestigations(ClinicalImpressionInvestigationsComponent t) { //3
       if (t == null)
         return this;
@@ -1363,6 +1391,16 @@ public class ClinicalImpression extends DomainResource {
         this.investigations = new ArrayList<ClinicalImpressionInvestigationsComponent>();
       this.investigations.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #investigations}, creating it if it does not already exist
+     */
+    public ClinicalImpressionInvestigationsComponent getInvestigationsFirstRep() { 
+      if (getInvestigations().isEmpty()) {
+        addInvestigations();
+      }
+      return getInvestigations().get(0);
     }
 
     /**
@@ -1472,6 +1510,14 @@ public class ClinicalImpression extends DomainResource {
       return this.finding;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ClinicalImpression setFinding(List<ClinicalImpressionFindingComponent> theFinding) { 
+      this.finding = theFinding;
+      return this;
+    }
+
     public boolean hasFinding() { 
       if (this.finding == null)
         return false;
@@ -1481,10 +1527,6 @@ public class ClinicalImpression extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #finding} (Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.)
-     */
-    // syntactic sugar
     public ClinicalImpressionFindingComponent addFinding() { //3
       ClinicalImpressionFindingComponent t = new ClinicalImpressionFindingComponent();
       if (this.finding == null)
@@ -1493,7 +1535,6 @@ public class ClinicalImpression extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ClinicalImpression addFinding(ClinicalImpressionFindingComponent t) { //3
       if (t == null)
         return this;
@@ -1501,6 +1542,16 @@ public class ClinicalImpression extends DomainResource {
         this.finding = new ArrayList<ClinicalImpressionFindingComponent>();
       this.finding.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #finding}, creating it if it does not already exist
+     */
+    public ClinicalImpressionFindingComponent getFindingFirstRep() { 
+      if (getFinding().isEmpty()) {
+        addFinding();
+      }
+      return getFinding().get(0);
     }
 
     /**
@@ -1512,6 +1563,14 @@ public class ClinicalImpression extends DomainResource {
       return this.resolved;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ClinicalImpression setResolved(List<CodeableConcept> theResolved) { 
+      this.resolved = theResolved;
+      return this;
+    }
+
     public boolean hasResolved() { 
       if (this.resolved == null)
         return false;
@@ -1521,10 +1580,6 @@ public class ClinicalImpression extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #resolved} (Diagnoses/conditions resolved since the last assessment.)
-     */
-    // syntactic sugar
     public CodeableConcept addResolved() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.resolved == null)
@@ -1533,7 +1588,6 @@ public class ClinicalImpression extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ClinicalImpression addResolved(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -1541,6 +1595,16 @@ public class ClinicalImpression extends DomainResource {
         this.resolved = new ArrayList<CodeableConcept>();
       this.resolved.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #resolved}, creating it if it does not already exist
+     */
+    public CodeableConcept getResolvedFirstRep() { 
+      if (getResolved().isEmpty()) {
+        addResolved();
+      }
+      return getResolved().get(0);
     }
 
     /**
@@ -1552,6 +1616,14 @@ public class ClinicalImpression extends DomainResource {
       return this.ruledOut;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ClinicalImpression setRuledOut(List<ClinicalImpressionRuledOutComponent> theRuledOut) { 
+      this.ruledOut = theRuledOut;
+      return this;
+    }
+
     public boolean hasRuledOut() { 
       if (this.ruledOut == null)
         return false;
@@ -1561,10 +1633,6 @@ public class ClinicalImpression extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #ruledOut} (Diagnosis considered not possible.)
-     */
-    // syntactic sugar
     public ClinicalImpressionRuledOutComponent addRuledOut() { //3
       ClinicalImpressionRuledOutComponent t = new ClinicalImpressionRuledOutComponent();
       if (this.ruledOut == null)
@@ -1573,7 +1641,6 @@ public class ClinicalImpression extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ClinicalImpression addRuledOut(ClinicalImpressionRuledOutComponent t) { //3
       if (t == null)
         return this;
@@ -1581,6 +1648,16 @@ public class ClinicalImpression extends DomainResource {
         this.ruledOut = new ArrayList<ClinicalImpressionRuledOutComponent>();
       this.ruledOut.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #ruledOut}, creating it if it does not already exist
+     */
+    public ClinicalImpressionRuledOutComponent getRuledOutFirstRep() { 
+      if (getRuledOut().isEmpty()) {
+        addRuledOut();
+      }
+      return getRuledOut().get(0);
     }
 
     /**
@@ -1641,6 +1718,14 @@ public class ClinicalImpression extends DomainResource {
       return this.plan;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ClinicalImpression setPlan(List<Reference> thePlan) { 
+      this.plan = thePlan;
+      return this;
+    }
+
     public boolean hasPlan() { 
       if (this.plan == null)
         return false;
@@ -1650,10 +1735,6 @@ public class ClinicalImpression extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #plan} (Plan of action after assessment.)
-     */
-    // syntactic sugar
     public Reference addPlan() { //3
       Reference t = new Reference();
       if (this.plan == null)
@@ -1662,7 +1743,6 @@ public class ClinicalImpression extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ClinicalImpression addPlan(Reference t) { //3
       if (t == null)
         return this;
@@ -1673,8 +1753,19 @@ public class ClinicalImpression extends DomainResource {
     }
 
     /**
-     * @return {@link #plan} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Plan of action after assessment.)
+     * @return The first repetition of repeating field {@link #plan}, creating it if it does not already exist
      */
+    public Reference getPlanFirstRep() { 
+      if (getPlan().isEmpty()) {
+        addPlan();
+      }
+      return getPlan().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getPlanTarget() { 
       if (this.planTarget == null)
         this.planTarget = new ArrayList<Resource>();
@@ -1690,6 +1781,14 @@ public class ClinicalImpression extends DomainResource {
       return this.action;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ClinicalImpression setAction(List<Reference> theAction) { 
+      this.action = theAction;
+      return this;
+    }
+
     public boolean hasAction() { 
       if (this.action == null)
         return false;
@@ -1699,10 +1798,6 @@ public class ClinicalImpression extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #action} (Actions taken during assessment.)
-     */
-    // syntactic sugar
     public Reference addAction() { //3
       Reference t = new Reference();
       if (this.action == null)
@@ -1711,7 +1806,6 @@ public class ClinicalImpression extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ClinicalImpression addAction(Reference t) { //3
       if (t == null)
         return this;
@@ -1722,8 +1816,19 @@ public class ClinicalImpression extends DomainResource {
     }
 
     /**
-     * @return {@link #action} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Actions taken during assessment.)
+     * @return The first repetition of repeating field {@link #action}, creating it if it does not already exist
      */
+    public Reference getActionFirstRep() { 
+      if (getAction().isEmpty()) {
+        addAction();
+      }
+      return getAction().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getActionTarget() { 
       if (this.actionTarget == null)
         this.actionTarget = new ArrayList<Resource>();
@@ -2053,19 +2158,61 @@ public class ClinicalImpression extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (patient == null || patient.isEmpty()) && (assessor == null || assessor.isEmpty())
-           && (status == null || status.isEmpty()) && (date == null || date.isEmpty()) && (description == null || description.isEmpty())
-           && (previous == null || previous.isEmpty()) && (problem == null || problem.isEmpty()) && (trigger == null || trigger.isEmpty())
-           && (investigations == null || investigations.isEmpty()) && (protocol == null || protocol.isEmpty())
-           && (summary == null || summary.isEmpty()) && (finding == null || finding.isEmpty()) && (resolved == null || resolved.isEmpty())
-           && (ruledOut == null || ruledOut.isEmpty()) && (prognosis == null || prognosis.isEmpty())
-           && (plan == null || plan.isEmpty()) && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(patient, assessor, status
+          , date, description, previous, problem, trigger, investigations, protocol, summary
+          , finding, resolved, ruledOut, prognosis, plan, action);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.ClinicalImpression;
    }
+
+ /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>When the assessment occurred</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ClinicalImpression.date</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date", path="ClinicalImpression.date", description="When the assessment occurred", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>When the assessment occurred</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ClinicalImpression.date</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>previous</b>
+   * <p>
+   * Description: <b>Reference to last assessment</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClinicalImpression.previous</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="previous", path="ClinicalImpression.previous", description="Reference to last assessment", type="reference" )
+  public static final String SP_PREVIOUS = "previous";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>previous</b>
+   * <p>
+   * Description: <b>Reference to last assessment</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClinicalImpression.previous</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PREVIOUS = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PREVIOUS);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ClinicalImpression:previous</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PREVIOUS = new ca.uhn.fhir.model.api.Include("ClinicalImpression:previous").toLocked();
 
  /**
    * Search parameter: <b>assessor</b>
@@ -2120,6 +2267,72 @@ public class ClinicalImpression extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_TRIGGER = new ca.uhn.fhir.model.api.Include("ClinicalImpression:trigger").toLocked();
 
  /**
+   * Search parameter: <b>finding</b>
+   * <p>
+   * Description: <b>Specific text or code for finding</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClinicalImpression.finding.item</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="finding", path="ClinicalImpression.finding.item", description="Specific text or code for finding", type="token" )
+  public static final String SP_FINDING = "finding";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>finding</b>
+   * <p>
+   * Description: <b>Specific text or code for finding</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClinicalImpression.finding.item</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FINDING = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FINDING);
+
+ /**
+   * Search parameter: <b>ruledout</b>
+   * <p>
+   * Description: <b>Specific text of code for diagnosis</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClinicalImpression.ruledOut.item</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="ruledout", path="ClinicalImpression.ruledOut.item", description="Specific text of code for diagnosis", type="token" )
+  public static final String SP_RULEDOUT = "ruledout";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>ruledout</b>
+   * <p>
+   * Description: <b>Specific text of code for diagnosis</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClinicalImpression.ruledOut.item</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RULEDOUT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RULEDOUT);
+
+ /**
+   * Search parameter: <b>problem</b>
+   * <p>
+   * Description: <b>General assessment of patient state</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClinicalImpression.problem</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="problem", path="ClinicalImpression.problem", description="General assessment of patient state", type="reference" )
+  public static final String SP_PROBLEM = "problem";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>problem</b>
+   * <p>
+   * Description: <b>General assessment of patient state</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClinicalImpression.problem</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROBLEM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROBLEM);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ClinicalImpression:problem</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROBLEM = new ca.uhn.fhir.model.api.Include("ClinicalImpression:problem").toLocked();
+
+ /**
    * Search parameter: <b>patient</b>
    * <p>
    * Description: <b>The patient being assessed</b><br>
@@ -2144,6 +2357,78 @@ public class ClinicalImpression extends DomainResource {
    * the path value of "<b>ClinicalImpression:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ClinicalImpression:patient").toLocked();
+
+ /**
+   * Search parameter: <b>investigation</b>
+   * <p>
+   * Description: <b>Record of a specific investigation</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClinicalImpression.investigations.item</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="investigation", path="ClinicalImpression.investigations.item", description="Record of a specific investigation", type="reference" )
+  public static final String SP_INVESTIGATION = "investigation";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>investigation</b>
+   * <p>
+   * Description: <b>Record of a specific investigation</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClinicalImpression.investigations.item</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INVESTIGATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INVESTIGATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ClinicalImpression:investigation</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INVESTIGATION = new ca.uhn.fhir.model.api.Include("ClinicalImpression:investigation").toLocked();
+
+ /**
+   * Search parameter: <b>action</b>
+   * <p>
+   * Description: <b>Actions taken during assessment</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClinicalImpression.action</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="action", path="ClinicalImpression.action", description="Actions taken during assessment", type="reference" )
+  public static final String SP_ACTION = "action";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>action</b>
+   * <p>
+   * Description: <b>Actions taken during assessment</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClinicalImpression.action</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ACTION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ACTION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ClinicalImpression:action</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ACTION = new ca.uhn.fhir.model.api.Include("ClinicalImpression:action").toLocked();
+
+ /**
+   * Search parameter: <b>trigger-code</b>
+   * <p>
+   * Description: <b>Request or event that necessitated this assessment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClinicalImpression.triggerCodeableConcept</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="trigger-code", path="ClinicalImpression.trigger.as(CodeableConcept)", description="Request or event that necessitated this assessment", type="token" )
+  public static final String SP_TRIGGER_CODE = "trigger-code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>trigger-code</b>
+   * <p>
+   * Description: <b>Request or event that necessitated this assessment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClinicalImpression.triggerCodeableConcept</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TRIGGER_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TRIGGER_CODE);
 
  /**
    * Search parameter: <b>plan</b>
@@ -2192,52 +2477,6 @@ public class ClinicalImpression extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam RESOLVED = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RESOLVED);
 
  /**
-   * Search parameter: <b>trigger-code</b>
-   * <p>
-   * Description: <b>Request or event that necessitated this assessment</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ClinicalImpression.triggerCodeableConcept</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="trigger-code", path="ClinicalImpression.trigger.as(CodeableConcept)", description="Request or event that necessitated this assessment", type="token" )
-  public static final String SP_TRIGGER_CODE = "trigger-code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>trigger-code</b>
-   * <p>
-   * Description: <b>Request or event that necessitated this assessment</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ClinicalImpression.triggerCodeableConcept</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TRIGGER_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TRIGGER_CODE);
-
- /**
-   * Search parameter: <b>previous</b>
-   * <p>
-   * Description: <b>Reference to last assessment</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClinicalImpression.previous</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="previous", path="ClinicalImpression.previous", description="Reference to last assessment", type="reference" )
-  public static final String SP_PREVIOUS = "previous";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>previous</b>
-   * <p>
-   * Description: <b>Reference to last assessment</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClinicalImpression.previous</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PREVIOUS = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PREVIOUS);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ClinicalImpression:previous</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PREVIOUS = new ca.uhn.fhir.model.api.Include("ClinicalImpression:previous").toLocked();
-
- /**
    * Search parameter: <b>status</b>
    * <p>
    * Description: <b>in-progress | completed | entered-in-error</b><br>
@@ -2256,144 +2495,6 @@ public class ClinicalImpression extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>action</b>
-   * <p>
-   * Description: <b>Actions taken during assessment</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClinicalImpression.action</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="action", path="ClinicalImpression.action", description="Actions taken during assessment", type="reference" )
-  public static final String SP_ACTION = "action";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>action</b>
-   * <p>
-   * Description: <b>Actions taken during assessment</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClinicalImpression.action</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ACTION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ACTION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ClinicalImpression:action</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ACTION = new ca.uhn.fhir.model.api.Include("ClinicalImpression:action").toLocked();
-
- /**
-   * Search parameter: <b>finding</b>
-   * <p>
-   * Description: <b>Specific text or code for finding</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ClinicalImpression.finding.item</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="finding", path="ClinicalImpression.finding.item", description="Specific text or code for finding", type="token" )
-  public static final String SP_FINDING = "finding";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>finding</b>
-   * <p>
-   * Description: <b>Specific text or code for finding</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ClinicalImpression.finding.item</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FINDING = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FINDING);
-
- /**
-   * Search parameter: <b>investigation</b>
-   * <p>
-   * Description: <b>Record of a specific investigation</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClinicalImpression.investigations.item</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="investigation", path="ClinicalImpression.investigations.item", description="Record of a specific investigation", type="reference" )
-  public static final String SP_INVESTIGATION = "investigation";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>investigation</b>
-   * <p>
-   * Description: <b>Record of a specific investigation</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClinicalImpression.investigations.item</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INVESTIGATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INVESTIGATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ClinicalImpression:investigation</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_INVESTIGATION = new ca.uhn.fhir.model.api.Include("ClinicalImpression:investigation").toLocked();
-
- /**
-   * Search parameter: <b>problem</b>
-   * <p>
-   * Description: <b>General assessment of patient state</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClinicalImpression.problem</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="problem", path="ClinicalImpression.problem", description="General assessment of patient state", type="reference" )
-  public static final String SP_PROBLEM = "problem";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>problem</b>
-   * <p>
-   * Description: <b>General assessment of patient state</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClinicalImpression.problem</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROBLEM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROBLEM);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ClinicalImpression:problem</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROBLEM = new ca.uhn.fhir.model.api.Include("ClinicalImpression:problem").toLocked();
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>When the assessment occurred</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ClinicalImpression.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="ClinicalImpression.date", description="When the assessment occurred", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>When the assessment occurred</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ClinicalImpression.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>ruledout</b>
-   * <p>
-   * Description: <b>Specific text of code for diagnosis</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ClinicalImpression.ruledOut.item</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="ruledout", path="ClinicalImpression.ruledOut.item", description="Specific text of code for diagnosis", type="token" )
-  public static final String SP_RULEDOUT = "ruledout";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>ruledout</b>
-   * <p>
-   * Description: <b>Specific text of code for diagnosis</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ClinicalImpression.ruledOut.item</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RULEDOUT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RULEDOUT);
 
 
 }

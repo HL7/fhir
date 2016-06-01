@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -203,7 +203,7 @@ public class DocumentManifest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (p == null || p.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(p);
       }
 
   public String fhirType() {
@@ -399,8 +399,7 @@ public class DocumentManifest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ref == null || ref.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, ref);
       }
 
   public String fhirType() {
@@ -559,6 +558,14 @@ public class DocumentManifest extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DocumentManifest setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -568,10 +575,6 @@ public class DocumentManifest extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Other identifiers associated with the document manifest, including version independent  identifiers.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -580,7 +583,6 @@ public class DocumentManifest extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DocumentManifest addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -588,6 +590,16 @@ public class DocumentManifest extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -638,6 +650,14 @@ public class DocumentManifest extends DomainResource {
       return this.recipient;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DocumentManifest setRecipient(List<Reference> theRecipient) { 
+      this.recipient = theRecipient;
+      return this;
+    }
+
     public boolean hasRecipient() { 
       if (this.recipient == null)
         return false;
@@ -647,10 +667,6 @@ public class DocumentManifest extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #recipient} (A patient, practitioner, or organization for which this set of documents is intended.)
-     */
-    // syntactic sugar
     public Reference addRecipient() { //3
       Reference t = new Reference();
       if (this.recipient == null)
@@ -659,7 +675,6 @@ public class DocumentManifest extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DocumentManifest addRecipient(Reference t) { //3
       if (t == null)
         return this;
@@ -670,8 +685,19 @@ public class DocumentManifest extends DomainResource {
     }
 
     /**
-     * @return {@link #recipient} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A patient, practitioner, or organization for which this set of documents is intended.)
+     * @return The first repetition of repeating field {@link #recipient}, creating it if it does not already exist
      */
+    public Reference getRecipientFirstRep() { 
+      if (getRecipient().isEmpty()) {
+        addRecipient();
+      }
+      return getRecipient().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getRecipientTarget() { 
       if (this.recipientTarget == null)
         this.recipientTarget = new ArrayList<Resource>();
@@ -711,6 +737,14 @@ public class DocumentManifest extends DomainResource {
       return this.author;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DocumentManifest setAuthor(List<Reference> theAuthor) { 
+      this.author = theAuthor;
+      return this;
+    }
+
     public boolean hasAuthor() { 
       if (this.author == null)
         return false;
@@ -720,10 +754,6 @@ public class DocumentManifest extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #author} (Identifies who is responsible for creating the manifest, and adding  documents to it.)
-     */
-    // syntactic sugar
     public Reference addAuthor() { //3
       Reference t = new Reference();
       if (this.author == null)
@@ -732,7 +762,6 @@ public class DocumentManifest extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DocumentManifest addAuthor(Reference t) { //3
       if (t == null)
         return this;
@@ -743,8 +772,19 @@ public class DocumentManifest extends DomainResource {
     }
 
     /**
-     * @return {@link #author} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies who is responsible for creating the manifest, and adding  documents to it.)
+     * @return The first repetition of repeating field {@link #author}, creating it if it does not already exist
      */
+    public Reference getAuthorFirstRep() { 
+      if (getAuthor().isEmpty()) {
+        addAuthor();
+      }
+      return getAuthor().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getAuthorTarget() { 
       if (this.authorTarget == null)
         this.authorTarget = new ArrayList<Resource>();
@@ -952,6 +992,14 @@ public class DocumentManifest extends DomainResource {
       return this.content;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DocumentManifest setContent(List<DocumentManifestContentComponent> theContent) { 
+      this.content = theContent;
+      return this;
+    }
+
     public boolean hasContent() { 
       if (this.content == null)
         return false;
@@ -961,10 +1009,6 @@ public class DocumentManifest extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #content} (The list of Documents included in the manifest.)
-     */
-    // syntactic sugar
     public DocumentManifestContentComponent addContent() { //3
       DocumentManifestContentComponent t = new DocumentManifestContentComponent();
       if (this.content == null)
@@ -973,7 +1017,6 @@ public class DocumentManifest extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DocumentManifest addContent(DocumentManifestContentComponent t) { //3
       if (t == null)
         return this;
@@ -981,6 +1024,16 @@ public class DocumentManifest extends DomainResource {
         this.content = new ArrayList<DocumentManifestContentComponent>();
       this.content.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #content}, creating it if it does not already exist
+     */
+    public DocumentManifestContentComponent getContentFirstRep() { 
+      if (getContent().isEmpty()) {
+        addContent();
+      }
+      return getContent().get(0);
     }
 
     /**
@@ -992,6 +1045,14 @@ public class DocumentManifest extends DomainResource {
       return this.related;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DocumentManifest setRelated(List<DocumentManifestRelatedComponent> theRelated) { 
+      this.related = theRelated;
+      return this;
+    }
+
     public boolean hasRelated() { 
       if (this.related == null)
         return false;
@@ -1001,10 +1062,6 @@ public class DocumentManifest extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #related} (Related identifiers or resources associated with the DocumentManifest.)
-     */
-    // syntactic sugar
     public DocumentManifestRelatedComponent addRelated() { //3
       DocumentManifestRelatedComponent t = new DocumentManifestRelatedComponent();
       if (this.related == null)
@@ -1013,7 +1070,6 @@ public class DocumentManifest extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public DocumentManifest addRelated(DocumentManifestRelatedComponent t) { //3
       if (t == null)
         return this;
@@ -1021,6 +1077,16 @@ public class DocumentManifest extends DomainResource {
         this.related = new ArrayList<DocumentManifestRelatedComponent>();
       this.related.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #related}, creating it if it does not already exist
+     */
+    public DocumentManifestRelatedComponent getRelatedFirstRep() { 
+      if (getRelated().isEmpty()) {
+        addRelated();
+      }
+      return getRelated().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1271,11 +1337,9 @@ public class DocumentManifest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (masterIdentifier == null || masterIdentifier.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (subject == null || subject.isEmpty()) && (recipient == null || recipient.isEmpty()) && (type == null || type.isEmpty())
-           && (author == null || author.isEmpty()) && (created == null || created.isEmpty()) && (source == null || source.isEmpty())
-           && (status == null || status.isEmpty()) && (description == null || description.isEmpty())
-           && (content == null || content.isEmpty()) && (related == null || related.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(masterIdentifier, identifier
+          , subject, recipient, type, author, created, source, status, description, content
+          , related);
       }
 
   @Override
@@ -1284,30 +1348,24 @@ public class DocumentManifest extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>related-ref</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Related Resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentManifest.related.ref</b><br>
+   * Description: <b>Unique Identifier for the set of documents</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentManifest.masterIdentifier, DocumentManifest.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="related-ref", path="DocumentManifest.related.ref", description="Related Resource", type="reference" )
-  public static final String SP_RELATED_REF = "related-ref";
+  @SearchParamDefinition(name="identifier", path="DocumentManifest.masterIdentifier | DocumentManifest.identifier", description="Unique Identifier for the set of documents", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>related-ref</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Related Resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentManifest.related.ref</b><br>
+   * Description: <b>Unique Identifier for the set of documents</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentManifest.masterIdentifier, DocumentManifest.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RELATED_REF = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RELATED_REF);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DocumentManifest:related-ref</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_RELATED_REF = new ca.uhn.fhir.model.api.Include("DocumentManifest:related-ref").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>related-id</b>
@@ -1356,26 +1414,6 @@ public class DocumentManifest extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTENT_REF = new ca.uhn.fhir.model.api.Include("DocumentManifest:content-ref").toLocked();
 
  /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>current | superseded | entered-in-error</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentManifest.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superseded | entered-in-error", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>current | superseded | entered-in-error</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentManifest.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
    * Search parameter: <b>subject</b>
    * <p>
    * Description: <b>The subject of the set of documents</b><br>
@@ -1402,52 +1440,6 @@ public class DocumentManifest extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("DocumentManifest:subject").toLocked();
 
  /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>Kind of document set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentManifest.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="DocumentManifest.type", description="Kind of document set", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>Kind of document set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentManifest.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>recipient</b>
-   * <p>
-   * Description: <b>Intended to get notified about this set of documents</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentManifest.recipient</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="recipient", path="DocumentManifest.recipient", description="Intended to get notified about this set of documents", type="reference" )
-  public static final String SP_RECIPIENT = "recipient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>recipient</b>
-   * <p>
-   * Description: <b>Intended to get notified about this set of documents</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentManifest.recipient</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RECIPIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RECIPIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DocumentManifest:recipient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_RECIPIENT = new ca.uhn.fhir.model.api.Include("DocumentManifest:recipient").toLocked();
-
- /**
    * Search parameter: <b>author</b>
    * <p>
    * Description: <b>Who and/or what authored the manifest</b><br>
@@ -1472,52 +1464,6 @@ public class DocumentManifest extends DomainResource {
    * the path value of "<b>DocumentManifest:author</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("DocumentManifest:author").toLocked();
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>The subject of the set of documents</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentManifest.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>The subject of the set of documents</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DocumentManifest.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DocumentManifest:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("DocumentManifest:patient").toLocked();
-
- /**
-   * Search parameter: <b>source</b>
-   * <p>
-   * Description: <b>The source system/application/software</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>DocumentManifest.source</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="source", path="DocumentManifest.source", description="The source system/application/software", type="uri" )
-  public static final String SP_SOURCE = "source";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>source</b>
-   * <p>
-   * Description: <b>The source system/application/software</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>DocumentManifest.source</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam SOURCE = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SOURCE);
 
  /**
    * Search parameter: <b>created</b>
@@ -1560,24 +1506,142 @@ public class DocumentManifest extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>source</b>
    * <p>
-   * Description: <b>Unique Identifier for the set of documents</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentManifest.masterIdentifier, DocumentManifest.identifier</b><br>
+   * Description: <b>The source system/application/software</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>DocumentManifest.source</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="DocumentManifest.masterIdentifier | DocumentManifest.identifier", description="Unique Identifier for the set of documents", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="source", path="DocumentManifest.source", description="The source system/application/software", type="uri" )
+  public static final String SP_SOURCE = "source";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>source</b>
    * <p>
-   * Description: <b>Unique Identifier for the set of documents</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>DocumentManifest.masterIdentifier, DocumentManifest.identifier</b><br>
+   * Description: <b>The source system/application/software</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>DocumentManifest.source</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam SOURCE = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SOURCE);
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>Kind of document set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentManifest.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="DocumentManifest.type", description="Kind of document set", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>Kind of document set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentManifest.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>related-ref</b>
+   * <p>
+   * Description: <b>Related Resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentManifest.related.ref</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="related-ref", path="DocumentManifest.related.ref", description="Related Resource", type="reference" )
+  public static final String SP_RELATED_REF = "related-ref";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>related-ref</b>
+   * <p>
+   * Description: <b>Related Resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentManifest.related.ref</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RELATED_REF = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RELATED_REF);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DocumentManifest:related-ref</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_RELATED_REF = new ca.uhn.fhir.model.api.Include("DocumentManifest:related-ref").toLocked();
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>The subject of the set of documents</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentManifest.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>The subject of the set of documents</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentManifest.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DocumentManifest:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("DocumentManifest:patient").toLocked();
+
+ /**
+   * Search parameter: <b>recipient</b>
+   * <p>
+   * Description: <b>Intended to get notified about this set of documents</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentManifest.recipient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="recipient", path="DocumentManifest.recipient", description="Intended to get notified about this set of documents", type="reference" )
+  public static final String SP_RECIPIENT = "recipient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>recipient</b>
+   * <p>
+   * Description: <b>Intended to get notified about this set of documents</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DocumentManifest.recipient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RECIPIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RECIPIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DocumentManifest:recipient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_RECIPIENT = new ca.uhn.fhir.model.api.Include("DocumentManifest:recipient").toLocked();
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>current | superseded | entered-in-error</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentManifest.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superseded | entered-in-error", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>current | superseded | entered-in-error</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DocumentManifest.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

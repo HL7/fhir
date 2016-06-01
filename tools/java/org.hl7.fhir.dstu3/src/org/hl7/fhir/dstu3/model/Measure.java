@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -736,6 +736,14 @@ public class Measure extends DomainResource {
           return this.population;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public MeasureGroupComponent setPopulation(List<MeasureGroupPopulationComponent> thePopulation) { 
+          this.population = thePopulation;
+          return this;
+        }
+
         public boolean hasPopulation() { 
           if (this.population == null)
             return false;
@@ -745,10 +753,6 @@ public class Measure extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #population} (A population criteria for the measure.)
-         */
-    // syntactic sugar
         public MeasureGroupPopulationComponent addPopulation() { //3
           MeasureGroupPopulationComponent t = new MeasureGroupPopulationComponent();
           if (this.population == null)
@@ -757,7 +761,6 @@ public class Measure extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public MeasureGroupComponent addPopulation(MeasureGroupPopulationComponent t) { //3
           if (t == null)
             return this;
@@ -765,6 +768,16 @@ public class Measure extends DomainResource {
             this.population = new ArrayList<MeasureGroupPopulationComponent>();
           this.population.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #population}, creating it if it does not already exist
+         */
+        public MeasureGroupPopulationComponent getPopulationFirstRep() { 
+          if (getPopulation().isEmpty()) {
+            addPopulation();
+          }
+          return getPopulation().get(0);
         }
 
         /**
@@ -776,6 +789,14 @@ public class Measure extends DomainResource {
           return this.stratifier;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public MeasureGroupComponent setStratifier(List<MeasureGroupStratifierComponent> theStratifier) { 
+          this.stratifier = theStratifier;
+          return this;
+        }
+
         public boolean hasStratifier() { 
           if (this.stratifier == null)
             return false;
@@ -785,10 +806,6 @@ public class Measure extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #stratifier} (The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library, or a valid FHIR Resource Path.)
-         */
-    // syntactic sugar
         public MeasureGroupStratifierComponent addStratifier() { //3
           MeasureGroupStratifierComponent t = new MeasureGroupStratifierComponent();
           if (this.stratifier == null)
@@ -797,7 +814,6 @@ public class Measure extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public MeasureGroupComponent addStratifier(MeasureGroupStratifierComponent t) { //3
           if (t == null)
             return this;
@@ -805,6 +821,16 @@ public class Measure extends DomainResource {
             this.stratifier = new ArrayList<MeasureGroupStratifierComponent>();
           this.stratifier.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #stratifier}, creating it if it does not already exist
+         */
+        public MeasureGroupStratifierComponent getStratifierFirstRep() { 
+          if (getStratifier().isEmpty()) {
+            addStratifier();
+          }
+          return getStratifier().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -944,9 +970,8 @@ public class Measure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (name == null || name.isEmpty())
-           && (description == null || description.isEmpty()) && (population == null || population.isEmpty())
-           && (stratifier == null || stratifier.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, name, description
+          , population, stratifier);
       }
 
   public String fhirType() {
@@ -1354,9 +1379,8 @@ public class Measure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (name == null || name.isEmpty()) && (description == null || description.isEmpty()) && (criteria == null || criteria.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, identifier, name, description
+          , criteria);
       }
 
   public String fhirType() {
@@ -1633,8 +1657,8 @@ public class Measure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (criteria == null || criteria.isEmpty())
-           && (path == null || path.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, criteria, path
+          );
       }
 
   public String fhirType() {
@@ -1724,6 +1748,14 @@ public class Measure extends DomainResource {
           return this.usage;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public MeasureSupplementalDataComponent setUsage(List<Enumeration<MeasureDataUsage>> theUsage) { 
+          this.usage = theUsage;
+          return this;
+        }
+
         public boolean hasUsage() { 
           if (this.usage == null)
             return false;
@@ -1736,7 +1768,6 @@ public class Measure extends DomainResource {
         /**
          * @return {@link #usage} (An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation.)
          */
-    // syntactic sugar
         public Enumeration<MeasureDataUsage> addUsageElement() {//2 
           Enumeration<MeasureDataUsage> t = new Enumeration<MeasureDataUsage>(new MeasureDataUsageEnumFactory());
           if (this.usage == null)
@@ -1989,8 +2020,8 @@ public class Measure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (usage == null || usage.isEmpty())
-           && (criteria == null || criteria.isEmpty()) && (path == null || path.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, usage, criteria
+          , path);
       }
 
   public String fhirType() {
@@ -2152,6 +2183,14 @@ public class Measure extends DomainResource {
       return this.library;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Measure setLibrary(List<Reference> theLibrary) { 
+      this.library = theLibrary;
+      return this;
+    }
+
     public boolean hasLibrary() { 
       if (this.library == null)
         return false;
@@ -2161,10 +2200,6 @@ public class Measure extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #library} (A reference to a Library resource containing the formal logic used by the measure.)
-     */
-    // syntactic sugar
     public Reference addLibrary() { //3
       Reference t = new Reference();
       if (this.library == null)
@@ -2173,7 +2208,6 @@ public class Measure extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Measure addLibrary(Reference t) { //3
       if (t == null)
         return this;
@@ -2184,18 +2218,29 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return {@link #library} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A reference to a Library resource containing the formal logic used by the measure.)
+     * @return The first repetition of repeating field {@link #library}, creating it if it does not already exist
      */
+    public Reference getLibraryFirstRep() { 
+      if (getLibrary().isEmpty()) {
+        addLibrary();
+      }
+      return getLibrary().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Library> getLibraryTarget() { 
       if (this.libraryTarget == null)
         this.libraryTarget = new ArrayList<Library>();
       return this.libraryTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #library} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A reference to a Library resource containing the formal logic used by the measure.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Library addLibraryTarget() { 
       Library r = new Library();
       if (this.libraryTarget == null)
@@ -2311,6 +2356,14 @@ public class Measure extends DomainResource {
       return this.type;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Measure setType(List<Enumeration<MeasureType>> theType) { 
+      this.type = theType;
+      return this;
+    }
+
     public boolean hasType() { 
       if (this.type == null)
         return false;
@@ -2323,7 +2376,6 @@ public class Measure extends DomainResource {
     /**
      * @return {@link #type} (The measure type, e.g. process, outcome.)
      */
-    // syntactic sugar
     public Enumeration<MeasureType> addTypeElement() {//2 
       Enumeration<MeasureType> t = new Enumeration<MeasureType>(new MeasureTypeEnumFactory());
       if (this.type == null)
@@ -2757,6 +2809,14 @@ public class Measure extends DomainResource {
       return this.group;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Measure setGroup(List<MeasureGroupComponent> theGroup) { 
+      this.group = theGroup;
+      return this;
+    }
+
     public boolean hasGroup() { 
       if (this.group == null)
         return false;
@@ -2766,10 +2826,6 @@ public class Measure extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #group} (A group of population criteria for the measure.)
-     */
-    // syntactic sugar
     public MeasureGroupComponent addGroup() { //3
       MeasureGroupComponent t = new MeasureGroupComponent();
       if (this.group == null)
@@ -2778,7 +2834,6 @@ public class Measure extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Measure addGroup(MeasureGroupComponent t) { //3
       if (t == null)
         return this;
@@ -2786,6 +2841,16 @@ public class Measure extends DomainResource {
         this.group = new ArrayList<MeasureGroupComponent>();
       this.group.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #group}, creating it if it does not already exist
+     */
+    public MeasureGroupComponent getGroupFirstRep() { 
+      if (getGroup().isEmpty()) {
+        addGroup();
+      }
+      return getGroup().get(0);
     }
 
     /**
@@ -2797,6 +2862,14 @@ public class Measure extends DomainResource {
       return this.supplementalData;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Measure setSupplementalData(List<MeasureSupplementalDataComponent> theSupplementalData) { 
+      this.supplementalData = theSupplementalData;
+      return this;
+    }
+
     public boolean hasSupplementalData() { 
       if (this.supplementalData == null)
         return false;
@@ -2806,10 +2879,6 @@ public class Measure extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #supplementalData} (The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path.)
-     */
-    // syntactic sugar
     public MeasureSupplementalDataComponent addSupplementalData() { //3
       MeasureSupplementalDataComponent t = new MeasureSupplementalDataComponent();
       if (this.supplementalData == null)
@@ -2818,7 +2887,6 @@ public class Measure extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Measure addSupplementalData(MeasureSupplementalDataComponent t) { //3
       if (t == null)
         return this;
@@ -2826,6 +2894,16 @@ public class Measure extends DomainResource {
         this.supplementalData = new ArrayList<MeasureSupplementalDataComponent>();
       this.supplementalData.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #supplementalData}, creating it if it does not already exist
+     */
+    public MeasureSupplementalDataComponent getSupplementalDataFirstRep() { 
+      if (getSupplementalData().isEmpty()) {
+        addSupplementalData();
+      }
+      return getSupplementalData().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -3111,100 +3189,15 @@ public class Measure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (moduleMetadata == null || moduleMetadata.isEmpty()) && (library == null || library.isEmpty())
-           && (disclaimer == null || disclaimer.isEmpty()) && (scoring == null || scoring.isEmpty())
-           && (type == null || type.isEmpty()) && (riskAdjustment == null || riskAdjustment.isEmpty())
-           && (rateAggregation == null || rateAggregation.isEmpty()) && (rationale == null || rationale.isEmpty())
-           && (clinicalRecommendationStatement == null || clinicalRecommendationStatement.isEmpty())
-           && (improvementNotation == null || improvementNotation.isEmpty()) && (definition == null || definition.isEmpty())
-           && (guidance == null || guidance.isEmpty()) && (set == null || set.isEmpty()) && (group == null || group.isEmpty())
-           && (supplementalData == null || supplementalData.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(moduleMetadata, library, disclaimer
+          , scoring, type, riskAdjustment, rateAggregation, rationale, clinicalRecommendationStatement
+          , improvementNotation, definition, guidance, set, group, supplementalData);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Measure;
    }
-
- /**
-   * Search parameter: <b>topic</b>
-   * <p>
-   * Description: <b>Topics associated with the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Measure.moduleMetadata.topic</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="topic", path="Measure.moduleMetadata.topic", description="Topics associated with the module", type="token" )
-  public static final String SP_TOPIC = "topic";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
-   * <p>
-   * Description: <b>Topics associated with the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Measure.moduleMetadata.topic</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
-
- /**
-   * Search parameter: <b>title</b>
-   * <p>
-   * Description: <b>Text search against the title</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Measure.moduleMetadata.title</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="title", path="Measure.moduleMetadata.title", description="Text search against the title", type="string" )
-  public static final String SP_TITLE = "title";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>title</b>
-   * <p>
-   * Description: <b>Text search against the title</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Measure.moduleMetadata.title</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>Status of the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Measure.moduleMetadata.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="Measure.moduleMetadata.status", description="Status of the module", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>Status of the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Measure.moduleMetadata.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Text search against the description</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Measure.moduleMetadata.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="Measure.moduleMetadata.description", description="Text search against the description", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Text search against the description</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Measure.moduleMetadata.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
    * Search parameter: <b>identifier</b>
@@ -3227,6 +3220,66 @@ public class Measure extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
+   * Search parameter: <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.moduleMetadata.topic</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="topic", path="Measure.moduleMetadata.topic", description="Topics associated with the module", type="token" )
+  public static final String SP_TOPIC = "topic";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.moduleMetadata.topic</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
+
+ /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Text search against the description</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.moduleMetadata.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="Measure.moduleMetadata.description", description="Text search against the description", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Text search against the description</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.moduleMetadata.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.moduleMetadata.title</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="title", path="Measure.moduleMetadata.title", description="Text search against the title", type="string" )
+  public static final String SP_TITLE = "title";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.moduleMetadata.title</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
+
+ /**
    * Search parameter: <b>version</b>
    * <p>
    * Description: <b>Version of the module (e.g. 1.0.0)</b><br>
@@ -3245,6 +3298,26 @@ public class Measure extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam VERSION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_VERSION);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>Status of the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.moduleMetadata.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="Measure.moduleMetadata.status", description="Status of the module", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>Status of the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.moduleMetadata.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

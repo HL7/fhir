@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -439,8 +439,8 @@ public class MessageHeader extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (code == null || code.isEmpty())
-           && (details == null || details.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, code, details
+          );
       }
 
   public String fhirType() {
@@ -850,9 +850,8 @@ public class MessageHeader extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (software == null || software.isEmpty())
-           && (version == null || version.isEmpty()) && (contact == null || contact.isEmpty()) && (endpoint == null || endpoint.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, software, version
+          , contact, endpoint);
       }
 
   public String fhirType() {
@@ -1150,8 +1149,7 @@ public class MessageHeader extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (target == null || target.isEmpty())
-           && (endpoint == null || endpoint.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, target, endpoint);
       }
 
   public String fhirType() {
@@ -1408,6 +1406,14 @@ public class MessageHeader extends DomainResource {
       return this.destination;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MessageHeader setDestination(List<MessageDestinationComponent> theDestination) { 
+      this.destination = theDestination;
+      return this;
+    }
+
     public boolean hasDestination() { 
       if (this.destination == null)
         return false;
@@ -1417,10 +1423,6 @@ public class MessageHeader extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #destination} (The destination application which the message is intended for.)
-     */
-    // syntactic sugar
     public MessageDestinationComponent addDestination() { //3
       MessageDestinationComponent t = new MessageDestinationComponent();
       if (this.destination == null)
@@ -1429,7 +1431,6 @@ public class MessageHeader extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public MessageHeader addDestination(MessageDestinationComponent t) { //3
       if (t == null)
         return this;
@@ -1437,6 +1438,16 @@ public class MessageHeader extends DomainResource {
         this.destination = new ArrayList<MessageDestinationComponent>();
       this.destination.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #destination}, creating it if it does not already exist
+     */
+    public MessageDestinationComponent getDestinationFirstRep() { 
+      if (getDestination().isEmpty()) {
+        addDestination();
+      }
+      return getDestination().get(0);
     }
 
     /**
@@ -1638,6 +1649,14 @@ public class MessageHeader extends DomainResource {
       return this.data;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MessageHeader setData(List<Reference> theData) { 
+      this.data = theData;
+      return this;
+    }
+
     public boolean hasData() { 
       if (this.data == null)
         return false;
@@ -1647,10 +1666,6 @@ public class MessageHeader extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #data} (The actual data of the message - a reference to the root/focus class of the event.)
-     */
-    // syntactic sugar
     public Reference addData() { //3
       Reference t = new Reference();
       if (this.data == null)
@@ -1659,7 +1674,6 @@ public class MessageHeader extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public MessageHeader addData(Reference t) { //3
       if (t == null)
         return this;
@@ -1670,8 +1684,19 @@ public class MessageHeader extends DomainResource {
     }
 
     /**
-     * @return {@link #data} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The actual data of the message - a reference to the root/focus class of the event.)
+     * @return The first repetition of repeating field {@link #data}, creating it if it does not already exist
      */
+    public Reference getDataFirstRep() { 
+      if (getData().isEmpty()) {
+        addData();
+      }
+      return getData().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getDataTarget() { 
       if (this.dataTarget == null)
         this.dataTarget = new ArrayList<Resource>();
@@ -1905,11 +1930,9 @@ public class MessageHeader extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (timestamp == null || timestamp.isEmpty()) && (event == null || event.isEmpty())
-           && (response == null || response.isEmpty()) && (source == null || source.isEmpty()) && (destination == null || destination.isEmpty())
-           && (enterer == null || enterer.isEmpty()) && (author == null || author.isEmpty()) && (receiver == null || receiver.isEmpty())
-           && (responsible == null || responsible.isEmpty()) && (reason == null || reason.isEmpty())
-           && (data == null || data.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(timestamp, event, response
+          , source, destination, enterer, author, receiver, responsible, reason, data
+          );
       }
 
   @Override
@@ -1918,76 +1941,24 @@ public class MessageHeader extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>destination-uri</b>
+   * Search parameter: <b>code</b>
    * <p>
-   * Description: <b>Actual destination address or id</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>MessageHeader.destination.endpoint</b><br>
+   * Description: <b>ok | transient-error | fatal-error</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MessageHeader.response.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="destination-uri", path="MessageHeader.destination.endpoint", description="Actual destination address or id", type="uri" )
-  public static final String SP_DESTINATION_URI = "destination-uri";
+  @SearchParamDefinition(name="code", path="MessageHeader.response.code", description="ok | transient-error | fatal-error", type="token" )
+  public static final String SP_CODE = "code";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>destination-uri</b>
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
-   * Description: <b>Actual destination address or id</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>MessageHeader.destination.endpoint</b><br>
+   * Description: <b>ok | transient-error | fatal-error</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MessageHeader.response.code</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam DESTINATION_URI = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DESTINATION_URI);
-
- /**
-   * Search parameter: <b>receiver</b>
-   * <p>
-   * Description: <b>Intended "real-world" recipient for the data</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MessageHeader.receiver</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="receiver", path="MessageHeader.receiver", description="Intended \"real-world\" recipient for the data", type="reference" )
-  public static final String SP_RECEIVER = "receiver";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>receiver</b>
-   * <p>
-   * Description: <b>Intended "real-world" recipient for the data</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MessageHeader.receiver</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RECEIVER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RECEIVER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MessageHeader:receiver</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_RECEIVER = new ca.uhn.fhir.model.api.Include("MessageHeader:receiver").toLocked();
-
- /**
-   * Search parameter: <b>responsible</b>
-   * <p>
-   * Description: <b>Final responsibility for event</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MessageHeader.responsible</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="responsible", path="MessageHeader.responsible", description="Final responsibility for event", type="reference" )
-  public static final String SP_RESPONSIBLE = "responsible";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>responsible</b>
-   * <p>
-   * Description: <b>Final responsibility for event</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MessageHeader.responsible</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RESPONSIBLE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RESPONSIBLE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MessageHeader:responsible</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_RESPONSIBLE = new ca.uhn.fhir.model.api.Include("MessageHeader:responsible").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
    * Search parameter: <b>data</b>
@@ -2016,84 +1987,30 @@ public class MessageHeader extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_DATA = new ca.uhn.fhir.model.api.Include("MessageHeader:data").toLocked();
 
  /**
-   * Search parameter: <b>code</b>
+   * Search parameter: <b>receiver</b>
    * <p>
-   * Description: <b>ok | transient-error | fatal-error</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MessageHeader.response.code</b><br>
+   * Description: <b>Intended "real-world" recipient for the data</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MessageHeader.receiver</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="MessageHeader.response.code", description="ok | transient-error | fatal-error", type="token" )
-  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="receiver", path="MessageHeader.receiver", description="Intended \"real-world\" recipient for the data", type="reference" )
+  public static final String SP_RECEIVER = "receiver";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <b>Fluent Client</b> search parameter constant for <b>receiver</b>
    * <p>
-   * Description: <b>ok | transient-error | fatal-error</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MessageHeader.response.code</b><br>
+   * Description: <b>Intended "real-world" recipient for the data</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MessageHeader.receiver</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RECEIVER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RECEIVER);
 
- /**
-   * Search parameter: <b>response-id</b>
-   * <p>
-   * Description: <b>Id of original message</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MessageHeader.response.identifier</b><br>
-   * </p>
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MessageHeader:receiver</b>".
    */
-  @SearchParamDefinition(name="response-id", path="MessageHeader.response.identifier", description="Id of original message", type="token" )
-  public static final String SP_RESPONSE_ID = "response-id";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>response-id</b>
-   * <p>
-   * Description: <b>Id of original message</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MessageHeader.response.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RESPONSE_ID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RESPONSE_ID);
-
- /**
-   * Search parameter: <b>destination</b>
-   * <p>
-   * Description: <b>Name of system</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>MessageHeader.destination.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="destination", path="MessageHeader.destination.name", description="Name of system", type="string" )
-  public static final String SP_DESTINATION = "destination";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>destination</b>
-   * <p>
-   * Description: <b>Name of system</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>MessageHeader.destination.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESTINATION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESTINATION);
-
- /**
-   * Search parameter: <b>timestamp</b>
-   * <p>
-   * Description: <b>Time that the message was sent</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>MessageHeader.timestamp</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="timestamp", path="MessageHeader.timestamp", description="Time that the message was sent", type="date" )
-  public static final String SP_TIMESTAMP = "timestamp";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>timestamp</b>
-   * <p>
-   * Description: <b>Time that the message was sent</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>MessageHeader.timestamp</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam TIMESTAMP = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_TIMESTAMP);
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_RECEIVER = new ca.uhn.fhir.model.api.Include("MessageHeader:receiver").toLocked();
 
  /**
    * Search parameter: <b>author</b>
@@ -2122,24 +2039,24 @@ public class MessageHeader extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("MessageHeader:author").toLocked();
 
  /**
-   * Search parameter: <b>source-uri</b>
+   * Search parameter: <b>destination</b>
    * <p>
-   * Description: <b>Actual message source address or id</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>MessageHeader.source.endpoint</b><br>
+   * Description: <b>Name of system</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>MessageHeader.destination.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="source-uri", path="MessageHeader.source.endpoint", description="Actual message source address or id", type="uri" )
-  public static final String SP_SOURCE_URI = "source-uri";
+  @SearchParamDefinition(name="destination", path="MessageHeader.destination.name", description="Name of system", type="string" )
+  public static final String SP_DESTINATION = "destination";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>source-uri</b>
+   * <b>Fluent Client</b> search parameter constant for <b>destination</b>
    * <p>
-   * Description: <b>Actual message source address or id</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>MessageHeader.source.endpoint</b><br>
+   * Description: <b>Name of system</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>MessageHeader.destination.name</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam SOURCE_URI = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SOURCE_URI);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESTINATION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESTINATION);
 
  /**
    * Search parameter: <b>source</b>
@@ -2160,6 +2077,118 @@ public class MessageHeader extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam SOURCE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_SOURCE);
+
+ /**
+   * Search parameter: <b>target</b>
+   * <p>
+   * Description: <b>Particular delivery destination within the destination</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MessageHeader.destination.target</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="target", path="MessageHeader.destination.target", description="Particular delivery destination within the destination", type="reference" )
+  public static final String SP_TARGET = "target";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>target</b>
+   * <p>
+   * Description: <b>Particular delivery destination within the destination</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MessageHeader.destination.target</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TARGET = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TARGET);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MessageHeader:target</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_TARGET = new ca.uhn.fhir.model.api.Include("MessageHeader:target").toLocked();
+
+ /**
+   * Search parameter: <b>destination-uri</b>
+   * <p>
+   * Description: <b>Actual destination address or id</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>MessageHeader.destination.endpoint</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="destination-uri", path="MessageHeader.destination.endpoint", description="Actual destination address or id", type="uri" )
+  public static final String SP_DESTINATION_URI = "destination-uri";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>destination-uri</b>
+   * <p>
+   * Description: <b>Actual destination address or id</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>MessageHeader.destination.endpoint</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam DESTINATION_URI = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DESTINATION_URI);
+
+ /**
+   * Search parameter: <b>source-uri</b>
+   * <p>
+   * Description: <b>Actual message source address or id</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>MessageHeader.source.endpoint</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="source-uri", path="MessageHeader.source.endpoint", description="Actual message source address or id", type="uri" )
+  public static final String SP_SOURCE_URI = "source-uri";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>source-uri</b>
+   * <p>
+   * Description: <b>Actual message source address or id</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>MessageHeader.source.endpoint</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam SOURCE_URI = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SOURCE_URI);
+
+ /**
+   * Search parameter: <b>responsible</b>
+   * <p>
+   * Description: <b>Final responsibility for event</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MessageHeader.responsible</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="responsible", path="MessageHeader.responsible", description="Final responsibility for event", type="reference" )
+  public static final String SP_RESPONSIBLE = "responsible";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>responsible</b>
+   * <p>
+   * Description: <b>Final responsibility for event</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MessageHeader.responsible</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RESPONSIBLE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RESPONSIBLE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MessageHeader:responsible</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_RESPONSIBLE = new ca.uhn.fhir.model.api.Include("MessageHeader:responsible").toLocked();
+
+ /**
+   * Search parameter: <b>response-id</b>
+   * <p>
+   * Description: <b>Id of original message</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MessageHeader.response.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="response-id", path="MessageHeader.response.identifier", description="Id of original message", type="token" )
+  public static final String SP_RESPONSE_ID = "response-id";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>response-id</b>
+   * <p>
+   * Description: <b>Id of original message</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MessageHeader.response.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RESPONSE_ID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RESPONSE_ID);
 
  /**
    * Search parameter: <b>enterer</b>
@@ -2208,30 +2237,24 @@ public class MessageHeader extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam EVENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EVENT);
 
  /**
-   * Search parameter: <b>target</b>
+   * Search parameter: <b>timestamp</b>
    * <p>
-   * Description: <b>Particular delivery destination within the destination</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MessageHeader.destination.target</b><br>
+   * Description: <b>Time that the message was sent</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>MessageHeader.timestamp</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="target", path="MessageHeader.destination.target", description="Particular delivery destination within the destination", type="reference" )
-  public static final String SP_TARGET = "target";
+  @SearchParamDefinition(name="timestamp", path="MessageHeader.timestamp", description="Time that the message was sent", type="date" )
+  public static final String SP_TIMESTAMP = "timestamp";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>target</b>
+   * <b>Fluent Client</b> search parameter constant for <b>timestamp</b>
    * <p>
-   * Description: <b>Particular delivery destination within the destination</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MessageHeader.destination.target</b><br>
+   * Description: <b>Time that the message was sent</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>MessageHeader.timestamp</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TARGET = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TARGET);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MessageHeader:target</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_TARGET = new ca.uhn.fhir.model.api.Include("MessageHeader:target").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam TIMESTAMP = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_TIMESTAMP);
 
 
 }

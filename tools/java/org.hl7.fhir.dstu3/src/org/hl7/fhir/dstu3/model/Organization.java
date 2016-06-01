@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -143,6 +143,14 @@ public class Organization extends DomainResource {
           return this.telecom;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public OrganizationContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+          this.telecom = theTelecom;
+          return this;
+        }
+
         public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
@@ -152,10 +160,6 @@ public class Organization extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.)
-         */
-    // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           if (this.telecom == null)
@@ -164,7 +168,6 @@ public class Organization extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public OrganizationContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
@@ -172,6 +175,16 @@ public class Organization extends DomainResource {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+         */
+        public ContactPoint getTelecomFirstRep() { 
+          if (getTelecom().isEmpty()) {
+            addTelecom();
+          }
+          return getTelecom().get(0);
         }
 
         /**
@@ -321,8 +334,8 @@ public class Organization extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (purpose == null || purpose.isEmpty()) && (name == null || name.isEmpty())
-           && (telecom == null || telecom.isEmpty()) && (address == null || address.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(purpose, name, telecom, address
+          );
       }
 
   public String fhirType() {
@@ -411,6 +424,14 @@ public class Organization extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Organization setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -420,10 +441,6 @@ public class Organization extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Identifier for the organization that is used to identify the organization across multiple disparate systems.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -432,7 +449,6 @@ public class Organization extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Organization addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -440,6 +456,16 @@ public class Organization extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -569,6 +595,14 @@ public class Organization extends DomainResource {
       return this.telecom;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Organization setTelecom(List<ContactPoint> theTelecom) { 
+      this.telecom = theTelecom;
+      return this;
+    }
+
     public boolean hasTelecom() { 
       if (this.telecom == null)
         return false;
@@ -578,10 +612,6 @@ public class Organization extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #telecom} (A contact detail for the organization.)
-     */
-    // syntactic sugar
     public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       if (this.telecom == null)
@@ -590,7 +620,6 @@ public class Organization extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Organization addTelecom(ContactPoint t) { //3
       if (t == null)
         return this;
@@ -598,6 +627,16 @@ public class Organization extends DomainResource {
         this.telecom = new ArrayList<ContactPoint>();
       this.telecom.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+     */
+    public ContactPoint getTelecomFirstRep() { 
+      if (getTelecom().isEmpty()) {
+        addTelecom();
+      }
+      return getTelecom().get(0);
     }
 
     /**
@@ -609,6 +648,14 @@ public class Organization extends DomainResource {
       return this.address;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Organization setAddress(List<Address> theAddress) { 
+      this.address = theAddress;
+      return this;
+    }
+
     public boolean hasAddress() { 
       if (this.address == null)
         return false;
@@ -618,10 +665,6 @@ public class Organization extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #address} (An address for the organization.)
-     */
-    // syntactic sugar
     public Address addAddress() { //3
       Address t = new Address();
       if (this.address == null)
@@ -630,7 +673,6 @@ public class Organization extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Organization addAddress(Address t) { //3
       if (t == null)
         return this;
@@ -638,6 +680,16 @@ public class Organization extends DomainResource {
         this.address = new ArrayList<Address>();
       this.address.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #address}, creating it if it does not already exist
+     */
+    public Address getAddressFirstRep() { 
+      if (getAddress().isEmpty()) {
+        addAddress();
+      }
+      return getAddress().get(0);
     }
 
     /**
@@ -693,6 +745,14 @@ public class Organization extends DomainResource {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Organization setContact(List<OrganizationContactComponent> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -702,10 +762,6 @@ public class Organization extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contact for the organization for a certain purpose.)
-     */
-    // syntactic sugar
     public OrganizationContactComponent addContact() { //3
       OrganizationContactComponent t = new OrganizationContactComponent();
       if (this.contact == null)
@@ -714,7 +770,6 @@ public class Organization extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Organization addContact(OrganizationContactComponent t) { //3
       if (t == null)
         return this;
@@ -722,6 +777,16 @@ public class Organization extends DomainResource {
         this.contact = new ArrayList<OrganizationContactComponent>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public OrganizationContactComponent getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -916,10 +981,8 @@ public class Organization extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (active == null || active.isEmpty())
-           && (type == null || type.isEmpty()) && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
-           && (address == null || address.isEmpty()) && (partOf == null || partOf.isEmpty()) && (contact == null || contact.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, type
+          , name, telecom, address, partOf, contact);
       }
 
   @Override
@@ -928,64 +991,24 @@ public class Organization extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>address-state</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>A state specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Organization.address.state</b><br>
+   * Description: <b>Any identifier for the organization (not the accreditation issuer's identifier)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Organization.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address-state", path="Organization.address.state", description="A state specified in an address", type="string" )
-  public static final String SP_ADDRESS_STATE = "address-state";
+  @SearchParamDefinition(name="identifier", path="Organization.identifier", description="Any identifier for the organization (not the accreditation issuer's identifier)", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-state</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>A state specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Organization.address.state</b><br>
+   * Description: <b>Any identifier for the organization (not the accreditation issuer's identifier)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Organization.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_STATE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_STATE);
-
- /**
-   * Search parameter: <b>address-city</b>
-   * <p>
-   * Description: <b>A city specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Organization.address.city</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="address-city", path="Organization.address.city", description="A city specified in an address", type="string" )
-  public static final String SP_ADDRESS_CITY = "address-city";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-city</b>
-   * <p>
-   * Description: <b>A city specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Organization.address.city</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_CITY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_CITY);
-
- /**
-   * Search parameter: <b>phonetic</b>
-   * <p>
-   * Description: <b>A portion of the organization's name using some kind of phonetic matching algorithm</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Organization.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="phonetic", path="Organization.name", description="A portion of the organization's name using some kind of phonetic matching algorithm", type="string" )
-  public static final String SP_PHONETIC = "phonetic";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>phonetic</b>
-   * <p>
-   * Description: <b>A portion of the organization's name using some kind of phonetic matching algorithm</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Organization.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PHONETIC = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PHONETIC);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>partof</b>
@@ -1014,6 +1037,26 @@ public class Organization extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTOF = new ca.uhn.fhir.model.api.Include("Organization:partof").toLocked();
 
  /**
+   * Search parameter: <b>phonetic</b>
+   * <p>
+   * Description: <b>A portion of the organization's name using some kind of phonetic matching algorithm</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Organization.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="phonetic", path="Organization.name", description="A portion of the organization's name using some kind of phonetic matching algorithm", type="string" )
+  public static final String SP_PHONETIC = "phonetic";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>phonetic</b>
+   * <p>
+   * Description: <b>A portion of the organization's name using some kind of phonetic matching algorithm</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Organization.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PHONETIC = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PHONETIC);
+
+ /**
    * Search parameter: <b>address</b>
    * <p>
    * Description: <b>A (part of the) address of the Organization</b><br>
@@ -1034,24 +1077,24 @@ public class Organization extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS);
 
  /**
-   * Search parameter: <b>address-use</b>
+   * Search parameter: <b>address-state</b>
    * <p>
-   * Description: <b>A use code specified in an address</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Organization.address.use</b><br>
+   * Description: <b>A state specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Organization.address.state</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address-use", path="Organization.address.use", description="A use code specified in an address", type="token" )
-  public static final String SP_ADDRESS_USE = "address-use";
+  @SearchParamDefinition(name="address-state", path="Organization.address.state", description="A state specified in an address", type="string" )
+  public static final String SP_ADDRESS_STATE = "address-state";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-use</b>
+   * <b>Fluent Client</b> search parameter constant for <b>address-state</b>
    * <p>
-   * Description: <b>A use code specified in an address</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Organization.address.use</b><br>
+   * Description: <b>A state specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Organization.address.state</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ADDRESS_USE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ADDRESS_USE);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_STATE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_STATE);
 
  /**
    * Search parameter: <b>name</b>
@@ -1074,24 +1117,24 @@ public class Organization extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
 
  /**
-   * Search parameter: <b>address-country</b>
+   * Search parameter: <b>address-use</b>
    * <p>
-   * Description: <b>A country specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Organization.address.country</b><br>
+   * Description: <b>A use code specified in an address</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Organization.address.use</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address-country", path="Organization.address.country", description="A country specified in an address", type="string" )
-  public static final String SP_ADDRESS_COUNTRY = "address-country";
+  @SearchParamDefinition(name="address-use", path="Organization.address.use", description="A use code specified in an address", type="token" )
+  public static final String SP_ADDRESS_USE = "address-use";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>address-country</b>
+   * <b>Fluent Client</b> search parameter constant for <b>address-use</b>
    * <p>
-   * Description: <b>A country specified in an address</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Organization.address.country</b><br>
+   * Description: <b>A use code specified in an address</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Organization.address.use</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_COUNTRY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_COUNTRY);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ADDRESS_USE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ADDRESS_USE);
 
  /**
    * Search parameter: <b>active</b>
@@ -1134,24 +1177,24 @@ public class Organization extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>address-city</b>
    * <p>
-   * Description: <b>Any identifier for the organization (not the accreditation issuer's identifier)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Organization.identifier</b><br>
+   * Description: <b>A city specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Organization.address.city</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Organization.identifier", description="Any identifier for the organization (not the accreditation issuer's identifier)", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="address-city", path="Organization.address.city", description="A city specified in an address", type="string" )
+  public static final String SP_ADDRESS_CITY = "address-city";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>address-city</b>
    * <p>
-   * Description: <b>Any identifier for the organization (not the accreditation issuer's identifier)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Organization.identifier</b><br>
+   * Description: <b>A city specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Organization.address.city</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_CITY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_CITY);
 
  /**
    * Search parameter: <b>address-postalcode</b>
@@ -1172,6 +1215,26 @@ public class Organization extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_POSTALCODE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_POSTALCODE);
+
+ /**
+   * Search parameter: <b>address-country</b>
+   * <p>
+   * Description: <b>A country specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Organization.address.country</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="address-country", path="Organization.address.country", description="A country specified in an address", type="string" )
+  public static final String SP_ADDRESS_COUNTRY = "address-country";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>address-country</b>
+   * <p>
+   * Description: <b>A country specified in an address</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Organization.address.country</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_COUNTRY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_COUNTRY);
 
 
 }

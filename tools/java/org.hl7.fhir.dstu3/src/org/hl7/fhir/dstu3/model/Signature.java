@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -109,6 +109,14 @@ public class Signature extends Type implements ICompositeType {
       return this.type;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Signature setType(List<Coding> theType) { 
+      this.type = theType;
+      return this;
+    }
+
     public boolean hasType() { 
       if (this.type == null)
         return false;
@@ -118,10 +126,6 @@ public class Signature extends Type implements ICompositeType {
       return false;
     }
 
-    /**
-     * @return {@link #type} (An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.)
-     */
-    // syntactic sugar
     public Coding addType() { //3
       Coding t = new Coding();
       if (this.type == null)
@@ -130,7 +134,6 @@ public class Signature extends Type implements ICompositeType {
       return t;
     }
 
-    // syntactic sugar
     public Signature addType(Coding t) { //3
       if (t == null)
         return this;
@@ -138,6 +141,16 @@ public class Signature extends Type implements ICompositeType {
         this.type = new ArrayList<Coding>();
       this.type.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #type}, creating it if it does not already exist
+     */
+    public Coding getTypeFirstRep() { 
+      if (getType().isEmpty()) {
+        addType();
+      }
+      return getType().get(0);
     }
 
     /**
@@ -475,9 +488,8 @@ public class Signature extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (when == null || when.isEmpty())
-           && (who == null || who.isEmpty()) && (contentType == null || contentType.isEmpty()) && (blob == null || blob.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, when, who, contentType
+          , blob);
       }
 
 

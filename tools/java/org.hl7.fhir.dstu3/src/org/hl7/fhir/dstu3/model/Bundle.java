@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -693,8 +693,7 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (relation == null || relation.isEmpty()) && (url == null || url.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(relation, url);
       }
 
   public String fhirType() {
@@ -768,6 +767,14 @@ public class Bundle extends Resource implements IBaseBundle {
           return this.link;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public BundleEntryComponent setLink(List<BundleLinkComponent> theLink) { 
+          this.link = theLink;
+          return this;
+        }
+
         public boolean hasLink() { 
           if (this.link == null)
             return false;
@@ -777,10 +784,6 @@ public class Bundle extends Resource implements IBaseBundle {
           return false;
         }
 
-        /**
-         * @return {@link #link} (A series of links that provide context to this entry.)
-         */
-    // syntactic sugar
         public BundleLinkComponent addLink() { //3
           BundleLinkComponent t = new BundleLinkComponent();
           if (this.link == null)
@@ -789,7 +792,6 @@ public class Bundle extends Resource implements IBaseBundle {
           return t;
         }
 
-    // syntactic sugar
         public BundleEntryComponent addLink(BundleLinkComponent t) { //3
           if (t == null)
             return this;
@@ -797,6 +799,16 @@ public class Bundle extends Resource implements IBaseBundle {
             this.link = new ArrayList<BundleLinkComponent>();
           this.link.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #link}, creating it if it does not already exist
+         */
+        public BundleLinkComponent getLinkFirstRep() { 
+          if (getLink().isEmpty()) {
+            addLink();
+          }
+          return getLink().get(0);
         }
 
         /**
@@ -1142,9 +1154,8 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (link == null || link.isEmpty()) && (fullUrl == null || fullUrl.isEmpty())
-           && (resource == null || resource.isEmpty()) && (search == null || search.isEmpty()) && (request == null || request.isEmpty())
-           && (response == null || response.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(link, fullUrl, resource
+          , search, request, response);
       }
 
   public String fhirType() {
@@ -1386,8 +1397,7 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (mode == null || mode.isEmpty()) && (score == null || score.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(mode, score);
       }
 
   public String fhirType() {
@@ -1888,10 +1898,8 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (method == null || method.isEmpty()) && (url == null || url.isEmpty())
-           && (ifNoneMatch == null || ifNoneMatch.isEmpty()) && (ifModifiedSince == null || ifModifiedSince.isEmpty())
-           && (ifMatch == null || ifMatch.isEmpty()) && (ifNoneExist == null || ifNoneExist.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(method, url, ifNoneMatch
+          , ifModifiedSince, ifMatch, ifNoneExist);
       }
 
   public String fhirType() {
@@ -2257,8 +2265,8 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (status == null || status.isEmpty()) && (location == null || location.isEmpty())
-           && (etag == null || etag.isEmpty()) && (lastModified == null || lastModified.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(status, location, etag, lastModified
+          );
       }
 
   public String fhirType() {
@@ -2419,6 +2427,14 @@ public class Bundle extends Resource implements IBaseBundle {
       return this.link;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Bundle setLink(List<BundleLinkComponent> theLink) { 
+      this.link = theLink;
+      return this;
+    }
+
     public boolean hasLink() { 
       if (this.link == null)
         return false;
@@ -2428,10 +2444,6 @@ public class Bundle extends Resource implements IBaseBundle {
       return false;
     }
 
-    /**
-     * @return {@link #link} (A series of links that provide context to this bundle.)
-     */
-    // syntactic sugar
     public BundleLinkComponent addLink() { //3
       BundleLinkComponent t = new BundleLinkComponent();
       if (this.link == null)
@@ -2440,7 +2452,6 @@ public class Bundle extends Resource implements IBaseBundle {
       return t;
     }
 
-    // syntactic sugar
     public Bundle addLink(BundleLinkComponent t) { //3
       if (t == null)
         return this;
@@ -2448,6 +2459,16 @@ public class Bundle extends Resource implements IBaseBundle {
         this.link = new ArrayList<BundleLinkComponent>();
       this.link.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #link}, creating it if it does not already exist
+     */
+    public BundleLinkComponent getLinkFirstRep() { 
+      if (getLink().isEmpty()) {
+        addLink();
+      }
+      return getLink().get(0);
     }
 
     /**
@@ -2459,6 +2480,14 @@ public class Bundle extends Resource implements IBaseBundle {
       return this.entry;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Bundle setEntry(List<BundleEntryComponent> theEntry) { 
+      this.entry = theEntry;
+      return this;
+    }
+
     public boolean hasEntry() { 
       if (this.entry == null)
         return false;
@@ -2468,10 +2497,6 @@ public class Bundle extends Resource implements IBaseBundle {
       return false;
     }
 
-    /**
-     * @return {@link #entry} (An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).)
-     */
-    // syntactic sugar
     public BundleEntryComponent addEntry() { //3
       BundleEntryComponent t = new BundleEntryComponent();
       if (this.entry == null)
@@ -2480,7 +2505,6 @@ public class Bundle extends Resource implements IBaseBundle {
       return t;
     }
 
-    // syntactic sugar
     public Bundle addEntry(BundleEntryComponent t) { //3
       if (t == null)
         return this;
@@ -2488,6 +2512,16 @@ public class Bundle extends Resource implements IBaseBundle {
         this.entry = new ArrayList<BundleEntryComponent>();
       this.entry.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #entry}, creating it if it does not already exist
+     */
+    public BundleEntryComponent getEntryFirstRep() { 
+      if (getEntry().isEmpty()) {
+        addEntry();
+      }
+      return getEntry().get(0);
     }
 
     /**
@@ -2707,41 +2741,14 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (total == null || total.isEmpty())
-           && (link == null || link.isEmpty()) && (entry == null || entry.isEmpty()) && (signature == null || signature.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, total, link, entry
+          , signature);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Bundle;
    }
-
- /**
-   * Search parameter: <b>message</b>
-   * <p>
-   * Description: <b>The first resource in the bundle, if the bundle type is "message" - this is a message header, and this parameter provides access to search its contents</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Bundle.entry.resource(0)</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="message", path="Bundle.entry.resource[0]", description="The first resource in the bundle, if the bundle type is \"message\" - this is a message header, and this parameter provides access to search its contents", type="reference" )
-  public static final String SP_MESSAGE = "message";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>message</b>
-   * <p>
-   * Description: <b>The first resource in the bundle, if the bundle type is "message" - this is a message header, and this parameter provides access to search its contents</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Bundle.entry.resource(0)</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MESSAGE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MESSAGE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Bundle:message</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_MESSAGE = new ca.uhn.fhir.model.api.Include("Bundle:message").toLocked();
 
  /**
    * Search parameter: <b>composition</b>
@@ -2788,6 +2795,32 @@ public class Bundle extends Resource implements IBaseBundle {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>message</b>
+   * <p>
+   * Description: <b>The first resource in the bundle, if the bundle type is "message" - this is a message header, and this parameter provides access to search its contents</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Bundle.entry.resource(0)</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="message", path="Bundle.entry.resource[0]", description="The first resource in the bundle, if the bundle type is \"message\" - this is a message header, and this parameter provides access to search its contents", type="reference" )
+  public static final String SP_MESSAGE = "message";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>message</b>
+   * <p>
+   * Description: <b>The first resource in the bundle, if the bundle type is "message" - this is a message header, and this parameter provides access to search its contents</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Bundle.entry.resource(0)</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MESSAGE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MESSAGE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Bundle:message</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_MESSAGE = new ca.uhn.fhir.model.api.Include("Bundle:message").toLocked();
 
 
 }

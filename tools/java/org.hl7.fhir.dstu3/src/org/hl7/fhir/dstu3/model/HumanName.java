@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -381,6 +381,14 @@ public class HumanName extends Type implements ICompositeType {
       return this.family;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HumanName setFamily(List<StringType> theFamily) { 
+      this.family = theFamily;
+      return this;
+    }
+
     public boolean hasFamily() { 
       if (this.family == null)
         return false;
@@ -393,7 +401,6 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @return {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
      */
-    // syntactic sugar
     public StringType addFamilyElement() {//2 
       StringType t = new StringType();
       if (this.family == null)
@@ -435,6 +442,14 @@ public class HumanName extends Type implements ICompositeType {
       return this.given;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HumanName setGiven(List<StringType> theGiven) { 
+      this.given = theGiven;
+      return this;
+    }
+
     public boolean hasGiven() { 
       if (this.given == null)
         return false;
@@ -447,7 +462,6 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @return {@link #given} (Given name.)
      */
-    // syntactic sugar
     public StringType addGivenElement() {//2 
       StringType t = new StringType();
       if (this.given == null)
@@ -489,6 +503,14 @@ public class HumanName extends Type implements ICompositeType {
       return this.prefix;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HumanName setPrefix(List<StringType> thePrefix) { 
+      this.prefix = thePrefix;
+      return this;
+    }
+
     public boolean hasPrefix() { 
       if (this.prefix == null)
         return false;
@@ -501,7 +523,6 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @return {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.)
      */
-    // syntactic sugar
     public StringType addPrefixElement() {//2 
       StringType t = new StringType();
       if (this.prefix == null)
@@ -543,6 +564,14 @@ public class HumanName extends Type implements ICompositeType {
       return this.suffix;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public HumanName setSuffix(List<StringType> theSuffix) { 
+      this.suffix = theSuffix;
+      return this;
+    }
+
     public boolean hasSuffix() { 
       if (this.suffix == null)
         return false;
@@ -555,7 +584,6 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @return {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.)
      */
-    // syntactic sugar
     public StringType addSuffixElement() {//2 
       StringType t = new StringType();
       if (this.suffix == null)
@@ -867,9 +895,8 @@ public class HumanName extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (use == null || use.isEmpty()) && (text == null || text.isEmpty())
-           && (family == null || family.isEmpty()) && (given == null || given.isEmpty()) && (prefix == null || prefix.isEmpty())
-           && (suffix == null || suffix.isEmpty()) && (period == null || period.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(use, text, family, given
+          , prefix, suffix, period);
       }
 
 

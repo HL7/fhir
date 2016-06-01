@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -335,8 +335,7 @@ public class SupplyRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (schedule == null || schedule.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, schedule);
       }
 
   public String fhirType() {
@@ -723,6 +722,14 @@ public class SupplyRequest extends DomainResource {
       return this.supplier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public SupplyRequest setSupplier(List<Reference> theSupplier) { 
+      this.supplier = theSupplier;
+      return this;
+    }
+
     public boolean hasSupplier() { 
       if (this.supplier == null)
         return false;
@@ -732,10 +739,6 @@ public class SupplyRequest extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #supplier} (Who is intended to fulfill the request.)
-     */
-    // syntactic sugar
     public Reference addSupplier() { //3
       Reference t = new Reference();
       if (this.supplier == null)
@@ -744,7 +747,6 @@ public class SupplyRequest extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public SupplyRequest addSupplier(Reference t) { //3
       if (t == null)
         return this;
@@ -755,18 +757,29 @@ public class SupplyRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #supplier} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Who is intended to fulfill the request.)
+     * @return The first repetition of repeating field {@link #supplier}, creating it if it does not already exist
      */
+    public Reference getSupplierFirstRep() { 
+      if (getSupplier().isEmpty()) {
+        addSupplier();
+      }
+      return getSupplier().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Organization> getSupplierTarget() { 
       if (this.supplierTarget == null)
         this.supplierTarget = new ArrayList<Organization>();
       return this.supplierTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #supplier} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Who is intended to fulfill the request.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Organization addSupplierTarget() { 
       Organization r = new Organization();
       if (this.supplierTarget == null)
@@ -1062,16 +1075,74 @@ public class SupplyRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (patient == null || patient.isEmpty()) && (source == null || source.isEmpty())
-           && (date == null || date.isEmpty()) && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (kind == null || kind.isEmpty()) && (orderedItem == null || orderedItem.isEmpty()) && (supplier == null || supplier.isEmpty())
-           && (reason == null || reason.isEmpty()) && (when == null || when.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(patient, source, date, identifier
+          , status, kind, orderedItem, supplier, reason, when);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.SupplyRequest;
    }
+
+ /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>When the request was made</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>SupplyRequest.date</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date", path="SupplyRequest.date", description="When the request was made", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>When the request was made</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>SupplyRequest.date</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Unique identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>SupplyRequest.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="SupplyRequest.identifier", description="Unique identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Unique identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>SupplyRequest.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>kind</b>
+   * <p>
+   * Description: <b>The kind of supply (central, non-stock, etc.)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>SupplyRequest.kind</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="kind", path="SupplyRequest.kind", description="The kind of supply (central, non-stock, etc.)", type="token" )
+  public static final String SP_KIND = "kind";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>kind</b>
+   * <p>
+   * Description: <b>The kind of supply (central, non-stock, etc.)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>SupplyRequest.kind</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam KIND = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_KIND);
 
  /**
    * Search parameter: <b>patient</b>
@@ -1098,6 +1169,32 @@ public class SupplyRequest extends DomainResource {
    * the path value of "<b>SupplyRequest:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("SupplyRequest:patient").toLocked();
+
+ /**
+   * Search parameter: <b>supplier</b>
+   * <p>
+   * Description: <b>Who is intended to fulfill the request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>SupplyRequest.supplier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="supplier", path="SupplyRequest.supplier", description="Who is intended to fulfill the request", type="reference" )
+  public static final String SP_SUPPLIER = "supplier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>supplier</b>
+   * <p>
+   * Description: <b>Who is intended to fulfill the request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>SupplyRequest.supplier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUPPLIER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUPPLIER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>SupplyRequest:supplier</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUPPLIER = new ca.uhn.fhir.model.api.Include("SupplyRequest:supplier").toLocked();
 
  /**
    * Search parameter: <b>source</b>
@@ -1144,92 +1241,6 @@ public class SupplyRequest extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>When the request was made</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>SupplyRequest.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="SupplyRequest.date", description="When the request was made", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>When the request was made</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>SupplyRequest.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Unique identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>SupplyRequest.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="SupplyRequest.identifier", description="Unique identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Unique identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>SupplyRequest.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>supplier</b>
-   * <p>
-   * Description: <b>Who is intended to fulfill the request</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>SupplyRequest.supplier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="supplier", path="SupplyRequest.supplier", description="Who is intended to fulfill the request", type="reference" )
-  public static final String SP_SUPPLIER = "supplier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>supplier</b>
-   * <p>
-   * Description: <b>Who is intended to fulfill the request</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>SupplyRequest.supplier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUPPLIER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUPPLIER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>SupplyRequest:supplier</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUPPLIER = new ca.uhn.fhir.model.api.Include("SupplyRequest:supplier").toLocked();
-
- /**
-   * Search parameter: <b>kind</b>
-   * <p>
-   * Description: <b>The kind of supply (central, non-stock, etc.)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>SupplyRequest.kind</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="kind", path="SupplyRequest.kind", description="The kind of supply (central, non-stock, etc.)", type="token" )
-  public static final String SP_KIND = "kind";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>kind</b>
-   * <p>
-   * Description: <b>The kind of supply (central, non-stock, etc.)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>SupplyRequest.kind</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam KIND = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_KIND);
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -285,6 +285,14 @@ public class ValueSet extends BaseConformance {
           return this.telecom;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ValueSetContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+          this.telecom = theTelecom;
+          return this;
+        }
+
         public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
@@ -294,10 +302,6 @@ public class ValueSet extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
-         */
-    // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           if (this.telecom == null)
@@ -306,7 +310,6 @@ public class ValueSet extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ValueSetContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
@@ -314,6 +317,16 @@ public class ValueSet extends BaseConformance {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+         */
+        public ContactPoint getTelecomFirstRep() { 
+          if (getTelecom().isEmpty()) {
+            addTelecom();
+          }
+          return getTelecom().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -411,8 +424,7 @@ public class ValueSet extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, telecom);
       }
 
   public String fhirType() {
@@ -463,6 +475,14 @@ public class ValueSet extends BaseConformance {
           return this.import_;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ValueSetComposeComponent setImport(List<UriType> theImport) { 
+          this.import_ = theImport;
+          return this;
+        }
+
         public boolean hasImport() { 
           if (this.import_ == null)
             return false;
@@ -475,7 +495,6 @@ public class ValueSet extends BaseConformance {
         /**
          * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri.)
          */
-    // syntactic sugar
         public UriType addImportElement() {//2 
           UriType t = new UriType();
           if (this.import_ == null)
@@ -517,6 +536,14 @@ public class ValueSet extends BaseConformance {
           return this.include;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ValueSetComposeComponent setInclude(List<ConceptSetComponent> theInclude) { 
+          this.include = theInclude;
+          return this;
+        }
+
         public boolean hasInclude() { 
           if (this.include == null)
             return false;
@@ -526,10 +553,6 @@ public class ValueSet extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #include} (Include one or more codes from a code system.)
-         */
-    // syntactic sugar
         public ConceptSetComponent addInclude() { //3
           ConceptSetComponent t = new ConceptSetComponent();
           if (this.include == null)
@@ -538,7 +561,6 @@ public class ValueSet extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ValueSetComposeComponent addInclude(ConceptSetComponent t) { //3
           if (t == null)
             return this;
@@ -546,6 +568,16 @@ public class ValueSet extends BaseConformance {
             this.include = new ArrayList<ConceptSetComponent>();
           this.include.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #include}, creating it if it does not already exist
+         */
+        public ConceptSetComponent getIncludeFirstRep() { 
+          if (getInclude().isEmpty()) {
+            addInclude();
+          }
+          return getInclude().get(0);
         }
 
         /**
@@ -557,6 +589,14 @@ public class ValueSet extends BaseConformance {
           return this.exclude;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ValueSetComposeComponent setExclude(List<ConceptSetComponent> theExclude) { 
+          this.exclude = theExclude;
+          return this;
+        }
+
         public boolean hasExclude() { 
           if (this.exclude == null)
             return false;
@@ -566,10 +606,6 @@ public class ValueSet extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #exclude} (Exclude one or more codes from the value set.)
-         */
-    // syntactic sugar
         public ConceptSetComponent addExclude() { //3
           ConceptSetComponent t = new ConceptSetComponent();
           if (this.exclude == null)
@@ -578,7 +614,6 @@ public class ValueSet extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ValueSetComposeComponent addExclude(ConceptSetComponent t) { //3
           if (t == null)
             return this;
@@ -586,6 +621,16 @@ public class ValueSet extends BaseConformance {
             this.exclude = new ArrayList<ConceptSetComponent>();
           this.exclude.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #exclude}, creating it if it does not already exist
+         */
+        public ConceptSetComponent getExcludeFirstRep() { 
+          if (getExclude().isEmpty()) {
+            addExclude();
+          }
+          return getExclude().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -704,8 +749,8 @@ public class ValueSet extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (import_ == null || import_.isEmpty()) && (include == null || include.isEmpty())
-           && (exclude == null || exclude.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(import_, include, exclude
+          );
       }
 
   public String fhirType() {
@@ -865,6 +910,14 @@ public class ValueSet extends BaseConformance {
           return this.concept;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConceptSetComponent setConcept(List<ConceptReferenceComponent> theConcept) { 
+          this.concept = theConcept;
+          return this;
+        }
+
         public boolean hasConcept() { 
           if (this.concept == null)
             return false;
@@ -874,10 +927,6 @@ public class ValueSet extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #concept} (Specifies a concept to be included or excluded.)
-         */
-    // syntactic sugar
         public ConceptReferenceComponent addConcept() { //3
           ConceptReferenceComponent t = new ConceptReferenceComponent();
           if (this.concept == null)
@@ -886,7 +935,6 @@ public class ValueSet extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConceptSetComponent addConcept(ConceptReferenceComponent t) { //3
           if (t == null)
             return this;
@@ -894,6 +942,16 @@ public class ValueSet extends BaseConformance {
             this.concept = new ArrayList<ConceptReferenceComponent>();
           this.concept.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #concept}, creating it if it does not already exist
+         */
+        public ConceptReferenceComponent getConceptFirstRep() { 
+          if (getConcept().isEmpty()) {
+            addConcept();
+          }
+          return getConcept().get(0);
         }
 
         /**
@@ -905,6 +963,14 @@ public class ValueSet extends BaseConformance {
           return this.filter;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConceptSetComponent setFilter(List<ConceptSetFilterComponent> theFilter) { 
+          this.filter = theFilter;
+          return this;
+        }
+
         public boolean hasFilter() { 
           if (this.filter == null)
             return false;
@@ -914,10 +980,6 @@ public class ValueSet extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #filter} (Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.)
-         */
-    // syntactic sugar
         public ConceptSetFilterComponent addFilter() { //3
           ConceptSetFilterComponent t = new ConceptSetFilterComponent();
           if (this.filter == null)
@@ -926,7 +988,6 @@ public class ValueSet extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConceptSetComponent addFilter(ConceptSetFilterComponent t) { //3
           if (t == null)
             return this;
@@ -934,6 +995,16 @@ public class ValueSet extends BaseConformance {
             this.filter = new ArrayList<ConceptSetFilterComponent>();
           this.filter.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #filter}, creating it if it does not already exist
+         */
+        public ConceptSetFilterComponent getFilterFirstRep() { 
+          if (getFilter().isEmpty()) {
+            addFilter();
+          }
+          return getFilter().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1060,8 +1131,8 @@ public class ValueSet extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
-           && (concept == null || concept.isEmpty()) && (filter == null || filter.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, version, concept
+          , filter);
       }
 
   public String fhirType() {
@@ -1214,6 +1285,14 @@ public class ValueSet extends BaseConformance {
           return this.designation;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConceptReferenceComponent setDesignation(List<ConceptReferenceDesignationComponent> theDesignation) { 
+          this.designation = theDesignation;
+          return this;
+        }
+
         public boolean hasDesignation() { 
           if (this.designation == null)
             return false;
@@ -1223,10 +1302,6 @@ public class ValueSet extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #designation} (Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc.)
-         */
-    // syntactic sugar
         public ConceptReferenceDesignationComponent addDesignation() { //3
           ConceptReferenceDesignationComponent t = new ConceptReferenceDesignationComponent();
           if (this.designation == null)
@@ -1235,7 +1310,6 @@ public class ValueSet extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ConceptReferenceComponent addDesignation(ConceptReferenceDesignationComponent t) { //3
           if (t == null)
             return this;
@@ -1243,6 +1317,16 @@ public class ValueSet extends BaseConformance {
             this.designation = new ArrayList<ConceptReferenceDesignationComponent>();
           this.designation.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #designation}, creating it if it does not already exist
+         */
+        public ConceptReferenceDesignationComponent getDesignationFirstRep() { 
+          if (getDesignation().isEmpty()) {
+            addDesignation();
+          }
+          return getDesignation().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1353,8 +1437,8 @@ public class ValueSet extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (display == null || display.isEmpty())
-           && (designation == null || designation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, display, designation
+          );
       }
 
   public String fhirType() {
@@ -1627,8 +1711,7 @@ public class ValueSet extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (language == null || language.isEmpty()) && (use == null || use.isEmpty())
-           && (value == null || value.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(language, use, value);
       }
 
   public String fhirType() {
@@ -1920,8 +2003,7 @@ public class ValueSet extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (property == null || property.isEmpty()) && (op == null || op.isEmpty())
-           && (value == null || value.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(property, op, value);
       }
 
   public String fhirType() {
@@ -2182,6 +2264,14 @@ public class ValueSet extends BaseConformance {
           return this.parameter;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ValueSetExpansionComponent setParameter(List<ValueSetExpansionParameterComponent> theParameter) { 
+          this.parameter = theParameter;
+          return this;
+        }
+
         public boolean hasParameter() { 
           if (this.parameter == null)
             return false;
@@ -2191,10 +2281,6 @@ public class ValueSet extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #parameter} (A parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.)
-         */
-    // syntactic sugar
         public ValueSetExpansionParameterComponent addParameter() { //3
           ValueSetExpansionParameterComponent t = new ValueSetExpansionParameterComponent();
           if (this.parameter == null)
@@ -2203,7 +2289,6 @@ public class ValueSet extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ValueSetExpansionComponent addParameter(ValueSetExpansionParameterComponent t) { //3
           if (t == null)
             return this;
@@ -2211,6 +2296,16 @@ public class ValueSet extends BaseConformance {
             this.parameter = new ArrayList<ValueSetExpansionParameterComponent>();
           this.parameter.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #parameter}, creating it if it does not already exist
+         */
+        public ValueSetExpansionParameterComponent getParameterFirstRep() { 
+          if (getParameter().isEmpty()) {
+            addParameter();
+          }
+          return getParameter().get(0);
         }
 
         /**
@@ -2222,6 +2317,14 @@ public class ValueSet extends BaseConformance {
           return this.contains;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ValueSetExpansionComponent setContains(List<ValueSetExpansionContainsComponent> theContains) { 
+          this.contains = theContains;
+          return this;
+        }
+
         public boolean hasContains() { 
           if (this.contains == null)
             return false;
@@ -2231,10 +2334,6 @@ public class ValueSet extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #contains} (The codes that are contained in the value set expansion.)
-         */
-    // syntactic sugar
         public ValueSetExpansionContainsComponent addContains() { //3
           ValueSetExpansionContainsComponent t = new ValueSetExpansionContainsComponent();
           if (this.contains == null)
@@ -2243,7 +2342,6 @@ public class ValueSet extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ValueSetExpansionComponent addContains(ValueSetExpansionContainsComponent t) { //3
           if (t == null)
             return this;
@@ -2251,6 +2349,16 @@ public class ValueSet extends BaseConformance {
             this.contains = new ArrayList<ValueSetExpansionContainsComponent>();
           this.contains.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #contains}, creating it if it does not already exist
+         */
+        public ValueSetExpansionContainsComponent getContainsFirstRep() { 
+          if (getContains().isEmpty()) {
+            addContains();
+          }
+          return getContains().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -2403,9 +2511,8 @@ public class ValueSet extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (timestamp == null || timestamp.isEmpty())
-           && (total == null || total.isEmpty()) && (offset == null || offset.isEmpty()) && (parameter == null || parameter.isEmpty())
-           && (contains == null || contains.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, timestamp, total
+          , offset, parameter, contains);
       }
 
   public String fhirType() {
@@ -2702,8 +2809,7 @@ public class ValueSet extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
       }
 
   public String fhirType() {
@@ -3016,6 +3122,14 @@ public class ValueSet extends BaseConformance {
           return this.contains;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ValueSetExpansionContainsComponent setContains(List<ValueSetExpansionContainsComponent> theContains) { 
+          this.contains = theContains;
+          return this;
+        }
+
         public boolean hasContains() { 
           if (this.contains == null)
             return false;
@@ -3025,10 +3139,6 @@ public class ValueSet extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #contains} (Other codes and entries contained under this entry in the hierarchy.)
-         */
-    // syntactic sugar
         public ValueSetExpansionContainsComponent addContains() { //3
           ValueSetExpansionContainsComponent t = new ValueSetExpansionContainsComponent();
           if (this.contains == null)
@@ -3037,7 +3147,6 @@ public class ValueSet extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public ValueSetExpansionContainsComponent addContains(ValueSetExpansionContainsComponent t) { //3
           if (t == null)
             return this;
@@ -3045,6 +3154,16 @@ public class ValueSet extends BaseConformance {
             this.contains = new ArrayList<ValueSetExpansionContainsComponent>();
           this.contains.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #contains}, creating it if it does not already exist
+         */
+        public ValueSetExpansionContainsComponent getContainsFirstRep() { 
+          if (getContains().isEmpty()) {
+            addContains();
+          }
+          return getContains().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -3193,9 +3312,8 @@ public class ValueSet extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (system == null || system.isEmpty()) && (abstract_ == null || abstract_.isEmpty())
-           && (version == null || version.isEmpty()) && (code == null || code.isEmpty()) && (display == null || display.isEmpty())
-           && (contains == null || contains.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, abstract_, version
+          , code, display, contains);
       }
 
   public String fhirType() {
@@ -3485,6 +3603,14 @@ public class ValueSet extends BaseConformance {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ValueSet setContact(List<ValueSetContactComponent> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -3494,10 +3620,6 @@ public class ValueSet extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
-     */
-    // syntactic sugar
     public ValueSetContactComponent addContact() { //3
       ValueSetContactComponent t = new ValueSetContactComponent();
       if (this.contact == null)
@@ -3506,7 +3628,6 @@ public class ValueSet extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public ValueSet addContact(ValueSetContactComponent t) { //3
       if (t == null)
         return this;
@@ -3514,6 +3635,16 @@ public class ValueSet extends BaseConformance {
         this.contact = new ArrayList<ValueSetContactComponent>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public ValueSetContactComponent getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -4168,12 +4299,9 @@ public class ValueSet extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (lockedDate == null || lockedDate.isEmpty())
-           && (description == null || description.isEmpty()) && (immutable == null || immutable.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (extensible == null || extensible.isEmpty()) && (compose == null || compose.isEmpty())
-           && (expansion == null || expansion.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, experimental, publisher
+          , contact, lockedDate, description, immutable, requirements, copyright, extensible
+          , compose, expansion);
       }
 
   @Override
@@ -4182,64 +4310,64 @@ public class ValueSet extends BaseConformance {
    }
 
  /**
-   * Search parameter: <b>expansion</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>Uniquely identifies this expansion</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ValueSet.expansion.identifier</b><br>
+   * Description: <b>The value set publication date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ValueSet.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="expansion", path="ValueSet.expansion.identifier", description="Uniquely identifies this expansion", type="uri" )
-  public static final String SP_EXPANSION = "expansion";
+  @SearchParamDefinition(name="date", path="ValueSet.date", description="The value set publication date", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>expansion</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>Uniquely identifies this expansion</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ValueSet.expansion.identifier</b><br>
+   * Description: <b>The value set publication date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ValueSet.date</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam EXPANSION = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_EXPANSION);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>reference</b>
    * <p>
-   * Description: <b>The status of the value set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ValueSet.status</b><br>
+   * Description: <b>A code system included or excluded in the value set or an imported value set</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ValueSet.compose.include.system</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="ValueSet.status", description="The status of the value set", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="reference", path="ValueSet.compose.include.system", description="A code system included or excluded in the value set or an imported value set", type="uri" )
+  public static final String SP_REFERENCE = "reference";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>reference</b>
    * <p>
-   * Description: <b>The status of the value set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ValueSet.status</b><br>
+   * Description: <b>A code system included or excluded in the value set or an imported value set</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ValueSet.compose.include.system</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam REFERENCE = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_REFERENCE);
 
  /**
-   * Search parameter: <b>description</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Text search in the description of the value set</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ValueSet.description</b><br>
+   * Description: <b>The identifier for the value set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="description", path="ValueSet.description", description="Text search in the description of the value set", type="string" )
-  public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="identifier", path="ValueSet.identifier", description="The identifier for the value set", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Text search in the description of the value set</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ValueSet.description</b><br>
+   * Description: <b>The identifier for the value set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>name</b>
@@ -4282,64 +4410,64 @@ public class ValueSet extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
-   * Search parameter: <b>date</b>
+   * Search parameter: <b>publisher</b>
    * <p>
-   * Description: <b>The value set publication date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ValueSet.date</b><br>
+   * Description: <b>Name of the publisher of the value set</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ValueSet.publisher</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="ValueSet.date", description="The value set publication date", type="date" )
-  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="publisher", path="ValueSet.publisher", description="Name of the publisher of the value set", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
    * <p>
-   * Description: <b>The value set publication date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ValueSet.date</b><br>
+   * Description: <b>Name of the publisher of the value set</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ValueSet.publisher</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>description</b>
    * <p>
-   * Description: <b>The identifier for the value set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ValueSet.identifier</b><br>
+   * Description: <b>Text search in the description of the value set</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ValueSet.description</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="ValueSet.identifier", description="The identifier for the value set", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="description", path="ValueSet.description", description="Text search in the description of the value set", type="string" )
+  public static final String SP_DESCRIPTION = "description";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
    * <p>
-   * Description: <b>The identifier for the value set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ValueSet.identifier</b><br>
+   * Description: <b>Text search in the description of the value set</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ValueSet.description</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
-   * Search parameter: <b>reference</b>
+   * Search parameter: <b>version</b>
    * <p>
-   * Description: <b>A code system included or excluded in the value set or an imported value set</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ValueSet.compose.include.system</b><br>
+   * Description: <b>The version identifier of the value set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.version</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="reference", path="ValueSet.compose.include.system", description="A code system included or excluded in the value set or an imported value set", type="uri" )
-  public static final String SP_REFERENCE = "reference";
+  @SearchParamDefinition(name="version", path="ValueSet.version", description="The version identifier of the value set", type="token" )
+  public static final String SP_VERSION = "version";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>reference</b>
+   * <b>Fluent Client</b> search parameter constant for <b>version</b>
    * <p>
-   * Description: <b>A code system included or excluded in the value set or an imported value set</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ValueSet.compose.include.system</b><br>
+   * Description: <b>The version identifier of the value set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.version</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam REFERENCE = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_REFERENCE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
 
  /**
    * Search parameter: <b>url</b>
@@ -4362,44 +4490,44 @@ public class ValueSet extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
-   * Search parameter: <b>publisher</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>Name of the publisher of the value set</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ValueSet.publisher</b><br>
+   * Description: <b>The status of the value set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="publisher", path="ValueSet.publisher", description="Name of the publisher of the value set", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="status", path="ValueSet.status", description="The status of the value set", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>Name of the publisher of the value set</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ValueSet.publisher</b><br>
+   * Description: <b>The status of the value set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
  /**
-   * Search parameter: <b>version</b>
+   * Search parameter: <b>expansion</b>
    * <p>
-   * Description: <b>The version identifier of the value set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ValueSet.version</b><br>
+   * Description: <b>Uniquely identifies this expansion</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ValueSet.expansion.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="ValueSet.version", description="The version identifier of the value set", type="token" )
-  public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="expansion", path="ValueSet.expansion.identifier", description="Uniquely identifies this expansion", type="uri" )
+  public static final String SP_EXPANSION = "expansion";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>version</b>
+   * <b>Fluent Client</b> search parameter constant for <b>expansion</b>
    * <p>
-   * Description: <b>The version identifier of the value set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ValueSet.version</b><br>
+   * Description: <b>Uniquely identifies this expansion</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ValueSet.expansion.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam EXPANSION = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_EXPANSION);
 
 
 }

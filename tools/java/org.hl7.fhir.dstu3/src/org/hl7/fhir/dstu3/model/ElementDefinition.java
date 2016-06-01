@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -649,6 +649,14 @@ public class ElementDefinition extends Type implements ICompositeType {
           return this.discriminator;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ElementDefinitionSlicingComponent setDiscriminator(List<StringType> theDiscriminator) { 
+          this.discriminator = theDiscriminator;
+          return this;
+        }
+
         public boolean hasDiscriminator() { 
           if (this.discriminator == null)
             return false;
@@ -661,7 +669,6 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * @return {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
          */
-    // syntactic sugar
         public StringType addDiscriminatorElement() {//2 
           StringType t = new StringType();
           if (this.discriminator == null)
@@ -954,8 +961,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (discriminator == null || discriminator.isEmpty()) && (description == null || description.isEmpty())
-           && (ordered == null || ordered.isEmpty()) && (rules == null || rules.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(discriminator, description
+          , ordered, rules);
       }
 
   public String fhirType() {
@@ -1247,8 +1254,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (path == null || path.isEmpty()) && (min == null || min.isEmpty())
-           && (max == null || max.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, min, max);
       }
 
   public String fhirType() {
@@ -1359,6 +1365,14 @@ public class ElementDefinition extends Type implements ICompositeType {
           return this.profile;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TypeRefComponent setProfile(List<UriType> theProfile) { 
+          this.profile = theProfile;
+          return this;
+        }
+
         public boolean hasProfile() { 
           if (this.profile == null)
             return false;
@@ -1371,7 +1385,6 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * @return {@link #profile} (Identifies a profile structure or implementation Guide that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When more than one profile is specified, the content must conform to all of them. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.)
          */
-    // syntactic sugar
         public UriType addProfileElement() {//2 
           UriType t = new UriType();
           if (this.profile == null)
@@ -1413,6 +1426,14 @@ public class ElementDefinition extends Type implements ICompositeType {
           return this.aggregation;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TypeRefComponent setAggregation(List<Enumeration<AggregationMode>> theAggregation) { 
+          this.aggregation = theAggregation;
+          return this;
+        }
+
         public boolean hasAggregation() { 
           if (this.aggregation == null)
             return false;
@@ -1425,7 +1446,6 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * @return {@link #aggregation} (If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.)
          */
-    // syntactic sugar
         public Enumeration<AggregationMode> addAggregationElement() {//2 
           Enumeration<AggregationMode> t = new Enumeration<AggregationMode>(new AggregationModeEnumFactory());
           if (this.aggregation == null)
@@ -1632,9 +1652,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (profile == null || profile.isEmpty())
-           && (aggregation == null || aggregation.isEmpty()) && (versioning == null || versioning.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, profile, aggregation
+          , versioning);
       }
 
   public String fhirType() {
@@ -2129,9 +2148,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (key == null || key.isEmpty()) && (requirements == null || requirements.isEmpty())
-           && (severity == null || severity.isEmpty()) && (human == null || human.isEmpty()) && (expression == null || expression.isEmpty())
-           && (xpath == null || xpath.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(key, requirements, severity
+          , human, expression, xpath);
       }
 
   public String fhirType() {
@@ -2430,8 +2448,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (strength == null || strength.isEmpty()) && (description == null || description.isEmpty())
-           && (valueSet == null || valueSet.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(strength, description, valueSet
+          );
       }
 
   public String fhirType() {
@@ -2726,8 +2744,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identity == null || identity.isEmpty()) && (language == null || language.isEmpty())
-           && (map == null || map.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identity, language, map
+          );
       }
 
   public String fhirType() {
@@ -3025,6 +3043,14 @@ public class ElementDefinition extends Type implements ICompositeType {
       return this.representation;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ElementDefinition setRepresentation(List<Enumeration<PropertyRepresentation>> theRepresentation) { 
+      this.representation = theRepresentation;
+      return this;
+    }
+
     public boolean hasRepresentation() { 
       if (this.representation == null)
         return false;
@@ -3037,7 +3063,6 @@ public class ElementDefinition extends Type implements ICompositeType {
     /**
      * @return {@link #representation} (Codes that define how this element is represented in instances, when the deviation varies from the normal case.)
      */
-    // syntactic sugar
     public Enumeration<PropertyRepresentation> addRepresentationElement() {//2 
       Enumeration<PropertyRepresentation> t = new Enumeration<PropertyRepresentation>(new PropertyRepresentationEnumFactory());
       if (this.representation == null)
@@ -3177,6 +3202,14 @@ public class ElementDefinition extends Type implements ICompositeType {
       return this.code;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ElementDefinition setCode(List<Coding> theCode) { 
+      this.code = theCode;
+      return this;
+    }
+
     public boolean hasCode() { 
       if (this.code == null)
         return false;
@@ -3186,10 +3219,6 @@ public class ElementDefinition extends Type implements ICompositeType {
       return false;
     }
 
-    /**
-     * @return {@link #code} (A code that provides the meaning for the element according to a particular terminology.)
-     */
-    // syntactic sugar
     public Coding addCode() { //3
       Coding t = new Coding();
       if (this.code == null)
@@ -3198,7 +3227,6 @@ public class ElementDefinition extends Type implements ICompositeType {
       return t;
     }
 
-    // syntactic sugar
     public ElementDefinition addCode(Coding t) { //3
       if (t == null)
         return this;
@@ -3206,6 +3234,16 @@ public class ElementDefinition extends Type implements ICompositeType {
         this.code = new ArrayList<Coding>();
       this.code.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #code}, creating it if it does not already exist
+     */
+    public Coding getCodeFirstRep() { 
+      if (getCode().isEmpty()) {
+        addCode();
+      }
+      return getCode().get(0);
     }
 
     /**
@@ -3437,6 +3475,14 @@ public class ElementDefinition extends Type implements ICompositeType {
       return this.alias;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ElementDefinition setAlias(List<StringType> theAlias) { 
+      this.alias = theAlias;
+      return this;
+    }
+
     public boolean hasAlias() { 
       if (this.alias == null)
         return false;
@@ -3449,7 +3495,6 @@ public class ElementDefinition extends Type implements ICompositeType {
     /**
      * @return {@link #alias} (Identifies additional names by which this element might also be known.)
      */
-    // syntactic sugar
     public StringType addAliasElement() {//2 
       StringType t = new StringType();
       if (this.alias == null)
@@ -3658,6 +3703,14 @@ public class ElementDefinition extends Type implements ICompositeType {
       return this.type;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ElementDefinition setType(List<TypeRefComponent> theType) { 
+      this.type = theType;
+      return this;
+    }
+
     public boolean hasType() { 
       if (this.type == null)
         return false;
@@ -3667,10 +3720,6 @@ public class ElementDefinition extends Type implements ICompositeType {
       return false;
     }
 
-    /**
-     * @return {@link #type} (The data type or resource that the value of this element is permitted to be.)
-     */
-    // syntactic sugar
     public TypeRefComponent addType() { //3
       TypeRefComponent t = new TypeRefComponent();
       if (this.type == null)
@@ -3679,7 +3728,6 @@ public class ElementDefinition extends Type implements ICompositeType {
       return t;
     }
 
-    // syntactic sugar
     public ElementDefinition addType(TypeRefComponent t) { //3
       if (t == null)
         return this;
@@ -3687,6 +3735,16 @@ public class ElementDefinition extends Type implements ICompositeType {
         this.type = new ArrayList<TypeRefComponent>();
       this.type.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #type}, creating it if it does not already exist
+     */
+    public TypeRefComponent getTypeFirstRep() { 
+      if (getType().isEmpty()) {
+        addType();
+      }
+      return getType().get(0);
     }
 
     /**
@@ -3906,6 +3964,14 @@ public class ElementDefinition extends Type implements ICompositeType {
       return this.condition;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ElementDefinition setCondition(List<IdType> theCondition) { 
+      this.condition = theCondition;
+      return this;
+    }
+
     public boolean hasCondition() { 
       if (this.condition == null)
         return false;
@@ -3918,7 +3984,6 @@ public class ElementDefinition extends Type implements ICompositeType {
     /**
      * @return {@link #condition} (A reference to an invariant that may make additional statements about the cardinality or value in the instance.)
      */
-    // syntactic sugar
     public IdType addConditionElement() {//2 
       IdType t = new IdType();
       if (this.condition == null)
@@ -3960,6 +4025,14 @@ public class ElementDefinition extends Type implements ICompositeType {
       return this.constraint;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ElementDefinition setConstraint(List<ElementDefinitionConstraintComponent> theConstraint) { 
+      this.constraint = theConstraint;
+      return this;
+    }
+
     public boolean hasConstraint() { 
       if (this.constraint == null)
         return false;
@@ -3969,10 +4042,6 @@ public class ElementDefinition extends Type implements ICompositeType {
       return false;
     }
 
-    /**
-     * @return {@link #constraint} (Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.)
-     */
-    // syntactic sugar
     public ElementDefinitionConstraintComponent addConstraint() { //3
       ElementDefinitionConstraintComponent t = new ElementDefinitionConstraintComponent();
       if (this.constraint == null)
@@ -3981,7 +4050,6 @@ public class ElementDefinition extends Type implements ICompositeType {
       return t;
     }
 
-    // syntactic sugar
     public ElementDefinition addConstraint(ElementDefinitionConstraintComponent t) { //3
       if (t == null)
         return this;
@@ -3989,6 +4057,16 @@ public class ElementDefinition extends Type implements ICompositeType {
         this.constraint = new ArrayList<ElementDefinitionConstraintComponent>();
       this.constraint.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #constraint}, creating it if it does not already exist
+     */
+    public ElementDefinitionConstraintComponent getConstraintFirstRep() { 
+      if (getConstraint().isEmpty()) {
+        addConstraint();
+      }
+      return getConstraint().get(0);
     }
 
     /**
@@ -4159,6 +4237,14 @@ public class ElementDefinition extends Type implements ICompositeType {
       return this.mapping;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ElementDefinition setMapping(List<ElementDefinitionMappingComponent> theMapping) { 
+      this.mapping = theMapping;
+      return this;
+    }
+
     public boolean hasMapping() { 
       if (this.mapping == null)
         return false;
@@ -4168,10 +4254,6 @@ public class ElementDefinition extends Type implements ICompositeType {
       return false;
     }
 
-    /**
-     * @return {@link #mapping} (Identifies a concept from an external specification that roughly corresponds to this element.)
-     */
-    // syntactic sugar
     public ElementDefinitionMappingComponent addMapping() { //3
       ElementDefinitionMappingComponent t = new ElementDefinitionMappingComponent();
       if (this.mapping == null)
@@ -4180,7 +4262,6 @@ public class ElementDefinition extends Type implements ICompositeType {
       return t;
     }
 
-    // syntactic sugar
     public ElementDefinition addMapping(ElementDefinitionMappingComponent t) { //3
       if (t == null)
         return this;
@@ -4188,6 +4269,16 @@ public class ElementDefinition extends Type implements ICompositeType {
         this.mapping = new ArrayList<ElementDefinitionMappingComponent>();
       this.mapping.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #mapping}, creating it if it does not already exist
+     */
+    public ElementDefinitionMappingComponent getMappingFirstRep() { 
+      if (getMapping().isEmpty()) {
+        addMapping();
+      }
+      return getMapping().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -5459,19 +5550,11 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (path == null || path.isEmpty()) && (representation == null || representation.isEmpty())
-           && (name == null || name.isEmpty()) && (label == null || label.isEmpty()) && (code == null || code.isEmpty())
-           && (slicing == null || slicing.isEmpty()) && (short_ == null || short_.isEmpty()) && (definition == null || definition.isEmpty())
-           && (comments == null || comments.isEmpty()) && (requirements == null || requirements.isEmpty())
-           && (alias == null || alias.isEmpty()) && (min == null || min.isEmpty()) && (max == null || max.isEmpty())
-           && (base == null || base.isEmpty()) && (contentReference == null || contentReference.isEmpty())
-           && (type == null || type.isEmpty()) && (defaultValue == null || defaultValue.isEmpty()) && (meaningWhenMissing == null || meaningWhenMissing.isEmpty())
-           && (fixed == null || fixed.isEmpty()) && (pattern == null || pattern.isEmpty()) && (example == null || example.isEmpty())
-           && (minValue == null || minValue.isEmpty()) && (maxValue == null || maxValue.isEmpty()) && (maxLength == null || maxLength.isEmpty())
-           && (condition == null || condition.isEmpty()) && (constraint == null || constraint.isEmpty())
-           && (mustSupport == null || mustSupport.isEmpty()) && (isModifier == null || isModifier.isEmpty())
-           && (isSummary == null || isSummary.isEmpty()) && (binding == null || binding.isEmpty()) && (mapping == null || mapping.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, representation, name
+          , label, code, slicing, short_, definition, comments, requirements, alias, min
+          , max, base, contentReference, type, defaultValue, meaningWhenMissing, fixed, pattern
+          , example, minValue, maxValue, maxLength, condition, constraint, mustSupport, isModifier
+          , isSummary, binding, mapping);
       }
 
 

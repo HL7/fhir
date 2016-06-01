@@ -5,7 +5,6 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -80,6 +79,7 @@ import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
+import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -349,7 +349,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   // public API
 
-  private boolean checkCode(List<ValidationMessage> errors, Element element, String path, String code, String system, String display) {
+  private boolean checkCode(List<ValidationMessage> errors, Element element, String path, String code, String system, String display) throws TerminologyServiceException {
     long t = System.nanoTime();
     boolean ss = context.supportsSystem(system);
     txTime = txTime + (System.nanoTime() - t);
@@ -470,6 +470,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, isAbsolute(system), "Coding.system must be an absolute reference, not a local reference");
 
     if (system != null && code != null) {
+      try {
       if (checkCode(errors, element, path, code, system, display))
         if (theElementCntext != null && theElementCntext.getBinding() != null) {
           ElementDefinitionBindingComponent binding = theElementCntext.getBinding();
@@ -501,6 +502,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             }
           }
         }
+      } catch (Exception e) {
+        rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Error "+e.getMessage()+" validating CodeableConcept");
+      }
     }
   }
 

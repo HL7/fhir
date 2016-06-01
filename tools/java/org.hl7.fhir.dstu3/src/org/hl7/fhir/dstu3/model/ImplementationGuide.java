@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -407,6 +407,14 @@ public class ImplementationGuide extends DomainResource {
           return this.telecom;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ImplementationGuideContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+          this.telecom = theTelecom;
+          return this;
+        }
+
         public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
@@ -416,10 +424,6 @@ public class ImplementationGuide extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
-         */
-    // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           if (this.telecom == null)
@@ -428,7 +432,6 @@ public class ImplementationGuide extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ImplementationGuideContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
@@ -436,6 +439,16 @@ public class ImplementationGuide extends DomainResource {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+         */
+        public ContactPoint getTelecomFirstRep() { 
+          if (getTelecom().isEmpty()) {
+            addTelecom();
+          }
+          return getTelecom().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -533,8 +546,7 @@ public class ImplementationGuide extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, telecom);
       }
 
   public String fhirType() {
@@ -759,8 +771,7 @@ public class ImplementationGuide extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (uri == null || uri.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, uri);
       }
 
   public String fhirType() {
@@ -913,6 +924,14 @@ public class ImplementationGuide extends DomainResource {
           return this.resource;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ImplementationGuidePackageComponent setResource(List<ImplementationGuidePackageResourceComponent> theResource) { 
+          this.resource = theResource;
+          return this;
+        }
+
         public boolean hasResource() { 
           if (this.resource == null)
             return false;
@@ -922,10 +941,6 @@ public class ImplementationGuide extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #resource} (A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.)
-         */
-    // syntactic sugar
         public ImplementationGuidePackageResourceComponent addResource() { //3
           ImplementationGuidePackageResourceComponent t = new ImplementationGuidePackageResourceComponent();
           if (this.resource == null)
@@ -934,7 +949,6 @@ public class ImplementationGuide extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ImplementationGuidePackageComponent addResource(ImplementationGuidePackageResourceComponent t) { //3
           if (t == null)
             return this;
@@ -942,6 +956,16 @@ public class ImplementationGuide extends DomainResource {
             this.resource = new ArrayList<ImplementationGuidePackageResourceComponent>();
           this.resource.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #resource}, creating it if it does not already exist
+         */
+        public ImplementationGuidePackageResourceComponent getResourceFirstRep() { 
+          if (getResource().isEmpty()) {
+            addResource();
+          }
+          return getResource().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1052,8 +1076,8 @@ public class ImplementationGuide extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (description == null || description.isEmpty())
-           && (resource == null || resource.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, description, resource
+          );
       }
 
   public String fhirType() {
@@ -1559,9 +1583,8 @@ public class ImplementationGuide extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (example == null || example.isEmpty()) && (name == null || name.isEmpty())
-           && (description == null || description.isEmpty()) && (acronym == null || acronym.isEmpty())
-           && (source == null || source.isEmpty()) && (exampleFor == null || exampleFor.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(example, name, description
+          , acronym, source, exampleFor);
       }
 
   public String fhirType() {
@@ -1791,8 +1814,7 @@ public class ImplementationGuide extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, profile);
       }
 
   public String fhirType() {
@@ -2016,6 +2038,14 @@ public class ImplementationGuide extends DomainResource {
           return this.type;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ImplementationGuidePageComponent setType(List<CodeType> theType) { 
+          this.type = theType;
+          return this;
+        }
+
         public boolean hasType() { 
           if (this.type == null)
             return false;
@@ -2028,7 +2058,6 @@ public class ImplementationGuide extends DomainResource {
         /**
          * @return {@link #type} (For constructed pages, what kind of resources to include in the list.)
          */
-    // syntactic sugar
         public CodeType addTypeElement() {//2 
           CodeType t = new CodeType();
           if (this.type == null)
@@ -2070,6 +2099,14 @@ public class ImplementationGuide extends DomainResource {
           return this.package_;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ImplementationGuidePageComponent setPackage(List<StringType> thePackage) { 
+          this.package_ = thePackage;
+          return this;
+        }
+
         public boolean hasPackage() { 
           if (this.package_ == null)
             return false;
@@ -2082,7 +2119,6 @@ public class ImplementationGuide extends DomainResource {
         /**
          * @return {@link #package_} (For constructed pages, a list of packages to include in the page (or else empty for everything).)
          */
-    // syntactic sugar
         public StringType addPackageElement() {//2 
           StringType t = new StringType();
           if (this.package_ == null)
@@ -2173,6 +2209,14 @@ public class ImplementationGuide extends DomainResource {
           return this.page;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ImplementationGuidePageComponent setPage(List<ImplementationGuidePageComponent> thePage) { 
+          this.page = thePage;
+          return this;
+        }
+
         public boolean hasPage() { 
           if (this.page == null)
             return false;
@@ -2182,10 +2226,6 @@ public class ImplementationGuide extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #page} (Nested Pages/Sections under this page.)
-         */
-    // syntactic sugar
         public ImplementationGuidePageComponent addPage() { //3
           ImplementationGuidePageComponent t = new ImplementationGuidePageComponent();
           if (this.page == null)
@@ -2194,7 +2234,6 @@ public class ImplementationGuide extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public ImplementationGuidePageComponent addPage(ImplementationGuidePageComponent t) { //3
           if (t == null)
             return this;
@@ -2202,6 +2241,16 @@ public class ImplementationGuide extends DomainResource {
             this.page = new ArrayList<ImplementationGuidePageComponent>();
           this.page.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #page}, creating it if it does not already exist
+         */
+        public ImplementationGuidePageComponent getPageFirstRep() { 
+          if (getPage().isEmpty()) {
+            addPage();
+          }
+          return getPage().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -2371,9 +2420,8 @@ public class ImplementationGuide extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (source == null || source.isEmpty()) && (name == null || name.isEmpty())
-           && (kind == null || kind.isEmpty()) && (type == null || type.isEmpty()) && (package_ == null || package_.isEmpty())
-           && (format == null || format.isEmpty()) && (page == null || page.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(source, name, kind, type
+          , package_, format, page);
       }
 
   public String fhirType() {
@@ -2809,6 +2857,14 @@ public class ImplementationGuide extends DomainResource {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ImplementationGuide setContact(List<ImplementationGuideContactComponent> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -2818,10 +2874,6 @@ public class ImplementationGuide extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
-     */
-    // syntactic sugar
     public ImplementationGuideContactComponent addContact() { //3
       ImplementationGuideContactComponent t = new ImplementationGuideContactComponent();
       if (this.contact == null)
@@ -2830,7 +2882,6 @@ public class ImplementationGuide extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ImplementationGuide addContact(ImplementationGuideContactComponent t) { //3
       if (t == null)
         return this;
@@ -2838,6 +2889,16 @@ public class ImplementationGuide extends DomainResource {
         this.contact = new ArrayList<ImplementationGuideContactComponent>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public ImplementationGuideContactComponent getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -2947,6 +3008,14 @@ public class ImplementationGuide extends DomainResource {
       return this.useContext;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ImplementationGuide setUseContext(List<CodeableConcept> theUseContext) { 
+      this.useContext = theUseContext;
+      return this;
+    }
+
     public boolean hasUseContext() { 
       if (this.useContext == null)
         return false;
@@ -2956,10 +3025,6 @@ public class ImplementationGuide extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdiction for which this implementation guide was defined.)
-     */
-    // syntactic sugar
     public CodeableConcept addUseContext() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.useContext == null)
@@ -2968,7 +3033,6 @@ public class ImplementationGuide extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ImplementationGuide addUseContext(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -2976,6 +3040,16 @@ public class ImplementationGuide extends DomainResource {
         this.useContext = new ArrayList<CodeableConcept>();
       this.useContext.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #useContext}, creating it if it does not already exist
+     */
+    public CodeableConcept getUseContextFirstRep() { 
+      if (getUseContext().isEmpty()) {
+        addUseContext();
+      }
+      return getUseContext().get(0);
     }
 
     /**
@@ -3085,6 +3159,14 @@ public class ImplementationGuide extends DomainResource {
       return this.dependency;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ImplementationGuide setDependency(List<ImplementationGuideDependencyComponent> theDependency) { 
+      this.dependency = theDependency;
+      return this;
+    }
+
     public boolean hasDependency() { 
       if (this.dependency == null)
         return false;
@@ -3094,10 +3176,6 @@ public class ImplementationGuide extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #dependency} (Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides.)
-     */
-    // syntactic sugar
     public ImplementationGuideDependencyComponent addDependency() { //3
       ImplementationGuideDependencyComponent t = new ImplementationGuideDependencyComponent();
       if (this.dependency == null)
@@ -3106,7 +3184,6 @@ public class ImplementationGuide extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ImplementationGuide addDependency(ImplementationGuideDependencyComponent t) { //3
       if (t == null)
         return this;
@@ -3114,6 +3191,16 @@ public class ImplementationGuide extends DomainResource {
         this.dependency = new ArrayList<ImplementationGuideDependencyComponent>();
       this.dependency.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #dependency}, creating it if it does not already exist
+     */
+    public ImplementationGuideDependencyComponent getDependencyFirstRep() { 
+      if (getDependency().isEmpty()) {
+        addDependency();
+      }
+      return getDependency().get(0);
     }
 
     /**
@@ -3125,6 +3212,14 @@ public class ImplementationGuide extends DomainResource {
       return this.package_;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ImplementationGuide setPackage(List<ImplementationGuidePackageComponent> thePackage) { 
+      this.package_ = thePackage;
+      return this;
+    }
+
     public boolean hasPackage() { 
       if (this.package_ == null)
         return false;
@@ -3134,10 +3229,6 @@ public class ImplementationGuide extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #package_} (A logical group of resources. Logical groups can be used when building pages.)
-     */
-    // syntactic sugar
     public ImplementationGuidePackageComponent addPackage() { //3
       ImplementationGuidePackageComponent t = new ImplementationGuidePackageComponent();
       if (this.package_ == null)
@@ -3146,7 +3237,6 @@ public class ImplementationGuide extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ImplementationGuide addPackage(ImplementationGuidePackageComponent t) { //3
       if (t == null)
         return this;
@@ -3154,6 +3244,16 @@ public class ImplementationGuide extends DomainResource {
         this.package_ = new ArrayList<ImplementationGuidePackageComponent>();
       this.package_.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #package_}, creating it if it does not already exist
+     */
+    public ImplementationGuidePackageComponent getPackageFirstRep() { 
+      if (getPackage().isEmpty()) {
+        addPackage();
+      }
+      return getPackage().get(0);
     }
 
     /**
@@ -3165,6 +3265,14 @@ public class ImplementationGuide extends DomainResource {
       return this.global;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ImplementationGuide setGlobal(List<ImplementationGuideGlobalComponent> theGlobal) { 
+      this.global = theGlobal;
+      return this;
+    }
+
     public boolean hasGlobal() { 
       if (this.global == null)
         return false;
@@ -3174,10 +3282,6 @@ public class ImplementationGuide extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #global} (A set of profiles that all resources covered by this implementation guide must conform to.)
-     */
-    // syntactic sugar
     public ImplementationGuideGlobalComponent addGlobal() { //3
       ImplementationGuideGlobalComponent t = new ImplementationGuideGlobalComponent();
       if (this.global == null)
@@ -3186,7 +3290,6 @@ public class ImplementationGuide extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ImplementationGuide addGlobal(ImplementationGuideGlobalComponent t) { //3
       if (t == null)
         return this;
@@ -3197,12 +3300,30 @@ public class ImplementationGuide extends DomainResource {
     }
 
     /**
+     * @return The first repetition of repeating field {@link #global}, creating it if it does not already exist
+     */
+    public ImplementationGuideGlobalComponent getGlobalFirstRep() { 
+      if (getGlobal().isEmpty()) {
+        addGlobal();
+      }
+      return getGlobal().get(0);
+    }
+
+    /**
      * @return {@link #binary} (A binary file that is included in the  implementation guide when it is published.)
      */
     public List<UriType> getBinary() { 
       if (this.binary == null)
         this.binary = new ArrayList<UriType>();
       return this.binary;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ImplementationGuide setBinary(List<UriType> theBinary) { 
+      this.binary = theBinary;
+      return this;
     }
 
     public boolean hasBinary() { 
@@ -3217,7 +3338,6 @@ public class ImplementationGuide extends DomainResource {
     /**
      * @return {@link #binary} (A binary file that is included in the  implementation guide when it is published.)
      */
-    // syntactic sugar
     public UriType addBinaryElement() {//2 
       UriType t = new UriType();
       if (this.binary == null)
@@ -3587,20 +3707,35 @@ public class ImplementationGuide extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (url == null || url.isEmpty()) && (version == null || version.isEmpty())
-           && (name == null || name.isEmpty()) && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (date == null || date.isEmpty())
-           && (description == null || description.isEmpty()) && (useContext == null || useContext.isEmpty())
-           && (copyright == null || copyright.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty())
-           && (dependency == null || dependency.isEmpty()) && (package_ == null || package_.isEmpty())
-           && (global == null || global.isEmpty()) && (binary == null || binary.isEmpty()) && (page == null || page.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, version, name, status
+          , experimental, publisher, contact, date, description, useContext, copyright, fhirVersion
+          , dependency, package_, global, binary, page);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.ImplementationGuide;
    }
+
+ /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>The implementation guide publication date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImplementationGuide.date</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date", path="ImplementationGuide.date", description="The implementation guide publication date", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>The implementation guide publication date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImplementationGuide.date</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
    * Search parameter: <b>dependency</b>
@@ -3621,66 +3756,6 @@ public class ImplementationGuide extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam DEPENDENCY = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DEPENDENCY);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>The current status of the implementation guide</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImplementationGuide.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="ImplementationGuide.status", description="The current status of the implementation guide", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>The current status of the implementation guide</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImplementationGuide.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the implementation guide</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ImplementationGuide.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="ImplementationGuide.description", description="Text search in the description of the implementation guide", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the implementation guide</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ImplementationGuide.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Name of the implementation guide</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ImplementationGuide.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="ImplementationGuide.name", description="Name of the implementation guide", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Name of the implementation guide</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ImplementationGuide.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
 
  /**
    * Search parameter: <b>resource</b>
@@ -3709,6 +3784,26 @@ public class ImplementationGuide extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_RESOURCE = new ca.uhn.fhir.model.api.Include("ImplementationGuide:resource").toLocked();
 
  /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>Name of the implementation guide</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ImplementationGuide.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="ImplementationGuide.name", description="Name of the implementation guide", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>Name of the implementation guide</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ImplementationGuide.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
    * Search parameter: <b>context</b>
    * <p>
    * Description: <b>A use context assigned to the structure</b><br>
@@ -3727,66 +3822,6 @@ public class ImplementationGuide extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
-
- /**
-   * Search parameter: <b>experimental</b>
-   * <p>
-   * Description: <b>If for testing purposes, not real usage</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImplementationGuide.experimental</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="experimental", path="ImplementationGuide.experimental", description="If for testing purposes, not real usage", type="token" )
-  public static final String SP_EXPERIMENTAL = "experimental";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>experimental</b>
-   * <p>
-   * Description: <b>If for testing purposes, not real usage</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImplementationGuide.experimental</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EXPERIMENTAL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EXPERIMENTAL);
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>The implementation guide publication date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImplementationGuide.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="ImplementationGuide.date", description="The implementation guide publication date", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>The implementation guide publication date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImplementationGuide.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>url</b>
-   * <p>
-   * Description: <b>Absolute URL used to reference this Implementation Guide</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImplementationGuide.url</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="url", path="ImplementationGuide.url", description="Absolute URL used to reference this Implementation Guide", type="uri" )
-  public static final String SP_URL = "url";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>url</b>
-   * <p>
-   * Description: <b>Absolute URL used to reference this Implementation Guide</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImplementationGuide.url</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
    * Search parameter: <b>publisher</b>
@@ -3809,6 +3844,46 @@ public class ImplementationGuide extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the implementation guide</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ImplementationGuide.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="ImplementationGuide.description", description="Text search in the description of the implementation guide", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the implementation guide</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ImplementationGuide.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>experimental</b>
+   * <p>
+   * Description: <b>If for testing purposes, not real usage</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImplementationGuide.experimental</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="experimental", path="ImplementationGuide.experimental", description="If for testing purposes, not real usage", type="token" )
+  public static final String SP_EXPERIMENTAL = "experimental";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>experimental</b>
+   * <p>
+   * Description: <b>If for testing purposes, not real usage</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImplementationGuide.experimental</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EXPERIMENTAL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EXPERIMENTAL);
+
+ /**
    * Search parameter: <b>version</b>
    * <p>
    * Description: <b>The version identifier of the implementation guide</b><br>
@@ -3827,6 +3902,46 @@ public class ImplementationGuide extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
+
+ /**
+   * Search parameter: <b>url</b>
+   * <p>
+   * Description: <b>Absolute URL used to reference this Implementation Guide</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ImplementationGuide.url</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="url", path="ImplementationGuide.url", description="Absolute URL used to reference this Implementation Guide", type="uri" )
+  public static final String SP_URL = "url";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <p>
+   * Description: <b>Absolute URL used to reference this Implementation Guide</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ImplementationGuide.url</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>The current status of the implementation guide</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImplementationGuide.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="ImplementationGuide.status", description="The current status of the implementation guide", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>The current status of the implementation guide</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImplementationGuide.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

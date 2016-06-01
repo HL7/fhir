@@ -333,16 +333,17 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
         String iniV = ini.getStringProperty("ValueSets", e.getAttribute("name"));
         if (iniV != null) {
           String id = e.getAttribute("name");
-          if (cslist.contains(id))
-            throw new Exception("Duplicate v3 name: "+id);
-          cslist.add(id);
           ValueSet vs;
-          if (iniV.equals("1"))
-            vs = buildV3ValueSet(id, dt, e, codesystems, ini);
-          else if (iniV.startsWith("->")) {
+          if (iniV.startsWith("->")) {
             vs = buildV3ValueSetAsCodeSystem(id, e, iniV.substring(2));
-          } else
-            throw new Exception("unhandled value set specifier in ini file");
+          } else { 
+            if (!iniV.equals("1"))
+              id = iniV;
+            vs = buildV3ValueSet(id, dt, e, codesystems, ini);
+          }
+          if (cslist.contains(vs.getId()))
+            throw new Exception("Duplicate v3 name: "+vs.getId());
+          cslist.add(vs.getId());
 
           vs.setUserData("path", "v3" + "/" + id + "/" + "vs.html");
           ToolingExtensions.setOID(vs, "urn:oid:"+e.getAttribute("id"));
@@ -575,8 +576,12 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
         }
       }
       if (e.getNodeName().equals("valueSet")) {
-        if (ini.getStringProperty("ValueSets", e.getAttribute("name")) != null) {
+        String iniV = ini.getStringProperty("ValueSets", e.getAttribute("name"));
+        if (iniV != null) {
           String id = e.getAttribute("name");
+          if (!(iniV.equals("1") || iniV.startsWith("->")))
+            id = iniV;
+
           Utilities.createDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
           Utilities.clearDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
           String src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template-vs.html");

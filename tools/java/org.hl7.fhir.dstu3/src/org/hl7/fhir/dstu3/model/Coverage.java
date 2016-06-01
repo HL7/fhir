@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -509,6 +509,14 @@ public class Coverage extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Coverage setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -518,10 +526,6 @@ public class Coverage extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Subscriber Id, Certificate number or Personal Health Number or Case ID.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -530,7 +534,6 @@ public class Coverage extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Coverage addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -538,6 +541,16 @@ public class Coverage extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -786,6 +799,14 @@ public class Coverage extends DomainResource {
       return this.exception;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Coverage setException(List<Coding> theException) { 
+      this.exception = theException;
+      return this;
+    }
+
     public boolean hasException() { 
       if (this.exception == null)
         return false;
@@ -795,10 +816,6 @@ public class Coverage extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #exception} (Factors which may influence the applicability of coverage.)
-     */
-    // syntactic sugar
     public Coding addException() { //3
       Coding t = new Coding();
       if (this.exception == null)
@@ -807,7 +824,6 @@ public class Coverage extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Coverage addException(Coding t) { //3
       if (t == null)
         return this;
@@ -815,6 +831,16 @@ public class Coverage extends DomainResource {
         this.exception = new ArrayList<Coding>();
       this.exception.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #exception}, creating it if it does not already exist
+     */
+    public Coding getExceptionFirstRep() { 
+      if (getException().isEmpty()) {
+        addException();
+      }
+      return getException().get(0);
     }
 
     /**
@@ -924,6 +950,14 @@ public class Coverage extends DomainResource {
       return this.contract;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Coverage setContract(List<Reference> theContract) { 
+      this.contract = theContract;
+      return this;
+    }
+
     public boolean hasContract() { 
       if (this.contract == null)
         return false;
@@ -933,10 +967,6 @@ public class Coverage extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #contract} (The policy(s) which constitute this insurance coverage.)
-     */
-    // syntactic sugar
     public Reference addContract() { //3
       Reference t = new Reference();
       if (this.contract == null)
@@ -945,7 +975,6 @@ public class Coverage extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Coverage addContract(Reference t) { //3
       if (t == null)
         return this;
@@ -956,18 +985,29 @@ public class Coverage extends DomainResource {
     }
 
     /**
-     * @return {@link #contract} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The policy(s) which constitute this insurance coverage.)
+     * @return The first repetition of repeating field {@link #contract}, creating it if it does not already exist
      */
+    public Reference getContractFirstRep() { 
+      if (getContract().isEmpty()) {
+        addContract();
+      }
+      return getContract().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Contract> getContractTarget() { 
       if (this.contractTarget == null)
         this.contractTarget = new ArrayList<Contract>();
       return this.contractTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #contract} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The policy(s) which constitute this insurance coverage.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Contract addContractTarget() { 
       Contract r = new Contract();
       if (this.contractTarget == null)
@@ -1307,20 +1347,227 @@ public class Coverage extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (issuer == null || issuer.isEmpty()) && (isAgreement == null || isAgreement.isEmpty())
-           && (bin == null || bin.isEmpty()) && (period == null || period.isEmpty()) && (type == null || type.isEmpty())
-           && (planholder == null || planholder.isEmpty()) && (beneficiary == null || beneficiary.isEmpty())
-           && (relationship == null || relationship.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (group == null || group.isEmpty()) && (plan == null || plan.isEmpty()) && (subPlan == null || subPlan.isEmpty())
-           && (dependent == null || dependent.isEmpty()) && (sequence == null || sequence.isEmpty())
-           && (exception == null || exception.isEmpty()) && (school == null || school.isEmpty()) && (network == null || network.isEmpty())
-           && (contract == null || contract.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(issuer, isAgreement, bin
+          , period, type, planholder, beneficiary, relationship, identifier, group, plan
+          , subPlan, dependent, sequence, exception, school, network, contract);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Coverage;
    }
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>The primary identifier of the insured and the coverage</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Coverage.identifier", description="The primary identifier of the insured and the coverage", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>The primary identifier of the insured and the coverage</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>issuerreference</b>
+   * <p>
+   * Description: <b>The identity of the insurer</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Coverage.issuerReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="issuerreference", path="Coverage.issuer.as(Reference)", description="The identity of the insurer", type="reference" )
+  public static final String SP_ISSUERREFERENCE = "issuerreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>issuerreference</b>
+   * <p>
+   * Description: <b>The identity of the insurer</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Coverage.issuerReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ISSUERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ISSUERREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Coverage:issuerreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ISSUERREFERENCE = new ca.uhn.fhir.model.api.Include("Coverage:issuerreference").toLocked();
+
+ /**
+   * Search parameter: <b>subplan</b>
+   * <p>
+   * Description: <b>Sub-plan identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.subPlan</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subplan", path="Coverage.subPlan", description="Sub-plan identifier", type="token" )
+  public static final String SP_SUBPLAN = "subplan";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subplan</b>
+   * <p>
+   * Description: <b>Sub-plan identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.subPlan</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SUBPLAN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SUBPLAN);
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>The kind of coverage (health plan, auto, Workers Compensation)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="Coverage.type", description="The kind of coverage (health plan, auto, Workers Compensation)", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>The kind of coverage (health plan, auto, Workers Compensation)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>beneficiaryidentifier</b>
+   * <p>
+   * Description: <b>Covered party</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.beneficiaryIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="beneficiaryidentifier", path="Coverage.beneficiary.as(Identifier)", description="Covered party", type="token" )
+  public static final String SP_BENEFICIARYIDENTIFIER = "beneficiaryidentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>beneficiaryidentifier</b>
+   * <p>
+   * Description: <b>Covered party</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.beneficiaryIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BENEFICIARYIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BENEFICIARYIDENTIFIER);
+
+ /**
+   * Search parameter: <b>planholderidentifier</b>
+   * <p>
+   * Description: <b>Reference to the planholder</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.planholderIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="planholderidentifier", path="Coverage.planholder.as(Identifier)", description="Reference to the planholder", type="token" )
+  public static final String SP_PLANHOLDERIDENTIFIER = "planholderidentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>planholderidentifier</b>
+   * <p>
+   * Description: <b>Reference to the planholder</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.planholderIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PLANHOLDERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PLANHOLDERIDENTIFIER);
+
+ /**
+   * Search parameter: <b>sequence</b>
+   * <p>
+   * Description: <b>Sequence number</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.sequence</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="sequence", path="Coverage.sequence", description="Sequence number", type="token" )
+  public static final String SP_SEQUENCE = "sequence";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>sequence</b>
+   * <p>
+   * Description: <b>Sequence number</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.sequence</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SEQUENCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SEQUENCE);
+
+ /**
+   * Search parameter: <b>planholderreference</b>
+   * <p>
+   * Description: <b>Reference to the planholder</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Coverage.planholderReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="planholderreference", path="Coverage.planholder.as(Reference)", description="Reference to the planholder", type="reference" )
+  public static final String SP_PLANHOLDERREFERENCE = "planholderreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>planholderreference</b>
+   * <p>
+   * Description: <b>Reference to the planholder</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Coverage.planholderReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PLANHOLDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PLANHOLDERREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Coverage:planholderreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PLANHOLDERREFERENCE = new ca.uhn.fhir.model.api.Include("Coverage:planholderreference").toLocked();
+
+ /**
+   * Search parameter: <b>issueridentifier</b>
+   * <p>
+   * Description: <b>The identity of the insurer</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.issuerIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="issueridentifier", path="Coverage.issuer.as(Identifier)", description="The identity of the insurer", type="token" )
+  public static final String SP_ISSUERIDENTIFIER = "issueridentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>issueridentifier</b>
+   * <p>
+   * Description: <b>The identity of the insurer</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.issuerIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ISSUERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ISSUERIDENTIFIER);
+
+ /**
+   * Search parameter: <b>plan</b>
+   * <p>
+   * Description: <b>A plan or policy identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.plan</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="plan", path="Coverage.plan", description="A plan or policy identifier", type="token" )
+  public static final String SP_PLAN = "plan";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>plan</b>
+   * <p>
+   * Description: <b>A plan or policy identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Coverage.plan</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PLAN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PLAN);
 
  /**
    * Search parameter: <b>dependent</b>
@@ -1369,172 +1616,6 @@ public class Coverage extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_BENEFICIARYREFERENCE = new ca.uhn.fhir.model.api.Include("Coverage:beneficiaryreference").toLocked();
 
  /**
-   * Search parameter: <b>planholderidentifier</b>
-   * <p>
-   * Description: <b>Reference to the planholder</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.planholderIdentifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="planholderidentifier", path="Coverage.planholder.as(Identifier)", description="Reference to the planholder", type="token" )
-  public static final String SP_PLANHOLDERIDENTIFIER = "planholderidentifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>planholderidentifier</b>
-   * <p>
-   * Description: <b>Reference to the planholder</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.planholderIdentifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PLANHOLDERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PLANHOLDERIDENTIFIER);
-
- /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>The kind of coverage (health plan, auto, Workers Compensation)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="Coverage.type", description="The kind of coverage (health plan, auto, Workers Compensation)", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>The kind of coverage (health plan, auto, Workers Compensation)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>issueridentifier</b>
-   * <p>
-   * Description: <b>The identity of the insurer</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.issuerIdentifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="issueridentifier", path="Coverage.issuer.as(Identifier)", description="The identity of the insurer", type="token" )
-  public static final String SP_ISSUERIDENTIFIER = "issueridentifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>issueridentifier</b>
-   * <p>
-   * Description: <b>The identity of the insurer</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.issuerIdentifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ISSUERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ISSUERIDENTIFIER);
-
- /**
-   * Search parameter: <b>subplan</b>
-   * <p>
-   * Description: <b>Sub-plan identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.subPlan</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subplan", path="Coverage.subPlan", description="Sub-plan identifier", type="token" )
-  public static final String SP_SUBPLAN = "subplan";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subplan</b>
-   * <p>
-   * Description: <b>Sub-plan identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.subPlan</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SUBPLAN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SUBPLAN);
-
- /**
-   * Search parameter: <b>issuerreference</b>
-   * <p>
-   * Description: <b>The identity of the insurer</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Coverage.issuerReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="issuerreference", path="Coverage.issuer.as(Reference)", description="The identity of the insurer", type="reference" )
-  public static final String SP_ISSUERREFERENCE = "issuerreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>issuerreference</b>
-   * <p>
-   * Description: <b>The identity of the insurer</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Coverage.issuerReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ISSUERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ISSUERREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Coverage:issuerreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ISSUERREFERENCE = new ca.uhn.fhir.model.api.Include("Coverage:issuerreference").toLocked();
-
- /**
-   * Search parameter: <b>plan</b>
-   * <p>
-   * Description: <b>A plan or policy identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.plan</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="plan", path="Coverage.plan", description="A plan or policy identifier", type="token" )
-  public static final String SP_PLAN = "plan";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>plan</b>
-   * <p>
-   * Description: <b>A plan or policy identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.plan</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PLAN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PLAN);
-
- /**
-   * Search parameter: <b>sequence</b>
-   * <p>
-   * Description: <b>Sequence number</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.sequence</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="sequence", path="Coverage.sequence", description="Sequence number", type="token" )
-  public static final String SP_SEQUENCE = "sequence";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>sequence</b>
-   * <p>
-   * Description: <b>Sequence number</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.sequence</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SEQUENCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SEQUENCE);
-
- /**
-   * Search parameter: <b>beneficiaryidentifier</b>
-   * <p>
-   * Description: <b>Covered party</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.beneficiaryIdentifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="beneficiaryidentifier", path="Coverage.beneficiary.as(Identifier)", description="Covered party", type="token" )
-  public static final String SP_BENEFICIARYIDENTIFIER = "beneficiaryidentifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>beneficiaryidentifier</b>
-   * <p>
-   * Description: <b>Covered party</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.beneficiaryIdentifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BENEFICIARYIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BENEFICIARYIDENTIFIER);
-
- /**
    * Search parameter: <b>group</b>
    * <p>
    * Description: <b>Group identifier</b><br>
@@ -1553,52 +1634,6 @@ public class Coverage extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam GROUP = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_GROUP);
-
- /**
-   * Search parameter: <b>planholderreference</b>
-   * <p>
-   * Description: <b>Reference to the planholder</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Coverage.planholderReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="planholderreference", path="Coverage.planholder.as(Reference)", description="Reference to the planholder", type="reference" )
-  public static final String SP_PLANHOLDERREFERENCE = "planholderreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>planholderreference</b>
-   * <p>
-   * Description: <b>Reference to the planholder</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Coverage.planholderReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PLANHOLDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PLANHOLDERREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Coverage:planholderreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PLANHOLDERREFERENCE = new ca.uhn.fhir.model.api.Include("Coverage:planholderreference").toLocked();
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>The primary identifier of the insured and the coverage</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Coverage.identifier", description="The primary identifier of the insured and the coverage", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>The primary identifier of the insured and the coverage</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Coverage.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

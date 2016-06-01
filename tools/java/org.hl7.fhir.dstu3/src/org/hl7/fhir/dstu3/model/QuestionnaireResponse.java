@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -350,6 +350,14 @@ public class QuestionnaireResponse extends DomainResource {
           return this.answer;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public QuestionnaireResponseItemComponent setAnswer(List<QuestionnaireResponseItemAnswerComponent> theAnswer) { 
+          this.answer = theAnswer;
+          return this;
+        }
+
         public boolean hasAnswer() { 
           if (this.answer == null)
             return false;
@@ -359,10 +367,6 @@ public class QuestionnaireResponse extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #answer} (The respondent's answer(s) to the question.)
-         */
-    // syntactic sugar
         public QuestionnaireResponseItemAnswerComponent addAnswer() { //3
           QuestionnaireResponseItemAnswerComponent t = new QuestionnaireResponseItemAnswerComponent();
           if (this.answer == null)
@@ -371,7 +375,6 @@ public class QuestionnaireResponse extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public QuestionnaireResponseItemComponent addAnswer(QuestionnaireResponseItemAnswerComponent t) { //3
           if (t == null)
             return this;
@@ -379,6 +382,16 @@ public class QuestionnaireResponse extends DomainResource {
             this.answer = new ArrayList<QuestionnaireResponseItemAnswerComponent>();
           this.answer.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #answer}, creating it if it does not already exist
+         */
+        public QuestionnaireResponseItemAnswerComponent getAnswerFirstRep() { 
+          if (getAnswer().isEmpty()) {
+            addAnswer();
+          }
+          return getAnswer().get(0);
         }
 
         /**
@@ -390,6 +403,14 @@ public class QuestionnaireResponse extends DomainResource {
           return this.item;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public QuestionnaireResponseItemComponent setItem(List<QuestionnaireResponseItemComponent> theItem) { 
+          this.item = theItem;
+          return this;
+        }
+
         public boolean hasItem() { 
           if (this.item == null)
             return false;
@@ -399,10 +420,6 @@ public class QuestionnaireResponse extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #item} (Questions or sub-groups nested beneath a question or group.)
-         */
-    // syntactic sugar
         public QuestionnaireResponseItemComponent addItem() { //3
           QuestionnaireResponseItemComponent t = new QuestionnaireResponseItemComponent();
           if (this.item == null)
@@ -411,7 +428,6 @@ public class QuestionnaireResponse extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public QuestionnaireResponseItemComponent addItem(QuestionnaireResponseItemComponent t) { //3
           if (t == null)
             return this;
@@ -419,6 +435,16 @@ public class QuestionnaireResponse extends DomainResource {
             this.item = new ArrayList<QuestionnaireResponseItemComponent>();
           this.item.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #item}, creating it if it does not already exist
+         */
+        public QuestionnaireResponseItemComponent getItemFirstRep() { 
+          if (getItem().isEmpty()) {
+            addItem();
+          }
+          return getItem().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -558,9 +584,8 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (linkId == null || linkId.isEmpty()) && (text == null || text.isEmpty())
-           && (subject == null || subject.isEmpty()) && (answer == null || answer.isEmpty()) && (item == null || item.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(linkId, text, subject, answer
+          , item);
       }
 
   public String fhirType() {
@@ -792,6 +817,14 @@ public class QuestionnaireResponse extends DomainResource {
           return this.item;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public QuestionnaireResponseItemAnswerComponent setItem(List<QuestionnaireResponseItemComponent> theItem) { 
+          this.item = theItem;
+          return this;
+        }
+
         public boolean hasItem() { 
           if (this.item == null)
             return false;
@@ -801,10 +834,6 @@ public class QuestionnaireResponse extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #item} (Nested groups and/or questions found within this particular answer.)
-         */
-    // syntactic sugar
         public QuestionnaireResponseItemComponent addItem() { //3
           QuestionnaireResponseItemComponent t = new QuestionnaireResponseItemComponent();
           if (this.item == null)
@@ -813,7 +842,6 @@ public class QuestionnaireResponse extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public QuestionnaireResponseItemAnswerComponent addItem(QuestionnaireResponseItemComponent t) { //3
           if (t == null)
             return this;
@@ -821,6 +849,16 @@ public class QuestionnaireResponse extends DomainResource {
             this.item = new ArrayList<QuestionnaireResponseItemComponent>();
           this.item.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #item}, creating it if it does not already exist
+         */
+        public QuestionnaireResponseItemComponent getItemFirstRep() { 
+          if (getItem().isEmpty()) {
+            addItem();
+          }
+          return getItem().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -967,8 +1005,7 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (value == null || value.isEmpty()) && (item == null || item.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(value, item);
       }
 
   public String fhirType() {
@@ -1415,6 +1452,14 @@ public class QuestionnaireResponse extends DomainResource {
       return this.item;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public QuestionnaireResponse setItem(List<QuestionnaireResponseItemComponent> theItem) { 
+      this.item = theItem;
+      return this;
+    }
+
     public boolean hasItem() { 
       if (this.item == null)
         return false;
@@ -1424,10 +1469,6 @@ public class QuestionnaireResponse extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #item} (Corresponds to a group or question item from the original questionnaire.)
-     */
-    // syntactic sugar
     public QuestionnaireResponseItemComponent addItem() { //3
       QuestionnaireResponseItemComponent t = new QuestionnaireResponseItemComponent();
       if (this.item == null)
@@ -1436,7 +1477,6 @@ public class QuestionnaireResponse extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public QuestionnaireResponse addItem(QuestionnaireResponseItemComponent t) { //3
       if (t == null)
         return this;
@@ -1444,6 +1484,16 @@ public class QuestionnaireResponse extends DomainResource {
         this.item = new ArrayList<QuestionnaireResponseItemComponent>();
       this.item.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #item}, creating it if it does not already exist
+     */
+    public QuestionnaireResponseItemComponent getItemFirstRep() { 
+      if (getItem().isEmpty()) {
+        addItem();
+      }
+      return getItem().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1643,10 +1693,8 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (questionnaire == null || questionnaire.isEmpty())
-           && (status == null || status.isEmpty()) && (subject == null || subject.isEmpty()) && (author == null || author.isEmpty())
-           && (authored == null || authored.isEmpty()) && (source == null || source.isEmpty()) && (encounter == null || encounter.isEmpty())
-           && (item == null || item.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, questionnaire
+          , status, subject, author, authored, source, encounter, item);
       }
 
   @Override
@@ -1655,30 +1703,24 @@ public class QuestionnaireResponse extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>author</b>
+   * Search parameter: <b>authored</b>
    * <p>
-   * Description: <b>The author of the questionnaire</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>QuestionnaireResponse.author</b><br>
+   * Description: <b>When the questionnaire was authored</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>QuestionnaireResponse.authored</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="author", path="QuestionnaireResponse.author", description="The author of the questionnaire", type="reference" )
-  public static final String SP_AUTHOR = "author";
+  @SearchParamDefinition(name="authored", path="QuestionnaireResponse.authored", description="When the questionnaire was authored", type="date" )
+  public static final String SP_AUTHORED = "authored";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>author</b>
+   * <b>Fluent Client</b> search parameter constant for <b>authored</b>
    * <p>
-   * Description: <b>The author of the questionnaire</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>QuestionnaireResponse.author</b><br>
+   * Description: <b>When the questionnaire was authored</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>QuestionnaireResponse.authored</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>QuestionnaireResponse:author</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("QuestionnaireResponse:author").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam AUTHORED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_AUTHORED);
 
  /**
    * Search parameter: <b>questionnaire</b>
@@ -1707,6 +1749,58 @@ public class QuestionnaireResponse extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_QUESTIONNAIRE = new ca.uhn.fhir.model.api.Include("QuestionnaireResponse:questionnaire").toLocked();
 
  /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>The subject of the questionnaire</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>QuestionnaireResponse.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="QuestionnaireResponse.subject", description="The subject of the questionnaire", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>The subject of the questionnaire</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>QuestionnaireResponse.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>QuestionnaireResponse:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("QuestionnaireResponse:subject").toLocked();
+
+ /**
+   * Search parameter: <b>author</b>
+   * <p>
+   * Description: <b>The author of the questionnaire</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>QuestionnaireResponse.author</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="author", path="QuestionnaireResponse.author", description="The author of the questionnaire", type="reference" )
+  public static final String SP_AUTHOR = "author";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>author</b>
+   * <p>
+   * Description: <b>The author of the questionnaire</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>QuestionnaireResponse.author</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>QuestionnaireResponse:author</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("QuestionnaireResponse:author").toLocked();
+
+ /**
    * Search parameter: <b>patient</b>
    * <p>
    * Description: <b>The patient that is the subject of the questionnaire</b><br>
@@ -1733,24 +1827,30 @@ public class QuestionnaireResponse extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("QuestionnaireResponse:patient").toLocked();
 
  /**
-   * Search parameter: <b>authored</b>
+   * Search parameter: <b>encounter</b>
    * <p>
-   * Description: <b>When the questionnaire was authored</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>QuestionnaireResponse.authored</b><br>
+   * Description: <b>Encounter during which questionnaire was authored</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>QuestionnaireResponse.encounter</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="authored", path="QuestionnaireResponse.authored", description="When the questionnaire was authored", type="date" )
-  public static final String SP_AUTHORED = "authored";
+  @SearchParamDefinition(name="encounter", path="QuestionnaireResponse.encounter", description="Encounter during which questionnaire was authored", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>authored</b>
+   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
    * <p>
-   * Description: <b>When the questionnaire was authored</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>QuestionnaireResponse.authored</b><br>
+   * Description: <b>Encounter during which questionnaire was authored</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>QuestionnaireResponse.encounter</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam AUTHORED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_AUTHORED);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>QuestionnaireResponse:encounter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("QuestionnaireResponse:encounter").toLocked();
 
  /**
    * Search parameter: <b>source</b>
@@ -1797,58 +1897,6 @@ public class QuestionnaireResponse extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>The subject of the questionnaire</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>QuestionnaireResponse.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subject", path="QuestionnaireResponse.subject", description="The subject of the questionnaire", type="reference" )
-  public static final String SP_SUBJECT = "subject";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
-   * <p>
-   * Description: <b>The subject of the questionnaire</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>QuestionnaireResponse.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>QuestionnaireResponse:subject</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("QuestionnaireResponse:subject").toLocked();
-
- /**
-   * Search parameter: <b>encounter</b>
-   * <p>
-   * Description: <b>Encounter during which questionnaire was authored</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>QuestionnaireResponse.encounter</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="encounter", path="QuestionnaireResponse.encounter", description="Encounter during which questionnaire was authored", type="reference" )
-  public static final String SP_ENCOUNTER = "encounter";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
-   * <p>
-   * Description: <b>Encounter during which questionnaire was authored</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>QuestionnaireResponse.encounter</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>QuestionnaireResponse:encounter</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("QuestionnaireResponse:encounter").toLocked();
 
 
 }

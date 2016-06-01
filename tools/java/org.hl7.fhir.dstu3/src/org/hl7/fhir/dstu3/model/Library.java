@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -335,8 +335,8 @@ public class Library extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (version == null || version.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, identifier, version
+          );
       }
 
   public String fhirType() {
@@ -703,8 +703,8 @@ public class Library extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (version == null || version.isEmpty()) && (document == null || document.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, identifier, version
+          , document);
       }
 
   public String fhirType() {
@@ -1002,8 +1002,8 @@ public class Library extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (version == null || version.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, identifier, version
+          );
       }
 
   public String fhirType() {
@@ -1212,6 +1212,14 @@ public class Library extends DomainResource {
           return this.codeSystem;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public LibraryValueSetComponent setCodeSystem(List<StringType> theCodeSystem) { 
+          this.codeSystem = theCodeSystem;
+          return this;
+        }
+
         public boolean hasCodeSystem() { 
           if (this.codeSystem == null)
             return false;
@@ -1224,7 +1232,6 @@ public class Library extends DomainResource {
         /**
          * @return {@link #codeSystem} (The codeSystem element determines which code system binding to use to compute the expansion of the value set definition. The codeSystem element specified here will correspond to a code system element, which is used to determine the code system version.)
          */
-    // syntactic sugar
         public StringType addCodeSystemElement() {//2 
           StringType t = new StringType();
           if (this.codeSystem == null)
@@ -1378,9 +1385,8 @@ public class Library extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (version == null || version.isEmpty()) && (codeSystem == null || codeSystem.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, identifier, version
+          , codeSystem);
       }
 
   public String fhirType() {
@@ -1496,6 +1502,14 @@ public class Library extends DomainResource {
       return this.model;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Library setModel(List<LibraryModelComponent> theModel) { 
+      this.model = theModel;
+      return this;
+    }
+
     public boolean hasModel() { 
       if (this.model == null)
         return false;
@@ -1505,10 +1519,6 @@ public class Library extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #model} (A model element describes the model and version used by the library.)
-     */
-    // syntactic sugar
     public LibraryModelComponent addModel() { //3
       LibraryModelComponent t = new LibraryModelComponent();
       if (this.model == null)
@@ -1517,7 +1527,6 @@ public class Library extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Library addModel(LibraryModelComponent t) { //3
       if (t == null)
         return this;
@@ -1525,6 +1534,16 @@ public class Library extends DomainResource {
         this.model = new ArrayList<LibraryModelComponent>();
       this.model.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #model}, creating it if it does not already exist
+     */
+    public LibraryModelComponent getModelFirstRep() { 
+      if (getModel().isEmpty()) {
+        addModel();
+      }
+      return getModel().get(0);
     }
 
     /**
@@ -1536,6 +1555,14 @@ public class Library extends DomainResource {
       return this.library;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Library setLibrary(List<LibraryLibraryComponent> theLibrary) { 
+      this.library = theLibrary;
+      return this;
+    }
+
     public boolean hasLibrary() { 
       if (this.library == null)
         return false;
@@ -1545,10 +1572,6 @@ public class Library extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #library} (A library element describes a library referenced by this library.)
-     */
-    // syntactic sugar
     public LibraryLibraryComponent addLibrary() { //3
       LibraryLibraryComponent t = new LibraryLibraryComponent();
       if (this.library == null)
@@ -1557,7 +1580,6 @@ public class Library extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Library addLibrary(LibraryLibraryComponent t) { //3
       if (t == null)
         return this;
@@ -1565,6 +1587,16 @@ public class Library extends DomainResource {
         this.library = new ArrayList<LibraryLibraryComponent>();
       this.library.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #library}, creating it if it does not already exist
+     */
+    public LibraryLibraryComponent getLibraryFirstRep() { 
+      if (getLibrary().isEmpty()) {
+        addLibrary();
+      }
+      return getLibrary().get(0);
     }
 
     /**
@@ -1576,6 +1608,14 @@ public class Library extends DomainResource {
       return this.codeSystem;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Library setCodeSystem(List<LibraryCodeSystemComponent> theCodeSystem) { 
+      this.codeSystem = theCodeSystem;
+      return this;
+    }
+
     public boolean hasCodeSystem() { 
       if (this.codeSystem == null)
         return false;
@@ -1585,10 +1625,6 @@ public class Library extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #codeSystem} (A code system definition used within the library.)
-     */
-    // syntactic sugar
     public LibraryCodeSystemComponent addCodeSystem() { //3
       LibraryCodeSystemComponent t = new LibraryCodeSystemComponent();
       if (this.codeSystem == null)
@@ -1597,7 +1633,6 @@ public class Library extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Library addCodeSystem(LibraryCodeSystemComponent t) { //3
       if (t == null)
         return this;
@@ -1605,6 +1640,16 @@ public class Library extends DomainResource {
         this.codeSystem = new ArrayList<LibraryCodeSystemComponent>();
       this.codeSystem.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #codeSystem}, creating it if it does not already exist
+     */
+    public LibraryCodeSystemComponent getCodeSystemFirstRep() { 
+      if (getCodeSystem().isEmpty()) {
+        addCodeSystem();
+      }
+      return getCodeSystem().get(0);
     }
 
     /**
@@ -1616,6 +1661,14 @@ public class Library extends DomainResource {
       return this.valueSet;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Library setValueSet(List<LibraryValueSetComponent> theValueSet) { 
+      this.valueSet = theValueSet;
+      return this;
+    }
+
     public boolean hasValueSet() { 
       if (this.valueSet == null)
         return false;
@@ -1625,10 +1678,6 @@ public class Library extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #valueSet} (A value set definition referenced by the library.)
-     */
-    // syntactic sugar
     public LibraryValueSetComponent addValueSet() { //3
       LibraryValueSetComponent t = new LibraryValueSetComponent();
       if (this.valueSet == null)
@@ -1637,7 +1686,6 @@ public class Library extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Library addValueSet(LibraryValueSetComponent t) { //3
       if (t == null)
         return this;
@@ -1645,6 +1693,16 @@ public class Library extends DomainResource {
         this.valueSet = new ArrayList<LibraryValueSetComponent>();
       this.valueSet.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #valueSet}, creating it if it does not already exist
+     */
+    public LibraryValueSetComponent getValueSetFirstRep() { 
+      if (getValueSet().isEmpty()) {
+        addValueSet();
+      }
+      return getValueSet().get(0);
     }
 
     /**
@@ -1656,6 +1714,14 @@ public class Library extends DomainResource {
       return this.parameter;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Library setParameter(List<ParameterDefinition> theParameter) { 
+      this.parameter = theParameter;
+      return this;
+    }
+
     public boolean hasParameter() { 
       if (this.parameter == null)
         return false;
@@ -1665,10 +1731,6 @@ public class Library extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #parameter} (The parameter element defines parameters used by the library.)
-     */
-    // syntactic sugar
     public ParameterDefinition addParameter() { //3
       ParameterDefinition t = new ParameterDefinition();
       if (this.parameter == null)
@@ -1677,7 +1739,6 @@ public class Library extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Library addParameter(ParameterDefinition t) { //3
       if (t == null)
         return this;
@@ -1685,6 +1746,16 @@ public class Library extends DomainResource {
         this.parameter = new ArrayList<ParameterDefinition>();
       this.parameter.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #parameter}, creating it if it does not already exist
+     */
+    public ParameterDefinition getParameterFirstRep() { 
+      if (getParameter().isEmpty()) {
+        addParameter();
+      }
+      return getParameter().get(0);
     }
 
     /**
@@ -1696,6 +1767,14 @@ public class Library extends DomainResource {
       return this.dataRequirement;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Library setDataRequirement(List<DataRequirement> theDataRequirement) { 
+      this.dataRequirement = theDataRequirement;
+      return this;
+    }
+
     public boolean hasDataRequirement() { 
       if (this.dataRequirement == null)
         return false;
@@ -1705,10 +1784,6 @@ public class Library extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #dataRequirement} (The dataRequirement element specifies a data requirement used by some expression within the library.)
-     */
-    // syntactic sugar
     public DataRequirement addDataRequirement() { //3
       DataRequirement t = new DataRequirement();
       if (this.dataRequirement == null)
@@ -1717,7 +1792,6 @@ public class Library extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Library addDataRequirement(DataRequirement t) { //3
       if (t == null)
         return this;
@@ -1725,6 +1799,16 @@ public class Library extends DomainResource {
         this.dataRequirement = new ArrayList<DataRequirement>();
       this.dataRequirement.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #dataRequirement}, creating it if it does not already exist
+     */
+    public DataRequirement getDataRequirementFirstRep() { 
+      if (getDataRequirement().isEmpty()) {
+        addDataRequirement();
+      }
+      return getDataRequirement().get(0);
     }
 
     /**
@@ -1952,97 +2036,14 @@ public class Library extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (moduleMetadata == null || moduleMetadata.isEmpty()) && (model == null || model.isEmpty())
-           && (library == null || library.isEmpty()) && (codeSystem == null || codeSystem.isEmpty())
-           && (valueSet == null || valueSet.isEmpty()) && (parameter == null || parameter.isEmpty())
-           && (dataRequirement == null || dataRequirement.isEmpty()) && (document == null || document.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(moduleMetadata, model, library
+          , codeSystem, valueSet, parameter, dataRequirement, document);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Library;
    }
-
- /**
-   * Search parameter: <b>topic</b>
-   * <p>
-   * Description: <b>Topics associated with the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Library.moduleMetadata.topic</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="topic", path="Library.moduleMetadata.topic", description="Topics associated with the module", type="token" )
-  public static final String SP_TOPIC = "topic";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
-   * <p>
-   * Description: <b>Topics associated with the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Library.moduleMetadata.topic</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
-
- /**
-   * Search parameter: <b>title</b>
-   * <p>
-   * Description: <b>Text search against the title</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Library.moduleMetadata.title</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="title", path="Library.moduleMetadata.title", description="Text search against the title", type="string" )
-  public static final String SP_TITLE = "title";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>title</b>
-   * <p>
-   * Description: <b>Text search against the title</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Library.moduleMetadata.title</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>Status of the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Library.moduleMetadata.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="Library.moduleMetadata.status", description="Status of the module", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>Status of the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Library.moduleMetadata.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Text search against the description</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Library.moduleMetadata.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="Library.moduleMetadata.description", description="Text search against the description", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Text search against the description</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Library.moduleMetadata.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
    * Search parameter: <b>identifier</b>
@@ -2065,6 +2066,66 @@ public class Library extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
+   * Search parameter: <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Library.moduleMetadata.topic</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="topic", path="Library.moduleMetadata.topic", description="Topics associated with the module", type="token" )
+  public static final String SP_TOPIC = "topic";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Library.moduleMetadata.topic</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
+
+ /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Text search against the description</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Library.moduleMetadata.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="Library.moduleMetadata.description", description="Text search against the description", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Text search against the description</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Library.moduleMetadata.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Library.moduleMetadata.title</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="title", path="Library.moduleMetadata.title", description="Text search against the title", type="string" )
+  public static final String SP_TITLE = "title";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Library.moduleMetadata.title</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
+
+ /**
    * Search parameter: <b>version</b>
    * <p>
    * Description: <b>Version of the module (e.g. 1.0.0)</b><br>
@@ -2083,6 +2144,26 @@ public class Library extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam VERSION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_VERSION);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>Status of the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Library.moduleMetadata.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="Library.moduleMetadata.status", description="Status of the module", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>Status of the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Library.moduleMetadata.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

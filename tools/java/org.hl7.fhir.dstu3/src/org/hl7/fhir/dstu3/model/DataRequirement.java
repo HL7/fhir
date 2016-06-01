@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -200,6 +200,14 @@ public class DataRequirement extends Type implements ICompositeType {
           return this.valueCode;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DataRequirementCodeFilterComponent setValueCode(List<CodeType> theValueCode) { 
+          this.valueCode = theValueCode;
+          return this;
+        }
+
         public boolean hasValueCode() { 
           if (this.valueCode == null)
             return false;
@@ -212,7 +220,6 @@ public class DataRequirement extends Type implements ICompositeType {
         /**
          * @return {@link #valueCode} (The codes for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes.)
          */
-    // syntactic sugar
         public CodeType addValueCodeElement() {//2 
           CodeType t = new CodeType();
           if (this.valueCode == null)
@@ -254,6 +261,14 @@ public class DataRequirement extends Type implements ICompositeType {
           return this.valueCoding;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DataRequirementCodeFilterComponent setValueCoding(List<Coding> theValueCoding) { 
+          this.valueCoding = theValueCoding;
+          return this;
+        }
+
         public boolean hasValueCoding() { 
           if (this.valueCoding == null)
             return false;
@@ -263,10 +278,6 @@ public class DataRequirement extends Type implements ICompositeType {
           return false;
         }
 
-        /**
-         * @return {@link #valueCoding} (The Codings for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified Codings.)
-         */
-    // syntactic sugar
         public Coding addValueCoding() { //3
           Coding t = new Coding();
           if (this.valueCoding == null)
@@ -275,7 +286,6 @@ public class DataRequirement extends Type implements ICompositeType {
           return t;
         }
 
-    // syntactic sugar
         public DataRequirementCodeFilterComponent addValueCoding(Coding t) { //3
           if (t == null)
             return this;
@@ -283,6 +293,16 @@ public class DataRequirement extends Type implements ICompositeType {
             this.valueCoding = new ArrayList<Coding>();
           this.valueCoding.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #valueCoding}, creating it if it does not already exist
+         */
+        public Coding getValueCodingFirstRep() { 
+          if (getValueCoding().isEmpty()) {
+            addValueCoding();
+          }
+          return getValueCoding().get(0);
         }
 
         /**
@@ -294,6 +314,14 @@ public class DataRequirement extends Type implements ICompositeType {
           return this.valueCodeableConcept;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DataRequirementCodeFilterComponent setValueCodeableConcept(List<CodeableConcept> theValueCodeableConcept) { 
+          this.valueCodeableConcept = theValueCodeableConcept;
+          return this;
+        }
+
         public boolean hasValueCodeableConcept() { 
           if (this.valueCodeableConcept == null)
             return false;
@@ -303,10 +331,6 @@ public class DataRequirement extends Type implements ICompositeType {
           return false;
         }
 
-        /**
-         * @return {@link #valueCodeableConcept} (The CodeableConcepts for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified CodeableConcepts.)
-         */
-    // syntactic sugar
         public CodeableConcept addValueCodeableConcept() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.valueCodeableConcept == null)
@@ -315,7 +339,6 @@ public class DataRequirement extends Type implements ICompositeType {
           return t;
         }
 
-    // syntactic sugar
         public DataRequirementCodeFilterComponent addValueCodeableConcept(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -323,6 +346,16 @@ public class DataRequirement extends Type implements ICompositeType {
             this.valueCodeableConcept = new ArrayList<CodeableConcept>();
           this.valueCodeableConcept.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #valueCodeableConcept}, creating it if it does not already exist
+         */
+        public CodeableConcept getValueCodeableConceptFirstRep() { 
+          if (getValueCodeableConcept().isEmpty()) {
+            addValueCodeableConcept();
+          }
+          return getValueCodeableConcept().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -471,9 +504,8 @@ public class DataRequirement extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (path == null || path.isEmpty()) && (valueSet == null || valueSet.isEmpty())
-           && (valueCode == null || valueCode.isEmpty()) && (valueCoding == null || valueCoding.isEmpty())
-           && (valueCodeableConcept == null || valueCodeableConcept.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, valueSet, valueCode
+          , valueCoding, valueCodeableConcept);
       }
 
   public String fhirType() {
@@ -702,8 +734,7 @@ public class DataRequirement extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (path == null || path.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, value);
       }
 
   public String fhirType() {
@@ -868,6 +899,14 @@ public class DataRequirement extends Type implements ICompositeType {
       return this.mustSupport;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DataRequirement setMustSupport(List<StringType> theMustSupport) { 
+      this.mustSupport = theMustSupport;
+      return this;
+    }
+
     public boolean hasMustSupport() { 
       if (this.mustSupport == null)
         return false;
@@ -880,7 +919,6 @@ public class DataRequirement extends Type implements ICompositeType {
     /**
      * @return {@link #mustSupport} (Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available.)
      */
-    // syntactic sugar
     public StringType addMustSupportElement() {//2 
       StringType t = new StringType();
       if (this.mustSupport == null)
@@ -922,6 +960,14 @@ public class DataRequirement extends Type implements ICompositeType {
       return this.codeFilter;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DataRequirement setCodeFilter(List<DataRequirementCodeFilterComponent> theCodeFilter) { 
+      this.codeFilter = theCodeFilter;
+      return this;
+    }
+
     public boolean hasCodeFilter() { 
       if (this.codeFilter == null)
         return false;
@@ -931,10 +977,6 @@ public class DataRequirement extends Type implements ICompositeType {
       return false;
     }
 
-    /**
-     * @return {@link #codeFilter} (Code filters specify additional constraints on the data, specifying the value set of interest for a particular element of the data.)
-     */
-    // syntactic sugar
     public DataRequirementCodeFilterComponent addCodeFilter() { //3
       DataRequirementCodeFilterComponent t = new DataRequirementCodeFilterComponent();
       if (this.codeFilter == null)
@@ -943,7 +985,6 @@ public class DataRequirement extends Type implements ICompositeType {
       return t;
     }
 
-    // syntactic sugar
     public DataRequirement addCodeFilter(DataRequirementCodeFilterComponent t) { //3
       if (t == null)
         return this;
@@ -951,6 +992,16 @@ public class DataRequirement extends Type implements ICompositeType {
         this.codeFilter = new ArrayList<DataRequirementCodeFilterComponent>();
       this.codeFilter.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #codeFilter}, creating it if it does not already exist
+     */
+    public DataRequirementCodeFilterComponent getCodeFilterFirstRep() { 
+      if (getCodeFilter().isEmpty()) {
+        addCodeFilter();
+      }
+      return getCodeFilter().get(0);
     }
 
     /**
@@ -962,6 +1013,14 @@ public class DataRequirement extends Type implements ICompositeType {
       return this.dateFilter;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DataRequirement setDateFilter(List<DataRequirementDateFilterComponent> theDateFilter) { 
+      this.dateFilter = theDateFilter;
+      return this;
+    }
+
     public boolean hasDateFilter() { 
       if (this.dateFilter == null)
         return false;
@@ -971,10 +1030,6 @@ public class DataRequirement extends Type implements ICompositeType {
       return false;
     }
 
-    /**
-     * @return {@link #dateFilter} (Date filters specify additional constraints on the data in terms of the applicable date range for specific elements.)
-     */
-    // syntactic sugar
     public DataRequirementDateFilterComponent addDateFilter() { //3
       DataRequirementDateFilterComponent t = new DataRequirementDateFilterComponent();
       if (this.dateFilter == null)
@@ -983,7 +1038,6 @@ public class DataRequirement extends Type implements ICompositeType {
       return t;
     }
 
-    // syntactic sugar
     public DataRequirement addDateFilter(DataRequirementDateFilterComponent t) { //3
       if (t == null)
         return this;
@@ -991,6 +1045,16 @@ public class DataRequirement extends Type implements ICompositeType {
         this.dateFilter = new ArrayList<DataRequirementDateFilterComponent>();
       this.dateFilter.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #dateFilter}, creating it if it does not already exist
+     */
+    public DataRequirementDateFilterComponent getDateFilterFirstRep() { 
+      if (getDateFilter().isEmpty()) {
+        addDateFilter();
+      }
+      return getDateFilter().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1143,9 +1207,8 @@ public class DataRequirement extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty())
-           && (mustSupport == null || mustSupport.isEmpty()) && (codeFilter == null || codeFilter.isEmpty())
-           && (dateFilter == null || dateFilter.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, profile, mustSupport
+          , codeFilter, dateFilter);
       }
 
 

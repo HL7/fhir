@@ -1137,7 +1137,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String genCompModel(StructureDefinition sd, String name, String base, String prefix) throws Exception {
     if (sd == null)
       return "<p style=\"color: maroon\">No "+name+" could be generated</p>\r\n";
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateTable("??", sd, false, folders.dstDir, false, base, true, prefix, false)); 
+    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateTable("??", sd, false, folders.dstDir, false, base, true, prefix, prefix, false)); 
   }
 
   private String genCmpMessages(ProfileComparison cmp) {
@@ -5162,7 +5162,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         t = definitions.getStructures().get(n);
       if (t == null)
         t = definitions.getInfrastructure().get(n);
-      genStructureExample(s, getLinkFor(t.getName()), t.getName().toLowerCase()+".profile",  t.getName().toLowerCase(), t.getName());
+      genStructureExample(s, getLinkFor("", t.getName()), t.getName().toLowerCase()+".profile",  t.getName().toLowerCase(), t.getName());
     }
     s.append("</table>\r\n");
     
@@ -6016,7 +6016,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String generateExtensionTable(StructureDefinition ed, String filename, String full, String prefix) throws Exception {
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateExtensionTable(filename, ed, folders.dstDir, false, full.equals("true"), prefix));
+    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateExtensionTable(filename, ed, folders.dstDir, false, full.equals("true"), prefix, prefix));
   }
 
 
@@ -6211,7 +6211,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String generateProfileStructureTable(ConstraintStructure profile, boolean diff, String filename, String baseName, String prefix) throws Exception {
     String fn = filename.contains(".") ? filename.substring(0, filename.indexOf('.')) : filename;
     String deffile = fn+"-definitions.html";
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, baseName, !diff, prefix, false));
+    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, baseName, !diff, prefix, prefix, false));
   }
 
   private boolean isAggregationEndpoint(String name) {
@@ -6487,17 +6487,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   @Override
-  public String getLinkFor(String type) {
+  public String getLinkFor(String corePath, String type) {
     if (definitions.hasResource(type) || definitions.getBaseResources().containsKey(type)) 
-      return type.toLowerCase()+".html";
+      return collapse(corePath, type.toLowerCase()+".html");
     else if (definitions.hasType(type))
-      return definitions.getSrcFile(type)+".html#"+type;
+      return collapse(corePath, definitions.getSrcFile(type)+".html#"+type);
     else if (profiles.containsKey(type) && profiles.get(type).hasUserData("path"))
-      return (String) profiles.get(type).getUserData("path");
+      return collapse(corePath, profiles.get(type).getUserString("path"));
     else if (profiles.containsKey("http://hl7.org/fhir/StructureDefinition/"+type) && profiles.get("http://hl7.org/fhir/StructureDefinition/"+type).hasUserData("path"))
-      return (String) profiles.get("http://hl7.org/fhir/StructureDefinition/"+type).getUserData("path");
+      return collapse(corePath, profiles.get("http://hl7.org/fhir/StructureDefinition/"+type).getUserString("path"));
     else
-      return type.toLowerCase()+".html";
+      return collapse(corePath, type.toLowerCase()+".html");
+  }
+
+  private String collapse(String corePath, String link) {
+    if (Utilities.noString(corePath))
+      return link;
+    return corePath+link;
   }
 
   public Translations getTranslations() {
@@ -7248,6 +7254,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public void loadUcum() throws UcumException {
     workerContext.loadUcum(Utilities.path(folders.srcDir, "ucum-essence.xml"));    
+  }
+
+  @Override
+  public boolean prependLinks() {
+    return true;
   }  
 
 }

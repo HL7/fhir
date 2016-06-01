@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -274,6 +274,14 @@ public class Media extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Media setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -283,10 +291,6 @@ public class Media extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -295,7 +299,6 @@ public class Media extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Media addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -303,6 +306,16 @@ public class Media extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -969,11 +982,9 @@ public class Media extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
-           && (subtype == null || subtype.isEmpty()) && (view == null || view.isEmpty()) && (subject == null || subject.isEmpty())
-           && (operator == null || operator.isEmpty()) && (deviceName == null || deviceName.isEmpty())
-           && (height == null || height.isEmpty()) && (width == null || width.isEmpty()) && (frames == null || frames.isEmpty())
-           && (duration == null || duration.isEmpty()) && (content == null || content.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, subtype
+          , view, subject, operator, deviceName, height, width, frames, duration, content
+          );
       }
 
   @Override
@@ -982,30 +993,64 @@ public class Media extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>patient</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Who/What this Media is a record of</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Media.subject</b><br>
+   * Description: <b>Identifier(s) for the image</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Media.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="Media.subject", description="Who/What this Media is a record of", type="reference" )
-  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="identifier", path="Media.identifier", description="Identifier(s) for the image", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Who/What this Media is a record of</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Media.subject</b><br>
+   * Description: <b>Identifier(s) for the image</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Media.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Media:patient</b>".
+ /**
+   * Search parameter: <b>view</b>
+   * <p>
+   * Description: <b>Imaging view, e.g. Lateral or Antero-posterior</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Media.view</b><br>
+   * </p>
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Media:patient").toLocked();
+  @SearchParamDefinition(name="view", path="Media.view", description="Imaging view, e.g. Lateral or Antero-posterior", type="token" )
+  public static final String SP_VIEW = "view";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>view</b>
+   * <p>
+   * Description: <b>Imaging view, e.g. Lateral or Antero-posterior</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Media.view</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VIEW = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VIEW);
+
+ /**
+   * Search parameter: <b>subtype</b>
+   * <p>
+   * Description: <b>The type of acquisition equipment/process</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Media.subtype</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subtype", path="Media.subtype", description="The type of acquisition equipment/process", type="token" )
+  public static final String SP_SUBTYPE = "subtype";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subtype</b>
+   * <p>
+   * Description: <b>The type of acquisition equipment/process</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Media.subtype</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SUBTYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SUBTYPE);
 
  /**
    * Search parameter: <b>created</b>
@@ -1054,44 +1099,30 @@ public class Media extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Media:subject").toLocked();
 
  /**
-   * Search parameter: <b>subtype</b>
+   * Search parameter: <b>patient</b>
    * <p>
-   * Description: <b>The type of acquisition equipment/process</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Media.subtype</b><br>
+   * Description: <b>Who/What this Media is a record of</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Media.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subtype", path="Media.subtype", description="The type of acquisition equipment/process", type="token" )
-  public static final String SP_SUBTYPE = "subtype";
+  @SearchParamDefinition(name="patient", path="Media.subject", description="Who/What this Media is a record of", type="reference" )
+  public static final String SP_PATIENT = "patient";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>subtype</b>
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
-   * Description: <b>The type of acquisition equipment/process</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Media.subtype</b><br>
+   * Description: <b>Who/What this Media is a record of</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Media.subject</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SUBTYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SUBTYPE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
 
- /**
-   * Search parameter: <b>view</b>
-   * <p>
-   * Description: <b>Imaging view, e.g. Lateral or Antero-posterior</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Media.view</b><br>
-   * </p>
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Media:patient</b>".
    */
-  @SearchParamDefinition(name="view", path="Media.view", description="Imaging view, e.g. Lateral or Antero-posterior", type="token" )
-  public static final String SP_VIEW = "view";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>view</b>
-   * <p>
-   * Description: <b>Imaging view, e.g. Lateral or Antero-posterior</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Media.view</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VIEW = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VIEW);
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Media:patient").toLocked();
 
  /**
    * Search parameter: <b>type</b>
@@ -1112,26 +1143,6 @@ public class Media extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Identifier(s) for the image</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Media.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Media.identifier", description="Identifier(s) for the image", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Identifier(s) for the image</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Media.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>operator</b>

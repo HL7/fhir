@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -348,8 +348,7 @@ public class Linkage extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (resource == null || resource.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, resource);
       }
 
   public String fhirType() {
@@ -435,6 +434,14 @@ public class Linkage extends DomainResource {
       return this.item;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Linkage setItem(List<LinkageItemComponent> theItem) { 
+      this.item = theItem;
+      return this;
+    }
+
     public boolean hasItem() { 
       if (this.item == null)
         return false;
@@ -444,10 +451,6 @@ public class Linkage extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #item} (Identifies one of the records that is considered to refer to the same real-world occurrence as well as how the items hould be evaluated within the collection of linked items.)
-     */
-    // syntactic sugar
     public LinkageItemComponent addItem() { //3
       LinkageItemComponent t = new LinkageItemComponent();
       if (this.item == null)
@@ -456,7 +459,6 @@ public class Linkage extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Linkage addItem(LinkageItemComponent t) { //3
       if (t == null)
         return this;
@@ -464,6 +466,16 @@ public class Linkage extends DomainResource {
         this.item = new ArrayList<LinkageItemComponent>();
       this.item.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #item}, creating it if it does not already exist
+     */
+    public LinkageItemComponent getItemFirstRep() { 
+      if (getItem().isEmpty()) {
+        addItem();
+      }
+      return getItem().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -571,14 +583,39 @@ public class Linkage extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (author == null || author.isEmpty()) && (item == null || item.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(author, item);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Linkage;
    }
+
+ /**
+   * Search parameter: <b>item</b>
+   * <p>
+   * Description: <b>Matches on any item in the Linkage</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Linkage.item.resource</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="item", path="Linkage.item.resource", description="Matches on any item in the Linkage", type="reference" )
+  public static final String SP_ITEM = "item";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>item</b>
+   * <p>
+   * Description: <b>Matches on any item in the Linkage</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Linkage.item.resource</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ITEM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ITEM);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Linkage:item</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ITEM = new ca.uhn.fhir.model.api.Include("Linkage:item").toLocked();
 
  /**
    * Search parameter: <b>author</b>
@@ -631,32 +668,6 @@ public class Linkage extends DomainResource {
    * the path value of "<b>Linkage:source</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("Linkage:source").toLocked();
-
- /**
-   * Search parameter: <b>item</b>
-   * <p>
-   * Description: <b>Matches on any item in the Linkage</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Linkage.item.resource</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="item", path="Linkage.item.resource", description="Matches on any item in the Linkage", type="reference" )
-  public static final String SP_ITEM = "item";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>item</b>
-   * <p>
-   * Description: <b>Matches on any item in the Linkage</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Linkage.item.resource</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ITEM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ITEM);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Linkage:item</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ITEM = new ca.uhn.fhir.model.api.Include("Linkage:item").toLocked();
 
 
 }

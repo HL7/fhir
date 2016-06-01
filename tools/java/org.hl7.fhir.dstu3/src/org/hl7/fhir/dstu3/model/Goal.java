@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -396,7 +396,7 @@ public class Goal extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (result == null || result.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(result);
       }
 
   public String fhirType() {
@@ -546,6 +546,14 @@ public class Goal extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Goal setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -555,10 +563,6 @@ public class Goal extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -567,7 +571,6 @@ public class Goal extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Goal addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -575,6 +578,16 @@ public class Goal extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -715,6 +728,14 @@ public class Goal extends DomainResource {
       return this.category;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Goal setCategory(List<CodeableConcept> theCategory) { 
+      this.category = theCategory;
+      return this;
+    }
+
     public boolean hasCategory() { 
       if (this.category == null)
         return false;
@@ -724,10 +745,6 @@ public class Goal extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #category} (Indicates a category the goal falls within.)
-     */
-    // syntactic sugar
     public CodeableConcept addCategory() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.category == null)
@@ -736,7 +753,6 @@ public class Goal extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Goal addCategory(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -744,6 +760,16 @@ public class Goal extends DomainResource {
         this.category = new ArrayList<CodeableConcept>();
       this.category.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #category}, creating it if it does not already exist
+     */
+    public CodeableConcept getCategoryFirstRep() { 
+      if (getCategory().isEmpty()) {
+        addCategory();
+      }
+      return getCategory().get(0);
     }
 
     /**
@@ -981,6 +1007,14 @@ public class Goal extends DomainResource {
       return this.addresses;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Goal setAddresses(List<Reference> theAddresses) { 
+      this.addresses = theAddresses;
+      return this;
+    }
+
     public boolean hasAddresses() { 
       if (this.addresses == null)
         return false;
@@ -990,10 +1024,6 @@ public class Goal extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #addresses} (The identified conditions and other health record elements that are intended to be addressed by the goal.)
-     */
-    // syntactic sugar
     public Reference addAddresses() { //3
       Reference t = new Reference();
       if (this.addresses == null)
@@ -1002,7 +1032,6 @@ public class Goal extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Goal addAddresses(Reference t) { //3
       if (t == null)
         return this;
@@ -1013,8 +1042,19 @@ public class Goal extends DomainResource {
     }
 
     /**
-     * @return {@link #addresses} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The identified conditions and other health record elements that are intended to be addressed by the goal.)
+     * @return The first repetition of repeating field {@link #addresses}, creating it if it does not already exist
      */
+    public Reference getAddressesFirstRep() { 
+      if (getAddresses().isEmpty()) {
+        addAddresses();
+      }
+      return getAddresses().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getAddressesTarget() { 
       if (this.addressesTarget == null)
         this.addressesTarget = new ArrayList<Resource>();
@@ -1030,6 +1070,14 @@ public class Goal extends DomainResource {
       return this.note;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Goal setNote(List<Annotation> theNote) { 
+      this.note = theNote;
+      return this;
+    }
+
     public boolean hasNote() { 
       if (this.note == null)
         return false;
@@ -1039,10 +1087,6 @@ public class Goal extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #note} (Any comments related to the goal.)
-     */
-    // syntactic sugar
     public Annotation addNote() { //3
       Annotation t = new Annotation();
       if (this.note == null)
@@ -1051,7 +1095,6 @@ public class Goal extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Goal addNote(Annotation t) { //3
       if (t == null)
         return this;
@@ -1059,6 +1102,16 @@ public class Goal extends DomainResource {
         this.note = new ArrayList<Annotation>();
       this.note.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
+     */
+    public Annotation getNoteFirstRep() { 
+      if (getNote().isEmpty()) {
+        addNote();
+      }
+      return getNote().get(0);
     }
 
     /**
@@ -1070,6 +1123,14 @@ public class Goal extends DomainResource {
       return this.outcome;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Goal setOutcome(List<GoalOutcomeComponent> theOutcome) { 
+      this.outcome = theOutcome;
+      return this;
+    }
+
     public boolean hasOutcome() { 
       if (this.outcome == null)
         return false;
@@ -1079,10 +1140,6 @@ public class Goal extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #outcome} (Identifies the change (or lack of change) at the point where the goal was deepmed to be cancelled or achieved.)
-     */
-    // syntactic sugar
     public GoalOutcomeComponent addOutcome() { //3
       GoalOutcomeComponent t = new GoalOutcomeComponent();
       if (this.outcome == null)
@@ -1091,7 +1148,6 @@ public class Goal extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Goal addOutcome(GoalOutcomeComponent t) { //3
       if (t == null)
         return this;
@@ -1099,6 +1155,16 @@ public class Goal extends DomainResource {
         this.outcome = new ArrayList<GoalOutcomeComponent>();
       this.outcome.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #outcome}, creating it if it does not already exist
+     */
+    public GoalOutcomeComponent getOutcomeFirstRep() { 
+      if (getOutcome().isEmpty()) {
+        addOutcome();
+      }
+      return getOutcome().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1384,19 +1450,87 @@ public class Goal extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (subject == null || subject.isEmpty())
-           && (start == null || start.isEmpty()) && (target == null || target.isEmpty()) && (category == null || category.isEmpty())
-           && (description == null || description.isEmpty()) && (status == null || status.isEmpty())
-           && (statusDate == null || statusDate.isEmpty()) && (statusReason == null || statusReason.isEmpty())
-           && (expressedBy == null || expressedBy.isEmpty()) && (priority == null || priority.isEmpty())
-           && (addresses == null || addresses.isEmpty()) && (note == null || note.isEmpty()) && (outcome == null || outcome.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, subject, start
+          , target, category, description, status, statusDate, statusReason, expressedBy
+          , priority, addresses, note, outcome);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Goal;
    }
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>External Ids for this goal</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Goal.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Goal.identifier", description="External Ids for this goal", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>External Ids for this goal</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Goal.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Who this goal is intended for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Goal.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="Goal.subject", description="Who this goal is intended for", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Who this goal is intended for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Goal.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Goal:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Goal:patient").toLocked();
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>Who this goal is intended for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Goal.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="Goal.subject", description="Who this goal is intended for", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>Who this goal is intended for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Goal.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Goal:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Goal:subject").toLocked();
 
  /**
    * Search parameter: <b>targetdate</b>
@@ -1439,32 +1573,6 @@ public class Goal extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
  /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Who this goal is intended for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Goal.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="Goal.subject", description="Who this goal is intended for", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Who this goal is intended for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Goal.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Goal:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Goal:patient").toLocked();
-
- /**
    * Search parameter: <b>status</b>
    * <p>
    * Description: <b>proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled</b><br>
@@ -1483,52 +1591,6 @@ public class Goal extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>Who this goal is intended for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Goal.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subject", path="Goal.subject", description="Who this goal is intended for", type="reference" )
-  public static final String SP_SUBJECT = "subject";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
-   * <p>
-   * Description: <b>Who this goal is intended for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Goal.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Goal:subject</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Goal:subject").toLocked();
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>External Ids for this goal</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Goal.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Goal.identifier", description="External Ids for this goal", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>External Ids for this goal</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Goal.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

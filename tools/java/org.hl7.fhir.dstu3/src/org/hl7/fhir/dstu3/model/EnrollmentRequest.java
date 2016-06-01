@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -170,6 +170,14 @@ public class EnrollmentRequest extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public EnrollmentRequest setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -179,10 +187,6 @@ public class EnrollmentRequest extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (The Response business identifier.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -191,7 +195,6 @@ public class EnrollmentRequest extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public EnrollmentRequest addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -199,6 +202,16 @@ public class EnrollmentRequest extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -753,11 +766,8 @@ public class EnrollmentRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ruleset == null || ruleset.isEmpty())
-           && (originalRuleset == null || originalRuleset.isEmpty()) && (created == null || created.isEmpty())
-           && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
-           && (subject == null || subject.isEmpty()) && (coverage == null || coverage.isEmpty()) && (relationship == null || relationship.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, ruleset, originalRuleset
+          , created, target, provider, organization, subject, coverage, relationship);
       }
 
   @Override
@@ -766,30 +776,24 @@ public class EnrollmentRequest extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>patient</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The party to be enrolled</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EnrollmentRequest.subject</b><br>
+   * Description: <b>The business identifier of the Enrollment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EnrollmentRequest.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="EnrollmentRequest.subject", description="The party to be enrolled", type="reference" )
-  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="identifier", path="EnrollmentRequest.identifier", description="The business identifier of the Enrollment", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The party to be enrolled</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EnrollmentRequest.subject</b><br>
+   * Description: <b>The business identifier of the Enrollment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EnrollmentRequest.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EnrollmentRequest:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("EnrollmentRequest:patient").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>subject</b>
@@ -818,24 +822,30 @@ public class EnrollmentRequest extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("EnrollmentRequest:subject").toLocked();
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>patient</b>
    * <p>
-   * Description: <b>The business identifier of the Enrollment</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EnrollmentRequest.identifier</b><br>
+   * Description: <b>The party to be enrolled</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EnrollmentRequest.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="EnrollmentRequest.identifier", description="The business identifier of the Enrollment", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="patient", path="EnrollmentRequest.subject", description="The party to be enrolled", type="reference" )
+  public static final String SP_PATIENT = "patient";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
-   * Description: <b>The business identifier of the Enrollment</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EnrollmentRequest.identifier</b><br>
+   * Description: <b>The party to be enrolled</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EnrollmentRequest.subject</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EnrollmentRequest:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("EnrollmentRequest:patient").toLocked();
 
 
 }

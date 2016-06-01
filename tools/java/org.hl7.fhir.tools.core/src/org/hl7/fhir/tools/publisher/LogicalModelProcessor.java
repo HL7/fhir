@@ -11,6 +11,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingCompon
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
@@ -93,7 +94,7 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
 
   private String genLogicalModelTable(StructureDefinition sd, String prefix) throws Exception {
     ProfileUtilities pu = new ProfileUtilities(page.getWorkerContext(), null, this);
-    XhtmlNode x = pu.generateTable(sd.getId()+"-definitions.html", sd, sd.hasSnapshot() ? false : true, page.getFolders().dstDir, false, sd.getId(), true, prefix, true);
+    XhtmlNode x = pu.generateTable(sd.getId()+"-definitions.html", sd, sd.hasSnapshot() ? false : true, page.getFolders().dstDir, false, sd.getId(), true, prefix, prefix, true);
     return new XhtmlComposer().compose(x);
   }
 
@@ -127,12 +128,18 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
   }
 
   @Override
-  public String getLinkFor(String typeSimple) {
+  public String getLinkFor(String corePath, String typeSimple) {
     for (LogicalModel lm : logicalModelSet) {
       if (lm.getId().equals(typeSimple))
-        return guide.getPrefix()+lm.getId()+".html";
+        return collapse(corePath, guide.getPrefix()+lm.getId()+".html");
     }
-    return page.getLinkFor(typeSimple);
+    return page.getLinkFor(corePath, typeSimple);
+  }
+
+  private String collapse(String corePath, String link) {
+    if (Utilities.noString(corePath))
+      return link;
+    return corePath+link;
   }
 
   @Override
@@ -143,6 +150,11 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
   @Override
   public String getLinkForProfile(StructureDefinition profile, String url) {
     return page.getLinkForProfile(profile, url);
+  }
+
+  @Override
+  public boolean prependLinks() {
+    return page.prependLinks();
   }
 
 }

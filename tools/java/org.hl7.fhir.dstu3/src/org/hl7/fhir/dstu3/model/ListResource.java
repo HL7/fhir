@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -586,8 +586,8 @@ public class ListResource extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (flag == null || flag.isEmpty()) && (deleted == null || deleted.isEmpty())
-           && (date == null || date.isEmpty()) && (item == null || item.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(flag, deleted, date, item
+          );
       }
 
   public String fhirType() {
@@ -730,6 +730,14 @@ public class ListResource extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ListResource setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -739,10 +747,6 @@ public class ListResource extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Identifier for the List assigned for business purposes outside the context of FHIR.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -751,7 +755,6 @@ public class ListResource extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ListResource addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -759,6 +762,16 @@ public class ListResource extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1128,6 +1141,14 @@ public class ListResource extends DomainResource {
       return this.note;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ListResource setNote(List<Annotation> theNote) { 
+      this.note = theNote;
+      return this;
+    }
+
     public boolean hasNote() { 
       if (this.note == null)
         return false;
@@ -1137,10 +1158,6 @@ public class ListResource extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #note} (Comments that apply to the overall list.)
-     */
-    // syntactic sugar
     public Annotation addNote() { //3
       Annotation t = new Annotation();
       if (this.note == null)
@@ -1149,7 +1166,6 @@ public class ListResource extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ListResource addNote(Annotation t) { //3
       if (t == null)
         return this;
@@ -1157,6 +1173,16 @@ public class ListResource extends DomainResource {
         this.note = new ArrayList<Annotation>();
       this.note.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
+     */
+    public Annotation getNoteFirstRep() { 
+      if (getNote().isEmpty()) {
+        addNote();
+      }
+      return getNote().get(0);
     }
 
     /**
@@ -1168,6 +1194,14 @@ public class ListResource extends DomainResource {
       return this.entry;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ListResource setEntry(List<ListEntryComponent> theEntry) { 
+      this.entry = theEntry;
+      return this;
+    }
+
     public boolean hasEntry() { 
       if (this.entry == null)
         return false;
@@ -1177,10 +1211,6 @@ public class ListResource extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #entry} (Entries in this list.)
-     */
-    // syntactic sugar
     public ListEntryComponent addEntry() { //3
       ListEntryComponent t = new ListEntryComponent();
       if (this.entry == null)
@@ -1189,7 +1219,6 @@ public class ListResource extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public ListResource addEntry(ListEntryComponent t) { //3
       if (t == null)
         return this;
@@ -1197,6 +1226,16 @@ public class ListResource extends DomainResource {
         this.entry = new ArrayList<ListEntryComponent>();
       this.entry.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #entry}, creating it if it does not already exist
+     */
+    public ListEntryComponent getEntryFirstRep() { 
+      if (getEntry().isEmpty()) {
+        addEntry();
+      }
+      return getEntry().get(0);
     }
 
     /**
@@ -1478,11 +1517,9 @@ public class ListResource extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (mode == null || mode.isEmpty()) && (title == null || title.isEmpty()) && (code == null || code.isEmpty())
-           && (subject == null || subject.isEmpty()) && (encounter == null || encounter.isEmpty()) && (date == null || date.isEmpty())
-           && (source == null || source.isEmpty()) && (orderedBy == null || orderedBy.isEmpty()) && (note == null || note.isEmpty())
-           && (entry == null || entry.isEmpty()) && (emptyReason == null || emptyReason.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, mode
+          , title, code, subject, encounter, date, source, orderedBy, note, entry, emptyReason
+          );
       }
 
   @Override
@@ -1491,24 +1528,156 @@ public class ListResource extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>title</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>Descriptive name for the list</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>List.title</b><br>
+   * Description: <b>When the list was prepared</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>List.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="title", path="List.title", description="Descriptive name for the list", type="string" )
-  public static final String SP_TITLE = "title";
+  @SearchParamDefinition(name="date", path="List.date", description="When the list was prepared", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>Descriptive name for the list</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>List.title</b><br>
+   * Description: <b>When the list was prepared</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>List.date</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Business identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>List.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="List.identifier", description="Business identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Business identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>List.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>item</b>
+   * <p>
+   * Description: <b>Actual entry</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>List.entry.item</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="item", path="List.entry.item", description="Actual entry", type="reference" )
+  public static final String SP_ITEM = "item";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>item</b>
+   * <p>
+   * Description: <b>Actual entry</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>List.entry.item</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ITEM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ITEM);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ListResource:item</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ITEM = new ca.uhn.fhir.model.api.Include("ListResource:item").toLocked();
+
+ /**
+   * Search parameter: <b>empty-reason</b>
+   * <p>
+   * Description: <b>Why list is empty</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>List.emptyReason</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="empty-reason", path="List.emptyReason", description="Why list is empty", type="token" )
+  public static final String SP_EMPTY_REASON = "empty-reason";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>empty-reason</b>
+   * <p>
+   * Description: <b>Why list is empty</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>List.emptyReason</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EMPTY_REASON = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EMPTY_REASON);
+
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>What the purpose of this list is</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>List.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="List.code", description="What the purpose of this list is", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>What the purpose of this list is</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>List.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>notes</b>
+   * <p>
+   * Description: <b>The annotation  - text content</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>List.note.text</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="notes", path="List.note.text", description="The annotation  - text content", type="string" )
+  public static final String SP_NOTES = "notes";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>notes</b>
+   * <p>
+   * Description: <b>The annotation  - text content</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>List.note.text</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NOTES = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NOTES);
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>If all resources have the same subject</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>List.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="List.subject", description="If all resources have the same subject", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>If all resources have the same subject</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>List.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ListResource:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("ListResource:subject").toLocked();
 
  /**
    * Search parameter: <b>patient</b>
@@ -1563,78 +1732,6 @@ public class ListResource extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("ListResource:source").toLocked();
 
  /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>current | retired | entered-in-error</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>List.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="List.status", description="current | retired | entered-in-error", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>current | retired | entered-in-error</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>List.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>If all resources have the same subject</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>List.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subject", path="List.subject", description="If all resources have the same subject", type="reference" )
-  public static final String SP_SUBJECT = "subject";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
-   * <p>
-   * Description: <b>If all resources have the same subject</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>List.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ListResource:subject</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("ListResource:subject").toLocked();
-
- /**
-   * Search parameter: <b>item</b>
-   * <p>
-   * Description: <b>Actual entry</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>List.entry.item</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="item", path="List.entry.item", description="Actual entry", type="reference" )
-  public static final String SP_ITEM = "item";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>item</b>
-   * <p>
-   * Description: <b>Actual entry</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>List.entry.item</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ITEM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ITEM);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ListResource:item</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ITEM = new ca.uhn.fhir.model.api.Include("ListResource:item").toLocked();
-
- /**
    * Search parameter: <b>encounter</b>
    * <p>
    * Description: <b>Context in which list created</b><br>
@@ -1661,104 +1758,44 @@ public class ListResource extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("ListResource:encounter").toLocked();
 
  /**
-   * Search parameter: <b>code</b>
+   * Search parameter: <b>title</b>
    * <p>
-   * Description: <b>What the purpose of this list is</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>List.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code", path="List.code", description="What the purpose of this list is", type="token" )
-  public static final String SP_CODE = "code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
-   * <p>
-   * Description: <b>What the purpose of this list is</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>List.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
-
- /**
-   * Search parameter: <b>notes</b>
-   * <p>
-   * Description: <b>The annotation  - text content</b><br>
+   * Description: <b>Descriptive name for the list</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>List.note.text</b><br>
+   * Path: <b>List.title</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="notes", path="List.note.text", description="The annotation  - text content", type="string" )
-  public static final String SP_NOTES = "notes";
+  @SearchParamDefinition(name="title", path="List.title", description="Descriptive name for the list", type="string" )
+  public static final String SP_TITLE = "title";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>notes</b>
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
    * <p>
-   * Description: <b>The annotation  - text content</b><br>
+   * Description: <b>Descriptive name for the list</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>List.note.text</b><br>
+   * Path: <b>List.title</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NOTES = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NOTES);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
 
  /**
-   * Search parameter: <b>date</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>When the list was prepared</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>List.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="List.date", description="When the list was prepared", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>When the list was prepared</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>List.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>empty-reason</b>
-   * <p>
-   * Description: <b>Why list is empty</b><br>
+   * Description: <b>current | retired | entered-in-error</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>List.emptyReason</b><br>
+   * Path: <b>List.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="empty-reason", path="List.emptyReason", description="Why list is empty", type="token" )
-  public static final String SP_EMPTY_REASON = "empty-reason";
+  @SearchParamDefinition(name="status", path="List.status", description="current | retired | entered-in-error", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>empty-reason</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>Why list is empty</b><br>
+   * Description: <b>current | retired | entered-in-error</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>List.emptyReason</b><br>
+   * Path: <b>List.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EMPTY_REASON = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EMPTY_REASON);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Business identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>List.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="List.identifier", description="Business identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Business identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>List.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -789,6 +789,14 @@ public class StructureMap extends BaseConformance {
           return this.telecom;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public StructureMapContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+          this.telecom = theTelecom;
+          return this;
+        }
+
         public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
@@ -798,10 +806,6 @@ public class StructureMap extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
-         */
-    // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           if (this.telecom == null)
@@ -810,7 +814,6 @@ public class StructureMap extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public StructureMapContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
@@ -818,6 +821,16 @@ public class StructureMap extends BaseConformance {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+         */
+        public ContactPoint getTelecomFirstRep() { 
+          if (getTelecom().isEmpty()) {
+            addTelecom();
+          }
+          return getTelecom().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -915,8 +928,7 @@ public class StructureMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, telecom);
       }
 
   public String fhirType() {
@@ -1211,8 +1223,8 @@ public class StructureMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (url == null || url.isEmpty()) && (mode == null || mode.isEmpty())
-           && (documentation == null || documentation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, mode, documentation
+          );
       }
 
   public String fhirType() {
@@ -1428,6 +1440,14 @@ public class StructureMap extends BaseConformance {
           return this.input;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public StructureMapGroupComponent setInput(List<StructureMapGroupInputComponent> theInput) { 
+          this.input = theInput;
+          return this;
+        }
+
         public boolean hasInput() { 
           if (this.input == null)
             return false;
@@ -1437,10 +1457,6 @@ public class StructureMap extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #input} (A name assigned to an instance of data. The instance must be provided when the mapping is invoked.)
-         */
-    // syntactic sugar
         public StructureMapGroupInputComponent addInput() { //3
           StructureMapGroupInputComponent t = new StructureMapGroupInputComponent();
           if (this.input == null)
@@ -1449,7 +1465,6 @@ public class StructureMap extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public StructureMapGroupComponent addInput(StructureMapGroupInputComponent t) { //3
           if (t == null)
             return this;
@@ -1457,6 +1472,16 @@ public class StructureMap extends BaseConformance {
             this.input = new ArrayList<StructureMapGroupInputComponent>();
           this.input.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #input}, creating it if it does not already exist
+         */
+        public StructureMapGroupInputComponent getInputFirstRep() { 
+          if (getInput().isEmpty()) {
+            addInput();
+          }
+          return getInput().get(0);
         }
 
         /**
@@ -1468,6 +1493,14 @@ public class StructureMap extends BaseConformance {
           return this.rule;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public StructureMapGroupComponent setRule(List<StructureMapGroupRuleComponent> theRule) { 
+          this.rule = theRule;
+          return this;
+        }
+
         public boolean hasRule() { 
           if (this.rule == null)
             return false;
@@ -1477,10 +1510,6 @@ public class StructureMap extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #rule} (Transform Rule from source to target.)
-         */
-    // syntactic sugar
         public StructureMapGroupRuleComponent addRule() { //3
           StructureMapGroupRuleComponent t = new StructureMapGroupRuleComponent();
           if (this.rule == null)
@@ -1489,7 +1518,6 @@ public class StructureMap extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public StructureMapGroupComponent addRule(StructureMapGroupRuleComponent t) { //3
           if (t == null)
             return this;
@@ -1497,6 +1525,16 @@ public class StructureMap extends BaseConformance {
             this.rule = new ArrayList<StructureMapGroupRuleComponent>();
           this.rule.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #rule}, creating it if it does not already exist
+         */
+        public StructureMapGroupRuleComponent getRuleFirstRep() { 
+          if (getRule().isEmpty()) {
+            addRule();
+          }
+          return getRule().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1636,9 +1674,8 @@ public class StructureMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (extends_ == null || extends_.isEmpty())
-           && (documentation == null || documentation.isEmpty()) && (input == null || input.isEmpty())
-           && (rule == null || rule.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, extends_, documentation
+          , input, rule);
       }
 
   public String fhirType() {
@@ -2001,9 +2038,8 @@ public class StructureMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (type == null || type.isEmpty())
-           && (mode == null || mode.isEmpty()) && (documentation == null || documentation.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, type, mode, documentation
+          );
       }
 
   public String fhirType() {
@@ -2128,6 +2164,14 @@ public class StructureMap extends BaseConformance {
           return this.source;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public StructureMapGroupRuleComponent setSource(List<StructureMapGroupRuleSourceComponent> theSource) { 
+          this.source = theSource;
+          return this;
+        }
+
         public boolean hasSource() { 
           if (this.source == null)
             return false;
@@ -2137,10 +2181,6 @@ public class StructureMap extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #source} (Source inputs to the mapping.)
-         */
-    // syntactic sugar
         public StructureMapGroupRuleSourceComponent addSource() { //3
           StructureMapGroupRuleSourceComponent t = new StructureMapGroupRuleSourceComponent();
           if (this.source == null)
@@ -2149,7 +2189,6 @@ public class StructureMap extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public StructureMapGroupRuleComponent addSource(StructureMapGroupRuleSourceComponent t) { //3
           if (t == null)
             return this;
@@ -2157,6 +2196,16 @@ public class StructureMap extends BaseConformance {
             this.source = new ArrayList<StructureMapGroupRuleSourceComponent>();
           this.source.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #source}, creating it if it does not already exist
+         */
+        public StructureMapGroupRuleSourceComponent getSourceFirstRep() { 
+          if (getSource().isEmpty()) {
+            addSource();
+          }
+          return getSource().get(0);
         }
 
         /**
@@ -2168,6 +2217,14 @@ public class StructureMap extends BaseConformance {
           return this.target;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public StructureMapGroupRuleComponent setTarget(List<StructureMapGroupRuleTargetComponent> theTarget) { 
+          this.target = theTarget;
+          return this;
+        }
+
         public boolean hasTarget() { 
           if (this.target == null)
             return false;
@@ -2177,10 +2234,6 @@ public class StructureMap extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #target} (Content to create because of this mapping rule.)
-         */
-    // syntactic sugar
         public StructureMapGroupRuleTargetComponent addTarget() { //3
           StructureMapGroupRuleTargetComponent t = new StructureMapGroupRuleTargetComponent();
           if (this.target == null)
@@ -2189,7 +2242,6 @@ public class StructureMap extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public StructureMapGroupRuleComponent addTarget(StructureMapGroupRuleTargetComponent t) { //3
           if (t == null)
             return this;
@@ -2197,6 +2249,16 @@ public class StructureMap extends BaseConformance {
             this.target = new ArrayList<StructureMapGroupRuleTargetComponent>();
           this.target.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #target}, creating it if it does not already exist
+         */
+        public StructureMapGroupRuleTargetComponent getTargetFirstRep() { 
+          if (getTarget().isEmpty()) {
+            addTarget();
+          }
+          return getTarget().get(0);
         }
 
         /**
@@ -2208,6 +2270,14 @@ public class StructureMap extends BaseConformance {
           return this.rule;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public StructureMapGroupRuleComponent setRule(List<StructureMapGroupRuleComponent> theRule) { 
+          this.rule = theRule;
+          return this;
+        }
+
         public boolean hasRule() { 
           if (this.rule == null)
             return false;
@@ -2217,10 +2287,6 @@ public class StructureMap extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #rule} (Rules contained in this rule.)
-         */
-    // syntactic sugar
         public StructureMapGroupRuleComponent addRule() { //3
           StructureMapGroupRuleComponent t = new StructureMapGroupRuleComponent();
           if (this.rule == null)
@@ -2229,7 +2295,6 @@ public class StructureMap extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public StructureMapGroupRuleComponent addRule(StructureMapGroupRuleComponent t) { //3
           if (t == null)
             return this;
@@ -2237,6 +2302,16 @@ public class StructureMap extends BaseConformance {
             this.rule = new ArrayList<StructureMapGroupRuleComponent>();
           this.rule.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #rule}, creating it if it does not already exist
+         */
+        public StructureMapGroupRuleComponent getRuleFirstRep() { 
+          if (getRule().isEmpty()) {
+            addRule();
+          }
+          return getRule().get(0);
         }
 
         /**
@@ -2248,6 +2323,14 @@ public class StructureMap extends BaseConformance {
           return this.dependent;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public StructureMapGroupRuleComponent setDependent(List<StructureMapGroupRuleDependentComponent> theDependent) { 
+          this.dependent = theDependent;
+          return this;
+        }
+
         public boolean hasDependent() { 
           if (this.dependent == null)
             return false;
@@ -2257,10 +2340,6 @@ public class StructureMap extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #dependent} (Which other rules to apply in the context of this rule.)
-         */
-    // syntactic sugar
         public StructureMapGroupRuleDependentComponent addDependent() { //3
           StructureMapGroupRuleDependentComponent t = new StructureMapGroupRuleDependentComponent();
           if (this.dependent == null)
@@ -2269,7 +2348,6 @@ public class StructureMap extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public StructureMapGroupRuleComponent addDependent(StructureMapGroupRuleDependentComponent t) { //3
           if (t == null)
             return this;
@@ -2277,6 +2355,16 @@ public class StructureMap extends BaseConformance {
             this.dependent = new ArrayList<StructureMapGroupRuleDependentComponent>();
           this.dependent.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #dependent}, creating it if it does not already exist
+         */
+        public StructureMapGroupRuleDependentComponent getDependentFirstRep() { 
+          if (getDependent().isEmpty()) {
+            addDependent();
+          }
+          return getDependent().get(0);
         }
 
         /**
@@ -2485,9 +2573,8 @@ public class StructureMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (source == null || source.isEmpty())
-           && (target == null || target.isEmpty()) && (rule == null || rule.isEmpty()) && (dependent == null || dependent.isEmpty())
-           && (documentation == null || documentation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, source, target, rule
+          , dependent, documentation);
       }
 
   public String fhirType() {
@@ -3121,10 +3208,8 @@ public class StructureMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (required == null || required.isEmpty()) && (context == null || context.isEmpty())
-           && (contextType == null || contextType.isEmpty()) && (element == null || element.isEmpty())
-           && (listMode == null || listMode.isEmpty()) && (variable == null || variable.isEmpty()) && (condition == null || condition.isEmpty())
-           && (check == null || check.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(required, context, contextType
+          , element, listMode, variable, condition, check);
       }
 
   public String fhirType() {
@@ -3407,6 +3492,14 @@ public class StructureMap extends BaseConformance {
           return this.listMode;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public StructureMapGroupRuleTargetComponent setListMode(List<Enumeration<StructureMapListMode>> theListMode) { 
+          this.listMode = theListMode;
+          return this;
+        }
+
         public boolean hasListMode() { 
           if (this.listMode == null)
             return false;
@@ -3419,7 +3512,6 @@ public class StructureMap extends BaseConformance {
         /**
          * @return {@link #listMode} (If field is a list, how to manage the list.)
          */
-    // syntactic sugar
         public Enumeration<StructureMapListMode> addListModeElement() {//2 
           Enumeration<StructureMapListMode> t = new Enumeration<StructureMapListMode>(new StructureMapListModeEnumFactory());
           if (this.listMode == null)
@@ -3559,6 +3651,14 @@ public class StructureMap extends BaseConformance {
           return this.parameter;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public StructureMapGroupRuleTargetComponent setParameter(List<StructureMapGroupRuleTargetParameterComponent> theParameter) { 
+          this.parameter = theParameter;
+          return this;
+        }
+
         public boolean hasParameter() { 
           if (this.parameter == null)
             return false;
@@ -3568,10 +3668,6 @@ public class StructureMap extends BaseConformance {
           return false;
         }
 
-        /**
-         * @return {@link #parameter} (Parameters to the transform.)
-         */
-    // syntactic sugar
         public StructureMapGroupRuleTargetParameterComponent addParameter() { //3
           StructureMapGroupRuleTargetParameterComponent t = new StructureMapGroupRuleTargetParameterComponent();
           if (this.parameter == null)
@@ -3580,7 +3676,6 @@ public class StructureMap extends BaseConformance {
           return t;
         }
 
-    // syntactic sugar
         public StructureMapGroupRuleTargetComponent addParameter(StructureMapGroupRuleTargetParameterComponent t) { //3
           if (t == null)
             return this;
@@ -3588,6 +3683,16 @@ public class StructureMap extends BaseConformance {
             this.parameter = new ArrayList<StructureMapGroupRuleTargetParameterComponent>();
           this.parameter.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #parameter}, creating it if it does not already exist
+         */
+        public StructureMapGroupRuleTargetParameterComponent getParameterFirstRep() { 
+          if (getParameter().isEmpty()) {
+            addParameter();
+          }
+          return getParameter().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -3765,10 +3870,8 @@ public class StructureMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (context == null || context.isEmpty()) && (contextType == null || contextType.isEmpty())
-           && (element == null || element.isEmpty()) && (variable == null || variable.isEmpty()) && (listMode == null || listMode.isEmpty())
-           && (listRuleId == null || listRuleId.isEmpty()) && (transform == null || transform.isEmpty())
-           && (parameter == null || parameter.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(context, contextType, element
+          , variable, listMode, listRuleId, transform, parameter);
       }
 
   public String fhirType() {
@@ -3984,7 +4087,7 @@ public class StructureMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (value == null || value.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(value);
       }
 
   public String fhirType() {
@@ -4081,6 +4184,14 @@ public class StructureMap extends BaseConformance {
           return this.variable;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public StructureMapGroupRuleDependentComponent setVariable(List<StringType> theVariable) { 
+          this.variable = theVariable;
+          return this;
+        }
+
         public boolean hasVariable() { 
           if (this.variable == null)
             return false;
@@ -4093,7 +4204,6 @@ public class StructureMap extends BaseConformance {
         /**
          * @return {@link #variable} (Names of variables to pass to the rule or group.)
          */
-    // syntactic sugar
         public StringType addVariableElement() {//2 
           StringType t = new StringType();
           if (this.variable == null)
@@ -4221,8 +4331,7 @@ public class StructureMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (variable == null || variable.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, variable);
       }
 
   public String fhirType() {
@@ -4340,6 +4449,14 @@ public class StructureMap extends BaseConformance {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public StructureMap setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -4349,10 +4466,6 @@ public class StructureMap extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Formal identifier that is used to identify this StructureMap when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -4361,7 +4474,6 @@ public class StructureMap extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public StructureMap addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -4369,6 +4481,16 @@ public class StructureMap extends BaseConformance {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -4508,6 +4630,14 @@ public class StructureMap extends BaseConformance {
       return this.contact;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public StructureMap setContact(List<StructureMapContactComponent> theContact) { 
+      this.contact = theContact;
+      return this;
+    }
+
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
@@ -4517,10 +4647,6 @@ public class StructureMap extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
-     */
-    // syntactic sugar
     public StructureMapContactComponent addContact() { //3
       StructureMapContactComponent t = new StructureMapContactComponent();
       if (this.contact == null)
@@ -4529,7 +4655,6 @@ public class StructureMap extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public StructureMap addContact(StructureMapContactComponent t) { //3
       if (t == null)
         return this;
@@ -4537,6 +4662,16 @@ public class StructureMap extends BaseConformance {
         this.contact = new ArrayList<StructureMapContactComponent>();
       this.contact.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
+     */
+    public StructureMapContactComponent getContactFirstRep() { 
+      if (getContact().isEmpty()) {
+        addContact();
+      }
+      return getContact().get(0);
     }
 
     /**
@@ -4709,6 +4844,14 @@ public class StructureMap extends BaseConformance {
       return this.structure;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public StructureMap setStructure(List<StructureMapStructureComponent> theStructure) { 
+      this.structure = theStructure;
+      return this;
+    }
+
     public boolean hasStructure() { 
       if (this.structure == null)
         return false;
@@ -4718,10 +4861,6 @@ public class StructureMap extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #structure} (A structure definition used by this map. The structure definition may describe instances that are converted, or the instances that are produced.)
-     */
-    // syntactic sugar
     public StructureMapStructureComponent addStructure() { //3
       StructureMapStructureComponent t = new StructureMapStructureComponent();
       if (this.structure == null)
@@ -4730,7 +4869,6 @@ public class StructureMap extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public StructureMap addStructure(StructureMapStructureComponent t) { //3
       if (t == null)
         return this;
@@ -4741,12 +4879,30 @@ public class StructureMap extends BaseConformance {
     }
 
     /**
+     * @return The first repetition of repeating field {@link #structure}, creating it if it does not already exist
+     */
+    public StructureMapStructureComponent getStructureFirstRep() { 
+      if (getStructure().isEmpty()) {
+        addStructure();
+      }
+      return getStructure().get(0);
+    }
+
+    /**
      * @return {@link #import_} (Other maps used by this map (canonical URLs).)
      */
     public List<UriType> getImport() { 
       if (this.import_ == null)
         this.import_ = new ArrayList<UriType>();
       return this.import_;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public StructureMap setImport(List<UriType> theImport) { 
+      this.import_ = theImport;
+      return this;
     }
 
     public boolean hasImport() { 
@@ -4761,7 +4917,6 @@ public class StructureMap extends BaseConformance {
     /**
      * @return {@link #import_} (Other maps used by this map (canonical URLs).)
      */
-    // syntactic sugar
     public UriType addImportElement() {//2 
       UriType t = new UriType();
       if (this.import_ == null)
@@ -4803,6 +4958,14 @@ public class StructureMap extends BaseConformance {
       return this.group;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public StructureMap setGroup(List<StructureMapGroupComponent> theGroup) { 
+      this.group = theGroup;
+      return this;
+    }
+
     public boolean hasGroup() { 
       if (this.group == null)
         return false;
@@ -4812,10 +4975,6 @@ public class StructureMap extends BaseConformance {
       return false;
     }
 
-    /**
-     * @return {@link #group} (Named sections for reader convenience.)
-     */
-    // syntactic sugar
     public StructureMapGroupComponent addGroup() { //3
       StructureMapGroupComponent t = new StructureMapGroupComponent();
       if (this.group == null)
@@ -4824,7 +4983,6 @@ public class StructureMap extends BaseConformance {
       return t;
     }
 
-    // syntactic sugar
     public StructureMap addGroup(StructureMapGroupComponent t) { //3
       if (t == null)
         return this;
@@ -4832,6 +4990,16 @@ public class StructureMap extends BaseConformance {
         this.group = new ArrayList<StructureMapGroupComponent>();
       this.group.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #group}, creating it if it does not already exist
+     */
+    public StructureMapGroupComponent getGroupFirstRep() { 
+      if (getGroup().isEmpty()) {
+        addGroup();
+      }
+      return getGroup().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -5126,117 +5294,14 @@ public class StructureMap extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (structure == null || structure.isEmpty()) && (import_ == null || import_.isEmpty()) && (group == null || group.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, experimental, publisher
+          , contact, description, requirements, copyright, structure, import_, group);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.StructureMap;
    }
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>The current status of the profile</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>StructureMap.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="StructureMap.status", description="The current status of the profile", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>The current status of the profile</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>StructureMap.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the profile</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureMap.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="StructureMap.description", description="Text search in the description of the profile", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the profile</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureMap.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Name of the profile</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureMap.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="StructureMap.name", description="Name of the profile", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Name of the profile</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureMap.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
-   * Search parameter: <b>context</b>
-   * <p>
-   * Description: <b>A use context assigned to the structure</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>StructureMap.useContext</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="context", path="StructureMap.useContext", description="A use context assigned to the structure", type="token" )
-  public static final String SP_CONTEXT = "context";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>context</b>
-   * <p>
-   * Description: <b>A use context assigned to the structure</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>StructureMap.useContext</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
-
- /**
-   * Search parameter: <b>experimental</b>
-   * <p>
-   * Description: <b>Whether the map is defined purely for experimental reasons</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>StructureMap.experimental</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="experimental", path="StructureMap.experimental", description="Whether the map is defined purely for experimental reasons", type="token" )
-  public static final String SP_EXPERIMENTAL = "experimental";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>experimental</b>
-   * <p>
-   * Description: <b>Whether the map is defined purely for experimental reasons</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>StructureMap.experimental</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EXPERIMENTAL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EXPERIMENTAL);
 
  /**
    * Search parameter: <b>date</b>
@@ -5279,24 +5344,44 @@ public class StructureMap extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>url</b>
+   * Search parameter: <b>name</b>
    * <p>
-   * Description: <b>The url that identifies the structure map</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>StructureMap.url</b><br>
+   * Description: <b>Name of the profile</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureMap.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="url", path="StructureMap.url", description="The url that identifies the structure map", type="uri" )
-  public static final String SP_URL = "url";
+  @SearchParamDefinition(name="name", path="StructureMap.name", description="Name of the profile", type="string" )
+  public static final String SP_NAME = "name";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
    * <p>
-   * Description: <b>The url that identifies the structure map</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>StructureMap.url</b><br>
+   * Description: <b>Name of the profile</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureMap.name</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the structure</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureMap.useContext</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="StructureMap.useContext", description="A use context assigned to the structure", type="token" )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the structure</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureMap.useContext</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
    * Search parameter: <b>publisher</b>
@@ -5319,6 +5404,46 @@ public class StructureMap extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the profile</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureMap.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="StructureMap.description", description="Text search in the description of the profile", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the profile</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureMap.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>experimental</b>
+   * <p>
+   * Description: <b>Whether the map is defined purely for experimental reasons</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureMap.experimental</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="experimental", path="StructureMap.experimental", description="Whether the map is defined purely for experimental reasons", type="token" )
+  public static final String SP_EXPERIMENTAL = "experimental";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>experimental</b>
+   * <p>
+   * Description: <b>Whether the map is defined purely for experimental reasons</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureMap.experimental</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam EXPERIMENTAL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EXPERIMENTAL);
+
+ /**
    * Search parameter: <b>version</b>
    * <p>
    * Description: <b>The version identifier of the profile</b><br>
@@ -5337,6 +5462,46 @@ public class StructureMap extends BaseConformance {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
+
+ /**
+   * Search parameter: <b>url</b>
+   * <p>
+   * Description: <b>The url that identifies the structure map</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>StructureMap.url</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="url", path="StructureMap.url", description="The url that identifies the structure map", type="uri" )
+  public static final String SP_URL = "url";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <p>
+   * Description: <b>The url that identifies the structure map</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>StructureMap.url</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>The current status of the profile</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureMap.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="StructureMap.status", description="The current status of the profile", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>The current status of the profile</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureMap.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

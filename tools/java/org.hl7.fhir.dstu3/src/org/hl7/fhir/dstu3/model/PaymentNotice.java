@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -150,6 +150,14 @@ public class PaymentNotice extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public PaymentNotice setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -159,10 +167,6 @@ public class PaymentNotice extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (The Response business identifier.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -171,7 +175,6 @@ public class PaymentNotice extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public PaymentNotice addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -179,6 +182,16 @@ public class PaymentNotice extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -820,11 +833,9 @@ public class PaymentNotice extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ruleset == null || ruleset.isEmpty())
-           && (originalRuleset == null || originalRuleset.isEmpty()) && (created == null || created.isEmpty())
-           && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
-           && (request == null || request.isEmpty()) && (response == null || response.isEmpty()) && (paymentStatus == null || paymentStatus.isEmpty())
-           && (statusDate == null || statusDate.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, ruleset, originalRuleset
+          , created, target, provider, organization, request, response, paymentStatus, statusDate
+          );
       }
 
   @Override
@@ -833,44 +844,64 @@ public class PaymentNotice extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>paymentstatus</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The type of payment notice</b><br>
+   * Description: <b>The business identifier of the notice</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PaymentNotice.paymentStatus</b><br>
+   * Path: <b>PaymentNotice.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="paymentstatus", path="PaymentNotice.paymentStatus", description="The type of payment notice", type="token" )
-  public static final String SP_PAYMENTSTATUS = "paymentstatus";
+  @SearchParamDefinition(name="identifier", path="PaymentNotice.identifier", description="The business identifier of the notice", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>paymentstatus</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The type of payment notice</b><br>
+   * Description: <b>The business identifier of the notice</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PaymentNotice.paymentStatus</b><br>
+   * Path: <b>PaymentNotice.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PAYMENTSTATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PAYMENTSTATUS);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>statusdate</b>
+   * Search parameter: <b>responseidentifier</b>
    * <p>
-   * Description: <b>The date of the payment action</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>PaymentNotice.statusDate</b><br>
+   * Description: <b>The ClaimResponse</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PaymentNotice.responseIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="statusdate", path="PaymentNotice.statusDate", description="The date of the payment action", type="date" )
-  public static final String SP_STATUSDATE = "statusdate";
+  @SearchParamDefinition(name="responseidentifier", path="PaymentNotice.response.as(Identifier)", description="The ClaimResponse", type="token" )
+  public static final String SP_RESPONSEIDENTIFIER = "responseidentifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>statusdate</b>
+   * <b>Fluent Client</b> search parameter constant for <b>responseidentifier</b>
    * <p>
-   * Description: <b>The date of the payment action</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>PaymentNotice.statusDate</b><br>
+   * Description: <b>The ClaimResponse</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PaymentNotice.responseIdentifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam STATUSDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_STATUSDATE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RESPONSEIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RESPONSEIDENTIFIER);
+
+ /**
+   * Search parameter: <b>organizationidentifier</b>
+   * <p>
+   * Description: <b>The organization who generated this resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PaymentNotice.organizationIdentifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="organizationidentifier", path="PaymentNotice.organization.as(Identifier)", description="The organization who generated this resource", type="token" )
+  public static final String SP_ORGANIZATIONIDENTIFIER = "organizationidentifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>organizationidentifier</b>
+   * <p>
+   * Description: <b>The organization who generated this resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PaymentNotice.organizationIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONIDENTIFIER);
 
  /**
    * Search parameter: <b>created</b>
@@ -913,102 +944,24 @@ public class PaymentNotice extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam REQUESTIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REQUESTIDENTIFIER);
 
  /**
-   * Search parameter: <b>providerreference</b>
+   * Search parameter: <b>paymentstatus</b>
    * <p>
-   * Description: <b>The reference to the provider</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>PaymentNotice.providerReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="providerreference", path="PaymentNotice.provider.as(Reference)", description="The reference to the provider", type="reference" )
-  public static final String SP_PROVIDERREFERENCE = "providerreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
-   * <p>
-   * Description: <b>The reference to the provider</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>PaymentNotice.providerReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDERREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>PaymentNotice:providerreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDERREFERENCE = new ca.uhn.fhir.model.api.Include("PaymentNotice:providerreference").toLocked();
-
- /**
-   * Search parameter: <b>requestreference</b>
-   * <p>
-   * Description: <b>The Claim</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>PaymentNotice.requestReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="requestreference", path="PaymentNotice.request.as(Reference)", description="The Claim", type="reference" )
-  public static final String SP_REQUESTREFERENCE = "requestreference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>requestreference</b>
-   * <p>
-   * Description: <b>The Claim</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>PaymentNotice.requestReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>PaymentNotice:requestreference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTREFERENCE = new ca.uhn.fhir.model.api.Include("PaymentNotice:requestreference").toLocked();
-
- /**
-   * Search parameter: <b>responsereference</b>
-   * <p>
-   * Description: <b>The ClaimResponse</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>PaymentNotice.responseReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="responsereference", path="PaymentNotice.response.as(Reference)", description="The ClaimResponse", type="reference" )
-  public static final String SP_RESPONSEREFERENCE = "responsereference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>responsereference</b>
-   * <p>
-   * Description: <b>The ClaimResponse</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>PaymentNotice.responseReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RESPONSEREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RESPONSEREFERENCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>PaymentNotice:responsereference</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_RESPONSEREFERENCE = new ca.uhn.fhir.model.api.Include("PaymentNotice:responsereference").toLocked();
-
- /**
-   * Search parameter: <b>organizationidentifier</b>
-   * <p>
-   * Description: <b>The organization who generated this resource</b><br>
+   * Description: <b>The type of payment notice</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PaymentNotice.organizationIdentifier</b><br>
+   * Path: <b>PaymentNotice.paymentStatus</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationidentifier", path="PaymentNotice.organization.as(Identifier)", description="The organization who generated this resource", type="token" )
-  public static final String SP_ORGANIZATIONIDENTIFIER = "organizationidentifier";
+  @SearchParamDefinition(name="paymentstatus", path="PaymentNotice.paymentStatus", description="The type of payment notice", type="token" )
+  public static final String SP_PAYMENTSTATUS = "paymentstatus";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>organizationidentifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>paymentstatus</b>
    * <p>
-   * Description: <b>The organization who generated this resource</b><br>
+   * Description: <b>The type of payment notice</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PaymentNotice.organizationIdentifier</b><br>
+   * Path: <b>PaymentNotice.paymentStatus</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORGANIZATIONIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORGANIZATIONIDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PAYMENTSTATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PAYMENTSTATUS);
 
  /**
    * Search parameter: <b>organizationreference</b>
@@ -1037,44 +990,56 @@ public class PaymentNotice extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATIONREFERENCE = new ca.uhn.fhir.model.api.Include("PaymentNotice:organizationreference").toLocked();
 
  /**
-   * Search parameter: <b>responseidentifier</b>
+   * Search parameter: <b>providerreference</b>
    * <p>
-   * Description: <b>The ClaimResponse</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>PaymentNotice.responseIdentifier</b><br>
+   * Description: <b>The reference to the provider</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>PaymentNotice.providerReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="responseidentifier", path="PaymentNotice.response.as(Identifier)", description="The ClaimResponse", type="token" )
-  public static final String SP_RESPONSEIDENTIFIER = "responseidentifier";
+  @SearchParamDefinition(name="providerreference", path="PaymentNotice.provider.as(Reference)", description="The reference to the provider", type="reference" )
+  public static final String SP_PROVIDERREFERENCE = "providerreference";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>responseidentifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>
    * <p>
-   * Description: <b>The ClaimResponse</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>PaymentNotice.responseIdentifier</b><br>
+   * Description: <b>The reference to the provider</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>PaymentNotice.providerReference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RESPONSEIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RESPONSEIDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDERREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDERREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>PaymentNotice:providerreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDERREFERENCE = new ca.uhn.fhir.model.api.Include("PaymentNotice:providerreference").toLocked();
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>responsereference</b>
    * <p>
-   * Description: <b>The business identifier of the notice</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>PaymentNotice.identifier</b><br>
+   * Description: <b>The ClaimResponse</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>PaymentNotice.responseReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="PaymentNotice.identifier", description="The business identifier of the notice", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="responsereference", path="PaymentNotice.response.as(Reference)", description="The ClaimResponse", type="reference" )
+  public static final String SP_RESPONSEREFERENCE = "responsereference";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>responsereference</b>
    * <p>
-   * Description: <b>The business identifier of the notice</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>PaymentNotice.identifier</b><br>
+   * Description: <b>The ClaimResponse</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>PaymentNotice.responseReference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RESPONSEREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RESPONSEREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>PaymentNotice:responsereference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_RESPONSEREFERENCE = new ca.uhn.fhir.model.api.Include("PaymentNotice:responsereference").toLocked();
 
  /**
    * Search parameter: <b>provideridentifier</b>
@@ -1095,6 +1060,52 @@ public class PaymentNotice extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PROVIDERIDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PROVIDERIDENTIFIER);
+
+ /**
+   * Search parameter: <b>requestreference</b>
+   * <p>
+   * Description: <b>The Claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>PaymentNotice.requestReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="requestreference", path="PaymentNotice.request.as(Reference)", description="The Claim", type="reference" )
+  public static final String SP_REQUESTREFERENCE = "requestreference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>requestreference</b>
+   * <p>
+   * Description: <b>The Claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>PaymentNotice.requestReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTREFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTREFERENCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>PaymentNotice:requestreference</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTREFERENCE = new ca.uhn.fhir.model.api.Include("PaymentNotice:requestreference").toLocked();
+
+ /**
+   * Search parameter: <b>statusdate</b>
+   * <p>
+   * Description: <b>The date of the payment action</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>PaymentNotice.statusDate</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="statusdate", path="PaymentNotice.statusDate", description="The date of the payment action", type="date" )
+  public static final String SP_STATUSDATE = "statusdate";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>statusdate</b>
+   * <p>
+   * Description: <b>The date of the payment action</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>PaymentNotice.statusDate</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam STATUSDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_STATUSDATE);
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -70,6 +70,14 @@ public abstract class BackboneElement extends Element implements IBaseBackboneEl
       return this.modifierExtension;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public BackboneElement setModifierExtension(List<Extension> theModifierExtension) { 
+      this.modifierExtension = theModifierExtension;
+      return this;
+    }
+
     public boolean hasModifierExtension() { 
       if (this.modifierExtension == null)
         return false;
@@ -79,10 +87,6 @@ public abstract class BackboneElement extends Element implements IBaseBackboneEl
       return false;
     }
 
-    /**
-     * @return {@link #modifierExtension} (May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.)
-     */
-    // syntactic sugar
     public Extension addModifierExtension() { //3
       Extension t = new Extension();
       if (this.modifierExtension == null)
@@ -91,7 +95,6 @@ public abstract class BackboneElement extends Element implements IBaseBackboneEl
       return t;
     }
 
-    // syntactic sugar
     public BackboneElement addModifierExtension(Extension t) { //3
       if (t == null)
         return this;
@@ -99,6 +102,16 @@ public abstract class BackboneElement extends Element implements IBaseBackboneEl
         this.modifierExtension = new ArrayList<Extension>();
       this.modifierExtension.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #modifierExtension}, creating it if it does not already exist
+     */
+    public Extension getModifierExtensionFirstRep() { 
+      if (getModifierExtension().isEmpty()) {
+        addModifierExtension();
+      }
+      return getModifierExtension().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -187,7 +200,7 @@ public abstract class BackboneElement extends Element implements IBaseBackboneEl
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (modifierExtension == null || modifierExtension.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(modifierExtension);
       }
 
 

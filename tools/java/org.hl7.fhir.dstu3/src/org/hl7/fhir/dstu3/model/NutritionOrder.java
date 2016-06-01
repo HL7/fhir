@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -311,6 +311,14 @@ public class NutritionOrder extends DomainResource {
           return this.type;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public NutritionOrderOralDietComponent setType(List<CodeableConcept> theType) { 
+          this.type = theType;
+          return this;
+        }
+
         public boolean hasType() { 
           if (this.type == null)
             return false;
@@ -320,10 +328,6 @@ public class NutritionOrder extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #type} (The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet.)
-         */
-    // syntactic sugar
         public CodeableConcept addType() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.type == null)
@@ -332,7 +336,6 @@ public class NutritionOrder extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public NutritionOrderOralDietComponent addType(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -340,6 +343,16 @@ public class NutritionOrder extends DomainResource {
             this.type = new ArrayList<CodeableConcept>();
           this.type.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #type}, creating it if it does not already exist
+         */
+        public CodeableConcept getTypeFirstRep() { 
+          if (getType().isEmpty()) {
+            addType();
+          }
+          return getType().get(0);
         }
 
         /**
@@ -351,6 +364,14 @@ public class NutritionOrder extends DomainResource {
           return this.schedule;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public NutritionOrderOralDietComponent setSchedule(List<Timing> theSchedule) { 
+          this.schedule = theSchedule;
+          return this;
+        }
+
         public boolean hasSchedule() { 
           if (this.schedule == null)
             return false;
@@ -360,10 +381,6 @@ public class NutritionOrder extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #schedule} (The time period and frequency at which the diet should be given.)
-         */
-    // syntactic sugar
         public Timing addSchedule() { //3
           Timing t = new Timing();
           if (this.schedule == null)
@@ -372,7 +389,6 @@ public class NutritionOrder extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public NutritionOrderOralDietComponent addSchedule(Timing t) { //3
           if (t == null)
             return this;
@@ -380,6 +396,16 @@ public class NutritionOrder extends DomainResource {
             this.schedule = new ArrayList<Timing>();
           this.schedule.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #schedule}, creating it if it does not already exist
+         */
+        public Timing getScheduleFirstRep() { 
+          if (getSchedule().isEmpty()) {
+            addSchedule();
+          }
+          return getSchedule().get(0);
         }
 
         /**
@@ -391,6 +417,14 @@ public class NutritionOrder extends DomainResource {
           return this.nutrient;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public NutritionOrderOralDietComponent setNutrient(List<NutritionOrderOralDietNutrientComponent> theNutrient) { 
+          this.nutrient = theNutrient;
+          return this;
+        }
+
         public boolean hasNutrient() { 
           if (this.nutrient == null)
             return false;
@@ -400,10 +434,6 @@ public class NutritionOrder extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #nutrient} (Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet.)
-         */
-    // syntactic sugar
         public NutritionOrderOralDietNutrientComponent addNutrient() { //3
           NutritionOrderOralDietNutrientComponent t = new NutritionOrderOralDietNutrientComponent();
           if (this.nutrient == null)
@@ -412,7 +442,6 @@ public class NutritionOrder extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public NutritionOrderOralDietComponent addNutrient(NutritionOrderOralDietNutrientComponent t) { //3
           if (t == null)
             return this;
@@ -420,6 +449,16 @@ public class NutritionOrder extends DomainResource {
             this.nutrient = new ArrayList<NutritionOrderOralDietNutrientComponent>();
           this.nutrient.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #nutrient}, creating it if it does not already exist
+         */
+        public NutritionOrderOralDietNutrientComponent getNutrientFirstRep() { 
+          if (getNutrient().isEmpty()) {
+            addNutrient();
+          }
+          return getNutrient().get(0);
         }
 
         /**
@@ -431,6 +470,14 @@ public class NutritionOrder extends DomainResource {
           return this.texture;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public NutritionOrderOralDietComponent setTexture(List<NutritionOrderOralDietTextureComponent> theTexture) { 
+          this.texture = theTexture;
+          return this;
+        }
+
         public boolean hasTexture() { 
           if (this.texture == null)
             return false;
@@ -440,10 +487,6 @@ public class NutritionOrder extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #texture} (Class that describes any texture modifications required for the patient to safely consume various types of solid foods.)
-         */
-    // syntactic sugar
         public NutritionOrderOralDietTextureComponent addTexture() { //3
           NutritionOrderOralDietTextureComponent t = new NutritionOrderOralDietTextureComponent();
           if (this.texture == null)
@@ -452,7 +495,6 @@ public class NutritionOrder extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public NutritionOrderOralDietComponent addTexture(NutritionOrderOralDietTextureComponent t) { //3
           if (t == null)
             return this;
@@ -460,6 +502,16 @@ public class NutritionOrder extends DomainResource {
             this.texture = new ArrayList<NutritionOrderOralDietTextureComponent>();
           this.texture.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #texture}, creating it if it does not already exist
+         */
+        public NutritionOrderOralDietTextureComponent getTextureFirstRep() { 
+          if (getTexture().isEmpty()) {
+            addTexture();
+          }
+          return getTexture().get(0);
         }
 
         /**
@@ -471,6 +523,14 @@ public class NutritionOrder extends DomainResource {
           return this.fluidConsistencyType;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public NutritionOrderOralDietComponent setFluidConsistencyType(List<CodeableConcept> theFluidConsistencyType) { 
+          this.fluidConsistencyType = theFluidConsistencyType;
+          return this;
+        }
+
         public boolean hasFluidConsistencyType() { 
           if (this.fluidConsistencyType == null)
             return false;
@@ -480,10 +540,6 @@ public class NutritionOrder extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #fluidConsistencyType} (The required consistency (e.g. honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.)
-         */
-    // syntactic sugar
         public CodeableConcept addFluidConsistencyType() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.fluidConsistencyType == null)
@@ -492,7 +548,6 @@ public class NutritionOrder extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public NutritionOrderOralDietComponent addFluidConsistencyType(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -500,6 +555,16 @@ public class NutritionOrder extends DomainResource {
             this.fluidConsistencyType = new ArrayList<CodeableConcept>();
           this.fluidConsistencyType.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #fluidConsistencyType}, creating it if it does not already exist
+         */
+        public CodeableConcept getFluidConsistencyTypeFirstRep() { 
+          if (getFluidConsistencyType().isEmpty()) {
+            addFluidConsistencyType();
+          }
+          return getFluidConsistencyType().get(0);
         }
 
         /**
@@ -712,9 +777,8 @@ public class NutritionOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (schedule == null || schedule.isEmpty())
-           && (nutrient == null || nutrient.isEmpty()) && (texture == null || texture.isEmpty()) && (fluidConsistencyType == null || fluidConsistencyType.isEmpty())
-           && (instruction == null || instruction.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, schedule, nutrient
+          , texture, fluidConsistencyType, instruction);
       }
 
   public String fhirType() {
@@ -890,8 +954,7 @@ public class NutritionOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (modifier == null || modifier.isEmpty()) && (amount == null || amount.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(modifier, amount);
       }
 
   public String fhirType() {
@@ -1067,8 +1130,7 @@ public class NutritionOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (modifier == null || modifier.isEmpty()) && (foodType == null || foodType.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(modifier, foodType);
       }
 
   public String fhirType() {
@@ -1206,6 +1268,14 @@ public class NutritionOrder extends DomainResource {
           return this.schedule;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public NutritionOrderSupplementComponent setSchedule(List<Timing> theSchedule) { 
+          this.schedule = theSchedule;
+          return this;
+        }
+
         public boolean hasSchedule() { 
           if (this.schedule == null)
             return false;
@@ -1215,10 +1285,6 @@ public class NutritionOrder extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #schedule} (The time period and frequency at which the supplement(s) should be given.)
-         */
-    // syntactic sugar
         public Timing addSchedule() { //3
           Timing t = new Timing();
           if (this.schedule == null)
@@ -1227,7 +1293,6 @@ public class NutritionOrder extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public NutritionOrderSupplementComponent addSchedule(Timing t) { //3
           if (t == null)
             return this;
@@ -1235,6 +1300,16 @@ public class NutritionOrder extends DomainResource {
             this.schedule = new ArrayList<Timing>();
           this.schedule.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #schedule}, creating it if it does not already exist
+         */
+        public Timing getScheduleFirstRep() { 
+          if (getSchedule().isEmpty()) {
+            addSchedule();
+          }
+          return getSchedule().get(0);
         }
 
         /**
@@ -1445,9 +1520,8 @@ public class NutritionOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (productName == null || productName.isEmpty())
-           && (schedule == null || schedule.isEmpty()) && (quantity == null || quantity.isEmpty()) && (instruction == null || instruction.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, productName, schedule
+          , quantity, instruction);
       }
 
   public String fhirType() {
@@ -1734,6 +1808,14 @@ public class NutritionOrder extends DomainResource {
           return this.administration;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public NutritionOrderEnteralFormulaComponent setAdministration(List<NutritionOrderEnteralFormulaAdministrationComponent> theAdministration) { 
+          this.administration = theAdministration;
+          return this;
+        }
+
         public boolean hasAdministration() { 
           if (this.administration == null)
             return false;
@@ -1743,10 +1825,6 @@ public class NutritionOrder extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #administration} (Formula administration instructions as structured data.  This repeating structure allows for changing the administration rate or volume over time for both bolus and continuous feeding.  An example of this would be an instruction to increase the rate of continuous feeding every 2 hours.)
-         */
-    // syntactic sugar
         public NutritionOrderEnteralFormulaAdministrationComponent addAdministration() { //3
           NutritionOrderEnteralFormulaAdministrationComponent t = new NutritionOrderEnteralFormulaAdministrationComponent();
           if (this.administration == null)
@@ -1755,7 +1833,6 @@ public class NutritionOrder extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public NutritionOrderEnteralFormulaComponent addAdministration(NutritionOrderEnteralFormulaAdministrationComponent t) { //3
           if (t == null)
             return this;
@@ -1763,6 +1840,16 @@ public class NutritionOrder extends DomainResource {
             this.administration = new ArrayList<NutritionOrderEnteralFormulaAdministrationComponent>();
           this.administration.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #administration}, creating it if it does not already exist
+         */
+        public NutritionOrderEnteralFormulaAdministrationComponent getAdministrationFirstRep() { 
+          if (getAdministration().isEmpty()) {
+            addAdministration();
+          }
+          return getAdministration().get(0);
         }
 
         /**
@@ -2027,11 +2114,9 @@ public class NutritionOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (baseFormulaType == null || baseFormulaType.isEmpty()) && (baseFormulaProductName == null || baseFormulaProductName.isEmpty())
-           && (additiveType == null || additiveType.isEmpty()) && (additiveProductName == null || additiveProductName.isEmpty())
-           && (caloricDensity == null || caloricDensity.isEmpty()) && (routeofAdministration == null || routeofAdministration.isEmpty())
-           && (administration == null || administration.isEmpty()) && (maxVolumeToDeliver == null || maxVolumeToDeliver.isEmpty())
-           && (administrationInstruction == null || administrationInstruction.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(baseFormulaType, baseFormulaProductName
+          , additiveType, additiveProductName, caloricDensity, routeofAdministration, administration
+          , maxVolumeToDeliver, administrationInstruction);
       }
 
   public String fhirType() {
@@ -2277,8 +2362,8 @@ public class NutritionOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (schedule == null || schedule.isEmpty()) && (quantity == null || quantity.isEmpty())
-           && (rate == null || rate.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(schedule, quantity, rate
+          );
       }
 
   public String fhirType() {
@@ -2419,6 +2504,14 @@ public class NutritionOrder extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public NutritionOrder setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -2428,10 +2521,6 @@ public class NutritionOrder extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (Identifiers assigned to this order by the order sender or by the order receiver.)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -2440,7 +2529,6 @@ public class NutritionOrder extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public NutritionOrder addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -2448,6 +2536,16 @@ public class NutritionOrder extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -2685,6 +2783,14 @@ public class NutritionOrder extends DomainResource {
       return this.allergyIntolerance;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public NutritionOrder setAllergyIntolerance(List<Reference> theAllergyIntolerance) { 
+      this.allergyIntolerance = theAllergyIntolerance;
+      return this;
+    }
+
     public boolean hasAllergyIntolerance() { 
       if (this.allergyIntolerance == null)
         return false;
@@ -2694,10 +2800,6 @@ public class NutritionOrder extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #allergyIntolerance} (A link to a record of allergies or intolerances  which should be included in the nutrition order.)
-     */
-    // syntactic sugar
     public Reference addAllergyIntolerance() { //3
       Reference t = new Reference();
       if (this.allergyIntolerance == null)
@@ -2706,7 +2808,6 @@ public class NutritionOrder extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public NutritionOrder addAllergyIntolerance(Reference t) { //3
       if (t == null)
         return this;
@@ -2717,18 +2818,29 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #allergyIntolerance} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A link to a record of allergies or intolerances  which should be included in the nutrition order.)
+     * @return The first repetition of repeating field {@link #allergyIntolerance}, creating it if it does not already exist
      */
+    public Reference getAllergyIntoleranceFirstRep() { 
+      if (getAllergyIntolerance().isEmpty()) {
+        addAllergyIntolerance();
+      }
+      return getAllergyIntolerance().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<AllergyIntolerance> getAllergyIntoleranceTarget() { 
       if (this.allergyIntoleranceTarget == null)
         this.allergyIntoleranceTarget = new ArrayList<AllergyIntolerance>();
       return this.allergyIntoleranceTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #allergyIntolerance} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A link to a record of allergies or intolerances  which should be included in the nutrition order.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public AllergyIntolerance addAllergyIntoleranceTarget() { 
       AllergyIntolerance r = new AllergyIntolerance();
       if (this.allergyIntoleranceTarget == null)
@@ -2746,6 +2858,14 @@ public class NutritionOrder extends DomainResource {
       return this.foodPreferenceModifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public NutritionOrder setFoodPreferenceModifier(List<CodeableConcept> theFoodPreferenceModifier) { 
+      this.foodPreferenceModifier = theFoodPreferenceModifier;
+      return this;
+    }
+
     public boolean hasFoodPreferenceModifier() { 
       if (this.foodPreferenceModifier == null)
         return false;
@@ -2755,10 +2875,6 @@ public class NutritionOrder extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #foodPreferenceModifier} (This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.)
-     */
-    // syntactic sugar
     public CodeableConcept addFoodPreferenceModifier() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.foodPreferenceModifier == null)
@@ -2767,7 +2883,6 @@ public class NutritionOrder extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public NutritionOrder addFoodPreferenceModifier(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -2775,6 +2890,16 @@ public class NutritionOrder extends DomainResource {
         this.foodPreferenceModifier = new ArrayList<CodeableConcept>();
       this.foodPreferenceModifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #foodPreferenceModifier}, creating it if it does not already exist
+     */
+    public CodeableConcept getFoodPreferenceModifierFirstRep() { 
+      if (getFoodPreferenceModifier().isEmpty()) {
+        addFoodPreferenceModifier();
+      }
+      return getFoodPreferenceModifier().get(0);
     }
 
     /**
@@ -2786,6 +2911,14 @@ public class NutritionOrder extends DomainResource {
       return this.excludeFoodModifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public NutritionOrder setExcludeFoodModifier(List<CodeableConcept> theExcludeFoodModifier) { 
+      this.excludeFoodModifier = theExcludeFoodModifier;
+      return this;
+    }
+
     public boolean hasExcludeFoodModifier() { 
       if (this.excludeFoodModifier == null)
         return false;
@@ -2795,10 +2928,6 @@ public class NutritionOrder extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #excludeFoodModifier} (This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced allergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.)
-     */
-    // syntactic sugar
     public CodeableConcept addExcludeFoodModifier() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.excludeFoodModifier == null)
@@ -2807,7 +2936,6 @@ public class NutritionOrder extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public NutritionOrder addExcludeFoodModifier(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -2815,6 +2943,16 @@ public class NutritionOrder extends DomainResource {
         this.excludeFoodModifier = new ArrayList<CodeableConcept>();
       this.excludeFoodModifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #excludeFoodModifier}, creating it if it does not already exist
+     */
+    public CodeableConcept getExcludeFoodModifierFirstRep() { 
+      if (getExcludeFoodModifier().isEmpty()) {
+        addExcludeFoodModifier();
+      }
+      return getExcludeFoodModifier().get(0);
     }
 
     /**
@@ -2850,6 +2988,14 @@ public class NutritionOrder extends DomainResource {
       return this.supplement;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public NutritionOrder setSupplement(List<NutritionOrderSupplementComponent> theSupplement) { 
+      this.supplement = theSupplement;
+      return this;
+    }
+
     public boolean hasSupplement() { 
       if (this.supplement == null)
         return false;
@@ -2859,10 +3005,6 @@ public class NutritionOrder extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #supplement} (Oral nutritional products given in order to add further nutritional value to the patient's diet.)
-     */
-    // syntactic sugar
     public NutritionOrderSupplementComponent addSupplement() { //3
       NutritionOrderSupplementComponent t = new NutritionOrderSupplementComponent();
       if (this.supplement == null)
@@ -2871,7 +3013,6 @@ public class NutritionOrder extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public NutritionOrder addSupplement(NutritionOrderSupplementComponent t) { //3
       if (t == null)
         return this;
@@ -2879,6 +3020,16 @@ public class NutritionOrder extends DomainResource {
         this.supplement = new ArrayList<NutritionOrderSupplementComponent>();
       this.supplement.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #supplement}, creating it if it does not already exist
+     */
+    public NutritionOrderSupplementComponent getSupplementFirstRep() { 
+      if (getSupplement().isEmpty()) {
+        addSupplement();
+      }
+      return getSupplement().get(0);
     }
 
     /**
@@ -3155,12 +3306,9 @@ public class NutritionOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (patient == null || patient.isEmpty()) && (encounter == null || encounter.isEmpty()) && (dateTime == null || dateTime.isEmpty())
-           && (orderer == null || orderer.isEmpty()) && (allergyIntolerance == null || allergyIntolerance.isEmpty())
-           && (foodPreferenceModifier == null || foodPreferenceModifier.isEmpty()) && (excludeFoodModifier == null || excludeFoodModifier.isEmpty())
-           && (oralDiet == null || oralDiet.isEmpty()) && (supplement == null || supplement.isEmpty())
-           && (enteralFormula == null || enteralFormula.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, patient
+          , encounter, dateTime, orderer, allergyIntolerance, foodPreferenceModifier, excludeFoodModifier
+          , oralDiet, supplement, enteralFormula);
       }
 
   @Override
@@ -3169,90 +3317,44 @@ public class NutritionOrder extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>patient</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The identity of the person who requires the diet, formula or nutritional supplement</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>NutritionOrder.patient</b><br>
+   * Description: <b>Return nutrition orders with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="NutritionOrder.patient", description="The identity of the person who requires the diet, formula or nutritional supplement", type="reference" )
-  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="identifier", path="NutritionOrder.identifier", description="Return nutrition orders with this external identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The identity of the person who requires the diet, formula or nutritional supplement</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>NutritionOrder.patient</b><br>
+   * Description: <b>Return nutrition orders with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>NutritionOrder:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("NutritionOrder:patient").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>datetime</b>
    * <p>
-   * Description: <b>Status of the nutrition order.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.status</b><br>
+   * Description: <b>Return nutrition orders requested on this date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>NutritionOrder.dateTime</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="NutritionOrder.status", description="Status of the nutrition order.", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="datetime", path="NutritionOrder.dateTime", description="Return nutrition orders requested on this date", type="date" )
+  public static final String SP_DATETIME = "datetime";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>datetime</b>
    * <p>
-   * Description: <b>Status of the nutrition order.</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.status</b><br>
+   * Description: <b>Return nutrition orders requested on this date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>NutritionOrder.dateTime</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>supplement</b>
-   * <p>
-   * Description: <b>Type of supplement product requested</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.supplement.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="supplement", path="NutritionOrder.supplement.type", description="Type of supplement product requested", type="token" )
-  public static final String SP_SUPPLEMENT = "supplement";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>supplement</b>
-   * <p>
-   * Description: <b>Type of supplement product requested</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.supplement.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SUPPLEMENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SUPPLEMENT);
-
- /**
-   * Search parameter: <b>oraldiet</b>
-   * <p>
-   * Description: <b>Type of diet that can be consumed orally (i.e., take via the mouth).</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.oralDiet.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="oraldiet", path="NutritionOrder.oralDiet.type", description="Type of diet that can be consumed orally (i.e., take via the mouth).", type="token" )
-  public static final String SP_ORALDIET = "oraldiet";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>oraldiet</b>
-   * <p>
-   * Description: <b>Type of diet that can be consumed orally (i.e., take via the mouth).</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.oralDiet.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORALDIET = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORALDIET);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATETIME = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATETIME);
 
  /**
    * Search parameter: <b>provider</b>
@@ -3281,6 +3383,72 @@ public class NutritionOrder extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDER = new ca.uhn.fhir.model.api.Include("NutritionOrder:provider").toLocked();
 
  /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>The identity of the person who requires the diet, formula or nutritional supplement</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>NutritionOrder.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="NutritionOrder.patient", description="The identity of the person who requires the diet, formula or nutritional supplement", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>The identity of the person who requires the diet, formula or nutritional supplement</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>NutritionOrder.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>NutritionOrder:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("NutritionOrder:patient").toLocked();
+
+ /**
+   * Search parameter: <b>supplement</b>
+   * <p>
+   * Description: <b>Type of supplement product requested</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.supplement.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="supplement", path="NutritionOrder.supplement.type", description="Type of supplement product requested", type="token" )
+  public static final String SP_SUPPLEMENT = "supplement";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>supplement</b>
+   * <p>
+   * Description: <b>Type of supplement product requested</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.supplement.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SUPPLEMENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SUPPLEMENT);
+
+ /**
+   * Search parameter: <b>formula</b>
+   * <p>
+   * Description: <b>Type of enteral or infant formula</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.enteralFormula.baseFormulaType</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="formula", path="NutritionOrder.enteralFormula.baseFormulaType", description="Type of enteral or infant formula", type="token" )
+  public static final String SP_FORMULA = "formula";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>formula</b>
+   * <p>
+   * Description: <b>Type of enteral or infant formula</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.enteralFormula.baseFormulaType</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FORMULA = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FORMULA);
+
+ /**
    * Search parameter: <b>encounter</b>
    * <p>
    * Description: <b>Return nutrition orders with this encounter identifier</b><br>
@@ -3307,24 +3475,44 @@ public class NutritionOrder extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("NutritionOrder:encounter").toLocked();
 
  /**
-   * Search parameter: <b>datetime</b>
+   * Search parameter: <b>oraldiet</b>
    * <p>
-   * Description: <b>Return nutrition orders requested on this date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>NutritionOrder.dateTime</b><br>
+   * Description: <b>Type of diet that can be consumed orally (i.e., take via the mouth).</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.oralDiet.type</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="datetime", path="NutritionOrder.dateTime", description="Return nutrition orders requested on this date", type="date" )
-  public static final String SP_DATETIME = "datetime";
+  @SearchParamDefinition(name="oraldiet", path="NutritionOrder.oralDiet.type", description="Type of diet that can be consumed orally (i.e., take via the mouth).", type="token" )
+  public static final String SP_ORALDIET = "oraldiet";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>datetime</b>
+   * <b>Fluent Client</b> search parameter constant for <b>oraldiet</b>
    * <p>
-   * Description: <b>Return nutrition orders requested on this date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>NutritionOrder.dateTime</b><br>
+   * Description: <b>Type of diet that can be consumed orally (i.e., take via the mouth).</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.oralDiet.type</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATETIME = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATETIME);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ORALDIET = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ORALDIET);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>Status of the nutrition order.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="NutritionOrder.status", description="Status of the nutrition order.", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>Status of the nutrition order.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>NutritionOrder.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
  /**
    * Search parameter: <b>additive</b>
@@ -3345,46 +3533,6 @@ public class NutritionOrder extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ADDITIVE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ADDITIVE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Return nutrition orders with this external identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="NutritionOrder.identifier", description="Return nutrition orders with this external identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Return nutrition orders with this external identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>formula</b>
-   * <p>
-   * Description: <b>Type of enteral or infant formula</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.enteralFormula.baseFormulaType</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="formula", path="NutritionOrder.enteralFormula.baseFormulaType", description="Type of enteral or infant formula", type="token" )
-  public static final String SP_FORMULA = "formula";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>formula</b>
-   * <p>
-   * Description: <b>Type of enteral or infant formula</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>NutritionOrder.enteralFormula.baseFormulaType</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FORMULA = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FORMULA);
 
 
 }

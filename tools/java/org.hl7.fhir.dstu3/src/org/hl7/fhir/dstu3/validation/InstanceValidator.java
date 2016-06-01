@@ -79,6 +79,7 @@ import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
+import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -273,7 +274,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     long t = System.nanoTime();
     Element e = parser.parse(document);
     loadTime = System.nanoTime() - t;
+    if (e != null) {
     validate(errors, e, profile);
+    }
     return e;
   }
 
@@ -345,7 +348,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   // public API
 
-  private boolean checkCode(List<ValidationMessage> errors, Element element, String path, String code, String system, String display) {
+  private boolean checkCode(List<ValidationMessage> errors, Element element, String path, String code, String system, String display) throws TerminologyServiceException {
     long t = System.nanoTime();
     boolean ss = context.supportsSystem(system);
     txTime = txTime + (System.nanoTime() - t);
@@ -466,6 +469,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, isAbsolute(system), "Coding.system must be an absolute reference, not a local reference");
 
     if (system != null && code != null) {
+      try {
       if (checkCode(errors, element, path, code, system, display))
         if (theElementCntext != null && theElementCntext.getBinding() != null) {
           ElementDefinitionBindingComponent binding = theElementCntext.getBinding();
@@ -497,6 +501,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             }
           }
         }
+      } catch (Exception e) {
+        rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Error "+e.getMessage()+" validating CodeableConcept");
+      }
     }
   }
 
@@ -880,8 +887,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   // note that we don't check the type here; it could be string, uri or code.
   private void checkPrimitiveBinding(List<ValidationMessage> errors, String path, String type, ElementDefinition elementContext, Element element, StructureDefinition profile) {
-    if (!element.hasPrimitiveValue())
+    if (!isPrimitiveType(type)) {
       return;
+    }
 
     String value = element.primitiveValue();
     // System.out.println("check "+value+" in "+path);
@@ -2121,7 +2129,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition != null, "Element is unknown or does not match any slice (url=\"" + ei.element.getNamedChildValue("url") + "\")");
       else
         rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition != null), "Element is unknown or does not match any slice");
-      rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last), "Element is out of order");
+      rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last), "Element \"{0}\" is out of order", ei.name);
       last = ei.index;
     }
 
@@ -2193,9 +2201,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         boolean thisIsCodeableConcept = false;
 
         if (type != null) {
-          if (isPrimitiveType(type))
+          if (isPrimitiveType(type)) {
             checkPrimitive(errors, ei.path, type, ei.definition, ei.element, profile);
-          else {
+          } else {
             if (type.equals("Identifier"))
               checkIdentifier(errors, ei.path, ei.element, ei.definition);
             else if (type.equals("Coding"))

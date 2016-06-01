@@ -115,12 +115,14 @@ import org.hl7.fhir.dstu3.model.Timing.TimingRepeatComponent;
 import org.hl7.fhir.dstu3.model.Timing.UnitsOfTime;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.FilterOperator;
+import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
@@ -2262,7 +2264,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       generateExpansion(x, vs, src, header);
     }
 
-    boolean hasExtensions = generateComposition(x, vs, header);
+    Map<ConceptSetComponent, ValueSetExpansionComponent> expansionCache = new HashMap<ConceptSetComponent, ValueSetExpansionComponent>();
+    boolean hasExtensions = generateComposition(x, vs, header, expansionCache);
     inject(vs, x, hasExtensions ? NarrativeStatus.EXTENSIONS :  NarrativeStatus.GENERATED);
   }
 
@@ -2709,7 +2712,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	  return mappings;
   }
 
-	private boolean generateComposition(XhtmlNode x, ValueSet vs, boolean header) {
+  private boolean generateComposition(XhtmlNode x, ValueSet vs, boolean header, Map<ConceptSetComponent, ValueSetExpansionComponent> expansionCache) {
 	  boolean hasExtensions = false;
     if (header) {
       XhtmlNode h = x.addTag("h2");
@@ -2730,10 +2733,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
       AddVsRef(imp.getValue(), li);
     }
     for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
-      hasExtensions = genInclude(ul, inc, "Include") || hasExtensions;
+      hasExtensions = genInclude(ul, inc, "Include", expansionCache) || hasExtensions;
     }
     for (ConceptSetComponent exc : vs.getCompose().getExclude()) {
-      hasExtensions = genInclude(ul, exc, "Exclude") || hasExtensions;
+      hasExtensions = genInclude(ul, exc, "Exclude", expansionCache) || hasExtensions;
     }
     return hasExtensions;
   }
@@ -2775,7 +2778,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return prefix+ref;
   }
 
-  private boolean genInclude(XhtmlNode ul, ConceptSetComponent inc, String type) {
+  private boolean genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, Map<ConceptSetComponent, ValueSetExpansionComponent> expansionCache) {
     boolean hasExtensions = false;
     XhtmlNode li;
     li = ul.addTag("li");
@@ -2802,7 +2805,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         for (ConceptReferenceComponent c : inc.getConcept()) {
           XhtmlNode tr = t.addTag("tr");
           tr.addTag("td").addText(c.getCode());
-          ConceptDefinitionComponent cc = getConceptForCode(e, c.getCode(), inc.getSystem());
+          ConceptDefinitionComponent cc = getConceptForCode(e, c.getCode(), inc, expansionCache);
 
           XhtmlNode td = tr.addTag("td");
           if (!Utilities.noString(c.getDisplay()))
@@ -2857,25 +2860,55 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return null;
   }
 
-  private ConceptDefinitionComponent getConceptForCode(CodeSystem e, String code, String system) {
-    if (e == null) {
-      return context.validateCode(system, code, null).asConceptDefinition();
+  private ConceptDefinitionComponent getConceptForCode(CodeSystem e, String code, ConceptSetComponent inc, Map<ConceptSetComponent, ValueSetExpansionComponent> expansionCache) {
+    // first, look in the code systems
+    if (e == null)
+    e = context.fetchCodeSystem(inc.getSystem());
+    if (e != null) {
+      ConceptDefinitionComponent v = getConceptForCode(e.getConcept(), code);
+      if (v != null)
+        return v;
     }
-    for (ConceptDefinitionComponent c : e.getConcept()) {
-      ConceptDefinitionComponent v = getConceptForCode(c, code);
+    
+    if (!context.hasCache()) {
+      ValueSetExpansionComponent vse;
+      if (!expansionCache.containsKey(inc.getSystem())) {
+        vse = context.expandVS(inc);
+        expansionCache.put(inc, vse);
+      } else
+        vse = expansionCache.get(inc);
+      if (vse != null) {
+        ConceptDefinitionComponent v = getConceptForCodeFromExpansion(vse.getContains(), code);
+      if (v != null)
+        return v;
+    }
+    }
+    
+    return context.validateCode(inc.getSystem(), code, null).asConceptDefinition();
+  }
+
+
+
+  private ConceptDefinitionComponent getConceptForCode(List<ConceptDefinitionComponent> list, String code) {
+    for (ConceptDefinitionComponent c : list) {
+    if (code.equals(c.getCode()))
+      return c;
+      ConceptDefinitionComponent v = getConceptForCode(c.getConcept(), code);
       if (v != null)
         return v;
     }
     return null;
   }
 
-
-
-  private ConceptDefinitionComponent getConceptForCode(ConceptDefinitionComponent c, String code) {
-    if (code.equals(c.getCode()))
-      return c;
-    for (ConceptDefinitionComponent cc : c.getConcept()) {
-      ConceptDefinitionComponent v = getConceptForCode(cc, code);
+  private ConceptDefinitionComponent getConceptForCodeFromExpansion(List<ValueSetExpansionContainsComponent> list, String code) {
+    for (ValueSetExpansionContainsComponent c : list) {
+      if (code.equals(c.getCode())) {
+        ConceptDefinitionComponent res = new ConceptDefinitionComponent();
+        res.setCode(c.getCode());
+        res.setDisplay(c.getDisplay());
+        return res;
+      }
+      ConceptDefinitionComponent v = getConceptForCodeFromExpansion(c.getContains(), code);
       if (v != null)
         return v;
     }

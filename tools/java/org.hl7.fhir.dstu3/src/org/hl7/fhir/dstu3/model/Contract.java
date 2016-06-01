@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -134,6 +134,14 @@ public class Contract extends DomainResource {
           return this.role;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AgentComponent setRole(List<CodeableConcept> theRole) { 
+          this.role = theRole;
+          return this;
+        }
+
         public boolean hasRole() { 
           if (this.role == null)
             return false;
@@ -143,10 +151,6 @@ public class Contract extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #role} (Role type of agent assigned roles in this Contract.)
-         */
-    // syntactic sugar
         public CodeableConcept addRole() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.role == null)
@@ -155,7 +159,6 @@ public class Contract extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public AgentComponent addRole(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -163,6 +166,16 @@ public class Contract extends DomainResource {
             this.role = new ArrayList<CodeableConcept>();
           this.role.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #role}, creating it if it does not already exist
+         */
+        public CodeableConcept getRoleFirstRep() { 
+          if (getRole().isEmpty()) {
+            addRole();
+          }
+          return getRole().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -261,8 +274,7 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (actor == null || actor.isEmpty()) && (role == null || role.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actor, role);
       }
 
   public String fhirType() {
@@ -390,6 +402,14 @@ public class Contract extends DomainResource {
           return this.signature;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SignatoryComponent setSignature(List<Signature> theSignature) { 
+          this.signature = theSignature;
+          return this;
+        }
+
         public boolean hasSignature() { 
           if (this.signature == null)
             return false;
@@ -399,10 +419,6 @@ public class Contract extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #signature} (Legally binding Contract DSIG signature contents in Base64.)
-         */
-    // syntactic sugar
         public Signature addSignature() { //3
           Signature t = new Signature();
           if (this.signature == null)
@@ -411,7 +427,6 @@ public class Contract extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public SignatoryComponent addSignature(Signature t) { //3
           if (t == null)
             return this;
@@ -419,6 +434,16 @@ public class Contract extends DomainResource {
             this.signature = new ArrayList<Signature>();
           this.signature.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #signature}, creating it if it does not already exist
+         */
+        public Signature getSignatureFirstRep() { 
+          if (getSignature().isEmpty()) {
+            addSignature();
+          }
+          return getSignature().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -531,8 +556,7 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (party == null || party.isEmpty())
-           && (signature == null || signature.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, party, signature);
       }
 
   public String fhirType() {
@@ -1108,10 +1132,8 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (entity == null || entity.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (effectiveTime == null || effectiveTime.isEmpty()) && (quantity == null || quantity.isEmpty())
-           && (unitPrice == null || unitPrice.isEmpty()) && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty())
-           && (net == null || net.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(entity, identifier, effectiveTime
+          , quantity, unitPrice, factor, points, net);
       }
 
   public String fhirType() {
@@ -1375,6 +1397,14 @@ public class Contract extends DomainResource {
           return this.topic;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TermComponent setTopic(List<Reference> theTopic) { 
+          this.topic = theTopic;
+          return this;
+        }
+
         public boolean hasTopic() { 
           if (this.topic == null)
             return false;
@@ -1384,10 +1414,6 @@ public class Contract extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #topic} (The matter of concern in the context of this provision of the agrement.)
-         */
-    // syntactic sugar
         public Reference addTopic() { //3
           Reference t = new Reference();
           if (this.topic == null)
@@ -1396,7 +1422,6 @@ public class Contract extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public TermComponent addTopic(Reference t) { //3
           if (t == null)
             return this;
@@ -1407,8 +1432,19 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @return {@link #topic} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The matter of concern in the context of this provision of the agrement.)
+         * @return The first repetition of repeating field {@link #topic}, creating it if it does not already exist
          */
+        public Reference getTopicFirstRep() { 
+          if (getTopic().isEmpty()) {
+            addTopic();
+          }
+          return getTopic().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
         public List<Resource> getTopicTarget() { 
           if (this.topicTarget == null)
             this.topicTarget = new ArrayList<Resource>();
@@ -1424,6 +1460,14 @@ public class Contract extends DomainResource {
           return this.action;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TermComponent setAction(List<CodeableConcept> theAction) { 
+          this.action = theAction;
+          return this;
+        }
+
         public boolean hasAction() { 
           if (this.action == null)
             return false;
@@ -1433,10 +1477,6 @@ public class Contract extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #action} (Action stipulated by this Contract Provision.)
-         */
-    // syntactic sugar
         public CodeableConcept addAction() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.action == null)
@@ -1445,7 +1485,6 @@ public class Contract extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public TermComponent addAction(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -1453,6 +1492,16 @@ public class Contract extends DomainResource {
             this.action = new ArrayList<CodeableConcept>();
           this.action.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #action}, creating it if it does not already exist
+         */
+        public CodeableConcept getActionFirstRep() { 
+          if (getAction().isEmpty()) {
+            addAction();
+          }
+          return getAction().get(0);
         }
 
         /**
@@ -1464,6 +1513,14 @@ public class Contract extends DomainResource {
           return this.actionReason;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TermComponent setActionReason(List<CodeableConcept> theActionReason) { 
+          this.actionReason = theActionReason;
+          return this;
+        }
+
         public boolean hasActionReason() { 
           if (this.actionReason == null)
             return false;
@@ -1473,10 +1530,6 @@ public class Contract extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #actionReason} (Reason or purpose for the action stipulated by this Contract Provision.)
-         */
-    // syntactic sugar
         public CodeableConcept addActionReason() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.actionReason == null)
@@ -1485,7 +1538,6 @@ public class Contract extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public TermComponent addActionReason(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -1493,6 +1545,16 @@ public class Contract extends DomainResource {
             this.actionReason = new ArrayList<CodeableConcept>();
           this.actionReason.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #actionReason}, creating it if it does not already exist
+         */
+        public CodeableConcept getActionReasonFirstRep() { 
+          if (getActionReason().isEmpty()) {
+            addActionReason();
+          }
+          return getActionReason().get(0);
         }
 
         /**
@@ -1504,6 +1566,14 @@ public class Contract extends DomainResource {
           return this.agent;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TermComponent setAgent(List<TermAgentComponent> theAgent) { 
+          this.agent = theAgent;
+          return this;
+        }
+
         public boolean hasAgent() { 
           if (this.agent == null)
             return false;
@@ -1513,10 +1583,6 @@ public class Contract extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #agent} (An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.)
-         */
-    // syntactic sugar
         public TermAgentComponent addAgent() { //3
           TermAgentComponent t = new TermAgentComponent();
           if (this.agent == null)
@@ -1525,7 +1591,6 @@ public class Contract extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public TermComponent addAgent(TermAgentComponent t) { //3
           if (t == null)
             return this;
@@ -1533,6 +1598,16 @@ public class Contract extends DomainResource {
             this.agent = new ArrayList<TermAgentComponent>();
           this.agent.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #agent}, creating it if it does not already exist
+         */
+        public TermAgentComponent getAgentFirstRep() { 
+          if (getAgent().isEmpty()) {
+            addAgent();
+          }
+          return getAgent().get(0);
         }
 
         /**
@@ -1593,6 +1668,14 @@ public class Contract extends DomainResource {
           return this.valuedItem;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TermComponent setValuedItem(List<TermValuedItemComponent> theValuedItem) { 
+          this.valuedItem = theValuedItem;
+          return this;
+        }
+
         public boolean hasValuedItem() { 
           if (this.valuedItem == null)
             return false;
@@ -1602,10 +1685,6 @@ public class Contract extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #valuedItem} (Contract Provision Valued Item List.)
-         */
-    // syntactic sugar
         public TermValuedItemComponent addValuedItem() { //3
           TermValuedItemComponent t = new TermValuedItemComponent();
           if (this.valuedItem == null)
@@ -1614,7 +1693,6 @@ public class Contract extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public TermComponent addValuedItem(TermValuedItemComponent t) { //3
           if (t == null)
             return this;
@@ -1622,6 +1700,16 @@ public class Contract extends DomainResource {
             this.valuedItem = new ArrayList<TermValuedItemComponent>();
           this.valuedItem.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #valuedItem}, creating it if it does not already exist
+         */
+        public TermValuedItemComponent getValuedItemFirstRep() { 
+          if (getValuedItem().isEmpty()) {
+            addValuedItem();
+          }
+          return getValuedItem().get(0);
         }
 
         /**
@@ -1633,6 +1721,14 @@ public class Contract extends DomainResource {
           return this.group;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TermComponent setGroup(List<TermComponent> theGroup) { 
+          this.group = theGroup;
+          return this;
+        }
+
         public boolean hasGroup() { 
           if (this.group == null)
             return false;
@@ -1642,10 +1738,6 @@ public class Contract extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #group} (Nested group of Contract Provisions.)
-         */
-    // syntactic sugar
         public TermComponent addGroup() { //3
           TermComponent t = new TermComponent();
           if (this.group == null)
@@ -1654,7 +1746,6 @@ public class Contract extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public TermComponent addGroup(TermComponent t) { //3
           if (t == null)
             return this;
@@ -1662,6 +1753,16 @@ public class Contract extends DomainResource {
             this.group = new ArrayList<TermComponent>();
           this.group.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #group}, creating it if it does not already exist
+         */
+        public TermComponent getGroupFirstRep() { 
+          if (getGroup().isEmpty()) {
+            addGroup();
+          }
+          return getGroup().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1907,11 +2008,9 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (issued == null || issued.isEmpty())
-           && (applies == null || applies.isEmpty()) && (type == null || type.isEmpty()) && (subType == null || subType.isEmpty())
-           && (topic == null || topic.isEmpty()) && (action == null || action.isEmpty()) && (actionReason == null || actionReason.isEmpty())
-           && (agent == null || agent.isEmpty()) && (text == null || text.isEmpty()) && (valuedItem == null || valuedItem.isEmpty())
-           && (group == null || group.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, issued, applies
+          , type, subType, topic, action, actionReason, agent, text, valuedItem, group
+          );
       }
 
   public String fhirType() {
@@ -2007,6 +2106,14 @@ public class Contract extends DomainResource {
           return this.role;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TermAgentComponent setRole(List<CodeableConcept> theRole) { 
+          this.role = theRole;
+          return this;
+        }
+
         public boolean hasRole() { 
           if (this.role == null)
             return false;
@@ -2016,10 +2123,6 @@ public class Contract extends DomainResource {
           return false;
         }
 
-        /**
-         * @return {@link #role} (Role played by the agent assigned this role in the execution of this Contract Provision.)
-         */
-    // syntactic sugar
         public CodeableConcept addRole() { //3
           CodeableConcept t = new CodeableConcept();
           if (this.role == null)
@@ -2028,7 +2131,6 @@ public class Contract extends DomainResource {
           return t;
         }
 
-    // syntactic sugar
         public TermAgentComponent addRole(CodeableConcept t) { //3
           if (t == null)
             return this;
@@ -2036,6 +2138,16 @@ public class Contract extends DomainResource {
             this.role = new ArrayList<CodeableConcept>();
           this.role.add(t);
           return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #role}, creating it if it does not already exist
+         */
+        public CodeableConcept getRoleFirstRep() { 
+          if (getRole().isEmpty()) {
+            addRole();
+          }
+          return getRole().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -2134,8 +2246,7 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (actor == null || actor.isEmpty()) && (role == null || role.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actor, role);
       }
 
   public String fhirType() {
@@ -2711,10 +2822,8 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (entity == null || entity.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (effectiveTime == null || effectiveTime.isEmpty()) && (quantity == null || quantity.isEmpty())
-           && (unitPrice == null || unitPrice.isEmpty()) && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty())
-           && (net == null || net.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(entity, identifier, effectiveTime
+          , quantity, unitPrice, factor, points, net);
       }
 
   public String fhirType() {
@@ -2879,7 +2988,7 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (content == null || content.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(content);
       }
 
   public String fhirType() {
@@ -3044,7 +3153,7 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (content == null || content.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(content);
       }
 
   public String fhirType() {
@@ -3209,7 +3318,7 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (content == null || content.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(content);
       }
 
   public String fhirType() {
@@ -3487,6 +3596,14 @@ public class Contract extends DomainResource {
       return this.subject;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setSubject(List<Reference> theSubject) { 
+      this.subject = theSubject;
+      return this;
+    }
+
     public boolean hasSubject() { 
       if (this.subject == null)
         return false;
@@ -3496,10 +3613,6 @@ public class Contract extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #subject} (The target entity impacted by or of interest to parties to the agreement.)
-     */
-    // syntactic sugar
     public Reference addSubject() { //3
       Reference t = new Reference();
       if (this.subject == null)
@@ -3508,7 +3621,6 @@ public class Contract extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Contract addSubject(Reference t) { //3
       if (t == null)
         return this;
@@ -3519,8 +3631,19 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The target entity impacted by or of interest to parties to the agreement.)
+     * @return The first repetition of repeating field {@link #subject}, creating it if it does not already exist
      */
+    public Reference getSubjectFirstRep() { 
+      if (getSubject().isEmpty()) {
+        addSubject();
+      }
+      return getSubject().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getSubjectTarget() { 
       if (this.subjectTarget == null)
         this.subjectTarget = new ArrayList<Resource>();
@@ -3536,6 +3659,14 @@ public class Contract extends DomainResource {
       return this.topic;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setTopic(List<Reference> theTopic) { 
+      this.topic = theTopic;
+      return this;
+    }
+
     public boolean hasTopic() { 
       if (this.topic == null)
         return false;
@@ -3545,10 +3676,6 @@ public class Contract extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #topic} (The matter of concern in the context of this agreement.)
-     */
-    // syntactic sugar
     public Reference addTopic() { //3
       Reference t = new Reference();
       if (this.topic == null)
@@ -3557,7 +3684,6 @@ public class Contract extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Contract addTopic(Reference t) { //3
       if (t == null)
         return this;
@@ -3568,8 +3694,19 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #topic} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The matter of concern in the context of this agreement.)
+     * @return The first repetition of repeating field {@link #topic}, creating it if it does not already exist
      */
+    public Reference getTopicFirstRep() { 
+      if (getTopic().isEmpty()) {
+        addTopic();
+      }
+      return getTopic().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getTopicTarget() { 
       if (this.topicTarget == null)
         this.topicTarget = new ArrayList<Resource>();
@@ -3585,6 +3722,14 @@ public class Contract extends DomainResource {
       return this.authority;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setAuthority(List<Reference> theAuthority) { 
+      this.authority = theAuthority;
+      return this;
+    }
+
     public boolean hasAuthority() { 
       if (this.authority == null)
         return false;
@@ -3594,10 +3739,6 @@ public class Contract extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #authority} (A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of contracts and policies.)
-     */
-    // syntactic sugar
     public Reference addAuthority() { //3
       Reference t = new Reference();
       if (this.authority == null)
@@ -3606,7 +3747,6 @@ public class Contract extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Contract addAuthority(Reference t) { //3
       if (t == null)
         return this;
@@ -3617,18 +3757,29 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #authority} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of contracts and policies.)
+     * @return The first repetition of repeating field {@link #authority}, creating it if it does not already exist
      */
+    public Reference getAuthorityFirstRep() { 
+      if (getAuthority().isEmpty()) {
+        addAuthority();
+      }
+      return getAuthority().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Organization> getAuthorityTarget() { 
       if (this.authorityTarget == null)
         this.authorityTarget = new ArrayList<Organization>();
       return this.authorityTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #authority} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of contracts and policies.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Organization addAuthorityTarget() { 
       Organization r = new Organization();
       if (this.authorityTarget == null)
@@ -3646,6 +3797,14 @@ public class Contract extends DomainResource {
       return this.domain;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setDomain(List<Reference> theDomain) { 
+      this.domain = theDomain;
+      return this;
+    }
+
     public boolean hasDomain() { 
       if (this.domain == null)
         return false;
@@ -3655,10 +3814,6 @@ public class Contract extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #domain} (Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources.)
-     */
-    // syntactic sugar
     public Reference addDomain() { //3
       Reference t = new Reference();
       if (this.domain == null)
@@ -3667,7 +3822,6 @@ public class Contract extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Contract addDomain(Reference t) { //3
       if (t == null)
         return this;
@@ -3678,18 +3832,29 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #domain} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources.)
+     * @return The first repetition of repeating field {@link #domain}, creating it if it does not already exist
      */
+    public Reference getDomainFirstRep() { 
+      if (getDomain().isEmpty()) {
+        addDomain();
+      }
+      return getDomain().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Location> getDomainTarget() { 
       if (this.domainTarget == null)
         this.domainTarget = new ArrayList<Location>();
       return this.domainTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #domain} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Location addDomainTarget() { 
       Location r = new Location();
       if (this.domainTarget == null)
@@ -3731,6 +3896,14 @@ public class Contract extends DomainResource {
       return this.subType;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setSubType(List<CodeableConcept> theSubType) { 
+      this.subType = theSubType;
+      return this;
+    }
+
     public boolean hasSubType() { 
       if (this.subType == null)
         return false;
@@ -3740,10 +3913,6 @@ public class Contract extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #subType} (More specific type or specialization of an overarching or more general contract such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent.)
-     */
-    // syntactic sugar
     public CodeableConcept addSubType() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.subType == null)
@@ -3752,7 +3921,6 @@ public class Contract extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Contract addSubType(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -3760,6 +3928,16 @@ public class Contract extends DomainResource {
         this.subType = new ArrayList<CodeableConcept>();
       this.subType.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #subType}, creating it if it does not already exist
+     */
+    public CodeableConcept getSubTypeFirstRep() { 
+      if (getSubType().isEmpty()) {
+        addSubType();
+      }
+      return getSubType().get(0);
     }
 
     /**
@@ -3771,6 +3949,14 @@ public class Contract extends DomainResource {
       return this.action;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setAction(List<CodeableConcept> theAction) { 
+      this.action = theAction;
+      return this;
+    }
+
     public boolean hasAction() { 
       if (this.action == null)
         return false;
@@ -3780,10 +3966,6 @@ public class Contract extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #action} (Action stipulated by this Contract.)
-     */
-    // syntactic sugar
     public CodeableConcept addAction() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.action == null)
@@ -3792,7 +3974,6 @@ public class Contract extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Contract addAction(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -3800,6 +3981,16 @@ public class Contract extends DomainResource {
         this.action = new ArrayList<CodeableConcept>();
       this.action.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #action}, creating it if it does not already exist
+     */
+    public CodeableConcept getActionFirstRep() { 
+      if (getAction().isEmpty()) {
+        addAction();
+      }
+      return getAction().get(0);
     }
 
     /**
@@ -3811,6 +4002,14 @@ public class Contract extends DomainResource {
       return this.actionReason;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setActionReason(List<CodeableConcept> theActionReason) { 
+      this.actionReason = theActionReason;
+      return this;
+    }
+
     public boolean hasActionReason() { 
       if (this.actionReason == null)
         return false;
@@ -3820,10 +4019,6 @@ public class Contract extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #actionReason} (Reason for action stipulated by this Contract.)
-     */
-    // syntactic sugar
     public CodeableConcept addActionReason() { //3
       CodeableConcept t = new CodeableConcept();
       if (this.actionReason == null)
@@ -3832,7 +4027,6 @@ public class Contract extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Contract addActionReason(CodeableConcept t) { //3
       if (t == null)
         return this;
@@ -3840,6 +4034,16 @@ public class Contract extends DomainResource {
         this.actionReason = new ArrayList<CodeableConcept>();
       this.actionReason.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #actionReason}, creating it if it does not already exist
+     */
+    public CodeableConcept getActionReasonFirstRep() { 
+      if (getActionReason().isEmpty()) {
+        addActionReason();
+      }
+      return getActionReason().get(0);
     }
 
     /**
@@ -3851,6 +4055,14 @@ public class Contract extends DomainResource {
       return this.agent;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setAgent(List<AgentComponent> theAgent) { 
+      this.agent = theAgent;
+      return this;
+    }
+
     public boolean hasAgent() { 
       if (this.agent == null)
         return false;
@@ -3860,10 +4072,6 @@ public class Contract extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #agent} (An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.)
-     */
-    // syntactic sugar
     public AgentComponent addAgent() { //3
       AgentComponent t = new AgentComponent();
       if (this.agent == null)
@@ -3872,7 +4080,6 @@ public class Contract extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Contract addAgent(AgentComponent t) { //3
       if (t == null)
         return this;
@@ -3880,6 +4087,16 @@ public class Contract extends DomainResource {
         this.agent = new ArrayList<AgentComponent>();
       this.agent.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #agent}, creating it if it does not already exist
+     */
+    public AgentComponent getAgentFirstRep() { 
+      if (getAgent().isEmpty()) {
+        addAgent();
+      }
+      return getAgent().get(0);
     }
 
     /**
@@ -3891,6 +4108,14 @@ public class Contract extends DomainResource {
       return this.signer;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setSigner(List<SignatoryComponent> theSigner) { 
+      this.signer = theSigner;
+      return this;
+    }
+
     public boolean hasSigner() { 
       if (this.signer == null)
         return false;
@@ -3900,10 +4125,6 @@ public class Contract extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #signer} (Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.)
-     */
-    // syntactic sugar
     public SignatoryComponent addSigner() { //3
       SignatoryComponent t = new SignatoryComponent();
       if (this.signer == null)
@@ -3912,7 +4133,6 @@ public class Contract extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Contract addSigner(SignatoryComponent t) { //3
       if (t == null)
         return this;
@@ -3920,6 +4140,16 @@ public class Contract extends DomainResource {
         this.signer = new ArrayList<SignatoryComponent>();
       this.signer.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #signer}, creating it if it does not already exist
+     */
+    public SignatoryComponent getSignerFirstRep() { 
+      if (getSigner().isEmpty()) {
+        addSigner();
+      }
+      return getSigner().get(0);
     }
 
     /**
@@ -3931,6 +4161,14 @@ public class Contract extends DomainResource {
       return this.valuedItem;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setValuedItem(List<ValuedItemComponent> theValuedItem) { 
+      this.valuedItem = theValuedItem;
+      return this;
+    }
+
     public boolean hasValuedItem() { 
       if (this.valuedItem == null)
         return false;
@@ -3940,10 +4178,6 @@ public class Contract extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #valuedItem} (Contract Valued Item List.)
-     */
-    // syntactic sugar
     public ValuedItemComponent addValuedItem() { //3
       ValuedItemComponent t = new ValuedItemComponent();
       if (this.valuedItem == null)
@@ -3952,7 +4186,6 @@ public class Contract extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Contract addValuedItem(ValuedItemComponent t) { //3
       if (t == null)
         return this;
@@ -3960,6 +4193,16 @@ public class Contract extends DomainResource {
         this.valuedItem = new ArrayList<ValuedItemComponent>();
       this.valuedItem.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #valuedItem}, creating it if it does not already exist
+     */
+    public ValuedItemComponent getValuedItemFirstRep() { 
+      if (getValuedItem().isEmpty()) {
+        addValuedItem();
+      }
+      return getValuedItem().get(0);
     }
 
     /**
@@ -3971,6 +4214,14 @@ public class Contract extends DomainResource {
       return this.term;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setTerm(List<TermComponent> theTerm) { 
+      this.term = theTerm;
+      return this;
+    }
+
     public boolean hasTerm() { 
       if (this.term == null)
         return false;
@@ -3980,10 +4231,6 @@ public class Contract extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #term} (One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups.)
-     */
-    // syntactic sugar
     public TermComponent addTerm() { //3
       TermComponent t = new TermComponent();
       if (this.term == null)
@@ -3992,7 +4239,6 @@ public class Contract extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Contract addTerm(TermComponent t) { //3
       if (t == null)
         return this;
@@ -4000,6 +4246,16 @@ public class Contract extends DomainResource {
         this.term = new ArrayList<TermComponent>();
       this.term.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #term}, creating it if it does not already exist
+     */
+    public TermComponent getTermFirstRep() { 
+      if (getTerm().isEmpty()) {
+        addTerm();
+      }
+      return getTerm().get(0);
     }
 
     /**
@@ -4056,6 +4312,14 @@ public class Contract extends DomainResource {
       return this.friendly;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setFriendly(List<FriendlyLanguageComponent> theFriendly) { 
+      this.friendly = theFriendly;
+      return this;
+    }
+
     public boolean hasFriendly() { 
       if (this.friendly == null)
         return false;
@@ -4065,10 +4329,6 @@ public class Contract extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #friendly} (The "patient friendly language" versionof the Contract in whole or in parts. "Patient friendly language" means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement.)
-     */
-    // syntactic sugar
     public FriendlyLanguageComponent addFriendly() { //3
       FriendlyLanguageComponent t = new FriendlyLanguageComponent();
       if (this.friendly == null)
@@ -4077,7 +4337,6 @@ public class Contract extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Contract addFriendly(FriendlyLanguageComponent t) { //3
       if (t == null)
         return this;
@@ -4085,6 +4344,16 @@ public class Contract extends DomainResource {
         this.friendly = new ArrayList<FriendlyLanguageComponent>();
       this.friendly.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #friendly}, creating it if it does not already exist
+     */
+    public FriendlyLanguageComponent getFriendlyFirstRep() { 
+      if (getFriendly().isEmpty()) {
+        addFriendly();
+      }
+      return getFriendly().get(0);
     }
 
     /**
@@ -4096,6 +4365,14 @@ public class Contract extends DomainResource {
       return this.legal;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setLegal(List<LegalLanguageComponent> theLegal) { 
+      this.legal = theLegal;
+      return this;
+    }
+
     public boolean hasLegal() { 
       if (this.legal == null)
         return false;
@@ -4105,10 +4382,6 @@ public class Contract extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #legal} (List of Legal expressions or representations of this Contract.)
-     */
-    // syntactic sugar
     public LegalLanguageComponent addLegal() { //3
       LegalLanguageComponent t = new LegalLanguageComponent();
       if (this.legal == null)
@@ -4117,7 +4390,6 @@ public class Contract extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Contract addLegal(LegalLanguageComponent t) { //3
       if (t == null)
         return this;
@@ -4125,6 +4397,16 @@ public class Contract extends DomainResource {
         this.legal = new ArrayList<LegalLanguageComponent>();
       this.legal.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #legal}, creating it if it does not already exist
+     */
+    public LegalLanguageComponent getLegalFirstRep() { 
+      if (getLegal().isEmpty()) {
+        addLegal();
+      }
+      return getLegal().get(0);
     }
 
     /**
@@ -4136,6 +4418,14 @@ public class Contract extends DomainResource {
       return this.rule;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setRule(List<ComputableLanguageComponent> theRule) { 
+      this.rule = theRule;
+      return this;
+    }
+
     public boolean hasRule() { 
       if (this.rule == null)
         return false;
@@ -4145,10 +4435,6 @@ public class Contract extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #rule} (List of Computable Policy Rule Language Representations of this Contract.)
-     */
-    // syntactic sugar
     public ComputableLanguageComponent addRule() { //3
       ComputableLanguageComponent t = new ComputableLanguageComponent();
       if (this.rule == null)
@@ -4157,7 +4443,6 @@ public class Contract extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public Contract addRule(ComputableLanguageComponent t) { //3
       if (t == null)
         return this;
@@ -4165,6 +4450,16 @@ public class Contract extends DomainResource {
         this.rule = new ArrayList<ComputableLanguageComponent>();
       this.rule.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #rule}, creating it if it does not already exist
+     */
+    public ComputableLanguageComponent getRuleFirstRep() { 
+      if (getRule().isEmpty()) {
+        addRule();
+      }
+      return getRule().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -4541,13 +4836,9 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (issued == null || issued.isEmpty())
-           && (applies == null || applies.isEmpty()) && (subject == null || subject.isEmpty()) && (topic == null || topic.isEmpty())
-           && (authority == null || authority.isEmpty()) && (domain == null || domain.isEmpty()) && (type == null || type.isEmpty())
-           && (subType == null || subType.isEmpty()) && (action == null || action.isEmpty()) && (actionReason == null || actionReason.isEmpty())
-           && (agent == null || agent.isEmpty()) && (signer == null || signer.isEmpty()) && (valuedItem == null || valuedItem.isEmpty())
-           && (term == null || term.isEmpty()) && (binding == null || binding.isEmpty()) && (friendly == null || friendly.isEmpty())
-           && (legal == null || legal.isEmpty()) && (rule == null || rule.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, issued, applies
+          , subject, topic, authority, domain, type, subType, action, actionReason, agent
+          , signer, valuedItem, term, binding, friendly, legal, rule);
       }
 
   @Override
@@ -4556,82 +4847,76 @@ public class Contract extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>topic</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The identity of the topic of the contract</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.topic</b><br>
+   * Description: <b>The identity of the contract</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Contract.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="topic", path="Contract.topic", description="The identity of the topic of the contract", type="reference" )
-  public static final String SP_TOPIC = "topic";
+  @SearchParamDefinition(name="identifier", path="Contract.identifier", description="The identity of the contract", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The identity of the topic of the contract</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.topic</b><br>
+   * Description: <b>The identity of the contract</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Contract.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TOPIC);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>agent</b>
+   * <p>
+   * Description: <b>Agent to the Contact</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.agent.actor</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="agent", path="Contract.agent.actor", description="Agent to the Contact", type="reference" )
+  public static final String SP_AGENT = "agent";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>agent</b>
+   * <p>
+   * Description: <b>Agent to the Contact</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.agent.actor</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AGENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AGENT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:topic</b>".
+   * the path value of "<b>Contract:agent</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_TOPIC = new ca.uhn.fhir.model.api.Include("Contract:topic").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AGENT = new ca.uhn.fhir.model.api.Include("Contract:agent").toLocked();
 
  /**
-   * Search parameter: <b>authority</b>
+   * Search parameter: <b>ttopic</b>
    * <p>
-   * Description: <b>The authority of the contract</b><br>
+   * Description: <b>The identity of the topic of the contract terms</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.authority</b><br>
+   * Path: <b>Contract.term.topic</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="authority", path="Contract.authority", description="The authority of the contract", type="reference" )
-  public static final String SP_AUTHORITY = "authority";
+  @SearchParamDefinition(name="ttopic", path="Contract.term.topic", description="The identity of the topic of the contract terms", type="reference" )
+  public static final String SP_TTOPIC = "ttopic";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>authority</b>
+   * <b>Fluent Client</b> search parameter constant for <b>ttopic</b>
    * <p>
-   * Description: <b>The authority of the contract</b><br>
+   * Description: <b>The identity of the topic of the contract terms</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.authority</b><br>
+   * Path: <b>Contract.term.topic</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHORITY = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHORITY);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:authority</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHORITY = new ca.uhn.fhir.model.api.Include("Contract:authority").toLocked();
-
- /**
-   * Search parameter: <b>signer</b>
-   * <p>
-   * Description: <b>Contract Signatory Party</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.signer.party</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="signer", path="Contract.signer.party", description="Contract Signatory Party", type="reference" )
-  public static final String SP_SIGNER = "signer";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>signer</b>
-   * <p>
-   * Description: <b>Contract Signatory Party</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.signer.party</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SIGNER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SIGNER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TTOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TTOPIC);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:signer</b>".
+   * the path value of "<b>Contract:ttopic</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SIGNER = new ca.uhn.fhir.model.api.Include("Contract:signer").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_TTOPIC = new ca.uhn.fhir.model.api.Include("Contract:ttopic").toLocked();
 
  /**
    * Search parameter: <b>patient</b>
@@ -4686,24 +4971,30 @@ public class Contract extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Contract:subject").toLocked();
 
  /**
-   * Search parameter: <b>issued</b>
+   * Search parameter: <b>authority</b>
    * <p>
-   * Description: <b>The date/time the contract was issued</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Contract.issued</b><br>
+   * Description: <b>The authority of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.authority</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="issued", path="Contract.issued", description="The date/time the contract was issued", type="date" )
-  public static final String SP_ISSUED = "issued";
+  @SearchParamDefinition(name="authority", path="Contract.authority", description="The authority of the contract", type="reference" )
+  public static final String SP_AUTHORITY = "authority";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>issued</b>
+   * <b>Fluent Client</b> search parameter constant for <b>authority</b>
    * <p>
-   * Description: <b>The date/time the contract was issued</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Contract.issued</b><br>
+   * Description: <b>The authority of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.authority</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam ISSUED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ISSUED);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHORITY = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHORITY);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Contract:authority</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHORITY = new ca.uhn.fhir.model.api.Include("Contract:authority").toLocked();
 
  /**
    * Search parameter: <b>domain</b>
@@ -4732,76 +5023,76 @@ public class Contract extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_DOMAIN = new ca.uhn.fhir.model.api.Include("Contract:domain").toLocked();
 
  /**
-   * Search parameter: <b>ttopic</b>
+   * Search parameter: <b>topic</b>
    * <p>
-   * Description: <b>The identity of the topic of the contract terms</b><br>
+   * Description: <b>The identity of the topic of the contract</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.term.topic</b><br>
+   * Path: <b>Contract.topic</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="ttopic", path="Contract.term.topic", description="The identity of the topic of the contract terms", type="reference" )
-  public static final String SP_TTOPIC = "ttopic";
+  @SearchParamDefinition(name="topic", path="Contract.topic", description="The identity of the topic of the contract", type="reference" )
+  public static final String SP_TOPIC = "topic";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>ttopic</b>
+   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
    * <p>
-   * Description: <b>The identity of the topic of the contract terms</b><br>
+   * Description: <b>The identity of the topic of the contract</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.term.topic</b><br>
+   * Path: <b>Contract.topic</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TTOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TTOPIC);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TOPIC);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:ttopic</b>".
+   * the path value of "<b>Contract:topic</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_TTOPIC = new ca.uhn.fhir.model.api.Include("Contract:ttopic").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_TOPIC = new ca.uhn.fhir.model.api.Include("Contract:topic").toLocked();
 
  /**
-   * Search parameter: <b>agent</b>
+   * Search parameter: <b>issued</b>
    * <p>
-   * Description: <b>Agent to the Contact</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.agent.actor</b><br>
+   * Description: <b>The date/time the contract was issued</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Contract.issued</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="agent", path="Contract.agent.actor", description="Agent to the Contact", type="reference" )
-  public static final String SP_AGENT = "agent";
+  @SearchParamDefinition(name="issued", path="Contract.issued", description="The date/time the contract was issued", type="date" )
+  public static final String SP_ISSUED = "issued";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>agent</b>
+   * <b>Fluent Client</b> search parameter constant for <b>issued</b>
    * <p>
-   * Description: <b>Agent to the Contact</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.agent.actor</b><br>
+   * Description: <b>The date/time the contract was issued</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Contract.issued</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AGENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AGENT);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam ISSUED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ISSUED);
+
+ /**
+   * Search parameter: <b>signer</b>
+   * <p>
+   * Description: <b>Contract Signatory Party</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.signer.party</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="signer", path="Contract.signer.party", description="Contract Signatory Party", type="reference" )
+  public static final String SP_SIGNER = "signer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>signer</b>
+   * <p>
+   * Description: <b>Contract Signatory Party</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.signer.party</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SIGNER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SIGNER);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:agent</b>".
+   * the path value of "<b>Contract:signer</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AGENT = new ca.uhn.fhir.model.api.Include("Contract:agent").toLocked();
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>The identity of the contract</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Contract.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="Contract.identifier", description="The identity of the contract", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>The identity of the contract</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Contract.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SIGNER = new ca.uhn.fhir.model.api.Include("Contract:signer").toLocked();
 
 
 }

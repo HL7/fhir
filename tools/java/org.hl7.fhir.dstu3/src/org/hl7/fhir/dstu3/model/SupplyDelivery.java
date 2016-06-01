@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -639,6 +639,14 @@ public class SupplyDelivery extends DomainResource {
       return this.receiver;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public SupplyDelivery setReceiver(List<Reference> theReceiver) { 
+      this.receiver = theReceiver;
+      return this;
+    }
+
     public boolean hasReceiver() { 
       if (this.receiver == null)
         return false;
@@ -648,10 +656,6 @@ public class SupplyDelivery extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #receiver} (Identifies the person who picked up the Supply.)
-     */
-    // syntactic sugar
     public Reference addReceiver() { //3
       Reference t = new Reference();
       if (this.receiver == null)
@@ -660,7 +664,6 @@ public class SupplyDelivery extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public SupplyDelivery addReceiver(Reference t) { //3
       if (t == null)
         return this;
@@ -671,18 +674,29 @@ public class SupplyDelivery extends DomainResource {
     }
 
     /**
-     * @return {@link #receiver} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies the person who picked up the Supply.)
+     * @return The first repetition of repeating field {@link #receiver}, creating it if it does not already exist
      */
+    public Reference getReceiverFirstRep() { 
+      if (getReceiver().isEmpty()) {
+        addReceiver();
+      }
+      return getReceiver().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Practitioner> getReceiverTarget() { 
       if (this.receiverTarget == null)
         this.receiverTarget = new ArrayList<Practitioner>();
       return this.receiverTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #receiver} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Identifies the person who picked up the Supply.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
+    @Deprecated
     public Practitioner addReceiverTarget() { 
       Practitioner r = new Practitioner();
       if (this.receiverTarget == null)
@@ -918,11 +932,9 @@ public class SupplyDelivery extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (patient == null || patient.isEmpty()) && (type == null || type.isEmpty()) && (quantity == null || quantity.isEmpty())
-           && (suppliedItem == null || suppliedItem.isEmpty()) && (supplier == null || supplier.isEmpty())
-           && (whenPrepared == null || whenPrepared.isEmpty()) && (time == null || time.isEmpty()) && (destination == null || destination.isEmpty())
-           && (receiver == null || receiver.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, patient
+          , type, quantity, suppliedItem, supplier, whenPrepared, time, destination, receiver
+          );
       }
 
   @Override
@@ -931,30 +943,24 @@ public class SupplyDelivery extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>patient</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Patient for whom the item is supplied</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>SupplyDelivery.patient</b><br>
+   * Description: <b>External identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>SupplyDelivery.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="SupplyDelivery.patient", description="Patient for whom the item is supplied", type="reference" )
-  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="identifier", path="SupplyDelivery.identifier", description="External identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Patient for whom the item is supplied</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>SupplyDelivery.patient</b><br>
+   * Description: <b>External identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>SupplyDelivery.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>SupplyDelivery:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("SupplyDelivery:patient").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>receiver</b>
@@ -983,44 +989,30 @@ public class SupplyDelivery extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_RECEIVER = new ca.uhn.fhir.model.api.Include("SupplyDelivery:receiver").toLocked();
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>patient</b>
    * <p>
-   * Description: <b>in-progress | completed | abandoned</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>SupplyDelivery.status</b><br>
+   * Description: <b>Patient for whom the item is supplied</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>SupplyDelivery.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="SupplyDelivery.status", description="in-progress | completed | abandoned", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="patient", path="SupplyDelivery.patient", description="Patient for whom the item is supplied", type="reference" )
+  public static final String SP_PATIENT = "patient";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
-   * Description: <b>in-progress | completed | abandoned</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>SupplyDelivery.status</b><br>
+   * Description: <b>Patient for whom the item is supplied</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>SupplyDelivery.patient</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
 
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>External identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>SupplyDelivery.identifier</b><br>
-   * </p>
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>SupplyDelivery:patient</b>".
    */
-  @SearchParamDefinition(name="identifier", path="SupplyDelivery.identifier", description="External identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>External identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>SupplyDelivery.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("SupplyDelivery:patient").toLocked();
 
  /**
    * Search parameter: <b>supplier</b>
@@ -1047,6 +1039,26 @@ public class SupplyDelivery extends DomainResource {
    * the path value of "<b>SupplyDelivery:supplier</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUPPLIER = new ca.uhn.fhir.model.api.Include("SupplyDelivery:supplier").toLocked();
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>in-progress | completed | abandoned</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>SupplyDelivery.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="SupplyDelivery.status", description="in-progress | completed | abandoned", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>in-progress | completed | abandoned</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>SupplyDelivery.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

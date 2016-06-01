@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -492,8 +492,8 @@ public class FamilyMemberHistory extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (outcome == null || outcome.isEmpty())
-           && (onset == null || onset.isEmpty()) && (note == null || note.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, outcome, onset, note
+          );
       }
 
   public String fhirType() {
@@ -620,6 +620,14 @@ public class FamilyMemberHistory extends DomainResource {
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public FamilyMemberHistory setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
@@ -629,10 +637,6 @@ public class FamilyMemberHistory extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #identifier} (This records identifiers associated with this family member history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
-     */
-    // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       if (this.identifier == null)
@@ -641,7 +645,6 @@ public class FamilyMemberHistory extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public FamilyMemberHistory addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
@@ -649,6 +652,16 @@ public class FamilyMemberHistory extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
+     */
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1144,6 +1157,14 @@ public class FamilyMemberHistory extends DomainResource {
       return this.condition;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public FamilyMemberHistory setCondition(List<FamilyMemberHistoryConditionComponent> theCondition) { 
+      this.condition = theCondition;
+      return this;
+    }
+
     public boolean hasCondition() { 
       if (this.condition == null)
         return false;
@@ -1153,10 +1174,6 @@ public class FamilyMemberHistory extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #condition} (The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.)
-     */
-    // syntactic sugar
     public FamilyMemberHistoryConditionComponent addCondition() { //3
       FamilyMemberHistoryConditionComponent t = new FamilyMemberHistoryConditionComponent();
       if (this.condition == null)
@@ -1165,7 +1182,6 @@ public class FamilyMemberHistory extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public FamilyMemberHistory addCondition(FamilyMemberHistoryConditionComponent t) { //3
       if (t == null)
         return this;
@@ -1173,6 +1189,16 @@ public class FamilyMemberHistory extends DomainResource {
         this.condition = new ArrayList<FamilyMemberHistoryConditionComponent>();
       this.condition.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #condition}, creating it if it does not already exist
+     */
+    public FamilyMemberHistoryConditionComponent getConditionFirstRep() { 
+      if (getCondition().isEmpty()) {
+        addCondition();
+      }
+      return getCondition().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1446,103 +1472,15 @@ public class FamilyMemberHistory extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (patient == null || patient.isEmpty())
-           && (date == null || date.isEmpty()) && (status == null || status.isEmpty()) && (name == null || name.isEmpty())
-           && (relationship == null || relationship.isEmpty()) && (gender == null || gender.isEmpty())
-           && (born == null || born.isEmpty()) && (age == null || age.isEmpty()) && (deceased == null || deceased.isEmpty())
-           && (note == null || note.isEmpty()) && (condition == null || condition.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, patient, date
+          , status, name, relationship, gender, born, age, deceased, note, condition
+          );
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.FamilyMemberHistory;
    }
-
- /**
-   * Search parameter: <b>relationship</b>
-   * <p>
-   * Description: <b>A search by a relationship type</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>FamilyMemberHistory.relationship</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="relationship", path="FamilyMemberHistory.relationship", description="A search by a relationship type", type="token" )
-  public static final String SP_RELATIONSHIP = "relationship";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>relationship</b>
-   * <p>
-   * Description: <b>A search by a relationship type</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>FamilyMemberHistory.relationship</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RELATIONSHIP = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RELATIONSHIP);
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>The identity of a subject to list family member history items for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>FamilyMemberHistory.patient</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="FamilyMemberHistory.patient", description="The identity of a subject to list family member history items for", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>The identity of a subject to list family member history items for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>FamilyMemberHistory.patient</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>FamilyMemberHistory:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("FamilyMemberHistory:patient").toLocked();
-
- /**
-   * Search parameter: <b>gender</b>
-   * <p>
-   * Description: <b>A search by a gender code of a family member</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>FamilyMemberHistory.gender</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="gender", path="FamilyMemberHistory.gender", description="A search by a gender code of a family member", type="token" )
-  public static final String SP_GENDER = "gender";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>gender</b>
-   * <p>
-   * Description: <b>A search by a gender code of a family member</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>FamilyMemberHistory.gender</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam GENDER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_GENDER);
-
- /**
-   * Search parameter: <b>code</b>
-   * <p>
-   * Description: <b>A search by a condition code</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>FamilyMemberHistory.condition.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code", path="FamilyMemberHistory.condition.code", description="A search by a condition code", type="token" )
-  public static final String SP_CODE = "code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
-   * <p>
-   * Description: <b>A search by a condition code</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>FamilyMemberHistory.condition.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
    * Search parameter: <b>date</b>
@@ -1583,6 +1521,92 @@ public class FamilyMemberHistory extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>A search by a condition code</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>FamilyMemberHistory.condition.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="FamilyMemberHistory.condition.code", description="A search by a condition code", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>A search by a condition code</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>FamilyMemberHistory.condition.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>gender</b>
+   * <p>
+   * Description: <b>A search by a gender code of a family member</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>FamilyMemberHistory.gender</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="gender", path="FamilyMemberHistory.gender", description="A search by a gender code of a family member", type="token" )
+  public static final String SP_GENDER = "gender";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>gender</b>
+   * <p>
+   * Description: <b>A search by a gender code of a family member</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>FamilyMemberHistory.gender</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam GENDER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_GENDER);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>The identity of a subject to list family member history items for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>FamilyMemberHistory.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="FamilyMemberHistory.patient", description="The identity of a subject to list family member history items for", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>The identity of a subject to list family member history items for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>FamilyMemberHistory.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>FamilyMemberHistory:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("FamilyMemberHistory:patient").toLocked();
+
+ /**
+   * Search parameter: <b>relationship</b>
+   * <p>
+   * Description: <b>A search by a relationship type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>FamilyMemberHistory.relationship</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="relationship", path="FamilyMemberHistory.relationship", description="A search by a relationship type", type="token" )
+  public static final String SP_RELATIONSHIP = "relationship";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>relationship</b>
+   * <p>
+   * Description: <b>A search by a relationship type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>FamilyMemberHistory.relationship</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RELATIONSHIP = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RELATIONSHIP);
 
 
 }

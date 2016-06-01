@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, May 26, 2016 08:46+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 1, 2016 23:03+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -489,9 +489,8 @@ public class RiskAssessment extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (outcome == null || outcome.isEmpty()) && (probability == null || probability.isEmpty())
-           && (relativeRisk == null || relativeRisk.isEmpty()) && (when == null || when.isEmpty()) && (rationale == null || rationale.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(outcome, probability, relativeRisk
+          , when, rationale);
       }
 
   public String fhirType() {
@@ -877,6 +876,14 @@ public class RiskAssessment extends DomainResource {
       return this.basis;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public RiskAssessment setBasis(List<Reference> theBasis) { 
+      this.basis = theBasis;
+      return this;
+    }
+
     public boolean hasBasis() { 
       if (this.basis == null)
         return false;
@@ -886,10 +893,6 @@ public class RiskAssessment extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #basis} (Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
-     */
-    // syntactic sugar
     public Reference addBasis() { //3
       Reference t = new Reference();
       if (this.basis == null)
@@ -898,7 +901,6 @@ public class RiskAssessment extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public RiskAssessment addBasis(Reference t) { //3
       if (t == null)
         return this;
@@ -909,8 +911,19 @@ public class RiskAssessment extends DomainResource {
     }
 
     /**
-     * @return {@link #basis} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
+     * @return The first repetition of repeating field {@link #basis}, creating it if it does not already exist
      */
+    public Reference getBasisFirstRep() { 
+      if (getBasis().isEmpty()) {
+        addBasis();
+      }
+      return getBasis().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
     public List<Resource> getBasisTarget() { 
       if (this.basisTarget == null)
         this.basisTarget = new ArrayList<Resource>();
@@ -926,6 +939,14 @@ public class RiskAssessment extends DomainResource {
       return this.prediction;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public RiskAssessment setPrediction(List<RiskAssessmentPredictionComponent> thePrediction) { 
+      this.prediction = thePrediction;
+      return this;
+    }
+
     public boolean hasPrediction() { 
       if (this.prediction == null)
         return false;
@@ -935,10 +956,6 @@ public class RiskAssessment extends DomainResource {
       return false;
     }
 
-    /**
-     * @return {@link #prediction} (Describes the expected outcome for the subject.)
-     */
-    // syntactic sugar
     public RiskAssessmentPredictionComponent addPrediction() { //3
       RiskAssessmentPredictionComponent t = new RiskAssessmentPredictionComponent();
       if (this.prediction == null)
@@ -947,7 +964,6 @@ public class RiskAssessment extends DomainResource {
       return t;
     }
 
-    // syntactic sugar
     public RiskAssessment addPrediction(RiskAssessmentPredictionComponent t) { //3
       if (t == null)
         return this;
@@ -955,6 +971,16 @@ public class RiskAssessment extends DomainResource {
         this.prediction = new ArrayList<RiskAssessmentPredictionComponent>();
       this.prediction.add(t);
       return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #prediction}, creating it if it does not already exist
+     */
+    public RiskAssessmentPredictionComponent getPredictionFirstRep() { 
+      if (getPrediction().isEmpty()) {
+        addPrediction();
+      }
+      return getPrediction().get(0);
     }
 
     /**
@@ -1219,11 +1245,8 @@ public class RiskAssessment extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (subject == null || subject.isEmpty()) && (date == null || date.isEmpty())
-           && (condition == null || condition.isEmpty()) && (encounter == null || encounter.isEmpty())
-           && (performer == null || performer.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (method == null || method.isEmpty()) && (basis == null || basis.isEmpty()) && (prediction == null || prediction.isEmpty())
-           && (mitigation == null || mitigation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(subject, date, condition
+          , encounter, performer, identifier, method, basis, prediction, mitigation);
       }
 
   @Override
@@ -1232,30 +1255,44 @@ public class RiskAssessment extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>patient</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>Who/what does assessment apply to?</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>RiskAssessment.subject</b><br>
+   * Description: <b>When was assessment made?</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>RiskAssessment.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="RiskAssessment.subject", description="Who/what does assessment apply to?", type="reference" )
-  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="date", path="RiskAssessment.date", description="When was assessment made?", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>Who/what does assessment apply to?</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>RiskAssessment.subject</b><br>
+   * Description: <b>When was assessment made?</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>RiskAssessment.date</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>RiskAssessment:patient</b>".
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Unique identifier for the assessment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>RiskAssessment.identifier</b><br>
+   * </p>
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("RiskAssessment:patient").toLocked();
+  @SearchParamDefinition(name="identifier", path="RiskAssessment.identifier", description="Unique identifier for the assessment", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Unique identifier for the assessment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>RiskAssessment.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>condition</b>
@@ -1282,32 +1319,6 @@ public class RiskAssessment extends DomainResource {
    * the path value of "<b>RiskAssessment:condition</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_CONDITION = new ca.uhn.fhir.model.api.Include("RiskAssessment:condition").toLocked();
-
- /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>Who/what does assessment apply to?</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>RiskAssessment.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subject", path="RiskAssessment.subject", description="Who/what does assessment apply to?", type="reference" )
-  public static final String SP_SUBJECT = "subject";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
-   * <p>
-   * Description: <b>Who/what does assessment apply to?</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>RiskAssessment.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>RiskAssessment:subject</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("RiskAssessment:subject").toLocked();
 
  /**
    * Search parameter: <b>performer</b>
@@ -1356,6 +1367,58 @@ public class RiskAssessment extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam METHOD = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_METHOD);
 
  /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>Who/what does assessment apply to?</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>RiskAssessment.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="RiskAssessment.subject", description="Who/what does assessment apply to?", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>Who/what does assessment apply to?</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>RiskAssessment.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>RiskAssessment:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("RiskAssessment:subject").toLocked();
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Who/what does assessment apply to?</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>RiskAssessment.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="RiskAssessment.subject", description="Who/what does assessment apply to?", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Who/what does assessment apply to?</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>RiskAssessment.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>RiskAssessment:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("RiskAssessment:patient").toLocked();
+
+ /**
    * Search parameter: <b>encounter</b>
    * <p>
    * Description: <b>Where was assessment performed?</b><br>
@@ -1380,46 +1443,6 @@ public class RiskAssessment extends DomainResource {
    * the path value of "<b>RiskAssessment:encounter</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("RiskAssessment:encounter").toLocked();
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>When was assessment made?</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>RiskAssessment.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="RiskAssessment.date", description="When was assessment made?", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>When was assessment made?</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>RiskAssessment.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Unique identifier for the assessment</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>RiskAssessment.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="RiskAssessment.identifier", description="Unique identifier for the assessment", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Unique identifier for the assessment</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>RiskAssessment.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }
