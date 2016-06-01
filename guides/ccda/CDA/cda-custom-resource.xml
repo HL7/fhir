@@ -2,15 +2,24 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/fhir-single.xsd">
 <!-- search parameters
   id : id (II -> Identifier)
+  version : 
+  title : 
   code : code (CD -> CodeableConcept)
   time : effectiveTime
+  confidentiality : 
   author : author.assignedAuthor.id (II -> Identifier)
   patient : recordTarget.patientRole.id (II -> Identifier)
-  patient-name : recordTarget.patientRole.patient.name (II -> Identifier)
+  patient-name : recordTarget.patientRole.patient.name (EN -> HumanName)
   patient-dob : recordTarget.patientRole.patient.birthTime
   patient-gender : recordTarget.patientRole.patient.administrativeGenderCode (CD -> codeableConcept)
   authenticator : authenticator.assignedEntity.id (II -> Identifier)
   legal-authenticator: legalAuthenticator.assignedEntity.id (II -> Identifier)
+  author : author.assignedAuthor.id (II -> Identifier)
+  author-name
+  authenticator-name 
+  legal-authenticator-name
+  event-code : ClinicalDocument.documentationOf.serviceEvent.code (CD -> CodeableConcept)
+  
   -->  
   <id value="ClinicalDocument"/>
   <contained>
