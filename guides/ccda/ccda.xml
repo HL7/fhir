@@ -208,6 +208,16 @@
     </resource>
     <resource>
       <example value="true"/>
+      <name value="Example Care Plan"/>
+      <description value="Example Care Plan"/>
+      <acronym value="care-plan-example"/>
+      <sourceUri value="Example/care-plan-example.xml"/>
+      <!-- <exampleFor>
+            <reference value="http://hl7.org/fhir/StructureDefinition/ccda-care-plan-composition"/>
+          </exampleFor> -->
+    </resource>
+    <resource>
+      <example value="true"/>
       <name value="Example Consultation Note"/>
       <description value="Example Consultation Note"/>
       <acronym value="consultation-note-example"/>
