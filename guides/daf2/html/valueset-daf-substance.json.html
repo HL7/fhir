@@ -1,0 +1,139 @@
+---
+# jekyll prompt
+---
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daf\valueset-daf-substance.json - FHIR v1.4.0</title>
+
+  {% include header.html %}
+
+</head>
+<body>
+{% include navbar.html %}
+
+
+
+
+ <div id="segment-breadcrumb" class="segment"><!-- segment-breadcrumb -->
+  <div class="container"><!-- container -->
+   <ul class="breadcrumb">
+        <li><a href="{{site.data.fhir.path}}/index.html">Home</a></li>
+        <li><a href="{{site.data.fhir.path}}/documentation.html">Documentation</a></li>        <li><a href="{{site.data.fhir.path}}/terminologies.html">Using Codes</a></li>        <li><a href="{{site.data.fhir.path}}/terminologies-valuesets.html">Value Sets</a></li>        <li><a href="{{site.data.fhir.path}}/daf\valueset-daf-substance.html">daf\valueset-daf-substance</a></li>        <li><b>Instance</b></li>        <!-- daf\valueset-daf-substance.json.html / valueset-instance / Value Set-->
+
+   </ul>
+  </div><!-- /container -->
+ </div><!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment"><!-- segment-content -->
+ <div class="container"><!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+<!-- CONTENT CONTENT -->
+
+<div class="col-9">
+
+<h1>Daf\valueset-daf-substance.json</h1>
+
+<p>
+<a href="valueset-daf-substance.json">Raw JSON</a> (<a href="valueset-daf-substance.canonical.json">canonical form</a>)
+</p>
+
+<div class="example">
+<p>Definition for Value SetDAF Substance-Reactant for Intolerance and Negation Codes</p>
+<pre class="json">
+{
+  &quot;resourceType&quot;: &quot;ValueSet&quot;,
+  &quot;id&quot;: &quot;daf-substance&quot;,
+  &quot;meta&quot;: {
+    &quot;lastUpdated&quot;: &quot;2016-05-31T10:25:41.916+10:00&quot;,
+    &quot;profile&quot;: [
+      &quot;http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition&quot;
+    ]
+  },
+  &quot;text&quot;: {
+    &quot;status&quot;: &quot;additional&quot;,
+    &quot;div&quot;: &quot;&lt;div&gt;!-- Snipped for Brevity --&gt;&lt;/div&gt;&quot;
+  },
+  &quot;extension&quot;: [
+    {
+      &quot;url&quot;: &quot;http://hl7.org/fhir/StructureDefinition/valueset-oid&quot;,
+      &quot;valueUri&quot;: &quot;urn:oid:2.16.840.1.113762.1.4.1010.1&quot;
+    }
+  ],
+  &quot;url&quot;: &quot;http://hl7.org/fhir/ValueSet/daf-substance&quot;,
+  &quot;version&quot;: &quot;1.4.0&quot;,
+  &quot;name&quot;: &quot;DAF Substance-Reactant for Intolerance and Negation Codes&quot;,
+  &quot;status&quot;: &quot;draft&quot;,
+  &quot;experimental&quot;: true,
+  &quot;publisher&quot;: &quot;FHIR Project team&quot;,
+  &quot;contact&quot;: [
+    {
+      &quot;telecom&quot;: [
+        {
+          &quot;system&quot;: &quot;other&quot;,
+          &quot;value&quot;: &quot;http://hl7.org/fhir&quot;
+        }
+      ]
+    }
+  ],
+  &quot;date&quot;: &quot;2016-05-31T10:25:41+10:00&quot;,
+  &quot;description&quot;: &quot;A substance or other type of agent (e.g., sunshine) that may be associated with an intolerance reaction event or a propensity to such an event. These concepts are expected to be at a more general level of abstraction (ingredients versus more specific formulations). This value set is quite general and includes concepts that may never cause an adverse event, particularly the included SNOMED CT concepts. The code system-specific value sets in this grouping value set are intended to provide broad coverage of all kinds of agents, but the expectation for use is that the chosen concept identifier for a substance should be appropriately specific and drawn from the available code systems in the following priority order: NDFRT, then RXNORM, then UNII, then SNOMED CT. This overarching grouping value set is intended to support identification of drug classes, individual medication ingredients, foods, general substances and environmental entities&quot;,
+  &quot;copyright&quot;: &quot;This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement&quot;,
+  &quot;compose&quot;: {
+    &quot;import&quot;: [
+      &quot;http://hl7.org/fhir/ValueSet/daf-substance-ndfrt&quot;,
+      &quot;http://hl7.org/fhir/ValueSet/daf-substance-rxnorm&quot;,
+      &quot;http://hl7.org/fhir/ValueSet/daf-substance-unii&quot;,
+      &quot;http://hl7.org/fhir/ValueSet/daf-substance-sct&quot;
+    ],
+    &quot;include&quot;: [
+      {
+        &quot;system&quot;: &quot;http://snomed.info/sct&quot;,
+        &quot;concept&quot;: [
+          {
+            &quot;code&quot;: &quot;160244002&quot;,
+            &quot;display&quot;: &quot;No Known Allergies&quot;
+          },
+          {
+            &quot;code&quot;: &quot;429625007&quot;,
+            &quot;display&quot;: &quot;No Known Food Allergies&quot;
+          },
+          {
+            &quot;code&quot;: &quot;409137002&quot;,
+            &quot;display&quot;: &quot;No Known Drug Allergies&quot;
+          },
+          {
+            &quot;code&quot;: &quot;428607008&quot;,
+            &quot;display&quot;: &quot;No Known Environmental Allergy&quot;
+          }
+        ]
+      }
+    ]
+  }
+}
+</pre>
+</div>
+
+<p>
+Usage note: every effort has been made to ensure that the
+examples are correct and useful, but they are not a normative part
+of the specification.
+</p>
+
+</div>
+
+    </div><!-- /inner-wrapper -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+
+    </div><!-- /segment-content -->
+
+ 
+
+ 
+{% include footer.html %}
+</body>
+</html>

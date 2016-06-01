@@ -1,0 +1,157 @@
+---
+# jekyll prompt
+---
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daf\valueset-daf-race.json - FHIR v1.4.0</title>
+
+  {% include header.html %}
+
+</head>
+<body>
+{% include navbar.html %}
+
+
+
+
+ <div id="segment-breadcrumb" class="segment"><!-- segment-breadcrumb -->
+  <div class="container"><!-- container -->
+   <ul class="breadcrumb">
+        <li><a href="{{site.data.fhir.path}}/index.html">Home</a></li>
+        <li><a href="{{site.data.fhir.path}}/documentation.html">Documentation</a></li>        <li><a href="{{site.data.fhir.path}}/terminologies.html">Using Codes</a></li>        <li><a href="{{site.data.fhir.path}}/terminologies-valuesets.html">Value Sets</a></li>        <li><a href="{{site.data.fhir.path}}/daf\valueset-daf-race.html">daf\valueset-daf-race</a></li>        <li><b>Instance</b></li>        <!-- daf\valueset-daf-race.json.html / valueset-instance / Value Set-->
+
+   </ul>
+  </div><!-- /container -->
+ </div><!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment"><!-- segment-content -->
+ <div class="container"><!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+<!-- CONTENT CONTENT -->
+
+<div class="col-9">
+
+<h1>Daf\valueset-daf-race.json</h1>
+
+<p>
+<a href="valueset-daf-race.json">Raw JSON</a> (<a href="valueset-daf-race.canonical.json">canonical form</a>)
+</p>
+
+<div class="example">
+<p>Definition for Value SetMU Race Value Set</p>
+<pre class="json">
+{
+  &quot;resourceType&quot;: &quot;ValueSet&quot;,
+  &quot;id&quot;: &quot;daf-race&quot;,
+  &quot;meta&quot;: {
+    &quot;lastUpdated&quot;: &quot;2016-05-31T10:25:41.916+10:00&quot;,
+    &quot;profile&quot;: [
+      &quot;http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition&quot;
+    ]
+  },
+  &quot;text&quot;: {
+    &quot;status&quot;: &quot;generated&quot;,
+    &quot;div&quot;: &quot;&lt;div&gt;!-- Snipped for Brevity --&gt;&lt;/div&gt;&quot;
+  },
+  &quot;extension&quot;: [
+    {
+      &quot;url&quot;: &quot;http://hl7.org/fhir/StructureDefinition/valueset-oid&quot;,
+      &quot;valueUri&quot;: &quot;urn:oid:2.16.840.1.113883.4.642.2.575&quot;
+    }
+  ],
+  &quot;url&quot;: &quot;http://hl7.org/fhir/ValueSet/daf-race&quot;,
+  &quot;version&quot;: &quot;1.4.0&quot;,
+  &quot;name&quot;: &quot;MU Race Value Set&quot;,
+  &quot;status&quot;: &quot;active&quot;,
+  &quot;experimental&quot;: true,
+  &quot;publisher&quot;: &quot;DAF Project&quot;,
+  &quot;contact&quot;: [
+    {
+      &quot;telecom&quot;: [
+        {
+          &quot;system&quot;: &quot;other&quot;,
+          &quot;value&quot;: &quot;http://hl7.org/fhir&quot;
+        }
+      ]
+    },
+    {
+      &quot;telecom&quot;: [
+        {
+          &quot;system&quot;: &quot;other&quot;,
+          &quot;value&quot;: &quot;http://wiki.siframework.org/Data+Access+Framework+Homepage&quot;
+        }
+      ]
+    }
+  ],
+  &quot;date&quot;: &quot;2016-05-31T10:25:41+10:00&quot;,
+  &quot;description&quot;: &quot;Meaningful use race code. The 5 base codes (see http://forum.sitenv.org/viewtopic.php?f=16&amp;t=23&amp;sid=8fb101254557843fa05ac94d8d83a095) from PHIN VADS https://phinvads.cdc.gov/vads/ViewValueSet.action?id=94E75E17-176B-DE11-9B52-0015173D1785 (oid: 2.16.840.1.113883.1.11.14914).&quot;,
+  &quot;compose&quot;: {
+    &quot;include&quot;: [
+      {
+        &quot;system&quot;: &quot;http://hl7.org/fhir/v3/Race&quot;,
+        &quot;concept&quot;: [
+          {
+            &quot;code&quot;: &quot;1002-5&quot;,
+            &quot;display&quot;: &quot;American Indian or Alaska Native&quot;
+          },
+          {
+            &quot;code&quot;: &quot;2028-9&quot;,
+            &quot;display&quot;: &quot;Asian&quot;
+          },
+          {
+            &quot;code&quot;: &quot;2054-5&quot;,
+            &quot;display&quot;: &quot;Black or African American&quot;
+          },
+          {
+            &quot;code&quot;: &quot;2076-8&quot;,
+            &quot;display&quot;: &quot;Native Hawaiian or Other Pacific Islander&quot;
+          },
+          {
+            &quot;code&quot;: &quot;2106-3&quot;,
+            &quot;display&quot;: &quot;White&quot;
+          }
+        ]
+      },
+      {
+        &quot;system&quot;: &quot;http://hl7.org/fhir/v3/NullFlavor&quot;,
+        &quot;concept&quot;: [
+          {
+            &quot;code&quot;: &quot;UNK&quot;,
+            &quot;display&quot;: &quot;Unknown&quot;
+          },
+          {
+            &quot;code&quot;: &quot;ASKU&quot;,
+            &quot;display&quot;: &quot;Asked but no answer&quot;
+          }
+        ]
+      }
+    ]
+  }
+}
+</pre>
+</div>
+
+<p>
+Usage note: every effort has been made to ensure that the
+examples are correct and useful, but they are not a normative part
+of the specification.
+</p>
+
+</div>
+
+    </div><!-- /inner-wrapper -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+
+    </div><!-- /segment-content -->
+
+ 
+
+ 
+{% include footer.html %}
+</body>
+</html>

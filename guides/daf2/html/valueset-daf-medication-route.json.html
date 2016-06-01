@@ -1,0 +1,608 @@
+---
+# jekyll prompt
+---
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daf\valueset-daf-medication-route.json - FHIR v1.4.0</title>
+
+  {% include header.html %}
+
+</head>
+<body>
+{% include navbar.html %}
+
+
+
+
+ <div id="segment-breadcrumb" class="segment"><!-- segment-breadcrumb -->
+  <div class="container"><!-- container -->
+   <ul class="breadcrumb">
+        <li><a href="{{site.data.fhir.path}}/index.html">Home</a></li>
+        <li><a href="{{site.data.fhir.path}}/documentation.html">Documentation</a></li>        <li><a href="{{site.data.fhir.path}}/terminologies.html">Using Codes</a></li>        <li><a href="{{site.data.fhir.path}}/terminologies-valuesets.html">Value Sets</a></li>        <li><a href="{{site.data.fhir.path}}/daf\valueset-daf-medication-route.html">daf\valueset-daf-medication-route</a></li>        <li><b>Instance</b></li>        <!-- daf\valueset-daf-medication-route.json.html / valueset-instance / Value Set-->
+
+   </ul>
+  </div><!-- /container -->
+ </div><!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment"><!-- segment-content -->
+ <div class="container"><!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+<!-- CONTENT CONTENT -->
+
+<div class="col-9">
+
+<h1>Daf\valueset-daf-medication-route.json</h1>
+
+<p>
+<a href="valueset-daf-medication-route.json">Raw JSON</a> (<a href="valueset-daf-medication-route.canonical.json">canonical form</a>)
+</p>
+
+<div class="example">
+<p>Definition for Value SetMedication Route FDA Value Set</p>
+<pre class="json">
+{
+  &quot;resourceType&quot;: &quot;ValueSet&quot;,
+  &quot;id&quot;: &quot;daf-medication-route&quot;,
+  &quot;meta&quot;: {
+    &quot;lastUpdated&quot;: &quot;2016-05-31T10:25:41.916+10:00&quot;,
+    &quot;profile&quot;: [
+      &quot;http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition&quot;
+    ]
+  },
+  &quot;text&quot;: {
+    &quot;status&quot;: &quot;generated&quot;,
+    &quot;div&quot;: &quot;&lt;div&gt;!-- Snipped for Brevity --&gt;&lt;/div&gt;&quot;
+  },
+  &quot;extension&quot;: [
+    {
+      &quot;url&quot;: &quot;http://hl7.org/fhir/StructureDefinition/valueset-oid&quot;,
+      &quot;valueUri&quot;: &quot;urn:oid:2.16.840.1.113883.3.88.12.3221.8.11&quot;
+    }
+  ],
+  &quot;url&quot;: &quot;http://hl7.org/fhir/ValueSet/daf-medication-route&quot;,
+  &quot;version&quot;: &quot;1.4.0&quot;,
+  &quot;name&quot;: &quot;Medication Route FDA Value Set&quot;,
+  &quot;status&quot;: &quot;active&quot;,
+  &quot;experimental&quot;: true,
+  &quot;publisher&quot;: &quot;PHIN VADS&quot;,
+  &quot;contact&quot;: [
+    {
+      &quot;telecom&quot;: [
+        {
+          &quot;system&quot;: &quot;other&quot;,
+          &quot;value&quot;: &quot;https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.113883.3.88.12.3221.8.7&quot;
+        }
+      ]
+    }
+  ],
+  &quot;date&quot;: &quot;2016-05-31T10:25:41+10:00&quot;,
+  &quot;description&quot;: &quot;Route of Administration value set is based upon FDA Drug Registration and Listing Database (FDA Orange Book) which are used in FDA structured product and labelling (SPL)&quot;,
+  &quot;compose&quot;: {
+    &quot;include&quot;: [
+      {
+        &quot;system&quot;: &quot;http://ncimeta.nci.nih.gov&quot;,
+        &quot;concept&quot;: [
+          {
+            &quot;code&quot;: &quot;C38192&quot;,
+            &quot;display&quot;: &quot;AURICULAR (OTIC)&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38193&quot;,
+            &quot;display&quot;: &quot;BUCCAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38194&quot;,
+            &quot;display&quot;: &quot;CONJUNCTIVAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38675&quot;,
+            &quot;display&quot;: &quot;CUTANEOUS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38197&quot;,
+            &quot;display&quot;: &quot;DENTAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38633&quot;,
+            &quot;display&quot;: &quot;ELECTRO-OSMOSIS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38205&quot;,
+            &quot;display&quot;: &quot;ENDOCERVICAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38206&quot;,
+            &quot;display&quot;: &quot;ENDOSINUSIAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38208&quot;,
+            &quot;display&quot;: &quot;ENDOTRACHEAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38209&quot;,
+            &quot;display&quot;: &quot;ENTERAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38210&quot;,
+            &quot;display&quot;: &quot;EPIDURAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38211&quot;,
+            &quot;display&quot;: &quot;EXTRA-AMNIOTIC&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38212&quot;,
+            &quot;display&quot;: &quot;EXTRACORPOREAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38200&quot;,
+            &quot;display&quot;: &quot;HEMODIALYSIS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38215&quot;,
+            &quot;display&quot;: &quot;INFILTRATION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38219&quot;,
+            &quot;display&quot;: &quot;INTERSTITIAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38220&quot;,
+            &quot;display&quot;: &quot;INTRA-ABDOMINAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38221&quot;,
+            &quot;display&quot;: &quot;INTRA-AMNIOTIC&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38222&quot;,
+            &quot;display&quot;: &quot;INTRA-ARTERIAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38223&quot;,
+            &quot;display&quot;: &quot;INTRA-ARTICULAR&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38224&quot;,
+            &quot;display&quot;: &quot;INTRABILIARY&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38225&quot;,
+            &quot;display&quot;: &quot;INTRABRONCHIAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38226&quot;,
+            &quot;display&quot;: &quot;INTRABURSAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38227&quot;,
+            &quot;display&quot;: &quot;INTRACARDIAC&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38228&quot;,
+            &quot;display&quot;: &quot;INTRACARTILAGINOUS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38229&quot;,
+            &quot;display&quot;: &quot;INTRACAUDAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38230&quot;,
+            &quot;display&quot;: &quot;INTRACAVERNOUS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38231&quot;,
+            &quot;display&quot;: &quot;INTRACAVITARY&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38232&quot;,
+            &quot;display&quot;: &quot;INTRACEREBRAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38233&quot;,
+            &quot;display&quot;: &quot;INTRACISTERNAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38234&quot;,
+            &quot;display&quot;: &quot;INTRACORNEAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38217&quot;,
+            &quot;display&quot;: &quot;INTRACORONAL, DENTAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38218&quot;,
+            &quot;display&quot;: &quot;INTRACORONARY&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38235&quot;,
+            &quot;display&quot;: &quot;INTRACORPORUS CAVERNOSUM&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38236&quot;,
+            &quot;display&quot;: &quot;INTRACRANIAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38238&quot;,
+            &quot;display&quot;: &quot;INTRADERMAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38239&quot;,
+            &quot;display&quot;: &quot;INTRADISCAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38240&quot;,
+            &quot;display&quot;: &quot;INTRADUCTAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38241&quot;,
+            &quot;display&quot;: &quot;INTRADUODENAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38242&quot;,
+            &quot;display&quot;: &quot;INTRADURAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C79144&quot;,
+            &quot;display&quot;: &quot;INTRAEPICARDIAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38243&quot;,
+            &quot;display&quot;: &quot;INTRAEPIDERMAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38245&quot;,
+            &quot;display&quot;: &quot;INTRAESOPHAGEAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38246&quot;,
+            &quot;display&quot;: &quot;INTRAGASTRIC&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38247&quot;,
+            &quot;display&quot;: &quot;INTRAGINGIVAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38248&quot;,
+            &quot;display&quot;: &quot;INTRAHEPATIC&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38249&quot;,
+            &quot;display&quot;: &quot;INTRAILEAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38250&quot;,
+            &quot;display&quot;: &quot;INTRALESIONAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C79138&quot;,
+            &quot;display&quot;: &quot;INTRALINGUAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38251&quot;,
+            &quot;display&quot;: &quot;INTRALUMINAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38252&quot;,
+            &quot;display&quot;: &quot;INTRALYMPHATIC&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C79137&quot;,
+            &quot;display&quot;: &quot;INTRAMAMMARY&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38253&quot;,
+            &quot;display&quot;: &quot;INTRAMEDULLARY&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38254&quot;,
+            &quot;display&quot;: &quot;INTRAMENINGEAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C28161&quot;,
+            &quot;display&quot;: &quot;INTRAMUSCULAR&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C79141&quot;,
+            &quot;display&quot;: &quot;INTRANODAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38255&quot;,
+            &quot;display&quot;: &quot;INTRAOCULAR&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C79142&quot;,
+            &quot;display&quot;: &quot;INTRAOMENTUM&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38256&quot;,
+            &quot;display&quot;: &quot;INTRAOVARIAN&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38257&quot;,
+            &quot;display&quot;: &quot;INTRAPERICARDIAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38258&quot;,
+            &quot;display&quot;: &quot;INTRAPERITONEAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38259&quot;,
+            &quot;display&quot;: &quot;INTRAPLEURAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38260&quot;,
+            &quot;display&quot;: &quot;INTRAPROSTATIC&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38261&quot;,
+            &quot;display&quot;: &quot;INTRAPULMONARY&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C79139&quot;,
+            &quot;display&quot;: &quot;INTRARUMINAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38262&quot;,
+            &quot;display&quot;: &quot;INTRASINAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38263&quot;,
+            &quot;display&quot;: &quot;INTRASPINAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38264&quot;,
+            &quot;display&quot;: &quot;INTRASYNOVIAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38265&quot;,
+            &quot;display&quot;: &quot;INTRATENDINOUS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38266&quot;,
+            &quot;display&quot;: &quot;INTRATESTICULAR&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38267&quot;,
+            &quot;display&quot;: &quot;INTRATHECAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38207&quot;,
+            &quot;display&quot;: &quot;INTRATHORACIC&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38268&quot;,
+            &quot;display&quot;: &quot;INTRATUBULAR&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38269&quot;,
+            &quot;display&quot;: &quot;INTRATUMOR&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38270&quot;,
+            &quot;display&quot;: &quot;INTRATYMPANIC&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38272&quot;,
+            &quot;display&quot;: &quot;INTRAUTERINE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38273&quot;,
+            &quot;display&quot;: &quot;INTRAVASCULAR&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38276&quot;,
+            &quot;display&quot;: &quot;INTRAVENOUS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38274&quot;,
+            &quot;display&quot;: &quot;INTRAVENOUS BOLUS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38279&quot;,
+            &quot;display&quot;: &quot;INTRAVENOUS DRIP&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38277&quot;,
+            &quot;display&quot;: &quot;INTRAVENTRICULAR&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38278&quot;,
+            &quot;display&quot;: &quot;INTRAVESICAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38280&quot;,
+            &quot;display&quot;: &quot;INTRAVITREAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38203&quot;,
+            &quot;display&quot;: &quot;IONTOPHORESIS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38281&quot;,
+            &quot;display&quot;: &quot;IRRIGATION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38282&quot;,
+            &quot;display&quot;: &quot;LARYNGEAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38284&quot;,
+            &quot;display&quot;: &quot;NASAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38285&quot;,
+            &quot;display&quot;: &quot;NASOGASTRIC&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C48623&quot;,
+            &quot;display&quot;: &quot;NOT APPLICABLE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38286&quot;,
+            &quot;display&quot;: &quot;OCCLUSIVE DRESSING TECHNIQUE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38287&quot;,
+            &quot;display&quot;: &quot;OPHTHALMIC&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38288&quot;,
+            &quot;display&quot;: &quot;ORAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38289&quot;,
+            &quot;display&quot;: &quot;OROPHARYNGEAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38290&quot;,
+            &quot;display&quot;: &quot;OTHER&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38291&quot;,
+            &quot;display&quot;: &quot;PARENTERAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38676&quot;,
+            &quot;display&quot;: &quot;PERCUTANEOUS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38292&quot;,
+            &quot;display&quot;: &quot;PERIARTICULAR&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38677&quot;,
+            &quot;display&quot;: &quot;PERIDURAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38293&quot;,
+            &quot;display&quot;: &quot;PERINEURAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38294&quot;,
+            &quot;display&quot;: &quot;PERIODONTAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38295&quot;,
+            &quot;display&quot;: &quot;RECTAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38216&quot;,
+            &quot;display&quot;: &quot;RESPIRATORY (INHALATION)&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38296&quot;,
+            &quot;display&quot;: &quot;RETROBULBAR&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38198&quot;,
+            &quot;display&quot;: &quot;SOFT TISSUE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38297&quot;,
+            &quot;display&quot;: &quot;SUBARACHNOID&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38298&quot;,
+            &quot;display&quot;: &quot;SUBCONJUNCTIVAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38299&quot;,
+            &quot;display&quot;: &quot;SUBCUTANEOUS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C65103&quot;,
+            &quot;display&quot;: &quot;SUBGINGIVAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38300&quot;,
+            &quot;display&quot;: &quot;SUBLINGUAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38301&quot;,
+            &quot;display&quot;: &quot;SUBMUCOSAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C79143&quot;,
+            &quot;display&quot;: &quot;SUBRETINAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38304&quot;,
+            &quot;display&quot;: &quot;TOPICAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38305&quot;,
+            &quot;display&quot;: &quot;TRANSDERMAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C79145&quot;,
+            &quot;display&quot;: &quot;TRANSENDOCARDIAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38283&quot;,
+            &quot;display&quot;: &quot;TRANSMUCOSAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38307&quot;,
+            &quot;display&quot;: &quot;TRANSPLACENTAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38308&quot;,
+            &quot;display&quot;: &quot;TRANSTRACHEAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38309&quot;,
+            &quot;display&quot;: &quot;TRANSTYMPANIC&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38310&quot;,
+            &quot;display&quot;: &quot;UNASSIGNED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38311&quot;,
+            &quot;display&quot;: &quot;UNKNOWN&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38312&quot;,
+            &quot;display&quot;: &quot;URETERAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38271&quot;,
+            &quot;display&quot;: &quot;URETHRAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C38313&quot;,
+            &quot;display&quot;: &quot;VAGINAL&quot;
+          }
+        ]
+      }
+    ]
+  }
+}
+</pre>
+</div>
+
+<p>
+Usage note: every effort has been made to ensure that the
+examples are correct and useful, but they are not a normative part
+of the specification.
+</p>
+
+</div>
+
+    </div><!-- /inner-wrapper -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+
+    </div><!-- /segment-content -->
+
+ 
+
+ 
+{% include footer.html %}
+</body>
+</html>

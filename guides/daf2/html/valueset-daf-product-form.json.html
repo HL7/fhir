@@ -1,0 +1,784 @@
+---
+# jekyll prompt
+---
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daf\valueset-daf-product-form.json - FHIR v1.4.0</title>
+
+  {% include header.html %}
+
+</head>
+<body>
+{% include navbar.html %}
+
+
+
+
+ <div id="segment-breadcrumb" class="segment"><!-- segment-breadcrumb -->
+  <div class="container"><!-- container -->
+   <ul class="breadcrumb">
+        <li><a href="{{site.data.fhir.path}}/index.html">Home</a></li>
+        <li><a href="{{site.data.fhir.path}}/documentation.html">Documentation</a></li>        <li><a href="{{site.data.fhir.path}}/terminologies.html">Using Codes</a></li>        <li><a href="{{site.data.fhir.path}}/terminologies-valuesets.html">Value Sets</a></li>        <li><a href="{{site.data.fhir.path}}/daf\valueset-daf-product-form.html">daf\valueset-daf-product-form</a></li>        <li><b>Instance</b></li>        <!-- daf\valueset-daf-product-form.json.html / valueset-instance / Value Set-->
+
+   </ul>
+  </div><!-- /container -->
+ </div><!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment"><!-- segment-content -->
+ <div class="container"><!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+<!-- CONTENT CONTENT -->
+
+<div class="col-9">
+
+<h1>Daf\valueset-daf-product-form.json</h1>
+
+<p>
+<a href="valueset-daf-product-form.json">Raw JSON</a> (<a href="valueset-daf-product-form.canonical.json">canonical form</a>)
+</p>
+
+<div class="example">
+<p>Definition for Value SetMedication Product Form Value Set</p>
+<pre class="json">
+{
+  &quot;resourceType&quot;: &quot;ValueSet&quot;,
+  &quot;id&quot;: &quot;daf-product-form&quot;,
+  &quot;meta&quot;: {
+    &quot;lastUpdated&quot;: &quot;2016-05-31T10:25:41.916+10:00&quot;,
+    &quot;profile&quot;: [
+      &quot;http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition&quot;
+    ]
+  },
+  &quot;text&quot;: {
+    &quot;status&quot;: &quot;generated&quot;,
+    &quot;div&quot;: &quot;&lt;div&gt;!-- Snipped for Brevity --&gt;&lt;/div&gt;&quot;
+  },
+  &quot;extension&quot;: [
+    {
+      &quot;url&quot;: &quot;http://hl7.org/fhir/StructureDefinition/valueset-oid&quot;,
+      &quot;valueUri&quot;: &quot;urn:oid:2.16.840.1.113883.3.88.12.3221.8.11&quot;
+    }
+  ],
+  &quot;url&quot;: &quot;http://hl7.org/fhir/ValueSet/daf-product-form&quot;,
+  &quot;version&quot;: &quot;1.4.0&quot;,
+  &quot;name&quot;: &quot;Medication Product Form Value Set&quot;,
+  &quot;status&quot;: &quot;active&quot;,
+  &quot;experimental&quot;: true,
+  &quot;publisher&quot;: &quot;PHIN VADS&quot;,
+  &quot;contact&quot;: [
+    {
+      &quot;telecom&quot;: [
+        {
+          &quot;system&quot;: &quot;other&quot;,
+          &quot;value&quot;: &quot;https://phinvads.cdc.gov/vads/ViewValueSet.action?id=74FDBFB5-A277-DE11-9B52-0015173D1785&quot;
+        }
+      ]
+    }
+  ],
+  &quot;date&quot;: &quot;2016-05-31T10:25:41+10:00&quot;,
+  &quot;description&quot;: &quot;This is the physical form of the product as presented to the individual. For example: tablet, capsule, liquid or ointment. NCI concept code for pharmaceutical dosage form: C42636&quot;,
+  &quot;compose&quot;: {
+    &quot;include&quot;: [
+      {
+        &quot;system&quot;: &quot;http://ncimeta.nci.nih.gov&quot;,
+        &quot;concept&quot;: [
+          {
+            &quot;code&quot;: &quot;C42887&quot;,
+            &quot;display&quot;: &quot;AEROSOL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42888&quot;,
+            &quot;display&quot;: &quot;AEROSOL, FOAM&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42960&quot;,
+            &quot;display&quot;: &quot;AEROSOL, METERED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42971&quot;,
+            &quot;display&quot;: &quot;AEROSOL, POWDER&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42889&quot;,
+            &quot;display&quot;: &quot;AEROSOL, SPRAY&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42892&quot;,
+            &quot;display&quot;: &quot;BAR, CHEWABLE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42890&quot;,
+            &quot;display&quot;: &quot;BEAD&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C43451&quot;,
+            &quot;display&quot;: &quot;BEAD, IMPLANT, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42891&quot;,
+            &quot;display&quot;: &quot;BLOCK&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C25158&quot;,
+            &quot;display&quot;: &quot;CAPSULE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42895&quot;,
+            &quot;display&quot;: &quot;CAPSULE, COATED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42896&quot;,
+            &quot;display&quot;: &quot;CAPSULE, COATED PELLETS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42917&quot;,
+            &quot;display&quot;: &quot;CAPSULE, COATED, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42902&quot;,
+            &quot;display&quot;: &quot;CAPSULE, DELAYED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42904&quot;,
+            &quot;display&quot;: &quot;CAPSULE, DELAYED RELEASE PELLETS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42916&quot;,
+            &quot;display&quot;: &quot;CAPSULE, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42928&quot;,
+            &quot;display&quot;: &quot;CAPSULE, FILM COATED, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42936&quot;,
+            &quot;display&quot;: &quot;CAPSULE, GELATIN COATED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42954&quot;,
+            &quot;display&quot;: &quot;CAPSULE, LIQUID FILLED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C45414&quot;,
+            &quot;display&quot;: &quot;CEMENT&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42678&quot;,
+            &quot;display&quot;: &quot;CIGARETTE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60884&quot;,
+            &quot;display&quot;: &quot;CLOTH&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60891&quot;,
+            &quot;display&quot;: &quot;CONCENTRATE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42900&quot;,
+            &quot;display&quot;: &quot;CONE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42919&quot;,
+            &quot;display&quot;: &quot;CORE, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C28944&quot;,
+            &quot;display&quot;: &quot;CREAM&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60897&quot;,
+            &quot;display&quot;: &quot;CREAM, AUGMENTED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42901&quot;,
+            &quot;display&quot;: &quot;CRYSTAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C45415&quot;,
+            &quot;display&quot;: &quot;CULTURE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C47890&quot;,
+            &quot;display&quot;: &quot;DIAPHRAGM&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C43525&quot;,
+            &quot;display&quot;: &quot;DISC&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42679&quot;,
+            &quot;display&quot;: &quot;DOUCHE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42763&quot;,
+            &quot;display&quot;: &quot;DRESSING&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C17423&quot;,
+            &quot;display&quot;: &quot;DRUG DELIVERY SYSTEM&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42912&quot;,
+            &quot;display&quot;: &quot;ELIXIR&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42913&quot;,
+            &quot;display&quot;: &quot;EMULSION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42915&quot;,
+            &quot;display&quot;: &quot;ENEMA&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42929&quot;,
+            &quot;display&quot;: &quot;EXTRACT&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60926&quot;,
+            &quot;display&quot;: &quot;FIBER, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42932&quot;,
+            &quot;display&quot;: &quot;FILM&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42920&quot;,
+            &quot;display&quot;: &quot;FILM, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42984&quot;,
+            &quot;display&quot;: &quot;FILM, SOLUBLE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60927&quot;,
+            &quot;display&quot;: &quot;FOR SOLUTION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60928&quot;,
+            &quot;display&quot;: &quot;FOR SUSPENSION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60929&quot;,
+            &quot;display&quot;: &quot;FOR SUSPENSION, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42933&quot;,
+            &quot;display&quot;: &quot;GAS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42934&quot;,
+            &quot;display&quot;: &quot;GEL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42906&quot;,
+            &quot;display&quot;: &quot;GEL, DENTIFRICE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60930&quot;,
+            &quot;display&quot;: &quot;GEL, METERED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C48193&quot;,
+            &quot;display&quot;: &quot;GENERATOR&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42937&quot;,
+            &quot;display&quot;: &quot;GLOBULE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C45416&quot;,
+            &quot;display&quot;: &quot;GRAFT&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42938&quot;,
+            &quot;display&quot;: &quot;GRANULE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42903&quot;,
+            &quot;display&quot;: &quot;GRANULE, DELAYED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42909&quot;,
+            &quot;display&quot;: &quot;GRANULE, EFFERVESCENT&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42939&quot;,
+            &quot;display&quot;: &quot;GRANULE, FOR SOLUTION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42940&quot;,
+            &quot;display&quot;: &quot;GRANULE, FOR SUSPENSION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42921&quot;,
+            &quot;display&quot;: &quot;GRANULE, FOR SUSPENSION, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42941&quot;,
+            &quot;display&quot;: &quot;GUM&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42894&quot;,
+            &quot;display&quot;: &quot;GUM, CHEWING&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42978&quot;,
+            &quot;display&quot;: &quot;GUM, RESIN&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42942&quot;,
+            &quot;display&quot;: &quot;IMPLANT&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42944&quot;,
+            &quot;display&quot;: &quot;INHALANT&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60931&quot;,
+            &quot;display&quot;: &quot;INJECTABLE, LIPOSOMAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42946&quot;,
+            &quot;display&quot;: &quot;INJECTION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42914&quot;,
+            &quot;display&quot;: &quot;INJECTION, EMULSION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42950&quot;,
+            &quot;display&quot;: &quot;INJECTION, LIPID COMPLEX&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42974&quot;,
+            &quot;display&quot;: &quot;INJECTION, POWDER, FOR SOLUTION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42976&quot;,
+            &quot;display&quot;: &quot;INJECTION, POWDER, FOR SUSPENSION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42977&quot;,
+            &quot;display&quot;: &quot;INJECTION, POWDER, FOR SUSPENSION, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42959&quot;,
+            &quot;display&quot;: &quot;INJECTION, POWDER, LYOPHILIZED, FOR LIPOSOMAL SUSPENSION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42957&quot;,
+            &quot;display&quot;: &quot;INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42958&quot;,
+            &quot;display&quot;: &quot;INJECTION, POWDER, LYOPHILIZED, FOR SUSPENSION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42956&quot;,
+            &quot;display&quot;: &quot;INJECTION, POWDER, LYOPHILIZED, FOR SUSPENSION, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42945&quot;,
+            &quot;display&quot;: &quot;INJECTION, SOLUTION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42899&quot;,
+            &quot;display&quot;: &quot;INJECTION, SOLUTION, CONCENTRATE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42995&quot;,
+            &quot;display&quot;: &quot;INJECTION, SUSPENSION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42926&quot;,
+            &quot;display&quot;: &quot;INJECTION, SUSPENSION, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42951&quot;,
+            &quot;display&quot;: &quot;INJECTION, SUSPENSION, LIPOSOMAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42988&quot;,
+            &quot;display&quot;: &quot;INJECTION, SUSPENSION, SONICATED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60933&quot;,
+            &quot;display&quot;: &quot;INSERT&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42922&quot;,
+            &quot;display&quot;: &quot;INSERT, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C47915&quot;,
+            &quot;display&quot;: &quot;INTRAUTERINE DEVICE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42947&quot;,
+            &quot;display&quot;: &quot;IRRIGANT&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42948&quot;,
+            &quot;display&quot;: &quot;JELLY&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C47916&quot;,
+            &quot;display&quot;: &quot;KIT&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C45413&quot;,
+            &quot;display&quot;: &quot;LINER, DENTAL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42949&quot;,
+            &quot;display&quot;: &quot;LINIMENT&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42952&quot;,
+            &quot;display&quot;: &quot;LIPSTICK&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42953&quot;,
+            &quot;display&quot;: &quot;LIQUID&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60934&quot;,
+            &quot;display&quot;: &quot;LIQUID, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C29167&quot;,
+            &quot;display&quot;: &quot;LOTION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60957&quot;,
+            &quot;display&quot;: &quot;LOTION, AUGMENTED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60958&quot;,
+            &quot;display&quot;: &quot;LOTION/SHAMPOO&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42955&quot;,
+            &quot;display&quot;: &quot;LOZENGE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C29269&quot;,
+            &quot;display&quot;: &quot;MOUTHWASH&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42965&quot;,
+            &quot;display&quot;: &quot;OIL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42966&quot;,
+            &quot;display&quot;: &quot;OINTMENT&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60984&quot;,
+            &quot;display&quot;: &quot;OINTMENT, AUGMENTED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C47887&quot;,
+            &quot;display&quot;: &quot;PACKING&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42967&quot;,
+            &quot;display&quot;: &quot;PASTE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42907&quot;,
+            &quot;display&quot;: &quot;PASTE, DENTIFRICE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60985&quot;,
+            &quot;display&quot;: &quot;PASTILLE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42968&quot;,
+            &quot;display&quot;: &quot;PATCH&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42923&quot;,
+            &quot;display&quot;: &quot;PATCH, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42911&quot;,
+            &quot;display&quot;: &quot;PATCH, EXTENDED RELEASE, ELECTRICALLY CONTROLLED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42969&quot;,
+            &quot;display&quot;: &quot;PELLET&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42943&quot;,
+            &quot;display&quot;: &quot;PELLET, IMPLANTABLE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42918&quot;,
+            &quot;display&quot;: &quot;PELLETS, COATED, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C25394&quot;,
+            &quot;display&quot;: &quot;PILL&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42970&quot;,
+            &quot;display&quot;: &quot;PLASTER&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C47913&quot;,
+            &quot;display&quot;: &quot;POULTICE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42972&quot;,
+            &quot;display&quot;: &quot;POWDER&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42908&quot;,
+            &quot;display&quot;: &quot;POWDER, DENTIFRICE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42973&quot;,
+            &quot;display&quot;: &quot;POWDER, FOR SOLUTION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42975&quot;,
+            &quot;display&quot;: &quot;POWDER, FOR SUSPENSION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42961&quot;,
+            &quot;display&quot;: &quot;POWDER, METERED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60988&quot;,
+            &quot;display&quot;: &quot;RING&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42979&quot;,
+            &quot;display&quot;: &quot;RINSE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42980&quot;,
+            &quot;display&quot;: &quot;SALVE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42981&quot;,
+            &quot;display&quot;: &quot;SHAMPOO&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42982&quot;,
+            &quot;display&quot;: &quot;SHAMPOO, SUSPENSION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42983&quot;,
+            &quot;display&quot;: &quot;SOAP&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42986&quot;,
+            &quot;display&quot;: &quot;SOLUTION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42898&quot;,
+            &quot;display&quot;: &quot;SOLUTION, CONCENTRATE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42987&quot;,
+            &quot;display&quot;: &quot;SOLUTION, FOR SLUSH&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60994&quot;,
+            &quot;display&quot;: &quot;SOLUTION, GEL FORMING / DROPS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42935&quot;,
+            &quot;display&quot;: &quot;SOLUTION, GEL FORMING, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60992&quot;,
+            &quot;display&quot;: &quot;SOLUTION/ DROPS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C47912&quot;,
+            &quot;display&quot;: &quot;SPONGE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42989&quot;,
+            &quot;display&quot;: &quot;SPRAY&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42962&quot;,
+            &quot;display&quot;: &quot;SPRAY, METERED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42990&quot;,
+            &quot;display&quot;: &quot;SPRAY, SUSPENSION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42991&quot;,
+            &quot;display&quot;: &quot;STICK&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C47914&quot;,
+            &quot;display&quot;: &quot;STRIP&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42993&quot;,
+            &quot;display&quot;: &quot;SUPPOSITORY&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42924&quot;,
+            &quot;display&quot;: &quot;SUPPOSITORY, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42994&quot;,
+            &quot;display&quot;: &quot;SUSPENSION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42925&quot;,
+            &quot;display&quot;: &quot;SUSPENSION, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60995&quot;,
+            &quot;display&quot;: &quot;SUSPENSION/ DROPS&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C47889&quot;,
+            &quot;display&quot;: &quot;SUTURE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C47898&quot;,
+            &quot;display&quot;: &quot;SWAB&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42996&quot;,
+            &quot;display&quot;: &quot;SYRUP&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42998&quot;,
+            &quot;display&quot;: &quot;TABLET&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42893&quot;,
+            &quot;display&quot;: &quot;TABLET, CHEWABLE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42897&quot;,
+            &quot;display&quot;: &quot;TABLET, COATED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C60997&quot;,
+            &quot;display&quot;: &quot;TABLET, COATED PARTICLES&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42905&quot;,
+            &quot;display&quot;: &quot;TABLET, DELAYED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42997&quot;,
+            &quot;display&quot;: &quot;TABLET, DELAYED RELEASE PARTICLES&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42910&quot;,
+            &quot;display&quot;: &quot;TABLET, EFFERVESCENT&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42927&quot;,
+            &quot;display&quot;: &quot;TABLET, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42931&quot;,
+            &quot;display&quot;: &quot;TABLET, FILM COATED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42930&quot;,
+            &quot;display&quot;: &quot;TABLET, FILM COATED, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C61004&quot;,
+            &quot;display&quot;: &quot;TABLET, FOR SOLUTION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C61005&quot;,
+            &quot;display&quot;: &quot;TABLET, FOR SUSPENSION&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42964&quot;,
+            &quot;display&quot;: &quot;TABLET, MULTILAYER&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42963&quot;,
+            &quot;display&quot;: &quot;TABLET, MULTILAYER, EXTENDED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42999&quot;,
+            &quot;display&quot;: &quot;TABLET, ORALLY DISINTEGRATING&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C61006&quot;,
+            &quot;display&quot;: &quot;TABLET, ORALLY DISINTEGRATING, DELAYED RELEASE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42985&quot;,
+            &quot;display&quot;: &quot;TABLET, SOLUBLE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C42992&quot;,
+            &quot;display&quot;: &quot;TABLET, SUGAR COATED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C47892&quot;,
+            &quot;display&quot;: &quot;TAMPON&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C47897&quot;,
+            &quot;display&quot;: &quot;TAPE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C43000&quot;,
+            &quot;display&quot;: &quot;TINCTURE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C43001&quot;,
+            &quot;display&quot;: &quot;TROCHE&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C43002&quot;,
+            &quot;display&quot;: &quot;UNASSIGNED&quot;
+          },
+          {
+            &quot;code&quot;: &quot;C43003&quot;,
+            &quot;display&quot;: &quot;WAFER&quot;
+          }
+        ]
+      }
+    ]
+  }
+}
+</pre>
+</div>
+
+<p>
+Usage note: every effort has been made to ensure that the
+examples are correct and useful, but they are not a normative part
+of the specification.
+</p>
+
+</div>
+
+    </div><!-- /inner-wrapper -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+
+    </div><!-- /segment-content -->
+
+ 
+
+ 
+{% include footer.html %}
+</body>
+</html>

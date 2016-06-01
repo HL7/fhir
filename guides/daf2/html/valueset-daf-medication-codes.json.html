@@ -1,0 +1,121 @@
+---
+# jekyll prompt
+---
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daf\valueset-daf-medication-codes.json - FHIR v1.4.0</title>
+
+  {% include header.html %}
+
+</head>
+<body>
+{% include navbar.html %}
+
+
+
+
+ <div id="segment-breadcrumb" class="segment"><!-- segment-breadcrumb -->
+  <div class="container"><!-- container -->
+   <ul class="breadcrumb">
+        <li><a href="{{site.data.fhir.path}}/index.html">Home</a></li>
+        <li><a href="{{site.data.fhir.path}}/documentation.html">Documentation</a></li>        <li><a href="{{site.data.fhir.path}}/terminologies.html">Using Codes</a></li>        <li><a href="{{site.data.fhir.path}}/terminologies-valuesets.html">Value Sets</a></li>        <li><a href="{{site.data.fhir.path}}/daf\valueset-daf-medication-codes.html">daf\valueset-daf-medication-codes</a></li>        <li><b>Instance</b></li>        <!-- daf\valueset-daf-medication-codes.json.html / valueset-instance / Value Set-->
+
+   </ul>
+  </div><!-- /container -->
+ </div><!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment"><!-- segment-content -->
+ <div class="container"><!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+<!-- CONTENT CONTENT -->
+
+<div class="col-9">
+
+<h1>Daf\valueset-daf-medication-codes.json</h1>
+
+<p>
+<a href="valueset-daf-medication-codes.json">Raw JSON</a> (<a href="valueset-daf-medication-codes.canonical.json">canonical form</a>)
+</p>
+
+<div class="example">
+<p>Definition for Value SetMedication Clinical Drug (RxNorm)</p>
+<pre class="json">
+{
+  &quot;resourceType&quot;: &quot;ValueSet&quot;,
+  &quot;id&quot;: &quot;daf-medication-codes&quot;,
+  &quot;meta&quot;: {
+    &quot;lastUpdated&quot;: &quot;2016-05-31T10:25:41.916+10:00&quot;,
+    &quot;profile&quot;: [
+      &quot;http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition&quot;
+    ]
+  },
+  &quot;text&quot;: {
+    &quot;status&quot;: &quot;generated&quot;,
+    &quot;div&quot;: &quot;&lt;div&gt;!-- Snipped for Brevity --&gt;&lt;/div&gt;&quot;
+  },
+  &quot;extension&quot;: [
+    {
+      &quot;url&quot;: &quot;http://hl7.org/fhir/StructureDefinition/valueset-oid&quot;,
+      &quot;valueUri&quot;: &quot;urn:oid:2.16.840.1.113762.1.4.1010.4&quot;
+    }
+  ],
+  &quot;url&quot;: &quot;http://hl7.org/fhir/ValueSet/daf-medication-codes&quot;,
+  &quot;version&quot;: &quot;1.4.0&quot;,
+  &quot;name&quot;: &quot;Medication Clinical Drug (RxNorm)&quot;,
+  &quot;status&quot;: &quot;draft&quot;,
+  &quot;experimental&quot;: true,
+  &quot;publisher&quot;: &quot;FHIR Project team&quot;,
+  &quot;contact&quot;: [
+    {
+      &quot;telecom&quot;: [
+        {
+          &quot;system&quot;: &quot;other&quot;,
+          &quot;value&quot;: &quot;http://hl7.org/fhir&quot;
+        }
+      ]
+    }
+  ],
+  &quot;date&quot;: &quot;2016-05-31T10:25:41+10:00&quot;,
+  &quot;description&quot;: &quot;All prescribable medication formulations represented using  either a 'generic' or 'brand-specific' concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form)&quot;,
+  &quot;compose&quot;: {
+    &quot;include&quot;: [
+      {
+        &quot;system&quot;: &quot;http://www.nlm.nih.gov/research/umls/rxnorm&quot;,
+        &quot;filter&quot;: [
+          {
+            &quot;property&quot;: &quot;TTY&quot;,
+            &quot;op&quot;: &quot;in&quot;,
+            &quot;value&quot;: &quot;SCD,SBD,GPCK,BPCK,SCDG,SBDG,SCDF,SBDF&quot;
+          }
+        ]
+      }
+    ]
+  }
+}
+</pre>
+</div>
+
+<p>
+Usage note: every effort has been made to ensure that the
+examples are correct and useful, but they are not a normative part
+of the specification.
+</p>
+
+</div>
+
+    </div><!-- /inner-wrapper -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+
+    </div><!-- /segment-content -->
+
+ 
+
+ 
+{% include footer.html %}
+</body>
+</html>

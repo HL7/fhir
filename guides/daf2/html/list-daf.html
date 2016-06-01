@@ -1,0 +1,202 @@
+---
+# jekyll prompt
+---
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List-daf - FHIR v1.4.0</title>
+
+  {% include header.html %}
+
+</head>
+<body>
+{% include navbar.html %}
+
+ <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+  <div class="container">  <!-- container -->
+   <ul class="breadcrumb">
+          <!-- list-daf / profile:List/list-daf / U.S. Data Access Framework (DAF) List Profile -->
+        <li title="Data Access Framework"><a href="daf.html"><b>DAF</b></a></li>
+        <li><b>Lists</b></li>
+
+   </ul>
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+  <!-- CONTENT CONTENT -->
+
+<div class="col-9">
+
+<h2><span class="sectioncount">D.22.0<a name="D.22.0"> </a></span> U.S. Data Access Framework (DAF) List Profile <a title="link to here" class="self-link" href="list-daf.html#D.22.0"><img src="target.png"/></a></h2>
+
+<div>
+ <a name="scope_and_usage"> </a>
+ <h3><span class="sectioncount">D.22.0.1</span> Scope and Usage <a title="link to here" class="self-link" href="list-daf.html#scope_and_usage"><img src="target.png"/></a></h3>
+<p>
+This profile sets expectations for use of the <a href="{{site.data.fhir.path}}/list.html">List</a> resource within the
+<a href="daf.html">DAF FHIR IG</a>. This profile identifies which core data elements, extensions, vocabularies and value sets must be <i>Supported</i> by DAF actors.
+For the definition of <i>Supported</i> please refer to <a href="daf.html">DAF FHIR IG</a>. The data elements identified by the profile are based on ONC 2014 Edition S&amp;CC and DAF use cases.
+The mappings between the ONC 2014 Edition S&amp;CC data elements and DAF data elements are captured in the table below, where the first column identifies the ONC 2014 Edition S&amp;CC data element name,
+the second column maps the ONC 2014 Edition S&amp;CC data elements to DAF data elements which are derived from ONC 2014 Edition S&amp;CC standards and DAF use cases and lastly the third column identifies the mapping to FHIR resources and attributes.
+</p>
+</div>
+
+<div>
+ <a name="MU_data_element_mapping"> </a>
+ <h3><span class="sectioncount">D.22.0.2</span> Meaningful Use Data Element Mapping <a title="link to here" class="self-link" href="list-daf.html#MU_data_element_mapping"><img src="target.png"/></a></h3>
+<p>
+The DAF List profile mapping to Meaningful Use data elements and FHIR Resources are as shown below.For an overview of how the DAF profiles and data elements were derived from ONC 2014 Edition S&amp;CC please refer to <a href="daf.html#DataMapping">DAF FHIR IG</a> data mapping section.
+</p>
+<br/>
+ <table class="grid">
+        <thead>
+          <tr>
+            <th>Meaningful Use Data Element Name</th>
+   <th>Mapping to Priority DAF Data Elements</th>
+            <th>FHIR Resource Mapping</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+   <td>Problem List</td>
+   <td>Active Problem List</td>
+   <td>List using DAF-ProblemList profile</td>
+    </tr>
+    <tr>
+      <td>Problems</td>
+   <td>No known Problems</td>
+   <td>List (Empty DAF-ProblemList with coded List.emptyReason)</td>
+    </tr>
+    <tr>
+   <td>Medication allergies</td>
+   <td>List of documented allergies</td>
+   <td>List using DAF-AllergyList profile</td>
+    </tr>
+    <tr>
+   <td>Medication Allergies</td>
+   <td>No known Allergies</td>
+     <td><a href="daf-allergyintolerance.html">DAF-AllergyIntolerance</a> profile with appropriate negation code in AllergyIntolerence.substance.</td>
+    </tr>
+    <tr>
+   <td>Medications List*</td>
+   <td>List of active Medications*</td>
+   <td>List using DAF-MedicationList profile</td>
+    </tr>
+    <tr>
+      <td>Medications</td>
+   <td>No known Medications</td>
+   <td>List (Empty DAF-MedicationList with coded List.emptyReason)</td>
+    </tr>
+    <tr>
+   <td>Immunization List</td>
+   <td>List of Immunizations</td>
+   <td>List using DAF-ImmunizationList profile</td>
+    </tr>
+    <tr>
+      <td>Immunizations</td>
+   <td>No Immunization given</td>
+     <td><a href="daf-immunization.html">DAF-Immunization</a> profile with appropriate code in immunization.explanation.reasonNotGiven.</td>
+    </tr>
+    <tr>
+   <td>Laboratory Result Values</td>
+   <td>List of lab results</td>
+   <td>List using DAF-ResultsList profile</td>
+    </tr>
+    <tr>
+      <td>Encounter Diagnoses</td>
+   <td>List of encounters for a patient</td>
+   <td>List using DAF-EncounterList profile</td>
+    </tr>
+    <tr>
+      <td>Procedures</td>
+   <td>List of procedures for a patient</td>
+   <td>List using DAF-ProcedureList profile</td>
+    </tr>
+  </tbody>
+ </table>
+ <p><b>*</b>: The DAF-MedicationList summarizes information from other DAF medication profiles. This profile supports three types of medication lists:</p>
+ <ul>
+  <li>Admission Medications - Contains the medications taken by the patient prior to and at the time of admission to the facility (LOINC: 42346-7). This list will contain instances of DAF-MedicationStatement and DAF-MedicationOrder.</li>
+
+  <li>Medications - The DAF-MedicationsList contains a patient's current medications and pertinent medication history (LOINC: 10160-0).  At a minimum, the currently active medications are listed. An entire medication history is an option. Typically a DAF Responder system is expected to maintain only one current medication list per patient outside of an individual episode or encounter. This list will contain instances of DAF-MedicationStatement, DAF-MedicationOrder, and may include instances of  DAF-MedicationDispense and DAF-MedicationAdministration.</li>
+
+  <li>Discharge Medications - Contains the medications the patient is intended to take after discharge (LOINC: 75311-1). Current, active medications must be listed. This list will contain instances of DAF-MedicationOrder.</li>
+
+ </ul>
+</div>
+
+<div>
+ <a name="boundaries_and_relationships"> </a>
+ <h3><span class="sectioncount">D.22.0.3</span> Boundaries and Relationships <a title="link to here" class="self-link" href="list-daf.html#boundaries_and_relationships"><img src="target.png"/></a></h3>
+
+<p>
+This profile relies on the following other profiles:
+</p>
+<ul>
+  <li><a href="{{site.data.fhir.path}}/extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types.
+  Specifically the <a href="{{site.data.fhir.path}}/extension-data-absent-reason.html">data-absent-reason</a> extension can be used to code data elements with missing information when appropriate.
+  See <a href="daf.html">DAF FHIR IG</a> for additional guidance.</li>
+</ul>
+</div>
+
+<a name="content"> </a>
+<h3><span class="sectioncount">D.22.0.4</span> Content <a title="link to here" class="self-link" href="list-daf.html#content"><img src="target.png"/></a></h3>
+
+<table class="lines"><tr><td colspan="2"><b>Profiles</b>: </td></tr><tr><td><a href="daf-allergylist.html">DAF-AllergyList</a></td><td>US Realm Allergy list</td></tr><tr><td><a href="daf-encounterlist.html">DAF-EncounterList</a></td><td>US Realm Encounter list</td></tr><tr><td><a href="daf-immunizationlist.html">DAF-ImmunizationList</a></td><td>US Realm Immunization list</td></tr><tr><td><a href="daf-medicationlist.html">DAF-MedicationList</a></td><td>US Realm Medication list</td></tr><tr><td><a href="daf-problemlist.html">DAF-ProblemList</a></td><td>US Realm Problem list</td></tr><tr><td><a href="daf-procedurelist.html">DAF-ProcedureList</a></td><td>US Realm Procedure list</td></tr><tr><td><a href="daf-resultlist.html">DAF-ResultList</a></td><td>US Realm Result list</td></tr></table>
+
+ <a name="search_parameters"> </a>
+ <h4><span class="sectioncount">D.22.0.4.1</span> Search Parameters <a title="link to here" class="self-link" href="list-daf.html#search_parameters"><img src="target.png"/></a></h4>
+<p>
+The supported search parameters on the DAF List profiles are can be accessed at <a href="conformance-daf-query-requestor.html">DAF Requestor conformance expectations</a> and <a href="conformance-daf-query-responder.html">DAF Responder conformance expectations</a>.
+</p>
+
+ <a name="example_usage_scenarios"> </a>
+ <h4><span class="sectioncount">D.22.0.4.2</span> Example Usage Scenarios <a title="link to here" class="self-link" href="list-daf.html#example_usage_scenarios"><img src="target.png"/></a></h4>
+
+<p>
+The following are example usage scenarios for the DAF List profile:
+</p>
+<ul>
+ <li>Query for current problem list, medication list or allergy list for a patient</li>
+</ul>
+
+ <a name="profiles_specific_implementation_guidance"> </a>
+ <h4><span class="sectioncount">D.22.0.4.3</span> Profile specific implementation guidance <a title="link to here" class="self-link" href="list-daf.html#profiles_specific_implementation_guidance"><img src="target.png"/></a></h4>
+
+<p>
+Implementers need to be mindful of the following during their implementation
+</p>
+<ul>
+ <p><b>Querying Lists vs Clinical Resources:</b> DAF profiles of the List resource should be used by DAF Requestors to query for data that is curated as a list by the DAF Responder.
+  The following are the curated lists that will be used in the context of DAF:</p>
+  <ul>
+   <li>Active Allergies List</li>
+   <li>List of Encounters</li>
+   <li>List of Immunizations</li>
+   <li>Active Medications List</li>
+  <li>Active Problems List</li>
+   <li>List of Procedures</li>
+   <li>List of relevant Laboratory Result values</li>
+
+  </ul>
+  <p>DAF Requestors are expected to query the actual Clinical Resources such as Condition, Medication, AllergyIntolerance when they would like to get back a set of resources meeting a specific search criteria.(For example, query for all problems documented for a patient). In contrast, queries on List resources are supposed to be used only when the DAF Requestor expects a curated list to be returned by the DAF Responder. In all cases the List returned is packaged as part of a <a href="{{site.data.fhir.path}}/bundle.html">Bundle</a> similar to other search results.</p>
+
+  <p>See<a href="daf.html"> DAF FHIR IG</a> for implementation guidance common to all profiles.</p>
+</ul>
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+{% include footer.html %}
+</body>
+</html>

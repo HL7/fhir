@@ -1,0 +1,107 @@
+---
+# jekyll prompt
+---
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Terminologies-valuesets - FHIR v1.4.0</title>
+
+  {% include header.html %}
+
+</head>
+<body>
+{% include navbar.html %}
+
+
+
+
+ <div id="segment-breadcrumb" class="segment"><!-- segment-breadcrumb -->
+  <div class="container"><!-- container -->
+   <ul class="breadcrumb">
+        <!-- terminologies-valuesets / page /  -->
+        <li title="Data Access Framework"><a href="daf.html"><b>DAF</b></a></li>
+        <li title="Value set List"><b>Value Sets</b></li>
+
+   </ul>
+  </div><!-- /container -->
+ </div><!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment"><!-- segment-content -->
+ <div class="container"><!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+<!-- CONTENT CONTENT -->
+
+<div class="col-9">
+
+<h2>Value Sets Defined in Data Access Framework</h2>
+
+<table class="cols"><tr><td id="wg"><a _target="blank" href="http://www.hl7.org/special/committees/inm/index.cfm">inm</a> Work Group</td><td id="fmm"><a href="{{site.data.fhir.path}}/resource.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="{{site.data.fhir.path}}/help.html#status">Ballot Status</a>: <a href="{{site.data.fhir.path}}/history.html#pubs">dstu1</a></td></tr></table>
+
+<p>
+This table contains a list of all the value sets defined as part of the Data Access Framework. See also the list of value sets <a href="{{site.data.fhir.path}}/terminologies-valuesets.html">defined by the FHIR specification</a>.
+</p>
+
+<table class="codes">
+ <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Source</b></td><td><b>Id</b></td></tr>
+ <tr><td colspan="5" style="background: #DFDFDF"><b>Namespace: </b>http://hl7.org/fhir/ValueSet</td></tr>
+ <tr><td><a href="valueset-daf-bodysite.html">daf-bodysite</a></td><td>This identifies the body site at which the substance was administered</td><td>SNOMED CT</td><td>9</td></tr>
+ <tr><td><a href="valueset-daf-cvx.html">daf-cvx</a></td><td>This identifies the vaccine substance administered - CVX codes</td><td>Other</td><td>22</td></tr>
+ <tr><td><a href="valueset-daf-encounter-dischargedisposition.html">daf-encounter-dischargedisposition</a></td><td>Discharge Disposition - NUBC manual UB-04, UB form locator 17</td><td>Other</td><td>592</td></tr>
+ <tr><td><a href="valueset-daf-encounter-reason.html">daf-encounter-reason</a></td><td>Encounter Diagnoses: a specific code indicating type of service provided: SNOMED CT, ICD-10-AM, or CPT</td><td>SNOMED CT, Other</td><td>591</td></tr>
+ <tr><td><a href="valueset-daf-encounter-type.html">daf-encounter-type</a></td><td>The type of encounter: a specific code indicating type of service provided, from CPT</td><td>Other</td><td>590</td></tr>
+ <tr><td><a href="valueset-daf-ethnicity.html">daf-ethnicity</a></td><td>Whether the patient is hispanic or not</td><td>V3</td><td>837</td></tr>
+ <tr><td><a href="valueset-daf-list-DAFMedListCode.html">daf-list-DAFMedListCode</a></td><td>This value set indicates the allowed Medication list values in list.code. The vocabulary selected for this value set aligns with the C-CDA section codes.</td><td>LOINC</td><td>596</td></tr>
+ <tr><td><a href="valueset-daf-manifestation-ccda-codes.html">daf-manifestation-ccda-codes</a></td><td>This value set includes all SNOMED CT Clinical Findings or Situation with Explicit Context hierarchies.</td><td>SNOMED CT</td><td>585</td></tr>
+ <tr><td><a href="valueset-daf-medication-codes.html">daf-medication-codes</a></td><td>All prescribable medication formulations represented using  either a 'generic' or 'brand-specific' concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form)</td><td>Other</td><td>4</td></tr>
+ <tr><td><a href="valueset-daf-medication-route.html">daf-medication-route</a></td><td>Route of Administration value set is based upon FDA Drug Registration and Listing Database (FDA Orange Book) which are used in FDA structured product and labelling (SPL)</td><td>Other</td><td>11</td></tr>
+ <tr><td><a href="valueset-daf-observation-CCDAVitalSignResult.html">daf-observation-CCDAVitalSignResult</a></td><td>This value set indicates the allowed vital sign result types. The vocabulary selected for this value set align with requirements in the Meaningful Use (MU) Stage 2.    Note the concept Blood pressure systolic and diastolic (55284-4) is used to group the related observations Systolic blood pressure (8480-6) and Diastolic blood pressure (8462-4). It SHALL NOT be used alone, but both 8480-6 and 8462-2 SHALL also be valued.</td><td>LOINC</td><td>62</td></tr>
+ <tr><td><a href="valueset-daf-observation-ccdasmokingstatus.html">daf-observation-ccdasmokingstatus</a></td><td>This value set indicates the current smoking status of a patient. The vocabulary selected for this value set is the best approximation of the statuses in Meaningful Use (MU) Stage 2. The smoking status value set includes a special code to communicate if the smoking status is unknown</td><td>SNOMED CT, Other</td><td>602</td></tr>
+ <tr><td><a href="valueset-daf-problem.html">daf-problem</a></td><td>This describes the problem. Diagnosis/Problem List is broadly defined as a series of brief statements that catalog a patient's medical, nursing, dental, social, preventative and psychiatric events and issues that are relevant to that patient's healthcare (e.g., signs, symptoms, and defined conditions)</td><td>SNOMED CT</td><td>4</td></tr>
+ <tr><td><a href="valueset-daf-procedure-type.html">daf-procedure-type</a></td><td>This example value set defines a set of codes that can be used to indicate the type     of procedure: a specific code indicating type of procedure performed, from CPT, SNOMED CT, ICD10-PCS.</td><td>Other, SNOMED CT</td><td>607</td></tr>
+ <tr><td><a href="valueset-daf-product-form.html">daf-product-form</a></td><td>This is the physical form of the product as presented to the individual. For example: tablet, capsule, liquid or ointment. NCI concept code for pharmaceutical dosage form: C42636</td><td>Other</td><td>11</td></tr>
+ <tr><td><a href="valueset-daf-race.html">daf-race</a></td><td>Meaningful use race code. The 5 base codes (see http://forum.sitenv.org/viewtopic.php?f=16&amp;t=23&amp;sid=8fb101254557843fa05ac94d8d83a095) from PHIN VADS https://phinvads.cdc.gov/vads/ViewValueSet.action?id=94E75E17-176B-DE11-9B52-0015173D1785 (oid: 2.16.840.1.113883.1.11.14914).</td><td>V3</td><td>575</td></tr>
+ <tr><td><a href="valueset-daf-substance.html">daf-substance</a></td><td>A substance or other type of agent (e.g., sunshine) that may be associated with an intolerance reaction event or a propensity to such an event. These concepts are expected to be at a more general level of abstraction (ingredients versus more specific formulations). This value set is quite general and includes concepts that may never cause an adverse event, particularly the included SNOMED CT concepts. The code system-specific value sets in this grouping value set are intended to provide broad coverage of all kinds of agents, but the expectation for use is that the chosen concept identifier for a substance should be appropriately specific and drawn from the available code systems in the following priority order: NDFRT, then RXNORM, then UNII, then SNOMED CT. This overarching grouping value set is intended to support identification of drug classes, individual medication ingredients, foods, general substances and environmental entities</td><td>SNOMED CT</td><td>1</td></tr>
+ <tr><td><a href="valueset-daf-substance-ndfrt.html">daf-substance-ndfrt</a></td><td>All ND-FRT NUIs for concepts that are subsumed by 'Mechanism of Action - N0000000223', 'Physiologic Effect - N0000009802' or 'Chemical Structure - N0000000002'.</td><td>Other</td><td>18</td></tr>
+ <tr><td><a href="valueset-daf-substance-rxnorm.html">daf-substance-rxnorm</a></td><td>All RxNorm codes that have TTY = IN,PIN,MIN,BN, but TTY != OCD.</td><td>Other</td><td>7</td></tr>
+ <tr><td><a href="valueset-daf-substance-sct.html">daf-substance-sct</a></td><td>SNOMED CT Substance concepts Other Than Clinical Drug Substances that are not represented by RXNORM  drug concepts or FDA UNII substance concepts. This value set is meant to be quite broad and includes many substances that may never be prescribed or be a reactant. It does not remove all overlap with RXNORM and UNII; for those concepts, the alternative code system should be chosen.</td><td>SNOMED CT</td><td>9</td></tr>
+ <tr><td><a href="valueset-daf-substance-unii.html">daf-substance-unii</a></td><td>All UNII codes.</td><td>Other</td><td>20</td></tr>
+ <tr><td><a href="valueset-daf-ucum-vitals-common.html">daf-ucum-vitals-common</a></td><td>Common UCUM units for recording Vital Signs</td><td>FHIR</td><td>601</td></tr>
+</table>
+
+</div>
+
+    </div><!-- /inner-wrapper -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+
+    </div><!-- /segment-content -->
+
+ <div id="segment-footer" class="segment"><!-- segment-footer -->
+  <div class="container"><!-- container -->
+   <div class="inner-wrapper">
+    <p>
+        © HL7.org 2011+. FHIR STU3 Candidate (v1.4.0-8413) generated on Tue, May 31, 2016 10:31+1000. <a href="{{site.data.fhir.path}}/qa.html">QA Page</a>
+        <br/>
+        <span style="color: #FFFF77">
+        Links: <a style="color: #81BEF7" href="http://hl7.org/fhir/search.cfm">Search</a> |
+               <a style="color: #81BEF7" href="{{site.data.fhir.path}}/history.html">Version History</a> |
+               <a style="color: #81BEF7" href="{{site.data.fhir.path}}/toc.html">Table of Contents</a> |
+               Compare to DSTU2</a> |
+               <a style="color: #81BEF7" rel="license" href="{{site.data.fhir.path}}/license.html"><img src="{{site.data.fhir.path}}/cc0.png" style="border-style: none;" alt="CC0"/></a> |
+               <a style="color: #81BEF7" target="_blank" href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemAdd&amp;tracker_id=677">Propose a change</a>
+        </span>
+        </p>
+   </div><!-- /inner-wrapper -->
+  </div><!-- /container -->
+ </div><!-- /segment-footer -->
+<!-- disqus thread -->
+<!--disqus-->
+<!-- end disqus -->
+
+ 
+{% include footer.html %}
+</body>
+</html>
