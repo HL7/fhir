@@ -8,10 +8,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.metamodel.ParserBase;
 import org.hl7.fhir.dstu3.metamodel.Property;
 import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.Reference;
+import org.hl7.fhir.dstu3.model.ResourceType;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
@@ -63,17 +65,33 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
       throw new Exception("You must provide a list of resources in the json file");
     for (Entry<String, JsonElement> pp : resourceConfig.entrySet()) {
       if (!pp.getKey().startsWith("_")) {
+        String s = pp.getKey();
+        if (!s.contains("/"))
+          throw new Exception("Bad Resource Identity - should have the format [Type]/[id]");
+        String type = s.substring(0,  s.indexOf("/"));
+        String id = s.substring(s.indexOf("/")+1); 
+        try {
+          ResourceType.fromCode(type);
+        } catch (Exception ex) {
+          throw new Exception("Bad Resource Identity - should have the format [Type]/[id] where Type is a valid resource type");
+        }
+        if (!id.matches(FormatUtilities.ID_REGEX))
+          throw new Exception("Bad Resource Identity - should have the format [Type]/[id] where id is a valid FHIR id type");
+
         if (!(pp.getValue() instanceof JsonObject))
           throw new Exception("Unexpected type in resource list - must be an object");
         JsonObject o = (JsonObject) pp.getValue();
         JsonElement p = o.get("base");
         if (p == null)
           throw new Exception("You must provide a base on each path in the json file");
-        if (!(p instanceof JsonPrimitive))
-          throw new Exception("Unexpected type in paths - base must be an primitive");
+        if (!(p instanceof JsonPrimitive) && !((JsonPrimitive) p).isString())
+          throw new Exception("Unexpected type in paths - base must be a string");
         p = o.get("defns");
-        if (p != null && !(p instanceof JsonPrimitive))
-          throw new Exception("Unexpected type in paths - defns must be an primitive");
+        if (p != null && !(p instanceof JsonPrimitive) && !((JsonPrimitive) p).isString())
+          throw new Exception("Unexpected type in paths - defns must be a string");
+        p = o.get("source");
+        if (p != null && !(p instanceof JsonPrimitive) && !((JsonPrimitive) p).isString())
+          throw new Exception("Unexpected type in paths - source must be a string");
       }
     }
   }
@@ -87,18 +105,23 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     }    
   }
 
+  public String getSourceFor(String ref) {
+    JsonObject o = resourceConfig.getAsJsonObject(ref);
+    if (o == null)
+      return null;
+    JsonElement e = o.get("source");
+    if (e == null)
+      return null;
+    return e.getAsString();
+  }
+
   public void findConfiguration(FetchedFile f) {
-    JsonObject e = resourceConfig.getAsJsonObject(canonical+"/"+f.getType().toString()+"/"+f.getId());
+    JsonObject e = resourceConfig.getAsJsonObject(f.getType().toString()+"/"+f.getId());
     if (e == null)
-      e = resourceConfig.getAsJsonObject(f.getType().toString()+"/"+f.getId());
-    if (e == null)
-      e = resourceConfig.getAsJsonObject(f.getId());
-    if (e == null)
-      error("no configuration found for "+canonical+"/"+f.getType().toString()+"/"+f.getId());
+      error("no configuration found for "+f.getType().toString()+"/"+f.getId());
     else 
       f.setConfig(e);
   }
-
   
   public void checkForPath(FetchedFile f, BaseConformance bc) {
     if (!bc.getUrl().endsWith("/"+bc.getId()))

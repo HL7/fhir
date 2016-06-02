@@ -21,78 +21,78 @@
   <package>
     <name value="base"/>
   <!--  value sets -->
-    <resource><example value="false"/><sourceUri value="valueset-daf-procedure-type.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-product-form.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-race.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-substance.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-substance-ndfrt.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-substance-rxnorm.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-substance-sct.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-substance-unii.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-ucum-vitals-common.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-ingredient-name.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-medication-brandname.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-medication-clinicalname.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-medication-drugclass.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-problem-severity.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-problem-type.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-bodysite.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-concern-status.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-cvx.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-bodysite.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-cvx.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-encounter-dischargedisposition.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-encounter-reason.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-encounter-type.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-ethnicity.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-list-DAFMedListCode.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-manifestation-ccda-codes.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-medication-codes.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-medication-route.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-observation-ccdasmokingstatus.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-observation-CCDAVitalSignResult.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="valueset-daf-problem.xml"/></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-procedure-type"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-product-form"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-race"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-substance"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-substance-ndfrt"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-substance-rxnorm"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-substance-sct"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-substance-unii"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-ucum-vitals-common"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/ingredient-name"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/medication-brandname"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/medication-clinicalname"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/medication-drugclass"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/problem-severity"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/problem-type"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/bodysite"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/concern-status"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/cvx"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-bodysite"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-cvx"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-encounter-dischargedisposition"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-encounter-reason"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-encounter-type"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-ethnicity"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-list-DAFMedListCode"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-manifestation-ccda-codes"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-medication-codes"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-medication-route"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-observation-ccdasmokingstatus"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-observation-CCDAVitalSignResult"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-problem"/></sourceReference></resource>
     
   <!--  profiles -->    
-    <resource><example value="false"/><sourceUri value="daf-allergyintolerance.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-allergylist.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-condition.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-diagnosticorder.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-diagnosticreport.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-encounter.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-encounterlist.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-familymemberhistory.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-immunization.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-immunizationlist.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-location.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-medication.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-medicationadministration.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-medicationdispense.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-medicationlist.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-medicationorder.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-medicationstatement.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-organization.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-patient.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-pract.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-problemlist.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-procedure.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-procedurelist.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-relatedperson.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-resultlist.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-resultobs.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-smokingstatus.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-spec.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-substance.profile.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="daf-vitalsigns.profile.xml"/></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-allergyintolerance"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-allergylist"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-condition"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-diagnosticorder"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-diagnosticreport"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-encounter"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-encounterlist"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-familymemberhistory"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-immunization"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-immunizationlist"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-location"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-medication"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-medicationadministration"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-medicationdispense"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-medicationlist"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-medicationorder"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-medicationstatement"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-organization"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-patient"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-pract"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-problemlist"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-procedure"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-procedurelist"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-relatedperson"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-resultlist"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-resultobs"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-smokingstatus"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-spec"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-substance"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-vitalsigns"/></sourceReference></resource>
 
   <!--  search parameters -->    
-    <resource><example value="false"/><sourceUri value="familymemberhistory-daf-FamilyMemberHistory-condition.xml"/></resource>
-    <resource><example value="false"/><sourceUri value="familymemberhistory-daf-FamilyMemberHistory-relationship.xml"/></resource>
+    <resource><example value="false"/><sourceReference><reference value="SearchParameter/familymemberhistory-daf-FamilyMemberHistory-condition"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="SearchParameter/familymemberhistory-daf-FamilyMemberHistory-relationship"/></sourceReference></resource>
 
   <!--  conformance resources -->    
-    <resource><example value="true"/><name value="DAF Responder"/><sourceUri value="conformance-daf-query-responder.xml"/></resource>
-    <resource><example value="true"/><name value="DAF Requestor"/><sourceUri value="conformance-daf-query-requestor.xml"/></resource>
-    <resource><example value="true"/><name value="DAF Responder Basic"/><sourceUri value="conformance-daf-query-responder-core.xml"/></resource>
+    <resource><example value="true"/><name value="DAF Responder"/><sourceReference><reference value="Conformance/conformance-daf-query-responder"/></sourceReference></resource>
+    <resource><example value="true"/><name value="DAF Requestor"/><sourceReference><reference value="Conformance/conformance-daf-query-requestor"/></sourceReference></resource>
+    <resource><example value="true"/><name value="DAF Responder Basic"/><sourceReference><reference value="Conformance/conformance-daf-query-responder-core"/></sourceReference></resource>
   </package>
 <!-- 
   <acronym target="daf-resultobsquantity" id="daf-qty"/>

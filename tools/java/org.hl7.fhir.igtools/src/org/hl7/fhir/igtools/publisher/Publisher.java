@@ -173,10 +173,9 @@ public class Publisher {
 
     log("Load Validation Pack");
     try {
-    context = SimpleWorkerContext.fromClassPath("igpack.zip");
+      context = SimpleWorkerContext.fromClassPath("igpack.zip");
     } catch (NullPointerException npe) {
       System.out.println("Unable to find igpack.zip in the jar");
-      npe.printStackTrace();
       context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\temp\\igpack.zip");
     }
     context.setAllowLoadingDuplicates(true);
@@ -190,6 +189,7 @@ public class Publisher {
     errs.add(e);
     igpkp = new IGKnowledgeProvider(context, pathToSpec, configuration, e);
     igpkp.loadSpecPaths(specDetails.get("paths").getAsJsonObject());
+    fetcher.setPkp(igpkp);
     for (String s : context.getBinaries().keySet())
       if (needFile(s)) {
         TextFile.bytesToFile(context.getBinaries().get(s), Utilities.path(contentDir, s));    

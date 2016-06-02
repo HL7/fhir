@@ -5,7 +5,7 @@
 	},
 	"canonicalBase": "http://hl7.org/fhir",
 	"defaults": {
-		"documentation": "this object contains the default publishing policy for different types. Anything not mentioned defaults to true",
+		"_documentation": "this object contains the default publishing policy for different types. Anything not mentioned defaults to true",
 		"Any": {
 			"xml": true,
 			"json": true,
@@ -50,99 +50,99 @@
 		}
 	},
 	"resources": {
-		"daf-allergyintolerance": {
+		"StructureDefinition/daf-allergyintolerance": {
 			"defns": "daf-allergyintolerance-definitions.html",
 			"base": "daf-allergyintolerance.html"
 		},
-		"daf-allergylist": {
+		"StructureDefinition/daf-allergylist": {
 			"defns": "daf-allergylist-definitions.html",
 			"base": "daf-allergylist.html"
 		},
-		"daf-condition": {
+		"StructureDefinition/daf-condition": {
 			"defns": "daf-condition-definitions.html",
 			"base": "daf-condition.html"
 		},
-		"daf-diagnosticorder": {
+		"StructureDefinition/daf-diagnosticorder": {
 			"defns": "daf-diagnosticorder-definitions.html",
 			"base": "daf-diagnosticorder.html"
 		},
-		"daf-diagnosticreport": {
+		"StructureDefinition/daf-diagnosticreport": {
 			"defns": "daf-diagnosticreport-definitions.html",
 			"base": "daf-diagnosticreport.html"
 		},
-		"daf-encounter": {
+		"StructureDefinition/daf-encounter": {
 			"defns": "daf-encounter-definitions.html",
 			"base": "daf-encounter.html"
 		},
-		"daf-encounterlist": {
+		"StructureDefinition/daf-encounterlist": {
 			"defns": "daf-encounterlist-definitions.html",
 			"base": "daf-encounterlist.html"
 		},
-		"daf-familymemberhistory": {
+		"StructureDefinition/daf-familymemberhistory": {
 			"defns": "daf-familymemberhistory-definitions.html",
 			"base": "daf-familymemberhistory.html"
 		},
-		"daf-immunizationlist": {
+		"StructureDefinition/daf-immunizationlist": {
 			"defns": "daf-immunizationlist-definitions.html",
 			"base": "daf-immunizationlist.html"
 		},
-		"daf-location": {
+		"StructureDefinition/daf-location": {
 			"defns": "daf-location-definitions.html",
 			"base": "daf-location.html"
 		},
-		"daf-medication": {
+		"StructureDefinition/daf-medication": {
 			"defns": "daf-medication-definitions.html",
 			"base": "daf-medication.html"
 		},
-		"daf-medicationadministration": {
+		"StructureDefinition/daf-medicationadministration": {
 			"defns": "daf-medicationadministration-definitions.html",
 			"base": "daf-medicationadministration.html"
 		},
-		"daf-medicationlist": {
+		"StructureDefinition/daf-medicationlist": {
 			"defns": "daf-medicationlist-definitions.html",
 			"base": "daf-medicationlist.html"
 		},
-		"daf-medicationstatement": {
+		"StructureDefinition/daf-medicationstatement": {
 			"defns": "daf-medicationstatement-definitions.html",
 			"base": "daf-medicationstatement.html"
 		},
-		"daf-organization": {
+		"StructureDefinition/daf-organization": {
 			"defns": "daf-organization-definitions.html",
 			"base": "daf-organization.html"
 		},
-		"daf-patient": {
+		"StructureDefinition/daf-patient": {
 			"defns": "daf-patient-definitions.html",
 			"base": "daf-patient.html"
 		},
-		"daf-pract": {
+		"StructureDefinition/daf-pract": {
 			"defns": "daf-pract-definitions.html",
 			"base": "daf-pract.html"
 		},
-		"daf-problemlist": {
+		"StructureDefinition/daf-problemlist": {
 			"defns": "daf-problemlist-definitions.html",
 			"base": "daf-problemlist.html"
 		},
-		"daf-procedure": {
+		"StructureDefinition/daf-procedure": {
 			"defns": "daf-procedure-definitions.html",
 			"base": "daf-procedure.html"
 		},
-		"daf-relatedperson": {
+		"StructureDefinition/daf-relatedperson": {
 			"defns": "daf-relatedperson-definitions.html",
 			"base": "daf-relatedperson.html"
 		},
-		"daf-resultlist": {
+		"StructureDefinition/daf-resultlist": {
 			"defns": "daf-resultlist-definitions.html",
 			"base": "daf-resultlist.html"
 		},
-		"daf-resultobs": {
+		"StructureDefinition/daf-resultobs": {
 			"defns": "daf-resultobs-definitions.html",
 			"base": "daf-resultobs.html"
 		},
-		"daf-smokingstatus": {
+		"StructureDefinition/daf-smokingstatus": {
 			"defns": "daf-smokingstatus-definitions.html",
 			"base": "daf-smokingstatus.html"
 		},
-		"daf-spec": {
+		"StructureDefinition/daf-spec": {
 			"defns": "daf-spec-definitions.html",
 			"base": "daf-spec.html"
 		},
@@ -150,111 +150,111 @@
 			"defns": "daf-substance-definitions.html",
 			"base": "daf-substance.html"
 		},
-		"daf-vitalsigns": {
+		"StructureDefinition/daf-vitalsigns": {
 			"defns": "daf-vitalsigns-definitions.html",
 			"base": "daf-vitalsigns.html"
 		},
-		"daf-immunization": {
+		"StructureDefinition/daf-immunization": {
 			"defns": "daf-immunization-definitions.html",
 			"base": "daf-immunization.html"
 		},
-		"daf-medicationdispense": {
+		"StructureDefinition/daf-medicationdispense": {
 			"defns": "daf-medicationdispense-definitions.html",
 			"base": "daf-medicationdispense.html"
 		},
-		"daf-medicationorder": {
+		"StructureDefinition/daf-medicationorder": {
 			"defns": "daf-medicationorder-definitions.html",
 			"base": "daf-medicationorder.html"
 		},
-		"daf-procedurelist": {
+		"StructureDefinition/daf-procedurelist": {
 			"defns": "daf-procedurelist-definitions.html",
 			"base": "daf-procedurelist.html"
 		},
 		"ValueSet/daf-substance": {
 			"base": "valueset-daf-substance.html"
 		},
-		"daf-procedure-type": {
+		"ValueSet/daf-procedure-type": {
 			"base": "valueset-daf-procedure-type.html"
 		},
-		"daf-product-form": {
+		"ValueSet/daf-product-form": {
 			"base": "valueset-daf-product-form.html"
 		},
-		"daf-race": {
+		"ValueSet/daf-race": {
 			"base": "valueset-daf-race.html"
 		},
-		"daf-substance-ndfrt": {
+		"ValueSet/daf-substance-ndfrt": {
 			"base": "valueset-daf-substance-ndfrt.html"
 		},
-		"daf-substance-rxnorm": {
+		"ValueSet/daf-substance-rxnorm": {
 			"base": "valueset-daf-substance-rxnorm.html"
 		},
-		"daf-substance-sct": {
+		"ValueSet/daf-substance-sct": {
 			"base": "valueset-daf-substance-sct.html"
 		},
-		"daf-substance-unii": {
+		"ValueSet/daf-substance-unii": {
 			"base": "valueset-daf-substance-unii.html"
 		},
-		"daf-ucum-vitals-common": {
+		"ValueSet/daf-ucum-vitals-common": {
 			"base": "valueset-daf-ucum-vitals-common.html"
 		},
-		"daf-ingredient-name": {
+		"ValueSet/daf-ingredient-name": {
 			"base": "valueset-daf-ingredient-name.html"
 		},
-		"daf-medication-brandname": {
+		"ValueSet/daf-medication-brandname": {
 			"base": "valueset-daf-medication-brandname.html"
 		},
-		"daf-medication-clinicalname": {
+		"ValueSet/daf-medication-clinicalname": {
 			"base": "valueset-daf-medication-clinicalname.html"
 		},
-		"daf-medication-drugclass": {
+		"ValueSet/daf-medication-drugclass": {
 			"base": "valueset-daf-medication-drugclass.html"
 		},
-		"daf-problem-severity": {
+		"ValueSet/daf-problem-severity": {
 			"base": "valueset-daf-problem-severity.html"
 		},
-		"daf-problem-type": {
+		"ValueSet/daf-problem-type": {
 			"base": "valueset-daf-problem-type.html"
 		},
-		"daf-bodysite": {
+		"ValueSet/daf-bodysite": {
 			"base": "valueset-daf-bodysite.html"
 		},
-		"daf-concern-status": {
+		"ValueSet/daf-concern-status": {
 			"base": "valueset-daf-concern-status.html"
 		},
-		"daf-cvx": {
+		"ValueSet/daf-cvx": {
 			"base": "valueset-daf-cvx.html"
 		},
-		"daf-encounter-dischargedisposition": {
+		"ValueSet/daf-encounter-dischargedisposition": {
 			"base": "valueset-daf-encounter-dischargedisposition.html"
 		},
-		"daf-encounter-reason": {
+		"ValueSet/daf-encounter-reason": {
 			"base": "valueset-daf-encounter-reason.html"
 		},
-		"daf-encounter-type": {
+		"ValueSet/daf-encounter-type": {
 			"base": "valueset-daf-encounter-type.html"
 		},
-		"daf-ethnicity": {
+		"ValueSet/daf-ethnicity": {
 			"base": "valueset-daf-ethnicity.html"
 		},
-		"daf-list-DAFMedListCode": {
+		"ValueSet/daf-list-DAFMedListCode": {
 			"base": "valueset-daf-list-DAFMedListCode.html"
 		},
-		"daf-manifestation-ccda-codes": {
+		"ValueSet/daf-manifestation-ccda-codes": {
 			"base": "valueset-daf-manifestation-ccda-codes.html"
 		},
-		"daf-medication-codes": {
+		"ValueSet/daf-medication-codes": {
 			"base": "valueset-daf-medication-codes.html"
 		},
-		"daf-medication-route": {
+		"ValueSet/daf-medication-route": {
 			"base": "valueset-daf-medication-route.html"
 		},
-		"daf-observation-ccdasmokingstatus": {
+		"ValueSet/daf-observation-ccdasmokingstatus": {
 			"base": "valueset-daf-observation-ccdasmokingstatus.html"
 		},
-		"daf-observation-CCDAVitalSignResult": {
+		"ValueSet/daf-observation-CCDAVitalSignResult": {
 			"base": "valueset-daf-observation-CCDAVitalSignResult.html"
 		},
-		"daf-problem": {
+		"ValueSet/daf-problem": {
 			"base": "valueset-daf-problem.html"
 		}
 	}
