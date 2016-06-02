@@ -103,12 +103,22 @@
       "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
+      "hash": "#|http://acme.org/lab/codes/tests|null|60697|Quinupristin/Dalfopristin",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
       "hash": "#|http://acme.org/lab/codes/tests|null|60699|Linezolid",
       "severity": "error",
       "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|61007|Levofloxacin",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
+      "hash": "#|http://acme.org/lab/codes/tests|null|61203|Daptomycin",
       "severity": "error",
       "message": "The code provided is not  valid in the value set LOINC Codes"
     },
@@ -648,6 +658,17 @@
       }
     },
     {
+      "hash": "#|http://loinc.org|null|26515-7|Platelets [#/volume] in Blood",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Platelets [#/volume] in Blood"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|2756-5|pH of Urine",
       "severity": null,
       "message": null,
@@ -997,6 +1018,17 @@
         "code": null,
         "definition": null,
         "display": "Cholesterol [Mass or Moles/volume] in Serum or Plasma"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|35217-9|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Triglyceride [Mass or Moles/volume] in Serum or Plasma"
       }
     },
     {

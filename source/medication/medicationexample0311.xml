@@ -1,6 +1,18 @@
 <Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
   <id value="med0311"/>
+  <contained>
+    <Substance>
+      <id value="sub03"/>
+      <code>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="116602009"/>
+          <display value="Prednisone (substance)"/>
+        </coding>
+      </code>
+    </Substance>
+  </contained>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -18,9 +30,8 @@
       </coding>
     </form>
     <ingredient>
-      <!-- need to find out how to include reference to a substance - Prednisone (substance) SCT 116602009 -->
       <itemReference>
-        <display></display>
+        <reference value="#sub03"/>
       </itemReference>
       <amount>
         <numerator>

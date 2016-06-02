@@ -7,6 +7,7 @@ http://fdi.org/fhir/oralsurfacecodes
 http://snomed.info/id
 http://hl7.org/fhir/hspc-assertions
 http://snomed/sct
+http://hl7.org/fhir/sid/ndc
 http://hl7.org/fhir/ex-visionservice
 http:/acme.ec/gcsmotor
 http://nehta.gov.au/codes/medications/changetype

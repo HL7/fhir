@@ -1,6 +1,24 @@
 <Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
   <id value="medexample015"/>
+  <contained>
+    <Organization>
+      <id value="org2"/>
+      <name value="Gene Inc" />
+    </Organization>
+  </contained>
+  <contained>
+    <Substance>
+      <id value="sub04"/>
+      <code>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="386906001"/>
+          <display value="Capecitabine (substance)"/>
+        </coding>
+      </code>
+    </Substance>
+  </contained>
   <code>
     <coding>
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
@@ -10,8 +28,7 @@
   </code>
   <isBrand value="true"/>
   <manufacturer>
-    <!-- not sure how to include reference to a resource -->
-    <reference value="http://www.gene.com/fhirresource/1" />
+      <reference value="#org2"/>
   </manufacturer>
   <product>
     <form>
@@ -22,14 +39,9 @@
       </coding>
     </form>
     <ingredient>
-      <!-- not sure how to include reference to a resource - want to reference a substance resource -->
-    <itemCodeableConcept>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="386906001"/>
-        <display value="Capecitabine (substance)"/>
-      </coding>
-    </itemCodeableConcept>
+      <itemReference>
+        <reference value="#sub04"/>
+      </itemReference>
       <amount>
         <numerator>
           <value value="500"/>

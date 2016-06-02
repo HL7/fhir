@@ -88,6 +88,11 @@
     <display value="Present"/>
     <display value="Positive (qualifier value)"/>
   </concept>
+  <concept id="108761006" display="Capecitabine (product)">
+    <display value="Capecitabine (product)"/>
+    <display value="Capecitabine"/>
+    <display value="Capecitabine (substance)"/>
+  </concept>
   <concept id="108806006" display="Docetaxel (product)">
     <display value="Docetaxel (product)"/>
     <display value="Docetaxel"/>
@@ -132,6 +137,10 @@
   </concept>
   <concept id="116175006" display="Proximal subtotal gastrectomy (procedure)">
     <display value="Proximal subtotal gastrectomy"/>
+  </concept>
+  <concept id="116602009" display="Prednisone">
+    <display value="Prednisone"/>
+    <display value="Prednisone (substance)"/>
   </concept>
   <concept id="118376009" display="Thermocouple device (physical object)">
     <display value="Thermocouple"/>
@@ -434,6 +443,10 @@
     <display value="Specimen unsatisfactory for evaluation"/>
     <display value="Specimen unsatisfactory for evaluation (finding)"/>
   </concept>
+  <concept id="126066007" display="White petroleum">
+    <display value="White petroleum"/>
+    <display value="White petroleum (substance)"/>
+  </concept>
   <concept id="127490009" display="Gastrostomy use">
     <display value="Gastrostomy use"/>
     <display value="Gastrostomy"/>
@@ -478,6 +491,10 @@
   <concept id="129300006" display="Puncture - action (qualifier value)">
     <display value="Puncture - action"/>
     <display value="Puncture - action (qualifier value)"/>
+  </concept>
+  <concept id="129472003" display="Alemtuzumab">
+    <display value="Alemtuzumab"/>
+    <display value="Alemtuzumab (substance)"/>
   </concept>
   <concept id="130989002" display="Sleep deprivation (finding)">
     <display value="Sleep deprivation (finding)"/>
@@ -2421,6 +2438,17 @@
     <display value="Hospital-based outpatient family medicine clinic"/>
     <display value="Hospital-based outpatient family medicine clinic (environment)"/>
   </concept>
+  <concept id="317935006" display="Chlorthalidone 50mg tablet (product)">
+    <display value="Chlorthalidone 50mg tablet (product)"/>
+    <display value="Chlortalidone 50mg tablet"/>
+    <display value="Chlorthalidone 50mg tablet"/>
+    <display value="Chlortalidone 50mg tablet"/>
+    <display value="Chlorthalidone 50mg tablet"/>
+    <display value="Chlorthalidone 50mg"/>
+    <display value="Chlorthalidone 50mg tablet"/>
+    <display value="Chlortalidone 50mg tablet"/>
+    <display value="Chlorthalidone 50mg tablet (substance)"/>
+  </concept>
   <concept id="318475005" display="Metoprolol tartrate 50mg tablet (product)">
     <display value="Metoprolol tartrate 50mg tablet (product)"/>
     <display value="Metoprolol tartrate 50mg tablet"/>
@@ -2493,12 +2521,34 @@
     <display value="Amoxycillin 250mg/5mL oral suspension"/>
     <display value="Amoxycillin 250mg/5mL oral suspension (substance)"/>
   </concept>
+  <concept id="324252006" display="Azithromycin 250mg capsule (product)">
+    <display value="Azithromycin 250mg capsule (product)"/>
+    <display value="Azithromycin dihydrate 250mg capsule"/>
+    <display value="Azithromycin 250mg capsule"/>
+    <display value="Azithromycin 250mg capsule (substance)"/>
+  </concept>
+  <concept id="324337001" display="Vancomycin 500mg powder for infusion solution vial (product)">
+    <display value="Vancomycin 500mg injection (pdr for recon) (product)"/>
+    <display value="Vancomycin 500mg powder for infusion solution vial (product)"/>
+    <display value="Vancomycin 500mg powder for infusion solution vial"/>
+    <display value="Vancomycin 500mg injection (pdr for recon)"/>
+    <display value="Vancomycin 500mg injection (pdr for recon) (substance)"/>
+  </concept>
+  <concept id="324689003" display="Nystatin 100,000units/mL oral suspension (product)">
+    <display value="Nystatin 100,000units/mL oral suspension (product)"/>
+    <display value="Nystatin 100,000units/mL oral suspension"/>
+    <display value="Nystatin 100,000units/mL oral suspension (substance)"/>
+  </concept>
   <concept id="32485007" display="Hospital admission (procedure)">
     <display value="Admission to hospital"/>
     <display value="Hospital admission"/>
     <display value="Hospital admission, NOS"/>
     <display value="Hospital admission (procedure)"/>
     <display value="Performance of the steps necessary to admit a patient to a hospital"/>
+  </concept>
+  <concept id="325072002" display="Insulin aspart">
+    <display value="Insulin aspart"/>
+    <display value="Insulin aspart (substance)"/>
   </concept>
   <concept id="325267004" display="Tolbutamide 500mg tablet">
     <display value="Tolbutamide 500mg tablet (product)"/>
@@ -2907,6 +2957,11 @@
   <concept id="373200003" display="pT1: Tumor invades submucosa (colon/rectum) (finding)">
     <display value="pT1: Tumor invades submucosa (colon/rectum)"/>
   </concept>
+  <concept id="373994007" display="Prednisone 5mg tablet (product)">
+    <display value="Prednisone 5mg tablet (product)"/>
+    <display value="Prednisone 5mg tablet"/>
+    <display value="Prednisone 5mg"/>
+  </concept>
   <concept id="37546005" display="Hospital-based outpatient rehabilitation clinic (environment)">
     <display value="Hospital-based outpatient rehabilitation clinic"/>
     <display value="Hospital-based outpatient rehabilitation clinic (environment)"/>
@@ -2919,6 +2974,12 @@
     <display value="Pleural friction rub"/>
     <display value="Pleural rub"/>
     <display value="Pleural friction rub (finding)"/>
+  </concept>
+  <concept id="376877002" display="Timolol maleate 0.5% ophthalmic solution (product)">
+    <display value="Timolol maleate 0.5% solution (product)"/>
+    <display value="Timolol maleate 0.5% solution"/>
+    <display value="Timolol maleate 0.5% ophthalmic solution (product)"/>
+    <display value="Timolol maleate 0.5% ophthalmic solution"/>
   </concept>
   <concept id="37931006" display="Auscultation (procedure)">
     <display value="Auscultation - examination"/>
@@ -2993,6 +3054,21 @@
     <display value="Tablet dose form (product)"/>
     <display value="Tablet dose form (qualifier value)"/>
     <display value="Tablet dose form"/>
+  </concept>
+  <concept id="385057009" display="Film-coated tablet">
+    <display value="Film-coated tablet (product)"/>
+    <display value="Film-coated tablet"/>
+    <display value="Film-coated tablet (qualifier value)"/>
+  </concept>
+  <concept id="385101003" display="Ointment">
+    <display value="Ointment (product)"/>
+    <display value="Ointment"/>
+    <display value="Ointment (qualifier value)"/>
+  </concept>
+  <concept id="385157007" display="Nasal spray">
+    <display value="Nasal spray (product)"/>
+    <display value="Nasal spray"/>
+    <display value="Nasal spray (qualifier value)"/>
   </concept>
   <concept id="385218009" display="Injection (qualifier value)">
     <display value="Injection (product)"/>
@@ -3080,10 +3156,40 @@
     <display value="Capecitabine (substance)"/>
     <display value="Capecitabine"/>
   </concept>
+  <concept id="386983007" display="Alprazolam (substance)">
+    <display value="Alprazolam (substance)"/>
+    <display value="Alprazolam"/>
+  </concept>
+  <concept id="387048002" display="Nystatin (substance)">
+    <display value="Nystatin (substance)"/>
+    <display value="Nystatin"/>
+  </concept>
+  <concept id="387106007" display="Lorazepam (substance)">
+    <display value="Lorazepam (substance)"/>
+    <display value="Lorazepam"/>
+  </concept>
+  <concept id="387138002" display="Busulfan (substance)">
+    <display value="Busulfan (substance)"/>
+    <display value="Busulphan"/>
+    <display value="Busulfan"/>
+  </concept>
+  <concept id="387253001" display="Salicylic acid (substance)">
+    <display value="Salicylic acid (substance)"/>
+    <display value="Salicylic acid"/>
+  </concept>
+  <concept id="387324004" display="Chlorthalidone (substance)">
+    <display value="Chlorthalidone (substance)"/>
+    <display value="Chlorthalidone"/>
+    <display value="Chlortalidone"/>
+  </concept>
   <concept id="387517004" display="Acetaminophen (substance)">
     <display value="Acetaminophen (substance)"/>
     <display value="Acetaminophen"/>
     <display value="Paracetamol"/>
+  </concept>
+  <concept id="387531004" display="Azithromycin (substance)">
+    <display value="Azithromycin (substance)"/>
+    <display value="Azithromycin"/>
   </concept>
   <concept id="387544009" display="Floxacillin (substance)">
     <display value="Floxacillin (substance)"/>
@@ -3464,6 +3570,11 @@
     <display value="Lung, NOS"/>
     <display value="Lung structure (body structure)"/>
   </concept>
+  <concept id="396458002" display="Hydrocortisone (substance)">
+    <display value="Hydrocortisone (substance)"/>
+    <display value="Hydrocortisone"/>
+    <display value="Cortisol"/>
+  </concept>
   <concept id="397158004" display="Perianal region structure (body structure)">
     <display value="Perianal region structure (body structure)"/>
     <display value="Perianal region structure"/>
@@ -3544,6 +3655,11 @@
     <display value="Paclitaxel 6mg/mL injection"/>
     <display value="Paclitaxel 6mg/mL injection solution 5mL vial (product)"/>
     <display value="Paclitaxel 6mg/mL injection solution 5mL vial"/>
+  </concept>
+  <concept id="400621001" display="Lorazepam 2mg/mL injection solution 1mL vial (product)">
+    <display value="Lorazepam 2mg/mL injection solution 1mL vial (product)"/>
+    <display value="Lorazepam 2mg/mL injection solution 1mL vial"/>
+    <display value="Lorazepam 2mg/mL injection"/>
   </concept>
   <concept id="40199007" display="Supine body position (finding)">
     <display value="Lying flat on back"/>
@@ -3748,6 +3864,10 @@
   <concept id="408480009" display="Clinical immunology (qualifier value)">
     <display value="Clinical immunology (qualifier value)"/>
     <display value="Clinical immunology"/>
+  </concept>
+  <concept id="408596005" display="Alemtuzumab 30mg/3mL infusion concentrate (product)">
+    <display value="Alemtuzumab 30mg/3mL infusion concentrate (product)"/>
+    <display value="Alemtuzumab 30mg/3mL infusion concentrate"/>
   </concept>
   <concept id="408654003" display="Specimen obtained by amputation (specimen)">
     <display value="Specimen obtained by amputation (specimen)"/>
@@ -3954,6 +4074,14 @@
     <display value="Carbuncle"/>
     <display value="Carbuncle (morphologic abnormality)"/>
   </concept>
+  <concept id="415818006" display="Vial - unit of product usage (qualifier value)">
+    <display value="Vial (qualifier value)"/>
+    <display value="Vial"/>
+    <display value="Vials"/>
+    <display value="Vil"/>
+    <display value="Vial - unit of product usage (qualifier value)"/>
+    <display value="Vial - unit of product usage"/>
+  </concept>
   <concept id="416304004" display="Osteopathic manipulative medicine (qualifier value)">
     <display value="Osteopathic manipulative medicine (qualifier value)"/>
     <display value="Osteopathic manipulative medicine"/>
@@ -4146,6 +4274,12 @@
     <display value="Aerosol spray"/>
     <display value="Aerosol spray (qualifier value)"/>
   </concept>
+  <concept id="421637006" display="Lyophilised powder for injectable solution">
+    <display value="Lyophilized powder for injectable solution (product)"/>
+    <display value="Lyophilised powder for injectable solution"/>
+    <display value="Lyophilized powder for injectable solution"/>
+    <display value="Lyophilized powder for injectable solution (qualifier value)"/>
+  </concept>
   <concept id="421661004" display="Blood banking and transfusion medicine (specialty) (qualifier value)">
     <display value="Blood banking and transfusion medicine (specialty) (qualifier value)"/>
     <display value="Blood banking and transfusion medicine (specialty)"/>
@@ -4297,6 +4431,10 @@
   <concept id="429951000124103" display="Bacterial isolate specimen (specimen)">
     <display value="Bacterial isolate specimen (specimen)"/>
     <display value="Bacterial isolate specimen"/>
+  </concept>
+  <concept id="430127000" display="Oral form oxycodone (product)">
+    <display value="Oral form oxycodone (product)"/>
+    <display value="Oral form oxycodone"/>
   </concept>
   <concept id="430268003" display="Specimen from bone (specimen)">
     <display value="Specimen from bone (specimen)"/>
@@ -5130,6 +5268,12 @@
   <concept id="55440008" display="M1 category (finding)">
     <display value="M1 category"/>
   </concept>
+  <concept id="55452001" display="Oxycodone (substance)">
+    <display value="Oxycodone (substance)"/>
+    <display value="Oxycodone"/>
+    <display value="14-Hydroxydihydrocodeinone"/>
+    <display value="Dihydrohydroxycodeinone"/>
+  </concept>
   <concept id="55561003" display="Active (qualifier value)">
     <display value="Active (qualifier value)"/>
     <display value="Active"/>
@@ -5651,6 +5795,10 @@
   <concept id="74964007" display="Other (qualifier value)">
     <display value="Other"/>
     <display value="Other (qualifier value)"/>
+  </concept>
+  <concept id="75359005" display="Timolol maleate">
+    <display value="Timolol maleate"/>
+    <display value="Timolol maleate (substance)"/>
   </concept>
   <concept id="75540009" display="High (qualifier value)">
     <display value="High"/>

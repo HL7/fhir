@@ -27,9 +27,60 @@
       "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
     },
     {
+      "hash": "#|http://hl7.org/fhir/sid/ndc|null|0069-2587-10|Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/sid/ndc|null|0169-7501-11|Novolog 100u/ml",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/sid/ndc|null|0206-8862-02|Zosyn (piperacillin/tazobactam) 4.5gm injection",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/sid/ndc|null|16590-619-30|Percocet tablet",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/sid/ndc|null|2501-813-16|Timoptic 5mg/ml solution",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/sid/ndc|null|50580-506-02|Tylenol PM",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/sid/ndc|null|51144-050-01|Adcetris",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/sid/ndc|null|76388-713-25|Myleran 2mg tablet, film coated",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
       "hash": "#|http://purl.bioontology.org/ontology/RXNORM/847265|null|847265|3 ML Insulin, Aspart, Human 100 UNT/ML Prefilled Syringe [NovoLog]",
       "severity": "error",
       "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|108761006|Capecitabine (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Capecitabine (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|108806006|Docetaxel",
@@ -62,6 +113,17 @@
         "code": null,
         "definition": null,
         "display": "Fluorouracil (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|317935006|Chlorthalidone 50mg tablet (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Chlorthalidone 50mg tablet (product)"
       }
     },
     {
@@ -109,6 +171,28 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|324252006|Azithromycin 250mg capsule (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Azithromycin 250mg capsule (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|324689003|Nystatin 100,000 units/ml oral suspension (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Nystatin 100,000units/mL oral suspension (product)"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|325267004|Tolbutamide 500mg tablet",
       "severity": null,
       "message": null,
@@ -117,6 +201,17 @@
         "code": null,
         "definition": null,
         "display": "Tolbutamide 500mg tablet (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|373994007|Prednisone 5mg tablet (Product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Prednisone 5mg tablet (product)"
       }
     },
     {
@@ -164,6 +259,17 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|400621001|Lorazepam 2mg/ml injection solution 1ml vial (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Lorazepam 2mg/mL injection solution 1mL vial (product)"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|408036003|Rosuvastatin 10mg tablet",
       "severity": null,
       "message": null,
@@ -183,6 +289,17 @@
         "code": null,
         "definition": null,
         "display": "Fluticasone propionate+salmeterol xinafoate (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|430127000|Oral Form Oxycodone (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Oral form oxycodone (product)"
       }
     },
     {
@@ -229,12 +346,27 @@
       "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
     },
     {
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|1594660|Alemtuzumab 10mg/ml (Lemtrada)",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
       "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|200371|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
     },
     {
       "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|213293|Capecitabine 500mg oral tablet (Xeloda)",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|308047|Alprazolam 0.25mg Oral Tablet",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|358793|Mometasone Furoate 0.05mg/Actuat",
       "severity": "error",
       "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
     }

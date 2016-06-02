@@ -7,6 +7,17 @@
       "message": "The code provided is not  valid in the value set Substance Code"
     },
     {
+      "hash": "#|http://snomed.info/sct|null|116602009|Prednisone (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Prednisone"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|3092008|Staphylococcus Aureus",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Substance Code"
@@ -31,6 +42,50 @@
         "code": null,
         "definition": null,
         "display": "Amoxicillin (substance)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|386906001|Capecitabine (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Capecitabine (substance)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|387048002|Nystatin (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Nystatin (substance)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|387324004|Chlorthalidone (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Chlorthalidone (substance)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|387531004|Azithromycin (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Azithromycin (substance)"
       }
     },
     {
@@ -64,6 +119,17 @@
         "code": null,
         "definition": null,
         "display": "House dust allergen (substance)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|55452001|Oxycodone (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Oxycodone (substance)"
       }
     },
     {

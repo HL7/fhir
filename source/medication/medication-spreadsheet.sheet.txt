@@ -244,106 +244,127 @@
   Filename = medicationexample15.xml
 
  -- Row 3 -----------------------------------
+  Name = IV Med
   Identity = med0301
   Description = IV injection (inpatient order) - Manufactured Product - Vancomycin
   Filename = medicationexample0301.xml
 
  -- Row 4 -----------------------------------
+  Name = IV Med
   Identity = med0302
   Description = IV Injection with a Rate Example - Manufactured Product - Piperacillin
   Filename = medicationexample0302.xml
 
  -- Row 5 -----------------------------------
+  Name = Oncology
   Identity = med0303
   Description = IV Chemotherapy Example - Manufactured Product - Alemtuzumab
   Filename = medicationexample0303.xml
 
  -- Row 6 -----------------------------------
+  Name = Oncology
   Identity = med0304
   Description = Oral Chemotherapy Example - Manufactured Product - Myleran
   Filename = medicationexample0304.xml
 
  -- Row 7 -----------------------------------
+  Name = Eye Drop
   Identity = med0305
   Description = Eye Drop Example - Manufactured Product - Timoptic
   Filename = medicationexample0305.xml
 
  -- Row 8 -----------------------------------
+  Name = Oncology
   Identity = med0306
   Description = IV Chemotherapy Example - Manufactured Product - Adcetris
   Filename = medicationexample0306.xml
 
  -- Row 9 -----------------------------------
+  Name = Injectable
   Identity = med0307
   Description = Subcutaneous injection Example - Manufactured Product - Novolog
   Filename = medicationexample0307.xml
 
  -- Row 10 -----------------------------------
+  Name = PRN
   Identity = med0308
   Description = As needed Oral tablet - Manufactured Product - Percocet
   Filename = medicationexample0308.xml
 
  -- Row 11 -----------------------------------
+  Name = PRN
   Identity = med0309
   Description = As needed dosage range - Manufactured Product - Tylenol No 1 Caplet
   Filename = medicationexample0309.xml
 
  -- Row 12 -----------------------------------
+  Name = Generic
   Identity = med0310
   Description = Generic Formulation - Oxycodone
   Filename = medicationexample0310.xml
 
  -- Row 13 -----------------------------------
+  Name = Generic
   Identity = med0311
   Description = Generic Formulation - Prednisone 5mg tablet
   Filename = medicationexample0311.xml
 
  -- Row 14 -----------------------------------
+  Name = Generic
   Identity = med0312
   Description = Generic Formulation - Nystatin 100,000 u/ml suspension
   Filename = medicationexample0312.xml
 
  -- Row 15 -----------------------------------
+  Name = Generic
   Identity = med0313
   Description = Generic Formulation - Lorazepam 2mg/ml injection
   Filename = medicationexample0313.xml
 
  -- Row 16 -----------------------------------
+  Name = Generic
   Identity = med0314
   Description = Generic Formulation - Alprazolam 0.25mg tablet
   Filename = medicationexample0314.xml
 
  -- Row 17 -----------------------------------
+  Name = Generic
   Identity = med0315
   Description = Generic Formulation - Mometasone Furoate 0.05mg/Actuat
   Filename = medicationexample0315.xml
 
  -- Row 18 -----------------------------------
+  Name = Generic
   Identity = med0316
   Description = Generic Formulation - Fully populated example of a Medication - Chlorthalidone
   Filename = medicationexample0316.xml
 
  -- Row 19 -----------------------------------
+  Name = Compound
   Identity = med0317
   Description = Compounded Preparation - KCl in D5W Admixture - includes a reference to a substance in the ingredient element
   Filename = medicationexample0317.xml
 
  -- Row 20 -----------------------------------
+  Name = Compound
   Identity = med0318
   Description = Compounded Preparation - TPN Solution  - includes a reference to a substance in the ingredient element
   Filename = medicationexample0318.xml
 
  -- Row 21 -----------------------------------
+  Name = Compound
   Identity = med0319
   Description = Compounded Preparation - HC 1%, Salicylic Acid 5% in Glaxal Base  - includes a reference to a substance in the ingredient element
   Filename = medicationexample0319.xml
 
  -- Row 22 -----------------------------------
+  Name = Generic
   Identity = med0320
   Description = Generic Formulation - Azithromycin 250mg oral capsule - includes a reference to a substance in the Ingredient element
   Filename = medicationexample0320.xml
 
  -- Row 23 -----------------------------------
+  Name = Generic
   Identity = med0321
   Description = Generic Formulation - Oral Chemotherapy Example - Capecitabine – includes a reference to a substance in the Ingredient element
   Filename = medicationexample0321.xml

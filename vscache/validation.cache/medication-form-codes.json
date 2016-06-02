@@ -7,6 +7,11 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://snomed.info/sct|null|385005001|Tablet dose form (qualifier value)",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|385024007|Oral Suspension",
       "severity": null,
       "message": null,
@@ -50,6 +55,33 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://snomed.info/sct|null|385057009|Film-coated tablet (qualifier value)",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|385101003|Ointment",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "385101003",
+        "definition": null,
+        "display": "Ointment"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|385157007|Nasal Spray",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "385157007",
+        "definition": null,
+        "display": "Nasal spray"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|385218009|Injection",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
@@ -64,6 +96,26 @@
         "definition": null,
         "display": "Injection solution"
       }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|385219001|Injection Solution (qualifier value)",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|385219001|Injection solution (qualifier vallue)",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|385219001|Injection solution (qualifier value)",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|387048002|Oral suspension (qualifier value)",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|420317006|Inhaler (qualifier value)",
@@ -87,6 +139,11 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|421637006|Lyophilized powder for injectable solution (qualifier value) ",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|440131009|Oral dosage form product",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
@@ -98,6 +155,11 @@
     },
     {
       "hash": "#|http://snomed.info/sct|null|48582000|Caplet",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|75359005|Opthalmic Solution (qualifier value)",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
