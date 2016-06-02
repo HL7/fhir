@@ -95,6 +95,11 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://loinc.org|null|11383-7|Patient problem outcome",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://loinc.org|null|11450-4|Problem list",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
@@ -232,7 +237,22 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://loinc.org|null|61146-7|Goals",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|62387-6|Interventions provided",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://loinc.org|null|69730-0| Instructions",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|75310-3|Health concerns document",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },

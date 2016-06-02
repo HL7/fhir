@@ -27,6 +27,7 @@ import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
+import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
@@ -38,6 +39,7 @@ import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.utils.Turtle;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
+import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
 import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
 import org.hl7.fhir.igtools.renderers.ValidationPresenter;
@@ -55,6 +57,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 
 /**
  * Implementation Guide Publisher
@@ -94,8 +97,9 @@ public class Publisher {
   private String pathToSpec;
   private String configFile;
   private String output;
+  private String tool;
   private String txServer = "http://local.healthintersections.com.au:960/open";
-  private boolean reside;
+  private boolean watch;
 
   private String igName;
   
@@ -115,6 +119,7 @@ public class Publisher {
   private List<Resource> loaded = new ArrayList<Resource>();
   private ImplementationGuide ig;
   private List<ValidationOutcomes> errs = new ArrayList<ValidationOutcomes>();
+  private JsonObject configuration;
 
   private void execute() throws Exception {
     initialize();
@@ -124,7 +129,7 @@ public class Publisher {
     generate();
     log("  ... Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errs, Utilities.path(validationDir, "validation.html")));
 
-    while (reside) { // terminated externally
+    while (watch) { // terminated externally
       System.out.println("Watching for changes on a 5sec cycle");
       wait(5000);
       if (load()) {
@@ -138,8 +143,13 @@ public class Publisher {
 
   private void initialize() throws Exception {
     log("Load Configuration");
-    JsonObject obj = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
-    igName = Utilities.path(Utilities.getDirectoryForFile(configFile), obj.get("source").getAsString());
+    if (Utilities.noString(tool))
+      throw new Exception("Error: command line must include a -tool parameter");
+    if (!"jekyll".equals(tool))
+      throw new Exception("Error: -tool parameter '"+tool+"' not recognised");
+      
+    configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
+    igName = Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("source").getAsString());
 
     log("Publish "+igName);
 
@@ -165,7 +175,9 @@ public class Publisher {
     try {
     context = SimpleWorkerContext.fromClassPath("igpack.zip");
     } catch (NullPointerException npe) {
-      context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\igpack.zip");
+      System.out.println("Unable to find igpack.zip in the jar");
+      npe.printStackTrace();
+      context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\temp\\igpack.zip");
     }
     context.setAllowLoadingDuplicates(true);
     log("Connect to Terminology Server");
@@ -176,7 +188,7 @@ public class Publisher {
     loadSpecDetails(context.getBinaries().get("spec.internals"));
     ValidationOutcomes e = new ValidationOutcomes(new InternalFile());
     errs.add(e);
-    igpkp = new IGKnowledgeProvider(context, pathToSpec, obj, e);
+    igpkp = new IGKnowledgeProvider(context, pathToSpec, configuration, e);
     igpkp.loadSpecPaths(specDetails.get("paths").getAsJsonObject());
     for (String s : context.getBinaries().keySet())
       if (needFile(s)) {
@@ -227,6 +239,7 @@ public class Publisher {
         FetchedFile f = fetcher.fetch(res.getSource(), igf);
         needToBuild = noteFile(res, f) || needToBuild;
         determineType(f);
+        igpkp.findConfiguration(f);
       }     
     }
 
@@ -311,7 +324,7 @@ public class Publisher {
         if (f.getResource() == null)
           f.setResource(parse(f));
         BaseConformance bc = (BaseConformance) f.getResource();
-        igpkp.checkForPath(bc);
+        igpkp.checkForPath(f, bc);
         context.seeResource(bc.getUrl(), bc);
       }
     }
@@ -356,6 +369,8 @@ public class Publisher {
     else
       throw new Exception("Unable to determine file type for "+file.getName());
     file.setId(file.getElement().getChildValue("id"));
+    if (file.getConfig() == null)
+      igpkp.findConfiguration(file);
   }
 
   private void generate() throws Exception {
@@ -369,10 +384,25 @@ public class Publisher {
   private void generateSummaryOutputs() throws IOException {
     JsonObject data = new JsonObject();
     data.addProperty("path", pathToSpec);
+    data.addProperty("canonical", igpkp.getCanonical());
+    data.addProperty("errorCount", getErrorCount());
     
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(data);
     TextFile.stringToFile(json, Utilities.path(dataDir, "fhir.json"));    
+  }
+
+  private Number getErrorCount() {
+    int result = 0;
+    for (ValidationOutcomes v : errs) {
+      int i = 0;
+      for (ValidationMessage vm : v.getErrors()) {
+        if (vm.getLevel() == IssueSeverity.ERROR || vm.getLevel() == IssueSeverity.FATAL)
+          i++;
+      }
+      result = result + i;
+    }
+    return result;
   }
 
   private void log(String s) {
@@ -388,19 +418,19 @@ public class Publisher {
     if (f.getResource() != null) { // we only do this for conformance resources we've already loaded
       switch (f.getResource().getResourceType()) {
       case CodeSystem:
-        generateOutputsCodeSystem((CodeSystem) f.getResource());
+        generateOutputsCodeSystem(f, (CodeSystem) f.getResource());
         break;
       case ValueSet:
-        generateOutputsValueSet((ValueSet) f.getResource());
+        generateOutputsValueSet(f, (ValueSet) f.getResource());
         break;
       case ConceptMap:
-        generateOutputsConceptMap((ConceptMap) f.getResource());
+        generateOutputsConceptMap(f, (ConceptMap) f.getResource());
         break;
         
       case DataElement:
         break;
       case StructureDefinition:
-        generateOutputsStructureDefinition((StructureDefinition) f.getResource());
+        generateOutputsStructureDefinition(f, (StructureDefinition) f.getResource());
         break;
       case StructureMap:
         break;
@@ -409,11 +439,33 @@ public class Publisher {
       }      
     }
     
-//    NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
-//    gen.generate(f.getElement(), false);
-//    xhtml = getXhtml(f);
-//    html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
-//    fragment(f.getId()+"-gen-html", html);
+  }
+
+  private boolean wantGen(FetchedFile f, String code) {
+    if (f.getConfig() != null && hasBoolean(f.getConfig(), code))
+      return getBoolean(f.getConfig(), code);
+    JsonObject cfg = configuration.getAsJsonObject("defaults");
+    if (cfg != null)
+      cfg = cfg.getAsJsonObject(f.getType().toString());
+    if (cfg != null && hasBoolean(cfg, code))
+      return getBoolean(cfg, code);
+    cfg = configuration.getAsJsonObject("defaults");
+    if (cfg != null)
+      cfg = cfg.getAsJsonObject("Any");
+    if (cfg != null && hasBoolean(cfg, code))
+      return getBoolean(cfg, code);
+    return true;
+  }
+
+
+  private boolean hasBoolean(JsonObject obj, String code) {
+    JsonElement e = obj.get(code);
+    return e != null && e instanceof JsonPrimitive && ((JsonPrimitive) e).isBoolean();
+  }
+
+  private boolean getBoolean(JsonObject obj, String code) {
+    JsonElement e = obj.get(code);
+    return e != null && e instanceof JsonPrimitive && ((JsonPrimitive) e).getAsBoolean();
   }
 
   /**
@@ -426,31 +478,46 @@ public class Publisher {
    * @throws Exception
    */
   private void saveDirectResourceOutputs(FetchedFile f) throws FileNotFoundException, Exception {
-    new org.hl7.fhir.dstu3.metamodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
-    new org.hl7.fhir.dstu3.metamodel.JsonParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".json")), OutputStyle.PRETTY, "??");
-    new org.hl7.fhir.dstu3.metamodel.TurtleParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".ttl")), OutputStyle.PRETTY, "??");
-    
-    XmlXHtmlRenderer x = new XmlXHtmlRenderer();
-    org.hl7.fhir.dstu3.metamodel.XmlParser xp = new org.hl7.fhir.dstu3.metamodel.XmlParser(context);
-    xp.setLinkResolver(igpkp);
-    xp.compose(f.getElement(), x);
-    fragment(f.getId()+"-xml-html", x.toString());
+    if (wantGen(f, "xml"))
+      new org.hl7.fhir.dstu3.metamodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
+    if (wantGen(f, "json"))
+      new org.hl7.fhir.dstu3.metamodel.JsonParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".json")), OutputStyle.PRETTY, "??");
+    if (wantGen(f, "ttl"))
+      new org.hl7.fhir.dstu3.metamodel.TurtleParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".ttl")), OutputStyle.PRETTY, "??");
 
-    JsonXhtmlRenderer j = new JsonXhtmlRenderer();
-    org.hl7.fhir.dstu3.metamodel.JsonParser jp = new org.hl7.fhir.dstu3.metamodel.JsonParser(context);
-    jp.setLinkResolver(igpkp);
-    jp.compose(f.getElement(), j);
-    fragment(f.getId()+"-json-html", j.toString());
+    if (wantGen(f, "xml-html")) {
+      XmlXHtmlRenderer x = new XmlXHtmlRenderer();
+      org.hl7.fhir.dstu3.metamodel.XmlParser xp = new org.hl7.fhir.dstu3.metamodel.XmlParser(context);
+      xp.setLinkResolver(igpkp);
+      xp.compose(f.getElement(), x);
+      fragment(f.getId()+"-xml-html", x.toString());
+    }
+    if (wantGen(f, "json-html")) {
+      JsonXhtmlRenderer j = new JsonXhtmlRenderer();
+      org.hl7.fhir.dstu3.metamodel.JsonParser jp = new org.hl7.fhir.dstu3.metamodel.JsonParser(context);
+      jp.setLinkResolver(igpkp);
+      jp.compose(f.getElement(), j);
+      fragment(f.getId()+"-json-html", j.toString());
+    }
 
-    org.hl7.fhir.dstu3.metamodel.TurtleParser ttl = new org.hl7.fhir.dstu3.metamodel.TurtleParser(context);
-    ttl.setLinkResolver(igpkp);
-    Turtle rdf = new Turtle();
-    ttl.compose(f.getElement(), rdf, "??");
-    fragment(f.getId()+"-ttl-html", rdf.asHtml());
-    
-    XhtmlNode xhtml = getXhtml(f);
-    String html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
-    fragment(f.getId()+"-html", html);    
+    if (wantGen(f, "ttl-html")) {
+      org.hl7.fhir.dstu3.metamodel.TurtleParser ttl = new org.hl7.fhir.dstu3.metamodel.TurtleParser(context);
+      ttl.setLinkResolver(igpkp);
+      Turtle rdf = new Turtle();
+      ttl.compose(f.getElement(), rdf, "??");
+      fragment(f.getId()+"-ttl-html", rdf.asHtml());
+    }
+
+    if (wantGen(f, "html")) {
+      XhtmlNode xhtml = getXhtml(f);
+      String html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
+      fragment(f.getId()+"-html", html);  
+    }
+//  NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
+//  gen.generate(f.getElement(), false);
+//  xhtml = getXhtml(f);
+//  html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
+//  fragment(f.getId()+"-gen-html", html);
   }
 
   /**
@@ -461,11 +528,13 @@ public class Publisher {
    * @param resource
    * @throws IOException 
    */
-  private void generateOutputsCodeSystem(CodeSystem cs) throws IOException {
-    // TODO Auto-generated method stub
-    fragmentError(cs.getId()+"-cs-summary", "yet to be done: code system summary");
-    fragmentError(cs.getId()+"-cs-content", "yet to be done: code system definition");
-    fragmentError(cs.getId()+"-cs-xref", "yet to be done: list of all value sets where the code system is used");
+  private void generateOutputsCodeSystem(FetchedFile f, CodeSystem cs) throws IOException {
+    if (wantGen(f, "summary")) 
+      fragmentError(cs.getId()+"-cs-summary", "yet to be done: code system summary");
+    if (wantGen(f, "content")) 
+      fragmentError(cs.getId()+"-cs-content", "yet to be done: code system definition");
+    if (wantGen(f, "xref")) 
+      fragmentError(cs.getId()+"-cs-xref", "yet to be done: list of all value sets where the code system is used");
   }
 
   /**
@@ -480,26 +549,31 @@ public class Publisher {
    * @throws IOException
    * @throws FHIRException 
    */
-  private void generateOutputsValueSet(ValueSet vs) throws IOException, FHIRException {
+  private void generateOutputsValueSet(FetchedFile f, ValueSet vs) throws IOException, FHIRException {
     ValueSetRenderer vsr = new ValueSetRenderer(context, pathToSpec, vs, igpkp);
-    fragment(vs.getId()+"-vs-summary", vsr.summary());
-    try {
-      fragment(vs.getId()+"-vs-cld", vsr.cld());
-    } catch (Exception e) {
-      fragmentError(vs.getId()+"-vs-cld", e.getMessage());
-    }
+    if (wantGen(f, "summary")) 
+      fragment(vs.getId()+"-vs-summary", vsr.summary());
+    if (wantGen(f, "cld")) 
+      try {
+        fragment(vs.getId()+"-vs-cld", vsr.cld());
+      } catch (Exception e) {
+        fragmentError(vs.getId()+"-vs-cld", e.getMessage());
+      }
 
-    fragment(vs.getId()+"-vs-xref", vsr.xref());
-    ValueSetExpansionOutcome exp = context.expandVS(vs, true);
-    if (exp.getValueset() != null) {
-      NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
-      gen.generate(exp.getValueset(), false);
-      String html = new XhtmlComposer().compose(exp.getValueset().getText().getDiv());
-      fragment(vs.getId()+"-expansion", html);
-    } else if (exp.getError() != null) 
-      fragmentError(vs.getId()+"-expansion", exp.getError());
-    else 
-      fragmentError(vs.getId()+"-expansion", exp.getError());
+    if (wantGen(f, "xref")) 
+      fragment(vs.getId()+"-vs-xref", vsr.xref());
+    if (wantGen(f, "expansion")) { 
+      ValueSetExpansionOutcome exp = context.expandVS(vs, true);
+      if (exp.getValueset() != null) {
+        NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
+        gen.generate(exp.getValueset(), false);
+        String html = new XhtmlComposer().compose(exp.getValueset().getText().getDiv());
+        fragment(vs.getId()+"-expansion", html);
+      } else if (exp.getError() != null) 
+        fragmentError(vs.getId()+"-expansion", exp.getError());
+      else 
+        fragmentError(vs.getId()+"-expansion", exp.getError());
+    }
   }
 
   private void fragmentError(String name, String error) throws IOException {
@@ -514,36 +588,55 @@ public class Publisher {
    * @param resource
    * @throws IOException 
    */
-  private void generateOutputsConceptMap(ConceptMap cm) throws IOException {
-    fragmentError(cm.getId()+"-cm-summary", "yet to be done: concept map summary");
-    fragmentError(cm.getId()+"-cm-content", "yet to be done: table presentation of the concept map");
-    fragmentError(cm.getId()+"-cm-xref", "yet to be done: list of all places where concept map is used");
+  private void generateOutputsConceptMap(FetchedFile f, ConceptMap cm) throws IOException {
+    if (wantGen(f, "summary")) 
+      fragmentError(cm.getId()+"-cm-summary", "yet to be done: concept map summary");
+    if (wantGen(f, "content")) 
+      fragmentError(cm.getId()+"-cm-content", "yet to be done: table presentation of the concept map");
+    if (wantGen(f, "xref")) 
+      fragmentError(cm.getId()+"-cm-xref", "yet to be done: list of all places where concept map is used");
   }
 
-  private void generateOutputsStructureDefinition(StructureDefinition sd) throws Exception {
+  private void generateOutputsStructureDefinition(FetchedFile f, StructureDefinition sd) throws Exception {
     // todo : generate shex itself
-    fragmentError(sd.getId()+"-shex", "yet to be done: shex as html");
-    
+    if (wantGen(f, "shex")) 
+      fragmentError(sd.getId()+"-shex", "yet to be done: shex as html");
+
     // todo : generate schematron itself
-    fragmentError(sd.getId()+"-sch", "yet to be done: schematron as html");
+    if (wantGen(f, "sch")) 
+      fragmentError(sd.getId()+"-sch", "yet to be done: schematron as html");
 
     // todo : generate json schema itself
-    fragmentError(sd.getId()+"-json-schema", "yet to be done: json schema as html");
-    
+    if (wantGen(f, "json-schema")) 
+      fragmentError(sd.getId()+"-json-schema", "yet to be done: json schema as html");
+
     StructureDefinitionRenderer sdr = new StructureDefinitionRenderer(context, pathToSpec+"/", sd, Utilities.path(contentDir), igpkp, specDetails.getAsJsonObject("maps"));
-    fragment(sd.getId()+"-sd-summary", sdr.summary());
-    fragment(sd.getId()+"-header", sdr.header());
-    fragment(sd.getId()+"-diff", sdr.diff(igpkp.getDefinitions(sd)));
-    fragment(sd.getId()+"-snapshot", sdr.snapshot(igpkp.getDefinitions(sd)));
-    fragmentError(sd.getId()+"-xml", "yet to be done: Xml template");
-    fragmentError(sd.getId()+"-json", "yet to be done: Json template");
-    fragmentError(sd.getId()+"-ttl", "yet to be done: Turtle template");
-    fragmentError(sd.getId()+"-uml", "yet to be done: UML as SVG");
-    fragment(sd.getId()+"-tx", sdr.tx());
-    fragment(sd.getId()+"-inv", sdr.inv());
-    fragment(sd.getId()+"-dict", sdr.dict());
-    fragment(sd.getId()+"-maps", sdr.mappings());
-    fragmentError(sd.getId()+"-sd-xref", "Yet to be done: xref");
+    if (wantGen(f, "summary")) 
+      fragment(sd.getId()+"-sd-summary", sdr.summary());
+    if (wantGen(f, "header")) 
+      fragment(sd.getId()+"-header", sdr.header());
+    if (wantGen(f, "diff")) 
+      fragment(sd.getId()+"-diff", sdr.diff(igpkp.getDefinitions(sd)));
+    if (wantGen(f, "snapshot")) 
+      fragment(sd.getId()+"-snapshot", sdr.snapshot(igpkp.getDefinitions(sd)));
+    if (wantGen(f, "template-xml")) 
+      fragmentError(sd.getId()+"-template-xml", "yet to be done: Xml template");
+    if (wantGen(f, "template-json")) 
+      fragmentError(sd.getId()+"-template-json", "yet to be done: Json template");
+    if (wantGen(f, "template-ttl")) 
+      fragmentError(sd.getId()+"-template-ttl", "yet to be done: Turtle template");
+    if (wantGen(f, "uml")) 
+      fragmentError(sd.getId()+"-uml", "yet to be done: UML as SVG");
+    if (wantGen(f, "tx")) 
+      fragment(sd.getId()+"-tx", sdr.tx());
+    if (wantGen(f, "inv")) 
+      fragment(sd.getId()+"-inv", sdr.inv());
+    if (wantGen(f, "dict")) 
+      fragment(sd.getId()+"-dict", sdr.dict());
+    if (wantGen(f, "maps")) 
+      fragment(sd.getId()+"-maps", sdr.mappings());
+    if (wantGen(f, "xref")) 
+      fragmentError(sd.getId()+"-sd-xref", "Yet to be done: xref");
   }
 
   private XhtmlNode getXhtml(FetchedFile f) {
@@ -558,8 +651,12 @@ public class Publisher {
   }
 
   private void fragment(String name, String content) throws IOException {
-    TextFile.stringToFile(content, Utilities.path(includesDir, name+".xhtml"), false);
-    TextFile.stringToFile(pageWrap(content, name), Utilities.path(validationDir, name+".html"), true);
+    File f = new File(Utilities.path(includesDir, name+".xhtml"));
+    String s = f.exists() ? TextFile.fileToString(f.getAbsolutePath()) : "";
+    if (!s.equals(content)) { 
+      TextFile.stringToFile(content, Utilities.path(includesDir, name+".xhtml"), false);
+      TextFile.stringToFile(pageWrap(content, name), Utilities.path(validationDir, name+".html"), true);
+    }
   }
 
   private String pageWrap(String content, String title) {
@@ -581,22 +678,25 @@ public class Publisher {
     self.output = getNamedParam(args, "-out");
     self.pathToSpec = getNamedParam(args, "-spec");
     self.setTxServer(getNamedParam(args, "-tx"));
-    self.reside = hasParam(args, "-reside");
+    self.setTool(getNamedParam(args, "-tool"));
+    self.watch = hasParam(args, "-watch");
 
     if (self.configFile == null || self.pathToSpec == null) {
       System.out.println("");
       System.out.println("To use this publisher, run with the commands");
       System.out.println("");
-      System.out.println("-ig [source] -out [folder] -spec [path] -tx [url] -reside ");
+      System.out.println("-ig [source] -tool [tool] -out [folder] -spec [path] -tx [url] -watch");
       System.out.println("");
       System.out.println("-ig: a path or a url where the implementation guide control file is found");
       System.out.println("  see Wiki for Documentation");
+      System.out.println("-tool: The tool that will be used for the second step. Choices: ");
+      System.out.println("  jekyll: Content organised for Jekyll");
       System.out.println("-out: a local folder where the output from the IG publisher will be generated");
       System.out.println("-spec: the location of the FHIR specification relative to the guide");
       System.out.println("  (can be an absolute URL, or relative if the guide will be published with FHIR)");
       System.out.println("-tx: (optional) Address to use for terminology server ");
       System.out.println("  (default is http://fhir3.healthintersections.com.au)");
-      System.out.println("-reside (optional): if this is present, the publisher will not terminate;");
+      System.out.println("-watch (optional): if this is present, the publisher will not terminate;");
       System.out.println("  instead, it will stay running, an watch for changes to the IG or its ");
       System.out.println("  contents and re-run when it sees changes ");
       System.out.println("");
@@ -614,6 +714,10 @@ public class Publisher {
       }
   }
 
+
+  public void setTool(String tool) {
+    this.tool = tool;
+  }
 
   private void setTxServer(String s) {
     if (!Utilities.noString(s))

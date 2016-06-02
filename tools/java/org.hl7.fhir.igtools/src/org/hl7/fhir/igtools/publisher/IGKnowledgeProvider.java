@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.hl7.fhir.dstu3.metamodel.ParserBase;
@@ -38,11 +39,11 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
 
   private IWorkerContext context;
   private JsonObject specPaths;
-  private Map<String, JsonObject> igPaths = new HashMap<String, JsonObject>();
   private Set<String> msgs = new HashSet<String>();
   private String pathToSpec;
   private String canonical;
   private ValidationOutcomes errors;
+  private JsonObject resourceConfig;
   
   public IGKnowledgeProvider(IWorkerContext context, String pathToSpec, JsonObject igs, ValidationOutcomes errors) throws Exception {
     super();
@@ -57,27 +58,23 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     if (e == null)
       throw new Exception("You must define a canonicalBase in the json file");
     canonical = e.getAsString();
-    JsonArray a = igs.getAsJsonArray("paths");
-    if (a == null)
-      throw new Exception("You must provide paths in the json file");
-    for (JsonElement i : a) {
-      if (!(i instanceof JsonObject))
-        throw new Exception("Unexpected type in paths - must be an object");
-      JsonObject o = (JsonObject) i;
-      JsonElement p = o.get("url");
-      if (p == null)
-        throw new Exception("You must provide a URL on each path in the json file");
-      if (igPaths.containsKey(p.getAsString()))
-        throw new Exception("Duplicated URL "+p.getAsString()+" on path in the json file");
-      igPaths.put(p.getAsString(), o);
-      p = o.get("base");
-      if (p == null)
-        throw new Exception("You must provide a base on each path in the json file");
-      if (!(p instanceof JsonPrimitive))
-        throw new Exception("Unexpected type in paths - base must be an primitive");
-      p = o.get("defns");
-      if (p != null && !(p instanceof JsonPrimitive))
-        throw new Exception("Unexpected type in paths - defns must be an primitive");
+    resourceConfig = igs.getAsJsonObject("resources");
+    if (resourceConfig == null)
+      throw new Exception("You must provide a list of resources in the json file");
+    for (Entry<String, JsonElement> pp : resourceConfig.entrySet()) {
+      if (!pp.getKey().startsWith("_")) {
+        if (!(pp.getValue() instanceof JsonObject))
+          throw new Exception("Unexpected type in resource list - must be an object");
+        JsonObject o = (JsonObject) pp.getValue();
+        JsonElement p = o.get("base");
+        if (p == null)
+          throw new Exception("You must provide a base on each path in the json file");
+        if (!(p instanceof JsonPrimitive))
+          throw new Exception("Unexpected type in paths - base must be an primitive");
+        p = o.get("defns");
+        if (p != null && !(p instanceof JsonPrimitive))
+          throw new Exception("Unexpected type in paths - defns must be an primitive");
+      }
     }
   }
 
@@ -90,17 +87,28 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     }    
   }
 
-  public void checkForPath(BaseConformance bc) {
+  public void findConfiguration(FetchedFile f) {
+    JsonObject e = resourceConfig.getAsJsonObject(canonical+"/"+f.getType().toString()+"/"+f.getId());
+    if (e == null)
+      e = resourceConfig.getAsJsonObject(f.getType().toString()+"/"+f.getId());
+    if (e == null)
+      e = resourceConfig.getAsJsonObject(f.getId());
+    if (e == null)
+      error("no configuration found for "+canonical+"/"+f.getType().toString()+"/"+f.getId());
+    else 
+      f.setConfig(e);
+  }
+
+  
+  public void checkForPath(FetchedFile f, BaseConformance bc) {
     if (!bc.getUrl().endsWith("/"+bc.getId()))
       error("Resource id/url mismatch: "+bc.getId()+"/"+bc.getUrl());
-    JsonObject e = igPaths.get(bc.getUrl());
-    if (e == null)
-      e = igPaths.get(bc.getId());
-    if (e == null)
-      e = igPaths.get(bc.getResourceType().toString()+"/"+bc.getId());
-    if (e == null)
-      error("No Paths for Resource: "+bc.getUrl());
-    else
+    f.setId(bc.getId());
+    if (f.getConfig() == null)
+      findConfiguration(f);
+    JsonObject e = f.getConfig();
+    bc.setUserData("config", e);
+    if (e != null) 
       bc.setUserData("path", e.get("base").getAsString());
   }
 
@@ -128,11 +136,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   }
 
   public String getDefinitions(StructureDefinition sd) {
-    JsonObject e = igPaths.get(sd.getUrl());
-    if (e == null)
-      e = igPaths.get(sd.getId());
-    if (e == null)
-      e = igPaths.get(sd.getResourceType().toString()+"/"+sd.getId());
+    JsonObject e = (JsonObject) sd.getUserData("config");
     if (e == null)
       error("No Paths for Resource: "+sd.getUrl());
     else {
@@ -274,5 +278,9 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     return false;
   }
 
-  
+  public String getCanonical() {
+    return canonical;
+  }
+
+
 }

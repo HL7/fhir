@@ -46,19 +46,19 @@ public class ShExValidator {
 
   public void validate(String dataFile, String schemaFile) throws Exception {
 //    log.info("Reading data file " + dataFile);
-    Model dataModel = RDFDataMgr.loadModel(dataFile);
+//    Model dataModel = RDFDataMgr.loadModel(dataFile);
 //    log.info("Model read. Size = " + dataModel.size());
 
 
 //    log.info("Reading shapes file " + schemaFile);
-    Tuple2<Schema,PrefixMap> pair = readSchema(schemaFile);
-
-    Schema schema = pair._1();
-    PrefixMap pm = pair._2();
+//    Tuple2<Schema,PrefixMap> pair = readSchema(schemaFile);
 //
-//    log.info("Schema read" + schema.show());
-
-    validate(dataModel,schema,pm);
+//    Schema schema = pair._1();
+//    PrefixMap pm = pair._2();
+////
+////    log.info("Schema read" + schema.show());
+//
+//    validate(dataModel,schema,pm);
   }
 
   public Tuple2<Schema,PrefixMap> readSchema(String schemaFile) throws Exception {

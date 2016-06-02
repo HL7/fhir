@@ -93,9 +93,10 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	}
 
 	 public static SimpleWorkerContext fromClassPath(String name) throws IOException, FHIRException {
-	    SimpleWorkerContext res = new SimpleWorkerContext();
-	    res.loadFromStream(SimpleWorkerContext.class.getResourceAsStream(name));
-	    return res;
+	   InputStream s = SimpleWorkerContext.class.getResourceAsStream("/"+name);
+	   SimpleWorkerContext res = new SimpleWorkerContext();
+	   res.loadFromStream(s);
+	   return res;
 	  }
 
 	public static SimpleWorkerContext fromDefinitions(Map<String, byte[]> source) throws IOException, FHIRException {

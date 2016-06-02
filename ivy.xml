@@ -54,6 +54,7 @@
     <dependency org='es.weso' name='weso_utils_2.11' rev='0.0.6' />
     <dependency org='es.weso' name='validating_2.11' rev='0.0.6' />
     <dependency org='es.weso' name='srdf-jvm_2.11' rev='0.0.8' />
+    <dependency org='es.weso' name='stateparser_2.11' rev='0.1.3' />
     <dependency org="org.scala-lang" name="scala-library" rev="2.11.8"/>
     <dependency org="org.scala-lang.modules" name="scala-parser-combinators_2.11" rev="1.0.4"/>
     <dependency org="org.slf4s" name="slf4s-api_2.11" rev="1.7.13"/>    

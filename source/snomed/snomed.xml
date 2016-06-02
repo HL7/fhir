@@ -5606,6 +5606,14 @@
     <display value="Hospital-based outpatient endocrinology clinic"/>
     <display value="Hospital-based outpatient endocrinology clinic (environment)"/>
   </concept>
+  <concept id="73761001" display="Colonoscopy">
+    <display value="Colonoscopy"/>
+    <display value="Colonoscopy, NOS"/>
+    <display value="Endoscopy of colon, NOS"/>
+    <display value="Endoscopy of colon"/>
+    <display value="Endoscopic examination of colon"/>
+    <display value="Colonoscopy (procedure)"/>
+  </concept>
   <concept id="73770003" display="Hospital-based outpatient emergency care center (environment)">
     <display value="Hospital-based outpatient emergency care center"/>
     <display value="Hospital-based outpatient emergency room"/>

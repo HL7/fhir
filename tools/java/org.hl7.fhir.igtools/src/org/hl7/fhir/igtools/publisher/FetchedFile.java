@@ -4,6 +4,8 @@ import org.hl7.fhir.dstu3.metamodel.Element;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceType;
 
+import com.google.gson.JsonObject;
+
 public class FetchedFile {
   private String path;
   private String name;
@@ -15,7 +17,7 @@ public class FetchedFile {
   private ResourceType type;
   private Resource resource;
   private Element element;
-  
+  private JsonObject config;
   
   public String getPath() {
     return path;
@@ -70,6 +72,12 @@ public class FetchedFile {
   }
   public void setId(String id) {
     this.id = id;
+  }
+  public JsonObject getConfig() {
+    return config;
+  }
+  public void setConfig(JsonObject config) {
+    this.config = config;
   }
  
   

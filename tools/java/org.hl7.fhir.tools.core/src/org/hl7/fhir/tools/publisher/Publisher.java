@@ -2399,7 +2399,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml", false);
       zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
       zip.close();
-
+    
       page.log("....IG Builder (1)", LogMessageType.Process);
       zip = new ZipGenerator(page.getFolders().tmpDir + "igpack.zip");
       zip.addFileName("fhir.css", page.getFolders().dstDir + "fhir.css", false);
@@ -5266,8 +5266,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
 //    String source = TextFile.fileToString(Utilities.path(page.getFolders().dstDir, "fhir.schema.json"));
 //    JSONObject rawSchema = new JSONObject(new JSONTokener(source));
-//    org.everit.json.schema.Schema schema = SchemaLoader.load(rawSchema);
 //    try {
+//  org.everit.json.schema.Schema schema = SchemaLoader.load(rawSchema);
 //      schema.validate(new FileInputStream(Utilities.path(page.getFolders().dstDir, n+".json")));
 //    } catch (Exception e) {
 //      issues.add(new ValidationMessage(Source.Schema, IssueType.INVALID, "#", e.getMessage(), IssueSeverity.ERROR));
@@ -5295,17 +5295,14 @@ public class Publisher implements URIResolver, SectionNumberer {
     File f = new File(Utilities.path(page.getFolders().dstDir, n + ".ttl"));
     if (!f.exists())
       return;
+
+//  first, ShEx validation
+    ShExValidator shexval = new ShExValidator();
+    shexval.validate(Utilities.path(page.getFolders().dstDir, n + ".ttl"), Utilities.path(page.getFolders().dstDir, "fhir.shex"));
     
     List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
     validator.validate(issues, new FileInputStream(f), FhirFormat.TURTLE);
     
-////  first, ShEx validation
-//    if (!(new File(Utilities.path(page.getFolders().dstDir, n + ".ttl")).exists()))
-//      return;
-//    
-//    ShExValidator shexval = new ShExValidator();
-//    
-//    shexval.validate(Utilities.path(page.getFolders().dstDir, n + ".ttl"), Utilities.path(page.getFolders().dstDir, "fhir.shex"), "SHEXC");
 //    
  
 //    

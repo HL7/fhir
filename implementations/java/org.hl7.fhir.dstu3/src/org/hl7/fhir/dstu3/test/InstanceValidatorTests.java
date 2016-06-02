@@ -39,25 +39,35 @@ public class InstanceValidatorTests {
 	}
 		
 	private void validate(String path, int errorCount, boolean json) throws Exception {
+		if (json)
+			return;
+		
     if (TestingUtilities.context == null) {
     	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
       ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://local.healthintersections.com.au:960/open");
     }
 
-    System.out.println("Test "+path);
+    System.out.print("\""+path+"\" : { \"errorCount\" : "+Integer.toString(errorCount)+( errorCount == 0 ? "" : ","));
     FileInputStream file = new FileInputStream(Utilities.path("C:\\work\\org.hl7.fhir", path));
 		InstanceValidator val = new InstanceValidator(TestingUtilities.context);
 		List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
 		val.validate(errors, file, json ? FhirFormat.JSON : FhirFormat.XML);
 		int ec = 0;
+		boolean first = true;
 		for (ValidationMessage m : errors) {
 			if (m.getLevel() == IssueSeverity.ERROR || m.getLevel() == IssueSeverity.FATAL) {
 				ec++;
-	      System.out.println("  "+m.summary());
+				if (first) {
+					first = false;
+				  System.out.print("\"errors\" : [ ");
+				} else
+					System.out.print(", ");
+	      System.out.print(" \""+Utilities.escapeJson(m.getMessage())+"\"");
 			}
 		}
+    System.out.println(errorCount == 0 ? "}," : first ? "}," : "]},");
 		Assert.assertTrue(ec == errorCount);
-		System.out.println(val.reportTimes());
+//		System.out.println(val.reportTimes());
   }
 		
 //	@Test

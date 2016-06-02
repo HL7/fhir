@@ -66,6 +66,11 @@
         "definition": null,
         "display": "Summary of episode note"
       }
+    },
+    {
+      "hash": "#|http://loinc.org|null|52521-2|Overall Plan of Care/Advance Care Directives",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }
