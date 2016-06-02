@@ -15,11 +15,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>15800</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>15080</WindowHeight>
+  <WindowWidth>28160</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>460</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1109,7 +1110,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-18]C[1]"><Data ss:Type="String">summary-OxygenSat</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'2708-6'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'%'**&#13;</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">&quot;####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'59408-5'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'%'**&#13;&quot;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-18]C[1]"><Data ss:Type="String">summary-BMI</Data></Cell>
@@ -1162,8 +1163,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>28</ActiveRow>
-     <RangeSelection>R29C2:R41C2</RangeSelection>
+     <ActiveRow>49</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9340,6 +9340,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="HeartRate">
@@ -12006,6 +12007,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>
@@ -14677,6 +14679,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="BodyHeight">
@@ -17342,6 +17345,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>
@@ -20011,6 +20015,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="HeadCircum">
@@ -22678,6 +22683,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="OxygenSat">
@@ -22915,7 +22921,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">2708-6</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">59408-5</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
@@ -25338,13 +25344,13 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>2</ActiveCol>
-     <RangeSelection>R7</RangeSelection>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>
@@ -28010,6 +28016,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="BSA">
@@ -30671,6 +30678,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>
@@ -33336,6 +33344,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="BP">
@@ -35938,6 +35947,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>
@@ -38556,6 +38566,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>
@@ -45225,6 +45236,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Sheet24">
@@ -47940,6 +47952,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>
@@ -50659,6 +50672,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Sheet26">
@@ -53375,6 +53389,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>

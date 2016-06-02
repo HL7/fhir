@@ -1,0 +1,3 @@
+//Get the average, min, max and count of a series of BP measurements for a patient
+GET [base]/Observation/$stats?patient=13&code=55284-4&duration=1&params=average,min,max,count
+
