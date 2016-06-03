@@ -388,7 +388,7 @@ public class TurtleParser extends ParserBase {
     else if (type.equals("integer"))
       xst = "^^xsd:int";
     else if (type.equals("unsignedInt"))
-      xst = "^^xsd:noNegativeInteger";
+      xst = "^^xsd:nonNegativeInteger";
     else if (type.equals("positiveInt"))
       xst = "^^xsd:positiveInteger";
     else if (type.equals("decimal"))

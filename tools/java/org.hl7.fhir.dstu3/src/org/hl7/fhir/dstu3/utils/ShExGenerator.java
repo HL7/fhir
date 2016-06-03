@@ -172,7 +172,6 @@ public class ShExGenerator {
 
 
     for (StructureDefinition sd : uniq_structures) {
-      System.out.println("Emitting: " + sd.getName() + ":" + sd.getUrl());
       shapeDefinitions.append(genShapeDefinition(sd, true));
     }
 
