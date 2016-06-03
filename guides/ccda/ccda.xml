@@ -256,6 +256,16 @@
             <reference value="http://hl7.org/fhir/StructureDefinition/ccda-operative-note-composition"/>
           </exampleFor> -->
     </resource>
+    <resource>
+      <example value="true"/>
+      <name value="Example Procedure Note"/>
+      <description value="Example Procedure Note"/>
+      <acronym value="procedure-note-example"/>
+      <sourceUri value="Example/procedure-note-example.xml"/>
+      <!-- <exampleFor>
+            <reference value="http://hl7.org/fhir/StructureDefinition/ccda-procedure-note-composition"/>
+          </exampleFor> -->
+    </resource>
    <resource>
      <name value="V3 Data type ANY (DataValue)"/>
      <sourceUri value="CDA\cda-logical-ANY.xml"/>
