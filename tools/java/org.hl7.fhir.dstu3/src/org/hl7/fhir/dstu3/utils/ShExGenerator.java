@@ -21,8 +21,9 @@ public class ShExGenerator {
           "$shapeDefinitions$";
 
   // A header is a list of prefixes, a base declaration and a start node
+  private static String FHIR = "http://hl7.org/fhir/";
   private static String HEADER_TEMPLATE =
-          "PREFIX fhir: <http://hl7.org/fhir/> \n" +
+          "PREFIX fhir: <$fhir$> \n" +
           "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \n" +
           "BASE <http://hl7.org/fhir/shape/>\n\n" +
           "start=<$id$>";
@@ -99,11 +100,14 @@ public class ShExGenerator {
    * emittedInnerTypes -- set of inner types that have been generated
    * datatypes, emittedDatatypes -- types used in the definition, types that have been generated
    * references -- Reference types (Patient, Specimen, etc)
+   * uniq_structures -- set of structures on the to be generated list...
    * doDataTypes -- whether or not to emit the data types.
    */
   private HashSet<Pair<StructureDefinition, ElementDefinition>> innerTypes, emittedInnerTypes;
   private HashSet<String> datatypes, emittedDatatypes;
   private HashSet<String> references;
+  private LinkedList<StructureDefinition> uniq_structures;
+  private HashSet<String> uniq_structure_urls;
   private boolean doDatatypes = true;
 
   public ShExGenerator(IWorkerContext context) {
@@ -150,12 +154,25 @@ public class ShExGenerator {
    */
   public String generate(HTMLLinkPolicy links, List<StructureDefinition> structures) {
     ST shex_def = tmplt(SHEX_TEMPLATE);
-    shex_def.add("header", tmplt(HEADER_TEMPLATE).add("id", structures.get(0).getId()).render());
+    shex_def.add("header", tmplt(HEADER_TEMPLATE).add("id", structures.get(0).getId()).add("fhir", FHIR).render());
 
     Collections.sort(structures, new SortById());
     StringBuilder shapeDefinitions = new StringBuilder();
 
+    // For unknown reasons, the list of structures carries duplicates.  We remove them
+    // Also, it is possible for the same sd to have multiple hashes...
+    uniq_structures = new LinkedList<StructureDefinition>();
+    uniq_structure_urls = new HashSet<String>();
     for (StructureDefinition sd : structures) {
+      if (!uniq_structure_urls.contains(sd.getUrl())) {
+        uniq_structures.add(sd);
+        uniq_structure_urls.add(sd.getUrl());
+      }
+    }
+
+
+    for (StructureDefinition sd : uniq_structures) {
+      System.out.println("Emitting: " + sd.getName() + ":" + sd.getUrl());
       shapeDefinitions.append(genShapeDefinition(sd, true));
     }
 
@@ -185,6 +202,8 @@ public class ShExGenerator {
    * @return ShEx definition
    */
   private String genShapeDefinition(StructureDefinition sd, boolean top_level) {
+    if("xhtml".equals(sd.getName()) || "Reference".equals(sd.getName()))
+      return "";
     ST shape_defn = tmplt(SHAPE_DEFINITION_TEMPLATE);
     shape_defn.add("id", sd.getId());
 
@@ -244,7 +263,9 @@ public class ShExGenerator {
         if (!emittedDatatypes.contains(dt)) {
           StructureDefinition sd = context.fetchResource(StructureDefinition.class,
                   "http://hl7.org/fhir/StructureDefinition/" + dt);
-          if (sd != null)
+          // TODO: Figure out why the line below doesn't work
+          // if (sd != null && !uniq_structures.contains(sd))
+          if(sd != null && !uniq_structure_urls.contains(sd.getUrl()))
             dtDefs.append("\n").append(genShapeDefinition(sd, false));
           emittedDatatypes.add(dt);
         }
