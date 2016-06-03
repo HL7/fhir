@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd">
+  <id value="f202"/>
+ <code>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="387544009"/>
+       <display value="Flucloxacillin"/>
+    </coding>
+ </code>
+ <isBrand value="false"/>
+ <product> 
+  <form>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="385218009"/>
+       <display value="Injection"/>
+    </coding>
+  </form>
+ </product>
+</Medication>
