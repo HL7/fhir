@@ -246,6 +246,16 @@
             <reference value="http://hl7.org/fhir/StructureDefinition/ccda-history-and-physical-composition"/>
           </exampleFor> -->
     </resource>
+    <resource>
+      <example value="true"/>
+      <name value="Example Operative Note"/>
+      <description value="Example Operative Note"/>
+      <acronym value="operative-note-example"/>
+      <sourceUri value="Example/operative-note-example.xml"/>
+      <!-- <exampleFor>
+            <reference value="http://hl7.org/fhir/StructureDefinition/ccda-operative-note-composition"/>
+          </exampleFor> -->
+    </resource>
    <resource>
      <name value="V3 Data type ANY (DataValue)"/>
      <sourceUri value="CDA\cda-logical-ANY.xml"/>
