@@ -9,19 +9,19 @@
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-05-24T09:17:50Z</LastSaved>
+  <LastSaved>2016-06-05T06:38:29Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6795</WindowHeight>
+  <WindowHeight>7500</WindowHeight>
   <WindowWidth>19170</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>11</ActiveSheet>
+  <FirstVisibleSheet>7</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1213,15 +1213,6 @@
    </Borders>
    <Interior ss:Color="#C6E0B4" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s221">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
-   </Borders>
-   <Interior/>
-  </Style>
   <Style ss:ID="s223" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
@@ -1262,6 +1253,83 @@
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s228">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s229">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s230">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s231">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s232">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s233">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s234">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s235">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s236">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+  </Style>
+  <Style ss:ID="s237">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s238">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
   </Style>
  </Styles>
  <Names>
@@ -1307,9 +1375,9 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R140C26" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R142C26" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="154" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="156" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="189.75"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="77.25"/>
@@ -2918,7 +2986,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">0;120</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">0;100</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2974,7 +3042,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Patient's list of diagnosis</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Patient's diagnosis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The diagnosis.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2992,6 +3060,77 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s235">
+    <Cell ss:StyleID="s228"><Data ss:Type="String">Claim.diagnosis.type</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><Data ss:Type="String">0..*</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><Data ss:Type="String">Coding</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><Data ss:Type="String">DiagnosisType</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><Data ss:Type="String">Type of Diagnosis</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s230"><Data ss:Type="String">The type of the Diagnosis, for example: admitting, </Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s231"><Data ss:Type="String">Required to adjudicate services rendered to the mandated diagnosis grouping system.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s230"><Data ss:Type="String">Diagnosis are presented in list order to their expected importance: primary, secondary, etc.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s230"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s232"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s231"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s232"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s232"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s232"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s232"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s233"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s232"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s234"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s235">
+    <Cell ss:StyleID="s228"><Data ss:Type="String">Claim.diagnosis.drg</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><Data ss:Type="String">Coding</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><Data ss:Type="String">DiagnosisRelatedGroup</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s229"><Data ss:Type="String">Diagnosis Related Group</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s230"><Data ss:Type="String">The Diagnosis Related Group (DRG) code based on the assigned grouping code system.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s231"><Data ss:Type="String">Required to adjudicate services rendered to the mandated diagnosis grouping system.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s230"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s230"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s232"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s231"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s232"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s232"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s232"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s232"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s233"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s232"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s234"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s97">
     <Cell ss:StyleID="s98"><Data ss:Type="String">!Procedure Information</Data><NamedCell
@@ -6188,7 +6327,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">Supervision Practitioner</Data></Cell>
     <Cell><Data ss:Type="String">The practitioner who is supervising the work of the servicing provider(s).</Data></Cell>
    </Row>
-   <Row ss:Index="150" ss:AutoFitHeight="0">
+   <Row ss:Index="152" ss:AutoFitHeight="0">
     <Cell ss:StyleID="s136"><Data ss:Type="String">!Oral Health Specific</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
@@ -6342,13 +6481,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>120</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>88</TopRowBottomPane>
+   <TopRowBottomPane>25</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>20</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6364,14 +6502,15 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>91</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>28</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R29</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R140C26"
+  <AutoFilter x:Range="R1C1:R142C26"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -8958,7 +9097,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="41" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="42" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s178" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s178" ss:Width="114.75"/>
    <Column ss:StyleID="s178" ss:AutoFitWidth="0" ss:Width="274.5"/>
@@ -8970,7 +9109,8 @@
    <Column ss:StyleID="s178" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s178" ss:AutoFitWidth="0" ss:Width="172.5"/>
    <Column ss:StyleID="s178" ss:AutoFitWidth="0" ss:Width="165.75" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s178" ss:AutoFitWidth="0" ss:Width="106.5"/>
+   <Column ss:Index="13" ss:StyleID="s178" ss:AutoFitWidth="0" ss:Width="109.5"/>
+   <Column ss:StyleID="s178" ss:AutoFitWidth="0" ss:Width="288.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s168"><Data ss:Type="String">Binding Name</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -9481,7 +9621,7 @@
     <Cell ss:StyleID="s184"/>
     <Cell ss:StyleID="s184"/>
     <Cell ss:StyleID="s184"/>
-    <Cell ss:StyleID="s184"><Data ss:Type="String">http://hl7.org/fhir/sid/icd-10</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s184"><Data ss:Type="String">http://hl7.org/fhir/sid/icd-10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s213"><Data ss:Type="String">ProgramCode</Data></Cell>
@@ -9588,22 +9728,37 @@
     <Cell ss:StyleID="s184"/>
     <Cell ss:StyleID="s185"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.75">
-    <Cell ss:StyleID="s221"><Data ss:Type="String">InformationReason</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75" ss:StyleID="s236">
+    <Cell ss:StyleID="s237"><Data ss:Type="String">InformationReason</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Reason codes for the missing teeth</Data></Cell>
     <Cell ss:StyleID="s184"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s184"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s184"><Data ss:Type="String">valueset-missing-tooth-reason</Data></Cell>
-    <Cell ss:StyleID="s188"/>
-    <Cell ss:StyleID="s188"/>
-    <Cell ss:StyleID="s188"/>
-    <Cell ss:StyleID="s188"/>
-    <Cell ss:StyleID="s188"/>
-    <Cell ss:StyleID="s188"/>
-    <Cell ss:StyleID="s188"/>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s184"/>
+    <Cell ss:StyleID="s184"/>
+    <Cell ss:StyleID="s184"/>
+    <Cell ss:StyleID="s184"/>
+    <Cell ss:StyleID="s184"/>
+    <Cell ss:StyleID="s184"/>
+    <Cell ss:StyleID="s184"/>
+    <Cell ss:StyleID="s184"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.75"/>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s238"><Data ss:Type="String">DiagnosisRelatedGroup</Data></Cell>
+    <Cell><Data ss:Type="String">The DRG codes associated with the diagnosis</Data></Cell>
+    <Cell ss:StyleID="s184"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s184"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s184"><Data ss:Type="String">valueset-ex-diagnosisrelatedgroup</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String" x:Ticked="1">http://hl7.org/fhir/ex-diagnosisrelatedgroup</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s238"><Data ss:Type="String">DiagnosisType</Data></Cell>
+    <Cell><Data ss:Type="String">The type of the diagnosis: admitting, principal, discharge</Data></Cell>
+    <Cell ss:StyleID="s184"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s184"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s184"><Data ss:Type="String">valueset-ex-diagnosistype</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">http://hl7.org/fhir/ex-diagnosistype</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -9620,9 +9775,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>31</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -9630,6 +9785,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -9637,7 +9793,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>43</ActiveRow>
+     <ActiveRow>37</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R38</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -11505,6 +11663,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

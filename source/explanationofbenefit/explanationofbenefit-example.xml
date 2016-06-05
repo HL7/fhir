@@ -21,7 +21,10 @@
   </claimResponseReference> -->
   <type value="oral"/>
   <created value="2014-08-16"/>
-
+  <outcome>
+    <system value="http://hl7.org/fhir/remittanceoutcome" />
+	<code value="complete" />
+  </outcome>
   <disposition value="Claim settled as per contract."/>
  
   <organizationReference>

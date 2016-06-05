@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ex-diagnosistype"/>
+  <name value="Example Diagnosis Type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes example Diagnosis Type codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="admitting"/>
+    <display value="Admitting Diagnosis"/>
+    <definition value="The diagnosis given as the reason why the patient was admitted to the hospital."/>
+  </concept>
+  <concept>
+    <code value="clinical"/>
+    <display value="Clinical Diagnosis"/>
+    <definition value="A diagnosis made on the basis of medical signs and patient-reported symptoms, rather than diagnostic tests."/>
+  </concept>
+  <concept>
+    <code value="differential"/>
+    <display value="Differential Diagnosis"/>
+    <definition value="One of a set of the possible diagnoses that could be connected to the signs, symptoms, and lab findings."/>
+  </concept>
+  <concept>
+    <code value="discharge"/>
+    <display value="Discharge Diagnosis"/>
+    <definition value="The diagnosis given when the patient is discharged from the hospital."/>
+  </concept>
+  <concept>
+    <code value="laboratory"/>
+    <display value="Laboratory Diagnosis"/>
+    <definition value="A diagnosis based significantly on laboratory reports or test results, rather than the physical examination of the patient."/>
+  </concept>
+  <concept>
+    <code value="nursing"/>
+    <display value="Nursing Diagnosis"/>
+    <definition value="A diagnosis which identifies people's responses to situations in their lives, such as a readiness to change or a willingness to accept assistance."/>
+  </concept>
+  <concept>
+    <code value="prenatal"/>
+    <display value="Prenatal Diagnosis"/>
+    <definition value="A diagnosis determined prior to birth."/>
+  </concept>
+  <concept>
+    <code value="principal"/>
+    <display value="Principal Diagnosis"/>
+    <definition value="The single medical diagnosis that is most relevant to the patient's chief complaint or need for treatment."/>
+  </concept>
+  <concept>
+    <code value="radiology"/>
+    <display value="Radiology Diagnosis"/>
+    <definition value="A diagnosis based primarily on the results from medical imaging studies."/>
+  </concept>
+  <concept>
+    <code value="remote"/>
+    <display value="Remote Diagnosis"/>
+    <definition value="A diagnosis determined using telemedicine techniques."/>
+  </concept>
+  <concept>
+    <code value="retrospective"/>
+    <display value="Retrospective Diagnosis"/>
+    <definition value="The labeling of an illness in a specific historical event using modern knowledge, methods and disease classifications."/>
+  </concept>
+  <concept>
+    <code value="self"/>
+    <display value="Self Diagnosis"/>
+    <definition value="A diagnosis determined by the patient."/>
+  </concept>
+</CodeSystem>

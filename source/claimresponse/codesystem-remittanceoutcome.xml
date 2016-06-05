@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/remittanceoutcome"/>
+  <name value="Claim Processing Outcome Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes Claim Processing Outcome codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="complete"/>
+    <display value="Processing Complete"/>
+    <definition value="The processing has completed without errors"/>
+  </concept>
+  <concept>
+    <code value="error"/>
+    <display value="Error"/>
+    <definition value="One or more erros have been detected in the Claim"/>
+  </concept>
+  <concept>
+    <code value="partial"/>
+    <display value="Partial Processing"/>
+    <definition value="No errors have been detected in the Claim and some of the adjudication has been performed."/>
+  </concept>
+</CodeSystem>

@@ -32,7 +32,10 @@
     <reference value="Organization/1"/>
   </requestOrganizationReference>
 -->
-  <outcome value="complete"/>
+  <outcome>
+    <system value="http://hl7.org/fhir/remittanceoutcome" />
+	<code value="complete" />
+  </outcome>
  
   <disposition value="Claim settled as per contract."/>
 

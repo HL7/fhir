@@ -4,20 +4,20 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
-  <name value="Example Onset Type (Reason) Codes"/>
+  <name value="Claim Processing Codes"/>
   <status value="draft"/>
-  <publisher value="Financial Management"/>
+  <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
       <system value="other"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes example Onset Type (Reason) codes."/>
+  <description value="This value set includes a Claim Processing Outcome codes."/>
   <copyright value="This is an example set."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/ex-onsettype"/>
+      <system value="http://hl7.org/fhir/remittanceoutcome"/>
     </include>
   </compose>
 </ValueSet>
