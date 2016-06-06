@@ -275,7 +275,7 @@ public class TurtleParser extends ParserBase {
     Subject subject;
     String id = e.getChildValue("id");
     if (base != null && id != null)
-      subject = section.triple("<" + base + "/" + e.getType() + "/" + id + ">", "a", "fhir:" + e.getType());
+      subject = section.triple("<" + base + e.getType() + ((base.endsWith("/") || base.endsWith("#"))? "" : "/") + id + ">", "a", "fhir:" + e.getType());
     else
       subject = section.triple("", "a", "fhir:" + e.getType());
     subject.linkedPredicate("fhir:nodeRole", "fhir:treeRoot", linkResolver == null ? null : linkResolver.resolvePage("rdf.html#tree-root"));
@@ -359,7 +359,7 @@ public class TurtleParser extends ParserBase {
     else if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY)
       en = "Bundle.entry.resource";
     else // CONTAINED
-      en = "Resource.contained";
+      en = "DomainResource.contained";
 
     if (en == null)
       en = element.getProperty().getDefinition().getPath();
