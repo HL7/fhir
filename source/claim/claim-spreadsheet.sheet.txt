@@ -627,7 +627,7 @@
   Card. = 0..*
   UML = 740;0
   Type = =Information
-  Definition = Additional information codes regarding the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
+  Definition = Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
   Requirements = Typically these information codes are required to support the services rendered or the adjudication of the services rendered.
 
  -- Row 36 -----------------------------------
@@ -641,7 +641,7 @@
 
  -- Row 37 -----------------------------------
   Element = Claim.information.code
-  Card. = 1..1
+  Card. = 0..1
   Type = Coding
   Binding = InformationCode
   Short Label = Type of information
