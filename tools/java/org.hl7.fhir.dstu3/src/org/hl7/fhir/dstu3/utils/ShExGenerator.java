@@ -4,6 +4,7 @@ import java.util.*;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.Property;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -33,7 +34,11 @@ public class ShExGenerator {
   //      an optional resource declaration (type + treeRoot)
   //      the list of element declarations
   //      an optional index element (for appearances inside ordered lists)
-  private static String SHAPE_DEFINITION_TEMPLATE = "<$id$> {$resourceDecl$$elements$;\n\tfhir:index xsd:integer?\n}\n";
+  private static String SHAPE_DEFINITION_TEMPLATE = "<$id$> CLOSED {$resourceDecl$$elements$;\n\tfhir:index xsd:integer?\n}\n";
+
+  // Resource Definition
+  //      an open shape of type Resource
+  private static String RESOURCE_SHAPE_TEMPLATE = "<$id$> {a .+;\n\t$elements$;\n\tfhir:index xsd:integer?\n}\n";
 
   // Resource Declaration
   //      a type node
@@ -81,7 +86,7 @@ public class ShExGenerator {
 //  fhir:Reference.display @<string>?
   // Note: link was originally "fhir:link (@<$refType$> OR IRI)?"; but we pulled the refType until we can figure
   //       out how best to address it
-  private static String TYPED_REFERENCE_TEMPLATE = "\n<$refType$Reference> {\n" +
+  private static String TYPED_REFERENCE_TEMPLATE = "\n<$refType$Reference> CLOSED {\n" +
                                                    "\tfhir:Element.id @<id>?;\n" +
                                                    "\tfhir:Element.extension @<Extension>*;\n" +
                                                    "\tfhir:link IRI?;\n" +
@@ -103,7 +108,7 @@ public class ShExGenerator {
    * uniq_structures -- set of structures on the to be generated list...
    * doDataTypes -- whether or not to emit the data types.
    */
-  private HashSet<Pair<StructureDefinition, ElementDefinition>> innerTypes, emittedInnerTypes;
+  private HashSet<Pair<StructureDefinition, String>> innerTypes, emittedInnerTypes;
   private HashSet<String> datatypes, emittedDatatypes;
   private HashSet<String> references;
   private LinkedList<StructureDefinition> uniq_structures;
@@ -113,8 +118,8 @@ public class ShExGenerator {
   public ShExGenerator(IWorkerContext context) {
     super();
     this.context = context;
-    innerTypes = new HashSet<Pair<StructureDefinition, ElementDefinition>>();
-    emittedInnerTypes = new HashSet<Pair<StructureDefinition, ElementDefinition>>();
+    innerTypes = new HashSet<Pair<StructureDefinition, String>>();
+    emittedInnerTypes = new HashSet<Pair<StructureDefinition, String>>();
     datatypes = new HashSet<String>();
     emittedDatatypes = new HashSet<String>();
     references = new HashSet<String>();
@@ -201,18 +206,20 @@ public class ShExGenerator {
    * @return ShEx definition
    */
   private String genShapeDefinition(StructureDefinition sd, boolean top_level) {
-    if("xhtml".equals(sd.getName()) || "Reference".equals(sd.getName()))
+    if("xhtml".equals(sd.getName()))
       return "";
-    ST shape_defn = tmplt(SHAPE_DEFINITION_TEMPLATE);
+    ST shape_defn = tmplt("Resource".equals(sd.getName())? RESOURCE_SHAPE_TEMPLATE : SHAPE_DEFINITION_TEMPLATE);
     shape_defn.add("id", sd.getId());
 
-    if(sd.getKind().name().equals("RESOURCE")) {
-      ST resource_decl = tmplt(RESOURCE_DECL_TEMPLATE).
-              add("id", sd.getId()).
-              add("root", top_level? tmplt(ROOT_TEMPLATE) : "");
-      shape_defn.add("resourceDecl", resource_decl.render());
-    } else {
-      shape_defn.add("resourceDecl", "");
+    if(!"Resource".equals(sd.getName())) {
+      if (sd.getKind().name().equals("RESOURCE")) {
+        ST resource_decl = tmplt(RESOURCE_DECL_TEMPLATE).
+                add("id", sd.getId()).
+                add("root", top_level ? tmplt(ROOT_TEMPLATE) : "");
+        shape_defn.add("resourceDecl", resource_decl.render());
+      } else {
+        shape_defn.add("resourceDecl", "");
+      }
     }
 
     // Generate the defining elements
@@ -241,7 +248,7 @@ public class ShExGenerator {
   private String emitInnerTypes() {
     StringBuilder itDefs = new StringBuilder();
     while(emittedInnerTypes.size() < innerTypes.size()) {
-      for (Pair<StructureDefinition, ElementDefinition> it : new HashSet<Pair<StructureDefinition, ElementDefinition>>(innerTypes)) {
+      for (Pair<StructureDefinition, String> it : new HashSet<Pair<StructureDefinition, String>>(innerTypes)) {
         if (!emittedInnerTypes.contains(it)) {
           itDefs.append("\n").append(genInnerTypeDef(it.getLeft(), it.getRight()));
           emittedInnerTypes.add(it);
@@ -295,16 +302,27 @@ public class ShExGenerator {
 
     List<ElementDefinition> children = ProfileUtilities.getChildList(sd, ed);
     if (children.size() > 0) {
-      // inline anonymous type - give it a name and factor it out
-      innerTypes.add(new ImmutablePair<StructureDefinition, ElementDefinition>(sd, ed));
+      innerTypes.add(new ImmutablePair<StructureDefinition, String>(sd, id));
       defn = tmplt(SIMPLE_ELEMENT_DEFN_TEMPLATE).add("typ", id).render();
     } else if (ed.getType().size() == 1) {
       // Single entry
       defn = genTypeRef(sd, ed, id, ed.getType().get(0));
     } else if (ed.getContentReference() != null) {
       // Reference to another element
-      String typ = id.substring(0, id.indexOf(".") + 1) + ed.getContentReference().substring(1);
-      defn = tmplt(SIMPLE_ELEMENT_DEFN_TEMPLATE).add("typ", typ).render();
+      String ref = ed.getContentReference();
+      if(!ref.startsWith("#"))
+        throw new AssertionError("Not equipped to deal with absolute path references: " + ref);
+      String refPath = null;
+      for(ElementDefinition ed1: sd.getSnapshot().getElement()) {
+        if(ed1.getId() != null && ed1.getId().equals(ref.substring(1))) {
+          refPath = ed1.getPath();
+          break;
+        }
+      }
+      if(refPath == null)
+        throw new AssertionError("Reference path not found: " + ref);
+      // String typ = id.substring(0, id.indexOf(".") + 1) + ed.getContentReference().substring(1);
+      defn = tmplt(SIMPLE_ELEMENT_DEFN_TEMPLATE).add("typ", refPath).render();
     } else if(id.endsWith("[x]")) {
       defn = genChoiceTypes(sd, ed, id);
     } else {
@@ -331,7 +349,7 @@ public class ShExGenerator {
         return genReference("", typ);
       else if(ProfileUtilities.getChildList(sd, ed).size() > 0) {
         // inline anonymous type - give it a name and factor it out
-        innerTypes.add(new ImmutablePair<StructureDefinition, ElementDefinition>(sd, ed));
+        innerTypes.add(new ImmutablePair<StructureDefinition, String>(sd, id));
         return tmplt(SIMPLE_ELEMENT_DEFN_TEMPLATE).add("typ", id).render();
       }
       else {
@@ -433,18 +451,17 @@ public class ShExGenerator {
 
   /**
    * Generate a definition for a referenced element
-   * @param sd StructureDefinition in which the element was referenced
-   * @param ed Contained element definition
+   * @param sd Containing structure definition
+   * @param path Path to inner reference
    * @return ShEx representation of element reference
    */
-  private String genInnerTypeDef(StructureDefinition sd, ElementDefinition ed) {
+  private String genInnerTypeDef(StructureDefinition sd, String path) {
     ST element_reference = tmplt(SHAPE_DEFINITION_TEMPLATE);
     element_reference.add("resourceDecl", "");  // Not a resource
-    element_reference.add("id", ed.getPath());
+    element_reference.add("id", path);
 
     List<String> elements = new ArrayList<String>();
-
-    for (ElementDefinition child: ProfileUtilities.getChildList(sd, ed))
+    for (ElementDefinition child: ProfileUtilities.getChildList(sd, path))
       elements.add(genElementDefinition(sd, child));
 
     element_reference.add("elements", StringUtils.join(elements, ";\n\t"));
