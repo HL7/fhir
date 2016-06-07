@@ -23,6 +23,7 @@ import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.DateTimeType;
+import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.GuideDependencyType;
@@ -38,6 +39,8 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.dstu3.utils.IWorkerContext;
+import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.tools.converters.CodeSystemConvertor;
@@ -170,6 +173,7 @@ public class IgParser {
         } else if (rt == ResourceType.StructureDefinition) {
           StructureDefinition sd;
           sd = (StructureDefinition) new XmlParser().parse(new CSFileInputStream(fn));
+          new ProfileUtilities(context, null, pkp).setIds(sd, sd.getId());
           if (sd.getKind() == StructureDefinitionKind.LOGICAL) {
             fn = new CSFile(Utilities.path(myRoot, r.getSourceUriType().asStringValue()));
             LogicalModel lm = new LogicalModel(sd);
@@ -181,6 +185,7 @@ public class IgParser {
             sd.setId(tail(sd.getUrl()));
             sd.setUserData(ToolResourceUtilities.NAME_RES_IG, igd.getCode());
             ToolResourceUtilities.updateUsage(sd, igd.getCode());
+            
             this.context.seeExtensionDefinition("http://hl7.org/fhir", sd);            
           } else {
             Profile pr = new Profile(igd.getCode());

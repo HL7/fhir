@@ -69,6 +69,31 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://loinc.org|null|10216-0|Operative Note Fluids",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|10218-6|Postoperative Diagnosis",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|10219-4|Preoperative Diagnosis",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|10223-6|Operative Note Surgical Procedure",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|11329-0|Medical (general) history",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://loinc.org|null|11348-0|History of past illness",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
@@ -115,6 +140,11 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://loinc.org|null|11537-8|Surgical Drains",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://loinc.org|null|18776-5|Plan of treatment",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
@@ -142,6 +172,11 @@
     },
     {
       "hash": "#|http://loinc.org|null|29545-1|Physical findings",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|29554-3|Procedure description",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -228,6 +263,61 @@
     },
     {
       "hash": "#|http://loinc.org|null|51848-0|Assessment (evaluation)",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|55109-3|Complications",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|59768-2|Procedure indications",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|59769-0|Postprocedure diagnosis",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|59770-8|Procedure Estimated Blood Loss",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|59770-8|Procedure estimated blood loss",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|59771-6|Procedure implants",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|59772-4|Planned procedure",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|59773-2|Procedure specimens taken",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|59774-0|Anesthesia",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|59775-7|Procedure disposition",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|59776-5|Procedure findings",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },

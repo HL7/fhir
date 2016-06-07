@@ -51,7 +51,7 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
   <derivation value="constraint"/>
   <snapshot>
-    <element>
+    <element id="DiagnosticReport">
       <path value="DiagnosticReport"/>
       <name value="LipidProfile"/>
       <short value="Lipid Lab Report"/>
@@ -69,7 +69,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.extension">
       <path value="DiagnosticReport.extension"/>
       <slicing>
         <discriminator value="url"/>
@@ -91,7 +91,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.text">
       <path value="DiagnosticReport.text"/>
       <short value="Text summary of the resource, for human interpretation"/>
       <definition value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
@@ -112,7 +112,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.contained">
       <path value="DiagnosticReport.contained"/>
       <short value="Contained, inline Resources"/>
       <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
@@ -132,7 +132,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.status">
       <path value="DiagnosticReport.status"/>
       <short value="registered|interim|final|amended|cancelled|withdrawn"/>
       <definition value="The status of the diagnostic report as a whole."/>
@@ -155,7 +155,7 @@
         </valueSetReference>
       </binding>
     </element>
-    <element>
+    <element id="DiagnosticReport.issued">
       <path value="DiagnosticReport.issued"/>
       <short value="Date this version was released"/>
       <definition value="The date and/or time that this version of the report was released from the source diagnostic service."/>
@@ -172,7 +172,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.subject">
       <path value="DiagnosticReport.subject"/>
       <short value="The subject of the report"/>
       <definition value="The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources."/>
@@ -197,7 +197,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.performer">
       <path value="DiagnosticReport.performer"/>
       <short value="Responsible Diagnostic Service"/>
       <definition value="The diagnostic service that is responsible for issuing the report."/>
@@ -215,7 +215,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.identifier">
       <path value="DiagnosticReport.identifier"/>
       <short value="Id for external references to this report"/>
       <definition value="The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider."/>
@@ -231,7 +231,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.request">
       <path value="DiagnosticReport.request"/>
       <short value="What was requested"/>
       <definition value="Details concerning a single pathology test requested."/>
@@ -249,7 +249,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.category">
       <path value="DiagnosticReport.category"/>
       <short value="Biochemistry, Haematology etc."/>
       <definition value="The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI."/>
@@ -271,7 +271,7 @@
         </valueSetReference>
       </binding>
     </element>
-    <element>
+    <element id="DiagnosticReport.effectiveDateTime">
       <path value="DiagnosticReport.effectiveDateTime"/>
       <short value="Diagnostically relevant time of diagnostic report"/>
       <definition value="The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient."/>
@@ -288,7 +288,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.result">
       <path value="DiagnosticReport.result"/>
       <slicing>
         <discriminator value="reference.code"/>
@@ -310,7 +310,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.result.Cholesterol">
       <path value="DiagnosticReport.result"/>
       <name value="Cholesterol"/>
       <short value="Cholesterol Result"/>
@@ -328,7 +328,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.result.Triglyceride">
       <path value="DiagnosticReport.result"/>
       <name value="Triglyceride"/>
       <short value="Triglyceride Result"/>
@@ -346,9 +346,9 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.result.HDLCholesterol">
       <path value="DiagnosticReport.result"/>
-      <name value="HDL Cholesterol"/>
+      <name value="HDLCholesterol"/>
       <short value="HDL Cholesterol Result"/>
       <definition value="Group of elements for HDL Cholesterol result."/>
       <min value="1"/>
@@ -364,9 +364,9 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.result.LDLCholesterol">
       <path value="DiagnosticReport.result"/>
-      <name value="LDL Cholesterol"/>
+      <name value="LDLCholesterol"/>
       <short value="LDL Cholesterol result, if reported"/>
       <definition value="LDL Cholesterol result, if reported."/>
       <min value="0"/>
@@ -382,7 +382,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.conclusion">
       <path value="DiagnosticReport.conclusion"/>
       <short value="Clinical Interpretation of Lipid Panel"/>
       <definition value="May include diagnosis or suggestions for follow up testing."/>
@@ -399,7 +399,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element>
+    <element id="DiagnosticReport.representation">
       <path value="DiagnosticReport.representation"/>
       <short value="Entire Report as issued"/>
       <definition value="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent."/>

@@ -149,7 +149,6 @@ public class ArgonautConverter extends ConverterBase {
 		this.ucumSvc = ucumSvc;
 		validator = new ValidationEngine();
 		validator.readDefinitions(path);
-		validator.setNoSchematron(true);
 		validator.setAnyExtensionsAllowed(true);
 	}
 
@@ -1124,7 +1123,7 @@ public class ArgonautConverter extends ConverterBase {
 						// todo: this is not correct?
 						dosage.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/extensions/medication-statement-range").setValue(convert.makeRangeFromIVLPQ(qty)));
 					} else {
-						dosage.setQuantity(convert.makeQuantityFromPQ(qty));
+						dosage.setDose(convert.makeQuantityFromPQ(qty));
 					}
 				} catch (Exception e) {
 					System.out.println("  invalid dose quantity '"+qty.getAttribute("value")+" "+qty.getAttribute("unit")+"' ("+e.getClass().getName()+") in "+context.baseId);

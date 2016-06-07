@@ -236,6 +236,7 @@ public class ProfileGenerator {
     p.setDifferential(new StructureDefinitionDifferentialComponent());
     ElementDefinition ec = new ElementDefinition();
     p.getDifferential().getElement().add(ec);
+    ec.setId(type.getCode());
     ec.setPath(type.getCode());
     ec.setShort("Primitive Type " +type.getCode());
     ec.setDefinition(type.getDefinition());
@@ -245,6 +246,7 @@ public class ProfileGenerator {
     ec.getType().add(new TypeRefComponent().setCode("Element"));
     ec = new ElementDefinition();
     p.getDifferential().getElement().add(ec);
+    ec.setId(type.getCode()+".value");
     ec.setPath(type.getCode()+".value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     ec.setShort("Primitive value for " +type.getCode());
@@ -271,6 +273,7 @@ public class ProfileGenerator {
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
     ElementDefinition ec1 = new ElementDefinition();
     p.getSnapshot().getElement().add(ec1);
+    ec1.setId(type.getCode());
     ec1.setPath(type.getCode());
     ec1.setShort("Primitive Type " +type.getCode());
     ec1.setDefinition(type.getDefinition());
@@ -282,6 +285,7 @@ public class ProfileGenerator {
 
     ElementDefinition ec2 = new ElementDefinition();
     p.getSnapshot().getElement().add(ec2);
+    ec2.setId(type.getCode()+".id");
     ec2.setPath(type.getCode()+".id");
     ec2.addRepresentation(PropertyRepresentation.XMLATTR);
     ec2.setDefinition("unique id for the element within a resource (for internal references)");
@@ -295,6 +299,7 @@ public class ProfileGenerator {
 
     ElementDefinition ec3 = new ElementDefinition();
     p.getSnapshot().getElement().add(ec3);
+    ec3.setId(type.getCode()+".value");
     ec3.setPath(type.getCode()+".value");
     ec3.addRepresentation(PropertyRepresentation.XMLATTR);
     ec3.setDefinition("The actual value");
@@ -360,6 +365,7 @@ public class ProfileGenerator {
     p.setDifferential(new StructureDefinitionDifferentialComponent());
     ElementDefinition ec = new ElementDefinition();
     p.getDifferential().getElement().add(ec);
+    ec.setId("xhtml");
     ec.setPath("xhtml");
     ec.setShort("Primitive Type " +"xhtml");
     ec.setDefinition("XHTML");
@@ -367,11 +373,13 @@ public class ProfileGenerator {
     ec.setMax("*");
     ec.getType().add(new TypeRefComponent().setCode("Element"));
     ec = new ElementDefinition();
-    ec = new ElementDefinition();
     p.getDifferential().getElement().add(ec);
+    ec.setId("xhtml"+".extension");
     ec.setPath("xhtml"+".extension");
     ec.setMax("0");
+    ec = new ElementDefinition();
     p.getDifferential().getElement().add(ec);
+    ec.setId("xhtml"+".value");
     ec.setPath("xhtml"+".value");
     ec.addRepresentation(PropertyRepresentation.XHTML);
     ec.setShort("Actual xhtml");
@@ -389,6 +397,7 @@ public class ProfileGenerator {
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
     ElementDefinition ec1 = new ElementDefinition();
     p.getSnapshot().getElement().add(ec1);
+    ec1.setId("xhtml");
     ec1.setPath("xhtml");
     ec1.setShort("Primitive Type " +"xhtml");
     ec1.setDefinition("XHTML");
@@ -400,6 +409,7 @@ public class ProfileGenerator {
 
     ElementDefinition ec2 = new ElementDefinition();
     p.getSnapshot().getElement().add(ec2);
+    ec2.setId("xhtml.id");
     ec2.setPath("xhtml.id");
     ec2.addRepresentation(PropertyRepresentation.XMLATTR);
     ec2.setDefinition("unique id for the element within a resource (for internal references)");
@@ -410,10 +420,11 @@ public class ProfileGenerator {
     generateElementDefinition(ec2, ec1);
 
     ElementDefinition ex = makeExtensionSlice("extension", p, p.getSnapshot(), null, "xhtml");
-    ex.getBase().setMax("0");
+    ex.setMax("0");
     
     ElementDefinition ec3 = new ElementDefinition();
     p.getSnapshot().getElement().add(ec3);
+    ec3.setId("xhtml.value");
     ec3.setPath("xhtml.value");
     ec3.addRepresentation(PropertyRepresentation.XHTML);
     ec3.setShort("Actual xhtml");
@@ -474,6 +485,7 @@ public class ProfileGenerator {
     p.setDifferential(new StructureDefinitionDifferentialComponent());
     ElementDefinition ec1 = new ElementDefinition();
     p.getDifferential().getElement().add(ec1);
+    ec1.setId(type.getBase());
     ec1.setPath(type.getBase());
 
     ec1.setShort("Primitive Type " +type.getCode());
@@ -485,6 +497,7 @@ public class ProfileGenerator {
 
     ElementDefinition ec2 = new ElementDefinition();
     p.getDifferential().getElement().add(ec2);
+    ec2.setId(type.getBase()+".value");
     ec2.setPath(type.getBase()+".value");
     ec2.addRepresentation(PropertyRepresentation.XMLATTR);
 
@@ -506,6 +519,7 @@ public class ProfileGenerator {
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
     ElementDefinition ecA = new ElementDefinition();
     p.getSnapshot().getElement().add(ecA);
+    ecA.setId(type.getBase());
     ecA.setPath(type.getBase());
 
     ecA.setShort("Primitive Type " +type.getCode());
@@ -525,6 +539,7 @@ public class ProfileGenerator {
     ElementDefinition ecB = new ElementDefinition();
     p.getSnapshot().getElement().add(ecB);
     ecB.setPath(type.getBase()+".value");
+    ecB.setId(type.getBase()+".value");
     ecB.addRepresentation(PropertyRepresentation.XMLATTR);
 
     ecB.setDefinition("Primitive value for " +type.getCode());
@@ -639,6 +654,7 @@ public class ProfileGenerator {
     // first, the differential
     p.setName(pt.getName());
     ElementDefinition e = new ElementDefinition();
+    String idroot = e.getId();
     e.setPath(pt.getBaseType());
     e.setName(pt.getName());
     e.setShort(pt.getDefinition());
@@ -675,6 +691,7 @@ public class ProfileGenerator {
         ElementDefinition er = findElement(p.getDifferential(), pt.getBaseType()+'.'+parts[0]); 
         if (er == null) { 
           er = new ElementDefinition();
+          er.setId(pt.getBaseType()+':'+p.getId()+'.'+parts[0]);
           er.setPath(pt.getBaseType()+'.'+parts[0]);
           p.getDifferential().getElement().add(er);
         }
@@ -713,6 +730,7 @@ public class ProfileGenerator {
     p.setText(new Narrative());
     p.getText().setStatus(NarrativeStatus.GENERATED);
     p.getText().setDiv(div);
+    new ProfileUtilities(context, issues, pkp).setIds(p, p.getId());
     checkHasTypes(p);
     return p;
   }
@@ -822,7 +840,6 @@ public class ProfileGenerator {
 
   private void reset() {
     paths.clear();
-    pathNames.clear();  
   }
 
   public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, ImplementationGuideDefn usage, List<ValidationMessage> issues) throws Exception {
@@ -920,6 +937,7 @@ public class ProfileGenerator {
     p.setText(new Narrative());
     p.getText().setStatus(NarrativeStatus.GENERATED);
     p.getText().setDiv(div);
+    new ProfileUtilities(context, issues, pkp).setIds(p, p.getId());
     checkHasTypes(p);
     return p;
   }
@@ -1069,11 +1087,12 @@ public class ProfileGenerator {
   private ElementDefinition defineElement(Profile ap, StructureDefinition p, List<ElementDefinition> elements, ElementDefn e, String path, Set<String> slices, List<SliceHandle> parentSlices, SnapShotMode snapshot, boolean root, String defType) throws Exception 
   {
     boolean handleDiscriminator = true;
-    if (!Utilities.noString(e.getProfileName()) && !e.getDiscriminator().isEmpty()) {
+    if (!Utilities.noString(e.getProfileName()) && !e.getDiscriminator().isEmpty() && !slices.contains(path)) {
       handleDiscriminator = false;
       // hey, we jumped straight into the slices with setting up the slicing (allowed in the spreadsheets, but not otherwise)
       ElementDefinition slicer = new ElementDefinition();
       elements.add(slicer);
+      slicer.setId(path);
       slicer.setPath(path);
       processDiscriminator(e, path, slicer);
       if (e.getMaxCardinality() != null)
@@ -1084,7 +1103,9 @@ public class ProfileGenerator {
 
     ElementDefinition ce = new ElementDefinition();
     elements.add(ce);
+//    todo ce.setId(path.substring(path.indexOf(".")+1));
 
+    ce.setId(path);
     ce.setPath(path);
 
     if (e.isXmlAttribute())
@@ -1105,7 +1126,6 @@ public class ProfileGenerator {
       myParents.add(hnd);
       ce.setName(e.getProfileName());
     }
-    addToPaths(myParents, path, ce, p.getName());
 
     if (!Utilities.noString(e.getComments()))
       ce.setComments(e.getComments());
@@ -1139,7 +1159,7 @@ public class ProfileGenerator {
 
     if (!root) {
       if (e.typeCode().startsWith("@"))  {
-        ce.setContentReference("#"+getNameForPath(myParents, e.typeCode().substring(1)));
+        ce.setContentReference("#"+getIdForPath(elements, e.typeCode().substring(1)));
       } else {
         List<TypeRef> expandedTypes = new ArrayList<TypeRef>();
         for (TypeRef t : e.getTypes()) {
@@ -1303,6 +1323,13 @@ public class ProfileGenerator {
     return ce;
   }
 
+  private String getIdForPath(List<ElementDefinition> list, String path) throws Exception {
+    for (ElementDefinition ed : list)
+      if (ed.getPath().equals(path))
+        return ed.getId();
+    throw new Exception("Unable to resolve "+path);
+  }
+
   private void processDiscriminator(ElementDefn e, String path, ElementDefinition ce) throws Exception {
     ce.setSlicing(new ElementDefinitionSlicingComponent());
     ce.getSlicing().setDescription(e.getSliceDescription());
@@ -1381,41 +1408,6 @@ public class ProfileGenerator {
   }
    */
 
-  private void addToPaths(List<SliceHandle> myParents, String path, ElementDefinition ce, String profileName) throws Exception {
-    Map<String, ElementDefinition> pmap = paths;
-    if (!myParents.isEmpty())
-      pmap = myParents.get(myParents.size()-1).paths;
-    if (pmap.containsKey(path))
-      throw new Exception("duplicate path "+path+" on profile "+profileName);
-    pmap.put(path, ce);   
-  }
-
-  private String getNameForElement(ElementDefinition ce) throws Exception {
-    if (ce.getId() == null) {
-      String name = tail(ce.getPath());
-      if (pathNames.contains(name))
-        throw new Exception("Need to improve name generation algorithm (name = "+name+", on path = "+ce.getPath()+")");
-      pathNames.add(name);
-      ce.setId(name);
-    }
-    return ce.getId();
-  }
-
-  private String getNameForPath(List<SliceHandle> myParents, String path) throws Exception {
-    for (int i = myParents.size()-1; i >= 0; i--) {
-      Map<String, ElementDefinition> pmap = myParents.get(i).paths;;
-      if (pmap.containsKey(path))
-        return getNameForElement(pmap.get(path));
-    }
-    Map<String, ElementDefinition> pmap = paths;
-    if (pmap.containsKey(path))
-      return getNameForElement(pmap.get(path));
-    throw new Exception("Unable to find element for path "+path);  
-  }
-
-  private String tail(String path) {
-    return path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path;
-  }
 
   private ElementDefinition makeExtensionSlice(String extensionName, StructureDefinition p, StructureDefinitionSnapshotComponent c, ElementDefn e, String path) throws URISyntaxException, Exception {
     ElementDefinition ex = createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName(definitions, extensionName, false, false));
@@ -1468,6 +1460,7 @@ public class ProfileGenerator {
 
   private ElementDefinition createBaseDefinition(StructureDefinition p, String path, ElementDefn src) throws URISyntaxException {
     ElementDefinition ce = new ElementDefinition();
+    ce.setId(path+"."+src.getName());
     ce.setPath(path+"."+src.getName());
     ce.setShort(src.getShortDefn());
     ce.setDefinition(src.getDefinition());
@@ -1503,6 +1496,7 @@ public class ProfileGenerator {
       ed.setDifferential(new StructureDefinitionDifferentialComponent());
     ed.getDifferential().getElement().add(dst);
     String thisPath = path == null ? "Extension" : path;
+    dst.setId(thisPath);
     dst.setPath(thisPath);
     if (dst.getPath().endsWith(".extension"))
       dst.setName(src.getName());

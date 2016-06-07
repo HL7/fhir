@@ -53,7 +53,7 @@
 
  -- Row 5 -----------------------------------
   Element = DiagnosticReport.result
-  Profile Name = HDL Cholesterol
+  Profile Name = HDLCholesterol
   Card. = 1..1
   Must Support = Y
   Type = Reference(Observation){#HDLCholesterol}
@@ -62,7 +62,7 @@
 
  -- Row 6 -----------------------------------
   Element = DiagnosticReport.result
-  Profile Name = LDL Cholesterol
+  Profile Name = LDLCholesterol
   Card. = 0..1
   Must Support = Y
   Type = Reference(Observation){#LDLCholesterol}

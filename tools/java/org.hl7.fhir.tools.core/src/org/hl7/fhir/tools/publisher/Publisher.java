@@ -956,6 +956,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.getProfiles().put(p.getUrl(), p);
     } else {
       profile.getResource().setUserData("pack", ap);
+      for (ElementDefinition ed : profile.getResource().getDifferential().getElement())
+        if (!ed.hasId())
+          throw new Exception("Missing ID");
       // special case: if the profile itself doesn't claim a date, it's date is the date of this publication
       if (!profile.getResource().hasDate())
         profile.getResource().setDate(page.getGenDate().getTime());

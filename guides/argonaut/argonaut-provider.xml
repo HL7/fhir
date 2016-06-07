@@ -129,7 +129,7 @@
     </element>
     <element>
       <path value="Practitioner.identifier" />
-      <name value="DEA Number" />
+      <name value="DEANumber" />
       <short value="A identifier for the person as this agent" />
       <definition value="An identifier that applies to this person in this role." />
       <requirements value="Often, specific identities are assigned for the agent." />
@@ -293,7 +293,7 @@
     </element>
     <element>
       <path value="Practitioner.identifier" />
-      <name value="Dentist License Number" />
+      <name value="DentistLicenseNumber" />
       <short value="A identifier for the person as this agent" />
       <definition value="An identifier that applies to this person in this role." />
       <requirements value="Often, specific identities are assigned for the agent." />
@@ -457,7 +457,7 @@
     </element>
     <element>
       <path value="Practitioner.identifier" />
-      <name value="Medicaid Number" />
+      <name value="MedicaidNumber" />
       <short value="A identifier for the person as this agent" />
       <definition value="An identifier that applies to this person in this role." />
       <requirements value="Often, specific identities are assigned for the agent." />
@@ -621,7 +621,7 @@
     </element>
     <element>
       <path value="Practitioner.identifier" />
-      <name value="Medicare Number" />
+      <name value="MedicareNumber" />
       <short value="A identifier for the person as this agent" />
       <definition value="An identifier that applies to this person in this role." />
       <requirements value="Often, specific identities are assigned for the agent." />
@@ -1215,7 +1215,7 @@
     </element>
     <element>
       <path value="Practitioner.name.family" />
-      <name value="Last Name" />
+      <name value="LastName" />
       <short value="Last Name" />
       <definition value="The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father." />
       <comments value="Only one family name in US usage" />
@@ -1256,7 +1256,7 @@
     </element>
     <element>
       <path value="Practitioner.name.given" />
-      <name value="first name" />
+      <name value="firstname" />
       <short value="First Name" />
       <definition value="Given name." />
       <comments value="If only initials are recorded, they may be used in place of the full name.  Not called &quot;first name&quot; since given names do not always come first." />
@@ -1285,7 +1285,7 @@
     </element>
     <element>
       <path value="Practitioner.name.given" />
-      <name value="middle name" />
+      <name value="middlename" />
       <short value="Middle Name" />
       <definition value="Given name." />
       <comments value="Is often just an initial&#xD;&#xA;" />
@@ -1702,7 +1702,7 @@
     </element>
     <element>
       <path value="Practitioner.telecom" />
-      <name value="home phone" />
+      <name value="homephone" />
       <short value="A contact detail for the practitioner" />
       <definition value="A contact detail for the practitioner, e.g. a telephone number or an email address." />
       <comments value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification." />
@@ -1843,7 +1843,7 @@
     </element>
     <element>
       <path value="Practitioner.telecom" />
-      <name value="mobile phone" />
+      <name value="mobilephone" />
       <short value="A contact detail for the practitioner" />
       <definition value="A contact detail for the practitioner, e.g. a telephone number or an email address." />
       <comments value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification." />
@@ -1988,7 +1988,7 @@
     </element>
     <element>
       <path value="Practitioner.telecom" />
-      <name value="work phone" />
+      <name value="workphone" />
       <short value="A contact detail for the practitioner" />
       <definition value="A contact detail for the practitioner, e.g. a telephone number or an email address." />
       <comments value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification." />
@@ -2407,7 +2407,7 @@
     </element>
     <element>
       <path value="Practitioner.address.line" />
-      <name value="no name" />
+      <name value="noname" />
       <label value="Address Line 1" />
       <short value="Street name, number, direction &amp; P.O. Box etc." />
       <definition value="This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information." />
@@ -2439,7 +2439,7 @@
     </element>
     <element>
       <path value="Practitioner.address.line" />
-      <name value="no name" />
+      <name value="noname" />
       <label value="Address line 2" />
       <short value="Street name, number, direction &amp; P.O. Box etc." />
       <definition value="This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information." />
@@ -2693,7 +2693,7 @@
     </element>
     <element>
       <path value="Practitioner.practitionerRole.organization.reference" />
-      <name value="Organization ID" />
+      <name value="OrganizationID" />
       <short value="Relative, internal or absolute URL reference" />
       <definition value="A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources." />
       <comments value="Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the URL conforms to the structure &quot;/[type]/[id]&quot; then it should be assumed that the reference is to a FHIR RESTful server." />
@@ -2713,7 +2713,7 @@
     </element>
     <element>
       <path value="Practitioner.practitionerRole.organization.display" />
-      <name value="Clinic name" />
+      <name value="Clinicname" />
       <short value="Common Name of Organization" />
       <definition value="Plain text narrative that identifies the resource in addition to the resource reference." />
       <comments value="This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it." />

@@ -23,9 +23,9 @@
  -- Row 2 -----------------------------------
   Element = Element.@id
   Card. = 0..1
-  Type = id
+  Type = string
   Short Label = xml:id (or equivalent in JSON)
-  Definition = unique id for the element within a resource (for internal references)
+  Definition = unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces
   RIM Mapping = n/a
 
  -- Row 3 -----------------------------------
