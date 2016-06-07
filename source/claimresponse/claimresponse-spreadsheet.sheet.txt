@@ -43,6 +43,13 @@
   Definition = The result of the claim processing
   Conformance = example
 
+ -- Row 7 -----------------------------------
+  Binding Name = PaymentType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/ex-paymenttype
+  Definition = The type (partial, complete) of the payment
+  Conformance = example
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -595,43 +602,58 @@
   Definition = Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductible)
 
  -- Row 77 -----------------------------------
-  Element = ClaimResponse.paymentAdjustment
+  Element = ClaimResponse.payment
+  Card. = 0..1
+  UML = 620;170
+  Type = =Payment
+  Definition = Payment details for the claim if the claim has been paid.
+
+ -- Row 78 -----------------------------------
+  Element = ClaimResponse.payment.type
+  Card. = 0..1
+  Type = Coding
+  Binding = PaymentType
+  Short Label = Partial or Complete
+  Definition = Whether this represents partial or complete payment of the claim.
+
+ -- Row 79 -----------------------------------
+  Element = ClaimResponse.payment.adjustment
   Card. = 0..1
   Type = Money
   Short Label = Payment adjustment for non-Claim issues
   Definition = Adjustment to the payment of this transaction which is not related to adjudication of this transaction.
 
- -- Row 78 -----------------------------------
-  Element = ClaimResponse.paymentAdjustmentReason
+ -- Row 80 -----------------------------------
+  Element = ClaimResponse.payment.adjustmentReason
   Card. = 0..1
   Type = Coding
   Binding = PaymentAdjustmentReason
   Short Label = Reason for Payment adjustment
   Definition = Reason for the payment adjustment.
 
- -- Row 79 -----------------------------------
-  Element = ClaimResponse.paymentDate
+ -- Row 81 -----------------------------------
+  Element = ClaimResponse.payment.date
   Card. = 0..1
   Type = date
   Short Label = Expected data of Payment
   Definition = Estimated payment data
 
- -- Row 80 -----------------------------------
-  Element = ClaimResponse.paymentAmount
+ -- Row 82 -----------------------------------
+  Element = ClaimResponse.payment.amount
   Card. = 0..1
   Type = Money
   Short Label = Payment amount
   Definition = Payable less any payment adjustment.
 
- -- Row 81 -----------------------------------
-  Element = ClaimResponse.paymentRef
+ -- Row 83 -----------------------------------
+  Element = ClaimResponse.payment.identifier
   Card. = 0..1
   Type = Identifier
   Short Label = Payment identifier
   Definition = Payment identifier
   Committee Notes = G01, B.23
 
- -- Row 82 -----------------------------------
+ -- Row 84 -----------------------------------
   Element = ClaimResponse.reserved
   Card. = 0..1
   Type = Coding
@@ -639,7 +661,7 @@
   Short Label = Funds reserved status
   Definition = Status of funds reservation (For provider, for Patient, None).
 
- -- Row 83 -----------------------------------
+ -- Row 85 -----------------------------------
   Element = ClaimResponse.form
   Card. = 0..1
   Type = Coding
@@ -648,7 +670,7 @@
   Definition = The form to be used for printing the content.
   CDAnet v4 Mapping = G42
 
- -- Row 84 -----------------------------------
+ -- Row 86 -----------------------------------
   Element = ClaimResponse.note
   Card. = 0..*
   UML = 20;110
@@ -656,14 +678,14 @@
   Short Label = Processing notes
   Definition = Note text
 
- -- Row 85 -----------------------------------
+ -- Row 87 -----------------------------------
   Element = ClaimResponse.note.number
   Card. = 0..1
   Type = positiveInt
   Short Label = Note Number for this note
   Definition = An integer associated with each note which may be referred to from each service line item.
 
- -- Row 86 -----------------------------------
+ -- Row 88 -----------------------------------
   Element = ClaimResponse.note.type
   Card. = 0..1
   Type = Coding
@@ -671,7 +693,7 @@
   Short Label = display | print | printoper
   Definition = The note purpose: Print/Display.
 
- -- Row 87 -----------------------------------
+ -- Row 89 -----------------------------------
   Element = ClaimResponse.note.text
   Card. = 0..1
   Type = string
@@ -679,10 +701,10 @@
   Definition = The note text.
   CDAnet v4 Mapping = G32
 
- -- Row 88 -----------------------------------
+ -- Row 90 -----------------------------------
   Element = !Insurance Information
 
- -- Row 89 -----------------------------------
+ -- Row 91 -----------------------------------
   Element = ClaimResponse.coverage
   Card. = 0..*
   UML = 620;0
@@ -692,7 +714,7 @@
   Requirements = Health care programs and insurers are significant payors of health service costs
   RIM Mapping = Coverage
 
- -- Row 90 -----------------------------------
+ -- Row 92 -----------------------------------
   Element = ClaimResponse.coverage.sequence
   Card. = 1..1
   Type = positiveInt
@@ -700,7 +722,7 @@
   Definition = A service line item.
   Requirements = To maintain order of the coverages.
 
- -- Row 91 -----------------------------------
+ -- Row 93 -----------------------------------
   Element = ClaimResponse.coverage.focal
   Card. = 1..1
   Type = boolean
@@ -708,7 +730,7 @@
   Definition = The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
   Requirements = To identify which coverage is being adjudicated.
 
- -- Row 92 -----------------------------------
+ -- Row 94 -----------------------------------
   Element = ClaimResponse.coverage.coverage[x]
   Card. = 1..1
   Type = Identifier|Reference(Coverage)
@@ -716,14 +738,14 @@
   Definition = Reference to the program or plan identification, underwriter or payor.
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
 
- -- Row 93 -----------------------------------
+ -- Row 95 -----------------------------------
   Element = ClaimResponse.coverage.businessArrangement
   Card. = 0..1
   Type = string
   Short Label = Business agreement
   Definition = The contract number of a business agreement which describes the terms and conditions.
 
- -- Row 94 -----------------------------------
+ -- Row 96 -----------------------------------
   Element = !ClaimResponse.coverage.relationship
   Card. = 1..1
   Type = Coding
@@ -733,7 +755,7 @@
   Requirements = To determine the relationship between the patient and the subscriber
   CDAnet v4 Mapping = C03
 
- -- Row 95 -----------------------------------
+ -- Row 97 -----------------------------------
   Element = ClaimResponse.coverage.preAuthRef
   Card. = 0..*
   Type = string
@@ -742,7 +764,7 @@
   Requirements = To provide any pre-determination or prior authorization reference.
   CDAnet v4 Mapping = F03
 
- -- Row 96 -----------------------------------
+ -- Row 98 -----------------------------------
   Element = ClaimResponse.coverage.claimResponse
   Card. = 0..1
   Type = Reference(ClaimResponse)
@@ -751,7 +773,7 @@
   Requirements = Used by downstream payers to determine what balance remains and the net payable.
   CDAnet v4 Mapping = EOB
 
- -- Row 97 -----------------------------------
+ -- Row 99 -----------------------------------
   Element = !ClaimResponse.coverage.originalRuleset
   Card. = 0..1
   Type = Coding
@@ -814,7 +836,7 @@
   Name = paymentdate
   Type = date
   Description = The expected paymentDate
-  Path = ClaimResponse.paymentDate
+  Path = ClaimResponse.payment.date
 
 === Sheet Profiles =====================================
 

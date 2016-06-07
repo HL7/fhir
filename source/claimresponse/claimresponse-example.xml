@@ -105,18 +105,23 @@
  </totalBenefit>
 
  <!-- Payment details -->
+ <payment>
+   <type>
+     <system value="http://hl7.org/fhir/ValueSet/ex-paymenttype"/>
+     <code value="complete"/>
+   </type>	
+
+   <date value="2014-08-31"/>
  
- <paymentDate value="2014-08-31"/>
+   <amount>
+	 <value value="100.47"/>
+	 <system value="urn:iso:std:iso:4217"/>
+	 <code value="USD"/>
+   </amount>	
  
- <paymentAmount>
-	<value value="100.47"/>
-	<system value="urn:iso:std:iso:4217"/>
-	<code value="USD"/>
- </paymentAmount>	
- 
- <paymentRef>
-    <system value="http://www.BenefitsInc.com/fhir/paymentRef"/>
-    <value value="201408-2-1569478"/>
- </paymentRef>	
- 
+   <identifier>
+     <system value="http://www.BenefitsInc.com/fhir/paymentidentifier"/>
+     <value value="201408-2-1569478"/>
+   </identifier>	
+ </payment>
 </ClaimResponse>
