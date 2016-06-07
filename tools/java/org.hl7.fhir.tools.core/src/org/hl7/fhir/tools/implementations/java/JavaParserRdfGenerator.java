@@ -773,7 +773,7 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
     write("    if (index > -1)\r\n");
     write("      t.predicate(\"fhir:index\", Integer.toString(index));\r\n");
     write("    if (element.hasIdElement())\r\n");
-    write("      composeId(t, \"Element\", \"id\", element.getIdElement(), -1);\r\n");
+    write("      composeString(t, \"Element\", \"id\", element.getIdElement(), -1);\r\n");
     write("    for (int i = 0; i < element.getExtension().size(); i++)\r\n");
     write("      composeExtension(t, \"Element\", \"extension\", element.getExtension().get(i), i);\r\n");
     write("  }\r\n");
