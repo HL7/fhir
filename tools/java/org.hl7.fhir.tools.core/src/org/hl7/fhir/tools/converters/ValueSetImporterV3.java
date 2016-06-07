@@ -239,7 +239,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
         List<Element> pl = new ArrayList<Element>();
         XMLUtil.getNamedChildren(c, "conceptRelationship", pl);
         for (Element p : pl) {
-          if (p.getAttribute("relationshipName").equals("Sompecializes"))
+          if (p.getAttribute("relationshipName").equals("Specializes"))
             ci.parents.add(XMLUtil.getFirstChild(p).getAttribute("code"));
         }
         codes.add(ci);
