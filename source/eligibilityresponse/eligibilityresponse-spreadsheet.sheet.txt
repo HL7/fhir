@@ -77,7 +77,7 @@
   Card. = 0..1
   Type = code
   Binding = RemittanceOutcome
-  Short Label = complete | error
+  Short Label = complete | error | partial
   Definition = Transaction status: error, complete
 
  -- Row 6 -----------------------------------

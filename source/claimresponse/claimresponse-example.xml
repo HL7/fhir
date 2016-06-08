@@ -33,7 +33,7 @@
   </requestOrganizationReference>
 -->
   <outcome>
-    <system value="http://hl7.org/fhir/remittanceoutcome" />
+    <system value="http://hl7.org/fhir/remittance-outcome" />
 	<code value="complete" />
   </outcome>
  

@@ -39,7 +39,7 @@
  -- Row 6 -----------------------------------
   Binding Name = RemittanceOutcome
   Binding = value set
-  Reference = valueset-remittanceoutcome
+  Reference = valueset-remittance-outcome
   Definition = The result of the claim processing
   Conformance = example
 

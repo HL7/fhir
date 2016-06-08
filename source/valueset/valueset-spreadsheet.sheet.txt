@@ -111,8 +111,8 @@
   Type = DomainResource
   Short Label = A set of codes drawn from one or more code systems
   Definition = A value set specifies a set of codes drawn from one or more code systems.
-  Object Impl = BaseConformance
   RIM Mapping = N/A
+  Object Impl = BaseConformance
   w5 = conformance.terminology
 
  -- Row 2 -----------------------------------
@@ -122,8 +122,8 @@
   Type = uri
   Short Label = Globally unique logical identifier for  value set
   Definition = An absolute URL that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this value set is (or will be) published
-  Object Impl = BaseConformance.url
   RIM Mapping = N/A
+  Object Impl = BaseConformance.url
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -145,8 +145,8 @@
   Short Label = Logical identifier for this version of the value set
   Definition = Used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp
   Comments = There may be multiple resource versions of the value set that have the same identifier
-  Object Impl = BaseConformance.version
   RIM Mapping = N/A
+  Object Impl = BaseConformance.version
   w5 = id.version
 
  -- Row 5 -----------------------------------
@@ -158,8 +158,8 @@
   Definition = A free text natural language name describing the value set
   Requirements = Support human navigation
   Comments = The name is not expected to be unique. A name should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a name
-  Object Impl = BaseConformance.name
   RIM Mapping = N/A
+  Object Impl = BaseConformance.name
 
  -- Row 6 -----------------------------------
   Element = ValueSet.status
@@ -172,8 +172,8 @@
   Definition = The status of the value set
   Requirements = Identify when/if the value set should be used.
   Comments = Allows filtering of value set instances that are appropriate (or not) for use
-  Object Impl = BaseConformance.status
   RIM Mapping = N/A
+  Object Impl = BaseConformance.status
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -231,8 +231,8 @@
   Definition = The date that the value set status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes (e.g. the \'content logical definition\')
   Requirements = Need to know when a value set was first legal for use or became withdrawn or replaced.
   Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the value set. Additional specific dates may be added as extensions
-  Object Impl = BaseConformance.date
   RIM Mapping = N/A
+  Object Impl = BaseConformance.date
   w5 = when.recorded
 
  -- Row 13 -----------------------------------
@@ -266,8 +266,8 @@
   Short Label = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.
   Requirements = Assist in searching for appropriate content
-  Object Impl = BaseConformance.useContext
   CDISC Define.xml 2.0 Mapping = COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, METHOD_TYP, CLASS, CLASSTYPE, ORDER_OBS, DOCUMENT_SECTION, HL7_ATTACHMENT_STRUCTURE
+  Object Impl = BaseConformance.useContext
 
  -- Row 16 -----------------------------------
   Element = ValueSet.immutable

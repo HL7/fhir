@@ -17,7 +17,7 @@
   <copyright value="This is an example set."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/remittanceoutcome"/>
+      <system value="http://hl7.org/fhir/remittance-outcome"/>
     </include>
   </compose>
 </ValueSet>

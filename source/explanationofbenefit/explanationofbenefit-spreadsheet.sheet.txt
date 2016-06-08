@@ -299,7 +299,7 @@
  -- Row 43 -----------------------------------
   Binding Name = RemittanceOutcome
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/remittanceoutcome
+  Reference = http://hl7.org/fhir/ValueSet/remittance-outcome
   Definition = The result of the claim processing
   Conformance = example
 
