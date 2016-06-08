@@ -1,0 +1,13 @@
+{
+	"source": "nehta.xml",
+	"canonicalBase": "http://hl7.org/fhir",
+	"resources": {
+		"StructureDefinition/Colorectal": {
+			"defns": "index.html#definitions",
+			"base": "index.html#logical"
+		},
+		"CodeSystem/nehta-unstable-stable": {
+			"base": "codesystems.html#nehta-unstable-stable"
+		}
+	}
+}
