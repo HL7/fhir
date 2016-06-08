@@ -20,11 +20,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9672</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>7950</WindowHeight>
+  <WindowWidth>19275</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -66,12 +67,12 @@
  </Styles>
  <Worksheet ss:Name="compartments">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="108.6" ss:Span="1"/>
-   <Column ss:Index="3" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="129.6"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="207.6"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="254.39999999999998"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="108.75" ss:Span="1"/>
+   <Column ss:Index="3" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="129.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="207.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="254.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s63">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Title</Data></Cell>
@@ -135,12 +136,11 @@
  </Worksheet>
  <Worksheet ss:Name="resources">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="116" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.400000000000006"
-   ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="156.6"/>
+   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
-   <Column ss:Width="53.400000000000006"/>
-   <Column ss:Width="147.6"/>
+   <Column ss:Width="53.25"/>
+   <Column ss:Width="147.75"/>
    <Column ss:Width="198"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Resource</Data></Cell>
@@ -677,6 +677,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Task</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ActivityDefinition</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -695,7 +698,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>103</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -703,8 +706,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>106</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

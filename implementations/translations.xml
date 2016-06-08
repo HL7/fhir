@@ -1,4 +1,4 @@
-﻿<translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="translations.xsd">
+<translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="translations.xsd">
     <!--
      This file is for the convenience of implementers, to enable sharing of language translations.
      There is no obligation for any implementer to use the messages contained in this file, but
@@ -34,6 +34,9 @@
     <item id="Account">
         <translation lang="en">Account</translation>
     </item>
+    <item id="ActivityDefinition">
+ 		<translation lang="en">ActivityDefinition</translation>
+	</item>
     <item id="AdverseReaction">
         <translation lang="en">AdverseReaction</translation>
         <translation lang="zh">不良反应</translation>

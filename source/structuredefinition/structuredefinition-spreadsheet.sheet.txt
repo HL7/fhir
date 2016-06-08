@@ -197,7 +197,7 @@
   Expression = snapshot.element.all(id) and differential.element.all(id)
 
  -- Row 14 -----------------------------------
-  Id = 15
+  Id = !15
   Requirements = elements have id
   Context = StructureDefinition
   English = All element definition ids must have an unique

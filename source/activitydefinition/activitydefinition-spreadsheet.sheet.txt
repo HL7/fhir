@@ -1,0 +1,516 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ActivityParticipantType
+  Binding = code list
+  Reference = #activity-participant-type
+  Definition = The type of participant for an action in the orderset
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = OrderSetItemType
+  Binding = code list
+  Reference = #order-set-item-type
+  Definition = The type of orderset item
+  Conformance = extensible
+
+ -- Row 3 -----------------------------------
+  Binding Name = OrderSetItemGroupingBehavior
+  Binding = code list
+  Reference = #grouping-behavior
+  Definition = Defines organization behavior of a group
+  Conformance = required
+
+ -- Row 4 -----------------------------------
+  Binding Name = OrderSetItemSelectionBehavior
+  Binding = code list
+  Reference = #selection-behavior
+  Definition = Defines selection behavior of a group
+  Conformance = required
+
+ -- Row 5 -----------------------------------
+  Binding Name = OrderSetItemRequiredBehavior
+  Binding = code list
+  Reference = #required-behavior
+  Definition = Defines requiredness behavior for selecting an action or an action group
+  Conformance = required
+
+ -- Row 6 -----------------------------------
+  Binding Name = OrderSetItemPrecheckBehavior
+  Binding = code list
+  Reference = #precheck-behavior
+  Definition = Defines selection frequency behavior for an action or group
+  Conformance = required
+
+ -- Row 7 -----------------------------------
+  Binding Name = OrderSetItemCardinalityBehavior
+  Binding = code list
+  Reference = #cardinality-behavior
+  Definition = Defines behavior for an action or a group for how many times that item may be repeated
+  Conformance = required
+
+ -- Row 8 -----------------------------------
+  Binding Name = ActivityDefinitionCategory
+  Binding = code list
+  Reference = #activity-definition-category
+  Definition = High-level categorization of the type of activity in a protocol.
+
+ -- Row 9 -----------------------------------
+  Binding Name = ActivityDefinitionType
+  Binding = unbound
+  Definition = Detailed type of planned activity; e.g. CBC
+
+ -- Row 10 -----------------------------------
+  Binding Name = ActivityTiming
+  Binding = unbound
+  Definition = Code describing the timing of an activity; e.g. BID, QD
+
+ -- Row 11 -----------------------------------
+  Binding Name = ActivityProduct
+  Binding = unbound
+  Definition = Code describing the type of substance or medication
+
+=== Sheet activity-participant-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = patient
+  Display = Patient
+  Definition = The participant is the patient under evaluation
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = practitioner
+  Display = Practitioner
+  Definition = The participant is a practitioner involved in the patient\'s care
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = related-person
+  Display = Related Person
+  Definition = The participant is a person related to the patient
+
+=== Sheet order-set-item-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = create
+  Display = Create
+  Definition = The action is to create a new resource
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = update
+  Display = Update
+  Definition = The action is to update an existing resource
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = remove
+  Display = Remove
+  Definition = The action is to remove an existing resource
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = fire-event
+  Display = Fire Event
+  Definition = The action is to fire a specific event
+
+=== Sheet grouping-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = visual-group
+  Display = Visual Group
+  Definition = Any group marked with this behavior should be displayed as a visual group to the end user
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = logical-group
+  Display = Logical Group
+  Definition = A group with this behavior logically groups its sub-elements, and may be shown as a visual group to the end user, but it is not required to do so
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = sentence-group
+  Display = Sentence Group
+  Definition = A group of related alternative items is a sentence group if the target referenced by the item is the same in all the items, and each item simply constitutes a different variation on how to specify the details for the target. For example, two items that could be in a SentenceGroup are \"aspirin, 500 mg, 2 times per day\" and \"aspirin, 300 mg, 3 times per day\". In both cases, aspirin is the target referenced by the item, and the two items represent two different options for how aspirin might be ordered for the patient. Note that a SentenceGroup would almost always have an associated selection behavior of \"AtMostOne\", unless it\'s a required item, in which case, it would be \"ExactlyOne\"
+
+=== Sheet selection-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = any
+  Display = Any
+  Definition = Any number of the items in the group may be chosen, from zero to all
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = all
+  Display = All
+  Definition = All the items in the group must be selected as a single unit
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = all-or-none
+  Display = All Or None
+  Definition = All the items in the group are meant to be chosen as a single unit: either all must be selected by the end user, or none may be selected
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = exactly-one
+  Display = Exactly One
+  Definition = The end user must choose one and only one of the selectable items in the group. The user may not choose none of the items in the group
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = at-most-one
+  Display = At Most One
+  Definition = The end user may choose zero or at most one of the items in the group
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = one-or-more
+  Display = One Or More
+  Definition = The end user must choose a minimum of one, and as many additional as desired
+
+=== Sheet required-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = must
+  Display = Must
+  Definition = An item with this behavior must be included in the items processed by the end user; the end user may not choose not to include this item
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = could
+  Display = Could
+  Definition = An item with this behavior may be included in the set of items processed by the end user
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = must-unless-documented
+  Display = Must Unless Documented
+  Definition = An item with this behavior must be included in the set of items processed by the end user, unless the end user provides documentation as to why the item was not included
+
+=== Sheet precheck-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = yes
+  Display = Yes
+  Definition = An item with this behavior is one of the most frequent items that is, or should be, included by an end user, for the particular context in which the item occurs. The system displaying the item to the end user should consider \"pre-checking\" such an item as a convenience for the user
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = no
+  Display = No
+  Definition = An item with this behavior is one of the less frequent items included by the end user, for the particular context in which the item occurs. The system displaying the items to the end user would typically not \"pre-check\" such an item
+
+=== Sheet cardinality-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = single
+  Display = Single
+  Definition = The item may only be selected one time
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = multiple
+  Display = Multiple
+  Definition = The item may be selected multiple times
+
+=== Sheet activity-definition-category =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = communication
+  Definition = To communicate with a participant in some way
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = diet
+  Definition = To consume food of a specified nature
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = drug
+  Definition = To consume/receive a drug, vaccine or other product
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = encounter
+  Definition = To meet with the patient (in-patient, out-patient, etc.)
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = observation
+  Definition = To capture information about a patient (vitals, labs, diagnostic images, etc.)
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = procedure
+  Definition = To modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = referral
+  Definition = To refer the patient to receive some service
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = supply
+  Definition = To provide something to the patient (medication, medical supply, etc.)
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = other
+  Definition = Some other form of action
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ActivityDefinition
+  Type = DomainResource
+  Short Label = The definition of a plan for a series of actions, independent of any specific patient
+  Definition = This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support
+  w5 = clinical.general
+
+ -- Row 2 -----------------------------------
+  Element = ActivityDefinition.moduleMetadata
+  Card. = 0..1
+  Type = ModuleMetadata
+  Short Label = The metadata for the plan definition
+  Definition = A reference to a ModuleMetadata resource containing metadata for the orderset
+
+ -- Row 3 -----------------------------------
+  Element = ActivityDefinition.library
+  Card. = 0..*
+  Type = Reference(Library)
+  Short Label = Logic used by the plan definition
+  Definition = A reference to a Library resource containing any formal logic used by the orderset
+
+ -- Row 4 -----------------------------------
+  Element = ActivityDefinition.category
+  Card. = 0..1
+  Type = code
+  Binding = ActivityDefinitionCategory
+  Short Label = communication | diet | drug | encounter | observation | procedure | referral | supply | other
+  Definition = High-level categorization of the type of activity.
+  Requirements = May determine what types of extensions are permitted
+  RIM Mapping = .classCode
+
+ -- Row 5 -----------------------------------
+  Element = ActivityDefinition.code
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ActivityDefinitionType
+  Short Label = Detail type of activity
+  Definition = Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.
+  Requirements = Allows matching performed to planned as well as validation against protocols
+  Comments = Tends to be less relevant for activities involving particular products.
+  RIM Mapping = .code
+
+ -- Row 6 -----------------------------------
+  Element = ActivityDefinition.timing[x]
+  Card. = 0..1
+  Type = CodeableConcept | Timing
+  Binding = ActivityTiming
+  Short Label = When activity is to occur
+  Definition = The period, timing or frequency upon which the described activity is to occur.
+  Requirements = Allows prompting for activities and detection of missed planned activities.
+  RIM Mapping = .effectiveTime
+  To Do = Add constraint prohibiting event (once it won\'t raise an error on the name timingSchedule)
+
+ -- Row 7 -----------------------------------
+  Element = ActivityDefinition.location
+  Card. = 0..1
+  Aliases = facility
+  Type = Reference(Location)
+  Short Label = Where it should happen
+  Definition = Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.
+  Requirements = Helps in planning of activity
+  Comments = May reference a specific clinical location or may just identify a type of location.
+
+ -- Row 8 -----------------------------------
+  Element = ActivityDefinition.participantType
+  Card. = 0..*
+  Type = code
+  Binding = ActivityParticipantType
+  Short Label = patient | practitioner | related-person
+  Definition = The type of participant in the action
+
+ -- Row 9 -----------------------------------
+  Element = ActivityDefinition.product[x]
+  Card. = 0..1
+  Type = Reference(Medication|Substance)|CodeableConcept
+  Binding = ActivityProduct
+  Short Label = What\'s administered/supplied
+  Definition = Identifies the food, drug or other product being consumed or supplied in the activity.
+
+ -- Row 10 -----------------------------------
+  Element = ActivityDefinition.quantity
+  Card. = 0..1
+  Aliases = dose
+  Type = SimpleQuantity
+  Short Label = How much is administered/consumed/supplied
+  Definition = Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)
+
+ -- Row 11 -----------------------------------
+  Element = ActivityDefinition.description
+  Card. = 0..1
+  Type = string
+  Short Label = Extra info on activity occurrence
+  Definition = This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Logical identifier for the module (e.g. CMS-143)
+  Path = ActivityDefinition.moduleMetadata.identifier
+
+ -- Row 2 -----------------------------------
+  Name = topic
+  Type = token
+  Description = Topics associated with the module
+  Path = ActivityDefinition.moduleMetadata.topic
+
+ -- Row 3 -----------------------------------
+  Name = title
+  Type = string
+  Description = Text search against the title
+  Path = ActivityDefinition.moduleMetadata.title
+
+ -- Row 4 -----------------------------------
+  Name = description
+  Type = string
+  Description = Text search against the description
+  Path = ActivityDefinition.moduleMetadata.description
+
+ -- Row 5 -----------------------------------
+  Name = version
+  Type = string
+  Description = Version of the module (e.g. 1.0.0)
+  Path = ActivityDefinition.moduleMetadata.version
+
+ -- Row 6 -----------------------------------
+  Name = status
+  Type = token
+  Description = Status of the module
+  Path = ActivityDefinition.moduleMetadata.status
+
+ -- Row 7 -----------------------------------
+  Name = !minScore
+  Type = number
+  Description = The minimum relevance score of any match that will be returned
+  Path = Bundle/entry/search/score
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = apply
+  Use = Instance
+  Documentation = The apply operation realizes a definition in a specific context
+  Type = operation
+  Title = Apply
+
+ -- Row 2 -----------------------------------
+  Name = apply.patient
+  Use = in
+  Documentation = The patient that is the target of the activity to be applied
+  Type = Reference(Patient)
+  Title = Patient
+  Min = 1
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = apply.encounter
+  Use = in
+  Documentation = The encounter in context, if any
+  Type = Reference(Encounter)
+  Title = Encounter
+  Min = 0
+  Max = 1
+
+ -- Row 4 -----------------------------------
+  Name = apply.practitioner
+  Use = in
+  Documentation = The practitioner in context
+  Type = Reference(Practitioner)
+  Title = Practitioner
+  Min = 0
+  Max = 1
+
+ -- Row 5 -----------------------------------
+  Name = apply.organization
+  Use = in
+  Documentation = The organization in context
+  Type = Reference(Organization)
+  Title = Organization
+  Min = 0
+  Max = 1
+
+ -- Row 6 -----------------------------------
+  Name = apply.userType
+  Use = in
+  Documentation = The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.)
+  Type = CodeableConcept
+  Title = User Type
+  Min = 0
+  Max = 1
+
+ -- Row 7 -----------------------------------
+  Name = apply.userLanguage
+  Use = in
+  Documentation = Preferred language of the person using the system
+  Type = CodeableConcept
+  Title = User Language
+  Min = 0
+  Max = 1
+
+ -- Row 8 -----------------------------------
+  Name = apply.userTaskContext
+  Use = in
+  Documentation = The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources
+  Type = CodeableConcept
+  Title = User Task Context
+  Min = 0
+  Max = 1
+
+ -- Row 9 -----------------------------------
+  Name = apply.setting
+  Use = in
+  Documentation = The current setting of the request (inpatient, outpatient, etc)
+  Type = CodeableConcept
+  Title = Setting
+  Min = 0
+  Max = 1
+
+ -- Row 10 -----------------------------------
+  Name = apply.settingContext
+  Use = in
+  Documentation = Additional detail about the setting of the request, if any
+  Type = CodeableConcept
+  Title = Setting Context
+  Min = 0
+  Max = 1
+
+ -- Row 11 -----------------------------------
+  Name = apply.return
+  Use = out
+  Documentation = The resource that is the result of applying the definition
+  Type = Any
+  Title = Return
+  Min = 1
+  Max = 1

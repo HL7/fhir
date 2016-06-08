@@ -112,36 +112,46 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = diet
-  Definition = To consume food of a specified nature
+  Code = communication
+  Definition = To communicate with a participant in some way
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = drug
-  Definition = To consume/receive a drug, vaccine or other product
+  Code = diet
+  Definition = To consume food of a specified nature
 
  -- Row 3 -----------------------------------
   Id = 3
-  Code = encounter
-  Definition = To meet or communicate with the patient (in-patient, out-patient, phone call, etc.)
+  Code = drug
+  Definition = To consume/receive a drug, vaccine or other product
 
  -- Row 4 -----------------------------------
   Id = 4
-  Code = observation
-  Definition = To capture information about a patient (vitals, labs, diagnostic images, etc.)
+  Code = encounter
+  Definition = To meet with the patient (in-patient, out-patient, etc.)
 
  -- Row 5 -----------------------------------
   Id = 5
-  Code = procedure
-  Definition = To modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)
+  Code = observation
+  Definition = To capture information about a patient (vitals, labs, diagnostic images, etc.)
 
  -- Row 6 -----------------------------------
   Id = 6
-  Code = supply
-  Definition = To provide something to the patient (medication, medical supply, etc.)
+  Code = procedure
+  Definition = To modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)
 
  -- Row 7 -----------------------------------
   Id = 7
+  Code = referral
+  Definition = To refer the patient to receive some service
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = supply
+  Definition = To provide something to the patient (medication, medical supply, etc.)
+
+ -- Row 9 -----------------------------------
+  Id = 9
   Code = other
   Definition = Some other form of action
 
@@ -398,7 +408,7 @@
   Card. = 0..1
   Type = code
   Binding = ActivityDefinitionCategory
-  Short Label = diet | drug | encounter | observation +
+  Short Label = communication | diet | drug | encounter | observation | procedure | referral | supply | other
   Definition = High-level categorization of the type of activity.
   Requirements = May determine what types of extensions are permitted
   RIM Mapping = .classCode
