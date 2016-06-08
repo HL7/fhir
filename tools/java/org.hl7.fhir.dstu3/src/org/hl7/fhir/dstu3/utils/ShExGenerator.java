@@ -79,6 +79,9 @@ public class ShExGenerator {
   // Additional type for CodedConcept -- still under debate
   private static String CONCEPT_REFERENCES_TEMPLATE = "fhir:concept IRI*";
 
+  // Untyped resource has the extra link entry
+  private static String RESOURCE_LINK_TEMPLATE = "fhir:link IRI?";
+
   // A typed reference -- a fhir:uri with an optional type and the possibility of a resolvable shape
 //  fhir:Element.id @<id>?;
 //  fhir:Element.extension @<Extension>*;
@@ -230,6 +233,8 @@ public class ShExGenerator {
       elements.add(tmplt(CONCEPT_REFERENCE_TEMPLATE).render());
     else if (sd.getName().equals("CodeableConcept"))
       elements.add(tmplt(CONCEPT_REFERENCES_TEMPLATE).render());
+    else if (sd.getName().equals("Reference"))
+      elements.add(tmplt(RESOURCE_LINK_TEMPLATE).render());
 
     for (ElementDefinition ed : sd.getSnapshot().getElement()) {
       if(StringUtils.countMatches(ed.getPath(), ".") == 1) {
