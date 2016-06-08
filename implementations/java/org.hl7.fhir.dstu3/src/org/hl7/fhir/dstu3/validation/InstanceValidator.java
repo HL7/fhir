@@ -72,6 +72,7 @@ import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
+import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -341,7 +342,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   // public API
 
-  private boolean checkCode(List<ValidationMessage> errors, Element element, String path, String code, String system, String display) {
+  private boolean checkCode(List<ValidationMessage> errors, Element element, String path, String code, String system, String display) throws TerminologyServiceException {
     long t = System.nanoTime();
     boolean ss = context.supportsSystem(system);
     txTime = txTime + (System.nanoTime() - t);
