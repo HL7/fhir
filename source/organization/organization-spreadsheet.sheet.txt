@@ -273,6 +273,13 @@
   ServD Mapping = ./Sites
   w5 = where
 
+ -- Row 21 -----------------------------------
+  Element = Organization.endpoint
+  Card. = 0..*
+  Type = Reference(Endpoint)
+  Short Label = Technical endpoints providing access to services operated for the organization
+  Requirements = Organizations have multiple systems that provide various services and need to be able to define the technical connection details for how to connect to them, and for what purpose.
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------

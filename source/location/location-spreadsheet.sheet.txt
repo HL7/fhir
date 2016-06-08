@@ -222,6 +222,13 @@
   Requirements = For purposes of location, display and identification, knowing which locations are located within other locations is important
   RIM Mapping = .inboundLink[typeCode=PART].source[classCode=SDLC]
 
+ -- Row 17 -----------------------------------
+  Element = Location.endpoint
+  Card. = 0..*
+  Type = Reference(Endpoint)
+  Short Label = Technical endpoints providing access to services operated for the location
+  Requirements = Organizations may have different systems at different locations that provide various services and need to be able to define the technical connection details for how to connect to them, and for what purpose.
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
