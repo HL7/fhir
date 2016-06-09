@@ -12,6 +12,7 @@ http://hl7.org/fhir/ex-visionservice
 http:/acme.ec/gcsmotor
 http://nehta.gov.au/codes/medications/changetype
 http://hl7.org/fhir/NamingSystem/iccbba-other-di
+http://hl7.org/fhir/ValueSet/ex-paymenttype
 http://cimi.org/vs/attribution/action-method
 urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd
 http://www.nucc.org

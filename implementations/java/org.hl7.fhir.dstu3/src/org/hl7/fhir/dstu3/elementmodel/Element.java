@@ -1,4 +1,4 @@
-package org.hl7.fhir.dstu3.metamodel;
+package org.hl7.fhir.dstu3.elementmodel;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.Validate;
+import org.hl7.fhir.dstu3.elementmodel.Element.SpecialElement;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
-import org.hl7.fhir.dstu3.metamodel.Element.SpecialElement;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
@@ -28,7 +28,17 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 public class Element extends Base {
 
 	public enum SpecialElement {
-		CONTAINED, BUNDLE_ENTRY;
+		CONTAINED, BUNDLE_ENTRY, PARAMETER;
+
+    public static SpecialElement fromProperty(Property property) {
+      if (property.getStructure().getId().equals("Parameters"))
+        return PARAMETER;
+      if (property.getStructure().getId().equals("Bundle"))
+        return BUNDLE_ENTRY;
+      if (property.getName().equals("contained")) 
+        return CONTAINED;
+      throw new Error("Unknown resource containing a native resource: "+property.getDefinition().getId());
+    }
 	}
 
 	private List<String> comments;// not relevant for production, but useful in documentation
@@ -38,10 +48,9 @@ public class Element extends Base {
 	private int index = -1;
 	private List<Element> children;
 	private Property property;
+  private Property elementProperty; // this is used when special is set to true - it tracks the underlying element property which is used in a few places
 	private int line;
 	private int col;
-	private ElementDefinition validatorDefinition;
-	private StructureDefinition validatorProfile;
 	private SpecialElement special;
 	private XhtmlNode xhtml; // if this is populated, then value will also hold the string representation
 
@@ -64,8 +73,9 @@ public class Element extends Base {
 		this.value = value;
 	}
 
-	public void updateProperty(Property property, SpecialElement special) {
+	public void updateProperty(Property property, SpecialElement special, Property elementProperty) {
 		this.property = property;
+    this.elementProperty = elementProperty;
 		this.special = special;
 	}
 
@@ -270,8 +280,6 @@ public class Element extends Base {
 	}
 
 	public void markValidation(StructureDefinition profile, ElementDefinition definition) {
-		validatorProfile = profile;
-		validatorDefinition = definition;
 	}
 	
   public Element getNamedChild(String name) {
@@ -336,6 +344,10 @@ public class Element extends Base {
 		}
 		return true;
 	}
+
+  public Property getElementProperty() {
+    return elementProperty;
+  }
 
 
 }

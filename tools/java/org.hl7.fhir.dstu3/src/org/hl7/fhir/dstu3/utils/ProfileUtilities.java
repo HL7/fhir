@@ -74,6 +74,8 @@ import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
  */
 public class ProfileUtilities {
 
+  private static int nextSliceId = 0;
+  
   public class ExtensionContext {
 
     private ElementDefinition element;
@@ -299,7 +301,7 @@ public class ProfileUtilities {
 //    System.out.println("Generate Snapshot for "+derived.getUrl());
 
     derived.setSnapshot(new StructureDefinitionSnapshotComponent());
-
+System.out.println("generate snapshot for "+derived.getId());
     // so we have two lists - the base list, and the differential list
     // the differential list is only allowed to include things that are in the base list, but
     // is allowed to include them multiple times - thereby slicing them
@@ -803,6 +805,8 @@ public class ProfileUtilities {
 
   private ElementDefinitionSlicingComponent makeExtensionSlicing() {
   	ElementDefinitionSlicingComponent slice = new ElementDefinitionSlicingComponent();
+  	nextSliceId++;
+  	slice.setId(Integer.toString(nextSliceId));
     slice.addDiscriminator("url");
     slice.setOrdered(false);
     slice.setRules(SlicingRules.OPEN);

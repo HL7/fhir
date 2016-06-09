@@ -1,4 +1,4 @@
-package org.hl7.fhir.dstu3.metamodel;
+package org.hl7.fhir.dstu3.elementmodel;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,12 +14,12 @@ import java.util.Set;
 
 import org.apache.commons.lang3.NotImplementedException;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
-import org.hl7.fhir.dstu3.metamodel.Element.SpecialElement;
-import org.hl7.fhir.dstu3.metamodel.ParserBase.ValidationPolicy;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
+import org.hl7.fhir.dstu3.elementmodel.Element.SpecialElement;
+import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
@@ -176,7 +176,7 @@ public class JsonParser extends ParserBase {
 			checkObject(child, npath);
 			context.getChildren().add(n);
 			if (property.isResource())
-				parseResource(npath, child, n);
+				parseResource(npath, child, n, property);
 			else
 				parseChildren(npath, child, n, false);
 		} else 
@@ -251,7 +251,7 @@ public class JsonParser extends ParserBase {
 		}
 
 
-	private void parseResource(String npath, JsonObject res, Element parent) throws DefinitionException, FHIRFormatError {
+	private void parseResource(String npath, JsonObject res, Element parent, Property elementProperty) throws DefinitionException, FHIRFormatError {
 		JsonElement rt = res.get("resourceType");
 		if (rt == null) {
 			logError(line(res), col(res), npath, IssueType.INVALID, "Unable to find resourceType property", IssueSeverity.FATAL);
@@ -260,7 +260,7 @@ public class JsonParser extends ParserBase {
 			StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+name);
 			if (sd == null)
 				throw new FHIRFormatError("Contained resource does not appear to be a FHIR resource (unknown name '"+name+"')");
-			parent.updateProperty(new Property(context, sd.getSnapshot().getElement().get(0), sd), parent.getProperty().getName().equals("contained") ? SpecialElement.CONTAINED : SpecialElement.BUNDLE_ENTRY);
+			parent.updateProperty(new Property(context, sd.getSnapshot().getElement().get(0), sd), SpecialElement.fromProperty(parent.getProperty()), elementProperty);
 			parent.setType(name);
 			parseChildren(npath, res, parent, true);
 		}

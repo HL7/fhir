@@ -8,8 +8,8 @@ import java.util.UUID;
 
 import javax.naming.Context;
 
+import org.hl7.fhir.dstu3.elementmodel.Property;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
-import org.hl7.fhir.dstu3.metamodel.Property;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.CodeType;

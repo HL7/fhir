@@ -7,7 +7,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "N",
         "definition": null,
         "display": "normal"
       }
@@ -18,7 +18,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": null,
+        "code": "V",
         "definition": null,
         "display": "very restricted"
       }

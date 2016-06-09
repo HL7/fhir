@@ -1,6 +1,6 @@
 package org.hl7.fhir.igtools.publisher;
 
-import org.hl7.fhir.dstu3.metamodel.Element;
+import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceType;
 

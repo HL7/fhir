@@ -5,25 +5,29 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.hl7.fhir.dstu3.elementmodel.Element;
+import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.metamodel.Element;
-import org.hl7.fhir.dstu3.metamodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
+import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
@@ -120,6 +124,7 @@ public class Publisher {
   private ImplementationGuide ig;
   private List<ValidationOutcomes> errs = new ArrayList<ValidationOutcomes>();
   private JsonObject configuration;
+  private Calendar execTime = Calendar.getInstance();
 
   private void execute() throws Exception {
     initialize();
@@ -131,7 +136,7 @@ public class Publisher {
 
     while (watch) { // terminated externally
       System.out.println("Watching for changes on a 5sec cycle");
-      wait(5000);
+      Thread.sleep(5000);
       if (load()) {
         validate();
         generate();
@@ -374,6 +379,7 @@ public class Publisher {
   }
 
   private void generate() throws Exception {
+    execTime = Calendar.getInstance();
     log("Generating Outputs in "+output);
     for (FetchedFile f : fileList) 
       generateOutputs(f);
@@ -386,6 +392,9 @@ public class Publisher {
     data.addProperty("path", pathToSpec);
     data.addProperty("canonical", igpkp.getCanonical());
     data.addProperty("errorCount", getErrorCount());
+    data.addProperty("version", Constants.VERSION);
+    data.addProperty("versionfull", Constants.VERSION+"-"+Constants.REVISION);
+    data.addProperty("gendate", new SimpleDateFormat("EEE, MMM d, yyyy HH:mmZ", new Locale("en", "US")).format(execTime .getTime()));
     
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(data);
@@ -479,29 +488,29 @@ public class Publisher {
    */
   private void saveDirectResourceOutputs(FetchedFile f) throws FileNotFoundException, Exception {
     if (wantGen(f, "xml"))
-      new org.hl7.fhir.dstu3.metamodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
+      new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
     if (wantGen(f, "json"))
-      new org.hl7.fhir.dstu3.metamodel.JsonParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".json")), OutputStyle.PRETTY, "??");
+      new org.hl7.fhir.dstu3.elementmodel.JsonParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".json")), OutputStyle.PRETTY, "??");
     if (wantGen(f, "ttl"))
-      new org.hl7.fhir.dstu3.metamodel.TurtleParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".ttl")), OutputStyle.PRETTY, "??");
+      new org.hl7.fhir.dstu3.elementmodel.TurtleParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".ttl")), OutputStyle.PRETTY, "??");
 
     if (wantGen(f, "xml-html")) {
       XmlXHtmlRenderer x = new XmlXHtmlRenderer();
-      org.hl7.fhir.dstu3.metamodel.XmlParser xp = new org.hl7.fhir.dstu3.metamodel.XmlParser(context);
+      org.hl7.fhir.dstu3.elementmodel.XmlParser xp = new org.hl7.fhir.dstu3.elementmodel.XmlParser(context);
       xp.setLinkResolver(igpkp);
       xp.compose(f.getElement(), x);
       fragment(f.getId()+"-xml-html", x.toString());
     }
     if (wantGen(f, "json-html")) {
       JsonXhtmlRenderer j = new JsonXhtmlRenderer();
-      org.hl7.fhir.dstu3.metamodel.JsonParser jp = new org.hl7.fhir.dstu3.metamodel.JsonParser(context);
+      org.hl7.fhir.dstu3.elementmodel.JsonParser jp = new org.hl7.fhir.dstu3.elementmodel.JsonParser(context);
       jp.setLinkResolver(igpkp);
       jp.compose(f.getElement(), j);
       fragment(f.getId()+"-json-html", j.toString());
     }
 
     if (wantGen(f, "ttl-html")) {
-      org.hl7.fhir.dstu3.metamodel.TurtleParser ttl = new org.hl7.fhir.dstu3.metamodel.TurtleParser(context);
+      org.hl7.fhir.dstu3.elementmodel.TurtleParser ttl = new org.hl7.fhir.dstu3.elementmodel.TurtleParser(context);
       ttl.setLinkResolver(igpkp);
       Turtle rdf = new Turtle();
       ttl.compose(f.getElement(), rdf, "??");

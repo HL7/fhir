@@ -1,4 +1,4 @@
-package org.hl7.fhir.dstu3.metamodel;
+package org.hl7.fhir.dstu3.elementmodel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,36 +42,36 @@ public class Property {
 			String tn = definition.getType().get(0).getCode();
 			for (int i = 1; i < definition.getType().size(); i++) {
 				if (!tn.equals(definition.getType().get(i).getCode()))
-			throw new Error("logic error, gettype when types > 1");
+					throw new Error("logic error, gettype when types > 1");
 			}
 			return tn;
 		} else
 			return definition.getType().get(0).getCode();
 	}
 
-  public String getType(String elementName) {
-    if (definition.getType().size() == 0)
-      return null;
-    else if (definition.getType().size() > 1) {
-      String t = definition.getType().get(0).getCode();
-      boolean all = true;
-      for (TypeRefComponent tr : definition.getType()) {
-        if (!t.equals(tr.getCode()))
-          all = false;
-      }
-      if (all)
-        return t;
-      String tail = definition.getPath().substring(definition.getPath().lastIndexOf(".")+1);
+	public String getType(String elementName) {
+		if (definition.getType().size() == 0)
+			return null;
+		else if (definition.getType().size() > 1) {
+			String t = definition.getType().get(0).getCode();
+			boolean all = true;
+			for (TypeRefComponent tr : definition.getType()) {
+				if (!t.equals(tr.getCode()))
+					all = false;
+			}
+			if (all)
+				return t;
+			String tail = definition.getPath().substring(definition.getPath().lastIndexOf(".")+1);
       if (tail.endsWith("[x]") && elementName != null && elementName.startsWith(tail.substring(0, tail.length()-3))) {
-        String name = elementName.substring(tail.length()-3);
+				String name = elementName.substring(tail.length()-3);
         return isPrimitive(lowFirst(name)) ? lowFirst(name) : name;        
-      } else
+			} else
         throw new Error("logic error, gettype when types > 1, name mismatch for "+elementName+" on at "+definition.getPath());
     } else if (definition.getType().get(0).getCode() == null) {
       return structure.getId();
-    } else
-      return definition.getType().get(0).getCode();
-  }
+		} else
+			return definition.getType().get(0).getCode();
+	}
 
   public boolean hasType(String elementName) {
     if (definition.getType().size() == 0)
@@ -103,7 +103,7 @@ public class Property {
 	  String code = name;
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
     return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
-}
+	}
 
 	private String lowFirst(String t) {
 		return t.substring(0, 1).toLowerCase()+t.substring(1);

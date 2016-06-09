@@ -1,4 +1,4 @@
-package org.hl7.fhir.dstu3.metamodel;
+package org.hl7.fhir.dstu3.elementmodel;
 
 import java.io.InputStream;
 import java.io.OutputStream;

@@ -5,8 +5,10 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
@@ -72,6 +74,8 @@ import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
  */
 public class ProfileUtilities {
 
+  private static int nextSliceId = 0;
+  
   public class ExtensionContext {
 
     private ElementDefinition element;
@@ -297,7 +301,7 @@ public class ProfileUtilities {
 //    System.out.println("Generate Snapshot for "+derived.getUrl());
 
     derived.setSnapshot(new StructureDefinitionSnapshotComponent());
-
+System.out.println("generate snapshot for "+derived.getId());
     // so we have two lists - the base list, and the differential list
     // the differential list is only allowed to include things that are in the base list, but
     // is allowed to include them multiple times - thereby slicing them
@@ -382,7 +386,7 @@ public class ProfileUtilities {
           baseCursor++;
           diffCursor = differential.getElement().indexOf(diffMatches.get(0))+1;
           if (differential.getElement().size() > diffCursor && outcome.getPath().contains(".") && isDataType(outcome.getType())) {  // don't want to do this for the root, since that's base, and we're already processing it
-            if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".")) {
+            if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".") && !baseWalksInto(base.getElement(), baseCursor, diffMatches.get(0).getPath()+".")) {
               if (outcome.getType().size() > 1)
                 throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
               StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
@@ -554,6 +558,14 @@ public class ProfileUtilities {
         }
       }
     }
+  }
+
+
+  private boolean baseWalksInto(List<ElementDefinition> elements, int cursor, String cpath) {
+    if (cursor >= elements.size())
+      return false;
+    String path = elements.get(cursor).getPath();
+    return path.startsWith(cpath);
   }
 
 
@@ -793,6 +805,8 @@ public class ProfileUtilities {
 
   private ElementDefinitionSlicingComponent makeExtensionSlicing() {
   	ElementDefinitionSlicingComponent slice = new ElementDefinitionSlicingComponent();
+  	nextSliceId++;
+  	slice.setId(Integer.toString(nextSliceId));
     slice.addDiscriminator("url");
     slice.setOrdered(false);
     slice.setRules(SlicingRules.OPEN);
@@ -2149,6 +2163,69 @@ public class ProfileUtilities {
 				return ed;
     }
 	  return null;
+  }
+
+
+  public void setIds(StructureDefinition sd, String name) throws Exception {
+    generateIds(sd.getDifferential().getElement(), name);
+    generateIds(sd.getSnapshot().getElement(), name);    
+  }
+
+
+  private void generateIds(List<ElementDefinition> list, String name) throws Exception {
+    if (list.isEmpty())
+      return;
+    
+    Map<String, String> idMap = new HashMap<String, String>();
+    
+    List<String> paths = new ArrayList<String>();
+    // first path, update the element ids
+    for (ElementDefinition ed : list) {
+      int depth = charCount(ed.getPath(), '.');
+      String tail = tail(ed.getPath());
+
+      while (depth < paths.size() && paths.size() > 0)
+        paths.remove(paths.size() - 1);
+      
+      String t = ed.hasName() ? tail+":"+checkName(ed.getName()) : name != null ? tail + ":"+checkName(name) : tail;
+      name = null;
+      StringBuilder b = new StringBuilder();
+      for (String s : paths) {
+        b.append(s);
+        b.append(".");
+      }
+      b.append(t);
+      idMap.put(ed.hasId() ? ed.getId() : ed.getPath(), b.toString());
+      ed.setId(b.toString());
+      paths.add(t);
+      if (ed.hasContentReference()) {
+        String s = ed.getContentReference().substring(1);
+        if (idMap.containsKey(s))
+          ed.setContentReference("#"+idMap.get(s));
+        
+      }
+    }  
+    // second path - fix up any broken path based id references
+    
+  }
+
+
+  private String checkName(String name) throws Exception {
+//    if (name.contains("."))
+////      throw new Exception("Illegal name "+name+": no '.'");
+//    if (name.contains(" "))
+//      throw new Exception("Illegal name "+name+": no spaces");
+    return name;
+  }
+
+
+  private int charCount(String path, char t) {
+    int res = 0;
+    for (char ch : path.toCharArray()) {
+      if (ch == t)
+        res++;
+    }
+    return res;
   }
 
 //

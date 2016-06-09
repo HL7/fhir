@@ -308,14 +308,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   private class BaseWrapperMetaElement implements BaseWrapper {
-    private org.hl7.fhir.dstu3.metamodel.Element element;
+    private org.hl7.fhir.dstu3.elementmodel.Element element;
     private String type;
     private StructureDefinition structure;
     private ElementDefinition definition;
     private List<ElementDefinition> children;
     private List<PropertyWrapper> list;
 
-    public BaseWrapperMetaElement(org.hl7.fhir.dstu3.metamodel.Element element, String type, StructureDefinition structure, ElementDefinition definition) {
+    public BaseWrapperMetaElement(org.hl7.fhir.dstu3.elementmodel.Element element, String type, StructureDefinition structure, ElementDefinition definition) {
       this.element = element;
       this.type = type;
       this.structure = structure;
@@ -329,7 +329,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
       ByteArrayOutputStream xml = new ByteArrayOutputStream();
       try {
-        new org.hl7.fhir.dstu3.metamodel.XmlParser(context).compose(element, xml, OutputStyle.PRETTY, null);
+        new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(element, xml, OutputStyle.PRETTY, null);
       } catch (Exception e) {
         throw new FHIRException(e.getMessage(), e);
       }
@@ -342,7 +342,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         children = ProfileUtilities.getChildList(structure, definition);
         list = new ArrayList<NarrativeGenerator.PropertyWrapper>();
         for (ElementDefinition child : children) {
-          List<org.hl7.fhir.dstu3.metamodel.Element> elements = new ArrayList<org.hl7.fhir.dstu3.metamodel.Element>();
+          List<org.hl7.fhir.dstu3.elementmodel.Element> elements = new ArrayList<org.hl7.fhir.dstu3.elementmodel.Element>();
           String name = tail(child.getPath());
           if (name.endsWith("[x]"))
             element.getNamedChildrenWithWildcard(name, elements);
@@ -364,11 +364,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   }
   private class ResurceWrapperMetaElement implements ResourceWrapper {
-    private org.hl7.fhir.dstu3.metamodel.Element wrapped;
+    private org.hl7.fhir.dstu3.elementmodel.Element wrapped;
     private List<ResourceWrapper> list;
     private List<PropertyWrapper> list2;
     private StructureDefinition definition;
-    public ResurceWrapperMetaElement(org.hl7.fhir.dstu3.metamodel.Element wrapped) {
+    public ResurceWrapperMetaElement(org.hl7.fhir.dstu3.elementmodel.Element wrapped) {
       this.wrapped = wrapped;
       this.definition = wrapped.getProperty().getStructure();
     }
@@ -376,9 +376,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     @Override
     public List<ResourceWrapper> getContained() {
       if (list == null) {
-        List<org.hl7.fhir.dstu3.metamodel.Element> children = wrapped.getChildrenByName("contained");
+        List<org.hl7.fhir.dstu3.elementmodel.Element> children = wrapped.getChildrenByName("contained");
         list = new ArrayList<NarrativeGenerator.ResourceWrapper>();
-        for (org.hl7.fhir.dstu3.metamodel.Element e : children) {
+        for (org.hl7.fhir.dstu3.elementmodel.Element e : children) {
           list.add(new ResurceWrapperMetaElement(e));
         }
       }
@@ -392,10 +392,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     @Override
     public XhtmlNode getNarrative() throws FHIRFormatError, IOException, FHIRException {
-      org.hl7.fhir.dstu3.metamodel.Element txt = wrapped.getNamedChild("text");
+      org.hl7.fhir.dstu3.elementmodel.Element txt = wrapped.getNamedChild("text");
       if (txt == null)
         return null;
-      org.hl7.fhir.dstu3.metamodel.Element div = txt.getNamedChild("div");
+      org.hl7.fhir.dstu3.elementmodel.Element div = txt.getNamedChild("div");
       if (div == null)
         return null;
       else
@@ -413,7 +413,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         List<ElementDefinition> children = ProfileUtilities.getChildList(definition, definition.getSnapshot().getElement().get(0));
         list2 = new ArrayList<NarrativeGenerator.PropertyWrapper>();
         for (ElementDefinition child : children) {
-          List<org.hl7.fhir.dstu3.metamodel.Element> elements = new ArrayList<org.hl7.fhir.dstu3.metamodel.Element>();
+          List<org.hl7.fhir.dstu3.elementmodel.Element> elements = new ArrayList<org.hl7.fhir.dstu3.elementmodel.Element>();
           wrapped.getNamedChildrenWithWildcard(tail(child.getPath()), elements);
           list2.add(new PropertyWrapperMetaElement(definition, child, elements));
         }
@@ -426,10 +426,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     private StructureDefinition structure;
     private ElementDefinition definition;
-    private List<org.hl7.fhir.dstu3.metamodel.Element> values;
+    private List<org.hl7.fhir.dstu3.elementmodel.Element> values;
     private List<BaseWrapper> list;
 
-    public PropertyWrapperMetaElement(StructureDefinition structure, ElementDefinition definition, List<org.hl7.fhir.dstu3.metamodel.Element> values) {
+    public PropertyWrapperMetaElement(StructureDefinition structure, ElementDefinition definition, List<org.hl7.fhir.dstu3.elementmodel.Element> values) {
       this.structure = structure;
       this.definition = definition;
       this.values = values;
@@ -449,7 +449,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     public List<BaseWrapper> getValues() {
       if (list == null) {
         list = new ArrayList<NarrativeGenerator.BaseWrapper>();
-        for (org.hl7.fhir.dstu3.metamodel.Element e : values)
+        for (org.hl7.fhir.dstu3.elementmodel.Element e : values)
           list.add(new BaseWrapperMetaElement(e, e.fhirType(), structure, definition));
       }
       return list;
@@ -779,7 +779,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   // dom based version, for build program
-  public String generate(org.hl7.fhir.dstu3.metamodel.Element er, boolean showCodeDetails) throws IOException {
+  public String generate(org.hl7.fhir.dstu3.elementmodel.Element er, boolean showCodeDetails) throws IOException {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("p").addTag("b").addText("Generated Narrative"+(showCodeDetails ? " with Details" : ""));
     try {
@@ -2072,10 +2072,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     new XhtmlComposer().compose(div, x);
   }
 
-  private void inject(org.hl7.fhir.dstu3.metamodel.Element er, XhtmlNode x, NarrativeStatus status) {
-    org.hl7.fhir.dstu3.metamodel.Element txt = er.getNamedChild("text");
+  private void inject(org.hl7.fhir.dstu3.elementmodel.Element er, XhtmlNode x, NarrativeStatus status) {
+    org.hl7.fhir.dstu3.elementmodel.Element txt = er.getNamedChild("text");
     if (txt == null) {
-      txt = new org.hl7.fhir.dstu3.metamodel.Element("text");
+      txt = new org.hl7.fhir.dstu3.elementmodel.Element("text");
       int i = 0;
       while (i < er.getChildren().size() && (er.getChildren().get(i).getName().equals("id") || er.getChildren().get(i).getName().equals("meta") || er.getChildren().get(i).getName().equals("implicitRules") || er.getChildren().get(i).getName().equals("language")))
         i++;
@@ -2084,15 +2084,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
       else
         er.getChildren().add(i, txt);
     }
-    org.hl7.fhir.dstu3.metamodel.Element st = txt.getNamedChild("status");
+    org.hl7.fhir.dstu3.elementmodel.Element st = txt.getNamedChild("status");
     if (st == null) {
-      st = new org.hl7.fhir.dstu3.metamodel.Element("status");
+      st = new org.hl7.fhir.dstu3.elementmodel.Element("status");
       txt.getChildren().add(0, st);
     }
     st.setValue(status.toCode());
-    org.hl7.fhir.dstu3.metamodel.Element div = txt.getNamedChild("div");
+    org.hl7.fhir.dstu3.elementmodel.Element div = txt.getNamedChild("div");
     if (div == null) {
-      div = new org.hl7.fhir.dstu3.metamodel.Element("div");
+      div = new org.hl7.fhir.dstu3.elementmodel.Element("div");
       txt.getChildren().add(div);
     }
     div.setXhtml(x);

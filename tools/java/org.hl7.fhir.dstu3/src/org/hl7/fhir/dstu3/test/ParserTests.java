@@ -11,13 +11,13 @@ import java.net.URISyntaxException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
+import org.hl7.fhir.dstu3.elementmodel.Element;
+import org.hl7.fhir.dstu3.elementmodel.Manager;
+import org.hl7.fhir.dstu3.elementmodel.TurtleParser;
+import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
-import org.hl7.fhir.dstu3.metamodel.Element;
-import org.hl7.fhir.dstu3.metamodel.Manager;
-import org.hl7.fhir.dstu3.metamodel.Manager.FhirFormat;
-import org.hl7.fhir.dstu3.metamodel.TurtleParser;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
@@ -35,14 +35,14 @@ public class ParserTests {
       TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
       ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://local.healthintersections.com.au:960/open");
     }
-    org.hl7.fhir.dstu3.metamodel.XmlParser xp = new org.hl7.fhir.dstu3.metamodel.XmlParser(TestingUtilities.context);
-    Element e = xp.parse(new FileInputStream(Utilities.path(root, "account-example.xml")));
+    org.hl7.fhir.dstu3.elementmodel.XmlParser xp = new org.hl7.fhir.dstu3.elementmodel.XmlParser(TestingUtilities.context);
+    Element e = xp.parse(new FileInputStream(Utilities.path(root, "parameters-example.xml")));
     TurtleParser tp = new TurtleParser(TestingUtilities.context);
-    tp.compose(e, new FileOutputStream(Utilities.path(root, "account-example.ttl")), OutputStyle.PRETTY, "http://hl7.org/fhir");
+    tp.compose(e, new FileOutputStream(Utilities.path(root, "parameters-example.ttl")), OutputStyle.PRETTY, "http://hl7.org/fhir");
     tp = new TurtleParser(TestingUtilities.context);
-    e = tp.parse(new FileInputStream(Utilities.path(root, "account-example.ttl")));
-    xp = new org.hl7.fhir.dstu3.metamodel.XmlParser(TestingUtilities.context);
-    xp.compose(e, new FileOutputStream(Utilities.path(root, "account-example-1.xml")), OutputStyle.PRETTY, null); //"http://hl7.org/fhir");
+    e = tp.parse(new FileInputStream(Utilities.path(root, "parameters-example.ttl")));
+    xp = new org.hl7.fhir.dstu3.elementmodel.XmlParser(TestingUtilities.context);
+    xp.compose(e, new FileOutputStream(Utilities.path(root, "parameters-example-1.xml")), OutputStyle.PRETTY, null); //"http://hl7.org/fhir");
 	}
 //	@Test
 //	public void testSpecific() throws Exception {

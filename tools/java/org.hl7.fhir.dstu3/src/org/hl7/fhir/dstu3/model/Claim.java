@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Jun 2, 2016 12:53+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 8, 2016 10:47+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -823,7 +823,7 @@ public class Claim extends DomainResource {
         /**
          * System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.
          */
-        @Child(name = "code", type = {Coding.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "code", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Type of information", formalDefinition="System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication." )
         protected Coding code;
 
@@ -844,7 +844,7 @@ public class Claim extends DomainResource {
         /**
          * Additional data.
          */
-        @Child(name = "value", type = {IntegerType.class, PositiveIntType.class, StringType.class, Address.class, Coding.class, Identifier.class, Quantity.class, Location.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "value", type = {StringType.class, Quantity.class}, order=5, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Additional Data", formalDefinition="Additional data." )
         protected Type value;
 
@@ -860,10 +860,9 @@ public class Claim extends DomainResource {
     /**
      * Constructor
      */
-      public InformationComponent(Coding category, Coding code) {
+      public InformationComponent(Coding category) {
         super();
         this.category = category;
-        this.code = code;
       }
 
         /**
@@ -993,32 +992,6 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #value} (Additional data.)
          */
-        public IntegerType getValueIntegerType() throws FHIRException { 
-          if (!(this.value instanceof IntegerType))
-            throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.value.getClass().getName()+" was encountered");
-          return (IntegerType) this.value;
-        }
-
-        public boolean hasValueIntegerType() { 
-          return this.value instanceof IntegerType;
-        }
-
-        /**
-         * @return {@link #value} (Additional data.)
-         */
-        public PositiveIntType getValuePositiveIntType() throws FHIRException { 
-          if (!(this.value instanceof PositiveIntType))
-            throw new FHIRException("Type mismatch: the type PositiveIntType was expected, but "+this.value.getClass().getName()+" was encountered");
-          return (PositiveIntType) this.value;
-        }
-
-        public boolean hasValuePositiveIntType() { 
-          return this.value instanceof PositiveIntType;
-        }
-
-        /**
-         * @return {@link #value} (Additional data.)
-         */
         public StringType getValueStringType() throws FHIRException { 
           if (!(this.value instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
@@ -1032,45 +1005,6 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #value} (Additional data.)
          */
-        public Address getValueAddress() throws FHIRException { 
-          if (!(this.value instanceof Address))
-            throw new FHIRException("Type mismatch: the type Address was expected, but "+this.value.getClass().getName()+" was encountered");
-          return (Address) this.value;
-        }
-
-        public boolean hasValueAddress() { 
-          return this.value instanceof Address;
-        }
-
-        /**
-         * @return {@link #value} (Additional data.)
-         */
-        public Coding getValueCoding() throws FHIRException { 
-          if (!(this.value instanceof Coding))
-            throw new FHIRException("Type mismatch: the type Coding was expected, but "+this.value.getClass().getName()+" was encountered");
-          return (Coding) this.value;
-        }
-
-        public boolean hasValueCoding() { 
-          return this.value instanceof Coding;
-        }
-
-        /**
-         * @return {@link #value} (Additional data.)
-         */
-        public Identifier getValueIdentifier() throws FHIRException { 
-          if (!(this.value instanceof Identifier))
-            throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.value.getClass().getName()+" was encountered");
-          return (Identifier) this.value;
-        }
-
-        public boolean hasValueIdentifier() { 
-          return this.value instanceof Identifier;
-        }
-
-        /**
-         * @return {@link #value} (Additional data.)
-         */
         public Quantity getValueQuantity() throws FHIRException { 
           if (!(this.value instanceof Quantity))
             throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.value.getClass().getName()+" was encountered");
@@ -1079,19 +1013,6 @@ public class Claim extends DomainResource {
 
         public boolean hasValueQuantity() { 
           return this.value instanceof Quantity;
-        }
-
-        /**
-         * @return {@link #value} (Additional data.)
-         */
-        public Reference getValueReference() throws FHIRException { 
-          if (!(this.value instanceof Reference))
-            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.value.getClass().getName()+" was encountered");
-          return (Reference) this.value;
-        }
-
-        public boolean hasValueReference() { 
-          return this.value instanceof Reference;
         }
 
         public boolean hasValue() { 
@@ -1112,7 +1033,7 @@ public class Claim extends DomainResource {
           childrenList.add(new Property("code", "Coding", "System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("reason", "Coding", "A reason code which supports the reporting of the information code or provides further details for the information code.", 0, java.lang.Integer.MAX_VALUE, reason));
           childrenList.add(new Property("timing[x]", "date|Period", "The date when or period to which this information refers.", 0, java.lang.Integer.MAX_VALUE, timing));
-          childrenList.add(new Property("value[x]", "integer|positiveInt|string|Address|Coding|Identifier|Quantity|Reference(Location)", "Additional data.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value[x]", "string|Quantity", "Additional data.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       @Override
@@ -1202,36 +1123,12 @@ public class Claim extends DomainResource {
           this.timing = new Period();
           return this.timing;
         }
-        else if (name.equals("valueInteger")) {
-          this.value = new IntegerType();
-          return this.value;
-        }
-        else if (name.equals("valuePositiveInt")) {
-          this.value = new PositiveIntType();
-          return this.value;
-        }
         else if (name.equals("valueString")) {
           this.value = new StringType();
           return this.value;
         }
-        else if (name.equals("valueAddress")) {
-          this.value = new Address();
-          return this.value;
-        }
-        else if (name.equals("valueCoding")) {
-          this.value = new Coding();
-          return this.value;
-        }
-        else if (name.equals("valueIdentifier")) {
-          this.value = new Identifier();
-          return this.value;
-        }
         else if (name.equals("valueQuantity")) {
           this.value = new Quantity();
-          return this.value;
-        }
-        else if (name.equals("valueReference")) {
-          this.value = new Reference();
           return this.value;
         }
         else
@@ -1295,10 +1192,24 @@ public class Claim extends DomainResource {
          * The diagnosis.
          */
         @Child(name = "diagnosis", type = {Coding.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Patient's list of diagnosis", formalDefinition="The diagnosis." )
+        @Description(shortDefinition="Patient's diagnosis", formalDefinition="The diagnosis." )
         protected Coding diagnosis;
 
-        private static final long serialVersionUID = -795010186L;
+        /**
+         * The type of the Diagnosis, for example: admitting,.
+         */
+        @Child(name = "type", type = {Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Type of Diagnosis", formalDefinition="The type of the Diagnosis, for example: admitting,." )
+        protected List<Coding> type;
+
+        /**
+         * The Diagnosis Related Group (DRG) code based on the assigned grouping code system.
+         */
+        @Child(name = "drg", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Diagnosis Related Group", formalDefinition="The Diagnosis Related Group (DRG) code based on the assigned grouping code system." )
+        protected Coding drg;
+
+        private static final long serialVersionUID = 135693095L;
 
     /**
      * Constructor
@@ -1385,10 +1296,89 @@ public class Claim extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #type} (The type of the Diagnosis, for example: admitting,.)
+         */
+        public List<Coding> getType() { 
+          if (this.type == null)
+            this.type = new ArrayList<Coding>();
+          return this.type;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DiagnosisComponent setType(List<Coding> theType) { 
+          this.type = theType;
+          return this;
+        }
+
+        public boolean hasType() { 
+          if (this.type == null)
+            return false;
+          for (Coding item : this.type)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public Coding addType() { //3
+          Coding t = new Coding();
+          if (this.type == null)
+            this.type = new ArrayList<Coding>();
+          this.type.add(t);
+          return t;
+        }
+
+        public DiagnosisComponent addType(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.type == null)
+            this.type = new ArrayList<Coding>();
+          this.type.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #type}, creating it if it does not already exist
+         */
+        public Coding getTypeFirstRep() { 
+          if (getType().isEmpty()) {
+            addType();
+          }
+          return getType().get(0);
+        }
+
+        /**
+         * @return {@link #drg} (The Diagnosis Related Group (DRG) code based on the assigned grouping code system.)
+         */
+        public Coding getDrg() { 
+          if (this.drg == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DiagnosisComponent.drg");
+            else if (Configuration.doAutoCreate())
+              this.drg = new Coding(); // cc
+          return this.drg;
+        }
+
+        public boolean hasDrg() { 
+          return this.drg != null && !this.drg.isEmpty();
+        }
+
+        /**
+         * @param value {@link #drg} (The Diagnosis Related Group (DRG) code based on the assigned grouping code system.)
+         */
+        public DiagnosisComponent setDrg(Coding value) { 
+          this.drg = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequence", "positiveInt", "Sequence of diagnosis which serves to order and provide a link.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("diagnosis", "Coding", "The diagnosis.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
+          childrenList.add(new Property("type", "Coding", "The type of the Diagnosis, for example: admitting,.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("drg", "Coding", "The Diagnosis Related Group (DRG) code based on the assigned grouping code system.", 0, java.lang.Integer.MAX_VALUE, drg));
         }
 
       @Override
@@ -1396,6 +1386,8 @@ public class Claim extends DomainResource {
         switch (hash) {
         case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
         case 1196993265: /*diagnosis*/ return this.diagnosis == null ? new Base[0] : new Base[] {this.diagnosis}; // Coding
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : this.type.toArray(new Base[this.type.size()]); // Coding
+        case 99737: /*drg*/ return this.drg == null ? new Base[0] : new Base[] {this.drg}; // Coding
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1410,6 +1402,12 @@ public class Claim extends DomainResource {
         case 1196993265: // diagnosis
           this.diagnosis = castToCoding(value); // Coding
           break;
+        case 3575610: // type
+          this.getType().add(castToCoding(value)); // Coding
+          break;
+        case 99737: // drg
+          this.drg = castToCoding(value); // Coding
+          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -1421,6 +1419,10 @@ public class Claim extends DomainResource {
           this.sequence = castToPositiveInt(value); // PositiveIntType
         else if (name.equals("diagnosis"))
           this.diagnosis = castToCoding(value); // Coding
+        else if (name.equals("type"))
+          this.getType().add(castToCoding(value));
+        else if (name.equals("drg"))
+          this.drg = castToCoding(value); // Coding
         else
           super.setProperty(name, value);
       }
@@ -1430,6 +1432,8 @@ public class Claim extends DomainResource {
         switch (hash) {
         case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // PositiveIntType
         case 1196993265:  return getDiagnosis(); // Coding
+        case 3575610:  return addType(); // Coding
+        case 99737:  return getDrg(); // Coding
         default: return super.makeProperty(hash, name);
         }
 
@@ -1444,6 +1448,13 @@ public class Claim extends DomainResource {
           this.diagnosis = new Coding();
           return this.diagnosis;
         }
+        else if (name.equals("type")) {
+          return addType();
+        }
+        else if (name.equals("drg")) {
+          this.drg = new Coding();
+          return this.drg;
+        }
         else
           return super.addChild(name);
       }
@@ -1453,6 +1464,12 @@ public class Claim extends DomainResource {
         copyValues(dst);
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.diagnosis = diagnosis == null ? null : diagnosis.copy();
+        if (type != null) {
+          dst.type = new ArrayList<Coding>();
+          for (Coding i : type)
+            dst.type.add(i.copy());
+        };
+        dst.drg = drg == null ? null : drg.copy();
         return dst;
       }
 
@@ -1463,7 +1480,8 @@ public class Claim extends DomainResource {
         if (!(other instanceof DiagnosisComponent))
           return false;
         DiagnosisComponent o = (DiagnosisComponent) other;
-        return compareDeep(sequence, o.sequence, true) && compareDeep(diagnosis, o.diagnosis, true);
+        return compareDeep(sequence, o.sequence, true) && compareDeep(diagnosis, o.diagnosis, true) && compareDeep(type, o.type, true)
+           && compareDeep(drg, o.drg, true);
       }
 
       @Override
@@ -1477,7 +1495,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, diagnosis);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, diagnosis, type
+          , drg);
       }
 
   public String fhirType() {
@@ -2278,6 +2297,280 @@ public class Claim extends DomainResource {
 
   public String fhirType() {
     return "Claim.coverage";
+
+  }
+
+  }
+
+    @Block()
+    public static class AccidentComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Date of an accident which these services are addressing.
+         */
+        @Child(name = "date", type = {DateType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="When the accident occurred\nsee information codes\nsee information codes", formalDefinition="Date of an accident which these services are addressing." )
+        protected DateType date;
+
+        /**
+         * Type of accident: work, auto, etc.
+         */
+        @Child(name = "type", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="The nature of the accident", formalDefinition="Type of accident: work, auto, etc." )
+        protected Coding type;
+
+        /**
+         * Accident Place.
+         */
+        @Child(name = "location", type = {Address.class, Location.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Accident Place", formalDefinition="Accident Place." )
+        protected Type location;
+
+        private static final long serialVersionUID = -242365747L;
+
+    /**
+     * Constructor
+     */
+      public AccidentComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public AccidentComponent(DateType date) {
+        super();
+        this.date = date;
+      }
+
+        /**
+         * @return {@link #date} (Date of an accident which these services are addressing.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+         */
+        public DateType getDateElement() { 
+          if (this.date == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AccidentComponent.date");
+            else if (Configuration.doAutoCreate())
+              this.date = new DateType(); // bb
+          return this.date;
+        }
+
+        public boolean hasDateElement() { 
+          return this.date != null && !this.date.isEmpty();
+        }
+
+        public boolean hasDate() { 
+          return this.date != null && !this.date.isEmpty();
+        }
+
+        /**
+         * @param value {@link #date} (Date of an accident which these services are addressing.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+         */
+        public AccidentComponent setDateElement(DateType value) { 
+          this.date = value;
+          return this;
+        }
+
+        /**
+         * @return Date of an accident which these services are addressing.
+         */
+        public Date getDate() { 
+          return this.date == null ? null : this.date.getValue();
+        }
+
+        /**
+         * @param value Date of an accident which these services are addressing.
+         */
+        public AccidentComponent setDate(Date value) { 
+            if (this.date == null)
+              this.date = new DateType();
+            this.date.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #type} (Type of accident: work, auto, etc.)
+         */
+        public Coding getType() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AccidentComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Coding(); // cc
+          return this.type;
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        /**
+         * @param value {@link #type} (Type of accident: work, auto, etc.)
+         */
+        public AccidentComponent setType(Coding value) { 
+          this.type = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #location} (Accident Place.)
+         */
+        public Type getLocation() { 
+          return this.location;
+        }
+
+        /**
+         * @return {@link #location} (Accident Place.)
+         */
+        public Address getLocationAddress() throws FHIRException { 
+          if (!(this.location instanceof Address))
+            throw new FHIRException("Type mismatch: the type Address was expected, but "+this.location.getClass().getName()+" was encountered");
+          return (Address) this.location;
+        }
+
+        public boolean hasLocationAddress() { 
+          return this.location instanceof Address;
+        }
+
+        /**
+         * @return {@link #location} (Accident Place.)
+         */
+        public Reference getLocationReference() throws FHIRException { 
+          if (!(this.location instanceof Reference))
+            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.location.getClass().getName()+" was encountered");
+          return (Reference) this.location;
+        }
+
+        public boolean hasLocationReference() { 
+          return this.location instanceof Reference;
+        }
+
+        public boolean hasLocation() { 
+          return this.location != null && !this.location.isEmpty();
+        }
+
+        /**
+         * @param value {@link #location} (Accident Place.)
+         */
+        public AccidentComponent setLocation(Type value) { 
+          this.location = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("date", "date", "Date of an accident which these services are addressing.", 0, java.lang.Integer.MAX_VALUE, date));
+          childrenList.add(new Property("type", "Coding", "Type of accident: work, auto, etc.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("location[x]", "Address|Reference(Location)", "Accident Place.", 0, java.lang.Integer.MAX_VALUE, location));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateType
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Type
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3076014: // date
+          this.date = castToDate(value); // DateType
+          break;
+        case 3575610: // type
+          this.type = castToCoding(value); // Coding
+          break;
+        case 1901043637: // location
+          this.location = (Type) value; // Type
+          break;
+        default: super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("date"))
+          this.date = castToDate(value); // DateType
+        else if (name.equals("type"))
+          this.type = castToCoding(value); // Coding
+        else if (name.equals("location[x]"))
+          this.location = (Type) value; // Type
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateType
+        case 3575610:  return getType(); // Coding
+        case 552316075:  return getLocation(); // Type
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("date")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Claim.date");
+        }
+        else if (name.equals("type")) {
+          this.type = new Coding();
+          return this.type;
+        }
+        else if (name.equals("locationAddress")) {
+          this.location = new Address();
+          return this.location;
+        }
+        else if (name.equals("locationReference")) {
+          this.location = new Reference();
+          return this.location;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public AccidentComponent copy() {
+        AccidentComponent dst = new AccidentComponent();
+        copyValues(dst);
+        dst.date = date == null ? null : date.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.location = location == null ? null : location.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof AccidentComponent))
+          return false;
+        AccidentComponent o = (AccidentComponent) other;
+        return compareDeep(date, o.date, true) && compareDeep(type, o.type, true) && compareDeep(location, o.location, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof AccidentComponent))
+          return false;
+        AccidentComponent o = (AccidentComponent) other;
+        return compareValues(date, o.date, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(date, type, location);
+      }
+
+  public String fhirType() {
+    return "Claim.accident";
 
   }
 
@@ -5871,6 +6164,260 @@ public class Claim extends DomainResource {
 
   }
 
+    @Block()
+    public static class MissingTeethComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The code identifying which tooth is missing.
+         */
+        @Child(name = "tooth", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Tooth Code", formalDefinition="The code identifying which tooth is missing." )
+        protected Coding tooth;
+
+        /**
+         * Missing reason may be: E-extraction, O-other.
+         */
+        @Child(name = "reason", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Indicates whether it was extracted or other reason", formalDefinition="Missing reason may be: E-extraction, O-other." )
+        protected Coding reason;
+
+        /**
+         * The date of the extraction either known from records or patient reported estimate.
+         */
+        @Child(name = "extractionDate", type = {DateType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Date tooth was extracted if known", formalDefinition="The date of the extraction either known from records or patient reported estimate." )
+        protected DateType extractionDate;
+
+        private static final long serialVersionUID = 352913313L;
+
+    /**
+     * Constructor
+     */
+      public MissingTeethComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public MissingTeethComponent(Coding tooth) {
+        super();
+        this.tooth = tooth;
+      }
+
+        /**
+         * @return {@link #tooth} (The code identifying which tooth is missing.)
+         */
+        public Coding getTooth() { 
+          if (this.tooth == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MissingTeethComponent.tooth");
+            else if (Configuration.doAutoCreate())
+              this.tooth = new Coding(); // cc
+          return this.tooth;
+        }
+
+        public boolean hasTooth() { 
+          return this.tooth != null && !this.tooth.isEmpty();
+        }
+
+        /**
+         * @param value {@link #tooth} (The code identifying which tooth is missing.)
+         */
+        public MissingTeethComponent setTooth(Coding value) { 
+          this.tooth = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #reason} (Missing reason may be: E-extraction, O-other.)
+         */
+        public Coding getReason() { 
+          if (this.reason == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MissingTeethComponent.reason");
+            else if (Configuration.doAutoCreate())
+              this.reason = new Coding(); // cc
+          return this.reason;
+        }
+
+        public boolean hasReason() { 
+          return this.reason != null && !this.reason.isEmpty();
+        }
+
+        /**
+         * @param value {@link #reason} (Missing reason may be: E-extraction, O-other.)
+         */
+        public MissingTeethComponent setReason(Coding value) { 
+          this.reason = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #extractionDate} (The date of the extraction either known from records or patient reported estimate.). This is the underlying object with id, value and extensions. The accessor "getExtractionDate" gives direct access to the value
+         */
+        public DateType getExtractionDateElement() { 
+          if (this.extractionDate == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MissingTeethComponent.extractionDate");
+            else if (Configuration.doAutoCreate())
+              this.extractionDate = new DateType(); // bb
+          return this.extractionDate;
+        }
+
+        public boolean hasExtractionDateElement() { 
+          return this.extractionDate != null && !this.extractionDate.isEmpty();
+        }
+
+        public boolean hasExtractionDate() { 
+          return this.extractionDate != null && !this.extractionDate.isEmpty();
+        }
+
+        /**
+         * @param value {@link #extractionDate} (The date of the extraction either known from records or patient reported estimate.). This is the underlying object with id, value and extensions. The accessor "getExtractionDate" gives direct access to the value
+         */
+        public MissingTeethComponent setExtractionDateElement(DateType value) { 
+          this.extractionDate = value;
+          return this;
+        }
+
+        /**
+         * @return The date of the extraction either known from records or patient reported estimate.
+         */
+        public Date getExtractionDate() { 
+          return this.extractionDate == null ? null : this.extractionDate.getValue();
+        }
+
+        /**
+         * @param value The date of the extraction either known from records or patient reported estimate.
+         */
+        public MissingTeethComponent setExtractionDate(Date value) { 
+          if (value == null)
+            this.extractionDate = null;
+          else {
+            if (this.extractionDate == null)
+              this.extractionDate = new DateType();
+            this.extractionDate.setValue(value);
+          }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("tooth", "Coding", "The code identifying which tooth is missing.", 0, java.lang.Integer.MAX_VALUE, tooth));
+          childrenList.add(new Property("reason", "Coding", "Missing reason may be: E-extraction, O-other.", 0, java.lang.Integer.MAX_VALUE, reason));
+          childrenList.add(new Property("extractionDate", "date", "The date of the extraction either known from records or patient reported estimate.", 0, java.lang.Integer.MAX_VALUE, extractionDate));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 110545608: /*tooth*/ return this.tooth == null ? new Base[0] : new Base[] {this.tooth}; // Coding
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Coding
+        case 580646965: /*extractionDate*/ return this.extractionDate == null ? new Base[0] : new Base[] {this.extractionDate}; // DateType
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 110545608: // tooth
+          this.tooth = castToCoding(value); // Coding
+          break;
+        case -934964668: // reason
+          this.reason = castToCoding(value); // Coding
+          break;
+        case 580646965: // extractionDate
+          this.extractionDate = castToDate(value); // DateType
+          break;
+        default: super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("tooth"))
+          this.tooth = castToCoding(value); // Coding
+        else if (name.equals("reason"))
+          this.reason = castToCoding(value); // Coding
+        else if (name.equals("extractionDate"))
+          this.extractionDate = castToDate(value); // DateType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 110545608:  return getTooth(); // Coding
+        case -934964668:  return getReason(); // Coding
+        case 580646965: throw new FHIRException("Cannot make property extractionDate as it is not a complex type"); // DateType
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("tooth")) {
+          this.tooth = new Coding();
+          return this.tooth;
+        }
+        else if (name.equals("reason")) {
+          this.reason = new Coding();
+          return this.reason;
+        }
+        else if (name.equals("extractionDate")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Claim.extractionDate");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public MissingTeethComponent copy() {
+        MissingTeethComponent dst = new MissingTeethComponent();
+        copyValues(dst);
+        dst.tooth = tooth == null ? null : tooth.copy();
+        dst.reason = reason == null ? null : reason.copy();
+        dst.extractionDate = extractionDate == null ? null : extractionDate.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MissingTeethComponent))
+          return false;
+        MissingTeethComponent o = (MissingTeethComponent) other;
+        return compareDeep(tooth, o.tooth, true) && compareDeep(reason, o.reason, true) && compareDeep(extractionDate, o.extractionDate, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MissingTeethComponent))
+          return false;
+        MissingTeethComponent o = (MissingTeethComponent) other;
+        return compareValues(extractionDate, o.extractionDate, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(tooth, reason, extractionDate
+          );
+      }
+
+  public String fhirType() {
+    return "Claim.missingTeeth";
+
+  }
+
+  }
+
     /**
      * The category of claim.
      */
@@ -6012,10 +6559,10 @@ public class Claim extends DomainResource {
     protected Type referral;
 
     /**
-     * Additional information codes regarding the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
+     * Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
      */
     @Child(name = "information", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="", formalDefinition="Additional information codes regarding the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required." )
+    @Description(shortDefinition="", formalDefinition="Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required." )
     protected List<InformationComponent> information;
 
     /**
@@ -6047,20 +6594,34 @@ public class Claim extends DomainResource {
     protected List<CoverageComponent> coverage;
 
     /**
+     * An accident which resulted in the need for healthcare services.
+     */
+    @Child(name = "accident", type = {}, order=25, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="An accident which resulted in the need for healthcare services." )
+    protected AccidentComponent accident;
+
+    /**
      * First tier of goods and services.
      */
-    @Child(name = "item", type = {}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "item", type = {}, order=26, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Goods and Services", formalDefinition="First tier of goods and services." )
     protected List<ItemComponent> item;
 
     /**
      * The total value of the claim.
      */
-    @Child(name = "total", type = {Money.class}, order=26, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "total", type = {Money.class}, order=27, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Total claim cost", formalDefinition="The total value of the claim." )
     protected Money total;
 
-    private static final long serialVersionUID = 1143635278L;
+    /**
+     * A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
+     */
+    @Child(name = "missingTeeth", type = {}, order=28, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Only if type = oral", formalDefinition="A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons." )
+    protected List<MissingTeethComponent> missingTeeth;
+
+    private static final long serialVersionUID = -85416030L;
 
   /**
    * Constructor
@@ -6885,7 +7446,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #information} (Additional information codes regarding the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.)
+     * @return {@link #information} (Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.)
      */
     public List<InformationComponent> getInformation() { 
       if (this.information == null)
@@ -7142,6 +7703,30 @@ public class Claim extends DomainResource {
     }
 
     /**
+     * @return {@link #accident} (An accident which resulted in the need for healthcare services.)
+     */
+    public AccidentComponent getAccident() { 
+      if (this.accident == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Claim.accident");
+        else if (Configuration.doAutoCreate())
+          this.accident = new AccidentComponent(); // cc
+      return this.accident;
+    }
+
+    public boolean hasAccident() { 
+      return this.accident != null && !this.accident.isEmpty();
+    }
+
+    /**
+     * @param value {@link #accident} (An accident which resulted in the need for healthcare services.)
+     */
+    public Claim setAccident(AccidentComponent value) { 
+      this.accident = value;
+      return this;
+    }
+
+    /**
      * @return {@link #item} (First tier of goods and services.)
      */
     public List<ItemComponent> getItem() { 
@@ -7218,6 +7803,59 @@ public class Claim extends DomainResource {
       return this;
     }
 
+    /**
+     * @return {@link #missingTeeth} (A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.)
+     */
+    public List<MissingTeethComponent> getMissingTeeth() { 
+      if (this.missingTeeth == null)
+        this.missingTeeth = new ArrayList<MissingTeethComponent>();
+      return this.missingTeeth;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Claim setMissingTeeth(List<MissingTeethComponent> theMissingTeeth) { 
+      this.missingTeeth = theMissingTeeth;
+      return this;
+    }
+
+    public boolean hasMissingTeeth() { 
+      if (this.missingTeeth == null)
+        return false;
+      for (MissingTeethComponent item : this.missingTeeth)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public MissingTeethComponent addMissingTeeth() { //3
+      MissingTeethComponent t = new MissingTeethComponent();
+      if (this.missingTeeth == null)
+        this.missingTeeth = new ArrayList<MissingTeethComponent>();
+      this.missingTeeth.add(t);
+      return t;
+    }
+
+    public Claim addMissingTeeth(MissingTeethComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.missingTeeth == null)
+        this.missingTeeth = new ArrayList<MissingTeethComponent>();
+      this.missingTeeth.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #missingTeeth}, creating it if it does not already exist
+     */
+    public MissingTeethComponent getMissingTeethFirstRep() { 
+      if (getMissingTeeth().isEmpty()) {
+        addMissingTeeth();
+      }
+      return getMissingTeeth().get(0);
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("type", "code", "The category of claim.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -7240,13 +7878,15 @@ public class Claim extends DomainResource {
         childrenList.add(new Property("originalPrescription[x]", "Identifier|Reference(MedicationOrder)", "Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.", 0, java.lang.Integer.MAX_VALUE, originalPrescription));
         childrenList.add(new Property("payee", "", "The party to be reimbursed for the services.", 0, java.lang.Integer.MAX_VALUE, payee));
         childrenList.add(new Property("referral[x]", "Identifier|Reference(ReferralRequest)", "The referral resource which lists the date, practitioner, reason and other supporting information.", 0, java.lang.Integer.MAX_VALUE, referral));
-        childrenList.add(new Property("information", "", "Additional information codes regarding the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.", 0, java.lang.Integer.MAX_VALUE, information));
+        childrenList.add(new Property("information", "", "Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.", 0, java.lang.Integer.MAX_VALUE, information));
         childrenList.add(new Property("diagnosis", "", "Ordered list of patient diagnosis for which care is sought.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
         childrenList.add(new Property("procedure", "", "Ordered list of patient procedures performed to support the adjudication.", 0, java.lang.Integer.MAX_VALUE, procedure));
         childrenList.add(new Property("patient[x]", "Identifier|Reference(Patient)", "Patient Resource.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("coverage", "", "Financial instrument by which payment information for health care.", 0, java.lang.Integer.MAX_VALUE, coverage));
+        childrenList.add(new Property("accident", "", "An accident which resulted in the need for healthcare services.", 0, java.lang.Integer.MAX_VALUE, accident));
         childrenList.add(new Property("item", "", "First tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, item));
         childrenList.add(new Property("total", "Money", "The total value of the claim.", 0, java.lang.Integer.MAX_VALUE, total));
+        childrenList.add(new Property("missingTeeth", "", "A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.", 0, java.lang.Integer.MAX_VALUE, missingTeeth));
       }
 
       @Override
@@ -7277,8 +7917,10 @@ public class Claim extends DomainResource {
         case -1095204141: /*procedure*/ return this.procedure == null ? new Base[0] : this.procedure.toArray(new Base[this.procedure.size()]); // ProcedureComponent
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Type
         case -351767064: /*coverage*/ return this.coverage == null ? new Base[0] : this.coverage.toArray(new Base[this.coverage.size()]); // CoverageComponent
+        case -2143202801: /*accident*/ return this.accident == null ? new Base[0] : new Base[] {this.accident}; // AccidentComponent
         case 3242771: /*item*/ return this.item == null ? new Base[0] : this.item.toArray(new Base[this.item.size()]); // ItemComponent
         case 110549828: /*total*/ return this.total == null ? new Base[0] : new Base[] {this.total}; // Money
+        case -1157130302: /*missingTeeth*/ return this.missingTeeth == null ? new Base[0] : this.missingTeeth.toArray(new Base[this.missingTeeth.size()]); // MissingTeethComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -7362,11 +8004,17 @@ public class Claim extends DomainResource {
         case -351767064: // coverage
           this.getCoverage().add((CoverageComponent) value); // CoverageComponent
           break;
+        case -2143202801: // accident
+          this.accident = (AccidentComponent) value; // AccidentComponent
+          break;
         case 3242771: // item
           this.getItem().add((ItemComponent) value); // ItemComponent
           break;
         case 110549828: // total
           this.total = castToMoney(value); // Money
+          break;
+        case -1157130302: // missingTeeth
+          this.getMissingTeeth().add((MissingTeethComponent) value); // MissingTeethComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -7425,10 +8073,14 @@ public class Claim extends DomainResource {
           this.patient = (Type) value; // Type
         else if (name.equals("coverage"))
           this.getCoverage().add((CoverageComponent) value);
+        else if (name.equals("accident"))
+          this.accident = (AccidentComponent) value; // AccidentComponent
         else if (name.equals("item"))
           this.getItem().add((ItemComponent) value);
         else if (name.equals("total"))
           this.total = castToMoney(value); // Money
+        else if (name.equals("missingTeeth"))
+          this.getMissingTeeth().add((MissingTeethComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -7461,8 +8113,10 @@ public class Claim extends DomainResource {
         case -1095204141:  return addProcedure(); // ProcedureComponent
         case -2061246629:  return getPatient(); // Type
         case -351767064:  return addCoverage(); // CoverageComponent
+        case -2143202801:  return getAccident(); // AccidentComponent
         case 3242771:  return addItem(); // ItemComponent
         case 110549828:  return getTotal(); // Money
+        case -1157130302:  return addMissingTeeth(); // MissingTeethComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -7596,12 +8250,19 @@ public class Claim extends DomainResource {
         else if (name.equals("coverage")) {
           return addCoverage();
         }
+        else if (name.equals("accident")) {
+          this.accident = new AccidentComponent();
+          return this.accident;
+        }
         else if (name.equals("item")) {
           return addItem();
         }
         else if (name.equals("total")) {
           this.total = new Money();
           return this.total;
+        }
+        else if (name.equals("missingTeeth")) {
+          return addMissingTeeth();
         }
         else
           return super.addChild(name);
@@ -7668,12 +8329,18 @@ public class Claim extends DomainResource {
           for (CoverageComponent i : coverage)
             dst.coverage.add(i.copy());
         };
+        dst.accident = accident == null ? null : accident.copy();
         if (item != null) {
           dst.item = new ArrayList<ItemComponent>();
           for (ItemComponent i : item)
             dst.item.add(i.copy());
         };
         dst.total = total == null ? null : total.copy();
+        if (missingTeeth != null) {
+          dst.missingTeeth = new ArrayList<MissingTeethComponent>();
+          for (MissingTeethComponent i : missingTeeth)
+            dst.missingTeeth.add(i.copy());
+        };
         return dst;
       }
 
@@ -7697,8 +8364,8 @@ public class Claim extends DomainResource {
            && compareDeep(prescription, o.prescription, true) && compareDeep(originalPrescription, o.originalPrescription, true)
            && compareDeep(payee, o.payee, true) && compareDeep(referral, o.referral, true) && compareDeep(information, o.information, true)
            && compareDeep(diagnosis, o.diagnosis, true) && compareDeep(procedure, o.procedure, true) && compareDeep(patient, o.patient, true)
-           && compareDeep(coverage, o.coverage, true) && compareDeep(item, o.item, true) && compareDeep(total, o.total, true)
-          ;
+           && compareDeep(coverage, o.coverage, true) && compareDeep(accident, o.accident, true) && compareDeep(item, o.item, true)
+           && compareDeep(total, o.total, true) && compareDeep(missingTeeth, o.missingTeeth, true);
       }
 
       @Override
@@ -7716,8 +8383,8 @@ public class Claim extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, subType, identifier
           , ruleset, originalRuleset, created, billablePeriod, target, provider, organization
           , use, priority, fundsReserve, enterer, facility, related, prescription, originalPrescription
-          , payee, referral, information, diagnosis, procedure, patient, coverage, item
-          , total);
+          , payee, referral, information, diagnosis, procedure, patient, coverage, accident
+          , item, total, missingTeeth);
       }
 
   @Override

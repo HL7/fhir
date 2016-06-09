@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Jun 2, 2016 12:53+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 8, 2016 10:47+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -2423,6 +2423,385 @@ public class ClaimResponse extends DomainResource {
   }
 
     @Block()
+    public static class PaymentComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Whether this represents partial or complete payment of the claim.
+         */
+        @Child(name = "type", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Partial or Complete", formalDefinition="Whether this represents partial or complete payment of the claim." )
+        protected Coding type;
+
+        /**
+         * Adjustment to the payment of this transaction which is not related to adjudication of this transaction.
+         */
+        @Child(name = "adjustment", type = {Money.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Payment adjustment for non-Claim issues", formalDefinition="Adjustment to the payment of this transaction which is not related to adjudication of this transaction." )
+        protected Money adjustment;
+
+        /**
+         * Reason for the payment adjustment.
+         */
+        @Child(name = "adjustmentReason", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Reason for Payment adjustment", formalDefinition="Reason for the payment adjustment." )
+        protected Coding adjustmentReason;
+
+        /**
+         * Estimated payment data.
+         */
+        @Child(name = "date", type = {DateType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Expected data of Payment", formalDefinition="Estimated payment data." )
+        protected DateType date;
+
+        /**
+         * Payable less any payment adjustment.
+         */
+        @Child(name = "amount", type = {Money.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Payment amount", formalDefinition="Payable less any payment adjustment." )
+        protected Money amount;
+
+        /**
+         * Payment identifier.
+         */
+        @Child(name = "identifier", type = {Identifier.class}, order=6, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Payment identifier", formalDefinition="Payment identifier." )
+        protected Identifier identifier;
+
+        private static final long serialVersionUID = -803665422L;
+
+    /**
+     * Constructor
+     */
+      public PaymentComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #type} (Whether this represents partial or complete payment of the claim.)
+         */
+        public Coding getType() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PaymentComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Coding(); // cc
+          return this.type;
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        /**
+         * @param value {@link #type} (Whether this represents partial or complete payment of the claim.)
+         */
+        public PaymentComponent setType(Coding value) { 
+          this.type = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #adjustment} (Adjustment to the payment of this transaction which is not related to adjudication of this transaction.)
+         */
+        public Money getAdjustment() { 
+          if (this.adjustment == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PaymentComponent.adjustment");
+            else if (Configuration.doAutoCreate())
+              this.adjustment = new Money(); // cc
+          return this.adjustment;
+        }
+
+        public boolean hasAdjustment() { 
+          return this.adjustment != null && !this.adjustment.isEmpty();
+        }
+
+        /**
+         * @param value {@link #adjustment} (Adjustment to the payment of this transaction which is not related to adjudication of this transaction.)
+         */
+        public PaymentComponent setAdjustment(Money value) { 
+          this.adjustment = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #adjustmentReason} (Reason for the payment adjustment.)
+         */
+        public Coding getAdjustmentReason() { 
+          if (this.adjustmentReason == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PaymentComponent.adjustmentReason");
+            else if (Configuration.doAutoCreate())
+              this.adjustmentReason = new Coding(); // cc
+          return this.adjustmentReason;
+        }
+
+        public boolean hasAdjustmentReason() { 
+          return this.adjustmentReason != null && !this.adjustmentReason.isEmpty();
+        }
+
+        /**
+         * @param value {@link #adjustmentReason} (Reason for the payment adjustment.)
+         */
+        public PaymentComponent setAdjustmentReason(Coding value) { 
+          this.adjustmentReason = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #date} (Estimated payment data.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+         */
+        public DateType getDateElement() { 
+          if (this.date == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PaymentComponent.date");
+            else if (Configuration.doAutoCreate())
+              this.date = new DateType(); // bb
+          return this.date;
+        }
+
+        public boolean hasDateElement() { 
+          return this.date != null && !this.date.isEmpty();
+        }
+
+        public boolean hasDate() { 
+          return this.date != null && !this.date.isEmpty();
+        }
+
+        /**
+         * @param value {@link #date} (Estimated payment data.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+         */
+        public PaymentComponent setDateElement(DateType value) { 
+          this.date = value;
+          return this;
+        }
+
+        /**
+         * @return Estimated payment data.
+         */
+        public Date getDate() { 
+          return this.date == null ? null : this.date.getValue();
+        }
+
+        /**
+         * @param value Estimated payment data.
+         */
+        public PaymentComponent setDate(Date value) { 
+          if (value == null)
+            this.date = null;
+          else {
+            if (this.date == null)
+              this.date = new DateType();
+            this.date.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #amount} (Payable less any payment adjustment.)
+         */
+        public Money getAmount() { 
+          if (this.amount == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PaymentComponent.amount");
+            else if (Configuration.doAutoCreate())
+              this.amount = new Money(); // cc
+          return this.amount;
+        }
+
+        public boolean hasAmount() { 
+          return this.amount != null && !this.amount.isEmpty();
+        }
+
+        /**
+         * @param value {@link #amount} (Payable less any payment adjustment.)
+         */
+        public PaymentComponent setAmount(Money value) { 
+          this.amount = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #identifier} (Payment identifier.)
+         */
+        public Identifier getIdentifier() { 
+          if (this.identifier == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PaymentComponent.identifier");
+            else if (Configuration.doAutoCreate())
+              this.identifier = new Identifier(); // cc
+          return this.identifier;
+        }
+
+        public boolean hasIdentifier() { 
+          return this.identifier != null && !this.identifier.isEmpty();
+        }
+
+        /**
+         * @param value {@link #identifier} (Payment identifier.)
+         */
+        public PaymentComponent setIdentifier(Identifier value) { 
+          this.identifier = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("type", "Coding", "Whether this represents partial or complete payment of the claim.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("adjustment", "Money", "Adjustment to the payment of this transaction which is not related to adjudication of this transaction.", 0, java.lang.Integer.MAX_VALUE, adjustment));
+          childrenList.add(new Property("adjustmentReason", "Coding", "Reason for the payment adjustment.", 0, java.lang.Integer.MAX_VALUE, adjustmentReason));
+          childrenList.add(new Property("date", "date", "Estimated payment data.", 0, java.lang.Integer.MAX_VALUE, date));
+          childrenList.add(new Property("amount", "Money", "Payable less any payment adjustment.", 0, java.lang.Integer.MAX_VALUE, amount));
+          childrenList.add(new Property("identifier", "Identifier", "Payment identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 1977085293: /*adjustment*/ return this.adjustment == null ? new Base[0] : new Base[] {this.adjustment}; // Money
+        case -1255938543: /*adjustmentReason*/ return this.adjustmentReason == null ? new Base[0] : new Base[] {this.adjustmentReason}; // Coding
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateType
+        case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Money
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610: // type
+          this.type = castToCoding(value); // Coding
+          break;
+        case 1977085293: // adjustment
+          this.adjustment = castToMoney(value); // Money
+          break;
+        case -1255938543: // adjustmentReason
+          this.adjustmentReason = castToCoding(value); // Coding
+          break;
+        case 3076014: // date
+          this.date = castToDate(value); // DateType
+          break;
+        case -1413853096: // amount
+          this.amount = castToMoney(value); // Money
+          break;
+        case -1618432855: // identifier
+          this.identifier = castToIdentifier(value); // Identifier
+          break;
+        default: super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("type"))
+          this.type = castToCoding(value); // Coding
+        else if (name.equals("adjustment"))
+          this.adjustment = castToMoney(value); // Money
+        else if (name.equals("adjustmentReason"))
+          this.adjustmentReason = castToCoding(value); // Coding
+        else if (name.equals("date"))
+          this.date = castToDate(value); // DateType
+        else if (name.equals("amount"))
+          this.amount = castToMoney(value); // Money
+        else if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getType(); // Coding
+        case 1977085293:  return getAdjustment(); // Money
+        case -1255938543:  return getAdjustmentReason(); // Coding
+        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateType
+        case -1413853096:  return getAmount(); // Money
+        case -1618432855:  return getIdentifier(); // Identifier
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("type")) {
+          this.type = new Coding();
+          return this.type;
+        }
+        else if (name.equals("adjustment")) {
+          this.adjustment = new Money();
+          return this.adjustment;
+        }
+        else if (name.equals("adjustmentReason")) {
+          this.adjustmentReason = new Coding();
+          return this.adjustmentReason;
+        }
+        else if (name.equals("date")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.date");
+        }
+        else if (name.equals("amount")) {
+          this.amount = new Money();
+          return this.amount;
+        }
+        else if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public PaymentComponent copy() {
+        PaymentComponent dst = new PaymentComponent();
+        copyValues(dst);
+        dst.type = type == null ? null : type.copy();
+        dst.adjustment = adjustment == null ? null : adjustment.copy();
+        dst.adjustmentReason = adjustmentReason == null ? null : adjustmentReason.copy();
+        dst.date = date == null ? null : date.copy();
+        dst.amount = amount == null ? null : amount.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof PaymentComponent))
+          return false;
+        PaymentComponent o = (PaymentComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(adjustment, o.adjustment, true) && compareDeep(adjustmentReason, o.adjustmentReason, true)
+           && compareDeep(date, o.date, true) && compareDeep(amount, o.amount, true) && compareDeep(identifier, o.identifier, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof PaymentComponent))
+          return false;
+        PaymentComponent o = (PaymentComponent) other;
+        return compareValues(date, o.date, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, adjustment, adjustmentReason
+          , date, amount, identifier);
+      }
+
+  public String fhirType() {
+    return "ClaimResponse.payment";
+
+  }
+
+  }
+
+    @Block()
     public static class NoteComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * An integer associated with each note which may be referred to from each service line item.
@@ -3264,11 +3643,11 @@ public class ClaimResponse extends DomainResource {
     protected Type requestOrganization;
 
     /**
-     * Transaction status: error, complete.
+     * Processing outcome errror, partial or complete processing.
      */
-    @Child(name = "outcome", type = {CodeType.class}, order=8, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="complete | error", formalDefinition="Transaction status: error, complete." )
-    protected Enumeration<RemittanceOutcome> outcome;
+    @Child(name = "outcome", type = {Coding.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="complete | error | partial", formalDefinition="Processing outcome errror, partial or complete processing." )
+    protected Coding outcome;
 
     /**
      * A description of the status of the adjudication.
@@ -3327,69 +3706,41 @@ public class ClaimResponse extends DomainResource {
     protected Money totalBenefit;
 
     /**
-     * Adjustment to the payment of this transaction which is not related to adjudication of this transaction.
+     * Payment details for the claim if the claim has been paid.
      */
-    @Child(name = "paymentAdjustment", type = {Money.class}, order=17, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Payment adjustment for non-Claim issues", formalDefinition="Adjustment to the payment of this transaction which is not related to adjudication of this transaction." )
-    protected Money paymentAdjustment;
-
-    /**
-     * Reason for the payment adjustment.
-     */
-    @Child(name = "paymentAdjustmentReason", type = {Coding.class}, order=18, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Reason for Payment adjustment", formalDefinition="Reason for the payment adjustment." )
-    protected Coding paymentAdjustmentReason;
-
-    /**
-     * Estimated payment data.
-     */
-    @Child(name = "paymentDate", type = {DateType.class}, order=19, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Expected data of Payment", formalDefinition="Estimated payment data." )
-    protected DateType paymentDate;
-
-    /**
-     * Payable less any payment adjustment.
-     */
-    @Child(name = "paymentAmount", type = {Money.class}, order=20, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Payment amount", formalDefinition="Payable less any payment adjustment." )
-    protected Money paymentAmount;
-
-    /**
-     * Payment identifier.
-     */
-    @Child(name = "paymentRef", type = {Identifier.class}, order=21, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Payment identifier", formalDefinition="Payment identifier." )
-    protected Identifier paymentRef;
+    @Child(name = "payment", type = {}, order=17, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="Payment details for the claim if the claim has been paid." )
+    protected PaymentComponent payment;
 
     /**
      * Status of funds reservation (For provider, for Patient, None).
      */
-    @Child(name = "reserved", type = {Coding.class}, order=22, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "reserved", type = {Coding.class}, order=18, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Funds reserved status", formalDefinition="Status of funds reservation (For provider, for Patient, None)." )
     protected Coding reserved;
 
     /**
      * The form to be used for printing the content.
      */
-    @Child(name = "form", type = {Coding.class}, order=23, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "form", type = {Coding.class}, order=19, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Printed Form Identifier", formalDefinition="The form to be used for printing the content." )
     protected Coding form;
 
     /**
      * Note text.
      */
-    @Child(name = "note", type = {}, order=24, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "note", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Processing notes", formalDefinition="Note text." )
     protected List<NoteComponent> note;
 
     /**
      * Financial instrument by which payment information for health care.
      */
-    @Child(name = "coverage", type = {}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "coverage", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Insurance or medical plan", formalDefinition="Financial instrument by which payment information for health care." )
     protected List<CoverageComponent> coverage;
 
-    private static final long serialVersionUID = 543619456L;
+    private static final long serialVersionUID = 421611386L;
 
   /**
    * Constructor
@@ -3729,19 +4080,15 @@ public class ClaimResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #outcome} (Transaction status: error, complete.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
+     * @return {@link #outcome} (Processing outcome errror, partial or complete processing.)
      */
-    public Enumeration<RemittanceOutcome> getOutcomeElement() { 
+    public Coding getOutcome() { 
       if (this.outcome == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.outcome");
         else if (Configuration.doAutoCreate())
-          this.outcome = new Enumeration<RemittanceOutcome>(new RemittanceOutcomeEnumFactory()); // bb
+          this.outcome = new Coding(); // cc
       return this.outcome;
-    }
-
-    public boolean hasOutcomeElement() { 
-      return this.outcome != null && !this.outcome.isEmpty();
     }
 
     public boolean hasOutcome() { 
@@ -3749,31 +4096,10 @@ public class ClaimResponse extends DomainResource {
     }
 
     /**
-     * @param value {@link #outcome} (Transaction status: error, complete.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
+     * @param value {@link #outcome} (Processing outcome errror, partial or complete processing.)
      */
-    public ClaimResponse setOutcomeElement(Enumeration<RemittanceOutcome> value) { 
+    public ClaimResponse setOutcome(Coding value) { 
       this.outcome = value;
-      return this;
-    }
-
-    /**
-     * @return Transaction status: error, complete.
-     */
-    public RemittanceOutcome getOutcome() { 
-      return this.outcome == null ? null : this.outcome.getValue();
-    }
-
-    /**
-     * @param value Transaction status: error, complete.
-     */
-    public ClaimResponse setOutcome(RemittanceOutcome value) { 
-      if (value == null)
-        this.outcome = null;
-      else {
-        if (this.outcome == null)
-          this.outcome = new Enumeration<RemittanceOutcome>(new RemittanceOutcomeEnumFactory());
-        this.outcome.setValue(value);
-      }
       return this;
     }
 
@@ -4082,147 +4408,26 @@ public class ClaimResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #paymentAdjustment} (Adjustment to the payment of this transaction which is not related to adjudication of this transaction.)
+     * @return {@link #payment} (Payment details for the claim if the claim has been paid.)
      */
-    public Money getPaymentAdjustment() { 
-      if (this.paymentAdjustment == null)
+    public PaymentComponent getPayment() { 
+      if (this.payment == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClaimResponse.paymentAdjustment");
+          throw new Error("Attempt to auto-create ClaimResponse.payment");
         else if (Configuration.doAutoCreate())
-          this.paymentAdjustment = new Money(); // cc
-      return this.paymentAdjustment;
+          this.payment = new PaymentComponent(); // cc
+      return this.payment;
     }
 
-    public boolean hasPaymentAdjustment() { 
-      return this.paymentAdjustment != null && !this.paymentAdjustment.isEmpty();
-    }
-
-    /**
-     * @param value {@link #paymentAdjustment} (Adjustment to the payment of this transaction which is not related to adjudication of this transaction.)
-     */
-    public ClaimResponse setPaymentAdjustment(Money value) { 
-      this.paymentAdjustment = value;
-      return this;
+    public boolean hasPayment() { 
+      return this.payment != null && !this.payment.isEmpty();
     }
 
     /**
-     * @return {@link #paymentAdjustmentReason} (Reason for the payment adjustment.)
+     * @param value {@link #payment} (Payment details for the claim if the claim has been paid.)
      */
-    public Coding getPaymentAdjustmentReason() { 
-      if (this.paymentAdjustmentReason == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClaimResponse.paymentAdjustmentReason");
-        else if (Configuration.doAutoCreate())
-          this.paymentAdjustmentReason = new Coding(); // cc
-      return this.paymentAdjustmentReason;
-    }
-
-    public boolean hasPaymentAdjustmentReason() { 
-      return this.paymentAdjustmentReason != null && !this.paymentAdjustmentReason.isEmpty();
-    }
-
-    /**
-     * @param value {@link #paymentAdjustmentReason} (Reason for the payment adjustment.)
-     */
-    public ClaimResponse setPaymentAdjustmentReason(Coding value) { 
-      this.paymentAdjustmentReason = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #paymentDate} (Estimated payment data.). This is the underlying object with id, value and extensions. The accessor "getPaymentDate" gives direct access to the value
-     */
-    public DateType getPaymentDateElement() { 
-      if (this.paymentDate == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClaimResponse.paymentDate");
-        else if (Configuration.doAutoCreate())
-          this.paymentDate = new DateType(); // bb
-      return this.paymentDate;
-    }
-
-    public boolean hasPaymentDateElement() { 
-      return this.paymentDate != null && !this.paymentDate.isEmpty();
-    }
-
-    public boolean hasPaymentDate() { 
-      return this.paymentDate != null && !this.paymentDate.isEmpty();
-    }
-
-    /**
-     * @param value {@link #paymentDate} (Estimated payment data.). This is the underlying object with id, value and extensions. The accessor "getPaymentDate" gives direct access to the value
-     */
-    public ClaimResponse setPaymentDateElement(DateType value) { 
-      this.paymentDate = value;
-      return this;
-    }
-
-    /**
-     * @return Estimated payment data.
-     */
-    public Date getPaymentDate() { 
-      return this.paymentDate == null ? null : this.paymentDate.getValue();
-    }
-
-    /**
-     * @param value Estimated payment data.
-     */
-    public ClaimResponse setPaymentDate(Date value) { 
-      if (value == null)
-        this.paymentDate = null;
-      else {
-        if (this.paymentDate == null)
-          this.paymentDate = new DateType();
-        this.paymentDate.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #paymentAmount} (Payable less any payment adjustment.)
-     */
-    public Money getPaymentAmount() { 
-      if (this.paymentAmount == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClaimResponse.paymentAmount");
-        else if (Configuration.doAutoCreate())
-          this.paymentAmount = new Money(); // cc
-      return this.paymentAmount;
-    }
-
-    public boolean hasPaymentAmount() { 
-      return this.paymentAmount != null && !this.paymentAmount.isEmpty();
-    }
-
-    /**
-     * @param value {@link #paymentAmount} (Payable less any payment adjustment.)
-     */
-    public ClaimResponse setPaymentAmount(Money value) { 
-      this.paymentAmount = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #paymentRef} (Payment identifier.)
-     */
-    public Identifier getPaymentRef() { 
-      if (this.paymentRef == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClaimResponse.paymentRef");
-        else if (Configuration.doAutoCreate())
-          this.paymentRef = new Identifier(); // cc
-      return this.paymentRef;
-    }
-
-    public boolean hasPaymentRef() { 
-      return this.paymentRef != null && !this.paymentRef.isEmpty();
-    }
-
-    /**
-     * @param value {@link #paymentRef} (Payment identifier.)
-     */
-    public ClaimResponse setPaymentRef(Identifier value) { 
-      this.paymentRef = value;
+    public ClaimResponse setPayment(PaymentComponent value) { 
+      this.payment = value;
       return this;
     }
 
@@ -4390,7 +4595,7 @@ public class ClaimResponse extends DomainResource {
         childrenList.add(new Property("organization[x]", "Identifier|Reference(Organization)", "The Insurer who produced this adjudicated response.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("requestProvider[x]", "Identifier|Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestProvider));
         childrenList.add(new Property("requestOrganization[x]", "Identifier|Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestOrganization));
-        childrenList.add(new Property("outcome", "code", "Transaction status: error, complete.", 0, java.lang.Integer.MAX_VALUE, outcome));
+        childrenList.add(new Property("outcome", "Coding", "Processing outcome errror, partial or complete processing.", 0, java.lang.Integer.MAX_VALUE, outcome));
         childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, java.lang.Integer.MAX_VALUE, disposition));
         childrenList.add(new Property("payeeType", "Coding", "Party to be reimbursed: Subscriber, provider, other.", 0, java.lang.Integer.MAX_VALUE, payeeType));
         childrenList.add(new Property("item", "", "The first tier service adjudications for submitted services.", 0, java.lang.Integer.MAX_VALUE, item));
@@ -4399,11 +4604,7 @@ public class ClaimResponse extends DomainResource {
         childrenList.add(new Property("totalCost", "Money", "The total cost of the services reported.", 0, java.lang.Integer.MAX_VALUE, totalCost));
         childrenList.add(new Property("unallocDeductable", "Money", "The amount of deductible applied which was not allocated to any particular service line.", 0, java.lang.Integer.MAX_VALUE, unallocDeductable));
         childrenList.add(new Property("totalBenefit", "Money", "Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductible).", 0, java.lang.Integer.MAX_VALUE, totalBenefit));
-        childrenList.add(new Property("paymentAdjustment", "Money", "Adjustment to the payment of this transaction which is not related to adjudication of this transaction.", 0, java.lang.Integer.MAX_VALUE, paymentAdjustment));
-        childrenList.add(new Property("paymentAdjustmentReason", "Coding", "Reason for the payment adjustment.", 0, java.lang.Integer.MAX_VALUE, paymentAdjustmentReason));
-        childrenList.add(new Property("paymentDate", "date", "Estimated payment data.", 0, java.lang.Integer.MAX_VALUE, paymentDate));
-        childrenList.add(new Property("paymentAmount", "Money", "Payable less any payment adjustment.", 0, java.lang.Integer.MAX_VALUE, paymentAmount));
-        childrenList.add(new Property("paymentRef", "Identifier", "Payment identifier.", 0, java.lang.Integer.MAX_VALUE, paymentRef));
+        childrenList.add(new Property("payment", "", "Payment details for the claim if the claim has been paid.", 0, java.lang.Integer.MAX_VALUE, payment));
         childrenList.add(new Property("reserved", "Coding", "Status of funds reservation (For provider, for Patient, None).", 0, java.lang.Integer.MAX_VALUE, reserved));
         childrenList.add(new Property("form", "Coding", "The form to be used for printing the content.", 0, java.lang.Integer.MAX_VALUE, form));
         childrenList.add(new Property("note", "", "Note text.", 0, java.lang.Integer.MAX_VALUE, note));
@@ -4421,7 +4622,7 @@ public class ClaimResponse extends DomainResource {
         case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Type
         case 1601527200: /*requestProvider*/ return this.requestProvider == null ? new Base[0] : new Base[] {this.requestProvider}; // Type
         case 599053666: /*requestOrganization*/ return this.requestOrganization == null ? new Base[0] : new Base[] {this.requestOrganization}; // Type
-        case -1106507950: /*outcome*/ return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // Enumeration<RemittanceOutcome>
+        case -1106507950: /*outcome*/ return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // Coding
         case 583380919: /*disposition*/ return this.disposition == null ? new Base[0] : new Base[] {this.disposition}; // StringType
         case -316321118: /*payeeType*/ return this.payeeType == null ? new Base[0] : new Base[] {this.payeeType}; // Coding
         case 3242771: /*item*/ return this.item == null ? new Base[0] : this.item.toArray(new Base[this.item.size()]); // ItemComponent
@@ -4430,11 +4631,7 @@ public class ClaimResponse extends DomainResource {
         case -577782479: /*totalCost*/ return this.totalCost == null ? new Base[0] : new Base[] {this.totalCost}; // Money
         case 2096309753: /*unallocDeductable*/ return this.unallocDeductable == null ? new Base[0] : new Base[] {this.unallocDeductable}; // Money
         case 332332211: /*totalBenefit*/ return this.totalBenefit == null ? new Base[0] : new Base[] {this.totalBenefit}; // Money
-        case 856402963: /*paymentAdjustment*/ return this.paymentAdjustment == null ? new Base[0] : new Base[] {this.paymentAdjustment}; // Money
-        case -1386508233: /*paymentAdjustmentReason*/ return this.paymentAdjustmentReason == null ? new Base[0] : new Base[] {this.paymentAdjustmentReason}; // Coding
-        case -1540873516: /*paymentDate*/ return this.paymentDate == null ? new Base[0] : new Base[] {this.paymentDate}; // DateType
-        case 909332990: /*paymentAmount*/ return this.paymentAmount == null ? new Base[0] : new Base[] {this.paymentAmount}; // Money
-        case 1612875949: /*paymentRef*/ return this.paymentRef == null ? new Base[0] : new Base[] {this.paymentRef}; // Identifier
+        case -786681338: /*payment*/ return this.payment == null ? new Base[0] : new Base[] {this.payment}; // PaymentComponent
         case -350385368: /*reserved*/ return this.reserved == null ? new Base[0] : new Base[] {this.reserved}; // Coding
         case 3148996: /*form*/ return this.form == null ? new Base[0] : new Base[] {this.form}; // Coding
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // NoteComponent
@@ -4472,7 +4669,7 @@ public class ClaimResponse extends DomainResource {
           this.requestOrganization = (Type) value; // Type
           break;
         case -1106507950: // outcome
-          this.outcome = new RemittanceOutcomeEnumFactory().fromType(value); // Enumeration<RemittanceOutcome>
+          this.outcome = castToCoding(value); // Coding
           break;
         case 583380919: // disposition
           this.disposition = castToString(value); // StringType
@@ -4498,20 +4695,8 @@ public class ClaimResponse extends DomainResource {
         case 332332211: // totalBenefit
           this.totalBenefit = castToMoney(value); // Money
           break;
-        case 856402963: // paymentAdjustment
-          this.paymentAdjustment = castToMoney(value); // Money
-          break;
-        case -1386508233: // paymentAdjustmentReason
-          this.paymentAdjustmentReason = castToCoding(value); // Coding
-          break;
-        case -1540873516: // paymentDate
-          this.paymentDate = castToDate(value); // DateType
-          break;
-        case 909332990: // paymentAmount
-          this.paymentAmount = castToMoney(value); // Money
-          break;
-        case 1612875949: // paymentRef
-          this.paymentRef = castToIdentifier(value); // Identifier
+        case -786681338: // payment
+          this.payment = (PaymentComponent) value; // PaymentComponent
           break;
         case -350385368: // reserved
           this.reserved = castToCoding(value); // Coding
@@ -4549,7 +4734,7 @@ public class ClaimResponse extends DomainResource {
         else if (name.equals("requestOrganization[x]"))
           this.requestOrganization = (Type) value; // Type
         else if (name.equals("outcome"))
-          this.outcome = new RemittanceOutcomeEnumFactory().fromType(value); // Enumeration<RemittanceOutcome>
+          this.outcome = castToCoding(value); // Coding
         else if (name.equals("disposition"))
           this.disposition = castToString(value); // StringType
         else if (name.equals("payeeType"))
@@ -4566,16 +4751,8 @@ public class ClaimResponse extends DomainResource {
           this.unallocDeductable = castToMoney(value); // Money
         else if (name.equals("totalBenefit"))
           this.totalBenefit = castToMoney(value); // Money
-        else if (name.equals("paymentAdjustment"))
-          this.paymentAdjustment = castToMoney(value); // Money
-        else if (name.equals("paymentAdjustmentReason"))
-          this.paymentAdjustmentReason = castToCoding(value); // Coding
-        else if (name.equals("paymentDate"))
-          this.paymentDate = castToDate(value); // DateType
-        else if (name.equals("paymentAmount"))
-          this.paymentAmount = castToMoney(value); // Money
-        else if (name.equals("paymentRef"))
-          this.paymentRef = castToIdentifier(value); // Identifier
+        else if (name.equals("payment"))
+          this.payment = (PaymentComponent) value; // PaymentComponent
         else if (name.equals("reserved"))
           this.reserved = castToCoding(value); // Coding
         else if (name.equals("form"))
@@ -4599,7 +4776,7 @@ public class ClaimResponse extends DomainResource {
         case 1326483053:  return getOrganization(); // Type
         case -1694784800:  return getRequestProvider(); // Type
         case 818740190:  return getRequestOrganization(); // Type
-        case -1106507950: throw new FHIRException("Cannot make property outcome as it is not a complex type"); // Enumeration<RemittanceOutcome>
+        case -1106507950:  return getOutcome(); // Coding
         case 583380919: throw new FHIRException("Cannot make property disposition as it is not a complex type"); // StringType
         case -316321118:  return getPayeeType(); // Coding
         case 3242771:  return addItem(); // ItemComponent
@@ -4608,11 +4785,7 @@ public class ClaimResponse extends DomainResource {
         case -577782479:  return getTotalCost(); // Money
         case 2096309753:  return getUnallocDeductable(); // Money
         case 332332211:  return getTotalBenefit(); // Money
-        case 856402963:  return getPaymentAdjustment(); // Money
-        case -1386508233:  return getPaymentAdjustmentReason(); // Coding
-        case -1540873516: throw new FHIRException("Cannot make property paymentDate as it is not a complex type"); // DateType
-        case 909332990:  return getPaymentAmount(); // Money
-        case 1612875949:  return getPaymentRef(); // Identifier
+        case -786681338:  return getPayment(); // PaymentComponent
         case -350385368:  return getReserved(); // Coding
         case 3148996:  return getForm(); // Coding
         case 3387378:  return addNote(); // NoteComponent
@@ -4671,7 +4844,8 @@ public class ClaimResponse extends DomainResource {
           return this.requestOrganization;
         }
         else if (name.equals("outcome")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.outcome");
+          this.outcome = new Coding();
+          return this.outcome;
         }
         else if (name.equals("disposition")) {
           throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.disposition");
@@ -4701,24 +4875,9 @@ public class ClaimResponse extends DomainResource {
           this.totalBenefit = new Money();
           return this.totalBenefit;
         }
-        else if (name.equals("paymentAdjustment")) {
-          this.paymentAdjustment = new Money();
-          return this.paymentAdjustment;
-        }
-        else if (name.equals("paymentAdjustmentReason")) {
-          this.paymentAdjustmentReason = new Coding();
-          return this.paymentAdjustmentReason;
-        }
-        else if (name.equals("paymentDate")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.paymentDate");
-        }
-        else if (name.equals("paymentAmount")) {
-          this.paymentAmount = new Money();
-          return this.paymentAmount;
-        }
-        else if (name.equals("paymentRef")) {
-          this.paymentRef = new Identifier();
-          return this.paymentRef;
+        else if (name.equals("payment")) {
+          this.payment = new PaymentComponent();
+          return this.payment;
         }
         else if (name.equals("reserved")) {
           this.reserved = new Coding();
@@ -4779,11 +4938,7 @@ public class ClaimResponse extends DomainResource {
         dst.totalCost = totalCost == null ? null : totalCost.copy();
         dst.unallocDeductable = unallocDeductable == null ? null : unallocDeductable.copy();
         dst.totalBenefit = totalBenefit == null ? null : totalBenefit.copy();
-        dst.paymentAdjustment = paymentAdjustment == null ? null : paymentAdjustment.copy();
-        dst.paymentAdjustmentReason = paymentAdjustmentReason == null ? null : paymentAdjustmentReason.copy();
-        dst.paymentDate = paymentDate == null ? null : paymentDate.copy();
-        dst.paymentAmount = paymentAmount == null ? null : paymentAmount.copy();
-        dst.paymentRef = paymentRef == null ? null : paymentRef.copy();
+        dst.payment = payment == null ? null : payment.copy();
         dst.reserved = reserved == null ? null : reserved.copy();
         dst.form = form == null ? null : form.copy();
         if (note != null) {
@@ -4817,9 +4972,7 @@ public class ClaimResponse extends DomainResource {
            && compareDeep(disposition, o.disposition, true) && compareDeep(payeeType, o.payeeType, true) && compareDeep(item, o.item, true)
            && compareDeep(addItem, o.addItem, true) && compareDeep(error, o.error, true) && compareDeep(totalCost, o.totalCost, true)
            && compareDeep(unallocDeductable, o.unallocDeductable, true) && compareDeep(totalBenefit, o.totalBenefit, true)
-           && compareDeep(paymentAdjustment, o.paymentAdjustment, true) && compareDeep(paymentAdjustmentReason, o.paymentAdjustmentReason, true)
-           && compareDeep(paymentDate, o.paymentDate, true) && compareDeep(paymentAmount, o.paymentAmount, true)
-           && compareDeep(paymentRef, o.paymentRef, true) && compareDeep(reserved, o.reserved, true) && compareDeep(form, o.form, true)
+           && compareDeep(payment, o.payment, true) && compareDeep(reserved, o.reserved, true) && compareDeep(form, o.form, true)
            && compareDeep(note, o.note, true) && compareDeep(coverage, o.coverage, true);
       }
 
@@ -4830,16 +4983,14 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof ClaimResponse))
           return false;
         ClaimResponse o = (ClaimResponse) other;
-        return compareValues(created, o.created, true) && compareValues(outcome, o.outcome, true) && compareValues(disposition, o.disposition, true)
-           && compareValues(paymentDate, o.paymentDate, true);
+        return compareValues(created, o.created, true) && compareValues(disposition, o.disposition, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, request, ruleset
           , originalRuleset, created, organization, requestProvider, requestOrganization, outcome
           , disposition, payeeType, item, addItem, error, totalCost, unallocDeductable, totalBenefit
-          , paymentAdjustment, paymentAdjustmentReason, paymentDate, paymentAmount, paymentRef
-          , reserved, form, note, coverage);
+          , payment, reserved, form, note, coverage);
       }
 
   @Override
@@ -4892,17 +5043,17 @@ public class ClaimResponse extends DomainResource {
    * <p>
    * Description: <b>The expected paymentDate</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>ClaimResponse.paymentDate</b><br>
+   * Path: <b>ClaimResponse.payment.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="paymentdate", path="ClaimResponse.paymentDate", description="The expected paymentDate", type="date" )
+  @SearchParamDefinition(name="paymentdate", path="ClaimResponse.payment.date", description="The expected paymentDate", type="date" )
   public static final String SP_PAYMENTDATE = "paymentdate";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>paymentdate</b>
    * <p>
    * Description: <b>The expected paymentDate</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>ClaimResponse.paymentDate</b><br>
+   * Path: <b>ClaimResponse.payment.date</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam PAYMENTDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_PAYMENTDATE);

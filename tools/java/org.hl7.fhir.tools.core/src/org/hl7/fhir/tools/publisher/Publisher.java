@@ -118,14 +118,14 @@ import org.hl7.fhir.definitions.parsers.SourceParser;
 import org.hl7.fhir.definitions.validation.ConceptMapValidator;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
+import org.hl7.fhir.dstu3.elementmodel.Manager;
+import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.metamodel.Manager;
-import org.hl7.fhir.dstu3.metamodel.Manager.FhirFormat;
-import org.hl7.fhir.dstu3.metamodel.ParserBase.ValidationPolicy;
 import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
@@ -3240,7 +3240,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       String type = base.getAttribute("fragment");
       if (!page.getDefinitions().hasPrimitiveType(type)) {
         try {
-          org.hl7.fhir.dstu3.metamodel.XmlParser p = new org.hl7.fhir.dstu3.metamodel.XmlParser(page.getWorkerContext());
+          org.hl7.fhir.dstu3.elementmodel.XmlParser p = new org.hl7.fhir.dstu3.elementmodel.XmlParser(page.getWorkerContext());
           p.setupValidation(ValidationPolicy.QUICK, null);
           p.parse(XMLUtil.getFirstChild(base), type);
         } catch (Exception e) {
@@ -3767,7 +3767,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     e.setResourceName(resourceName);
     String canonical = "http://hl7.org/fhir/";
     
-    org.hl7.fhir.dstu3.metamodel.Element ex = Manager.parse(page.getWorkerContext(), new CSFileInputStream(page.getFolders().dstDir + prefix+n + ".xml"), FhirFormat.XML);
+    org.hl7.fhir.dstu3.elementmodel.Element ex = Manager.parse(page.getWorkerContext(), new CSFileInputStream(page.getFolders().dstDir + prefix+n + ".xml"), FhirFormat.XML);
     Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".json"), FhirFormat.JSON, OutputStyle.PRETTY, canonical); 
     Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".jsonld"), FhirFormat.JSONLD, OutputStyle.PRETTY, canonical); 
 //    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(Utilities.changeFileExt(destName, ".canonical.json")), FhirFormat.JSON, OutputStyle.CANONICAL); 

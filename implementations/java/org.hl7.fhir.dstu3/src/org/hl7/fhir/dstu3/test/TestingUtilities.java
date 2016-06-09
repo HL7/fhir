@@ -18,7 +18,7 @@ import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.sax.SAXSource;
 
 import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.dstu3.metamodel.ParserBase.ValidationPolicy;
+import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.utils.XmlLocationAnnotator;
 import org.hl7.fhir.utilities.CSFile;

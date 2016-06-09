@@ -308,11 +308,17 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   }
 
   public String diff(String defnFile) throws IOException, FHIRException {
-    return new XhtmlComposer().compose(utils.generateTable(defnFile, sd, true, destDir, false, sd.getId(), false, prefix, "", false));
+    if (sd.getDifferential().getElement().isEmpty())
+      return "";
+    else
+      return new XhtmlComposer().compose(utils.generateTable(defnFile, sd, true, destDir, false, sd.getId(), false, prefix, "", false));
   }
 
   public String snapshot(String defnFile) throws IOException, FHIRException {
-    return new XhtmlComposer().compose(utils.generateTable(defnFile, sd, false, destDir, false, sd.getId(), true, prefix, "", false));
+    if (sd.getSnapshot().getElement().isEmpty())
+      return "";
+    else
+      return new XhtmlComposer().compose(utils.generateTable(defnFile, sd, false, destDir, false, sd.getId(), true, prefix, "", false));
   }
 
   public String tx() {
