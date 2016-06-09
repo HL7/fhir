@@ -1,5 +1,8 @@
 package org.hl7.fhir.igtools.publisher;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceType;
@@ -18,6 +21,7 @@ public class FetchedFile {
   private Resource resource;
   private Element element;
   private JsonObject config;
+  private List<FetchedFile> dependencies;
   
   public String getPath() {
     return path;
@@ -79,6 +83,11 @@ public class FetchedFile {
   public void setConfig(JsonObject config) {
     this.config = config;
   }
+  public List<FetchedFile> getDependencies() {
+    return dependencies;
+  }
+  public void setDependencies(List<FetchedFile> dependencies) {
+    this.dependencies = dependencies;
+  }
  
-  
 }

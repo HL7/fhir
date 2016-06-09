@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -35,8 +36,11 @@ import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.dstu3.utils.EOperationOutcome;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
@@ -44,6 +48,7 @@ import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.utils.Turtle;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
+import org.hl7.fhir.igtools.renderers.CodeSystemRenderer;
 import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
 import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
 import org.hl7.fhir.igtools.renderers.ValidationPresenter;
@@ -62,6 +67,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Implementation Guide Publisher
@@ -120,6 +126,7 @@ public class Publisher {
 
   private Map<ImplementationGuidePackageResourceComponent, FetchedFile> fileMap = new HashMap<ImplementationGuidePackageResourceComponent, FetchedFile>();
   private List<FetchedFile> fileList = new ArrayList<FetchedFile>();
+  private List<FetchedFile> changeList = new ArrayList<FetchedFile>();
   private List<Resource> loaded = new ArrayList<Resource>();
   private ImplementationGuide ig;
   private List<ValidationOutcomes> errs = new ArrayList<ValidationOutcomes>();
@@ -128,23 +135,140 @@ public class Publisher {
 
   private void execute() throws Exception {
     initialize();
-
+    log("Load Implementation Guide");
     load();
+    
+    long startTime = System.nanoTime();
+    log("Processing Conformance Resources");
+    loadConformance();
+    log("Validating Resources");
     validate();
+    log("Generating Outputs in "+output);
     generate();
-    log("  ... Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errs, Utilities.path(validationDir, "validation.html")));
+    long endTime = System.nanoTime();
+    log(" ... "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errs, Utilities.path(validationDir, "validation.html")));
 
-    while (watch) { // terminated externally
+    if (watch) {
       System.out.println("Watching for changes on a 5sec cycle");
-      Thread.sleep(5000);
-      if (load()) {
-        validate();
-        generate();
-        log("  ... Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errs, Utilities.path(validationDir, "validation.html")));
+      while (watch) { // terminated externally
+        Thread.sleep(5000);
+        if (load()) {
+          log("Processing changes to "+Integer.toString(changeList.size())+(changeList.size() == 1 ? " file" : " files")+" @ "+genTime());
+          startTime = System.nanoTime();
+          loadConformance();
+          checkDependencies();
+          validate();
+          generate();
+          endTime = System.nanoTime();
+          log(" ..."+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errs, Utilities.path(validationDir, "validation.html")));
+        }
+      }
+    } else
+      log("Done");
+  }
+
+  private String genTime() {
+    return new SimpleDateFormat("EEE, MMM d, yyyy HH:mmZ", new Locale("en", "US")).format(execTime.getTime());
+  }
+
+  private void checkDependencies() {
+    // first, we load all the direct dependency lists
+    for (FetchedFile f : fileList) 
+      if (f.getDependencies() == null)
+        loadDependencyList(f);
+    
+    // now, we keep adding to the change list till there's no change
+    boolean changed;
+    do {
+      changed = false;
+      for (FetchedFile f : fileList) {
+        if (!changeList.contains(f)) {
+          boolean dep = false;
+          for (FetchedFile d : f.getDependencies()) 
+            if (changeList.contains(d)) 
+              dep = true;
+          if (dep) {
+            changeList.add(f);
+            changed = true;
+          }
+        }
+      }
+    } while (changed);    
+  }
+
+  private void loadDependencyList(FetchedFile f) {
+    f.setDependencies(new ArrayList<FetchedFile>());
+    switch (f.getType()) {
+    case ValueSet:
+      loadValueSetDependencies(f);
+      break;
+    case StructureDefinition:
+      loadProfileDependencies(f);
+      break;
+    default:
+    // all other resource types don't have dependencies that we care about for rendering purposes
+    }
+    
+  }
+
+  private void loadValueSetDependencies(FetchedFile f) {
+    ValueSet vs = (ValueSet) f.getResource();
+    for (UriType vsi : vs.getCompose().getImport()) {
+      FetchedFile fi = getFileForUri(vsi.getValue());
+      if (fi != null)
+        f.getDependencies().add(fi);
+    }
+    for (ConceptSetComponent vsc : vs.getCompose().getInclude()) {
+      FetchedFile fi = getFileForUri(vsc.getSystem());
+      if (fi != null)
+        f.getDependencies().add(fi);
+    }
+    for (ConceptSetComponent vsc : vs.getCompose().getExclude()) {
+      FetchedFile fi = getFileForUri(vsc.getSystem());
+      if (fi != null)
+        f.getDependencies().add(fi);
+    }
+  }
+
+  private FetchedFile getFileForUri(String uri) {
+    for (FetchedFile f : fileList) {
+      if (f.getResource() != null && f.getResource() instanceof BaseConformance) {
+        BaseConformance bc = (BaseConformance) f.getResource();
+        if (bc.getUrl().equals(uri)) 
+          return f;
       }
     }
-    log("Done");
+    return null;
   }
+
+  private void loadProfileDependencies(FetchedFile f) {
+    StructureDefinition sd = (StructureDefinition) f.getResource();
+    FetchedFile fi = getFileForUri(sd.getBaseDefinition());
+    if (fi != null)
+      f.getDependencies().add(fi);
+  }
+
+  private String presentDuration(long duration) {
+    duration = duration / 1000000;
+    String res = "";    // ;
+    long days       = TimeUnit.MILLISECONDS.toDays(duration);
+    long hours      = TimeUnit.MILLISECONDS.toHours(duration) -
+                      TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(duration));
+    long minutes    = TimeUnit.MILLISECONDS.toMinutes(duration) -
+                      TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(duration));
+    long seconds    = TimeUnit.MILLISECONDS.toSeconds(duration) -
+                      TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(duration));
+    long millis     = TimeUnit.MILLISECONDS.toMillis(duration) - 
+                      TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(duration));
+
+    if (days > 0)      
+      res = String.format("%dd %02d:%02d:%02d.%04d", days, hours, minutes, seconds, millis);
+    else if (hours > 0 || minutes > 0)                
+      res = String.format("%02d:%02d:%02d.%04d", hours, minutes, seconds, millis);
+    else
+      res = String.format("%02d.%04d", seconds, millis);
+    return res;  
+   }
 
   private void initialize() throws Exception {
     log("Load Configuration");
@@ -158,7 +282,6 @@ public class Publisher {
 
     log("Publish "+igName);
 
-    
     log("Check destination");
     File f = new File(output);
     if (!f.exists())
@@ -228,8 +351,8 @@ public class Publisher {
       context.dropResource(r);
 
     fileList.clear();
+    changeList.clear();
     boolean needToBuild = false;
-    log("Load Implementation Guide");
     FetchedFile igf = fetcher.fetch(igName);
     needToBuild = noteFile(null, igf) || needToBuild;
     if (needToBuild) {
@@ -247,26 +370,26 @@ public class Publisher {
         igpkp.findConfiguration(f);
       }     
     }
-
-    if (needToBuild) {
-      log("Processing Conformance Resources");
-      load(ResourceType.NamingSystem);
-      load(ResourceType.CodeSystem);
-      load(ResourceType.ValueSet);
-      load(ResourceType.DataElement);
-      load(ResourceType.StructureDefinition);
-      load(ResourceType.ConceptMap);
-      load(ResourceType.StructureMap);
-      generateSnapshots();
-    }
+    execTime = Calendar.getInstance();
     return needToBuild;
   }
 
+  private void loadConformance() throws Exception {
+    load(ResourceType.NamingSystem);
+    load(ResourceType.CodeSystem);
+    load(ResourceType.ValueSet);
+    load(ResourceType.DataElement);
+    load(ResourceType.StructureDefinition);
+    load(ResourceType.ConceptMap);
+    load(ResourceType.StructureMap);
+    generateSnapshots();
+  }
   private boolean noteFile(ImplementationGuidePackageResourceComponent key, FetchedFile file) {
     FetchedFile existing = fileMap.get(key);
-    if (existing == null || existing.getTime() != file.getTime() || existing.getSource() != file.getSource()) {
+    if (existing == null || existing.getTime() != file.getTime() || !Arrays.equals(existing.getSource(), file.getSource())) {
       fileList.add(file);
       fileMap.put(key, file);
+      changeList.add(file);
       return true;
     } else {
       fileList.add(existing); // this one is already parsed
@@ -324,8 +447,13 @@ public class Publisher {
   private void load(ResourceType type) throws Exception {
     for (FetchedFile f : fileList) {
       if (f.getType() == type) {
-        if (f.getElement() == null)
+        // check the change list is correct
+        if ((f.getElement() == null) != changeList.contains(f))
+          throw new Error("Change list is out of sync");
+        
+        if (f.getElement() == null) 
           validate(f);
+          
         if (f.getResource() == null)
           f.setResource(parse(f));
         BaseConformance bc = (BaseConformance) f.getResource();
@@ -356,11 +484,11 @@ public class Publisher {
   }
 
   private void validate() throws Exception {
-    log("Validating Resources");
-
     for (FetchedFile f : fileList)
-      if (f.getElement() == null)
-        validate(f);
+        if (f.getElement() == null) {
+          log(" .. "+f.getName());
+          validate(f);
+        }
     
   }
 
@@ -379,12 +507,11 @@ public class Publisher {
   }
 
   private void generate() throws Exception {
-    execTime = Calendar.getInstance();
-    log("Generating Outputs in "+output);
-    for (FetchedFile f : fileList) 
+    for (FetchedFile f : changeList) 
       generateOutputs(f);
 
-    generateSummaryOutputs();
+    if (!changeList.isEmpty())
+      generateSummaryOutputs();
   }
 
   private void generateSummaryOutputs() throws IOException {
@@ -393,8 +520,11 @@ public class Publisher {
     data.addProperty("canonical", igpkp.getCanonical());
     data.addProperty("errorCount", getErrorCount());
     data.addProperty("version", Constants.VERSION);
-    data.addProperty("versionfull", Constants.VERSION+"-"+Constants.REVISION);
-    data.addProperty("gendate", new SimpleDateFormat("EEE, MMM d, yyyy HH:mmZ", new Locale("en", "US")).format(execTime .getTime()));
+    data.addProperty("revision", Constants.REVISION);
+    data.addProperty("versionFull", Constants.VERSION+"-"+Constants.REVISION);
+    data.addProperty("totalFiles", fileList.size());
+    data.addProperty("processedFiles", changeList.size());
+    data.addProperty("genDate", genTime());
     
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(data);
@@ -419,7 +549,7 @@ public class Publisher {
   }
 
   private void generateOutputs(FetchedFile f) throws Exception {
-    System.out.println("Generating outputs for "+f.getName());
+    System.out.println(" ... "+f.getName());
     
     saveDirectResourceOutputs(f);
     
@@ -536,14 +666,17 @@ public class Publisher {
    *   xref
    * @param resource
    * @throws IOException 
+   * @throws FHIRException 
+   * @throws EOperationOutcome 
    */
-  private void generateOutputsCodeSystem(FetchedFile f, CodeSystem cs) throws IOException {
+  private void generateOutputsCodeSystem(FetchedFile f, CodeSystem cs) throws IOException, EOperationOutcome, FHIRException {
+    CodeSystemRenderer csr = new CodeSystemRenderer(context, pathToSpec, cs, igpkp);
     if (wantGen(f, "summary")) 
-      fragmentError(cs.getId()+"-cs-summary", "yet to be done: code system summary");
+      fragment(cs.getId()+"-cs-summary", csr.summary());
     if (wantGen(f, "content")) 
-      fragmentError(cs.getId()+"-cs-content", "yet to be done: code system definition");
+      fragment(cs.getId()+"-cs-content", csr.content());
     if (wantGen(f, "xref")) 
-      fragmentError(cs.getId()+"-cs-xref", "yet to be done: list of all value sets where the code system is used");
+      fragmentError(cs.getId()+"-cs-xref", csr.xref());
   }
 
   /**
