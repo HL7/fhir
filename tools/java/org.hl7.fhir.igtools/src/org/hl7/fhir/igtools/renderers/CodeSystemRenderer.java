@@ -84,7 +84,7 @@ public class CodeSystemRenderer extends BaseRenderer {
     }
     Collections.sort(vsurls);
     
-    Set<String> processed = new HashSet<>();
+    Set<String> processed = new HashSet<String>();
     for (String url : vsurls) {
       ValueSet vc = context.fetchResource(ValueSet.class, url);
       for (ConceptSetComponent ed : vc.getCompose().getInclude()) 
