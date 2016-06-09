@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jun 8, 2016 10:47+1000 for FHIR v1.4.0
+// Generated on Thu, Jun 9, 2016 11:17+1000 for FHIR v1.4.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2218,6 +2218,10 @@ public class Enumerations {
          */
         ACCOUNT, 
         /**
+         * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
+         */
+        ACTIVITYDEFINITION, 
+        /**
          * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
          */
         ALLERGYINTOLERANCE, 
@@ -2796,6 +2800,8 @@ public class Enumerations {
           return XHTML;
         if ("Account".equals(codeString))
           return ACCOUNT;
+        if ("ActivityDefinition".equals(codeString))
+          return ACTIVITYDEFINITION;
         if ("AllergyIntolerance".equals(codeString))
           return ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -3086,6 +3092,7 @@ public class Enumerations {
             case UUID: return "uuid";
             case XHTML: return "xhtml";
             case ACCOUNT: return "Account";
+            case ACTIVITYDEFINITION: return "ActivityDefinition";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -3260,6 +3267,7 @@ public class Enumerations {
             case UUID: return "http://hl7.org/fhir/data-types";
             case XHTML: return "http://hl7.org/fhir/data-types";
             case ACCOUNT: return "http://hl7.org/fhir/resource-types";
+            case ACTIVITYDEFINITION: return "http://hl7.org/fhir/resource-types";
             case ALLERGYINTOLERANCE: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENT: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENTRESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -3434,6 +3442,7 @@ public class Enumerations {
             case UUID: return "A UUID, represented as a URI";
             case XHTML: return "XHTML format, as defined by W3C, but restricted usage (mainly, no active content)";
             case ACCOUNT: return "A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.";
+            case ACTIVITYDEFINITION: return "This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.";
             case ALLERGYINTOLERANCE: return "Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.";
             case APPOINTMENT: return "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).";
             case APPOINTMENTRESPONSE: return "A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.";
@@ -3608,6 +3617,7 @@ public class Enumerations {
             case UUID: return "uuid";
             case XHTML: return "XHTML";
             case ACCOUNT: return "Account";
+            case ACTIVITYDEFINITION: return "ActivityDefinition";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -3839,6 +3849,8 @@ public class Enumerations {
           return FHIRAllTypes.XHTML;
         if ("Account".equals(codeString))
           return FHIRAllTypes.ACCOUNT;
+        if ("ActivityDefinition".equals(codeString))
+          return FHIRAllTypes.ACTIVITYDEFINITION;
         if ("AllergyIntolerance".equals(codeString))
           return FHIRAllTypes.ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -4185,6 +4197,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.XHTML);
         if ("Account".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ACCOUNT);
+        if ("ActivityDefinition".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ACTIVITYDEFINITION);
         if ("AllergyIntolerance".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ALLERGYINTOLERANCE);
         if ("Appointment".equals(codeString))
@@ -4526,6 +4540,8 @@ public class Enumerations {
         return "xhtml";
       if (code == FHIRAllTypes.ACCOUNT)
         return "Account";
+      if (code == FHIRAllTypes.ACTIVITYDEFINITION)
+        return "ActivityDefinition";
       if (code == FHIRAllTypes.ALLERGYINTOLERANCE)
         return "AllergyIntolerance";
       if (code == FHIRAllTypes.APPOINTMENT)
@@ -4976,6 +4992,10 @@ public class Enumerations {
          * A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.
          */
         ACCOUNT, 
+        /**
+         * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
+         */
+        ACTIVITYDEFINITION, 
         /**
          * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
          */
@@ -5547,6 +5567,8 @@ public class Enumerations {
           return XHTML;
         if ("Account".equals(codeString))
           return ACCOUNT;
+        if ("ActivityDefinition".equals(codeString))
+          return ACTIVITYDEFINITION;
         if ("AllergyIntolerance".equals(codeString))
           return ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -5833,6 +5855,7 @@ public class Enumerations {
             case UUID: return "uuid";
             case XHTML: return "xhtml";
             case ACCOUNT: return "Account";
+            case ACTIVITYDEFINITION: return "ActivityDefinition";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -6005,6 +6028,7 @@ public class Enumerations {
             case UUID: return "http://hl7.org/fhir/data-types";
             case XHTML: return "http://hl7.org/fhir/data-types";
             case ACCOUNT: return "http://hl7.org/fhir/resource-types";
+            case ACTIVITYDEFINITION: return "http://hl7.org/fhir/resource-types";
             case ALLERGYINTOLERANCE: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENT: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENTRESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -6177,6 +6201,7 @@ public class Enumerations {
             case UUID: return "A UUID, represented as a URI";
             case XHTML: return "XHTML format, as defined by W3C, but restricted usage (mainly, no active content)";
             case ACCOUNT: return "A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.";
+            case ACTIVITYDEFINITION: return "This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.";
             case ALLERGYINTOLERANCE: return "Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.";
             case APPOINTMENT: return "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).";
             case APPOINTMENTRESPONSE: return "A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.";
@@ -6349,6 +6374,7 @@ public class Enumerations {
             case UUID: return "uuid";
             case XHTML: return "XHTML";
             case ACCOUNT: return "Account";
+            case ACTIVITYDEFINITION: return "ActivityDefinition";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -6578,6 +6604,8 @@ public class Enumerations {
           return FHIRDefinedType.XHTML;
         if ("Account".equals(codeString))
           return FHIRDefinedType.ACCOUNT;
+        if ("ActivityDefinition".equals(codeString))
+          return FHIRDefinedType.ACTIVITYDEFINITION;
         if ("AllergyIntolerance".equals(codeString))
           return FHIRDefinedType.ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -6920,6 +6948,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.XHTML);
         if ("Account".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ACCOUNT);
+        if ("ActivityDefinition".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ACTIVITYDEFINITION);
         if ("AllergyIntolerance".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ALLERGYINTOLERANCE);
         if ("Appointment".equals(codeString))
@@ -7257,6 +7287,8 @@ public class Enumerations {
         return "xhtml";
       if (code == FHIRDefinedType.ACCOUNT)
         return "Account";
+      if (code == FHIRDefinedType.ACTIVITYDEFINITION)
+        return "ActivityDefinition";
       if (code == FHIRDefinedType.ALLERGYINTOLERANCE)
         return "AllergyIntolerance";
       if (code == FHIRDefinedType.APPOINTMENT)
@@ -7830,13 +7862,17 @@ public class Enumerations {
 
     public enum RemittanceOutcome {
         /**
-         * The processing completed without errors.
+         * The processing has completed without errors
          */
         COMPLETE, 
         /**
-         * The processing identified errors.
+         * One or more erros have been detected in the Claim
          */
         ERROR, 
+        /**
+         * No errors have been detected in the Claim and some of the adjudication has been performed.
+         */
+        PARTIAL, 
         /**
          * added to help the parsers
          */
@@ -7848,12 +7884,15 @@ public class Enumerations {
           return COMPLETE;
         if ("error".equals(codeString))
           return ERROR;
+        if ("partial".equals(codeString))
+          return PARTIAL;
         throw new FHIRException("Unknown RemittanceOutcome code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case COMPLETE: return "complete";
             case ERROR: return "error";
+            case PARTIAL: return "partial";
             default: return "?";
           }
         }
@@ -7861,20 +7900,23 @@ public class Enumerations {
           switch (this) {
             case COMPLETE: return "http://hl7.org/fhir/remittance-outcome";
             case ERROR: return "http://hl7.org/fhir/remittance-outcome";
+            case PARTIAL: return "http://hl7.org/fhir/remittance-outcome";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case COMPLETE: return "The processing completed without errors.";
-            case ERROR: return "The processing identified errors.";
+            case COMPLETE: return "The processing has completed without errors";
+            case ERROR: return "One or more erros have been detected in the Claim";
+            case PARTIAL: return "No errors have been detected in the Claim and some of the adjudication has been performed.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case COMPLETE: return "Complete";
+            case COMPLETE: return "Processing Complete";
             case ERROR: return "Error";
+            case PARTIAL: return "Partial Processing";
             default: return "?";
           }
         }
@@ -7889,6 +7931,8 @@ public class Enumerations {
           return RemittanceOutcome.COMPLETE;
         if ("error".equals(codeString))
           return RemittanceOutcome.ERROR;
+        if ("partial".equals(codeString))
+          return RemittanceOutcome.PARTIAL;
         throw new IllegalArgumentException("Unknown RemittanceOutcome code '"+codeString+"'");
         }
         public Enumeration<RemittanceOutcome> fromType(Base code) throws FHIRException {
@@ -7901,6 +7945,8 @@ public class Enumerations {
           return new Enumeration<RemittanceOutcome>(this, RemittanceOutcome.COMPLETE);
         if ("error".equals(codeString))
           return new Enumeration<RemittanceOutcome>(this, RemittanceOutcome.ERROR);
+        if ("partial".equals(codeString))
+          return new Enumeration<RemittanceOutcome>(this, RemittanceOutcome.PARTIAL);
         throw new FHIRException("Unknown RemittanceOutcome code '"+codeString+"'");
         }
     public String toCode(RemittanceOutcome code) {
@@ -7908,6 +7954,8 @@ public class Enumerations {
         return "complete";
       if (code == RemittanceOutcome.ERROR)
         return "error";
+      if (code == RemittanceOutcome.PARTIAL)
+        return "partial";
       return "?";
       }
     public String toSystem(RemittanceOutcome code) {
@@ -7920,6 +7968,10 @@ public class Enumerations {
          * A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.
          */
         ACCOUNT, 
+        /**
+         * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
+         */
+        ACTIVITYDEFINITION, 
         /**
          * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
          */
@@ -8389,6 +8441,8 @@ public class Enumerations {
                 return null;
         if ("Account".equals(codeString))
           return ACCOUNT;
+        if ("ActivityDefinition".equals(codeString))
+          return ACTIVITYDEFINITION;
         if ("AllergyIntolerance".equals(codeString))
           return ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -8624,6 +8678,7 @@ public class Enumerations {
         public String toCode() {
           switch (this) {
             case ACCOUNT: return "Account";
+            case ACTIVITYDEFINITION: return "ActivityDefinition";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -8745,6 +8800,7 @@ public class Enumerations {
         public String getSystem() {
           switch (this) {
             case ACCOUNT: return "http://hl7.org/fhir/resource-types";
+            case ACTIVITYDEFINITION: return "http://hl7.org/fhir/resource-types";
             case ALLERGYINTOLERANCE: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENT: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENTRESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -8866,6 +8922,7 @@ public class Enumerations {
         public String getDefinition() {
           switch (this) {
             case ACCOUNT: return "A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.";
+            case ACTIVITYDEFINITION: return "This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.";
             case ALLERGYINTOLERANCE: return "Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.";
             case APPOINTMENT: return "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).";
             case APPOINTMENTRESPONSE: return "A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.";
@@ -8987,6 +9044,7 @@ public class Enumerations {
         public String getDisplay() {
           switch (this) {
             case ACCOUNT: return "Account";
+            case ACTIVITYDEFINITION: return "ActivityDefinition";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -9114,6 +9172,8 @@ public class Enumerations {
                 return null;
         if ("Account".equals(codeString))
           return ResourceType.ACCOUNT;
+        if ("ActivityDefinition".equals(codeString))
+          return ResourceType.ACTIVITYDEFINITION;
         if ("AllergyIntolerance".equals(codeString))
           return ResourceType.ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -9354,6 +9414,8 @@ public class Enumerations {
             return null;
         if ("Account".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.ACCOUNT);
+        if ("ActivityDefinition".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.ACTIVITYDEFINITION);
         if ("AllergyIntolerance".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.ALLERGYINTOLERANCE);
         if ("Appointment".equals(codeString))
@@ -9589,6 +9651,8 @@ public class Enumerations {
     public String toCode(ResourceType code) {
       if (code == ResourceType.ACCOUNT)
         return "Account";
+      if (code == ResourceType.ACTIVITYDEFINITION)
+        return "ActivityDefinition";
       if (code == ResourceType.ALLERGYINTOLERANCE)
         return "AllergyIntolerance";
       if (code == ResourceType.APPOINTMENT)

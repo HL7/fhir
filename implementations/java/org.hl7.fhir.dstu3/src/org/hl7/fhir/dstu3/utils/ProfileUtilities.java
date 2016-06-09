@@ -298,10 +298,9 @@ public class ProfileUtilities {
       throw new DefinitionException("Circular snapshot references detected; cannot generate snapshot (stack = "+snapshotStack.toString()+")");
     snapshotStack.add(derived.getUrl());
     
-//    System.out.println("Generate Snapshot for "+derived.getUrl());
 
     derived.setSnapshot(new StructureDefinitionSnapshotComponent());
-System.out.println("generate snapshot for "+derived.getId());
+
     // so we have two lists - the base list, and the differential list
     // the differential list is only allowed to include things that are in the base list, but
     // is allowed to include them multiple times - thereby slicing them

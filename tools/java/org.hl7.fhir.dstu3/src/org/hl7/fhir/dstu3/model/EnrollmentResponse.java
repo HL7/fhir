@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jun 8, 2016 10:47+1000 for FHIR v1.4.0
+// Generated on Thu, Jun 9, 2016 11:17+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -71,7 +71,7 @@ public class EnrollmentResponse extends DomainResource {
      * Transaction status: error, complete.
      */
     @Child(name = "outcome", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="complete | error", formalDefinition="Transaction status: error, complete." )
+    @Description(shortDefinition="complete | error | partial", formalDefinition="Transaction status: error, complete." )
     protected Enumeration<RemittanceOutcome> outcome;
 
     /**

@@ -69,8 +69,11 @@ public class CodeSystemRenderer extends BaseRenderer {
   public String content() throws EOperationOutcome, FHIRException, IOException  {
     if (cs.hasText() && cs.getText().hasDiv()) 
       return new XhtmlComposer().compose(cs.getText().getDiv());
-    else
-      return "not done yet";
+    else {
+      CodeSystem csc = cs.copy();
+      new NarrativeGenerator(prefix, prefix, context).generate(csc);
+      return new XhtmlComposer().compose(cs.getText().getDiv());
+    }
   }
 
   public String xref() throws FHIRException {

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Jun 8, 2016 10:47+1000 for FHIR v1.4.0
+// Generated on Thu, Jun 9, 2016 11:17+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1345,6 +1345,38 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "Account", "owner", element.getOwner(), -1);
     if (element.hasDescriptionElement())
       composeString(t, "Account", "description", element.getDescriptionElement(), -1);
+  }
+
+  protected void composeActivityDefinition(Complex parent, String parentType, String name, ActivityDefinition element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "ActivityDefinition", name, element, index);
+    if (element.hasModuleMetadata())
+      composeModuleMetadata(t, "ActivityDefinition", "moduleMetadata", element.getModuleMetadata(), -1);
+    for (int i = 0; i < element.getLibrary().size(); i++)
+      composeReference(t, "ActivityDefinition", "library", element.getLibrary().get(i), i);
+    if (element.hasCategoryElement())
+      composeEnum(t, "ActivityDefinition", "category", element.getCategoryElement(), -1);
+    if (element.hasCode())
+      composeCodeableConcept(t, "ActivityDefinition", "code", element.getCode(), -1);
+    if (element.hasTiming())
+      composeType(t, "ActivityDefinition", "timing", element.getTiming(), -1);
+    if (element.hasLocation())
+      composeReference(t, "ActivityDefinition", "location", element.getLocation(), -1);
+    for (int i = 0; i < element.getParticipantType().size(); i++)
+      composeEnum(t, "ActivityDefinition", "participantType", element.getParticipantType().get(i), i);
+    if (element.hasProduct())
+      composeType(t, "ActivityDefinition", "product", element.getProduct(), -1);
+    if (element.hasQuantity())
+      composeQuantity(t, "ActivityDefinition", "quantity", element.getQuantity(), -1);
+    if (element.hasDescriptionElement())
+      composeString(t, "ActivityDefinition", "description", element.getDescriptionElement(), -1);
   }
 
   protected void composeAllergyIntolerance(Complex parent, String parentType, String name, AllergyIntolerance element, int index) {
@@ -5087,6 +5119,8 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeDomainResource(t, "Endpoint", name, element, index);
+    for (int i = 0; i < element.getIdentifier().size(); i++)
+      composeIdentifier(t, "Endpoint", "identifier", element.getIdentifier().get(i), i);
     if (element.hasStatusElement())
       composeEnum(t, "Endpoint", "status", element.getStatusElement(), -1);
     if (element.hasManagingOrganization())
@@ -7189,6 +7223,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "Location", "managingOrganization", element.getManagingOrganization(), -1);
     if (element.hasPartOf())
       composeReference(t, "Location", "partOf", element.getPartOf(), -1);
+    for (int i = 0; i < element.getEndpoint().size(); i++)
+      composeReference(t, "Location", "endpoint", element.getEndpoint().get(i), i);
   }
 
   protected void composeLocationLocationPositionComponent(Complex parent, String parentType, String name, Location.LocationPositionComponent element, int index) {
@@ -8933,6 +8969,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "Organization", "partOf", element.getPartOf(), -1);
     for (int i = 0; i < element.getContact().size(); i++)
       composeOrganizationOrganizationContactComponent(t, "Organization", "contact", element.getContact().get(i), i);
+    for (int i = 0; i < element.getEndpoint().size(); i++)
+      composeReference(t, "Organization", "endpoint", element.getEndpoint().get(i), i);
   }
 
   protected void composeOrganizationOrganizationContactComponent(Complex parent, String parentType, String name, Organization.OrganizationContactComponent element, int index) {
@@ -12163,6 +12201,8 @@ public class RdfParser extends RdfParserBase {
       composeParameters(parent, null, "Parameters", (Parameters)resource, -1);
     else if (resource instanceof Account)
       composeAccount(parent, null, "Account", (Account)resource, -1);
+    else if (resource instanceof ActivityDefinition)
+      composeActivityDefinition(parent, null, "ActivityDefinition", (ActivityDefinition)resource, -1);
     else if (resource instanceof AllergyIntolerance)
       composeAllergyIntolerance(parent, null, "AllergyIntolerance", (AllergyIntolerance)resource, -1);
     else if (resource instanceof Appointment)

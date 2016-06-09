@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jun 8, 2016 10:47+1000 for FHIR v1.4.0
+// Generated on Thu, Jun 9, 2016 11:17+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -325,6 +325,10 @@ public class Protocol extends DomainResource {
 
     public enum ActivityDefinitionCategory {
         /**
+         * To communicate with a participant in some way
+         */
+        COMMUNICATION, 
+        /**
          * To consume food of a specified nature
          */
         DIET, 
@@ -333,7 +337,7 @@ public class Protocol extends DomainResource {
          */
         DRUG, 
         /**
-         * To meet or communicate with the patient (in-patient, out-patient, phone call, etc.)
+         * To meet with the patient (in-patient, out-patient, etc.)
          */
         ENCOUNTER, 
         /**
@@ -344,6 +348,10 @@ public class Protocol extends DomainResource {
          * To modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)
          */
         PROCEDURE, 
+        /**
+         * To refer the patient to receive some service
+         */
+        REFERRAL, 
         /**
          * To provide something to the patient (medication, medical supply, etc.)
          */
@@ -359,6 +367,8 @@ public class Protocol extends DomainResource {
         public static ActivityDefinitionCategory fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("communication".equals(codeString))
+          return COMMUNICATION;
         if ("diet".equals(codeString))
           return DIET;
         if ("drug".equals(codeString))
@@ -369,6 +379,8 @@ public class Protocol extends DomainResource {
           return OBSERVATION;
         if ("procedure".equals(codeString))
           return PROCEDURE;
+        if ("referral".equals(codeString))
+          return REFERRAL;
         if ("supply".equals(codeString))
           return SUPPLY;
         if ("other".equals(codeString))
@@ -380,11 +392,13 @@ public class Protocol extends DomainResource {
         }
         public String toCode() {
           switch (this) {
+            case COMMUNICATION: return "communication";
             case DIET: return "diet";
             case DRUG: return "drug";
             case ENCOUNTER: return "encounter";
             case OBSERVATION: return "observation";
             case PROCEDURE: return "procedure";
+            case REFERRAL: return "referral";
             case SUPPLY: return "supply";
             case OTHER: return "other";
             default: return "?";
@@ -392,11 +406,13 @@ public class Protocol extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
+            case COMMUNICATION: return "http://hl7.org/fhir/activity-definition-category";
             case DIET: return "http://hl7.org/fhir/activity-definition-category";
             case DRUG: return "http://hl7.org/fhir/activity-definition-category";
             case ENCOUNTER: return "http://hl7.org/fhir/activity-definition-category";
             case OBSERVATION: return "http://hl7.org/fhir/activity-definition-category";
             case PROCEDURE: return "http://hl7.org/fhir/activity-definition-category";
+            case REFERRAL: return "http://hl7.org/fhir/activity-definition-category";
             case SUPPLY: return "http://hl7.org/fhir/activity-definition-category";
             case OTHER: return "http://hl7.org/fhir/activity-definition-category";
             default: return "?";
@@ -404,11 +420,13 @@ public class Protocol extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
+            case COMMUNICATION: return "To communicate with a participant in some way";
             case DIET: return "To consume food of a specified nature";
             case DRUG: return "To consume/receive a drug, vaccine or other product";
-            case ENCOUNTER: return "To meet or communicate with the patient (in-patient, out-patient, phone call, etc.)";
+            case ENCOUNTER: return "To meet with the patient (in-patient, out-patient, etc.)";
             case OBSERVATION: return "To capture information about a patient (vitals, labs, diagnostic images, etc.)";
             case PROCEDURE: return "To modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)";
+            case REFERRAL: return "To refer the patient to receive some service";
             case SUPPLY: return "To provide something to the patient (medication, medical supply, etc.)";
             case OTHER: return "Some other form of action";
             default: return "?";
@@ -416,11 +434,13 @@ public class Protocol extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
+            case COMMUNICATION: return "Communication";
             case DIET: return "Diet";
             case DRUG: return "Drug";
             case ENCOUNTER: return "Encounter";
             case OBSERVATION: return "Observation";
             case PROCEDURE: return "Procedure";
+            case REFERRAL: return "Referral";
             case SUPPLY: return "Supply";
             case OTHER: return "Other";
             default: return "?";
@@ -433,6 +453,8 @@ public class Protocol extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("communication".equals(codeString))
+          return ActivityDefinitionCategory.COMMUNICATION;
         if ("diet".equals(codeString))
           return ActivityDefinitionCategory.DIET;
         if ("drug".equals(codeString))
@@ -443,6 +465,8 @@ public class Protocol extends DomainResource {
           return ActivityDefinitionCategory.OBSERVATION;
         if ("procedure".equals(codeString))
           return ActivityDefinitionCategory.PROCEDURE;
+        if ("referral".equals(codeString))
+          return ActivityDefinitionCategory.REFERRAL;
         if ("supply".equals(codeString))
           return ActivityDefinitionCategory.SUPPLY;
         if ("other".equals(codeString))
@@ -455,6 +479,8 @@ public class Protocol extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
+        if ("communication".equals(codeString))
+          return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.COMMUNICATION);
         if ("diet".equals(codeString))
           return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.DIET);
         if ("drug".equals(codeString))
@@ -465,6 +491,8 @@ public class Protocol extends DomainResource {
           return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.OBSERVATION);
         if ("procedure".equals(codeString))
           return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.PROCEDURE);
+        if ("referral".equals(codeString))
+          return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.REFERRAL);
         if ("supply".equals(codeString))
           return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.SUPPLY);
         if ("other".equals(codeString))
@@ -472,6 +500,8 @@ public class Protocol extends DomainResource {
         throw new FHIRException("Unknown ActivityDefinitionCategory code '"+codeString+"'");
         }
     public String toCode(ActivityDefinitionCategory code) {
+      if (code == ActivityDefinitionCategory.COMMUNICATION)
+        return "communication";
       if (code == ActivityDefinitionCategory.DIET)
         return "diet";
       if (code == ActivityDefinitionCategory.DRUG)
@@ -482,6 +512,8 @@ public class Protocol extends DomainResource {
         return "observation";
       if (code == ActivityDefinitionCategory.PROCEDURE)
         return "procedure";
+      if (code == ActivityDefinitionCategory.REFERRAL)
+        return "referral";
       if (code == ActivityDefinitionCategory.SUPPLY)
         return "supply";
       if (code == ActivityDefinitionCategory.OTHER)
@@ -2410,7 +2442,7 @@ public class Protocol extends DomainResource {
          * High-level categorization of the type of activity.
          */
         @Child(name = "category", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="diet | drug | encounter | observation +", formalDefinition="High-level categorization of the type of activity." )
+        @Description(shortDefinition="communication | diet | drug | encounter | observation | procedure | referral | supply | other", formalDefinition="High-level categorization of the type of activity." )
         protected Enumeration<ActivityDefinitionCategory> category;
 
         /**

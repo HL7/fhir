@@ -489,5 +489,9 @@ public class ToolingExtensions {
     return hasExtension(vs, EXT_OID);
   }
   
+  public static boolean hasOID(CodeSystem cs) {
+    return hasExtension(cs, EXT_OID);
+  }
+  
   
 }

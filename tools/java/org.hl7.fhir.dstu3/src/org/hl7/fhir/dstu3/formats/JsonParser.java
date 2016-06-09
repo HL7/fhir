@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Jun 8, 2016 10:47+1000 for FHIR v1.4.0
+// Generated on Thu, Jun 9, 2016 11:17+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1863,6 +1863,59 @@ public class JsonParser extends JsonParserBase {
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("owner"))
       res.setOwner(parseReference(json.getAsJsonObject("owner")));
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+  }
+
+  protected ActivityDefinition parseActivityDefinition(JsonObject json) throws IOException, FHIRFormatError {
+    ActivityDefinition res = new ActivityDefinition();
+    parseActivityDefinitionProperties(json, res);
+    return res;
+  }
+
+  protected void parseActivityDefinitionProperties(JsonObject json, ActivityDefinition res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("moduleMetadata"))
+      res.setModuleMetadata(parseModuleMetadata(json.getAsJsonObject("moduleMetadata")));
+    if (json.has("library")) {
+      JsonArray array = json.getAsJsonArray("library");
+      for (int i = 0; i < array.size(); i++) {
+        res.getLibrary().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("category"))
+      res.setCategoryElement(parseEnumeration(json.get("category").getAsString(), ActivityDefinition.ActivityDefinitionCategory.NULL, new ActivityDefinition.ActivityDefinitionCategoryEnumFactory()));
+    if (json.has("_category"))
+      parseElementProperties(json.getAsJsonObject("_category"), res.getCategoryElement());
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
+    Type timing = parseType("timing", json);
+    if (timing != null)
+      res.setTiming(timing);
+    if (json.has("location"))
+      res.setLocation(parseReference(json.getAsJsonObject("location")));
+    if (json.has("participantType")) {
+      JsonArray array = json.getAsJsonArray("participantType");
+      for (int i = 0; i < array.size(); i++) {
+        res.getParticipantType().add(parseEnumeration(array.get(i).getAsString(), ActivityDefinition.ActivityParticipantType.NULL, new ActivityDefinition.ActivityParticipantTypeEnumFactory()));
+      }
+    };
+    if (json.has("_participantType")) {
+      JsonArray array = json.getAsJsonArray("_participantType");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getParticipantType().size())
+          res.getParticipantType().add(parseEnumeration(null, ActivityDefinition.ActivityParticipantType.NULL, new ActivityDefinition.ActivityParticipantTypeEnumFactory()));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getParticipantType().get(i));
+      }
+    };
+    Type product = parseType("product", json);
+    if (product != null)
+      res.setProduct(product);
+    if (json.has("quantity"))
+      res.setQuantity(parseSimpleQuantity(json.getAsJsonObject("quantity")));
     if (json.has("description"))
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
@@ -7331,6 +7384,12 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseEndpointProperties(JsonObject json, Endpoint res) throws IOException, FHIRFormatError {
     parseDomainResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Endpoint.EndpointStatus.NULL, new Endpoint.EndpointStatusEnumFactory()));
     if (json.has("_status"))
@@ -10313,6 +10372,12 @@ public class JsonParser extends JsonParserBase {
       res.setManagingOrganization(parseReference(json.getAsJsonObject("managingOrganization")));
     if (json.has("partOf"))
       res.setPartOf(parseReference(json.getAsJsonObject("partOf")));
+    if (json.has("endpoint")) {
+      JsonArray array = json.getAsJsonArray("endpoint");
+      for (int i = 0; i < array.size(); i++) {
+        res.getEndpoint().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
   }
 
   protected Location.LocationPositionComponent parseLocationLocationPositionComponent(JsonObject json, Location owner) throws IOException, FHIRFormatError {
@@ -12725,6 +12790,12 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("contact");
       for (int i = 0; i < array.size(); i++) {
         res.getContact().add(parseOrganizationOrganizationContactComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("endpoint")) {
+      JsonArray array = json.getAsJsonArray("endpoint");
+      for (int i = 0; i < array.size(); i++) {
+        res.getEndpoint().add(parseReference(array.get(i).getAsJsonObject()));
       }
     };
   }
@@ -17421,6 +17492,8 @@ public class JsonParser extends JsonParserBase {
       return parseParameters(json);
     else if (t.equals("Account"))
       return parseAccount(json);
+    else if (t.equals("ActivityDefinition"))
+      return parseActivityDefinition(json);
     else if (t.equals("AllergyIntolerance"))
       return parseAllergyIntolerance(json);
     else if (t.equals("Appointment"))
@@ -17938,6 +18011,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"Parameters"))
       return true;
     if (json.has(prefix+"Account"))
+      return true;
+    if (json.has(prefix+"ActivityDefinition"))
       return true;
     if (json.has(prefix+"AllergyIntolerance"))
       return true;
@@ -20338,6 +20413,61 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasOwner()) {
         composeReference("owner", element.getOwner());
+      }
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+  }
+
+  protected void composeActivityDefinition(String name, ActivityDefinition element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeActivityDefinitionInner(element);
+    }
+  }
+
+  protected void composeActivityDefinitionInner(ActivityDefinition element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasModuleMetadata()) {
+        composeModuleMetadata("moduleMetadata", element.getModuleMetadata());
+      }
+      if (element.hasLibrary()) {
+        openArray("library");
+        for (Reference e : element.getLibrary()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasCategoryElement()) {
+        composeEnumerationCore("category", element.getCategoryElement(), new ActivityDefinition.ActivityDefinitionCategoryEnumFactory(), false);
+        composeEnumerationExtras("category", element.getCategoryElement(), new ActivityDefinition.ActivityDefinitionCategoryEnumFactory(), false);
+      }
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
+      }
+      if (element.hasTiming()) {
+        composeType("timing", element.getTiming());
+      }
+      if (element.hasLocation()) {
+        composeReference("location", element.getLocation());
+      }
+      if (element.hasParticipantType()) {
+        openArray("participantType");
+        for (Enumeration<ActivityDefinition.ActivityParticipantType> e : element.getParticipantType()) 
+          composeEnumerationCore(null, e, new ActivityDefinition.ActivityParticipantTypeEnumFactory(), true);
+        closeArray();
+        if (anyHasExtras(element.getParticipantType())) {
+          openArray("_participantType");
+          for (Enumeration<ActivityDefinition.ActivityParticipantType> e : element.getParticipantType()) 
+            composeEnumerationExtras(null, e, new ActivityDefinition.ActivityParticipantTypeEnumFactory(), true);
+          closeArray();
+        }
+      };
+      if (element.hasProduct()) {
+        composeType("product", element.getProduct());
+      }
+      if (element.hasQuantity()) {
+        composeSimpleQuantity("quantity", element.getQuantity());
       }
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
@@ -26312,6 +26442,12 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeEndpointInner(Endpoint element) throws IOException {
       composeDomainResourceElements(element);
+      if (element.hasIdentifier()) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new Endpoint.EndpointStatusEnumFactory(), false);
         composeEnumerationExtras("status", element.getStatusElement(), new Endpoint.EndpointStatusEnumFactory(), false);
@@ -29592,6 +29728,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasPartOf()) {
         composeReference("partOf", element.getPartOf());
       }
+      if (element.hasEndpoint()) {
+        openArray("endpoint");
+        for (Reference e : element.getEndpoint()) 
+          composeReference(null, e);
+        closeArray();
+      };
   }
 
   protected void composeLocationLocationPositionComponent(String name, Location.LocationPositionComponent element) throws IOException {
@@ -32256,6 +32398,12 @@ public class JsonParser extends JsonParserBase {
         openArray("contact");
         for (Organization.OrganizationContactComponent e : element.getContact()) 
           composeOrganizationOrganizationContactComponent(null, e);
+        closeArray();
+      };
+      if (element.hasEndpoint()) {
+        openArray("endpoint");
+        for (Reference e : element.getEndpoint()) 
+          composeReference(null, e);
         closeArray();
       };
   }
@@ -37344,6 +37492,8 @@ public class JsonParser extends JsonParserBase {
       composeParameters("Parameters", (Parameters)resource);
     else if (resource instanceof Account)
       composeAccount("Account", (Account)resource);
+    else if (resource instanceof ActivityDefinition)
+      composeActivityDefinition("ActivityDefinition", (ActivityDefinition)resource);
     else if (resource instanceof AllergyIntolerance)
       composeAllergyIntolerance("AllergyIntolerance", (AllergyIntolerance)resource);
     else if (resource instanceof Appointment)
@@ -37579,6 +37729,8 @@ public class JsonParser extends JsonParserBase {
       composeParameters(name, (Parameters)resource);
     else if (resource instanceof Account)
       composeAccount(name, (Account)resource);
+    else if (resource instanceof ActivityDefinition)
+      composeActivityDefinition(name, (ActivityDefinition)resource);
     else if (resource instanceof AllergyIntolerance)
       composeAllergyIntolerance(name, (AllergyIntolerance)resource);
     else if (resource instanceof Appointment)

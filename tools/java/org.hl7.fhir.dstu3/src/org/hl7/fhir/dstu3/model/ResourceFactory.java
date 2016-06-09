@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jun 8, 2016 10:47+1000 for FHIR v1.4.0
+// Generated on Thu, Jun 9, 2016 11:17+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
@@ -114,6 +114,8 @@ public class ResourceFactory extends Factory {
             return new Protocol();
         if ("Communication".equals(name))
             return new Communication();
+        if ("ActivityDefinition".equals(name))
+            return new ActivityDefinition();
         if ("Linkage".equals(name))
             return new Linkage();
         if ("OrderResponse".equals(name))
@@ -414,6 +416,8 @@ public class ResourceFactory extends Factory {
             return new Protocol();
         if ("Communication".equals(name))
             return new Communication();
+        if ("ActivityDefinition".equals(name))
+            return new ActivityDefinition();
         if ("Linkage".equals(name))
             return new Linkage();
         if ("OrderResponse".equals(name))
