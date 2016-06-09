@@ -416,7 +416,8 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     addSourceFiles(0, classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.utilities"+sl+"src", paths);
     addSourceFiles(0, classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.dstu3"+sl+"src", paths);
     addSourceFiles(0, classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.rdf"+sl+"src", paths);
-    addSourceFiles(0, classes, rootDir + "tools"+sl+"java"+sl+"org.hl7.fhir.igtools"+sl+"src", paths);
+    if (!hasBinIGTools(rootDir + "tools"+sl+"java"+sl+"org.hl7.fhir.igtools"+sl+"bin"))
+      addSourceFiles(0, classes, rootDir + "tools"+sl+"java"+sl+"org.hl7.fhir.igtools"+sl+"src", paths);
     List<File> list = listFilesToCompile(classes);
 
     logger.log(" .... found "+Integer.toString(classes.size())+" classes, compile "+Integer.toString(list.size()), LogMessageType.Process);
@@ -806,12 +807,33 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu3", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu3", "src").length()+1, names);
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.utilities", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.utilities", "src").length()+1, names);
     // ok now add the igtools
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "src")), Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "bin").length()+1, names);
+    if (hasBinIGTools(Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "bin")))
+      AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "bin")), Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "bin").length()+1, names);
+    else
+      AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "src")), Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "bin").length()+1, names);
     
     // last, add the igpack:
     AddToJar(jar, new File(packFileName), packFileName.lastIndexOf(File.separatorChar)+1, names);
     jar.close();
     
+  }
+
+  private boolean hasBinIGTools(String path) {
+    File file = new File(path);
+    return containsClassFiles(file);
+  }
+  private boolean containsClassFiles(File file) {
+    if (!file.exists())
+      return false;
+
+    if (file.isDirectory()) {
+      for (File f: file.listFiles()) {
+        if (containsClassFiles(f))
+          return true;
+      }
+      return false;
+    } else 
+      return file.getName().endsWith(".class");
   }
 
 

@@ -1,7 +1,7 @@
 package org.hl7.fhir.igtools.publisher;
 
-import org.hl7.fhir.dstu3.metamodel.ParserBase;
-import org.hl7.fhir.dstu3.metamodel.Property;
+import org.hl7.fhir.dstu3.elementmodel.ParserBase;
+import org.hl7.fhir.dstu3.elementmodel.Property;
 
 public class IGLinkResolver implements ParserBase.ILinkResolver {
 
