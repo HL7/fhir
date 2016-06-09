@@ -412,6 +412,19 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                   warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "No code provided, and a code should be provided from the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl());
               } else {
                 long t = System.nanoTime();
+                
+                boolean atLeastOneSystemIsSupported = false;
+                for (Coding nextCoding : cc.getCoding()) {
+                  String nextSystem = nextCoding.getSystem();
+                  if (isNotBlank(nextSystem) && context.supportsSystem(nextSystem)) {
+                     atLeastOneSystemIsSupported = true;
+                     break;
+                  }
+                }
+                
+                if (!atLeastOneSystemIsSupported && binding.getStrength() == BindingStrength.EXAMPLE) {
+                  // ignore this since we can't validate but it doesn't matter..
+                } else {
                 ValidationResult vr = context.validateCode(cc, valueset);
                 txTime = txTime + (System.nanoTime() - t);
                 if (!vr.isOk()) {
@@ -422,6 +435,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                   else if (binding.getStrength() == BindingStrength.PREFERRED)
                     hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is recommended to come from this value set");
                 }
+              }
               }
             } catch (Exception e) {
               warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Error "+e.getMessage()+" validating CodeableConcept");
@@ -2048,7 +2062,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     StructureDefinition profile = this.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + resourceName);
     sdTime = sdTime + (System.nanoTime() - t);
     // special case: resource wrapper is reset if we're crossing a bundle boundary, but not otherwise
-    if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY) 
+    if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY || element.getSpecial() == SpecialElement.PARAMETER ) 
       resource = element;
     if (rule(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), profile != null, "No profile found for contained resource of type '" + resourceName + "'"))
       validateResource(errors, resource, element, profile, idstatus, stack);

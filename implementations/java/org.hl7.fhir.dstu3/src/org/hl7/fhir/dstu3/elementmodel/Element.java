@@ -349,5 +349,9 @@ public class Element extends Base {
     return elementProperty;
   }
 
+  public boolean hasElementProperty() {
+    return elementProperty != null;
+  }
+
 
 }

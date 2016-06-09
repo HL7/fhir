@@ -11,6 +11,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.exceptions.PathEngineException;
 import org.hl7.fhir.dstu3.formats.JsonParser;
+import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Appointment;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.Bundle;
@@ -19,6 +20,8 @@ import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
 import org.hl7.fhir.dstu3.model.Observation;
+import org.hl7.fhir.dstu3.model.Order;
+import org.hl7.fhir.dstu3.model.Parameters;
 import org.hl7.fhir.dstu3.model.Patient;
 import org.hl7.fhir.dstu3.model.Questionnaire;
 import org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemComponent;
@@ -44,6 +47,7 @@ public class FluentPathTests {
   static private Observation observation;
   static private ValueSet valueset;
   static private Questionnaire questionnaire;
+  private Parameters parameters;
 
   private Patient patient() throws FHIRFormatError, FileNotFoundException, IOException {
     if (patient == null)
@@ -73,6 +77,12 @@ public class FluentPathTests {
     if (observation == null)
       observation = (Observation) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/observation-example.json"));
     return observation;
+  }
+
+  private Parameters parameters() throws FHIRFormatError, FileNotFoundException, IOException {
+    if (parameters == null)
+      parameters = (Parameters) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/gao/example-gao-request-parameters-CT-head.json"));
+    return parameters;
   }
 
   @SuppressWarnings("deprecation")
@@ -941,6 +951,14 @@ public class FluentPathTests {
   @Test
   public void testDoubleEntryPoint() throws FileNotFoundException, IOException, FHIRException {
     testBoolean(patient(), "(Patient.name | Patient.address).count() = 3", true);
+  }
+
+  @Test
+  public void testParameersConstraint() throws FileNotFoundException, IOException, FHIRException {
+    Parameters p = parameters();
+    Order o = (Order) parameters.getParameter().get(0).getResource();
+    
+    testBoolean(o, o.getSubject(), "Reference", "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))", true);
   }
 
 }

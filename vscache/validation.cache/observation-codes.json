@@ -537,6 +537,17 @@
       }
     },
     {
+      "hash": "#|http://loinc.org|null|20570-8|Hematocrit [Volume Fraction] of Blood",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Hematocrit [Volume Fraction] of Blood"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|2075-0|Chloride [Moles/volume] in Serum or Plasma#|http://snomed.info/sct|null|46511006|null",
       "severity": null,
       "message": null,

@@ -221,7 +221,13 @@ public class InstanceValidatorTests {
 		validate("build\\tests\\validation-examples\\group-choice-empty.xml", 1, false);
 	}
 
+  @Test
+  public void testParametersReference() throws Exception {
+    validate("build\\tests\\validation-examples\\params-reference.xml", 0, false);
+  }
 
+ // --- json --------------------------------------------------------------------------
+	
 	@Test
 	public void testJsonListMinimal() throws Exception {
 		validate("build\\tests\\validation-examples\\list-minimal.json", 0, true);

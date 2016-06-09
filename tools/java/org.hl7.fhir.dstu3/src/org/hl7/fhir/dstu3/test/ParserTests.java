@@ -29,10 +29,10 @@ public class ParserTests {
 
 	private String root = "C:\\work\\org.hl7.fhir\\build\\publish";
 
-	@Test
+//	@Test
 	public void testBundleTurtle() throws Exception {
     if (TestingUtilities.context == null) {
-      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
+      TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(root, "validation-min.xml.zip"));
       ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://local.healthintersections.com.au:960/open");
     }
     org.hl7.fhir.dstu3.elementmodel.XmlParser xp = new org.hl7.fhir.dstu3.elementmodel.XmlParser(TestingUtilities.context);
@@ -60,6 +60,11 @@ public class ParserTests {
 //			}
 //		}
 //	}
+
+	 @Test
+	  public void testParameters() throws Exception {
+	   testRoundTrip(Utilities.path(root, "gao", "example-gao-request-parameters-CT-head.xml"), "testcase");
+	 }
 
 	@SuppressWarnings("deprecation")
 	private void testRoundTrip(String filename, String name) throws Exception {

@@ -2977,8 +2977,8 @@ public class VersionConvertor {
 			tgt.addSupport(convertReference(t));
 		for (org.hl7.fhir.dstu2.model.CarePlan.CarePlanRelatedPlanComponent t : src.getRelatedPlan())
 			tgt.addRelatedPlan(convertCarePlanRelatedPlanComponent(t));
-		for (org.hl7.fhir.dstu2.model.CarePlan.CarePlanParticipantComponent t : src.getParticipant())
-			tgt.addParticipant(convertCarePlanParticipantComponent(t));
+//		for (org.hl7.fhir.dstu2.model.CarePlan.CarePlanParticipantComponent t : src.getParticipant())
+//			tgt.addParticipant(convertCarePlanParticipantComponent(t));
 		for (org.hl7.fhir.dstu2.model.Reference t : src.getGoal())
 			tgt.addGoal(convertReference(t));
 		for (org.hl7.fhir.dstu2.model.CarePlan.CarePlanActivityComponent t : src.getActivity())
@@ -3010,8 +3010,8 @@ public class VersionConvertor {
 			tgt.addSupport(convertReference(t));
 		for (org.hl7.fhir.dstu3.model.CarePlan.CarePlanRelatedPlanComponent t : src.getRelatedPlan())
 			tgt.addRelatedPlan(convertCarePlanRelatedPlanComponent(t));
-		for (org.hl7.fhir.dstu3.model.CarePlan.CarePlanParticipantComponent t : src.getParticipant())
-			tgt.addParticipant(convertCarePlanParticipantComponent(t));
+//		for (org.hl7.fhir.dstu3.model.CarePlan.CarePlanParticipantComponent t : src.getParticipant())
+//			tgt.addParticipant(convertCarePlanParticipantComponent(t));
 		for (org.hl7.fhir.dstu3.model.Reference t : src.getGoal())
 			tgt.addGoal(convertReference(t));
 		for (org.hl7.fhir.dstu3.model.CarePlan.CarePlanActivityComponent t : src.getActivity())
@@ -3088,26 +3088,26 @@ public class VersionConvertor {
 		}
 	}
 
-	public static org.hl7.fhir.dstu3.model.CarePlan.CarePlanParticipantComponent convertCarePlanParticipantComponent(org.hl7.fhir.dstu2.model.CarePlan.CarePlanParticipantComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.CarePlan.CarePlanParticipantComponent tgt = new org.hl7.fhir.dstu3.model.CarePlan.CarePlanParticipantComponent();
-		copyElement(src, tgt);
-		tgt.setRole(convertCodeableConcept(src.getRole()));
-		tgt.setMember(convertReference(src.getMember()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.CarePlan.CarePlanParticipantComponent convertCarePlanParticipantComponent(org.hl7.fhir.dstu3.model.CarePlan.CarePlanParticipantComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.CarePlan.CarePlanParticipantComponent tgt = new org.hl7.fhir.dstu2.model.CarePlan.CarePlanParticipantComponent();
-		copyElement(src, tgt);
-		tgt.setRole(convertCodeableConcept(src.getRole()));
-		tgt.setMember(convertReference(src.getMember()));
-		return tgt;
-	}
-
+//	public static org.hl7.fhir.dstu3.model.CarePlan.CarePlanParticipantComponent convertCarePlanParticipantComponent(org.hl7.fhir.dstu2.model.CarePlan.CarePlanParticipantComponent src) throws FHIRException {
+//		if (src == null)
+//			return null;
+//		org.hl7.fhir.dstu3.model.CarePlan.CarePlanParticipantComponent tgt = new org.hl7.fhir.dstu3.model.CarePlan.CarePlanParticipantComponent();
+//		copyElement(src, tgt);
+//		tgt.setRole(convertCodeableConcept(src.getRole()));
+//		tgt.setMember(convertReference(src.getMember()));
+//		return tgt;
+//	}
+//
+//	public static org.hl7.fhir.dstu2.model.CarePlan.CarePlanParticipantComponent convertCarePlanParticipantComponent(org.hl7.fhir.dstu3.model.CarePlan.CarePlanParticipantComponent src) throws FHIRException {
+//		if (src == null)
+//			return null;
+//		org.hl7.fhir.dstu2.model.CarePlan.CarePlanParticipantComponent tgt = new org.hl7.fhir.dstu2.model.CarePlan.CarePlanParticipantComponent();
+//		copyElement(src, tgt);
+//		tgt.setRole(convertCodeableConcept(src.getRole()));
+//		tgt.setMember(convertReference(src.getMember()));
+//		return tgt;
+//	}
+//
 	public static org.hl7.fhir.dstu3.model.CarePlan.CarePlanActivityComponent convertCarePlanActivityComponent(org.hl7.fhir.dstu2.model.CarePlan.CarePlanActivityComponent src) throws FHIRException {
 		if (src == null)
 			return null;
@@ -3216,831 +3216,6 @@ public class VersionConvertor {
 		case CANCELLED: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanActivityStatus.CANCELLED;
 		default: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanActivityStatus.NULL;
 		}
-	}
-
-	public static org.hl7.fhir.dstu3.model.Claim convertClaim(org.hl7.fhir.dstu2.model.Claim src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.Claim tgt = new org.hl7.fhir.dstu3.model.Claim();
-		copyDomainResource(src, tgt);
-		tgt.setType(convertClaimType(src.getType()));
-		for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-			tgt.addIdentifier(convertIdentifier(t));
-		tgt.setRuleset(convertCoding(src.getRuleset()));
-		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-		tgt.setCreated(src.getCreated());
-		tgt.setTarget(convertType(src.getTarget()));
-		tgt.setProvider(convertType(src.getProvider()));
-		tgt.setOrganization(convertType(src.getOrganization()));
-		tgt.setUse(convertUse(src.getUse()));
-		tgt.setPriority(convertCoding(src.getPriority()));
-		tgt.setFundsReserve(convertCoding(src.getFundsReserve()));
-		tgt.setEnterer(convertType(src.getEnterer()));
-		tgt.setFacility(convertType(src.getFacility()));
-		tgt.setPrescription(convertType(src.getPrescription()));
-		tgt.setOriginalPrescription(convertType(src.getOriginalPrescription()));
-		tgt.setPayee(convertPayeeComponent(src.getPayee()));
-		tgt.setReferral(convertType(src.getReferral()));
-		for (org.hl7.fhir.dstu2.model.Claim.DiagnosisComponent t : src.getDiagnosis())
-			tgt.addDiagnosis(convertDiagnosisComponent(t));
-		tgt.setPatient(convertType(src.getPatient()));
-		for (org.hl7.fhir.dstu2.model.Claim.CoverageComponent t : src.getCoverage())
-			tgt.addCoverage(convertCoverageComponent(t));
-		tgt.setAccidentDate(src.getAccident());
-		tgt.setAccidentType(convertCoding(src.getAccidentType()));
-		for (org.hl7.fhir.dstu2.model.Coding t : src.getInterventionException())
-			tgt.addInterventionException(convertCoding(t));
-		for (org.hl7.fhir.dstu2.model.Claim.ItemsComponent t : src.getItem())
-			tgt.addItem(convertItemsComponent(t));
-		for (org.hl7.fhir.dstu2.model.Coding t : src.getAdditionalMaterials())
-			tgt.addAdditionalMaterial(convertCoding(t));
-		for (org.hl7.fhir.dstu2.model.Claim.MissingTeethComponent t : src.getMissingTeeth())
-			tgt.addMissingTeeth(convertMissingTeethComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.Claim convertClaim(org.hl7.fhir.dstu3.model.Claim src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.Claim tgt = new org.hl7.fhir.dstu2.model.Claim();
-		copyDomainResource(src, tgt);
-		tgt.setType(convertClaimType(src.getType()));
-		for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
-			tgt.addIdentifier(convertIdentifier(t));
-		tgt.setRuleset(convertCoding(src.getRuleset()));
-		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-		tgt.setCreated(src.getCreated());
-		if (src.hasOrganizationReference())
-			tgt.setOrganization((org.hl7.fhir.dstu2.model.Reference) convertType(src.getOrganization()));
-		tgt.setUse(convertUse(src.getUse()));
-		tgt.setPriority(convertCoding(src.getPriority()));
-		tgt.setFundsReserve(convertCoding(src.getFundsReserve()));
-		if (src.hasEntererReference())
-			tgt.setEnterer((org.hl7.fhir.dstu2.model.Reference) convertType(src.getEnterer()));
-		if (src.hasFacilityReference())
-			tgt.setFacility((org.hl7.fhir.dstu2.model.Reference) convertType(src.getFacility()));
-		if (src.hasPrescriptionReference())
-			tgt.setPrescription((org.hl7.fhir.dstu2.model.Reference) convertType(src.getPrescription()));
-		tgt.setPayee(convertPayeeComponent(src.getPayee()));
-		if (src.hasReferralReference())
-			tgt.setReferral((org.hl7.fhir.dstu2.model.Reference) convertType(src.getReferral()));
-		for (org.hl7.fhir.dstu3.model.Claim.DiagnosisComponent t : src.getDiagnosis())
-			tgt.addDiagnosis(convertDiagnosisComponent(t));
-		for (org.hl7.fhir.dstu3.model.Coding t : src.getSpecialCondition())
-			tgt.addCondition(convertCoding(t));
-		if (src.hasPatientReference())
-			tgt.setPatient((org.hl7.fhir.dstu2.model.Reference) convertType(src.getPatient()));
-		for (org.hl7.fhir.dstu3.model.Claim.CoverageComponent t : src.getCoverage())
-			tgt.addCoverage(convertCoverageComponent(t));
-		tgt.setAccident(src.getAccidentDate());
-		tgt.setAccidentType(convertCoding(src.getAccidentType()));
-		for (org.hl7.fhir.dstu3.model.Coding t : src.getInterventionException())
-			tgt.addInterventionException(convertCoding(t));
-		for (org.hl7.fhir.dstu3.model.Claim.ItemsComponent t : src.getItem())
-			tgt.addItem(convertItemsComponent(t));
-		for (org.hl7.fhir.dstu3.model.Coding t : src.getAdditionalMaterial())
-			tgt.addAdditionalMaterials(convertCoding(t));
-		for (org.hl7.fhir.dstu3.model.Claim.MissingTeethComponent t : src.getMissingTeeth())
-			tgt.addMissingTeeth(convertMissingTeethComponent(t));
-		return tgt;
-	}
-
-	private static org.hl7.fhir.dstu3.model.Claim.ClaimType convertClaimType(org.hl7.fhir.dstu2.model.Claim.ClaimType src) throws FHIRException {
-		if (src == null)
-			return null;
-		switch (src) {
-		case INSTITUTIONAL: return org.hl7.fhir.dstu3.model.Claim.ClaimType.INSTITUTIONAL;
-		case ORAL: return org.hl7.fhir.dstu3.model.Claim.ClaimType.ORAL;
-		case PHARMACY: return org.hl7.fhir.dstu3.model.Claim.ClaimType.PHARMACY;
-		case PROFESSIONAL: return org.hl7.fhir.dstu3.model.Claim.ClaimType.PROFESSIONAL;
-		case VISION: return org.hl7.fhir.dstu3.model.Claim.ClaimType.VISION;
-		default: return org.hl7.fhir.dstu3.model.Claim.ClaimType.NULL;
-		}
-	}
-
-	private static org.hl7.fhir.dstu2.model.Claim.ClaimType convertClaimType(org.hl7.fhir.dstu3.model.Claim.ClaimType src) throws FHIRException {
-		if (src == null)
-			return null;
-		switch (src) {
-		case INSTITUTIONAL: return org.hl7.fhir.dstu2.model.Claim.ClaimType.INSTITUTIONAL;
-		case ORAL: return org.hl7.fhir.dstu2.model.Claim.ClaimType.ORAL;
-		case PHARMACY: return org.hl7.fhir.dstu2.model.Claim.ClaimType.PHARMACY;
-		case PROFESSIONAL: return org.hl7.fhir.dstu2.model.Claim.ClaimType.PROFESSIONAL;
-		case VISION: return org.hl7.fhir.dstu2.model.Claim.ClaimType.VISION;
-		default: return org.hl7.fhir.dstu2.model.Claim.ClaimType.NULL;
-		}
-	}
-
-	private static org.hl7.fhir.dstu3.model.Claim.Use convertUse(org.hl7.fhir.dstu2.model.Claim.Use src) throws FHIRException {
-		if (src == null)
-			return null;
-		switch (src) {
-		case COMPLETE: return org.hl7.fhir.dstu3.model.Claim.Use.COMPLETE;
-		case PROPOSED: return org.hl7.fhir.dstu3.model.Claim.Use.PROPOSED;
-		case EXPLORATORY: return org.hl7.fhir.dstu3.model.Claim.Use.EXPLORATORY;
-		case OTHER: return org.hl7.fhir.dstu3.model.Claim.Use.OTHER;
-		default: return org.hl7.fhir.dstu3.model.Claim.Use.NULL;
-		}
-	}
-
-	private static org.hl7.fhir.dstu2.model.Claim.Use convertUse(org.hl7.fhir.dstu3.model.Claim.Use src) throws FHIRException {
-		if (src == null)
-			return null;
-		switch (src) {
-		case COMPLETE: return org.hl7.fhir.dstu2.model.Claim.Use.COMPLETE;
-		case PROPOSED: return org.hl7.fhir.dstu2.model.Claim.Use.PROPOSED;
-		case EXPLORATORY: return org.hl7.fhir.dstu2.model.Claim.Use.EXPLORATORY;
-		case OTHER: return org.hl7.fhir.dstu2.model.Claim.Use.OTHER;
-		default: return org.hl7.fhir.dstu2.model.Claim.Use.NULL;
-		}
-	}
-
-	public static org.hl7.fhir.dstu3.model.Claim.PayeeComponent convertPayeeComponent(org.hl7.fhir.dstu2.model.Claim.PayeeComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.Claim.PayeeComponent tgt = new org.hl7.fhir.dstu3.model.Claim.PayeeComponent();
-		copyElement(src, tgt);
-		tgt.setType(convertCoding(src.getType()));
-		if (src.hasProvider())
-			tgt.setParty(convertType(src.getProvider()));
-		if (src.hasOrganization())
-			tgt.setParty(convertType(src.getOrganization()));
-		if (src.hasPerson())
-			tgt.setParty(convertType(src.getPerson()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.Claim.PayeeComponent convertPayeeComponent(org.hl7.fhir.dstu3.model.Claim.PayeeComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.Claim.PayeeComponent tgt = new org.hl7.fhir.dstu2.model.Claim.PayeeComponent();
-		copyElement(src, tgt);
-		tgt.setType(convertCoding(src.getType()));
-		if (src.hasPartyReference()) {
-			String r;
-			try {
-				r = src.getPartyReference().getReference();
-			} catch (org.hl7.fhir.dstu3.exceptions.FHIRException e) {
-				throw new FHIRException(e);
-			}
-			if (r.startsWith("Practitioner/"))
-				tgt.setProvider((org.hl7.fhir.dstu2.model.Reference) convertType(src.getParty()));
-			if (r.startsWith("Organization/"))
-				tgt.setOrganization((org.hl7.fhir.dstu2.model.Reference) convertType(src.getParty()));
-			if (r.startsWith("Person/"))
-				tgt.setPerson((org.hl7.fhir.dstu2.model.Reference) convertType(src.getParty()));
-		}
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.Claim.DiagnosisComponent convertDiagnosisComponent(org.hl7.fhir.dstu2.model.Claim.DiagnosisComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.Claim.DiagnosisComponent tgt = new org.hl7.fhir.dstu3.model.Claim.DiagnosisComponent();
-		copyElement(src, tgt);
-		tgt.setSequence(src.getSequence());
-		tgt.setDiagnosis(convertCoding(src.getDiagnosis()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.Claim.DiagnosisComponent convertDiagnosisComponent(org.hl7.fhir.dstu3.model.Claim.DiagnosisComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.Claim.DiagnosisComponent tgt = new org.hl7.fhir.dstu2.model.Claim.DiagnosisComponent();
-		copyElement(src, tgt);
-		tgt.setSequence(src.getSequence());
-		tgt.setDiagnosis(convertCoding(src.getDiagnosis()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.Claim.CoverageComponent convertCoverageComponent(org.hl7.fhir.dstu2.model.Claim.CoverageComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.Claim.CoverageComponent tgt = new org.hl7.fhir.dstu3.model.Claim.CoverageComponent();
-		copyElement(src, tgt);
-		tgt.setSequence(src.getSequence());
-		tgt.setFocal(src.getFocal());
-		tgt.setCoverage(convertType(src.getCoverage()));
-		tgt.setBusinessArrangement(src.getBusinessArrangement());
-		for (org.hl7.fhir.dstu2.model.StringType t : src.getPreAuthRef())
-			tgt.addPreAuthRef(t.getValue());
-		tgt.setClaimResponse(convertReference(src.getClaimResponse()));
-		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.Claim.CoverageComponent convertCoverageComponent(org.hl7.fhir.dstu3.model.Claim.CoverageComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.Claim.CoverageComponent tgt = new org.hl7.fhir.dstu2.model.Claim.CoverageComponent();
-		copyElement(src, tgt);
-		tgt.setSequence(src.getSequence());
-		tgt.setFocal(src.getFocal());
-		if (src.hasCoverageReference())
-			tgt.setCoverage((org.hl7.fhir.dstu2.model.Reference) convertType(src.getCoverage()));
-		tgt.setBusinessArrangement(src.getBusinessArrangement());
-		for (org.hl7.fhir.dstu3.model.StringType t : src.getPreAuthRef())
-			tgt.addPreAuthRef(t.getValue());
-		tgt.setClaimResponse(convertReference(src.getClaimResponse()));
-		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.Claim.ItemsComponent convertItemsComponent(org.hl7.fhir.dstu2.model.Claim.ItemsComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.Claim.ItemsComponent tgt = new org.hl7.fhir.dstu3.model.Claim.ItemsComponent();
-		copyElement(src, tgt);
-		tgt.setSequence(src.getSequence());
-		tgt.setType(convertCoding(src.getType()));
-		tgt.setProvider(convertType(src.getProvider()));
-		for (org.hl7.fhir.dstu2.model.PositiveIntType t : src.getDiagnosisLinkId())
-			tgt.addDiagnosisLinkId(t.getValue());
-		tgt.setService(convertCoding(src.getService()));
-		for (org.hl7.fhir.dstu2.model.Coding t : src.getModifier())
-			tgt.addModifier(convertCoding(t));
-		tgt.setServiced(convertType(src.getService()));
-		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
-		tgt.setUnitPrice(convertMoney(src.getUnitPrice()));
-		tgt.setFactor(src.getFactor());
-		tgt.setPoints(src.getPoints());
-		tgt.setNet(convertMoney(src.getNet()));
-		tgt.setBodySite(convertCoding(src.getBodySite()));
-		for (org.hl7.fhir.dstu2.model.Coding t : src.getSubSite())
-			tgt.addSubSite(convertCoding(t));
-		for (org.hl7.fhir.dstu2.model.Claim.DetailComponent t : src.getDetail())
-			tgt.addDetail(convertDetailComponent(t));
-		tgt.setProsthesis(convertProsthesisComponent(src.getProsthesis()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.Claim.ItemsComponent convertItemsComponent(org.hl7.fhir.dstu3.model.Claim.ItemsComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.Claim.ItemsComponent tgt = new org.hl7.fhir.dstu2.model.Claim.ItemsComponent();
-		copyElement(src, tgt);
-		tgt.setSequence(src.getSequence());
-		tgt.setType(convertCoding(src.getType()));
-		if (src.hasProviderReference())
-			tgt.setProvider((org.hl7.fhir.dstu2.model.Reference) convertType(src.getProvider()));
-		for (org.hl7.fhir.dstu3.model.PositiveIntType t : src.getDiagnosisLinkId())
-			tgt.addDiagnosisLinkId(t.getValue());
-		tgt.setService(convertCoding(src.getService()));
-		for (org.hl7.fhir.dstu3.model.Coding t : src.getModifier())
-			tgt.addModifier(convertCoding(t));
-		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
-		tgt.setUnitPrice(convertMoney(src.getUnitPrice()));
-		tgt.setFactor(src.getFactor());
-		tgt.setPoints(src.getPoints());
-		tgt.setNet(convertMoney(src.getNet()));
-		tgt.setBodySite(convertCoding(src.getBodySite()));
-		for (org.hl7.fhir.dstu3.model.Coding t : src.getSubSite())
-			tgt.addSubSite(convertCoding(t));
-		for (org.hl7.fhir.dstu3.model.Claim.DetailComponent t : src.getDetail())
-			tgt.addDetail(convertDetailComponent(t));
-		tgt.setProsthesis(convertProsthesisComponent(src.getProsthesis()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.Claim.DetailComponent convertDetailComponent(org.hl7.fhir.dstu2.model.Claim.DetailComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.Claim.DetailComponent tgt = new org.hl7.fhir.dstu3.model.Claim.DetailComponent();
-		copyElement(src, tgt);
-		tgt.setSequence(src.getSequence());
-		tgt.setType(convertCoding(src.getType()));
-		tgt.setService(convertCoding(src.getService()));
-		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
-		tgt.setUnitPrice(convertMoney(src.getUnitPrice()));
-		tgt.setFactor(src.getFactor());
-		tgt.setPoints(src.getPoints());
-		tgt.setNet(convertMoney(src.getNet()));
-		for (org.hl7.fhir.dstu2.model.Claim.SubDetailComponent t : src.getSubDetail())
-			tgt.addSubDetail(convertSubDetailComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.Claim.DetailComponent convertDetailComponent(org.hl7.fhir.dstu3.model.Claim.DetailComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.Claim.DetailComponent tgt = new org.hl7.fhir.dstu2.model.Claim.DetailComponent();
-		copyElement(src, tgt);
-		tgt.setSequence(src.getSequence());
-		tgt.setType(convertCoding(src.getType()));
-		tgt.setService(convertCoding(src.getService()));
-		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
-		tgt.setUnitPrice(convertMoney(src.getUnitPrice()));
-		tgt.setFactor(src.getFactor());
-		tgt.setPoints(src.getPoints());
-		tgt.setNet(convertMoney(src.getNet()));
-		for (org.hl7.fhir.dstu3.model.Claim.SubDetailComponent t : src.getSubDetail())
-			tgt.addSubDetail(convertSubDetailComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.Claim.SubDetailComponent convertSubDetailComponent(org.hl7.fhir.dstu2.model.Claim.SubDetailComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.Claim.SubDetailComponent tgt = new org.hl7.fhir.dstu3.model.Claim.SubDetailComponent();
-		copyElement(src, tgt);
-		tgt.setSequence(src.getSequence());
-		tgt.setType(convertCoding(src.getType()));
-		tgt.setService(convertCoding(src.getService()));
-		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
-		tgt.setUnitPrice(convertMoney(src.getUnitPrice()));
-		tgt.setFactor(src.getFactor());
-		tgt.setPoints(src.getPoints());
-		tgt.setNet(convertMoney(src.getNet()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.Claim.SubDetailComponent convertSubDetailComponent(org.hl7.fhir.dstu3.model.Claim.SubDetailComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.Claim.SubDetailComponent tgt = new org.hl7.fhir.dstu2.model.Claim.SubDetailComponent();
-		copyElement(src, tgt);
-		tgt.setSequence(src.getSequence());
-		tgt.setType(convertCoding(src.getType()));
-		tgt.setService(convertCoding(src.getService()));
-		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
-		tgt.setUnitPrice(convertMoney(src.getUnitPrice()));
-		tgt.setFactor(src.getFactor());
-		tgt.setPoints(src.getPoints());
-		tgt.setNet(convertMoney(src.getNet()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.Claim.ProsthesisComponent convertProsthesisComponent(org.hl7.fhir.dstu2.model.Claim.ProsthesisComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.Claim.ProsthesisComponent tgt = new org.hl7.fhir.dstu3.model.Claim.ProsthesisComponent();
-		copyElement(src, tgt);
-		tgt.setInitial(src.getInitial());
-		tgt.setPriorDate(src.getPriorDate());
-		tgt.setPriorMaterial(convertCoding(src.getPriorMaterial()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.Claim.ProsthesisComponent convertProsthesisComponent(org.hl7.fhir.dstu3.model.Claim.ProsthesisComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.Claim.ProsthesisComponent tgt = new org.hl7.fhir.dstu2.model.Claim.ProsthesisComponent();
-		copyElement(src, tgt);
-		tgt.setInitial(src.getInitial());
-		tgt.setPriorDate(src.getPriorDate());
-		tgt.setPriorMaterial(convertCoding(src.getPriorMaterial()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.Claim.MissingTeethComponent convertMissingTeethComponent(org.hl7.fhir.dstu2.model.Claim.MissingTeethComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.Claim.MissingTeethComponent tgt = new org.hl7.fhir.dstu3.model.Claim.MissingTeethComponent();
-		copyElement(src, tgt);
-		tgt.setTooth(convertCoding(src.getTooth()));
-		tgt.setReason(convertCoding(src.getReason()));
-		tgt.setExtractionDate(src.getExtractionDate());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.Claim.MissingTeethComponent convertMissingTeethComponent(org.hl7.fhir.dstu3.model.Claim.MissingTeethComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.Claim.MissingTeethComponent tgt = new org.hl7.fhir.dstu2.model.Claim.MissingTeethComponent();
-		copyElement(src, tgt);
-		tgt.setTooth(convertCoding(src.getTooth()));
-		tgt.setReason(convertCoding(src.getReason()));
-		tgt.setExtractionDate(src.getExtractionDate());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ClaimResponse convertClaimResponse(org.hl7.fhir.dstu2.model.ClaimResponse src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ClaimResponse tgt = new org.hl7.fhir.dstu3.model.ClaimResponse();
-		copyDomainResource(src, tgt);
-		for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-			tgt.addIdentifier(convertIdentifier(t));
-		tgt.setRequest(convertType(src.getRequest()));
-		tgt.setRuleset(convertCoding(src.getRuleset()));
-		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-		tgt.setCreated(src.getCreated());
-		tgt.setOrganization(convertType(src.getOrganization()));
-		tgt.setRequestProvider(convertType(src.getRequestProvider()));
-		tgt.setRequestOrganization(convertType(src.getRequestOrganization()));
-		tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
-		tgt.setDisposition(src.getDisposition());
-		tgt.setPayeeType(convertCoding(src.getPayeeType()));
-		for (org.hl7.fhir.dstu2.model.ClaimResponse.ItemsComponent t : src.getItem())
-			tgt.addItem(convertItemsComponent(t));
-		for (org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemComponent t : src.getAddItem())
-			tgt.addAddItem(convertAddedItemComponent(t));
-		for (org.hl7.fhir.dstu2.model.ClaimResponse.ErrorsComponent t : src.getError())
-			tgt.addError(convertErrorsComponent(t));
-		tgt.setTotalCost(convertMoney(src.getTotalCost()));
-		tgt.setUnallocDeductable(convertMoney(src.getUnallocDeductable()));
-		tgt.setTotalBenefit(convertMoney(src.getTotalBenefit()));
-		tgt.setPaymentAdjustment(convertMoney(src.getPaymentAdjustment()));
-		tgt.setPaymentAdjustmentReason(convertCoding(src.getPaymentAdjustmentReason()));
-		tgt.setPaymentDate(src.getPaymentDate());
-		tgt.setPaymentAmount(convertMoney(src.getPaymentAmount()));
-		tgt.setPaymentRef(convertIdentifier(src.getPaymentRef()));
-		tgt.setReserved(convertCoding(src.getReserved()));
-		tgt.setForm(convertCoding(src.getForm()));
-		for (org.hl7.fhir.dstu2.model.ClaimResponse.NotesComponent t : src.getNote())
-			tgt.addNote(convertNotesComponent(t));
-		for (org.hl7.fhir.dstu2.model.ClaimResponse.CoverageComponent t : src.getCoverage())
-			tgt.addCoverage(convertCoverageComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ClaimResponse convertClaimResponse(org.hl7.fhir.dstu3.model.ClaimResponse src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ClaimResponse tgt = new org.hl7.fhir.dstu2.model.ClaimResponse();
-		copyDomainResource(src, tgt);
-		for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
-			tgt.addIdentifier(convertIdentifier(t));
-		if (src.hasRequestReference())
-			tgt.setRequest((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequest()));
-		tgt.setRuleset(convertCoding(src.getRuleset()));
-		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-		tgt.setCreated(src.getCreated());
-		if (src.hasOrganizationReference())
-			tgt.setOrganization((org.hl7.fhir.dstu2.model.Reference) convertType(src.getOrganization()));
-		if (src.hasRequestProviderReference())
-			tgt.setRequestProvider((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequestProvider()));
-		if (src.hasRequestOrganizationReference())
-			tgt.setRequestOrganization((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequestOrganization()));
-		tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
-		tgt.setDisposition(src.getDisposition());
-		tgt.setPayeeType(convertCoding(src.getPayeeType()));
-		for (org.hl7.fhir.dstu3.model.ClaimResponse.ItemsComponent t : src.getItem())
-			tgt.addItem(convertItemsComponent(t));
-		for (org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemComponent t : src.getAddItem())
-			tgt.addAddItem(convertAddedItemComponent(t));
-		for (org.hl7.fhir.dstu3.model.ClaimResponse.ErrorsComponent t : src.getError())
-			tgt.addError(convertErrorsComponent(t));
-		tgt.setTotalCost(convertMoney(src.getTotalCost()));
-		tgt.setUnallocDeductable(convertMoney(src.getUnallocDeductable()));
-		tgt.setTotalBenefit(convertMoney(src.getTotalBenefit()));
-		tgt.setPaymentAdjustment(convertMoney(src.getPaymentAdjustment()));
-		tgt.setPaymentAdjustmentReason(convertCoding(src.getPaymentAdjustmentReason()));
-		tgt.setPaymentDate(src.getPaymentDate());
-		tgt.setPaymentAmount(convertMoney(src.getPaymentAmount()));
-		tgt.setPaymentRef(convertIdentifier(src.getPaymentRef()));
-		tgt.setReserved(convertCoding(src.getReserved()));
-		tgt.setForm(convertCoding(src.getForm()));
-		for (org.hl7.fhir.dstu3.model.ClaimResponse.NotesComponent t : src.getNote())
-			tgt.addNote(convertNotesComponent(t));
-		for (org.hl7.fhir.dstu3.model.ClaimResponse.CoverageComponent t : src.getCoverage())
-			tgt.addCoverage(convertCoverageComponent(t));
-		return tgt;
-	}
-
-	private static org.hl7.fhir.dstu3.model.Enumerations.RemittanceOutcome convertRemittanceOutcome(org.hl7.fhir.dstu2.model.Enumerations.RemittanceOutcome src) throws FHIRException {
-		if (src == null)
-			return null;
-		switch (src) {
-		case COMPLETE: return org.hl7.fhir.dstu3.model.Enumerations.RemittanceOutcome.COMPLETE;
-		case ERROR: return org.hl7.fhir.dstu3.model.Enumerations.RemittanceOutcome.ERROR;
-		default: return org.hl7.fhir.dstu3.model.Enumerations.RemittanceOutcome.NULL;
-		}
-	}
-
-	private static org.hl7.fhir.dstu2.model.Enumerations.RemittanceOutcome convertRemittanceOutcome(org.hl7.fhir.dstu3.model.Enumerations.RemittanceOutcome src) throws FHIRException {
-		if (src == null)
-			return null;
-		switch (src) {
-		case COMPLETE: return org.hl7.fhir.dstu2.model.Enumerations.RemittanceOutcome.COMPLETE;
-		case ERROR: return org.hl7.fhir.dstu2.model.Enumerations.RemittanceOutcome.ERROR;
-		default: return org.hl7.fhir.dstu2.model.Enumerations.RemittanceOutcome.NULL;
-		}
-	}
-
-	public static org.hl7.fhir.dstu3.model.ClaimResponse.ItemsComponent convertItemsComponent(org.hl7.fhir.dstu2.model.ClaimResponse.ItemsComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ClaimResponse.ItemsComponent tgt = new org.hl7.fhir.dstu3.model.ClaimResponse.ItemsComponent();
-		copyElement(src, tgt);
-		tgt.setSequenceLinkId(src.getSequenceLinkId());
-		for (org.hl7.fhir.dstu2.model.PositiveIntType t : src.getNoteNumber())
-			tgt.addNoteNumber(t.getValue());
-		for (org.hl7.fhir.dstu2.model.ClaimResponse.ItemAdjudicationComponent t : src.getAdjudication())
-			tgt.addAdjudication(convertItemAdjudicationComponent(t));
-		for (org.hl7.fhir.dstu2.model.ClaimResponse.ItemDetailComponent t : src.getDetail())
-			tgt.addDetail(convertItemDetailComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ClaimResponse.ItemsComponent convertItemsComponent(org.hl7.fhir.dstu3.model.ClaimResponse.ItemsComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ClaimResponse.ItemsComponent tgt = new org.hl7.fhir.dstu2.model.ClaimResponse.ItemsComponent();
-		copyElement(src, tgt);
-		tgt.setSequenceLinkId(src.getSequenceLinkId());
-		for (org.hl7.fhir.dstu3.model.PositiveIntType t : src.getNoteNumber())
-			tgt.addNoteNumber(t.getValue());
-		for (org.hl7.fhir.dstu3.model.ClaimResponse.ItemAdjudicationComponent t : src.getAdjudication())
-			tgt.addAdjudication(convertItemAdjudicationComponent(t));
-		for (org.hl7.fhir.dstu3.model.ClaimResponse.ItemDetailComponent t : src.getDetail())
-			tgt.addDetail(convertItemDetailComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ClaimResponse.ItemAdjudicationComponent convertItemAdjudicationComponent(org.hl7.fhir.dstu2.model.ClaimResponse.ItemAdjudicationComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ClaimResponse.ItemAdjudicationComponent tgt = new org.hl7.fhir.dstu3.model.ClaimResponse.ItemAdjudicationComponent();
-		copyElement(src, tgt);
-		tgt.setCategory(convertCoding(src.getCode()));
-		tgt.setAmount(convertMoney(src.getAmount()));
-		tgt.setValue(src.getValue());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ClaimResponse.ItemAdjudicationComponent convertItemAdjudicationComponent(org.hl7.fhir.dstu3.model.ClaimResponse.ItemAdjudicationComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ClaimResponse.ItemAdjudicationComponent tgt = new org.hl7.fhir.dstu2.model.ClaimResponse.ItemAdjudicationComponent();
-		copyElement(src, tgt);
-		tgt.setCode(convertCoding(src.getCategory()));
-		tgt.setAmount(convertMoney(src.getAmount()));
-		tgt.setValue(src.getValue());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ClaimResponse.ItemDetailComponent convertItemDetailComponent(org.hl7.fhir.dstu2.model.ClaimResponse.ItemDetailComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ClaimResponse.ItemDetailComponent tgt = new org.hl7.fhir.dstu3.model.ClaimResponse.ItemDetailComponent();
-		copyElement(src, tgt);
-		tgt.setSequenceLinkId(src.getSequenceLinkId());
-		for (org.hl7.fhir.dstu2.model.ClaimResponse.DetailAdjudicationComponent t : src.getAdjudication())
-			tgt.addAdjudication(convertDetailAdjudicationComponent(t));
-		for (org.hl7.fhir.dstu2.model.ClaimResponse.SubDetailComponent t : src.getSubDetail())
-			tgt.addSubDetail(convertSubDetailComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ClaimResponse.ItemDetailComponent convertItemDetailComponent(org.hl7.fhir.dstu3.model.ClaimResponse.ItemDetailComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ClaimResponse.ItemDetailComponent tgt = new org.hl7.fhir.dstu2.model.ClaimResponse.ItemDetailComponent();
-		copyElement(src, tgt);
-		tgt.setSequenceLinkId(src.getSequenceLinkId());
-		for (org.hl7.fhir.dstu3.model.ClaimResponse.DetailAdjudicationComponent t : src.getAdjudication())
-			tgt.addAdjudication(convertDetailAdjudicationComponent(t));
-		for (org.hl7.fhir.dstu3.model.ClaimResponse.SubDetailComponent t : src.getSubDetail())
-			tgt.addSubDetail(convertSubDetailComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ClaimResponse.DetailAdjudicationComponent convertDetailAdjudicationComponent(org.hl7.fhir.dstu2.model.ClaimResponse.DetailAdjudicationComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ClaimResponse.DetailAdjudicationComponent tgt = new org.hl7.fhir.dstu3.model.ClaimResponse.DetailAdjudicationComponent();
-		copyElement(src, tgt);
-		tgt.setCategory(convertCoding(src.getCode()));
-		tgt.setAmount(convertMoney(src.getAmount()));
-		tgt.setValue(src.getValue());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ClaimResponse.DetailAdjudicationComponent convertDetailAdjudicationComponent(org.hl7.fhir.dstu3.model.ClaimResponse.DetailAdjudicationComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ClaimResponse.DetailAdjudicationComponent tgt = new org.hl7.fhir.dstu2.model.ClaimResponse.DetailAdjudicationComponent();
-		copyElement(src, tgt);
-		tgt.setCode(convertCoding(src.getCategory()));
-		tgt.setAmount(convertMoney(src.getAmount()));
-		tgt.setValue(src.getValue());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ClaimResponse.SubDetailComponent convertSubDetailComponent(org.hl7.fhir.dstu2.model.ClaimResponse.SubDetailComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ClaimResponse.SubDetailComponent tgt = new org.hl7.fhir.dstu3.model.ClaimResponse.SubDetailComponent();
-		copyElement(src, tgt);
-		tgt.setSequenceLinkId(src.getSequenceLinkId());
-		for (org.hl7.fhir.dstu2.model.ClaimResponse.SubdetailAdjudicationComponent t : src.getAdjudication())
-			tgt.addAdjudication(convertSubdetailAdjudicationComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ClaimResponse.SubDetailComponent convertSubDetailComponent(org.hl7.fhir.dstu3.model.ClaimResponse.SubDetailComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ClaimResponse.SubDetailComponent tgt = new org.hl7.fhir.dstu2.model.ClaimResponse.SubDetailComponent();
-		copyElement(src, tgt);
-		tgt.setSequenceLinkId(src.getSequenceLinkId());
-		for (org.hl7.fhir.dstu3.model.ClaimResponse.SubdetailAdjudicationComponent t : src.getAdjudication())
-			tgt.addAdjudication(convertSubdetailAdjudicationComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ClaimResponse.SubdetailAdjudicationComponent convertSubdetailAdjudicationComponent(org.hl7.fhir.dstu2.model.ClaimResponse.SubdetailAdjudicationComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ClaimResponse.SubdetailAdjudicationComponent tgt = new org.hl7.fhir.dstu3.model.ClaimResponse.SubdetailAdjudicationComponent();
-		copyElement(src, tgt);
-		tgt.setCategory(convertCoding(src.getCode()));
-		tgt.setAmount(convertMoney(src.getAmount()));
-		tgt.setValue(src.getValue());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ClaimResponse.SubdetailAdjudicationComponent convertSubdetailAdjudicationComponent(org.hl7.fhir.dstu3.model.ClaimResponse.SubdetailAdjudicationComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ClaimResponse.SubdetailAdjudicationComponent tgt = new org.hl7.fhir.dstu2.model.ClaimResponse.SubdetailAdjudicationComponent();
-		copyElement(src, tgt);
-		tgt.setCode(convertCoding(src.getCategory()));
-		tgt.setAmount(convertMoney(src.getAmount()));
-		tgt.setValue(src.getValue());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemComponent convertAddedItemComponent(org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemComponent tgt = new org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemComponent();
-		copyElement(src, tgt);
-		for (org.hl7.fhir.dstu2.model.PositiveIntType t : src.getSequenceLinkId())
-			tgt.addSequenceLinkId(t.getValue());
-		tgt.setService(convertCoding(src.getService()));
-		tgt.setFee(convertMoney(src.getFee()));
-		for (org.hl7.fhir.dstu2.model.PositiveIntType t : src.getNoteNumberLinkId())
-			tgt.addNoteNumberLinkId(t.getValue());
-		for (org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemAdjudicationComponent t : src.getAdjudication())
-			tgt.addAdjudication(convertAddedItemAdjudicationComponent(t));
-		for (org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemsDetailComponent t : src.getDetail())
-			tgt.addDetail(convertAddedItemsDetailComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemComponent convertAddedItemComponent(org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemComponent tgt = new org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemComponent();
-		copyElement(src, tgt);
-		for (org.hl7.fhir.dstu3.model.PositiveIntType t : src.getSequenceLinkId())
-			tgt.addSequenceLinkId(t.getValue());
-		tgt.setService(convertCoding(src.getService()));
-		tgt.setFee(convertMoney(src.getFee()));
-		for (org.hl7.fhir.dstu3.model.PositiveIntType t : src.getNoteNumberLinkId())
-			tgt.addNoteNumberLinkId(t.getValue());
-		for (org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemAdjudicationComponent t : src.getAdjudication())
-			tgt.addAdjudication(convertAddedItemAdjudicationComponent(t));
-		for (org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemsDetailComponent t : src.getDetail())
-			tgt.addDetail(convertAddedItemsDetailComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemAdjudicationComponent convertAddedItemAdjudicationComponent(org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemAdjudicationComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemAdjudicationComponent tgt = new org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemAdjudicationComponent();
-		copyElement(src, tgt);
-		tgt.setCategory(convertCoding(src.getCode()));
-		tgt.setAmount(convertMoney(src.getAmount()));
-		tgt.setValue(src.getValue());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemAdjudicationComponent convertAddedItemAdjudicationComponent(org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemAdjudicationComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemAdjudicationComponent tgt = new org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemAdjudicationComponent();
-		copyElement(src, tgt);
-		tgt.setCode(convertCoding(src.getCategory()));
-		tgt.setAmount(convertMoney(src.getAmount()));
-		tgt.setValue(src.getValue());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemsDetailComponent convertAddedItemsDetailComponent(org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemsDetailComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemsDetailComponent tgt = new org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemsDetailComponent();
-		copyElement(src, tgt);
-		tgt.setService(convertCoding(src.getService()));
-		tgt.setFee(convertMoney(src.getFee()));
-		for (org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemDetailAdjudicationComponent t : src.getAdjudication())
-			tgt.addAdjudication(convertAddedItemDetailAdjudicationComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemsDetailComponent convertAddedItemsDetailComponent(org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemsDetailComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemsDetailComponent tgt = new org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemsDetailComponent();
-		copyElement(src, tgt);
-		tgt.setService(convertCoding(src.getService()));
-		tgt.setFee(convertMoney(src.getFee()));
-		for (org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemDetailAdjudicationComponent t : src.getAdjudication())
-			tgt.addAdjudication(convertAddedItemDetailAdjudicationComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemDetailAdjudicationComponent convertAddedItemDetailAdjudicationComponent(org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemDetailAdjudicationComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemDetailAdjudicationComponent tgt = new org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemDetailAdjudicationComponent();
-		copyElement(src, tgt);
-		tgt.setCategory(convertCoding(src.getCode()));
-		tgt.setAmount(convertMoney(src.getAmount()));
-		tgt.setValue(src.getValue());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemDetailAdjudicationComponent convertAddedItemDetailAdjudicationComponent(org.hl7.fhir.dstu3.model.ClaimResponse.AddedItemDetailAdjudicationComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemDetailAdjudicationComponent tgt = new org.hl7.fhir.dstu2.model.ClaimResponse.AddedItemDetailAdjudicationComponent();
-		copyElement(src, tgt);
-		tgt.setCode(convertCoding(src.getCategory()));
-		tgt.setAmount(convertMoney(src.getAmount()));
-		tgt.setValue(src.getValue());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ClaimResponse.ErrorsComponent convertErrorsComponent(org.hl7.fhir.dstu2.model.ClaimResponse.ErrorsComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ClaimResponse.ErrorsComponent tgt = new org.hl7.fhir.dstu3.model.ClaimResponse.ErrorsComponent();
-		copyElement(src, tgt);
-		tgt.setSequenceLinkId(src.getSequenceLinkId());
-		tgt.setDetailSequenceLinkId(src.getDetailSequenceLinkId());
-		tgt.setSubdetailSequenceLinkId(src.getSubdetailSequenceLinkId());
-		tgt.setCode(convertCoding(src.getCode()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ClaimResponse.ErrorsComponent convertErrorsComponent(org.hl7.fhir.dstu3.model.ClaimResponse.ErrorsComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ClaimResponse.ErrorsComponent tgt = new org.hl7.fhir.dstu2.model.ClaimResponse.ErrorsComponent();
-		copyElement(src, tgt);
-		tgt.setSequenceLinkId(src.getSequenceLinkId());
-		tgt.setDetailSequenceLinkId(src.getDetailSequenceLinkId());
-		tgt.setSubdetailSequenceLinkId(src.getSubdetailSequenceLinkId());
-		tgt.setCode(convertCoding(src.getCode()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ClaimResponse.NotesComponent convertNotesComponent(org.hl7.fhir.dstu2.model.ClaimResponse.NotesComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ClaimResponse.NotesComponent tgt = new org.hl7.fhir.dstu3.model.ClaimResponse.NotesComponent();
-		copyElement(src, tgt);
-		tgt.setNumber(src.getNumber());
-		tgt.setType(convertCoding(src.getType()));
-		tgt.setText(src.getText());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ClaimResponse.NotesComponent convertNotesComponent(org.hl7.fhir.dstu3.model.ClaimResponse.NotesComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ClaimResponse.NotesComponent tgt = new org.hl7.fhir.dstu2.model.ClaimResponse.NotesComponent();
-		copyElement(src, tgt);
-		tgt.setNumber(src.getNumber());
-		tgt.setType(convertCoding(src.getType()));
-		tgt.setText(src.getText());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ClaimResponse.CoverageComponent convertCoverageComponent(org.hl7.fhir.dstu2.model.ClaimResponse.CoverageComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ClaimResponse.CoverageComponent tgt = new org.hl7.fhir.dstu3.model.ClaimResponse.CoverageComponent();
-		copyElement(src, tgt);
-		tgt.setSequence(src.getSequence());
-		tgt.setFocal(src.getFocal());
-		tgt.setCoverage(convertType(src.getCoverage()));
-		tgt.setBusinessArrangement(src.getBusinessArrangement());
-		for (org.hl7.fhir.dstu2.model.StringType t : src.getPreAuthRef())
-			tgt.addPreAuthRef(t.getValue());
-		tgt.setClaimResponse(convertReference(src.getClaimResponse()));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ClaimResponse.CoverageComponent convertCoverageComponent(org.hl7.fhir.dstu3.model.ClaimResponse.CoverageComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ClaimResponse.CoverageComponent tgt = new org.hl7.fhir.dstu2.model.ClaimResponse.CoverageComponent();
-		copyElement(src, tgt);
-		tgt.setSequence(src.getSequence());
-		tgt.setFocal(src.getFocal());
-		if (src.hasCoverageReference())
-			tgt.setCoverage((org.hl7.fhir.dstu2.model.Reference) convertType(src.getCoverage()));
-		tgt.setBusinessArrangement(src.getBusinessArrangement());
-		for (org.hl7.fhir.dstu3.model.StringType t : src.getPreAuthRef())
-			tgt.addPreAuthRef(t.getValue());
-		tgt.setClaimResponse(convertReference(src.getClaimResponse()));
-		return tgt;
 	}
 
 	public static org.hl7.fhir.dstu3.model.ClinicalImpression convertClinicalImpression(org.hl7.fhir.dstu2.model.ClinicalImpression src) throws FHIRException {
@@ -4814,7 +3989,7 @@ public class VersionConvertor {
 			tgt.addEvidence(convertConditionEvidenceComponent(t));
 		for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getBodySite())
 			tgt.addBodySite(convertCodeableConcept(t));
-		tgt.setNotes(src.getNotes());
+//		tgt.setNotes(src.getNotes());
 		return tgt;
 	}
 
@@ -4841,7 +4016,7 @@ public class VersionConvertor {
 			tgt.addEvidence(convertConditionEvidenceComponent(t));
 		for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getBodySite())
 			tgt.addBodySite(convertCodeableConcept(t));
-		tgt.setNotes(src.getNotes());
+//		tgt.setNotes(src.getNotes());
 		return tgt;
 	}
 
@@ -6771,8 +5946,8 @@ public class VersionConvertor {
 			tgt.addReason(convertCodeableConcept(t));
 		for (org.hl7.fhir.dstu2.model.Reference t : src.getSupportingInformation())
 			tgt.addSupportingInformation(convertReference(t));
-		for (org.hl7.fhir.dstu2.model.Reference t : src.getSpecimen())
-			tgt.addSpecimen(convertReference(t));
+//		for (org.hl7.fhir.dstu2.model.Reference t : src.getSpecimen())
+//			tgt.addSpecimen(convertReference(t));
 		for (org.hl7.fhir.dstu2.model.DiagnosticOrder.DiagnosticOrderEventComponent t : src.getEvent())
 			tgt.addEvent(convertDiagnosticOrderEventComponent(t));
 		for (org.hl7.fhir.dstu2.model.DiagnosticOrder.DiagnosticOrderItemComponent t : src.getItem())
@@ -6798,8 +5973,8 @@ public class VersionConvertor {
 			tgt.addReason(convertCodeableConcept(t));
 		for (org.hl7.fhir.dstu3.model.Reference t : src.getSupportingInformation())
 			tgt.addSupportingInformation(convertReference(t));
-		for (org.hl7.fhir.dstu3.model.Reference t : src.getSpecimen())
-			tgt.addSpecimen(convertReference(t));
+//		for (org.hl7.fhir.dstu3.model.Reference t : src.getSpecimen())
+//			tgt.addSpecimen(convertReference(t));
 		for (org.hl7.fhir.dstu3.model.DiagnosticOrder.DiagnosticOrderEventComponent t : src.getEvent())
 			tgt.addEvent(convertDiagnosticOrderEventComponent(t));
 		for (org.hl7.fhir.dstu3.model.DiagnosticOrder.DiagnosticOrderItemComponent t : src.getItem())
@@ -6905,8 +6080,8 @@ public class VersionConvertor {
 		org.hl7.fhir.dstu3.model.DiagnosticOrder.DiagnosticOrderItemComponent tgt = new org.hl7.fhir.dstu3.model.DiagnosticOrder.DiagnosticOrderItemComponent();
 		copyElement(src, tgt);
 		tgt.setCode(convertCodeableConcept(src.getCode()));
-		for (org.hl7.fhir.dstu2.model.Reference t : src.getSpecimen())
-			tgt.addSpecimen(convertReference(t));
+//		for (org.hl7.fhir.dstu2.model.Reference t : src.getSpecimen())
+//			tgt.addSpecimen(convertReference(t));
 		tgt.setBodySite(convertCodeableConcept(src.getBodySite()));
 		tgt.setStatus(convertDiagnosticOrderStatus(src.getStatus()));
 		for (org.hl7.fhir.dstu2.model.DiagnosticOrder.DiagnosticOrderEventComponent t : src.getEvent())
@@ -6920,8 +6095,8 @@ public class VersionConvertor {
 		org.hl7.fhir.dstu2.model.DiagnosticOrder.DiagnosticOrderItemComponent tgt = new org.hl7.fhir.dstu2.model.DiagnosticOrder.DiagnosticOrderItemComponent();
 		copyElement(src, tgt);
 		tgt.setCode(convertCodeableConcept(src.getCode()));
-		for (org.hl7.fhir.dstu3.model.Reference t : src.getSpecimen())
-			tgt.addSpecimen(convertReference(t));
+//		for (org.hl7.fhir.dstu3.model.Reference t : src.getSpecimen())
+//			tgt.addSpecimen(convertReference(t));
 		tgt.setBodySite(convertCodeableConcept(src.getBodySite()));
 		tgt.setStatus(convertDiagnosticOrderStatus(src.getStatus()));
 		for (org.hl7.fhir.dstu3.model.DiagnosticOrder.DiagnosticOrderEventComponent t : src.getEvent())
@@ -6943,7 +6118,7 @@ public class VersionConvertor {
 		tgt.setEncounter(convertReference(src.getEncounter()));
 		tgt.setEffective(convertType(src.getEffective()));
 		tgt.setIssued(src.getIssued());
-		tgt.setPerformer(convertReference(src.getPerformer()));
+//		tgt.setPerformer(convertReference(src.getPerformer()));
 		for (org.hl7.fhir.dstu2.model.Reference t : src.getRequest())
 			tgt.addRequest(convertReference(t));
 		for (org.hl7.fhir.dstu2.model.Reference t : src.getSpecimen())
@@ -6976,7 +6151,7 @@ public class VersionConvertor {
 		tgt.setEncounter(convertReference(src.getEncounter()));
 		tgt.setEffective(convertType(src.getEffective()));
 		tgt.setIssued(src.getIssued());
-		tgt.setPerformer(convertReference(src.getPerformer()));
+//		tgt.setPerformer(convertReference(src.getPerformer()));
 		for (org.hl7.fhir.dstu3.model.Reference t : src.getRequest())
 			tgt.addRequest(convertReference(t));
 		for (org.hl7.fhir.dstu3.model.Reference t : src.getSpecimen())
@@ -7378,7 +6553,7 @@ public class VersionConvertor {
 		for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
 			tgt.addIdentifier(convertIdentifier(t));
 		tgt.setRequest(convertType(src.getRequest()));
-		tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
+//		tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
 		tgt.setDisposition(src.getDisposition());
 		tgt.setRuleset(convertCoding(src.getRuleset()));
 		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
@@ -7398,7 +6573,7 @@ public class VersionConvertor {
 			tgt.addIdentifier(convertIdentifier(t));
 		if (src.hasRequestReference())
 			tgt.setRequest((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequest()));
-		tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
+//		tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
 		tgt.setDisposition(src.getDisposition());
 		tgt.setRuleset(convertCoding(src.getRuleset()));
 		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
@@ -7731,7 +6906,7 @@ public class VersionConvertor {
 		for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
 			tgt.addIdentifier(convertIdentifier(t));
 		tgt.setRequest(convertReference(src.getRequest()));
-		tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
+//		tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
 		tgt.setDisposition(src.getDisposition());
 		tgt.setRuleset(convertCoding(src.getRuleset()));
 		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
@@ -7750,7 +6925,7 @@ public class VersionConvertor {
 		for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
 			tgt.addIdentifier(convertIdentifier(t));
 		tgt.setRequest(convertReference(src.getRequest()));
-		tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
+//		tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
 		tgt.setDisposition(src.getDisposition());
 		tgt.setRuleset(convertCoding(src.getRuleset()));
 		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
@@ -8034,7 +7209,7 @@ public class VersionConvertor {
 		tgt.setStatus(convertGoalStatus(src.getStatus()));
 		tgt.setStatusDate(src.getStatusDate());
 		tgt.setStatusReason(convertCodeableConcept(src.getStatusReason()));
-		tgt.setAuthor(convertReference(src.getAuthor()));
+//		tgt.setAuthor(convertReference(src.getAuthor()));
 		tgt.setPriority(convertCodeableConcept(src.getPriority()));
 		for (org.hl7.fhir.dstu2.model.Reference t : src.getAddresses())
 			tgt.addAddresses(convertReference(t));
@@ -8061,7 +7236,7 @@ public class VersionConvertor {
 		tgt.setStatus(convertGoalStatus(src.getStatus()));
 		tgt.setStatusDate(src.getStatusDate());
 		tgt.setStatusReason(convertCodeableConcept(src.getStatusReason()));
-		tgt.setAuthor(convertReference(src.getAuthor()));
+//		tgt.setAuthor(convertReference(src.getAuthor()));
 		tgt.setPriority(convertCodeableConcept(src.getPriority()));
 		for (org.hl7.fhir.dstu3.model.Reference t : src.getAddresses())
 			tgt.addAddresses(convertReference(t));
@@ -8402,136 +7577,136 @@ public class VersionConvertor {
 		return tgt;
 	}
 
-	public static org.hl7.fhir.dstu3.model.ImagingObjectSelection convertImagingObjectSelection(org.hl7.fhir.dstu2.model.ImagingObjectSelection src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ImagingObjectSelection tgt = new org.hl7.fhir.dstu3.model.ImagingObjectSelection();
-		copyDomainResource(src, tgt);
-		tgt.setUid(src.getUid());
-		tgt.setPatient(convertReference(src.getPatient()));
-		tgt.setAuthoringTime(src.getAuthoringTime());
-		tgt.setAuthor(convertReference(src.getAuthor()));
-		tgt.setTitle(convertCodeableConcept(src.getTitle()));
-		tgt.setDescription(src.getDescription());
-		for (org.hl7.fhir.dstu2.model.ImagingObjectSelection.StudyComponent t : src.getStudy())
-			tgt.addStudy(convertStudyComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ImagingObjectSelection convertImagingObjectSelection(org.hl7.fhir.dstu3.model.ImagingObjectSelection src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ImagingObjectSelection tgt = new org.hl7.fhir.dstu2.model.ImagingObjectSelection();
-		copyDomainResource(src, tgt);
-		tgt.setUid(src.getUid());
-		tgt.setPatient(convertReference(src.getPatient()));
-		tgt.setAuthoringTime(src.getAuthoringTime());
-		tgt.setAuthor(convertReference(src.getAuthor()));
-		tgt.setTitle(convertCodeableConcept(src.getTitle()));
-		tgt.setDescription(src.getDescription());
-		for (org.hl7.fhir.dstu3.model.ImagingObjectSelection.StudyComponent t : src.getStudy())
-			tgt.addStudy(convertStudyComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ImagingObjectSelection.StudyComponent convertStudyComponent(org.hl7.fhir.dstu2.model.ImagingObjectSelection.StudyComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ImagingObjectSelection.StudyComponent tgt = new org.hl7.fhir.dstu3.model.ImagingObjectSelection.StudyComponent();
-		copyElement(src, tgt);
-		tgt.setUid(src.getUid());
-		tgt.setUrl(src.getUrl());
-		tgt.setImagingStudy(convertReference(src.getImagingStudy()));
-		for (org.hl7.fhir.dstu2.model.ImagingObjectSelection.SeriesComponent t : src.getSeries())
-			tgt.addSeries(convertSeriesComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ImagingObjectSelection.StudyComponent convertStudyComponent(org.hl7.fhir.dstu3.model.ImagingObjectSelection.StudyComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ImagingObjectSelection.StudyComponent tgt = new org.hl7.fhir.dstu2.model.ImagingObjectSelection.StudyComponent();
-		copyElement(src, tgt);
-		tgt.setUid(src.getUid());
-		tgt.setUrl(src.getUrl());
-		tgt.setImagingStudy(convertReference(src.getImagingStudy()));
-		for (org.hl7.fhir.dstu3.model.ImagingObjectSelection.SeriesComponent t : src.getSeries())
-			tgt.addSeries(convertSeriesComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ImagingObjectSelection.SeriesComponent convertSeriesComponent(org.hl7.fhir.dstu2.model.ImagingObjectSelection.SeriesComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ImagingObjectSelection.SeriesComponent tgt = new org.hl7.fhir.dstu3.model.ImagingObjectSelection.SeriesComponent();
-		copyElement(src, tgt);
-		tgt.setUid(src.getUid());
-		tgt.setUrl(src.getUrl());
-		for (org.hl7.fhir.dstu2.model.ImagingObjectSelection.InstanceComponent t : src.getInstance())
-			tgt.addInstance(convertInstanceComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ImagingObjectSelection.SeriesComponent convertSeriesComponent(org.hl7.fhir.dstu3.model.ImagingObjectSelection.SeriesComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ImagingObjectSelection.SeriesComponent tgt = new org.hl7.fhir.dstu2.model.ImagingObjectSelection.SeriesComponent();
-		copyElement(src, tgt);
-		tgt.setUid(src.getUid());
-		tgt.setUrl(src.getUrl());
-		for (org.hl7.fhir.dstu3.model.ImagingObjectSelection.InstanceComponent t : src.getInstance())
-			tgt.addInstance(convertInstanceComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ImagingObjectSelection.InstanceComponent convertInstanceComponent(org.hl7.fhir.dstu2.model.ImagingObjectSelection.InstanceComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ImagingObjectSelection.InstanceComponent tgt = new org.hl7.fhir.dstu3.model.ImagingObjectSelection.InstanceComponent();
-		copyElement(src, tgt);
-		tgt.setSopClass(src.getSopClass());
-		tgt.setUid(src.getUid());
-		tgt.setUrl(src.getUrl());
-		for (org.hl7.fhir.dstu2.model.ImagingObjectSelection.FramesComponent t : src.getFrames())
-			tgt.addFrame(convertFramesComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ImagingObjectSelection.InstanceComponent convertInstanceComponent(org.hl7.fhir.dstu3.model.ImagingObjectSelection.InstanceComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ImagingObjectSelection.InstanceComponent tgt = new org.hl7.fhir.dstu2.model.ImagingObjectSelection.InstanceComponent();
-		copyElement(src, tgt);
-		tgt.setSopClass(src.getSopClass());
-		tgt.setUid(src.getUid());
-		tgt.setUrl(src.getUrl());
-		for (org.hl7.fhir.dstu3.model.ImagingObjectSelection.FramesComponent t : src.getFrame())
-			tgt.addFrames(convertFramesComponent(t));
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu3.model.ImagingObjectSelection.FramesComponent convertFramesComponent(org.hl7.fhir.dstu2.model.ImagingObjectSelection.FramesComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ImagingObjectSelection.FramesComponent tgt = new org.hl7.fhir.dstu3.model.ImagingObjectSelection.FramesComponent();
-		copyElement(src, tgt);
-		for (org.hl7.fhir.dstu2.model.UnsignedIntType t : src.getFrameNumbers())
-			tgt.addNumber(t.getValue());
-		tgt.setUrl(src.getUrl());
-		return tgt;
-	}
-
-	public static org.hl7.fhir.dstu2.model.ImagingObjectSelection.FramesComponent convertFramesComponent(org.hl7.fhir.dstu3.model.ImagingObjectSelection.FramesComponent src) throws FHIRException {
-		if (src == null)
-			return null;
-		org.hl7.fhir.dstu2.model.ImagingObjectSelection.FramesComponent tgt = new org.hl7.fhir.dstu2.model.ImagingObjectSelection.FramesComponent();
-		copyElement(src, tgt);
-		for (org.hl7.fhir.dstu3.model.UnsignedIntType t : src.getNumber())
-			tgt.addFrameNumbers(t.getValue());
-		tgt.setUrl(src.getUrl());
-		return tgt;
-	}
-
+//	public static org.hl7.fhir.dstu3.model.ImagingObjectSelection convertImagingObjectSelection(org.hl7.fhir.dstu2.model.ImagingObjectSelection src) throws FHIRException {
+//		if (src == null)
+//			return null;
+//		org.hl7.fhir.dstu3.model.ImagingObjectSelection tgt = new org.hl7.fhir.dstu3.model.ImagingObjectSelection();
+//		copyDomainResource(src, tgt);
+//		tgt.setUid(src.getUid());
+//		tgt.setPatient(convertReference(src.getPatient()));
+//		tgt.setAuthoringTime(src.getAuthoringTime());
+//		tgt.setAuthor(convertReference(src.getAuthor()));
+//		tgt.setTitle(convertCodeableConcept(src.getTitle()));
+//		tgt.setDescription(src.getDescription());
+//		for (org.hl7.fhir.dstu2.model.ImagingObjectSelection.StudyComponent t : src.getStudy())
+//			tgt.addStudy(convertStudyComponent(t));
+//		return tgt;
+//	}
+//
+//	public static org.hl7.fhir.dstu2.model.ImagingObjectSelection convertImagingObjectSelection(org.hl7.fhir.dstu3.model.ImagingObjectSelection src) throws FHIRException {
+//		if (src == null)
+//			return null;
+//		org.hl7.fhir.dstu2.model.ImagingObjectSelection tgt = new org.hl7.fhir.dstu2.model.ImagingObjectSelection();
+//		copyDomainResource(src, tgt);
+//		tgt.setUid(src.getUid());
+//		tgt.setPatient(convertReference(src.getPatient()));
+//		tgt.setAuthoringTime(src.getAuthoringTime());
+//		tgt.setAuthor(convertReference(src.getAuthor()));
+//		tgt.setTitle(convertCodeableConcept(src.getTitle()));
+//		tgt.setDescription(src.getDescription());
+//		for (org.hl7.fhir.dstu3.model.ImagingObjectSelection.StudyComponent t : src.getStudy())
+//			tgt.addStudy(convertStudyComponent(t));
+//		return tgt;
+//	}
+//
+//	public static org.hl7.fhir.dstu3.model.ImagingObjectSelection.StudyComponent convertStudyComponent(org.hl7.fhir.dstu2.model.ImagingObjectSelection.StudyComponent src) throws FHIRException {
+//		if (src == null)
+//			return null;
+//		org.hl7.fhir.dstu3.model.ImagingObjectSelection.StudyComponent tgt = new org.hl7.fhir.dstu3.model.ImagingObjectSelection.StudyComponent();
+//		copyElement(src, tgt);
+//		tgt.setUid(src.getUid());
+//		tgt.setUrl(src.getUrl());
+//		tgt.setImagingStudy(convertReference(src.getImagingStudy()));
+//		for (org.hl7.fhir.dstu2.model.ImagingObjectSelection.SeriesComponent t : src.getSeries())
+//			tgt.addSeries(convertSeriesComponent(t));
+//		return tgt;
+//	}
+//
+//	public static org.hl7.fhir.dstu2.model.ImagingObjectSelection.StudyComponent convertStudyComponent(org.hl7.fhir.dstu3.model.ImagingObjectSelection.StudyComponent src) throws FHIRException {
+//		if (src == null)
+//			return null;
+//		org.hl7.fhir.dstu2.model.ImagingObjectSelection.StudyComponent tgt = new org.hl7.fhir.dstu2.model.ImagingObjectSelection.StudyComponent();
+//		copyElement(src, tgt);
+//		tgt.setUid(src.getUid());
+//		tgt.setUrl(src.getUrl());
+//		tgt.setImagingStudy(convertReference(src.getImagingStudy()));
+//		for (org.hl7.fhir.dstu3.model.ImagingObjectSelection.SeriesComponent t : src.getSeries())
+//			tgt.addSeries(convertSeriesComponent(t));
+//		return tgt;
+//	}
+//
+//	public static org.hl7.fhir.dstu3.model.ImagingObjectSelection.SeriesComponent convertSeriesComponent(org.hl7.fhir.dstu2.model.ImagingObjectSelection.SeriesComponent src) throws FHIRException {
+//		if (src == null)
+//			return null;
+//		org.hl7.fhir.dstu3.model.ImagingObjectSelection.SeriesComponent tgt = new org.hl7.fhir.dstu3.model.ImagingObjectSelection.SeriesComponent();
+//		copyElement(src, tgt);
+//		tgt.setUid(src.getUid());
+//		tgt.setUrl(src.getUrl());
+//		for (org.hl7.fhir.dstu2.model.ImagingObjectSelection.InstanceComponent t : src.getInstance())
+//			tgt.addInstance(convertInstanceComponent(t));
+//		return tgt;
+//	}
+//
+//	public static org.hl7.fhir.dstu2.model.ImagingObjectSelection.SeriesComponent convertSeriesComponent(org.hl7.fhir.dstu3.model.ImagingObjectSelection.SeriesComponent src) throws FHIRException {
+//		if (src == null)
+//			return null;
+//		org.hl7.fhir.dstu2.model.ImagingObjectSelection.SeriesComponent tgt = new org.hl7.fhir.dstu2.model.ImagingObjectSelection.SeriesComponent();
+//		copyElement(src, tgt);
+//		tgt.setUid(src.getUid());
+//		tgt.setUrl(src.getUrl());
+//		for (org.hl7.fhir.dstu3.model.ImagingObjectSelection.InstanceComponent t : src.getInstance())
+//			tgt.addInstance(convertInstanceComponent(t));
+//		return tgt;
+//	}
+//
+//	public static org.hl7.fhir.dstu3.model.ImagingObjectSelection.InstanceComponent convertInstanceComponent(org.hl7.fhir.dstu2.model.ImagingObjectSelection.InstanceComponent src) throws FHIRException {
+//		if (src == null)
+//			return null;
+//		org.hl7.fhir.dstu3.model.ImagingObjectSelection.InstanceComponent tgt = new org.hl7.fhir.dstu3.model.ImagingObjectSelection.InstanceComponent();
+//		copyElement(src, tgt);
+//		tgt.setSopClass(src.getSopClass());
+//		tgt.setUid(src.getUid());
+//		tgt.setUrl(src.getUrl());
+//		for (org.hl7.fhir.dstu2.model.ImagingObjectSelection.FramesComponent t : src.getFrames())
+//			tgt.addFrame(convertFramesComponent(t));
+//		return tgt;
+//	}
+//
+//	public static org.hl7.fhir.dstu2.model.ImagingObjectSelection.InstanceComponent convertInstanceComponent(org.hl7.fhir.dstu3.model.ImagingObjectSelection.InstanceComponent src) throws FHIRException {
+//		if (src == null)
+//			return null;
+//		org.hl7.fhir.dstu2.model.ImagingObjectSelection.InstanceComponent tgt = new org.hl7.fhir.dstu2.model.ImagingObjectSelection.InstanceComponent();
+//		copyElement(src, tgt);
+//		tgt.setSopClass(src.getSopClass());
+//		tgt.setUid(src.getUid());
+//		tgt.setUrl(src.getUrl());
+//		for (org.hl7.fhir.dstu3.model.ImagingObjectSelection.FramesComponent t : src.getFrame())
+//			tgt.addFrames(convertFramesComponent(t));
+//		return tgt;
+//	}
+//
+//	public static org.hl7.fhir.dstu3.model.ImagingObjectSelection.FramesComponent convertFramesComponent(org.hl7.fhir.dstu2.model.ImagingObjectSelection.FramesComponent src) throws FHIRException {
+//		if (src == null)
+//			return null;
+//		org.hl7.fhir.dstu3.model.ImagingObjectSelection.FramesComponent tgt = new org.hl7.fhir.dstu3.model.ImagingObjectSelection.FramesComponent();
+//		copyElement(src, tgt);
+//		for (org.hl7.fhir.dstu2.model.UnsignedIntType t : src.getFrameNumbers())
+//			tgt.addNumber(t.getValue());
+//		tgt.setUrl(src.getUrl());
+//		return tgt;
+//	}
+//
+//	public static org.hl7.fhir.dstu2.model.ImagingObjectSelection.FramesComponent convertFramesComponent(org.hl7.fhir.dstu3.model.ImagingObjectSelection.FramesComponent src) throws FHIRException {
+//		if (src == null)
+//			return null;
+//		org.hl7.fhir.dstu2.model.ImagingObjectSelection.FramesComponent tgt = new org.hl7.fhir.dstu2.model.ImagingObjectSelection.FramesComponent();
+//		copyElement(src, tgt);
+//		for (org.hl7.fhir.dstu3.model.UnsignedIntType t : src.getNumber())
+//			tgt.addFrameNumbers(t.getValue());
+//		tgt.setUrl(src.getUrl());
+//		return tgt;
+//	}
+//
 	public static org.hl7.fhir.dstu3.model.ImagingStudy convertImagingStudy(org.hl7.fhir.dstu2.model.ImagingStudy src) throws FHIRException {
 		if (src == null)
 			return null;
@@ -9524,7 +8699,7 @@ public class VersionConvertor {
 		tgt.setPatient(convertReference(src.getPatient()));
 		tgt.setEncounter(convertReference(src.getEncounter()));
 		tgt.setEffectiveTime(convertType(src.getEffectiveTime()));
-		tgt.setPractitioner(convertReference(src.getPractitioner()));
+//		tgt.setPractitioner(convertReference(src.getPractitioner()));
 		tgt.setPrescription(convertReference(src.getPrescription()));
 		tgt.setWasNotGiven(src.getWasNotGiven());
 		for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReasonNotGiven())
@@ -9551,7 +8726,7 @@ public class VersionConvertor {
 		tgt.setPatient(convertReference(src.getPatient()));
 		tgt.setEncounter(convertReference(src.getEncounter()));
 		tgt.setEffectiveTime(convertType(src.getEffectiveTime()));
-		tgt.setPractitioner(convertReference(src.getPractitioner()));
+//		tgt.setPractitioner(convertReference(src.getPractitioner()));
 		tgt.setPrescription(convertReference(src.getPrescription()));
 		tgt.setWasNotGiven(src.getWasNotGiven());
 		for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonNotGiven())
@@ -9601,7 +8776,7 @@ public class VersionConvertor {
 		tgt.setSite(convertType(src.getSite()));
 		tgt.setRoute(convertCodeableConcept(src.getRoute()));
 		tgt.setMethod(convertCodeableConcept(src.getMethod()));
-		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
+//		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
 		tgt.setRate(convertType(src.getRate()));
 		return tgt;
 	}
@@ -9615,7 +8790,7 @@ public class VersionConvertor {
 		tgt.setSite(convertType(src.getSite()));
 		tgt.setRoute(convertCodeableConcept(src.getRoute()));
 		tgt.setMethod(convertCodeableConcept(src.getMethod()));
-		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
+//		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
 		tgt.setRate(convertType(src.getRate()));
 		return tgt;
 	}
@@ -9708,7 +8883,7 @@ public class VersionConvertor {
 		org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseDosageInstructionComponent tgt = new org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseDosageInstructionComponent();
 		copyElement(src, tgt);
 		tgt.setText(src.getText());
-		tgt.setAdditionalInstructions(convertCodeableConcept(src.getAdditionalInstructions()));
+//		tgt.setAdditionalInstructions(convertCodeableConcept(src.getAdditionalInstructions()));
 		tgt.setTiming(convertTiming(src.getTiming()));
 		tgt.setAsNeeded(convertType(src.getAsNeeded()));
 		tgt.setSite(convertType(src.getSite()));
@@ -9726,7 +8901,7 @@ public class VersionConvertor {
 		org.hl7.fhir.dstu2.model.MedicationDispense.MedicationDispenseDosageInstructionComponent tgt = new org.hl7.fhir.dstu2.model.MedicationDispense.MedicationDispenseDosageInstructionComponent();
 		copyElement(src, tgt);
 		tgt.setText(src.getText());
-		tgt.setAdditionalInstructions(convertCodeableConcept(src.getAdditionalInstructions()));
+//		tgt.setAdditionalInstructions(convertCodeableConcept(src.getAdditionalInstructions()));
 		tgt.setTiming(convertTiming(src.getTiming()));
 		tgt.setAsNeeded(convertType(src.getAsNeeded()));
 		tgt.setSite(convertType(src.getSite()));
@@ -9781,8 +8956,8 @@ public class VersionConvertor {
 			tgt.addReasonCode(convertCodeableConcept(src.getReasonCodeableConcept()));
 		if (src.hasReasonReference())
 			tgt.addReasonReference(convertReference(src.getReasonReference()));
-		tgt.setDateEnded(src.getDateEnded());
-		tgt.setReasonEnded(convertCodeableConcept(src.getReasonEnded()));
+//		tgt.setDateEnded(src.getDateEnded());
+//		tgt.setReasonEnded(convertCodeableConcept(src.getReasonEnded()));
 		if (src.hasNote())
 			tgt.addNote().setText(src.getNote());
 		for (org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDosageInstructionComponent t : src.getDosageInstruction())
@@ -9810,8 +8985,8 @@ public class VersionConvertor {
 			tgt.setReason(convertCodeableConcept(t));
 		for (org.hl7.fhir.dstu3.model.Reference t : src.getReasonReference())
 			tgt.setReason(convertReference(t));
-		tgt.setDateEnded(src.getDateEnded());
-		tgt.setReasonEnded(convertCodeableConcept(src.getReasonEnded()));
+//		tgt.setDateEnded(src.getDateEnded());
+//		tgt.setReasonEnded(convertCodeableConcept(src.getReasonEnded()));
 		for (org.hl7.fhir.dstu3.model.Annotation t : src.getNote())
 			tgt.setNote(t.getText());
 		for (org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDosageInstructionComponent t : src.getDosageInstruction())
@@ -9856,7 +9031,7 @@ public class VersionConvertor {
 		org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDosageInstructionComponent tgt = new org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDosageInstructionComponent();
 		copyElement(src, tgt);
 		tgt.setText(src.getText());
-		tgt.setAdditionalInstructions(convertCodeableConcept(src.getAdditionalInstructions()));
+//		tgt.setAdditionalInstructions(convertCodeableConcept(src.getAdditionalInstructions()));
 		tgt.setTiming(convertTiming(src.getTiming()));
 		tgt.setAsNeeded(convertType(src.getAsNeeded()));
 		tgt.setSite(convertType(src.getSite()));
@@ -9874,7 +9049,7 @@ public class VersionConvertor {
 		org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDosageInstructionComponent tgt = new org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDosageInstructionComponent();
 		copyElement(src, tgt);
 		tgt.setText(src.getText());
-		tgt.setAdditionalInstructions(convertCodeableConcept(src.getAdditionalInstructions()));
+//		tgt.setAdditionalInstructions(convertCodeableConcept(src.getAdditionalInstructions()));
 		tgt.setTiming(convertTiming(src.getTiming()));
 		tgt.setAsNeeded(convertType(src.getAsNeeded()));
 		tgt.setSite(convertType(src.getSite()));
@@ -9891,7 +9066,7 @@ public class VersionConvertor {
 			return null;
 		org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDispenseRequestComponent tgt = new org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDispenseRequestComponent();
 		copyElement(src, tgt);
-		tgt.setMedication(convertType(src.getMedication()));
+//		tgt.setMedication(convertType(src.getMedication()));
 		tgt.setValidityPeriod(convertPeriod(src.getValidityPeriod()));
 		tgt.setNumberOfRepeatsAllowed(src.getNumberOfRepeatsAllowed());
 		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
@@ -9904,7 +9079,7 @@ public class VersionConvertor {
 			return null;
 		org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDispenseRequestComponent tgt = new org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDispenseRequestComponent();
 		copyElement(src, tgt);
-		tgt.setMedication(convertType(src.getMedication()));
+//		tgt.setMedication(convertType(src.getMedication()));
 		tgt.setValidityPeriod(convertPeriod(src.getValidityPeriod()));
 		tgt.setNumberOfRepeatsAllowed(src.getNumberOfRepeatsAllowed());
 		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
@@ -9917,7 +9092,7 @@ public class VersionConvertor {
 			return null;
 		org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderSubstitutionComponent tgt = new org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderSubstitutionComponent();
 		copyElement(src, tgt);
-		tgt.setType(convertCodeableConcept(src.getType()));
+//		tgt.setType(convertCodeableConcept(src.getType()));
 		tgt.setReason(convertCodeableConcept(src.getReason()));
 		return tgt;
 	}
@@ -9927,7 +9102,7 @@ public class VersionConvertor {
 			return null;
 		org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderSubstitutionComponent tgt = new org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderSubstitutionComponent();
 		copyElement(src, tgt);
-		tgt.setType(convertCodeableConcept(src.getType()));
+//		tgt.setType(convertCodeableConcept(src.getType()));
 		tgt.setReason(convertCodeableConcept(src.getReason()));
 		return tgt;
 	}
@@ -9950,7 +9125,7 @@ public class VersionConvertor {
 		tgt.setWasNotTaken(src.getWasNotTaken());
 		for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReasonNotTaken())
 			tgt.addReasonNotTaken(convertCodeableConcept(t));
-		tgt.setReasonForUse(convertType(src.getReasonForUse()));
+//		tgt.setReasonForUse(convertType(src.getReasonForUse()));
 		if (src.hasNote())
 			tgt.addNote().setText(src.getNote());
 		for (org.hl7.fhir.dstu2.model.MedicationStatement.MedicationStatementDosageComponent t : src.getDosage())
@@ -9976,7 +9151,7 @@ public class VersionConvertor {
 		tgt.setWasNotTaken(src.getWasNotTaken());
 		for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonNotTaken())
 			tgt.addReasonNotTaken(convertCodeableConcept(t));
-		tgt.setReasonForUse(convertType(src.getReasonForUse()));
+//		tgt.setReasonForUse(convertType(src.getReasonForUse()));
 		for (org.hl7.fhir.dstu3.model.Annotation t : src.getNote())
 			tgt.setNote(t.getText());
 		for (org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementDosageComponent t : src.getDosage())
@@ -10019,7 +9194,7 @@ public class VersionConvertor {
 		tgt.setSite(convertType(src.getSite()));
 		tgt.setRoute(convertCodeableConcept(src.getRoute()));
 		tgt.setMethod(convertCodeableConcept(src.getMethod()));
-		tgt.setQuantity(convertType(src.getQuantity()));
+//		tgt.setQuantity(convertType(src.getQuantity()));
 		tgt.setRate(convertType(src.getRate()));
 		tgt.setMaxDosePerPeriod(convertRatio(src.getMaxDosePerPeriod()));
 		return tgt;
@@ -10036,7 +9211,7 @@ public class VersionConvertor {
 		tgt.setSite(convertType(src.getSite()));
 		tgt.setRoute(convertCodeableConcept(src.getRoute()));
 		tgt.setMethod(convertCodeableConcept(src.getMethod()));
-		tgt.setQuantity(convertType(src.getQuantity()));
+//		tgt.setQuantity(convertType(src.getQuantity()));
 		tgt.setRate(convertType(src.getRate()));
 		tgt.setMaxDosePerPeriod(convertRatio(src.getMaxDosePerPeriod()));
 		return tgt;
@@ -10570,7 +9745,7 @@ public class VersionConvertor {
 		for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
 			tgt.addIdentifier(convertIdentifier(t));
 		tgt.setStatus(convertObservationStatus(src.getStatus()));
-		tgt.setCategory(convertCodeableConcept(src.getCategory()));
+		tgt.addCategory(convertCodeableConcept(src.getCategory()));
 		tgt.setCode(convertCodeableConcept(src.getCode()));
 		tgt.setSubject(convertReference(src.getSubject()));
 		tgt.setEncounter(convertReference(src.getEncounter()));
@@ -10603,7 +9778,8 @@ public class VersionConvertor {
 		for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
 			tgt.addIdentifier(convertIdentifier(t));
 		tgt.setStatus(convertObservationStatus(src.getStatus()));
-		tgt.setCategory(convertCodeableConcept(src.getCategory()));
+		for (org.hl7.fhir.dstu3.model.CodeableConcept c : src.getCategory())
+		  tgt.setCategory(convertCodeableConcept(c));
 		tgt.setCode(convertCodeableConcept(src.getCode()));
 		tgt.setSubject(convertReference(src.getSubject()));
 		tgt.setEncounter(convertReference(src.getEncounter()));
@@ -10665,7 +9841,7 @@ public class VersionConvertor {
 		copyElement(src, tgt);
 		tgt.setLow(convertSimpleQuantity(src.getLow()));
 		tgt.setHigh(convertSimpleQuantity(src.getHigh()));
-		tgt.setMeaning(convertCodeableConcept(src.getMeaning()));
+		tgt.addMeaning(convertCodeableConcept(src.getMeaning()));
 		tgt.setAge(convertRange(src.getAge()));
 		tgt.setText(src.getText());
 		return tgt;
@@ -10678,7 +9854,8 @@ public class VersionConvertor {
 		copyElement(src, tgt);
 		tgt.setLow(convertSimpleQuantity(src.getLow()));
 		tgt.setHigh(convertSimpleQuantity(src.getHigh()));
-		tgt.setMeaning(convertCodeableConcept(src.getMeaning()));
+		for (org.hl7.fhir.dstu3.model.CodeableConcept c : src.getMeaning())
+		  tgt.setMeaning(convertCodeableConcept(c));
 		tgt.setAge(convertRange(src.getAge()));
 		tgt.setText(src.getText());
 		return tgt;
@@ -13194,8 +12371,8 @@ public class VersionConvertor {
 		org.hl7.fhir.dstu3.model.Specimen.SpecimenCollectionComponent tgt = new org.hl7.fhir.dstu3.model.Specimen.SpecimenCollectionComponent();
 		copyElement(src, tgt);
 		tgt.setCollector(convertReference(src.getCollector()));
-		for (org.hl7.fhir.dstu2.model.StringType t : src.getComment())
-			tgt.setComment(t.getValue());
+//		for (org.hl7.fhir.dstu2.model.StringType t : src.getComment())
+//			tgt.setComment(t.getValue());
 		tgt.setCollected(convertType(src.getCollected()));
 		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
 		tgt.setMethod(convertCodeableConcept(src.getMethod()));
@@ -13209,7 +12386,7 @@ public class VersionConvertor {
 		org.hl7.fhir.dstu2.model.Specimen.SpecimenCollectionComponent tgt = new org.hl7.fhir.dstu2.model.Specimen.SpecimenCollectionComponent();
 		copyElement(src, tgt);
 		tgt.setCollector(convertReference(src.getCollector()));
-		tgt.addComment(src.getComment());
+//		tgt.addComment(src.getComment());
 		tgt.setCollected(convertType(src.getCollected()));
 		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
 		tgt.setMethod(convertCodeableConcept(src.getMethod()));
@@ -13354,7 +12531,7 @@ public class VersionConvertor {
 		if (src == null)
 			return null;
 		switch (src) {
-		case DATATYPE: return org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind.DATATYPE;
+    case DATATYPE: return org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind.COMPLEXTYPE;
 		case RESOURCE: return org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind.RESOURCE;
 		case LOGICAL: return org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind.LOGICAL;
 		default: return org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind.NULL;
@@ -13365,7 +12542,8 @@ public class VersionConvertor {
 		if (src == null)
 			return null;
 		switch (src) {
-		case DATATYPE: return org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionKind.DATATYPE;
+    case PRIMITIVETYPE: return org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionKind.DATATYPE;
+    case COMPLEXTYPE: return org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionKind.DATATYPE;
 		case RESOURCE: return org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionKind.RESOURCE;
 		case LOGICAL: return org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionKind.LOGICAL;
 		default: return org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionKind.NULL;
@@ -13664,7 +12842,7 @@ public class VersionConvertor {
 		org.hl7.fhir.dstu2.model.Substance.SubstanceIngredientComponent tgt = new org.hl7.fhir.dstu2.model.Substance.SubstanceIngredientComponent();
 		copyElement(src, tgt);
 		tgt.setQuantity(convertRatio(src.getQuantity()));
-		tgt.setSubstance(convertReference(src.getSubstance()));
+//		tgt.setSubstance(convertReference(src.getSubstance()));
 		return tgt;
 	}
 
@@ -13698,7 +12876,7 @@ public class VersionConvertor {
 		tgt.setPatient(convertReference(src.getPatient()));
 		tgt.setType(convertCodeableConcept(src.getType()));
 		tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
-		tgt.setSuppliedItem(convertReference(src.getSuppliedItem()));
+//		tgt.setSuppliedItem(convertReference(src.getSuppliedItem()));
 		tgt.setSupplier(convertReference(src.getSupplier()));
 		tgt.setWhenPrepared(convertPeriod(src.getWhenPrepared()));
 		tgt.setTime(src.getTime());
@@ -13760,7 +12938,7 @@ public class VersionConvertor {
 		tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
 		tgt.setStatus(convertSupplyRequestStatus(src.getStatus()));
 		tgt.setKind(convertCodeableConcept(src.getKind()));
-		tgt.setOrderedItem(convertReference(src.getOrderedItem()));
+//		tgt.setOrderedItem(convertReference(src.getOrderedItem()));
 		for (org.hl7.fhir.dstu3.model.Reference t : src.getSupplier())
 			tgt.addSupplier(convertReference(t));
 		tgt.setReason(convertType(src.getReason()));
@@ -14962,10 +14140,6 @@ public class VersionConvertor {
 			return convertBundle((org.hl7.fhir.dstu2.model.Bundle) src);
 		if (src instanceof org.hl7.fhir.dstu2.model.CarePlan)
 			return convertCarePlan((org.hl7.fhir.dstu2.model.CarePlan) src);
-		if (src instanceof org.hl7.fhir.dstu2.model.Claim)
-			return convertClaim((org.hl7.fhir.dstu2.model.Claim) src);
-		if (src instanceof org.hl7.fhir.dstu2.model.ClaimResponse)
-			return convertClaimResponse((org.hl7.fhir.dstu2.model.ClaimResponse) src);
 		if (src instanceof org.hl7.fhir.dstu2.model.ClinicalImpression)
 			return convertClinicalImpression((org.hl7.fhir.dstu2.model.ClinicalImpression) src);
 		if (src instanceof org.hl7.fhir.dstu2.model.Communication)
@@ -15030,8 +14204,6 @@ public class VersionConvertor {
 			return convertGroup((org.hl7.fhir.dstu2.model.Group) src);
 		if (src instanceof org.hl7.fhir.dstu2.model.HealthcareService)
 			return convertHealthcareService((org.hl7.fhir.dstu2.model.HealthcareService) src);
-		if (src instanceof org.hl7.fhir.dstu2.model.ImagingObjectSelection)
-			return convertImagingObjectSelection((org.hl7.fhir.dstu2.model.ImagingObjectSelection) src);
 		if (src instanceof org.hl7.fhir.dstu2.model.ImagingStudy)
 			return convertImagingStudy((org.hl7.fhir.dstu2.model.ImagingStudy) src);
 		if (src instanceof org.hl7.fhir.dstu2.model.Immunization)
@@ -15154,10 +14326,6 @@ public class VersionConvertor {
 			return convertBundle((org.hl7.fhir.dstu3.model.Bundle) src);
 		if (src instanceof org.hl7.fhir.dstu3.model.CarePlan)
 			return convertCarePlan((org.hl7.fhir.dstu3.model.CarePlan) src);
-		if (src instanceof org.hl7.fhir.dstu3.model.Claim)
-			return convertClaim((org.hl7.fhir.dstu3.model.Claim) src);
-		if (src instanceof org.hl7.fhir.dstu3.model.ClaimResponse)
-			return convertClaimResponse((org.hl7.fhir.dstu3.model.ClaimResponse) src);
 		if (src instanceof org.hl7.fhir.dstu3.model.ClinicalImpression)
 			return convertClinicalImpression((org.hl7.fhir.dstu3.model.ClinicalImpression) src);
 		if (src instanceof org.hl7.fhir.dstu3.model.Communication)
@@ -15220,8 +14388,6 @@ public class VersionConvertor {
 			return convertGroup((org.hl7.fhir.dstu3.model.Group) src);
 		if (src instanceof org.hl7.fhir.dstu3.model.HealthcareService)
 			return convertHealthcareService((org.hl7.fhir.dstu3.model.HealthcareService) src);
-		if (src instanceof org.hl7.fhir.dstu3.model.ImagingObjectSelection)
-			return convertImagingObjectSelection((org.hl7.fhir.dstu3.model.ImagingObjectSelection) src);
 		if (src instanceof org.hl7.fhir.dstu3.model.ImagingStudy)
 			return convertImagingStudy((org.hl7.fhir.dstu3.model.ImagingStudy) src);
 		if (src instanceof org.hl7.fhir.dstu3.model.Immunization)

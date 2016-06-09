@@ -353,7 +353,8 @@ public class JsonParser extends ParserBase {
   }
 
 	private void compose(String path, Element e, Set<String> done, Element child) throws IOException {
-		if (child.getSpecial() == SpecialElement.BUNDLE_ENTRY || !child.getProperty().isList()) {// for specials, ignore the cardinality of the stated type
+	  boolean isList = child.hasElementProperty() ? child.getElementProperty().isList() : child.getProperty().isList();
+		if (!isList) {// for specials, ignore the cardinality of the stated type
 			compose(path, child);
 		} else if (!done.contains(child.getName())) {
 			done.add(child.getName());
