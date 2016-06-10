@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -703,27 +703,6 @@ public class Provenance extends DomainResource {
             if (this.role == null)
               this.role = new Enumeration<ProvenanceEntityRole>(new ProvenanceEntityRoleEnumFactory());
             this.role.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for How the entity was used during the activity.
-         */
-        public String getRoleAsCode() { 
-          return this.role == null ? null : this.role.getValue();
-        }
-
-        /**
-         * @param value String value for How the entity was used during the activity.
-         */
-        public ProvenanceEntityComponent setRoleAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.role = null;
-          else {
-            if (this.role == null)
-              this.role = new Enumeration<ProvenanceEntityRole>(new ProvenanceEntityRoleEnumFactory());
-            this.role.setValue(ProvenanceEntityRole.fromCode(value));
-          }
           return this;
         }
 

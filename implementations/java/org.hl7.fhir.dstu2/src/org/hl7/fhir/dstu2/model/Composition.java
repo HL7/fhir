@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -993,27 +993,6 @@ public class Composition extends DomainResource {
         }
 
         /**
-         * @return a string code value for How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
-         */
-        public String getModeAsCode() { 
-          return this.mode == null ? null : this.mode.getValue();
-        }
-
-        /**
-         * @param value String value for How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
-         */
-        public SectionComponent setModeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.mode = null;
-          else {
-            if (this.mode == null)
-              this.mode = new CodeType();
-            this.mode.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #orderedBy} (Specifies the order applied to the items in the section entries.)
          */
         public CodeableConcept getOrderedBy() { 
@@ -1623,27 +1602,6 @@ public class Composition extends DomainResource {
     }
 
     /**
-     * @return a string code value for The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
-     */
-    public Composition setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<CompositionStatus>(new CompositionStatusEnumFactory());
-        this.status.setValue(CompositionStatus.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #confidentiality} (The code specifying the level of confidentiality of the Composition.). This is the underlying object with id, value and extensions. The accessor "getConfidentiality" gives direct access to the value
      */
     public CodeType getConfidentialityElement() { 
@@ -1683,27 +1641,6 @@ public class Composition extends DomainResource {
      */
     public Composition setConfidentiality(String value) { 
       if (Utilities.noString(value))
-        this.confidentiality = null;
-      else {
-        if (this.confidentiality == null)
-          this.confidentiality = new CodeType();
-        this.confidentiality.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for The code specifying the level of confidentiality of the Composition.
-     */
-    public String getConfidentialityAsCode() { 
-      return this.confidentiality == null ? null : this.confidentiality.getValue();
-    }
-
-    /**
-     * @param value String value for The code specifying the level of confidentiality of the Composition.
-     */
-    public Composition setConfidentialityAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
         this.confidentiality = null;
       else {
         if (this.confidentiality == null)

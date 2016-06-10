@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -122,27 +122,6 @@ public class Binary extends BaseBinary implements IBaseBinary {
         if (this.contentType == null)
           this.contentType = new CodeType();
         this.contentType.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for MimeType of the binary content represented as a standard MimeType (BCP 13).
-     */
-    public String getContentTypeAsCode() { 
-      return this.contentType == null ? null : this.contentType.getValue();
-    }
-
-    /**
-     * @param value String value for MimeType of the binary content represented as a standard MimeType (BCP 13).
-     */
-    public Binary setContentTypeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.contentType = null;
-      else {
-        if (this.contentType == null)
-          this.contentType = new CodeType();
-        this.contentType.setValue(value);
-      }
       return this;
     }
 

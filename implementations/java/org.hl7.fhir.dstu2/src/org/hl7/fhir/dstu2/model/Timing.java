@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -826,27 +826,6 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @return a string code value for The units of time for the duration, in UCUM units.
-         */
-        public String getDurationUnitsAsCode() { 
-          return this.durationUnits == null ? null : this.durationUnits.getValue();
-        }
-
-        /**
-         * @param value String value for The units of time for the duration, in UCUM units.
-         */
-        public TimingRepeatComponent setDurationUnitsAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.durationUnits = null;
-          else {
-            if (this.durationUnits == null)
-              this.durationUnits = new Enumeration<UnitsOfTime>(new UnitsOfTimeEnumFactory());
-            this.durationUnits.setValue(UnitsOfTime.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #frequency} (The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided).). This is the underlying object with id, value and extensions. The accessor "getFrequency" gives direct access to the value
          */
         public IntegerType getFrequencyElement() { 
@@ -1084,27 +1063,6 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @return a string code value for The units of time for the period in UCUM units.
-         */
-        public String getPeriodUnitsAsCode() { 
-          return this.periodUnits == null ? null : this.periodUnits.getValue();
-        }
-
-        /**
-         * @param value String value for The units of time for the period in UCUM units.
-         */
-        public TimingRepeatComponent setPeriodUnitsAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.periodUnits = null;
-          else {
-            if (this.periodUnits == null)
-              this.periodUnits = new Enumeration<UnitsOfTime>(new UnitsOfTimeEnumFactory());
-            this.periodUnits.setValue(UnitsOfTime.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #when} (A real world event that the occurrence of the event should be tied to.). This is the underlying object with id, value and extensions. The accessor "getWhen" gives direct access to the value
          */
         public Enumeration<EventTiming> getWhenElement() { 
@@ -1149,27 +1107,6 @@ public class Timing extends Type implements ICompositeType {
             if (this.when == null)
               this.when = new Enumeration<EventTiming>(new EventTimingEnumFactory());
             this.when.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for A real world event that the occurrence of the event should be tied to.
-         */
-        public String getWhenAsCode() { 
-          return this.when == null ? null : this.when.getValue();
-        }
-
-        /**
-         * @param value String value for A real world event that the occurrence of the event should be tied to.
-         */
-        public TimingRepeatComponent setWhenAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.when = null;
-          else {
-            if (this.when == null)
-              this.when = new Enumeration<EventTiming>(new EventTimingEnumFactory());
-            this.when.setValue(EventTiming.fromCode(value));
           }
           return this;
         }

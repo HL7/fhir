@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -804,27 +804,6 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return a string code value for A code - a text symbol - that uniquely identifies the concept within the code system.
-         */
-        public String getCodeAsCode() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        /**
-         * @param value String value for A code - a text symbol - that uniquely identifies the concept within the code system.
-         */
-        public ConceptDefinitionComponent setCodeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.code = null;
-          else {
-            if (this.code == null)
-              this.code = new CodeType();
-            this.code.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #abstract_} (If this code is not for use as a real concept.). This is the underlying object with id, value and extensions. The accessor "getAbstract" gives direct access to the value
          */
         public BooleanType getAbstractElement() { 
@@ -1236,27 +1215,6 @@ public class ValueSet extends DomainResource {
          */
         public ConceptDefinitionDesignationComponent setLanguage(String value) { 
           if (Utilities.noString(value))
-            this.language = null;
-          else {
-            if (this.language == null)
-              this.language = new CodeType();
-            this.language.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for The language this designation is defined for.
-         */
-        public String getLanguageAsCode() { 
-          return this.language == null ? null : this.language.getValue();
-        }
-
-        /**
-         * @param value String value for The language this designation is defined for.
-         */
-        public ConceptDefinitionDesignationComponent setLanguageAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
             this.language = null;
           else {
             if (this.language == null)
@@ -2064,27 +2022,6 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return a string code value for Specifies a code for the concept to be included or excluded.
-         */
-        public String getCodeAsCode() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        /**
-         * @param value String value for Specifies a code for the concept to be included or excluded.
-         */
-        public ConceptReferenceComponent setCodeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.code = null;
-          else {
-            if (this.code == null)
-              this.code = new CodeType();
-            this.code.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #display} (The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
          */
         public StringType getDisplayElement() { 
@@ -2341,27 +2278,6 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return a string code value for A code that identifies a property defined in the code system.
-         */
-        public String getPropertyAsCode() { 
-          return this.property == null ? null : this.property.getValue();
-        }
-
-        /**
-         * @param value String value for A code that identifies a property defined in the code system.
-         */
-        public ConceptSetFilterComponent setPropertyAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.property = null;
-          else {
-            if (this.property == null)
-              this.property = new CodeType();
-            this.property.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #op} (The kind of operation to perform as a part of the filter criteria.). This is the underlying object with id, value and extensions. The accessor "getOp" gives direct access to the value
          */
         public Enumeration<FilterOperator> getOpElement() { 
@@ -2407,27 +2323,6 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return a string code value for The kind of operation to perform as a part of the filter criteria.
-         */
-        public String getOpAsCode() { 
-          return this.op == null ? null : this.op.getValue();
-        }
-
-        /**
-         * @param value String value for The kind of operation to perform as a part of the filter criteria.
-         */
-        public ConceptSetFilterComponent setOpAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.op = null;
-          else {
-            if (this.op == null)
-              this.op = new Enumeration<FilterOperator>(new FilterOperatorEnumFactory());
-            this.op.setValue(FilterOperator.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #value} (The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public CodeType getValueElement() { 
@@ -2469,27 +2364,6 @@ public class ValueSet extends DomainResource {
             if (this.value == null)
               this.value = new CodeType();
             this.value.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.
-         */
-        public String getValueAsCode() { 
-          return this.value == null ? null : this.value.getValue();
-        }
-
-        /**
-         * @param value String value for The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.
-         */
-        public ConceptSetFilterComponent setValueAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.value = null;
-          else {
-            if (this.value == null)
-              this.value = new CodeType();
-            this.value.setValue(value);
-          }
           return this;
         }
 
@@ -3510,27 +3384,6 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return a string code value for The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and does not represent a valid code in the value set.
-         */
-        public String getCodeAsCode() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        /**
-         * @param value String value for The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and does not represent a valid code in the value set.
-         */
-        public ValueSetExpansionContainsComponent setCodeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.code = null;
-          else {
-            if (this.code == null)
-              this.code = new CodeType();
-            this.code.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #display} (The recommended display for this item in the expansion.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
          */
         public StringType getDisplayElement() { 
@@ -4086,27 +3939,6 @@ public class ValueSet extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for The status of the value set.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The status of the value set.
-     */
-    public ValueSet setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
-        this.status.setValue(ConformanceResourceStatus.fromCode(value));
-      }
       return this;
     }
 

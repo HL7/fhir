@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -2209,27 +2209,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @return a string code value for Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.
-         */
-        public String getModeAsCode() { 
-          return this.mode == null ? null : this.mode.getValue();
-        }
-
-        /**
-         * @param value String value for Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.
-         */
-        public ConformanceRestComponent setModeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.mode = null;
-          else {
-            if (this.mode == null)
-              this.mode = new Enumeration<RestfulConformanceMode>(new RestfulConformanceModeEnumFactory());
-            this.mode.setValue(RestfulConformanceMode.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #documentation} (Information about the system's restful capabilities that apply across all applications, such as security.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
         public StringType getDocumentationElement() { 
@@ -2427,27 +2406,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
             if (this.transactionMode == null)
               this.transactionMode = new Enumeration<TransactionMode>(new TransactionModeEnumFactory());
             this.transactionMode.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for A code that indicates how transactions are supported.
-         */
-        public String getTransactionModeAsCode() { 
-          return this.transactionMode == null ? null : this.transactionMode.getValue();
-        }
-
-        /**
-         * @param value String value for A code that indicates how transactions are supported.
-         */
-        public ConformanceRestComponent setTransactionModeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.transactionMode = null;
-          else {
-            if (this.transactionMode == null)
-              this.transactionMode = new Enumeration<TransactionMode>(new TransactionModeEnumFactory());
-            this.transactionMode.setValue(TransactionMode.fromCode(value));
           }
           return this;
         }
@@ -3111,27 +3069,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @return a string code value for Mime type for certificate.
-         */
-        public String getTypeAsCode() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value String value for Mime type for certificate.
-         */
-        public ConformanceRestSecurityCertificateComponent setTypeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.type = null;
-          else {
-            if (this.type == null)
-              this.type = new CodeType();
-            this.type.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #blob} (Actual certificate.). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
          */
         public Base64BinaryType getBlobElement() { 
@@ -3402,27 +3339,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @return a string code value for A type of resource exposed via the restful interface.
-         */
-        public String getTypeAsCode() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value String value for A type of resource exposed via the restful interface.
-         */
-        public ConformanceRestResourceComponent setTypeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.type = null;
-          else {
-            if (this.type == null)
-              this.type = new CodeType();
-            this.type.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #profile} (A specification of the profile that describes the solution's overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles]{profiling.html#profile-uses}.)
          */
         public Reference getProfile() { 
@@ -3551,27 +3467,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
             if (this.versioning == null)
               this.versioning = new Enumeration<ResourceVersionPolicy>(new ResourceVersionPolicyEnumFactory());
             this.versioning.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is 'versioned-update', then the server supports all the versioning features, including using e-tags for version integrity in the API.
-         */
-        public String getVersioningAsCode() { 
-          return this.versioning == null ? null : this.versioning.getValue();
-        }
-
-        /**
-         * @param value String value for This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is 'versioned-update', then the server supports all the versioning features, including using e-tags for version integrity in the API.
-         */
-        public ConformanceRestResourceComponent setVersioningAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.versioning = null;
-          else {
-            if (this.versioning == null)
-              this.versioning = new Enumeration<ResourceVersionPolicy>(new ResourceVersionPolicyEnumFactory());
-            this.versioning.setValue(ResourceVersionPolicy.fromCode(value));
           }
           return this;
         }
@@ -3801,27 +3696,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
             if (this.conditionalDelete == null)
               this.conditionalDelete = new Enumeration<ConditionalDeleteStatus>(new ConditionalDeleteStatusEnumFactory());
             this.conditionalDelete.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for A code that indicates how the server supports conditional delete.
-         */
-        public String getConditionalDeleteAsCode() { 
-          return this.conditionalDelete == null ? null : this.conditionalDelete.getValue();
-        }
-
-        /**
-         * @param value String value for A code that indicates how the server supports conditional delete.
-         */
-        public ConformanceRestResourceComponent setConditionalDeleteAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.conditionalDelete = null;
-          else {
-            if (this.conditionalDelete == null)
-              this.conditionalDelete = new Enumeration<ConditionalDeleteStatus>(new ConditionalDeleteStatusEnumFactory());
-            this.conditionalDelete.setValue(ConditionalDeleteStatus.fromCode(value));
           }
           return this;
         }
@@ -4222,27 +4096,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @return a string code value for Coded identifier of the operation, supported by the system resource.
-         */
-        public String getCodeAsCode() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        /**
-         * @param value String value for Coded identifier of the operation, supported by the system resource.
-         */
-        public ResourceInteractionComponent setCodeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.code = null;
-          else {
-            if (this.code == null)
-              this.code = new Enumeration<TypeRestfulInteraction>(new TypeRestfulInteractionEnumFactory());
-            this.code.setValue(TypeRestfulInteraction.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #documentation} (Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
         public StringType getDocumentationElement() { 
@@ -4564,27 +4417,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
             if (this.type == null)
               this.type = new Enumeration<SearchParamType>(new SearchParamTypeEnumFactory());
             this.type.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for The type of value a search parameter refers to, and how the content is interpreted.
-         */
-        public String getTypeAsCode() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value String value for The type of value a search parameter refers to, and how the content is interpreted.
-         */
-        public ConformanceRestResourceSearchParamComponent setTypeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.type = null;
-          else {
-            if (this.type == null)
-              this.type = new Enumeration<SearchParamType>(new SearchParamTypeEnumFactory());
-            this.type.setValue(SearchParamType.fromCode(value));
-          }
           return this;
         }
 
@@ -4995,27 +4827,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
             if (this.code == null)
               this.code = new Enumeration<SystemRestfulInteraction>(new SystemRestfulInteractionEnumFactory());
             this.code.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for A coded identifier of the operation, supported by the system.
-         */
-        public String getCodeAsCode() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        /**
-         * @param value String value for A coded identifier of the operation, supported by the system.
-         */
-        public SystemInteractionComponent setCodeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.code = null;
-          else {
-            if (this.code == null)
-              this.code = new Enumeration<SystemRestfulInteraction>(new SystemRestfulInteractionEnumFactory());
-            this.code.setValue(SystemRestfulInteraction.fromCode(value));
-          }
           return this;
         }
 
@@ -5967,27 +5778,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @return a string code value for The impact of the content of the message.
-         */
-        public String getCategoryAsCode() { 
-          return this.category == null ? null : this.category.getValue();
-        }
-
-        /**
-         * @param value String value for The impact of the content of the message.
-         */
-        public ConformanceMessagingEventComponent setCategoryAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.category = null;
-          else {
-            if (this.category == null)
-              this.category = new Enumeration<MessageSignificanceCategory>(new MessageSignificanceCategoryEnumFactory());
-            this.category.setValue(MessageSignificanceCategory.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #mode} (The mode of this event declaration - whether application is sender or receiver.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
         public Enumeration<ConformanceEventMode> getModeElement() { 
@@ -6033,27 +5823,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @return a string code value for The mode of this event declaration - whether application is sender or receiver.
-         */
-        public String getModeAsCode() { 
-          return this.mode == null ? null : this.mode.getValue();
-        }
-
-        /**
-         * @param value String value for The mode of this event declaration - whether application is sender or receiver.
-         */
-        public ConformanceMessagingEventComponent setModeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.mode = null;
-          else {
-            if (this.mode == null)
-              this.mode = new Enumeration<ConformanceEventMode>(new ConformanceEventModeEnumFactory());
-            this.mode.setValue(ConformanceEventMode.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #focus} (A resource associated with the event.  This is the resource that defines the event.). This is the underlying object with id, value and extensions. The accessor "getFocus" gives direct access to the value
          */
         public CodeType getFocusElement() { 
@@ -6095,27 +5864,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
             if (this.focus == null)
               this.focus = new CodeType();
             this.focus.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for A resource associated with the event.  This is the resource that defines the event.
-         */
-        public String getFocusAsCode() { 
-          return this.focus == null ? null : this.focus.getValue();
-        }
-
-        /**
-         * @param value String value for A resource associated with the event.  This is the resource that defines the event.
-         */
-        public ConformanceMessagingEventComponent setFocusAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.focus = null;
-          else {
-            if (this.focus == null)
-              this.focus = new CodeType();
-            this.focus.setValue(value);
-          }
           return this;
         }
 
@@ -6455,27 +6203,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
             if (this.mode == null)
               this.mode = new Enumeration<DocumentMode>(new DocumentModeEnumFactory());
             this.mode.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for Mode of this document declaration - whether application is producer or consumer.
-         */
-        public String getModeAsCode() { 
-          return this.mode == null ? null : this.mode.getValue();
-        }
-
-        /**
-         * @param value String value for Mode of this document declaration - whether application is producer or consumer.
-         */
-        public ConformanceDocumentComponent setModeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.mode = null;
-          else {
-            if (this.mode == null)
-              this.mode = new Enumeration<DocumentMode>(new DocumentModeEnumFactory());
-            this.mode.setValue(DocumentMode.fromCode(value));
-          }
           return this;
         }
 
@@ -7018,27 +6745,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
     }
 
     /**
-     * @return a string code value for The status of this conformance statement.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The status of this conformance statement.
-     */
-    public Conformance setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
-        this.status.setValue(ConformanceResourceStatus.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #experimental} (A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public BooleanType getExperimentalElement() { 
@@ -7410,27 +7116,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
     }
 
     /**
-     * @return a string code value for The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).
-     */
-    public String getKindAsCode() { 
-      return this.kind == null ? null : this.kind.getValue();
-    }
-
-    /**
-     * @param value String value for The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).
-     */
-    public Conformance setKindAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.kind = null;
-      else {
-        if (this.kind == null)
-          this.kind = new Enumeration<ConformanceStatementKind>(new ConformanceStatementKindEnumFactory());
-        this.kind.setValue(ConformanceStatementKind.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #software} (Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.)
      */
     public ConformanceSoftwareComponent getSoftware() { 
@@ -7565,27 +7250,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
         if (this.acceptUnknown == null)
           this.acceptUnknown = new Enumeration<UnknownContentCode>(new UnknownContentCodeEnumFactory());
         this.acceptUnknown.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for A code that indicates whether the application accepts unknown elements or extensions when reading resources.
-     */
-    public String getAcceptUnknownAsCode() { 
-      return this.acceptUnknown == null ? null : this.acceptUnknown.getValue();
-    }
-
-    /**
-     * @param value String value for A code that indicates whether the application accepts unknown elements or extensions when reading resources.
-     */
-    public Conformance setAcceptUnknownAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.acceptUnknown = null;
-      else {
-        if (this.acceptUnknown == null)
-          this.acceptUnknown = new Enumeration<UnknownContentCode>(new UnknownContentCodeEnumFactory());
-        this.acceptUnknown.setValue(UnknownContentCode.fromCode(value));
-      }
       return this;
     }
 

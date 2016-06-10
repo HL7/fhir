@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -740,27 +740,6 @@ public class FamilyMemberHistory extends DomainResource {
     }
 
     /**
-     * @return a string code value for A code specifying a state of a Family Member History record.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for A code specifying a state of a Family Member History record.
-     */
-    public FamilyMemberHistory setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<FamilyHistoryStatus>(new FamilyHistoryStatusEnumFactory());
-        this.status.setValue(FamilyHistoryStatus.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #name} (This will either be a name or a description; e.g. "Aunt Susan", "my cousin with the red hair".). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
@@ -878,27 +857,6 @@ public class FamilyMemberHistory extends DomainResource {
         if (this.gender == null)
           this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
         this.gender.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.
-     */
-    public String getGenderAsCode() { 
-      return this.gender == null ? null : this.gender.getValue();
-    }
-
-    /**
-     * @param value String value for Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.
-     */
-    public FamilyMemberHistory setGenderAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.gender = null;
-      else {
-        if (this.gender == null)
-          this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
-        this.gender.setValue(AdministrativeGender.fromCode(value));
       }
       return this;
     }

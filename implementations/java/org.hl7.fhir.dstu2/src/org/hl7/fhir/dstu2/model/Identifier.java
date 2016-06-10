@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -264,27 +264,6 @@ public class Identifier extends Type implements ICompositeType {
         if (this.use == null)
           this.use = new Enumeration<IdentifierUse>(new IdentifierUseEnumFactory());
         this.use.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for The purpose of this identifier.
-     */
-    public String getUseAsCode() { 
-      return this.use == null ? null : this.use.getValue();
-    }
-
-    /**
-     * @param value String value for The purpose of this identifier.
-     */
-    public Identifier setUseAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.use = null;
-      else {
-        if (this.use == null)
-          this.use = new Enumeration<IdentifierUse>(new IdentifierUseEnumFactory());
-        this.use.setValue(IdentifierUse.fromCode(value));
       }
       return this;
     }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -301,27 +301,6 @@ public class Media extends DomainResource {
         if (this.type == null)
           this.type = new Enumeration<DigitalMediaType>(new DigitalMediaTypeEnumFactory());
         this.type.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for Whether the media is a photo (still image), an audio recording, or a video recording.
-     */
-    public String getTypeAsCode() { 
-      return this.type == null ? null : this.type.getValue();
-    }
-
-    /**
-     * @param value String value for Whether the media is a photo (still image), an audio recording, or a video recording.
-     */
-    public Media setTypeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.type = null;
-      else {
-        if (this.type == null)
-          this.type = new Enumeration<DigitalMediaType>(new DigitalMediaTypeEnumFactory());
-        this.type.setValue(DigitalMediaType.fromCode(value));
-      }
       return this;
     }
 

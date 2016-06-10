@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -162,27 +162,6 @@ public class Attachment extends Type implements ICompositeType {
     }
 
     /**
-     * @return a string code value for Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
-     */
-    public String getContentTypeAsCode() { 
-      return this.contentType == null ? null : this.contentType.getValue();
-    }
-
-    /**
-     * @param value String value for Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
-     */
-    public Attachment setContentTypeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.contentType = null;
-      else {
-        if (this.contentType == null)
-          this.contentType = new CodeType();
-        this.contentType.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #language} (The human language of the content. The value can be any valid value according to BCP 47.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
      */
     public CodeType getLanguageElement() { 
@@ -222,27 +201,6 @@ public class Attachment extends Type implements ICompositeType {
      */
     public Attachment setLanguage(String value) { 
       if (Utilities.noString(value))
-        this.language = null;
-      else {
-        if (this.language == null)
-          this.language = new CodeType();
-        this.language.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for The human language of the content. The value can be any valid value according to BCP 47.
-     */
-    public String getLanguageAsCode() { 
-      return this.language == null ? null : this.language.getValue();
-    }
-
-    /**
-     * @param value String value for The human language of the content. The value can be any valid value according to BCP 47.
-     */
-    public Attachment setLanguageAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
         this.language = null;
       else {
         if (this.language == null)

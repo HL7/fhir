@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -276,27 +276,6 @@ public class ExplanationOfBenefit extends DomainResource {
         if (this.outcome == null)
           this.outcome = new Enumeration<RemittanceOutcome>(new RemittanceOutcomeEnumFactory());
         this.outcome.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Transaction status: error, complete.
-     */
-    public String getOutcomeAsCode() { 
-      return this.outcome == null ? null : this.outcome.getValue();
-    }
-
-    /**
-     * @param value String value for Transaction status: error, complete.
-     */
-    public ExplanationOfBenefit setOutcomeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.outcome = null;
-      else {
-        if (this.outcome == null)
-          this.outcome = new Enumeration<RemittanceOutcome>(new RemittanceOutcomeEnumFactory());
-        this.outcome.setValue(RemittanceOutcome.fromCode(value));
       }
       return this;
     }

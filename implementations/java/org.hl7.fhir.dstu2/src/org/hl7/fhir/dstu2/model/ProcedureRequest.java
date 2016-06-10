@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -890,27 +890,6 @@ public class ProcedureRequest extends DomainResource {
     }
 
     /**
-     * @return a string code value for The status of the order.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The status of the order.
-     */
-    public ProcedureRequest setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ProcedureRequestStatus>(new ProcedureRequestStatusEnumFactory());
-        this.status.setValue(ProcedureRequestStatus.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #notes} (Any other notes associated with this proposal or order - e.g. provider instructions.)
      */
     public List<Annotation> getNotes() { 
@@ -1128,27 +1107,6 @@ public class ProcedureRequest extends DomainResource {
         if (this.priority == null)
           this.priority = new Enumeration<ProcedureRequestPriority>(new ProcedureRequestPriorityEnumFactory());
         this.priority.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for The clinical priority associated with this order.
-     */
-    public String getPriorityAsCode() { 
-      return this.priority == null ? null : this.priority.getValue();
-    }
-
-    /**
-     * @param value String value for The clinical priority associated with this order.
-     */
-    public ProcedureRequest setPriorityAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.priority = null;
-      else {
-        if (this.priority == null)
-          this.priority = new Enumeration<ProcedureRequestPriority>(new ProcedureRequestPriorityEnumFactory());
-        this.priority.setValue(ProcedureRequestPriority.fromCode(value));
       }
       return this;
     }

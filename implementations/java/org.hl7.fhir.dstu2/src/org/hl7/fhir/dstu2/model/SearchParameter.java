@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -633,27 +633,6 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
-     * @return a string code value for The status of this search parameter definition.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The status of this search parameter definition.
-     */
-    public SearchParameter setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
-        this.status.setValue(ConformanceResourceStatus.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #experimental} (A flag to indicate that this search parameter definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public BooleanType getExperimentalElement() { 
@@ -931,27 +910,6 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
-     * @return a string code value for The code used in the URL or the parameter name in a parameters resource for this search parameter.
-     */
-    public String getCodeAsCode() { 
-      return this.code == null ? null : this.code.getValue();
-    }
-
-    /**
-     * @param value String value for The code used in the URL or the parameter name in a parameters resource for this search parameter.
-     */
-    public SearchParameter setCodeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.code = null;
-      else {
-        if (this.code == null)
-          this.code = new CodeType();
-        this.code.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #base} (The base resource type that this search parameter refers to.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
      */
     public CodeType getBaseElement() { 
@@ -997,27 +955,6 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
-     * @return a string code value for The base resource type that this search parameter refers to.
-     */
-    public String getBaseAsCode() { 
-      return this.base == null ? null : this.base.getValue();
-    }
-
-    /**
-     * @param value String value for The base resource type that this search parameter refers to.
-     */
-    public SearchParameter setBaseAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.base = null;
-      else {
-        if (this.base == null)
-          this.base = new CodeType();
-        this.base.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
     public Enumeration<SearchParamType> getTypeElement() { 
@@ -1059,27 +996,6 @@ public class SearchParameter extends DomainResource {
         if (this.type == null)
           this.type = new Enumeration<SearchParamType>(new SearchParamTypeEnumFactory());
         this.type.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for The type of value a search parameter refers to, and how the content is interpreted.
-     */
-    public String getTypeAsCode() { 
-      return this.type == null ? null : this.type.getValue();
-    }
-
-    /**
-     * @param value String value for The type of value a search parameter refers to, and how the content is interpreted.
-     */
-    public SearchParameter setTypeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.type = null;
-      else {
-        if (this.type == null)
-          this.type = new Enumeration<SearchParamType>(new SearchParamTypeEnumFactory());
-        this.type.setValue(SearchParamType.fromCode(value));
-      }
       return this;
     }
 
@@ -1222,27 +1138,6 @@ public class SearchParameter extends DomainResource {
         if (this.xpathUsage == null)
           this.xpathUsage = new Enumeration<XPathUsageType>(new XPathUsageTypeEnumFactory());
         this.xpathUsage.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for How the search parameter relates to the set of elements returned by evaluating the xpath query.
-     */
-    public String getXpathUsageAsCode() { 
-      return this.xpathUsage == null ? null : this.xpathUsage.getValue();
-    }
-
-    /**
-     * @param value String value for How the search parameter relates to the set of elements returned by evaluating the xpath query.
-     */
-    public SearchParameter setXpathUsageAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.xpathUsage = null;
-      else {
-        if (this.xpathUsage == null)
-          this.xpathUsage = new Enumeration<XPathUsageType>(new XPathUsageTypeEnumFactory());
-        this.xpathUsage.setValue(XPathUsageType.fromCode(value));
       }
       return this;
     }

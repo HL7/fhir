@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -594,27 +594,6 @@ public class DetectedIssue extends DomainResource {
         if (this.severity == null)
           this.severity = new Enumeration<DetectedIssueSeverity>(new DetectedIssueSeverityEnumFactory());
         this.severity.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.
-     */
-    public String getSeverityAsCode() { 
-      return this.severity == null ? null : this.severity.getValue();
-    }
-
-    /**
-     * @param value String value for Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.
-     */
-    public DetectedIssue setSeverityAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.severity = null;
-      else {
-        if (this.severity == null)
-          this.severity = new Enumeration<DetectedIssueSeverity>(new DetectedIssueSeverityEnumFactory());
-        this.severity.setValue(DetectedIssueSeverity.fromCode(value));
       }
       return this;
     }

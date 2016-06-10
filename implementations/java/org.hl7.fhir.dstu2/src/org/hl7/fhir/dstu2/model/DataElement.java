@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -1053,27 +1053,6 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @return a string code value for The status of the data element.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The status of the data element.
-     */
-    public DataElement setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
-        this.status.setValue(ConformanceResourceStatus.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #experimental} (A flag to indicate that this search data element definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public BooleanType getExperimentalElement() { 
@@ -1390,27 +1369,6 @@ public class DataElement extends DomainResource {
         if (this.stringency == null)
           this.stringency = new Enumeration<DataElementStringency>(new DataElementStringencyEnumFactory());
         this.stringency.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Identifies how precise the data element is in its definition.
-     */
-    public String getStringencyAsCode() { 
-      return this.stringency == null ? null : this.stringency.getValue();
-    }
-
-    /**
-     * @param value String value for Identifies how precise the data element is in its definition.
-     */
-    public DataElement setStringencyAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.stringency = null;
-      else {
-        if (this.stringency == null)
-          this.stringency = new Enumeration<DataElementStringency>(new DataElementStringencyEnumFactory());
-        this.stringency.setValue(DataElementStringency.fromCode(value));
       }
       return this;
     }

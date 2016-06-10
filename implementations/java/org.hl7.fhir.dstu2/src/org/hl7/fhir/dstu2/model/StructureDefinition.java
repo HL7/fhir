@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -1487,27 +1487,6 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return a string code value for The status of the StructureDefinition.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The status of the StructureDefinition.
-     */
-    public StructureDefinition setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
-        this.status.setValue(ConformanceResourceStatus.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #experimental} (This StructureDefinition was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public BooleanType getExperimentalElement() { 
@@ -2052,27 +2031,6 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return a string code value for Defines the kind of structure that this definition is describing.
-     */
-    public String getKindAsCode() { 
-      return this.kind == null ? null : this.kind.getValue();
-    }
-
-    /**
-     * @param value String value for Defines the kind of structure that this definition is describing.
-     */
-    public StructureDefinition setKindAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.kind = null;
-      else {
-        if (this.kind == null)
-          this.kind = new Enumeration<StructureDefinitionKind>(new StructureDefinitionKindEnumFactory());
-        this.kind.setValue(StructureDefinitionKind.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #constrainedType} (The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure.). This is the underlying object with id, value and extensions. The accessor "getConstrainedType" gives direct access to the value
      */
     public CodeType getConstrainedTypeElement() { 
@@ -2112,27 +2070,6 @@ public class StructureDefinition extends DomainResource {
      */
     public StructureDefinition setConstrainedType(String value) { 
       if (Utilities.noString(value))
-        this.constrainedType = null;
-      else {
-        if (this.constrainedType == null)
-          this.constrainedType = new CodeType();
-        this.constrainedType.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure.
-     */
-    public String getConstrainedTypeAsCode() { 
-      return this.constrainedType == null ? null : this.constrainedType.getValue();
-    }
-
-    /**
-     * @param value String value for The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure.
-     */
-    public StructureDefinition setConstrainedTypeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
         this.constrainedType = null;
       else {
         if (this.constrainedType == null)
@@ -2232,27 +2169,6 @@ public class StructureDefinition extends DomainResource {
         if (this.contextType == null)
           this.contextType = new Enumeration<ExtensionContext>(new ExtensionContextEnumFactory());
         this.contextType.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for If this is an extension, Identifies the context within FHIR resources where the extension can be used.
-     */
-    public String getContextTypeAsCode() { 
-      return this.contextType == null ? null : this.contextType.getValue();
-    }
-
-    /**
-     * @param value String value for If this is an extension, Identifies the context within FHIR resources where the extension can be used.
-     */
-    public StructureDefinition setContextTypeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.contextType = null;
-      else {
-        if (this.contextType == null)
-          this.contextType = new Enumeration<ExtensionContext>(new ExtensionContextEnumFactory());
-        this.contextType.setValue(ExtensionContext.fromCode(value));
       }
       return this;
     }

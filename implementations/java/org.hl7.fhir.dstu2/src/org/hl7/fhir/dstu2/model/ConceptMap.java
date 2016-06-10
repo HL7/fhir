@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -365,27 +365,6 @@ public class ConceptMap extends DomainResource {
         }
 
         /**
-         * @return a string code value for Identity (code or path) or the element/item being mapped.
-         */
-        public String getCodeAsCode() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        /**
-         * @param value String value for Identity (code or path) or the element/item being mapped.
-         */
-        public SourceElementComponent setCodeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.code = null;
-          else {
-            if (this.code == null)
-              this.code = new CodeType();
-            this.code.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #target} (A concept from the target value set that this concept maps to.)
          */
         public List<TargetElementComponent> getTarget() { 
@@ -665,27 +644,6 @@ public class ConceptMap extends DomainResource {
         }
 
         /**
-         * @return a string code value for Identity (code or path) or the element/item that the map refers to.
-         */
-        public String getCodeAsCode() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        /**
-         * @param value String value for Identity (code or path) or the element/item that the map refers to.
-         */
-        public TargetElementComponent setCodeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.code = null;
-          else {
-            if (this.code == null)
-              this.code = new CodeType();
-            this.code.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #equivalence} (The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).). This is the underlying object with id, value and extensions. The accessor "getEquivalence" gives direct access to the value
          */
         public Enumeration<ConceptMapEquivalence> getEquivalenceElement() { 
@@ -727,27 +685,6 @@ public class ConceptMap extends DomainResource {
             if (this.equivalence == null)
               this.equivalence = new Enumeration<ConceptMapEquivalence>(new ConceptMapEquivalenceEnumFactory());
             this.equivalence.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).
-         */
-        public String getEquivalenceAsCode() { 
-          return this.equivalence == null ? null : this.equivalence.getValue();
-        }
-
-        /**
-         * @param value String value for The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).
-         */
-        public TargetElementComponent setEquivalenceAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.equivalence = null;
-          else {
-            if (this.equivalence == null)
-              this.equivalence = new Enumeration<ConceptMapEquivalence>(new ConceptMapEquivalenceEnumFactory());
-            this.equivalence.setValue(ConceptMapEquivalence.fromCode(value));
-          }
           return this;
         }
 
@@ -1586,27 +1523,6 @@ public class ConceptMap extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for The status of the concept map.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The status of the concept map.
-     */
-    public ConceptMap setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
-        this.status.setValue(ConformanceResourceStatus.fromCode(value));
-      }
       return this;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -286,27 +286,6 @@ public class Person extends DomainResource {
             if (this.assurance == null)
               this.assurance = new Enumeration<IdentityAssuranceLevel>(new IdentityAssuranceLevelEnumFactory());
             this.assurance.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for Level of assurance that this link is actually associated with the target resource.
-         */
-        public String getAssuranceAsCode() { 
-          return this.assurance == null ? null : this.assurance.getValue();
-        }
-
-        /**
-         * @param value String value for Level of assurance that this link is actually associated with the target resource.
-         */
-        public PersonLinkComponent setAssuranceAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.assurance = null;
-          else {
-            if (this.assurance == null)
-              this.assurance = new Enumeration<IdentityAssuranceLevel>(new IdentityAssuranceLevelEnumFactory());
-            this.assurance.setValue(IdentityAssuranceLevel.fromCode(value));
           }
           return this;
         }
@@ -629,27 +608,6 @@ public class Person extends DomainResource {
         if (this.gender == null)
           this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
         this.gender.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Administrative Gender.
-     */
-    public String getGenderAsCode() { 
-      return this.gender == null ? null : this.gender.getValue();
-    }
-
-    /**
-     * @param value String value for Administrative Gender.
-     */
-    public Person setGenderAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.gender = null;
-      else {
-        if (this.gender == null)
-          this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
-        this.gender.setValue(AdministrativeGender.fromCode(value));
       }
       return this;
     }

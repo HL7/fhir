@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -1007,27 +1007,6 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @return a string code value for The clinical status of the condition.
-     */
-    public String getClinicalStatusAsCode() { 
-      return this.clinicalStatus == null ? null : this.clinicalStatus.getValue();
-    }
-
-    /**
-     * @param value String value for The clinical status of the condition.
-     */
-    public Condition setClinicalStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.clinicalStatus = null;
-      else {
-        if (this.clinicalStatus == null)
-          this.clinicalStatus = new CodeType();
-        this.clinicalStatus.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #verificationStatus} (The verification status to support the clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getVerificationStatus" gives direct access to the value
      */
     public Enumeration<ConditionVerificationStatus> getVerificationStatusElement() { 
@@ -1069,27 +1048,6 @@ public class Condition extends DomainResource {
         if (this.verificationStatus == null)
           this.verificationStatus = new Enumeration<ConditionVerificationStatus>(new ConditionVerificationStatusEnumFactory());
         this.verificationStatus.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for The verification status to support the clinical status of the condition.
-     */
-    public String getVerificationStatusAsCode() { 
-      return this.verificationStatus == null ? null : this.verificationStatus.getValue();
-    }
-
-    /**
-     * @param value String value for The verification status to support the clinical status of the condition.
-     */
-    public Condition setVerificationStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.verificationStatus = null;
-      else {
-        if (this.verificationStatus == null)
-          this.verificationStatus = new Enumeration<ConditionVerificationStatus>(new ConditionVerificationStatusEnumFactory());
-        this.verificationStatus.setValue(ConditionVerificationStatus.fromCode(value));
-      }
       return this;
     }
 

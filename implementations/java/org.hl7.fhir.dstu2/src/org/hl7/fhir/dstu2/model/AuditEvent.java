@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -611,27 +611,6 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
-         * @return a string code value for Indicator for type of action performed during the event that generated the audit.
-         */
-        public String getActionAsCode() { 
-          return this.action == null ? null : this.action.getValue();
-        }
-
-        /**
-         * @param value String value for Indicator for type of action performed during the event that generated the audit.
-         */
-        public AuditEventEventComponent setActionAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.action = null;
-          else {
-            if (this.action == null)
-              this.action = new Enumeration<AuditEventAction>(new AuditEventActionEnumFactory());
-            this.action.setValue(AuditEventAction.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #dateTime} (The time when the event occurred on the source.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
         public InstantType getDateTimeElement() { 
@@ -721,27 +700,6 @@ public class AuditEvent extends DomainResource {
             if (this.outcome == null)
               this.outcome = new Enumeration<AuditEventOutcome>(new AuditEventOutcomeEnumFactory());
             this.outcome.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for Indicates whether the event succeeded or failed.
-         */
-        public String getOutcomeAsCode() { 
-          return this.outcome == null ? null : this.outcome.getValue();
-        }
-
-        /**
-         * @param value String value for Indicates whether the event succeeded or failed.
-         */
-        public AuditEventEventComponent setOutcomeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.outcome = null;
-          else {
-            if (this.outcome == null)
-              this.outcome = new Enumeration<AuditEventOutcome>(new AuditEventOutcomeEnumFactory());
-            this.outcome.setValue(AuditEventOutcome.fromCode(value));
           }
           return this;
         }
@@ -1764,27 +1722,6 @@ public class AuditEvent extends DomainResource {
             if (this.type == null)
               this.type = new Enumeration<AuditEventParticipantNetworkType>(new AuditEventParticipantNetworkTypeEnumFactory());
             this.type.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for An identifier for the type of network access point that originated the audit event.
-         */
-        public String getTypeAsCode() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value String value for An identifier for the type of network access point that originated the audit event.
-         */
-        public AuditEventParticipantNetworkComponent setTypeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.type = null;
-          else {
-            if (this.type == null)
-              this.type = new Enumeration<AuditEventParticipantNetworkType>(new AuditEventParticipantNetworkTypeEnumFactory());
-            this.type.setValue(AuditEventParticipantNetworkType.fromCode(value));
           }
           return this;
         }

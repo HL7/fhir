@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -1057,27 +1057,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         if (this.status == null)
           this.status = new Enumeration<MedicationStatementStatus>(new MedicationStatementStatusEnumFactory());
         this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
-     */
-    public MedicationStatement setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<MedicationStatementStatus>(new MedicationStatementStatusEnumFactory());
-        this.status.setValue(MedicationStatementStatus.fromCode(value));
-      }
       return this;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -313,27 +313,6 @@ public class HumanName extends Type implements ICompositeType {
         if (this.use == null)
           this.use = new Enumeration<NameUse>(new NameUseEnumFactory());
         this.use.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Identifies the purpose for this name.
-     */
-    public String getUseAsCode() { 
-      return this.use == null ? null : this.use.getValue();
-    }
-
-    /**
-     * @param value String value for Identifies the purpose for this name.
-     */
-    public HumanName setUseAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.use = null;
-      else {
-        if (this.use == null)
-          this.use = new Enumeration<NameUse>(new NameUseEnumFactory());
-        this.use.setValue(NameUse.fromCode(value));
       }
       return this;
     }

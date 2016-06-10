@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -514,27 +514,6 @@ public class ImagingStudy extends DomainResource {
             if (this.availability == null)
               this.availability = new Enumeration<InstanceAvailability>(new InstanceAvailabilityEnumFactory());
             this.availability.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for Availability of series (online, offline or nearline).
-         */
-        public String getAvailabilityAsCode() { 
-          return this.availability == null ? null : this.availability.getValue();
-        }
-
-        /**
-         * @param value String value for Availability of series (online, offline or nearline).
-         */
-        public ImagingStudySeriesComponent setAvailabilityAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.availability = null;
-          else {
-            if (this.availability == null)
-              this.availability = new Enumeration<InstanceAvailability>(new InstanceAvailabilityEnumFactory());
-            this.availability.setValue(InstanceAvailability.fromCode(value));
           }
           return this;
         }
@@ -1860,27 +1839,6 @@ public class ImagingStudy extends DomainResource {
         if (this.availability == null)
           this.availability = new Enumeration<InstanceAvailability>(new InstanceAvailabilityEnumFactory());
         this.availability.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Availability of study (online, offline or nearline).
-     */
-    public String getAvailabilityAsCode() { 
-      return this.availability == null ? null : this.availability.getValue();
-    }
-
-    /**
-     * @param value String value for Availability of study (online, offline or nearline).
-     */
-    public ImagingStudy setAvailabilityAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.availability = null;
-      else {
-        if (this.availability == null)
-          this.availability = new Enumeration<InstanceAvailability>(new InstanceAvailabilityEnumFactory());
-        this.availability.setValue(InstanceAvailability.fromCode(value));
       }
       return this;
     }

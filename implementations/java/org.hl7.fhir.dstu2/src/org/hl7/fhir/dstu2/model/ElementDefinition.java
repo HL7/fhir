@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -639,27 +639,6 @@ public class ElementDefinition extends Type implements ICompositeType {
           return this;
         }
 
-        /**
-         * @return a string code value for Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.
-         */
-        public String getRulesAsCode() { 
-          return this.rules == null ? null : this.rules.getValue();
-        }
-
-        /**
-         * @param value String value for Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.
-         */
-        public ElementDefinitionSlicingComponent setRulesAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.rules = null;
-          else {
-            if (this.rules == null)
-              this.rules = new Enumeration<SlicingRules>(new SlicingRulesEnumFactory());
-            this.rules.setValue(SlicingRules.fromCode(value));
-          }
-          return this;
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("discriminator", "string", "Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.", 0, java.lang.Integer.MAX_VALUE, discriminator));
@@ -1088,27 +1067,6 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @return a string code value for Name of Data type or Resource that is a(or the) type used for this element.
-         */
-        public String getCodeAsCode() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        /**
-         * @param value String value for Name of Data type or Resource that is a(or the) type used for this element.
-         */
-        public TypeRefComponent setCodeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.code = null;
-          else {
-            if (this.code == null)
-              this.code = new CodeType();
-            this.code.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #profile} (Identifies a profile structure or implementation Guide that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When more than one profile is specified, the content must conform to all of them. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.)
          */
         public List<UriType> getProfile() { 
@@ -1498,27 +1456,6 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @return a string code value for Identifies the impact constraint violation has on the conformance of the instance.
-         */
-        public String getSeverityAsCode() { 
-          return this.severity == null ? null : this.severity.getValue();
-        }
-
-        /**
-         * @param value String value for Identifies the impact constraint violation has on the conformance of the instance.
-         */
-        public ElementDefinitionConstraintComponent setSeverityAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.severity = null;
-          else {
-            if (this.severity == null)
-              this.severity = new Enumeration<ConstraintSeverity>(new ConstraintSeverityEnumFactory());
-            this.severity.setValue(ConstraintSeverity.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #human} (Text that can be used to describe the constraint in messages identifying that the constraint has been violated.). This is the underlying object with id, value and extensions. The accessor "getHuman" gives direct access to the value
          */
         public StringType getHumanElement() { 
@@ -1782,27 +1719,6 @@ public class ElementDefinition extends Type implements ICompositeType {
             if (this.strength == null)
               this.strength = new Enumeration<BindingStrength>(new BindingStrengthEnumFactory());
             this.strength.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
-         */
-        public String getStrengthAsCode() { 
-          return this.strength == null ? null : this.strength.getValue();
-        }
-
-        /**
-         * @param value String value for Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
-         */
-        public ElementDefinitionBindingComponent setStrengthAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.strength = null;
-          else {
-            if (this.strength == null)
-              this.strength = new Enumeration<BindingStrength>(new BindingStrengthEnumFactory());
-            this.strength.setValue(BindingStrength.fromCode(value));
-          }
           return this;
         }
 
@@ -2108,27 +2024,6 @@ public class ElementDefinition extends Type implements ICompositeType {
          */
         public ElementDefinitionMappingComponent setLanguage(String value) { 
           if (Utilities.noString(value))
-            this.language = null;
-          else {
-            if (this.language == null)
-              this.language = new CodeType();
-            this.language.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for Identifies the computable language in which mapping.map is expressed.
-         */
-        public String getLanguageAsCode() { 
-          return this.language == null ? null : this.language.getValue();
-        }
-
-        /**
-         * @param value String value for Identifies the computable language in which mapping.map is expressed.
-         */
-        public ElementDefinitionMappingComponent setLanguageAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
             this.language = null;
           else {
             if (this.language == null)

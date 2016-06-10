@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -394,27 +394,6 @@ public class Slot extends DomainResource {
         if (this.freeBusyType == null)
           this.freeBusyType = new Enumeration<SlotStatus>(new SlotStatusEnumFactory());
         this.freeBusyType.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for busy | free | busy-unavailable | busy-tentative.
-     */
-    public String getFreeBusyTypeAsCode() { 
-      return this.freeBusyType == null ? null : this.freeBusyType.getValue();
-    }
-
-    /**
-     * @param value String value for busy | free | busy-unavailable | busy-tentative.
-     */
-    public Slot setFreeBusyTypeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.freeBusyType = null;
-      else {
-        if (this.freeBusyType == null)
-          this.freeBusyType = new Enumeration<SlotStatus>(new SlotStatusEnumFactory());
-        this.freeBusyType.setValue(SlotStatus.fromCode(value));
-      }
       return this;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -728,27 +728,6 @@ public class Observation extends DomainResource {
             if (this.type == null)
               this.type = new Enumeration<ObservationRelationshipType>(new ObservationRelationshipTypeEnumFactory());
             this.type.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for A code specifying the kind of relationship that exists with the target resource.
-         */
-        public String getTypeAsCode() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value String value for A code specifying the kind of relationship that exists with the target resource.
-         */
-        public ObservationRelatedComponent setTypeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.type = null;
-          else {
-            if (this.type == null)
-              this.type = new Enumeration<ObservationRelationshipType>(new ObservationRelationshipTypeEnumFactory());
-            this.type.setValue(ObservationRelationshipType.fromCode(value));
           }
           return this;
         }
@@ -1537,27 +1516,6 @@ public class Observation extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<ObservationStatus>(new ObservationStatusEnumFactory());
         this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for The status of the result value.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The status of the result value.
-     */
-    public Observation setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ObservationStatus>(new ObservationStatusEnumFactory());
-        this.status.setValue(ObservationStatus.fromCode(value));
-      }
       return this;
     }
 

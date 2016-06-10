@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -407,27 +407,6 @@ public class ReferralRequest extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<ReferralStatus>(new ReferralStatusEnumFactory());
         this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for The workflow status of the referral or transfer of care request.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The workflow status of the referral or transfer of care request.
-     */
-    public ReferralRequest setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ReferralStatus>(new ReferralStatusEnumFactory());
-        this.status.setValue(ReferralStatus.fromCode(value));
-      }
       return this;
     }
 

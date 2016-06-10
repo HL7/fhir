@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -306,27 +306,6 @@ public class Quantity extends Type implements ICompositeType {
     }
 
     /**
-     * @return a string code value for How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
-     */
-    public String getComparatorAsCode() { 
-      return this.comparator == null ? null : this.comparator.getValue();
-    }
-
-    /**
-     * @param value String value for How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
-     */
-    public Quantity setComparatorAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.comparator = null;
-      else {
-        if (this.comparator == null)
-          this.comparator = new Enumeration<QuantityComparator>(new QuantityComparatorEnumFactory());
-        this.comparator.setValue(QuantityComparator.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #unit} (A human-readable form of the unit.). This is the underlying object with id, value and extensions. The accessor "getUnit" gives direct access to the value
      */
     public StringType getUnitElement() { 
@@ -464,27 +443,6 @@ public class Quantity extends Type implements ICompositeType {
      */
     public Quantity setCode(String value) { 
       if (Utilities.noString(value))
-        this.code = null;
-      else {
-        if (this.code == null)
-          this.code = new CodeType();
-        this.code.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for A computer processable form of the unit in some unit representation system.
-     */
-    public String getCodeAsCode() { 
-      return this.code == null ? null : this.code.getValue();
-    }
-
-    /**
-     * @param value String value for A computer processable form of the unit in some unit representation system.
-     */
-    public Quantity setCodeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
         this.code = null;
       else {
         if (this.code == null)

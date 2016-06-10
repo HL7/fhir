@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -780,27 +780,6 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         }
 
         /**
-         * @return a string code value for Indicates whether the issue indicates a variation from successful processing.
-         */
-        public String getSeverityAsCode() { 
-          return this.severity == null ? null : this.severity.getValue();
-        }
-
-        /**
-         * @param value String value for Indicates whether the issue indicates a variation from successful processing.
-         */
-        public OperationOutcomeIssueComponent setSeverityAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.severity = null;
-          else {
-            if (this.severity == null)
-              this.severity = new Enumeration<IssueSeverity>(new IssueSeverityEnumFactory());
-            this.severity.setValue(IssueSeverity.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #code} (Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
         public Enumeration<IssueType> getCodeElement() { 
@@ -842,27 +821,6 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
             if (this.code == null)
               this.code = new Enumeration<IssueType>(new IssueTypeEnumFactory());
             this.code.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element.
-         */
-        public String getCodeAsCode() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        /**
-         * @param value String value for Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element.
-         */
-        public OperationOutcomeIssueComponent setCodeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.code = null;
-          else {
-            if (this.code == null)
-              this.code = new Enumeration<IssueType>(new IssueTypeEnumFactory());
-            this.code.setValue(IssueType.fromCode(value));
-          }
           return this;
         }
 

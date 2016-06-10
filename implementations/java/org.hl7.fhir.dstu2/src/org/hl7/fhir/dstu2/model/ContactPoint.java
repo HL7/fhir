@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -404,27 +404,6 @@ public class ContactPoint extends Type implements ICompositeType {
     }
 
     /**
-     * @return a string code value for Telecommunications form for contact point - what communications system is required to make use of the contact.
-     */
-    public String getSystemAsCode() { 
-      return this.system == null ? null : this.system.getValue();
-    }
-
-    /**
-     * @param value String value for Telecommunications form for contact point - what communications system is required to make use of the contact.
-     */
-    public ContactPoint setSystemAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.system = null;
-      else {
-        if (this.system == null)
-          this.system = new Enumeration<ContactPointSystem>(new ContactPointSystemEnumFactory());
-        this.system.setValue(ContactPointSystem.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #value} (The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
     public StringType getValueElement() { 
@@ -518,27 +497,6 @@ public class ContactPoint extends Type implements ICompositeType {
         if (this.use == null)
           this.use = new Enumeration<ContactPointUse>(new ContactPointUseEnumFactory());
         this.use.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Identifies the purpose for the contact point.
-     */
-    public String getUseAsCode() { 
-      return this.use == null ? null : this.use.getValue();
-    }
-
-    /**
-     * @param value String value for Identifies the purpose for the contact point.
-     */
-    public ContactPoint setUseAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.use = null;
-      else {
-        if (this.use == null)
-          this.use = new Enumeration<ContactPointUse>(new ContactPointUseEnumFactory());
-        this.use.setValue(ContactPointUse.fromCode(value));
       }
       return this;
     }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -386,27 +386,6 @@ public class Patient extends DomainResource {
             if (this.gender == null)
               this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
             this.gender.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.
-         */
-        public String getGenderAsCode() { 
-          return this.gender == null ? null : this.gender.getValue();
-        }
-
-        /**
-         * @param value String value for Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.
-         */
-        public ContactComponent setGenderAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.gender = null;
-          else {
-            if (this.gender == null)
-              this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
-            this.gender.setValue(AdministrativeGender.fromCode(value));
           }
           return this;
         }
@@ -1088,27 +1067,6 @@ public class Patient extends DomainResource {
           return this;
         }
 
-        /**
-         * @return a string code value for The type of link between this patient resource and another patient resource.
-         */
-        public String getTypeAsCode() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value String value for The type of link between this patient resource and another patient resource.
-         */
-        public PatientLinkComponent setTypeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.type = null;
-          else {
-            if (this.type == null)
-              this.type = new Enumeration<LinkType>(new LinkTypeEnumFactory());
-            this.type.setValue(LinkType.fromCode(value));
-          }
-          return this;
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("other", "Reference(Patient)", "The other patient resource that the link refers to.", 0, java.lang.Integer.MAX_VALUE, other));
@@ -1526,27 +1484,6 @@ public class Patient extends DomainResource {
         if (this.gender == null)
           this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
         this.gender.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
-     */
-    public String getGenderAsCode() { 
-      return this.gender == null ? null : this.gender.getValue();
-    }
-
-    /**
-     * @param value String value for Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
-     */
-    public Patient setGenderAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.gender = null;
-      else {
-        if (this.gender == null)
-          this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
-        this.gender.setValue(AdministrativeGender.fromCode(value));
       }
       return this;
     }

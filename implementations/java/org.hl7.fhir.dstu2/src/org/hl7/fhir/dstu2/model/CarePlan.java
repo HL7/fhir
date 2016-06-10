@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -510,27 +510,6 @@ public class CarePlan extends DomainResource {
             if (this.code == null)
               this.code = new Enumeration<CarePlanRelationship>(new CarePlanRelationshipEnumFactory());
             this.code.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for Identifies the type of relationship this plan has to the target plan.
-         */
-        public String getCodeAsCode() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        /**
-         * @param value String value for Identifies the type of relationship this plan has to the target plan.
-         */
-        public CarePlanRelatedPlanComponent setCodeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.code = null;
-          else {
-            if (this.code == null)
-              this.code = new Enumeration<CarePlanRelationship>(new CarePlanRelationshipEnumFactory());
-            this.code.setValue(CarePlanRelationship.fromCode(value));
           }
           return this;
         }
@@ -1509,27 +1488,6 @@ public class CarePlan extends DomainResource {
         }
 
         /**
-         * @return a string code value for Identifies what progress is being made for the specific activity.
-         */
-        public String getStatusAsCode() { 
-          return this.status == null ? null : this.status.getValue();
-        }
-
-        /**
-         * @param value String value for Identifies what progress is being made for the specific activity.
-         */
-        public CarePlanActivityDetailComponent setStatusAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.status = null;
-          else {
-            if (this.status == null)
-              this.status = new Enumeration<CarePlanActivityStatus>(new CarePlanActivityStatusEnumFactory());
-            this.status.setValue(CarePlanActivityStatus.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #statusReason} (Provides reason why the activity isn't yet started, is on hold, was cancelled, etc.)
          */
         public CodeableConcept getStatusReason() { 
@@ -2378,27 +2336,6 @@ public class CarePlan extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<CarePlanStatus>(new CarePlanStatusEnumFactory());
         this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
-     */
-    public CarePlan setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<CarePlanStatus>(new CarePlanStatusEnumFactory());
-        this.status.setValue(CarePlanStatus.fromCode(value));
-      }
       return this;
     }
 

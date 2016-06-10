@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -608,27 +608,6 @@ public class Appointment extends DomainResource {
         }
 
         /**
-         * @return a string code value for Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.
-         */
-        public String getRequiredAsCode() { 
-          return this.required == null ? null : this.required.getValue();
-        }
-
-        /**
-         * @param value String value for Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.
-         */
-        public AppointmentParticipantComponent setRequiredAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.required = null;
-          else {
-            if (this.required == null)
-              this.required = new Enumeration<ParticipantRequired>(new ParticipantRequiredEnumFactory());
-            this.required.setValue(ParticipantRequired.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #status} (Participation status of the Patient.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
         public Enumeration<ParticipationStatus> getStatusElement() { 
@@ -670,27 +649,6 @@ public class Appointment extends DomainResource {
             if (this.status == null)
               this.status = new Enumeration<ParticipationStatus>(new ParticipationStatusEnumFactory());
             this.status.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for Participation status of the Patient.
-         */
-        public String getStatusAsCode() { 
-          return this.status == null ? null : this.status.getValue();
-        }
-
-        /**
-         * @param value String value for Participation status of the Patient.
-         */
-        public AppointmentParticipantComponent setStatusAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.status = null;
-          else {
-            if (this.status == null)
-              this.status = new Enumeration<ParticipationStatus>(new ParticipationStatusEnumFactory());
-            this.status.setValue(ParticipationStatus.fromCode(value));
-          }
           return this;
         }
 
@@ -970,27 +928,6 @@ public class Appointment extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<AppointmentStatus>(new AppointmentStatusEnumFactory());
         this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
-     */
-    public Appointment setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<AppointmentStatus>(new AppointmentStatusEnumFactory());
-        this.status.setValue(AppointmentStatus.fromCode(value));
-      }
       return this;
     }
 

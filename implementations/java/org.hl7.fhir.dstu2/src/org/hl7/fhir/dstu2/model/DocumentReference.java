@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -245,27 +245,6 @@ public class DocumentReference extends DomainResource {
             if (this.code == null)
               this.code = new Enumeration<DocumentRelationshipType>(new DocumentRelationshipTypeEnumFactory());
             this.code.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for The type of relationship that this document has with anther document.
-         */
-        public String getCodeAsCode() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        /**
-         * @param value String value for The type of relationship that this document has with anther document.
-         */
-        public DocumentReferenceRelatesToComponent setCodeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.code = null;
-          else {
-            if (this.code == null)
-              this.code = new Enumeration<DocumentRelationshipType>(new DocumentRelationshipTypeEnumFactory());
-            this.code.setValue(DocumentRelationshipType.fromCode(value));
-          }
           return this;
         }
 
@@ -1723,27 +1702,6 @@ public class DocumentReference extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<DocumentReferenceStatus>(new DocumentReferenceStatusEnumFactory());
         this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for The status of this document reference.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The status of this document reference.
-     */
-    public DocumentReference setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<DocumentReferenceStatus>(new DocumentReferenceStatusEnumFactory());
-        this.status.setValue(DocumentReferenceStatus.fromCode(value));
-      }
       return this;
     }
 

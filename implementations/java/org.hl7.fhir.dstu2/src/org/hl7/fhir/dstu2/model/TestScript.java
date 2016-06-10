@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -2742,27 +2742,6 @@ public class TestScript extends DomainResource {
         }
 
         /**
-         * @return a string code value for The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
-         */
-        public String getResourceAsCode() { 
-          return this.resource == null ? null : this.resource.getValue();
-        }
-
-        /**
-         * @param value String value for The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
-         */
-        public TestScriptSetupActionOperationComponent setResourceAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.resource = null;
-          else {
-            if (this.resource == null)
-              this.resource = new CodeType();
-            this.resource.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #label} (The label would be used for tracking/logging purposes by test engines.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
          */
         public StringType getLabelElement() { 
@@ -2910,27 +2889,6 @@ public class TestScript extends DomainResource {
         }
 
         /**
-         * @return a string code value for The content-type or mime-type to use for RESTful operation in the 'Accept' header.
-         */
-        public String getAcceptAsCode() { 
-          return this.accept == null ? null : this.accept.getValue();
-        }
-
-        /**
-         * @param value String value for The content-type or mime-type to use for RESTful operation in the 'Accept' header.
-         */
-        public TestScriptSetupActionOperationComponent setAcceptAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.accept = null;
-          else {
-            if (this.accept == null)
-              this.accept = new Enumeration<ContentType>(new ContentTypeEnumFactory());
-            this.accept.setValue(ContentType.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #contentType} (The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
          */
         public Enumeration<ContentType> getContentTypeElement() { 
@@ -2975,27 +2933,6 @@ public class TestScript extends DomainResource {
             if (this.contentType == null)
               this.contentType = new Enumeration<ContentType>(new ContentTypeEnumFactory());
             this.contentType.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
-         */
-        public String getContentTypeAsCode() { 
-          return this.contentType == null ? null : this.contentType.getValue();
-        }
-
-        /**
-         * @param value String value for The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
-         */
-        public TestScriptSetupActionOperationComponent setContentTypeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.contentType = null;
-          else {
-            if (this.contentType == null)
-              this.contentType = new Enumeration<ContentType>(new ContentTypeEnumFactory());
-            this.contentType.setValue(ContentType.fromCode(value));
           }
           return this;
         }
@@ -4023,27 +3960,6 @@ public class TestScript extends DomainResource {
         }
 
         /**
-         * @return a string code value for The direction to use for the assertion.
-         */
-        public String getDirectionAsCode() { 
-          return this.direction == null ? null : this.direction.getValue();
-        }
-
-        /**
-         * @param value String value for The direction to use for the assertion.
-         */
-        public TestScriptSetupActionAssertComponent setDirectionAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.direction = null;
-          else {
-            if (this.direction == null)
-              this.direction = new Enumeration<AssertionDirectionType>(new AssertionDirectionTypeEnumFactory());
-            this.direction.setValue(AssertionDirectionType.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #compareToSourceId} (Id of fixture used to compare the "sourceId/path" evaluations to.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourceId" gives direct access to the value
          */
         public StringType getCompareToSourceIdElement() { 
@@ -4186,27 +4102,6 @@ public class TestScript extends DomainResource {
             if (this.contentType == null)
               this.contentType = new Enumeration<ContentType>(new ContentTypeEnumFactory());
             this.contentType.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
-         */
-        public String getContentTypeAsCode() { 
-          return this.contentType == null ? null : this.contentType.getValue();
-        }
-
-        /**
-         * @param value String value for The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
-         */
-        public TestScriptSetupActionAssertComponent setContentTypeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.contentType = null;
-          else {
-            if (this.contentType == null)
-              this.contentType = new Enumeration<ContentType>(new ContentTypeEnumFactory());
-            this.contentType.setValue(ContentType.fromCode(value));
           }
           return this;
         }
@@ -4404,27 +4299,6 @@ public class TestScript extends DomainResource {
         }
 
         /**
-         * @return a string code value for The operator type.
-         */
-        public String getOperatorAsCode() { 
-          return this.operator == null ? null : this.operator.getValue();
-        }
-
-        /**
-         * @param value String value for The operator type.
-         */
-        public TestScriptSetupActionAssertComponent setOperatorAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.operator = null;
-          else {
-            if (this.operator == null)
-              this.operator = new Enumeration<AssertionOperatorType>(new AssertionOperatorTypeEnumFactory());
-            this.operator.setValue(AssertionOperatorType.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #path} (The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
         public StringType getPathElement() { 
@@ -4523,27 +4397,6 @@ public class TestScript extends DomainResource {
         }
 
         /**
-         * @return a string code value for The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
-         */
-        public String getResourceAsCode() { 
-          return this.resource == null ? null : this.resource.getValue();
-        }
-
-        /**
-         * @param value String value for The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
-         */
-        public TestScriptSetupActionAssertComponent setResourceAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.resource = null;
-          else {
-            if (this.resource == null)
-              this.resource = new CodeType();
-            this.resource.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #response} (okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.). This is the underlying object with id, value and extensions. The accessor "getResponse" gives direct access to the value
          */
         public Enumeration<AssertionResponseTypes> getResponseElement() { 
@@ -4588,27 +4441,6 @@ public class TestScript extends DomainResource {
             if (this.response == null)
               this.response = new Enumeration<AssertionResponseTypes>(new AssertionResponseTypesEnumFactory());
             this.response.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.
-         */
-        public String getResponseAsCode() { 
-          return this.response == null ? null : this.response.getValue();
-        }
-
-        /**
-         * @param value String value for okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.
-         */
-        public TestScriptSetupActionAssertComponent setResponseAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.response = null;
-          else {
-            if (this.response == null)
-              this.response = new Enumeration<AssertionResponseTypes>(new AssertionResponseTypesEnumFactory());
-            this.response.setValue(AssertionResponseTypes.fromCode(value));
           }
           return this;
         }
@@ -6064,27 +5896,6 @@ public class TestScript extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for The status of the TestScript.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The status of the TestScript.
-     */
-    public TestScript setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
-        this.status.setValue(ConformanceResourceStatus.fromCode(value));
-      }
       return this;
     }
 

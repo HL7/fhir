@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -587,27 +587,6 @@ Not to be used when the patient is currently at the location
             if (this.status == null)
               this.status = new Enumeration<EncounterState>(new EncounterStateEnumFactory());
             this.status.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for planned | arrived | in-progress | onleave | finished | cancelled.
-         */
-        public String getStatusAsCode() { 
-          return this.status == null ? null : this.status.getValue();
-        }
-
-        /**
-         * @param value String value for planned | arrived | in-progress | onleave | finished | cancelled.
-         */
-        public EncounterStatusHistoryComponent setStatusAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.status = null;
-          else {
-            if (this.status == null)
-              this.status = new Enumeration<EncounterState>(new EncounterStateEnumFactory());
-            this.status.setValue(EncounterState.fromCode(value));
-          }
           return this;
         }
 
@@ -1766,27 +1745,6 @@ Not to be used when the patient is currently at the location
         }
 
         /**
-         * @return a string code value for The status of the participants' presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time.
-         */
-        public String getStatusAsCode() { 
-          return this.status == null ? null : this.status.getValue();
-        }
-
-        /**
-         * @param value String value for The status of the participants' presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time.
-         */
-        public EncounterLocationComponent setStatusAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.status = null;
-          else {
-            if (this.status == null)
-              this.status = new Enumeration<EncounterLocationStatus>(new EncounterLocationStatusEnumFactory());
-            this.status.setValue(EncounterLocationStatus.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #period} (Time period during which the patient was present at the location.)
          */
         public Period getPeriod() { 
@@ -2159,27 +2117,6 @@ Not to be used when the patient is currently at the location
     }
 
     /**
-     * @return a string code value for planned | arrived | in-progress | onleave | finished | cancelled.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for planned | arrived | in-progress | onleave | finished | cancelled.
-     */
-    public Encounter setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<EncounterState>(new EncounterStateEnumFactory());
-        this.status.setValue(EncounterState.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #statusHistory} (The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them.)
      */
     public List<EncounterStatusHistoryComponent> getStatusHistory() { 
@@ -2264,27 +2201,6 @@ Not to be used when the patient is currently at the location
         if (this.class_ == null)
           this.class_ = new Enumeration<EncounterClass>(new EncounterClassEnumFactory());
         this.class_.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for inpatient | outpatient | ambulatory | emergency +.
-     */
-    public String getClass_AsCode() { 
-      return this.class_ == null ? null : this.class_.getValue();
-    }
-
-    /**
-     * @param value String value for inpatient | outpatient | ambulatory | emergency +.
-     */
-    public Encounter setClass_AsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.class_ = null;
-      else {
-        if (this.class_ == null)
-          this.class_ = new Enumeration<EncounterClass>(new EncounterClassEnumFactory());
-        this.class_.setValue(EncounterClass.fromCode(value));
       }
       return this;
     }

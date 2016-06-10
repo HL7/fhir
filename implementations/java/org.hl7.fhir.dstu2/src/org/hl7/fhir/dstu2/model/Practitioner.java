@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -1078,27 +1078,6 @@ public class Practitioner extends DomainResource {
         if (this.gender == null)
           this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
         this.gender.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
-     */
-    public String getGenderAsCode() { 
-      return this.gender == null ? null : this.gender.getValue();
-    }
-
-    /**
-     * @param value String value for Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
-     */
-    public Practitioner setGenderAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.gender = null;
-      else {
-        if (this.gender == null)
-          this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
-        this.gender.setValue(AdministrativeGender.fromCode(value));
       }
       return this;
     }

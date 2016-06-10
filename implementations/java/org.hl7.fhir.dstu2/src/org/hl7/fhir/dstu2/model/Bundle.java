@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -1066,27 +1066,6 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @return a string code value for Why this entry is in the result set - whether it's included as a match or because of an _include requirement.
-         */
-        public String getModeAsCode() { 
-          return this.mode == null ? null : this.mode.getValue();
-        }
-
-        /**
-         * @param value String value for Why this entry is in the result set - whether it's included as a match or because of an _include requirement.
-         */
-        public BundleEntrySearchComponent setModeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.mode = null;
-          else {
-            if (this.mode == null)
-              this.mode = new Enumeration<SearchEntryMode>(new SearchEntryModeEnumFactory());
-            this.mode.setValue(SearchEntryMode.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #score} (When searching, the server's search ranking score for the entry.). This is the underlying object with id, value and extensions. The accessor "getScore" gives direct access to the value
          */
         public DecimalType getScoreElement() { 
@@ -1307,27 +1286,6 @@ public class Bundle extends Resource implements IBaseBundle {
             if (this.method == null)
               this.method = new Enumeration<HTTPVerb>(new HTTPVerbEnumFactory());
             this.method.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for The HTTP verb for this entry in either a update history, or a transaction/ transaction response.
-         */
-        public String getMethodAsCode() { 
-          return this.method == null ? null : this.method.getValue();
-        }
-
-        /**
-         * @param value String value for The HTTP verb for this entry in either a update history, or a transaction/ transaction response.
-         */
-        public BundleEntryRequestComponent setMethodAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.method = null;
-          else {
-            if (this.method == null)
-              this.method = new Enumeration<HTTPVerb>(new HTTPVerbEnumFactory());
-            this.method.setValue(HTTPVerb.fromCode(value));
-          }
           return this;
         }
 
@@ -2091,27 +2049,6 @@ public class Bundle extends Resource implements IBaseBundle {
         if (this.type == null)
           this.type = new Enumeration<BundleType>(new BundleTypeEnumFactory());
         this.type.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for Indicates the purpose of this bundle- how it was intended to be used.
-     */
-    public String getTypeAsCode() { 
-      return this.type == null ? null : this.type.getValue();
-    }
-
-    /**
-     * @param value String value for Indicates the purpose of this bundle- how it was intended to be used.
-     */
-    public Bundle setTypeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.type = null;
-      else {
-        if (this.type == null)
-          this.type = new Enumeration<BundleType>(new BundleTypeEnumFactory());
-        this.type.setValue(BundleType.fromCode(value));
-      }
       return this;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -539,27 +539,6 @@ public class OrderResponse extends DomainResource {
         if (this.orderStatus == null)
           this.orderStatus = new Enumeration<OrderStatus>(new OrderStatusEnumFactory());
         this.orderStatus.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for What this response says about the status of the original order.
-     */
-    public String getOrderStatusAsCode() { 
-      return this.orderStatus == null ? null : this.orderStatus.getValue();
-    }
-
-    /**
-     * @param value String value for What this response says about the status of the original order.
-     */
-    public OrderResponse setOrderStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.orderStatus = null;
-      else {
-        if (this.orderStatus == null)
-          this.orderStatus = new Enumeration<OrderStatus>(new OrderStatusEnumFactory());
-        this.orderStatus.setValue(OrderStatus.fromCode(value));
-      }
       return this;
     }
 

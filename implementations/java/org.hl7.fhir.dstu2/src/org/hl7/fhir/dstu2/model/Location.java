@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -682,27 +682,6 @@ public class Location extends DomainResource {
     }
 
     /**
-     * @return a string code value for active | suspended | inactive.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for active | suspended | inactive.
-     */
-    public Location setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<LocationStatus>(new LocationStatusEnumFactory());
-        this.status.setValue(LocationStatus.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #name} (Name of the location as used by humans. Does not need to be unique.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
@@ -845,27 +824,6 @@ public class Location extends DomainResource {
         if (this.mode == null)
           this.mode = new Enumeration<LocationMode>(new LocationModeEnumFactory());
         this.mode.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Indicates whether a resource instance represents a specific location or a class of locations.
-     */
-    public String getModeAsCode() { 
-      return this.mode == null ? null : this.mode.getValue();
-    }
-
-    /**
-     * @param value String value for Indicates whether a resource instance represents a specific location or a class of locations.
-     */
-    public Location setModeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.mode = null;
-      else {
-        if (this.mode == null)
-          this.mode = new Enumeration<LocationMode>(new LocationModeEnumFactory());
-        this.mode.setValue(LocationMode.fromCode(value));
       }
       return this;
     }

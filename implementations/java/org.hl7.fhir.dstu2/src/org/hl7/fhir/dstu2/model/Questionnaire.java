@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -1258,27 +1258,6 @@ public class Questionnaire extends DomainResource {
         }
 
         /**
-         * @return a string code value for The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.
-         */
-        public String getTypeAsCode() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value String value for The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.
-         */
-        public QuestionComponent setTypeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.type = null;
-          else {
-            if (this.type == null)
-              this.type = new Enumeration<AnswerFormat>(new AnswerFormatEnumFactory());
-            this.type.setValue(AnswerFormat.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #required} (If true, indicates that the question must be answered and have required groups within it also present.  If false, the question and any contained groups may be skipped when answering the questionnaire.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
          */
         public BooleanType getRequiredElement() { 
@@ -1833,27 +1812,6 @@ public class Questionnaire extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<QuestionnaireStatus>(new QuestionnaireStatusEnumFactory());
         this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for The lifecycle status of the questionnaire as a whole.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The lifecycle status of the questionnaire as a whole.
-     */
-    public Questionnaire setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<QuestionnaireStatus>(new QuestionnaireStatusEnumFactory());
-        this.status.setValue(QuestionnaireStatus.fromCode(value));
-      }
       return this;
     }
 

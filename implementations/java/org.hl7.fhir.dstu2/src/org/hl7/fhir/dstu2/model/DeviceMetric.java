@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -757,27 +757,6 @@ public class DeviceMetric extends DomainResource {
         }
 
         /**
-         * @return a string code value for Describes the type of the calibration method.
-         */
-        public String getTypeAsCode() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value String value for Describes the type of the calibration method.
-         */
-        public DeviceMetricCalibrationComponent setTypeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.type = null;
-          else {
-            if (this.type == null)
-              this.type = new Enumeration<DeviceMetricCalibrationType>(new DeviceMetricCalibrationTypeEnumFactory());
-            this.type.setValue(DeviceMetricCalibrationType.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #state} (Describes the state of the calibration.). This is the underlying object with id, value and extensions. The accessor "getState" gives direct access to the value
          */
         public Enumeration<DeviceMetricCalibrationState> getStateElement() { 
@@ -822,27 +801,6 @@ public class DeviceMetric extends DomainResource {
             if (this.state == null)
               this.state = new Enumeration<DeviceMetricCalibrationState>(new DeviceMetricCalibrationStateEnumFactory());
             this.state.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for Describes the state of the calibration.
-         */
-        public String getStateAsCode() { 
-          return this.state == null ? null : this.state.getValue();
-        }
-
-        /**
-         * @param value String value for Describes the state of the calibration.
-         */
-        public DeviceMetricCalibrationComponent setStateAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.state = null;
-          else {
-            if (this.state == null)
-              this.state = new Enumeration<DeviceMetricCalibrationState>(new DeviceMetricCalibrationStateEnumFactory());
-            this.state.setValue(DeviceMetricCalibrationState.fromCode(value));
           }
           return this;
         }
@@ -1282,27 +1240,6 @@ public class DeviceMetric extends DomainResource {
     }
 
     /**
-     * @return a string code value for Indicates current operational state of the device. For example: On, Off, Standby, etc.
-     */
-    public String getOperationalStatusAsCode() { 
-      return this.operationalStatus == null ? null : this.operationalStatus.getValue();
-    }
-
-    /**
-     * @param value String value for Indicates current operational state of the device. For example: On, Off, Standby, etc.
-     */
-    public DeviceMetric setOperationalStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.operationalStatus = null;
-      else {
-        if (this.operationalStatus == null)
-          this.operationalStatus = new Enumeration<DeviceMetricOperationalStatus>(new DeviceMetricOperationalStatusEnumFactory());
-        this.operationalStatus.setValue(DeviceMetricOperationalStatus.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #color} (Describes the color representation for the metric. This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth for example; the parameters are displayed in different characteristic colors, such as HR-blue, BP-green, and PR and SpO2- magenta.). This is the underlying object with id, value and extensions. The accessor "getColor" gives direct access to the value
      */
     public Enumeration<DeviceMetricColor> getColorElement() { 
@@ -1352,27 +1289,6 @@ public class DeviceMetric extends DomainResource {
     }
 
     /**
-     * @return a string code value for Describes the color representation for the metric. This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth for example; the parameters are displayed in different characteristic colors, such as HR-blue, BP-green, and PR and SpO2- magenta.
-     */
-    public String getColorAsCode() { 
-      return this.color == null ? null : this.color.getValue();
-    }
-
-    /**
-     * @param value String value for Describes the color representation for the metric. This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth for example; the parameters are displayed in different characteristic colors, such as HR-blue, BP-green, and PR and SpO2- magenta.
-     */
-    public DeviceMetric setColorAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.color = null;
-      else {
-        if (this.color == null)
-          this.color = new Enumeration<DeviceMetricColor>(new DeviceMetricColorEnumFactory());
-        this.color.setValue(DeviceMetricColor.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #category} (Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
      */
     public Enumeration<DeviceMetricCategory> getCategoryElement() { 
@@ -1414,27 +1330,6 @@ public class DeviceMetric extends DomainResource {
         if (this.category == null)
           this.category = new Enumeration<DeviceMetricCategory>(new DeviceMetricCategoryEnumFactory());
         this.category.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation.
-     */
-    public String getCategoryAsCode() { 
-      return this.category == null ? null : this.category.getValue();
-    }
-
-    /**
-     * @param value String value for Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation.
-     */
-    public DeviceMetric setCategoryAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.category = null;
-      else {
-        if (this.category == null)
-          this.category = new Enumeration<DeviceMetricCategory>(new DeviceMetricCategoryEnumFactory());
-        this.category.setValue(DeviceMetricCategory.fromCode(value));
-      }
       return this;
     }
 

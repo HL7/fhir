@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -391,27 +391,6 @@ public class Address extends Type implements ICompositeType {
     }
 
     /**
-     * @return a string code value for The purpose of this address.
-     */
-    public String getUseAsCode() { 
-      return this.use == null ? null : this.use.getValue();
-    }
-
-    /**
-     * @param value String value for The purpose of this address.
-     */
-    public Address setUseAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.use = null;
-      else {
-        if (this.use == null)
-          this.use = new Enumeration<AddressUse>(new AddressUseEnumFactory());
-        this.use.setValue(AddressUse.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #type} (Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
     public Enumeration<AddressType> getTypeElement() { 
@@ -456,27 +435,6 @@ public class Address extends Type implements ICompositeType {
         if (this.type == null)
           this.type = new Enumeration<AddressType>(new AddressTypeEnumFactory());
         this.type.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.
-     */
-    public String getTypeAsCode() { 
-      return this.type == null ? null : this.type.getValue();
-    }
-
-    /**
-     * @param value String value for Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.
-     */
-    public Address setTypeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.type = null;
-      else {
-        if (this.type == null)
-          this.type = new Enumeration<AddressType>(new AddressTypeEnumFactory());
-        this.type.setValue(AddressType.fromCode(value));
       }
       return this;
     }

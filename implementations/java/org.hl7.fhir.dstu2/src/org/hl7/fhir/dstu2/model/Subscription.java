@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -385,27 +385,6 @@ public class Subscription extends DomainResource {
             if (this.type == null)
               this.type = new Enumeration<SubscriptionChannelType>(new SubscriptionChannelTypeEnumFactory());
             this.type.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for The type of channel to send notifications on.
-         */
-        public String getTypeAsCode() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value String value for The type of channel to send notifications on.
-         */
-        public SubscriptionChannelComponent setTypeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.type = null;
-          else {
-            if (this.type == null)
-              this.type = new Enumeration<SubscriptionChannelType>(new SubscriptionChannelTypeEnumFactory());
-            this.type.setValue(SubscriptionChannelType.fromCode(value));
-          }
           return this;
         }
 
@@ -884,27 +863,6 @@ public class Subscription extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<SubscriptionStatus>(new SubscriptionStatusEnumFactory());
         this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for The status of the subscription, which marks the server state for managing the subscription.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The status of the subscription, which marks the server state for managing the subscription.
-     */
-    public Subscription setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<SubscriptionStatus>(new SubscriptionStatusEnumFactory());
-        this.status.setValue(SubscriptionStatus.fromCode(value));
-      }
       return this;
     }
 

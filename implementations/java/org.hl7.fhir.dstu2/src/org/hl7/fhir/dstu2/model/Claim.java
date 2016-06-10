@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -4080,27 +4080,6 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return a string code value for The category of claim this is.
-     */
-    public String getTypeAsCode() { 
-      return this.type == null ? null : this.type.getValue();
-    }
-
-    /**
-     * @param value String value for The category of claim this is.
-     */
-    public Claim setTypeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.type = null;
-      else {
-        if (this.type == null)
-          this.type = new Enumeration<ClaimType>(new ClaimTypeEnumFactory());
-        this.type.setValue(ClaimType.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #identifier} (The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.)
      */
     public List<Identifier> getIdentifier() { 
@@ -4414,27 +4393,6 @@ public class Claim extends DomainResource {
         if (this.use == null)
           this.use = new Enumeration<Use>(new UseEnumFactory());
         this.use.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).
-     */
-    public String getUseAsCode() { 
-      return this.use == null ? null : this.use.getValue();
-    }
-
-    /**
-     * @param value String value for Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).
-     */
-    public Claim setUseAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.use = null;
-      else {
-        if (this.use == null)
-          this.use = new Enumeration<Use>(new UseEnumFactory());
-        this.use.setValue(Use.fromCode(value));
       }
       return this;
     }

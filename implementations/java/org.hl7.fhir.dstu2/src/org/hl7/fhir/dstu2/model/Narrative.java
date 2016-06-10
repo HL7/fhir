@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -237,27 +237,6 @@ public class Narrative extends BaseNarrative implements INarrative {
         if (this.status == null)
           this.status = new Enumeration<NarrativeStatus>(new NarrativeStatusEnumFactory());
         this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
-     */
-    public Narrative setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<NarrativeStatus>(new NarrativeStatusEnumFactory());
-        this.status.setValue(NarrativeStatus.fromCode(value));
-      }
       return this;
     }
 

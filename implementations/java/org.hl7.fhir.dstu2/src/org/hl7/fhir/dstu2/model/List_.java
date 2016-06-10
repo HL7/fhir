@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -946,27 +946,6 @@ public class List_ extends DomainResource {
     }
 
     /**
-     * @return a string code value for Indicates the current state of this list.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for Indicates the current state of this list.
-     */
-    public List_ setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ListStatus>(new ListStatusEnumFactory());
-        this.status.setValue(ListStatus.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #date} (The date that the list was prepared.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
@@ -1081,27 +1060,6 @@ public class List_ extends DomainResource {
         if (this.mode == null)
           this.mode = new Enumeration<ListMode>(new ListModeEnumFactory());
         this.mode.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
-     */
-    public String getModeAsCode() { 
-      return this.mode == null ? null : this.mode.getValue();
-    }
-
-    /**
-     * @param value String value for How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
-     */
-    public List_ setModeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.mode = null;
-      else {
-        if (this.mode == null)
-          this.mode = new Enumeration<ListMode>(new ListModeEnumFactory());
-        this.mode.setValue(ListMode.fromCode(value));
-      }
       return this;
     }
 

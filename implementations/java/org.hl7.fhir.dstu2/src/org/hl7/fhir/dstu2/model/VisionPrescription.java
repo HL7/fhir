@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -446,27 +446,6 @@ public class VisionPrescription extends DomainResource {
         }
 
         /**
-         * @return a string code value for The eye for which the lens applies.
-         */
-        public String getEyeAsCode() { 
-          return this.eye == null ? null : this.eye.getValue();
-        }
-
-        /**
-         * @param value String value for The eye for which the lens applies.
-         */
-        public VisionPrescriptionDispenseComponent setEyeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.eye = null;
-          else {
-            if (this.eye == null)
-              this.eye = new Enumeration<VisionEyes>(new VisionEyesEnumFactory());
-            this.eye.setValue(VisionEyes.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #sphere} (Lens power measured in diopters (0.25 units).). This is the underlying object with id, value and extensions. The accessor "getSphere" gives direct access to the value
          */
         public DecimalType getSphereElement() { 
@@ -703,27 +682,6 @@ public class VisionPrescription extends DomainResource {
             if (this.base == null)
               this.base = new Enumeration<VisionBase>(new VisionBaseEnumFactory());
             this.base.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for The relative base, or reference lens edge, for the prism.
-         */
-        public String getBaseAsCode() { 
-          return this.base == null ? null : this.base.getValue();
-        }
-
-        /**
-         * @param value String value for The relative base, or reference lens edge, for the prism.
-         */
-        public VisionPrescriptionDispenseComponent setBaseAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.base = null;
-          else {
-            if (this.base == null)
-              this.base = new Enumeration<VisionBase>(new VisionBaseEnumFactory());
-            this.base.setValue(VisionBase.fromCode(value));
           }
           return this;
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -538,27 +538,6 @@ public class OperationDefinition extends DomainResource {
         }
 
         /**
-         * @return a string code value for The name of used to identify the parameter.
-         */
-        public String getNameAsCode() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        /**
-         * @param value String value for The name of used to identify the parameter.
-         */
-        public OperationDefinitionParameterComponent setNameAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.name = null;
-          else {
-            if (this.name == null)
-              this.name = new CodeType();
-            this.name.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #use} (Whether this is an input or an output parameter.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
          */
         public Enumeration<OperationParameterUse> getUseElement() { 
@@ -600,27 +579,6 @@ public class OperationDefinition extends DomainResource {
             if (this.use == null)
               this.use = new Enumeration<OperationParameterUse>(new OperationParameterUseEnumFactory());
             this.use.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for Whether this is an input or an output parameter.
-         */
-        public String getUseAsCode() { 
-          return this.use == null ? null : this.use.getValue();
-        }
-
-        /**
-         * @param value String value for Whether this is an input or an output parameter.
-         */
-        public OperationDefinitionParameterComponent setUseAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.use = null;
-          else {
-            if (this.use == null)
-              this.use = new Enumeration<OperationParameterUse>(new OperationParameterUseEnumFactory());
-            this.use.setValue(OperationParameterUse.fromCode(value));
-          }
           return this;
         }
 
@@ -803,27 +761,6 @@ public class OperationDefinition extends DomainResource {
          */
         public OperationDefinitionParameterComponent setType(String value) { 
           if (Utilities.noString(value))
-            this.type = null;
-          else {
-            if (this.type == null)
-              this.type = new CodeType();
-            this.type.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for The type for this parameter.
-         */
-        public String getTypeAsCode() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value String value for The type for this parameter.
-         */
-        public OperationDefinitionParameterComponent setTypeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
             this.type = null;
           else {
             if (this.type == null)
@@ -1147,27 +1084,6 @@ public class OperationDefinition extends DomainResource {
             if (this.strength == null)
               this.strength = new Enumeration<BindingStrength>(new BindingStrengthEnumFactory());
             this.strength.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return a string code value for Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
-         */
-        public String getStrengthAsCode() { 
-          return this.strength == null ? null : this.strength.getValue();
-        }
-
-        /**
-         * @param value String value for Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
-         */
-        public OperationDefinitionParameterBindingComponent setStrengthAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.strength = null;
-          else {
-            if (this.strength == null)
-              this.strength = new Enumeration<BindingStrength>(new BindingStrengthEnumFactory());
-            this.strength.setValue(BindingStrength.fromCode(value));
-          }
           return this;
         }
 
@@ -1638,27 +1554,6 @@ public class OperationDefinition extends DomainResource {
     }
 
     /**
-     * @return a string code value for The status of the profile.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The status of the profile.
-     */
-    public OperationDefinition setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
-        this.status.setValue(ConformanceResourceStatus.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #kind} (Whether this is an operation or a named query.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
     public Enumeration<OperationKind> getKindElement() { 
@@ -1700,27 +1595,6 @@ public class OperationDefinition extends DomainResource {
         if (this.kind == null)
           this.kind = new Enumeration<OperationKind>(new OperationKindEnumFactory());
         this.kind.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for Whether this is an operation or a named query.
-     */
-    public String getKindAsCode() { 
-      return this.kind == null ? null : this.kind.getValue();
-    }
-
-    /**
-     * @param value String value for Whether this is an operation or a named query.
-     */
-    public OperationDefinition setKindAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.kind = null;
-      else {
-        if (this.kind == null)
-          this.kind = new Enumeration<OperationKind>(new OperationKindEnumFactory());
-        this.kind.setValue(OperationKind.fromCode(value));
-      }
       return this;
     }
 
@@ -2092,27 +1966,6 @@ public class OperationDefinition extends DomainResource {
         if (this.code == null)
           this.code = new CodeType();
         this.code.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for The name used to invoke the operation.
-     */
-    public String getCodeAsCode() { 
-      return this.code == null ? null : this.code.getValue();
-    }
-
-    /**
-     * @param value String value for The name used to invoke the operation.
-     */
-    public OperationDefinition setCodeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.code = null;
-      else {
-        if (this.code == null)
-          this.code = new CodeType();
-        this.code.setValue(value);
-      }
       return this;
     }
 

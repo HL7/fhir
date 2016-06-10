@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -582,27 +582,6 @@ public class AppointmentResponse extends DomainResource {
         if (this.participantStatus == null)
           this.participantStatus = new Enumeration<ParticipantStatus>(new ParticipantStatusEnumFactory());
         this.participantStatus.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
-     */
-    public String getParticipantStatusAsCode() { 
-      return this.participantStatus == null ? null : this.participantStatus.getValue();
-    }
-
-    /**
-     * @param value String value for Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
-     */
-    public AppointmentResponse setParticipantStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.participantStatus = null;
-      else {
-        if (this.participantStatus == null)
-          this.participantStatus = new Enumeration<ParticipantStatus>(new ParticipantStatusEnumFactory());
-        this.participantStatus.setValue(ParticipantStatus.fromCode(value));
-      }
       return this;
     }
 

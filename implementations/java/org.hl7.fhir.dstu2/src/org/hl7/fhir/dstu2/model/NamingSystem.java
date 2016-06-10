@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -544,27 +544,6 @@ public class NamingSystem extends DomainResource {
         }
 
         /**
-         * @return a string code value for Identifies the unique identifier scheme used for this particular identifier.
-         */
-        public String getTypeAsCode() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value String value for Identifies the unique identifier scheme used for this particular identifier.
-         */
-        public NamingSystemUniqueIdComponent setTypeAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.type = null;
-          else {
-            if (this.type == null)
-              this.type = new Enumeration<NamingSystemIdentifierType>(new NamingSystemIdentifierTypeEnumFactory());
-            this.type.setValue(NamingSystemIdentifierType.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #value} (The string that should be sent over the wire to identify the code system or identifier system.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public StringType getValueElement() { 
@@ -970,27 +949,6 @@ public class NamingSystem extends DomainResource {
     }
 
     /**
-     * @return a string code value for Indicates whether the naming system is "ready for use" or not.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for Indicates whether the naming system is "ready for use" or not.
-     */
-    public NamingSystem setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
-        this.status.setValue(ConformanceResourceStatus.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #kind} (Indicates the purpose for the naming system - what kinds of things does it make unique?). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
     public Enumeration<NamingSystemType> getKindElement() { 
@@ -1032,27 +990,6 @@ public class NamingSystem extends DomainResource {
         if (this.kind == null)
           this.kind = new Enumeration<NamingSystemType>(new NamingSystemTypeEnumFactory());
         this.kind.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return a string code value for Indicates the purpose for the naming system - what kinds of things does it make unique?
-     */
-    public String getKindAsCode() { 
-      return this.kind == null ? null : this.kind.getValue();
-    }
-
-    /**
-     * @param value String value for Indicates the purpose for the naming system - what kinds of things does it make unique?
-     */
-    public NamingSystem setKindAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.kind = null;
-      else {
-        if (this.kind == null)
-          this.kind = new Enumeration<NamingSystemType>(new NamingSystemTypeEnumFactory());
-        this.kind.setValue(NamingSystemType.fromCode(value));
-      }
       return this;
     }
 

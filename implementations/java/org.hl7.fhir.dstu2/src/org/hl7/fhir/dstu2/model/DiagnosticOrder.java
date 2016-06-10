@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -522,27 +522,6 @@ public class DiagnosticOrder extends DomainResource {
         }
 
         /**
-         * @return a string code value for The status for the event.
-         */
-        public String getStatusAsCode() { 
-          return this.status == null ? null : this.status.getValue();
-        }
-
-        /**
-         * @param value String value for The status for the event.
-         */
-        public DiagnosticOrderEventComponent setStatusAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.status = null;
-          else {
-            if (this.status == null)
-              this.status = new Enumeration<DiagnosticOrderStatus>(new DiagnosticOrderStatusEnumFactory());
-            this.status.setValue(DiagnosticOrderStatus.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #description} (Additional information about the event that occurred - e.g. if the status remained unchanged.)
          */
         public CodeableConcept getDescription() { 
@@ -948,27 +927,6 @@ public class DiagnosticOrder extends DomainResource {
             if (this.status == null)
               this.status = new Enumeration<DiagnosticOrderStatus>(new DiagnosticOrderStatusEnumFactory());
             this.status.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for The status of this individual item within the order.
-         */
-        public String getStatusAsCode() { 
-          return this.status == null ? null : this.status.getValue();
-        }
-
-        /**
-         * @param value String value for The status of this individual item within the order.
-         */
-        public DiagnosticOrderItemComponent setStatusAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.status = null;
-          else {
-            if (this.status == null)
-              this.status = new Enumeration<DiagnosticOrderStatus>(new DiagnosticOrderStatusEnumFactory());
-            this.status.setValue(DiagnosticOrderStatus.fromCode(value));
           }
           return this;
         }
@@ -1607,27 +1565,6 @@ public class DiagnosticOrder extends DomainResource {
     }
 
     /**
-     * @return a string code value for The status of the order.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for The status of the order.
-     */
-    public DiagnosticOrder setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<DiagnosticOrderStatus>(new DiagnosticOrderStatusEnumFactory());
-        this.status.setValue(DiagnosticOrderStatus.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #priority} (The clinical priority associated with this order.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
     public Enumeration<DiagnosticOrderPriority> getPriorityElement() { 
@@ -1672,27 +1609,6 @@ public class DiagnosticOrder extends DomainResource {
         if (this.priority == null)
           this.priority = new Enumeration<DiagnosticOrderPriority>(new DiagnosticOrderPriorityEnumFactory());
         this.priority.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for The clinical priority associated with this order.
-     */
-    public String getPriorityAsCode() { 
-      return this.priority == null ? null : this.priority.getValue();
-    }
-
-    /**
-     * @param value String value for The clinical priority associated with this order.
-     */
-    public DiagnosticOrder setPriorityAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.priority = null;
-      else {
-        if (this.priority == null)
-          this.priority = new Enumeration<DiagnosticOrderPriority>(new DiagnosticOrderPriorityEnumFactory());
-        this.priority.setValue(DiagnosticOrderPriority.fromCode(value));
       }
       return this;
     }

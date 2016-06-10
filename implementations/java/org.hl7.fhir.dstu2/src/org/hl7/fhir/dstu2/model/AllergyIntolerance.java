@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:15+1000 for FHIR v1.0.2
+// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -852,27 +852,6 @@ public class AllergyIntolerance extends DomainResource {
         }
 
         /**
-         * @return a string code value for Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.
-         */
-        public String getCertaintyAsCode() { 
-          return this.certainty == null ? null : this.certainty.getValue();
-        }
-
-        /**
-         * @param value String value for Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.
-         */
-        public AllergyIntoleranceReactionComponent setCertaintyAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.certainty = null;
-          else {
-            if (this.certainty == null)
-              this.certainty = new Enumeration<AllergyIntoleranceCertainty>(new AllergyIntoleranceCertaintyEnumFactory());
-            this.certainty.setValue(AllergyIntoleranceCertainty.fromCode(value));
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #manifestation} (Clinical symptoms and/or signs that are observed or associated with the adverse reaction event.)
          */
         public List<CodeableConcept> getManifestation() { 
@@ -1055,27 +1034,6 @@ public class AllergyIntolerance extends DomainResource {
             if (this.severity == null)
               this.severity = new Enumeration<AllergyIntoleranceSeverity>(new AllergyIntoleranceSeverityEnumFactory());
             this.severity.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return a string code value for Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
-         */
-        public String getSeverityAsCode() { 
-          return this.severity == null ? null : this.severity.getValue();
-        }
-
-        /**
-         * @param value String value for Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
-         */
-        public AllergyIntoleranceReactionComponent setSeverityAsCode(String value) throws FHIRException { 
-          if (!Utilities.noString(value)) 
-            this.severity = null;
-          else {
-            if (this.severity == null)
-              this.severity = new Enumeration<AllergyIntoleranceSeverity>(new AllergyIntoleranceSeverityEnumFactory());
-            this.severity.setValue(AllergyIntoleranceSeverity.fromCode(value));
           }
           return this;
         }
@@ -1715,27 +1673,6 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @return a string code value for Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.
-     */
-    public String getStatusAsCode() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value String value for Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.
-     */
-    public AllergyIntolerance setStatusAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<AllergyIntoleranceStatus>(new AllergyIntoleranceStatusEnumFactory());
-        this.status.setValue(AllergyIntoleranceStatus.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #criticality} (Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCriticality" gives direct access to the value
      */
     public Enumeration<AllergyIntoleranceCriticality> getCriticalityElement() { 
@@ -1780,27 +1717,6 @@ public class AllergyIntolerance extends DomainResource {
         if (this.criticality == null)
           this.criticality = new Enumeration<AllergyIntoleranceCriticality>(new AllergyIntoleranceCriticalityEnumFactory());
         this.criticality.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.
-     */
-    public String getCriticalityAsCode() { 
-      return this.criticality == null ? null : this.criticality.getValue();
-    }
-
-    /**
-     * @param value String value for Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.
-     */
-    public AllergyIntolerance setCriticalityAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.criticality = null;
-      else {
-        if (this.criticality == null)
-          this.criticality = new Enumeration<AllergyIntoleranceCriticality>(new AllergyIntoleranceCriticalityEnumFactory());
-        this.criticality.setValue(AllergyIntoleranceCriticality.fromCode(value));
       }
       return this;
     }
@@ -1855,27 +1771,6 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @return a string code value for Identification of the underlying physiological mechanism for the reaction risk.
-     */
-    public String getTypeAsCode() { 
-      return this.type == null ? null : this.type.getValue();
-    }
-
-    /**
-     * @param value String value for Identification of the underlying physiological mechanism for the reaction risk.
-     */
-    public AllergyIntolerance setTypeAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.type = null;
-      else {
-        if (this.type == null)
-          this.type = new Enumeration<AllergyIntoleranceType>(new AllergyIntoleranceTypeEnumFactory());
-        this.type.setValue(AllergyIntoleranceType.fromCode(value));
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #category} (Category of the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
      */
     public Enumeration<AllergyIntoleranceCategory> getCategoryElement() { 
@@ -1920,27 +1815,6 @@ public class AllergyIntolerance extends DomainResource {
         if (this.category == null)
           this.category = new Enumeration<AllergyIntoleranceCategory>(new AllergyIntoleranceCategoryEnumFactory());
         this.category.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return a string code value for Category of the identified Substance.
-     */
-    public String getCategoryAsCode() { 
-      return this.category == null ? null : this.category.getValue();
-    }
-
-    /**
-     * @param value String value for Category of the identified Substance.
-     */
-    public AllergyIntolerance setCategoryAsCode(String value) throws FHIRException { 
-      if (!Utilities.noString(value)) 
-        this.category = null;
-      else {
-        if (this.category == null)
-          this.category = new Enumeration<AllergyIntoleranceCategory>(new AllergyIntoleranceCategoryEnumFactory());
-        this.category.setValue(AllergyIntoleranceCategory.fromCode(value));
       }
       return this;
     }
