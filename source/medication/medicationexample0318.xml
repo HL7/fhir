@@ -1,6 +1,55 @@
 <Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
+ xsi:schemaLocation="http://hl7.org/fhir ../../../Desktop/FHIR%20Examples/schema/medication.xsd"
+ xmlns="http://hl7.org/fhir">
    <id value="med0318"/>
-   <!-- TPN solution -->
- 
+  <isBrand value="false"/>
+  <product>
+    <form>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="385221006"/>
+        <display value="Injection emulsion"/>
+      </coding>
+    </form>
+    <ingredient>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/sid/ndc"/>
+          <code value="0338-1134-03"/>
+          <display value="Clinimix 4.25/10 sulfite-free (4.25% Amino Acid in 10% Dextrose) Injection, 1000ml"/>
+        </coding>
+      </itemCodeableConcept>
+    </ingredient>
+    <ingredient>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/sid/ndc"/>
+          <code value="0409-5779-01"/>
+          <display value="TPN Electrolytes SODIUM CHLORIDE, CALCIUM CHLORIDE, POTASSIUM CHLORIDE, MAGNESIUM CHLORIDE, and SODIUM ACETATE ANHYDROUS | INJECTION, SOLUTION, CONCENTRATE | 321 mg/20mL, 331 mg/20mL, 1491 mg/20mL, 508 mg/20mL, 2420 mg/20mL"/>
+        </coding>
+      </itemCodeableConcept>
+    </ingredient>
+    <ingredient>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/sid/ndc"/>
+          <code value="0338-0519-02"/>
+          <display value="Intralipid 20% IV Fat Emulsion"/>
+        </coding>
+      </itemCodeableConcept>
+    </ingredient>
+    <batch>
+      <lotNumber value="123455"/>
+      <expirationDate value="2016-07-09"/>
+    </batch>
+  </product>
+  <package>
+    <container>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="470037004"/>
+        <display value="Intravenous Fluid container, single-use"/>
+      </coding>
+    </container>
+  </package>
 </Medication>
