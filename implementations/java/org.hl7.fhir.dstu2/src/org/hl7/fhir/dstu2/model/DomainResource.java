@@ -124,6 +124,15 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
       return false;
     }
 
+    public DomainResource addContained(Resource t) { //3
+      if (t == null)
+        return this;
+      if (this.contained == null)
+        this.contained = new ArrayList<Resource>();
+      this.contained.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #contained} (These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.)
      */
