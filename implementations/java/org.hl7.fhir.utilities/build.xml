@@ -5,23 +5,125 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="org.hl7.fhir.utilities">
     <property environment="env"/>
-    <property name="org.hl7.fhir.implementation.location" value="../../../tools/java/org.hl7.fhir.dstu2"/>
+    <property name="com.healthintersections.ihc.utils.location" value="../../../../../com.healthintersections.fhir/ihc/project"/>
+    <property name="org.hl7.fhir.convertors.location" value="../org.hl7.fhir.convertors"/>
+    <property name="org.hl7.fhir.dstu2.location" value="../org.hl7.fhir.dstu2"/>
+    <property name="org.hl7.fhir.dstu3.location" value="../../../tools/java/org.hl7.fhir.dstu3"/>
+    <property name="org.hl7.fhir.igtools.location" value="../../../tools/java/org.hl7.fhir.igtools"/>
+    <property name="org.hl7.fhir.rdf.location" value="../org.hl7.fhir.rdf"/>
     <property name="org.hl7.fhir.tools.location" value="../../../tools/java/org.hl7.fhir.tools.core"/>
+    <property name="org.hl7.fhir.ui.location" value="../../../tools/java/org.hl7.fhir.ui"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../tools/eclipse/eclipse/"/>
     <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.6"/>
-    <property name="source" value="1.6"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
     <path id="org.hl7.fhir.utilities.classpath">
-	<fileset dir="../../../tools/java/imports" includes="*.jar"/>
+        <pathelement location="bin"/>
+        <pathelement location="../../../tools/java/imports/xpp3_xpath-1.1.4c.jar"/>
+        <pathelement location="../../../tools/java/imports/xpp3-1.1.4c.jar"/>
+        <pathelement location="../../../tools/java/imports/commons-io-1.2.jar"/>
+        <pathelement location="../../../tools/java/imports/commons-codec-1.9.jar"/>
+        <pathelement location="../../../tools/java/imports/Saxon-HE-9.5.1-5.jar"/>
+        <pathelement location="../../../tools/java/imports/txtmark-0.11.jar"/>
+        <pathelement location="../../../tools/java/imports/hapi-fhir-base-1.3.jar"/>
     </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
     <target name="clean">
         <delete dir="bin"/>
     </target>
-    <target depends="clean" name="build-project">
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
-        <mkdir dir="bin"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
             <classpath refid="org.hl7.fhir.utilities.classpath"/>
         </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+        <ant antfile="build.xml" dir="${com.healthintersections.ihc.utils.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${com.healthintersections.ihc.utils.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.convertors.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.convertors.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.dstu2.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.dstu2.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.dstu3.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.dstu3.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.igtools.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.igtools.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.tools.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.tools.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.ui.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.ui.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="BOMRemover">
+        <java classname="org.hl7.fhir.utilities.tests.BOMRemover" failonerror="true" fork="yes">
+            <classpath refid="org.hl7.fhir.utilities.classpath"/>
+        </java>
+    </target>
+    <target name="ScriptedPageProcessorTests">
+        <java classname="org.hl7.fhir.utilities.tests.ScriptedPageProcessorTests" failonerror="true" fork="yes">
+            <classpath refid="org.hl7.fhir.utilities.classpath"/>
+        </java>
+    </target>
+    <target name="XLSXmlGeneratorTests">
+        <java classname="org.hl7.fhir.utilities.tests.XLSXmlGeneratorTests" failonerror="true" fork="yes">
+            <classpath refid="org.hl7.fhir.utilities.classpath"/>
+        </java>
     </target>
 </project>

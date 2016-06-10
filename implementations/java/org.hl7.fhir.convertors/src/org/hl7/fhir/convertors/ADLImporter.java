@@ -134,7 +134,7 @@ public class ADLImporter {
 		sd.setDescription(XMLUtil.getNamedChild(details, "purpose").getTextContent());
 		sd.setCopyright(XMLUtil.getNamedChild(details, "copyright").getTextContent());
 		sd.setRequirements("Use:\r\n"+XMLUtil.getNamedChild(details, "use").getTextContent()+"\r\n\r\nMisuse:\r\n"+XMLUtil.getNamedChild(details, "misuse").getTextContent());
-		List<Element> set = new ArrayList<>();
+		List<Element> set = new ArrayList<Element>();
 		XMLUtil.getNamedChildren(details, "keywords", set);
 		for (Element e : set) 
 			sd.addCode().setDisplay(e.getTextContent());
@@ -197,7 +197,7 @@ public class ADLImporter {
 
 	private Element findTypeElement(String typeName) throws Exception {
 		Element dataTypes = XMLUtil.getNamedChild(adlConfig, "dataTypes");
-		List<Element> set = new ArrayList<>();
+		List<Element> set = new ArrayList<Element>();
   	XMLUtil.getNamedChildren(dataTypes, "dataType", set);
   	for (Element e : set) {
   		if (typeName.equals(e.getAttribute("name")))
@@ -218,7 +218,7 @@ public class ADLImporter {
 	}
 
 	private void loadChildren(String path, NodeTreeEntry parent, Element attributes) throws DOMException, Exception {
-		List<Element> set = new ArrayList<>();
+		List<Element> set = new ArrayList<Element>();
   	XMLUtil.getNamedChildren(attributes, "children", set);
 		for (Element e : set) {
 			NodeTreeEntry item = new NodeTreeEntry();
@@ -294,7 +294,7 @@ public class ADLImporter {
 	private void processTextItem(Element item) throws Exception {
     String atcode = item.getAttribute("code");
     TextSet ts = new TextSet();
-		List<Element> set = new ArrayList<>();
+		List<Element> set = new ArrayList<Element>();
   	XMLUtil.getNamedChildren(item, "items", set);
 		for (Element e : set) {
 			String code = e.getAttribute("id");

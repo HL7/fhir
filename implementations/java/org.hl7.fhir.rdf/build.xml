@@ -8,8 +8,8 @@
   <property name="org.hl7.fhir.tools.location" value="../../../tools/java/org.hl7.fhir.tools.core"/>
   <property name="org.hl7.fhir.utilities.location" value="../org.hl7.fhir.utilities"/>
   <property name="debuglevel" value="source,lines,vars"/>
-  <property name="target" value="1.6"/>
-  <property name="source" value="1.6"/>
+  <property name="target" value="1.8"/>
+  <property name="source" value="1.8"/>
   <path id="org.hl7.fhir.utilities.classpath">
     <pathelement location="${org.hl7.fhir.utilities.location}/bin"/>
   </path>
