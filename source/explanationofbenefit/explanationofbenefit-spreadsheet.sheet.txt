@@ -627,12 +627,12 @@
   Element = ExplanationOfBenefit.information
   Card. = 0..*
   UML = 740;0
-  Type = =Information
+  Type = =SpecialCondition
   Definition = Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
   Requirements = Typically these information codes are required to support the services rendered or the adjudication of the services rendered.
 
  -- Row 34 -----------------------------------
-  Element = ExplanationOfBenefit.information.category
+  Element = !ExplanationOfBenefit.information.category
   Card. = 1..1
   Type = Coding
   Binding = InformationCategory
@@ -957,14 +957,14 @@
   Definition = Onset typifications eg. Start of pregnancy, start of illnes, etc.
 
  -- Row 77 -----------------------------------
-  Element = !ExplanationOfBenefit.employmentImpacted
+  Element = ExplanationOfBenefit.employmentImpacted
   Card. = 0..1
   Type = Period
   Short Label = Period unable to work
   Definition = The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).
 
  -- Row 78 -----------------------------------
-  Element = !ExplanationOfBenefit.hospitalization
+  Element = ExplanationOfBenefit.hospitalization
   Card. = 0..1
   Type = Period
   Short Label = Period in hospital
