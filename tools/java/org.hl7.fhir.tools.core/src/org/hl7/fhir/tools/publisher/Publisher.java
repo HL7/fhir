@@ -973,8 +973,13 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
     if (!Utilities.noString(filename))
       profile.getResource().setUserData("filename", filename+".html");
-    if (Utilities.noString(profile.getResource().getUserString("path")))
-      profile.getResource().setUserData("path", filename+".html");
+    if (Utilities.noString(profile.getResource().getUserString("path"))) {
+      String path = "";
+      ImplementationGuideDefn ig = page.getDefinitions().getUsageIG(ap.getCategory(), "processProfile");
+      if (ig!=null && !ig.isCore())
+          path = ig.getCode() + File.separator; 
+      profile.getResource().setUserData("path", path + filename+".html");
+    }
   }
 
   public StructureDefinition getSnapShotForProfile(String base) throws Exception {
@@ -2615,8 +2620,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       i++;
       if (!e.hasFullUrl())
         page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "no Full URL on entry "+Integer.toString(i),IssueSeverity.ERROR));
+      else if (!e.getFullUrl().endsWith("/"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId()) && e.getResource().getResourceType() != ResourceType.CodeSystem)
+        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "URL doesn't match resource and id on entry "+Integer.toString(i)+" : "+e.getFullUrl()+" should end with /"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId(),IssueSeverity.ERROR));
       else if (!e.getFullUrl().equals("http://hl7.org/fhir/"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId()) && e.getResource().getResourceType() != ResourceType.CodeSystem)
-        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "URL mismatch on entry "+Integer.toString(i)+" : "+e.getFullUrl()+" vs "+"http://hl7.org/fhir/"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId(),IssueSeverity.ERROR));
+        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "URL is non-FHIR "+Integer.toString(i)+" : "+e.getFullUrl()+" should start with http://hl7.org/fhir/ for HL7-defined artifacts",IssueSeverity.WARNING));
     }
   }
 
