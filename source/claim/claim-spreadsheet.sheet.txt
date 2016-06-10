@@ -505,7 +505,7 @@
  -- Row 18 -----------------------------------
   Element = Claim.related
   Card. = 0..*
-  UML = 740;135
+  UML = 740;100
   Type = =RelatedClaim
   Short Label = Related Claims which may be revelant to processing this claimn
   Definition = Other claims which are related to this claim such as prior claim versions or for related services.
@@ -626,12 +626,12 @@
   Element = Claim.information
   Card. = 0..*
   UML = 740;0
-  Type = =Information
+  Type = =SpecialCondition
   Definition = Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
   Requirements = Typically these information codes are required to support the services rendered or the adjudication of the services rendered.
 
  -- Row 36 -----------------------------------
-  Element = Claim.information.category
+  Element = !Claim.information.category
   Card. = 1..1
   Type = Coding
   Binding = InformationCategory
@@ -649,7 +649,7 @@
   Comments = This may contain the local bill type codes such as the US UB-04 bill type code.
 
  -- Row 38 -----------------------------------
-  Element = Claim.information.reason
+  Element = !Claim.information.reason
   Card. = 0..1
   Type = Coding
   Binding = InformationReason
@@ -806,7 +806,7 @@
  -- Row 60 -----------------------------------
   Element = Claim.coverage
   Card. = 0..*
-  UML = 740;230
+  UML = 740;210
   Type = =Coverage
   Short Label = Insurance or medical plan
   Definition = Financial instrument by which payment information for health care
@@ -838,7 +838,7 @@
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
 
  -- Row 64 -----------------------------------
-  Element = !Claim.coverage.businessArrangement
+  Element = Claim.coverage.businessArrangement
   Card. = 0..1
   Type = string
   Short Label = Business agreement
@@ -982,14 +982,14 @@
   Definition = Nature of the related event eg. Last exam, service, Xray etc.
 
  -- Row 83 -----------------------------------
-  Element = !Claim.employmentImpacted
+  Element = Claim.employmentImpacted
   Card. = 0..1
   Type = Period
   Short Label = Period unable to work
   Definition = The start and optional end dates of when the patient was precluded from working due to the treatable condition(s)
 
  -- Row 84 -----------------------------------
-  Element = !Claim.hospitalization
+  Element = Claim.hospitalization
   Card. = 0..1
   Type = Period
   Short Label = Period in hospital

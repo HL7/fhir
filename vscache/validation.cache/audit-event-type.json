@@ -2,47 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/audit-event-type",
   "outcomes": [
     {
-      "hash": "|http://nema.org/dicom/dicm|null|110100|Application Activity",
+      "hash": "|http://hl7.org/fhir/audit-event-type|null|rest|Restful Operation",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "110100",
+        "code": null,
         "definition": null,
-        "display": "Application Activity"
-      }
-    },
-    {
-      "hash": "|http://nema.org/dicom/dicm|null|110106|Export",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "110106",
-        "definition": null,
-        "display": "Export"
-      }
-    },
-    {
-      "hash": "|http://nema.org/dicom/dicm|null|110112|Query",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "110112",
-        "definition": null,
-        "display": "Query"
-      }
-    },
-    {
-      "hash": "|http://nema.org/dicom/dicm|null|110114|User Authentication",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "110114",
-        "definition": null,
-        "display": "User Authentication"
+        "display": "RESTful Operation"
       }
     }
   ]
