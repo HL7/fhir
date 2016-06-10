@@ -3,55 +3,21 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="org.hl7.fhir.dstu3">
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="org.hl7.fhir.dstu21">
     <property environment="env"/>
-    <property name="com.healthintersections.ihc.utils.location" value="../../../../../com.healthintersections.fhir/ihc/project"/>
-    <property name="org.hl7.fhir.convertors.location" value="../../../implementations/java/org.hl7.fhir.convertors"/>
-    <property name="org.hl7.fhir.igtools.location" value="../org.hl7.fhir.igtools"/>
-    <property name="org.hl7.fhir.rdf.location" value="../../../implementations/java/org.hl7.fhir.rdf"/>
     <property name="org.hl7.fhir.tools.location" value="../org.hl7.fhir.tools.core"/>
-    <property name="org.hl7.fhir.ui.location" value="../org.hl7.fhir.ui"/>
-    <property name="ECLIPSE_HOME" value="../../../../../../tools/eclipse/eclipse/"/>
-    <property name="junit.output.dir" value="junit"/>
     <property name="org.hl7.fhir.utilities.location" value="../../../implementations/java/org.hl7.fhir.utilities"/>
     <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.8"/>
-    <property name="source" value="1.8"/>
+  <property name="target" value="1.8"/>
+  <property name="source" value="1.8"/>
     <path id="org.hl7.fhir.utilities.classpath">
         <pathelement location="${org.hl7.fhir.utilities.location}/bin"/>
-        <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/xpp3_xpath-1.1.4c.jar"/>
-        <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/xpp3-1.1.4c.jar"/>
-        <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/commons-io-1.2.jar"/>
-        <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/commons-codec-1.9.jar"/>
-        <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/Saxon-HE-9.5.1-5.jar"/>
-        <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/txtmark-0.11.jar"/>
-        <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/hapi-fhir-base-1.3.jar"/>
+    <fileset dir="../imports" includes="*.jar"/>
     </path>
-    <path id="JUnit 4.libraryclasspath">
-        <pathelement location="../../../../../../Users/Grahame Grieve/.p2/pool/plugins/org.junit_4.12.0.v201504281640/junit.jar"/>
-        <pathelement location="../../../../../../Users/Grahame Grieve/.p2/pool/plugins/org.hamcrest.core_1.3.0.v201303031735.jar"/>
-    </path>
-    <path id="org.hl7.fhir.dstu3.classpath">
+  <path id="org.hl7.fhir.dstu21.classpath">
         <pathelement location="bin"/>
-        <pathelement location="../imports/commons-codec-1.9.jar"/>
-        <pathelement location="../imports/xpp3_xpath-1.1.4c.jar"/>
-        <pathelement location="../imports/xpp3-1.1.4c.jar"/>
+    <fileset dir="../imports" includes="*.jar"/>
         <path refid="org.hl7.fhir.utilities.classpath"/>
-        <path refid="JUnit 4.libraryclasspath"/>
-        <pathelement location="../imports/commons-httpclient-3.0.1.jar"/>
-        <pathelement location="../imports/httpclient-4.2.3.jar"/>
-        <pathelement location="../imports/httpcore-4.2.2.jar"/>
-        <pathelement location="../imports/httpmime-4.2.3.jar"/>
-        <pathelement location="../imports/commons-io-1.2.jar"/>
-        <pathelement location="../imports/commons-lang3-3.3.2.jar"/>
-        <pathelement location="../imports/gson-2.3.jar"/>
-        <pathelement location="../imports/txtmark-0.11.jar"/>
-        <pathelement location="../imports/rhino-1.8R4.jar"/>
-        <pathelement location="../imports/pegdown-1.5.0.jar"/>
-        <pathelement location="../imports/commons-logging-1.1.1.jar"/>
-        <pathelement location="../imports/commons-logging-api-1.1.jar"/>
-        <pathelement location="../imports/hapi-fhir-base-1.3.jar"/>
-        <pathelement location="../imports/ST4-4.0.7.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -77,151 +43,24 @@
     </target>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+    <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" 
+			encoding="UTF-8" source="${source}" target="${target}">
             <src path="src"/>
-            <classpath refid="org.hl7.fhir.dstu3.classpath"/>
+      <include name="**"/>
+      <exclude name="**/test/**/*Test.java"/>
+      <classpath refid="org.hl7.fhir.dstu21.classpath"/>
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
-        <ant antfile="build.xml" dir="${com.healthintersections.ihc.utils.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${com.healthintersections.ihc.utils.location}" inheritAll="false" target="build">
-            <propertyset>
-                <propertyref name="build.compiler"/>
-            </propertyset>
-        </ant>
-        <ant antfile="build.xml" dir="${org.hl7.fhir.convertors.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${org.hl7.fhir.convertors.location}" inheritAll="false" target="build">
-            <propertyset>
-                <propertyref name="build.compiler"/>
-            </propertyset>
-        </ant>
-        <ant antfile="build.xml" dir="${org.hl7.fhir.igtools.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${org.hl7.fhir.igtools.location}" inheritAll="false" target="build">
-            <propertyset>
-                <propertyref name="build.compiler"/>
-            </propertyset>
-        </ant>
-        <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="build">
-            <propertyset>
-                <propertyref name="build.compiler"/>
-            </propertyset>
-        </ant>
         <ant antfile="build.xml" dir="${org.hl7.fhir.tools.location}" inheritAll="false" target="clean"/>
         <ant antfile="build.xml" dir="${org.hl7.fhir.tools.location}" inheritAll="false" target="build">
             <propertyset>
                 <propertyref name="build.compiler"/>
             </propertyset>
         </ant>
-        <ant antfile="build.xml" dir="${org.hl7.fhir.ui.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${org.hl7.fhir.ui.location}" inheritAll="false" target="build">
-            <propertyset>
-                <propertyref name="build.compiler"/>
-            </propertyset>
-        </ant>
-    </target>
-    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
-        <copy todir="${ant.library.dir}">
-            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
-        </copy>
-        <unzip dest="${ant.library.dir}">
-            <patternset includes="jdtCompilerAdapter.jar"/>
-            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
-        </unzip>
     </target>
     <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
-    </target>
-    <target name="AllTests">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="org.hl7.fhir.dstu3.test.AllTests" todir="${junit.output.dir}"/>
-            <classpath refid="org.hl7.fhir.dstu3.classpath"/>
-        </junit>
-    </target>
-    <target name="FluentPathTests">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="org.hl7.fhir.dstu3.test.FluentPathTests" todir="${junit.output.dir}"/>
-            <classpath refid="org.hl7.fhir.dstu3.classpath"/>
-        </junit>
-    </target>
-    <target name="InstanceValidatorTests">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="org.hl7.fhir.dstu3.test.InstanceValidatorTests" todir="${junit.output.dir}"/>
-            <classpath refid="org.hl7.fhir.dstu3.classpath"/>
-        </junit>
-    </target>
-    <target name="ParserTests">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="org.hl7.fhir.dstu3.test.ParserTests" todir="${junit.output.dir}"/>
-            <classpath refid="org.hl7.fhir.dstu3.classpath"/>
-        </junit>
-    </target>
-    <target name="ProfileUtilitiesTests (1)">
-        <java classname="org.hl7.fhir.dstu3.test.ProfileUtilitiesTests" failonerror="true" fork="yes">
-            <classpath refid="org.hl7.fhir.dstu3.classpath"/>
-        </java>
-    </target>
-    <target name="ShexGeneratorTests">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="org.hl7.fhir.dstu3.test.ShexGeneratorTests" todir="${junit.output.dir}"/>
-            <classpath refid="org.hl7.fhir.dstu3.classpath"/>
-        </junit>
-    </target>
-    <target name="SingleTest">
-        <java classname="org.hl7.fhir.dstu3.test.scratch.SingleTest" failonerror="true" fork="yes">
-            <classpath refid="org.hl7.fhir.dstu3.classpath"/>
-        </java>
-    </target>
-    <target name="StructureMapTests">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="org.hl7.fhir.dstu3.test.StructureMapTests" todir="${junit.output.dir}"/>
-            <classpath refid="org.hl7.fhir.dstu3.classpath"/>
-        </junit>
-    </target>
-    <target name="Tester">
-        <java classname="org.hl7.fhir.dstu3.elementmodel.Tester" failonerror="true" fork="yes">
-            <classpath refid="org.hl7.fhir.dstu3.classpath"/>
-        </java>
-    </target>
-    <target name="TurtleTests">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="org.hl7.fhir.dstu3.test.TurtleTests" todir="${junit.output.dir}"/>
-            <classpath refid="org.hl7.fhir.dstu3.classpath"/>
-        </junit>
-    </target>
-    <target name="Validator (2)">
-        <java classname="org.hl7.fhir.dstu3.validation.Validator" failonerror="true" fork="yes">
-            <arg line="&quot;C:\Users\Grahame Grieve\Downloads\Questionnaire - MRI Rectal Tumour_June_2015.xml&quot; -defn  C:\work\org.hl7.fhir\build\publish\validation-min.xml.zip"/>
-            <classpath refid="org.hl7.fhir.dstu3.classpath"/>
-        </java>
-    </target>
-    <target name="Validator">
-        <java classname="org.hl7.fhir.dstu3.validation.Validator" failonerror="true" fork="yes">
-            <arg line="&quot;C:\Dropbox\Health Intersections\NEHTA\Clinical Informatics\SharedHealthSummary_3A_Max.xml&quot; -defn C:\work\org.hl7.fhir\build\publish\validation-min.xml.zip -logical C:\temp\cda-fhir\cda-bundle.xml"/>
-            <classpath refid="org.hl7.fhir.dstu3.classpath"/>
-        </java>
-    </target>
-    <target name="junitreport">
-        <junitreport todir="${junit.output.dir}">
-            <fileset dir="${junit.output.dir}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${junit.output.dir}"/>
-        </junitreport>
     </target>
 </project>
