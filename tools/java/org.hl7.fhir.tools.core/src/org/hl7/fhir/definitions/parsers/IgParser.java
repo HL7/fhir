@@ -181,7 +181,7 @@ public class IgParser {
             lm.setId(sd.getId());
             igd.getLogicalModels().add(lm);        
             
-          } else if ("extension".equals(sd.getBaseType())) {
+          } else if ("Extension".equals(sd.getBaseType())) {
             sd.setId(tail(sd.getUrl()));
             sd.setUserData(ToolResourceUtilities.NAME_RES_IG, igd.getCode());
             ToolResourceUtilities.updateUsage(sd, igd.getCode());
@@ -193,7 +193,8 @@ public class IgParser {
             pr.setTitle(sd.getName());
             if (!sd.hasId())
               sd.setId(tail(sd.getUrl()));
-            sd.setUrl("http://hl7.org/fhir/StructureDefinition/"+sd.getId());
+//Lloyd: This causes issues for profiles & extensions defined outside of HL7
+//            sd.setUrl("http://hl7.org/fhir/StructureDefinition/"+sd.getId());
             pr.forceMetadata("id", sd.getId()+"-profile");
             pr.setSourceType(ConformancePackageSourceType.SturctureDefinition);
             ConstraintStructure cs = new ConstraintStructure(sd, igd);
@@ -204,7 +205,8 @@ public class IgParser {
           Dictionary d = new Dictionary(id, r.getName(), igd.getCode(), fn.getAbsolutePath(), igd);
           igd.getDictionaries().add(d);
         } else 
-          throw new Error("Not implemented yet - type = "+rt.toString());
+          logger.log("Implementation Guides do not yet support "+rt.toString(), LogMessageType.Process);
+//          throw new Error("Not implemented yet - type = "+rt.toString());
 
 
         //        if (r.hasExampleFor()) {
