@@ -1,0 +1,13 @@
+{
+	"source": "test-ig.xml",
+	"canonicalBase": "http://hl7.org/fhir/test",
+	"resources": {
+		"StructureDefinition/test-ig-pr": {
+			"defns": "test.html",
+			"base": "test-logical.html"
+		},
+		"CodeSystem/test-ig-cs": {
+			"base": "codesystems.html#test-ig-cs"
+		}
+	}
+}
