@@ -21,7 +21,6 @@ import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.CompartmentDefinition;
-import org.hl7.fhir.dstu3.test.ResourceTest;
 import org.hl7.fhir.exceptions.FHIRException;
 
 public class DSTU2ValidationConvertor implements VersionConvertorAdvisor {
