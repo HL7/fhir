@@ -73,6 +73,7 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 
 import org.apache.commons.io.IOUtils;
+import org.hl7.fhir.convertors.VersionConvertor;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
@@ -214,6 +215,7 @@ import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.rdf.RDFValidator;
 import org.hl7.fhir.rdf.ShExValidator;
 import org.hl7.fhir.tools.converters.CDAGenerator;
+import org.hl7.fhir.tools.converters.DSTU2ValidationConvertor;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
 import org.hl7.fhir.tools.converters.ValueSetImporterV3;
 import org.hl7.fhir.tools.implementations.XMLToolsGenerator;
@@ -2353,7 +2355,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       produceSpecMap();
 
       page.log("....validator", LogMessageType.Process);
-      ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "validation.xml.zip");
+      ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "definitions.xml.zip");
       zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml", false);
       zip.addFileName("profiles-resources.xml", page.getFolders().dstDir + "profiles-resources.xml", false);
       zip.addFileName("profiles-others.xml", page.getFolders().dstDir + "profiles-others.xml", false);
@@ -2364,13 +2366,35 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml", false);
       zip.addFileName("conceptmaps.xml", page.getFolders().dstDir + "conceptmaps.xml", false);
       zip.addFileName("dataelements.xml", page.getFolders().dstDir + "dataelements.xml", false);
-      zip.addFiles(page.getFolders().dstDir, "", ".xsd", null);
-      zip.addFiles(page.getFolders().dstDir, "", ".sch", null);
-      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xsl", null);
-      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xslt", null);
       zip.close();
 
-      zip = new ZipGenerator(page.getFolders().dstDir + "validation.json.zip");
+      page.log("....dstu2 format", LogMessageType.Process);
+      DSTU2ValidationConvertor dstu2 = new DSTU2ValidationConvertor();
+      dstu2.convert(page.getFolders().dstDir + "profiles-types.xml", page.getFolders().tmpDir + "profiles-types-r2.xml");
+      dstu2.convert(page.getFolders().dstDir + "profiles-resources.xml", page.getFolders().tmpDir + "profiles-resources-r2.xml");
+      dstu2.convert(page.getFolders().dstDir + "profiles-others.xml", page.getFolders().tmpDir + "profiles-others-r2.xml");
+      dstu2.convert(page.getFolders().dstDir + "extension-definitions.xml", page.getFolders().tmpDir + "extension-definitions-r2.xml");
+      dstu2.convert(page.getFolders().dstDir + "search-parameters.xml", page.getFolders().tmpDir + "search-parameters-r2.xml");
+      dstu2.convert(page.getFolders().dstDir + "valuesets.xml", page.getFolders().tmpDir + "valuesets-r2.xml");
+      dstu2.convert(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().tmpDir + "v2-tables-r2.xml");
+      dstu2.convert(page.getFolders().dstDir + "v3-codesystems.xml", page.getFolders().tmpDir + "v3-codesystems-r2.xml");
+      dstu2.convert(page.getFolders().dstDir + "conceptmaps.xml", page.getFolders().tmpDir + "conceptmaps-r2.xml");
+      dstu2.convert(page.getFolders().dstDir + "dataelements.xml", page.getFolders().tmpDir + "dataelements-r2.xml");
+      
+      zip = new ZipGenerator(page.getFolders().dstDir + "definitions-r2.xml.zip");
+      zip.addFileName("profiles-types.xml", page.getFolders().tmpDir + "profiles-types-r2.xml", false);
+      zip.addFileName("profiles-resources.xml", page.getFolders().tmpDir + "profiles-resources-r2.xml", false);
+      zip.addFileName("profiles-others.xml", page.getFolders().tmpDir + "profiles-others-r2.xml", false);
+      zip.addFileName("extension-definitions.xml", page.getFolders().tmpDir + "extension-definitions-r2.xml", false);
+      zip.addFileName("search-parameters.xml", page.getFolders().tmpDir + "search-parameters-r2.xml", false);
+      zip.addFileName("valuesets.xml", page.getFolders().tmpDir + "valuesets-r2.xml", false);
+      zip.addFileName("v2-tables.xml", page.getFolders().tmpDir + "v2-tables-r2.xml", false);
+      zip.addFileName("v3-codesystems.xml", page.getFolders().tmpDir + "v3-codesystems-r2.xml", false);
+      zip.addFileName("conceptmaps.xml", page.getFolders().tmpDir + "conceptmaps-r2.xml", false);
+      zip.addFileName("dataelements.xml", page.getFolders().tmpDir + "dataelements-r2.xml", false);
+      zip.close();
+
+      zip = new ZipGenerator(page.getFolders().dstDir + "definitions.json.zip");
       zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json", false);
       zip.addFileName("profiles-resources.json", page.getFolders().dstDir + "profiles-resources.json", false);
       zip.addFileName("profiles-others.json", page.getFolders().dstDir + "profiles-others.json", false);

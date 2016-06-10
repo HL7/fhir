@@ -18,39 +18,79 @@
 <table class="lines">
 
   <tr>
-    <td colspan="2" style="background: #eeeeee"><b>Formal Definitions</b></td>
-  </tr>
-
-  <tr>
-    <td>XML Schema</td>
-    <td>
-      The FHIR XML schemas come in 2 forms: 
-      <ul>
-       <li><a href="fhir-all-xsd.zip">Validation Schemas</a> (includes support schemas, resource schemas, modular &amp; combined schemas, and Schematrons)</li>
-       <li><a href="fhir-codegen-xsd.zip">Code Generation Schemas</a> (See <a href="xml.html#schema-gen">notes about code-generation schemas</a>)</li>
-      </ul>
-      Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources valid. Implementers 
-      will still need to be familiar with the content of the specification and with any <a href="profiling.html">profiles that apply to the resources</a> in order to make a conformant implementation.
-    </td>
-  </tr>
-
-  <tr>
-    <td>JSON Schema</td>
-    <td><a href="fhir.schema.json.zip">JSON Schemas</a> (includes both modular and combined schema)<br/>
-      Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources valid. Implementers 
-      will still need to be familiar with the content of the specification and with any <a href="profiling.html">profiles that apply to the resources</a> in order to make a conformant implementation.
-    </td>
+    <td colspan="2" style="background: #eeeeee"><b>Specification Downloads</b></td>
   </tr>
 
   <tr>
     <td>FHIR Definitions</td>
-    <td>All the value sets, profiles, etc.defined as part of the FHIR specification, and the included implementation guides. The definitions come in 4 different forms - XML or JSON, and with and without text definitions:
-    <ul>
-     <li>XML: <a href="validation.xml.zip">with text</a> and <a href="validation-min.xml.zip">without text</a></li>
-     <li>JSON: <a href="validation.json.zip">with text</a> and <a href="validation-min.json.zip">without text</a></li>
-    </ul>
-    Note that the forms without definitions are included to be used with tools that don't use the text definitions (e.g. validation tooling) - they are smaller and load faster
+    <td>All the value sets, profiles, etc.defined as part of the FHIR specification, and the included implementation guides:
+      <ul>
+       <li><a href="definitions.xml.zip">XML</a></li>
+       <li><a href="definitions.json.zip">JSON</a></li>
+       <li><a href="definitions-r2.xml.zip">Forge</a>: Special version of definitions for <a href="http://fhir.furore.com/Forge">Forge</a> (temporary)</li>
+      </ul>    
+      These is the master set of definitions that should be the first choice whenever generating any implementation artefacts. All
+      the other forms below include only subsets of the information available in these definition files, and do not contain all of the rules about what makes resources valid. Implementers 
+      will still need to be familiar with the content of the specification and with any <a href="profiling.html">profiles that apply to the resources</a> in order to make a conformant implementation.   
     </td>
+  </tr>
+  <tr>
+    <td colspan="2"><hr/></td>
+  </tr>
+
+  <tr>
+    <td>XML</td>
+    <td>
+      <ul>
+       <li><a href="examples.zip">Examples</a> - all the example resources in XML format</li>
+       <li><a href="fhir-all-xsd.zip">Validation Schemas</a> (includes support schemas, resource schemas, modular &amp; combined schemas, and Schematrons)</li>
+       <li><a href="fhir-codegen-xsd.zip">Code Generation Schemas</a> (See <a href="xml.html#schema-gen">notes about code-generation schemas</a>)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><hr/></td>
+  </tr>
+
+  <tr>
+    <td>JSON</td>
+    <td>
+      <ul>
+       <li><a href="examples-json.zip">Examples</a> - all the example resources in JSON format</li>
+       <li><a href="fhir.schema.json.zip">JSON Schemas</a> (includes both modular and combined schema)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><hr/></td>
+  </tr>
+
+  <tr>
+    <td>RDF</td>
+    <td>
+      <ul>
+       <li><a href="examples-ttl.zip">Examples</a> - all the example resources in Turtle format</li>
+       <li><a href="fhir.schema.shex.zip">ShEx Schemas</a> - <a href="https://www.w3.org/2001/sw/wiki/ShEx">ShEx</a> definitions for validating RDF resources</li>
+       <li><a href="fhir.rdf.ttl.zip">Definitions</a> - the formal definitions that define the predicates and classes used in the RDF format (not up to date)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><hr/></td>
+  </tr>
+  
+  <tr>
+    <td>FHIR Specification</td>
+    <td><a href="fhir-spec.zip">The whole specification</a> so that you can host your own local copy (does not include the downloads)</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" style="background: #eeeeee"><b>Implementation Tools</b></td>
+  </tr>
+ 
+  <tr>
+    <td>Validator</td>
+    <td>The <a href="validator.zip">official FHIR validator</a> - a Java jar file that can be used to validate resources. See <a href="validation.html">Validation Tools</a> for further information</td>
   </tr>
 
   <tr>
@@ -59,62 +99,13 @@
   </tr>
 
   <tr>
-    <td>Examples</td>
-    <td>All the resource examples as a zip file. These can be used to initialise testing repositories, etc
-    <ul>
-     <li><a href="examples.zip">XML format</a></li>
-     <li><a href="examples-json.zip">JSON format</a></li>
-    </ul>
-    </td>
+    <td>Translation File</td>
+    <td><a href="translations.xml">Translations of common FHIR names and messages</a> into multiple languages (see <a href="http://wiki.hl7.org/index.php?title=FHIR_Implementation_Page">wiki</a> for instructions on how to add to this)</td>
   </tr>
 
   <tr>
-    <td>RDF</td>
-    <td>A set of RDF definitions for FHIR and related specifications in 2 formats:
-     <ul>
-      <li><a href="fhir.rdf.ttl.zip">Turtle</a></li>
-      <li><a href="fhir.rdf.xml.zip">RDF/XML</a></li>
-     </ul>
-     + <a href="https://www.w3.org/2001/sw/wiki/ShEx">ShEx</a> definitions for <a href="fhir.shex">all resources</a>.
-    </td>
-  </tr>
-
-  <tr>
-    <td colspan="2" style="background: #eeeeee"><b>Specification Downloads</b></td>
-  </tr>
-<!--
-  <tr>
-    <td><a href="fhir-v<%version%>.epub">FHIR Book</a></td>
-    <td>The FHIR Specification as an e-book for convenient reading. Help for handling epub: 
-    <a href="http://pcsupport.about.com/od/fileextensions/f/epubfile.htm">PC</a>, 
-    <a href="http://support.safaribooksonline.com/view?id=1168">OSX</a>, 
-    <a href="http://ipadacademy.com/2012/01/ipad-tutorial-how-to-load-and-open-epub-pdf-ebooks-on-your-ipad">iOS</a>, 
-    <a href="http://just-ask-kim.com/epub-ebook-android/">Android</a>,
-    <a href="http://askubuntu.com/questions/14378/what-software-can-i-use-to-view-epub-documents">Linux</a></td>
-  </tr>
--->
-  <tr>
-    <td><a href="fhir-spec.zip">FHIR Specification</a></td>
-    <td>The whole specification so that you can host your own local copy (does not include the downloads)</td>
-  </tr>
-
-  <tr>
-    <td colspan="2" style="background: #eeeeee"><b>Implementation Tools</b></td>
-  </tr>
- 
-  <tr>
-    <td><a href="validator.zip">Validator</a></td>
-    <td>The official FHIR validator - a Java jar file that can be used to validate resources. See <a href="validation.html">Validation Tools</a> for further information. Note that the validator needs a Definition Pack (see next download)</td>
-  </tr>
-
-  <tr>
-    <td><a href="translations.xml">Translation File</a></td>
-    <td>Translations of common FHIR names and messages into multiple languages (see <a href="http://wiki.hl7.org/index.php?title=FHIR_Implementation_Page">wiki</a> for instructions on how to add to this)</td>
-  </tr>
-
-  <tr>
-    <td><a href="icon-pack.zip">Icon Pack</a></td>
-    <td>The FHIR Icon at various resolutions. Any FHIR Implementation created by an organization that has attended a connectathon is allowed to use the FHIR icon in association with the application (this policy will be reviewed in the future).</td>
+    <td>Icon Pack</td>
+    <td>The <a href="icon-pack.zip">FHIR Icon at various resolutions</a>. Any FHIR Implementation created by an organization that has attended a connectathon is allowed to use the FHIR icon in association with the application (this policy will be reviewed in the future).</td>
   </tr>
 
   <tr>
