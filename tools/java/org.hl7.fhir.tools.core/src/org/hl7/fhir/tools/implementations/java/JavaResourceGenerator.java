@@ -2091,6 +2091,28 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           generateSetter(e, indent, className, tn, "long");
 	        generateSetter(e, indent, className, tn, "double");
 	      }
+	      // code sugar methods
+	      if (e.typeCode().equals("code")) {
+          jdoc(indent, "@return a string code value for "+e.getDefinition());
+          write(indent+"public "+simpleType+" get"+getTitle(getElementName(e.getName(), false))+"AsCode() { \r\n");
+          write(indent+"  return this."+getElementName(e.getName(), true)+" == null ? null : this."+getElementName(e.getName(), true)+".getValue();\r\n");
+          write(indent+"}\r\n");
+          write("\r\n");
+          
+          jdoc(indent, "@param value String value for "+e.getDefinition());
+          write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"AsCode(String value) throws FHIRException { \r\n");
+          write(indent+"  if (!Utilities.noString(value)) \r\n");
+          write(indent+"    this."+getElementName(e.getName(), true)+" = null;\r\n");
+          write(indent+"  else {\r\n");
+          write(indent+"    if (this."+getElementName(e.getName(), true)+" == null)\r\n");
+          write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"("+( tn.startsWith("Enum") ? "new "+tn.substring(12, tn.length()-1)+"EnumFactory()" : "")+");\r\n");
+          write(indent+"    this."+getElementName(e.getName(), true)+".setValue("+(tn.startsWith("Enum") ? tn.substring(12, tn.length()-1)+".fromCode(value)" : "value")+");\r\n");
+          write(indent+"  }\r\n");
+          write(indent+"  return this;\r\n");
+          write(indent+"}\r\n");
+          write("\r\n");
+          
+        }
 	      
 			} else {
         if (!onlySetter) {
