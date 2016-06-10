@@ -7,7 +7,6 @@
     <property environment="env"/>
     <property name="org.hl7.fhir.convertors.location" value="../org.hl7.fhir.convertors"/>
     <property name="org.hl7.fhir.tools.location" value="../../../tools/java/org.hl7.fhir.tools.core"/>
-    <property name="ECLIPSE_HOME" value="../../../../../../tools/eclipse/eclipse/"/>
     <property name="org.hl7.fhir.utilities.location" value="../org.hl7.fhir.utilities"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>
