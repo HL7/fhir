@@ -2368,6 +2368,19 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("dataelements.xml", page.getFolders().dstDir + "dataelements.xml", false);
       zip.close();
 
+      zip = new ZipGenerator(page.getFolders().dstDir + "definitions.json.zip");
+      zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json", false);
+      zip.addFileName("profiles-resources.json", page.getFolders().dstDir + "profiles-resources.json", false);
+      zip.addFileName("profiles-others.json", page.getFolders().dstDir + "profiles-others.json", false);
+      zip.addFileName("extension-definitions.json", page.getFolders().dstDir + "extension-definitions.json", false);
+      zip.addFileName("search-parameters.json", page.getFolders().dstDir + "search-parameters.json", false);
+      zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
+      zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json", false);
+      zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
+      zip.addFileName("conceptmaps.json", page.getFolders().dstDir + "conceptmaps.json", false);
+      zip.addFileName("dataelements.json", page.getFolders().dstDir + "dataelements.json", false);
+      zip.close();
+
       page.log("....dstu2 format", LogMessageType.Process);
       DSTU2ValidationConvertor dstu2 = new DSTU2ValidationConvertor();
       dstu2.convert(page.getFolders().dstDir + "profiles-types.xml", page.getFolders().tmpDir + "profiles-types-r2.xml");
@@ -2394,31 +2407,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("dataelements.xml", page.getFolders().tmpDir + "dataelements-r2.xml", false);
       zip.close();
 
-      zip = new ZipGenerator(page.getFolders().dstDir + "definitions.json.zip");
-      zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json", false);
-      zip.addFileName("profiles-resources.json", page.getFolders().dstDir + "profiles-resources.json", false);
-      zip.addFileName("profiles-others.json", page.getFolders().dstDir + "profiles-others.json", false);
-      zip.addFileName("extension-definitions.json", page.getFolders().dstDir + "extension-definitions.json", false);
-      zip.addFileName("search-parameters.json", page.getFolders().dstDir + "search-parameters.json", false);
-      zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
-      zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json", false);
-      zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
-      zip.addFileName("conceptmaps.json", page.getFolders().dstDir + "conceptmaps.json", false);
-      zip.addFileName("dataelements.json", page.getFolders().dstDir + "dataelements.json", false);
-      zip.addFiles(page.getFolders().dstDir, "", ".schema.json", null);
-      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xsl", null);
-      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xslt", null);
-      zip.close();
-
-      page.log("....validator-min", LogMessageType.Process);
-      minify(page.getFolders().dstDir + "validation.xml.zip", page.getFolders().dstDir + "validation-min.xml.zip");
-      minify(page.getFolders().dstDir + "validation.json.zip", page.getFolders().dstDir + "validation-min.json.zip");
 
       zip = new ZipGenerator(page.getFolders().dstDir + "validator.zip");
       zip.addFileName("readme.txt", Utilities.path(page.getFolders().srcDir, "tools", "readme.txt"), false);
       zip.addFileName("org.hl7.fhir.validator.jar", Utilities.path(page.getFolders().dstDir, "org.hl7.fhir.validator.jar"), false);
-//      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".zip", null); // saxon
-      // always make this last
       zip.close();
 
       zip = new ZipGenerator(page.getFolders().dstDir + "all-valuesets.zip");
