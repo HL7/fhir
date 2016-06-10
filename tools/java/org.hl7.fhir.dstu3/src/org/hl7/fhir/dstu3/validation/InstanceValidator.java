@@ -1238,9 +1238,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
   }
 
-  private Element getValueForDiscriminator(Element element, String discriminator, ElementDefinition criteria) {
-    // throw new Error("validation of slices not done yet");
-    return null;
+  private Element getValueForDiscriminator(Element element, String discriminator, ElementDefinition criteria) throws FHIRException {
+		throw new FHIRException("Validation of slices not done yet");
+		//throw new Error("validation of slices not done yet");
   }
 
   private CodeSystem getCodeSystem(String system) {
@@ -1535,7 +1535,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
    * @throws DefinitionException 
    * @throws Exception
    */
-  private boolean sliceMatches(Element element, String path, ElementDefinition slice, ElementDefinition ed, StructureDefinition profile) throws DefinitionException, DefinitionException {
+  private boolean sliceMatches(Element element, String path, ElementDefinition slice, ElementDefinition ed, StructureDefinition profile) throws DefinitionException, FHIRException {
     if (!slice.getSlicing().hasDiscriminator())
       return false; // cannot validate in this case
     for (StringType s : slice.getSlicing().getDiscriminator()) {
@@ -2107,8 +2107,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     // 2. assign children to a definition
     // for each definition, for each child, check whether it belongs in the slice
     ElementDefinition slice = null;
-    for (int i = 0; i < childDefinitions.size(); i++) {
-      ElementDefinition ed = childDefinitions.get(i);
+    boolean unsupportedSlicing = false;
+		ArrayList problematicPaths = new ArrayList();
+		for (int i = 0; i < childDefinitions.size(); i++) {
+			ElementDefinition ed = childDefinitions.get(i);
+			boolean childUnsupportedSlicing = false;
       boolean process = true;
       // where are we with slicing
       if (ed.hasSlicing()) {
@@ -2126,24 +2129,38 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             match = nameMatches(ei.name, tail(ed.getPath()));
           } else {
             if (nameMatches(ei.name, tail(ed.getPath())))
-              match = sliceMatches(ei.element, ei.path, slice, ed, profile);
-          }
-          if (match) {
-            if (rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition == null, "Element matches more than one slice")) {
-              ei.definition = ed;
-              ei.index = i;
-            }
-          }
-        }
-      }
-    }
-    int last = -1;
-    for (ElementInfo ei : children) {
-      if (ei.path.endsWith(".extension"))
-        rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition != null, "Element is unknown or does not match any slice (url=\"" + ei.element.getNamedChildValue("url") + "\")");
-      else
-        rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition != null), "Element is unknown or does not match any slice");
-      rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last), "Element \"{0}\" is out of order", ei.name);
+							try {
+								match = sliceMatches(ei.element, ei.path, slice, ed, profile);
+							} catch (FHIRException e) {
+								unsupportedSlicing = true;
+								childUnsupportedSlicing = true;
+							}
+					}
+					if (match) {
+						if (rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition == null, "Profile " + profile.getUrl() + ", Element matches more than one slice")) {
+							ei.definition = ed;
+							ei.index = i;
+						}
+					} else if (childUnsupportedSlicing) {
+						problematicPaths.add(ed.getPath());
+					}
+				}
+			}
+		}
+		int last = -1;
+		for (ElementInfo ei : children) {
+		    String sliceInfo = "";
+		    if (slice != null)
+		        sliceInfo = " (slice: " + slice.getPath()+")";
+			if (ei.path.endsWith(".extension"))
+				rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition != null, "Element is unknown or does not match any slice (url=\"" + ei.element.getNamedChildValue("url") + "\")" + (profile==null ? "" : " for profile " + profile.getUrl()));
+			else if (!unsupportedSlicing)
+				rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition != null),
+						"Element is unknown or does not match any slice" + (profile==null ? "" : " for profile " + profile.getUrl()));
+			else
+				hint(errors, IssueType.NOTSUPPORTED, ei.line(), ei.col(), ei.path, (ei.definition != null),
+						"Could not verify slice for profile " + profile.getUrl());
+			rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last), "Profile " + profile.getUrl() + ", Element is out of order");
       last = ei.index;
     }
 
@@ -2155,14 +2172,21 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           if (ei.definition == ed)
             count++;
         if (ed.getMin() > 0) {
-          rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), count >= ed.getMin(),
-              "Element '" + stack.getLiteralPath() + "." + tail(ed.getPath()) + "': minimum required = " + Integer.toString(ed.getMin()) + ", but only found " + Integer.toString(count));
+					if (problematicPaths.contains(ed.getPath()))
+						hint(errors, IssueType.NOTSUPPORTED, element.line(), element.col(), stack.getLiteralPath(), count >= ed.getMin(),
+						"Profile " + profile.getUrl() + ", Element '" + stack.getLiteralPath() + "." + tail(ed.getPath()) + "': Unable to check minimum required (" + Integer.toString(ed.getMin()) + ") due to lack of slicing validation");
+					else
+						rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), count >= ed.getMin(),
+								"Profile " + profile.getUrl() + ", Element '" + stack.getLiteralPath() + "." + tail(ed.getPath()) + "': minimum required = " + Integer.toString(ed.getMin()) + ", but only found " + Integer.toString(count));
+				}
+				if (ed.hasMax() && !ed.getMax().equals("*")) {
+					if (problematicPaths.contains(ed.getPath()))
+						hint(errors, IssueType.NOTSUPPORTED, element.line(), element.col(), stack.getLiteralPath(), count <= Integer.parseInt(ed.getMax()),
+						"Profile " + profile.getUrl() + ", Element " + tail(ed.getPath()) + " @ " + stack.getLiteralPath() + ": Unable to check max allowed (" + ed.getMax() + ") due to lack of slicing validation");
+					else
+						rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), count <= Integer.parseInt(ed.getMax()),
+								"Profile " + profile.getUrl() + ", Element " + tail(ed.getPath()) + " @ " + stack.getLiteralPath() + ": max allowed = " + ed.getMax() + ", but found " + Integer.toString(count));
         }
-        if (ed.hasMax() && !ed.getMax().equals("*")) {
-          rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), count <= Integer.parseInt(ed.getMax()),
-              "Element " + tail(ed.getPath()) + " @ " + stack.getLiteralPath() + ": max allowed = " + ed.getMax() + ", but found " + Integer.toString(count));
-        }
-
       }
     }
     // 4. check order if any slices are orderd. (todo)
@@ -2397,9 +2421,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
   }
 
-  private boolean valueMatchesCriteria(Element value, ElementDefinition criteria) {
-    // throw new Error("validation of slices not done yet");
-    return false;
+	private boolean valueMatchesCriteria(Element value, ElementDefinition criteria) throws FHIRException {
+		throw new FHIRException("Validation of slices not done yet");
+		//return false;
   }
 
   private boolean yearIsValid(String v) {
