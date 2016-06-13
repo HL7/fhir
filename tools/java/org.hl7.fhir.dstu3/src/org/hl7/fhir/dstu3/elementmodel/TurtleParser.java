@@ -330,7 +330,7 @@ public class TurtleParser extends ParserBase {
   }
 
   private void composeElement(Section section, Complex ctxt, Element element, Element parent) {
-    String en = getFormalName(element);
+    String en = "Extension".equals(element.getType())? "extension" : getFormalName(element);
 
     Complex t;
     if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY && parent != null && parent.getNamedChildValue("fullUrl") != null) {
