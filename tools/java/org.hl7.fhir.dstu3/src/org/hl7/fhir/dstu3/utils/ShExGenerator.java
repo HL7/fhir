@@ -4,7 +4,6 @@ import java.util.*;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
-import org.hl7.fhir.dstu3.model.Property;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -238,7 +237,8 @@ public class ShExGenerator {
 
     for (ElementDefinition ed : sd.getSnapshot().getElement()) {
       if(StringUtils.countMatches(ed.getPath(), ".") == 1) {
-        elements.add(genElementDefinition(sd, ed));
+        if(!"0".equals(ed.getMax()))
+          elements.add(genElementDefinition(sd, ed));
       }
     }
     shape_defn.add("elements", StringUtils.join(elements, ";\n\t"));
