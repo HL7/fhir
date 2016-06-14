@@ -224,6 +224,7 @@ signatures.html
 			<page type="resource" resource="ModuleMetadata"/>
 			<page type="resource" resource="ModuleDefinition"/>
 			<page type="resource" resource="ActivityDefinition"/>
+			<page type="resource" resource="PlanDefinition"/>
 			<page type="resource" resource="Library"/>
 			<page type="resource" resource="OrderSet"/>
 			<page type="resource" resource="GuidanceResponse"/>

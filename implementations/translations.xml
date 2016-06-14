@@ -509,6 +509,9 @@
         <translation lang="es">Imagen</translation>
         <translation lang="fr">Image</translation>
     </item>
+    <item id="PlanDefinition">
+ 		<translation lang="en">PlanDefinition</translation>
+	</item>
     <item id="Practitioner">
         <translation lang="en">Practitioner</translation>
         <translation lang="zh">从业者</translation>
