@@ -80,6 +80,14 @@
   w5 = status
 
  -- Row 4 -----------------------------------
+  Element = Endpoint.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = A name that this endpoint can be identified by
+  Definition = A friendly name that this endpoint can be referred to with
+
+ -- Row 5 -----------------------------------
   Element = Endpoint.managingOrganization
   Card. = 0..1
   Summary = Y
@@ -88,7 +96,7 @@
   Definition = The organization that exposes the endpoint (even if technically another organisation is hosting this in the cloud, it is the organisation associated with the data)
   Committee Notes = This was left as 0..1 to permit small systems having an implied Organization
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Endpoint.contact
   Card. = 0..*
   Type = ContactPoint
@@ -96,7 +104,7 @@
   Definition = Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting
   w5 = who.focus
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Endpoint.connectionType
   Card. = 1..1
   Summary = Y
@@ -107,7 +115,7 @@
   To Do = Just as with subscription, should harmonize with http://hl7.org/fhir/ValueSet/message-transport
   w5 = class
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Endpoint.method
   Card. = 0..*
   Summary = Y
@@ -117,7 +125,7 @@
   Comments = This is the HTTP method that must be used when using the connection
   To Do = Should this be single, or multiple cardinality?
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Endpoint.period
   Card. = 0..1
   Summary = Y
@@ -126,7 +134,7 @@
   Definition = The interval during which the managing organization assumes the defined responsibility
   w5 = when.init
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Endpoint.address[x]
   Card. = 0..1
   Summary = y
@@ -135,7 +143,7 @@
   Definition = The uri that describes the actual end-point to send messages to
   Comments = For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since their may be more than one, clients should avoid using relative URIs)
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Endpoint.payloadFormat
   Card. = 1..1
   Type = string
@@ -144,7 +152,7 @@
   Comments = Sending the payload has obvious security consequences. The server is responsible for ensuring that the content is appropriately secured
   To Do = Should this have multiple cardinality?
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Endpoint.payloadType
   Card. = 1..*
   Summary = Y
@@ -153,14 +161,14 @@
   Definition = The payload type describes the acceptable content that can be communicated on the endpoint
   Comments = The payloadFormat describes the wire format of the data, where the payloadType indicates the specific document/schema that is being transferred. E.g. DischargeSummary or CarePlan
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = !Endpoint.payloadSubType
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
   Short Label = The subtypes of content that can be used on this endpoint (e.g. DischargeSummary)
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Endpoint.header
   Card. = 0..*
   Type = string
@@ -168,7 +176,7 @@
   Definition = Additional headers / information to send as part of the notification
   Comments = Exactly what these mean depend on the channel type. The can convey additional information to the recipient and/or meet security requirements
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Endpoint.publicKey
   Card. = 0..1
   Type = string
@@ -184,13 +192,23 @@
   Path = Endpoint.status
 
  -- Row 2 -----------------------------------
+  Name = name
+  Type = string
+  Path = Endpoint.name
+
+ -- Row 3 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = Endpoint.identifier
+
+ -- Row 4 -----------------------------------
   Name = organization
   Type = reference
   Description = The organization that is exposing the endpoint
   Path = Endpoint.managingOrganization
   Target Types = Organization
 
- -- Row 3 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = payload-type
   Type = token
   Path = Endpoint.payloadType
