@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-06-14T13:16:15Z</LastSaved>
+  <LastSaved>2016-06-14T19:38:05Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -840,7 +840,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R98C24"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="30" ss:ExpandedRowCount="98" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="34" ss:ExpandedRowCount="98" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s70" ss:Width="227.39999999999998"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="77.399999999999991"/>
@@ -866,6 +866,10 @@
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="119.4"/>
    <Column ss:Index="27" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="121.8"
     ss:Span="3"/>
+   <Column ss:Index="31" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="103.8"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="96"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="103.8"/>
    <Row ss:AutoFitHeight="0" ss:Height="45.75" ss:StyleID="s71">
     <Cell ss:StyleID="s72"><Data ss:Type="String">Element</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -1065,6 +1069,10 @@
     <Cell><Data ss:Type="String">active</Data></Cell>
     <Cell><Data ss:Type="String">active</Data></Cell>
     <Cell><Data ss:Type="String">active</Data></Cell>
+    <Cell><Data ss:Type="String">active</Data></Cell>
+    <Cell><Data ss:Type="String">active</Data></Cell>
+    <Cell><Data ss:Type="String">active</Data></Cell>
+    <Cell><Data ss:Type="String">off</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Endpoint.name</Data><NamedCell
@@ -1101,6 +1109,9 @@
     <Cell><Data ss:Type="String">Questionnaire Destination</Data></Cell>
     <Cell><Data ss:Type="String">Referral Requests</Data></Cell>
     <Cell><Data ss:Type="String">Referral Requests</Data></Cell>
+    <Cell><Data ss:Type="String">Subscription receiver</Data></Cell>
+    <Cell><Data ss:Type="String">valid usecase?</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">v2 </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Endpoint.managingOrganization</Data><NamedCell
@@ -1138,6 +1149,7 @@
     <Cell><Data ss:Type="String">Telstra Health</Data></Cell>
     <Cell><Data ss:Type="String">Telstra Health</Data></Cell>
     <Cell><Data ss:Type="String">Epic demo</Data></Cell>
+    <Cell><Data ss:Type="String">Telstra Health</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Endpoint.contact</Data><NamedCell
@@ -1174,6 +1186,7 @@
     <Cell><Data ss:Type="String">Brian Postlethwaite</Data></Cell>
     <Cell><Data ss:Type="String">Brian Postlethwaite</Data></Cell>
     <Cell><Data ss:Type="String">Kevin Paprocki</Data></Cell>
+    <Cell><Data ss:Type="String">Brian Postlethwaite</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Endpoint.connectionType</Data><NamedCell
@@ -1213,6 +1226,10 @@
     <Cell><Data ss:Type="String">rest-hook</Data></Cell>
     <Cell><Data ss:Type="String">rest-hook</Data></Cell>
     <Cell><Data ss:Type="String">rest-hook</Data></Cell>
+    <Cell><Data ss:Type="String">rest-hook</Data></Cell>
+    <Cell><Data ss:Type="String">email</Data></Cell>
+    <Cell><Data ss:Type="String">soap</Data></Cell>
+    <Cell><Data ss:Type="String">message</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43.199999999999996">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Endpoint.method</Data><NamedCell
@@ -1251,6 +1268,7 @@
     <Cell><Data ss:Type="String">POST</Data></Cell>
     <Cell><Data ss:Type="String">POST</Data></Cell>
     <Cell><Data ss:Type="String">POST</Data></Cell>
+    <Cell><Data ss:Type="String">POST,PUT,DELETE</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Endpoint.period</Data><NamedCell
@@ -1286,13 +1304,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Endpoint.address[x]</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Endpoint.address</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">uri|string</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">uri</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">y</Data><NamedCell
@@ -1321,6 +1339,7 @@
     <Cell><Data ss:Type="String">https://sqlonfhir-dstu2.azurewebsites.net/fhir</Data></Cell>
     <Cell><Data ss:Type="String">https://sqlonfhir-dstu2.azurewebsites.net/fhir</Data></Cell>
     <Cell><Data ss:Type="String">https://open.epic.com/Interface/FHIR</Data></Cell>
+    <Cell><Data ss:Type="String">https://sqlonfhir-dstu2.azurewebsites.net/fhir</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Endpoint.payloadFormat</Data><NamedCell
@@ -1358,6 +1377,9 @@
     <Cell><Data ss:Type="String">application/xml+fhir</Data></Cell>
     <Cell><Data ss:Type="String">application/xml+fhir</Data></Cell>
     <Cell><Data ss:Type="String">application/json+fhir</Data></Cell>
+    <Cell ss:Index="32"><Data ss:Type="String">PDF</Data></Cell>
+    <Cell><Data ss:Type="String">XDA/XDS</Data></Cell>
+    <Cell><Data ss:Type="String">v2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Endpoint.payloadType</Data><NamedCell
@@ -1395,6 +1417,9 @@
     <Cell><Data ss:Type="String">QuestionnaireResponse</Data></Cell>
     <Cell><Data ss:Type="String">ReferralRequest,QuestionnaireResponse</Data></Cell>
     <Cell><Data ss:Type="String">ReferralRequest</Data></Cell>
+    <Cell ss:Index="32"><Data ss:Type="String">CDA - Event Summary</Data></Cell>
+    <Cell><Data ss:Type="String">CDA - Event Summary</Data></Cell>
+    <Cell><Data ss:Type="String">Discharge summary</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s87"><Data ss:Type="String">!Endpoint.payloadSubType</Data><NamedCell
@@ -3637,13 +3662,14 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Zoom>110</Zoom>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>21</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3651,15 +3677,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>26</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

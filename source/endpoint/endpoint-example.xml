@@ -9,6 +9,7 @@
 		</div>
 	</text>
 	<status value="active" />
+	<name value="Health Intersections CarePlan Hub" />
 	<managingOrganization>
 		<reference value="Organization/hl7" />
 	</managingOrganization>
@@ -23,7 +24,7 @@
 	<period>
 		<start value="2014-09-01"/>
 	</period>
-	<addressString value="http://fhir3.healthintersections.com.au/open/CarePlan"/>
+	<address value="http://fhir3.healthintersections.com.au/open/CarePlan"/>
 	<payloadFormat value="application/xml+fhir"/>
 	<payloadType>
 		<coding>
