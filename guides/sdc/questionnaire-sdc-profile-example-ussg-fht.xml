@@ -17,188 +17,164 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
         <status value="active"/>
         <sourceUri value="http://hl7.org/fhir/Questionnaire/54127-6"/>
         <targetUri value="http://hl7.org/fhir/DataElement"/>
-        <element>
-          <code value="1.1.1"/>
-          <target>
-            <code value="54125-0"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="1.1.2"/>
-          <target>
-            <code value="54131-8"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="1.1.3"/>
-          <target>
-            <code value="21112-8"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="1.1.4"/>
-          <target>
-            <code value="54132-6"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="1.1.5"/>
-          <target>
-            <code value="54128-4"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="1.1.6"/>
-          <target>
-            <code value="54135-9"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="1.1.7"/>
-          <target>
-            <code value="8302-2"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="1.1.8"/>
-          <target>
-            <code value="29463-7"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="1.1.10"/>
-          <target>
-            <code value="54134-2"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="1.1.11"/>
-          <target>
-            <code value="54133-4"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="1.2.1"/>
-          <target>
-            <code value="54140-9"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="1.2.2"/>
-          <target>
-            <code value="54130-0"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="2.1.1.1"/>
-          <target>
-            <code value="54136-7"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="2.1.1.2"/>
-          <target>
-            <code value="54138-3"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="2.1.1.3"/>
-          <target>
-            <code value="54123-5"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="2.1.1.4"/>
-          <target>
-            <code value="54139-1"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="2.1.1.4.1.1"/>
-          <target>
-            <code value="54112-8"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="2.1.1.4.1.2"/>
-          <target>
-            <code value="54113-6"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="2.1.1.4.2.1"/>
-          <target>
-            <code value="54124-3"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="2.1.1.4.2.2"/>
-          <target>
-            <code value="54141-7"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="2.1.1.5"/>
-          <target>
-            <code value="54121-9"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="2.1.1.6"/>
-          <target>
-            <code value="54122-7"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="2.1.1.7"/>
-          <target>
-            <code value="54119-3"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="2.1.1.8"/>
-          <target>
-            <code value="54120-1"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="2.1.2.1"/>
-          <target>
-            <code value="54116-9"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
-        <element>
-          <code value="2.1.2.2"/>
-          <target>
-            <code value="54115-1"/>
-            <equivalence value="equivalent"/>
-          </target>
-        </element>
+        <group>
+          <element>
+            <code value="1.1.1"/>
+            <target>
+              <code value="54125-0"/>
+            </target>
+          </element>
+          <element>
+            <code value="1.1.2"/>
+            <target>
+              <code value="54131-8"/>
+            </target>
+          </element>
+          <element>
+            <code value="1.1.3"/>
+            <target>
+              <code value="21112-8"/>
+            </target>
+          </element>
+          <element>
+            <code value="1.1.4"/>
+            <target>
+              <code value="54132-6"/>
+            </target>
+          </element>
+          <element>
+            <code value="1.1.5"/>
+            <target>
+              <code value="54128-4"/>
+            </target>
+          </element>
+          <element>
+            <code value="1.1.6"/>
+            <target>
+              <code value="54135-9"/>
+            </target>
+          </element>
+          <element>
+            <code value="1.1.7"/>
+            <target>
+              <code value="8302-2"/>
+            </target>
+          </element>
+          <element>
+            <code value="1.1.8"/>
+            <target>
+              <code value="29463-7"/>
+            </target>
+          </element>
+          <element>
+            <code value="1.1.10"/>
+            <target>
+              <code value="54134-2"/>
+            </target>
+          </element>
+          <element>
+            <code value="1.1.11"/>
+            <target>
+              <code value="54133-4"/>
+            </target>
+          </element>
+          <element>
+            <code value="1.2.1"/>
+            <target>
+              <code value="54140-9"/>
+            </target>
+          </element>
+          <element>
+            <code value="1.2.2"/>
+            <target>
+              <code value="54130-0"/>
+            </target>
+          </element>
+          <element>
+            <code value="2.1.1.1"/>
+            <target>
+              <code value="54136-7"/>
+            </target>
+          </element>
+          <element>
+            <code value="2.1.1.2"/>
+            <target>
+              <code value="54138-3"/>
+            </target>
+          </element>
+          <element>
+            <code value="2.1.1.3"/>
+            <target>
+              <code value="54123-5"/>
+            </target>
+          </element>
+          <element>
+            <code value="2.1.1.4"/>
+            <target>
+              <code value="54139-1"/>
+            </target>
+          </element>
+          <element>
+            <code value="2.1.1.4.1.1"/>
+            <target>
+              <code value="54112-8"/>
+            </target>
+          </element>
+          <element>
+            <code value="2.1.1.4.1.2"/>
+            <target>
+              <code value="54113-6"/>
+            </target>
+          </element>
+          <element>
+            <code value="2.1.1.4.2.1"/>
+            <target>
+              <code value="54124-3"/>
+            </target>
+          </element>
+          <element>
+            <code value="2.1.1.4.2.2"/>
+            <target>
+              <code value="54141-7"/>
+            </target>
+          </element>
+          <element>
+            <code value="2.1.1.5"/>
+            <target>
+              <code value="54121-9"/>
+            </target>
+          </element>
+          <element>
+            <code value="2.1.1.6"/>
+            <target>
+              <code value="54122-7"/>
+            </target>
+          </element>
+          <element>
+            <code value="2.1.1.7"/>
+            <target>
+              <code value="54119-3"/>
+            </target>
+          </element>
+          <element>
+            <code value="2.1.1.8"/>
+            <target>
+              <code value="54120-1"/>
+            </target>
+          </element>
+          <element>
+            <code value="2.1.2.1"/>
+            <target>
+              <code value="54116-9"/>
+            </target>
+          </element>
+          <element>
+            <code value="2.1.2.2"/>
+            <target>
+              <code value="54115-1"/>
+            </target>
+          </element>
+        </group>
       </ConceptMap>
     </resource>
     <request>

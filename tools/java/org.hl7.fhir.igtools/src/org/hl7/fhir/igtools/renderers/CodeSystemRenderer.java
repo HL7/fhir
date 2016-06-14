@@ -21,6 +21,8 @@ import org.hl7.fhir.dstu3.utils.EOperationOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
+import org.hl7.fhir.igtools.publisher.IGLinkResolver;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -28,15 +30,13 @@ import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 public class CodeSystemRenderer extends BaseRenderer {
 
   private CodeSystem cs;
-  private ProfileKnowledgeProvider pkp;
 
-  public CodeSystemRenderer(IWorkerContext context, String prefix, CodeSystem cs, ProfileKnowledgeProvider pkp) {
-    super(context, prefix);
+  public CodeSystemRenderer(IWorkerContext context, String prefix, CodeSystem cs, IGKnowledgeProvider igp) {
+    super(context, prefix, igp);
     this.cs = cs;
-    this.pkp = pkp;
   }
 
-  public String summary() {
+  public String summary(boolean xml, boolean json, boolean ttl) {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
     b.append(" <tbody><tr><td>Defining URL:</td><td>"+Utilities.escapeXml(cs.getUrl())+"</td></tr>\r\n");
@@ -49,8 +49,23 @@ public class CodeSystemRenderer extends BaseRenderer {
       b.append(" <tr><td>OID:</td><td>"+ToolingExtensions.getOID(cs)+"(for OID based terminology systems)</td></tr>\r\n");
     if (cs.hasCopyright())
       b.append(" <tr><td>Copyright:</td><td>"+Utilities.escapeXml(cs.getCopyright())+"</td></tr>\r\n");
-    String path = cs.getUserString("path");
-    b.append(" <tr><td>Source Resource</td><td><a href=\""+Utilities.changeFileExt(path, ".xml.html")+"\">XML</a> / <a href=\""+Utilities.changeFileExt(path, ".json.html")+"\">JSON</a></td></tr>\r\n");
+    if (xml || json || ttl) {
+      b.append(" <tr><td>Source Resource</td><td>");
+      boolean first = true;
+      if (xml) {
+        first = false;
+        b.append("<a href=\"CodeSystem-"+cs.getId()+".xml.html\">XML</a>");
+      }
+      if (json) {
+        if (first) first = false; else b.append(" / ");
+        b.append("<a href=\"CodeSystem-"+cs.getId()+".json.html\">JSON</a>");
+      }
+      if (ttl) {
+        if (first) first = false; else b.append(" / ");
+        b.append("<a href=\"CodeSystem-"+cs.getId()+".ttl.html\">Turtle</a>");
+      }
+      b.append("</td></tr>\r\n");
+    }
     b.append("</tbody></table>\r\n");
 
     return b.toString();
@@ -67,13 +82,14 @@ public class CodeSystemRenderer extends BaseRenderer {
   }
 
   public String content() throws EOperationOutcome, FHIRException, IOException  {
-    if (cs.hasText() && cs.getText().hasDiv()) 
-      return new XhtmlComposer().compose(cs.getText().getDiv());
-    else {
+//    if (cs.hasText() && cs.getText().hasDiv()) 
+//      return new XhtmlComposer().compose(cs.getText().getDiv());
+//    else {
       CodeSystem csc = cs.copy();
+      csc.setId(cs.getId()); // because that's not copied
       new NarrativeGenerator(prefix, prefix, context).generate(csc);
-      return new XhtmlComposer().compose(cs.getText().getDiv());
-    }
+      return new XhtmlComposer().compose(csc.getText().getDiv());
+//    }
   }
 
   public String xref() throws FHIRException {

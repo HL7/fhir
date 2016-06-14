@@ -17,6 +17,7 @@ public class FetchedFile {
   private byte[] source;
   private long time;
   private String contentType;
+  private String title;
   private ResourceType type;
   private Resource resource;
   private Element element;
@@ -88,6 +89,12 @@ public class FetchedFile {
   }
   public void setDependencies(List<FetchedFile> dependencies) {
     this.dependencies = dependencies;
+  }
+  public String getTitle() {
+    return title;
+  }
+  public void setTitle(String title) {
+    this.title = title;
   }
  
 }

@@ -127,9 +127,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   private Map<String, Concept> loincCodes = new HashMap<String, Concept>();
   private boolean triedServer = false;
   private boolean serverOk = false;
-  private String cache;
-  private String tsServer;
-  private String validationCachePath;
   
 
 
@@ -354,30 +351,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   @Override
   public boolean supportsSystem(String system) throws TerminologyServiceException {
     return "http://snomed.info/sct".equals(system) || "http://loinc.org".equals(system) || "http://unitsofmeasure.org".equals(system) || super.supportsSystem(system) ;
-  }
-  
-  @Override
-  public ValueSetExpansionOutcome expandVS(ValueSet vs, boolean cacheOk) {
-    try {
-      if (vs.hasExpansion()) {
-        return new ValueSetExpansionOutcome(vs.copy());
-      }
-      String cacheFn = Utilities.path(cache, determineCacheId(vs)+".json");
-      if (new File(cacheFn).exists())
-        return loadFromCache(vs.copy(), cacheFn);
-      if (cacheOk && vs.hasUrl()) {
-        ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs);
-        if (vse.getValueset() != null) {
-          FileOutputStream s = new FileOutputStream(cacheFn);
-          newJsonParser().compose(new FileOutputStream(cacheFn), vse.getValueset());
-          s.close();
-          return vse;
-        }
-      }
-      return expandOnServer(vs, cacheFn);
-    } catch (Exception e) {
-      return new ValueSetExpansionOutcome(e.getMessage());
-    }
   }
   
   public static class Concept {
@@ -708,34 +681,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   public boolean verifiesSystem(String system) {
     return true;
   }
-
-
-  private String determineCacheId(ValueSet vs) throws Exception {
-    // just the content logical definition is hashed
-    ValueSet vsid = new ValueSet();
-    vsid.setCompose(vs.getCompose());
-    vsid.setLockedDate(vs.getLockedDate());
-    JsonParser parser = new JsonParser();
-    parser.setOutputStyle(OutputStyle.NORMAL);
-    ByteArrayOutputStream b = new  ByteArrayOutputStream();
-    parser.compose(b, vsid);
-    b.close();
-    String s = new String(b.toByteArray());
-    String r = Integer.toString(s.hashCode());
-//    TextFile.stringToFile(s, Utilities.path(cache, r+".id.json"));
-    return r;
-  }
-
-  private ValueSetExpansionOutcome loadFromCache(ValueSet vs, String cacheFn) throws FileNotFoundException, Exception {
-    JsonParser parser = new JsonParser();
-    Resource r = parser.parse(new FileInputStream(cacheFn));
-    if (r instanceof OperationOutcome)
-      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDetails().getText());
-    else {
-      vs.setExpansion(((ValueSet) r).getExpansion()); // because what is cached might be from a different value set
-      return new ValueSetExpansionOutcome(vs);
-    }
-  }
   
   private String lookupLoinc(String code) throws Exception {
     if (true) { //(!triedServer || serverOk) {
@@ -765,8 +710,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       throw new Exception("Server is not available");
   }
 
-
-  private ValueSetExpansionOutcome expandOnServer(ValueSet vs, String cacheFn) throws Exception {
+  @Override
+  public ValueSetExpansionOutcome expandOnServer(ValueSet vs, String cacheFn) throws Exception {
     if (!triedServer || serverOk) {
       JsonParser parser = new JsonParser();
       try {
@@ -889,23 +834,12 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       return vse.getValueset().getExpansion();
   }
 
-  public void initTS(String path, String tsServer) throws Exception {
-    cache = path;
-    this.tsServer = tsServer;
-    expansionCache = new ValueSetExpansionCache(this, null);
-    validationCachePath = Utilities.path(path, "validation.cache");
-    try {
-      loadValidationCache();
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-  }
-
   public void saveCache() throws IOException {
     saveValidationCache();
   }
 
-  private void loadValidationCache() throws JsonSyntaxException, Exception {
+  @Override
+  protected void loadValidationCache() throws JsonSyntaxException, Exception {
     File dir = new File(validationCachePath);
     if (!dir.exists())
       return;

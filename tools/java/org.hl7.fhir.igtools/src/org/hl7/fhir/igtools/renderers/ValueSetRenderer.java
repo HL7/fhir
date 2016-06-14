@@ -16,6 +16,7 @@ import org.hl7.fhir.dstu3.utils.EOperationOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -23,15 +24,13 @@ import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 public class ValueSetRenderer extends BaseRenderer {
 
   private ValueSet vs;
-  private ProfileKnowledgeProvider pkp;
 
-  public ValueSetRenderer(IWorkerContext context, String prefix, ValueSet vs, ProfileKnowledgeProvider pkp) {
-    super(context, prefix);
+  public ValueSetRenderer(IWorkerContext context, String prefix, ValueSet vs, IGKnowledgeProvider igp) {
+    super(context, prefix, igp);
     this.vs = vs;
-    this.pkp = pkp;
   }
 
-  public String summary() {
+  public String summary(boolean xml, boolean json, boolean ttl) {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
     b.append(" <tbody><tr><td>Defining URL:</td><td>"+Utilities.escapeXml(vs.getUrl())+"</td></tr>\r\n");
@@ -43,8 +42,23 @@ public class ValueSetRenderer extends BaseRenderer {
       b.append(" <tr><td>OID:</td><td>"+ToolingExtensions.getOID(vs)+"(for OID based terminology systems)</td></tr>\r\n");
     if (vs.hasCopyright())
       b.append(" <tr><td>Copyright:</td><td>"+Utilities.escapeXml(vs.getCopyright())+"</td></tr>\r\n");
-    String path = vs.getUserString("path");
-    b.append(" <tr><td>Source Resource</td><td><a href=\""+Utilities.changeFileExt(path, ".xml.html")+"\">XML</a> / <a href=\""+Utilities.changeFileExt(path, ".json.html")+"\">JSON</a></td></tr>\r\n");
+    if (xml || json || ttl) {
+      b.append(" <tr><td>Source Resource</td><td>");
+      boolean first = true;
+      if (xml) {
+        first = false;
+        b.append("<a href=\"ValueSet-"+vs.getId()+".xml.html\">XML</a>");
+      }
+      if (json) {
+        if (first) first = false; else b.append(" / ");
+        b.append("<a href=\"ValueSet-"+vs.getId()+".json.html\">JSON</a>");
+      }
+      if (ttl) {
+        if (first) first = false; else b.append(" / ");
+        b.append("<a href=\"ValueSet-"+vs.getId()+".ttl.html\">Turtle</a>");
+      }
+      b.append("</td></tr>\r\n");
+    }
     b.append("</tbody></table>\r\n");
 
     return b.toString();
@@ -55,7 +69,7 @@ public class ValueSetRenderer extends BaseRenderer {
       return new XhtmlComposer().compose(vs.getText().getDiv());
     ValueSet vsc = vs.copy();
     vsc.setText(null);
-    new NarrativeGenerator(prefix, "", context).generate(vsc);
+    new NarrativeGenerator("", "", context).generate(vsc);
 
     return new XhtmlComposer().compose(vsc.getText().getDiv());
   }

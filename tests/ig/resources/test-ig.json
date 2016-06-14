@@ -1,5 +1,9 @@
 {
 	"source": "test-ig.xml",
+  "tool" : {
+    "type" : "jekyll",
+    "source-wrapper-template" : "wrapper.html"
+  },
 	"canonicalBase": "http://hl7.org/fhir/test",
 	"resources": {
 		"StructureDefinition/test-ig-pr": {
@@ -8,6 +12,15 @@
 		},
 		"CodeSystem/test-ig-cs": {
 			"base": "codesystems.html#test-ig-cs"
+		},
+		"ValueSet/test-ig-vs": {
+			"base": "valuesets.html#test-ig-vs"
+		},
+		"ValueSet/test-ig-vsint": {
+			"base": "valuesets.html#test-ig-vsint"
+		},
+		"ValueSet/test-ig-vsext": {
+			"base": "valuesets.html#test-ig-vsext"
 		}
 	}
 }

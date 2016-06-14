@@ -36,50 +36,42 @@
 	<targetReference>
 		<reference value="http://hl7.org/fhir/ValueSet/v3-AddressUse"/>
 	</targetReference>
-	<element>
-		<system value="http://hl7.org/fhir/address-use"/>
-		<code value="home"/>
-		<target>
-			<system value="http://hl7.org/fhir/v3/AddressUse"/>
-			<code value="H"/>
-			<equivalence value="equivalent"/>
-		</target>
-	</element>
-	<element>
-		<system value="http://hl7.org/fhir/address-use"/>
-		<code value="home"/>
-		<target>
-			<system value="http://hl7.org/fhir/v3/AddressUse"/>
-			<code value="H"/>
-			<equivalence value="equivalent"/>
-		</target>
-	</element>
-	<element>
-		<system value="http://hl7.org/fhir/address-use"/>
-		<code value="work"/>
-		<target>
-			<system value="http://hl7.org/fhir/v3/AddressUse"/>
-			<code value="WP"/>
-			<equivalence value="equivalent"/>
-		</target>
-	</element>
-	<element>
-		<system value="http://hl7.org/fhir/address-use"/>
-		<code value="temp"/>
-		<target>
-			<system value="http://hl7.org/fhir/v3/AddressUse"/>
-			<code value="TMP"/>
-			<equivalence value="equivalent"/>
-		</target>
-	</element>
-	<element>
-		<system value="http://hl7.org/fhir/address-use"/>
-		<code value="old"/>
-		<target>
-			<system value="http://hl7.org/fhir/v3/AddressUse"/>
-			<code value="BAD"/>
-			<equivalence value="disjoint"/>
-			<comments value="In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there&#39;s no simple equivalent of flagging an address as old"/>
-		</target>
-	</element>
+  <group>
+    <source value="http://hl7.org/fhir/address-use"/>
+    <target value="http://hl7.org/fhir/v3/AddressUse"/>
+    <element>
+      <code value="home"/>
+      <target>
+        <code value="H"/>
+        <!-- this applies, but it's the default to reduce volume 
+        <equivalence value="equivalent"/> -->
+      </target>
+    </element>
+    <element>
+      <code value="home"/>
+      <target>
+        <code value="H"/>
+      </target>
+    </element>
+    <element>
+      <code value="work"/>
+      <target>
+        <code value="WP"/>
+      </target>
+    </element>
+    <element>
+      <code value="temp"/>
+      <target>
+        <code value="TMP"/>
+      </target>
+    </element>
+    <element>
+      <code value="old"/>
+      <target>
+        <code value="BAD"/>
+        <equivalence value="disjoint"/>
+        <comments value="In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there&#39;s no simple equivalent of flagging an address as old"/>
+      </target>
+    </element>
+  </group>
 </ConceptMap>

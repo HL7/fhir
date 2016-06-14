@@ -140,6 +140,7 @@ import org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionResou
 import org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentType;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent;
+import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.dstu3.model.Conformance;
@@ -958,6 +959,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.getProfiles().put(p.getUrl(), p);
     } else {
       profile.getResource().setUserData("pack", ap);
+      sortProfile(profile.getResource());
       for (ElementDefinition ed : profile.getResource().getDifferential().getElement())
         if (!ed.hasId())
           throw new Exception("Missing ID");
@@ -984,6 +986,17 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
   }
 
+  private void sortProfile(StructureDefinition diff) throws Exception {
+    StructureDefinition base = page.getWorkerContext().fetchResource(StructureDefinition.class, diff.getBaseDefinition());
+    if (base == null)
+      throw new Exception("unable to find base profile "+diff.getUrl());
+    List<String> errors = new ArrayList<String>();
+    new ProfileUtilities(page.getWorkerContext(), null, page).sortDifferential(base, diff, diff.getName(), errors);
+//    if (errors.size() > 0)
+//      throw new Exception("Error sorting profile "+diff.getName()+": "+errors.toString());
+  }
+
+  
   public StructureDefinition getSnapShotForProfile(String base) throws Exception {
     String[] parts = base.split("#");
     if (parts[0].startsWith("http://hl7.org/fhir/StructureDefinition/") && parts.length == 1) {
@@ -5874,21 +5887,30 @@ public class Publisher implements URIResolver, SectionNumberer {
     page.getEpub().registerFile(n + ".html", cm.getName(), EPubManager.XHTML_TYPE, false);
   }
 
+  private ConceptMapGroupComponent getGroup(ConceptMap map, String srcs, String tgts) {
+    for (ConceptMapGroupComponent grp : map.getGroup()) {
+      if (grp.getSource().equals(srcs) && grp.getTarget().equals(tgts))
+        return grp;
+    }
+    ConceptMapGroupComponent grp = map.addGroup(); 
+    grp.setSource(srcs);
+    grp.setTarget(tgts);
+    return grp;
+  }
+
   private void genV2MapItems(ValueSet vs, String srcCS, ConceptMap cm, Set<String> tbls, ConceptDefinitionComponent c) throws Exception {
     if (!Utilities.noString(c.getUserString("v2"))) {
       for (String m : c.getUserString("v2").split(",")) {
         SourceElementComponent cc = new ConceptMap.SourceElementComponent();
-        cc.setSystem(srcCS);
         cc.setCode(c.getCode());
         TargetElementComponent map = new ConceptMap.TargetElementComponent();
         cc.getTarget().add(map);
-        cm.getElement().add(cc);
         String[] n = m.split("\\(");
+        getGroup(cm, srcCS, "http://hl7.org/fhir/v2/" + n[0].substring(1)).getElement().add(cc);
         if (n.length > 1)
           map.setComments(n[1].substring(0, n[1].length() - 1));
         n = n[0].split("\\.");
         tbls.add(n[0].substring(1));
-        map.setSystem("http://hl7.org/fhir/v2/" + n[0].substring(1));
         map.setCode(n[1].trim());
         if (n[0].charAt(0) == '=')
           map.setEquivalence(ConceptMapEquivalence.EQUAL);
@@ -5979,11 +6001,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (!Utilities.noString(c.getUserString("v3"))) {
       for (String m : c.getUserString("v3").split(",")) {
         SourceElementComponent cc = new SourceElementComponent();
-        cc.setSystem(srcCS);
         cc.setCode(c.getCode());
         TargetElementComponent map = new TargetElementComponent();
         cc.getTarget().add(map);
-        cm.getElement().add(cc);
         String[] n = m.split("\\(");
         if (n.length > 1)
           map.setComments(n[1].substring(0, n[1].length() - 1));
@@ -5991,6 +6011,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         if (n.length != 2)
           throw new Exception("Error processing v3 map value for "+vs.getName()+"."+c.getCode()+" '"+m+"' - format should be CodeSystem.code (comment) - the comment bit is optional");
         String codesystem = n[0].substring(1);
+        getGroup(cm, srcCS, "http://hl7.org/fhir/v3/" + codesystem).getElement().add(cc);
         if (n[0].charAt(0) == '=')
           map.setEquivalence(ConceptMapEquivalence.EQUAL);
         else if (n[0].charAt(0) == '~')
@@ -6007,7 +6028,6 @@ public class Publisher implements URIResolver, SectionNumberer {
           codesystem = n[0];
         }
         tbls.add(codesystem);
-        map.setSystem("http://hl7.org/fhir/v3/" + codesystem);
         map.setCode(n[1]);
       }
     }

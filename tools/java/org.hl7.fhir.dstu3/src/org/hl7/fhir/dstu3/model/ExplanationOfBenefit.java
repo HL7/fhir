@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 07:05+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 14, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -682,75 +682,36 @@ public class ExplanationOfBenefit extends DomainResource {
   }
 
     @Block()
-    public static class InformationComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * The general class of the information supplied: information; exception; accident, employment; onset, etc.
-         */
-        @Child(name = "category", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Category of information", formalDefinition="The general class of the information supplied: information; exception; accident, employment; onset, etc." )
-        protected Coding category;
-
+    public static class SpecialConditionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.
          */
-        @Child(name = "code", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "code", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Type of information", formalDefinition="System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication." )
         protected Coding code;
 
         /**
          * The date when or period to which this information refers.
          */
-        @Child(name = "timing", type = {DateType.class, Period.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "timing", type = {DateType.class, Period.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="When it occurred", formalDefinition="The date when or period to which this information refers." )
         protected Type timing;
 
         /**
          * Additional data.
          */
-        @Child(name = "value", type = {StringType.class, Quantity.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "value", type = {StringType.class, Quantity.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Additional Data", formalDefinition="Additional data." )
         protected Type value;
 
-        private static final long serialVersionUID = 1771573412L;
+        private static final long serialVersionUID = 70792922L;
 
     /**
      * Constructor
      */
-      public InformationComponent() {
+      public SpecialConditionComponent() {
         super();
       }
-
-    /**
-     * Constructor
-     */
-      public InformationComponent(Coding category) {
-        super();
-        this.category = category;
-      }
-
-        /**
-         * @return {@link #category} (The general class of the information supplied: information; exception; accident, employment; onset, etc.)
-         */
-        public Coding getCategory() { 
-          if (this.category == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create InformationComponent.category");
-            else if (Configuration.doAutoCreate())
-              this.category = new Coding(); // cc
-          return this.category;
-        }
-
-        public boolean hasCategory() { 
-          return this.category != null && !this.category.isEmpty();
-        }
-
-        /**
-         * @param value {@link #category} (The general class of the information supplied: information; exception; accident, employment; onset, etc.)
-         */
-        public InformationComponent setCategory(Coding value) { 
-          this.category = value;
-          return this;
-        }
 
         /**
          * @return {@link #code} (System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.)
@@ -758,7 +719,7 @@ public class ExplanationOfBenefit extends DomainResource {
         public Coding getCode() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create InformationComponent.code");
+              throw new Error("Attempt to auto-create SpecialConditionComponent.code");
             else if (Configuration.doAutoCreate())
               this.code = new Coding(); // cc
           return this.code;
@@ -771,7 +732,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @param value {@link #code} (System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.)
          */
-        public InformationComponent setCode(Coding value) { 
+        public SpecialConditionComponent setCode(Coding value) { 
           this.code = value;
           return this;
         }
@@ -816,7 +777,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @param value {@link #timing} (The date when or period to which this information refers.)
          */
-        public InformationComponent setTiming(Type value) { 
+        public SpecialConditionComponent setTiming(Type value) { 
           this.timing = value;
           return this;
         }
@@ -861,14 +822,13 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @param value {@link #value} (Additional data.)
          */
-        public InformationComponent setValue(Type value) { 
+        public SpecialConditionComponent setValue(Type value) { 
           this.value = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("category", "Coding", "The general class of the information supplied: information; exception; accident, employment; onset, etc.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("code", "Coding", "System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("timing[x]", "date|Period", "The date when or period to which this information refers.", 0, java.lang.Integer.MAX_VALUE, timing));
           childrenList.add(new Property("value[x]", "string|Quantity", "Additional data.", 0, java.lang.Integer.MAX_VALUE, value));
@@ -877,7 +837,6 @@ public class ExplanationOfBenefit extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // Coding
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
         case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
@@ -889,9 +848,6 @@ public class ExplanationOfBenefit extends DomainResource {
       @Override
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 50511102: // category
-          this.category = castToCoding(value); // Coding
-          break;
         case 3059181: // code
           this.code = castToCoding(value); // Coding
           break;
@@ -908,9 +864,7 @@ public class ExplanationOfBenefit extends DomainResource {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("category"))
-          this.category = castToCoding(value); // Coding
-        else if (name.equals("code"))
+        if (name.equals("code"))
           this.code = castToCoding(value); // Coding
         else if (name.equals("timing[x]"))
           this.timing = (Type) value; // Type
@@ -923,7 +877,6 @@ public class ExplanationOfBenefit extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 50511102:  return getCategory(); // Coding
         case 3059181:  return getCode(); // Coding
         case 164632566:  return getTiming(); // Type
         case -1410166417:  return getValue(); // Type
@@ -934,11 +887,7 @@ public class ExplanationOfBenefit extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("category")) {
-          this.category = new Coding();
-          return this.category;
-        }
-        else if (name.equals("code")) {
+        if (name.equals("code")) {
           this.code = new Coding();
           return this.code;
         }
@@ -962,10 +911,9 @@ public class ExplanationOfBenefit extends DomainResource {
           return super.addChild(name);
       }
 
-      public InformationComponent copy() {
-        InformationComponent dst = new InformationComponent();
+      public SpecialConditionComponent copy() {
+        SpecialConditionComponent dst = new SpecialConditionComponent();
         copyValues(dst);
-        dst.category = category == null ? null : category.copy();
         dst.code = code == null ? null : code.copy();
         dst.timing = timing == null ? null : timing.copy();
         dst.value = value == null ? null : value.copy();
@@ -976,26 +924,25 @@ public class ExplanationOfBenefit extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof InformationComponent))
+        if (!(other instanceof SpecialConditionComponent))
           return false;
-        InformationComponent o = (InformationComponent) other;
-        return compareDeep(category, o.category, true) && compareDeep(code, o.code, true) && compareDeep(timing, o.timing, true)
-           && compareDeep(value, o.value, true);
+        SpecialConditionComponent o = (SpecialConditionComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(timing, o.timing, true) && compareDeep(value, o.value, true)
+          ;
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof InformationComponent))
+        if (!(other instanceof SpecialConditionComponent))
           return false;
-        InformationComponent o = (InformationComponent) other;
+        SpecialConditionComponent o = (SpecialConditionComponent) other;
         return true;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, code, timing, value
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, timing, value);
       }
 
   public String fhirType() {
@@ -8802,7 +8749,7 @@ public class ExplanationOfBenefit extends DomainResource {
      */
     @Child(name = "information", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="", formalDefinition="Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required." )
-    protected List<InformationComponent> information;
+    protected List<SpecialConditionComponent> information;
 
     /**
      * Ordered list of patient diagnosis for which care is sought.
@@ -8847,76 +8794,90 @@ public class ExplanationOfBenefit extends DomainResource {
     protected AccidentComponent accident;
 
     /**
+     * The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).
+     */
+    @Child(name = "employmentImpacted", type = {Period.class}, order=26, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Period unable to work", formalDefinition="The start and optional end dates of when the patient was precluded from working due to the treatable condition(s)." )
+    protected Period employmentImpacted;
+
+    /**
+     * The start and optional end dates of when the patient was confined to a treatment center.
+     */
+    @Child(name = "hospitalization", type = {Period.class}, order=27, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Period in hospital", formalDefinition="The start and optional end dates of when the patient was confined to a treatment center." )
+    protected Period hospitalization;
+
+    /**
      * First tier of goods and services.
      */
-    @Child(name = "item", type = {}, order=26, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "item", type = {}, order=28, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Goods and Services", formalDefinition="First tier of goods and services." )
     protected List<ItemComponent> item;
 
     /**
      * The first tier service adjudications for payor added services.
      */
-    @Child(name = "addItem", type = {}, order=27, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "addItem", type = {}, order=29, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Insurer added line items", formalDefinition="The first tier service adjudications for payor added services." )
     protected List<AddedItemComponent> addItem;
 
     /**
      * A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
      */
-    @Child(name = "missingTeeth", type = {}, order=28, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "missingTeeth", type = {}, order=30, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Only if type = oral", formalDefinition="A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons." )
     protected List<MissingTeethComponent> missingTeeth;
 
     /**
      * The total cost of the services reported.
      */
-    @Child(name = "totalCost", type = {Money.class}, order=29, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "totalCost", type = {Money.class}, order=31, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Total Cost of service from the Claim", formalDefinition="The total cost of the services reported." )
     protected Money totalCost;
 
     /**
      * The amount of deductable applied which was not allocated to any particular service line.
      */
-    @Child(name = "unallocDeductable", type = {Money.class}, order=30, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "unallocDeductable", type = {Money.class}, order=32, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Unallocated deductable", formalDefinition="The amount of deductable applied which was not allocated to any particular service line." )
     protected Money unallocDeductable;
 
     /**
      * Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductable).
      */
-    @Child(name = "totalBenefit", type = {Money.class}, order=31, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "totalBenefit", type = {Money.class}, order=33, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Total benefit payable for the Claim", formalDefinition="Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductable)." )
     protected Money totalBenefit;
 
     /**
      * Payment details for the claim if the claim has been paid.
      */
-    @Child(name = "payment", type = {}, order=32, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "payment", type = {}, order=34, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="", formalDefinition="Payment details for the claim if the claim has been paid." )
     protected PaymentComponent payment;
 
     /**
      * The form to be used for printing the content.
      */
-    @Child(name = "form", type = {Coding.class}, order=33, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "form", type = {Coding.class}, order=35, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Printed Form Identifier", formalDefinition="The form to be used for printing the content." )
     protected Coding form;
 
     /**
      * Note text.
      */
-    @Child(name = "note", type = {}, order=34, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "note", type = {}, order=36, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Processing notes", formalDefinition="Note text." )
     protected List<NoteComponent> note;
 
     /**
      * Balance by Benefit Category.
      */
-    @Child(name = "benefitBalance", type = {}, order=35, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "benefitBalance", type = {}, order=37, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Balance by Benefit Category", formalDefinition="Balance by Benefit Category." )
     protected List<BenefitBalanceComponent> benefitBalance;
 
-    private static final long serialVersionUID = -790475214L;
+    private static final long serialVersionUID = 403801183L;
 
   /**
    * Constructor
@@ -9720,16 +9681,16 @@ public class ExplanationOfBenefit extends DomainResource {
     /**
      * @return {@link #information} (Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.)
      */
-    public List<InformationComponent> getInformation() { 
+    public List<SpecialConditionComponent> getInformation() { 
       if (this.information == null)
-        this.information = new ArrayList<InformationComponent>();
+        this.information = new ArrayList<SpecialConditionComponent>();
       return this.information;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ExplanationOfBenefit setInformation(List<InformationComponent> theInformation) { 
+    public ExplanationOfBenefit setInformation(List<SpecialConditionComponent> theInformation) { 
       this.information = theInformation;
       return this;
     }
@@ -9737,25 +9698,25 @@ public class ExplanationOfBenefit extends DomainResource {
     public boolean hasInformation() { 
       if (this.information == null)
         return false;
-      for (InformationComponent item : this.information)
+      for (SpecialConditionComponent item : this.information)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public InformationComponent addInformation() { //3
-      InformationComponent t = new InformationComponent();
+    public SpecialConditionComponent addInformation() { //3
+      SpecialConditionComponent t = new SpecialConditionComponent();
       if (this.information == null)
-        this.information = new ArrayList<InformationComponent>();
+        this.information = new ArrayList<SpecialConditionComponent>();
       this.information.add(t);
       return t;
     }
 
-    public ExplanationOfBenefit addInformation(InformationComponent t) { //3
+    public ExplanationOfBenefit addInformation(SpecialConditionComponent t) { //3
       if (t == null)
         return this;
       if (this.information == null)
-        this.information = new ArrayList<InformationComponent>();
+        this.information = new ArrayList<SpecialConditionComponent>();
       this.information.add(t);
       return this;
     }
@@ -9763,7 +9724,7 @@ public class ExplanationOfBenefit extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #information}, creating it if it does not already exist
      */
-    public InformationComponent getInformationFirstRep() { 
+    public SpecialConditionComponent getInformationFirstRep() { 
       if (getInformation().isEmpty()) {
         addInformation();
       }
@@ -10011,6 +9972,54 @@ public class ExplanationOfBenefit extends DomainResource {
      */
     public ExplanationOfBenefit setAccident(AccidentComponent value) { 
       this.accident = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #employmentImpacted} (The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).)
+     */
+    public Period getEmploymentImpacted() { 
+      if (this.employmentImpacted == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ExplanationOfBenefit.employmentImpacted");
+        else if (Configuration.doAutoCreate())
+          this.employmentImpacted = new Period(); // cc
+      return this.employmentImpacted;
+    }
+
+    public boolean hasEmploymentImpacted() { 
+      return this.employmentImpacted != null && !this.employmentImpacted.isEmpty();
+    }
+
+    /**
+     * @param value {@link #employmentImpacted} (The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).)
+     */
+    public ExplanationOfBenefit setEmploymentImpacted(Period value) { 
+      this.employmentImpacted = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #hospitalization} (The start and optional end dates of when the patient was confined to a treatment center.)
+     */
+    public Period getHospitalization() { 
+      if (this.hospitalization == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ExplanationOfBenefit.hospitalization");
+        else if (Configuration.doAutoCreate())
+          this.hospitalization = new Period(); // cc
+      return this.hospitalization;
+    }
+
+    public boolean hasHospitalization() { 
+      return this.hospitalization != null && !this.hospitalization.isEmpty();
+    }
+
+    /**
+     * @param value {@link #hospitalization} (The start and optional end dates of when the patient was confined to a treatment center.)
+     */
+    public ExplanationOfBenefit setHospitalization(Period value) { 
+      this.hospitalization = value;
       return this;
     }
 
@@ -10427,6 +10436,8 @@ public class ExplanationOfBenefit extends DomainResource {
         childrenList.add(new Property("precedence", "positiveInt", "Precedence (primary, secondary, etc.).", 0, java.lang.Integer.MAX_VALUE, precedence));
         childrenList.add(new Property("coverage", "", "Financial instrument by which payment information for health care.", 0, java.lang.Integer.MAX_VALUE, coverage));
         childrenList.add(new Property("accident", "", "An accident which resulted in the need for healthcare services.", 0, java.lang.Integer.MAX_VALUE, accident));
+        childrenList.add(new Property("employmentImpacted", "Period", "The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).", 0, java.lang.Integer.MAX_VALUE, employmentImpacted));
+        childrenList.add(new Property("hospitalization", "Period", "The start and optional end dates of when the patient was confined to a treatment center.", 0, java.lang.Integer.MAX_VALUE, hospitalization));
         childrenList.add(new Property("item", "", "First tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, item));
         childrenList.add(new Property("addItem", "", "The first tier service adjudications for payor added services.", 0, java.lang.Integer.MAX_VALUE, addItem));
         childrenList.add(new Property("missingTeeth", "", "A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.", 0, java.lang.Integer.MAX_VALUE, missingTeeth));
@@ -10461,13 +10472,15 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1814015861: /*originalPrescription*/ return this.originalPrescription == null ? new Base[0] : new Base[] {this.originalPrescription}; // Type
         case 106443592: /*payee*/ return this.payee == null ? new Base[0] : new Base[] {this.payee}; // PayeeComponent
         case -722568291: /*referral*/ return this.referral == null ? new Base[0] : new Base[] {this.referral}; // Type
-        case 1968600364: /*information*/ return this.information == null ? new Base[0] : this.information.toArray(new Base[this.information.size()]); // InformationComponent
+        case 1968600364: /*information*/ return this.information == null ? new Base[0] : this.information.toArray(new Base[this.information.size()]); // SpecialConditionComponent
         case 1196993265: /*diagnosis*/ return this.diagnosis == null ? new Base[0] : this.diagnosis.toArray(new Base[this.diagnosis.size()]); // DiagnosisComponent
         case -1095204141: /*procedure*/ return this.procedure == null ? new Base[0] : this.procedure.toArray(new Base[this.procedure.size()]); // ProcedureComponent
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Type
         case 159695370: /*precedence*/ return this.precedence == null ? new Base[0] : new Base[] {this.precedence}; // PositiveIntType
         case -351767064: /*coverage*/ return this.coverage == null ? new Base[0] : new Base[] {this.coverage}; // CoverageComponent
         case -2143202801: /*accident*/ return this.accident == null ? new Base[0] : new Base[] {this.accident}; // AccidentComponent
+        case 1051487345: /*employmentImpacted*/ return this.employmentImpacted == null ? new Base[0] : new Base[] {this.employmentImpacted}; // Period
+        case 1057894634: /*hospitalization*/ return this.hospitalization == null ? new Base[0] : new Base[] {this.hospitalization}; // Period
         case 3242771: /*item*/ return this.item == null ? new Base[0] : this.item.toArray(new Base[this.item.size()]); // ItemComponent
         case -1148899500: /*addItem*/ return this.addItem == null ? new Base[0] : this.addItem.toArray(new Base[this.addItem.size()]); // AddedItemComponent
         case -1157130302: /*missingTeeth*/ return this.missingTeeth == null ? new Base[0] : this.missingTeeth.toArray(new Base[this.missingTeeth.size()]); // MissingTeethComponent
@@ -10544,7 +10557,7 @@ public class ExplanationOfBenefit extends DomainResource {
           this.referral = (Type) value; // Type
           break;
         case 1968600364: // information
-          this.getInformation().add((InformationComponent) value); // InformationComponent
+          this.getInformation().add((SpecialConditionComponent) value); // SpecialConditionComponent
           break;
         case 1196993265: // diagnosis
           this.getDiagnosis().add((DiagnosisComponent) value); // DiagnosisComponent
@@ -10563,6 +10576,12 @@ public class ExplanationOfBenefit extends DomainResource {
           break;
         case -2143202801: // accident
           this.accident = (AccidentComponent) value; // AccidentComponent
+          break;
+        case 1051487345: // employmentImpacted
+          this.employmentImpacted = castToPeriod(value); // Period
+          break;
+        case 1057894634: // hospitalization
+          this.hospitalization = castToPeriod(value); // Period
           break;
         case 3242771: // item
           this.getItem().add((ItemComponent) value); // ItemComponent
@@ -10640,7 +10659,7 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("referral[x]"))
           this.referral = (Type) value; // Type
         else if (name.equals("information"))
-          this.getInformation().add((InformationComponent) value);
+          this.getInformation().add((SpecialConditionComponent) value);
         else if (name.equals("diagnosis"))
           this.getDiagnosis().add((DiagnosisComponent) value);
         else if (name.equals("procedure"))
@@ -10653,6 +10672,10 @@ public class ExplanationOfBenefit extends DomainResource {
           this.coverage = (CoverageComponent) value; // CoverageComponent
         else if (name.equals("accident"))
           this.accident = (AccidentComponent) value; // AccidentComponent
+        else if (name.equals("employmentImpacted"))
+          this.employmentImpacted = castToPeriod(value); // Period
+        else if (name.equals("hospitalization"))
+          this.hospitalization = castToPeriod(value); // Period
         else if (name.equals("item"))
           this.getItem().add((ItemComponent) value);
         else if (name.equals("addItem"))
@@ -10699,13 +10722,15 @@ public class ExplanationOfBenefit extends DomainResource {
         case -2067905515:  return getOriginalPrescription(); // Type
         case 106443592:  return getPayee(); // PayeeComponent
         case 344221635:  return getReferral(); // Type
-        case 1968600364:  return addInformation(); // InformationComponent
+        case 1968600364:  return addInformation(); // SpecialConditionComponent
         case 1196993265:  return addDiagnosis(); // DiagnosisComponent
         case -1095204141:  return addProcedure(); // ProcedureComponent
         case -2061246629:  return getPatient(); // Type
         case 159695370: throw new FHIRException("Cannot make property precedence as it is not a complex type"); // PositiveIntType
         case -351767064:  return getCoverage(); // CoverageComponent
         case -2143202801:  return getAccident(); // AccidentComponent
+        case 1051487345:  return getEmploymentImpacted(); // Period
+        case 1057894634:  return getHospitalization(); // Period
         case 3242771:  return addItem(); // ItemComponent
         case -1148899500:  return addAddItem(); // AddedItemComponent
         case -1157130302:  return addMissingTeeth(); // MissingTeethComponent
@@ -10853,6 +10878,14 @@ public class ExplanationOfBenefit extends DomainResource {
           this.accident = new AccidentComponent();
           return this.accident;
         }
+        else if (name.equals("employmentImpacted")) {
+          this.employmentImpacted = new Period();
+          return this.employmentImpacted;
+        }
+        else if (name.equals("hospitalization")) {
+          this.hospitalization = new Period();
+          return this.hospitalization;
+        }
         else if (name.equals("item")) {
           return addItem();
         }
@@ -10932,8 +10965,8 @@ public class ExplanationOfBenefit extends DomainResource {
         dst.payee = payee == null ? null : payee.copy();
         dst.referral = referral == null ? null : referral.copy();
         if (information != null) {
-          dst.information = new ArrayList<InformationComponent>();
-          for (InformationComponent i : information)
+          dst.information = new ArrayList<SpecialConditionComponent>();
+          for (SpecialConditionComponent i : information)
             dst.information.add(i.copy());
         };
         if (diagnosis != null) {
@@ -10950,6 +10983,8 @@ public class ExplanationOfBenefit extends DomainResource {
         dst.precedence = precedence == null ? null : precedence.copy();
         dst.coverage = coverage == null ? null : coverage.copy();
         dst.accident = accident == null ? null : accident.copy();
+        dst.employmentImpacted = employmentImpacted == null ? null : employmentImpacted.copy();
+        dst.hospitalization = hospitalization == null ? null : hospitalization.copy();
         if (item != null) {
           dst.item = new ArrayList<ItemComponent>();
           for (ItemComponent i : item)
@@ -11003,8 +11038,9 @@ public class ExplanationOfBenefit extends DomainResource {
            && compareDeep(originalPrescription, o.originalPrescription, true) && compareDeep(payee, o.payee, true)
            && compareDeep(referral, o.referral, true) && compareDeep(information, o.information, true) && compareDeep(diagnosis, o.diagnosis, true)
            && compareDeep(procedure, o.procedure, true) && compareDeep(patient, o.patient, true) && compareDeep(precedence, o.precedence, true)
-           && compareDeep(coverage, o.coverage, true) && compareDeep(accident, o.accident, true) && compareDeep(item, o.item, true)
-           && compareDeep(addItem, o.addItem, true) && compareDeep(missingTeeth, o.missingTeeth, true) && compareDeep(totalCost, o.totalCost, true)
+           && compareDeep(coverage, o.coverage, true) && compareDeep(accident, o.accident, true) && compareDeep(employmentImpacted, o.employmentImpacted, true)
+           && compareDeep(hospitalization, o.hospitalization, true) && compareDeep(item, o.item, true) && compareDeep(addItem, o.addItem, true)
+           && compareDeep(missingTeeth, o.missingTeeth, true) && compareDeep(totalCost, o.totalCost, true)
            && compareDeep(unallocDeductable, o.unallocDeductable, true) && compareDeep(totalBenefit, o.totalBenefit, true)
            && compareDeep(payment, o.payment, true) && compareDeep(form, o.form, true) && compareDeep(note, o.note, true)
            && compareDeep(benefitBalance, o.benefitBalance, true);
@@ -11026,8 +11062,8 @@ public class ExplanationOfBenefit extends DomainResource {
           , type, subType, ruleset, originalRuleset, created, billablePeriod, outcome, disposition
           , provider, organization, facility, related, prescription, originalPrescription
           , payee, referral, information, diagnosis, procedure, patient, precedence, coverage
-          , accident, item, addItem, missingTeeth, totalCost, unallocDeductable, totalBenefit
-          , payment, form, note, benefitBalance);
+          , accident, employmentImpacted, hospitalization, item, addItem, missingTeeth, totalCost
+          , unallocDeductable, totalBenefit, payment, form, note, benefitBalance);
       }
 
   @Override

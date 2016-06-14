@@ -4,6 +4,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
+import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.utilities.Utilities;
 
 import com.github.rjeschke.txtmark.Processor;
@@ -11,11 +12,14 @@ import com.github.rjeschke.txtmark.Processor;
 public class BaseRenderer {
   protected IWorkerContext context;
   protected String prefix;
+  protected IGKnowledgeProvider igp;
 
-  public BaseRenderer(IWorkerContext context, String prefix) {
+
+  public BaseRenderer(IWorkerContext context, String prefix, IGKnowledgeProvider igp) {
     super();
     this.context = context;
     this.prefix = prefix;
+    this.igp = igp;
   }
 
   public String processMarkdown(String location, String text) throws Exception {

@@ -65,6 +65,7 @@ import org.hl7.fhir.dstu3.model.Composition;
 import org.hl7.fhir.dstu3.model.Composition.SectionComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent;
+import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.OtherElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
@@ -1870,37 +1871,33 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     x.addTag("br");
 
-    if (!cm.getElement().isEmpty()) {
-      SourceElementComponent cc = cm.getElement().get(0);
-      String src = cc.getSystem();
+    for (ConceptMapGroupComponent grp : cm.getGroup()) {
+      String src = grp.getSource();
       boolean comments = false;
-      boolean ok = cc.getTarget().size() == 1;
+      boolean ok = true;
       Map<String, HashSet<String>> sources = new HashMap<String, HashSet<String>>();
-      sources.put("code", new HashSet<String>());
       Map<String, HashSet<String>> targets = new HashMap<String, HashSet<String>>();
+      sources.put("code", new HashSet<String>());
       targets.put("code", new HashSet<String>());
-      if (ok) {
-        String dst = cc.getTarget().get(0).getSystem();
-        for (SourceElementComponent ccl : cm.getElement()) {
-          ok = ok && src.equals(ccl.getSystem()) && ccl.getTarget().size() == 1 && dst.equals(ccl.getTarget().get(0).getSystem()) && ccl.getTarget().get(0).getDependsOn().isEmpty() && ccl.getTarget().get(0).getProduct().isEmpty();
-          if (ccl.hasSystem())
-            sources.get("code").add(ccl.getSystem());
-          for (TargetElementComponent ccm : ccl.getTarget()) {
-            comments = comments || !Utilities.noString(ccm.getComments());
-            for (OtherElementComponent d : ccm.getDependsOn()) {
-              if (!sources.containsKey(d.getElement()))
-                sources.put(d.getElement(), new HashSet<String>());
-              sources.get(d.getElement()).add(d.getSystem());
-            }
-            if (ccm.hasSystem())
-              targets.get("code").add(ccm.getSystem());
-            for (OtherElementComponent d : ccm.getProduct()) {
-              if (!targets.containsKey(d.getElement()))
-                targets.put(d.getElement(), new HashSet<String>());
-              targets.get(d.getElement()).add(d.getSystem());
-            }
-
+      SourceElementComponent cc = grp.getElement().get(0);
+      String dst = grp.getTarget();
+      sources.get("code").add(grp.getSource());
+      targets.get("code").add(grp.getTarget());
+      for (SourceElementComponent ccl : grp.getElement()) {
+        ok = ok && ccl.getTarget().size() == 1 && ccl.getTarget().get(0).getDependsOn().isEmpty() && ccl.getTarget().get(0).getProduct().isEmpty();
+        for (TargetElementComponent ccm : ccl.getTarget()) {
+          comments = comments || !Utilities.noString(ccm.getComments());
+          for (OtherElementComponent d : ccm.getDependsOn()) {
+            if (!sources.containsKey(d.getProperty()))
+              sources.put(d.getProperty(), new HashSet<String>());
+            sources.get(d.getProperty()).add(d.getSystem());
           }
+          for (OtherElementComponent d : ccm.getProduct()) {
+            if (!targets.containsKey(d.getProperty()))
+              targets.put(d.getProperty(), new HashSet<String>());
+            targets.get(d.getProperty()).add(d.getSystem());
+          }
+
         }
       }
 
@@ -1914,18 +1911,18 @@ public class NarrativeGenerator implements INarrativeGenerator {
         tr.addTag("td").addTag("b").addText("Destination Code");
         if (comments)
           tr.addTag("td").addTag("b").addText("Comments");
-        for (SourceElementComponent ccl : cm.getElement()) {
+        for (SourceElementComponent ccl : grp.getElement()) {
           tr = tbl.addTag("tr");
           XhtmlNode td = tr.addTag("td");
           td.addText(ccl.getCode());
-          display = getDisplayForConcept(ccl.getSystem(), ccl.getCode());
+          display = getDisplayForConcept(grp.getSource(), ccl.getCode());
           if (display != null)
             td.addText(" ("+display+")");
           TargetElementComponent ccm = ccl.getTarget().get(0);
           tr.addTag("td").addText(!ccm.hasEquivalence() ? "" : ccm.getEquivalence().toCode());
           td = tr.addTag("td");
           td.addText(ccm.getCode());
-          display = getDisplayForConcept(ccm.getSystem(), ccm.getCode());
+          display = getDisplayForConcept(grp.getTarget(), ccm.getCode());
           if (display != null)
             td.addText(" ("+display+")");
           if (comments)
@@ -1969,14 +1966,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
         if (comments)
           tr.addTag("td");
 
-        for (SourceElementComponent ccl : cm.getElement()) {
+        for (SourceElementComponent ccl : grp.getElement()) {
           tr = tbl.addTag("tr");
           td = tr.addTag("td");
           if (sources.get("code").size() == 1)
             td.addText(ccl.getCode());
           else
-            td.addText(ccl.getSystem()+" / "+ccl.getCode());
-          display = getDisplayForConcept(ccl.getSystem(), ccl.getCode());
+            td.addText(grp.getSource()+" / "+ccl.getCode());
+          display = getDisplayForConcept(grp.getSource(), ccl.getCode());
           if (display != null)
             td.addText(" ("+display+")");
 
@@ -1995,8 +1992,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
           if (targets.get("code").size() == 1)
             td.addText(ccm.getCode());
           else
-            td.addText(ccm.getSystem()+" / "+ccm.getCode());
-          display = getDisplayForConcept(ccm.getSystem(), ccm.getCode());
+            td.addText(grp.getTarget()+" / "+ccm.getCode());
+          display = getDisplayForConcept(grp.getTarget(), ccm.getCode());
           if (display != null)
             td.addText(" ("+display+")");
 
@@ -2101,7 +2098,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private String getDisplay(List<OtherElementComponent> list, String s) {
     for (OtherElementComponent c : list) {
-      if (s.equals(c.getElement()))
+      if (s.equals(c.getProperty()))
         return getDisplayForConcept(c.getSystem(), c.getCode());
     }
     return null;
@@ -2124,7 +2121,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private String getCode(List<OtherElementComponent> list, String s, boolean withSystem) {
     for (OtherElementComponent c : list) {
-      if (s.equals(c.getElement()))
+      if (s.equals(c.getProperty()))
         if (withSystem)
           return c.getSystem()+" / "+c.getCode();
         else
@@ -2260,13 +2257,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   public void generate(ValueSet vs, ValueSet src, boolean header) {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
+    boolean hasExtensions;
     if (vs.hasExpansion()) {
       // for now, we just accept an expansion if there is one
-      generateExpansion(x, vs, src, header);
+      hasExtensions = generateExpansion(x, vs, src, header);
+    } else {
+      Map<ConceptSetComponent, ValueSetExpansionComponent> expansionCache = new HashMap<ConceptSetComponent, ValueSetExpansionComponent>();
+      hasExtensions = generateComposition(x, vs, header, expansionCache);
     }
-
-    Map<ConceptSetComponent, ValueSetExpansionComponent> expansionCache = new HashMap<ConceptSetComponent, ValueSetExpansionComponent>();
-    boolean hasExtensions = generateComposition(x, vs, header, expansionCache);
     inject(vs, x, hasExtensions ? NarrativeStatus.EXTENSIONS :  NarrativeStatus.GENERATED);
   }
 
@@ -2338,7 +2336,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
 
     CodeSystem allCS = null;
-    boolean doSystem = checkDoSystem(vs, src);
+    boolean doSystem = true; // checkDoSystem(vs, src);
     boolean doDefinition = checkDoDefinition(vs.getExpansion().getContains());
     if (doSystem && allFromOneSystem(vs)) {
       doSystem = false;
@@ -2538,7 +2536,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
     else {
       XhtmlNode a = td.addTag("a");
       a.addText(c.getCode());
-      a.setAttribute("href", prefix+getCsRef(e)+"#"+Utilities.nmtokenize(c.getCode()));
+      String href = prefix+getCsRef(e);
+      if (href.contains("#"))
+        href = href + "-"+Utilities.nmtokenize(c.getCode());
+      else
+        href = href + "#"+e.getId()+"_"+Utilities.nmtokenize(c.getCode());
+      a.setAttribute("href", href);
     }
     if (doSystem) {
       td = tr.addTag("td");
@@ -2558,20 +2561,20 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     for (ConceptMap m : mymaps.keySet()) {
       td = tr.addTag("td");
-      List<TargetElementComponent> mappings = findMappingsForCode(c.getCode(), m);
+      List<TargetElementComponentWrapper> mappings = findMappingsForCode(c.getCode(), m);
       boolean first = true;
-      for (TargetElementComponent mapping : mappings) {
+      for (TargetElementComponentWrapper mapping : mappings) {
         if (!first)
           td.addTag("br");
         first = false;
         XhtmlNode span = td.addTag("span");
-        span.setAttribute("title", mapping.getEquivalence().toString());
-        span.addText(getCharForEquivalence(mapping));
+        span.setAttribute("title", mapping.comp.getEquivalence().toString());
+        span.addText(getCharForEquivalence(mapping.comp));
         XhtmlNode a = td.addTag("a");
-        a.setAttribute("href", prefix+mymaps.get(m)+"#"+mapping.getCode());
-        a.addText(mapping.getCode());
-        if (!Utilities.noString(mapping.getComments()))
-          td.addTag("i").addText("("+mapping.getComments()+")");
+        a.setAttribute("href", prefix+mymaps.get(m)+"#"+mapping.comp.getCode());
+        a.addText(mapping.comp.getCode());
+        if (!Utilities.noString(mapping.comp.getComments()))
+          td.addTag("i").addText("("+mapping.comp.getComments()+")");
       }
     }
     for (ValueSetExpansionContainsComponent cc : c.getContains()) {
@@ -2579,6 +2582,17 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
+  private class TargetElementComponentWrapper {
+    private ConceptMapGroupComponent group;
+    private TargetElementComponent comp;
+    public TargetElementComponentWrapper(ConceptMapGroupComponent group, TargetElementComponent comp) {
+      super();
+      this.group = group;
+      this.comp = comp;
+    }
+    
+  }
+  
   private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean hasHierarchy, boolean hasDisplay, boolean comment, boolean deprecated, Map<ConceptMap, String> maps, String system, CodeSystem cs) {
     boolean hasExtensions = false;
     XhtmlNode tr = t.addTag("tr");
@@ -2593,7 +2607,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode a;
     if (c.hasCodeElement()) {
       a = td.addTag("a");
-      a.setAttribute("name", Utilities.nmtokenize(c.getCode()));
+      a.setAttribute("name", cs.getId()+"-" + Utilities.nmtokenize(c.getCode()));
       a.addText(" ");
     }
 
@@ -2633,20 +2647,20 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     for (ConceptMap m : maps.keySet()) {
       td = tr.addTag("td");
-      List<TargetElementComponent> mappings = findMappingsForCode(c.getCode(), m);
+      List<TargetElementComponentWrapper> mappings = findMappingsForCode(c.getCode(), m);
       boolean first = true;
-      for (TargetElementComponent mapping : mappings) {
+      for (TargetElementComponentWrapper mapping : mappings) {
         if (!first)
           td.addTag("br");
         first = false;
         XhtmlNode span = td.addTag("span");
-        span.setAttribute("title", mapping.hasEquivalence() ?  mapping.getEquivalence().toCode() : "");
-        span.addText(getCharForEquivalence(mapping));
+        span.setAttribute("title", mapping.comp.hasEquivalence() ?  mapping.comp.getEquivalence().toCode() : "");
+        span.addText(getCharForEquivalence(mapping.comp));
         a = td.addTag("a");
-        a.setAttribute("href", prefix+maps.get(m)+"#"+makeAnchor(mapping.getSystem(), mapping.getCode()));
-        a.addText(mapping.getCode());
-        if (!Utilities.noString(mapping.getComments()))
-          td.addTag("i").addText("("+mapping.getComments()+")");
+        a.setAttribute("href", prefix+maps.get(m)+"#"+makeAnchor(mapping.group.getTarget(), mapping.comp.getCode()));
+        a.addText(mapping.comp.getCode());
+        if (!Utilities.noString(mapping.comp.getComments()))
+          td.addTag("i").addText("("+mapping.comp.getComments()+")");
       }
     }
     for (CodeType e : ToolingExtensions.getSubsumes(c)) {
@@ -2703,12 +2717,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
-  private List<TargetElementComponent> findMappingsForCode(String code, ConceptMap map) {
-    List<TargetElementComponent> mappings = new ArrayList<TargetElementComponent>();
+  private List<TargetElementComponentWrapper> findMappingsForCode(String code, ConceptMap map) {
+    List<TargetElementComponentWrapper> mappings = new ArrayList<TargetElementComponentWrapper>();
 
-    for (SourceElementComponent c : map.getElement()) {
-      if (c.getCode().equals(code))
-        mappings.addAll(c.getTarget());
+    for (ConceptMapGroupComponent g : map.getGroup()) {
+      for (SourceElementComponent c : g.getElement()) {
+        if (c.getCode().equals(code))
+          for (TargetElementComponent cc : c.getTarget())
+            mappings.add(new TargetElementComponentWrapper(g, cc));
+      }
     }
     return mappings;
   }
@@ -2926,7 +2943,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (cs != null && ref != null) {
       if (!Utilities.noString(prefix) && ref.startsWith("http://hl7.org/fhir/"))
         ref = ref.substring(20)+"/index.html";
-      else if (!ref.endsWith(".html"))
+      else if (!ref.contains(".html"))
         ref = ref + ".html";
       XhtmlNode a = li.addTag("a");
       a.setAttribute("href", prefix+ref.replace("\\", "/"));
@@ -2943,8 +2960,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private  <T extends Resource> String getCsRef(T cs) {
     String ref = (String) cs.getUserData("filename");
     if (ref == null)
+      ref = (String) cs.getUserData("path");
+    if (ref == null)
       return "v2/0136/index.html";  // fix me - csvs!
-    if (!ref.endsWith(".html"))
+    if (!ref.contains(".html"))
       ref = ref + ".html";
     return ref.replace("\\", "/");
   }
@@ -3279,5 +3298,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       //      }
     }
   }
+
+
 
 }

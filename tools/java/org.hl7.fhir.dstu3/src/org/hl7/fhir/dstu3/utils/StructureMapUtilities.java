@@ -15,6 +15,7 @@ import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ConceptMap;
+import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.dstu3.model.Constants;
@@ -27,6 +28,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.ExpressionNode.CollectionStatus;
 import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
+import org.hl7.fhir.dstu3.model.Group;
 import org.hl7.fhir.dstu3.model.IdType;
 import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
@@ -364,14 +366,18 @@ public class StructureMapUtilities {
 			prefixes.put(n, v);
 		}
 		while (!lexer.hasToken("}")) {
-			SourceElementComponent e = map.addElement();
-			e.setSystem(readPrefix(prefixes, lexer));
-			lexer.token(":");
-			e.setCode(lexer.take());
+		  String srcs = readPrefix(prefixes, lexer);
+      lexer.token(":");
+      String sc = lexer.take();
+		  ConceptMapEquivalence eq = readEquivalence(lexer);
+		  String tgts = (eq != ConceptMapEquivalence.UNMATCHED) ? readPrefix(prefixes, lexer) : "";
+		  ConceptMapGroupComponent g = getGroup(map, srcs, tgts);
+			SourceElementComponent e = g.addElement();
+			e.setCode(sc);
 			TargetElementComponent tgt = e.addTarget();
-			tgt.setEquivalence(readEquivalence(lexer));
+			if (eq != ConceptMapEquivalence.EQUIVALENT)
+			  tgt.setEquivalence(eq);
 			if (tgt.getEquivalence() != ConceptMapEquivalence.UNMATCHED) {
-				tgt.setSystem(readPrefix(prefixes, lexer));
 				lexer.token(":");
 				tgt.setCode(lexer.take());
 			}
@@ -382,7 +388,19 @@ public class StructureMapUtilities {
 	}
 
 
-	private String readPrefix(Map<String, String> prefixes, FHIRLexer lexer) throws FHIRLexerException {
+	private ConceptMapGroupComponent getGroup(ConceptMap map, String srcs, String tgts) {
+	  for (ConceptMapGroupComponent grp : map.getGroup()) {
+	    if (grp.getSource().equals(srcs) && grp.getTarget().equals(tgts))
+	      return grp;
+	  }
+	  ConceptMapGroupComponent grp = map.addGroup(); 
+    grp.setSource(srcs);
+    grp.setTarget(tgts);
+    return grp;
+  }
+
+
+  private String readPrefix(Map<String, String> prefixes, FHIRLexer lexer) throws FHIRLexerException {
 		String prefix = lexer.take();
 		if (!prefixes.containsKey(prefix))
 			throw lexer.error("Unknown prefix '"+prefix+"'");
@@ -980,6 +998,15 @@ public class StructureMapUtilities {
 		return translate(context, map, src, id, fld);
 	}
 
+	private class SourceElementComponentWrapper {
+	  private ConceptMapGroupComponent group;
+    private SourceElementComponent comp;
+    public SourceElementComponentWrapper(ConceptMapGroupComponent group, SourceElementComponent comp) {
+      super();
+      this.group = group;
+      this.comp = comp;
+    }
+	}
 	public Base translate(TransformContext context, StructureMap map, Base source, String conceptMapUrl, String fieldToReturn) throws FHIRException {
 		Coding src = new Coding();
 		if (source.isPrimitive()) {
@@ -1029,26 +1056,28 @@ public class StructureMapUtilities {
 					done = true;
 				}
 			} else {
-				List<SourceElementComponent> list = new ArrayList<SourceElementComponent>();
-				for (SourceElementComponent e : cmap.getElement()) {
-					if (!src.hasSystem() && src.getCode().equals(e.getCode())) 
-						list.add(e);
-					else if (src.hasSystem() && src.getSystem().equals(e.getSystem()) && src.getCode().equals(e.getCode()))
-						list.add(e);
-				}
+			  List<SourceElementComponentWrapper> list = new ArrayList<SourceElementComponentWrapper>();
+			  for (ConceptMapGroupComponent g : cmap.getGroup()) {
+			    for (SourceElementComponent e : g.getElement()) {
+			      if (!src.hasSystem() && src.getCode().equals(e.getCode())) 
+			        list.add(new SourceElementComponentWrapper(g, e));
+			      else if (src.hasSystem() && src.getSystem().equals(g.getSource()) && src.getCode().equals(e.getCode()))
+			        list.add(new SourceElementComponentWrapper(g, e));
+			    }
+			  }
 				if (list.size() == 0)
 					done = true;
-				else if (list.get(0).getTarget().size() == 0)
+				else if (list.get(0).comp.getTarget().size() == 0)
 					message = "Concept map "+conceptMapUrl+" found no translation for "+src.getCode();
 				else {
-					for (TargetElementComponent tgt : list.get(0).getTarget()) {
+					for (TargetElementComponent tgt : list.get(0).comp.getTarget()) {
 						if (tgt.getEquivalence() == ConceptMapEquivalence.EQUAL || tgt.getEquivalence() == ConceptMapEquivalence.EQUIVALENT || tgt.getEquivalence() == ConceptMapEquivalence.WIDER) {
 							if (done) {
 								message = "Concept map "+conceptMapUrl+" found multiple matches for "+src.getCode();
 								done = false;
 							} else {
 								done = true;
-								outcome = new Coding().setCode(tgt.getCode()).setSystem(tgt.getSystem());
+								outcome = new Coding().setCode(tgt.getCode()).setSystem(list.get(0).group.getTarget());
 							}
 						} else if (tgt.getEquivalence() == ConceptMapEquivalence.UNMATCHED) {
 							done = true;

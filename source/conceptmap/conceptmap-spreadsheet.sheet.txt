@@ -5,7 +5,7 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Context = ConceptMap.element.target
+  Context = ConceptMap.group.element.target
   English = If the map is narrower or inexact, there SHALL be some comments
   XPath = exists(f:comments) or ((f:equivalence/@value != \'narrower\') and (f:equivalence/@value != \'inexact\'))
   Expression = comments.exists() or ((equivalence != \'narrower\') and (equivalence != \'inexact\'))
@@ -18,8 +18,8 @@
   Type = DomainResource
   Short Label = A map from one set of concepts to one or more other concepts
   Definition = A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models
-  Object Impl = BaseConformance
   RIM Mapping = N/A
+  Object Impl = BaseConformance
   w5 = conformance.terminology
 
  -- Row 2 -----------------------------------
@@ -29,8 +29,8 @@
   Type = uri
   Short Label = Globally unique logical id for concept map
   Definition = An absolute URL that is used to identify this concept map when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this concept map is (or will be) published
-  Object Impl = BaseConformance.url
   RIM Mapping = N/A
+  Object Impl = BaseConformance.url
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -51,8 +51,8 @@
   Short Label = Logical id for this version of the concept map
   Definition = The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp
   Comments = There may be multiple resource versions of the concept map that have this same identifier
-  Object Impl = BaseConformance.version
   RIM Mapping = N/A
+  Object Impl = BaseConformance.version
   w5 = id.version
 
  -- Row 5 -----------------------------------
@@ -64,8 +64,8 @@
   Definition = A free text natural language name describing the concept map
   Requirements = Support human navigation
   Comments = Not expected to be unique
-  Object Impl = BaseConformance.name
   RIM Mapping = N/A
+  Object Impl = BaseConformance.name
 
  -- Row 6 -----------------------------------
   Element = ConceptMap.status
@@ -78,8 +78,8 @@
   Definition = The status of the concept map
   Requirements = Identify when/if the concept map should be used.
   Comments = Allows filtering of ConceptMap resources that are appropriate for use
-  Object Impl = BaseConformance.status
   RIM Mapping = N/A
+  Object Impl = BaseConformance.status
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -138,8 +138,8 @@
   Definition = The date this version of the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes
   Requirements = Need to know when a concept map was first legal for use or became withdrawn or replaced.
   Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the concept map. Additional specific dates may be added as extensions
-  Object Impl = BaseConformance.date
   RIM Mapping = N/A
+  Object Impl = BaseConformance.date
   w5 = when.recorded
 
  -- Row 13 -----------------------------------
@@ -162,8 +162,8 @@
   Short Label = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of concept map instances.
   Requirements = Assist in searching for appropriate concept map instances
-  Object Impl = BaseConformance.useContext
   RIM Mapping = N/A
+  Object Impl = BaseConformance.useContext
 
  -- Row 15 -----------------------------------
   Element = ConceptMap.requirements
@@ -200,24 +200,20 @@
   Comments = Should be a version specific reference. URIs SHOULD be absolute
 
  -- Row 19 -----------------------------------
-  Element = ConceptMap.element
+  Element = ConceptMap.group
   Card. = 0..*
-  Aliases = code, concept, item
-  UML = 380;120
-  Type = =SourceElement
-  Short Label = Mappings for a concept from the source set
-  Definition = Mappings for an individual concept in the source to one or more concepts in the target
-  Comments = Generally, the ideal is that there would only be one mapping for each concept in the source value set, but a given concept may be mapped multiple times with different comments or dependencies
+  Short Label = Same source and target systems
+  Definition = A group of mappings that all have the same source and target system
 
  -- Row 20 -----------------------------------
-  Element = ConceptMap.element.system
-  Card. = 0..1
+  Element = ConceptMap.group.source
+  Card. = 1..1
   Type = uri
   Short Label = Code System (if value set crosses code systems)
   Definition = An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system)
 
  -- Row 21 -----------------------------------
-  Element = ConceptMap.element.version
+  Element = ConceptMap.group.sourceVersion
   Card. = 0..1
   Type = string
   Short Label = Specific version of the  code system
@@ -225,15 +221,41 @@
   Comments = The specification of a particular code system version may be required for code systems which lack concept permanence
 
  -- Row 22 -----------------------------------
-  Element = ConceptMap.element.code
+  Element = ConceptMap.group.target
+  Card. = 1..1
+  Type = uri
+  Short Label = System of the target (if necessary)
+  Definition = An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems)
+  Comments = Should be a version specific reference
+
+ -- Row 23 -----------------------------------
+  Element = ConceptMap.group.targetVersion
+  Card. = 0..1
+  Type = string
+  Short Label = Specific version of the  code system
+  Definition = The specific version of the code system, as determined by the code system authority
+  Comments = The specification of a particular code system version may be required for code systems which lack concept permanence
+
+ -- Row 24 -----------------------------------
+  Element = ConceptMap.group.element
+  Card. = 1..*
+  Aliases = code, concept, item
+  UML = 380;120
+  Type = =SourceElement
+  Short Label = Mappings for a concept from the source set
+  Definition = Mappings for an individual concept in the source to one or more concepts in the target
+  Comments = Generally, the ideal is that there would only be one mapping for each concept in the source value set, but a given concept may be mapped multiple times with different comments or dependencies
+
+ -- Row 25 -----------------------------------
+  Element = ConceptMap.group.element.code
   Card. = 0..1
   Type = code
   Binding = !
   Short Label = Identifies element being mapped
   Definition = Identity (code or path) or the element/item being mapped
 
- -- Row 23 -----------------------------------
-  Element = ConceptMap.element.target
+ -- Row 26 -----------------------------------
+  Element = ConceptMap.group.element.target
   Card. = 0..*
   UML = 520;20
   Type = =TargetElement
@@ -241,80 +263,65 @@
   Definition = A concept from the target value set that this concept maps to
   Comments = Ideally there would only be one map, with equal or equivalent mapping. But multiple maps are allowed for several narrower options, or to assert that other concepts are unmatched
 
- -- Row 24 -----------------------------------
-  Element = ConceptMap.element.target.system
-  Card. = 0..1
-  Type = uri
-  Short Label = System of the target (if necessary)
-  Definition = An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems)
-  Comments = Should be a version specific reference
-
- -- Row 25 -----------------------------------
-  Element = ConceptMap.element.target.version
-  Card. = 0..1
-  Type = string
-  Short Label = Specific version of the  code system
-  Definition = The specific version of the code system, as determined by the code system authority
-  Comments = The specification of a particular code system version may be required for code systems which lack concept permanence
-
- -- Row 26 -----------------------------------
-  Element = ConceptMap.element.target.code
+ -- Row 27 -----------------------------------
+  Element = ConceptMap.group.element.target.code
   Card. = 0..1
   Type = code
   Binding = !
   Short Label = Code that identifies the target element
   Definition = Identity (code or path) or the element/item that the map refers to
 
- -- Row 27 -----------------------------------
-  Element = ConceptMap.element.target.equivalence
-  Card. = 1..1
+ -- Row 28 -----------------------------------
+  Element = ConceptMap.group.element.target.equivalence
+  Card. = 0..1
   Is Modifier = Yes
   Type = code
   Binding = ConceptMapEquivalence
   Short Label = equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjoint
   Definition = The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is \'wider\' than the source)
+  Default Value = equivalent
 
- -- Row 28 -----------------------------------
-  Element = ConceptMap.element.target.comments
+ -- Row 29 -----------------------------------
+  Element = ConceptMap.group.element.target.comments
   Card. = 0..1
   Inv. = 1
   Type = string
   Short Label = Description of status/issues in mapping
   Definition = A description of status/issues in mapping that conveys additional information not represented in  the structured data
 
- -- Row 29 -----------------------------------
-  Element = ConceptMap.element.target.dependsOn
+ -- Row 30 -----------------------------------
+  Element = ConceptMap.group.element.target.dependsOn
   Card. = 0..*
   UML = 580;200
   Type = =OtherElement
   Short Label = Other elements required for this mapping (from context)
   Definition = A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value
 
- -- Row 30 -----------------------------------
-  Element = ConceptMap.element.target.dependsOn.element
+ -- Row 31 -----------------------------------
+  Element = ConceptMap.group.element.target.dependsOn.property
   Card. = 1..1
   Type = uri
-  Short Label = Reference to element/field/ValueSet mapping depends on
-  Definition = A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. HL7 v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition
+  Short Label = Reference to property mapping depends on
+  Definition = A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labelled to correspond with a code system property
 
- -- Row 31 -----------------------------------
-  Element = ConceptMap.element.target.dependsOn.system
+ -- Row 32 -----------------------------------
+  Element = ConceptMap.group.element.target.dependsOn.system
   Card. = 1..1
   Type = uri
   Short Label = Code System (if necessary)
   Definition = An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems)
 
- -- Row 32 -----------------------------------
-  Element = ConceptMap.element.target.dependsOn.code
+ -- Row 33 -----------------------------------
+  Element = ConceptMap.group.element.target.dependsOn.code
   Card. = 1..1
   Type = string
   Short Label = Value of the referenced element
   Definition = Identity (code or path) or the element/item/ValueSet that the map depends on / refers to
 
- -- Row 33 -----------------------------------
-  Element = ConceptMap.element.target.product
+ -- Row 34 -----------------------------------
+  Element = ConceptMap.group.element.target.product
   Card. = 0..*
-  Type = @ConceptMap.element.target.dependsOn
+  Type = @ConceptMap.group.element.target.dependsOn
   Short Label = Other concepts that this mapping also produces
   Definition = A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on
 
@@ -369,55 +376,60 @@
   Path = ConceptMap.date
 
  -- Row 9 -----------------------------------
-  Name = source
-  Type = reference
-  Path = ConceptMap.sourceReference
-
- -- Row 10 -----------------------------------
-  Name = source-uri
-  Type = reference
-  Path = ConceptMap.sourceUri
-
- -- Row 11 -----------------------------------
-  Name = target
-  Type = reference
-  Path = ConceptMap.target[x]
-
- -- Row 12 -----------------------------------
-  Name = source-system
-  Type = uri
-  Path = ConceptMap.element.system
-
- -- Row 13 -----------------------------------
-  Name = target-system
-  Type = uri
-  Path = ConceptMap.element.target.system
-
- -- Row 14 -----------------------------------
-  Name = source-code
-  Type = token
-  Path = ConceptMap.element.code
-
- -- Row 15 -----------------------------------
-  Name = target-code
-  Type = token
-  Path = ConceptMap.element.target.code
-
- -- Row 16 -----------------------------------
-  Name = dependson
-  Type = uri
-  Path = ConceptMap.element.target.dependsOn.element
-
- -- Row 17 -----------------------------------
-  Name = product
-  Type = uri
-  Path = ConceptMap.element.target.product.element
-
- -- Row 18 -----------------------------------
   Name = context
   Type = token
   Description = A use context assigned to the concept map
   Path = ConceptMap.useContext
+
+ -- Row 10 -----------------------------------
+  Name = source
+  Type = reference
+  Path = ConceptMap.sourceReference
+
+ -- Row 11 -----------------------------------
+  Name = source-uri
+  Type = reference
+  Path = ConceptMap.sourceUri
+
+ -- Row 12 -----------------------------------
+  Name = target
+  Type = reference
+  Path = ConceptMap.targetReference
+
+ -- Row 13 -----------------------------------
+  Name = target-uri
+  Type = reference
+  Path = ConceptMap.targetUri
+
+ -- Row 14 -----------------------------------
+  Name = source-system
+  Type = uri
+  Path = ConceptMap.group.source
+
+ -- Row 15 -----------------------------------
+  Name = target-system
+  Type = uri
+  Path = ConceptMap.group.target
+
+ -- Row 16 -----------------------------------
+  Name = source-code
+  Type = token
+  Path = ConceptMap.group.element.code
+
+ -- Row 17 -----------------------------------
+  Name = target-code
+  Type = token
+  Path = ConceptMap.group.element.target.code
+
+ -- Row 18 -----------------------------------
+  Name = dependson
+  Type = uri
+  Path = ConceptMap.group.element.target.dependsOn.property
+
+ -- Row 19 -----------------------------------
+  Name = product
+  Type = uri
+  Path = ConceptMap.group.element.target.product.property
 
 === Sheet Profiles =====================================
 

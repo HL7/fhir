@@ -1,6 +1,10 @@
 package org.hl7.fhir.dstu3.utils;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,6 +13,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.dstu3.formats.JsonParser;
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
@@ -18,8 +24,10 @@ import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.Conformance;
 import org.hl7.fhir.dstu3.model.Extension;
+import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.Parameters;
 import org.hl7.fhir.dstu3.model.Reference;
+import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -40,6 +48,8 @@ import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 
+import com.google.gson.JsonSyntaxException;
+
 public abstract class BaseWorkerContext implements IWorkerContext {
 
   // all maps are to the full URI
@@ -52,13 +62,17 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected boolean cacheValidation; // if true, do an expansion and cache the expansion
   private Set<String> failed = new HashSet<String>(); // value sets for which we don't try to do expansion, since the first attempt to get a comprehensive expansion was not successful
   protected Map<String, Map<String, ValidationResult>> validationCache = new HashMap<String, Map<String,ValidationResult>>();
-  
+  protected String tsServer;
+  protected String validationCachePath;
+
   // private ValueSetExpansionCache expansionCache; //   
 
   protected FHIRToolingClient txServer;
   private Bundle bndCodeSystems;
   private boolean canRunWithoutTerminology;
   protected boolean noTerminologyServer;
+  protected String cache;
+  private int expandCodesLimit = 10000;
 
   @Override
   public CodeSystem fetchCodeSystem(String system) {
@@ -108,12 +122,68 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   @Override
   public ValueSetExpansionOutcome expandVS(ValueSet vs, boolean cacheOk) {
+    try {
+      if (vs.hasExpansion()) {
+        return new ValueSetExpansionOutcome(vs.copy());
+      }
+      String cacheFn = null;
+      if (cache != null) {
+        cacheFn = Utilities.path(cache, determineCacheId(vs)+".json");
+        if (new File(cacheFn).exists())
+          return loadFromCache(vs.copy(), cacheFn);
+      }
+      if (cacheOk && vs.hasUrl()) {
+        ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs);
+        if (vse.getValueset() != null) {
+          if (cache != null) {
+            FileOutputStream s = new FileOutputStream(cacheFn);
+            newJsonParser().compose(new FileOutputStream(cacheFn), vse.getValueset());
+            s.close();
+          }
+          return vse;
+        }
+      }
+      return expandOnServer(vs, cacheFn);
+    } catch (Exception e) {
+      return new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage());
+    }
+  }
+
+  private ValueSetExpansionOutcome loadFromCache(ValueSet vs, String cacheFn) throws FileNotFoundException, Exception {
+    JsonParser parser = new JsonParser();
+    Resource r = parser.parse(new FileInputStream(cacheFn));
+    if (r instanceof OperationOutcome)
+      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDetails().getText());
+    else {
+      vs.setExpansion(((ValueSet) r).getExpansion()); // because what is cached might be from a different value set
+      return new ValueSetExpansionOutcome(vs);
+    }
+  }
+
+  private String determineCacheId(ValueSet vs) throws Exception {
+    // just the content logical definition is hashed
+    ValueSet vsid = new ValueSet();
+    vsid.setCompose(vs.getCompose());
+    vsid.setLockedDate(vs.getLockedDate());
+    JsonParser parser = new JsonParser();
+    parser.setOutputStyle(OutputStyle.NORMAL);
+    ByteArrayOutputStream b = new  ByteArrayOutputStream();
+    parser.compose(b, vsid);
+    b.close();
+    String s = new String(b.toByteArray());
+    String r = Integer.toString(s.hashCode());
+//    TextFile.stringToFile(s, Utilities.path(cache, r+".id.json"));
+    return r;
+  }
+
+
+  public ValueSetExpansionOutcome expandOnServer(ValueSet vs, String fn) throws Exception {
     if (noTerminologyServer)
       return new ValueSetExpansionOutcome("Error expanding ValueSet: running without terminology services");
       
     try {
       Map<String, String> params = new HashMap<String, String>();
-      params.put("_limit", "10000");
+      params.put("_limit", Integer.toString(expandCodesLimit ));
       params.put("_incomplete", "true");
       params.put("profile", "http://www.healthintersections.com.au/fhir/expansion/no-details");
       ValueSet result = txServer.expandValueset(vs, params);
@@ -328,6 +398,21 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
   }
 
+  public void initTS(String cachePath, String tsServer) throws Exception {
+    cache = cachePath;
+    this.tsServer = tsServer;
+    expansionCache = new ValueSetExpansionCache(this, null);
+    validationCachePath = Utilities.path(cachePath, "validation.cache");
+    try {
+      loadValidationCache();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  protected void loadValidationCache() throws JsonSyntaxException, Exception {
+  }
+  
   @Override
   public List<ConceptMap> findMapsForSource(String url) {
     List<ConceptMap> res = new ArrayList<ConceptMap>();
@@ -444,6 +529,14 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   public void setCanRunWithoutTerminology(boolean canRunWithoutTerminology) {
     this.canRunWithoutTerminology = canRunWithoutTerminology;
+  }
+
+  public int getExpandCodesLimit() {
+    return expandCodesLimit;
+  }
+
+  public void setExpandCodesLimit(int expandCodesLimit) {
+    this.expandCodesLimit = expandCodesLimit;
   }
 
   

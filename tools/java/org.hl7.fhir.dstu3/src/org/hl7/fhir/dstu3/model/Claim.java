@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 07:05+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 14, 2016 05:57+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -812,82 +812,36 @@ public class Claim extends DomainResource {
   }
 
     @Block()
-    public static class InformationComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * The general class of the information supplied: information; exception; accident, employment; onset, etc.
-         */
-        @Child(name = "category", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Category of information", formalDefinition="The general class of the information supplied: information; exception; accident, employment; onset, etc." )
-        protected Coding category;
-
+    public static class SpecialConditionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.
          */
-        @Child(name = "code", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "code", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Type of information", formalDefinition="System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication." )
         protected Coding code;
 
         /**
-         * A reason code which supports the reporting of the information code or provides further details for the information code.
-         */
-        @Child(name = "reason", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Supporting Reason", formalDefinition="A reason code which supports the reporting of the information code or provides further details for the information code." )
-        protected Coding reason;
-
-        /**
          * The date when or period to which this information refers.
          */
-        @Child(name = "timing", type = {DateType.class, Period.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "timing", type = {DateType.class, Period.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="When it occurred", formalDefinition="The date when or period to which this information refers." )
         protected Type timing;
 
         /**
          * Additional data.
          */
-        @Child(name = "value", type = {StringType.class, Quantity.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "value", type = {StringType.class, Quantity.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Additional Data", formalDefinition="Additional data." )
         protected Type value;
 
-        private static final long serialVersionUID = 1767888500L;
+        private static final long serialVersionUID = 70792922L;
 
     /**
      * Constructor
      */
-      public InformationComponent() {
+      public SpecialConditionComponent() {
         super();
       }
-
-    /**
-     * Constructor
-     */
-      public InformationComponent(Coding category) {
-        super();
-        this.category = category;
-      }
-
-        /**
-         * @return {@link #category} (The general class of the information supplied: information; exception; accident, employment; onset, etc.)
-         */
-        public Coding getCategory() { 
-          if (this.category == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create InformationComponent.category");
-            else if (Configuration.doAutoCreate())
-              this.category = new Coding(); // cc
-          return this.category;
-        }
-
-        public boolean hasCategory() { 
-          return this.category != null && !this.category.isEmpty();
-        }
-
-        /**
-         * @param value {@link #category} (The general class of the information supplied: information; exception; accident, employment; onset, etc.)
-         */
-        public InformationComponent setCategory(Coding value) { 
-          this.category = value;
-          return this;
-        }
 
         /**
          * @return {@link #code} (System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.)
@@ -895,7 +849,7 @@ public class Claim extends DomainResource {
         public Coding getCode() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create InformationComponent.code");
+              throw new Error("Attempt to auto-create SpecialConditionComponent.code");
             else if (Configuration.doAutoCreate())
               this.code = new Coding(); // cc
           return this.code;
@@ -908,32 +862,8 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #code} (System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.)
          */
-        public InformationComponent setCode(Coding value) { 
+        public SpecialConditionComponent setCode(Coding value) { 
           this.code = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #reason} (A reason code which supports the reporting of the information code or provides further details for the information code.)
-         */
-        public Coding getReason() { 
-          if (this.reason == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create InformationComponent.reason");
-            else if (Configuration.doAutoCreate())
-              this.reason = new Coding(); // cc
-          return this.reason;
-        }
-
-        public boolean hasReason() { 
-          return this.reason != null && !this.reason.isEmpty();
-        }
-
-        /**
-         * @param value {@link #reason} (A reason code which supports the reporting of the information code or provides further details for the information code.)
-         */
-        public InformationComponent setReason(Coding value) { 
-          this.reason = value;
           return this;
         }
 
@@ -977,7 +907,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #timing} (The date when or period to which this information refers.)
          */
-        public InformationComponent setTiming(Type value) { 
+        public SpecialConditionComponent setTiming(Type value) { 
           this.timing = value;
           return this;
         }
@@ -1022,16 +952,14 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #value} (Additional data.)
          */
-        public InformationComponent setValue(Type value) { 
+        public SpecialConditionComponent setValue(Type value) { 
           this.value = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("category", "Coding", "The general class of the information supplied: information; exception; accident, employment; onset, etc.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("code", "Coding", "System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("reason", "Coding", "A reason code which supports the reporting of the information code or provides further details for the information code.", 0, java.lang.Integer.MAX_VALUE, reason));
           childrenList.add(new Property("timing[x]", "date|Period", "The date when or period to which this information refers.", 0, java.lang.Integer.MAX_VALUE, timing));
           childrenList.add(new Property("value[x]", "string|Quantity", "Additional data.", 0, java.lang.Integer.MAX_VALUE, value));
         }
@@ -1039,9 +967,7 @@ public class Claim extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // Coding
-        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Coding
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
         case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
         default: return super.getProperty(hash, name, checkValid);
@@ -1052,14 +978,8 @@ public class Claim extends DomainResource {
       @Override
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 50511102: // category
-          this.category = castToCoding(value); // Coding
-          break;
         case 3059181: // code
           this.code = castToCoding(value); // Coding
-          break;
-        case -934964668: // reason
-          this.reason = castToCoding(value); // Coding
           break;
         case -873664438: // timing
           this.timing = (Type) value; // Type
@@ -1074,12 +994,8 @@ public class Claim extends DomainResource {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("category"))
-          this.category = castToCoding(value); // Coding
-        else if (name.equals("code"))
+        if (name.equals("code"))
           this.code = castToCoding(value); // Coding
-        else if (name.equals("reason"))
-          this.reason = castToCoding(value); // Coding
         else if (name.equals("timing[x]"))
           this.timing = (Type) value; // Type
         else if (name.equals("value[x]"))
@@ -1091,9 +1007,7 @@ public class Claim extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 50511102:  return getCategory(); // Coding
         case 3059181:  return getCode(); // Coding
-        case -934964668:  return getReason(); // Coding
         case 164632566:  return getTiming(); // Type
         case -1410166417:  return getValue(); // Type
         default: return super.makeProperty(hash, name);
@@ -1103,17 +1017,9 @@ public class Claim extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("category")) {
-          this.category = new Coding();
-          return this.category;
-        }
-        else if (name.equals("code")) {
+        if (name.equals("code")) {
           this.code = new Coding();
           return this.code;
-        }
-        else if (name.equals("reason")) {
-          this.reason = new Coding();
-          return this.reason;
         }
         else if (name.equals("timingDate")) {
           this.timing = new DateType();
@@ -1135,12 +1041,10 @@ public class Claim extends DomainResource {
           return super.addChild(name);
       }
 
-      public InformationComponent copy() {
-        InformationComponent dst = new InformationComponent();
+      public SpecialConditionComponent copy() {
+        SpecialConditionComponent dst = new SpecialConditionComponent();
         copyValues(dst);
-        dst.category = category == null ? null : category.copy();
         dst.code = code == null ? null : code.copy();
-        dst.reason = reason == null ? null : reason.copy();
         dst.timing = timing == null ? null : timing.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
@@ -1150,26 +1054,25 @@ public class Claim extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof InformationComponent))
+        if (!(other instanceof SpecialConditionComponent))
           return false;
-        InformationComponent o = (InformationComponent) other;
-        return compareDeep(category, o.category, true) && compareDeep(code, o.code, true) && compareDeep(reason, o.reason, true)
-           && compareDeep(timing, o.timing, true) && compareDeep(value, o.value, true);
+        SpecialConditionComponent o = (SpecialConditionComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(timing, o.timing, true) && compareDeep(value, o.value, true)
+          ;
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof InformationComponent))
+        if (!(other instanceof SpecialConditionComponent))
           return false;
-        InformationComponent o = (InformationComponent) other;
+        SpecialConditionComponent o = (SpecialConditionComponent) other;
         return true;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, code, reason, timing
-          , value);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, timing, value);
       }
 
   public String fhirType() {
@@ -1830,16 +1733,23 @@ public class Claim extends DomainResource {
         protected Type coverage;
 
         /**
+         * The contract number of a business agreement which describes the terms and conditions.
+         */
+        @Child(name = "businessArrangement", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Business agreement", formalDefinition="The contract number of a business agreement which describes the terms and conditions." )
+        protected StringType businessArrangement;
+
+        /**
          * A list of references from the Insurer to which these services pertain.
          */
-        @Child(name = "preAuthRef", type = {StringType.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "preAuthRef", type = {StringType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Pre-Authorization/Determination Reference", formalDefinition="A list of references from the Insurer to which these services pertain." )
         protected List<StringType> preAuthRef;
 
         /**
          * The Coverages adjudication details.
          */
-        @Child(name = "claimResponse", type = {ClaimResponse.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "claimResponse", type = {ClaimResponse.class}, order=6, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Adjudication results", formalDefinition="The Coverages adjudication details." )
         protected Reference claimResponse;
 
@@ -1851,11 +1761,11 @@ public class Claim extends DomainResource {
         /**
          * The style (standard) and version of the original material which was converted into this resource.
          */
-        @Child(name = "originalRuleset", type = {Coding.class}, order=6, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "originalRuleset", type = {Coding.class}, order=7, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
         protected Coding originalRuleset;
 
-        private static final long serialVersionUID = 1621849051L;
+        private static final long serialVersionUID = 2031704818L;
 
     /**
      * Constructor
@@ -2010,6 +1920,55 @@ public class Claim extends DomainResource {
         }
 
         /**
+         * @return {@link #businessArrangement} (The contract number of a business agreement which describes the terms and conditions.). This is the underlying object with id, value and extensions. The accessor "getBusinessArrangement" gives direct access to the value
+         */
+        public StringType getBusinessArrangementElement() { 
+          if (this.businessArrangement == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.businessArrangement");
+            else if (Configuration.doAutoCreate())
+              this.businessArrangement = new StringType(); // bb
+          return this.businessArrangement;
+        }
+
+        public boolean hasBusinessArrangementElement() { 
+          return this.businessArrangement != null && !this.businessArrangement.isEmpty();
+        }
+
+        public boolean hasBusinessArrangement() { 
+          return this.businessArrangement != null && !this.businessArrangement.isEmpty();
+        }
+
+        /**
+         * @param value {@link #businessArrangement} (The contract number of a business agreement which describes the terms and conditions.). This is the underlying object with id, value and extensions. The accessor "getBusinessArrangement" gives direct access to the value
+         */
+        public CoverageComponent setBusinessArrangementElement(StringType value) { 
+          this.businessArrangement = value;
+          return this;
+        }
+
+        /**
+         * @return The contract number of a business agreement which describes the terms and conditions.
+         */
+        public String getBusinessArrangement() { 
+          return this.businessArrangement == null ? null : this.businessArrangement.getValue();
+        }
+
+        /**
+         * @param value The contract number of a business agreement which describes the terms and conditions.
+         */
+        public CoverageComponent setBusinessArrangement(String value) { 
+          if (Utilities.noString(value))
+            this.businessArrangement = null;
+          else {
+            if (this.businessArrangement == null)
+              this.businessArrangement = new StringType();
+            this.businessArrangement.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
          */
         public List<StringType> getPreAuthRef() { 
@@ -2143,6 +2102,7 @@ public class Claim extends DomainResource {
           childrenList.add(new Property("sequence", "positiveInt", "A service line item.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("focal", "boolean", "The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.", 0, java.lang.Integer.MAX_VALUE, focal));
           childrenList.add(new Property("coverage[x]", "Identifier|Reference(Coverage)", "Reference to the program or plan identification, underwriter or payor.", 0, java.lang.Integer.MAX_VALUE, coverage));
+          childrenList.add(new Property("businessArrangement", "string", "The contract number of a business agreement which describes the terms and conditions.", 0, java.lang.Integer.MAX_VALUE, businessArrangement));
           childrenList.add(new Property("preAuthRef", "string", "A list of references from the Insurer to which these services pertain.", 0, java.lang.Integer.MAX_VALUE, preAuthRef));
           childrenList.add(new Property("claimResponse", "Reference(ClaimResponse)", "The Coverages adjudication details.", 0, java.lang.Integer.MAX_VALUE, claimResponse));
           childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
@@ -2154,6 +2114,7 @@ public class Claim extends DomainResource {
         case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
         case 97604197: /*focal*/ return this.focal == null ? new Base[0] : new Base[] {this.focal}; // BooleanType
         case -351767064: /*coverage*/ return this.coverage == null ? new Base[0] : new Base[] {this.coverage}; // Type
+        case 259920682: /*businessArrangement*/ return this.businessArrangement == null ? new Base[0] : new Base[] {this.businessArrangement}; // StringType
         case 522246568: /*preAuthRef*/ return this.preAuthRef == null ? new Base[0] : this.preAuthRef.toArray(new Base[this.preAuthRef.size()]); // StringType
         case 689513629: /*claimResponse*/ return this.claimResponse == null ? new Base[0] : new Base[] {this.claimResponse}; // Reference
         case 1089373397: /*originalRuleset*/ return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
@@ -2173,6 +2134,9 @@ public class Claim extends DomainResource {
           break;
         case -351767064: // coverage
           this.coverage = (Type) value; // Type
+          break;
+        case 259920682: // businessArrangement
+          this.businessArrangement = castToString(value); // StringType
           break;
         case 522246568: // preAuthRef
           this.getPreAuthRef().add(castToString(value)); // StringType
@@ -2196,6 +2160,8 @@ public class Claim extends DomainResource {
           this.focal = castToBoolean(value); // BooleanType
         else if (name.equals("coverage[x]"))
           this.coverage = (Type) value; // Type
+        else if (name.equals("businessArrangement"))
+          this.businessArrangement = castToString(value); // StringType
         else if (name.equals("preAuthRef"))
           this.getPreAuthRef().add(castToString(value));
         else if (name.equals("claimResponse"))
@@ -2212,6 +2178,7 @@ public class Claim extends DomainResource {
         case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // PositiveIntType
         case 97604197: throw new FHIRException("Cannot make property focal as it is not a complex type"); // BooleanType
         case 227689880:  return getCoverage(); // Type
+        case 259920682: throw new FHIRException("Cannot make property businessArrangement as it is not a complex type"); // StringType
         case 522246568: throw new FHIRException("Cannot make property preAuthRef as it is not a complex type"); // StringType
         case 689513629:  return getClaimResponse(); // Reference
         case 1089373397:  return getOriginalRuleset(); // Coding
@@ -2236,6 +2203,9 @@ public class Claim extends DomainResource {
           this.coverage = new Reference();
           return this.coverage;
         }
+        else if (name.equals("businessArrangement")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Claim.businessArrangement");
+        }
         else if (name.equals("preAuthRef")) {
           throw new FHIRException("Cannot call addChild on a primitive type Claim.preAuthRef");
         }
@@ -2257,6 +2227,7 @@ public class Claim extends DomainResource {
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.focal = focal == null ? null : focal.copy();
         dst.coverage = coverage == null ? null : coverage.copy();
+        dst.businessArrangement = businessArrangement == null ? null : businessArrangement.copy();
         if (preAuthRef != null) {
           dst.preAuthRef = new ArrayList<StringType>();
           for (StringType i : preAuthRef)
@@ -2275,8 +2246,9 @@ public class Claim extends DomainResource {
           return false;
         CoverageComponent o = (CoverageComponent) other;
         return compareDeep(sequence, o.sequence, true) && compareDeep(focal, o.focal, true) && compareDeep(coverage, o.coverage, true)
-           && compareDeep(preAuthRef, o.preAuthRef, true) && compareDeep(claimResponse, o.claimResponse, true)
-           && compareDeep(originalRuleset, o.originalRuleset, true);
+           && compareDeep(businessArrangement, o.businessArrangement, true) && compareDeep(preAuthRef, o.preAuthRef, true)
+           && compareDeep(claimResponse, o.claimResponse, true) && compareDeep(originalRuleset, o.originalRuleset, true)
+          ;
       }
 
       @Override
@@ -2286,13 +2258,13 @@ public class Claim extends DomainResource {
         if (!(other instanceof CoverageComponent))
           return false;
         CoverageComponent o = (CoverageComponent) other;
-        return compareValues(sequence, o.sequence, true) && compareValues(focal, o.focal, true) && compareValues(preAuthRef, o.preAuthRef, true)
-          ;
+        return compareValues(sequence, o.sequence, true) && compareValues(focal, o.focal, true) && compareValues(businessArrangement, o.businessArrangement, true)
+           && compareValues(preAuthRef, o.preAuthRef, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, focal, coverage
-          , preAuthRef, claimResponse, originalRuleset);
+          , businessArrangement, preAuthRef, claimResponse, originalRuleset);
       }
 
   public String fhirType() {
@@ -6563,7 +6535,7 @@ public class Claim extends DomainResource {
      */
     @Child(name = "information", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="", formalDefinition="Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required." )
-    protected List<InformationComponent> information;
+    protected List<SpecialConditionComponent> information;
 
     /**
      * Ordered list of patient diagnosis for which care is sought.
@@ -6601,27 +6573,41 @@ public class Claim extends DomainResource {
     protected AccidentComponent accident;
 
     /**
+     * The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).
+     */
+    @Child(name = "employmentImpacted", type = {Period.class}, order=26, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Period unable to work", formalDefinition="The start and optional end dates of when the patient was precluded from working due to the treatable condition(s)." )
+    protected Period employmentImpacted;
+
+    /**
+     * The start and optional end dates of when the patient was confined to a treatment center.
+     */
+    @Child(name = "hospitalization", type = {Period.class}, order=27, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Period in hospital", formalDefinition="The start and optional end dates of when the patient was confined to a treatment center." )
+    protected Period hospitalization;
+
+    /**
      * First tier of goods and services.
      */
-    @Child(name = "item", type = {}, order=26, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "item", type = {}, order=28, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Goods and Services", formalDefinition="First tier of goods and services." )
     protected List<ItemComponent> item;
 
     /**
      * The total value of the claim.
      */
-    @Child(name = "total", type = {Money.class}, order=27, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "total", type = {Money.class}, order=29, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Total claim cost", formalDefinition="The total value of the claim." )
     protected Money total;
 
     /**
      * A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
      */
-    @Child(name = "missingTeeth", type = {}, order=28, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "missingTeeth", type = {}, order=30, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Only if type = oral", formalDefinition="A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons." )
     protected List<MissingTeethComponent> missingTeeth;
 
-    private static final long serialVersionUID = -85416030L;
+    private static final long serialVersionUID = 26998197L;
 
   /**
    * Constructor
@@ -7448,16 +7434,16 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #information} (Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.)
      */
-    public List<InformationComponent> getInformation() { 
+    public List<SpecialConditionComponent> getInformation() { 
       if (this.information == null)
-        this.information = new ArrayList<InformationComponent>();
+        this.information = new ArrayList<SpecialConditionComponent>();
       return this.information;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public Claim setInformation(List<InformationComponent> theInformation) { 
+    public Claim setInformation(List<SpecialConditionComponent> theInformation) { 
       this.information = theInformation;
       return this;
     }
@@ -7465,25 +7451,25 @@ public class Claim extends DomainResource {
     public boolean hasInformation() { 
       if (this.information == null)
         return false;
-      for (InformationComponent item : this.information)
+      for (SpecialConditionComponent item : this.information)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public InformationComponent addInformation() { //3
-      InformationComponent t = new InformationComponent();
+    public SpecialConditionComponent addInformation() { //3
+      SpecialConditionComponent t = new SpecialConditionComponent();
       if (this.information == null)
-        this.information = new ArrayList<InformationComponent>();
+        this.information = new ArrayList<SpecialConditionComponent>();
       this.information.add(t);
       return t;
     }
 
-    public Claim addInformation(InformationComponent t) { //3
+    public Claim addInformation(SpecialConditionComponent t) { //3
       if (t == null)
         return this;
       if (this.information == null)
-        this.information = new ArrayList<InformationComponent>();
+        this.information = new ArrayList<SpecialConditionComponent>();
       this.information.add(t);
       return this;
     }
@@ -7491,7 +7477,7 @@ public class Claim extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #information}, creating it if it does not already exist
      */
-    public InformationComponent getInformationFirstRep() { 
+    public SpecialConditionComponent getInformationFirstRep() { 
       if (getInformation().isEmpty()) {
         addInformation();
       }
@@ -7727,6 +7713,54 @@ public class Claim extends DomainResource {
     }
 
     /**
+     * @return {@link #employmentImpacted} (The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).)
+     */
+    public Period getEmploymentImpacted() { 
+      if (this.employmentImpacted == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Claim.employmentImpacted");
+        else if (Configuration.doAutoCreate())
+          this.employmentImpacted = new Period(); // cc
+      return this.employmentImpacted;
+    }
+
+    public boolean hasEmploymentImpacted() { 
+      return this.employmentImpacted != null && !this.employmentImpacted.isEmpty();
+    }
+
+    /**
+     * @param value {@link #employmentImpacted} (The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).)
+     */
+    public Claim setEmploymentImpacted(Period value) { 
+      this.employmentImpacted = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #hospitalization} (The start and optional end dates of when the patient was confined to a treatment center.)
+     */
+    public Period getHospitalization() { 
+      if (this.hospitalization == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Claim.hospitalization");
+        else if (Configuration.doAutoCreate())
+          this.hospitalization = new Period(); // cc
+      return this.hospitalization;
+    }
+
+    public boolean hasHospitalization() { 
+      return this.hospitalization != null && !this.hospitalization.isEmpty();
+    }
+
+    /**
+     * @param value {@link #hospitalization} (The start and optional end dates of when the patient was confined to a treatment center.)
+     */
+    public Claim setHospitalization(Period value) { 
+      this.hospitalization = value;
+      return this;
+    }
+
+    /**
      * @return {@link #item} (First tier of goods and services.)
      */
     public List<ItemComponent> getItem() { 
@@ -7884,6 +7918,8 @@ public class Claim extends DomainResource {
         childrenList.add(new Property("patient[x]", "Identifier|Reference(Patient)", "Patient Resource.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("coverage", "", "Financial instrument by which payment information for health care.", 0, java.lang.Integer.MAX_VALUE, coverage));
         childrenList.add(new Property("accident", "", "An accident which resulted in the need for healthcare services.", 0, java.lang.Integer.MAX_VALUE, accident));
+        childrenList.add(new Property("employmentImpacted", "Period", "The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).", 0, java.lang.Integer.MAX_VALUE, employmentImpacted));
+        childrenList.add(new Property("hospitalization", "Period", "The start and optional end dates of when the patient was confined to a treatment center.", 0, java.lang.Integer.MAX_VALUE, hospitalization));
         childrenList.add(new Property("item", "", "First tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, item));
         childrenList.add(new Property("total", "Money", "The total value of the claim.", 0, java.lang.Integer.MAX_VALUE, total));
         childrenList.add(new Property("missingTeeth", "", "A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.", 0, java.lang.Integer.MAX_VALUE, missingTeeth));
@@ -7912,12 +7948,14 @@ public class Claim extends DomainResource {
         case -1814015861: /*originalPrescription*/ return this.originalPrescription == null ? new Base[0] : new Base[] {this.originalPrescription}; // Type
         case 106443592: /*payee*/ return this.payee == null ? new Base[0] : new Base[] {this.payee}; // PayeeComponent
         case -722568291: /*referral*/ return this.referral == null ? new Base[0] : new Base[] {this.referral}; // Type
-        case 1968600364: /*information*/ return this.information == null ? new Base[0] : this.information.toArray(new Base[this.information.size()]); // InformationComponent
+        case 1968600364: /*information*/ return this.information == null ? new Base[0] : this.information.toArray(new Base[this.information.size()]); // SpecialConditionComponent
         case 1196993265: /*diagnosis*/ return this.diagnosis == null ? new Base[0] : this.diagnosis.toArray(new Base[this.diagnosis.size()]); // DiagnosisComponent
         case -1095204141: /*procedure*/ return this.procedure == null ? new Base[0] : this.procedure.toArray(new Base[this.procedure.size()]); // ProcedureComponent
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Type
         case -351767064: /*coverage*/ return this.coverage == null ? new Base[0] : this.coverage.toArray(new Base[this.coverage.size()]); // CoverageComponent
         case -2143202801: /*accident*/ return this.accident == null ? new Base[0] : new Base[] {this.accident}; // AccidentComponent
+        case 1051487345: /*employmentImpacted*/ return this.employmentImpacted == null ? new Base[0] : new Base[] {this.employmentImpacted}; // Period
+        case 1057894634: /*hospitalization*/ return this.hospitalization == null ? new Base[0] : new Base[] {this.hospitalization}; // Period
         case 3242771: /*item*/ return this.item == null ? new Base[0] : this.item.toArray(new Base[this.item.size()]); // ItemComponent
         case 110549828: /*total*/ return this.total == null ? new Base[0] : new Base[] {this.total}; // Money
         case -1157130302: /*missingTeeth*/ return this.missingTeeth == null ? new Base[0] : this.missingTeeth.toArray(new Base[this.missingTeeth.size()]); // MissingTeethComponent
@@ -7990,7 +8028,7 @@ public class Claim extends DomainResource {
           this.referral = (Type) value; // Type
           break;
         case 1968600364: // information
-          this.getInformation().add((InformationComponent) value); // InformationComponent
+          this.getInformation().add((SpecialConditionComponent) value); // SpecialConditionComponent
           break;
         case 1196993265: // diagnosis
           this.getDiagnosis().add((DiagnosisComponent) value); // DiagnosisComponent
@@ -8006,6 +8044,12 @@ public class Claim extends DomainResource {
           break;
         case -2143202801: // accident
           this.accident = (AccidentComponent) value; // AccidentComponent
+          break;
+        case 1051487345: // employmentImpacted
+          this.employmentImpacted = castToPeriod(value); // Period
+          break;
+        case 1057894634: // hospitalization
+          this.hospitalization = castToPeriod(value); // Period
           break;
         case 3242771: // item
           this.getItem().add((ItemComponent) value); // ItemComponent
@@ -8064,7 +8108,7 @@ public class Claim extends DomainResource {
         else if (name.equals("referral[x]"))
           this.referral = (Type) value; // Type
         else if (name.equals("information"))
-          this.getInformation().add((InformationComponent) value);
+          this.getInformation().add((SpecialConditionComponent) value);
         else if (name.equals("diagnosis"))
           this.getDiagnosis().add((DiagnosisComponent) value);
         else if (name.equals("procedure"))
@@ -8075,6 +8119,10 @@ public class Claim extends DomainResource {
           this.getCoverage().add((CoverageComponent) value);
         else if (name.equals("accident"))
           this.accident = (AccidentComponent) value; // AccidentComponent
+        else if (name.equals("employmentImpacted"))
+          this.employmentImpacted = castToPeriod(value); // Period
+        else if (name.equals("hospitalization"))
+          this.hospitalization = castToPeriod(value); // Period
         else if (name.equals("item"))
           this.getItem().add((ItemComponent) value);
         else if (name.equals("total"))
@@ -8108,12 +8156,14 @@ public class Claim extends DomainResource {
         case -2067905515:  return getOriginalPrescription(); // Type
         case 106443592:  return getPayee(); // PayeeComponent
         case 344221635:  return getReferral(); // Type
-        case 1968600364:  return addInformation(); // InformationComponent
+        case 1968600364:  return addInformation(); // SpecialConditionComponent
         case 1196993265:  return addDiagnosis(); // DiagnosisComponent
         case -1095204141:  return addProcedure(); // ProcedureComponent
         case -2061246629:  return getPatient(); // Type
         case -351767064:  return addCoverage(); // CoverageComponent
         case -2143202801:  return getAccident(); // AccidentComponent
+        case 1051487345:  return getEmploymentImpacted(); // Period
+        case 1057894634:  return getHospitalization(); // Period
         case 3242771:  return addItem(); // ItemComponent
         case 110549828:  return getTotal(); // Money
         case -1157130302:  return addMissingTeeth(); // MissingTeethComponent
@@ -8254,6 +8304,14 @@ public class Claim extends DomainResource {
           this.accident = new AccidentComponent();
           return this.accident;
         }
+        else if (name.equals("employmentImpacted")) {
+          this.employmentImpacted = new Period();
+          return this.employmentImpacted;
+        }
+        else if (name.equals("hospitalization")) {
+          this.hospitalization = new Period();
+          return this.hospitalization;
+        }
         else if (name.equals("item")) {
           return addItem();
         }
@@ -8309,8 +8367,8 @@ public class Claim extends DomainResource {
         dst.payee = payee == null ? null : payee.copy();
         dst.referral = referral == null ? null : referral.copy();
         if (information != null) {
-          dst.information = new ArrayList<InformationComponent>();
-          for (InformationComponent i : information)
+          dst.information = new ArrayList<SpecialConditionComponent>();
+          for (SpecialConditionComponent i : information)
             dst.information.add(i.copy());
         };
         if (diagnosis != null) {
@@ -8330,6 +8388,8 @@ public class Claim extends DomainResource {
             dst.coverage.add(i.copy());
         };
         dst.accident = accident == null ? null : accident.copy();
+        dst.employmentImpacted = employmentImpacted == null ? null : employmentImpacted.copy();
+        dst.hospitalization = hospitalization == null ? null : hospitalization.copy();
         if (item != null) {
           dst.item = new ArrayList<ItemComponent>();
           for (ItemComponent i : item)
@@ -8364,8 +8424,9 @@ public class Claim extends DomainResource {
            && compareDeep(prescription, o.prescription, true) && compareDeep(originalPrescription, o.originalPrescription, true)
            && compareDeep(payee, o.payee, true) && compareDeep(referral, o.referral, true) && compareDeep(information, o.information, true)
            && compareDeep(diagnosis, o.diagnosis, true) && compareDeep(procedure, o.procedure, true) && compareDeep(patient, o.patient, true)
-           && compareDeep(coverage, o.coverage, true) && compareDeep(accident, o.accident, true) && compareDeep(item, o.item, true)
-           && compareDeep(total, o.total, true) && compareDeep(missingTeeth, o.missingTeeth, true);
+           && compareDeep(coverage, o.coverage, true) && compareDeep(accident, o.accident, true) && compareDeep(employmentImpacted, o.employmentImpacted, true)
+           && compareDeep(hospitalization, o.hospitalization, true) && compareDeep(item, o.item, true) && compareDeep(total, o.total, true)
+           && compareDeep(missingTeeth, o.missingTeeth, true);
       }
 
       @Override
@@ -8384,7 +8445,7 @@ public class Claim extends DomainResource {
           , ruleset, originalRuleset, created, billablePeriod, target, provider, organization
           , use, priority, fundsReserve, enterer, facility, related, prescription, originalPrescription
           , payee, referral, information, diagnosis, procedure, patient, coverage, accident
-          , item, total, missingTeeth);
+          , employmentImpacted, hospitalization, item, total, missingTeeth);
       }
 
   @Override

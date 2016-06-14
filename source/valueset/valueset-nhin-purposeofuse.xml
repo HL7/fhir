@@ -13,188 +13,137 @@
       <targetReference>
         <reference value="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse"/>
       </targetReference>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="TREATMENT"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
-          <code value="TREAT"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="PAYMENT"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
-          <code value="HPAYMT"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="OPERATIONS"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
-          <code value="HOPERAT"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="SYSADMIN"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
+      <group>
+        <source value="http://healthit.gov/nhin/purposeofuse"/>
+        <target value="http://hl7.org/fhir/v3/ActReason"/>
+        <element>
+          <code value="TREATMENT"/>
+          <target>
+            <code value="TREAT"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="PAYMENT"/>
+          <target>
+            <code value="HPAYMT"/>
+          </target>
+        </element>
+        <element>
+          <code value="OPERATIONS"/>
+          <target>
+            <code value="HOPERAT"/>
+          </target>
+        </element>
+        <element>
           <code value="SYSADMIN"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="FRAUD"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
+          <target>
+            <code value="SYSADMIN"/>
+          </target>
+        </element>
+        <element>
           <code value="FRAUD"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="PSYCHOTHERAPY"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
+          <target>
+            <code value="FRAUD"/>
+          </target>
+        </element>
+        <element>
           <code value="PSYCHOTHERAPY"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="TRAINING"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
+          <target>
+            <code value="PSYCHOTHERAPY"/>
+          </target>
+        </element>
+        <element>
           <code value="TRAINING"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="LEGAL"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
-          <code value="HLEGAL"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="MARKETING"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
-          <code value="HMARKT"/>
-          <equivalence value="narrower"/>
-          <comments value="Not clear how much difference there is between &#39;marketing&#39; and &#39;healthcare marketing&#39;"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="DIRECTORY"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
-          <code value="HDIRECT"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="DISASTER"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
+          <target>
+            <code value="TRAINING"/>
+          </target>
+        </element>
+        <element>
+          <code value="LEGAL"/>
+          <target>
+            <code value="HLEGAL"/>
+          </target>
+        </element>
+        <element>
+          <code value="MARKETING"/>
+          <target>
+            <code value="HMARKT"/>
+            <equivalence value="narrower"/>
+            <comments value="Not clear how much difference there is between &#39;marketing&#39; and &#39;healthcare marketing&#39;"/>
+          </target>
+        </element>
+        <element>
+          <code value="DIRECTORY"/>
+          <target>
+            <code value="HDIRECT"/>
+          </target>
+        </element>
+        <element>
           <code value="DISASTER"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="PUBLICHEALTH"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
-          <code value="PUBHLTH"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="JUDICIAL"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
-          <code value="HLEGAL"/>
-          <equivalence value="wider"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="LAW"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
-          <code value="HLEGAL"/>
-          <equivalence value="wider"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="DONATION"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
-          <code value="DONAT"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="RESEARCH"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
-          <code value="HRESCH"/>
-          <equivalence value="narrower"/>
-          <comments value="Not clear how much difference there is between &#39;research&#39; and &#39;healthcare research&#39;"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="THREAT"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
+          <target>
+            <code value="DISASTER"/>
+          </target>
+        </element>
+        <element>
+          <code value="PUBLICHEALTH"/>
+          <target>
+            <code value="PUBHLTH"/>
+          </target>
+        </element>
+        <element>
+          <code value="JUDICIAL"/>
+          <target>
+            <code value="HLEGAL"/>
+            <equivalence value="wider"/>
+          </target>
+        </element>
+        <element>
+          <code value="LAW"/>
+          <target>
+            <code value="HLEGAL"/>
+            <equivalence value="wider"/>
+          </target>
+        </element>
+        <element>
+          <code value="DONATION"/>
+          <target>
+            <code value="DONAT"/>
+          </target>
+        </element>
+        <element>
+          <code value="RESEARCH"/>
+          <target>
+            <code value="HRESCH"/>
+            <equivalence value="narrower"/>
+            <comments value="Not clear how much difference there is between &#39;research&#39; and &#39;healthcare research&#39;"/>
+          </target>
+        </element>
+        <element>
           <code value="THREAT"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="GOVERNMENT"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
-          <code value="GOV"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="COVERAGE"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
-          <code value="OVAUTH"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
-      <element>
-        <system value="http://healthit.gov/nhin/purposeofuse"/>
-        <code value="REQUEST"/>
-        <target>
-          <system value="http://hl7.org/fhir/v3/ActReason"/>
-          <code value="PATRQT"/>
-          <equivalence value="equivalent"/>
-        </target>
-      </element>
+          <target>
+            <code value="THREAT"/>
+          </target>
+        </element>
+        <element>
+          <code value="GOVERNMENT"/>
+          <target>
+            <code value="GOV"/>
+          </target>
+        </element>
+        <element>
+          <code value="COVERAGE"/>
+          <target>
+            <code value="OVAUTH"/>
+          </target>
+        </element>
+        <element>
+          <code value="REQUEST"/>
+          <target>
+            <code value="PATRQT"/>
+          </target>
+        </element>
+      </group>
     </ConceptMap>
   </contained>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-map">
@@ -202,7 +151,7 @@
       <reference value="#map"/>
     </valueReference>
   </extension>
-<!--    set of loinc codes for cholesterol for LONC 2.36    -->
+  <!--    set of loinc codes for cholesterol for LONC 2.36    -->
   <url value="http://hl7.org/fhir/ValueSet/nhin-purposeofuse"/>
   <version value="2.0"/>
   <name value="NHIN PurposeOfUse"/>

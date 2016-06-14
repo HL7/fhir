@@ -12,7 +12,10 @@ http://www.radlex.org
 http://fdi.org/fhir/oralsurfacecodes
 http://AHRQ.org/form/question_identifier#HERF/DE3-cs
 http://hl7.org/fhir/sid/icd-10
+<<<<<<< .mine
+=======
 http://fdi.org/fhir/oraltoothcodes
+>>>>>>> .r8504
 http://snomed.org/sct
 http://www.nubc.org/patient-discharge
 http://unstats.un.org/unsd/methods/m49/m49.htm
@@ -21,10 +24,16 @@ https://www.census.gov/geo/reference/
 http://www.ncbi.nlm.nih.gov/projects/SNP
 http://ehr.goodhealthclinic.org
 http://hl7.org/fhir/c80-doc-typecodes
+<<<<<<< .mine
+http://www.genenames.org
+http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921060v1.0-cs
+http://loinc.org/class
+=======
 http://hl7.org/fhir/ex-visionservice
 http://www.genenames.org
 http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921060v1.0-cs
 http://loinc.org/class
+>>>>>>> .r8504
 http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921081v1.0-cs
 urn:iso:std:iso:3166
 http://www.hgvs.org/mutnomen
@@ -35,7 +44,12 @@ http://www.infoway-inforoute.ca.org/Consent-subtype-codes
 http://www.nucc.org
 http://www.ama-assn.org/go/cpt
 http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921085v1.0-cs
+<<<<<<< .mine
+http://www.icd10data.com/icd10pcs
+http://hl7.org/fhir/consent-term-type-codes
+=======
 http://www.icd10data.com/icd10pcs
 http://hl7.org/fhir/oralservicecodes
 http://hl7.org/fhir/consent-term-type-codes
+>>>>>>> .r8504
 http://ncimeta.nci.nih.gov

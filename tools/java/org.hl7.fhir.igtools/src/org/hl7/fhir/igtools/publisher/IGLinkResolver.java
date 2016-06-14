@@ -2,6 +2,7 @@ package org.hl7.fhir.igtools.publisher;
 
 import org.hl7.fhir.dstu3.elementmodel.ParserBase;
 import org.hl7.fhir.dstu3.elementmodel.Property;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 
 public class IGLinkResolver implements ParserBase.ILinkResolver {
 
@@ -19,5 +20,6 @@ public class IGLinkResolver implements ParserBase.ILinkResolver {
   public String resolvePage(String name) {
     return "testpage-"+name;
   }
+
 
 }

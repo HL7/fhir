@@ -3081,6 +3081,12 @@
     <display value="Solution for injection"/>
     <display value="Injection solution (qualifier value)"/>
   </concept>
+  <concept id="385221006" display="Injection emulsion">
+    <display value="Injection emulsion (product)"/>
+    <display value="Injection emulsion"/>
+    <display value="Emulsion for injection"/>
+    <display value="Injection emulsion (qualifier value)"/>
+  </concept>
   <concept id="385432009" display="Not applicable (qualifier value)">
     <display value="Not applicable (qualifier value)"/>
     <display value="Not applicable"/>
@@ -5052,6 +5058,10 @@
     <display value="Pustule, NOS"/>
     <display value="Pustule (morphologic abnormality)"/>
     <display value="A vesicle filled with leukocytes"/>
+  </concept>
+  <concept id="470037004" display="Intravenous fluid container, single-use">
+    <display value="Intravenous fluid container, single-use"/>
+    <display value="Intravenous fluid container, single-use (physical object)"/>
   </concept>
   <concept id="47505003" display="Posttraumatic stress disorder (disorder)">
     <display value="Traumatic neurosis"/>

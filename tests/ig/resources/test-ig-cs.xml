@@ -5,10 +5,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/codesystem-shareable-definition"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Some narrative</div>
-  </text>
+ 
   
   <url value="http://hl7.org/fhir/CodeSystem/test-ig-cs"/>
   <version value="0.1"/>

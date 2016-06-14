@@ -48,6 +48,7 @@ import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.utils.Turtle;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
+import org.hl7.fhir.igtools.publisher.Publisher.GenerationTool;
 import org.hl7.fhir.igtools.renderers.CodeSystemRenderer;
 import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
 import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
@@ -104,11 +105,15 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class Publisher {
+  public enum GenerationTool {
+    Jekyll
+  }
+
   private String pathToSpec;
   private String configFile;
   private String output;
-  private String tool;
-  private String txServer = "http://local.healthintersections.com.au:960/open";
+  private GenerationTool tool;
+  private String txServer = "http://fhir3.healthintersections.com.au/open";
   private boolean watch;
 
   private String igName;
@@ -132,6 +137,7 @@ public class Publisher {
   private List<ValidationOutcomes> errs = new ArrayList<ValidationOutcomes>();
   private JsonObject configuration;
   private Calendar execTime = Calendar.getInstance();
+  private JsonObject toolConfig;
 
   private void execute() throws Exception {
     initialize();
@@ -272,12 +278,13 @@ public class Publisher {
 
   private void initialize() throws Exception {
     log("Load Configuration");
-    if (Utilities.noString(tool))
-      throw new Exception("Error: command line must include a -tool parameter");
-    if (!"jekyll".equals(tool))
-      throw new Exception("Error: -tool parameter '"+tool+"' not recognised");
       
     configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
+    if (!configuration.has("tool") || !(configuration.get("tool") instanceof JsonObject))
+      throw new Exception("Error: configuration file must include a \"tool\" object");
+    toolConfig = configuration.getAsJsonObject("tool");
+    tool = readType();
+
     igName = Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("source").getAsString());
 
     log("Publish "+igName);
@@ -307,8 +314,13 @@ public class Publisher {
       context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\temp\\igpack.zip");
     }
     context.setAllowLoadingDuplicates(true);
-    log("Connect to Terminology Server");
+    context.setExpandCodesLimit(1000);
+    log("Connect to Terminology Server at "+txServer);
+    String home = Utilities.path(System.getProperty("user.home"), "fhircache");
+    Utilities.createDirectory(home);
+    context.initTS(home, txServer);
     context.connectToTSServer(txServer);
+    // ;
     validator = new InstanceValidator(context);
     validator.setAllowXsiLocation(true);
 
@@ -320,12 +332,30 @@ public class Publisher {
     fetcher.setPkp(igpkp);
     for (String s : context.getBinaries().keySet())
       if (needFile(s)) {
-        TextFile.bytesToFile(context.getBinaries().get(s), Utilities.path(contentDir, s));    
-        TextFile.bytesToFile(context.getBinaries().get(s), Utilities.path(validationDir, s));
+        checkMakeFile(context.getBinaries().get(s), Utilities.path(contentDir, s));    
+        checkMakeFile(context.getBinaries().get(s), Utilities.path(validationDir, s));
       }
   }
   
   
+  private GenerationTool readType() throws Exception {
+    // TODO Auto-generated method stub
+    if (!toolConfig.has("type"))
+      throw new Exception("Error: configuration tool object must include a \"type\" property");
+    String t = toolConfig.get("type").getAsString();
+    if ("jekyll".equals(t))
+      return GenerationTool.Jekyll;
+    else
+      throw new Exception("Error: -tool parameter '"+tool+"' not recognised - must be \"jekyll\"");
+    
+  }
+
+  private void checkMakeFile(byte[] bs, String path) throws IOException {
+    byte[] existing = TextFile.fileToBytes(path);
+    if (!Arrays.equals(bs, existing))
+      TextFile.bytesToFile(bs, path);
+  }
+
   private boolean needFile(String s) {
     if (s.endsWith(".css"))
       return true;
@@ -384,6 +414,7 @@ public class Publisher {
     load(ResourceType.StructureMap);
     generateSnapshots();
   }
+  
   private boolean noteFile(ImplementationGuidePackageResourceComponent key, FetchedFile file) {
     FetchedFile existing = fileMap.get(key);
     if (existing == null || existing.getTime() != file.getTime() || !Arrays.equals(existing.getSource(), file.getSource())) {
@@ -502,6 +533,7 @@ public class Publisher {
     else
       throw new Exception("Unable to determine file type for "+file.getName());
     file.setId(file.getElement().getChildValue("id"));
+    file.setTitle(file.getElement().getChildValue("name"));
     if (file.getConfig() == null)
       igpkp.findConfiguration(file);
   }
@@ -617,12 +649,21 @@ public class Publisher {
    * @throws Exception
    */
   private void saveDirectResourceOutputs(FetchedFile f) throws FileNotFoundException, Exception {
-    if (wantGen(f, "xml"))
+    if (wantGen(f, "xml")) {
       new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
-    if (wantGen(f, "json"))
+      if (tool == GenerationTool.Jekyll)
+        genWrapper(f, "xml");  
+    }
+    if (wantGen(f, "json")) {
       new org.hl7.fhir.dstu3.elementmodel.JsonParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".json")), OutputStyle.PRETTY, "??");
-    if (wantGen(f, "ttl"))
+      if (tool == GenerationTool.Jekyll)
+        genWrapper(f, "json");  
+    }
+    if (wantGen(f, "ttl")) {
       new org.hl7.fhir.dstu3.elementmodel.TurtleParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".ttl")), OutputStyle.PRETTY, "??");
+      if (tool == GenerationTool.Jekyll)
+        genWrapper(f, "ttl");  
+    }
 
     if (wantGen(f, "xml-html")) {
       XmlXHtmlRenderer x = new XmlXHtmlRenderer();
@@ -659,6 +700,15 @@ public class Publisher {
 //  fragment(f.getId()+"-gen-html", html);
   }
 
+  private void genWrapper(FetchedFile f, String format) throws FileNotFoundException, IOException {
+    if (toolConfig.has("source-wrapper-template")) {
+      String template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), toolConfig.get("source-wrapper-template").getAsString()));
+      template = template.replace("{{[title]}}", f.getTitle());
+      template = template.replace("{{[name]}}", f.getId()+"-"+format+"-html");
+      TextFile.stringToFile(template, Utilities.path(contentDir, f.getType().toString()+"-"+f.getId()+"."+format+".html"), false);
+    }    
+  }
+
   /**
    * Generate:
    *   summary
@@ -672,21 +722,20 @@ public class Publisher {
   private void generateOutputsCodeSystem(FetchedFile f, CodeSystem cs) throws IOException, EOperationOutcome, FHIRException {
     CodeSystemRenderer csr = new CodeSystemRenderer(context, pathToSpec, cs, igpkp);
     if (wantGen(f, "summary")) 
-      fragment(cs.getId()+"-cs-summary", csr.summary());
+      fragment(cs.getId()+"-cs-summary", csr.summary(wantGen(f, "xml"), wantGen(f, "json"), wantGen(f, "ttl")));
     if (wantGen(f, "content")) 
       fragment(cs.getId()+"-cs-content", csr.content());
     if (wantGen(f, "xref")) 
-      fragmentError(cs.getId()+"-cs-xref", csr.xref());
+      fragment(cs.getId()+"-cs-xref", csr.xref());
   }
 
   /**
-   * Save the expansion as html 
    * Genrate: 
    *   summary
    *   Content logical definition
    *   cross-reference
    *   
-   * todo: should we save it as a resource too? at this time, no: it's not safe to do that; encourages abuse
+   * and save the expansion as html. todo: should we save it as a resource too? at this time, no: it's not safe to do that; encourages abuse
    * @param vs
    * @throws IOException
    * @throws FHIRException 
@@ -694,7 +743,7 @@ public class Publisher {
   private void generateOutputsValueSet(FetchedFile f, ValueSet vs) throws IOException, FHIRException {
     ValueSetRenderer vsr = new ValueSetRenderer(context, pathToSpec, vs, igpkp);
     if (wantGen(f, "summary")) 
-      fragment(vs.getId()+"-vs-summary", vsr.summary());
+      fragment(vs.getId()+"-vs-summary", vsr.summary(wantGen(f, "xml"), wantGen(f, "json"), wantGen(f, "ttl")));
     if (wantGen(f, "cld")) 
       try {
         fragment(vs.getId()+"-vs-cld", vsr.cld());
@@ -707,14 +756,17 @@ public class Publisher {
     if (wantGen(f, "expansion")) { 
       ValueSetExpansionOutcome exp = context.expandVS(vs, true);
       if (exp.getValueset() != null) {
-        NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
+        NarrativeGenerator gen = new NarrativeGenerator("", null, context);
+        gen.setTooCostlyNote("This value set has >1000 codes in it. In order to keep the publication size manageable, only a selection (1000 codes) of the whole set of codes is shown");
+        exp.getValueset().setCompose(null);
+        exp.getValueset().setText(null);
         gen.generate(exp.getValueset(), false);
         String html = new XhtmlComposer().compose(exp.getValueset().getText().getDiv());
         fragment(vs.getId()+"-expansion", html);
       } else if (exp.getError() != null) 
         fragmentError(vs.getId()+"-expansion", exp.getError());
       else 
-        fragmentError(vs.getId()+"-expansion", exp.getError());
+        fragmentError(vs.getId()+"-expansion", "Unknown Error");
     }
   }
 
@@ -820,19 +872,16 @@ public class Publisher {
     self.output = getNamedParam(args, "-out");
     self.pathToSpec = getNamedParam(args, "-spec");
     self.setTxServer(getNamedParam(args, "-tx"));
-    self.setTool(getNamedParam(args, "-tool"));
     self.watch = hasParam(args, "-watch");
 
     if (self.configFile == null || self.pathToSpec == null) {
       System.out.println("");
       System.out.println("To use this publisher, run with the commands");
       System.out.println("");
-      System.out.println("-ig [source] -tool [tool] -out [folder] -spec [path] -tx [url] -watch");
+      System.out.println("-ig [source] -out [folder] -spec [path] -tx [url] -watch");
       System.out.println("");
       System.out.println("-ig: a path or a url where the implementation guide control file is found");
       System.out.println("  see Wiki for Documentation");
-      System.out.println("-tool: The tool that will be used for the second step. Choices: ");
-      System.out.println("  jekyll: Content organised for Jekyll");
       System.out.println("-out: a local folder where the output from the IG publisher will be generated");
       System.out.println("-spec: the location of the FHIR specification relative to the guide");
       System.out.println("  (can be an absolute URL, or relative if the guide will be published with FHIR)");
@@ -857,9 +906,6 @@ public class Publisher {
   }
 
 
-  public void setTool(String tool) {
-    this.tool = tool;
-  }
 
   private void setTxServer(String s) {
     if (!Utilities.noString(s))

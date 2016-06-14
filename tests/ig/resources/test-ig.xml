@@ -9,11 +9,30 @@
   <publisher value="FHIR Project"/>
   <package>
     <name value="base"/>
-    <!-- Code System -->
+
     <resource>
       <example value="false"/>
       <sourceReference>
         <reference value="CodeSystem/test-ig-cs"/>
+      </sourceReference>
+    </resource>
+
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/test-ig-vs"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/test-ig-vsint"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/test-ig-vsext"/>
       </sourceReference>
     </resource>
     

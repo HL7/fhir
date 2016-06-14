@@ -1,10 +1,16 @@
 package org.hl7.fhir.convertors;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.dstu2.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
+import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
@@ -3787,6 +3793,19 @@ public class VersionConvertor {
 		return tgt;
 	}
 
+	private class SourceElementComponentWrapper {
+	  public SourceElementComponentWrapper(SourceElementComponent comp, String source, String target) {
+      super();
+      this.source = source;
+      this.target = target;
+      this.comp = comp;
+    }
+    private String source;
+	  private String target;
+	  private org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent comp;
+	  
+	}
+	
 	public org.hl7.fhir.dstu3.model.ConceptMap convertConceptMap(org.hl7.fhir.dstu2.model.ConceptMap src) throws FHIRException {
 		if (src == null)
 			return null;
@@ -3809,10 +3828,25 @@ public class VersionConvertor {
 		tgt.setCopyright(src.getCopyright());
 		tgt.setSource(convertType(src.getSource()));
 		tgt.setTarget(convertType(src.getTarget()));
-		for (org.hl7.fhir.dstu2.model.ConceptMap.SourceElementComponent t : src.getElement())
-			tgt.addElement(convertSourceElementComponent(t));
+		for (org.hl7.fhir.dstu2.model.ConceptMap.SourceElementComponent t : src.getElement()) {
+		  List<SourceElementComponentWrapper> ws = convertSourceElementComponent(t);
+		  for (SourceElementComponentWrapper w : ws)
+			getGroup(tgt, w.source, w.target).addElement(w.comp);
+		}
 		return tgt;
 	}
+
+	private ConceptMapGroupComponent getGroup(ConceptMap map, String srcs, String tgts) {
+	  for (ConceptMapGroupComponent grp : map.getGroup()) {
+	    if (grp.getSource().equals(srcs) && grp.getTarget().equals(tgts))
+	      return grp;
+	  }
+	  ConceptMapGroupComponent grp = map.addGroup(); 
+	  grp.setSource(srcs);
+	  grp.setTarget(tgts);
+	  return grp;
+	}
+
 
 	public org.hl7.fhir.dstu2.model.ConceptMap convertConceptMap(org.hl7.fhir.dstu3.model.ConceptMap src) throws FHIRException {
 		if (src == null)
@@ -3836,8 +3870,9 @@ public class VersionConvertor {
 		tgt.setCopyright(src.getCopyright());
 		tgt.setSource(convertType(src.getSource()));
 		tgt.setTarget(convertType(src.getTarget()));
-		for (org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent t : src.getElement())
-			tgt.addElement(convertSourceElementComponent(t));
+    for (org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent g : src.getGroup())
+      for (org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent t : g.getElement())
+		  	tgt.addElement(convertSourceElementComponent(t, g));
 		return tgt;
 	}
 
@@ -3885,27 +3920,29 @@ public class VersionConvertor {
 		return tgt;
 	}
 
-	public org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent convertSourceElementComponent(org.hl7.fhir.dstu2.model.ConceptMap.SourceElementComponent src) throws FHIRException {
+	public List<SourceElementComponentWrapper> convertSourceElementComponent(org.hl7.fhir.dstu2.model.ConceptMap.SourceElementComponent src) throws FHIRException {
+	  List<SourceElementComponentWrapper> res = new ArrayList<SourceElementComponentWrapper>();
 		if (src == null)
-			return null;
-		org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent tgt = new org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent();
-		copyElement(src, tgt);
-		tgt.setSystem(src.getCodeSystem());
-		tgt.setCode(src.getCode());
-		for (org.hl7.fhir.dstu2.model.ConceptMap.TargetElementComponent t : src.getTarget())
+			return res;
+    for (org.hl7.fhir.dstu2.model.ConceptMap.TargetElementComponent t : src.getTarget()) {
+  		org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent tgt = new org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent();
+	  	copyElement(src, tgt);
+  		tgt.setCode(src.getCode());
 			tgt.addTarget(convertTargetElementComponent(t));
-		return tgt;
+			res.add(new SourceElementComponentWrapper(tgt, src.getCodeSystem(), t.getCodeSystem()));
+    }
+		return res;
 	}
 
-	public org.hl7.fhir.dstu2.model.ConceptMap.SourceElementComponent convertSourceElementComponent(org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent src) throws FHIRException {
+	public org.hl7.fhir.dstu2.model.ConceptMap.SourceElementComponent convertSourceElementComponent(org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent src, org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent g) throws FHIRException {
 		if (src == null)
 			return null;
 		org.hl7.fhir.dstu2.model.ConceptMap.SourceElementComponent tgt = new org.hl7.fhir.dstu2.model.ConceptMap.SourceElementComponent();
 		copyElement(src, tgt);
-		tgt.setCodeSystem(src.getSystem());
+		tgt.setCodeSystem(g.getSource());
 		tgt.setCode(src.getCode());
 		for (org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent t : src.getTarget())
-			tgt.addTarget(convertTargetElementComponent(t));
+			tgt.addTarget(convertTargetElementComponent(t, g));
 		return tgt;
 	}
 
@@ -3914,7 +3951,6 @@ public class VersionConvertor {
 			return null;
 		org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent tgt = new org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent();
 		copyElement(src, tgt);
-		tgt.setSystem(src.getCodeSystem());
 		tgt.setCode(src.getCode());
 		tgt.setEquivalence(convertConceptMapEquivalence(src.getEquivalence()));
 		tgt.setComments(src.getComments());
@@ -3925,12 +3961,12 @@ public class VersionConvertor {
 		return tgt;
 	}
 
-	public org.hl7.fhir.dstu2.model.ConceptMap.TargetElementComponent convertTargetElementComponent(org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent src) throws FHIRException {
+	public org.hl7.fhir.dstu2.model.ConceptMap.TargetElementComponent convertTargetElementComponent(org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent src, org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent g) throws FHIRException {
 		if (src == null)
 			return null;
 		org.hl7.fhir.dstu2.model.ConceptMap.TargetElementComponent tgt = new org.hl7.fhir.dstu2.model.ConceptMap.TargetElementComponent();
 		copyElement(src, tgt);
-		tgt.setCodeSystem(src.getSystem());
+		tgt.setCodeSystem(g.getTarget());
 		tgt.setCode(src.getCode());
 		tgt.setEquivalence(convertConceptMapEquivalence(src.getEquivalence()));
 		tgt.setComments(src.getComments());
@@ -3980,7 +4016,7 @@ public class VersionConvertor {
 			return null;
 		org.hl7.fhir.dstu3.model.ConceptMap.OtherElementComponent tgt = new org.hl7.fhir.dstu3.model.ConceptMap.OtherElementComponent();
 		copyElement(src, tgt);
-		tgt.setElement(src.getElement());
+		tgt.setProperty(src.getElement());
 		tgt.setSystem(src.getCodeSystem());
 		tgt.setCode(src.getCode());
 		return tgt;
@@ -3991,7 +4027,7 @@ public class VersionConvertor {
 			return null;
 		org.hl7.fhir.dstu2.model.ConceptMap.OtherElementComponent tgt = new org.hl7.fhir.dstu2.model.ConceptMap.OtherElementComponent();
 		copyElement(src, tgt);
-		tgt.setElement(src.getElement());
+		tgt.setElement(src.getProperty());
 		tgt.setCodeSystem(src.getSystem());
 		tgt.setCode(src.getCode());
 		return tgt;

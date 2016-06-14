@@ -40,6 +40,7 @@ import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -55,16 +56,14 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   ProfileUtilities utils;
   private StructureDefinition sd;
   private String destDir;
-  private ProfileKnowledgeProvider pkp;
   private JsonObject preambles;
 
-  public StructureDefinitionRenderer(IWorkerContext context, String prefix, StructureDefinition sd, String destDir, ProfileKnowledgeProvider pkp, JsonObject preambles) {
-    super(context, prefix);
+  public StructureDefinitionRenderer(IWorkerContext context, String prefix, StructureDefinition sd, String destDir, IGKnowledgeProvider igp, JsonObject preambles) {
+    super(context, prefix, igp);
     this.sd = sd;
     this.destDir = destDir;
-    this.pkp = pkp;
     this.preambles = preambles;
-    utils = new ProfileUtilities(context, null, pkp);
+    utils = new ProfileUtilities(context, null, igp);
   }
 
   public String summary() {
@@ -100,7 +99,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
             fixeds++;
 
           for (TypeRefComponent t : ed.getType()) {
-            if (t.hasProfile() && !pkp.isDatatype(t.getProfile().get(0).getValue().substring(40))) {
+            if (t.hasProfile() && !igp.isDatatype(t.getProfile().get(0).getValue().substring(40))) {
               if (ed.getPath().endsWith(".extension"))
                 tryAdd(ext, summariseExtension(t.getProfile().get(0).getValue(), false, prefix));
               else if (ed.getPath().endsWith(".modifierExtension"))
@@ -237,7 +236,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   }
 
   private String describeProfile(String url, String prefix) throws Exception {
-    if (url.startsWith("http://hl7.org/fhir/StructureDefinition/") && (pkp.isDatatype(url.substring(40)) || pkp.isResource(url.substring(40)) || "Resource".equals(url.substring(40))))
+    if (url.startsWith("http://hl7.org/fhir/StructureDefinition/") && (igp.isDatatype(url.substring(40)) || igp.isResource(url.substring(40)) || "Resource".equals(url.substring(40))))
       return null;
 
     StructureDefinition ed = context.fetchResource(StructureDefinition.class, url);
@@ -597,7 +596,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     } else {
       b.append("<a href=\"");
       b.append(prefix);         
-      b.append(pkp.getLinkFor("", t.getCode()));
+      b.append(igp.getLinkFor("", t.getCode()));
       b.append(".html#");
       String type = t.getCode();
       if (type.equals("*"))
@@ -623,7 +622,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
           if (p.hasBaseType() )
             b.append("<a href=\""+prefix+p.getUserString("path")+"\" title=\""+pt.getValue()+"\">");
           else if (p.getKind() == StructureDefinitionKind.COMPLEXTYPE || p.getKind() == StructureDefinitionKind.PRIMITIVETYPE)
-            b.append("<a href=\""+prefix+pkp.getLinkFor("", p.getName())+ ".html#" + p.getName()+"\" title=\""+p.getName()+"\">");
+            b.append("<a href=\""+prefix+igp.getLinkFor("", p.getName())+ ".html#" + p.getName()+"\" title=\""+p.getName()+"\">");
           else // if (p.getKind() == StructureDefinitionType.RESOURCE)
             b.append("<a href=\""+prefix+p.getName().toLowerCase()+".html\">");
           b.append(p.getName());
