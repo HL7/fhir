@@ -7,8 +7,8 @@
   Id = 1
   Context = ConceptMap.group.element.target
   English = If the map is narrower or inexact, there SHALL be some comments
-  XPath = exists(f:comments) or ((f:equivalence/@value != \'narrower\') and (f:equivalence/@value != \'inexact\'))
-  Expression = comments.exists() or ((equivalence != \'narrower\') and (equivalence != \'inexact\'))
+  XPath = exists(f:comments) or not(exists(f:equivalence)) or ((f:equivalence/@value != \'narrower\') and (f:equivalence/@value != \'inexact\'))
+  Expression = comments.exists() or equivalence.empty() or ((equivalence != \'narrower\') and (equivalence != \'inexact\'))
 
 === Sheet Data Elements =====================================
 
@@ -222,11 +222,11 @@
 
  -- Row 22 -----------------------------------
   Element = ConceptMap.group.target
-  Card. = 1..1
+  Card. = 0..1
   Type = uri
   Short Label = System of the target (if necessary)
   Definition = An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems)
-  Comments = Should be a version specific reference
+  Comments = Target may be omitted if all the targget element equivalence values are \'unmatched\'
 
  -- Row 23 -----------------------------------
   Element = ConceptMap.group.targetVersion

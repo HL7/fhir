@@ -126,7 +126,6 @@
         <source value="http://loinc.org"/>
         <target value="http://hl7.org/fhir/v3/Unknown"/>
         <element>
-          <system value="http://loinc.org"/>
           <code value="c"/>
           <target>
             <code value="UNK"/>

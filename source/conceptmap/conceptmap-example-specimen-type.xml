@@ -44,6 +44,7 @@
         <comments value="HL7 term is a historical term. mapped to Pus"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="47002008"/>
         </product>
       </target>
@@ -60,6 +61,7 @@
         <code value="119376003"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="7970006"/>
         </product>
       </target>
@@ -70,6 +72,7 @@
         <code value="408654003"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="81723002"/>
         </product>
       </target>
@@ -101,6 +104,7 @@
         <code value="119295008"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="14766002"/>
         </product>
       </target>
@@ -139,6 +143,7 @@
         <comments value="submitted (PLR155) with parent of  167874004^knee joint synovial fluid (specimen), with specimen source topography 32361000^Popliteal fossa structure (body structure)"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="32361000"/>
         </product>
       </target>
@@ -156,6 +161,7 @@
         <code value="309049000"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="339008"/>
         </product>
       </target>
@@ -166,6 +172,7 @@
         <code value="309049000"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="339008"/>
         </product>
       </target>
@@ -176,10 +183,12 @@
         <code value="119295008"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="59843005"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="14766002"/>
         </product>
       </target>
@@ -215,6 +224,7 @@
         <code value="258415003"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="439336003"/>
         </product>
       </target>
@@ -231,6 +241,7 @@
         <code value="309176002"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="80657008"/>
         </product>
       </target>
@@ -241,10 +252,12 @@
         <code value="302795002"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="11585000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="14766002"/>
         </product>
       </target>
@@ -255,6 +268,7 @@
         <code value="258482009"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="339008"/>
         </product>
       </target>
@@ -265,6 +279,7 @@
         <code value="258415003"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="86273004"/>
         </product>
       </target>
@@ -281,6 +296,7 @@
         <code value="309051001"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="41570003"/>
         </product>
       </target>
@@ -335,10 +351,12 @@
         <code value="399713008"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="54535009"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="71252005"/>
         </product>
       </target>
@@ -364,10 +382,12 @@
         <comments value="Prefer to have aspirate of the pus oozing out from cleaned insertion site - if swab is all that can be obtained, then swab after cleaning, otherwise you may get a contaminated specimen and a falsely identified infected central line. Do not just swab the reddened area - that will just collect skin flora       "/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="386144009"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="285570007"/>
         </product>
       </target>
@@ -411,6 +431,7 @@
         <comments value="TBD in detail"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="445085009"/>
         </product>
       </target>
@@ -421,6 +442,7 @@
         <code value="119368000"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="27925004"/>
         </product>
       </target>
@@ -475,6 +497,7 @@
         <code value="119376003"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="31113003"/>
         </product>
       </target>
@@ -492,6 +515,7 @@
         <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead: not an acceptable specimen for micro - not specific enough term"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="122462000"/>
         </product>
       </target>
@@ -503,6 +527,7 @@
         <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="122462000"/>
         </product>
       </target>
@@ -519,10 +544,12 @@
         <code value="309210009"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="36213007"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="32849002"/>
         </product>
       </target>
@@ -598,10 +625,12 @@
         <code value="119307008"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="14766002"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="321667001"/>
         </product>
       </target>
@@ -619,10 +648,12 @@
         <code value="119307008"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="14766002"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="321667001"/>
         </product>
       </target>
@@ -666,6 +697,7 @@
         <code value="119297000"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="303112003"/>
         </product>
       </target>
@@ -676,6 +708,7 @@
         <code value="168139001"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="83670000"/>
         </product>
       </target>
@@ -725,6 +758,7 @@
         <comments value="this term is not specific enough, choose from terms that more accurately describe the specimen"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="272626006"/>
         </product>
       </target>
@@ -735,6 +769,7 @@
         <code value="309502007"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="41695006"/>
         </product>
       </target>
@@ -746,6 +781,7 @@
         <comments value="Further describe the sample as tissue or pus. or by the collection method. The term boil is not specifc to a body site - need to indicate source site (spm.8). preferred term is Aspirate_Boil"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="59843005"/>
         </product>
       </target>
@@ -762,10 +798,12 @@
         <code value="168137004"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="14766002"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="69695003"/>
         </product>
       </target>
@@ -776,6 +814,7 @@
         <code value="119379005"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="66051006"/>
         </product>
       </target>
@@ -786,10 +825,12 @@
         <code value="309213006"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="235157009"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="69695003"/>
         </product>
       </target>
@@ -801,10 +842,12 @@
         <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="122462000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="69695003"/>
         </product>
       </target>
@@ -833,6 +876,7 @@
         <code value="119376003"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="45647009"/>
         </product>
       </target>
@@ -857,10 +901,12 @@
         <code value="309211008"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="79121003"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="69695003"/>
         </product>
       </target>
@@ -879,14 +925,17 @@
         <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="127490009"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="122462000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="69695003"/>
         </product>
       </target>
@@ -904,6 +953,7 @@
         <code value="119297000"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="303113008"/>
         </product>
       </target>
@@ -941,6 +991,7 @@
         <comments value="TBD in detail"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="445085009"/>
         </product>
       </target>
@@ -951,6 +1002,7 @@
         <code value="309051001"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="55434001"/>
         </product>
       </target>
@@ -988,6 +1040,7 @@
         <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead: stool is what is expected, should use stool sample"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="419954003"/>
         </product>
       </target>
@@ -1051,6 +1104,7 @@
         <comments value="TBD in detail"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="255560000"/>
         </product>
       </target>
@@ -1074,10 +1128,12 @@
         <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead: stool is what is expected, should use stool sample"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="122462000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="21306003"/>
         </product>
       </target>
@@ -1095,6 +1151,7 @@
         <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="122462000"/>
         </product>
       </target>
@@ -1105,6 +1162,7 @@
         <code value="440674008"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="67889009"/>
         </product>
       </target>
@@ -1115,6 +1173,7 @@
         <code value="309051001"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="64033007"/>
         </product>
       </target>
@@ -1125,6 +1184,7 @@
         <code value="258607008"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="397394009"/>
         </product>
       </target>
@@ -1135,10 +1195,12 @@
         <code value="168138009"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="173830003"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="69695003"/>
         </product>
       </target>
@@ -1155,10 +1217,12 @@
         <code value="440674008"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="67889009"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="44567001"/>
         </product>
       </target>
@@ -1203,6 +1267,7 @@
         <comments value="The HL7 term is a historical term Mapped to CSF obtained by lumbar puncture"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="303949008"/>
         </product>
       </target>
@@ -1220,6 +1285,7 @@
         <code value="420548004"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="4147007"/>
         </product>
       </target>
@@ -1236,6 +1302,7 @@
         <code value="119376003"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="414781009"/>
         </product>
       </target>
@@ -1253,10 +1320,12 @@
         <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="122462000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="2095001"/>
         </product>
       </target>
@@ -1280,10 +1349,12 @@
         <code value="302794003"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="6853008"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="69695003"/>
         </product>
       </target>
@@ -1295,14 +1366,17 @@
         <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="127492001"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="122462000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="69695003"/>
         </product>
       </target>
@@ -1339,6 +1413,7 @@
         <comments value="be more precise use ulcer, tumor, vesicle"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="74262004"/>
         </product>
       </target>
@@ -1381,6 +1456,7 @@
         <code value="119371008"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="12921003"/>
         </product>
       </target>
@@ -1392,6 +1468,7 @@
         <comments value="need to know what kind of lesion, so map to: UlcerTissue_penile, VesicleFluid_penile, Wound_penile, Mass tissue_penile, Necrotic tissue_penile, AbscessAspirate_penile, Anything else?"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="18911002"/>
         </product>
       </target>
@@ -1402,6 +1479,7 @@
         <code value="119371008"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="397158004"/>
         </product>
       </target>
@@ -1448,6 +1526,7 @@
         <code value="119364003"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="255587001"/>
         </product>
       </target>
@@ -1459,10 +1538,12 @@
         <comments value="Historical term -though in this case more often used for discharge"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="122462000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="13648007"/>
         </product>
       </target>
@@ -1473,6 +1554,7 @@
         <code value="119376003"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="41329004"/>
         </product>
       </target>
@@ -1483,6 +1565,7 @@
         <code value="440493002"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="6902008"/>
         </product>
       </target>
@@ -1493,6 +1576,7 @@
         <code value="440493002"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="6902008"/>
         </product>
       </target>
@@ -1541,6 +1625,7 @@
         <code value="119365002"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="129300006"/>
         </product>
       </target>
@@ -1557,6 +1642,7 @@
         <code value="119323008"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="47002008"/>
         </product>
       </target>
@@ -1567,6 +1653,7 @@
         <code value="119323008"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="47002008"/>
         </product>
       </target>
@@ -1598,10 +1685,12 @@
         <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead: stool is what is expected, should use stool sample"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="122462000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="34402009"/>
         </product>
       </target>
@@ -1612,6 +1701,7 @@
         <code value="119371008"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="34402009"/>
         </product>
       </target>
@@ -1622,6 +1712,7 @@
         <code value="258420003"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="64033007"/>
         </product>
       </target>
@@ -1632,6 +1723,7 @@
         <code value="258453008"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="64033007"/>
         </product>
       </target>
@@ -1661,6 +1753,7 @@
         <comments value="TBD in detail"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="9454009"/>
         </product>
       </target>
@@ -1671,6 +1764,7 @@
         <code value="119371008"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="20233005"/>
         </product>
       </target>
@@ -1694,10 +1788,12 @@
         <comments value="Preferred is aspiration with sterile syringe from inflamed area. Specify body location of shunt site"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="257351008"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="14766002"/>
         </product>
       </target>
@@ -1708,10 +1804,12 @@
         <code value="446861007"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="446860008"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="279107003"/>
         </product>
       </target>
@@ -1736,6 +1834,7 @@
         <code value="309066003"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="240977001"/>
         </product>
       </target>
@@ -1752,6 +1851,7 @@
         <code value="420548004"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="4147007"/>
         </product>
       </target>
@@ -1845,6 +1945,7 @@
         <code value="119350003"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="64033007"/>
         </product>
       </target>
@@ -1855,6 +1956,7 @@
         <code value="119371008"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="5713008"/>
         </product>
       </target>
@@ -1865,6 +1967,7 @@
         <code value="119371008"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="4335006"/>
         </product>
       </target>
@@ -1876,6 +1979,7 @@
         <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="122462000"/>
         </product>
       </target>
@@ -1886,6 +1990,7 @@
         <code value="122575003"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="58088002"/>
         </product>
       </target>
@@ -1910,10 +2015,12 @@
         <code value="122877000"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="129112001"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="44567001"/>
         </product>
       </target>
@@ -1955,6 +2062,7 @@
         <code value="119364003"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="255588006"/>
         </product>
       </target>
@@ -1965,6 +2073,7 @@
         <code value="119371008"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="279572002"/>
         </product>
       </target>
@@ -1975,6 +2084,7 @@
         <code value="258480001"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="129112001"/>
         </product>
       </target>
@@ -2022,6 +2132,7 @@
         <code value="122575003"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="78533007"/>
         </product>
       </target>
@@ -2038,10 +2149,12 @@
         <code value="258574006"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="225271002"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="431938005"/>
         </product>
       </target>
@@ -2052,10 +2165,12 @@
         <code value="446277003"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="225109005"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="25990002"/>
         </product>
       </target>
@@ -2080,10 +2195,12 @@
         <comments value="NEW specimenTERM 7"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="176178006"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="89837001"/>
         </product>
       </target>
@@ -2176,6 +2293,7 @@
         <code value="122566000"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="122462000"/>
         </product>
       </target>
@@ -2225,14 +2343,17 @@
         <comments value="Prefer to have aspirate of the pus oozing out from cleaned insertion site - if swab is all that can be obtained, then swab after cleaning, otherwise you may get a contaminated specimen and a falsely identified infected central line. Do not just swab the reddened area - that will just collect skin flora"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="119295008"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="386144009"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
+          <system value="http://snomed.info/sct"/>
           <code value="14766002"/>
         </product>
       </target>
@@ -2244,6 +2365,7 @@
         <comments value="Be more specific use either: 119326000^hair specimen, or 119327009^nail specimen"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="119326000"/>
         </product>
       </target>
@@ -2255,10 +2377,12 @@
         <comments value="assume swab from shunt site for mapping here - clean surface of skin prior to expressing the shunt site - preferred is aspiration with sterile syringe should use SPM.8 to specify body approximate match location of shunt site"/>
         <product>
           <property value="TypeModifier"/>
+          <system value="http://snomed.info/sct"/>
           <code value="438660002"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
+          <system value="http://snomed.info/sct"/>
           <code value="257351008"/>
         </product>
       </target>

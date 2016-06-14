@@ -18,6 +18,8 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
         <sourceUri value="http://hl7.org/fhir/Questionnaire/54127-6"/>
         <targetUri value="http://hl7.org/fhir/DataElement"/>
         <group>
+          <source value="http://hl7.org/fhir"/>
+          <target value="http://loinc.org"/>
           <element>
             <code value="1.1.1"/>
             <target>

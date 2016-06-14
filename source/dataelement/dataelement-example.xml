@@ -122,34 +122,38 @@
 			<targetReference>
 				<reference value="#2179414-permitted"/>
 			</targetReference>
-			<element>
-				<code value="C17998"/>
-				<target>
-					<code value="0"/>
-					<equivalence value="equal"/>
-				</target>
-			</element>
-			<element>
-				<code value="C20197"/>
-				<target>
-					<code value="1"/>
-					<equivalence value="equal"/>
-				</target>
-			</element>
-			<element>
-				<code value="C16576"/>
-				<target>
-					<code value="2"/>
-					<equivalence value="equal"/>
-				</target>
-			</element>
-			<element>
-				<code value="C38046"/>
-				<target>
-					<code value="3"/>
-					<equivalence value="equal"/>
-				</target>
-			</element>
+      <group>
+        <source value="http://example.org/fhir/2179414"/>
+        <target value="http://example.org/fhir/2179414"/>
+        <element>
+          <code value="C17998"/>
+          <target>
+            <code value="0"/>
+            <equivalence value="equal"/>
+          </target>
+        </element>
+        <element>
+          <code value="C20197"/>
+          <target>
+            <code value="1"/>
+            <equivalence value="equal"/>
+          </target>
+        </element>
+        <element>
+          <code value="C16576"/>
+          <target>
+            <code value="2"/>
+            <equivalence value="equal"/>
+          </target>
+        </element>
+        <element>
+          <code value="C38046"/>
+          <target>
+            <code value="3"/>
+            <equivalence value="equal"/>
+          </target>
+        </element>
+      </group>
 		</ConceptMap>
 	</contained>
 	<identifier>
