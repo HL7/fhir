@@ -13,21 +13,13 @@
 
  -- Row 3 -----------------------------------
   Element = Sequence.extension
-  Profile Name = PhaseSet
-  Card. = 0..1
-  Type = Extension{#PhaseSet}
-  Short Label = Phase Set
-  Definition = A phase set identifier to associate different consensussequence-blocks
-
- -- Row 4 -----------------------------------
-  Element = Sequence.extension
   Profile Name = ExpectedCopyNumber
   Card. = 0..1
   Type = Extension{#ExpectedCopyNumber}
   Short Label = Expected Copy Number
   Definition = To indicated how many copies of the sequence block was expected
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = Sequence.extension
   Profile Name = Continuity
   Card. = 0..1
@@ -35,7 +27,7 @@
   Short Label = Continuity
   Definition = A continuity flag to indicate whether a gap exists between blocks
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Sequence.extension
   Profile Name = Strand
   Card. = 0..1

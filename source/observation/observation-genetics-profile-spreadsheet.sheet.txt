@@ -89,48 +89,48 @@
   Profile Name = TranscriptReferenceSequenceId
   Card. = 0..1
   Type = Extension{#TranscriptReferenceSequenceId}
-  Short Label = Transcript Reference Sequence Identifier
-  Definition = This field carries the ID for the transcribed reference sequence that part of the genetic reference sequence that is converted to Messenger RNA.
+  Short Label = Transcript reference sequence ID
+  Definition = Identifier for the transcribed reference sequence that is part of the genetic reference sequence that gets converted to messenger RNA. A transcript is an RNA synthesized on a DNA or RNA template by an RNA polymerase ([SO:0000673](http://www.sequenceontology.org/browser/current_svn/term/SO:0000673)).
 
  -- Row 3 -----------------------------------
   Element = Observation.extension
   Profile Name = ProteinReferenceSequenceId
   Card. = 0..1
   Type = Extension{#ProteinReferenceSequenceId}
-  Short Label = Protein Reference Sequence
-  Definition = Reference identifier for protein transcript, with version, from NCBI\'s RefSeq or ENSEMBL.
+  Short Label = Protein reference sequence ID
+  Definition = Reference identifier for protein transcript, with version, from NCBI\'s RefSeq or ENSEMBL. A protein is a sequence of amino acids linked by peptide bonds which may lack appreciable tertiary structure and may not be liable to irreversible denaturation ([SO:0000104](http://www.sequenceontology.org/browser/current_svn/term/SO:0000104)).
 
  -- Row 4 -----------------------------------
   Element = Observation.extension
   Profile Name = DNASequenceVariant
   Card. = 0..1
   Type = Extension{#DNASequenceVariant}
-  Short Label = DNA Sequence Variant
-  Definition = Human Genome Variation Society (HGVS) nomenclature for a single or set of DNA Sequence Variant(s) identified in testing. Reference Sequence id used for HGVS naming must be anotated.
+  Short Label = DNA sequence variant
+  Definition = A\' is a variant (mutation) of A = definition every instance of A\' is either an immediate mutation of some instance of A, or there is a chain of immediate mutation processes linking A\' to some instance of A ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element is the Human Genome Variation Society (HGVS) nomenclature for a single or set of DNA sequence variant(s) identified in testing. Reference sequence ID used for HGVS naming must be anotated.
 
  -- Row 5 -----------------------------------
   Element = Observation.extension
   Profile Name = DNAVariantId
   Card. = 0..1
   Type = Extension{#DNAVariantId}
-  Short Label = Variant Id
-  Definition = Identifier for variant.  If a germline variant, ClinVar or dbSNP identifier should be used.  If a somatic variant, COSMIC identifier should be used, unless in ClinVar then either maybe used. Need to provide the code system used (ClinVar, dbSNP, COSMIC)
+  Short Label = DNA sequence variant ID
+  Definition = Identifier for DNA sequence variant.  If a germline variant, ClinVar or dbSNP identifier should be used.  If a somatic variant, COSMIC identifier should be used, unless in ClinVar then either maybe used. Need to provide the code system used (ClinVar, dbSNP, COSMIC)
 
  -- Row 6 -----------------------------------
   Element = Observation.extension
   Profile Name = DNASequenceVariantType
   Card. = 0..1
   Type = Extension{#DNASequenceVariantType}
-  Short Label = DNA Variant Type
-  Definition = Codified type for associated DNA Sequence Variant. DNA Sequence Variants use the HGVS notation which implies the DNA Sequence Variant Type
+  Short Label = DNA sequence variant type
+  Definition = Codified type for associated DNA sequence variant. DNA sequence variants use the HGVS notation, which implies the DNA sequence variant type.
 
  -- Row 7 -----------------------------------
   Element = Observation.extension
   Profile Name = AminoAcidChange
   Card. = 0..1
   Type = Extension{#AminoAcidChange}
-  Short Label = Amino Acid Change
-  Definition = Human Genome Variation Society (HGVS) nomenclature for an amino acid change. Reference Sequence id used for HGVS naming must be anotated.
+  Short Label = Amino acid change
+  Definition = Human Genome Variation Society (HGVS) nomenclature for an amino acid change. Reference sequence ID used for HGVS naming must be anotated. An amino acid is a sequence feature that corresponds to a single amino acid residue in a polypeptide ([SO:0001237](http://www.sequenceontology.org/browser/current_svn/term/SO:0001237)).
   To Do = Need OID for SO
 
  -- Row 8 -----------------------------------
@@ -146,15 +146,16 @@
   Profile Name = Gene
   Card. = 0..1
   Type = Extension{#Gene}
-  Short Label = Gene Identifier
-  Definition = Gene in which the sequence is found. Currently values from HGNC are supported. Other systems or genes not defined in HGNC (e.g. BCR-ABL fusion gene) can be added by using local extension.
+  Short Label = HGNC gene symbol
+  Definition = A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene may include regulatory regions, transcribed regions and/or other functional sequence regions ([SO:0000704](http://www.sequenceontology.org/browser/current_svn/term/SO:0000704)). This element is the official gene symbol approved by the HGNC, which is a short abbreviated form of the gene name ([HGNC](http://www.genenames.org)).
+  Comments = Other systems or genes not defined in HGNC (e.g., BCR-ABL fusion gene) can be added by using a local extension.
 
  -- Row 10 -----------------------------------
   Element = Observation.extension
   Profile Name = DNARegionName
   Card. = 0..1
   Type = Extension{#DNARegionName}
-  Short Label = DNA Region Name
+  Short Label = DNA region name
   Definition = A human readable name for the region of interest. Typically Exon #, Intron # or other. NOTE: This is not standardized and is mainly for convenience and display purposes.
   To Do = Need OID for SO
 
@@ -163,56 +164,65 @@
   Profile Name = AlleleName
   Card. = 0..1
   Type = Extension{#AlleleName}
-  Short Label = AlleleName
-  Definition = Common name for variant or gene allele
+  Short Label = Name of allele
+  Definition = An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). This element is the common name for the allele.
 
  -- Row 12 -----------------------------------
   Element = Observation.extension
   Profile Name = AllelicState
   Card. = 0..1
   Type = Extension{#AllelicState}
-  Short Label = The level of occurrence of a single DNA Sequence Variant within a set of chromosomes: Heteroplasmic / Homoplasmic / Homozygous / Heterozygous / Hemizygous
-  Definition = The level of occurrence of a single DNA Sequence Variant within a set of chromosomes. Heterozygous indicates the DNA Sequence Variant is only present in one of the two genes contained in homologous chromosomes. Homozygous indicates the DNA Sequence Variant is present in both genes contained in homologous chromosomes. Hemizygous indicates the DNA Sequence Variant exists in the only single copy of a gene in a non- homologous chromosome (the male X and Y chromosome are non-homologous). Hemiplasmic indicates that the DNA Sequence Variant is present in some but not all of the copies of mitochondrial DNA. Homoplasmic indicates that the DNA Sequence Variant is present in all of the copies of mitochondrial DNA.
+  Short Label = The level of occurrence of a single DNA sequence variant within a set of chromosomes: Heteroplasmic / Homoplasmic / Homozygous / Heterozygous / Hemizygous
+  Definition = The level of occurrence of a single DNA Sequence Variant within a set of chromosomes. Heterozygous indicates the DNA sequence variant is only present in one of the two genes contained in homologous chromosomes. Homozygous indicates the DNA Sequence Variant is present in both genes contained in homologous chromosomes. Hemizygous indicates the DNA Sequence Variant exists in the only single copy of a gene in a non- homologous chromosome (the male X and Y chromosome are non-homologous). Hemiplasmic indicates that the DNA Sequence Variant is present in some but not all of the copies of mitochondrial DNA. Homoplasmic indicates that the DNA Sequence Variant is present in all of the copies of mitochondrial DNA.
 
  -- Row 13 -----------------------------------
   Element = Observation.extension
   Profile Name = AllelicFrequency
   Card. = 0..1
   Type = Extension{#AllelicFrequency}
-  Short Label = Allele frequencies
-  Definition = Allele frequencies.
+  Short Label = Allele frequency
+  Definition = A physical quality which inheres to the allele by virtue of the number instances of the allele within a population.
 
  -- Row 14 -----------------------------------
   Element = Observation.extension
   Profile Name = CopyNumberEvent
   Card. = 0..1
   Type = Extension{#CopyNumberEvent}
-  Short Label = Copy Number Event: Values: amplificaiton / deletion / LOH
-  Definition = Values: amplificaiton / deletion / LOH.
+  Short Label = Copy number variation
+  Definition = A variation that increases or decreases the copy number of a given region ([SO:0001019](http://www.sequenceontology.org/browser/current_svn/term/SO:0001019)). Values: amplification/deletion/LOH.
+  Comments = Loss of heterozygosity (LOH) is a functional variant whereby the sequence alteration causes a loss of function of one allele of a gene ([SO:0001786](http://www.sequenceontology.org/browser/current_svn/term/SO:0001786)).
 
  -- Row 15 -----------------------------------
   Element = Observation.extension
   Profile Name = GenomicSourceClass
   Card. = 0..1
   Type = Extension{#GenomicSourceClass}
-  Short Label = Genomic Source Class
+  Short Label = Genomic source class
   Definition = Source of sample used to determine the sequence in sequencing lab -- germline, somatic, prenatal.
 
  -- Row 16 -----------------------------------
+  Element = Observation.extension
+  Profile Name = PhaseSet
+  Card. = 0..1
+  Type = Extension{#PhaseSet}
+  Short Label = Phase set identifier (UUID/OID)
+  Definition = Chromosomal phase set identifier (UUID/OID). All sequences with the same PhaseSet identifier are asserted to be on the same chromosome (cis).
+
+ -- Row 17 -----------------------------------
   Element = Observation.extension
   Profile Name = Sequence
   Card. = 0..1
   Type = Extension{#Sequence}
   Short Label = Sequence
-  Definition = Refer to the Sequence resource, representing genetics data
+  Definition = Refers to the Sequence resource, representing raw genetics data.
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Observation.extension
   Profile Name = Interpretation
   Card. = 0..1
   Type = Extension{#Interpretation}
-  Short Label = Clinical Interpretations for the Variant
-  Definition = Clinical Interpretations for the Variant. It\'s a reference to an Observation resource.
+  Short Label = Clinical interpretations for variant
+  Definition = Clinical Interpretations for variant. It\'s a reference to an Observation resource.
 
 === Sheet Search =====================================
 
