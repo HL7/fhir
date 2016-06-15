@@ -11,7 +11,7 @@
   <LastAuthor>Keith W. Boone</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
   <LastSaved>2015-04-15T04:11:27Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">2eaca039-8f5b-4e09-a647-90931ca82fc4</WorkbookGuid>
@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>11490</WindowHeight>
-  <WindowWidth>19200</WindowWidth>
+  <WindowHeight>8508</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <RefModeR1C1/>
@@ -197,13 +197,13 @@
  </Styles>
  <Worksheet ss:Name="Status Codes">
   <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="78" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.400000000000006"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:Width="314.25"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.25"/>
+   <Column ss:StyleID="s63" ss:Width="314.39999999999998"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.400000000000006"/>
    <Column ss:Index="7" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:Index="9" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.75"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.25"/>
+   <Column ss:Index="9" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.6"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.4"/>
    <Column ss:Index="35" ss:StyleID="s63" ss:Width="45"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Path</Data></Cell>
@@ -234,7 +234,7 @@
     <Cell><Data ss:Type="String">c25</Data></Cell>
     <Cell><Data ss:Type="String">c26</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="39.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="40.050000000000004">
     <Cell><Data ss:Type="String" x:Ticked="1">@codes</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">entered-in-error, marked deleted</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">proposed</Data></Cell>
@@ -262,7 +262,7 @@
     <Cell><Data ss:Type="String">busy-unavailable</Data></Cell>
     <Cell><Data ss:Type="String">free</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="39.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="40.050000000000004">
     <Cell><Data ss:Type="String" x:Ticked="1">@code</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">proposed</Data></Cell>
@@ -290,7 +290,7 @@
     <Cell><Data ss:Type="String">busy-unavailable</Data></Cell>
     <Cell><Data ss:Type="String">free</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="23.0625">
+   <Row ss:AutoFitHeight="0" ss:Height="22.95">
     <Cell><Data ss:Type="String" x:Ticked="1">@definition</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">The record was created in error, and should not be treated as valid (note: in many cases, for record integrity, the information cannot be removed from the record)</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -310,7 +310,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="23.0625">
+   <Row ss:AutoFitHeight="0" ss:Height="22.95">
     <Cell><Data ss:Type="String" x:Ticked="1">Account.status</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s67"/>
@@ -557,7 +557,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Consent.status</Data></Cell>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">proposed</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">draft</Data></Cell>
@@ -1154,7 +1154,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
     <Cell><Data ss:Type="String">Location.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -1173,7 +1173,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">inactive</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
     <Cell><Data ss:Type="String">MeasureReport.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -1192,7 +1192,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
     <Cell><Data ss:Type="String">MedicationAdministration.status</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
@@ -1211,7 +1211,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
     <Cell><Data ss:Type="String">MedicationAdministration.eventHistory.status</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
@@ -1785,7 +1785,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>41</TopRowBottomPane>
+   <TopRowBottomPane>11</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1802,8 +1802,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>47</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>17</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
