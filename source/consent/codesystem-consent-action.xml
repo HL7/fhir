@@ -10,12 +10,13 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="Collection"/>
+    <code value="read"/>
+    <display value="Read"/>
+    <definition value="Read the data (e.g. read and search resources)"/>
   </concept>
   <concept>
-    <code value="Use"/>
-  </concept>
-  <concept>
-    <code value="Disclosure"/>
+    <code value="write"/>
+    <display value="Write"/>
+    <definition value="Update the data (e.g. create and update resources)"/>
   </concept>
 </CodeSystem>

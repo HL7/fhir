@@ -15,62 +15,47 @@
   </text>
 
   <status value="active"/>
-   
-  <!-- Opt-In is explicit authorization with explicit exceptions -->
-  <type>
-     <coding>
-	   <system value="http://hl7.org/fhir/consenttypecodes"/>
-	   <code value="Opt-Out"/>
-	   <display value="Authorization refused with explicit exceptions."/>
-	 </coding>
-  </type>
- 
-  <issued value="2016-05-11"/>
- <!-- not bound by a timeframe - consent.applies -->
+    
+  <dateTime value="2015-11-18"/>
+   <!-- not bound by a timeframe - Consent.period -->
  
   <patient>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
   </patient>
 
-  <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the consent.authority element -->
-  <authority>
-      <reference value="Organization/Infoway"/>
+  <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
+  <organization>
+    <reference value="Organization/Infoway"/>
 	  <display value="Canada Infoway"/>
-   </authority>
+  </organization>
 	  
-   <!-- and/or would this [also] go into Consent.domain as a Jurisdiction?? (see the example on UK Pharamacy Juristiction) -->
-  <domain>
-      <reference value="Location/Infoway"/>
-	  <display value="Canada Infoway"/>
-   </domain>
-
- <!-- no special terms (exceptions) -->
-   <except>
-     <type>
-       <coding>
-	     <!-- made up code system -->
-	     <system value="http://hl7.org/fhir/consentexcepttypecodes"/>
-	     <code value="authorized-action"/>
-		 <display value="Authorize a specified action."/>
-	   </coding>
-	 </type>
-	<action>
-	 <coding>
-      <system value="http://hl7.org/fhir/v3/ActReason"/>
-      <code value="ETREAT"/>
-      <display value="Emergency Treatment"/>
-	 </coding>
-    </action>
-
-   </except>
-
- 
-   <!-- the terms of the consent in scanned form from paper -->
-
-     <contentAttachment>
+  <!-- the text terms of the consent in lawyer speak -->
+  <sourceAttachment>
 	   <title value="The terms of the consent in lawyer speak."/>
 	   <!-- likely use url pointer to common text -->
-	 </contentAttachment>
+	</sourceAttachment>
+
+  <mode value="opt-out"/>
+      
+  <actor>
+    <role>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+        <code value="CST"/> 
+      </coding>
+    </role>
+    <reference>
+       <reference value="Organization/2.16.840.1.113883.19.6"/>
+       <display value="Good Health Psychiatric Hospital"/>
+    </reference>
+  </actor>
+  
+  <except>
+    <purpose>
+      <system value="http://hl7.org/fhir/v3/ActReason"/>
+      <code value="ETREAT"/> 
+    </purpose>
+  </except>
 
 </Consent>

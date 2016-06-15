@@ -2,60 +2,39 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = ConsentType
+  Binding Name = ConsentCategory
   Binding = value set
-  Reference = valueset-consent-type
-  Definition = List of overall consent codes.
+  Reference = valueset-consent-category
+  Definition = A classification of the type of consents found in a consent statement
   Conformance = example
 
  -- Row 2 -----------------------------------
-  Binding Name = !ConsentSubtype
-  Binding = value set
-  Reference = valueset-consent-subtype
-  Definition = Detailed codes within the above.
-  Conformance = example
-
- -- Row 3 -----------------------------------
-  Binding Name = ConsentExceptType
-  Binding = value set
-  Reference = valueset-consent-except-type
-  Definition = Detailed codes for the types of exceptions to the base consent provisions.
-  Conformance = example
-
- -- Row 4 -----------------------------------
-  Binding Name = !ConsentExceptSubType
-  Binding = value set
-  Reference = valueset-consent-except-subtype
-  Definition = Detailed codes for the subtypes of eception to the base consent provisions.
-  Conformance = example
-
- -- Row 5 -----------------------------------
   Binding Name = ConsentAction
   Binding = value set
   Reference = valueset-consent-action
   Definition = Detailed codes for the consent action.
   Conformance = example
 
- -- Row 6 -----------------------------------
-  Binding Name = !ConsentActorRole
-  Binding = value set
-  Reference = valueset-consent-actorrole
-  Definition = Detailed codes for the consent actor role.
-  Conformance = example
-
- -- Row 7 -----------------------------------
-  Binding Name = !ConsentSignerType
-  Binding = value set
-  Reference = http://hl7.org/fhir/valueset-contract-signer-type
-  Definition = List of parties who may be signing.
-  Conformance = preferred
-
- -- Row 8 -----------------------------------
+ -- Row 3 -----------------------------------
   Binding Name = ConsentStatus
   Binding = code list
   Reference = #consent-status
   Definition = Indicates the status of the consent
   Conformance = required
+
+ -- Row 4 -----------------------------------
+  Binding Name = ConsentMode
+  Binding = code list
+  Reference = #consent-mode
+  Definition = How a consent statement is processed
+  Conformance = required
+
+ -- Row 5 -----------------------------------
+  Binding Name = ConsentActorRole
+  Binding = value set
+  Reference = valueset-consent-actor-role
+  Definition = How an actor is involved in the consent considerations
+  Conformance = extensible
 
 === Sheet consent-status =====================================
 
@@ -89,6 +68,32 @@
   Display = Inactive
   Definition = The consent is terminated or replaced.
 
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = The consent was created wrongly (e.g. wrong patient) and should be ignored
+
+=== Sheet consent-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = not-coded
+  Display = Not Coded
+  Definition = There is no information in the consent resource that allows for any automatic interpretation. The human readable forms must be consulted if the consent needs to tested
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = opt-in
+  Display = Opt In
+  Definition = Any actions not described in the consent are not approved, and exceptions are granted
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = opt-out
+  Display = Opt Out
+  Definition = Any actions not described in the consent are approved, and exceptions are denied
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -97,89 +102,127 @@
   Element = Consent
   UML = 0;0
   Type = DomainResource
-  Short Label = Consent
-  Definition = A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:
-  Comments = Privacy Consent Directive - Authorization to Collect, Use, or Disclose information.
+  Short Label = Information about a healthcare consumer’s consent statements
+  Definition = Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:
+  Comments = Broadly, there are 3 key areas of consent for patients: Consent around sharing information (aka Privacy Consent Directive - Authorization to Collect, Use, or Disclose information), consent for specific treatment, or kinds of treatment, and general advance care directives
   RIM Mapping = FinancialConsent
   w5 = infrastructure.information
 
  -- Row 2 -----------------------------------
-  Element = Consent.identifier
+  Element = Consent.masterIdentifier
   Card. = 0..1
+  Summary = Y
   Type = Identifier
-  Short Label = Consent identifier
-  Definition = Unique identifier for this Consent.
-  RIM Mapping = FinancialConsent id
+  Short Label = Identifies the original consent record
+  Definition = Consent Directive identifier as assigned by the Consent Tracker. This identifier is specific to this version of the Consent Directive. This unique identifier may be used elsewhere to identify this version of the Consent Directive.
+  Comments = This identifier is the original identifier assigned when the consent was first recorded, and is used to track back to the original consent statement (when necessary, and possible). It could be a CDA Consent Directive Document Identifier, or another FHIR Consent resource Identifier
+  v2 Mapping = Consent Form Number
+  RIM Mapping = .id
+  Example = statewide eCMS identifier
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Consent.status
+  Element = Consent.identifier
   Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Label = Consent identifier for this record
+  Definition = Unique identifier for this copy of the Consent Statement
+  Comments = This identifier is identifies this copy of the consent. Where this identifier is used elsewhere as the identifier for a consent (and not the master identifier) then the consent details are expected to be the same
+  RIM Mapping = .id
+  Example = Local eCMS identifier
+  w5 = id
+
+ -- Row 4 -----------------------------------
+  Element = Consent.status
+  Card. = 1..1
   Is Modifier = Y
   Summary = Y
   Type = code
   Binding = ConsentStatus
-  Short Label = draft | proposed | active | rejected | inactive
+  Short Label = draft | proposed | active | rejected | inactive | entered-in-error
   Definition = Indicates the current state of this consent
+  Requirements = The Consent Directive that is pointed to might be in various lifecycle states, e.g., a revoked Consent Directive
+  Comments = This is the status of this consent at the time it was issued / created / indexed
+  v2 Mapping = HL7 Table 0498 - Consent Status
+  RIM Mapping = .statusCode
   w5 = status
 
- -- Row 4 -----------------------------------
-  Element = Consent.type
-  Card. = 1..1
+ -- Row 5 -----------------------------------
+  Element = Consent.category
+  Card. = 0..*
   Summary = Y
   Type = CodeableConcept
-  Binding = ConsentType
-  Short Label = Consent Type
-  Definition = Type of Consent such as an insurance policy, real estate consent, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc. opt-in, opt-out, etc
+  Binding = ConsentCategory
+  Short Label = Classification of the consent statement - for indexing/retrieval
+  Definition = A classification of the type of consents found in the statement. This element supports indexing and retrieval of consent statements
   RIM Mapping = CNTRCT
   w5 = class
 
- -- Row 5 -----------------------------------
-  Element = Consent.issued
-  Card. = 1..1
+ -- Row 6 -----------------------------------
+  Element = Consent.dateTime
+  Card. = 0..1
   Summary = Y
   Type = dateTime
-  Short Label = When this Consent was issued
-  Definition = When this  Consent was issued.
+  Short Label = When this Consent was created or indexed
+  Definition = When this  Consent was issued / created / indexed
+  Comments = This is not the time of the original consent, but the time that this statement was made or derived
   RIM Mapping = FinancialConsent effectiveTime
   w5 = when.recorded
 
- -- Row 6 -----------------------------------
-  Element = Consent.applies
+ -- Row 7 -----------------------------------
+  Element = Consent.period
   Card. = 0..1
   Summary = Y
   Type = Period
-  Short Label = Effective time
+  Short Label = Period that this consent applies
   Definition = Relevant time or time-period when this Consent is applicable
-  Requirements = may be specialized in exceptions
+  Comments = This can be a subset of the period of the original statement
   RIM Mapping = FinancialConsent activityTime
   Missing Meaning = all date ranges included
-  w5 = when.planned
+  w5 = when.done
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Consent.patient
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient)
-  Short Label = Consent Patient
-  Definition = The patent under which this consent applies.
-  Requirements = The Consent.patient is the subject for which the consent is about.
+  Short Label = Who the consent applies to
+  Definition = The patient to whom this consent applies.
+  Comments = Commonly, the patient the consent pertains to is the author, but for young and old people, it may be some other person
   RIM Mapping = Role
   w5 = who.focus
 
- -- Row 8 -----------------------------------
-  Element = Consent.authority
-  Card. = 0..*
+ -- Row 9 -----------------------------------
+  Element = Consent.author
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Organization|Patient|Practitioner|RelatedPerson)
+  Short Label = Who made the consent statement
+  Definition = Who made the Consent statement - this is the persion who takes responsibility for the content, not the scribe who recorded it
+  Comments = Commonly, the patient the consent pertains to is the author, but particularly for young and old people, it may be some other person
+  w5 = who.actor
+
+ -- Row 10 -----------------------------------
+  Element = Consent.organization
+  Card. = 0..1
   Aliases = custodian
   Summary = Y
   Type = Reference(Organization)
-  Short Label = Authority under which this Consent has standing
-  Definition = A recognized organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of consents and policies.  When empty, there Consent is under the authority of he Patient alone.
-  RIM Mapping = Role Scoper
-  Missing Meaning = no specific authority
+  Short Label = Organization that manages the consent
+  Definition = The organization that manages the consent, and the framework within which it is executed
+  w5 = who.witness
 
- -- Row 9 -----------------------------------
-  Element = Consent.domain
+ -- Row 11 -----------------------------------
+  Element = Consent.source[x]
+  Card. = 0..1
+  Summary = Y
+  Type = Attachment|Reference(Consent | DocumentReference)
+  Short Label = Source from which this consent is taken
+  Definition = The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document
+
+ -- Row 12 -----------------------------------
+  Element = !Consent.domain
   Card. = 0..*
   Aliases = jusrisdiction 
   Summary = Y
@@ -189,62 +232,95 @@
   Requirements = scope of governance jurisdiction
   Missing Meaning = no specific domain
 
- -- Row 10 -----------------------------------
-  Element = Consent.recipient
-  Card. = 0..*
-  Summary = Y
-  Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)
-  Short Label = Grantee recipient
-  Definition = Who or what is granted authority under this Consent
-  Requirements = may be specialized in exceptions
-  Missing Meaning = no specific recipeint
-  w5 = who.actor
-
- -- Row 11 -----------------------------------
-  Element = Consent.grantor
-  Card. = 0..1
-  Summary = Y
-  Type = Reference(Organization|Patient|Practitioner|RelatedPerson)
-  Short Label = Grantor
-  Definition = Who grants the authority under this Consent. If empty, the grantor is assumed to be the Patient themselves.
-  Missing Meaning = See patient element
-  w5 = who.actor
-
- -- Row 12 -----------------------------------
-  Element = Consent.data
-  Card. = 0..*
-  Summary = Y
-  Type = Reference(Any)
-  Short Label = Data impacted by the Consent
-  Definition = The data covered by this consent.
-  Requirements = may be specialized in exceptions
-  RIM Mapping = Role
-  Missing Meaning = all data
-  w5 = what
-
  -- Row 13 -----------------------------------
+  Element = Consent.mode
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = ConsentMode
+  Short Label = not-coded | opt-in | opt-out
+  Definition = How the consent statement is processed
+
+ -- Row 14 -----------------------------------
+  Element = Consent.actor
+  Card. = 0..*
+  Summary = Y
+  Short Label = Who|what controlled by this concept (or group, by role)
+  Definition = Who or what is controlled by this Consent.
+  Comments = may be specialized in exceptions
+  Missing Meaning = There is no specific actor associated with the consent
+  w5 = who.actor
+
+ -- Row 15 -----------------------------------
+  Element = Consent.actor.role
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ConsentActorRole
+  Short Label = How the individual is/was involved
+  Definition = How the individual is or was involved in the resources
+
+ -- Row 16 -----------------------------------
+  Element = Consent.actor.reference
+  Card. = 1..1
+  Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)
+  Short Label = Resource for the actor (or group, by role)
+  Definition = The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
+
+ -- Row 17 -----------------------------------
   Element = Consent.action
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
   Binding = ConsentAction
-  Short Label = Actions affected by
+  Short Label = Actions controlled by this consent
   Definition = Actions controlled by this Consent.
   Requirements = may be specialized in exceptions
   RIM Mapping = e.g. JURISPOL
   Missing Meaning = all actions
 
- -- Row 14 -----------------------------------
+ -- Row 18 -----------------------------------
+  Element = Consent.securityLabel
+  Card. = 0..*
+  Summary = Y
+  Type = Coding
+  Binding = SecurityLabels
+  Short Label = Security Labels that define affected resources
+  Definition = A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels
+  Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labelled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. Not all of the security labels make sense for use in this element (may define a narrower value set?)
+
+ -- Row 19 -----------------------------------
+  Element = Consent.purpose
+  Card. = 0..*
+  Summary = Y
+  Type = Coding
+  Binding = SecurityLabels
+  Short Label = Security Labels for the operation/context
+  Definition = A set of security labels that define the context of which actions are controlled by this consent. If more than one label is specified, operations must have all the specified labels
+  Comments = E.g. if the purpose is \'research\', then the operational context must be research, in order for the consent to apply. Not all of the security labels make sense for use in this element (may define a narrower value set?)
+
+ -- Row 20 -----------------------------------
+  Element = Consent.data
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Any)
+  Short Label = Data controlled by this Consent
+  Definition = The resources controlled by this consent, if specific resources are referenced
+  Requirements = may be specialized in exceptions
+  RIM Mapping = Role
+  Missing Meaning = all data
+  w5 = what
+
+ -- Row 21 -----------------------------------
   Element = Consent.except
   Card. = 0..*
   Summary = Y
   UML = 300;300
   Type = =Except
-  Short Label = Consent Exception List
-  Definition = One or more exceptions to the base policy of this Consent.
+  Short Label = Consent Exception
+  Definition = An exception to the base policy of this Consent.
 
- -- Row 15 -----------------------------------
-  Element = Consent.except.type
+ -- Row 22 -----------------------------------
+  Element = !Consent.except.type
   Card. = 1..1
   Summary = Y
   Type = CodeableConcept
@@ -252,47 +328,64 @@
   Short Label = Consent Exception Type
   Definition = Type exception to the base Consent policy such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.
 
- -- Row 16 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Consent.except.period
   Card. = 0..1
   Summary = Y
   Type = Period
   Short Label = Consent Exception Effective Time
   Definition = Relevant time or time-period when this Consent Exception is applicable.
+  Comments = This can be a subset of the period of the whole consent resource
 
- -- Row 17 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Consent.except.actor
   Card. = 0..*
   Summary = Y
-  Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)
-  Short Label = Consent Exception actor
-  Definition = An Actor subject to this exception
+  Type = @Consent.actor
+  Short Label = Who|what controlled by this exception (or group, by role)
+  Definition = Who or what is controlled by this Exception. Use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
+  Missing Meaning = There is no specific actor associated with the exception
 
- -- Row 18 -----------------------------------
-  Element = Consent.except.data
-  Card. = 0..*
-  Summary = Y
-  Type = Reference(Any)
-  Short Label = Context of the Consent Exception
-  Definition = The Reference of concern in the context of this exception of the agrement.
-  Requirements = must be a subset of Consent.data
-  RIM Mapping = Role
-
- -- Row 19 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Consent.except.action
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
   Binding = ConsentAction
-  Short Label = Consent Exception Action
-  Definition = Action stipulated by this Consent Exception
+  Short Label = Actions controlled by this exception
+  Definition = Actions controlled by this Exception
+  Missing Meaning = all actions
 
- -- Row 20 -----------------------------------
-  Element = Consent.content[x]
-  Card. = 0..1
-  Type = Attachment|Reference(DocumentReference)
-  Short Label = Consent Legal Text
-  Definition = Consent legal text in human renderable form.
+ -- Row 26 -----------------------------------
+  Element = Consent.except.securityLabel
+  Card. = 0..*
+  Summary = Y
+  Type = Coding
+  Binding = SecurityLabels
+  Short Label = Security Labels that define affected resources
+  Definition = A set of security labels that define which resources are controlled by this exception. If more than one label is specified, all resources must have all the specified labels
+  Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labelled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. Not all of the security labels make sense for use in this element (may define a narrower value set?)
+
+ -- Row 27 -----------------------------------
+  Element = Consent.except.purpose
+  Card. = 0..*
+  Summary = Y
+  Type = Coding
+  Binding = SecurityLabels
+  Short Label = Security Labels for the operation/context
+  Definition = A set of security labels that define the context of which actions are controlled by this exception. If more than one label is specified, operations must have all the specified labels
+  Comments = E.g. if the purpose is \'research\', then the operational context must be research, in order for the consent to apply. Not all of the security labels make sense for use in this element (may define a narrower value set?)
+
+ -- Row 28 -----------------------------------
+  Element = Consent.except.data
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Any)
+  Short Label = Data controlled by this exception
+  Definition = The resources controlled by this exception, if specific resources are referenced
+  Requirements = must be a subset of Consent.data
+  RIM Mapping = Role
+  Missing Meaning = all data
 
 === Sheet Search =====================================
 
@@ -300,61 +393,82 @@
   Name = data
   Type = reference
   Description = The identity of the topic of the consent
-  Path = Consent.data
+  Path = Consent.data | Consent.except.data
 
  -- Row 2 -----------------------------------
   Name = patient
   Type = reference
-  Description = The identity of the patient of the consent
   Path = Consent.patient
 
  -- Row 3 -----------------------------------
   Name = identifier
   Type = token
-  Description = The identity of the consent
   Path = Consent.identifier
 
  -- Row 4 -----------------------------------
-  Name = recipient
-  Type = reference
-  Description = Recipient Agent authorized by the consent
-  Path = Consent.recipient
+  Name = masterid
+  Type = token
+  Path = Consent.masterIdentifier
 
  -- Row 5 -----------------------------------
-  Name = authority
+  Name = organization
   Type = reference
-  Description = The authority of the consent
-  Path = Consent.authority
+  Path = Consent.organization
 
  -- Row 6 -----------------------------------
-  Name = domain
-  Type = reference
-  Description = The domain of the consent
-  Path = Consent.domain
+  Name = date
+  Type = date
+  Path = Consent.dateTime
 
  -- Row 7 -----------------------------------
-  Name = issued
+  Name = period
   Type = date
-  Description = The date/time the consent was issued
-  Path = Consent.issued
+  Path = Consent.period
 
  -- Row 8 -----------------------------------
-  Name = applies
-  Type = date
-  Description = The effective date/time range of the consent
-  Path = Consent.applies
-
- -- Row 9 -----------------------------------
   Name = status
   Type = token
-  Description = The status of the consent
   Path = Consent.status
 
- -- Row 10 -----------------------------------
-  Name = type
+ -- Row 9 -----------------------------------
+  Name = category
   Type = token
-  Description = The type of the consent
-  Path = Consent.type
+  Path = Consent.category
+
+ -- Row 10 -----------------------------------
+  Name = author
+  Type = reference
+  Path = Consent.author
+
+ -- Row 11 -----------------------------------
+  Name = source
+  Type = reference
+  Path = Consent.source[x]
+
+ -- Row 12 -----------------------------------
+  Name = mode
+  Type = token
+  Path = Consent.mode
+
+ -- Row 13 -----------------------------------
+  Name = actor
+  Type = token
+  Path = Consent.actor | Consent.except.actor
+
+ -- Row 14 -----------------------------------
+  Name = action
+  Type = token
+  Path = Consent.action | Consent.except.action
+
+ -- Row 15 -----------------------------------
+  Name = security
+  Type = token
+  Path = Consent.securityLabel | Consent.except.securityLabel
+
+ -- Row 16 -----------------------------------
+  Name = purpose
+  Type = token
+  Path = Consent.purpose | Consent.except.purpose
 
 === Sheet Profiles =====================================
 

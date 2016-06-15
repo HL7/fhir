@@ -3,58 +3,87 @@
 <div>
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
-      <a name="PCD"> Privacy Consent Directive (PCD) </a>
- 	  <p>
-	  The purpose of this Resource is to be used to express a Privacy Consent Directive.
-	  </p><p>
-		Privacy policies define how Individually Identifiable Health Information (IIHI) is to be collected, accessed, 
-		used and disclosed.  A Privacy Consent Directive is a record of a client’s (e.g., patient, consumer) 
-		health information privacy policy.  A Privacy Consent Directive grants or withholds authorization to collect, 
-		access, use, or disclose IIHI about the client. A client may author/publish their privacy preferences as a 
-		self-declared Privacy Consent Directive.  Effective Privacy Consent Directives are a bilateral agreement between 
-		the client and an individual/organization that is in accord with law, regulation and organizational policies with 
-		regard to their content. In addition, Privacy Consent Directives provide the ability for a healthcare client 
-		to delegate authority to a Substitute Decision Maker who may act on behalf of that individual.
-	  </p><p>
-		The Privacy Consent Directive resource on FHIR provides support for alternative representations for expressing 
-		health information privacy consent directives in a standard form for the exchange of privacy policies 
-		that can be enforced by consuming systems (e.g., scanned documents, computable structured entries).
-	  </p><p>
-		The Resource optionally supports backward compatibility by enabling references to CDA Consent Directives 
-		following the 
-		<a href="http://gforge.hl7.org/gf/project/cbcc/frs/?action=FrsReleaseView&amp;release_id=732">HL7 CDAR2 ConsentDirective Implementation Guide</a> 
-		which incorporated the 
-		<a href="http://wiki.ihe.net/index.php?title=Basic_Patient_Privacy_Consents">IHE Basic Patient Privacy Consents (BPPC)</a> 
-		mechanism of acknowledging a Privacy Policy identifier and expanded upon it with privacy policy 
-		attributes captured in the CDA document according to the CDA-CD-IG specification.  This guide allows for the 
-		capture of a scanned document in the structuredBody of a CDA document to support manual interpretation of the 
-		meaning of the privacy consent directive as well as to support the capture of a client’s wet signature.
-	  
-	  </p><p>
-	    The Consent resource is structured with a base policy, followed by a listing of exceptions to that policy. 
-		The exceptions can be additional positive or negative exceptions upon the base policy.
-		</p>
-      <h3>Scope</h3>
-      <p>
-	  The scope of this Resource is a Privacy Consent Directive covering reasonable set of policies. 
-	  The Consent supports a base minimal opt-in vs opt-out indication, 
-	  with an attachment such as a scanned image of the ink on paper signature, and 
-	  possibly with exceptions in a structured and coded way to support exceptions.
-	  The set of exceptions include a list of data objects, list of authors, list of recipients, list of Organizations, list of purposeOfUse, and Date Range.
-      </p><p>
-	  The enforcement of the Privacy Consent Directive is not included, but is expected that 
-	  enforcement can be done using various Access Control enforcement methodologies (e.g. OAuth, UMA, XACML).
-	  </p><p>
-	  This enforcement includes the details of the enforcement meaning of the elements of the Privacy Consent Directive, 
-	  such as the rules in place when there is an opt-in consent would be specific about which 
-	  organizational roles have access to what kinds of resources (e.g. RBAC, ABAC). 
-	  The publication of these details are not in scope for the Consent resource.
-      </p><p>
-	  The enforcement of access to data will needs to have a policy to cover the case where a Consent is not achieved. 
-	  This often is driven by regional or natonal regulations, often described as 'implied consent'.
-	  For Treatment use-cases this policy would include specifics to enable appropriate medical treatment access.
-	  
-	  </p>
+<a name="PCD"> Privacy Consent Directive (PCD) </a>
+
+<p>
+The purpose of this Resource is to be used to express a Consent regarding Healthcare. There are 3 principle
+uses for consent:
+</p>
+<ul>
+ <li>Privacy Consent: consent to share infomration</li>
+ <li>Treatment Consent: consent to undergo a specific treatment (or record of refusal to consent)</li>
+ <li>Advance Care Directives (e.g. DNR)</li>
+</ul>
+<p>
+This resource is scoped to cover all 3 uses, but at this time, only the privacy use case
+is well investigated, and the scope of the resource may change when the other scopes are 
+investigated and tested. 
+</p>
+<h3>Privacy and Consent</h3>
+<p>
+Privacy policies define how Individually Identifiable Health Information (IIHI) is to be collected, accessed, 
+used and disclosed.  A Privacy Consent Directive is a record of a client’s (e.g., patient, consumer) 
+health information privacy policy.  A Privacy Consent Directive grants or withholds authorization to collect, 
+access, use, or disclose IIHI about the client. A client may author/publish their privacy preferences as a 
+self-declared Privacy Consent Directive.  Effective Privacy Consent Directives are a bilateral agreement between 
+the client and an individual/organization that is in accord with law, regulation and organizational policies with 
+regard to their content. In addition, Privacy Consent Directives provide the ability for a healthcare client 
+to delegate authority to a Substitute Decision Maker who may act on behalf of that individual.
+</p>
+<p>
+The Privacy Consent Directive resource on FHIR provides support for alternative representations for expressing 
+health information privacy consent directives in a standard form for the exchange of privacy policies 
+that can be enforced by consuming systems (e.g., scanned documents, computable structured entries).
+</p>
+</div>
+
+<div>
+<a name="bnr"> </a>
+<h2>Boundaries and Relationships</h2>
+
+<p>
+Consent management - particularly privacy consent - is complicated by the fact that consent to share 
+is often itself necessary to protect. The need to protect the privacy of the privacy statement itself
+competes with the execution of the consent statement. For this reason, it is common to deal with 
+'consent statements' that are only partial representations of the full consent statement that the 
+patient provided. 
+</p>
+<p>
+For this reason, the consent resource contains two elements that refer back to the source: a master
+identifier, and a direct reference to content from which this Consent Statement was derived. That
+reference can be one of several things:
+</p>
+<ul>
+ <li>A reference to another consent resource from which this limited statement was derived</li>
+ <li>A reference to a document format for the original source (e.g. PDF or CDA - see the 
+ <a href="http://gforge.hl7.org/gf/project/cbcc/frs/?action=FrsReleaseView&amp;release_id=732">HL7 CDAR2 ConsentDirective Implementation Guide</a>, 
+ which incorporated the <a href="http://wiki.ihe.net/index.php?title=Basic_Patient_Privacy_Consents">IHE Basic Patient Privacy Consents (BPPC)</a> ), either directly, or in a reference</li>
+ <li>The source can be included in the consent as an attachment</li>
+</ul>
+<p>
+The consent statements represent a chain that refers back to the original source consent
+agreement. Applications may be able to follow the chain back to the source, but should
+not generally assume that they are authoriszd to do this.
+</p>
+</div>
+
+<div>
+<a name="int"> </a>
+<h2>Interpretation</h2>
+<p>
+The Consent resource is structured with a base policy which is either opt-in or opt-out, 
+followed by a listing of exceptions to that policy.  The exceptions can be additional positive 
+or negative exceptions upon the base policy. The set of exceptions include a list of data objects, 
+list of authors, list of recipients, list of Organizations, list of purposeOfUse, and Date Range.
+</p>
+<p>
+The enforcement of the Privacy Consent Directive is not included, but is expected that 
+enforcement can be done using a mix of the various Access Control enforcement methodologies (e.g. OAuth, UMA, XACML).
+This enforcement includes the details of the enforcement meaning of the elements of the Privacy Consent Directive, 
+such as the rules in place when there is an opt-in consent would be specific about which 
+organizational roles have access to what kinds of resources (e.g. RBAC, ABAC). 
+The specification of these details are not in scope for the Consent resource.
+</p>
 
 </div>
 

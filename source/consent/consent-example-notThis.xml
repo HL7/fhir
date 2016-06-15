@@ -20,18 +20,9 @@
   </text>
 
   <status value="active"/>
-   
-  <!-- Opt-In is explicit authorization with explicit exceptions -->
-  <type>
-     <coding>
-	   <system value="http://hl7.org/fhir/consenttypecodes"/>
-	   <code value="Opt-In"/>
-	   <display value="Authorization with exceptions."/>
-	 </coding>
-  </type>
- 
-  <issued value="2015-11-18"/>
- <!-- not bound by a timeframe - Consent.applies -->
+    
+  <dateTime value="2015-11-18"/>
+   <!-- not bound by a timeframe - Consent.period -->
  
   <patient>
     <reference value="Patient/f001"/>
@@ -39,37 +30,24 @@
   </patient>
 
   <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
-  <authority>
-      <reference value="Organization/Infoway"/>
+  <organization>
+    <reference value="Organization/Infoway"/>
 	  <display value="Canada Infoway"/>
-   </authority>
+  </organization>
 	  
-   <!-- and/or would this [also] go into Consent.domain as a Jurisdiction?? (see the example on UK Pharamacy Juristiction) -->
-  <domain>
-      <reference value="Location/Infoway"/>
-	  <display value="Canada Infoway"/>
-   </domain>
-   
- <!-- I can easily say to exclude a type of FHIR Resource, but lab-orders is not a direct Resource type. Might we put in FHIR based query parameters? -->
-   <except>
-     <type>
-       <coding>
-	     <!-- made up code system -->
-	     <system value="http://hl7.org/fhir/consentexcepttypecodes"/>
-	     <code value="withhold-identified-object-and-related"/>
-		 <display value="Withhold the identified object and any other resources that are related to this object."/>
-	   </coding>
-	 </type>
-	 <data>
-       <reference value="Order/f201"/>
-	 </data>
-     <!-- by not specifying except.actor I assume this means everyone? -->
-   </except>
-   <!-- the terms of the consent in friendly consumer speak -->
-
-     <contentAttachment>
+  <!-- the text terms of the consent in lawyer speak -->
+  <sourceAttachment>
 	   <title value="The terms of the consent in lawyer speak."/>
-	   <!-- likely use url pointer to common text -->	  
-	 </contentAttachment>
+	   <!-- likely use url pointer to common text -->
+	</sourceAttachment>
 
+  <mode value="opt-in"/>
+   
+  <!-- I can easily say to exclude a type of FHIR Resource, but lab-orders is not a direct Resource type. Might we put in FHIR based query parameters? -->
+  <except>
+     <!-- todo: related information -->
+     <data>
+        <reference value="Order/f201"/>
+     </data>
+   </except>
 </Consent>

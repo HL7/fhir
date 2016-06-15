@@ -16,50 +16,59 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
   </text>
 
   <status value="active"/>
-   
-  <!-- Opt-In is explicit authorization with explicit exceptions -->
-  <type>
-     <coding>
-	   <system value="http://hl7.org/fhir/consenttypecodes"/>
-	   <code value="Opt-In"/>
-	   <display value="Authorization with exceptions."/>
-	 </coding>
-  </type>
-
-  <issued value="2016-05-11"/>
- <!-- not bound by a timeframe - consent.applies -->
+    
+  <dateTime value="2015-11-18"/>
+   <!-- not bound by a timeframe - Consent.period -->
  
   <patient>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
   </patient>
 
-<!-- with a recipient listed, the consent applies only to that agent -->
-	 <recipient>
-    	   <reference value="Practitioner/f204"/>
-           <display value="Fictive Nurse"/>
-	 </recipient>
-
-	 <!-- I expect an Consent.action is defining an action restriction for the whole Consent == Thus patient requested read access -->  
- 	<action>
-	 <coding>
-      <system value="http://hl7.org/fhir/v3/ActReason"/>
-      <code value="PATRQT"/>
-      <display value="patient requested"/>
-	 </coding>
-    </action>
- 	<action>
-	 <coding>
-      <system value="http://hl7.org/fhir/restful-interaction"/>
-      <code value="read"/>
-	 </coding>
-    </action>
-
-   <!-- the terms of the consent scanned paper form -->
-
-     <contentAttachment>
+  <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
+  <organization>
+    <reference value="Organization/Infoway"/>
+	  <display value="Canada Infoway"/>
+  </organization>
+	  
+  <!-- the text terms of the consent in lawyer speak -->
+  <sourceAttachment>
 	   <title value="The terms of the consent in lawyer speak."/>
-	   <!-- likely use url pointer to common text -->	   <!-- I think some think that this should be the pointer to the law by which this consent is derived under. Such as http://lois-laws.justice.gc.ca/eng/acts/P-21/index.html -->
-	 </contentAttachment>
+	   <!-- likely use url pointer to common text -->
+	</sourceAttachment>
+
+  <mode value="opt-in"/>
+  
+  <actor>
+    <role>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+        <code value="CST"/> 
+      </coding>
+    </role>
+    <reference>
+       <reference value="Organization/2.16.840.1.113883.19.6"/>
+       <display value="Good Health Psychiatric Hospital"/>
+    </reference>
+  </actor>
+  
+  <actor>
+    <role>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+        <code value="PRCP"/> 
+      </coding>
+    </role>
+    <reference>
+       <reference value="Patient/example"/>
+       <display value="Good Health Clinic"/>
+    </reference>
+  </actor>
+  <action>
+    <coding>
+      <system value="http://hl7.org/fhir/consentaction"/>
+      <code value="read"/>
+    </coding>
+  </action> 
 
 </Consent>

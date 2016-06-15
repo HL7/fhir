@@ -15,47 +15,29 @@
   </text>
 
   <status value="active"/>
-   
-  <!-- Opt-In is explicit authorization with explicit exceptions -->
-  <type>
-     <coding>
-	   <system value="http://hl7.org/fhir/consenttypecodes"/>
-	   <code value="Opt-In"/>
-	   <display value="Authorization with exceptions."/>
-	 </coding>
-  </type>
- 
-  <issued value="2016-05-11"/>
+    
+  <dateTime value="2016-05-11"/>
  <!-- bound by a timeframe between 1964 and 2016 - consent.applies -->
-	 <applies>
+	 <period>
 		  <start value="1964-01-01"/>
 		  <end value="2016-01-01"/>
-	 </applies>
+	 </period>
 	 
   <patient>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
   </patient>
 
-  <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the consent.authority element -->
-  <authority>
-      <reference value="Organization/Infoway"/>
+  <organization>
+     <reference value="Organization/Infoway"/>
 	  <display value="Canada Infoway"/>
-   </authority>
+  </organization>
 	  
-   <!-- and/or would this [also] go into Consent.domain as a Jurisdiction?? (see the example on UK Pharamacy Juristiction) -->
-  <domain>
-      <reference value="Location/Infoway"/>
-	  <display value="Canada Infoway"/>
-   </domain>
-
- <!-- no special terms (exceptions) -->
- 
-   <!-- the terms of the consent as signed by the patient in ink -->
-
-     <contentAttachment>
-	   <title value="The terms of the consent in lawyer speak."/>
-	   <!-- likely use url pointer to common text -->
-	 </contentAttachment>
-
+  <!-- the terms of the consent as signed by the patient in ink -->
+  <sourceAttachment>
+	  <title value="The terms of the consent in lawyer speak."/>
+	  <!-- likely use url pointer to common text -->
+	</sourceAttachment>
+  
+  <mode value="not-coded"/>
 </Consent>

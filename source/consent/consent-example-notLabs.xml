@@ -17,18 +17,9 @@
   </text>
 
   <status value="active"/>
-   
-  <!-- Opt-In is explicit authorization with explicit exceptions -->
-  <type>
-     <coding>
-	   <system value="http://hl7.org/fhir/consenttypecodes"/>
-	   <code value="Opt-In"/>
-	   <display value="Authorization with exceptions."/>
-	 </coding>
-  </type>
-
-  <issued value="2014-08-17"/>
- <!-- not bound by a timeframe - Consent.applies -->
+    
+  <dateTime value="2015-11-18"/>
+   <!-- not bound by a timeframe - Consent.period -->
  
   <patient>
     <reference value="Patient/f001"/>
@@ -36,57 +27,34 @@
   </patient>
 
   <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
-  <authority>
-      <reference value="Organization/Infoway"/>
+  <organization>
+    <reference value="Organization/Infoway"/>
 	  <display value="Canada Infoway"/>
-   </authority>
+  </organization>
 	  
-   <!-- and/or would this [also] go into Consent.domain as a Jurisdiction?? (see the example on UK Pharamacy Juristiction) -->
-  <domain>
-      <reference value="Location/Infoway"/>
-	  <display value="Canada Infoway"/>
-   </domain>
-   
- <!-- I can easily say to exclude a type of FHIR Resource, but lab-orders is not a direct Resource type. Might we put in FHIR based query parameters? -->
-   <except>
-     <type>
-       <coding>
-	     <system value="http://hl7.org/fhir/consentexcepttypecodes"/>
-  	     <code value="withhold-object-type"/>
-		 <display value="Withold specific object types."/>		 
-	   </coding>
-	 </type>
-	 <subType>
-       <coding>
-	     <system value="http://hl7.org/fhir/resource-types"/>
-	     <code value="Order"/>
-	   </coding>
-	 </subType>
-     <!-- by not specifying except.actor I assume this means everyone? -->
-	 <text value="Withhold orders from any provider."/>
-   </except>
-   <except>
-     <type>
-       <coding>
-	     <system value="http://hl7.org/fhir/consentexcepttypecodes"/>
-  	     <code value="withhold-object-type"/>
-		 <display value="Withold specific object types."/>		 
-	   </coding>
-	 </type>
-	 <subType>
-       <coding>
-	     <system value="http://hl7.org/fhir/resource-types"/>
-	     <code value="OrderResponse"/>
-	   </coding>
-	 </subType>
-     <!-- by not specifying except.actor I assume this means everyone? -->
-	 <text value="Withhold order results from any provider."/>
-   </except>
-   <!-- the terms of the consent in scanned paper form -->
- 
-     <contentAttachment>
+  <!-- the text terms of the consent in lawyer speak -->
+  <sourceAttachment>
 	   <title value="The terms of the consent in lawyer speak."/>
 	   <!-- likely use url pointer to common text -->
-	 </contentAttachment>
+	</sourceAttachment>
+
+  <mode value="opt-in"/>
+      
+  <except>
+    <!-- no read or write access for labs -->
+    <!-- todo: how to say labs? -->
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action> 
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="write"/>
+      </coding>
+    </action> 
+  </except>  
 
 </Consent>

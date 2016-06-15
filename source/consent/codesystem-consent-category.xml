@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/consenttypecodes"/>
+  <name value="Privacy Consent Type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes basic Privacy Consent Directive Type codes. Additional codes may be defined within a Realm, Domain, Local, or virtial-domain."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+    <concept>
+      <code value="hipaa"/>
+      <display value="HIPAA Authorization"/>
+      <definition value="HIPAA 45 CFR Section 164.508 Uses and disclosures for which an authorization is required. (a) Standard: Authorizations for uses and disclosures.  (1) Authorization required: General rule. Except as otherwise permitted or required by this subchapter, a covered entity may not use or disclose protected health information without an authorization that is valid under this section. When a covered entity obtains or receives a valid authorization for its use or disclosure of protected health information, such use or disclosure must be consistent with such authorization. Usage Note:  Authorizations governed under this regulation meet the definition of an opt in class of consent directive."/>    
+    </concept>	
+    <concept>
+      <code value="EMRGONLY"/>
+      <display value="emergency only"/>
+      <definition value="Opt-in to disclosure of health information for emergency only consent directive"/>    
+    </concept>
+    <concept>
+      <code value="advance-directive"/>
+      <display value="advance directive"/>
+      <definition value="Any instructions, written or given verbally by a patient to a health care provider in anticipation of potential need for medical treatment"/>    
+    </concept>	
+    <concept>
+      <code value="dnr"/>
+      <display value="DNR (Do Not resuscitate)"/>
+      <definition value="A legal document, signed by both the patient and their provider, stating a desire not to have CPR initiated in case of a cardiac event.  Note: This form was replaced in 2003 with the Physician Orders for Life-Sustaining Treatment [POLST]."/>    
+    </concept>	 
+</CodeSystem>
