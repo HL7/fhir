@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/consenttypecodes"/>
-  <name value="Privacy Consent Type Codes"/>
+  <url value="http://hl7.org/fhir/consentcategorycodes"/>
+  <name value="Privacy Consent Category Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes basic Privacy Consent Directive Type codes. Additional codes may be defined within a Realm, Domain, Local, or virtial-domain."/>

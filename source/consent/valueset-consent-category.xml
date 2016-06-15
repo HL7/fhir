@@ -4,7 +4,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
-  <name value="Consent Type Codes"/>
+  <name value="Consent Category Codes"/>
   <status value="draft"/>
   <publisher value="CBCC"/>
   <contact>
@@ -13,11 +13,11 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes sample Consent Type codes."/>
+  <description value="This value set includes sample Consent Category codes."/>
   <copyright value="This is an example set."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/consenttypecodes"/>
+      <system value="http://hl7.org/fhir/consentcategorycodes"/>
     </include>
   </compose>
 </ValueSet>
