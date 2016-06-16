@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+  <id value="consent-example-pkb"/>
+
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        This example demonstrates how to encode this screen shot in a consent resource:
+      </p>
+      <p>
+       <img src="pkb.png"/>
+      </p>
+      <p>
+        Thanks to <a href="https://www.patientsknowbest.com/">Patients Know Best</a> for contributing this example
+      </p>
+    </div>
+  </text>
+
+  <status value="active"/>
+    
+  <dateTime value="2016-06-16"/>
+ 
+  <patient>
+    <reference value="Patient/example"/>
+    <display value="...example patient..."/>
+  </patient>
+
+  <organization>
+    <reference value="Organization/pkb"/>
+	  <display value="Patients Know Best"/>
+  </organization>
+	    
+  <except>
+    <!-- we permit -->
+    <type value="permit"/>
+    
+    <actor>
+      <!-- as a receiver of data -->
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="PRCP"/> 
+        </coding>
+      </role>
+      <!-- the non-migrated team -->
+      <reference>
+         <reference value="Organization/ich-nmt"/>
+         <display value="Non-migrated Team - Imperial College Healthcare"/>
+      </reference>
+    </actor>
+    <!-- to read -->
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action> 
+    <!-- any data with confidentiality N -->
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+      <code value="N"/>
+    </securityLabel>
+  </except>
+  
+  <except>
+    <!-- we permit -->
+    <type value="permit"/>
+    
+    <actor>
+      <!-- as a receiver of data -->
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="PRCP"/> 
+        </coding>
+      </role>
+      <!-- the non-migrated team -->
+      <reference>
+         <reference value="Organization/ich-nmt"/>
+         <display value="Non-migrated Team - Imperial College Healthcare"/>
+      </reference>
+    </actor>
+    <!-- to read -->
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action> 
+    <!-- any data with tag PSY (see security labels) -->
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="PSY"/>
+    </securityLabel>
+  </except>
+  
+  <except>
+    <!-- we permit -->
+    <type value="permit"/>
+    
+    <actor>
+      <!-- as a receiver of data -->
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="PRCP"/> 
+        </coding>
+      </role>
+      <!-- the non-migrated team -->
+      <reference>
+         <reference value="Organization/ich-nmt"/>
+         <display value="Non-migrated Team - Imperial College Healthcare"/>
+      </reference>
+    </actor>
+    <!-- to read -->
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action> 
+    <!-- any data with and tag SOC (see security labels). todo: SOC is not defined yet -->
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="SOC"/>
+    </securityLabel>
+  </except>
+  
+  <!-- other teams follow the same pattern -->
+  <except>
+    <type value="permit"/>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="PRCP"/> 
+        </coding>
+      </role>
+      <reference>
+         <reference value="Organization/ich-core"/>
+         <display value="Core Information Exchange team - Imperial College Healthcare"/>
+      </reference>
+    </actor>
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action> 
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+      <code value="N"/>
+    </securityLabel>
+  </except>
+  <except>
+    <type value="permit"/>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="PRCP"/> 
+        </coding>
+      </role>
+      <reference>
+         <reference value="Organization/ich-core"/>
+         <display value="Core Information Exchange team - Imperial College Healthcare"/>
+      </reference>
+    </actor>
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action> 
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="PSY"/>
+    </securityLabel>
+  </except>
+  <except>
+    <type value="permit"/>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="PRCP"/> 
+        </coding>
+      </role>
+      <reference>
+         <reference value="Organization/ich-core"/>
+         <display value="Core Information Exchange team - Imperial College Healthcare"/>
+      </reference>
+    </actor>
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action> 
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="SOC"/>
+    </securityLabel>
+  </except>
+  <except>
+    <type value="permit"/>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="PRCP"/> 
+        </coding>
+      </role>
+      <reference>
+         <reference value="Organization/ich-core"/>
+         <display value="Core Information Exchange team - Imperial College Healthcare"/>
+      </reference>
+    </actor>
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action> 
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="SEX"/>
+    </securityLabel>
+  </except>
+  
+  <except>
+    <type value="permit"/>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="PRCP"/> 
+        </coding>
+      </role>
+      <reference>
+         <reference value="Organization/tsd-park"/>
+         <display value="Torbay and Source Devon Trust - Parkinson's Team"/>
+      </reference>
+    </actor>
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action> 
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+      <code value="N"/>
+    </securityLabel>
+  </except>
+  <except>
+    <type value="permit"/>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="PRCP"/> 
+        </coding>
+      </role>
+      <reference>
+         <reference value="Organization/tsd-park"/>
+         <display value="Torbay and Source Devon Trust - Parkinson's Team"/>
+      </reference>
+    </actor>
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action> 
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="PSY"/>
+    </securityLabel>
+  </except>
+  <except>
+    <type value="permit"/>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="PRCP"/> 
+        </coding>
+      </role>
+      <reference>
+         <reference value="Organization/tsd-park"/>
+         <display value="Torbay and Source Devon Trust - Parkinson's Team"/>
+      </reference>
+    </actor>
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action> 
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="SOC"/>
+    </securityLabel>
+  </except>
+  <except>
+    <type value="permit"/>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="PRCP"/> 
+        </coding>
+      </role>
+      <reference>
+         <reference value="Organization/tsd-park"/>
+         <display value="Torbay and Source Devon Trust - Parkinson's Team"/>
+      </reference>
+    </actor>
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action> 
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="SEX"/>
+    </securityLabel>
+  </except>
+  
+  
+  <except>
+    <type value="permit"/>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="PRCP"/> 
+        </coding>
+      </role>
+      <reference>
+        <reference value="Organization/ich-non"/>
+        <display value="Imperial Collage Healthcare - Neuro-oncology"/>
+      </reference>
+    </actor>
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action> 
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+      <code value="N"/>
+    </securityLabel>
+  </except>
+  
+</Consent>

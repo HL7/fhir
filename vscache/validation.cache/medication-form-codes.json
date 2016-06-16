@@ -113,6 +113,17 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://snomed.info/sct|null|385221006|Injection emulsion",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "385221006",
+        "definition": null,
+        "display": "Injection emulsion"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|387048002|Oral suspension (qualifier value)",
       "severity": "error",
       "message": "None of the codes are in the specified value set"

@@ -2,6 +2,16 @@
   "url": "http://hl7.org/fhir/ValueSet/consent-action",
   "outcomes": [
     {
+      "hash": "#|http://hl7.org/fhir/consentaction|null|read|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/consentaction|null|write|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://hl7.org/fhir/restful-interaction|null|read|null",
       "severity": "error",
       "message": "None of the codes are in the specified value set"

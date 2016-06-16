@@ -31,6 +31,11 @@
         "definition": null,
         "display": "Bottle - unit of product usage (qualifier value)"
       }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|470037004|Intravenous Fluid container, single-use",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }

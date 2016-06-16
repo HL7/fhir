@@ -3020,7 +3020,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.getEpub().registerFile(f.getName(), "Support File", EPubManager.determineType(n), true);
       }
     } else {
-      Utilities.copyFile(new CSFile(folder + n), new CSFile(page.getFolders().dstDir + n));
+      Utilities.copyFile(new CSFile(Utilities.path(folder, n)), new CSFile(page.getFolders().dstDir + (n.contains("/") ? n.substring(n.lastIndexOf("/")+1): n)));
       page.getEpub().registerFile(n, "Support File", EPubManager.determineType(n), true);
     }
   }

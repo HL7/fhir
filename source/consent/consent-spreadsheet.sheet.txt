@@ -561,4 +561,10 @@
   Description = Patient grants access to a specified individual for read-only access
   Filename = consent-example-grantor.xml
 
+ -- Row 10 -----------------------------------
+  Name = Consent from Patients Know Best
+  Identity = consent-example-pkb
+  Description = Example of Patients Know Best Usage
+  Filename = consent-example-pkb.xml
+
 === Sheet Examples =====================================
