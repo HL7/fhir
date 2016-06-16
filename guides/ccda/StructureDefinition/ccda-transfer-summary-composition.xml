@@ -210,6 +210,8 @@
         <max value="*" />
       </base>
     </element>
+	<!-- Advance Directives Section -->
+	<!-- No DAF Advance Directive Entry Definition -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -323,6 +325,21 @@
         <code value="Narrative" />
       </type>
     </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Advance Dierctive Observation or Advance Directive Organizer" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->
+	
+	<!-- Allergies and Intolerances Section -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -436,6 +453,20 @@
         <code value="Narrative" />
       </type>
     </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF AllergyIntolerance Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance)." />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance" />
+		</type>
+	</element>	
+	
+	<!-- Physical Exam Section -->
+	<!-- No DAF Longitudinal Wound Care Observation Entry -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -549,6 +580,21 @@
         <code value="Narrative" />
       </type>
     </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Longitudinal Wound Care Observation" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->
+	
+	<!-- Encounters Section -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -662,6 +708,19 @@
         <code value="Narrative" />
       </type>
     </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF Encounter Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-encounter)." />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-encounter" />
+		</type>
+	</element>
+	
+	<!-- Family History Section -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -775,6 +834,20 @@
         <code value="Narrative" />
       </type>
     </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF FamilyMemberHistory Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-familymemberhistory)." />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-familymemberhistory" />
+		</type>
+	</element>
+	
+	<!-- Functional Status Section -->
+	<!-- No DAF Functional Status Organizer or Functional Status Observation Entry -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -889,6 +962,22 @@
         <code value="Narrative" />
       </type>
     </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Functional Status Observation or Functional Status Organizer" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->
+	
+	<!-- Discharge Diagnosis Section -->
+	<!-- No DAF Hospital Discharge Diagnosis Entry -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -1002,6 +1091,21 @@
         <code value="Narrative" />
       </type>
     </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Hospital Discharge Diagnosis" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->
+	
+	<!-- Immunizations Section -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -1115,6 +1219,20 @@
         <code value="Narrative" />
       </type>
     </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF Immunization (identifier: http://hl7.org/fhir/StructureDefinition/daf-immunization)." />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-immunization" />
+		</type>
+	</element>
+	
+	<!-- Medical Equipment Section -->
+	<!-- No DAF Non-Medicinal Supply Entry, but there is a DAF Procedure Entry  -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -1228,6 +1346,21 @@
         <code value="Narrative" />
       </type>
     </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Non-Medicinal Supply Activity or Procedure Activity Procedure" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->
+	
+	<!-- Medications Section -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -1341,6 +1474,20 @@
         <code value="Narrative" />
       </type>
     </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF MedicationStatement Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-medicationstatement)." />
+		<min value="0" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-medicationstatement" />
+		</type>
+	</element>
+	
+	<!-- Payers Section -->
+	<!-- No DAF Coverage Activity Entry -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -1454,6 +1601,22 @@
         <code value="Narrative" />
       </type>
     </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Non-Medicinal Supply Activity or Procedure Activity Procedure" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->	
+	
+	<!-- Plan of Treatment Section -->
+	<!-- Multiple Plan of Treatment entry types, not sure which support this section -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -1567,7 +1730,9 @@
         <code value="Narrative" />
       </type>
     </element>
-    <element>
+    
+	<!-- Problem Section --> 
+	<element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -1680,6 +1845,19 @@
         <code value="Narrative" />
       </type>
     </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="MAY contain zero or more [0..*] U.S. DAF Condition Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-condition)." />
+		<min value="0" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-condition" />
+		</type>
+	</element>
+	
+	<!-- Procedures Section -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -1793,6 +1971,19 @@
         <code value="Narrative" />
       </type>
     </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF Procedure Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-procedure)." />
+		<min value="0" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-procedure" />
+		</type>
+	</element>
+	
+	<!-- Results Section -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -1906,6 +2097,19 @@
         <code value="Narrative" />
       </type>
     </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="MAY contain zero or more [0..*] U.S. DAF Results Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-resultobs." />
+		<min value="0" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs" />
+		</type>
+	</element>
+	
+	<!-- Social History Section -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -2019,6 +2223,8 @@
         <code value="Narrative" />
       </type>
     </element>
+	
+	<!-- Vital Signs Extension -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -2132,6 +2338,20 @@
         <code value="Narrative" />
       </type>
     </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S.DAF Vital Signs Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-vitalsigns)." />
+		<min value="0" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-vitalsigns" />
+		</type>
+	</element>
+	
+	<!-- Mental Status Section -->
+	<!-- No DAF Assessment Scale Observation, Mental Status Observation, or Mental Status Organizer Entry -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -2245,6 +2465,9 @@
         <code value="Narrative" />
       </type>
     </element>
+	
+	<!-- General Status Section -->
+	<!-- No entries for General Status -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -2358,7 +2581,10 @@
         <code value="Narrative" />
       </type>
     </element>
-    <element>
+    
+	<!-- Review of Systems Section -->
+	<!-- No entries for Review of Systems -->
+	<element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -2471,7 +2697,10 @@
         <code value="Narrative" />
       </type>
     </element>
-    <element>
+    
+	<!-- Nutrition Section -->
+	<!-- No DAF Nutrional Status Observation Entry -->
+	<element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -2584,6 +2813,22 @@
         <code value="Narrative" />
       </type>
     </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Nutrional Status Observation" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->	
+	
+	<!-- Reason for Referral Section -->
+	<!-- No DAF Patient Referral Act -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -2697,6 +2942,21 @@
         <code value="Narrative" />
       </type>
     </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Patient Referral Act" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->	
+	
+	<!-- History of Past Illness Section -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -2810,6 +3070,20 @@
         <code value="Narrative" />
       </type>
     </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="MAY contain zero or more [0..*] U.S. DAF Condition Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-condition)." />
+		<min value="0" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-condition" />
+		</type>
+	</element>
+
+	<!-- History of Present Illness Section -->
+	<!-- No entries for History of Present Illness -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -2923,6 +3197,9 @@
         <code value="Narrative" />
       </type>
     </element>
+
+	<!-- Assessment and Plan Section -->
+	<!-- No DAF Planned Act Entry -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -3036,6 +3313,9 @@
         <code value="Narrative" />
       </type>
     </element>
+	
+	<!-- Assessment Section -->
+	<!-- No entries for Assessment Section -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -3149,6 +3429,9 @@
         <code value="Narrative" />
       </type>
     </element>
+
+	<!-- Admission Medications Section -->
+	<!-- No DAF Admission Medication Entry -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -3262,6 +3545,22 @@
         <code value="Narrative" />
       </type>
     </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Admission Medication" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->	
+	
+	<!-- Admission Diagnosis Section -->
+	<!-- No DAF Hospital Admission Diagnosis Entry -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -3375,6 +3674,22 @@
         <code value="Narrative" />
       </type>
     </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Hospital Admission Diagnosis" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->	
+	
+	<!-- Course of Care Section -->
+	<!-- No entries for Course of Care -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -3488,6 +3803,8 @@
         <code value="Narrative" />
       </type>
     </element>
+	
+	<!-- Related Persons -->
     <element>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
@@ -3509,5 +3826,16 @@
         <code value="BackboneElement" />
       </type>
     </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="MAY contain zero or more [0..*] U.S. DAF Related Person (identifier: http://hl7.org/fhir/StructureDefinition/daf-relatedperson)." />
+		<min value="0" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-relatedperson" />
+		</type>
+	</element>
   </differential>
 </StructureDefinition>
