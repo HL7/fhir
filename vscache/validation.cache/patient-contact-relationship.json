@@ -2,6 +2,39 @@
   "url": "http://hl7.org/fhir/ValueSet/patient-contact-relationship",
   "outcomes": [
     {
+      "hash": "#|http://hl7.org/fhir/patient-contact-relationship|null|owner|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "owner",
+        "definition": null,
+        "display": "Owner of animal"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/patient-contact-relationship|null|partner|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "partner",
+        "definition": null,
+        "display": "Partner"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|127850001|Wife#|http://hl7.org/fhir/patient-contact-relationship|null|partner|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "partner",
+        "definition": null,
+        "display": "Partner"
+      }
+    },
+    {
       "hash": "#|null|null|guardian|null",
       "severity": null,
       "message": null,

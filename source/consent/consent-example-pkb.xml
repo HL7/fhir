@@ -9,7 +9,7 @@
         This example demonstrates how to encode this screen shot in a consent resource:
       </p>
       <p>
-       <img src="pkb.png"/>
+       <img alt="Screenshot from Patient Knows Best" src="pkb.png"/>
       </p>
       <p>
         Thanks to <a href="https://www.patientsknowbest.com/">Patients Know Best</a> for contributing this example

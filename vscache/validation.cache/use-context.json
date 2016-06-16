@@ -2,54 +2,114 @@
   "url": "http://hl7.org/fhir/ValueSet/use-context",
   "outcomes": [
     {
+      "hash": "#|http://example.org/FBPP|null|null|FBPP Pooled Database#|http://example.org/PhenX|null|null|Demographics#|http://example.org/EligibilityCriteria|null|null|Pt. Administrative#|http://example.org/UAMSClinicalResearch|null|null|UAMS New CDEs#|http://example.org/PhenX|null|null|Substance Abuse and #|http://example.org/Category|null|null|CSAERS Adverse Event#|http://example.org/PhenX|null|null|Core: Tier 1#|http://example.org/Category|null|null|Case Report Forms#|http://example.org/Category|null|null|CSAERS Review Set#|http://example.org/Demonstration%20Applications|null|null|CIAF#|http://example.org/NIDA%20CTN%20Usage|null|null|Clinical Research#|http://example.org/NIDA%20CTN%20Usage|null|null|Electronic Health Re#|http://example.org/Condition|null|null|Barretts Esophagus#|http://example.org/Condition|null|null|Bladder Cancer#|http://example.org/Condition|null|null|Oral Leukoplakia#|http://example.org/Condition|null|null|Sulindac for Breast",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu3.model.CodeableConcept@3229a0e3\": null"
+    },
+    {
       "hash": "#|http://loinc.org/class|null|null|MISC",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu3.model.CodeableConcept@7ea92d7c\": null"
     },
     {
       "hash": "#|http://loinc.org/class|null|null|PANEL.SURVEY.USSGFHT",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu3.model.CodeableConcept@762c0d99\": null"
     },
     {
       "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu3.model.CodeableConcept@c713e65\": null"
     },
     {
       "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT/Survey",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu3.model.CodeableConcept@107d0f54\": null"
     },
     {
       "hash": "#|http://loinc.org/type|null|null|Lab",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu3.model.CodeableConcept@3f8d7490\": null"
     },
     {
       "hash": "#|http://loinc.org/type|null|null|Survey",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu3.model.CodeableConcept@72eaa01e\": null"
+    },
+    {
+      "hash": "#|http://unstats.un.org/unsd/methods/m49/m49.htm|null|840|United States of America",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "840",
+        "definition": null,
+        "display": "United States of America"
+      }
     },
     {
       "hash": "#|null|null|Acute Care Hospitals|null",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|null|null|CRF|null",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|null|null|Demographic|null",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|urn:iso:std:iso:3166|null|AU|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "AU",
+        "definition": null,
+        "display": "Australia"
+      }
+    },
+    {
+      "hash": "#|urn:iso:std:iso:3166|null|NZ|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "NZ",
+        "definition": null,
+        "display": "New Zealand"
+      }
+    },
+    {
+      "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "US",
+        "definition": null,
+        "display": "United States of America (the)"
+      }
+    },
+    {
+      "hash": "#|urn:iso:std:iso:3166|null|US|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "US",
+        "definition": null,
+        "display": "United States of America (the)"
+      }
     }
   ]
 }

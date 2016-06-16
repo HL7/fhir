@@ -2,7 +2,154 @@
   "url": "http://hl7.org/fhir/ValueSet/substance-code",
   "outcomes": [
     {
+      "hash": "#|http://hl7.org/fhir/v3/EntityCode|null|HEPL|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Substance Code"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|116602009|Prednisone (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Prednisone"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|3092008|Staphylococcus Aureus",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Substance Code"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|333346007|Silver nitrate 20% solution (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Silver nitrate 20% solution (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|372687004|Amoxicillin (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Amoxicillin (substance)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|386906001|Capecitabine (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Capecitabine (substance)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|387048002|Nystatin (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Nystatin (substance)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|387324004|Chlorthalidone (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Chlorthalidone (substance)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|387531004|Azithromycin (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Azithromycin (substance)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|392259005|Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Co-amoxiclav 875mg/125mg tablet (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|395938000|Clavulanate potassium (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Clavulanate potassium (substance)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|406466009|House dust allergen",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "House dust allergen (substance)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|55452001|Oxycodone (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Oxycodone (substance)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|88480006|Potassium",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "K - Potassium"
+      }
+    },
+    {
       "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|1160593|cashew nut allergenic extract Injectable Product",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Substance Code"
+    },
+    {
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|2556|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Substance Code"
     }
