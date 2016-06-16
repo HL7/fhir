@@ -223,4 +223,11 @@
   Description = Episode Endpoint
   Filename = endpoint-example.xml
 
+ -- Row 2 -----------------------------------
+  Name = general
+  Identity = b0a5e4277-83c4-4adb-87e2-e3efe3369b6f
+  Description = Sample endpoint data
+  Filename = endpoint-examples-general-template.xml
+  Type = csv
+
 === Sheet Examples =====================================

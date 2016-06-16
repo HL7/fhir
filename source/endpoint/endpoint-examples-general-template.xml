@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+  <id value="b0a5e4277-83c4-4adb-87e2-e3efe3369b6f"/>
+  <meta>
+    <lastUpdated value="2012-05-29T23:45:32Z"/> 
+  </meta> 
+  <type value="collection"/> [%loop count=70%]
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Endpoint/[%count%]"/>
+    <resource>
+      <Endpoint>
+        <id value="[%count%]"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+              [%name%], [%payloadType%]<br/>
+              Address: [%address%]</div>
+        </text>
+        <status value="[%status%]"/>
+        <name value="[%name%]"/>
+        <managingOrganization>
+          <display value="[%managingOrganization%]"/>
+        </managingOrganization>
+        <connectionType value="[%connectionType%]" />
+        <method>
+          <system value="http://hl7.org/fhir/ValueSet/http-verb" />
+          <code value="[%method%]" />
+        </method>
+        <address value="[%address%]"/>
+        <payloadFormat value="[%payloadFormat%]"/>
+        <payloadType>
+          <coding>
+              <!--<system value="http://hl7.org/fhir/resource-types" />-->
+            <code value="[%payloadType%]" />
+          </coding>
+        </payloadType>
+      </Endpoint>
+    </resource>
+  </entry> [%endloop%] 
+</Bundle>
