@@ -41,10 +41,10 @@
 	   <!-- likely use url pointer to common text -->
 	</sourceAttachment>
 
-  <mode value="opt-in"/>
    
   <except>
     <!-- no read or write access for this individual -->
+    <type value="deny"/>
     <actor>
       <role>
         <coding>

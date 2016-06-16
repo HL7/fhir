@@ -38,11 +38,11 @@
 	   <!-- likely use url pointer to common text -->
 	</sourceAttachment>
 
-  <mode value="opt-in"/>
       
   <except>
     <!-- no read or write access for labs -->
     <!-- todo: how to say labs? -->
+    <type value="deny"/>
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
@@ -55,6 +55,19 @@
         <code value="write"/>
       </coding>
     </action> 
+    <data>
+      <meaning value="profile"/>
+      <reference>
+        <reference value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+      </reference>
+    </data>
+    <data>
+      <meaning value="profile"/>
+      <reference>
+        <!-- todo: define LabObservation somewhere as any Observation with a category of lab -->
+        <reference value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </reference>
+    </data>
   </except>  
 
 </Consent>

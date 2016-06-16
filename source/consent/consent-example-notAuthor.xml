@@ -38,10 +38,9 @@
 	   <title value="The terms of the consent in lawyer speak."/>
 	   <!-- likely use url pointer to common text -->
 	</sourceAttachment>
-
-  <mode value="opt-in"/>
-      
+     
   <except>
+    <type value="deny"/>
 	  <actor>
       <role>
         <coding>

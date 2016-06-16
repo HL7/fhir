@@ -41,13 +41,14 @@
 	   <!-- likely use url pointer to common text -->
 	</sourceAttachment>
 
-  <mode value="opt-in"/>
    
-  <!-- I can easily say to exclude a type of FHIR Resource, but lab-orders is not a direct Resource type. Might we put in FHIR based query parameters? -->
   <except>
-     <!-- todo: related information -->
+     <type value="deny"/>
      <data>
-        <reference value="Order/f201"/>
+       <meaning value="related"/>
+       <reference>
+         <reference value="Order/f201"/>
+       </reference>
      </data>
    </except>
 </Consent>

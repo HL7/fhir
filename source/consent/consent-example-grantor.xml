@@ -37,38 +37,39 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
 	   <!-- likely use url pointer to common text -->
 	</sourceAttachment>
 
-  <mode value="opt-in"/>
-  
-  <actor>
-    <role>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/ParticipationType"/>
-        <code value="CST"/> 
-      </coding>
-    </role>
-    <reference>
-       <reference value="Organization/2.16.840.1.113883.19.6"/>
-       <display value="Good Health Psychiatric Hospital"/>
-    </reference>
-  </actor>
-  
-  <actor>
-    <role>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/ParticipationType"/>
-        <code value="PRCP"/> 
-      </coding>
-    </role>
-    <reference>
-       <reference value="Patient/example"/>
-       <display value="Good Health Clinic"/>
-    </reference>
-  </actor>
-  <action>
-    <coding>
-      <system value="http://hl7.org/fhir/consentaction"/>
-      <code value="read"/>
-    </coding>
-  </action> 
 
+  <except>
+    <type value="permit"/>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="CST"/> 
+        </coding>
+      </role>
+      <reference>
+         <reference value="Organization/2.16.840.1.113883.19.6"/>
+         <display value="Good Health Psychiatric Hospital"/>
+      </reference>
+    </actor>
+    
+    <actor>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="PRCP"/> 
+        </coding>
+      </role>
+      <reference>
+         <reference value="Patient/example"/>
+         <display value="Good Health Clinic"/>
+      </reference>
+    </actor>
+    <action>
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action> 
+  </except>  
 </Consent>

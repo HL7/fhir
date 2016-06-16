@@ -32,12 +32,12 @@
      <reference value="Organization/Infoway"/>
 	  <display value="Canada Infoway"/>
   </organization>
-	  
+
+  <policy value="http://goodhealth.org/consent/policy/opt-in"/>  
   <!-- the terms of the consent as signed by the patient in ink -->
   <sourceAttachment>
 	  <title value="The terms of the consent in lawyer speak."/>
 	  <!-- likely use url pointer to common text -->
 	</sourceAttachment>
   
-  <mode value="not-coded"/>
 </Consent>

@@ -9,7 +9,7 @@
 	Withhold Authorization for Treatment except for Emegency Treatment
 	</p><p>
     Patient "P. van de Heuvel" wishes to have no data at the Good Health Psychiatric Hospital 
-   available except for Emegency treatment use.
+   available except for Emergency treatment use.
    </p>
    </div>
   </text>
@@ -36,26 +36,41 @@
 	   <!-- likely use url pointer to common text -->
 	</sourceAttachment>
 
-  <mode value="opt-out"/>
-      
-  <actor>
-    <role>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/ParticipationType"/>
-        <code value="CST"/> 
-      </coding>
-    </role>
-    <reference>
-       <reference value="Organization/2.16.840.1.113883.19.6"/>
-       <display value="Good Health Psychiatric Hospital"/>
-    </reference>
-  </actor>
-  
   <except>
+    <type value="deny"/>
+        
+    <actor>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="CST"/> 
+        </coding>
+      </role>
+      <reference>
+         <reference value="Organization/2.16.840.1.113883.19.6"/>
+         <display value="Good Health Psychiatric Hospital"/>
+      </reference>
+    </actor>  
+  </except>
+  <except>
+    <type value="permit"/>
+        
+    <actor>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="CST"/> 
+        </coding>
+      </role>
+      <reference>
+         <reference value="Organization/2.16.840.1.113883.19.6"/>
+         <display value="Good Health Psychiatric Hospital"/>
+      </reference>
+    </actor>
+    
     <purpose>
       <system value="http://hl7.org/fhir/v3/ActReason"/>
       <code value="ETREAT"/> 
     </purpose>
   </except>
-
 </Consent>
