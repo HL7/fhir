@@ -302,7 +302,11 @@
           <value value="S100"/>
         </identifier>
         <status value="finished"/>
-        <class value="inpatient"/>
+        <class>
+            <system value="http://hl7.org/fhir/v3/ActCode"/>
+            <code value="IMP"/>
+            <display value="inpatient encounter"/>
+        </class>
         <type>
           <text value="Orthopedic Admission"/>
         </type>

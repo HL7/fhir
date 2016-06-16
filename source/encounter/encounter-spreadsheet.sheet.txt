@@ -18,10 +18,10 @@
 
  -- Row 3 -----------------------------------
   Binding Name = EncounterClass
-  Binding = code list
-  Reference = #encounter-class
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-ActEncounterCode
   Definition = Classification of the encounter
-  Conformance = required
+  Conformance = extensible
 
  -- Row 4 -----------------------------------
   Binding Name = ParticipantType
@@ -70,7 +70,7 @@
   Binding = value set
   Reference = valueset-encounter-discharge-disposition
   Definition = Discharge Disposition
-  Conformance = preferred
+  Conformance = example
 
  -- Row 11 -----------------------------------
   Binding Name = EncounterReason
@@ -128,62 +128,6 @@
   Code = cancelled
   Display = Cancelled
   Definition = The Encounter has ended before it has begun.
-
-=== Sheet encounter-class =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = inpatient
-  Display = Inpatient
-  Definition = An encounter during which the patient is hospitalized and stays overnight.
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = outpatient
-  Display = Outpatient
-  Definition = An encounter during which the patient is not hospitalized overnight.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = ambulatory
-  Display = Ambulatory
-  Definition = An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit.
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = emergency
-  Display = Emergency
-  Definition = An encounter in the Emergency Care Department.
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = home
-  Display = Home
-  Definition = An encounter where the practitioner visits the patient at his/her home.
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = field
-  Display = Field
-  Definition = An encounter taking place outside the regular environment for giving care.
-
- -- Row 7 -----------------------------------
-  Id = 7
-  Code = daytime
-  Display = Daytime
-  Definition = An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight.
-
- -- Row 8 -----------------------------------
-  Id = 8
-  Code = virtual
-  Display = Virtual
-  Definition = An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact.
-
- -- Row 9 -----------------------------------
-  Id = 9
-  Code = other
-  Display = Other
-  Definition = Any other encounter type that is not described by one of the other values. Where this is used it is expected that an implementer will include an extension value to define what the actual other type is.
 
 === Sheet encounter-location-status =====================================
 
@@ -273,7 +217,7 @@
   Element = Encounter.class
   Card. = 0..1
   Summary = y
-  Type = code
+  Type = Coding
   Binding = EncounterClass
   Short Label = inpatient | outpatient | ambulatory | emergency +
   v2 Mapping = PV1-2
@@ -737,6 +681,11 @@
   Path = Encounter.participant.individual
   Target Types = Practitioner
 
+ -- Row 21 -----------------------------------
+  Name = class
+  Type = token
+  Path = Encounter.class
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
@@ -806,7 +755,7 @@
  -- Row 1 -----------------------------------
   Name = everything
   Use = Instance
-  Documentation = This operation is used to return all the information related to an encounter described in the resource on which this operation is invoked. The response is a bundle of type \"searchset\". At a minimum, the encounter resource itself is returned, along with any other resources that the server has available for the given encounter for the user. The server also returns whatever resources are needed to support the records - e.g. linked practitioners, locations, organizations etc. The principle intended use for this operation is to provide a patient with access to their record, or to allow a client to retrieve everything for an encounter for efficient display).  The server SHOULD return all resources that it has that are in the encounter compartment for the identified encounter, and any resource referenced from those, including binaries and attachments. In the US Realm, at a mimimum, the resources returned SHALL include all the data covered by the meaningful use common data elements (see [DAF](daf/daf.html) for further guidance). Other applicable implementation guides may make additional rules about the information that is returned.   Note that for many resources, the exact nature of the link to encounter can be ambiguous (e.g. for a DiagnosticReport, is it the encounter when it was initiated, or when it was reported?)
+  Documentation = This operation is used to return all the information related to an encounter described in the resource on which this operation is invoked. The response is a bundle of type \"searchset\". At a minimum, the encounter resource itself is returned, along with any other resources that the server has available for the given encounter for the user. The server also returns whatever resources are needed to support the records - e.g. linked practitioners, locations, organizations etc. The principle intended use for this operation is to provide a patient with access to their record, or to allow a client to retrieve everything for an encounter for efficient display).\n\nThe server SHOULD return all resources it has that:\n\n* are included in the encounter compartment for the identified encounter (have a reference to the encounter)\n* are referenced by the standard extenstion for associating an encounter (where no reference element exists) http://hl7.org/fhir/StructureDefinition/encounter-associatedEncounter\n* the server believes are relevant to the context of the encounter for any other reason (internally defined/decided)\n* any resource referenced by the above, including binaries and attachments (to make a more complete package)\n\nIn the US Realm, at a mimimum, the resources returned SHALL include all the data covered by the meaningful use common data elements (see [DAF](daf/daf.html) for further guidance). Other applicable implementation guides may make additional rules about the information that is returned.   Note that for many resources, the exact nature of the link to encounter can be ambiguous (e.g. for a DiagnosticReport, is it the encounter when it was initiated, or when it was reported?)
   Type = operation
   Example.Request = $everything-request.txt
   Example.Response = $everything-response.txt

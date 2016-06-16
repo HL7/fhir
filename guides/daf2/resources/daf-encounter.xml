@@ -26,7 +26,7 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
   <derivation value="constraint"/>
   <snapshot>
-    <element>
+    <element id="Encounter:DAF-Encounter">
       <path value="Encounter"/>
       <name value="DAF-Encounter"/>
       <short value="An interaction during which services are provided to the patient"/>
@@ -51,7 +51,7 @@
         <map value="workflow.encounter"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.id">
       <path value="Encounter.id"/>
       <short value="Logical id of this artifact"/>
       <definition value="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."/>
@@ -68,7 +68,7 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.meta">
       <path value="Encounter.meta"/>
       <short value="Metadata about the resource"/>
       <definition value="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource."/>
@@ -84,7 +84,7 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.implicitRules">
       <path value="Encounter.implicitRules"/>
       <short value="A set of rules under which this content was created"/>
       <definition value="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content."/>
@@ -102,7 +102,7 @@
       <isModifier value="true"/>
       <isSummary value="true"/>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.language">
       <path value="Encounter.language"/>
       <short value="Language of the resource content"/>
       <definition value="The base language in which the resource is written."/>
@@ -123,7 +123,7 @@
         <valueSetUri value="http://tools.ietf.org/html/bcp47"/>
       </binding>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.text">
       <path value="Encounter.text"/>
       <short value="Text summary of the resource, for human interpretation"/>
       <definition value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
@@ -148,7 +148,7 @@
         <map value="Act.text?"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.contained">
       <path value="Encounter.contained"/>
       <short value="Contained, inline Resources"/>
       <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
@@ -171,7 +171,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.extension">
       <path value="Encounter.extension"/>
       <short value="Additional Content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
@@ -193,7 +193,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.modifierExtension">
       <path value="Encounter.modifierExtension"/>
       <short value="Extensions that cannot be ignored"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
@@ -216,7 +216,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.identifier">
       <path value="Encounter.identifier"/>
       <short value="Identifier(s) by which this encounter is known"/>
       <definition value="Identifier(s) by which this encounter is known."/>
@@ -245,7 +245,7 @@
         <map value="id"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.status">
       <path value="Encounter.status"/>
       <short value="planned | in-progress | onleave | finished | cancelled"/>
       <definition value="planned | in-progress | onleave | finished | cancelled."/>
@@ -282,7 +282,7 @@
         <map value="status"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.statusHistory">
       <path value="Encounter.statusHistory"/>
       <short value="List of past encounter statuses"/>
       <definition value="The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them."/>
@@ -298,11 +298,11 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.statusHistory.id">
       <path value="Encounter.statusHistory.id"/>
       <representation value="xmlAttr"/>
       <short value="xml:id (or equivalent in JSON)"/>
-      <definition value="unique id for the element within a resource (for internal references)."/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
       <min value="0"/>
       <max value="1"/>
       <base>
@@ -311,14 +311,14 @@
         <max value="*"/>
       </base>
       <type>
-        <code value="id"/>
+        <code value="string"/>
       </type>
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.statusHistory.extension">
       <path value="Encounter.statusHistory.extension"/>
       <short value="Additional Content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
@@ -340,7 +340,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.statusHistory.modifierExtension">
       <path value="Encounter.statusHistory.modifierExtension"/>
       <short value="Extensions that cannot be ignored"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
@@ -365,7 +365,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.statusHistory.status">
       <path value="Encounter.statusHistory.status"/>
       <short value="planned | arrived | in-progress | onleave | finished | cancelled"/>
       <definition value="planned | arrived | in-progress | onleave | finished | cancelled."/>
@@ -387,7 +387,7 @@
         </valueSetReference>
       </binding>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.statusHistory.period">
       <path value="Encounter.statusHistory.period"/>
       <short value="The time that the episode was in the specified status"/>
       <definition value="The time that the episode was in the specified status."/>
@@ -402,7 +402,7 @@
         <code value="Period"/>
       </type>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.class">
       <path value="Encounter.class"/>
       <short value="inpatient | outpatient | ambulatory | emergency +"/>
       <definition value="inpatient | outpatient | ambulatory | emergency +."/>
@@ -414,15 +414,15 @@
         <max value="1"/>
       </base>
       <type>
-        <code value="code"/>
+        <code value="Coding"/>
       </type>
       <mustSupport value="true"/>
       <isSummary value="true"/>
       <binding>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="Classification of the encounter"/>
         <valueSetReference>
-          <reference value="http://hl7.org/fhir/ValueSet/encounter-class"/>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ActEncounterCode"/>
         </valueSetReference>
       </binding>
       <mapping>
@@ -438,7 +438,7 @@
         <map value="class"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.type">
       <path value="Encounter.type"/>
       <short value="Specific type of encounter"/>
       <definition value="Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)."/>
@@ -475,7 +475,7 @@
         <map value="class"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.priority">
       <path value="Encounter.priority"/>
       <short value="Indicates the urgency of the encounter"/>
       <definition value="Indicates the urgency of the encounter."/>
@@ -509,7 +509,7 @@
         <map value="grade"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.patient">
       <path value="Encounter.patient"/>
       <short value="Patient present at encounter"/>
       <definition value="Patient present at encounter."/>
@@ -542,7 +542,7 @@
         <map value="who.focus"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.episodeOfCare">
       <path value="Encounter.episodeOfCare"/>
       <short value="Episode(s) of care that this encounter should be recorded against"/>
       <definition value="Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care, and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years)."/>
@@ -567,7 +567,7 @@
         <map value="context"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.incomingReferral">
       <path value="Encounter.incomingReferral"/>
       <short value="The ReferralRequest that initiated this encounter"/>
       <definition value="The referral request this encounter satisfies (incoming referral)."/>
@@ -583,7 +583,7 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/ReferralRequest"/>
       </type>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.participant">
       <path value="Encounter.participant"/>
       <short value="List of participants involved in the encounter"/>
       <definition value="The list of people responsible for providing the service."/>
@@ -608,11 +608,11 @@
         <map value=".participation[typeCode=PFM]"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.participant.id">
       <path value="Encounter.participant.id"/>
       <representation value="xmlAttr"/>
       <short value="xml:id (or equivalent in JSON)"/>
-      <definition value="unique id for the element within a resource (for internal references)."/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
       <min value="0"/>
       <max value="1"/>
       <base>
@@ -621,14 +621,14 @@
         <max value="*"/>
       </base>
       <type>
-        <code value="id"/>
+        <code value="string"/>
       </type>
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.participant.extension">
       <path value="Encounter.participant.extension"/>
       <short value="Additional Content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
@@ -650,7 +650,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.participant.modifierExtension">
       <path value="Encounter.participant.modifierExtension"/>
       <short value="Extensions that cannot be ignored"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
@@ -675,7 +675,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.participant.type">
       <path value="Encounter.participant.type"/>
       <short value="Role of participant in encounter"/>
       <definition value="Role of participant in encounter."/>
@@ -708,7 +708,7 @@
         <map value=".functionCode"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.participant.period">
       <path value="Encounter.participant.period"/>
       <short value="Period of time during the encounter participant was present"/>
       <definition value="The period of time that the specified participant was present during the encounter. These can overlap or be sub-sets of the overall encounters period."/>
@@ -727,7 +727,7 @@
         <map value="ROL-5, ROL-6 (or maybe PRT-5)"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.participant.individual">
       <path value="Encounter.participant.individual"/>
       <short value="Persons involved in the encounter other than the patient"/>
       <definition value="Persons involved in the encounter other than the patient."/>
@@ -761,7 +761,7 @@
         <map value="who"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.appointment">
       <path value="Encounter.appointment"/>
       <short value="The appointment that scheduled this encounter"/>
       <definition value="The appointment that scheduled this encounter."/>
@@ -786,7 +786,7 @@
         <map value=".outboundRelationship[typeCode=FLFS].target[classCode=ENC, moodCode=APT]"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.period">
       <path value="Encounter.period"/>
       <short value="The start and end time of the encounter"/>
       <definition value="The start and end time of the encounter."/>
@@ -815,7 +815,7 @@
         <map value="when.done"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.length">
       <path value="Encounter.length"/>
       <short value="Quantity of time the encounter lasted (less time absent)"/>
       <definition value="Quantity of time the encounter lasted. This excludes the time during leaves of absence."/>
@@ -839,7 +839,7 @@
         <map value=".lengthOfStayQuantity"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.reason">
       <path value="Encounter.reason"/>
       <short value="Reason the encounter takes place (code)"/>
       <definition value="Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis."/>
@@ -878,7 +878,7 @@
         <map value="why"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.indication">
       <path value="Encounter.indication"/>
       <short value="Reason the encounter takes place (resource)"/>
       <definition value="Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure."/>
@@ -912,7 +912,7 @@
         <map value="why"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization">
       <path value="Encounter.hospitalization"/>
       <short value="Details about the admission to a healthcare service"/>
       <definition value="Details about the admission to a healthcare service."/>
@@ -935,11 +935,11 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value=".outboundRelationship[typeCode=COMP].target[classCode=ENC, moodCode=EVN]"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.id">
       <path value="Encounter.hospitalization.id"/>
       <representation value="xmlAttr"/>
       <short value="xml:id (or equivalent in JSON)"/>
-      <definition value="unique id for the element within a resource (for internal references)."/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
       <min value="0"/>
       <max value="1"/>
       <base>
@@ -948,14 +948,14 @@ The duration recorded in the period of this encounter covers the entire scope of
         <max value="*"/>
       </base>
       <type>
-        <code value="id"/>
+        <code value="string"/>
       </type>
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.extension">
       <path value="Encounter.hospitalization.extension"/>
       <short value="Additional Content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
@@ -977,7 +977,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value="n/a"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.modifierExtension">
       <path value="Encounter.hospitalization.modifierExtension"/>
       <short value="Extensions that cannot be ignored"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
@@ -1002,7 +1002,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value="N/A"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.preAdmissionIdentifier">
       <path value="Encounter.hospitalization.preAdmissionIdentifier"/>
       <short value="Pre-admission identifier"/>
       <definition value="Pre-admission identifier."/>
@@ -1025,7 +1025,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value=".id"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.origin">
       <path value="Encounter.hospitalization.origin"/>
       <short value="The location from which the patient came before admission"/>
       <definition value="The location from which the patient came before admission."/>
@@ -1045,7 +1045,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value=".participation[typeCode=ORG].role"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.admitSource">
       <path value="Encounter.hospitalization.admitSource"/>
       <short value="From where patient was admitted (physician referral, transfer)"/>
       <definition value="From where patient was admitted (physician referral, transfer)."/>
@@ -1075,7 +1075,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value=".admissionReferralSourceCode"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.admittingDiagnosis">
       <path value="Encounter.hospitalization.admittingDiagnosis"/>
       <short value="The admitting diagnosis as reported by admitting practitioner"/>
       <definition value="The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter."/>
@@ -1091,7 +1091,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <profile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.reAdmission">
       <path value="Encounter.hospitalization.reAdmission"/>
       <short value="The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission"/>
       <definition value="Whether this hospitalization is a readmission and why if known."/>
@@ -1118,7 +1118,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value="Propose at harmonization"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.dietPreference">
       <path value="Encounter.hospitalization.dietPreference"/>
       <short value="Diet preferences reported by the patient"/>
       <definition value="Diet preferences reported by the patient."/>
@@ -1150,7 +1150,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=EVN, code=&quot;diet&quot;]"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.specialCourtesy">
       <path value="Encounter.hospitalization.specialCourtesy"/>
       <short value="Special courtesies (VIP, board member)"/>
       <definition value="Special courtesies (VIP, board member)."/>
@@ -1180,7 +1180,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value=".specialCourtesiesCode"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.specialArrangement">
       <path value="Encounter.hospitalization.specialArrangement"/>
       <short value="Wheelchair, translator, stretcher, etc."/>
       <definition value="Wheelchair, translator, stretcher, etc."/>
@@ -1210,7 +1210,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value=".specialArrangementCode"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.destination">
       <path value="Encounter.hospitalization.destination"/>
       <short value="Location to which the patient is discharged"/>
       <definition value="Location to which the patient is discharged."/>
@@ -1234,7 +1234,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value=".participation[typeCode=DST]"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.dischargeDisposition">
       <path value="Encounter.hospitalization.dischargeDisposition"/>
       <short value="Category or kind of location after discharge"/>
       <definition value="Category or kind of location after discharge."/>
@@ -1265,7 +1265,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value=".dischargeDispositionCode"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.dischargeDiagnosis">
       <path value="Encounter.hospitalization.dischargeDiagnosis"/>
       <short value="The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete"/>
       <definition value="The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete."/>
@@ -1285,7 +1285,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value=".outboundRelationship[typeCode=OUT].target[classCode=OBS, moodCode=EVN, code=ASSERTION].value"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.location">
       <path value="Encounter.location"/>
       <short value="List of locations where the patient has been"/>
       <definition value="List of locations where  the patient has been during this encounter."/>
@@ -1306,11 +1306,11 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value=".participation[typeCode=LOC]"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.location.id">
       <path value="Encounter.location.id"/>
       <representation value="xmlAttr"/>
       <short value="xml:id (or equivalent in JSON)"/>
-      <definition value="unique id for the element within a resource (for internal references)."/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
       <min value="0"/>
       <max value="1"/>
       <base>
@@ -1319,14 +1319,14 @@ The duration recorded in the period of this encounter covers the entire scope of
         <max value="*"/>
       </base>
       <type>
-        <code value="id"/>
+        <code value="string"/>
       </type>
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.location.extension">
       <path value="Encounter.location.extension"/>
       <short value="Additional Content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
@@ -1348,7 +1348,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value="n/a"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.location.modifierExtension">
       <path value="Encounter.location.modifierExtension"/>
       <short value="Extensions that cannot be ignored"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
@@ -1373,7 +1373,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value="N/A"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.location.location">
       <path value="Encounter.location.location"/>
       <short value="Location the encounter takes place"/>
       <definition value="The location where the encounter takes place."/>
@@ -1402,7 +1402,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value="where"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.location.status">
       <path value="Encounter.location.status"/>
       <short value="planned | active | reserved | completed"/>
       <definition value="The status of the participants&#39; presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time."/>
@@ -1425,7 +1425,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         </valueSetReference>
       </binding>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.location.period">
       <path value="Encounter.location.period"/>
       <short value="Time period during which the patient was present at the location"/>
       <definition value="Time period during which the patient was present at the location."/>
@@ -1444,7 +1444,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value=".time"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.serviceProvider">
       <path value="Encounter.serviceProvider"/>
       <short value="The custodian organization of this Encounter record"/>
       <definition value="An organization that is in charge of maintaining the information of this Encounter (e.g. who maintains the report or the master service catalog item, etc.). This MAY be the same as the organization on the Patient record, however it could be different. This MAY not be not the Service Delivery Location&#39;s Organization."/>
@@ -1468,7 +1468,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <map value=".particiaption[typeCode=PFM].role"/>
       </mapping>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.partOf">
       <path value="Encounter.partOf"/>
       <short value="Another Encounter this encounter is part of"/>
       <definition value="Another Encounter of which this encounter is a part of (administratively or in time)."/>
@@ -1490,7 +1490,7 @@ The duration recorded in the period of this encounter covers the entire scope of
     </element>
   </snapshot>
   <differential>
-    <element>
+    <element id="Encounter:DAF-Encounter">
       <path value="Encounter"/>
       <name value="DAF-Encounter"/>
       <min value="0"/>
@@ -1499,7 +1499,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         <code value="Encounter"/>
       </type>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.identifier">
       <path value="Encounter.identifier"/>
       <min value="0"/>
       <max value="*"/>
@@ -1508,7 +1508,7 @@ The duration recorded in the period of this encounter covers the entire scope of
       </type>
       <mustSupport value="true"/>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.status">
       <path value="Encounter.status"/>
       <short value="planned | in-progress | onleave | finished | cancelled"/>
       <definition value="planned | in-progress | onleave | finished | cancelled."/>
@@ -1519,18 +1519,18 @@ The duration recorded in the period of this encounter covers the entire scope of
       </type>
       <mustSupport value="true"/>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.class">
       <path value="Encounter.class"/>
       <short value="inpatient | outpatient | ambulatory | emergency +"/>
       <definition value="inpatient | outpatient | ambulatory | emergency +."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="Coding"/>
       </type>
       <mustSupport value="true"/>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.type">
       <path value="Encounter.type"/>
       <min value="0"/>
       <max value="1"/>
@@ -1546,7 +1546,7 @@ The duration recorded in the period of this encounter covers the entire scope of
         </valueSetReference>
       </binding>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.patient">
       <path value="Encounter.patient"/>
       <short value="Patient present at encounter"/>
       <definition value="Patient present at encounter."/>
@@ -1559,13 +1559,13 @@ The duration recorded in the period of this encounter covers the entire scope of
       </type>
       <mustSupport value="true"/>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.participant">
       <path value="Encounter.participant"/>
       <min value="0"/>
       <max value="*"/>
       <mustSupport value="true"/>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.participant.type">
       <path value="Encounter.participant.type"/>
       <min value="0"/>
       <max value="*"/>
@@ -1574,7 +1574,7 @@ The duration recorded in the period of this encounter covers the entire scope of
       </type>
       <mustSupport value="true"/>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.participant.individual">
       <path value="Encounter.participant.individual"/>
       <min value="0"/>
       <max value="1"/>
@@ -1588,7 +1588,7 @@ The duration recorded in the period of this encounter covers the entire scope of
       </type>
       <mustSupport value="true"/>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.period">
       <path value="Encounter.period"/>
       <min value="0"/>
       <max value="1"/>
@@ -1597,7 +1597,7 @@ The duration recorded in the period of this encounter covers the entire scope of
       </type>
       <mustSupport value="true"/>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.reason">
       <path value="Encounter.reason"/>
       <min value="0"/>
       <max value="1"/>
@@ -1613,13 +1613,13 @@ The duration recorded in the period of this encounter covers the entire scope of
         </valueSetReference>
       </binding>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization">
       <path value="Encounter.hospitalization"/>
       <min value="0"/>
       <max value="1"/>
       <mustSupport value="true"/>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.hospitalization.dischargeDisposition">
       <path value="Encounter.hospitalization.dischargeDisposition"/>
       <min value="0"/>
       <max value="1"/>
@@ -1635,13 +1635,13 @@ The duration recorded in the period of this encounter covers the entire scope of
         </valueSetReference>
       </binding>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.location">
       <path value="Encounter.location"/>
       <min value="0"/>
       <max value="1"/>
       <mustSupport value="true"/>
     </element>
-    <element>
+    <element id="Encounter:DAF-Encounter.location.location">
       <path value="Encounter.location.location"/>
       <min value="1"/>
       <max value="1"/>

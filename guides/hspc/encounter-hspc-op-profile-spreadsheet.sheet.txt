@@ -482,7 +482,7 @@
 
  -- Row 43 -----------------------------------
   Element = Encounter.class
-  Type = code
+  Type = Coding
   Value = <code value=\"outpatient\"/>
 
  -- Row 44 -----------------------------------

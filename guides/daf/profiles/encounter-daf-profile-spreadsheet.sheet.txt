@@ -49,7 +49,7 @@
   Element = Encounter.class
   Card. = 0..1
   Must Support = Y
-  Type = code
+  Type = Coding
   Short Label = inpatient | outpatient | ambulatory | emergency +
 
  -- Row 5 -----------------------------------

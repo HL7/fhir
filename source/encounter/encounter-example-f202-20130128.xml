@@ -6,7 +6,11 @@
     <value value="Encounter_Roel_20130128"/>
  </identifier>
  <status value="finished"/><!--Encounter has finished-->
- <class value="outpatient"/><!--Outpatient encounter for chemotherapy-->
+    <class>
+        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <code value="AMB"/> <!-- outpatient encounter for chemotherapy -->
+        <display value="ambulatory"/>
+    </class>
  <type>
     <coding>
        <system value="http://snomed.info/sct"/>

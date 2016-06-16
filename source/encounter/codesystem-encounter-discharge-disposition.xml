@@ -41,6 +41,10 @@
     <display value="Rehabilitation"/>
   </concept>
   <concept>
+    <code value="snf"/>
+    <display value="Skilled nursing facility"/>
+  </concept>
+  <concept>
     <code value="oth"/>
     <display value="Other"/>
   </concept>

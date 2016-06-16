@@ -365,7 +365,7 @@
 
  -- Row 24 -----------------------------------
   Element = Encounter.class
-  Type = code
+  Type = Coding
   Value = <code value=\"emergency\"/>
 
  -- Row 25 -----------------------------------

@@ -6,7 +6,12 @@
     <value value="Encounter_Roel_20130311"/>
  </identifier>
  <status value="finished"/><!--Encounter has finished-->
- <class value="inpatient"/><!--Inpatient encounter for straphylococcus infection-->
+    <class>
+        <!--Inpatient encounter for straphylococcus infection-->
+        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <code value="IMP"/>
+        <display value="inpatient encounter"/>
+    </class>
  <type>
     <coding>
        <system value="http://snomed.info/sct"/>

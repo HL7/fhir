@@ -7,7 +7,11 @@
     <value value="1234213.52345873"/>
   </identifier>
   <status value="finished"/>
-  <class value="outpatient"/>
+    <class>
+        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <code value="AMB"/> <!-- outpatient -->
+        <display value="ambulatory"/>
+    </class>
   <patient>
     <reference value="Patient/xcda"/>
   </patient>
