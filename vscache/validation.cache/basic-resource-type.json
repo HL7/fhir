@@ -2,11 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/basic-resource-type",
   "outcomes": [
     {
-      "hash": "#|http://example.org/do-not-use/fhir-codes#resourceTypes|null|UMLCLASSMODEL|null",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
       "hash": "#|http://hl7.org/fhir/basic-resource-type|null|advevent|null",
       "severity": null,
       "message": null,

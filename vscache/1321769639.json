@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:9e48c12d-4cc5-4667-b2cf-9d46e87f7cf7","timestamp":"2016-04-16T03:34:28Z","contains":[{"system":"http://hl7.org/fhir/nehta-notidentified-present-indeterminate","code":"not_identified","display":"Not identified"}]}}

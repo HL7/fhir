@@ -3,28 +3,25 @@
   "outcomes": [
     {
       "hash": "#|http://hl7.org/fhir/consentaction|null|read|null",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "read",
+        "definition": null,
+        "display": "Read"
+      }
     },
     {
       "hash": "#|http://hl7.org/fhir/consentaction|null|write|null",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/restful-interaction|null|read|null",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/ActReason|null|ETREAT|Emergency Treatment",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/ActReason|null|PATRQT|patient requested",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "write",
+        "definition": null,
+        "display": "Write"
+      }
     }
   ]
 }

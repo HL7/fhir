@@ -398,6 +398,7 @@ public class SpecificationTerminologyServices {
         params.put("_limit", PageProcessor.CODE_LIMIT_EXPANSION);
         params.put("_incomplete", "true");
         params.put("profile", "http://www.healthintersections.com.au/fhir/expansion/no-details");
+        System.out.println("Use Tx Server from STS for value set "+vs.getUrl());
         ValueSet result = client.expandValueset(vs, params);
         serverOk = true;
         FileOutputStream s = new FileOutputStream(cacheFn);

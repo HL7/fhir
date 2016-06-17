@@ -2,11 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/device-kind",
   "outcomes": [
     {
-      "hash": "#|http://acme.com/devices|null|octane2014|Performance pace maker for high octane patients",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Device Types"
-    },
-    {
       "hash": "#|http://hl7.org/fhir/NamingSystem/gs1-di|null|09504000059118|null#|http://snomed.info/sct|null|468063009|Coated femoral stem prosthesis, modular",
       "severity": null,
       "message": null,
@@ -16,26 +11,6 @@
         "definition": null,
         "display": "Coated femoral stem prosthesis, modular (physical object)"
       }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/NamingSystem/hibcc-di|null|H123PARTNO1234567890120|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Device Types"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/NamingSystem/iccbba-blood-di|null|1TE123456A|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Device Types"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/NamingSystem/iccbba-other-di|null|A9999XYZ100T0474|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Device Types"
-    },
-    {
-      "hash": "#|http://ncimeta.nci.nih.gov|null|C1961478|Information Systems, Decision Support, Clinical",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Device Types"
     },
     {
       "hash": "#|http://snomed.info/sct|null|25062003|Feeding tube, device",
@@ -58,11 +33,6 @@
         "definition": null,
         "display": "Electrocardiographic monitor and recorder"
       }
-    },
-    {
-      "hash": "#|urn:iso:std:iso:11073:10101|null|2000|MDC_DEV_ANALY_SAT_O2_MDS",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Device Types"
     }
   ]
 }

@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:e495d019-e33c-45af-9052-c6c901be23dd","timestamp":"2016-04-16T03:23:29Z","contains":[{"system":"http://hl7.org/fhir/v3/NullFlavor","code":"UNK","display":"unknown"}]}}

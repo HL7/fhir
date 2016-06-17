@@ -115,11 +115,6 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://loinc.org|null|11369-6|Immunizations",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
       "hash": "#|http://loinc.org|null|11383-7|Patient problem outcome",
       "severity": "error",
       "message": "None of the codes are in the specified value set"

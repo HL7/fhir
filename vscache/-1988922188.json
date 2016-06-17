@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:3846543e-a69c-4b03-9426-91aa9369fee2","timestamp":"2016-04-16T03:22:24Z","contains":[{"system":"http://hl7.org/fhir/abstract-types","code":"Type","display":"Type"},{"system":"http://hl7.org/fhir/abstract-types","code":"Any","display":"Any"}]}}

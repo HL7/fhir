@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:e597ac49-2612-4dfc-8be5-374a7f22432c","timestamp":"2016-04-16T04:08:05Z","contains":[{"system":"http://hl7.org/fhir/nehta-received-notreceived","code":"not_received","display":"Specimen not received"}]}}

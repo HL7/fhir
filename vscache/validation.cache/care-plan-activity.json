@@ -2,31 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/care-plan-activity",
   "outcomes": [
     {
-      "hash": "#|http://example.org/local|null|doccon|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Care Plan Activity"
-    },
-    {
-      "hash": "#|http://example.org/local|null|nursecon|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Care Plan Activity"
-    },
-    {
-      "hash": "#|http://example.org/mySystem|null|1an|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Care Plan Activity"
-    },
-    {
-      "hash": "#|http://example.org/mySystem|null|an|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Care Plan Activity"
-    },
-    {
-      "hash": "#|http://example.org/mySystem|null|del|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Care Plan Activity"
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|172960003|Incision of retropharyngeal abscess",
       "severity": null,
       "message": null,

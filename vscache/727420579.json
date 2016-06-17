@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:c179115e-eabc-4bc4-a7dc-6c2ed68588dd","timestamp":"2016-04-16T03:22:05Z","contains":[{"system":"http://hl7.org/fhir/audit-event-type","code":"rest","display":"RESTful Operation"}]}}

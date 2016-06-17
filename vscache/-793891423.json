@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:2f20fbd3-5dbd-4eef-94c8-26de3847e83c","timestamp":"2016-04-16T03:34:12Z","contains":[{"system":"http://hl7.org/fhir/v3/EntityNameUse","code":"L","display":"Legal Name"},{"system":"http://hl7.org/fhir/v3/EntityNameUse","code":"ASGN","display":"Assigned (alias)"}]}}

@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:9cb9d7a8-f850-4479-9aac-f888e7a7d67f","timestamp":"2016-04-16T04:08:33Z","contains":[{"system":"http://hl7.org/fhir/nehta-present-absent-ns","code":"not-stated","display":"Not stated"}]}}

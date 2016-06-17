@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:eb4bf56b-ee83-4460-956e-56a69fab05db","timestamp":"2016-04-16T04:08:34Z","contains":[{"system":"http://hl7,org/fhir/organization-hspc-organizationnameuse","code":"526758025","display":"Stock Exchange Name"}]}}

@@ -1,1 +1,1 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:d2fe8990-f9b1-4cd3-aa96-a5e5df9d2892","timestamp":"2016-04-16T03:34:29Z","parameter":[{"name":"version","valueUri":"http://snomed.info/sct?version=http://snomed.info/sct/731000124108/version/20150901"}],"contains":[{"system":"http://snomed.info/sct","code":"419199007","display":"Allergy to substance (disorder)"}]}}
+{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"exception","details":{"text":"Error sending HTTP Post/Put Payload"}}]}

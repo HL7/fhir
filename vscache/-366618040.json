@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:352319fb-a572-4d42-a6fc-5d3d68cdd728","timestamp":"2016-04-16T03:35:44Z","contains":[{"system":"http://hl7.org/fhir/hspc-clinicalassertstatus","code":"1797","display":"Resolved"},{"system":"http://hl7.org/fhir/hspc-clinicalassertstatus","code":"69074","display":"Error"}]}}

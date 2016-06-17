@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:88c38dbe-147c-4e7e-8097-c7da485bc277","timestamp":"2016-06-01T03:11:10Z","parameter":[{"name":"version","valueUri":"http://snomed.info/sct?version=http://snomed.info/sct/731000124108/version/20150901"}],"contains":[{"system":"http://snomed.info/sct","code":"275879008","display":"On examination - deaf (disorder)"}]}}

@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:ca1c6f41-f5a7-4a90-924e-a9b804f25e5e","timestamp":"2016-04-16T04:07:55Z","contains":[{"system":"http://hl7.org/fhir/location-hspc-serviceDeliveryLocationNameUse","code":"ABR","display":"Abbreviation"}]}}

@@ -171,11 +171,42 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     parser.compose(b, vsid);
     b.close();
     String s = new String(b.toByteArray());
+    // any code systems we can find, we add these too. 
+    for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
+      CodeSystem cs = fetchCodeSystem(inc.getSystem());
+      if (cs != null) 
+        s = s + cacheValue(cs);
+    }
     String r = Integer.toString(s.hashCode());
 //    TextFile.stringToFile(s, Utilities.path(cache, r+".id.json"));
     return r;
   }
 
+
+  private String cacheValue(CodeSystem cs) throws IOException {
+    CodeSystem csid = new CodeSystem();
+    csid.setId(cs.getId());
+    csid.setVersion(cs.getVersion());
+    csid.setContent(cs.getContent());
+    for (ConceptDefinitionComponent cc : cs.getConcept()) 
+      csid.getConcept().add(processCSConcept(cc));
+    JsonParser parser = new JsonParser();
+    parser.setOutputStyle(OutputStyle.NORMAL);
+    ByteArrayOutputStream b = new  ByteArrayOutputStream();
+    parser.compose(b, csid);
+    b.close();
+    return new String(b.toByteArray());
+  }
+
+
+  private ConceptDefinitionComponent processCSConcept(ConceptDefinitionComponent cc) {
+    ConceptDefinitionComponent ccid = new ConceptDefinitionComponent();
+    ccid.setCode(cc.getCode());
+    ccid.setDisplay(cc.getDisplay());
+    for (ConceptDefinitionComponent cci : cc.getConcept()) 
+      ccid.getConcept().add(processCSConcept(cci));
+    return ccid;
+  }
 
   public ValueSetExpansionOutcome expandOnServer(ValueSet vs, String fn) throws Exception {
     if (noTerminologyServer)
@@ -186,6 +217,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       params.put("_limit", Integer.toString(expandCodesLimit ));
       params.put("_incomplete", "true");
       params.put("profile", "http://www.healthintersections.com.au/fhir/expansion/no-details");
+      System.out.println("Use Tx Server for value set "+vs.getUrl());
       ValueSet result = txServer.expandValueset(vs, params);
       return new ValueSetExpansionOutcome(result);  
     } catch (Exception e) {

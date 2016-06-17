@@ -725,6 +725,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         params.put("_limit", PageProcessor.CODE_LIMIT_EXPANSION);
         params.put("_incomplete", "true");
         params.put("profile", "http://www.healthintersections.com.au/fhir/expansion/no-details");
+        System.out.println("Use Tx Server from BWS for value set "+(vs.hasUrl() ? vs.getUrl() : "??")+" on "+systems(vs));
         ValueSet result = txServer.expandValueset(vs, params);
         serverOk = true;
         FileOutputStream s = new FileOutputStream(cacheFn);
@@ -748,6 +749,13 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       }
     } else
       throw new Exception("Server is not available");
+  }
+
+  private String systems(ValueSet vs) {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (ConceptSetComponent inc : vs.getCompose().getInclude())
+      b.append(inc.getSystem());
+    return b.toString();
   }
 
   private OperationOutcome buildOO(String message) {

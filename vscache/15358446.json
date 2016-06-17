@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:83b53b7f-69b4-4172-bfbd-4f1251243758","timestamp":"2016-04-16T03:30:34Z","contains":[{"system":"http://hl7.org/fhir/participant-type","code":"translator","display":"Translator"},{"system":"http://hl7.org/fhir/participant-type","code":"emergency","display":"Emergency"}]}}

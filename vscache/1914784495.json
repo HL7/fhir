@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:8c971442-eb52-4f4a-9296-5086fee1fdca","timestamp":"2016-04-16T04:08:33Z","contains":[{"system":"http://hl7.org/fhir/v3/EntityNameUseR2","code":"A","display":"Business Name"},{"system":"http://hl7.org/fhir/v3/EntityNameUseR2","code":"C","display":"Customary"}]}}

@@ -66,17 +66,6 @@
         "definition": null,
         "display": "Wing"
       }
-    },
-    {
-      "hash": "#|null|null|area|Area",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "area",
-        "definition": null,
-        "display": "Area"
-      }
     }
   ]
 }

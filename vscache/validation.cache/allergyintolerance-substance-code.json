@@ -3,30 +3,18 @@
   "outcomes": [
     {
       "hash": "#|http://snomed.info/sct|null|227037002|Fish - dietary (substance)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Fish"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|227493005|Cashew nuts",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Cashew nuts"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|314422|ALLERGENIC EXTRACT, PENICILLIN",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set AllergyIntolerance Substance and Negation Codes"
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }

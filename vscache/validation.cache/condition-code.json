@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/condition-code",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/sid/icd-9|null|850.0|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/sid/icd-9|null|V173|Fam hx-ischem heart dis",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
-    },
-    {
       "hash": "#|http://hl7.org/fhir/v3/ActReason|null|PHY|Physician request",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
@@ -256,51 +246,6 @@
         "definition": null,
         "display": "Bacterial infectious disease"
       }
-    },
-    {
-      "hash": "#|http://www.cms.gov/Medicare/Coding/ICD10/index.html|null|R78.71|Abnormal lead level in blood",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
-    },
-    {
-      "hash": "#|http://www.icd10data.com/icd10pcs|null|R78.71|Abnormal lead level in blood",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
-    },
-    {
-      "hash": "#|null|null|657|BRCA2#|urn:oid:2.16.840.1.113883.6.133|null|1101|BRCA2",
-      "severity": "error",
-      "message": "None of the codes provided are  valid in the value set Condition/Problem/Diagnosis Codes"
-    },
-    {
-      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C2924|Ductal Carcinoma In Situ of the Breast",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
-    },
-    {
-      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C2955|Colorectal Carcinoma",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
-    },
-    {
-      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C2955|Rectal Carcinoma",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
-    },
-    {
-      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C3224|Melanoma",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
-    },
-    {
-      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C4872|Breast Carcinoma",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
-    },
-    {
-      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C4908|Ovarian Carcinoma",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
     }
   ]
 }
