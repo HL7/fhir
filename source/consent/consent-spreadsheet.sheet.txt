@@ -479,8 +479,8 @@
 
  -- Row 11 -----------------------------------
   Name = actor
-  Type = token
-  Path = Consent.actor | Consent.except.actor
+  Type = reference
+  Path = Consent.actor.reference | Consent.except.actor.reference
 
  -- Row 12 -----------------------------------
   Name = action

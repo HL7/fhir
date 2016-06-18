@@ -2,8 +2,12 @@ package org.hl7.fhir.igtools.renderers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
@@ -13,22 +17,7 @@ import org.hl7.fhir.igtools.publisher.FetchedFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.stringtemplate.v4.ST;
 
-public class ValidationPresenter {
-
-  public static class ValidationOutcomes {
-    private FetchedFile file; 
-    private List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-    public ValidationOutcomes(FetchedFile file) {
-      super();
-      this.file = file;
-    }
-    public FetchedFile getFile() {
-      return file;
-    }
-    public List<ValidationMessage> getErrors() {
-      return errors;
-    }    
-  }
+public class ValidationPresenter implements Comparator<FetchedFile> {
 
   private SimpleWorkerContext context;
 
@@ -37,15 +26,23 @@ public class ValidationPresenter {
     this.context = context;
   }
 
-  public String generate(String title, List<ValidationOutcomes> errs, String path) throws IOException {
+  private List<FetchedFile> sorted(List<FetchedFile> files) {
+    List<FetchedFile> list = new ArrayList<FetchedFile>();
+    list.addAll(files);
+    Collections.sort(list, this);
+    return list;
+  }
+  
+  public String generate(String title, List<ValidationMessage> linkErrors, List<FetchedFile> files, String path) throws IOException {
     StringBuilder b = new StringBuilder();
     b.append(genHeader(title));
-    for (ValidationOutcomes v : errs) 
-      b.append(genSummaryRow(v));
+    files = sorted(files);
+    for (FetchedFile f : files) 
+      b.append(genSummaryRow(f));
     b.append(genEnd());
-    for (ValidationOutcomes v : errs) { 
-      b.append(genStart(v));
-      for (ValidationMessage vm : v.errors)
+    for (FetchedFile f : files) {
+      b.append(genStart(f));
+      for (ValidationMessage vm : f.getErrors())
         b.append(genDetails(vm));
       b.append(genEnd());
     }    
@@ -123,14 +120,14 @@ public class ValidationPresenter {
     return t.render();
   }
 
-  private String genSummaryRow(ValidationOutcomes v) {
+  private String genSummaryRow(FetchedFile f) {
     ST t = template(summaryTemplate);
-    t.add("link", makelink(v));
+    t.add("link", makelink(f));
     
-    t.add("filename", v.getFile().getName());
-    String ec = errCount(v);
+    t.add("filename", f.getName());
+    String ec = errCount(f);
     t.add("errcount", ec);
-    t.add("other", otherCount(v));
+    t.add("other", otherCount(f));
     if ("0".equals(ec))
       t.add("color", "#EFFFEF");
     else
@@ -139,33 +136,33 @@ public class ValidationPresenter {
     return t.render();
   }
 
-  private String makelink(ValidationOutcomes v) {
-    return v.file.getName().replace("/", "_").replace("\\", "_");
+  private String makelink(FetchedFile f) {
+    return f.getName().replace("/", "_").replace("\\", "_");
   }
 
-  private String errCount(ValidationOutcomes v) {
+  private String errCount(FetchedFile f) {
     int c = 0;
-    for (ValidationMessage vm : v.errors) {
+    for (ValidationMessage vm : f.getErrors()) {
       if (vm.getLevel() == IssueSeverity.ERROR || vm.getLevel() == IssueSeverity.FATAL)
         c++;
     }
     return Integer.toString(c);
   }
 
-  private Object otherCount(ValidationOutcomes v) {
+  private Object otherCount(FetchedFile f) {
     int c = 0;
-    for (ValidationMessage vm : v.errors) {
+    for (ValidationMessage vm : f.getErrors()) {
       if (vm.getLevel() == IssueSeverity.INFORMATION || vm.getLevel() == IssueSeverity.WARNING)
         c++;
     }
     return Integer.toString(c);
   }
 
-  private String genStart(ValidationOutcomes v) {
+  private String genStart(FetchedFile f) {
     ST t = template(startTemplate);
-    t.add("link", makelink(v));
-    t.add("filename", v.getFile().getName());
-    t.add("path", v.getFile().getPath());
+    t.add("link", makelink(f));
+    t.add("filename", f.getName());
+    t.add("path", f.getPath());
     return t.render();
   }
   private String genDetails(ValidationMessage vm) {
@@ -190,6 +187,10 @@ public class ValidationPresenter {
     }
   }
 
+  @Override
+  public int compare(FetchedFile f1, FetchedFile f2) {
+    return f1.getName().compareTo(f2.getName());
+  }
 
   
 }

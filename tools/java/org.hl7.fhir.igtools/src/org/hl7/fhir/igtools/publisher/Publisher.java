@@ -10,15 +10,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.dstu3.elementmodel.Element;
+import org.hl7.fhir.dstu3.elementmodel.ObjectParser;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
@@ -26,6 +30,7 @@ import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.BaseConformance;
+import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.Constants;
@@ -33,6 +38,7 @@ import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
@@ -54,9 +60,9 @@ import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
 import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
 import org.hl7.fhir.igtools.renderers.ValidationPresenter;
 import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
-import org.hl7.fhir.igtools.renderers.ValidationPresenter.ValidationOutcomes;
 import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
 import org.hl7.fhir.rdf.RdfGenerator;
+import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -65,6 +71,7 @@ import org.w3c.dom.Document;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -109,6 +116,8 @@ public class Publisher {
     Jekyll
   }
 
+  private static final String IG_NAME = "!ig!";
+
   private String pathToSpec;
   private String configFile;
   private String output;
@@ -130,11 +139,13 @@ public class Publisher {
   private JsonObject specDetails;
 
   private Map<ImplementationGuidePackageResourceComponent, FetchedFile> fileMap = new HashMap<ImplementationGuidePackageResourceComponent, FetchedFile>();
+  private Map<String, FetchedFile> altMap = new HashMap<String, FetchedFile>();
   private List<FetchedFile> fileList = new ArrayList<FetchedFile>();
   private List<FetchedFile> changeList = new ArrayList<FetchedFile>();
+  private Set<String> bndIds = new HashSet<String>();
   private List<Resource> loaded = new ArrayList<Resource>();
   private ImplementationGuide ig;
-  private List<ValidationOutcomes> errs = new ArrayList<ValidationOutcomes>();
+  private List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
   private JsonObject configuration;
   private Calendar execTime = Calendar.getInstance();
   private JsonObject toolConfig;
@@ -152,7 +163,8 @@ public class Publisher {
     log("Generating Outputs in "+output);
     generate();
     long endTime = System.nanoTime();
-    log(" ... "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errs, Utilities.path(validationDir, "validation.html")));
+    clean();
+    log(" ... "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errors, fileList, Utilities.path(validationDir, "validation.html")));
 
     if (watch) {
       System.out.println("Watching for changes on a 5sec cycle");
@@ -165,12 +177,20 @@ public class Publisher {
           checkDependencies();
           validate();
           generate();
+          clean();
           endTime = System.nanoTime();
-          log(" ..."+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errs, Utilities.path(validationDir, "validation.html")));
+          log(" ..."+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errors, fileList, Utilities.path(validationDir, "validation.html")));
         }
       }
     } else
       log("Done");
+  }
+
+  private void clean() throws Exception {
+    for (Resource r : loaded)
+      context.dropResource(r);
+    for (FetchedFile f : fileList)
+      f.dropSource();
   }
 
   private String genTime() {
@@ -204,21 +224,18 @@ public class Publisher {
 
   private void loadDependencyList(FetchedFile f) {
     f.setDependencies(new ArrayList<FetchedFile>());
-    switch (f.getType()) {
-    case ValueSet:
-      loadValueSetDependencies(f);
-      break;
-    case StructureDefinition:
-      loadProfileDependencies(f);
-      break;
-    default:
-    // all other resource types don't have dependencies that we care about for rendering purposes
-    }
-    
+    for (FetchedResource r : f.getResources()) {
+      if (r.getElement().fhirType().equals("ValueSet"))
+        loadValueSetDependencies(f, r);
+      else if (r.getElement().fhirType().equals("StructureDefinition"))
+        loadProfileDependencies(f, r);
+      else
+        ; // all other resource types don't have dependencies that we care about for rendering purposes
+      }
   }
 
-  private void loadValueSetDependencies(FetchedFile f) {
-    ValueSet vs = (ValueSet) f.getResource();
+  private void loadValueSetDependencies(FetchedFile f, FetchedResource r) {
+    ValueSet vs = (ValueSet) r.getResource();
     for (UriType vsi : vs.getCompose().getImport()) {
       FetchedFile fi = getFileForUri(vsi.getValue());
       if (fi != null)
@@ -238,17 +255,19 @@ public class Publisher {
 
   private FetchedFile getFileForUri(String uri) {
     for (FetchedFile f : fileList) {
-      if (f.getResource() != null && f.getResource() instanceof BaseConformance) {
-        BaseConformance bc = (BaseConformance) f.getResource();
-        if (bc.getUrl().equals(uri)) 
-          return f;
+      for (FetchedResource r : f.getResources()) {
+        if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
+          BaseConformance bc = (BaseConformance) r.getResource();
+          if (bc.getUrl().equals(uri)) 
+            return f;
+        }
       }
     }
     return null;
   }
 
-  private void loadProfileDependencies(FetchedFile f) {
-    StructureDefinition sd = (StructureDefinition) f.getResource();
+  private void loadProfileDependencies(FetchedFile f, FetchedResource r) {
+    StructureDefinition sd = (StructureDefinition) r.getResource();
     FetchedFile fi = getFileForUri(sd.getBaseDefinition());
     if (fi != null)
       f.getDependencies().add(fi);
@@ -325,9 +344,7 @@ public class Publisher {
     validator.setAllowXsiLocation(true);
 
     loadSpecDetails(context.getBinaries().get("spec.internals"));
-    ValidationOutcomes e = new ValidationOutcomes(new InternalFile());
-    errs.add(e);
-    igpkp = new IGKnowledgeProvider(context, pathToSpec, configuration, e);
+    igpkp = new IGKnowledgeProvider(context, pathToSpec, configuration, errors);
     igpkp.loadSpecPaths(specDetails.get("paths").getAsJsonObject());
     fetcher.setPkp(igpkp);
     for (String s : context.getBinaries().keySet())
@@ -351,7 +368,10 @@ public class Publisher {
   }
 
   private void checkMakeFile(byte[] bs, String path) throws IOException {
-    byte[] existing = TextFile.fileToBytes(path);
+    File f = new CSFile(path);
+    byte[] existing = null;
+    if (f.exists())
+      existing = TextFile.fileToBytes(path);
     if (!Arrays.equals(bs, existing))
       TextFile.bytesToFile(bs, path);
   }
@@ -377,47 +397,73 @@ public class Publisher {
 
 
   private boolean load() throws Exception {
-    for (Resource r : loaded)
-      context.dropResource(r);
 
     fileList.clear();
     changeList.clear();
+    bndIds.clear();
     boolean needToBuild = false;
     FetchedFile igf = fetcher.fetch(igName);
-    needToBuild = noteFile(null, igf) || needToBuild;
+    needToBuild = noteFile(IG_NAME, igf) || needToBuild;
     if (needToBuild) {
       ig = (ImplementationGuide) parse(igf);
-      igf.setType(ResourceType.ImplementationGuide);
-      igf.setResource(ig);
+      FetchedResource igr = igf.addResource(); 
+      igr.setElement(new ObjectParser(context).parse(ig));
+      igr.setResource(ig);
+      igr.setId(ig.getId()).setTitle(ig.getName());
     } else
-      ig = (ImplementationGuide) fileMap.get(null).getResource();
+      ig = (ImplementationGuide) altMap.get(IG_NAME).getResources().get(0).getResource();
 
+    // load any bundles 
+    JsonArray bundles = configuration.getAsJsonArray("bundles");
+    if (bundles != null) {
+      for (JsonElement be : bundles) {
+        needToBuild = loadBundle((JsonPrimitive) be, needToBuild, igf);
+      }
+    }
     for (ImplementationGuidePackageComponent pack : ig.getPackage()) {
       for (ImplementationGuidePackageResourceComponent res : pack.getResource()) {
-        FetchedFile f = fetcher.fetch(res.getSource(), igf);
-        needToBuild = noteFile(res, f) || needToBuild;
-        determineType(f);
-        igpkp.findConfiguration(f);
+        if (!bndIds.contains(res.getSourceReference().getReference())) {
+          FetchedFile f = fetcher.fetch(res.getSource(), igf);
+          needToBuild = noteFile(res, f) || needToBuild;
+          determineType(f, false);
+        }
       }     
     }
     execTime = Calendar.getInstance();
     return needToBuild;
   }
 
+  private boolean loadBundle(JsonPrimitive be, boolean needToBuild, FetchedFile igf) throws Exception {
+//    String path = Utilities.path(Utilities.getDirectoryForFile(igName), be.getAsString());
+    FetchedFile f = fetcher.fetch(new Reference().setReference("Bundle/"+be.getAsString()), igf);
+    needToBuild = noteFile("Bundle/"+be.getAsString(), f) || needToBuild;
+    determineType(f, true);
+    if (needToBuild) {
+      f.setBundle((Bundle) parse(f));
+      for (int i = 0; i < f.getResources().size(); i++) {
+        FetchedResource r = f.getResources().get(i);
+        r.setResource(f.getBundle().getEntry().get(i).getResource());
+      }
+    }
+    for (FetchedResource r : f.getResources()) 
+      bndIds.add(r.getElement().fhirType()+"/"+r.getId());
+    return needToBuild;
+  }
+
   private void loadConformance() throws Exception {
-    load(ResourceType.NamingSystem);
-    load(ResourceType.CodeSystem);
-    load(ResourceType.ValueSet);
-    load(ResourceType.DataElement);
-    load(ResourceType.StructureDefinition);
-    load(ResourceType.ConceptMap);
-    load(ResourceType.StructureMap);
+    load("NamingSystem");
+    load("CodeSystem");
+    load("ValueSet");
+    load("DataElement");
+    load("StructureDefinition");
+    load("ConceptMap");
+    load("StructureMap");
     generateSnapshots();
   }
   
   private boolean noteFile(ImplementationGuidePackageResourceComponent key, FetchedFile file) {
     FetchedFile existing = fileMap.get(key);
-    if (existing == null || existing.getTime() != file.getTime() || !Arrays.equals(existing.getSource(), file.getSource())) {
+    if (existing == null || existing.getTime() != file.getTime() || existing.getHash() != file.getHash()) {
       fileList.add(file);
       fileMap.put(key, file);
       changeList.add(file);
@@ -428,68 +474,74 @@ public class Publisher {
     }
   }
 
-  private void determineType(FetchedFile file) throws Exception {
-    try {
-      if (file.getType() == null) {
+  private boolean noteFile(String key, FetchedFile file) {
+    FetchedFile existing = altMap.get(key);
+    if (existing == null || existing.getTime() != file.getTime() || existing.getHash() != file.getHash()) {
+      fileList.add(file);
+      altMap.put(key, file);
+      changeList.add(file);
+      return true;
+    } else {
+      fileList.add(existing); // this one is already parsed
+      return false;
+    }
+  }
+
+  private void determineType(FetchedFile file, boolean asBundle) throws Exception {
+    if (file.getResources().isEmpty()) {
+      file.getErrors().clear();
+      Element e = null;
+      try {
         if (file.getContentType().contains("json"))
-          file.setType(determineTypeFromJson(file.getSource()));
+          e = loadFromJson(file);
         else if (file.getContentType().contains("xml"))
-          file.setType(determineTypeFromXml(file.getSource()));
+          e = loadFromXml(file);
         else 
           throw new Exception("Unable to determine file type for "+file.getName());
+
+      } catch (Exception ex) {
+        throw new Exception("Unable to parse "+file.getName()+": " +ex.getMessage(), ex);
       }
-
-    } catch (Exception e) {
-      throw new Exception("Unable to parse "+file.getName()+": " +e.getMessage(), e);
+      if (asBundle) {
+        // we're going to ignore the bundle itself, and create a fetched resource for each entry
+        for (Element be : e.getChildren("entry")) {
+          Element res = be.getNamedChild("resource");
+          FetchedResource r = file.addResource();
+          r.setElement(res).setId(res.getChildValue("id")).setTitle(res.getChildValue("name"));
+          igpkp.findConfiguration(file, r);
+        }
+      } else {
+        FetchedResource r = file.addResource();
+        r.setElement(e).setId(e.getChildValue("id")).setTitle(e.getChildValue("name"));
+        igpkp.findConfiguration(file, r);
+      }
     }
-    if (file.getType() == ResourceType.Bundle)
-      throw new Exception("Error processing "+file.getName()+": Bundles are not supported");
   }
 
-  private ResourceType determineTypeFromXml(byte[] source) throws Exception {
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    // xxe protection
-    factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
-    factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
-    factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
-    factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-    factory.setXIncludeAware(false);
-    factory.setExpandEntityReferences(false);
-    factory.setNamespaceAware(true);
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    Document doc = builder.parse(new ByteArrayInputStream(source));
-    org.w3c.dom.Element element = doc.getDocumentElement();
-    String ns = element.getNamespaceURI();
-    String name = element.getLocalName();
-    if (!ns.equals(FormatUtilities.FHIR_NS))
-      return null;
-    return ResourceType.fromCode(name);
+  private Element loadFromXml(FetchedFile file) throws Exception {
+    org.hl7.fhir.dstu3.elementmodel.XmlParser xp = new org.hl7.fhir.dstu3.elementmodel.XmlParser(context);
+    xp.setupValidation(ValidationPolicy.EVERYTHING, file.getErrors()); 
+    return xp.parse(new ByteArrayInputStream(file.getSource()));
   }
 
-  private ResourceType determineTypeFromJson(byte[] source) throws Exception {
-    String s = new String(source);
-    JsonObject obj = (JsonObject) new com.google.gson.JsonParser().parse(s);
-    JsonElement rt = obj.get("resourceType");
-    if (rt == null) 
-      return null;
-    return ResourceType.fromCode(rt.getAsString());
+  private Element loadFromJson(FetchedFile file) throws Exception {
+    org.hl7.fhir.dstu3.elementmodel.JsonParser jp = new org.hl7.fhir.dstu3.elementmodel.JsonParser(context);
+    jp.setupValidation(ValidationPolicy.EVERYTHING, file.getErrors()); 
+    return jp.parse(new ByteArrayInputStream(file.getSource()));
   }
 
-  private void load(ResourceType type) throws Exception {
+  private void load(String type) throws Exception {
     for (FetchedFile f : fileList) {
-      if (f.getType() == type) {
-        // check the change list is correct
-        if ((f.getElement() == null) != changeList.contains(f))
-          throw new Error("Change list is out of sync");
-        
-        if (f.getElement() == null) 
-          validate(f);
-          
-        if (f.getResource() == null)
-          f.setResource(parse(f));
-        BaseConformance bc = (BaseConformance) f.getResource();
-        igpkp.checkForPath(f, bc);
-        context.seeResource(bc.getUrl(), bc);
+      for (FetchedResource r : f.getResources()) {
+        if (r.getElement().fhirType().equals(type)) {
+          if (!r.isValidated()) 
+            validate(f, r);
+          if (r.getResource() == null)
+            r.setResource(parse(f)); // we won't get to here if we're a bundle 
+          BaseConformance bc = (BaseConformance) r.getResource();
+          igpkp.checkForPath(f, r, bc);
+          context.seeResource(bc.getUrl(), bc);
+        }
       }
     }
   }
@@ -506,6 +558,7 @@ public class Publisher {
   }
 
   private Resource parse(FetchedFile file) throws Exception {
+    
     if (file.getContentType().contains("json"))
       return new JsonParser().parse(file.getSource());
     else if (file.getContentType().contains("xml"))
@@ -515,27 +568,21 @@ public class Publisher {
   }
 
   private void validate() throws Exception {
-    for (FetchedFile f : fileList)
-        if (f.getElement() == null) {
-          log(" .. "+f.getName());
-          validate(f);
+    for (FetchedFile f : fileList) {
+        log(" .. "+f.getName());
+        for (FetchedResource r : f.getResources()) {
+          if (!r.isValidated()) {
+            validate(f, r);
         }
-    
+      }
+    }
   }
 
-  private void validate(FetchedFile file) throws Exception {
-    ValidationOutcomes e = new ValidationOutcomes(file);
-    errs.add(e);
-    if (file.getContentType().contains("json"))
-      file.setElement(validator.validate(e.getErrors(), new ByteArrayInputStream(file.getSource()), FhirFormat.JSON));
-    else if (file.getContentType().contains("xml"))
-      file.setElement(validator.validate(e.getErrors(), new ByteArrayInputStream(file.getSource()), FhirFormat.XML));
-    else
-      throw new Exception("Unable to determine file type for "+file.getName());
-    file.setId(file.getElement().getChildValue("id"));
-    file.setTitle(file.getElement().getChildValue("name"));
-    if (file.getConfig() == null)
-      igpkp.findConfiguration(file);
+  private void validate(FetchedFile file, FetchedResource r) throws Exception {
+    validator.validate(file.getErrors(), r.getElement());
+    r.setValidated(true);
+    if (r.getConfig() == null)
+      igpkp.findConfiguration(file, r);
   }
 
   private void generate() throws Exception {
@@ -564,16 +611,20 @@ public class Publisher {
   }
 
   private Number getErrorCount() {
-    int result = 0;
-    for (ValidationOutcomes v : errs) {
-      int i = 0;
-      for (ValidationMessage vm : v.getErrors()) {
-        if (vm.getLevel() == IssueSeverity.ERROR || vm.getLevel() == IssueSeverity.FATAL)
-          i++;
-      }
-      result = result + i;
+    int result = countErrs(errors);
+    for (FetchedFile f : fileList) {
+      result = result + countErrs(f.getErrors());
     }
     return result;
+  }
+
+  private int countErrs(List<ValidationMessage> list) {
+    int i = 0;
+    for (ValidationMessage vm : list) {
+      if (vm.getLevel() == IssueSeverity.ERROR || vm.getLevel() == IssueSeverity.FATAL)
+        i++;
+    }
+    return i;
   }
 
   private void log(String s) {
@@ -583,41 +634,42 @@ public class Publisher {
   private void generateOutputs(FetchedFile f) throws Exception {
     System.out.println(" ... "+f.getName());
     
-    saveDirectResourceOutputs(f);
-    
-    // now, start generating resource type specific stuff 
-    if (f.getResource() != null) { // we only do this for conformance resources we've already loaded
-      switch (f.getResource().getResourceType()) {
-      case CodeSystem:
-        generateOutputsCodeSystem(f, (CodeSystem) f.getResource());
-        break;
-      case ValueSet:
-        generateOutputsValueSet(f, (ValueSet) f.getResource());
-        break;
-      case ConceptMap:
-        generateOutputsConceptMap(f, (ConceptMap) f.getResource());
-        break;
-        
-      case DataElement:
-        break;
-      case StructureDefinition:
-        generateOutputsStructureDefinition(f, (StructureDefinition) f.getResource());
-        break;
-      case StructureMap:
-        break;
-      default:
-        // nothing to do...    
-      }      
+    for (FetchedResource r : f.getResources()) {
+      saveDirectResourceOutputs(r);
+
+      // now, start generating resource type specific stuff 
+      if (r.getResource() != null) { // we only do this for conformance resources we've already loaded
+        switch (r.getResource().getResourceType()) {
+        case CodeSystem:
+          generateOutputsCodeSystem(r, (CodeSystem) r.getResource());
+          break;
+        case ValueSet:
+          generateOutputsValueSet(r, (ValueSet) r.getResource());
+          break;
+        case ConceptMap:
+          generateOutputsConceptMap(r, (ConceptMap) r.getResource());
+          break;
+
+        case DataElement:
+          break;
+        case StructureDefinition:
+          generateOutputsStructureDefinition(r, (StructureDefinition) r.getResource());
+          break;
+        case StructureMap:
+          break;
+        default:
+          // nothing to do...    
+        }      
+      }
     }
-    
   }
 
-  private boolean wantGen(FetchedFile f, String code) {
+  private boolean wantGen(FetchedResource f, String code) {
     if (f.getConfig() != null && hasBoolean(f.getConfig(), code))
       return getBoolean(f.getConfig(), code);
     JsonObject cfg = configuration.getAsJsonObject("defaults");
     if (cfg != null)
-      cfg = cfg.getAsJsonObject(f.getType().toString());
+      cfg = cfg.getAsJsonObject(f.getElement().fhirType());
     if (cfg != null && hasBoolean(cfg, code))
       return getBoolean(cfg, code);
     cfg = configuration.getAsJsonObject("defaults");
@@ -648,7 +700,7 @@ public class Publisher {
    * @throws FileNotFoundException
    * @throws Exception
    */
-  private void saveDirectResourceOutputs(FetchedFile f) throws FileNotFoundException, Exception {
+  private void saveDirectResourceOutputs(FetchedResource f) throws FileNotFoundException, Exception {
     if (wantGen(f, "xml")) {
       new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
@@ -700,12 +752,12 @@ public class Publisher {
 //  fragment(f.getId()+"-gen-html", html);
   }
 
-  private void genWrapper(FetchedFile f, String format) throws FileNotFoundException, IOException {
+  private void genWrapper(FetchedResource f, String format) throws FileNotFoundException, IOException {
     if (toolConfig.has("source-wrapper-template")) {
       String template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), toolConfig.get("source-wrapper-template").getAsString()));
       template = template.replace("{{[title]}}", f.getTitle());
       template = template.replace("{{[name]}}", f.getId()+"-"+format+"-html");
-      TextFile.stringToFile(template, Utilities.path(contentDir, f.getType().toString()+"-"+f.getId()+"."+format+".html"), false);
+      TextFile.stringToFile(template, Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+"."+format+".html"), false);
     }    
   }
 
@@ -719,7 +771,7 @@ public class Publisher {
    * @throws FHIRException 
    * @throws EOperationOutcome 
    */
-  private void generateOutputsCodeSystem(FetchedFile f, CodeSystem cs) throws IOException, EOperationOutcome, FHIRException {
+  private void generateOutputsCodeSystem(FetchedResource f, CodeSystem cs) throws IOException, EOperationOutcome, FHIRException {
     CodeSystemRenderer csr = new CodeSystemRenderer(context, pathToSpec, cs, igpkp);
     if (wantGen(f, "summary")) 
       fragment(cs.getId()+"-cs-summary", csr.summary(wantGen(f, "xml"), wantGen(f, "json"), wantGen(f, "ttl")));
@@ -740,7 +792,7 @@ public class Publisher {
    * @throws IOException
    * @throws FHIRException 
    */
-  private void generateOutputsValueSet(FetchedFile f, ValueSet vs) throws IOException, FHIRException {
+  private void generateOutputsValueSet(FetchedResource f, ValueSet vs) throws IOException, FHIRException {
     ValueSetRenderer vsr = new ValueSetRenderer(context, pathToSpec, vs, igpkp);
     if (wantGen(f, "summary")) 
       fragment(vs.getId()+"-vs-summary", vsr.summary(wantGen(f, "xml"), wantGen(f, "json"), wantGen(f, "ttl")));
@@ -782,7 +834,7 @@ public class Publisher {
    * @param resource
    * @throws IOException 
    */
-  private void generateOutputsConceptMap(FetchedFile f, ConceptMap cm) throws IOException {
+  private void generateOutputsConceptMap(FetchedResource f, ConceptMap cm) throws IOException {
     if (wantGen(f, "summary")) 
       fragmentError(cm.getId()+"-cm-summary", "yet to be done: concept map summary");
     if (wantGen(f, "content")) 
@@ -791,7 +843,7 @@ public class Publisher {
       fragmentError(cm.getId()+"-cm-xref", "yet to be done: list of all places where concept map is used");
   }
 
-  private void generateOutputsStructureDefinition(FetchedFile f, StructureDefinition sd) throws Exception {
+  private void generateOutputsStructureDefinition(FetchedResource f, StructureDefinition sd) throws Exception {
     // todo : generate shex itself
     if (wantGen(f, "shex")) 
       fragmentError(sd.getId()+"-shex", "yet to be done: shex as html");
@@ -833,7 +885,7 @@ public class Publisher {
       fragmentError(sd.getId()+"-sd-xref", "Yet to be done: xref");
   }
 
-  private XhtmlNode getXhtml(FetchedFile f) {
+  private XhtmlNode getXhtml(FetchedResource f) {
     Element text = f.getElement().getNamedChild("text");
     if (text == null)
       return null;

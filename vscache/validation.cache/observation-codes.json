@@ -442,17 +442,6 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|26464-8|Leukocytes [#/volume] in Blood",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Leukocytes [#/volume] in Blood"
-      }
-    },
-    {
       "hash": "#|http://loinc.org|null|26515-7|Platelets [#/volume] in Blood",
       "severity": null,
       "message": null,
@@ -967,17 +956,6 @@
         "code": null,
         "definition": null,
         "display": "Genetic disease sequence variation interpretation in Blood or Tissue by Molecular genetics method"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|54447-8|FLT3 gene mutation analysis in Bone marrow by Molecular genetics method Narrative",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "FLT3 gene mutation analysis in Bone marrow by Molecular genetics method Narrative"
       }
     },
     {

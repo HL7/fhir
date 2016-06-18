@@ -28,7 +28,6 @@ import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
-import org.hl7.fhir.igtools.renderers.ValidationPresenter.ValidationOutcomes;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -45,10 +44,10 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   private Set<String> msgs = new HashSet<String>();
   private String pathToSpec;
   private String canonical;
-  private ValidationOutcomes errors;
+  private List<ValidationMessage> errors;
   private JsonObject resourceConfig;
   
-  public IGKnowledgeProvider(IWorkerContext context, String pathToSpec, JsonObject igs, ValidationOutcomes errors) throws Exception {
+  public IGKnowledgeProvider(IWorkerContext context, String pathToSpec, JsonObject igs, List<ValidationMessage> errors) throws Exception {
     super();
     this.context = context;
     this.pathToSpec = pathToSpec;
@@ -116,21 +115,22 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     return e.getAsString();
   }
 
-  public void findConfiguration(FetchedFile f) {
-    JsonObject e = resourceConfig.getAsJsonObject(f.getType().toString()+"/"+f.getId());
+  public void findConfiguration(FetchedFile f, FetchedResource r) {
+    JsonObject e = resourceConfig.getAsJsonObject(r.getElement().fhirType()+"/"+r.getId());
     if (e == null)
-      error("no configuration found for "+f.getType().toString()+"/"+f.getId());
+      error("no configuration found for "+r.getElement().fhirType()+"/"+r.getId()+" in "+f.getName());
     else 
-      f.setConfig(e);
+      r.setConfig(e);
   }
   
-  public void checkForPath(FetchedFile f, BaseConformance bc) {
+  public void checkForPath(FetchedFile f, FetchedResource r, BaseConformance bc) {
     if (!bc.getUrl().endsWith("/"+bc.getId()))
       error("Resource id/url mismatch: "+bc.getId()+"/"+bc.getUrl());
-    f.setId(bc.getId());
-    if (f.getConfig() == null)
-      findConfiguration(f);
-    JsonObject e = f.getConfig();
+    if (!r.getId().equals("/"+bc.getId()))
+      error("Resource id/id mismatch: "+r.getId()+"/"+bc.getUrl());
+    if (r.getConfig() == null)
+      findConfiguration(f, r);
+    JsonObject e = r.getConfig();
     bc.setUserData("config", e);
     if (e != null) 
       bc.setUserData("path", e.get("base").getAsString());
@@ -139,7 +139,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   private void error(String msg) {
     if (!msgs.contains(msg)) {
       msgs.add(msg);
-      errors.getErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVARIANT, msg, IssueSeverity.ERROR));
+      errors.add(new ValidationMessage(Source.Publisher, IssueType.INVARIANT, msg, IssueSeverity.ERROR));
     }
   }
 
@@ -151,7 +151,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     String s = "The reference "+ref+" could not be resolved";
     if (!msgs.contains(s)) {
       msgs.add(s);
-      errors.getErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVARIANT, s, IssueSeverity.ERROR));
+      errors.add(new ValidationMessage(Source.Publisher, IssueType.INVARIANT, s, IssueSeverity.ERROR));
     }
   }
 
