@@ -35,6 +35,19 @@
         <reference value="ValueSet/test-ig-vsext"/>
       </sourceReference>
     </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/test-ig-bnd1"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/test-ig-bnd2"/>
+      </sourceReference>
+    </resource>
+
     
     <!-- Logical Models 
     <resource>

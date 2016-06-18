@@ -5,6 +5,9 @@
     "source-wrapper-template" : "wrapper.html"
   },
 	"canonicalBase": "http://hl7.org/fhir/test",
+  "bundles" : [
+    "test-bundle"
+  ],  
 	"resources": {
 		"StructureDefinition/test-ig-pr": {
 			"defns": "test.html",
@@ -21,6 +24,12 @@
 		},
 		"ValueSet/test-ig-vsext": {
 			"base": "valuesets.html#test-ig-vsext"
+		},
+		"ValueSet/test-ig-bnd1": {
+			"base": "valuesets.html#test-ig-bnd1"
+		},
+		"ValueSet/test-ig-bnd2": {
+			"base": "valuesets.html#test-ig-bnd2"
 		}
 	}
 }
