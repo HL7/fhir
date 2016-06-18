@@ -7,18 +7,19 @@ import java.io.OutputStream;
 
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
+import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 
-public class ObjectParser  {
+public class ObjectConverter  {
 
   private IWorkerContext context;
 
-  public ObjectParser(IWorkerContext context) {
+  public ObjectConverter(IWorkerContext context) {
     this.context = context;
   }
 
-  public Element parse(ImplementationGuide ig) throws Exception {
+  public Element convert(Resource ig) throws Exception {
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
     jp.compose(bs, ig);
