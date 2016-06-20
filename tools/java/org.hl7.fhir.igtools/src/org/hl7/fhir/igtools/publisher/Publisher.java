@@ -489,7 +489,8 @@ public class Publisher {
         r.setTitle(r.getElement().getChildValue("name"));
         igpkp.findConfiguration(f, r);
       }
-    }
+    } else 
+      f = altMap.get("Spreadsheet/"+be.getAsString());
     for (String vr : f.getValuesetsToLoad()) {
       path = Utilities.path(Utilities.getDirectoryForFile(igName), vr);
       FetchedFile fv = fetcher.fetchFlexible(path);

@@ -37,6 +37,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingCompon
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation;
+import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
@@ -159,7 +160,7 @@ public class IgSpreadsheetParser {
 
   private void parseProfileSheet(String n, List<String> namedSheets, List<ValidationMessage> issues) throws Exception {
     StructureDefinition sd = new StructureDefinition();
-    sd.setId(n);
+    sd.setId(n.toLowerCase());
     sd.setUrl(base+"/StructureDefinition/"+sd.getId());
     bundle.addEntry().setResource(sd).setFullUrl(sd.getUrl());
     
@@ -455,6 +456,7 @@ public class IgSpreadsheetParser {
     }
     e.setName(profileName);
     if (!Utilities.noString(discriminator)) {
+      e.getSlicing().setRules(SlicingRules.OPEN);
       for (String d : discriminator.split("\\,"))
         if (!Utilities.noString(d))
           e.getSlicing().addDiscriminator(d);
