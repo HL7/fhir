@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/policyholder-relationship"/>
+  <name value="Policyholder Relationship Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes codes for the relationship between the Policyholder and the Beneficiary (insured/covered party/patient)."/>
+  <copyright value="This is an extensible set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+  <!--   beneficiary is the policyholder's parent  -->
+    <code value="child"/>
+    <display value="Child"/>
+    <definition value="The Policyholder is a child of the Beneficiary"/>
+  </concept>
+  <concept>
+  <!--   beneficiary is the policyholder's child  -->
+    <code value="parent"/>
+    <display value="Parent"/>
+    <definition value="The Policyholder is a parent of the Beneficiary"/>
+  </concept>
+  <concept>
+  <!--   beneficiary is the policyholder's spouse  -->
+    <code value="spouse"/>
+    <display value="Spouse"/>
+    <definition value="The Policyholder is a spouse or equivalent of the Beneficiary"/>
+  </concept>
+  <concept>
+  <!--   beneficiary is the policyholder's common law spouse  -->
+    <code value="common"/>
+    <display value="Common Law Spouse"/>
+    <definition value="The Policyholder is a common law spouse or equivalent of the Beneficiary"/>
+  </concept>
+  <concept>
+  <!--   beneficiary has an other relationship to the policyholder  -->
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="The Policyholder has some other relationship the Beneficiary"/>
+  </concept>
+    <concept>
+  <!--   beneficiary is the policyholder  -->
+    <code value="self"/>
+    <display value="Self"/>
+    <definition value="The Policyholder is the Beneficiary"/>
+  </concept>
+
+</CodeSystem>
