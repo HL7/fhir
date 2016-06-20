@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jun 14, 2016 05:57+1000 for FHIR v1.4.0
+// Generated on Sat, Jun 18, 2016 07:14+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -323,7 +323,7 @@ public class Protocol extends DomainResource {
       }
     }
 
-    public enum ActivityDefinitionCategory {
+    public enum ProtocolActivityDefinitionCategory {
         /**
          * To communicate with a participant in some way
          */
@@ -364,7 +364,7 @@ public class Protocol extends DomainResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static ActivityDefinitionCategory fromCode(String codeString) throws FHIRException {
+        public static ProtocolActivityDefinitionCategory fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("communication".equals(codeString))
@@ -388,7 +388,7 @@ public class Protocol extends DomainResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown ActivityDefinitionCategory code '"+codeString+"'");
+          throw new FHIRException("Unknown ProtocolActivityDefinitionCategory code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -406,15 +406,15 @@ public class Protocol extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case COMMUNICATION: return "http://hl7.org/fhir/activity-definition-category";
-            case DIET: return "http://hl7.org/fhir/activity-definition-category";
-            case DRUG: return "http://hl7.org/fhir/activity-definition-category";
-            case ENCOUNTER: return "http://hl7.org/fhir/activity-definition-category";
-            case OBSERVATION: return "http://hl7.org/fhir/activity-definition-category";
-            case PROCEDURE: return "http://hl7.org/fhir/activity-definition-category";
-            case REFERRAL: return "http://hl7.org/fhir/activity-definition-category";
-            case SUPPLY: return "http://hl7.org/fhir/activity-definition-category";
-            case OTHER: return "http://hl7.org/fhir/activity-definition-category";
+            case COMMUNICATION: return "http://hl7.org/fhir/protocol-activity-category";
+            case DIET: return "http://hl7.org/fhir/protocol-activity-category";
+            case DRUG: return "http://hl7.org/fhir/protocol-activity-category";
+            case ENCOUNTER: return "http://hl7.org/fhir/protocol-activity-category";
+            case OBSERVATION: return "http://hl7.org/fhir/protocol-activity-category";
+            case PROCEDURE: return "http://hl7.org/fhir/protocol-activity-category";
+            case REFERRAL: return "http://hl7.org/fhir/protocol-activity-category";
+            case SUPPLY: return "http://hl7.org/fhir/protocol-activity-category";
+            case OTHER: return "http://hl7.org/fhir/protocol-activity-category";
             default: return "?";
           }
         }
@@ -448,79 +448,79 @@ public class Protocol extends DomainResource {
         }
     }
 
-  public static class ActivityDefinitionCategoryEnumFactory implements EnumFactory<ActivityDefinitionCategory> {
-    public ActivityDefinitionCategory fromCode(String codeString) throws IllegalArgumentException {
+  public static class ProtocolActivityDefinitionCategoryEnumFactory implements EnumFactory<ProtocolActivityDefinitionCategory> {
+    public ProtocolActivityDefinitionCategory fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("communication".equals(codeString))
-          return ActivityDefinitionCategory.COMMUNICATION;
+          return ProtocolActivityDefinitionCategory.COMMUNICATION;
         if ("diet".equals(codeString))
-          return ActivityDefinitionCategory.DIET;
+          return ProtocolActivityDefinitionCategory.DIET;
         if ("drug".equals(codeString))
-          return ActivityDefinitionCategory.DRUG;
+          return ProtocolActivityDefinitionCategory.DRUG;
         if ("encounter".equals(codeString))
-          return ActivityDefinitionCategory.ENCOUNTER;
+          return ProtocolActivityDefinitionCategory.ENCOUNTER;
         if ("observation".equals(codeString))
-          return ActivityDefinitionCategory.OBSERVATION;
+          return ProtocolActivityDefinitionCategory.OBSERVATION;
         if ("procedure".equals(codeString))
-          return ActivityDefinitionCategory.PROCEDURE;
+          return ProtocolActivityDefinitionCategory.PROCEDURE;
         if ("referral".equals(codeString))
-          return ActivityDefinitionCategory.REFERRAL;
+          return ProtocolActivityDefinitionCategory.REFERRAL;
         if ("supply".equals(codeString))
-          return ActivityDefinitionCategory.SUPPLY;
+          return ProtocolActivityDefinitionCategory.SUPPLY;
         if ("other".equals(codeString))
-          return ActivityDefinitionCategory.OTHER;
-        throw new IllegalArgumentException("Unknown ActivityDefinitionCategory code '"+codeString+"'");
+          return ProtocolActivityDefinitionCategory.OTHER;
+        throw new IllegalArgumentException("Unknown ProtocolActivityDefinitionCategory code '"+codeString+"'");
         }
-        public Enumeration<ActivityDefinitionCategory> fromType(Base code) throws FHIRException {
+        public Enumeration<ProtocolActivityDefinitionCategory> fromType(Base code) throws FHIRException {
           if (code == null || code.isEmpty())
             return null;
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("communication".equals(codeString))
-          return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.COMMUNICATION);
+          return new Enumeration<ProtocolActivityDefinitionCategory>(this, ProtocolActivityDefinitionCategory.COMMUNICATION);
         if ("diet".equals(codeString))
-          return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.DIET);
+          return new Enumeration<ProtocolActivityDefinitionCategory>(this, ProtocolActivityDefinitionCategory.DIET);
         if ("drug".equals(codeString))
-          return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.DRUG);
+          return new Enumeration<ProtocolActivityDefinitionCategory>(this, ProtocolActivityDefinitionCategory.DRUG);
         if ("encounter".equals(codeString))
-          return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.ENCOUNTER);
+          return new Enumeration<ProtocolActivityDefinitionCategory>(this, ProtocolActivityDefinitionCategory.ENCOUNTER);
         if ("observation".equals(codeString))
-          return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.OBSERVATION);
+          return new Enumeration<ProtocolActivityDefinitionCategory>(this, ProtocolActivityDefinitionCategory.OBSERVATION);
         if ("procedure".equals(codeString))
-          return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.PROCEDURE);
+          return new Enumeration<ProtocolActivityDefinitionCategory>(this, ProtocolActivityDefinitionCategory.PROCEDURE);
         if ("referral".equals(codeString))
-          return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.REFERRAL);
+          return new Enumeration<ProtocolActivityDefinitionCategory>(this, ProtocolActivityDefinitionCategory.REFERRAL);
         if ("supply".equals(codeString))
-          return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.SUPPLY);
+          return new Enumeration<ProtocolActivityDefinitionCategory>(this, ProtocolActivityDefinitionCategory.SUPPLY);
         if ("other".equals(codeString))
-          return new Enumeration<ActivityDefinitionCategory>(this, ActivityDefinitionCategory.OTHER);
-        throw new FHIRException("Unknown ActivityDefinitionCategory code '"+codeString+"'");
+          return new Enumeration<ProtocolActivityDefinitionCategory>(this, ProtocolActivityDefinitionCategory.OTHER);
+        throw new FHIRException("Unknown ProtocolActivityDefinitionCategory code '"+codeString+"'");
         }
-    public String toCode(ActivityDefinitionCategory code) {
-      if (code == ActivityDefinitionCategory.COMMUNICATION)
+    public String toCode(ProtocolActivityDefinitionCategory code) {
+      if (code == ProtocolActivityDefinitionCategory.COMMUNICATION)
         return "communication";
-      if (code == ActivityDefinitionCategory.DIET)
+      if (code == ProtocolActivityDefinitionCategory.DIET)
         return "diet";
-      if (code == ActivityDefinitionCategory.DRUG)
+      if (code == ProtocolActivityDefinitionCategory.DRUG)
         return "drug";
-      if (code == ActivityDefinitionCategory.ENCOUNTER)
+      if (code == ProtocolActivityDefinitionCategory.ENCOUNTER)
         return "encounter";
-      if (code == ActivityDefinitionCategory.OBSERVATION)
+      if (code == ProtocolActivityDefinitionCategory.OBSERVATION)
         return "observation";
-      if (code == ActivityDefinitionCategory.PROCEDURE)
+      if (code == ProtocolActivityDefinitionCategory.PROCEDURE)
         return "procedure";
-      if (code == ActivityDefinitionCategory.REFERRAL)
+      if (code == ProtocolActivityDefinitionCategory.REFERRAL)
         return "referral";
-      if (code == ActivityDefinitionCategory.SUPPLY)
+      if (code == ProtocolActivityDefinitionCategory.SUPPLY)
         return "supply";
-      if (code == ActivityDefinitionCategory.OTHER)
+      if (code == ProtocolActivityDefinitionCategory.OTHER)
         return "other";
       return "?";
       }
-    public String toSystem(ActivityDefinitionCategory code) {
+    public String toSystem(ProtocolActivityDefinitionCategory code) {
       return code.getSystem();
       }
     }
@@ -2443,7 +2443,7 @@ public class Protocol extends DomainResource {
          */
         @Child(name = "category", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="communication | diet | drug | encounter | observation | procedure | referral | supply | other", formalDefinition="High-level categorization of the type of activity." )
-        protected Enumeration<ActivityDefinitionCategory> category;
+        protected Enumeration<ProtocolActivityDefinitionCategory> category;
 
         /**
          * Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.
@@ -2504,7 +2504,7 @@ public class Protocol extends DomainResource {
         @Description(shortDefinition="Extra info on activity occurrence", formalDefinition="This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc." )
         protected StringType description;
 
-        private static final long serialVersionUID = -2110199458L;
+        private static final long serialVersionUID = -1203502826L;
 
     /**
      * Constructor
@@ -2516,12 +2516,12 @@ public class Protocol extends DomainResource {
         /**
          * @return {@link #category} (High-level categorization of the type of activity.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
          */
-        public Enumeration<ActivityDefinitionCategory> getCategoryElement() { 
+        public Enumeration<ProtocolActivityDefinitionCategory> getCategoryElement() { 
           if (this.category == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProtocolStepActivityDetailComponent.category");
             else if (Configuration.doAutoCreate())
-              this.category = new Enumeration<ActivityDefinitionCategory>(new ActivityDefinitionCategoryEnumFactory()); // bb
+              this.category = new Enumeration<ProtocolActivityDefinitionCategory>(new ProtocolActivityDefinitionCategoryEnumFactory()); // bb
           return this.category;
         }
 
@@ -2536,7 +2536,7 @@ public class Protocol extends DomainResource {
         /**
          * @param value {@link #category} (High-level categorization of the type of activity.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
          */
-        public ProtocolStepActivityDetailComponent setCategoryElement(Enumeration<ActivityDefinitionCategory> value) { 
+        public ProtocolStepActivityDetailComponent setCategoryElement(Enumeration<ProtocolActivityDefinitionCategory> value) { 
           this.category = value;
           return this;
         }
@@ -2544,19 +2544,19 @@ public class Protocol extends DomainResource {
         /**
          * @return High-level categorization of the type of activity.
          */
-        public ActivityDefinitionCategory getCategory() { 
+        public ProtocolActivityDefinitionCategory getCategory() { 
           return this.category == null ? null : this.category.getValue();
         }
 
         /**
          * @param value High-level categorization of the type of activity.
          */
-        public ProtocolStepActivityDetailComponent setCategory(ActivityDefinitionCategory value) { 
+        public ProtocolStepActivityDetailComponent setCategory(ProtocolActivityDefinitionCategory value) { 
           if (value == null)
             this.category = null;
           else {
             if (this.category == null)
-              this.category = new Enumeration<ActivityDefinitionCategory>(new ActivityDefinitionCategoryEnumFactory());
+              this.category = new Enumeration<ProtocolActivityDefinitionCategory>(new ProtocolActivityDefinitionCategoryEnumFactory());
             this.category.setValue(value);
           }
           return this;
@@ -2871,7 +2871,7 @@ public class Protocol extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Enumeration<ActivityDefinitionCategory>
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Enumeration<ProtocolActivityDefinitionCategory>
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
@@ -2888,7 +2888,7 @@ public class Protocol extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 50511102: // category
-          this.category = new ActivityDefinitionCategoryEnumFactory().fromType(value); // Enumeration<ActivityDefinitionCategory>
+          this.category = new ProtocolActivityDefinitionCategoryEnumFactory().fromType(value); // Enumeration<ProtocolActivityDefinitionCategory>
           break;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
@@ -2919,7 +2919,7 @@ public class Protocol extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("category"))
-          this.category = new ActivityDefinitionCategoryEnumFactory().fromType(value); // Enumeration<ActivityDefinitionCategory>
+          this.category = new ProtocolActivityDefinitionCategoryEnumFactory().fromType(value); // Enumeration<ProtocolActivityDefinitionCategory>
         else if (name.equals("code"))
           this.code = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("timing[x]"))
@@ -2941,7 +2941,7 @@ public class Protocol extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 50511102: throw new FHIRException("Cannot make property category as it is not a complex type"); // Enumeration<ActivityDefinitionCategory>
+        case 50511102: throw new FHIRException("Cannot make property category as it is not a complex type"); // Enumeration<ProtocolActivityDefinitionCategory>
         case 3059181:  return getCode(); // CodeableConcept
         case 164632566:  return getTiming(); // Type
         case 1901043637:  return getLocation(); // Reference

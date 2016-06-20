@@ -4,7 +4,7 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2> 
 <p>
-A concept map defines a mapping from a concept defined in <a href="terminologies.html">one system</a> to one or more concepts defined in other systems. 
+A concept map defines a mapping from a set of concepts defined in <a href="terminologies.html">a code system</a> to one or more concepts defined in other code systems. 
 Mappings are one way - from the source to the destination. In many cases, the reverse mappings are valid, but this cannot be assumed to be the case. 
 </p>
 <p>
@@ -14,9 +14,8 @@ meaning; it cannot be taken for granted automatically. Note that all code system
 code system, and these value sets can be used for mappings that are valid in all contexts.
 </p>
 <p>
-Each mapping for a concept from source to target includes an <a rel="nofollow" class="external text" 
-href="valueset-concept-map-equivalence.html">equivalence</a> property that 
-specifies how similar the mapping is (or, in some cases, that there is no valid mapping). 
+Each mapping for a concept from source to target includes an <a href="valueset-concept-map-equivalence.html">equivalence</a> 
+property that specifies how similar the mapping is (or, in some cases, that there is no valid mapping). 
 There is one <code>element</code> for each concept or field in the source that needs to be mapped.
 Each source concept may have multiple targets:
 </p>
@@ -40,6 +39,7 @@ Further discussion of the issues involved in mapping between concept definition 
 <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a> document 
 and the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification. 
 </p>
+
 
 </div>
  

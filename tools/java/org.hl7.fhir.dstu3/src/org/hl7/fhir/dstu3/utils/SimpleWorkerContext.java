@@ -42,6 +42,7 @@ import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
@@ -308,7 +309,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 			return null;      
 		}
 
-		throw new Error("not done yet");
+		throw new Error("fetching "+class_.getName()+" not done yet for URI "+uri);
 	}
 
 
@@ -325,7 +326,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   public List<String> getResourceNames() {
     List<String> result = new ArrayList<String>();
     for (StructureDefinition sd : structures.values()) {
-      if (sd.getKind() == StructureDefinitionKind.RESOURCE && !sd.hasBaseType())
+      if (sd.getKind() == StructureDefinitionKind.RESOURCE && sd.getDerivation() == TypeDerivationRule.SPECIALIZATION)
         result.add(sd.getName());
     }
     Collections.sort(result);

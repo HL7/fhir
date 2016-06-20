@@ -3,10 +3,25 @@
 <a name="notes"> </a>
 <h2>Notes</h2>
 <ul>
- <li>The value of the <i>system</i> and <i>code</i> element are the same as used by the <a href="datatypes.html#Coding">Coding</a> data type</li>
+ <li>The value of the <code>system</code>, <code>version</code> and <code>code</code> elements are the same as used by the <a href="datatypes.html#Coding">Coding</a> data type</li>
  <li>When a mapping equivalence is characterized as "narrower", some explanation of the scope difference SHALL be provided in the comments</li>
  <li>The concept map is a statement of mapping in a single direction. The existence of a matching mapping in the reverse direction cannot be assumed to exist automatically, but only through human review.</li>
+ <li>There should be only one <code>element</code> for each source concept. If there is more than one, the <code>target</code> statements are cumulative across them</li>
 </ul>
+
+<h2>Grouping Concept Maps</h2>
+<p>
+The concept mappings in <code>element</code> are arranged into groups that share common source/target systems. 
+These groups have no semantic signficance; they exist to make the representation more concise. Concept maps
+may contain more than one group with the same source and target - this would be a less concise representation
+but may be useful in order to maintain a fixed order for the concepts that are mapped. 
+</p>
+<p>
+Concepts that are labelled as 'unmatched' are considered to be unmatched in the target value set, 
+irrespective of whether they are contained in a group with a stated target system or not. Groups
+that contain no target system may only contained 'unmatched' concepts. There is no difference in 
+the meaning of an <code>unmatched</code> target whether or not there is a stated target system.
+</p>
 
 
 </div>

@@ -43,6 +43,30 @@ public class SimpleFetcher implements IFetchFile {
   }
 
   @Override
+  public FetchedFile fetchFlexible(String path) throws Exception {
+    File f = new File(path+".xml");
+    if (!f.exists())
+      f = new File(path+".json");
+    if (!f.exists())
+      throw new Exception("Unable to find file "+path+".xml/json");
+    FetchedFile ff = new FetchedFile();
+    ff.setPath(path);
+    ff.setName(Utilities.fileTitle(path));
+    ff.setTime(f.lastModified());
+    if (f.getName().endsWith("json"))
+      ff.setContentType("application/json+fhir");
+    else if (f.getName().endsWith("xml"))
+      ff.setContentType("application/xml+fhir");
+    
+    InputStream ss = new FileInputStream(f);
+    byte[] b = new byte[ss.available()];
+    ss.read(b, 0, ss.available());
+    ff.setSource(b);
+    ss.close();
+    return ff;
+  }
+
+  @Override
   public FetchedFile fetch(Type source, FetchedFile src) throws Exception {
     if (source instanceof Reference) {
       String s = ((Reference)source).getReference();

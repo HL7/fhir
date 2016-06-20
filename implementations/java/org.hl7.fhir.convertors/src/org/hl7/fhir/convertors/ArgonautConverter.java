@@ -55,7 +55,6 @@ import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceReactionCom
 import org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus;
 import org.hl7.fhir.dstu3.model.DocumentReference.DocumentReferenceContentComponent;
 import org.hl7.fhir.dstu3.model.DocumentReference.DocumentReferenceContextComponent;
-import org.hl7.fhir.dstu3.model.Encounter.EncounterClass;
 import org.hl7.fhir.dstu3.model.Encounter.EncounterHospitalizationComponent;
 import org.hl7.fhir.dstu3.model.Encounter.EncounterState;
 import org.hl7.fhir.dstu3.model.Enumerations.DocumentReferenceStatus;
@@ -100,9 +99,9 @@ public class ArgonautConverter extends ConverterBase {
 		try {
 			ArgonautConverter c = new ArgonautConverter(new UcumEssenceService(UCUM_PATH), Utilities.path(SRC_PATH, "validation.xml.zip"));
 			c.destFolder = "C:\\work\\com.healthintersections.fhir\\argonaut\\fhir";
-			c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\cda\\file_emergency", EncounterClass.EMERGENCY);
-			c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\cda\\file_ed", EncounterClass.INPATIENT);
-			c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\cda\\fileX", EncounterClass.AMBULATORY);
+			c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\cda\\file_emergency", new Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("EMER"));
+			c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\cda\\file_ed", new Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("IMP"));
+			c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\cda\\fileX", new Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("AMB"));
 			c.printSectionSummaries();
 			c.closeZips();
 			System.out.println("All done. "+Integer.toString(c.getErrors())+" errors, "+Integer.toString(c.getWarnings())+" warnings");
@@ -116,7 +115,7 @@ public class ArgonautConverter extends ConverterBase {
 		public String baseId;
 		public Reference authorRef;
 		public Encounter encounter;
-		public EncounterClass encClass;
+		public Coding encClass;
 		public int obsId;
 		public DateTimeType now = DateTimeType.now();
 		public int orgId;
@@ -162,7 +161,7 @@ public class ArgonautConverter extends ConverterBase {
 	}
 
 
-	public void convert(String sourceFolder, EncounterClass clss) throws Exception {
+	public void convert(String sourceFolder, Coding clss) throws Exception {
 		File source = new File(sourceFolder);
 		for (String f : source.list()) {
 			convert(sourceFolder, f, clss);
@@ -205,7 +204,7 @@ public class ArgonautConverter extends ConverterBase {
 		return names;
 	}
 
-	private void convert(String sourceFolder, String filename, EncounterClass clss) {
+	private void convert(String sourceFolder, String filename, Coding clss) {
 		if (new File(Utilities.path(sourceFolder, filename)).length() == 0)
 			return;
 
@@ -1189,9 +1188,9 @@ public class ArgonautConverter extends ConverterBase {
 				enc.setStatus(EncounterState.INPROGRESS);
 
 			if (cda.getChild(ee, "text") != null)
-				enc.setClass_(convertTextToClass(cda.getChild(ee, "text").getTextContent().trim()));
+				enc.setClass_(convertTextToCoding(cda.getChild(ee, "text").getTextContent().trim()));
 			else
-				enc.setClass_(EncounterClass.OTHER); // todo: fix this
+				enc.setClass_(null); // todo: fix this
 
 			CodeableConcept type = inspectCode(convert.makeCodeableConceptFromCD(cda.getChild(ee, "code")), null);
 			enc.addType(type);
@@ -1214,16 +1213,16 @@ public class ArgonautConverter extends ConverterBase {
 	}
 
 
-	private EncounterClass convertTextToClass(String v) {
+	private Coding convertTextToCoding(String v) {
 		v = v.toLowerCase();
 		if (v.equals("inpatient"))
-			return EncounterClass.INPATIENT;
+			return new Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("IMP"); 
 		if (v.equals("emergency department") ||v.equals("emergency department admit decision"))
-			return EncounterClass.EMERGENCY;
+			return new Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("EMER");
 		if (v.equals("x-ray exam"))
-			return EncounterClass.AMBULATORY;
+			return new Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("AMB"); 
 		if (v.equals("outpatient"))
-			return EncounterClass.OUTPATIENT;	  
+			return new Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("AMB"); 	  
 		throw new Error("unknown encounter type "+v);
 	}
 

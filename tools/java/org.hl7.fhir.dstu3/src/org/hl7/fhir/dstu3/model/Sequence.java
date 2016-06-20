@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jun 14, 2016 05:57+1000 for FHIR v1.4.0
+// Generated on Sat, Jun 18, 2016 07:14+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -43,7 +43,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 /**
- * Variant and Sequence data.
+ * Raw data describing a biological sequence.
  */
 @ResourceDef(name="Sequence", profile="http://hl7.org/fhir/Profile/Sequence")
 public class Sequence extends DomainResource {
@@ -157,10 +157,10 @@ public class Sequence extends DomainResource {
     @Block()
     public static class SequenceReferenceSeqComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The chromosome containing the genetic finding. The value set will be 1-22, X, Y when the species is human without chromosome abnormality. Otherwise,  NCBI-Gene code system should be used.
+         * Structural unit composed of a nucleic acid molecule which controls its own replication through the interaction of specific proteins at one or more origins of replication ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340)).
          */
         @Child(name = "chromosome", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The chromosome containing the genetic finding", formalDefinition="The chromosome containing the genetic finding. The value set will be 1-22, X, Y when the species is human without chromosome abnormality. Otherwise,  NCBI-Gene code system should be used." )
+        @Description(shortDefinition="Chromosome containing genetic finding", formalDefinition="Structural unit composed of a nucleic acid molecule which controls its own replication through the interaction of specific proteins at one or more origins of replication ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340))." )
         protected CodeableConcept chromosome;
 
         /**
@@ -238,7 +238,7 @@ public class Sequence extends DomainResource {
       }
 
         /**
-         * @return {@link #chromosome} (The chromosome containing the genetic finding. The value set will be 1-22, X, Y when the species is human without chromosome abnormality. Otherwise,  NCBI-Gene code system should be used.)
+         * @return {@link #chromosome} (Structural unit composed of a nucleic acid molecule which controls its own replication through the interaction of specific proteins at one or more origins of replication ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340)).)
          */
         public CodeableConcept getChromosome() { 
           if (this.chromosome == null)
@@ -254,7 +254,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #chromosome} (The chromosome containing the genetic finding. The value set will be 1-22, X, Y when the species is human without chromosome abnormality. Otherwise,  NCBI-Gene code system should be used.)
+         * @param value {@link #chromosome} (Structural unit composed of a nucleic acid molecule which controls its own replication through the interaction of specific proteins at one or more origins of replication ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340)).)
          */
         public SequenceReferenceSeqComponent setChromosome(CodeableConcept value) { 
           this.chromosome = value;
@@ -564,7 +564,7 @@ public class Sequence extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("chromosome", "CodeableConcept", "The chromosome containing the genetic finding. The value set will be 1-22, X, Y when the species is human without chromosome abnormality. Otherwise,  NCBI-Gene code system should be used.", 0, java.lang.Integer.MAX_VALUE, chromosome));
+          childrenList.add(new Property("chromosome", "CodeableConcept", "Structural unit composed of a nucleic acid molecule which controls its own replication through the interaction of specific proteins at one or more origins of replication ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340)).", 0, java.lang.Integer.MAX_VALUE, chromosome));
           childrenList.add(new Property("genomeBuild", "string", "The Genome Build used for reference, following GRCh build versions e.g. 'GRCh 37'.  Version number must be included if a versioned release of a primary build was used.", 0, java.lang.Integer.MAX_VALUE, genomeBuild));
           childrenList.add(new Property("referenceSeqId", "CodeableConcept", "Reference identifier of reference sequence submitted to NCBI. It must match the type in the Sequence.type field. For example, the prefix, “NG_” identifies reference sequence for genes, “NM_” for messenger RNA transcripts, and “NP_” for amino acid sequences.", 0, java.lang.Integer.MAX_VALUE, referenceSeqId));
           childrenList.add(new Property("referenceSeqPointer", "Reference(Sequence)", "A Pointer to another Sequence entity as refence sequence.", 0, java.lang.Integer.MAX_VALUE, referenceSeqPointer));
@@ -761,17 +761,17 @@ public class Sequence extends DomainResource {
         protected IntegerType end;
 
         /**
-         * Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
+         * An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
          */
         @Child(name = "observedAllele", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Nucleotide(s)/amino acids from start position to stop position of observed variant", formalDefinition="Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand." )
+        @Description(shortDefinition="Allele that was observed", formalDefinition="An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand." )
         protected StringType observedAllele;
 
         /**
-         * Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
+         * An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
          */
         @Child(name = "referenceAllele", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Nucleotide(s)/amino acids from start position to stop position of reference variant", formalDefinition="Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand." )
+        @Description(shortDefinition="Allele of reference sequence", formalDefinition="An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand." )
         protected StringType referenceAllele;
 
         /**
@@ -781,7 +781,19 @@ public class Sequence extends DomainResource {
         @Description(shortDefinition="Extended CIGAR string for aligning the sequence with reference bases", formalDefinition="Extended CIGAR string for aligning the sequence with reference bases. See detailed documentation [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm)." )
         protected StringType cigar;
 
-        private static final long serialVersionUID = 913298829L;
+        /**
+         * A pointer to an Observation containing variant information.
+         */
+        @Child(name = "variantPointer", type = {Observation.class}, order=6, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Pointer to observed variant information", formalDefinition="A pointer to an Observation containing variant information." )
+        protected Reference variantPointer;
+
+        /**
+         * The actual object that is the target of the reference (A pointer to an Observation containing variant information.)
+         */
+        protected Observation variantPointerTarget;
+
+        private static final long serialVersionUID = 105611837L;
 
     /**
      * Constructor
@@ -881,7 +893,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return {@link #observedAllele} (Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.). This is the underlying object with id, value and extensions. The accessor "getObservedAllele" gives direct access to the value
+         * @return {@link #observedAllele} (An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.). This is the underlying object with id, value and extensions. The accessor "getObservedAllele" gives direct access to the value
          */
         public StringType getObservedAlleleElement() { 
           if (this.observedAllele == null)
@@ -901,7 +913,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #observedAllele} (Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.). This is the underlying object with id, value and extensions. The accessor "getObservedAllele" gives direct access to the value
+         * @param value {@link #observedAllele} (An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.). This is the underlying object with id, value and extensions. The accessor "getObservedAllele" gives direct access to the value
          */
         public SequenceVariantComponent setObservedAlleleElement(StringType value) { 
           this.observedAllele = value;
@@ -909,14 +921,14 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
+         * @return An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
          */
         public String getObservedAllele() { 
           return this.observedAllele == null ? null : this.observedAllele.getValue();
         }
 
         /**
-         * @param value Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
+         * @param value An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
          */
         public SequenceVariantComponent setObservedAllele(String value) { 
           if (Utilities.noString(value))
@@ -930,7 +942,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return {@link #referenceAllele} (Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.). This is the underlying object with id, value and extensions. The accessor "getReferenceAllele" gives direct access to the value
+         * @return {@link #referenceAllele} (An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.). This is the underlying object with id, value and extensions. The accessor "getReferenceAllele" gives direct access to the value
          */
         public StringType getReferenceAlleleElement() { 
           if (this.referenceAllele == null)
@@ -950,7 +962,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #referenceAllele} (Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.). This is the underlying object with id, value and extensions. The accessor "getReferenceAllele" gives direct access to the value
+         * @param value {@link #referenceAllele} (An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.). This is the underlying object with id, value and extensions. The accessor "getReferenceAllele" gives direct access to the value
          */
         public SequenceVariantComponent setReferenceAlleleElement(StringType value) { 
           this.referenceAllele = value;
@@ -958,14 +970,14 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
+         * @return An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
          */
         public String getReferenceAllele() { 
           return this.referenceAllele == null ? null : this.referenceAllele.getValue();
         }
 
         /**
-         * @param value Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
+         * @param value An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
          */
         public SequenceVariantComponent setReferenceAllele(String value) { 
           if (Utilities.noString(value))
@@ -1027,13 +1039,58 @@ public class Sequence extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #variantPointer} (A pointer to an Observation containing variant information.)
+         */
+        public Reference getVariantPointer() { 
+          if (this.variantPointer == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SequenceVariantComponent.variantPointer");
+            else if (Configuration.doAutoCreate())
+              this.variantPointer = new Reference(); // cc
+          return this.variantPointer;
+        }
+
+        public boolean hasVariantPointer() { 
+          return this.variantPointer != null && !this.variantPointer.isEmpty();
+        }
+
+        /**
+         * @param value {@link #variantPointer} (A pointer to an Observation containing variant information.)
+         */
+        public SequenceVariantComponent setVariantPointer(Reference value) { 
+          this.variantPointer = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #variantPointer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A pointer to an Observation containing variant information.)
+         */
+        public Observation getVariantPointerTarget() { 
+          if (this.variantPointerTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SequenceVariantComponent.variantPointer");
+            else if (Configuration.doAutoCreate())
+              this.variantPointerTarget = new Observation(); // aa
+          return this.variantPointerTarget;
+        }
+
+        /**
+         * @param value {@link #variantPointer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A pointer to an Observation containing variant information.)
+         */
+        public SequenceVariantComponent setVariantPointerTarget(Observation value) { 
+          this.variantPointerTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("start", "integer", "Start position (inclusive) of the variant on the  reference sequence.", 0, java.lang.Integer.MAX_VALUE, start));
           childrenList.add(new Property("end", "integer", "End position (exclusive) of the variant on the reference sequence.", 0, java.lang.Integer.MAX_VALUE, end));
-          childrenList.add(new Property("observedAllele", "string", "Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.", 0, java.lang.Integer.MAX_VALUE, observedAllele));
-          childrenList.add(new Property("referenceAllele", "string", "Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.", 0, java.lang.Integer.MAX_VALUE, referenceAllele));
+          childrenList.add(new Property("observedAllele", "string", "An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.", 0, java.lang.Integer.MAX_VALUE, observedAllele));
+          childrenList.add(new Property("referenceAllele", "string", "An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.", 0, java.lang.Integer.MAX_VALUE, referenceAllele));
           childrenList.add(new Property("cigar", "string", "Extended CIGAR string for aligning the sequence with reference bases. See detailed documentation [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm).", 0, java.lang.Integer.MAX_VALUE, cigar));
+          childrenList.add(new Property("variantPointer", "Reference(Observation)", "A pointer to an Observation containing variant information.", 0, java.lang.Integer.MAX_VALUE, variantPointer));
         }
 
       @Override
@@ -1044,6 +1101,7 @@ public class Sequence extends DomainResource {
         case -1418745787: /*observedAllele*/ return this.observedAllele == null ? new Base[0] : new Base[] {this.observedAllele}; // StringType
         case 364045960: /*referenceAllele*/ return this.referenceAllele == null ? new Base[0] : new Base[] {this.referenceAllele}; // StringType
         case 94658738: /*cigar*/ return this.cigar == null ? new Base[0] : new Base[] {this.cigar}; // StringType
+        case -1654319624: /*variantPointer*/ return this.variantPointer == null ? new Base[0] : new Base[] {this.variantPointer}; // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1067,6 +1125,9 @@ public class Sequence extends DomainResource {
         case 94658738: // cigar
           this.cigar = castToString(value); // StringType
           break;
+        case -1654319624: // variantPointer
+          this.variantPointer = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -1084,6 +1145,8 @@ public class Sequence extends DomainResource {
           this.referenceAllele = castToString(value); // StringType
         else if (name.equals("cigar"))
           this.cigar = castToString(value); // StringType
+        else if (name.equals("variantPointer"))
+          this.variantPointer = castToReference(value); // Reference
         else
           super.setProperty(name, value);
       }
@@ -1096,6 +1159,7 @@ public class Sequence extends DomainResource {
         case -1418745787: throw new FHIRException("Cannot make property observedAllele as it is not a complex type"); // StringType
         case 364045960: throw new FHIRException("Cannot make property referenceAllele as it is not a complex type"); // StringType
         case 94658738: throw new FHIRException("Cannot make property cigar as it is not a complex type"); // StringType
+        case -1654319624:  return getVariantPointer(); // Reference
         default: return super.makeProperty(hash, name);
         }
 
@@ -1118,6 +1182,10 @@ public class Sequence extends DomainResource {
         else if (name.equals("cigar")) {
           throw new FHIRException("Cannot call addChild on a primitive type Sequence.cigar");
         }
+        else if (name.equals("variantPointer")) {
+          this.variantPointer = new Reference();
+          return this.variantPointer;
+        }
         else
           return super.addChild(name);
       }
@@ -1130,6 +1198,7 @@ public class Sequence extends DomainResource {
         dst.observedAllele = observedAllele == null ? null : observedAllele.copy();
         dst.referenceAllele = referenceAllele == null ? null : referenceAllele.copy();
         dst.cigar = cigar == null ? null : cigar.copy();
+        dst.variantPointer = variantPointer == null ? null : variantPointer.copy();
         return dst;
       }
 
@@ -1141,7 +1210,8 @@ public class Sequence extends DomainResource {
           return false;
         SequenceVariantComponent o = (SequenceVariantComponent) other;
         return compareDeep(start, o.start, true) && compareDeep(end, o.end, true) && compareDeep(observedAllele, o.observedAllele, true)
-           && compareDeep(referenceAllele, o.referenceAllele, true) && compareDeep(cigar, o.cigar, true);
+           && compareDeep(referenceAllele, o.referenceAllele, true) && compareDeep(cigar, o.cigar, true) && compareDeep(variantPointer, o.variantPointer, true)
+          ;
       }
 
       @Override
@@ -1157,7 +1227,7 @@ public class Sequence extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(start, end, observedAllele
-          , referenceAllele, cigar);
+          , referenceAllele, cigar, variantPointer);
       }
 
   public String fhirType() {
@@ -1184,10 +1254,10 @@ public class Sequence extends DomainResource {
         protected IntegerType end;
 
         /**
-         * Quality score.
+         * The score of an experimentally derived feature such as a p-value ([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685)).
          */
         @Child(name = "score", type = {Quantity.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Quality score", formalDefinition="Quality score." )
+        @Description(shortDefinition="Quality score", formalDefinition="The score of an experimentally derived feature such as a p-value ([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685))." )
         protected Quantity score;
 
         /**
@@ -1339,7 +1409,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return {@link #score} (Quality score.)
+         * @return {@link #score} (The score of an experimentally derived feature such as a p-value ([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685)).)
          */
         public Quantity getScore() { 
           if (this.score == null)
@@ -1355,7 +1425,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #score} (Quality score.)
+         * @param value {@link #score} (The score of an experimentally derived feature such as a p-value ([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685)).)
          */
         public SequenceQualityComponent setScore(Quantity value) { 
           this.score = value;
@@ -1817,7 +1887,7 @@ public class Sequence extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("start", "integer", "Start position (inclusive) of the sequence.", 0, java.lang.Integer.MAX_VALUE, start));
           childrenList.add(new Property("end", "integer", "End position (exclusive) of the sequence.", 0, java.lang.Integer.MAX_VALUE, end));
-          childrenList.add(new Property("score", "Quantity", "Quality score.", 0, java.lang.Integer.MAX_VALUE, score));
+          childrenList.add(new Property("score", "Quantity", "The score of an experimentally derived feature such as a p-value ([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685)).", 0, java.lang.Integer.MAX_VALUE, score));
           childrenList.add(new Property("method", "string", "Method for quality.", 0, java.lang.Integer.MAX_VALUE, method));
           childrenList.add(new Property("truePositives", "decimal", "The number of variants found in the benchmark set that match exactly the test set.", 0, java.lang.Integer.MAX_VALUE, truePositives));
           childrenList.add(new Property("falsePositives", "decimal", "The number of variants found in the test set that did not match exactly the benchmark set.", 0, java.lang.Integer.MAX_VALUE, falsePositives));
@@ -3276,31 +3346,31 @@ public class Sequence extends DomainResource {
     protected Quantity quantity;
 
     /**
-     * Reference Sequence. It can be described in two ways. One is provide the unique identifier of reference sequence submitted to NCBI. The start and end position of window on reference sequence should be defined.  The other way is using  genome build, chromosome number,and also the start, end position of window (this method is specifically for DNA reference sequence) .
+     * A reference sequence is a sequence that is used to represent an allele or variant.
      */
     @Child(name = "referenceSeq", type = {}, order=7, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Reference sequence", formalDefinition="Reference Sequence. It can be described in two ways. One is provide the unique identifier of reference sequence submitted to NCBI. The start and end position of window on reference sequence should be defined.  The other way is using  genome build, chromosome number,and also the start, end position of window (this method is specifically for DNA reference sequence) ." )
+    @Description(shortDefinition="Reference sequence", formalDefinition="A reference sequence is a sequence that is used to represent an allele or variant." )
     protected SequenceReferenceSeqComponent referenceSeq;
 
     /**
-     * Variant info in this sequence.
+     * A' is a variant (mutation) of A = definition every instance of A' is either an immediate mutation of some instance of A, or there is a chain of immediate mutation processes linking A' to some instance of A ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)).
      */
     @Child(name = "variant", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Variant info in this sequence", formalDefinition="Variant info in this sequence." )
+    @Description(shortDefinition="Sequence variant", formalDefinition="A' is a variant (mutation) of A = definition every instance of A' is either an immediate mutation of some instance of A, or there is a chain of immediate mutation processes linking A' to some instance of A ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of))." )
     protected List<SequenceVariantComponent> variant;
 
     /**
-     * Observed sequence.
+     * Sequence that was observed.
      */
     @Child(name = "observedSeq", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Observed sequence", formalDefinition="Observed sequence." )
+    @Description(shortDefinition="Observed sequence", formalDefinition="Sequence that was observed." )
     protected StringType observedSeq;
 
     /**
-     * Quality for sequence quality vary by platform reflecting differences in sequencing chemistry and digital processing.
+     * An experimental feature attribute that defines the quality of the feature in a quantitative way, such as a phred quality score ([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686)).
      */
     @Child(name = "quality", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Sequence Quality", formalDefinition="Quality for sequence quality vary by platform reflecting differences in sequencing chemistry and digital processing." )
+    @Description(shortDefinition="Sequence quality", formalDefinition="An experimental feature attribute that defines the quality of the feature in a quantitative way, such as a phred quality score ([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686))." )
     protected List<SequenceQualityComponent> quality;
 
     /**
@@ -3654,7 +3724,7 @@ public class Sequence extends DomainResource {
     }
 
     /**
-     * @return {@link #referenceSeq} (Reference Sequence. It can be described in two ways. One is provide the unique identifier of reference sequence submitted to NCBI. The start and end position of window on reference sequence should be defined.  The other way is using  genome build, chromosome number,and also the start, end position of window (this method is specifically for DNA reference sequence) .)
+     * @return {@link #referenceSeq} (A reference sequence is a sequence that is used to represent an allele or variant.)
      */
     public SequenceReferenceSeqComponent getReferenceSeq() { 
       if (this.referenceSeq == null)
@@ -3670,7 +3740,7 @@ public class Sequence extends DomainResource {
     }
 
     /**
-     * @param value {@link #referenceSeq} (Reference Sequence. It can be described in two ways. One is provide the unique identifier of reference sequence submitted to NCBI. The start and end position of window on reference sequence should be defined.  The other way is using  genome build, chromosome number,and also the start, end position of window (this method is specifically for DNA reference sequence) .)
+     * @param value {@link #referenceSeq} (A reference sequence is a sequence that is used to represent an allele or variant.)
      */
     public Sequence setReferenceSeq(SequenceReferenceSeqComponent value) { 
       this.referenceSeq = value;
@@ -3678,7 +3748,7 @@ public class Sequence extends DomainResource {
     }
 
     /**
-     * @return {@link #variant} (Variant info in this sequence.)
+     * @return {@link #variant} (A' is a variant (mutation) of A = definition every instance of A' is either an immediate mutation of some instance of A, or there is a chain of immediate mutation processes linking A' to some instance of A ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)).)
      */
     public List<SequenceVariantComponent> getVariant() { 
       if (this.variant == null)
@@ -3731,7 +3801,7 @@ public class Sequence extends DomainResource {
     }
 
     /**
-     * @return {@link #observedSeq} (Observed sequence.). This is the underlying object with id, value and extensions. The accessor "getObservedSeq" gives direct access to the value
+     * @return {@link #observedSeq} (Sequence that was observed.). This is the underlying object with id, value and extensions. The accessor "getObservedSeq" gives direct access to the value
      */
     public StringType getObservedSeqElement() { 
       if (this.observedSeq == null)
@@ -3751,7 +3821,7 @@ public class Sequence extends DomainResource {
     }
 
     /**
-     * @param value {@link #observedSeq} (Observed sequence.). This is the underlying object with id, value and extensions. The accessor "getObservedSeq" gives direct access to the value
+     * @param value {@link #observedSeq} (Sequence that was observed.). This is the underlying object with id, value and extensions. The accessor "getObservedSeq" gives direct access to the value
      */
     public Sequence setObservedSeqElement(StringType value) { 
       this.observedSeq = value;
@@ -3759,14 +3829,14 @@ public class Sequence extends DomainResource {
     }
 
     /**
-     * @return Observed sequence.
+     * @return Sequence that was observed.
      */
     public String getObservedSeq() { 
       return this.observedSeq == null ? null : this.observedSeq.getValue();
     }
 
     /**
-     * @param value Observed sequence.
+     * @param value Sequence that was observed.
      */
     public Sequence setObservedSeq(String value) { 
       if (Utilities.noString(value))
@@ -3780,7 +3850,7 @@ public class Sequence extends DomainResource {
     }
 
     /**
-     * @return {@link #quality} (Quality for sequence quality vary by platform reflecting differences in sequencing chemistry and digital processing.)
+     * @return {@link #quality} (An experimental feature attribute that defines the quality of the feature in a quantitative way, such as a phred quality score ([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686)).)
      */
     public List<SequenceQualityComponent> getQuality() { 
       if (this.quality == null)
@@ -4038,10 +4108,10 @@ public class Sequence extends DomainResource {
         childrenList.add(new Property("specimen", "Reference(Specimen)", "Specimen used for sequencing.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("device", "Reference(Device)", "The method for sequencing, for example, chip information.", 0, java.lang.Integer.MAX_VALUE, device));
         childrenList.add(new Property("quantity", "Quantity", "Quantity of the sequence.", 0, java.lang.Integer.MAX_VALUE, quantity));
-        childrenList.add(new Property("referenceSeq", "", "Reference Sequence. It can be described in two ways. One is provide the unique identifier of reference sequence submitted to NCBI. The start and end position of window on reference sequence should be defined.  The other way is using  genome build, chromosome number,and also the start, end position of window (this method is specifically for DNA reference sequence) .", 0, java.lang.Integer.MAX_VALUE, referenceSeq));
-        childrenList.add(new Property("variant", "", "Variant info in this sequence.", 0, java.lang.Integer.MAX_VALUE, variant));
-        childrenList.add(new Property("observedSeq", "string", "Observed sequence.", 0, java.lang.Integer.MAX_VALUE, observedSeq));
-        childrenList.add(new Property("quality", "", "Quality for sequence quality vary by platform reflecting differences in sequencing chemistry and digital processing.", 0, java.lang.Integer.MAX_VALUE, quality));
+        childrenList.add(new Property("referenceSeq", "", "A reference sequence is a sequence that is used to represent an allele or variant.", 0, java.lang.Integer.MAX_VALUE, referenceSeq));
+        childrenList.add(new Property("variant", "", "A' is a variant (mutation) of A = definition every instance of A' is either an immediate mutation of some instance of A, or there is a chain of immediate mutation processes linking A' to some instance of A ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)).", 0, java.lang.Integer.MAX_VALUE, variant));
+        childrenList.add(new Property("observedSeq", "string", "Sequence that was observed.", 0, java.lang.Integer.MAX_VALUE, observedSeq));
+        childrenList.add(new Property("quality", "", "An experimental feature attribute that defines the quality of the feature in a quantitative way, such as a phred quality score ([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686)).", 0, java.lang.Integer.MAX_VALUE, quality));
         childrenList.add(new Property("readCoverage", "integer", "Coverage (read depth or depth) is the average number of reads representing a given nucleotide in the reconstructed sequence.", 0, java.lang.Integer.MAX_VALUE, readCoverage));
         childrenList.add(new Property("repository", "", "Configurations of the external repository.", 0, java.lang.Integer.MAX_VALUE, repository));
         childrenList.add(new Property("pointer", "Reference(Sequence)", "Pointer to next atomic sequence which at most contains one variant.", 0, java.lang.Integer.MAX_VALUE, pointer));

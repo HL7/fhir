@@ -6755,38 +6755,35 @@ public class VersionConvertor {
 		}
 	}
 
-	public org.hl7.fhir.dstu3.model.Encounter.EncounterClass convertEncounterClass(org.hl7.fhir.dstu2.model.Encounter.EncounterClass src) throws FHIRException {
+	public org.hl7.fhir.dstu3.model.Coding convertEncounterClass(org.hl7.fhir.dstu2.model.Encounter.EncounterClass src) throws FHIRException {
 		if (src == null)
 			return null;
 		switch (src) {
-		case INPATIENT: return org.hl7.fhir.dstu3.model.Encounter.EncounterClass.INPATIENT;
-		case OUTPATIENT: return org.hl7.fhir.dstu3.model.Encounter.EncounterClass.OUTPATIENT;
-		case AMBULATORY: return org.hl7.fhir.dstu3.model.Encounter.EncounterClass.AMBULATORY;
-		case EMERGENCY: return org.hl7.fhir.dstu3.model.Encounter.EncounterClass.EMERGENCY;
-		case HOME: return org.hl7.fhir.dstu3.model.Encounter.EncounterClass.HOME;
-		case FIELD: return org.hl7.fhir.dstu3.model.Encounter.EncounterClass.FIELD;
-		case DAYTIME: return org.hl7.fhir.dstu3.model.Encounter.EncounterClass.DAYTIME;
-		case VIRTUAL: return org.hl7.fhir.dstu3.model.Encounter.EncounterClass.VIRTUAL;
-		case OTHER: return org.hl7.fhir.dstu3.model.Encounter.EncounterClass.OTHER;
-		default: return org.hl7.fhir.dstu3.model.Encounter.EncounterClass.NULL;
+		case INPATIENT: return new org.hl7.fhir.dstu3.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("IMP");
+		case OUTPATIENT: return new org.hl7.fhir.dstu3.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("AMB");
+		case AMBULATORY: return new org.hl7.fhir.dstu3.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("AMB");
+		case EMERGENCY: return new org.hl7.fhir.dstu3.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("EMER");
+		case HOME: return new org.hl7.fhir.dstu3.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("HH");
+		case FIELD: return new org.hl7.fhir.dstu3.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("FLD");
+		case DAYTIME: return new org.hl7.fhir.dstu3.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("SS");
+		case VIRTUAL: return new org.hl7.fhir.dstu3.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("VR");
+		default: return null;
 		}
 	}
 
-	public org.hl7.fhir.dstu2.model.Encounter.EncounterClass convertEncounterClass(org.hl7.fhir.dstu3.model.Encounter.EncounterClass src) throws FHIRException {
+	public org.hl7.fhir.dstu2.model.Encounter.EncounterClass convertEncounterClass(org.hl7.fhir.dstu3.model.Coding src) throws FHIRException {
 		if (src == null)
 			return null;
-		switch (src) {
-		case INPATIENT: return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.INPATIENT;
-		case OUTPATIENT: return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.OUTPATIENT;
-		case AMBULATORY: return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.AMBULATORY;
-		case EMERGENCY: return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.EMERGENCY;
-		case HOME: return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.HOME;
-		case FIELD: return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.FIELD;
-		case DAYTIME: return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.DAYTIME;
-		case VIRTUAL: return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.VIRTUAL;
-		case OTHER: return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.OTHER;
-		default: return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.NULL;
+		if (src.getSystem().equals("http://hl7.org/fhir/v3/ActCode")) {
+		if (src.getCode().equals("IMP")) return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.INPATIENT;
+		if (src.getCode().equals("AMB")) return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.AMBULATORY;
+		if (src.getCode().equals("EMER")) return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.EMERGENCY;
+		if (src.getCode().equals("HH")) return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.HOME;
+		if (src.getCode().equals("FLD")) return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.FIELD;
+		if (src.getCode().equals("")) return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.DAYTIME;
+		if (src.getCode().equals("VR")) return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.VIRTUAL;
 		}
+		return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.NULL;
 	}
 
 	public org.hl7.fhir.dstu3.model.Encounter.EncounterStatusHistoryComponent convertEncounterStatusHistoryComponent(org.hl7.fhir.dstu2.model.Encounter.EncounterStatusHistoryComponent src) throws FHIRException {

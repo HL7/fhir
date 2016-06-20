@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jun 14, 2016 05:57+1000 for FHIR v1.4.0
+// Generated on Sat, Jun 18, 2016 07:14+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -299,7 +299,7 @@ public class ConceptMap extends BaseConformance {
         /**
          * An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).
          */
-        @Child(name = "target", type = {UriType.class}, order=3, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "target", type = {UriType.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="System of the target (if necessary)", formalDefinition="An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems)." )
         protected UriType target;
 
@@ -313,7 +313,7 @@ public class ConceptMap extends BaseConformance {
         /**
          * Mappings for an individual concept in the source to one or more concepts in the target.
          */
-        @Child(name = "element", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "element", type = {}, order=5, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Mappings for a concept from the source set", formalDefinition="Mappings for an individual concept in the source to one or more concepts in the target." )
         protected List<SourceElementComponent> element;
 
@@ -329,10 +329,9 @@ public class ConceptMap extends BaseConformance {
     /**
      * Constructor
      */
-      public ConceptMapGroupComponent(UriType source, UriType target) {
+      public ConceptMapGroupComponent(UriType source) {
         super();
         this.source = source;
-        this.target = target;
       }
 
         /**
@@ -468,9 +467,13 @@ public class ConceptMap extends BaseConformance {
          * @param value An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).
          */
         public ConceptMapGroupComponent setTarget(String value) { 
+          if (Utilities.noString(value))
+            this.target = null;
+          else {
             if (this.target == null)
               this.target = new UriType();
             this.target.setValue(value);
+          }
           return this;
         }
 
@@ -965,7 +968,7 @@ public class ConceptMap extends BaseConformance {
         /**
          * The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).
          */
-        @Child(name = "equivalence", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=false)
+        @Child(name = "equivalence", type = {CodeType.class}, order=2, min=0, max=1, modifier=true, summary=false)
         @Description(shortDefinition="equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjoint", formalDefinition="The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source)." )
         protected Enumeration<ConceptMapEquivalence> equivalence;
 
@@ -997,14 +1000,6 @@ public class ConceptMap extends BaseConformance {
      */
       public TargetElementComponent() {
         super();
-      }
-
-    /**
-     * Constructor
-     */
-      public TargetElementComponent(Enumeration<ConceptMapEquivalence> equivalence) {
-        super();
-        this.equivalence = equivalence;
       }
 
         /**
@@ -1095,9 +1090,13 @@ public class ConceptMap extends BaseConformance {
          * @param value The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).
          */
         public TargetElementComponent setEquivalence(ConceptMapEquivalence value) { 
+          if (value == null)
+            this.equivalence = null;
+          else {
             if (this.equivalence == null)
               this.equivalence = new Enumeration<ConceptMapEquivalence>(new ConceptMapEquivalenceEnumFactory());
             this.equivalence.setValue(value);
+          }
           return this;
         }
 
@@ -1409,9 +1408,9 @@ public class ConceptMap extends BaseConformance {
         /**
          * A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labelled to correspond with a code system property.
          */
-        @Child(name = "property", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "property", type = {UriType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Reference to property mapping depends on", formalDefinition="A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labelled to correspond with a code system property." )
-        protected CodeType property;
+        protected UriType property;
 
         /**
          * An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).
@@ -1427,7 +1426,7 @@ public class ConceptMap extends BaseConformance {
         @Description(shortDefinition="Value of the referenced element", formalDefinition="Identity (code or path) or the element/item/ValueSet that the map depends on / refers to." )
         protected StringType code;
 
-        private static final long serialVersionUID = -217879383L;
+        private static final long serialVersionUID = 1055992750L;
 
     /**
      * Constructor
@@ -1439,7 +1438,7 @@ public class ConceptMap extends BaseConformance {
     /**
      * Constructor
      */
-      public OtherElementComponent(CodeType property, UriType system, StringType code) {
+      public OtherElementComponent(UriType property, UriType system, StringType code) {
         super();
         this.property = property;
         this.system = system;
@@ -1449,12 +1448,12 @@ public class ConceptMap extends BaseConformance {
         /**
          * @return {@link #property} (A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labelled to correspond with a code system property.). This is the underlying object with id, value and extensions. The accessor "getProperty" gives direct access to the value
          */
-        public CodeType getPropertyElement() { 
+        public UriType getPropertyElement() { 
           if (this.property == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OtherElementComponent.property");
             else if (Configuration.doAutoCreate())
-              this.property = new CodeType(); // bb
+              this.property = new UriType(); // bb
           return this.property;
         }
 
@@ -1469,7 +1468,7 @@ public class ConceptMap extends BaseConformance {
         /**
          * @param value {@link #property} (A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labelled to correspond with a code system property.). This is the underlying object with id, value and extensions. The accessor "getProperty" gives direct access to the value
          */
-        public OtherElementComponent setPropertyElement(CodeType value) { 
+        public OtherElementComponent setPropertyElement(UriType value) { 
           this.property = value;
           return this;
         }
@@ -1486,7 +1485,7 @@ public class ConceptMap extends BaseConformance {
          */
         public OtherElementComponent setProperty(String value) { 
             if (this.property == null)
-              this.property = new CodeType();
+              this.property = new UriType();
             this.property.setValue(value);
           return this;
         }
@@ -1583,7 +1582,7 @@ public class ConceptMap extends BaseConformance {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("property", "code", "A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labelled to correspond with a code system property.", 0, java.lang.Integer.MAX_VALUE, property));
+          childrenList.add(new Property("property", "uri", "A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labelled to correspond with a code system property.", 0, java.lang.Integer.MAX_VALUE, property));
           childrenList.add(new Property("system", "uri", "An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("code", "string", "Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.", 0, java.lang.Integer.MAX_VALUE, code));
         }
@@ -1591,7 +1590,7 @@ public class ConceptMap extends BaseConformance {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -993141291: /*property*/ return this.property == null ? new Base[0] : new Base[] {this.property}; // CodeType
+        case -993141291: /*property*/ return this.property == null ? new Base[0] : new Base[] {this.property}; // UriType
         case -887328209: /*system*/ return this.system == null ? new Base[0] : new Base[] {this.system}; // UriType
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // StringType
         default: return super.getProperty(hash, name, checkValid);
@@ -1603,7 +1602,7 @@ public class ConceptMap extends BaseConformance {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -993141291: // property
-          this.property = castToCode(value); // CodeType
+          this.property = castToUri(value); // UriType
           break;
         case -887328209: // system
           this.system = castToUri(value); // UriType
@@ -1619,7 +1618,7 @@ public class ConceptMap extends BaseConformance {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("property"))
-          this.property = castToCode(value); // CodeType
+          this.property = castToUri(value); // UriType
         else if (name.equals("system"))
           this.system = castToUri(value); // UriType
         else if (name.equals("code"))
@@ -1631,7 +1630,7 @@ public class ConceptMap extends BaseConformance {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -993141291: throw new FHIRException("Cannot make property property as it is not a complex type"); // CodeType
+        case -993141291: throw new FHIRException("Cannot make property property as it is not a complex type"); // UriType
         case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // UriType
         case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // StringType
         default: return super.makeProperty(hash, name);
@@ -2656,21 +2655,21 @@ public class ConceptMap extends BaseConformance {
    * Search parameter: <b>product</b>
    * <p>
    * Description: <b>Reference to property mapping depends on</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>uri</b><br>
    * Path: <b>ConceptMap.group.element.target.product.property</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="product", path="ConceptMap.group.element.target.product.property", description="Reference to property mapping depends on", type="token" )
+  @SearchParamDefinition(name="product", path="ConceptMap.group.element.target.product.property", description="Reference to property mapping depends on", type="uri" )
   public static final String SP_PRODUCT = "product";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>product</b>
    * <p>
    * Description: <b>Reference to property mapping depends on</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>uri</b><br>
    * Path: <b>ConceptMap.group.element.target.product.property</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRODUCT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRODUCT);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam PRODUCT = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_PRODUCT);
 
  /**
    * Search parameter: <b>target-system</b>
@@ -2696,21 +2695,21 @@ public class ConceptMap extends BaseConformance {
    * Search parameter: <b>dependson</b>
    * <p>
    * Description: <b>Reference to property mapping depends on</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>uri</b><br>
    * Path: <b>ConceptMap.group.element.target.dependsOn.property</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="dependson", path="ConceptMap.group.element.target.dependsOn.property", description="Reference to property mapping depends on", type="token" )
+  @SearchParamDefinition(name="dependson", path="ConceptMap.group.element.target.dependsOn.property", description="Reference to property mapping depends on", type="uri" )
   public static final String SP_DEPENDSON = "dependson";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>dependson</b>
    * <p>
    * Description: <b>Reference to property mapping depends on</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>uri</b><br>
    * Path: <b>ConceptMap.group.element.target.dependsOn.property</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam DEPENDSON = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_DEPENDSON);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam DEPENDSON = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DEPENDSON);
 
  /**
    * Search parameter: <b>description</b>

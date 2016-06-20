@@ -41,6 +41,8 @@ import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
+import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.dstu3.model.ValueSet;
 
 /**
@@ -736,46 +738,4 @@ public class Definitions {
     return false;
   }
 
-  public List<String> wildcardTypes() {
-    List<String> res = new ArrayList<String>();
-    res.add("boolean");
-    res.add("integer");
-    res.add("decimal");
-    res.add("base64Binary");
-    res.add("instant");
-    res.add("string");
-    res.add("uri");
-    res.add("date");
-    res.add("dateTime");
-    res.add("time");
-    res.add("code");
-    res.add("oid");
-    res.add("id");
-    res.add("unsignedInt");
-    res.add("positiveInt");
-    res.add("markdown");
-    res.add("Annotation");
-    res.add("Attachment");
-    res.add("Identifier");
-    res.add("CodeableConcept");
-    res.add("Coding");
-    res.add("Quantity");
-    res.add("Count");
-    res.add("Age");
-    res.add("Duration");
-    res.add("Distance");
-    res.add("Money");
-    res.add("Range");
-    res.add("Period");
-    res.add("Ratio");
-    res.add("SampledData");
-    res.add("Signature");
-    res.add("HumanName");
-    res.add("Address");
-    res.add("ContactPoint");
-    res.add("Timing");
-    res.add("Reference");
-    res.add("Meta");
-    return res;
-  }
 }

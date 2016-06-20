@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jun 14, 2016 05:57+1000 for FHIR v1.4.0
+// Generated on Sat, Jun 18, 2016 07:14+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -184,9 +184,16 @@ public class Endpoint extends DomainResource {
     protected Enumeration<EndpointStatus> status;
 
     /**
+     * A friendly name that this endpoint can be referred to with.
+     */
+    @Child(name = "name", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="A name that this endpoint can be identified by", formalDefinition="A friendly name that this endpoint can be referred to with." )
+    protected StringType name;
+
+    /**
      * The organization that exposes the endpoint (even if technically another organisation is hosting this in the cloud, it is the organisation associated with the data).
      */
-    @Child(name = "managingOrganization", type = {Organization.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "managingOrganization", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Organization that exposes the endpoint", formalDefinition="The organization that exposes the endpoint (even if technically another organisation is hosting this in the cloud, it is the organisation associated with the data)." )
     protected Reference managingOrganization;
 
@@ -198,67 +205,67 @@ public class Endpoint extends DomainResource {
     /**
      * Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting.
      */
-    @Child(name = "contact", type = {ContactPoint.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "contact", type = {ContactPoint.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contact details for source (e.g. troubleshooting)", formalDefinition="Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting." )
     protected List<ContactPoint> contact;
 
     /**
      * The type of channel to send notifications on.
      */
-    @Child(name = "connectionType", type = {CodeType.class}, order=4, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "connectionType", type = {CodeType.class}, order=5, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="rest-hook | websocket | email | sms | message", formalDefinition="The type of channel to send notifications on." )
     protected CodeType connectionType;
 
     /**
      * The http verb to be used when calling this endpoint.
      */
-    @Child(name = "method", type = {Coding.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "method", type = {Coding.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="The http verb to be used when calling this endpoint", formalDefinition="The http verb to be used when calling this endpoint." )
     protected List<Coding> method;
 
     /**
      * The interval during which the managing organization assumes the defined responsibility.
      */
-    @Child(name = "period", type = {Period.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "period", type = {Period.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Interval during responsibility is assumed", formalDefinition="The interval during which the managing organization assumes the defined responsibility." )
     protected Period period;
 
     /**
      * The uri that describes the actual end-point to send messages to.
      */
-    @Child(name = "address", type = {UriType.class, StringType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "address", type = {UriType.class}, order=8, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Where the channel points to", formalDefinition="The uri that describes the actual end-point to send messages to." )
-    protected Type address;
+    protected UriType address;
 
     /**
      * The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.
      */
-    @Child(name = "payloadFormat", type = {StringType.class}, order=8, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "payloadFormat", type = {StringType.class}, order=9, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Mimetype to send, or blank for no payload", formalDefinition="The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification." )
     protected StringType payloadFormat;
 
     /**
      * The payload type describes the acceptable content that can be communicated on the endpoint.
      */
-    @Child(name = "payloadType", type = {CodeableConcept.class}, order=9, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "payloadType", type = {CodeableConcept.class}, order=10, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="The type of content that may be used at this endpoint (e.g. XDS Discharge summaries)", formalDefinition="The payload type describes the acceptable content that can be communicated on the endpoint." )
     protected List<CodeableConcept> payloadType;
 
     /**
      * Additional headers / information to send as part of the notification.
      */
-    @Child(name = "header", type = {StringType.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "header", type = {StringType.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Usage depends on the channel type", formalDefinition="Additional headers / information to send as part of the notification." )
     protected List<StringType> header;
 
     /**
      * The public part of the 'keys' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available.
      */
-    @Child(name = "publicKey", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "publicKey", type = {StringType.class}, order=12, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="PKI Public keys to support secure communications", formalDefinition="The public part of the 'keys' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available." )
     protected StringType publicKey;
 
-    private static final long serialVersionUID = 934293803L;
+    private static final long serialVersionUID = 1749798003L;
 
   /**
    * Constructor
@@ -270,10 +277,11 @@ public class Endpoint extends DomainResource {
   /**
    * Constructor
    */
-    public Endpoint(Enumeration<EndpointStatus> status, CodeType connectionType, StringType payloadFormat) {
+    public Endpoint(Enumeration<EndpointStatus> status, CodeType connectionType, UriType address, StringType payloadFormat) {
       super();
       this.status = status;
       this.connectionType = connectionType;
+      this.address = address;
       this.payloadFormat = payloadFormat;
     }
 
@@ -372,6 +380,55 @@ public class Endpoint extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<EndpointStatus>(new EndpointStatusEnumFactory());
         this.status.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #name} (A friendly name that this endpoint can be referred to with.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     */
+    public StringType getNameElement() { 
+      if (this.name == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Endpoint.name");
+        else if (Configuration.doAutoCreate())
+          this.name = new StringType(); // bb
+      return this.name;
+    }
+
+    public boolean hasNameElement() { 
+      return this.name != null && !this.name.isEmpty();
+    }
+
+    public boolean hasName() { 
+      return this.name != null && !this.name.isEmpty();
+    }
+
+    /**
+     * @param value {@link #name} (A friendly name that this endpoint can be referred to with.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     */
+    public Endpoint setNameElement(StringType value) { 
+      this.name = value;
+      return this;
+    }
+
+    /**
+     * @return A friendly name that this endpoint can be referred to with.
+     */
+    public String getName() { 
+      return this.name == null ? null : this.name.getValue();
+    }
+
+    /**
+     * @param value A friendly name that this endpoint can be referred to with.
+     */
+    public Endpoint setName(String value) { 
+      if (Utilities.noString(value))
+        this.name = null;
+      else {
+        if (this.name == null)
+          this.name = new StringType();
+        this.name.setValue(value);
+      }
       return this;
     }
 
@@ -595,36 +652,19 @@ public class Endpoint extends DomainResource {
     }
 
     /**
-     * @return {@link #address} (The uri that describes the actual end-point to send messages to.)
+     * @return {@link #address} (The uri that describes the actual end-point to send messages to.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
      */
-    public Type getAddress() { 
+    public UriType getAddressElement() { 
+      if (this.address == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Endpoint.address");
+        else if (Configuration.doAutoCreate())
+          this.address = new UriType(); // bb
       return this.address;
     }
 
-    /**
-     * @return {@link #address} (The uri that describes the actual end-point to send messages to.)
-     */
-    public UriType getAddressUriType() throws FHIRException { 
-      if (!(this.address instanceof UriType))
-        throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.address.getClass().getName()+" was encountered");
-      return (UriType) this.address;
-    }
-
-    public boolean hasAddressUriType() { 
-      return this.address instanceof UriType;
-    }
-
-    /**
-     * @return {@link #address} (The uri that describes the actual end-point to send messages to.)
-     */
-    public StringType getAddressStringType() throws FHIRException { 
-      if (!(this.address instanceof StringType))
-        throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.address.getClass().getName()+" was encountered");
-      return (StringType) this.address;
-    }
-
-    public boolean hasAddressStringType() { 
-      return this.address instanceof StringType;
+    public boolean hasAddressElement() { 
+      return this.address != null && !this.address.isEmpty();
     }
 
     public boolean hasAddress() { 
@@ -632,10 +672,27 @@ public class Endpoint extends DomainResource {
     }
 
     /**
-     * @param value {@link #address} (The uri that describes the actual end-point to send messages to.)
+     * @param value {@link #address} (The uri that describes the actual end-point to send messages to.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
      */
-    public Endpoint setAddress(Type value) { 
+    public Endpoint setAddressElement(UriType value) { 
       this.address = value;
+      return this;
+    }
+
+    /**
+     * @return The uri that describes the actual end-point to send messages to.
+     */
+    public String getAddress() { 
+      return this.address == null ? null : this.address.getValue();
+    }
+
+    /**
+     * @param value The uri that describes the actual end-point to send messages to.
+     */
+    public Endpoint setAddress(String value) { 
+        if (this.address == null)
+          this.address = new UriType();
+        this.address.setValue(value);
       return this;
     }
 
@@ -851,12 +908,13 @@ public class Endpoint extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier for the organization that is used to identify the endpoint across multiple disparate systems.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("status", "code", "active | suspended | error | off.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("name", "string", "A friendly name that this endpoint can be referred to with.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("managingOrganization", "Reference(Organization)", "The organization that exposes the endpoint (even if technically another organisation is hosting this in the cloud, it is the organisation associated with the data).", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
         childrenList.add(new Property("contact", "ContactPoint", "Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("connectionType", "code", "The type of channel to send notifications on.", 0, java.lang.Integer.MAX_VALUE, connectionType));
         childrenList.add(new Property("method", "Coding", "The http verb to be used when calling this endpoint.", 0, java.lang.Integer.MAX_VALUE, method));
         childrenList.add(new Property("period", "Period", "The interval during which the managing organization assumes the defined responsibility.", 0, java.lang.Integer.MAX_VALUE, period));
-        childrenList.add(new Property("address[x]", "uri|string", "The uri that describes the actual end-point to send messages to.", 0, java.lang.Integer.MAX_VALUE, address));
+        childrenList.add(new Property("address", "uri", "The uri that describes the actual end-point to send messages to.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("payloadFormat", "string", "The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.", 0, java.lang.Integer.MAX_VALUE, payloadFormat));
         childrenList.add(new Property("payloadType", "CodeableConcept", "The payload type describes the acceptable content that can be communicated on the endpoint.", 0, java.lang.Integer.MAX_VALUE, payloadType));
         childrenList.add(new Property("header", "string", "Additional headers / information to send as part of the notification.", 0, java.lang.Integer.MAX_VALUE, header));
@@ -868,12 +926,13 @@ public class Endpoint extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EndpointStatus>
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case -2058947787: /*managingOrganization*/ return this.managingOrganization == null ? new Base[0] : new Base[] {this.managingOrganization}; // Reference
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactPoint
         case 1270211384: /*connectionType*/ return this.connectionType == null ? new Base[0] : new Base[] {this.connectionType}; // CodeType
         case -1077554975: /*method*/ return this.method == null ? new Base[0] : this.method.toArray(new Base[this.method.size()]); // Coding
         case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        case -1147692044: /*address*/ return this.address == null ? new Base[0] : new Base[] {this.address}; // Type
+        case -1147692044: /*address*/ return this.address == null ? new Base[0] : new Base[] {this.address}; // UriType
         case -2140609755: /*payloadFormat*/ return this.payloadFormat == null ? new Base[0] : new Base[] {this.payloadFormat}; // StringType
         case 909929960: /*payloadType*/ return this.payloadType == null ? new Base[0] : this.payloadType.toArray(new Base[this.payloadType.size()]); // CodeableConcept
         case -1221270899: /*header*/ return this.header == null ? new Base[0] : this.header.toArray(new Base[this.header.size()]); // StringType
@@ -892,6 +951,9 @@ public class Endpoint extends DomainResource {
         case -892481550: // status
           this.status = new EndpointStatusEnumFactory().fromType(value); // Enumeration<EndpointStatus>
           break;
+        case 3373707: // name
+          this.name = castToString(value); // StringType
+          break;
         case -2058947787: // managingOrganization
           this.managingOrganization = castToReference(value); // Reference
           break;
@@ -908,7 +970,7 @@ public class Endpoint extends DomainResource {
           this.period = castToPeriod(value); // Period
           break;
         case -1147692044: // address
-          this.address = (Type) value; // Type
+          this.address = castToUri(value); // UriType
           break;
         case -2140609755: // payloadFormat
           this.payloadFormat = castToString(value); // StringType
@@ -933,6 +995,8 @@ public class Endpoint extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("status"))
           this.status = new EndpointStatusEnumFactory().fromType(value); // Enumeration<EndpointStatus>
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
         else if (name.equals("managingOrganization"))
           this.managingOrganization = castToReference(value); // Reference
         else if (name.equals("contact"))
@@ -943,8 +1007,8 @@ public class Endpoint extends DomainResource {
           this.getMethod().add(castToCoding(value));
         else if (name.equals("period"))
           this.period = castToPeriod(value); // Period
-        else if (name.equals("address[x]"))
-          this.address = (Type) value; // Type
+        else if (name.equals("address"))
+          this.address = castToUri(value); // UriType
         else if (name.equals("payloadFormat"))
           this.payloadFormat = castToString(value); // StringType
         else if (name.equals("payloadType"))
@@ -962,12 +1026,13 @@ public class Endpoint extends DomainResource {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EndpointStatus>
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case -2058947787:  return getManagingOrganization(); // Reference
         case 951526432:  return addContact(); // ContactPoint
         case 1270211384: throw new FHIRException("Cannot make property connectionType as it is not a complex type"); // CodeType
         case -1077554975:  return addMethod(); // Coding
         case -991726143:  return getPeriod(); // Period
-        case 1341051916:  return getAddress(); // Type
+        case -1147692044: throw new FHIRException("Cannot make property address as it is not a complex type"); // UriType
         case -2140609755: throw new FHIRException("Cannot make property payloadFormat as it is not a complex type"); // StringType
         case 909929960:  return addPayloadType(); // CodeableConcept
         case -1221270899: throw new FHIRException("Cannot make property header as it is not a complex type"); // StringType
@@ -984,6 +1049,9 @@ public class Endpoint extends DomainResource {
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type Endpoint.status");
+        }
+        else if (name.equals("name")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Endpoint.name");
         }
         else if (name.equals("managingOrganization")) {
           this.managingOrganization = new Reference();
@@ -1002,13 +1070,8 @@ public class Endpoint extends DomainResource {
           this.period = new Period();
           return this.period;
         }
-        else if (name.equals("addressUri")) {
-          this.address = new UriType();
-          return this.address;
-        }
-        else if (name.equals("addressString")) {
-          this.address = new StringType();
-          return this.address;
+        else if (name.equals("address")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Endpoint.address");
         }
         else if (name.equals("payloadFormat")) {
           throw new FHIRException("Cannot call addChild on a primitive type Endpoint.payloadFormat");
@@ -1040,6 +1103,7 @@ public class Endpoint extends DomainResource {
             dst.identifier.add(i.copy());
         };
         dst.status = status == null ? null : status.copy();
+        dst.name = name == null ? null : name.copy();
         dst.managingOrganization = managingOrganization == null ? null : managingOrganization.copy();
         if (contact != null) {
           dst.contact = new ArrayList<ContactPoint>();
@@ -1080,10 +1144,10 @@ public class Endpoint extends DomainResource {
         if (!(other instanceof Endpoint))
           return false;
         Endpoint o = (Endpoint) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(managingOrganization, o.managingOrganization, true)
-           && compareDeep(contact, o.contact, true) && compareDeep(connectionType, o.connectionType, true)
-           && compareDeep(method, o.method, true) && compareDeep(period, o.period, true) && compareDeep(address, o.address, true)
-           && compareDeep(payloadFormat, o.payloadFormat, true) && compareDeep(payloadType, o.payloadType, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(name, o.name, true)
+           && compareDeep(managingOrganization, o.managingOrganization, true) && compareDeep(contact, o.contact, true)
+           && compareDeep(connectionType, o.connectionType, true) && compareDeep(method, o.method, true) && compareDeep(period, o.period, true)
+           && compareDeep(address, o.address, true) && compareDeep(payloadFormat, o.payloadFormat, true) && compareDeep(payloadType, o.payloadType, true)
            && compareDeep(header, o.header, true) && compareDeep(publicKey, o.publicKey, true);
       }
 
@@ -1094,15 +1158,15 @@ public class Endpoint extends DomainResource {
         if (!(other instanceof Endpoint))
           return false;
         Endpoint o = (Endpoint) other;
-        return compareValues(status, o.status, true) && compareValues(connectionType, o.connectionType, true)
-           && compareValues(payloadFormat, o.payloadFormat, true) && compareValues(header, o.header, true) && compareValues(publicKey, o.publicKey, true)
-          ;
+        return compareValues(status, o.status, true) && compareValues(name, o.name, true) && compareValues(connectionType, o.connectionType, true)
+           && compareValues(address, o.address, true) && compareValues(payloadFormat, o.payloadFormat, true) && compareValues(header, o.header, true)
+           && compareValues(publicKey, o.publicKey, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, managingOrganization
-          , contact, connectionType, method, period, address, payloadFormat, payloadType
-          , header, publicKey);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, name
+          , managingOrganization, contact, connectionType, method, period, address, payloadFormat
+          , payloadType, header, publicKey);
       }
 
   @Override
@@ -1131,6 +1195,26 @@ public class Endpoint extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PAYLOAD_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PAYLOAD_TYPE);
 
  /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Identifies this endpoint across multiple systems</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Endpoint.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Endpoint.identifier", description="Identifies this endpoint across multiple systems", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Identifies this endpoint across multiple systems</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Endpoint.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
    * Search parameter: <b>organization</b>
    * <p>
    * Description: <b>The organization that is exposing the endpoint</b><br>
@@ -1155,6 +1239,26 @@ public class Endpoint extends DomainResource {
    * the path value of "<b>Endpoint:organization</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("Endpoint:organization").toLocked();
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>A name that this endpoint can be identified by</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Endpoint.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="Endpoint.name", description="A name that this endpoint can be identified by", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>A name that this endpoint can be identified by</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Endpoint.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
 
  /**
    * Search parameter: <b>status</b>

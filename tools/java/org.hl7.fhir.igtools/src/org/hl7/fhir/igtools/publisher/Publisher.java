@@ -20,7 +20,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.dstu3.elementmodel.Element;
-import org.hl7.fhir.dstu3.elementmodel.ObjectParser;
+import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
@@ -31,6 +31,7 @@ import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.Bundle;
+import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.Constants;
@@ -60,6 +61,7 @@ import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
 import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
 import org.hl7.fhir.igtools.renderers.ValidationPresenter;
 import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
+import org.hl7.fhir.igtools.spreadsheets.IgSpreadsheetParser;
 import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
 import org.hl7.fhir.rdf.RdfGenerator;
 import org.hl7.fhir.utilities.CSFile;
@@ -126,17 +128,18 @@ public class Publisher {
   private boolean watch;
 
   private String igName;
-  
+
   private String contentDir;
   private String includesDir;
   private String dataDir;
   private String validationDir;
-  
+
   private IFetchFile fetcher = new SimpleFetcher();
   private SimpleWorkerContext context;
   private InstanceValidator validator;
   private IGKnowledgeProvider igpkp;
   private JsonObject specDetails;
+  private boolean first;
 
   private Map<ImplementationGuidePackageResourceComponent, FetchedFile> fileMap = new HashMap<ImplementationGuidePackageResourceComponent, FetchedFile>();
   private Map<String, FetchedFile> altMap = new HashMap<String, FetchedFile>();
@@ -154,7 +157,7 @@ public class Publisher {
     initialize();
     log("Load Implementation Guide");
     load();
-    
+
     long startTime = System.nanoTime();
     log("Processing Conformance Resources");
     loadConformance();
@@ -164,9 +167,10 @@ public class Publisher {
     generate();
     long endTime = System.nanoTime();
     clean();
-    log(" ... "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errors, fileList, Utilities.path(validationDir, "validation.html")));
+    log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errors, fileList, Utilities.path(validationDir, "validation.html")));
 
     if (watch) {
+      first = false;
       System.out.println("Watching for changes on a 5sec cycle");
       while (watch) { // terminated externally
         Thread.sleep(5000);
@@ -179,7 +183,7 @@ public class Publisher {
           generate();
           clean();
           endTime = System.nanoTime();
-          log(" ..."+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errors, fileList, Utilities.path(validationDir, "validation.html")));
+          log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errors, fileList, Utilities.path(validationDir, "validation.html")));
         }
       }
     } else
@@ -202,7 +206,7 @@ public class Publisher {
     for (FetchedFile f : fileList) 
       if (f.getDependencies() == null)
         loadDependencyList(f);
-    
+
     // now, we keep adding to the change list till there's no change
     boolean changed;
     do {
@@ -231,7 +235,7 @@ public class Publisher {
         loadProfileDependencies(f, r);
       else
         ; // all other resource types don't have dependencies that we care about for rendering purposes
-      }
+    }
   }
 
   private void loadValueSetDependencies(FetchedFile f, FetchedResource r) {
@@ -278,13 +282,13 @@ public class Publisher {
     String res = "";    // ;
     long days       = TimeUnit.MILLISECONDS.toDays(duration);
     long hours      = TimeUnit.MILLISECONDS.toHours(duration) -
-                      TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(duration));
+        TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(duration));
     long minutes    = TimeUnit.MILLISECONDS.toMinutes(duration) -
-                      TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(duration));
+        TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(duration));
     long seconds    = TimeUnit.MILLISECONDS.toSeconds(duration) -
-                      TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(duration));
+        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(duration));
     long millis     = TimeUnit.MILLISECONDS.toMillis(duration) - 
-                      TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(duration));
+        TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(duration));
 
     if (days > 0)      
       res = String.format("%dd %02d:%02d:%02d.%04d", days, hours, minutes, seconds, millis);
@@ -293,11 +297,12 @@ public class Publisher {
     else
       res = String.format("%02d.%04d", seconds, millis);
     return res;  
-   }
+  }
 
   private void initialize() throws Exception {
+    first = true;
     log("Load Configuration");
-      
+
     configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
     if (!configuration.has("tool") || !(configuration.get("tool") instanceof JsonObject))
       throw new Exception("Error: configuration file must include a \"tool\" object");
@@ -353,8 +358,8 @@ public class Publisher {
         checkMakeFile(context.getBinaries().get(s), Utilities.path(validationDir, s));
       }
   }
-  
-  
+
+
   private GenerationTool readType() throws Exception {
     // TODO Auto-generated method stub
     if (!toolConfig.has("type"))
@@ -364,7 +369,7 @@ public class Publisher {
       return GenerationTool.Jekyll;
     else
       throw new Exception("Error: -tool parameter '"+tool+"' not recognised - must be \"jekyll\"");
-    
+
   }
 
   private void checkMakeFile(byte[] bs, String path) throws IOException {
@@ -407,25 +412,21 @@ public class Publisher {
     if (needToBuild) {
       ig = (ImplementationGuide) parse(igf);
       FetchedResource igr = igf.addResource(); 
-      igr.setElement(new ObjectParser(context).parse(ig));
+      igr.setElement(new ObjectConverter(context).convert(ig));
       igr.setResource(ig);
       igr.setId(ig.getId()).setTitle(ig.getName());
     } else
       ig = (ImplementationGuide) altMap.get(IG_NAME).getResources().get(0).getResource();
 
     // load any bundles 
-    JsonArray bundles = configuration.getAsJsonArray("bundles");
-    if (bundles != null) {
-      for (JsonElement be : bundles) {
-        needToBuild = loadBundle((JsonPrimitive) be, needToBuild, igf);
-      }
-    }
+    needToBuild = loadSpreadsheets(needToBuild, igf);
+    needToBuild = loadBundles(needToBuild, igf);
     for (ImplementationGuidePackageComponent pack : ig.getPackage()) {
       for (ImplementationGuidePackageResourceComponent res : pack.getResource()) {
         if (!bndIds.contains(res.getSourceReference().getReference())) {
           FetchedFile f = fetcher.fetch(res.getSource(), igf);
           needToBuild = noteFile(res, f) || needToBuild;
-          determineType(f, false);
+          determineType(f);
         }
       }     
     }
@@ -433,21 +434,87 @@ public class Publisher {
     return needToBuild;
   }
 
-  private boolean loadBundle(JsonPrimitive be, boolean needToBuild, FetchedFile igf) throws Exception {
-//    String path = Utilities.path(Utilities.getDirectoryForFile(igName), be.getAsString());
-    FetchedFile f = fetcher.fetch(new Reference().setReference("Bundle/"+be.getAsString()), igf);
-    needToBuild = noteFile("Bundle/"+be.getAsString(), f) || needToBuild;
-    determineType(f, true);
-    if (needToBuild) {
-      f.setBundle((Bundle) parse(f));
-      for (int i = 0; i < f.getResources().size(); i++) {
-        FetchedResource r = f.getResources().get(i);
-        r.setResource(f.getBundle().getEntry().get(i).getResource());
+  private boolean loadBundles(boolean needToBuild, FetchedFile igf) throws Exception {
+    JsonArray bundles = configuration.getAsJsonArray("bundles");
+    if (bundles != null) {
+      for (JsonElement be : bundles) {
+        needToBuild = loadBundle((JsonPrimitive) be, needToBuild, igf);
       }
+    }
+    return needToBuild;
+  }
+
+  private boolean loadBundle(JsonPrimitive be, boolean needToBuild, FetchedFile igf) throws Exception {
+    FetchedFile f = fetcher.fetch(new Reference().setReference("Bundle/"+be.getAsString()), igf);
+    boolean changed = noteFile("Bundle/"+be.getAsString(), f);
+    if (changed) {
+      f.setBundle((Bundle) parse(f));
+      for (BundleEntryComponent b : f.getBundle().getEntry()) {
+        FetchedResource r = f.addResource();
+        r.setResource(b.getResource());
+        r.setId(b.getResource().getId());
+        r.setElement(new ObjectConverter(context).convert(r.getResource()));          
+        r.setTitle(r.getElement().getChildValue("name"));
+        igpkp.findConfiguration(f, r);
+      }
+    } else 
+      f = altMap.get("Bundle/"+be.getAsString());
+    for (FetchedResource r : f.getResources()) 
+      bndIds.add(r.getElement().fhirType()+"/"+r.getId());
+    return changed || needToBuild;
+  }
+
+  private boolean loadSpreadsheets(boolean needToBuild, FetchedFile igf) throws Exception {
+    JsonArray spreadsheets = configuration.getAsJsonArray("spreadsheets");
+    if (spreadsheets != null) {
+      for (JsonElement be : spreadsheets) {
+        needToBuild = loadSpreadsheet((JsonPrimitive) be, needToBuild, igf);
+      }
+    }
+    return needToBuild;
+  }
+
+  private boolean loadSpreadsheet(JsonPrimitive be, boolean needToBuild, FetchedFile igf) throws Exception {
+    String path = Utilities.path(Utilities.getDirectoryForFile(igName), be.getAsString());
+    FetchedFile f = fetcher.fetch(path);
+    boolean changed = noteFile("Spreadsheet/"+be.getAsString(), f);
+    if (changed) {
+      f.getValuesetsToLoad().clear();
+      f.setBundle(new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), first).parse(f));
+      for (BundleEntryComponent b : f.getBundle().getEntry()) {
+        FetchedResource r = f.addResource();
+        r.setResource(b.getResource());
+        r.setId(b.getResource().getId());
+        r.setElement(new ObjectConverter(context).convert(r.getResource()));          
+        r.setTitle(r.getElement().getChildValue("name"));
+        igpkp.findConfiguration(f, r);
+      }
+    }
+    for (String vr : f.getValuesetsToLoad()) {
+      path = Utilities.path(Utilities.getDirectoryForFile(igName), vr);
+      FetchedFile fv = fetcher.fetchFlexible(path);
+      boolean vrchanged = noteFile("sp-ValueSet/"+vr, fv);
+      if (vrchanged) {
+        determineType(fv);
+        // check the canonical URL
+        String url = fv.getResources().get(0).getElement().getChildValue("url");
+        String id = fv.getResources().get(0).getId();
+        if (!tail(url).equals(id)) 
+          throw new Exception("resource id/url mismatch: "+id+" vs "+url);
+//        if (!url.startsWith(igpkp.getCanonical())) 
+//          throw new Exception("base/ resource url mismatch: "+igpkp.getCanonical()+" vs "+url);
+
+      }
+      changed = changed || vrchanged;
     }
     for (FetchedResource r : f.getResources()) 
       bndIds.add(r.getElement().fhirType()+"/"+r.getId());
-    return needToBuild;
+    return changed || needToBuild;
+  }
+
+
+  private String tail(String url) {
+    return url.substring(url.lastIndexOf("/")+1);
   }
 
   private void loadConformance() throws Exception {
@@ -460,7 +527,7 @@ public class Publisher {
     load("StructureMap");
     generateSnapshots();
   }
-  
+
   private boolean noteFile(ImplementationGuidePackageResourceComponent key, FetchedFile file) {
     FetchedFile existing = fileMap.get(key);
     if (existing == null || existing.getTime() != file.getTime() || existing.getHash() != file.getHash()) {
@@ -487,7 +554,7 @@ public class Publisher {
     }
   }
 
-  private void determineType(FetchedFile file, boolean asBundle) throws Exception {
+  private void determineType(FetchedFile file) throws Exception {
     if (file.getResources().isEmpty()) {
       file.getErrors().clear();
       Element e = null;
@@ -502,19 +569,9 @@ public class Publisher {
       } catch (Exception ex) {
         throw new Exception("Unable to parse "+file.getName()+": " +ex.getMessage(), ex);
       }
-      if (asBundle) {
-        // we're going to ignore the bundle itself, and create a fetched resource for each entry
-        for (Element be : e.getChildren("entry")) {
-          Element res = be.getNamedChild("resource");
-          FetchedResource r = file.addResource();
-          r.setElement(res).setId(res.getChildValue("id")).setTitle(res.getChildValue("name"));
-          igpkp.findConfiguration(file, r);
-        }
-      } else {
-        FetchedResource r = file.addResource();
-        r.setElement(e).setId(e.getChildValue("id")).setTitle(e.getChildValue("name"));
-        igpkp.findConfiguration(file, r);
-      }
+      FetchedResource r = file.addResource();
+      r.setElement(e).setId(e.getChildValue("id")).setTitle(e.getChildValue("name"));
+      igpkp.findConfiguration(file, r);
     }
   }
 
@@ -558,7 +615,7 @@ public class Publisher {
   }
 
   private Resource parse(FetchedFile file) throws Exception {
-    
+
     if (file.getContentType().contains("json"))
       return new JsonParser().parse(file.getSource());
     else if (file.getContentType().contains("xml"))
@@ -569,10 +626,11 @@ public class Publisher {
 
   private void validate() throws Exception {
     for (FetchedFile f : fileList) {
+      if (first)
         log(" .. "+f.getName());
-        for (FetchedResource r : f.getResources()) {
-          if (!r.isValidated()) {
-            validate(f, r);
+      for (FetchedResource r : f.getResources()) {
+        if (!r.isValidated()) {
+          validate(f, r);
         }
       }
     }
@@ -604,7 +662,7 @@ public class Publisher {
     data.addProperty("totalFiles", fileList.size());
     data.addProperty("processedFiles", changeList.size());
     data.addProperty("genDate", genTime());
-    
+
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(data);
     TextFile.stringToFile(json, Utilities.path(dataDir, "fhir.json"));    
@@ -632,8 +690,8 @@ public class Publisher {
   }
 
   private void generateOutputs(FetchedFile f) throws Exception {
-    System.out.println(" ... "+f.getName());
-    
+    System.out.println(" * "+f.getName());
+
     for (FetchedResource r : f.getResources()) {
       saveDirectResourceOutputs(r);
 
@@ -745,11 +803,11 @@ public class Publisher {
       String html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
       fragment(f.getId()+"-html", html);  
     }
-//  NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
-//  gen.generate(f.getElement(), false);
-//  xhtml = getXhtml(f);
-//  html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
-//  fragment(f.getId()+"-gen-html", html);
+    //  NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
+    //  gen.generate(f.getElement(), false);
+    //  xhtml = getXhtml(f);
+    //  html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
+    //  fragment(f.getId()+"-gen-html", html);
   }
 
   private void genWrapper(FetchedResource f, String format) throws FileNotFoundException, IOException {
@@ -907,14 +965,14 @@ public class Publisher {
 
   private String pageWrap(String content, String title) {
     return "<html>\r\n"+
-    "<head>\r\n"+
-    "  <title>"+title+"</title>\r\n"+
-    "  <link rel=\"stylesheet\" href=\"fhir.css\"/>\r\n"+
-    "</head>\r\n"+
-    "<body>\r\n"+
-    content+
-    "</body>\r\n"+
-    "</html>\r\n";
+        "<head>\r\n"+
+        "  <title>"+title+"</title>\r\n"+
+        "  <link rel=\"stylesheet\" href=\"fhir.css\"/>\r\n"+
+        "</head>\r\n"+
+        "<body>\r\n"+
+        content+
+        "</body>\r\n"+
+        "</html>\r\n";
   }
 
   public static void main(String[] args) throws Exception {
@@ -962,7 +1020,7 @@ public class Publisher {
   private void setTxServer(String s) {
     if (!Utilities.noString(s))
       txServer = s;
-    
+
   }
 
   private static boolean hasParam(String[] args, String param) {

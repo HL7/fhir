@@ -5,6 +5,9 @@
     "source-wrapper-template" : "wrapper.html"
   },
 	"canonicalBase": "http://hl7.org/fhir/test",
+  "spreadsheets" : [
+    "test-ig-spreadsheet.xml"
+  ],
   "bundles" : [
     "test-bundle"
   ],  

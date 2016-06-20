@@ -80,4 +80,12 @@ public class BaseRenderer {
       return Utilities.escapeXml(text);
   }
 
+  protected String canonicalise(String uri) {
+    if (!uri.startsWith("http:") && !uri.startsWith("https:"))
+      return igp.getCanonical()+"/"+uri;
+    else
+      return uri;
+  }
+
+  
 }

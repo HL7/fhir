@@ -24,6 +24,7 @@ public class FetchedFile {
   private List<FetchedResource> resources = new ArrayList<FetchedResource>();
   private List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
   private Bundle bundle;
+  private List<String> valuesetsToLoad = new ArrayList<String>();
   
   public String getPath() {
     return path;
@@ -92,6 +93,9 @@ public class FetchedFile {
   }
   public void setBundle(Bundle bundle) {
     this.bundle = bundle;
+  }
+  public List<String> getValuesetsToLoad() {
+    return valuesetsToLoad;
   }
  
   

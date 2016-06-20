@@ -43,6 +43,7 @@ import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.ucum.Canonical;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
 import com.google.gson.JsonObject;
@@ -348,7 +349,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
             vss = "<a href=\""+((UriType)tx.getValueSet()).asStringValue()+"\">"+Utilities.escapeXml(((UriType)tx.getValueSet()).asStringValue())+"</a>";
           } else {
             String uri = ((Reference)tx.getValueSet()).getReference();
-            ValueSet vs = context.fetchResource(ValueSet.class, uri);
+            ValueSet vs = context.fetchResource(ValueSet.class, canonicalise(uri));
             if (vs == null)
               vss = "<a href=\""+prefix+uri+"\">"+Utilities.escapeXml(uri)+"</a>";
             else { 
@@ -366,6 +367,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
 
     }
   }
+
 
   public String inv() {
     List<String> txlist = new ArrayList<String>();
@@ -691,7 +693,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       if (!def.hasValueSet()) 
         return def.getDescription();
       String ref = def.getValueSet() instanceof UriType ? ((UriType) def.getValueSet()).asStringValue() : ((Reference) def.getValueSet()).getReference();
-      ValueSet vs = context.fetchResource(ValueSet.class, ref);
+      ValueSet vs = context.fetchResource(ValueSet.class, canonicalise(ref));
       if (vs != null) {
         String pp = (String) vs.getUserData("path");
         if (pp == null) {

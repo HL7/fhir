@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jun 14, 2016 05:57+1000 for FHIR v1.4.0
+// Generated on Sat, Jun 18, 2016 07:14+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -197,208 +197,6 @@ public class Encounter extends DomainResource {
       return "?";
       }
     public String toSystem(EncounterState code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum EncounterClass {
-        /**
-         * An encounter during which the patient is hospitalized and stays overnight.
-         */
-        INPATIENT, 
-        /**
-         * An encounter during which the patient is not hospitalized overnight.
-         */
-        OUTPATIENT, 
-        /**
-         * An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit.
-         */
-        AMBULATORY, 
-        /**
-         * An encounter in the Emergency Care Department.
-         */
-        EMERGENCY, 
-        /**
-         * An encounter where the practitioner visits the patient at his/her home.
-         */
-        HOME, 
-        /**
-         * An encounter taking place outside the regular environment for giving care.
-         */
-        FIELD, 
-        /**
-         * An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight.
-         */
-        DAYTIME, 
-        /**
-         * An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact.
-         */
-        VIRTUAL, 
-        /**
-         * Any other encounter type that is not described by one of the other values. Where this is used it is expected that an implementer will include an extension value to define what the actual other type is.
-         */
-        OTHER, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static EncounterClass fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("inpatient".equals(codeString))
-          return INPATIENT;
-        if ("outpatient".equals(codeString))
-          return OUTPATIENT;
-        if ("ambulatory".equals(codeString))
-          return AMBULATORY;
-        if ("emergency".equals(codeString))
-          return EMERGENCY;
-        if ("home".equals(codeString))
-          return HOME;
-        if ("field".equals(codeString))
-          return FIELD;
-        if ("daytime".equals(codeString))
-          return DAYTIME;
-        if ("virtual".equals(codeString))
-          return VIRTUAL;
-        if ("other".equals(codeString))
-          return OTHER;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown EncounterClass code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case INPATIENT: return "inpatient";
-            case OUTPATIENT: return "outpatient";
-            case AMBULATORY: return "ambulatory";
-            case EMERGENCY: return "emergency";
-            case HOME: return "home";
-            case FIELD: return "field";
-            case DAYTIME: return "daytime";
-            case VIRTUAL: return "virtual";
-            case OTHER: return "other";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case INPATIENT: return "http://hl7.org/fhir/encounter-class";
-            case OUTPATIENT: return "http://hl7.org/fhir/encounter-class";
-            case AMBULATORY: return "http://hl7.org/fhir/encounter-class";
-            case EMERGENCY: return "http://hl7.org/fhir/encounter-class";
-            case HOME: return "http://hl7.org/fhir/encounter-class";
-            case FIELD: return "http://hl7.org/fhir/encounter-class";
-            case DAYTIME: return "http://hl7.org/fhir/encounter-class";
-            case VIRTUAL: return "http://hl7.org/fhir/encounter-class";
-            case OTHER: return "http://hl7.org/fhir/encounter-class";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case INPATIENT: return "An encounter during which the patient is hospitalized and stays overnight.";
-            case OUTPATIENT: return "An encounter during which the patient is not hospitalized overnight.";
-            case AMBULATORY: return "An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit.";
-            case EMERGENCY: return "An encounter in the Emergency Care Department.";
-            case HOME: return "An encounter where the practitioner visits the patient at his/her home.";
-            case FIELD: return "An encounter taking place outside the regular environment for giving care.";
-            case DAYTIME: return "An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight.";
-            case VIRTUAL: return "An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact.";
-            case OTHER: return "Any other encounter type that is not described by one of the other values. Where this is used it is expected that an implementer will include an extension value to define what the actual other type is.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case INPATIENT: return "Inpatient";
-            case OUTPATIENT: return "Outpatient";
-            case AMBULATORY: return "Ambulatory";
-            case EMERGENCY: return "Emergency";
-            case HOME: return "Home";
-            case FIELD: return "Field";
-            case DAYTIME: return "Daytime";
-            case VIRTUAL: return "Virtual";
-            case OTHER: return "Other";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class EncounterClassEnumFactory implements EnumFactory<EncounterClass> {
-    public EncounterClass fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("inpatient".equals(codeString))
-          return EncounterClass.INPATIENT;
-        if ("outpatient".equals(codeString))
-          return EncounterClass.OUTPATIENT;
-        if ("ambulatory".equals(codeString))
-          return EncounterClass.AMBULATORY;
-        if ("emergency".equals(codeString))
-          return EncounterClass.EMERGENCY;
-        if ("home".equals(codeString))
-          return EncounterClass.HOME;
-        if ("field".equals(codeString))
-          return EncounterClass.FIELD;
-        if ("daytime".equals(codeString))
-          return EncounterClass.DAYTIME;
-        if ("virtual".equals(codeString))
-          return EncounterClass.VIRTUAL;
-        if ("other".equals(codeString))
-          return EncounterClass.OTHER;
-        throw new IllegalArgumentException("Unknown EncounterClass code '"+codeString+"'");
-        }
-        public Enumeration<EncounterClass> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("inpatient".equals(codeString))
-          return new Enumeration<EncounterClass>(this, EncounterClass.INPATIENT);
-        if ("outpatient".equals(codeString))
-          return new Enumeration<EncounterClass>(this, EncounterClass.OUTPATIENT);
-        if ("ambulatory".equals(codeString))
-          return new Enumeration<EncounterClass>(this, EncounterClass.AMBULATORY);
-        if ("emergency".equals(codeString))
-          return new Enumeration<EncounterClass>(this, EncounterClass.EMERGENCY);
-        if ("home".equals(codeString))
-          return new Enumeration<EncounterClass>(this, EncounterClass.HOME);
-        if ("field".equals(codeString))
-          return new Enumeration<EncounterClass>(this, EncounterClass.FIELD);
-        if ("daytime".equals(codeString))
-          return new Enumeration<EncounterClass>(this, EncounterClass.DAYTIME);
-        if ("virtual".equals(codeString))
-          return new Enumeration<EncounterClass>(this, EncounterClass.VIRTUAL);
-        if ("other".equals(codeString))
-          return new Enumeration<EncounterClass>(this, EncounterClass.OTHER);
-        throw new FHIRException("Unknown EncounterClass code '"+codeString+"'");
-        }
-    public String toCode(EncounterClass code) {
-      if (code == EncounterClass.INPATIENT)
-        return "inpatient";
-      if (code == EncounterClass.OUTPATIENT)
-        return "outpatient";
-      if (code == EncounterClass.AMBULATORY)
-        return "ambulatory";
-      if (code == EncounterClass.EMERGENCY)
-        return "emergency";
-      if (code == EncounterClass.HOME)
-        return "home";
-      if (code == EncounterClass.FIELD)
-        return "field";
-      if (code == EncounterClass.DAYTIME)
-        return "daytime";
-      if (code == EncounterClass.VIRTUAL)
-        return "virtual";
-      if (code == EncounterClass.OTHER)
-        return "other";
-      return "?";
-      }
-    public String toSystem(EncounterClass code) {
       return code.getSystem();
       }
     }
@@ -2154,9 +1952,9 @@ Not to be used when the patient is currently at the location
     /**
      * inpatient | outpatient | ambulatory | emergency +.
      */
-    @Child(name = "class", type = {CodeType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "class", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="inpatient | outpatient | ambulatory | emergency +", formalDefinition="inpatient | outpatient | ambulatory | emergency +." )
-    protected Enumeration<EncounterClass> class_;
+    protected Coding class_;
 
     /**
      * Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).
@@ -2298,7 +2096,7 @@ Not to be used when the patient is currently at the location
      */
     protected Encounter partOfTarget;
 
-    private static final long serialVersionUID = 929562300L;
+    private static final long serialVersionUID = 770948560L;
 
   /**
    * Constructor
@@ -2467,19 +2265,15 @@ Not to be used when the patient is currently at the location
     }
 
     /**
-     * @return {@link #class_} (inpatient | outpatient | ambulatory | emergency +.). This is the underlying object with id, value and extensions. The accessor "getClass_" gives direct access to the value
+     * @return {@link #class_} (inpatient | outpatient | ambulatory | emergency +.)
      */
-    public Enumeration<EncounterClass> getClass_Element() { 
+    public Coding getClass_() { 
       if (this.class_ == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.class_");
         else if (Configuration.doAutoCreate())
-          this.class_ = new Enumeration<EncounterClass>(new EncounterClassEnumFactory()); // bb
+          this.class_ = new Coding(); // cc
       return this.class_;
-    }
-
-    public boolean hasClass_Element() { 
-      return this.class_ != null && !this.class_.isEmpty();
     }
 
     public boolean hasClass_() { 
@@ -2487,31 +2281,10 @@ Not to be used when the patient is currently at the location
     }
 
     /**
-     * @param value {@link #class_} (inpatient | outpatient | ambulatory | emergency +.). This is the underlying object with id, value and extensions. The accessor "getClass_" gives direct access to the value
+     * @param value {@link #class_} (inpatient | outpatient | ambulatory | emergency +.)
      */
-    public Encounter setClass_Element(Enumeration<EncounterClass> value) { 
+    public Encounter setClass_(Coding value) { 
       this.class_ = value;
-      return this;
-    }
-
-    /**
-     * @return inpatient | outpatient | ambulatory | emergency +.
-     */
-    public EncounterClass getClass_() { 
-      return this.class_ == null ? null : this.class_.getValue();
-    }
-
-    /**
-     * @param value inpatient | outpatient | ambulatory | emergency +.
-     */
-    public Encounter setClass_(EncounterClass value) { 
-      if (value == null)
-        this.class_ = null;
-      else {
-        if (this.class_ == null)
-          this.class_ = new Enumeration<EncounterClass>(new EncounterClassEnumFactory());
-        this.class_.setValue(value);
-      }
       return this;
     }
 
@@ -3217,7 +2990,7 @@ Not to be used when the patient is currently at the location
         childrenList.add(new Property("identifier", "Identifier", "Identifier(s) by which this encounter is known.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("status", "code", "planned | arrived | in-progress | onleave | finished | cancelled.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("statusHistory", "", "The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them.", 0, java.lang.Integer.MAX_VALUE, statusHistory));
-        childrenList.add(new Property("class", "code", "inpatient | outpatient | ambulatory | emergency +.", 0, java.lang.Integer.MAX_VALUE, class_));
+        childrenList.add(new Property("class", "Coding", "inpatient | outpatient | ambulatory | emergency +.", 0, java.lang.Integer.MAX_VALUE, class_));
         childrenList.add(new Property("type", "CodeableConcept", "Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("priority", "CodeableConcept", "Indicates the urgency of the encounter.", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("patient", "Reference(Patient)", "The patient present at the encounter.", 0, java.lang.Integer.MAX_VALUE, patient));
@@ -3241,7 +3014,7 @@ Not to be used when the patient is currently at the location
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EncounterState>
         case -986695614: /*statusHistory*/ return this.statusHistory == null ? new Base[0] : this.statusHistory.toArray(new Base[this.statusHistory.size()]); // EncounterStatusHistoryComponent
-        case 94742904: /*class*/ return this.class_ == null ? new Base[0] : new Base[] {this.class_}; // Enumeration<EncounterClass>
+        case 94742904: /*class*/ return this.class_ == null ? new Base[0] : new Base[] {this.class_}; // Coding
         case 3575610: /*type*/ return this.type == null ? new Base[0] : this.type.toArray(new Base[this.type.size()]); // CodeableConcept
         case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
@@ -3275,7 +3048,7 @@ Not to be used when the patient is currently at the location
           this.getStatusHistory().add((EncounterStatusHistoryComponent) value); // EncounterStatusHistoryComponent
           break;
         case 94742904: // class
-          this.class_ = new EncounterClassEnumFactory().fromType(value); // Enumeration<EncounterClass>
+          this.class_ = castToCoding(value); // Coding
           break;
         case 3575610: // type
           this.getType().add(castToCodeableConcept(value)); // CodeableConcept
@@ -3336,7 +3109,7 @@ Not to be used when the patient is currently at the location
         else if (name.equals("statusHistory"))
           this.getStatusHistory().add((EncounterStatusHistoryComponent) value);
         else if (name.equals("class"))
-          this.class_ = new EncounterClassEnumFactory().fromType(value); // Enumeration<EncounterClass>
+          this.class_ = castToCoding(value); // Coding
         else if (name.equals("type"))
           this.getType().add(castToCodeableConcept(value));
         else if (name.equals("priority"))
@@ -3377,7 +3150,7 @@ Not to be used when the patient is currently at the location
         case -1618432855:  return addIdentifier(); // Identifier
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EncounterState>
         case -986695614:  return addStatusHistory(); // EncounterStatusHistoryComponent
-        case 94742904: throw new FHIRException("Cannot make property class as it is not a complex type"); // Enumeration<EncounterClass>
+        case 94742904:  return getClass_(); // Coding
         case 3575610:  return addType(); // CodeableConcept
         case -1165461084:  return getPriority(); // CodeableConcept
         case -791418107:  return getPatient(); // Reference
@@ -3410,7 +3183,8 @@ Not to be used when the patient is currently at the location
           return addStatusHistory();
         }
         else if (name.equals("class")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Encounter.class");
+          this.class_ = new Coding();
+          return this.class_;
         }
         else if (name.equals("type")) {
           return addType();
@@ -3563,7 +3337,7 @@ Not to be used when the patient is currently at the location
         if (!(other instanceof Encounter))
           return false;
         Encounter o = (Encounter) other;
-        return compareValues(status, o.status, true) && compareValues(class_, o.class_, true);
+        return compareValues(status, o.status, true);
       }
 
       public boolean isEmpty() {
@@ -4023,6 +3797,26 @@ Not to be used when the patient is currently at the location
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SPECIAL_ARRANGEMENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SPECIAL_ARRANGEMENT);
+
+ /**
+   * Search parameter: <b>class</b>
+   * <p>
+   * Description: <b>inpatient | outpatient | ambulatory | emergency +</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Encounter.class</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="class", path="Encounter.class", description="inpatient | outpatient | ambulatory | emergency +", type="token" )
+  public static final String SP_CLASS = "class";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>class</b>
+   * <p>
+   * Description: <b>inpatient | outpatient | ambulatory | emergency +</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Encounter.class</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CLASS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CLASS);
 
  /**
    * Search parameter: <b>status</b>
