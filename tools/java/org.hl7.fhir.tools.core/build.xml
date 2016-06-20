@@ -6,6 +6,7 @@
   <property name="org.hl7.fhir.implementation2.location" value="../../../implementations/java/org.hl7.fhir.dstu2"/>
   <property name="org.hl7.fhir.convertors.location" value="../../../implementations/java/org.hl7.fhir.convertors"/>
   <property name="org.hl7.fhir.rdf.location" value="../../../implementations/java/org.hl7.fhir.rdf"/>
+  <property name="org.hl7.fhir.igtools.location" value="../../../tools/java/org.hl7.fhir.igtools"/>
   <property name="debuglevel" value="source,lines,vars"/>
   <property name="target" value="1.8"/>
   <property name="source" value="1.8"/>
@@ -14,6 +15,9 @@
   </path>
   <path id="org.hl7.fhir.rdf.classpath">
     <pathelement location="${org.hl7.fhir.rdf.location}/bin"/>
+  </path>
+  <path id="org.hl7.fhir.igtools.classpath">
+    <pathelement location="${org.hl7.fhir.igtools.location}/bin"/>
   </path>
   <path id="org.hl7.fhir.implementation.classpath">
     <pathelement location="${org.hl7.fhir.implementation.location}/bin"/>
@@ -32,6 +36,7 @@
     <path refid="org.hl7.fhir.convertors.classpath"/>
     <path refid="org.hl7.fhir.utilities.classpath"/>
     <path refid="org.hl7.fhir.rdf.classpath"/>
+    <path refid="org.hl7.fhir.igtools.classpath"/>
   </path>
   <target name="clean">
     <delete dir="bin"/>
@@ -42,6 +47,7 @@
     <ant antfile="build.xml" dir="${org.hl7.fhir.implementation2.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.convertors.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="clean"/>
+    <ant antfile="build.xml" dir="${org.hl7.fhir.igtools.location}" inheritAll="false" target="clean"/>
   </target>
   <target depends="build-subprojects,build-project" name="build"/>
   <target name="build-subprojects">
@@ -66,6 +72,11 @@
       </propertyset>
     </ant>
     <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="build-project">
+      <propertyset>
+        <propertyref name="build.compiler"/>
+      </propertyset>
+    </ant>
+    <ant antfile="build.xml" dir="${org.hl7.fhir.igtools.location}" inheritAll="false" target="build-project">
       <propertyset>
         <propertyref name="build.compiler"/>
       </propertyset>
@@ -154,6 +165,7 @@
       <fileset dir="../../../implementations/java/org.hl7.fhir.dstu3/src" includes="**/*.java"/>
       <fileset dir="../../../implementations/java/org.hl7.fhir.utilities/src" includes="**/*.java"/>
       <fileset dir="../../../implementations/java/org.hl7.fhir.rdf/src" includes="**/*.java"/>
+      <fileset dir="../../../tools/java/org.hl7.fhir.igtools/src" includes="**/*.java"/>
     </jar>
   </target>
   <target name="fhir-javadoc-jar" depends="build">
