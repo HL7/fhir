@@ -61,7 +61,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Label = plan or agreement issuer identifier
+  Short Label = Plan or agreement issuer identifier
   Definition = The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements.
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
   CDAnet v4 Mapping = A05
@@ -73,7 +73,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization|Patient|RelatedPerson)
-  Short Label = plan or agreement issuer
+  Short Label = Plan or agreement issuer
   Definition = The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements.
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
   CDAnet v4 Mapping = A05
@@ -219,7 +219,7 @@
   Card. = 1..1
   Type = Coding
   Binding = Relationship
-  Short Label = planholder relationship to beneficiary
+  Short Label = Planholder relationship to beneficiary
   Definition = The relationship of the planholder (subscriber) to the beneficiary (patient).
   Requirements = To determine relationship between the patient and the subscriber
   CDAnet v4 Mapping = C03

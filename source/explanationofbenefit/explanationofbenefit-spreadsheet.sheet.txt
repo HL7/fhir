@@ -1903,9 +1903,17 @@
   CDAnet v4 Mapping = G32
 
  -- Row 200 -----------------------------------
-  Element = !Plan Balance Information
+  Element = ExplanationOfBenefit.note.language
+  Card. = 0..1
+  Type = Coding
+  Binding = Language
+  Short Label = The language which can be used to communicate with the patient about his or her health
+  Definition = The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English
 
  -- Row 201 -----------------------------------
+  Element = !Plan Balance Information
+
+ -- Row 202 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance
   Card. = 0..*
   UML = 770;290
@@ -1913,7 +1921,7 @@
   Short Label = Balance by Benefit Category
   Definition = Balance by Benefit Category.
 
- -- Row 202 -----------------------------------
+ -- Row 203 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.category
   Card. = 1..1
   Type = Coding
@@ -1921,7 +1929,7 @@
   Short Label = Benefit Category
   Definition = Dental, Vision, Medical, Pharmacy, Rehab etc.
 
- -- Row 203 -----------------------------------
+ -- Row 204 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.subCategory
   Card. = 0..1
   Type = Coding
@@ -1929,7 +1937,7 @@
   Short Label = Benefit SubCategory
   Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.
 
- -- Row 204 -----------------------------------
+ -- Row 205 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.network
   Card. = 0..1
   Type = Coding
@@ -1937,7 +1945,7 @@
   Short Label = In or out of network
   Definition = Network designation.
 
- -- Row 205 -----------------------------------
+ -- Row 206 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.unit
   Card. = 0..1
   Type = Coding
@@ -1945,7 +1953,7 @@
   Short Label = Individual or family
   Definition = Unit designation: individual or family
 
- -- Row 206 -----------------------------------
+ -- Row 207 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.term
   Card. = 0..1
   Type = Coding
@@ -1953,7 +1961,7 @@
   Short Label = Annual or lifetime
   Definition = The term or period of the values such as \'maximum lifetime benefit\' or \'maximum annual vistis\'.
 
- -- Row 207 -----------------------------------
+ -- Row 208 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.financial
   Card. = 0..*
   UML = 770;440
@@ -1961,7 +1969,7 @@
   Short Label = Benefit Summary
   Definition = Benefits Used to date
 
- -- Row 208 -----------------------------------
+ -- Row 209 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.financial.type
   Card. = 1..1
   Type = Coding
@@ -1969,14 +1977,14 @@
   Short Label = Deductable, visits, benefit amount
   Definition = Deductable, visits, benefit amount.
 
- -- Row 209 -----------------------------------
+ -- Row 210 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.financial.benefit[x]
   Card. = 0..1
   Type = unsignedInt|Money
   Short Label = Benefits allowed
   Definition = Benefits allowed.
 
- -- Row 210 -----------------------------------
+ -- Row 211 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.financial.benefitUsed[x]
   Card. = 0..1
   Type = unsignedInt|Money

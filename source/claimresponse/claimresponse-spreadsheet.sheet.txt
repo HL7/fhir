@@ -702,9 +702,17 @@
   CDAnet v4 Mapping = G32
 
  -- Row 90 -----------------------------------
-  Element = !Insurance Information
+  Element = ClaimResponse.note.language
+  Card. = 0..1
+  Type = Coding
+  Binding = Language
+  Short Label = Language
+  Definition = The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English
 
  -- Row 91 -----------------------------------
+  Element = !Insurance Information
+
+ -- Row 92 -----------------------------------
   Element = ClaimResponse.coverage
   Card. = 0..*
   UML = 620;0
@@ -714,7 +722,7 @@
   Requirements = Health care programs and insurers are significant payors of health service costs
   RIM Mapping = Coverage
 
- -- Row 92 -----------------------------------
+ -- Row 93 -----------------------------------
   Element = ClaimResponse.coverage.sequence
   Card. = 1..1
   Type = positiveInt
@@ -722,7 +730,7 @@
   Definition = A service line item.
   Requirements = To maintain order of the coverages.
 
- -- Row 93 -----------------------------------
+ -- Row 94 -----------------------------------
   Element = ClaimResponse.coverage.focal
   Card. = 1..1
   Type = boolean
@@ -730,7 +738,7 @@
   Definition = The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
   Requirements = To identify which coverage is being adjudicated.
 
- -- Row 94 -----------------------------------
+ -- Row 95 -----------------------------------
   Element = ClaimResponse.coverage.coverage[x]
   Card. = 1..1
   Type = Identifier|Reference(Coverage)
@@ -738,14 +746,14 @@
   Definition = Reference to the program or plan identification, underwriter or payor.
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
 
- -- Row 95 -----------------------------------
+ -- Row 96 -----------------------------------
   Element = ClaimResponse.coverage.businessArrangement
   Card. = 0..1
   Type = string
   Short Label = Business agreement
   Definition = The contract number of a business agreement which describes the terms and conditions.
 
- -- Row 96 -----------------------------------
+ -- Row 97 -----------------------------------
   Element = !ClaimResponse.coverage.relationship
   Card. = 1..1
   Type = Coding
@@ -755,7 +763,7 @@
   Requirements = To determine the relationship between the patient and the subscriber
   CDAnet v4 Mapping = C03
 
- -- Row 97 -----------------------------------
+ -- Row 98 -----------------------------------
   Element = ClaimResponse.coverage.preAuthRef
   Card. = 0..*
   Type = string
@@ -764,7 +772,7 @@
   Requirements = To provide any pre-determination or prior authorization reference.
   CDAnet v4 Mapping = F03
 
- -- Row 98 -----------------------------------
+ -- Row 99 -----------------------------------
   Element = ClaimResponse.coverage.claimResponse
   Card. = 0..1
   Type = Reference(ClaimResponse)
@@ -773,7 +781,7 @@
   Requirements = Used by downstream payers to determine what balance remains and the net payable.
   CDAnet v4 Mapping = EOB
 
- -- Row 99 -----------------------------------
+ -- Row 100 -----------------------------------
   Element = !ClaimResponse.coverage.originalRuleset
   Card. = 0..1
   Type = Coding
