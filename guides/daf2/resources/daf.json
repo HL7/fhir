@@ -1,9 +1,13 @@
 {
 	"source": "daf.xml",
+  "tool" : {
+    "type" : "jekyll",
+    "source-wrapper-template" : "wrapper.html"
+  },
 	"dependencies": {
 		"state": "not done yet"
 	},
-	"canonicalBase": "http://hl7.org/fhir",
+	"canonicalBase": "http://hl7.org/fhir/daf",  
 	"defaults": {
 		"_documentation": "this object contains the default publishing policy for different types. Anything not mentioned defaults to true",
 		"Any": {
@@ -49,6 +53,32 @@
 			"xref": true
 		}
 	},
+  "spreadsheets" : [  
+    "allergyintolerance-daf-profile-spreadsheet.xml",
+    "condition-daf-profile-spreadsheet.xml",
+    "diagnosticorder-daf-profile-spreadsheet.xml",
+    "diagnosticreport-daf-profile-spreadsheet.xml",
+    "encounter-daf-profile-spreadsheet.xml",
+    "familymemberhistory-daf-profile-spreadsheet.xml",
+    "immunization-daf-profile-spreadsheet.xml",
+    "list-daf-profile-spreadsheet.xml",
+    "location-daf-profile-spreadsheet.xml",
+    "medication-daf-profile-spreadsheet.xml",
+    "medicationadministration-daf-profile-spreadsheet.xml",
+    "medicationdispense-daf-profile-spreadsheet.xml",
+    "medicationorder-daf-profile-spreadsheet.xml",
+    "medicationstatement-daf-profile-spreadsheet.xml",
+    "observation-daf-vitalsigns-profile-spreadsheet.xml",
+    "observation-daf-results-profile-spreadsheet.xml",
+    "observation-daf-smokingstatus-profile-spreadsheet.xml",
+    "organization-daf-profile-spreadsheet.xml",
+    "patient-daf-profile-spreadsheet.xml",
+    "practitioner-daf-profile-spreadsheet.xml",
+    "procedure-daf-profile-spreadsheet.xml",
+    "relatedperson-daf-profile-spreadsheet.xml",
+    "spec-daf-profile-spreadsheet.xml",
+    "substance-daf-profile-spreadsheet.xml"
+  ],  
 	"resources": {
 		"StructureDefinition/daf-allergyintolerance": {
 			"defns": "daf-allergyintolerance-definitions.html",
@@ -236,8 +266,8 @@
 		"ValueSet/daf-ethnicity": {
 			"base": "valueset-daf-ethnicity.html"
 		},
-		"ValueSet/daf-list-DAFMedListCode": {
-			"base": "valueset-daf-list-DAFMedListCode.html"
+		"ValueSet/daf-list-MedListCode": {
+			"base": "valueset-daf-list-MedListCode.html"
 		},
 		"ValueSet/daf-manifestation-ccda-codes": {
 			"base": "valueset-daf-manifestation-ccda-codes.html"

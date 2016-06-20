@@ -45,7 +45,7 @@
     <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-encounter-reason"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-encounter-type"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-ethnicity"/></sourceReference></resource>
-    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-list-DAFMedListCode"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-list-MedListCode"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-manifestation-ccda-codes"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-medication-codes"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-medication-route"/></sourceReference></resource>
