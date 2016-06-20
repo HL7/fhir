@@ -1284,7 +1284,7 @@
     <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s187"><Data ss:Type="String">plan or agreement issuer identifier</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Plan or agreement issuer identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s188"><Data ss:Type="String">The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1321,7 +1321,7 @@
     <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s187"><Data ss:Type="String">plan or agreement issuer</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Plan or agreement issuer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s188"><Data ss:Type="String">The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1792,7 +1792,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">planholder relationship to beneficiary</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Planholder relationship to beneficiary</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">The relationship of the planholder (subscriber) to the beneficiary (patient).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4503,7 +4503,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>14</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
