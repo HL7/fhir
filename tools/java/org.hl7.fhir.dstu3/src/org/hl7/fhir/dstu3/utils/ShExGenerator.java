@@ -28,8 +28,9 @@ public class ShExGenerator {
   private static String HEADER_TEMPLATE =
           "PREFIX fhir: <$fhir$> \n" +
           "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \n" +
-          "BASE <http://hl7.org/fhir/shape/>\n\n" +
-          "start=<$id$>";
+          "BASE <http://hl7.org/fhir/shape/>\n$start$";
+
+  private static String START_TEMPLATE = "\nstart=<$id$>\n";
 
   // Shape Definition
   //      the shape name
@@ -38,14 +39,14 @@ public class ShExGenerator {
   //      an optional index element (for appearances inside ordered lists)
   private static String SHAPE_DEFINITION_TEMPLATE =
           "$comment$\n<$id$> CLOSED {\n    $resourceDecl$" +
-          "\n    $elements$;" +
+          "\n    $elements$" +
           "\n    fhir:index xsd:integer?\n}\n";
 
   // Resource Definition
   //      an open shape of type Resource
   private static String RESOURCE_SHAPE_TEMPLATE =
           "$comment$\n<$id$> {a .+;" +
-          "\n    $elements$;" +
+          "\n    $elements$" +
           "\n    fhir:index xsd:integer?" +
           "\n}\n";
 
@@ -98,7 +99,7 @@ public class ShExGenerator {
   private static String CONCEPT_REFERENCES_TEMPLATE = "fhir:concept IRI*;";
 
   // Untyped resource has the extra link entry
-  private static String RESOURCE_LINK_TEMPLATE = "fhir:link IRI?";
+  private static String RESOURCE_LINK_TEMPLATE = "fhir:link IRI?;";
 
   // Extension template
   private static String EXTENSION_TEMPLATE = "<Extension> {fhir:extension @<Extension>*;" +
@@ -133,8 +134,9 @@ public class ShExGenerator {
   private HashSet<String> references;
   private LinkedList<StructureDefinition> uniq_structures;
   private HashSet<String> uniq_structure_urls;
-  public boolean doDatatypes = true;                  // add data types
-  public boolean withComments = true;                 // include comments
+  public boolean doDatatypes = true;                 // add data types
+  public boolean withComments = true;                // include comments
+  public boolean completeModel = false;              // doing complete build (fhir.shex)
 
   public ShExGenerator(IWorkerContext context) {
     super();
@@ -181,7 +183,8 @@ public class ShExGenerator {
   public String generate(HTMLLinkPolicy links, List<StructureDefinition> structures) {
 
     ST shex_def = tmplt(SHEX_TEMPLATE);
-    shex_def.add("header", tmplt(HEADER_TEMPLATE).add("id", structures.get(0).getId()).add("fhir", FHIR).render());
+    String start_cmd = completeModel? tmplt(START_TEMPLATE).add("id", structures.get(0).getId()).render() : " ";
+    shex_def.add("header", tmplt(HEADER_TEMPLATE).add("start", start_cmd).add("fhir", FHIR).render());
 
     Collections.sort(structures, new SortById());
     StringBuilder shapeDefinitions = new StringBuilder();
