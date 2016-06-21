@@ -62,7 +62,7 @@
 
  -- Row 5 -----------------------------------
   Element = RelatedPerson.name
-  Card. = 0..1
+  Card. = 0..*
   Summary = y
   Type = HumanName
   Short Label = A name associated with the person
