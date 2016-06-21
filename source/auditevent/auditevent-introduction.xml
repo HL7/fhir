@@ -23,9 +23,7 @@ This resource is managed collaboratively between HL7, DICOM, and IHE.
 The primary purpose of this resource is the maintenance of security audit log information.  However, 
 it can also be used for any audit logging needs and simple event-based notification.
 </p>
-</div>
 
-<div>
 <a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
@@ -62,60 +60,6 @@ information, but is a record-keeping assertion that gathers information about th
 in a resource "came to be" in its current state, e.g., whether it was created de novo or obtained from another entity 
 in whole, part, or by transformation. Provenance resources are prepared by the application that initiates the 
 create/update of the resource, and may be persisted with the AuditEvent target resource. 
-</p>
-<a name="TODO"> </a>
-<h3>Open Issues and Request for Comments</h3>
-<p>
-The AuditEvent Resource, like many of the FHIR Resources in DSTU, continues to be developed by the sponsoring HL7 Security 
-Work Group.  In particular, the Security WG continues to focus on refining the value sets used by both AuditEvent and 
-its closely related Provenance Resource to ensure complete coverage of system and end user actions and action reasons 
-that impact security objects (data, processes, applications, servers, etc.)  The Security WG is particularly interested 
-in implementer feedback on these focus areas, and at the same time cautions implementers to undertake due diligence in 
-adapting these resources to their use cases. 
-</p>
-<p>
-At this juncture, there are multiple standard vocabularies in use that reflect different perspectives and levels of 
-granularity on the concepts used to convey actions and reasons for actions.  Both the AuditEvent and Provenance Resources 
-are making available a number of those vocabularies via resource element bindings.  
-</p>
-<p>
-For example, AuditEvent has four elements that bind to "activity" vocabularies which could be used to convey the same 
-concept where there’s no clear use case for doing so.  E.g., a "read" action could be conveyed by AuditEvent.event.type, 
-AuditEvent.event.subtype, AuditEvent.event.action, and AuditEvent.object.lifecycle.  Only the AuditEvent.event.type is 
-required, but is there a use case for including the others if the basic action is the same?  However, there may be use 
-cases in which both the high level CRUDE action value set is an important addition to a required code from AuditEvent.event.type.  
-E.g., seems helpful where the required code = Audit event: Application Activity has taken place, and not so helpful if the 
-required code = Audit Log has been used.  The upshot is that implementers will need to carefully match the concepts in the 
-value set bindings to their use cases to ensure that the level of granularity and concept selections are appropriate.  
-The Security WG would appreciate comments on this, and in particular, how feasible or useful pre-coordination of these 
-multiple activity value sets might be or whether collapsing these into one or two might be more appropriate.
-</p>
-<p>
-The Security WG would also appreciate feedback from the implementer community on how well they are able to discern and 
-utilize the different contexts in which the rationale for actions is conveyed using the HL7 Purpose of Use 
-vocabulary [V:PurposeOfUse:2.16.840.1.113883.1.11.20448]. At this juncture, AuditEvent binds to this value set in four places: 
-<ul>
-<li>As Purpose of Event – where it’s a machine that is the audited agent</li> 
-<li>As Purpose of Use – which is the Human User’s asserted POU </li>
-<li>As a Security Label Element – see 3rd Detailed Description below</li>
-<li>As a Security Label Metadata value Meta.security (Extensible)</li>
-</ul>
-</p>
-<p>
-The Security WG envisions use cases where these could be used in concert, but that would require system functionality 
-that may not be feasible or beneficial to the implementer community.  For example, 
-<ul>
-<li>Purpose of Event when the machine2machine is an EHR server and the user’s client supposedly being used for Treatment</li>
-<li>End User’s POU is Treatment and Research using e.g., DAF</li>
-<li>POU Security Label on the participant/target object of the AuditEvent = Legal, which is the POU for e.g., Legal Hold [i.e., no one but Records Management and Legal is supposed to have access but the Access Control System doesn’t do ABAC or the patient’s consent directive does not assent to POU = research, but the audited system has not implemented data segmentation to prevent End User from using the data to research</li>
-<li>Security Label on the AuditEvent Resource = System administration [because the only permitted use is for system administration/security]</li>
-</ul>
-</p>
-<p>
-Note that the binding of the value sets discussed above are currently set to extensible rather than example.  
-Concerns have been raised about constraining vocabulary choices during DSTU especially for other jurisdictions.  
-For example, outside of the US, ISO 13606 Purpose of Use codes are more likely used.  Security WG would also 
-appreciate feedback on whether these bindings should be example or extensible.
 </p>
 </div>
 

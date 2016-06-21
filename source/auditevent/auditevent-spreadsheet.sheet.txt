@@ -1084,7 +1084,7 @@
 
  -- Row 12 -----------------------------------
   Name = address
-  Type = token
+  Type = string
   Path = AuditEvent.agent.network.address
 
  -- Row 13 -----------------------------------
@@ -1112,6 +1112,16 @@
   Name = entity-name
   Type = string
   Path = AuditEvent.entity.name
+
+ -- Row 18 -----------------------------------
+  Name = outcome
+  Type = token
+  Path = AuditEvent.outcome
+
+ -- Row 19 -----------------------------------
+  Name = role
+  Type = token
+  Path = AuditEvent.entity.role
 
 === Sheet Profiles =====================================
 

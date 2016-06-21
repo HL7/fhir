@@ -44,5 +44,33 @@ Audit Event Actions for RESTful operations:
  <tr><td>transaction, operation, conformance, validate, search, search-type, search-system</td><td>E</td></tr>
 </table>
 
+<h3>PurposeOfEvent and PurposeOfUse </h3>
+<p>
+The audit event provides the element purposeOfEvent to convey the purpose of the event and purposeOfUse 
+to convey the reason that a particular actor (machine, person, software) was involved in the event. 
+</p><p>
+PurposeOfEvent is an element at the level of AuditEvent and can convey the purpose of the activity 
+that resulted in the event.  This will occur when the system that is reporting the event is be aware 
+of the purpose of the event.  A specific example would be a radiology reporting system where a 
+radiologist has created and is sending a finished report.  This system likely knows the purpose, 
+e.g., “treatment”.  It is multi-valued because the one event may be related to multiple purposes. 
+</p><p>
+It is also commonplace that the reporting system does not have information about the purpose of 
+the event.  In these cases, the event report would not have a purposeOfEvent.   
+</p><p>
+It is also likely that the same event will be reported from different perspectives, e.g., by both the 
+sender and recipient of a communication.  These two different perspectives can have different 
+knowledge regarding the purposeOfEvent.
+</p><p>
+PurposeOfUse is an element at the level of agent within AuditEvent.  This describes the reason that this 
+particular person, machine, or software is participating in the activity that resulted in the event.  For 
+example, an individual person participating in the event may assert a purpose of use from their perspective.   
+It is also possible that they are participating for multiple reasons, and report multiple purposeOfUse.
+</p><p>
+The reporting system might not have knowledge regarding why a particular machine or person was involved, 
+and would omit this element in those cases. 
+</p><p>
+When the same event is reported from multiple perspectives, the reports can have different knowledge regarding the purpose. 
+</p>
 
 </div>

@@ -23,6 +23,13 @@
     <name value="Grahame Grieve"/>
     <requestor value="true"/>
   </agent>
+  <agent> <!-- Source active participant, the software making the . AlternativeUserId - Process ID --> 
+    <role> <coding> <system value="http://nema.org/dicom/dicm"/> <code value="110153"/> <display value="Source Role ID"/> </coding> </role> 
+    <userId> <value value="2.16.840.1.113883.4.2|2.16.840.1.113883.4.2"/> </userId> 
+    <altId value="6580"/> 
+    <requestor value="false"/> 
+    <network> <address value="Workstation1.ehr.familyclinic.com"/> <type value="1"/> </network> 
+  </agent>
   <source>
     <site value="Cloud"/>
     <identifier>
