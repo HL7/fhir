@@ -1920,9 +1920,12 @@ public class Publisher implements URIResolver, SectionNumberer {
         if (sd.getDerivation() == TypeDerivationRule.SPECIALIZATION)
           list.add(sd);
       }
-      TextFile.stringToFile(new ShExGenerator(page.getWorkerContext()).generate(HTMLLinkPolicy.NONE, list), page.getFolders().dstDir+"fhir.shex", false);
-      
-      if (buildFlags.get("all")) {
+    ShExGenerator shgen = new ShExGenerator(page.getWorkerContext());
+    shgen.completeModel = true;
+    shgen.withComments = false;
+    TextFile.stringToFile(shgen.generate(HTMLLinkPolicy.NONE, list), page.getFolders().dstDir+"fhir.shex", false);
+
+    if (buildFlags.get("all")) {
         for (PlatformGenerator gen : page.getReferenceImplementations()) {
           page.log("Produce " + gen.getName() + " Reference Implementation", LogMessageType.Process);
 
