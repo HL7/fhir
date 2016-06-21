@@ -68,10 +68,10 @@
   Definition = The date when this resource was created.
 
  -- Row 7 -----------------------------------
-  Element = EligibilityRequest.target[x]
+  Element = EligibilityRequest.insurer[x]
   Card. = 0..1
   Type = Identifier|Reference(Organization)
-  Short Label = Insurer
+  Short Label = Target
   Definition = The Insurer who is target  of the request.
 
  -- Row 8 -----------------------------------

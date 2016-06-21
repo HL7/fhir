@@ -445,11 +445,11 @@
   Definition = The billable period for which charges are being submitted.
 
  -- Row 10 -----------------------------------
-  Element = Claim.target[x]
+  Element = Claim.insurer[x]
   Card. = 0..1
   Type = Identifier|Reference(Organization)
-  Short Label = Insurer
-  Definition = Insurer Identifier, typical BIN number (6 digit).
+  Short Label = Target
+  Definition = The Insurer who is target  of the request.
 
  -- Row 11 -----------------------------------
   Element = Claim.provider[x]
@@ -1608,16 +1608,16 @@
   Path = Claim.created
 
  -- Row 9 -----------------------------------
-  Name = targetreference
+  Name = insurerreference
   Type = reference
   Description = The target payor/insurer for the Claim
-  Path = Claim.targetReference
+  Path = Claim.insurerReference
 
  -- Row 10 -----------------------------------
-  Name = targetidentifier
+  Name = insureridentifier
   Type = token
   Description = The target payor/insurer for the Claim
-  Path = Claim.targetIdentifier
+  Path = Claim.insurerIdentifier
 
  -- Row 11 -----------------------------------
   Name = organizationreference

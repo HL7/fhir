@@ -47,10 +47,10 @@
   Definition = The date when this resource was created.
 
  -- Row 7 -----------------------------------
-  Element = EnrollmentRequest.target
+  Element = EnrollmentRequest.insurer
   Card. = 0..1
   Type = Reference(Organization)
-  Short Label = Insurer
+  Short Label = Target
   Definition = The Insurer who is target  of the request.
 
  -- Row 8 -----------------------------------
@@ -91,7 +91,7 @@
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
 
  -- Row 14 -----------------------------------
-  Element = EnrollmentRequest.relationship
+  Element = !EnrollmentRequest.relationship
   Card. = 1..1
   Type = Coding
   Binding = Relationship

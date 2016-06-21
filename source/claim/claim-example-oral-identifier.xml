@@ -16,10 +16,10 @@
   
   <created value="2014-08-16"/>
   
-  <targetIdentifier>
+  <insurerIdentifier>
     <system value="http://www.jurisdiction.com/insurers"/>
     <value value="123456"/>
-  </targetIdentifier>
+  </insurerIdentifier>
   
   <organizationIdentifier>
     <system value="http://www.jurisdiction.com/careorganizations"/>

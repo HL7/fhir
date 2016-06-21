@@ -16,9 +16,9 @@
  
   <created value="2015-03-16"/>
 
-  <targetReference>
+  <insurerReference>
     <reference value="Organization/2"/>
-  </targetReference>
+  </insurerReference>
 
   <organizationReference>
     <reference value="Organization/1"/>
