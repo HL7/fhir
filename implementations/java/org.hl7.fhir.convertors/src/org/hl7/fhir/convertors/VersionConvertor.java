@@ -19,27 +19,27 @@ import org.hl7.fhir.utilities.Utilities;
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
 
-  Redistribution and use in source and binary forms, with or without modification, 
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
 
- * Redistributions of source code must retain the above copyright notice, this 
+ * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+ * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
- * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+ * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
 
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
 
  */
@@ -54,10 +54,10 @@ public class VersionConvertor {
 
     org.hl7.fhir.dstu2.model.Resource convert(org.hl7.fhir.dstu3.model.Resource resource) throws FHIRException;
   }
-  
+
   public VersionConvertorAdvisor advisor;
-  
-  
+
+
 	public VersionConvertor(VersionConvertorAdvisor advisor) {
     super();
     this.advisor = advisor;
@@ -2855,9 +2855,9 @@ public class VersionConvertor {
 	public org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent convertBundleEntryComponent(org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent src) throws FHIRException {
 		if (src == null)
 			return null;
-		if (advisor.ignoreEntry(src)) 
+		if (advisor.ignoreEntry(src))
 		  return null;
-		
+
 		org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent tgt = new org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent();
 		copyElement(src, tgt);
 		for (org.hl7.fhir.dstu3.model.Bundle.BundleLinkComponent t : src.getLink())
@@ -3803,9 +3803,9 @@ public class VersionConvertor {
     private String source;
 	  private String target;
 	  private org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent comp;
-	  
+
 	}
-	
+
 	public org.hl7.fhir.dstu3.model.ConceptMap convertConceptMap(org.hl7.fhir.dstu2.model.ConceptMap src) throws FHIRException {
 		if (src == null)
 			return null;
@@ -3841,7 +3841,7 @@ public class VersionConvertor {
 	    if (grp.getSource().equals(srcs) && grp.getTarget().equals(tgts))
 	      return grp;
 	  }
-	  ConceptMapGroupComponent grp = map.addGroup(); 
+	  ConceptMapGroupComponent grp = map.addGroup();
 	  grp.setSource(srcs);
 	  grp.setTarget(tgts);
 	  return grp;
@@ -6587,7 +6587,7 @@ public class VersionConvertor {
 		tgt.setRuleset(convertCoding(src.getRuleset()));
 		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
 		tgt.setCreated(src.getCreated());
-		tgt.setTarget(convertType(src.getTarget()));
+//		tgt.setTarget(convertType(src.getTarget()));
 		tgt.setProvider(convertType(src.getProvider()));
 		tgt.setOrganization(convertType(src.getOrganization()));
 		return tgt;
@@ -6603,8 +6603,8 @@ public class VersionConvertor {
 		tgt.setRuleset(convertCoding(src.getRuleset()));
 		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
 		tgt.setCreated(src.getCreated());
-		if (src.hasTargetReference())
-			tgt.setTarget((org.hl7.fhir.dstu2.model.Reference) convertType(src.getTarget()));
+//		if (src.hasTargetReference())
+//			tgt.setTarget((org.hl7.fhir.dstu2.model.Reference) convertType(src.getTarget()));
 		if (src.hasProviderReference())
 			tgt.setProvider((org.hl7.fhir.dstu2.model.Reference) convertType(src.getProvider()));
 		if (src.hasOrganizationReference())
@@ -6934,12 +6934,12 @@ public class VersionConvertor {
 		tgt.setRuleset(convertCoding(src.getRuleset()));
 		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
 		tgt.setCreated(src.getCreated());
-		tgt.setTarget(convertReference(src.getTarget()));
+//		tgt.setTarget(convertReference(src.getTarget()));
 		tgt.setProvider(convertReference(src.getProvider()));
 		tgt.setOrganization(convertReference(src.getOrganization()));
 		tgt.setSubject(convertReference(src.getSubject()));
 		tgt.setCoverage(convertReference(src.getCoverage()));
-		tgt.setRelationship(convertCoding(src.getRelationship()));
+//		tgt.setRelationship(convertCoding(src.getRelationship()));
 		return tgt;
 	}
 
@@ -6953,12 +6953,12 @@ public class VersionConvertor {
 		tgt.setRuleset(convertCoding(src.getRuleset()));
 		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
 		tgt.setCreated(src.getCreated());
-		tgt.setTarget(convertReference(src.getTarget()));
+//		tgt.setTarget(convertReference(src.getTarget()));
 		tgt.setProvider(convertReference(src.getProvider()));
 		tgt.setOrganization(convertReference(src.getOrganization()));
 		tgt.setSubject(convertReference(src.getSubject()));
 		tgt.setCoverage(convertReference(src.getCoverage()));
-		tgt.setRelationship(convertCoding(src.getRelationship()));
+//		tgt.setRelationship(convertCoding(src.getRelationship()));
 		return tgt;
 	}
 
@@ -11607,7 +11607,7 @@ public class VersionConvertor {
 		tgt.setType(convertCoding(src.getType()));
 		tgt.setReference(src.getReference());
 		tgt.setDisplay(src.getDisplay());
-		tgt.setAgent(convertProvenanceAgentComponent(src.getAgent()));
+//		tgt.setAgent(convertProvenanceAgentComponent(src.getAgent()));
 		return tgt;
 	}
 
@@ -11620,7 +11620,7 @@ public class VersionConvertor {
 		tgt.setType(convertCoding(src.getType()));
 		tgt.setReference(src.getReference());
 		tgt.setDisplay(src.getDisplay());
-		tgt.setAgent(convertProvenanceAgentComponent(src.getAgent()));
+//		tgt.setAgent(convertProvenanceAgentComponent(src.getAgent()));
 		return tgt;
 	}
 
@@ -11684,7 +11684,7 @@ public class VersionConvertor {
 		tgt.setPublisher(src.getPublisher());
 		for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
 			tgt.addTelecom(convertContactPoint(t));
-		org.hl7.fhir.dstu2.model.Questionnaire.GroupComponent root = tgt.getGroup(); 
+		org.hl7.fhir.dstu2.model.Questionnaire.GroupComponent root = tgt.getGroup();
 		root.setTitle(src.getTitle());
 		for (org.hl7.fhir.dstu3.model.Coding t : src.getConcept()) {
 			root.addConcept(convertCoding(t));
@@ -11883,7 +11883,7 @@ public class VersionConvertor {
 		tgt.setEncounter(convertReference(src.getEncounter()));
 
 		if (src.getItem().size() != 1)
-			throw new FHIRException("multiple root items not supported"); // though we could define a placeholder group? 
+			throw new FHIRException("multiple root items not supported"); // though we could define a placeholder group?
 
 		tgt.setGroup(convertQuestionnaireItemToGroup(src.getItem().get(0)));
 		return tgt;
@@ -13633,7 +13633,7 @@ public class VersionConvertor {
     tgt.setSystem(src.getUrl());
     tgt.setVersion(src.getVersion());
     tgt.setCaseSensitive(src.getCaseSensitive());
-    
+
     for (ConceptDefinitionComponent cc : src.getConcept())
       tgt.addConcept(convertCodeSystemConcept(src, cc));
     return tgt;
@@ -13648,7 +13648,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent convertCodeS
     tgt.setCode(src.getCode());
     tgt.setDefinition(src.getDefinition());
     tgt.setDisplay(src.getDisplay());
-    
+
     for (ConceptDefinitionComponent cc : src.getConcept())
       tgt.addConcept(convertCodeSystemConcept(cs, cc));
     for (ConceptDefinitionDesignationComponent cc : src.getDesignation())
@@ -13664,7 +13664,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
     tgt.setUse(convertCoding(src.getUse()));
     tgt.setLanguage(src.getLanguage());
     tgt.setValue(src.getValue());
-    
+
     return tgt;
   }
 
