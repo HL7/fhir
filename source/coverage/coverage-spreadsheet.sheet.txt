@@ -25,21 +25,21 @@
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
-  Id = 1
+  Id = !1
   Context = Coverage
   English = SHALL contain an issuer\'s business identifier or reference
   XPath = exists(f:issuerIdentifier) or exists(f:issuerReference)
   Expression = issuerIdentifier.exists() or issuerReference.exists()
 
  -- Row 2 -----------------------------------
-  Id = 2
+  Id = !2
   Context = Coverage
   English = SHALL contain a planholder\'s business identifier or reference
   XPath = exists(f:planholderIdentifier) or exists(f:planholderReference)
   Expression = planholderIdentifier.exists() or planholderReference.exists()
 
  -- Row 3 -----------------------------------
-  Id = 3
+  Id = !3
   Context = Coverage
   English = SHALL contain a beneficiary\'s business identifier or reference
   XPath = exists(f:beneficiaryIdentifier) or exists(f:beneficiaryReference)
@@ -57,7 +57,7 @@
   w5 = financial.support
 
  -- Row 2 -----------------------------------
-  Element = Coverage.issuerIdentifier
+  Element = !Coverage.issuerIdentifier
   Card. = 0..1
   Summary = Y
   Type = Identifier
@@ -69,7 +69,7 @@
   CPhA3 (Pharmacy) Mapping = C.30
 
  -- Row 3 -----------------------------------
-  Element = Coverage.issuerReference
+  Element = !Coverage.issuerReference
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization|Patient|RelatedPerson)
@@ -81,7 +81,7 @@
   CPhA3 (Pharmacy) Mapping = C.30
 
  -- Row 4 -----------------------------------
-  Element = !Coverage.issuer[x]
+  Element = Coverage.issuer[x]
   Card. = 1..1
   Summary = Y
   Type = Identifier|Reference(Organization|Patient|RelatedPerson)
@@ -95,6 +95,7 @@
  -- Row 5 -----------------------------------
   Element = Coverage.isAgreement
   Card. = 0..1
+  Summary = Y
   Type = boolean
   Short Label = Is a Payment Agreement
   Definition = A self, or other, payment agreement not an insurance policy.
@@ -103,6 +104,7 @@
  -- Row 6 -----------------------------------
   Element = Coverage.bin
   Card. = 0..1
+  Summary = Y
   Type = string
   Short Label = BIN Number
   Definition = Business Identification Number (BIN number) used to identify the routing  of eClaims.
@@ -128,9 +130,9 @@
   v2 Mapping = IN1-15
 
  -- Row 9 -----------------------------------
-  Element = Coverage.planholderIdentifier
+  Element = !Coverage.planholderIdentifier
   Card. = 0..1
-  Is Modifier = Y
+  Summary = Y
   Type = Identifier
   Short Label = Plan holder identifier
   Definition = The party who \'owns\' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.
@@ -141,9 +143,9 @@
   Committee Notes = C.35
 
  -- Row 10 -----------------------------------
-  Element = Coverage.planholderReference
+  Element = !Coverage.planholderReference
   Card. = 0..1
-  Is Modifier = Y
+  Summary = Y
   Type = Reference(Patient|Organization)
   Short Label = Plan holder
   Definition = The party who \'owns\' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.
@@ -154,9 +156,9 @@
   Committee Notes = C.35
 
  -- Row 11 -----------------------------------
-  Element = !Coverage.planholder[x]
+  Element = Coverage.planholder[x]
   Card. = 1..1
-  Is Modifier = Y
+  Summary = Y
   Type = Identifier|Reference(Patient|Organization)
   Short Label = Plan holder
   Definition = The party who \'owns\' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.
@@ -176,9 +178,9 @@
   Example = Do we need this?
 
  -- Row 13 -----------------------------------
-  Element = Coverage.beneficiaryIdentifier
+  Element = !Coverage.beneficiaryIdentifier
   Card. = 0..1
-  Is Modifier = Y
+  Summary = Y
   Type = Identifier
   Short Label = Plan Beneficiary Identifier
   Definition = The party who benefits from the insurance coverage.
@@ -189,9 +191,9 @@
   Committee Notes = C.35
 
  -- Row 14 -----------------------------------
-  Element = Coverage.beneficiaryReference
+  Element = !Coverage.beneficiaryReference
   Card. = 0..1
-  Is Modifier = Y
+  Summary = Y
   Type = Reference(Patient)
   Short Label = Plan Beneficiary
   Definition = The party who benefits from the insurance coverage.
@@ -202,9 +204,9 @@
   Committee Notes = C.35
 
  -- Row 15 -----------------------------------
-  Element = !Coverage.beneficiary[x]
+  Element = Coverage.beneficiary[x]
   Card. = 1..1
-  Is Modifier = Y
+  Summary = Y
   Type = Identifier|Reference(Patient)
   Short Label = Plan Beneficiary
   Definition = The party who benefits from the insurance coverage.

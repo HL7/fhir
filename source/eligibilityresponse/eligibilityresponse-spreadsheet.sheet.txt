@@ -184,6 +184,20 @@
   Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc
 
  -- Row 20 -----------------------------------
+  Element = EligibilityResponse.benefitBalance.name
+  Card. = 0..1
+  Type = string
+  Short Label = Short name for the benefit
+  Definition = A short name or tag for the benefit, for example MED01, or DENT2.
+
+ -- Row 21 -----------------------------------
+  Element = EligibilityResponse.benefitBalance.description
+  Card. = 0..1
+  Type = string
+  Short Label = Description of the benefit
+  Definition = A richer description of the benefit, for example \'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services\'.
+
+ -- Row 22 -----------------------------------
   Element = EligibilityResponse.benefitBalance.network
   Card. = 0..1
   Type = Coding
@@ -191,7 +205,7 @@
   Short Label = In or out of network
   Definition = Network designation
 
- -- Row 21 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = EligibilityResponse.benefitBalance.unit
   Card. = 0..1
   Type = Coding
@@ -199,7 +213,7 @@
   Short Label = Individual or family
   Definition = Unit designation: individual or family
 
- -- Row 22 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = EligibilityResponse.benefitBalance.term
   Card. = 0..1
   Type = Coding
@@ -207,7 +221,7 @@
   Short Label = Annual or lifetime
   Definition = The term or period of the values such as \'maximum lifetime benefit\' or \'maximum annual vistis\'.
 
- -- Row 23 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = EligibilityResponse.benefitBalance.financial
   Card. = 0..*
   Type = =Benefit
@@ -215,7 +229,7 @@
   Definition = Benefits Used to date
   Display Hint = 600;750
 
- -- Row 24 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = EligibilityResponse.benefitBalance.financial.type
   Card. = 1..1
   Type = Coding
@@ -223,25 +237,25 @@
   Short Label = Deductable, visits, benefit amount
   Definition = Deductable, visits, benefit amount.
 
- -- Row 25 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = EligibilityResponse.benefitBalance.financial.benefit[x]
   Card. = 0..1
   Type = unsignedInt|Money
   Short Label = Benefits allowed
   Definition = Benefits allowed
 
- -- Row 26 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = EligibilityResponse.benefitBalance.financial.benefitUsed[x]
   Card. = 0..1
   Type = unsignedInt|Money
   Short Label = Benefits used
   Definition = Benefits used
 
- -- Row 27 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = !Errors
   Short Label = Processing errors
 
- -- Row 28 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = EligibilityResponse.error
   Card. = 0..*
   UML = 0;0
@@ -249,7 +263,7 @@
   Short Label = Processing errors
   Definition = Mutually exclusive with Services Provided (Item).
 
- -- Row 29 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = EligibilityResponse.error.code
   Card. = 1..1
   Type = Coding
