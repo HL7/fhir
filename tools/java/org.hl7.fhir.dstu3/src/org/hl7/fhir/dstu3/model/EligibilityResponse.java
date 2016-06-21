@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Jun 18, 2016 07:14+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 21, 2016 12:34-0400 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -65,34 +65,48 @@ public class EligibilityResponse extends DomainResource {
         protected Coding subCategory;
 
         /**
+         * A short name or tag for the benefit, for example MED01, or DENT2.
+         */
+        @Child(name = "name", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Short name for the benefit", formalDefinition="A short name or tag for the benefit, for example MED01, or DENT2." )
+        protected StringType name;
+
+        /**
+         * A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.
+         */
+        @Child(name = "description", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Description of the benefit", formalDefinition="A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'." )
+        protected StringType description;
+
+        /**
          * Network designation.
          */
-        @Child(name = "network", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "network", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="In or out of network", formalDefinition="Network designation." )
         protected Coding network;
 
         /**
          * Unit designation: individual or family.
          */
-        @Child(name = "unit", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "unit", type = {Coding.class}, order=6, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Individual or family", formalDefinition="Unit designation: individual or family." )
         protected Coding unit;
 
         /**
          * The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.
          */
-        @Child(name = "term", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "term", type = {Coding.class}, order=7, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Annual or lifetime", formalDefinition="The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'." )
         protected Coding term;
 
         /**
          * Benefits Used to date.
          */
-        @Child(name = "financial", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "financial", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Benefit Summary", formalDefinition="Benefits Used to date." )
         protected List<BenefitComponent> financial;
 
-        private static final long serialVersionUID = 1708176773L;
+        private static final long serialVersionUID = -1090359286L;
 
     /**
      * Constructor
@@ -154,6 +168,104 @@ public class EligibilityResponse extends DomainResource {
          */
         public BenefitsComponent setSubCategory(Coding value) { 
           this.subCategory = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #name} (A short name or tag for the benefit, for example MED01, or DENT2.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create BenefitsComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (A short name or tag for the benefit, for example MED01, or DENT2.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public BenefitsComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return A short name or tag for the benefit, for example MED01, or DENT2.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value A short name or tag for the benefit, for example MED01, or DENT2.
+         */
+        public BenefitsComponent setName(String value) { 
+          if (Utilities.noString(value))
+            this.name = null;
+          else {
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #description} (A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public StringType getDescriptionElement() { 
+          if (this.description == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create BenefitsComponent.description");
+            else if (Configuration.doAutoCreate())
+              this.description = new StringType(); // bb
+          return this.description;
+        }
+
+        public boolean hasDescriptionElement() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        public boolean hasDescription() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        /**
+         * @param value {@link #description} (A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public BenefitsComponent setDescriptionElement(StringType value) { 
+          this.description = value;
+          return this;
+        }
+
+        /**
+         * @return A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.
+         */
+        public String getDescription() { 
+          return this.description == null ? null : this.description.getValue();
+        }
+
+        /**
+         * @param value A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.
+         */
+        public BenefitsComponent setDescription(String value) { 
+          if (Utilities.noString(value))
+            this.description = null;
+          else {
+            if (this.description == null)
+              this.description = new StringType();
+            this.description.setValue(value);
+          }
           return this;
         }
 
@@ -286,6 +398,8 @@ public class EligibilityResponse extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("category", "Coding", "Dental, Vision, Medical, Pharmacy, Rehab etc.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("subCategory", "Coding", "Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.", 0, java.lang.Integer.MAX_VALUE, subCategory));
+          childrenList.add(new Property("name", "string", "A short name or tag for the benefit, for example MED01, or DENT2.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("description", "string", "A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("network", "Coding", "Network designation.", 0, java.lang.Integer.MAX_VALUE, network));
           childrenList.add(new Property("unit", "Coding", "Unit designation: individual or family.", 0, java.lang.Integer.MAX_VALUE, unit));
           childrenList.add(new Property("term", "Coding", "The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.", 0, java.lang.Integer.MAX_VALUE, term));
@@ -297,6 +411,8 @@ public class EligibilityResponse extends DomainResource {
         switch (hash) {
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
         case 1365024606: /*subCategory*/ return this.subCategory == null ? new Base[0] : new Base[] {this.subCategory}; // Coding
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 1843485230: /*network*/ return this.network == null ? new Base[0] : new Base[] {this.network}; // Coding
         case 3594628: /*unit*/ return this.unit == null ? new Base[0] : new Base[] {this.unit}; // Coding
         case 3556460: /*term*/ return this.term == null ? new Base[0] : new Base[] {this.term}; // Coding
@@ -314,6 +430,12 @@ public class EligibilityResponse extends DomainResource {
           break;
         case 1365024606: // subCategory
           this.subCategory = castToCoding(value); // Coding
+          break;
+        case 3373707: // name
+          this.name = castToString(value); // StringType
+          break;
+        case -1724546052: // description
+          this.description = castToString(value); // StringType
           break;
         case 1843485230: // network
           this.network = castToCoding(value); // Coding
@@ -338,6 +460,10 @@ public class EligibilityResponse extends DomainResource {
           this.category = castToCoding(value); // Coding
         else if (name.equals("subCategory"))
           this.subCategory = castToCoding(value); // Coding
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
         else if (name.equals("network"))
           this.network = castToCoding(value); // Coding
         else if (name.equals("unit"))
@@ -355,6 +481,8 @@ public class EligibilityResponse extends DomainResource {
         switch (hash) {
         case 50511102:  return getCategory(); // Coding
         case 1365024606:  return getSubCategory(); // Coding
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case 1843485230:  return getNetwork(); // Coding
         case 3594628:  return getUnit(); // Coding
         case 3556460:  return getTerm(); // Coding
@@ -373,6 +501,12 @@ public class EligibilityResponse extends DomainResource {
         else if (name.equals("subCategory")) {
           this.subCategory = new Coding();
           return this.subCategory;
+        }
+        else if (name.equals("name")) {
+          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.name");
+        }
+        else if (name.equals("description")) {
+          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.description");
         }
         else if (name.equals("network")) {
           this.network = new Coding();
@@ -398,6 +532,8 @@ public class EligibilityResponse extends DomainResource {
         copyValues(dst);
         dst.category = category == null ? null : category.copy();
         dst.subCategory = subCategory == null ? null : subCategory.copy();
+        dst.name = name == null ? null : name.copy();
+        dst.description = description == null ? null : description.copy();
         dst.network = network == null ? null : network.copy();
         dst.unit = unit == null ? null : unit.copy();
         dst.term = term == null ? null : term.copy();
@@ -417,8 +553,9 @@ public class EligibilityResponse extends DomainResource {
           return false;
         BenefitsComponent o = (BenefitsComponent) other;
         return compareDeep(category, o.category, true) && compareDeep(subCategory, o.subCategory, true)
-           && compareDeep(network, o.network, true) && compareDeep(unit, o.unit, true) && compareDeep(term, o.term, true)
-           && compareDeep(financial, o.financial, true);
+           && compareDeep(name, o.name, true) && compareDeep(description, o.description, true) && compareDeep(network, o.network, true)
+           && compareDeep(unit, o.unit, true) && compareDeep(term, o.term, true) && compareDeep(financial, o.financial, true)
+          ;
       }
 
       @Override
@@ -428,12 +565,12 @@ public class EligibilityResponse extends DomainResource {
         if (!(other instanceof BenefitsComponent))
           return false;
         BenefitsComponent o = (BenefitsComponent) other;
-        return true;
+        return compareValues(name, o.name, true) && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, subCategory, network
-          , unit, term, financial);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, subCategory, name
+          , description, network, unit, term, financial);
       }
 
   public String fhirType() {

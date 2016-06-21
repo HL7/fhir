@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Jun 18, 2016 07:14+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 21, 2016 12:34-0400 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -774,20 +774,27 @@ public class ClaimResponse extends DomainResource {
         protected PositiveIntType sequenceLinkId;
 
         /**
+         * A list of note references to the notes provided below.
+         */
+        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
+        protected List<PositiveIntType> noteNumber;
+
+        /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Detail adjudication", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
         /**
          * The third tier service adjudications for submitted services.
          */
-        @Child(name = "subDetail", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "subDetail", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Subdetail line items", formalDefinition="The third tier service adjudications for submitted services." )
         protected List<SubDetailComponent> subDetail;
 
-        private static final long serialVersionUID = 1247653468L;
+        private static final long serialVersionUID = -1245557773L;
 
     /**
      * Constructor
@@ -847,6 +854,67 @@ public class ClaimResponse extends DomainResource {
               this.sequenceLinkId = new PositiveIntType();
             this.sequenceLinkId.setValue(value);
           return this;
+        }
+
+        /**
+         * @return {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public List<PositiveIntType> getNoteNumber() { 
+          if (this.noteNumber == null)
+            this.noteNumber = new ArrayList<PositiveIntType>();
+          return this.noteNumber;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemDetailComponent setNoteNumber(List<PositiveIntType> theNoteNumber) { 
+          this.noteNumber = theNoteNumber;
+          return this;
+        }
+
+        public boolean hasNoteNumber() { 
+          if (this.noteNumber == null)
+            return false;
+          for (PositiveIntType item : this.noteNumber)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public PositiveIntType addNoteNumberElement() {//2 
+          PositiveIntType t = new PositiveIntType();
+          if (this.noteNumber == null)
+            this.noteNumber = new ArrayList<PositiveIntType>();
+          this.noteNumber.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public ItemDetailComponent addNoteNumber(int value) { //1
+          PositiveIntType t = new PositiveIntType();
+          t.setValue(value);
+          if (this.noteNumber == null)
+            this.noteNumber = new ArrayList<PositiveIntType>();
+          this.noteNumber.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public boolean hasNoteNumber(int value) { 
+          if (this.noteNumber == null)
+            return false;
+          for (PositiveIntType v : this.noteNumber)
+            if (v.equals(value)) // positiveInt
+              return true;
+          return false;
         }
 
         /**
@@ -958,6 +1026,7 @@ public class ClaimResponse extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequenceLinkId", "positiveInt", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
+          childrenList.add(new Property("noteNumber", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
           childrenList.add(new Property("adjudication", "@ClaimResponse.item.adjudication", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
           childrenList.add(new Property("subDetail", "", "The third tier service adjudications for submitted services.", 0, java.lang.Integer.MAX_VALUE, subDetail));
         }
@@ -966,6 +1035,7 @@ public class ClaimResponse extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1422298666: /*sequenceLinkId*/ return this.sequenceLinkId == null ? new Base[0] : new Base[] {this.sequenceLinkId}; // PositiveIntType
+        case -1110033957: /*noteNumber*/ return this.noteNumber == null ? new Base[0] : this.noteNumber.toArray(new Base[this.noteNumber.size()]); // PositiveIntType
         case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // AdjudicationComponent
         case -828829007: /*subDetail*/ return this.subDetail == null ? new Base[0] : this.subDetail.toArray(new Base[this.subDetail.size()]); // SubDetailComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -978,6 +1048,9 @@ public class ClaimResponse extends DomainResource {
         switch (hash) {
         case -1422298666: // sequenceLinkId
           this.sequenceLinkId = castToPositiveInt(value); // PositiveIntType
+          break;
+        case -1110033957: // noteNumber
+          this.getNoteNumber().add(castToPositiveInt(value)); // PositiveIntType
           break;
         case -231349275: // adjudication
           this.getAdjudication().add((AdjudicationComponent) value); // AdjudicationComponent
@@ -994,6 +1067,8 @@ public class ClaimResponse extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("sequenceLinkId"))
           this.sequenceLinkId = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("noteNumber"))
+          this.getNoteNumber().add(castToPositiveInt(value));
         else if (name.equals("adjudication"))
           this.getAdjudication().add((AdjudicationComponent) value);
         else if (name.equals("subDetail"))
@@ -1006,6 +1081,7 @@ public class ClaimResponse extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1422298666: throw new FHIRException("Cannot make property sequenceLinkId as it is not a complex type"); // PositiveIntType
+        case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
         case -231349275:  return addAdjudication(); // AdjudicationComponent
         case -828829007:  return addSubDetail(); // SubDetailComponent
         default: return super.makeProperty(hash, name);
@@ -1017,6 +1093,9 @@ public class ClaimResponse extends DomainResource {
       public Base addChild(String name) throws FHIRException {
         if (name.equals("sequenceLinkId")) {
           throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.sequenceLinkId");
+        }
+        else if (name.equals("noteNumber")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.noteNumber");
         }
         else if (name.equals("adjudication")) {
           return addAdjudication();
@@ -1032,6 +1111,11 @@ public class ClaimResponse extends DomainResource {
         ItemDetailComponent dst = new ItemDetailComponent();
         copyValues(dst);
         dst.sequenceLinkId = sequenceLinkId == null ? null : sequenceLinkId.copy();
+        if (noteNumber != null) {
+          dst.noteNumber = new ArrayList<PositiveIntType>();
+          for (PositiveIntType i : noteNumber)
+            dst.noteNumber.add(i.copy());
+        };
         if (adjudication != null) {
           dst.adjudication = new ArrayList<AdjudicationComponent>();
           for (AdjudicationComponent i : adjudication)
@@ -1052,8 +1136,9 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof ItemDetailComponent))
           return false;
         ItemDetailComponent o = (ItemDetailComponent) other;
-        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(adjudication, o.adjudication, true)
-           && compareDeep(subDetail, o.subDetail, true);
+        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(noteNumber, o.noteNumber, true)
+           && compareDeep(adjudication, o.adjudication, true) && compareDeep(subDetail, o.subDetail, true)
+          ;
       }
 
       @Override
@@ -1063,12 +1148,13 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof ItemDetailComponent))
           return false;
         ItemDetailComponent o = (ItemDetailComponent) other;
-        return compareValues(sequenceLinkId, o.sequenceLinkId, true);
+        return compareValues(sequenceLinkId, o.sequenceLinkId, true) && compareValues(noteNumber, o.noteNumber, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId, adjudication
-          , subDetail);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId, noteNumber
+          , adjudication, subDetail);
       }
 
   public String fhirType() {
@@ -1088,13 +1174,20 @@ public class ClaimResponse extends DomainResource {
         protected PositiveIntType sequenceLinkId;
 
         /**
+         * A list of note references to the notes provided below.
+         */
+        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
+        protected List<PositiveIntType> noteNumber;
+
+        /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Subdetail adjudication", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
-        private static final long serialVersionUID = 1748147237L;
+        private static final long serialVersionUID = 1770463342L;
 
     /**
      * Constructor
@@ -1157,6 +1250,67 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
+         * @return {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public List<PositiveIntType> getNoteNumber() { 
+          if (this.noteNumber == null)
+            this.noteNumber = new ArrayList<PositiveIntType>();
+          return this.noteNumber;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SubDetailComponent setNoteNumber(List<PositiveIntType> theNoteNumber) { 
+          this.noteNumber = theNoteNumber;
+          return this;
+        }
+
+        public boolean hasNoteNumber() { 
+          if (this.noteNumber == null)
+            return false;
+          for (PositiveIntType item : this.noteNumber)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public PositiveIntType addNoteNumberElement() {//2 
+          PositiveIntType t = new PositiveIntType();
+          if (this.noteNumber == null)
+            this.noteNumber = new ArrayList<PositiveIntType>();
+          this.noteNumber.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public SubDetailComponent addNoteNumber(int value) { //1
+          PositiveIntType t = new PositiveIntType();
+          t.setValue(value);
+          if (this.noteNumber == null)
+            this.noteNumber = new ArrayList<PositiveIntType>();
+          this.noteNumber.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public boolean hasNoteNumber(int value) { 
+          if (this.noteNumber == null)
+            return false;
+          for (PositiveIntType v : this.noteNumber)
+            if (v.equals(value)) // positiveInt
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #adjudication} (The adjudications results.)
          */
         public List<AdjudicationComponent> getAdjudication() { 
@@ -1212,6 +1366,7 @@ public class ClaimResponse extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequenceLinkId", "positiveInt", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
+          childrenList.add(new Property("noteNumber", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
           childrenList.add(new Property("adjudication", "@ClaimResponse.item.adjudication", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
         }
 
@@ -1219,6 +1374,7 @@ public class ClaimResponse extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1422298666: /*sequenceLinkId*/ return this.sequenceLinkId == null ? new Base[0] : new Base[] {this.sequenceLinkId}; // PositiveIntType
+        case -1110033957: /*noteNumber*/ return this.noteNumber == null ? new Base[0] : this.noteNumber.toArray(new Base[this.noteNumber.size()]); // PositiveIntType
         case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // AdjudicationComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1230,6 +1386,9 @@ public class ClaimResponse extends DomainResource {
         switch (hash) {
         case -1422298666: // sequenceLinkId
           this.sequenceLinkId = castToPositiveInt(value); // PositiveIntType
+          break;
+        case -1110033957: // noteNumber
+          this.getNoteNumber().add(castToPositiveInt(value)); // PositiveIntType
           break;
         case -231349275: // adjudication
           this.getAdjudication().add((AdjudicationComponent) value); // AdjudicationComponent
@@ -1243,6 +1402,8 @@ public class ClaimResponse extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("sequenceLinkId"))
           this.sequenceLinkId = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("noteNumber"))
+          this.getNoteNumber().add(castToPositiveInt(value));
         else if (name.equals("adjudication"))
           this.getAdjudication().add((AdjudicationComponent) value);
         else
@@ -1253,6 +1414,7 @@ public class ClaimResponse extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1422298666: throw new FHIRException("Cannot make property sequenceLinkId as it is not a complex type"); // PositiveIntType
+        case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
         case -231349275:  return addAdjudication(); // AdjudicationComponent
         default: return super.makeProperty(hash, name);
         }
@@ -1263,6 +1425,9 @@ public class ClaimResponse extends DomainResource {
       public Base addChild(String name) throws FHIRException {
         if (name.equals("sequenceLinkId")) {
           throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.sequenceLinkId");
+        }
+        else if (name.equals("noteNumber")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.noteNumber");
         }
         else if (name.equals("adjudication")) {
           return addAdjudication();
@@ -1275,6 +1440,11 @@ public class ClaimResponse extends DomainResource {
         SubDetailComponent dst = new SubDetailComponent();
         copyValues(dst);
         dst.sequenceLinkId = sequenceLinkId == null ? null : sequenceLinkId.copy();
+        if (noteNumber != null) {
+          dst.noteNumber = new ArrayList<PositiveIntType>();
+          for (PositiveIntType i : noteNumber)
+            dst.noteNumber.add(i.copy());
+        };
         if (adjudication != null) {
           dst.adjudication = new ArrayList<AdjudicationComponent>();
           for (AdjudicationComponent i : adjudication)
@@ -1290,8 +1460,8 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof SubDetailComponent))
           return false;
         SubDetailComponent o = (SubDetailComponent) other;
-        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(adjudication, o.adjudication, true)
-          ;
+        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(noteNumber, o.noteNumber, true)
+           && compareDeep(adjudication, o.adjudication, true);
       }
 
       @Override
@@ -1301,12 +1471,13 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof SubDetailComponent))
           return false;
         SubDetailComponent o = (SubDetailComponent) other;
-        return compareValues(sequenceLinkId, o.sequenceLinkId, true);
+        return compareValues(sequenceLinkId, o.sequenceLinkId, true) && compareValues(noteNumber, o.noteNumber, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId, adjudication
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId, noteNumber
+          , adjudication);
       }
 
   public String fhirType() {
@@ -1326,25 +1497,25 @@ public class ClaimResponse extends DomainResource {
         protected List<PositiveIntType> sequenceLinkId;
 
         /**
+         * A list of note references to the notes provided below.
+         */
+        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
+        protected List<PositiveIntType> noteNumber;
+
+        /**
          * A code to indicate the Professional Service or Product supplied.
          */
-        @Child(name = "service", type = {Coding.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "service", type = {Coding.class}, order=3, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Group, Service or Product", formalDefinition="A code to indicate the Professional Service or Product supplied." )
         protected Coding service;
 
         /**
          * The fee charged for the professional service or product..
          */
-        @Child(name = "fee", type = {Money.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "fee", type = {Money.class}, order=4, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Professional fee or Product charge", formalDefinition="The fee charged for the professional service or product.." )
         protected Money fee;
-
-        /**
-         * A list of note references to the notes provided below.
-         */
-        @Child(name = "noteNumberLinkId", type = {PositiveIntType.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
-        protected List<PositiveIntType> noteNumberLinkId;
 
         /**
          * The adjudications results.
@@ -1360,7 +1531,7 @@ public class ClaimResponse extends DomainResource {
         @Description(shortDefinition="Added items details", formalDefinition="The second tier service adjudications for payor added services." )
         protected List<AddedItemsDetailComponent> detail;
 
-        private static final long serialVersionUID = -110151821L;
+        private static final long serialVersionUID = -2117133936L;
 
     /**
      * Constructor
@@ -1439,6 +1610,67 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
+         * @return {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public List<PositiveIntType> getNoteNumber() { 
+          if (this.noteNumber == null)
+            this.noteNumber = new ArrayList<PositiveIntType>();
+          return this.noteNumber;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AddedItemComponent setNoteNumber(List<PositiveIntType> theNoteNumber) { 
+          this.noteNumber = theNoteNumber;
+          return this;
+        }
+
+        public boolean hasNoteNumber() { 
+          if (this.noteNumber == null)
+            return false;
+          for (PositiveIntType item : this.noteNumber)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public PositiveIntType addNoteNumberElement() {//2 
+          PositiveIntType t = new PositiveIntType();
+          if (this.noteNumber == null)
+            this.noteNumber = new ArrayList<PositiveIntType>();
+          this.noteNumber.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public AddedItemComponent addNoteNumber(int value) { //1
+          PositiveIntType t = new PositiveIntType();
+          t.setValue(value);
+          if (this.noteNumber == null)
+            this.noteNumber = new ArrayList<PositiveIntType>();
+          this.noteNumber.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public boolean hasNoteNumber(int value) { 
+          if (this.noteNumber == null)
+            return false;
+          for (PositiveIntType v : this.noteNumber)
+            if (v.equals(value)) // positiveInt
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #service} (A code to indicate the Professional Service or Product supplied.)
          */
         public Coding getService() { 
@@ -1484,67 +1716,6 @@ public class ClaimResponse extends DomainResource {
         public AddedItemComponent setFee(Money value) { 
           this.fee = value;
           return this;
-        }
-
-        /**
-         * @return {@link #noteNumberLinkId} (A list of note references to the notes provided below.)
-         */
-        public List<PositiveIntType> getNoteNumberLinkId() { 
-          if (this.noteNumberLinkId == null)
-            this.noteNumberLinkId = new ArrayList<PositiveIntType>();
-          return this.noteNumberLinkId;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public AddedItemComponent setNoteNumberLinkId(List<PositiveIntType> theNoteNumberLinkId) { 
-          this.noteNumberLinkId = theNoteNumberLinkId;
-          return this;
-        }
-
-        public boolean hasNoteNumberLinkId() { 
-          if (this.noteNumberLinkId == null)
-            return false;
-          for (PositiveIntType item : this.noteNumberLinkId)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #noteNumberLinkId} (A list of note references to the notes provided below.)
-         */
-        public PositiveIntType addNoteNumberLinkIdElement() {//2 
-          PositiveIntType t = new PositiveIntType();
-          if (this.noteNumberLinkId == null)
-            this.noteNumberLinkId = new ArrayList<PositiveIntType>();
-          this.noteNumberLinkId.add(t);
-          return t;
-        }
-
-        /**
-         * @param value {@link #noteNumberLinkId} (A list of note references to the notes provided below.)
-         */
-        public AddedItemComponent addNoteNumberLinkId(int value) { //1
-          PositiveIntType t = new PositiveIntType();
-          t.setValue(value);
-          if (this.noteNumberLinkId == null)
-            this.noteNumberLinkId = new ArrayList<PositiveIntType>();
-          this.noteNumberLinkId.add(t);
-          return this;
-        }
-
-        /**
-         * @param value {@link #noteNumberLinkId} (A list of note references to the notes provided below.)
-         */
-        public boolean hasNoteNumberLinkId(int value) { 
-          if (this.noteNumberLinkId == null)
-            return false;
-          for (PositiveIntType v : this.noteNumberLinkId)
-            if (v.equals(value)) // positiveInt
-              return true;
-          return false;
         }
 
         /**
@@ -1656,9 +1827,9 @@ public class ClaimResponse extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequenceLinkId", "positiveInt", "List of input service items which this service line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
+          childrenList.add(new Property("noteNumber", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
           childrenList.add(new Property("service", "Coding", "A code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("fee", "Money", "The fee charged for the professional service or product..", 0, java.lang.Integer.MAX_VALUE, fee));
-          childrenList.add(new Property("noteNumberLinkId", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumberLinkId));
           childrenList.add(new Property("adjudication", "@ClaimResponse.item.adjudication", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
           childrenList.add(new Property("detail", "", "The second tier service adjudications for payor added services.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
@@ -1667,9 +1838,9 @@ public class ClaimResponse extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1422298666: /*sequenceLinkId*/ return this.sequenceLinkId == null ? new Base[0] : this.sequenceLinkId.toArray(new Base[this.sequenceLinkId.size()]); // PositiveIntType
+        case -1110033957: /*noteNumber*/ return this.noteNumber == null ? new Base[0] : this.noteNumber.toArray(new Base[this.noteNumber.size()]); // PositiveIntType
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
         case 101254: /*fee*/ return this.fee == null ? new Base[0] : new Base[] {this.fee}; // Money
-        case -1859667856: /*noteNumberLinkId*/ return this.noteNumberLinkId == null ? new Base[0] : this.noteNumberLinkId.toArray(new Base[this.noteNumberLinkId.size()]); // PositiveIntType
         case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // AdjudicationComponent
         case -1335224239: /*detail*/ return this.detail == null ? new Base[0] : this.detail.toArray(new Base[this.detail.size()]); // AddedItemsDetailComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -1683,14 +1854,14 @@ public class ClaimResponse extends DomainResource {
         case -1422298666: // sequenceLinkId
           this.getSequenceLinkId().add(castToPositiveInt(value)); // PositiveIntType
           break;
+        case -1110033957: // noteNumber
+          this.getNoteNumber().add(castToPositiveInt(value)); // PositiveIntType
+          break;
         case 1984153269: // service
           this.service = castToCoding(value); // Coding
           break;
         case 101254: // fee
           this.fee = castToMoney(value); // Money
-          break;
-        case -1859667856: // noteNumberLinkId
-          this.getNoteNumberLinkId().add(castToPositiveInt(value)); // PositiveIntType
           break;
         case -231349275: // adjudication
           this.getAdjudication().add((AdjudicationComponent) value); // AdjudicationComponent
@@ -1707,12 +1878,12 @@ public class ClaimResponse extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("sequenceLinkId"))
           this.getSequenceLinkId().add(castToPositiveInt(value));
+        else if (name.equals("noteNumber"))
+          this.getNoteNumber().add(castToPositiveInt(value));
         else if (name.equals("service"))
           this.service = castToCoding(value); // Coding
         else if (name.equals("fee"))
           this.fee = castToMoney(value); // Money
-        else if (name.equals("noteNumberLinkId"))
-          this.getNoteNumberLinkId().add(castToPositiveInt(value));
         else if (name.equals("adjudication"))
           this.getAdjudication().add((AdjudicationComponent) value);
         else if (name.equals("detail"))
@@ -1725,9 +1896,9 @@ public class ClaimResponse extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1422298666: throw new FHIRException("Cannot make property sequenceLinkId as it is not a complex type"); // PositiveIntType
+        case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
         case 1984153269:  return getService(); // Coding
         case 101254:  return getFee(); // Money
-        case -1859667856: throw new FHIRException("Cannot make property noteNumberLinkId as it is not a complex type"); // PositiveIntType
         case -231349275:  return addAdjudication(); // AdjudicationComponent
         case -1335224239:  return addDetail(); // AddedItemsDetailComponent
         default: return super.makeProperty(hash, name);
@@ -1740,6 +1911,9 @@ public class ClaimResponse extends DomainResource {
         if (name.equals("sequenceLinkId")) {
           throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.sequenceLinkId");
         }
+        else if (name.equals("noteNumber")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.noteNumber");
+        }
         else if (name.equals("service")) {
           this.service = new Coding();
           return this.service;
@@ -1747,9 +1921,6 @@ public class ClaimResponse extends DomainResource {
         else if (name.equals("fee")) {
           this.fee = new Money();
           return this.fee;
-        }
-        else if (name.equals("noteNumberLinkId")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.noteNumberLinkId");
         }
         else if (name.equals("adjudication")) {
           return addAdjudication();
@@ -1769,13 +1940,13 @@ public class ClaimResponse extends DomainResource {
           for (PositiveIntType i : sequenceLinkId)
             dst.sequenceLinkId.add(i.copy());
         };
+        if (noteNumber != null) {
+          dst.noteNumber = new ArrayList<PositiveIntType>();
+          for (PositiveIntType i : noteNumber)
+            dst.noteNumber.add(i.copy());
+        };
         dst.service = service == null ? null : service.copy();
         dst.fee = fee == null ? null : fee.copy();
-        if (noteNumberLinkId != null) {
-          dst.noteNumberLinkId = new ArrayList<PositiveIntType>();
-          for (PositiveIntType i : noteNumberLinkId)
-            dst.noteNumberLinkId.add(i.copy());
-        };
         if (adjudication != null) {
           dst.adjudication = new ArrayList<AdjudicationComponent>();
           for (AdjudicationComponent i : adjudication)
@@ -1796,8 +1967,8 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof AddedItemComponent))
           return false;
         AddedItemComponent o = (AddedItemComponent) other;
-        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(service, o.service, true)
-           && compareDeep(fee, o.fee, true) && compareDeep(noteNumberLinkId, o.noteNumberLinkId, true) && compareDeep(adjudication, o.adjudication, true)
+        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(noteNumber, o.noteNumber, true)
+           && compareDeep(service, o.service, true) && compareDeep(fee, o.fee, true) && compareDeep(adjudication, o.adjudication, true)
            && compareDeep(detail, o.detail, true);
       }
 
@@ -1808,13 +1979,13 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof AddedItemComponent))
           return false;
         AddedItemComponent o = (AddedItemComponent) other;
-        return compareValues(sequenceLinkId, o.sequenceLinkId, true) && compareValues(noteNumberLinkId, o.noteNumberLinkId, true)
+        return compareValues(sequenceLinkId, o.sequenceLinkId, true) && compareValues(noteNumber, o.noteNumber, true)
           ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId, service, fee
-          , noteNumberLinkId, adjudication, detail);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId, noteNumber
+          , service, fee, adjudication, detail);
       }
 
   public String fhirType() {
@@ -1827,27 +1998,34 @@ public class ClaimResponse extends DomainResource {
     @Block()
     public static class AddedItemsDetailComponent extends BackboneElement implements IBaseBackboneElement {
         /**
+         * A list of note references to the notes provided below.
+         */
+        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
+        protected List<PositiveIntType> noteNumber;
+
+        /**
          * A code to indicate the Professional Service or Product supplied.
          */
-        @Child(name = "service", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "service", type = {Coding.class}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Service or Product", formalDefinition="A code to indicate the Professional Service or Product supplied." )
         protected Coding service;
 
         /**
          * The fee charged for the professional service or product..
          */
-        @Child(name = "fee", type = {Money.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "fee", type = {Money.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Professional fee or Product charge", formalDefinition="The fee charged for the professional service or product.." )
         protected Money fee;
 
         /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Added items detail adjudication", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
-        private static final long serialVersionUID = 2021670906L;
+        private static final long serialVersionUID = 786096785L;
 
     /**
      * Constructor
@@ -1863,6 +2041,67 @@ public class ClaimResponse extends DomainResource {
         super();
         this.service = service;
       }
+
+        /**
+         * @return {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public List<PositiveIntType> getNoteNumber() { 
+          if (this.noteNumber == null)
+            this.noteNumber = new ArrayList<PositiveIntType>();
+          return this.noteNumber;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AddedItemsDetailComponent setNoteNumber(List<PositiveIntType> theNoteNumber) { 
+          this.noteNumber = theNoteNumber;
+          return this;
+        }
+
+        public boolean hasNoteNumber() { 
+          if (this.noteNumber == null)
+            return false;
+          for (PositiveIntType item : this.noteNumber)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public PositiveIntType addNoteNumberElement() {//2 
+          PositiveIntType t = new PositiveIntType();
+          if (this.noteNumber == null)
+            this.noteNumber = new ArrayList<PositiveIntType>();
+          this.noteNumber.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public AddedItemsDetailComponent addNoteNumber(int value) { //1
+          PositiveIntType t = new PositiveIntType();
+          t.setValue(value);
+          if (this.noteNumber == null)
+            this.noteNumber = new ArrayList<PositiveIntType>();
+          this.noteNumber.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #noteNumber} (A list of note references to the notes provided below.)
+         */
+        public boolean hasNoteNumber(int value) { 
+          if (this.noteNumber == null)
+            return false;
+          for (PositiveIntType v : this.noteNumber)
+            if (v.equals(value)) // positiveInt
+              return true;
+          return false;
+        }
 
         /**
          * @return {@link #service} (A code to indicate the Professional Service or Product supplied.)
@@ -1967,6 +2206,7 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
+          childrenList.add(new Property("noteNumber", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
           childrenList.add(new Property("service", "Coding", "A code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("fee", "Money", "The fee charged for the professional service or product..", 0, java.lang.Integer.MAX_VALUE, fee));
           childrenList.add(new Property("adjudication", "@ClaimResponse.item.adjudication", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
@@ -1975,6 +2215,7 @@ public class ClaimResponse extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
+        case -1110033957: /*noteNumber*/ return this.noteNumber == null ? new Base[0] : this.noteNumber.toArray(new Base[this.noteNumber.size()]); // PositiveIntType
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
         case 101254: /*fee*/ return this.fee == null ? new Base[0] : new Base[] {this.fee}; // Money
         case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // AdjudicationComponent
@@ -1986,6 +2227,9 @@ public class ClaimResponse extends DomainResource {
       @Override
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
+        case -1110033957: // noteNumber
+          this.getNoteNumber().add(castToPositiveInt(value)); // PositiveIntType
+          break;
         case 1984153269: // service
           this.service = castToCoding(value); // Coding
           break;
@@ -2002,7 +2246,9 @@ public class ClaimResponse extends DomainResource {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("service"))
+        if (name.equals("noteNumber"))
+          this.getNoteNumber().add(castToPositiveInt(value));
+        else if (name.equals("service"))
           this.service = castToCoding(value); // Coding
         else if (name.equals("fee"))
           this.fee = castToMoney(value); // Money
@@ -2015,6 +2261,7 @@ public class ClaimResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
+        case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
         case 1984153269:  return getService(); // Coding
         case 101254:  return getFee(); // Money
         case -231349275:  return addAdjudication(); // AdjudicationComponent
@@ -2025,7 +2272,10 @@ public class ClaimResponse extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("service")) {
+        if (name.equals("noteNumber")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.noteNumber");
+        }
+        else if (name.equals("service")) {
           this.service = new Coding();
           return this.service;
         }
@@ -2043,6 +2293,11 @@ public class ClaimResponse extends DomainResource {
       public AddedItemsDetailComponent copy() {
         AddedItemsDetailComponent dst = new AddedItemsDetailComponent();
         copyValues(dst);
+        if (noteNumber != null) {
+          dst.noteNumber = new ArrayList<PositiveIntType>();
+          for (PositiveIntType i : noteNumber)
+            dst.noteNumber.add(i.copy());
+        };
         dst.service = service == null ? null : service.copy();
         dst.fee = fee == null ? null : fee.copy();
         if (adjudication != null) {
@@ -2060,8 +2315,8 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof AddedItemsDetailComponent))
           return false;
         AddedItemsDetailComponent o = (AddedItemsDetailComponent) other;
-        return compareDeep(service, o.service, true) && compareDeep(fee, o.fee, true) && compareDeep(adjudication, o.adjudication, true)
-          ;
+        return compareDeep(noteNumber, o.noteNumber, true) && compareDeep(service, o.service, true) && compareDeep(fee, o.fee, true)
+           && compareDeep(adjudication, o.adjudication, true);
       }
 
       @Override
@@ -2071,12 +2326,12 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof AddedItemsDetailComponent))
           return false;
         AddedItemsDetailComponent o = (AddedItemsDetailComponent) other;
-        return true;
+        return compareValues(noteNumber, o.noteNumber, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(service, fee, adjudication
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(noteNumber, service, fee
+          , adjudication);
       }
 
   public String fhirType() {
@@ -2824,7 +3079,14 @@ public class ClaimResponse extends DomainResource {
         @Description(shortDefinition="Note explanatory text", formalDefinition="The note text." )
         protected StringType text;
 
-        private static final long serialVersionUID = 1768923951L;
+        /**
+         * The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.
+         */
+        @Child(name = "language", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Language", formalDefinition="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English." )
+        protected Coding language;
+
+        private static final long serialVersionUID = -1578585461L;
 
     /**
      * Constructor
@@ -2951,11 +3213,36 @@ public class ClaimResponse extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #language} (The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.)
+         */
+        public Coding getLanguage() { 
+          if (this.language == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create NoteComponent.language");
+            else if (Configuration.doAutoCreate())
+              this.language = new Coding(); // cc
+          return this.language;
+        }
+
+        public boolean hasLanguage() { 
+          return this.language != null && !this.language.isEmpty();
+        }
+
+        /**
+         * @param value {@link #language} (The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.)
+         */
+        public NoteComponent setLanguage(Coding value) { 
+          this.language = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("number", "positiveInt", "An integer associated with each note which may be referred to from each service line item.", 0, java.lang.Integer.MAX_VALUE, number));
           childrenList.add(new Property("type", "Coding", "The note purpose: Print/Display.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("text", "string", "The note text.", 0, java.lang.Integer.MAX_VALUE, text));
+          childrenList.add(new Property("language", "Coding", "The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English.", 0, java.lang.Integer.MAX_VALUE, language));
         }
 
       @Override
@@ -2964,6 +3251,7 @@ public class ClaimResponse extends DomainResource {
         case -1034364087: /*number*/ return this.number == null ? new Base[0] : new Base[] {this.number}; // PositiveIntType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
         case 3556653: /*text*/ return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        case -1613589672: /*language*/ return this.language == null ? new Base[0] : new Base[] {this.language}; // Coding
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2981,6 +3269,9 @@ public class ClaimResponse extends DomainResource {
         case 3556653: // text
           this.text = castToString(value); // StringType
           break;
+        case -1613589672: // language
+          this.language = castToCoding(value); // Coding
+          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -2994,6 +3285,8 @@ public class ClaimResponse extends DomainResource {
           this.type = castToCoding(value); // Coding
         else if (name.equals("text"))
           this.text = castToString(value); // StringType
+        else if (name.equals("language"))
+          this.language = castToCoding(value); // Coding
         else
           super.setProperty(name, value);
       }
@@ -3004,6 +3297,7 @@ public class ClaimResponse extends DomainResource {
         case -1034364087: throw new FHIRException("Cannot make property number as it is not a complex type"); // PositiveIntType
         case 3575610:  return getType(); // Coding
         case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
+        case -1613589672:  return getLanguage(); // Coding
         default: return super.makeProperty(hash, name);
         }
 
@@ -3021,6 +3315,10 @@ public class ClaimResponse extends DomainResource {
         else if (name.equals("text")) {
           throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.text");
         }
+        else if (name.equals("language")) {
+          this.language = new Coding();
+          return this.language;
+        }
         else
           return super.addChild(name);
       }
@@ -3031,6 +3329,7 @@ public class ClaimResponse extends DomainResource {
         dst.number = number == null ? null : number.copy();
         dst.type = type == null ? null : type.copy();
         dst.text = text == null ? null : text.copy();
+        dst.language = language == null ? null : language.copy();
         return dst;
       }
 
@@ -3042,7 +3341,7 @@ public class ClaimResponse extends DomainResource {
           return false;
         NoteComponent o = (NoteComponent) other;
         return compareDeep(number, o.number, true) && compareDeep(type, o.type, true) && compareDeep(text, o.text, true)
-          ;
+           && compareDeep(language, o.language, true);
       }
 
       @Override
@@ -3056,7 +3355,8 @@ public class ClaimResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(number, type, text);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(number, type, text, language
+          );
       }
 
   public String fhirType() {

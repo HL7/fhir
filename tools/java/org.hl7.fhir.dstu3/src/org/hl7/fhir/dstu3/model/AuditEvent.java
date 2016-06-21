@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Jun 18, 2016 07:14+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 21, 2016 12:34-0400 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -3509,21 +3509,41 @@ public class AuditEvent extends DomainResource {
    * Search parameter: <b>address</b>
    * <p>
    * Description: <b>Identifier for the network access point of the user device</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>string</b><br>
    * Path: <b>AuditEvent.agent.network.address</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address", path="AuditEvent.agent.network.address", description="Identifier for the network access point of the user device", type="token" )
+  @SearchParamDefinition(name="address", path="AuditEvent.agent.network.address", description="Identifier for the network access point of the user device", type="string" )
   public static final String SP_ADDRESS = "address";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>address</b>
    * <p>
    * Description: <b>Identifier for the network access point of the user device</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>string</b><br>
    * Path: <b>AuditEvent.agent.network.address</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ADDRESS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ADDRESS);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS);
+
+ /**
+   * Search parameter: <b>role</b>
+   * <p>
+   * Description: <b>What role the entity played</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.entity.role</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="role", path="AuditEvent.entity.role", description="What role the entity played", type="token" )
+  public static final String SP_ROLE = "role";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>role</b>
+   * <p>
+   * Description: <b>What role the entity played</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.entity.role</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ROLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ROLE);
 
  /**
    * Search parameter: <b>source</b>
@@ -3776,6 +3796,26 @@ public class AuditEvent extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ENTITY_ID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ENTITY_ID);
+
+ /**
+   * Search parameter: <b>outcome</b>
+   * <p>
+   * Description: <b>Whether the event succeeded or failed</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.outcome</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="outcome", path="AuditEvent.outcome", description="Whether the event succeeded or failed", type="token" )
+  public static final String SP_OUTCOME = "outcome";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>outcome</b>
+   * <p>
+   * Description: <b>Whether the event succeeded or failed</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.outcome</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam OUTCOME = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_OUTCOME);
 
  /**
    * Search parameter: <b>policy</b>

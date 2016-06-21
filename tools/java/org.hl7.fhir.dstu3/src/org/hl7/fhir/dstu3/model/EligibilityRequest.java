@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Jun 18, 2016 07:14+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 21, 2016 12:34-0400 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -79,9 +79,9 @@ public class EligibilityRequest extends DomainResource {
     /**
      * The Insurer who is target  of the request.
      */
-    @Child(name = "target", type = {Identifier.class, Organization.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Insurer", formalDefinition="The Insurer who is target  of the request." )
-    protected Type target;
+    @Child(name = "insurer", type = {Identifier.class, Organization.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Target", formalDefinition="The Insurer who is target  of the request." )
+    protected Type insurer;
 
     /**
      * The practitioner who is responsible for the services rendered to the patient.
@@ -160,7 +160,7 @@ public class EligibilityRequest extends DomainResource {
     @Description(shortDefinition="Benefit SubCategory", formalDefinition="Dental: basic, major, ortho; Vision exam, glasses, contacts; etc." )
     protected Coding benefitSubCategory;
 
-    private static final long serialVersionUID = 313969968L;
+    private static final long serialVersionUID = -436007343L;
 
   /**
    * Constructor
@@ -320,47 +320,47 @@ public class EligibilityRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #target} (The Insurer who is target  of the request.)
+     * @return {@link #insurer} (The Insurer who is target  of the request.)
      */
-    public Type getTarget() { 
-      return this.target;
+    public Type getInsurer() { 
+      return this.insurer;
     }
 
     /**
-     * @return {@link #target} (The Insurer who is target  of the request.)
+     * @return {@link #insurer} (The Insurer who is target  of the request.)
      */
-    public Identifier getTargetIdentifier() throws FHIRException { 
-      if (!(this.target instanceof Identifier))
-        throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.target.getClass().getName()+" was encountered");
-      return (Identifier) this.target;
+    public Identifier getInsurerIdentifier() throws FHIRException { 
+      if (!(this.insurer instanceof Identifier))
+        throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.insurer.getClass().getName()+" was encountered");
+      return (Identifier) this.insurer;
     }
 
-    public boolean hasTargetIdentifier() { 
-      return this.target instanceof Identifier;
+    public boolean hasInsurerIdentifier() { 
+      return this.insurer instanceof Identifier;
     }
 
     /**
-     * @return {@link #target} (The Insurer who is target  of the request.)
+     * @return {@link #insurer} (The Insurer who is target  of the request.)
      */
-    public Reference getTargetReference() throws FHIRException { 
-      if (!(this.target instanceof Reference))
-        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.target.getClass().getName()+" was encountered");
-      return (Reference) this.target;
+    public Reference getInsurerReference() throws FHIRException { 
+      if (!(this.insurer instanceof Reference))
+        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.insurer.getClass().getName()+" was encountered");
+      return (Reference) this.insurer;
     }
 
-    public boolean hasTargetReference() { 
-      return this.target instanceof Reference;
+    public boolean hasInsurerReference() { 
+      return this.insurer instanceof Reference;
     }
 
-    public boolean hasTarget() { 
-      return this.target != null && !this.target.isEmpty();
+    public boolean hasInsurer() { 
+      return this.insurer != null && !this.insurer.isEmpty();
     }
 
     /**
-     * @param value {@link #target} (The Insurer who is target  of the request.)
+     * @param value {@link #insurer} (The Insurer who is target  of the request.)
      */
-    public EligibilityRequest setTarget(Type value) { 
-      this.target = value;
+    public EligibilityRequest setInsurer(Type value) { 
+      this.insurer = value;
       return this;
     }
 
@@ -806,7 +806,7 @@ public class EligibilityRequest extends DomainResource {
         childrenList.add(new Property("ruleset", "Coding", "The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.", 0, java.lang.Integer.MAX_VALUE, ruleset));
         childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
         childrenList.add(new Property("created", "dateTime", "The date when this resource was created.", 0, java.lang.Integer.MAX_VALUE, created));
-        childrenList.add(new Property("target[x]", "Identifier|Reference(Organization)", "The Insurer who is target  of the request.", 0, java.lang.Integer.MAX_VALUE, target));
+        childrenList.add(new Property("insurer[x]", "Identifier|Reference(Organization)", "The Insurer who is target  of the request.", 0, java.lang.Integer.MAX_VALUE, insurer));
         childrenList.add(new Property("provider[x]", "Identifier|Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider));
         childrenList.add(new Property("organization[x]", "Identifier|Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("priority", "Coding", "Immediate (STAT), best effort (NORMAL), deferred (DEFER).", 0, java.lang.Integer.MAX_VALUE, priority));
@@ -827,7 +827,7 @@ public class EligibilityRequest extends DomainResource {
         case 1548678118: /*ruleset*/ return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
         case 1089373397: /*originalRuleset*/ return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
         case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
-        case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
+        case 1957615864: /*insurer*/ return this.insurer == null ? new Base[0] : new Base[] {this.insurer}; // Type
         case -987494927: /*provider*/ return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Type
         case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Type
         case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Coding
@@ -859,8 +859,8 @@ public class EligibilityRequest extends DomainResource {
         case 1028554472: // created
           this.created = castToDateTime(value); // DateTimeType
           break;
-        case -880905839: // target
-          this.target = (Type) value; // Type
+        case 1957615864: // insurer
+          this.insurer = (Type) value; // Type
           break;
         case -987494927: // provider
           this.provider = (Type) value; // Type
@@ -910,8 +910,8 @@ public class EligibilityRequest extends DomainResource {
           this.originalRuleset = castToCoding(value); // Coding
         else if (name.equals("created"))
           this.created = castToDateTime(value); // DateTimeType
-        else if (name.equals("target[x]"))
-          this.target = (Type) value; // Type
+        else if (name.equals("insurer[x]"))
+          this.insurer = (Type) value; // Type
         else if (name.equals("provider[x]"))
           this.provider = (Type) value; // Type
         else if (name.equals("organization[x]"))
@@ -945,7 +945,7 @@ public class EligibilityRequest extends DomainResource {
         case 1548678118:  return getRuleset(); // Coding
         case 1089373397:  return getOriginalRuleset(); // Coding
         case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
-        case -815579825:  return getTarget(); // Type
+        case -2026616696:  return getInsurer(); // Type
         case 2064698607:  return getProvider(); // Type
         case 1326483053:  return getOrganization(); // Type
         case -1165461084:  return getPriority(); // Coding
@@ -978,13 +978,13 @@ public class EligibilityRequest extends DomainResource {
         else if (name.equals("created")) {
           throw new FHIRException("Cannot call addChild on a primitive type EligibilityRequest.created");
         }
-        else if (name.equals("targetIdentifier")) {
-          this.target = new Identifier();
-          return this.target;
+        else if (name.equals("insurerIdentifier")) {
+          this.insurer = new Identifier();
+          return this.insurer;
         }
-        else if (name.equals("targetReference")) {
-          this.target = new Reference();
-          return this.target;
+        else if (name.equals("insurerReference")) {
+          this.insurer = new Reference();
+          return this.insurer;
         }
         else if (name.equals("providerIdentifier")) {
           this.provider = new Identifier();
@@ -1077,7 +1077,7 @@ public class EligibilityRequest extends DomainResource {
         dst.ruleset = ruleset == null ? null : ruleset.copy();
         dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
         dst.created = created == null ? null : created.copy();
-        dst.target = target == null ? null : target.copy();
+        dst.insurer = insurer == null ? null : insurer.copy();
         dst.provider = provider == null ? null : provider.copy();
         dst.organization = organization == null ? null : organization.copy();
         dst.priority = priority == null ? null : priority.copy();
@@ -1104,7 +1104,7 @@ public class EligibilityRequest extends DomainResource {
           return false;
         EligibilityRequest o = (EligibilityRequest) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(originalRuleset, o.originalRuleset, true)
-           && compareDeep(created, o.created, true) && compareDeep(target, o.target, true) && compareDeep(provider, o.provider, true)
+           && compareDeep(created, o.created, true) && compareDeep(insurer, o.insurer, true) && compareDeep(provider, o.provider, true)
            && compareDeep(organization, o.organization, true) && compareDeep(priority, o.priority, true) && compareDeep(enterer, o.enterer, true)
            && compareDeep(facility, o.facility, true) && compareDeep(patient, o.patient, true) && compareDeep(coverage, o.coverage, true)
            && compareDeep(businessArrangement, o.businessArrangement, true) && compareDeep(serviced, o.serviced, true)
@@ -1125,7 +1125,7 @@ public class EligibilityRequest extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, ruleset, originalRuleset
-          , created, target, provider, organization, priority, enterer, facility, patient
+          , created, insurer, provider, organization, priority, enterer, facility, patient
           , coverage, businessArrangement, serviced, benefitCategory, benefitSubCategory);
       }
 

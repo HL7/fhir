@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Jun 18, 2016 07:14+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 21, 2016 12:34-0400 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -58,6 +58,14 @@ public class TestScript extends BaseConformance {
          */
         JSON, 
         /**
+         * RDF content-type corresponding to the text/turtle mime-type.
+         */
+        TTL, 
+        /**
+         * Prevent the use of the corresponding http header.
+         */
+        NONE, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -68,6 +76,10 @@ public class TestScript extends BaseConformance {
           return XML;
         if ("json".equals(codeString))
           return JSON;
+        if ("ttl".equals(codeString))
+          return TTL;
+        if ("none".equals(codeString))
+          return NONE;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -77,6 +89,8 @@ public class TestScript extends BaseConformance {
           switch (this) {
             case XML: return "xml";
             case JSON: return "json";
+            case TTL: return "ttl";
+            case NONE: return "none";
             default: return "?";
           }
         }
@@ -84,6 +98,8 @@ public class TestScript extends BaseConformance {
           switch (this) {
             case XML: return "http://hl7.org/fhir/content-type";
             case JSON: return "http://hl7.org/fhir/content-type";
+            case TTL: return "http://hl7.org/fhir/content-type";
+            case NONE: return "http://hl7.org/fhir/content-type";
             default: return "?";
           }
         }
@@ -91,6 +107,8 @@ public class TestScript extends BaseConformance {
           switch (this) {
             case XML: return "XML content-type corresponding to the application/xml+fhir mime-type.";
             case JSON: return "JSON content-type corresponding to the application/json+fhir mime-type.";
+            case TTL: return "RDF content-type corresponding to the text/turtle mime-type.";
+            case NONE: return "Prevent the use of the corresponding http header.";
             default: return "?";
           }
         }
@@ -98,6 +116,8 @@ public class TestScript extends BaseConformance {
           switch (this) {
             case XML: return "xml";
             case JSON: return "json";
+            case TTL: return "ttl";
+            case NONE: return "none";
             default: return "?";
           }
         }
@@ -112,6 +132,10 @@ public class TestScript extends BaseConformance {
           return ContentType.XML;
         if ("json".equals(codeString))
           return ContentType.JSON;
+        if ("ttl".equals(codeString))
+          return ContentType.TTL;
+        if ("none".equals(codeString))
+          return ContentType.NONE;
         throw new IllegalArgumentException("Unknown ContentType code '"+codeString+"'");
         }
         public Enumeration<ContentType> fromType(Base code) throws FHIRException {
@@ -124,6 +148,10 @@ public class TestScript extends BaseConformance {
           return new Enumeration<ContentType>(this, ContentType.XML);
         if ("json".equals(codeString))
           return new Enumeration<ContentType>(this, ContentType.JSON);
+        if ("ttl".equals(codeString))
+          return new Enumeration<ContentType>(this, ContentType.TTL);
+        if ("none".equals(codeString))
+          return new Enumeration<ContentType>(this, ContentType.NONE);
         throw new FHIRException("Unknown ContentType code '"+codeString+"'");
         }
     public String toCode(ContentType code) {
@@ -131,6 +159,10 @@ public class TestScript extends BaseConformance {
         return "xml";
       if (code == ContentType.JSON)
         return "json";
+      if (code == ContentType.TTL)
+        return "ttl";
+      if (code == ContentType.NONE)
+        return "none";
       return "?";
       }
     public String toSystem(ContentType code) {
@@ -4704,14 +4736,14 @@ public class TestScript extends BaseConformance {
          * The content-type or mime-type to use for RESTful operation in the 'Accept' header.
          */
         @Child(name = "accept", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="xml | json", formalDefinition="The content-type or mime-type to use for RESTful operation in the 'Accept' header." )
+        @Description(shortDefinition="xml | json | ttl | none", formalDefinition="The content-type or mime-type to use for RESTful operation in the 'Accept' header." )
         protected Enumeration<ContentType> accept;
 
         /**
          * The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
          */
         @Child(name = "contentType", type = {CodeType.class}, order=6, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="xml | json", formalDefinition="The content-type or mime-type to use for RESTful operation in the 'Content-Type' header." )
+        @Description(shortDefinition="xml | json | ttl | none", formalDefinition="The content-type or mime-type to use for RESTful operation in the 'Content-Type' header." )
         protected Enumeration<ContentType> contentType;
 
         /**
@@ -6027,7 +6059,7 @@ public class TestScript extends BaseConformance {
          * The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
          */
         @Child(name = "contentType", type = {CodeType.class}, order=6, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="xml | json", formalDefinition="The content-type or mime-type to use for RESTful operation in the 'Content-Type' header." )
+        @Description(shortDefinition="xml | json | ttl | none", formalDefinition="The content-type or mime-type to use for RESTful operation in the 'Content-Type' header." )
         protected Enumeration<ContentType> contentType;
 
         /**
@@ -6066,69 +6098,76 @@ public class TestScript extends BaseConformance {
         protected StringType path;
 
         /**
+         * The value to use in a comparison against the request URL path string.
+         */
+        @Child(name = "requestURL", type = {StringType.class}, order=12, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Request URL comparison value", formalDefinition="The value to use in a comparison against the request URL path string." )
+        protected StringType requestURL;
+
+        /**
          * The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
          */
-        @Child(name = "resource", type = {CodeType.class}, order=12, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "resource", type = {CodeType.class}, order=13, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Resource type", formalDefinition="The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html." )
         protected CodeType resource;
 
         /**
          * okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.
          */
-        @Child(name = "response", type = {CodeType.class}, order=13, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "response", type = {CodeType.class}, order=14, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable", formalDefinition="okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable." )
         protected Enumeration<AssertionResponseTypes> response;
 
         /**
          * The value of the HTTP response code to be tested.
          */
-        @Child(name = "responseCode", type = {StringType.class}, order=14, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "responseCode", type = {StringType.class}, order=15, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="HTTP response code to test", formalDefinition="The value of the HTTP response code to be tested." )
         protected StringType responseCode;
 
         /**
          * The TestScript.rule this assert will evaluate.
          */
-        @Child(name = "rule", type = {}, order=15, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "rule", type = {}, order=16, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The reference to a TestScript.rule", formalDefinition="The TestScript.rule this assert will evaluate." )
         protected SetupActionAssertRuleComponent rule;
 
         /**
          * The TestScript.ruleset this assert will evaluate.
          */
-        @Child(name = "ruleset", type = {}, order=16, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "ruleset", type = {}, order=17, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The reference to a TestScript.ruleset", formalDefinition="The TestScript.ruleset this assert will evaluate." )
         protected SetupActionAssertRulesetComponent ruleset;
 
         /**
          * Fixture to evaluate the XPath/JSONPath expression or the headerField  against.
          */
-        @Child(name = "sourceId", type = {IdType.class}, order=17, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "sourceId", type = {IdType.class}, order=18, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Fixture Id of source expression or headerField", formalDefinition="Fixture to evaluate the XPath/JSONPath expression or the headerField  against." )
         protected IdType sourceId;
 
         /**
          * The ID of the Profile to validate against.
          */
-        @Child(name = "validateProfileId", type = {IdType.class}, order=18, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "validateProfileId", type = {IdType.class}, order=19, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Profile Id of validation profile reference", formalDefinition="The ID of the Profile to validate against." )
         protected IdType validateProfileId;
 
         /**
          * The value to compare to.
          */
-        @Child(name = "value", type = {StringType.class}, order=19, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "value", type = {StringType.class}, order=20, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The value to compare to", formalDefinition="The value to compare to." )
         protected StringType value;
 
         /**
          * Whether or not the test execution will produce a warning only on error for this assert.
          */
-        @Child(name = "warningOnly", type = {BooleanType.class}, order=20, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "warningOnly", type = {BooleanType.class}, order=21, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Will this assert produce a warning only on error?", formalDefinition="Whether or not the test execution will produce a warning only on error for this assert." )
         protected BooleanType warningOnly;
 
-        private static final long serialVersionUID = -561290310L;
+        private static final long serialVersionUID = -775036667L;
 
     /**
      * Constructor
@@ -6673,6 +6712,55 @@ public class TestScript extends BaseConformance {
         }
 
         /**
+         * @return {@link #requestURL} (The value to use in a comparison against the request URL path string.). This is the underlying object with id, value and extensions. The accessor "getRequestURL" gives direct access to the value
+         */
+        public StringType getRequestURLElement() { 
+          if (this.requestURL == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SetupActionAssertComponent.requestURL");
+            else if (Configuration.doAutoCreate())
+              this.requestURL = new StringType(); // bb
+          return this.requestURL;
+        }
+
+        public boolean hasRequestURLElement() { 
+          return this.requestURL != null && !this.requestURL.isEmpty();
+        }
+
+        public boolean hasRequestURL() { 
+          return this.requestURL != null && !this.requestURL.isEmpty();
+        }
+
+        /**
+         * @param value {@link #requestURL} (The value to use in a comparison against the request URL path string.). This is the underlying object with id, value and extensions. The accessor "getRequestURL" gives direct access to the value
+         */
+        public SetupActionAssertComponent setRequestURLElement(StringType value) { 
+          this.requestURL = value;
+          return this;
+        }
+
+        /**
+         * @return The value to use in a comparison against the request URL path string.
+         */
+        public String getRequestURL() { 
+          return this.requestURL == null ? null : this.requestURL.getValue();
+        }
+
+        /**
+         * @param value The value to use in a comparison against the request URL path string.
+         */
+        public SetupActionAssertComponent setRequestURL(String value) { 
+          if (Utilities.noString(value))
+            this.requestURL = null;
+          else {
+            if (this.requestURL == null)
+              this.requestURL = new StringType();
+            this.requestURL.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #resource} (The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.). This is the underlying object with id, value and extensions. The accessor "getResource" gives direct access to the value
          */
         public CodeType getResourceElement() { 
@@ -7072,6 +7160,7 @@ public class TestScript extends BaseConformance {
           childrenList.add(new Property("navigationLinks", "boolean", "Whether or not the test execution performs validation on the bundle navigation links.", 0, java.lang.Integer.MAX_VALUE, navigationLinks));
           childrenList.add(new Property("operator", "code", "The operator type.", 0, java.lang.Integer.MAX_VALUE, operator));
           childrenList.add(new Property("path", "string", "The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server.", 0, java.lang.Integer.MAX_VALUE, path));
+          childrenList.add(new Property("requestURL", "string", "The value to use in a comparison against the request URL path string.", 0, java.lang.Integer.MAX_VALUE, requestURL));
           childrenList.add(new Property("resource", "code", "The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("response", "code", "okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.", 0, java.lang.Integer.MAX_VALUE, response));
           childrenList.add(new Property("responseCode", "string", "The value of the HTTP response code to be tested.", 0, java.lang.Integer.MAX_VALUE, responseCode));
@@ -7097,6 +7186,7 @@ public class TestScript extends BaseConformance {
         case 1001488901: /*navigationLinks*/ return this.navigationLinks == null ? new Base[0] : new Base[] {this.navigationLinks}; // BooleanType
         case -500553564: /*operator*/ return this.operator == null ? new Base[0] : new Base[] {this.operator}; // Enumeration<AssertionOperatorType>
         case 3433509: /*path*/ return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
+        case 37099616: /*requestURL*/ return this.requestURL == null ? new Base[0] : new Base[] {this.requestURL}; // StringType
         case -341064690: /*resource*/ return this.resource == null ? new Base[0] : new Base[] {this.resource}; // CodeType
         case -340323263: /*response*/ return this.response == null ? new Base[0] : new Base[] {this.response}; // Enumeration<AssertionResponseTypes>
         case 1438723534: /*responseCode*/ return this.responseCode == null ? new Base[0] : new Base[] {this.responseCode}; // StringType
@@ -7146,6 +7236,9 @@ public class TestScript extends BaseConformance {
           break;
         case 3433509: // path
           this.path = castToString(value); // StringType
+          break;
+        case 37099616: // requestURL
+          this.requestURL = castToString(value); // StringType
           break;
         case -341064690: // resource
           this.resource = castToCode(value); // CodeType
@@ -7203,6 +7296,8 @@ public class TestScript extends BaseConformance {
           this.operator = new AssertionOperatorTypeEnumFactory().fromType(value); // Enumeration<AssertionOperatorType>
         else if (name.equals("path"))
           this.path = castToString(value); // StringType
+        else if (name.equals("requestURL"))
+          this.requestURL = castToString(value); // StringType
         else if (name.equals("resource"))
           this.resource = castToCode(value); // CodeType
         else if (name.equals("response"))
@@ -7239,6 +7334,7 @@ public class TestScript extends BaseConformance {
         case 1001488901: throw new FHIRException("Cannot make property navigationLinks as it is not a complex type"); // BooleanType
         case -500553564: throw new FHIRException("Cannot make property operator as it is not a complex type"); // Enumeration<AssertionOperatorType>
         case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
+        case 37099616: throw new FHIRException("Cannot make property requestURL as it is not a complex type"); // StringType
         case -341064690: throw new FHIRException("Cannot make property resource as it is not a complex type"); // CodeType
         case -340323263: throw new FHIRException("Cannot make property response as it is not a complex type"); // Enumeration<AssertionResponseTypes>
         case 1438723534: throw new FHIRException("Cannot make property responseCode as it is not a complex type"); // StringType
@@ -7288,6 +7384,9 @@ public class TestScript extends BaseConformance {
         else if (name.equals("path")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.path");
         }
+        else if (name.equals("requestURL")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.requestURL");
+        }
         else if (name.equals("resource")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.resource");
         }
@@ -7335,6 +7434,7 @@ public class TestScript extends BaseConformance {
         dst.navigationLinks = navigationLinks == null ? null : navigationLinks.copy();
         dst.operator = operator == null ? null : operator.copy();
         dst.path = path == null ? null : path.copy();
+        dst.requestURL = requestURL == null ? null : requestURL.copy();
         dst.resource = resource == null ? null : resource.copy();
         dst.response = response == null ? null : response.copy();
         dst.responseCode = responseCode == null ? null : responseCode.copy();
@@ -7358,10 +7458,11 @@ public class TestScript extends BaseConformance {
            && compareDeep(compareToSourceId, o.compareToSourceId, true) && compareDeep(compareToSourcePath, o.compareToSourcePath, true)
            && compareDeep(contentType, o.contentType, true) && compareDeep(headerField, o.headerField, true)
            && compareDeep(minimumId, o.minimumId, true) && compareDeep(navigationLinks, o.navigationLinks, true)
-           && compareDeep(operator, o.operator, true) && compareDeep(path, o.path, true) && compareDeep(resource, o.resource, true)
-           && compareDeep(response, o.response, true) && compareDeep(responseCode, o.responseCode, true) && compareDeep(rule, o.rule, true)
-           && compareDeep(ruleset, o.ruleset, true) && compareDeep(sourceId, o.sourceId, true) && compareDeep(validateProfileId, o.validateProfileId, true)
-           && compareDeep(value, o.value, true) && compareDeep(warningOnly, o.warningOnly, true);
+           && compareDeep(operator, o.operator, true) && compareDeep(path, o.path, true) && compareDeep(requestURL, o.requestURL, true)
+           && compareDeep(resource, o.resource, true) && compareDeep(response, o.response, true) && compareDeep(responseCode, o.responseCode, true)
+           && compareDeep(rule, o.rule, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(sourceId, o.sourceId, true)
+           && compareDeep(validateProfileId, o.validateProfileId, true) && compareDeep(value, o.value, true)
+           && compareDeep(warningOnly, o.warningOnly, true);
       }
 
       @Override
@@ -7375,17 +7476,17 @@ public class TestScript extends BaseConformance {
            && compareValues(compareToSourceId, o.compareToSourceId, true) && compareValues(compareToSourcePath, o.compareToSourcePath, true)
            && compareValues(contentType, o.contentType, true) && compareValues(headerField, o.headerField, true)
            && compareValues(minimumId, o.minimumId, true) && compareValues(navigationLinks, o.navigationLinks, true)
-           && compareValues(operator, o.operator, true) && compareValues(path, o.path, true) && compareValues(resource, o.resource, true)
-           && compareValues(response, o.response, true) && compareValues(responseCode, o.responseCode, true) && compareValues(sourceId, o.sourceId, true)
-           && compareValues(validateProfileId, o.validateProfileId, true) && compareValues(value, o.value, true)
-           && compareValues(warningOnly, o.warningOnly, true);
+           && compareValues(operator, o.operator, true) && compareValues(path, o.path, true) && compareValues(requestURL, o.requestURL, true)
+           && compareValues(resource, o.resource, true) && compareValues(response, o.response, true) && compareValues(responseCode, o.responseCode, true)
+           && compareValues(sourceId, o.sourceId, true) && compareValues(validateProfileId, o.validateProfileId, true)
+           && compareValues(value, o.value, true) && compareValues(warningOnly, o.warningOnly, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(label, description, direction
           , compareToSourceId, compareToSourcePath, contentType, headerField, minimumId, navigationLinks
-          , operator, path, resource, response, responseCode, rule, ruleset, sourceId
-          , validateProfileId, value, warningOnly);
+          , operator, path, requestURL, resource, response, responseCode, rule, ruleset
+          , sourceId, validateProfileId, value, warningOnly);
       }
 
   public String fhirType() {

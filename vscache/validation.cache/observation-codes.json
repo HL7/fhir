@@ -915,6 +915,17 @@
       }
     },
     {
+      "hash": "#|http://loinc.org|null|49464-1|CD13 Ag [Presence] in Tissue by Immune stain",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "CD13 Ag [Presence] in Tissue by Immune stain"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|49466-6|CD2 Ag [Presence] in Tissue by Immune stain",
       "severity": null,
       "message": null,

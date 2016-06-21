@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Jun 18, 2016 07:14+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 21, 2016 12:34-0400 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -749,11 +749,11 @@ public class Provenance extends DomainResource {
         /**
          * The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity.
          */
-        @Child(name = "agent", type = {ProvenanceAgentComponent.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "agent", type = {ProvenanceAgentComponent.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Entity is attributed to this agent", formalDefinition="The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity." )
-        protected ProvenanceAgentComponent agent;
+        protected List<ProvenanceAgentComponent> agent;
 
-        private static final long serialVersionUID = 1533729633L;
+        private static final long serialVersionUID = 1066624051L;
 
     /**
      * Constructor
@@ -938,25 +938,54 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #agent} (The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity.)
          */
-        public ProvenanceAgentComponent getAgent() { 
+        public List<ProvenanceAgentComponent> getAgent() { 
           if (this.agent == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProvenanceEntityComponent.agent");
-            else if (Configuration.doAutoCreate())
-              this.agent = new ProvenanceAgentComponent(); // cc
+            this.agent = new ArrayList<ProvenanceAgentComponent>();
           return this.agent;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ProvenanceEntityComponent setAgent(List<ProvenanceAgentComponent> theAgent) { 
+          this.agent = theAgent;
+          return this;
+        }
+
         public boolean hasAgent() { 
-          return this.agent != null && !this.agent.isEmpty();
+          if (this.agent == null)
+            return false;
+          for (ProvenanceAgentComponent item : this.agent)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public ProvenanceAgentComponent addAgent() { //3
+          ProvenanceAgentComponent t = new ProvenanceAgentComponent();
+          if (this.agent == null)
+            this.agent = new ArrayList<ProvenanceAgentComponent>();
+          this.agent.add(t);
+          return t;
+        }
+
+        public ProvenanceEntityComponent addAgent(ProvenanceAgentComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.agent == null)
+            this.agent = new ArrayList<ProvenanceAgentComponent>();
+          this.agent.add(t);
+          return this;
         }
 
         /**
-         * @param value {@link #agent} (The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity.)
+         * @return The first repetition of repeating field {@link #agent}, creating it if it does not already exist
          */
-        public ProvenanceEntityComponent setAgent(ProvenanceAgentComponent value) { 
-          this.agent = value;
-          return this;
+        public ProvenanceAgentComponent getAgentFirstRep() { 
+          if (getAgent().isEmpty()) {
+            addAgent();
+          }
+          return getAgent().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -975,7 +1004,7 @@ public class Provenance extends DomainResource {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
         case -925155509: /*reference*/ return this.reference == null ? new Base[0] : new Base[] {this.reference}; // UriType
         case 1671764162: /*display*/ return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
-        case 92750597: /*agent*/ return this.agent == null ? new Base[0] : new Base[] {this.agent}; // ProvenanceAgentComponent
+        case 92750597: /*agent*/ return this.agent == null ? new Base[0] : this.agent.toArray(new Base[this.agent.size()]); // ProvenanceAgentComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -997,7 +1026,7 @@ public class Provenance extends DomainResource {
           this.display = castToString(value); // StringType
           break;
         case 92750597: // agent
-          this.agent = (ProvenanceAgentComponent) value; // ProvenanceAgentComponent
+          this.getAgent().add((ProvenanceAgentComponent) value); // ProvenanceAgentComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -1015,7 +1044,7 @@ public class Provenance extends DomainResource {
         else if (name.equals("display"))
           this.display = castToString(value); // StringType
         else if (name.equals("agent"))
-          this.agent = (ProvenanceAgentComponent) value; // ProvenanceAgentComponent
+          this.getAgent().add((ProvenanceAgentComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -1027,7 +1056,7 @@ public class Provenance extends DomainResource {
         case 3575610:  return getType(); // Coding
         case -925155509: throw new FHIRException("Cannot make property reference as it is not a complex type"); // UriType
         case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
-        case 92750597:  return getAgent(); // ProvenanceAgentComponent
+        case 92750597:  return addAgent(); // ProvenanceAgentComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -1049,8 +1078,7 @@ public class Provenance extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type Provenance.display");
         }
         else if (name.equals("agent")) {
-          this.agent = new ProvenanceAgentComponent();
-          return this.agent;
+          return addAgent();
         }
         else
           return super.addChild(name);
@@ -1063,7 +1091,11 @@ public class Provenance extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.reference = reference == null ? null : reference.copy();
         dst.display = display == null ? null : display.copy();
-        dst.agent = agent == null ? null : agent.copy();
+        if (agent != null) {
+          dst.agent = new ArrayList<ProvenanceAgentComponent>();
+          for (ProvenanceAgentComponent i : agent)
+            dst.agent.add(i.copy());
+        };
         return dst;
       }
 

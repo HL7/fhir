@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sat, Jun 18, 2016 07:14+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 21, 2016 12:34-0400 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -2063,8 +2063,8 @@ public class RdfParser extends RdfParserBase {
       composeDateTime(t, "Claim", "created", element.getCreatedElement(), -1);
     if (element.hasBillablePeriod())
       composePeriod(t, "Claim", "billablePeriod", element.getBillablePeriod(), -1);
-    if (element.hasTarget())
-      composeType(t, "Claim", "target", element.getTarget(), -1);
+    if (element.hasInsurer())
+      composeType(t, "Claim", "insurer", element.getInsurer(), -1);
     if (element.hasProvider())
       composeType(t, "Claim", "provider", element.getProvider(), -1);
     if (element.hasOrganization())
@@ -2269,16 +2269,14 @@ public class RdfParser extends RdfParserBase {
       composePositiveInt(t, "Claim", "diagnosisLinkId", element.getDiagnosisLinkId().get(i), i);
     if (element.hasService())
       composeCoding(t, "Claim", "service", element.getService(), -1);
-    for (int i = 0; i < element.getServiceModifier().size(); i++)
-      composeCoding(t, "Claim", "serviceModifier", element.getServiceModifier().get(i), i);
     for (int i = 0; i < element.getModifier().size(); i++)
       composeCoding(t, "Claim", "modifier", element.getModifier().get(i), i);
     for (int i = 0; i < element.getProgramCode().size(); i++)
       composeCoding(t, "Claim", "programCode", element.getProgramCode().get(i), i);
     if (element.hasServiced())
       composeType(t, "Claim", "serviced", element.getServiced(), -1);
-    if (element.hasServiceLocation())
-      composeType(t, "Claim", "serviceLocation", element.getServiceLocation(), -1);
+    if (element.hasLocation())
+      composeType(t, "Claim", "location", element.getLocation(), -1);
     if (element.hasQuantity())
       composeQuantity(t, "Claim", "quantity", element.getQuantity(), -1);
     if (element.hasUnitPrice())
@@ -2337,6 +2335,8 @@ public class RdfParser extends RdfParserBase {
       composeCoding(t, "Claim", "type", element.getType(), -1);
     if (element.hasService())
       composeCoding(t, "Claim", "service", element.getService(), -1);
+    for (int i = 0; i < element.getModifier().size(); i++)
+      composeCoding(t, "Claim", "modifier", element.getModifier().get(i), i);
     for (int i = 0; i < element.getProgramCode().size(); i++)
       composeCoding(t, "Claim", "programCode", element.getProgramCode().get(i), i);
     if (element.hasQuantity())
@@ -2371,6 +2371,8 @@ public class RdfParser extends RdfParserBase {
       composeCoding(t, "Claim", "type", element.getType(), -1);
     if (element.hasService())
       composeCoding(t, "Claim", "service", element.getService(), -1);
+    for (int i = 0; i < element.getModifier().size(); i++)
+      composeCoding(t, "Claim", "modifier", element.getModifier().get(i), i);
     for (int i = 0; i < element.getProgramCode().size(); i++)
       composeCoding(t, "Claim", "programCode", element.getProgramCode().get(i), i);
     if (element.hasQuantity())
@@ -2531,6 +2533,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "detail", name, element, index);
     if (element.hasSequenceLinkIdElement())
       composePositiveInt(t, "ClaimResponse", "sequenceLinkId", element.getSequenceLinkIdElement(), -1);
+    for (int i = 0; i < element.getNoteNumber().size(); i++)
+      composePositiveInt(t, "ClaimResponse", "noteNumber", element.getNoteNumber().get(i), i);
     for (int i = 0; i < element.getAdjudication().size(); i++)
       composeClaimResponseAdjudicationComponent(t, "ClaimResponse", "adjudication", element.getAdjudication().get(i), i);
     for (int i = 0; i < element.getSubDetail().size(); i++)
@@ -2549,6 +2553,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "subDetail", name, element, index);
     if (element.hasSequenceLinkIdElement())
       composePositiveInt(t, "ClaimResponse", "sequenceLinkId", element.getSequenceLinkIdElement(), -1);
+    for (int i = 0; i < element.getNoteNumber().size(); i++)
+      composePositiveInt(t, "ClaimResponse", "noteNumber", element.getNoteNumber().get(i), i);
     for (int i = 0; i < element.getAdjudication().size(); i++)
       composeClaimResponseAdjudicationComponent(t, "ClaimResponse", "adjudication", element.getAdjudication().get(i), i);
   }
@@ -2565,12 +2571,12 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "addItem", name, element, index);
     for (int i = 0; i < element.getSequenceLinkId().size(); i++)
       composePositiveInt(t, "ClaimResponse", "sequenceLinkId", element.getSequenceLinkId().get(i), i);
+    for (int i = 0; i < element.getNoteNumber().size(); i++)
+      composePositiveInt(t, "ClaimResponse", "noteNumber", element.getNoteNumber().get(i), i);
     if (element.hasService())
       composeCoding(t, "ClaimResponse", "service", element.getService(), -1);
     if (element.hasFee())
       composeMoney(t, "ClaimResponse", "fee", element.getFee(), -1);
-    for (int i = 0; i < element.getNoteNumberLinkId().size(); i++)
-      composePositiveInt(t, "ClaimResponse", "noteNumberLinkId", element.getNoteNumberLinkId().get(i), i);
     for (int i = 0; i < element.getAdjudication().size(); i++)
       composeClaimResponseAdjudicationComponent(t, "ClaimResponse", "adjudication", element.getAdjudication().get(i), i);
     for (int i = 0; i < element.getDetail().size(); i++)
@@ -2587,6 +2593,8 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeBackboneElement(t, "detail", name, element, index);
+    for (int i = 0; i < element.getNoteNumber().size(); i++)
+      composePositiveInt(t, "ClaimResponse", "noteNumber", element.getNoteNumber().get(i), i);
     if (element.hasService())
       composeCoding(t, "ClaimResponse", "service", element.getService(), -1);
     if (element.hasFee())
@@ -2655,6 +2663,8 @@ public class RdfParser extends RdfParserBase {
       composeCoding(t, "ClaimResponse", "type", element.getType(), -1);
     if (element.hasTextElement())
       composeString(t, "ClaimResponse", "text", element.getTextElement(), -1);
+    if (element.hasLanguage())
+      composeCoding(t, "ClaimResponse", "language", element.getLanguage(), -1);
   }
 
   protected void composeClaimResponseCoverageComponent(Complex parent, String parentType, String name, ClaimResponse.CoverageComponent element, int index) {
@@ -4175,10 +4185,6 @@ public class RdfParser extends RdfParserBase {
       composePositiveInt(t, "Coverage", "dependent", element.getDependentElement(), -1);
     if (element.hasSequenceElement())
       composePositiveInt(t, "Coverage", "sequence", element.getSequenceElement(), -1);
-    for (int i = 0; i < element.getException().size(); i++)
-      composeCoding(t, "Coverage", "exception", element.getException().get(i), i);
-    if (element.hasSchoolElement())
-      composeString(t, "Coverage", "school", element.getSchoolElement(), -1);
     if (element.hasNetworkElement())
       composeString(t, "Coverage", "network", element.getNetworkElement(), -1);
     for (int i = 0; i < element.getContract().size(); i++)
@@ -4905,8 +4911,8 @@ public class RdfParser extends RdfParserBase {
       composeCoding(t, "EligibilityRequest", "originalRuleset", element.getOriginalRuleset(), -1);
     if (element.hasCreatedElement())
       composeDateTime(t, "EligibilityRequest", "created", element.getCreatedElement(), -1);
-    if (element.hasTarget())
-      composeType(t, "EligibilityRequest", "target", element.getTarget(), -1);
+    if (element.hasInsurer())
+      composeType(t, "EligibilityRequest", "insurer", element.getInsurer(), -1);
     if (element.hasProvider())
       composeType(t, "EligibilityRequest", "provider", element.getProvider(), -1);
     if (element.hasOrganization())
@@ -4987,6 +4993,10 @@ public class RdfParser extends RdfParserBase {
       composeCoding(t, "EligibilityResponse", "category", element.getCategory(), -1);
     if (element.hasSubCategory())
       composeCoding(t, "EligibilityResponse", "subCategory", element.getSubCategory(), -1);
+    if (element.hasNameElement())
+      composeString(t, "EligibilityResponse", "name", element.getNameElement(), -1);
+    if (element.hasDescriptionElement())
+      composeString(t, "EligibilityResponse", "description", element.getDescriptionElement(), -1);
     if (element.hasNetwork())
       composeCoding(t, "EligibilityResponse", "network", element.getNetwork(), -1);
     if (element.hasUnit())
@@ -5221,8 +5231,8 @@ public class RdfParser extends RdfParserBase {
       composeCoding(t, "EnrollmentRequest", "originalRuleset", element.getOriginalRuleset(), -1);
     if (element.hasCreatedElement())
       composeDateTime(t, "EnrollmentRequest", "created", element.getCreatedElement(), -1);
-    if (element.hasTarget())
-      composeReference(t, "EnrollmentRequest", "target", element.getTarget(), -1);
+    if (element.hasInsurer())
+      composeReference(t, "EnrollmentRequest", "insurer", element.getInsurer(), -1);
     if (element.hasProvider())
       composeReference(t, "EnrollmentRequest", "provider", element.getProvider(), -1);
     if (element.hasOrganization())
@@ -5231,8 +5241,6 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "EnrollmentRequest", "subject", element.getSubject(), -1);
     if (element.hasCoverage())
       composeReference(t, "EnrollmentRequest", "coverage", element.getCoverage(), -1);
-    if (element.hasRelationship())
-      composeCoding(t, "EnrollmentRequest", "relationship", element.getRelationship(), -1);
   }
 
   protected void composeEnrollmentResponse(Complex parent, String parentType, String name, EnrollmentResponse element, int index) {
@@ -5549,6 +5557,8 @@ public class RdfParser extends RdfParserBase {
     composeDomainResource(t, "ExplanationOfBenefit", name, element, index);
     for (int i = 0; i < element.getIdentifier().size(); i++)
       composeIdentifier(t, "ExplanationOfBenefit", "identifier", element.getIdentifier().get(i), i);
+    if (element.hasAuthor())
+      composeType(t, "ExplanationOfBenefit", "author", element.getAuthor(), -1);
     if (element.hasClaim())
       composeType(t, "ExplanationOfBenefit", "claim", element.getClaim(), -1);
     if (element.hasClaimResponse())
@@ -5771,16 +5781,14 @@ public class RdfParser extends RdfParserBase {
       composePositiveInt(t, "ExplanationOfBenefit", "diagnosisLinkId", element.getDiagnosisLinkId().get(i), i);
     if (element.hasService())
       composeCoding(t, "ExplanationOfBenefit", "service", element.getService(), -1);
-    for (int i = 0; i < element.getServiceModifier().size(); i++)
-      composeCoding(t, "ExplanationOfBenefit", "serviceModifier", element.getServiceModifier().get(i), i);
     for (int i = 0; i < element.getModifier().size(); i++)
       composeCoding(t, "ExplanationOfBenefit", "modifier", element.getModifier().get(i), i);
     for (int i = 0; i < element.getProgramCode().size(); i++)
       composeCoding(t, "ExplanationOfBenefit", "programCode", element.getProgramCode().get(i), i);
     if (element.hasServiced())
       composeType(t, "ExplanationOfBenefit", "serviced", element.getServiced(), -1);
-    if (element.hasPlace())
-      composeCoding(t, "ExplanationOfBenefit", "place", element.getPlace(), -1);
+    if (element.hasLocation())
+      composeType(t, "ExplanationOfBenefit", "location", element.getLocation(), -1);
     if (element.hasQuantity())
       composeQuantity(t, "ExplanationOfBenefit", "quantity", element.getQuantity(), -1);
     if (element.hasUnitPrice())
@@ -5863,6 +5871,8 @@ public class RdfParser extends RdfParserBase {
       composeCoding(t, "ExplanationOfBenefit", "type", element.getType(), -1);
     if (element.hasService())
       composeCoding(t, "ExplanationOfBenefit", "service", element.getService(), -1);
+    for (int i = 0; i < element.getModifier().size(); i++)
+      composeCoding(t, "ExplanationOfBenefit", "modifier", element.getModifier().get(i), i);
     for (int i = 0; i < element.getProgramCode().size(); i++)
       composeCoding(t, "ExplanationOfBenefit", "programCode", element.getProgramCode().get(i), i);
     if (element.hasQuantity())
@@ -5899,6 +5909,8 @@ public class RdfParser extends RdfParserBase {
       composeCoding(t, "ExplanationOfBenefit", "type", element.getType(), -1);
     if (element.hasService())
       composeCoding(t, "ExplanationOfBenefit", "service", element.getService(), -1);
+    for (int i = 0; i < element.getModifier().size(); i++)
+      composeCoding(t, "ExplanationOfBenefit", "modifier", element.getModifier().get(i), i);
     for (int i = 0; i < element.getProgramCode().size(); i++)
       composeCoding(t, "ExplanationOfBenefit", "programCode", element.getProgramCode().get(i), i);
     if (element.hasQuantity())
@@ -5949,6 +5961,8 @@ public class RdfParser extends RdfParserBase {
       composePositiveInt(t, "ExplanationOfBenefit", "sequenceLinkId", element.getSequenceLinkId().get(i), i);
     if (element.hasService())
       composeCoding(t, "ExplanationOfBenefit", "service", element.getService(), -1);
+    for (int i = 0; i < element.getModifier().size(); i++)
+      composeCoding(t, "ExplanationOfBenefit", "modifier", element.getModifier().get(i), i);
     if (element.hasFee())
       composeMoney(t, "ExplanationOfBenefit", "fee", element.getFee(), -1);
     for (int i = 0; i < element.getNoteNumberLinkId().size(); i++)
@@ -5971,6 +5985,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "detail", name, element, index);
     if (element.hasService())
       composeCoding(t, "ExplanationOfBenefit", "service", element.getService(), -1);
+    for (int i = 0; i < element.getModifier().size(); i++)
+      composeCoding(t, "ExplanationOfBenefit", "modifier", element.getModifier().get(i), i);
     if (element.hasFee())
       composeMoney(t, "ExplanationOfBenefit", "fee", element.getFee(), -1);
     for (int i = 0; i < element.getAdjudication().size(); i++)
@@ -6035,6 +6051,8 @@ public class RdfParser extends RdfParserBase {
       composeCoding(t, "ExplanationOfBenefit", "type", element.getType(), -1);
     if (element.hasTextElement())
       composeString(t, "ExplanationOfBenefit", "text", element.getTextElement(), -1);
+    if (element.hasLanguage())
+      composeCoding(t, "ExplanationOfBenefit", "language", element.getLanguage(), -1);
   }
 
   protected void composeExplanationOfBenefitBenefitBalanceComponent(Complex parent, String parentType, String name, ExplanationOfBenefit.BenefitBalanceComponent element, int index) {
@@ -6051,6 +6069,10 @@ public class RdfParser extends RdfParserBase {
       composeCoding(t, "ExplanationOfBenefit", "category", element.getCategory(), -1);
     if (element.hasSubCategory())
       composeCoding(t, "ExplanationOfBenefit", "subCategory", element.getSubCategory(), -1);
+    if (element.hasNameElement())
+      composeString(t, "ExplanationOfBenefit", "name", element.getNameElement(), -1);
+    if (element.hasDescriptionElement())
+      composeString(t, "ExplanationOfBenefit", "description", element.getDescriptionElement(), -1);
     if (element.hasNetwork())
       composeCoding(t, "ExplanationOfBenefit", "network", element.getNetwork(), -1);
     if (element.hasUnit())
@@ -10115,8 +10137,8 @@ public class RdfParser extends RdfParserBase {
       composeUri(t, "Provenance", "reference", element.getReferenceElement(), -1);
     if (element.hasDisplayElement())
       composeString(t, "Provenance", "display", element.getDisplayElement(), -1);
-    if (element.hasAgent())
-      composeProvenanceProvenanceAgentComponent(t, "Provenance", "agent", element.getAgent(), -1);
+    for (int i = 0; i < element.getAgent().size(); i++)
+      composeProvenanceProvenanceAgentComponent(t, "Provenance", "agent", element.getAgent().get(i), i);
   }
 
   protected void composeQuestionnaire(Complex parent, String parentType, String name, Questionnaire element, int index) {
@@ -11919,6 +11941,8 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "TestScript", "operator", element.getOperatorElement(), -1);
     if (element.hasPathElement())
       composeString(t, "TestScript", "path", element.getPathElement(), -1);
+    if (element.hasRequestURLElement())
+      composeString(t, "TestScript", "requestURL", element.getRequestURLElement(), -1);
     if (element.hasResourceElement())
       composeCode(t, "TestScript", "resource", element.getResourceElement(), -1);
     if (element.hasResponseElement())

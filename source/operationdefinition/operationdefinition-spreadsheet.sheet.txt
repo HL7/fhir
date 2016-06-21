@@ -69,8 +69,8 @@
   Type = DomainResource
   Short Label = Definition of an operation or a named query
   Definition = A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
-  Object Impl = BaseConformance
   RIM Mapping = n/a
+  Object Impl = BaseConformance
   w5 = conformance.behavior
 
  -- Row 2 -----------------------------------

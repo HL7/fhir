@@ -60,9 +60,9 @@
   Short Label = Search Parameter for a resource
   Definition = A search parameter that defines a named search item that can be used to search/filter on a resource.
   Comments = In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content
-  Object Impl = BaseConformance
   v2 Mapping = n/a
   RIM Mapping = n/a
+  Object Impl = BaseConformance
   w5 = conformance.behavior
 
  -- Row 2 -----------------------------------

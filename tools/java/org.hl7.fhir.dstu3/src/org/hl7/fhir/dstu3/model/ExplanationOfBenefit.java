@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Jun 18, 2016 07:14+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 21, 2016 12:34-0400 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -2121,86 +2121,79 @@ public class ExplanationOfBenefit extends DomainResource {
         protected List<PositiveIntType> diagnosisLinkId;
 
         /**
-         * If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.
+         * If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.
          */
         @Child(name = "service", type = {Coding.class}, order=5, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Item Code", formalDefinition="If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied." )
+        @Description(shortDefinition="Billing Code", formalDefinition="If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'." )
         protected Coding service;
 
         /**
-         * Unusual circumstances which may influence adjudication.
+         * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
          */
-        @Child(name = "serviceModifier", type = {Coding.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Service/Product modifiers", formalDefinition="Unusual circumstances which may influence adjudication." )
-        protected List<Coding> serviceModifier;
-
-        /**
-         * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
-         */
-        @Child(name = "modifier", type = {Coding.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen." )
+        @Child(name = "modifier", type = {Coding.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours." )
         protected List<Coding> modifier;
 
         /**
          * For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.
          */
-        @Child(name = "programCode", type = {Coding.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "programCode", type = {Coding.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Program specific reason for item inclusion", formalDefinition="For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program." )
         protected List<Coding> programCode;
 
         /**
          * The date or dates when the enclosed suite of services were performed or completed.
          */
-        @Child(name = "serviced", type = {DateType.class, Period.class}, order=9, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "serviced", type = {DateType.class, Period.class}, order=8, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Date or dates of Service", formalDefinition="The date or dates when the enclosed suite of services were performed or completed." )
         protected Type serviced;
 
         /**
          * Where the service was provided.
          */
-        @Child(name = "place", type = {Coding.class}, order=10, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "location", type = {Coding.class, Address.class, Location.class}, order=9, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Place of service", formalDefinition="Where the service was provided." )
-        protected Coding place;
+        protected Type location;
 
         /**
          * The number of repetitions of a service or product.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=11, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "quantity", type = {SimpleQuantity.class}, order=10, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Count of Products or Services", formalDefinition="The number of repetitions of a service or product." )
         protected SimpleQuantity quantity;
 
         /**
          * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
          */
-        @Child(name = "unitPrice", type = {Money.class}, order=12, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "unitPrice", type = {Money.class}, order=11, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Fee, charge or cost per point", formalDefinition="If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group." )
         protected Money unitPrice;
 
         /**
          * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        @Child(name = "factor", type = {DecimalType.class}, order=13, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "factor", type = {DecimalType.class}, order=12, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Price scaling factor", formalDefinition="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount." )
         protected DecimalType factor;
 
         /**
          * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
          */
-        @Child(name = "points", type = {DecimalType.class}, order=14, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "points", type = {DecimalType.class}, order=13, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Difficulty scaling factor", formalDefinition="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point." )
         protected DecimalType points;
 
         /**
          * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
-        @Child(name = "net", type = {Money.class}, order=15, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "net", type = {Money.class}, order=14, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Total item cost", formalDefinition="The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
-        @Child(name = "udi", type = {Device.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "udi", type = {Device.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
         protected List<Reference> udi;
         /**
@@ -2212,46 +2205,46 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * Physical service site on the patient (limb, tooth, etc).
          */
-        @Child(name = "bodySite", type = {Coding.class}, order=17, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "bodySite", type = {Coding.class}, order=16, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Service Location", formalDefinition="Physical service site on the patient (limb, tooth, etc)." )
         protected Coding bodySite;
 
         /**
          * A region or surface of the site, eg. limb region or tooth surface(s).
          */
-        @Child(name = "subSite", type = {Coding.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "subSite", type = {Coding.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Service Sub-location", formalDefinition="A region or surface of the site, eg. limb region or tooth surface(s)." )
         protected List<Coding> subSite;
 
         /**
          * A list of note references to the notes provided below.
          */
-        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
         protected List<PositiveIntType> noteNumber;
 
         /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "adjudication", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Adjudication details", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
         /**
          * Second tier of goods and services.
          */
-        @Child(name = "detail", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "detail", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Additional items", formalDefinition="Second tier of goods and services." )
         protected List<DetailComponent> detail;
 
         /**
          * The materials and placement date of prior fixed prosthesis.
          */
-        @Child(name = "prosthesis", type = {}, order=22, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "prosthesis", type = {}, order=21, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Prosthetic details", formalDefinition="The materials and placement date of prior fixed prosthesis." )
         protected ProsthesisComponent prosthesis;
 
-        private static final long serialVersionUID = 730508899L;
+        private static final long serialVersionUID = -1651906609L;
 
     /**
      * Constructor
@@ -2454,7 +2447,7 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @return {@link #service} (If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.)
+         * @return {@link #service} (If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.)
          */
         public Coding getService() { 
           if (this.service == null)
@@ -2470,7 +2463,7 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @param value {@link #service} (If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.)
+         * @param value {@link #service} (If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.)
          */
         public ItemComponent setService(Coding value) { 
           this.service = value;
@@ -2478,60 +2471,7 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @return {@link #serviceModifier} (Unusual circumstances which may influence adjudication.)
-         */
-        public List<Coding> getServiceModifier() { 
-          if (this.serviceModifier == null)
-            this.serviceModifier = new ArrayList<Coding>();
-          return this.serviceModifier;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public ItemComponent setServiceModifier(List<Coding> theServiceModifier) { 
-          this.serviceModifier = theServiceModifier;
-          return this;
-        }
-
-        public boolean hasServiceModifier() { 
-          if (this.serviceModifier == null)
-            return false;
-          for (Coding item : this.serviceModifier)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public Coding addServiceModifier() { //3
-          Coding t = new Coding();
-          if (this.serviceModifier == null)
-            this.serviceModifier = new ArrayList<Coding>();
-          this.serviceModifier.add(t);
-          return t;
-        }
-
-        public ItemComponent addServiceModifier(Coding t) { //3
-          if (t == null)
-            return this;
-          if (this.serviceModifier == null)
-            this.serviceModifier = new ArrayList<Coding>();
-          this.serviceModifier.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #serviceModifier}, creating it if it does not already exist
-         */
-        public Coding getServiceModifierFirstRep() { 
-          if (getServiceModifier().isEmpty()) {
-            addServiceModifier();
-          }
-          return getServiceModifier().get(0);
-        }
-
-        /**
-         * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.)
+         * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.)
          */
         public List<Coding> getModifier() { 
           if (this.modifier == null)
@@ -2682,26 +2622,60 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @return {@link #place} (Where the service was provided.)
+         * @return {@link #location} (Where the service was provided.)
          */
-        public Coding getPlace() { 
-          if (this.place == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ItemComponent.place");
-            else if (Configuration.doAutoCreate())
-              this.place = new Coding(); // cc
-          return this.place;
-        }
-
-        public boolean hasPlace() { 
-          return this.place != null && !this.place.isEmpty();
+        public Type getLocation() { 
+          return this.location;
         }
 
         /**
-         * @param value {@link #place} (Where the service was provided.)
+         * @return {@link #location} (Where the service was provided.)
          */
-        public ItemComponent setPlace(Coding value) { 
-          this.place = value;
+        public Coding getLocationCoding() throws FHIRException { 
+          if (!(this.location instanceof Coding))
+            throw new FHIRException("Type mismatch: the type Coding was expected, but "+this.location.getClass().getName()+" was encountered");
+          return (Coding) this.location;
+        }
+
+        public boolean hasLocationCoding() { 
+          return this.location instanceof Coding;
+        }
+
+        /**
+         * @return {@link #location} (Where the service was provided.)
+         */
+        public Address getLocationAddress() throws FHIRException { 
+          if (!(this.location instanceof Address))
+            throw new FHIRException("Type mismatch: the type Address was expected, but "+this.location.getClass().getName()+" was encountered");
+          return (Address) this.location;
+        }
+
+        public boolean hasLocationAddress() { 
+          return this.location instanceof Address;
+        }
+
+        /**
+         * @return {@link #location} (Where the service was provided.)
+         */
+        public Reference getLocationReference() throws FHIRException { 
+          if (!(this.location instanceof Reference))
+            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.location.getClass().getName()+" was encountered");
+          return (Reference) this.location;
+        }
+
+        public boolean hasLocationReference() { 
+          return this.location instanceof Reference;
+        }
+
+        public boolean hasLocation() { 
+          return this.location != null && !this.location.isEmpty();
+        }
+
+        /**
+         * @param value {@link #location} (Where the service was provided.)
+         */
+        public ItemComponent setLocation(Type value) { 
+          this.location = value;
           return this;
         }
 
@@ -3260,12 +3234,11 @@ public class ExplanationOfBenefit extends DomainResource {
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("careTeam", "", "The members of the team who provided the overall service as well as their role and whether responsible and qualifications.", 0, java.lang.Integer.MAX_VALUE, careTeam));
           childrenList.add(new Property("diagnosisLinkId", "positiveInt", "Diagnosis applicable for this service or product line.", 0, java.lang.Integer.MAX_VALUE, diagnosisLinkId));
-          childrenList.add(new Property("service", "Coding", "If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
-          childrenList.add(new Property("serviceModifier", "Coding", "Unusual circumstances which may influence adjudication.", 0, java.lang.Integer.MAX_VALUE, serviceModifier));
-          childrenList.add(new Property("modifier", "Coding", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.", 0, java.lang.Integer.MAX_VALUE, modifier));
+          childrenList.add(new Property("service", "Coding", "If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("modifier", "Coding", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.", 0, java.lang.Integer.MAX_VALUE, modifier));
           childrenList.add(new Property("programCode", "Coding", "For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.", 0, java.lang.Integer.MAX_VALUE, programCode));
           childrenList.add(new Property("serviced[x]", "date|Period", "The date or dates when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, serviced));
-          childrenList.add(new Property("place", "Coding", "Where the service was provided.", 0, java.lang.Integer.MAX_VALUE, place));
+          childrenList.add(new Property("location[x]", "Coding|Address|Reference(Location)", "Where the service was provided.", 0, java.lang.Integer.MAX_VALUE, location));
           childrenList.add(new Property("quantity", "SimpleQuantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("unitPrice", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
@@ -3288,11 +3261,10 @@ public class ExplanationOfBenefit extends DomainResource {
         case -7323378: /*careTeam*/ return this.careTeam == null ? new Base[0] : this.careTeam.toArray(new Base[this.careTeam.size()]); // CareTeamComponent
         case -1659207418: /*diagnosisLinkId*/ return this.diagnosisLinkId == null ? new Base[0] : this.diagnosisLinkId.toArray(new Base[this.diagnosisLinkId.size()]); // PositiveIntType
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
-        case 615164076: /*serviceModifier*/ return this.serviceModifier == null ? new Base[0] : this.serviceModifier.toArray(new Base[this.serviceModifier.size()]); // Coding
         case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // Coding
         case 1010065041: /*programCode*/ return this.programCode == null ? new Base[0] : this.programCode.toArray(new Base[this.programCode.size()]); // Coding
         case 1379209295: /*serviced*/ return this.serviced == null ? new Base[0] : new Base[] {this.serviced}; // Type
-        case 106748167: /*place*/ return this.place == null ? new Base[0] : new Base[] {this.place}; // Coding
+        case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Type
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
         case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
         case -1282148017: /*factor*/ return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
@@ -3328,9 +3300,6 @@ public class ExplanationOfBenefit extends DomainResource {
         case 1984153269: // service
           this.service = castToCoding(value); // Coding
           break;
-        case 615164076: // serviceModifier
-          this.getServiceModifier().add(castToCoding(value)); // Coding
-          break;
         case -615513385: // modifier
           this.getModifier().add(castToCoding(value)); // Coding
           break;
@@ -3340,8 +3309,8 @@ public class ExplanationOfBenefit extends DomainResource {
         case 1379209295: // serviced
           this.serviced = (Type) value; // Type
           break;
-        case 106748167: // place
-          this.place = castToCoding(value); // Coding
+        case 1901043637: // location
+          this.location = (Type) value; // Type
           break;
         case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
@@ -3396,16 +3365,14 @@ public class ExplanationOfBenefit extends DomainResource {
           this.getDiagnosisLinkId().add(castToPositiveInt(value));
         else if (name.equals("service"))
           this.service = castToCoding(value); // Coding
-        else if (name.equals("serviceModifier"))
-          this.getServiceModifier().add(castToCoding(value));
         else if (name.equals("modifier"))
           this.getModifier().add(castToCoding(value));
         else if (name.equals("programCode"))
           this.getProgramCode().add(castToCoding(value));
         else if (name.equals("serviced[x]"))
           this.serviced = (Type) value; // Type
-        else if (name.equals("place"))
-          this.place = castToCoding(value); // Coding
+        else if (name.equals("location[x]"))
+          this.location = (Type) value; // Type
         else if (name.equals("quantity"))
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("unitPrice"))
@@ -3442,11 +3409,10 @@ public class ExplanationOfBenefit extends DomainResource {
         case -7323378:  return addCareTeam(); // CareTeamComponent
         case -1659207418: throw new FHIRException("Cannot make property diagnosisLinkId as it is not a complex type"); // PositiveIntType
         case 1984153269:  return getService(); // Coding
-        case 615164076:  return addServiceModifier(); // Coding
         case -615513385:  return addModifier(); // Coding
         case 1010065041:  return addProgramCode(); // Coding
         case -1927922223:  return getServiced(); // Type
-        case 106748167:  return getPlace(); // Coding
+        case 552316075:  return getLocation(); // Type
         case -1285004149:  return getQuantity(); // SimpleQuantity
         case -486196699:  return getUnitPrice(); // Money
         case -1282148017: throw new FHIRException("Cannot make property factor as it is not a complex type"); // DecimalType
@@ -3483,9 +3449,6 @@ public class ExplanationOfBenefit extends DomainResource {
           this.service = new Coding();
           return this.service;
         }
-        else if (name.equals("serviceModifier")) {
-          return addServiceModifier();
-        }
         else if (name.equals("modifier")) {
           return addModifier();
         }
@@ -3500,9 +3463,17 @@ public class ExplanationOfBenefit extends DomainResource {
           this.serviced = new Period();
           return this.serviced;
         }
-        else if (name.equals("place")) {
-          this.place = new Coding();
-          return this.place;
+        else if (name.equals("locationCoding")) {
+          this.location = new Coding();
+          return this.location;
+        }
+        else if (name.equals("locationAddress")) {
+          this.location = new Address();
+          return this.location;
+        }
+        else if (name.equals("locationReference")) {
+          this.location = new Reference();
+          return this.location;
         }
         else if (name.equals("quantity")) {
           this.quantity = new SimpleQuantity();
@@ -3565,11 +3536,6 @@ public class ExplanationOfBenefit extends DomainResource {
             dst.diagnosisLinkId.add(i.copy());
         };
         dst.service = service == null ? null : service.copy();
-        if (serviceModifier != null) {
-          dst.serviceModifier = new ArrayList<Coding>();
-          for (Coding i : serviceModifier)
-            dst.serviceModifier.add(i.copy());
-        };
         if (modifier != null) {
           dst.modifier = new ArrayList<Coding>();
           for (Coding i : modifier)
@@ -3581,7 +3547,7 @@ public class ExplanationOfBenefit extends DomainResource {
             dst.programCode.add(i.copy());
         };
         dst.serviced = serviced == null ? null : serviced.copy();
-        dst.place = place == null ? null : place.copy();
+        dst.location = location == null ? null : location.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.unitPrice = unitPrice == null ? null : unitPrice.copy();
         dst.factor = factor == null ? null : factor.copy();
@@ -3626,13 +3592,12 @@ public class ExplanationOfBenefit extends DomainResource {
         ItemComponent o = (ItemComponent) other;
         return compareDeep(sequence, o.sequence, true) && compareDeep(type, o.type, true) && compareDeep(careTeam, o.careTeam, true)
            && compareDeep(diagnosisLinkId, o.diagnosisLinkId, true) && compareDeep(service, o.service, true)
-           && compareDeep(serviceModifier, o.serviceModifier, true) && compareDeep(modifier, o.modifier, true)
-           && compareDeep(programCode, o.programCode, true) && compareDeep(serviced, o.serviced, true) && compareDeep(place, o.place, true)
-           && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true) && compareDeep(factor, o.factor, true)
-           && compareDeep(points, o.points, true) && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true)
-           && compareDeep(bodySite, o.bodySite, true) && compareDeep(subSite, o.subSite, true) && compareDeep(noteNumber, o.noteNumber, true)
-           && compareDeep(adjudication, o.adjudication, true) && compareDeep(detail, o.detail, true) && compareDeep(prosthesis, o.prosthesis, true)
-          ;
+           && compareDeep(modifier, o.modifier, true) && compareDeep(programCode, o.programCode, true) && compareDeep(serviced, o.serviced, true)
+           && compareDeep(location, o.location, true) && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true)
+           && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true) && compareDeep(net, o.net, true)
+           && compareDeep(udi, o.udi, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(subSite, o.subSite, true)
+           && compareDeep(noteNumber, o.noteNumber, true) && compareDeep(adjudication, o.adjudication, true)
+           && compareDeep(detail, o.detail, true) && compareDeep(prosthesis, o.prosthesis, true);
       }
 
       @Override
@@ -3649,9 +3614,9 @@ public class ExplanationOfBenefit extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, type, careTeam
-          , diagnosisLinkId, service, serviceModifier, modifier, programCode, serviced, place
-          , quantity, unitPrice, factor, points, net, udi, bodySite, subSite, noteNumber
-          , adjudication, detail, prosthesis);
+          , diagnosisLinkId, service, modifier, programCode, serviced, location, quantity
+          , unitPrice, factor, points, net, udi, bodySite, subSite, noteNumber, adjudication
+          , detail, prosthesis);
       }
 
   public String fhirType() {
@@ -3666,7 +3631,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * The members of the team who provided the overall service.
          */
-        @Child(name = "provider", type = {Identifier.class, Practitioner.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "provider", type = {Identifier.class, Practitioner.class, Organization.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="", formalDefinition="The members of the team who provided the overall service." )
         protected Type provider;
 
@@ -3848,7 +3813,7 @@ public class ExplanationOfBenefit extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("provider[x]", "Identifier|Reference(Practitioner)", "The members of the team who provided the overall service.", 0, java.lang.Integer.MAX_VALUE, provider));
+          childrenList.add(new Property("provider[x]", "Identifier|Reference(Practitioner|Organization)", "The members of the team who provided the overall service.", 0, java.lang.Integer.MAX_VALUE, provider));
           childrenList.add(new Property("responsible", "boolean", "The practitioner who is billing and responsible for the claimed services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, responsible));
           childrenList.add(new Property("role", "Coding", "The lead, assisting or supervising practitioner and their discipline if a multidisiplinary team.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("qualification", "Coding", "The qualification which is applicable for this service.", 0, java.lang.Integer.MAX_VALUE, qualification));
@@ -4313,58 +4278,65 @@ public class ExplanationOfBenefit extends DomainResource {
         protected Coding type;
 
         /**
-         * If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.
+         * If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.
          */
         @Child(name = "service", type = {Coding.class}, order=3, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Additional item codes", formalDefinition="If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied." )
+        @Description(shortDefinition="Billing Code", formalDefinition="If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'." )
         protected Coding service;
+
+        /**
+         * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
+         */
+        @Child(name = "modifier", type = {Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours." )
+        protected List<Coding> modifier;
 
         /**
          * For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.
          */
-        @Child(name = "programCode", type = {Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "programCode", type = {Coding.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Program specific reason for item inclusion", formalDefinition="For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program." )
         protected List<Coding> programCode;
 
         /**
          * The number of repetitions of a service or product.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "quantity", type = {SimpleQuantity.class}, order=6, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Count of Products or Services", formalDefinition="The number of repetitions of a service or product." )
         protected SimpleQuantity quantity;
 
         /**
          * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
          */
-        @Child(name = "unitPrice", type = {Money.class}, order=6, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "unitPrice", type = {Money.class}, order=7, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Fee, charge or cost per point", formalDefinition="If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group." )
         protected Money unitPrice;
 
         /**
          * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        @Child(name = "factor", type = {DecimalType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "factor", type = {DecimalType.class}, order=8, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Price scaling factor", formalDefinition="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount." )
         protected DecimalType factor;
 
         /**
          * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
          */
-        @Child(name = "points", type = {DecimalType.class}, order=8, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "points", type = {DecimalType.class}, order=9, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Difficulty scaling factor", formalDefinition="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point." )
         protected DecimalType points;
 
         /**
          * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
-        @Child(name = "net", type = {Money.class}, order=9, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "net", type = {Money.class}, order=10, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Total additional item cost", formalDefinition="The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
-        @Child(name = "udi", type = {Device.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "udi", type = {Device.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
         protected List<Reference> udi;
         /**
@@ -4376,18 +4348,18 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Detail adjudication", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
         /**
          * Third tier of goods and services.
          */
-        @Child(name = "subDetail", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "subDetail", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Additional items", formalDefinition="Third tier of goods and services." )
         protected List<SubDetailComponent> subDetail;
 
-        private static final long serialVersionUID = 2082735277L;
+        private static final long serialVersionUID = -1446036074L;
 
     /**
      * Constructor
@@ -4476,7 +4448,7 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @return {@link #service} (If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.)
+         * @return {@link #service} (If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.)
          */
         public Coding getService() { 
           if (this.service == null)
@@ -4492,11 +4464,64 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @param value {@link #service} (If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.)
+         * @param value {@link #service} (If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.)
          */
         public DetailComponent setService(Coding value) { 
           this.service = value;
           return this;
+        }
+
+        /**
+         * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.)
+         */
+        public List<Coding> getModifier() { 
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          return this.modifier;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public DetailComponent setModifier(List<Coding> theModifier) { 
+          this.modifier = theModifier;
+          return this;
+        }
+
+        public boolean hasModifier() { 
+          if (this.modifier == null)
+            return false;
+          for (Coding item : this.modifier)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public Coding addModifier() { //3
+          Coding t = new Coding();
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          this.modifier.add(t);
+          return t;
+        }
+
+        public DetailComponent addModifier(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          this.modifier.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #modifier}, creating it if it does not already exist
+         */
+        public Coding getModifierFirstRep() { 
+          if (getModifier().isEmpty()) {
+            addModifier();
+          }
+          return getModifier().get(0);
         }
 
         /**
@@ -4943,7 +4968,8 @@ public class ExplanationOfBenefit extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequence", "positiveInt", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("service", "Coding", "If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("service", "Coding", "If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("modifier", "Coding", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.", 0, java.lang.Integer.MAX_VALUE, modifier));
           childrenList.add(new Property("programCode", "Coding", "For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.", 0, java.lang.Integer.MAX_VALUE, programCode));
           childrenList.add(new Property("quantity", "SimpleQuantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("unitPrice", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
@@ -4961,6 +4987,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
+        case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // Coding
         case 1010065041: /*programCode*/ return this.programCode == null ? new Base[0] : this.programCode.toArray(new Base[this.programCode.size()]); // Coding
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
         case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
@@ -4986,6 +5013,9 @@ public class ExplanationOfBenefit extends DomainResource {
           break;
         case 1984153269: // service
           this.service = castToCoding(value); // Coding
+          break;
+        case -615513385: // modifier
+          this.getModifier().add(castToCoding(value)); // Coding
           break;
         case 1010065041: // programCode
           this.getProgramCode().add(castToCoding(value)); // Coding
@@ -5027,6 +5057,8 @@ public class ExplanationOfBenefit extends DomainResource {
           this.type = castToCoding(value); // Coding
         else if (name.equals("service"))
           this.service = castToCoding(value); // Coding
+        else if (name.equals("modifier"))
+          this.getModifier().add(castToCoding(value));
         else if (name.equals("programCode"))
           this.getProgramCode().add(castToCoding(value));
         else if (name.equals("quantity"))
@@ -5055,6 +5087,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // PositiveIntType
         case 3575610:  return getType(); // Coding
         case 1984153269:  return getService(); // Coding
+        case -615513385:  return addModifier(); // Coding
         case 1010065041:  return addProgramCode(); // Coding
         case -1285004149:  return getQuantity(); // SimpleQuantity
         case -486196699:  return getUnitPrice(); // Money
@@ -5081,6 +5114,9 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("service")) {
           this.service = new Coding();
           return this.service;
+        }
+        else if (name.equals("modifier")) {
+          return addModifier();
         }
         else if (name.equals("programCode")) {
           return addProgramCode();
@@ -5122,6 +5158,11 @@ public class ExplanationOfBenefit extends DomainResource {
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.type = type == null ? null : type.copy();
         dst.service = service == null ? null : service.copy();
+        if (modifier != null) {
+          dst.modifier = new ArrayList<Coding>();
+          for (Coding i : modifier)
+            dst.modifier.add(i.copy());
+        };
         if (programCode != null) {
           dst.programCode = new ArrayList<Coding>();
           for (Coding i : programCode)
@@ -5158,10 +5199,10 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         DetailComponent o = (DetailComponent) other;
         return compareDeep(sequence, o.sequence, true) && compareDeep(type, o.type, true) && compareDeep(service, o.service, true)
-           && compareDeep(programCode, o.programCode, true) && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true)
-           && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true) && compareDeep(net, o.net, true)
-           && compareDeep(udi, o.udi, true) && compareDeep(adjudication, o.adjudication, true) && compareDeep(subDetail, o.subDetail, true)
-          ;
+           && compareDeep(modifier, o.modifier, true) && compareDeep(programCode, o.programCode, true) && compareDeep(quantity, o.quantity, true)
+           && compareDeep(unitPrice, o.unitPrice, true) && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true)
+           && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true) && compareDeep(adjudication, o.adjudication, true)
+           && compareDeep(subDetail, o.subDetail, true);
       }
 
       @Override
@@ -5177,8 +5218,8 @@ public class ExplanationOfBenefit extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, type, service
-          , programCode, quantity, unitPrice, factor, points, net, udi, adjudication, subDetail
-          );
+          , modifier, programCode, quantity, unitPrice, factor, points, net, udi, adjudication
+          , subDetail);
       }
 
   public String fhirType() {
@@ -5205,58 +5246,65 @@ public class ExplanationOfBenefit extends DomainResource {
         protected Coding type;
 
         /**
-         * The fee for an addittional service or product or charge.
+         * A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).
          */
         @Child(name = "service", type = {Coding.class}, order=3, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Additional item codes", formalDefinition="The fee for an addittional service or product or charge." )
+        @Description(shortDefinition="Billing Code", formalDefinition="A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI)." )
         protected Coding service;
+
+        /**
+         * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
+         */
+        @Child(name = "modifier", type = {Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours." )
+        protected List<Coding> modifier;
 
         /**
          * For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.
          */
-        @Child(name = "programCode", type = {Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "programCode", type = {Coding.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Program specific reason for item inclusion", formalDefinition="For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program." )
         protected List<Coding> programCode;
 
         /**
          * The number of repetitions of a service or product.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "quantity", type = {SimpleQuantity.class}, order=6, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Count of Products or Services", formalDefinition="The number of repetitions of a service or product." )
         protected SimpleQuantity quantity;
 
         /**
          * The fee for an addittional service or product or charge.
          */
-        @Child(name = "unitPrice", type = {Money.class}, order=6, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "unitPrice", type = {Money.class}, order=7, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Fee, charge or cost per point", formalDefinition="The fee for an addittional service or product or charge." )
         protected Money unitPrice;
 
         /**
          * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        @Child(name = "factor", type = {DecimalType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "factor", type = {DecimalType.class}, order=8, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Price scaling factor", formalDefinition="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount." )
         protected DecimalType factor;
 
         /**
          * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
          */
-        @Child(name = "points", type = {DecimalType.class}, order=8, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "points", type = {DecimalType.class}, order=9, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Difficulty scaling factor", formalDefinition="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point." )
         protected DecimalType points;
 
         /**
          * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
-        @Child(name = "net", type = {Money.class}, order=9, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "net", type = {Money.class}, order=10, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Net additional item cost", formalDefinition="The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
-        @Child(name = "udi", type = {Device.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "udi", type = {Device.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
         protected List<Reference> udi;
         /**
@@ -5268,11 +5316,11 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="SubDetail adjudication", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
-        private static final long serialVersionUID = -1376270092L;
+        private static final long serialVersionUID = -1505182165L;
 
     /**
      * Constructor
@@ -5361,7 +5409,7 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @return {@link #service} (The fee for an addittional service or product or charge.)
+         * @return {@link #service} (A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).)
          */
         public Coding getService() { 
           if (this.service == null)
@@ -5377,11 +5425,64 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @param value {@link #service} (The fee for an addittional service or product or charge.)
+         * @param value {@link #service} (A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).)
          */
         public SubDetailComponent setService(Coding value) { 
           this.service = value;
           return this;
+        }
+
+        /**
+         * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.)
+         */
+        public List<Coding> getModifier() { 
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          return this.modifier;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SubDetailComponent setModifier(List<Coding> theModifier) { 
+          this.modifier = theModifier;
+          return this;
+        }
+
+        public boolean hasModifier() { 
+          if (this.modifier == null)
+            return false;
+          for (Coding item : this.modifier)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public Coding addModifier() { //3
+          Coding t = new Coding();
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          this.modifier.add(t);
+          return t;
+        }
+
+        public SubDetailComponent addModifier(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          this.modifier.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #modifier}, creating it if it does not already exist
+         */
+        public Coding getModifierFirstRep() { 
+          if (getModifier().isEmpty()) {
+            addModifier();
+          }
+          return getModifier().get(0);
         }
 
         /**
@@ -5775,7 +5876,8 @@ public class ExplanationOfBenefit extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequence", "positiveInt", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("service", "Coding", "The fee for an addittional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("service", "Coding", "A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("modifier", "Coding", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.", 0, java.lang.Integer.MAX_VALUE, modifier));
           childrenList.add(new Property("programCode", "Coding", "For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.", 0, java.lang.Integer.MAX_VALUE, programCode));
           childrenList.add(new Property("quantity", "SimpleQuantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("unitPrice", "Money", "The fee for an addittional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
@@ -5792,6 +5894,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
+        case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // Coding
         case 1010065041: /*programCode*/ return this.programCode == null ? new Base[0] : this.programCode.toArray(new Base[this.programCode.size()]); // Coding
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
         case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
@@ -5816,6 +5919,9 @@ public class ExplanationOfBenefit extends DomainResource {
           break;
         case 1984153269: // service
           this.service = castToCoding(value); // Coding
+          break;
+        case -615513385: // modifier
+          this.getModifier().add(castToCoding(value)); // Coding
           break;
         case 1010065041: // programCode
           this.getProgramCode().add(castToCoding(value)); // Coding
@@ -5854,6 +5960,8 @@ public class ExplanationOfBenefit extends DomainResource {
           this.type = castToCoding(value); // Coding
         else if (name.equals("service"))
           this.service = castToCoding(value); // Coding
+        else if (name.equals("modifier"))
+          this.getModifier().add(castToCoding(value));
         else if (name.equals("programCode"))
           this.getProgramCode().add(castToCoding(value));
         else if (name.equals("quantity"))
@@ -5880,6 +5988,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // PositiveIntType
         case 3575610:  return getType(); // Coding
         case 1984153269:  return getService(); // Coding
+        case -615513385:  return addModifier(); // Coding
         case 1010065041:  return addProgramCode(); // Coding
         case -1285004149:  return getQuantity(); // SimpleQuantity
         case -486196699:  return getUnitPrice(); // Money
@@ -5905,6 +6014,9 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("service")) {
           this.service = new Coding();
           return this.service;
+        }
+        else if (name.equals("modifier")) {
+          return addModifier();
         }
         else if (name.equals("programCode")) {
           return addProgramCode();
@@ -5943,6 +6055,11 @@ public class ExplanationOfBenefit extends DomainResource {
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.type = type == null ? null : type.copy();
         dst.service = service == null ? null : service.copy();
+        if (modifier != null) {
+          dst.modifier = new ArrayList<Coding>();
+          for (Coding i : modifier)
+            dst.modifier.add(i.copy());
+        };
         if (programCode != null) {
           dst.programCode = new ArrayList<Coding>();
           for (Coding i : programCode)
@@ -5974,9 +6091,10 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         SubDetailComponent o = (SubDetailComponent) other;
         return compareDeep(sequence, o.sequence, true) && compareDeep(type, o.type, true) && compareDeep(service, o.service, true)
-           && compareDeep(programCode, o.programCode, true) && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true)
-           && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true) && compareDeep(net, o.net, true)
-           && compareDeep(udi, o.udi, true) && compareDeep(adjudication, o.adjudication, true);
+           && compareDeep(modifier, o.modifier, true) && compareDeep(programCode, o.programCode, true) && compareDeep(quantity, o.quantity, true)
+           && compareDeep(unitPrice, o.unitPrice, true) && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true)
+           && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true) && compareDeep(adjudication, o.adjudication, true)
+          ;
       }
 
       @Override
@@ -5992,7 +6110,8 @@ public class ExplanationOfBenefit extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, type, service
-          , programCode, quantity, unitPrice, factor, points, net, udi, adjudication);
+          , modifier, programCode, quantity, unitPrice, factor, points, net, udi, adjudication
+          );
       }
 
   public String fhirType() {
@@ -6278,41 +6397,48 @@ public class ExplanationOfBenefit extends DomainResource {
         protected List<PositiveIntType> sequenceLinkId;
 
         /**
-         * A code to indicate the Professional Service or Product supplied.
+         * If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.
          */
         @Child(name = "service", type = {Coding.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Group, Service or Product", formalDefinition="A code to indicate the Professional Service or Product supplied." )
+        @Description(shortDefinition="Billing Code", formalDefinition="If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'." )
         protected Coding service;
+
+        /**
+         * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
+         */
+        @Child(name = "modifier", type = {Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours." )
+        protected List<Coding> modifier;
 
         /**
          * The fee charged for the professional service or product.
          */
-        @Child(name = "fee", type = {Money.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "fee", type = {Money.class}, order=4, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Professional fee or Product charge", formalDefinition="The fee charged for the professional service or product." )
         protected Money fee;
 
         /**
          * A list of note references to the notes provided below.
          */
-        @Child(name = "noteNumberLinkId", type = {PositiveIntType.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "noteNumberLinkId", type = {PositiveIntType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
         protected List<PositiveIntType> noteNumberLinkId;
 
         /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Added items adjudication", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
         /**
          * The second tier service adjudications for payor added services.
          */
-        @Child(name = "detail", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "detail", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Added items details", formalDefinition="The second tier service adjudications for payor added services." )
         protected List<AddedItemsDetailComponent> detail;
 
-        private static final long serialVersionUID = -110151821L;
+        private static final long serialVersionUID = 226776938L;
 
     /**
      * Constructor
@@ -6391,7 +6517,7 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @return {@link #service} (A code to indicate the Professional Service or Product supplied.)
+         * @return {@link #service} (If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.)
          */
         public Coding getService() { 
           if (this.service == null)
@@ -6407,11 +6533,64 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @param value {@link #service} (A code to indicate the Professional Service or Product supplied.)
+         * @param value {@link #service} (If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.)
          */
         public AddedItemComponent setService(Coding value) { 
           this.service = value;
           return this;
+        }
+
+        /**
+         * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.)
+         */
+        public List<Coding> getModifier() { 
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          return this.modifier;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AddedItemComponent setModifier(List<Coding> theModifier) { 
+          this.modifier = theModifier;
+          return this;
+        }
+
+        public boolean hasModifier() { 
+          if (this.modifier == null)
+            return false;
+          for (Coding item : this.modifier)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public Coding addModifier() { //3
+          Coding t = new Coding();
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          this.modifier.add(t);
+          return t;
+        }
+
+        public AddedItemComponent addModifier(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          this.modifier.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #modifier}, creating it if it does not already exist
+         */
+        public Coding getModifierFirstRep() { 
+          if (getModifier().isEmpty()) {
+            addModifier();
+          }
+          return getModifier().get(0);
         }
 
         /**
@@ -6608,7 +6787,8 @@ public class ExplanationOfBenefit extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequenceLinkId", "positiveInt", "List of input service items which this service line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
-          childrenList.add(new Property("service", "Coding", "A code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("service", "Coding", "If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("modifier", "Coding", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.", 0, java.lang.Integer.MAX_VALUE, modifier));
           childrenList.add(new Property("fee", "Money", "The fee charged for the professional service or product.", 0, java.lang.Integer.MAX_VALUE, fee));
           childrenList.add(new Property("noteNumberLinkId", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumberLinkId));
           childrenList.add(new Property("adjudication", "@ExplanationOfBenefit.item.adjudication", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
@@ -6620,6 +6800,7 @@ public class ExplanationOfBenefit extends DomainResource {
         switch (hash) {
         case -1422298666: /*sequenceLinkId*/ return this.sequenceLinkId == null ? new Base[0] : this.sequenceLinkId.toArray(new Base[this.sequenceLinkId.size()]); // PositiveIntType
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
+        case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // Coding
         case 101254: /*fee*/ return this.fee == null ? new Base[0] : new Base[] {this.fee}; // Money
         case -1859667856: /*noteNumberLinkId*/ return this.noteNumberLinkId == null ? new Base[0] : this.noteNumberLinkId.toArray(new Base[this.noteNumberLinkId.size()]); // PositiveIntType
         case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // AdjudicationComponent
@@ -6637,6 +6818,9 @@ public class ExplanationOfBenefit extends DomainResource {
           break;
         case 1984153269: // service
           this.service = castToCoding(value); // Coding
+          break;
+        case -615513385: // modifier
+          this.getModifier().add(castToCoding(value)); // Coding
           break;
         case 101254: // fee
           this.fee = castToMoney(value); // Money
@@ -6661,6 +6845,8 @@ public class ExplanationOfBenefit extends DomainResource {
           this.getSequenceLinkId().add(castToPositiveInt(value));
         else if (name.equals("service"))
           this.service = castToCoding(value); // Coding
+        else if (name.equals("modifier"))
+          this.getModifier().add(castToCoding(value));
         else if (name.equals("fee"))
           this.fee = castToMoney(value); // Money
         else if (name.equals("noteNumberLinkId"))
@@ -6678,6 +6864,7 @@ public class ExplanationOfBenefit extends DomainResource {
         switch (hash) {
         case -1422298666: throw new FHIRException("Cannot make property sequenceLinkId as it is not a complex type"); // PositiveIntType
         case 1984153269:  return getService(); // Coding
+        case -615513385:  return addModifier(); // Coding
         case 101254:  return getFee(); // Money
         case -1859667856: throw new FHIRException("Cannot make property noteNumberLinkId as it is not a complex type"); // PositiveIntType
         case -231349275:  return addAdjudication(); // AdjudicationComponent
@@ -6695,6 +6882,9 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("service")) {
           this.service = new Coding();
           return this.service;
+        }
+        else if (name.equals("modifier")) {
+          return addModifier();
         }
         else if (name.equals("fee")) {
           this.fee = new Money();
@@ -6722,6 +6912,11 @@ public class ExplanationOfBenefit extends DomainResource {
             dst.sequenceLinkId.add(i.copy());
         };
         dst.service = service == null ? null : service.copy();
+        if (modifier != null) {
+          dst.modifier = new ArrayList<Coding>();
+          for (Coding i : modifier)
+            dst.modifier.add(i.copy());
+        };
         dst.fee = fee == null ? null : fee.copy();
         if (noteNumberLinkId != null) {
           dst.noteNumberLinkId = new ArrayList<PositiveIntType>();
@@ -6749,8 +6944,8 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         AddedItemComponent o = (AddedItemComponent) other;
         return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(service, o.service, true)
-           && compareDeep(fee, o.fee, true) && compareDeep(noteNumberLinkId, o.noteNumberLinkId, true) && compareDeep(adjudication, o.adjudication, true)
-           && compareDeep(detail, o.detail, true);
+           && compareDeep(modifier, o.modifier, true) && compareDeep(fee, o.fee, true) && compareDeep(noteNumberLinkId, o.noteNumberLinkId, true)
+           && compareDeep(adjudication, o.adjudication, true) && compareDeep(detail, o.detail, true);
       }
 
       @Override
@@ -6765,8 +6960,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId, service, fee
-          , noteNumberLinkId, adjudication, detail);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId, service, modifier
+          , fee, noteNumberLinkId, adjudication, detail);
       }
 
   public String fhirType() {
@@ -6779,27 +6974,34 @@ public class ExplanationOfBenefit extends DomainResource {
     @Block()
     public static class AddedItemsDetailComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * A code to indicate the Professional Service or Product supplied.
+         * A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).
          */
         @Child(name = "service", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Service or Product", formalDefinition="A code to indicate the Professional Service or Product supplied." )
+        @Description(shortDefinition="Billing Code", formalDefinition="A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI)." )
         protected Coding service;
+
+        /**
+         * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
+         */
+        @Child(name = "modifier", type = {Coding.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours." )
+        protected List<Coding> modifier;
 
         /**
          * The fee charged for the professional service or product.
          */
-        @Child(name = "fee", type = {Money.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "fee", type = {Money.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Professional fee or Product charge", formalDefinition="The fee charged for the professional service or product." )
         protected Money fee;
 
         /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Added items detail adjudication", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
-        private static final long serialVersionUID = 2021670906L;
+        private static final long serialVersionUID = -283934159L;
 
     /**
      * Constructor
@@ -6817,7 +7019,7 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
         /**
-         * @return {@link #service} (A code to indicate the Professional Service or Product supplied.)
+         * @return {@link #service} (A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).)
          */
         public Coding getService() { 
           if (this.service == null)
@@ -6833,11 +7035,64 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @param value {@link #service} (A code to indicate the Professional Service or Product supplied.)
+         * @param value {@link #service} (A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).)
          */
         public AddedItemsDetailComponent setService(Coding value) { 
           this.service = value;
           return this;
+        }
+
+        /**
+         * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.)
+         */
+        public List<Coding> getModifier() { 
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          return this.modifier;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AddedItemsDetailComponent setModifier(List<Coding> theModifier) { 
+          this.modifier = theModifier;
+          return this;
+        }
+
+        public boolean hasModifier() { 
+          if (this.modifier == null)
+            return false;
+          for (Coding item : this.modifier)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public Coding addModifier() { //3
+          Coding t = new Coding();
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          this.modifier.add(t);
+          return t;
+        }
+
+        public AddedItemsDetailComponent addModifier(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          this.modifier.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #modifier}, creating it if it does not already exist
+         */
+        public Coding getModifierFirstRep() { 
+          if (getModifier().isEmpty()) {
+            addModifier();
+          }
+          return getModifier().get(0);
         }
 
         /**
@@ -6919,7 +7174,8 @@ public class ExplanationOfBenefit extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("service", "Coding", "A code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("service", "Coding", "A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("modifier", "Coding", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.", 0, java.lang.Integer.MAX_VALUE, modifier));
           childrenList.add(new Property("fee", "Money", "The fee charged for the professional service or product.", 0, java.lang.Integer.MAX_VALUE, fee));
           childrenList.add(new Property("adjudication", "@ExplanationOfBenefit.item.adjudication", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
         }
@@ -6928,6 +7184,7 @@ public class ExplanationOfBenefit extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
+        case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // Coding
         case 101254: /*fee*/ return this.fee == null ? new Base[0] : new Base[] {this.fee}; // Money
         case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // AdjudicationComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -6940,6 +7197,9 @@ public class ExplanationOfBenefit extends DomainResource {
         switch (hash) {
         case 1984153269: // service
           this.service = castToCoding(value); // Coding
+          break;
+        case -615513385: // modifier
+          this.getModifier().add(castToCoding(value)); // Coding
           break;
         case 101254: // fee
           this.fee = castToMoney(value); // Money
@@ -6956,6 +7216,8 @@ public class ExplanationOfBenefit extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("service"))
           this.service = castToCoding(value); // Coding
+        else if (name.equals("modifier"))
+          this.getModifier().add(castToCoding(value));
         else if (name.equals("fee"))
           this.fee = castToMoney(value); // Money
         else if (name.equals("adjudication"))
@@ -6968,6 +7230,7 @@ public class ExplanationOfBenefit extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1984153269:  return getService(); // Coding
+        case -615513385:  return addModifier(); // Coding
         case 101254:  return getFee(); // Money
         case -231349275:  return addAdjudication(); // AdjudicationComponent
         default: return super.makeProperty(hash, name);
@@ -6980,6 +7243,9 @@ public class ExplanationOfBenefit extends DomainResource {
         if (name.equals("service")) {
           this.service = new Coding();
           return this.service;
+        }
+        else if (name.equals("modifier")) {
+          return addModifier();
         }
         else if (name.equals("fee")) {
           this.fee = new Money();
@@ -6996,6 +7262,11 @@ public class ExplanationOfBenefit extends DomainResource {
         AddedItemsDetailComponent dst = new AddedItemsDetailComponent();
         copyValues(dst);
         dst.service = service == null ? null : service.copy();
+        if (modifier != null) {
+          dst.modifier = new ArrayList<Coding>();
+          for (Coding i : modifier)
+            dst.modifier.add(i.copy());
+        };
         dst.fee = fee == null ? null : fee.copy();
         if (adjudication != null) {
           dst.adjudication = new ArrayList<AdjudicationComponent>();
@@ -7012,8 +7283,8 @@ public class ExplanationOfBenefit extends DomainResource {
         if (!(other instanceof AddedItemsDetailComponent))
           return false;
         AddedItemsDetailComponent o = (AddedItemsDetailComponent) other;
-        return compareDeep(service, o.service, true) && compareDeep(fee, o.fee, true) && compareDeep(adjudication, o.adjudication, true)
-          ;
+        return compareDeep(service, o.service, true) && compareDeep(modifier, o.modifier, true) && compareDeep(fee, o.fee, true)
+           && compareDeep(adjudication, o.adjudication, true);
       }
 
       @Override
@@ -7027,7 +7298,7 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(service, fee, adjudication
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(service, modifier, fee, adjudication
           );
       }
 
@@ -7694,7 +7965,14 @@ public class ExplanationOfBenefit extends DomainResource {
         @Description(shortDefinition="Note explanitory text", formalDefinition="The note text." )
         protected StringType text;
 
-        private static final long serialVersionUID = 1768923951L;
+        /**
+         * The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.
+         */
+        @Child(name = "language", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Language", formalDefinition="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English." )
+        protected Coding language;
+
+        private static final long serialVersionUID = -1578585461L;
 
     /**
      * Constructor
@@ -7821,11 +8099,36 @@ public class ExplanationOfBenefit extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #language} (The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.)
+         */
+        public Coding getLanguage() { 
+          if (this.language == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create NoteComponent.language");
+            else if (Configuration.doAutoCreate())
+              this.language = new Coding(); // cc
+          return this.language;
+        }
+
+        public boolean hasLanguage() { 
+          return this.language != null && !this.language.isEmpty();
+        }
+
+        /**
+         * @param value {@link #language} (The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.)
+         */
+        public NoteComponent setLanguage(Coding value) { 
+          this.language = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("number", "positiveInt", "An integer associated with each note which may be referred to from each service line item.", 0, java.lang.Integer.MAX_VALUE, number));
           childrenList.add(new Property("type", "Coding", "The note purpose: Print/Display.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("text", "string", "The note text.", 0, java.lang.Integer.MAX_VALUE, text));
+          childrenList.add(new Property("language", "Coding", "The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English.", 0, java.lang.Integer.MAX_VALUE, language));
         }
 
       @Override
@@ -7834,6 +8137,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1034364087: /*number*/ return this.number == null ? new Base[0] : new Base[] {this.number}; // PositiveIntType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
         case 3556653: /*text*/ return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
+        case -1613589672: /*language*/ return this.language == null ? new Base[0] : new Base[] {this.language}; // Coding
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -7851,6 +8155,9 @@ public class ExplanationOfBenefit extends DomainResource {
         case 3556653: // text
           this.text = castToString(value); // StringType
           break;
+        case -1613589672: // language
+          this.language = castToCoding(value); // Coding
+          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -7864,6 +8171,8 @@ public class ExplanationOfBenefit extends DomainResource {
           this.type = castToCoding(value); // Coding
         else if (name.equals("text"))
           this.text = castToString(value); // StringType
+        else if (name.equals("language"))
+          this.language = castToCoding(value); // Coding
         else
           super.setProperty(name, value);
       }
@@ -7874,6 +8183,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1034364087: throw new FHIRException("Cannot make property number as it is not a complex type"); // PositiveIntType
         case 3575610:  return getType(); // Coding
         case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
+        case -1613589672:  return getLanguage(); // Coding
         default: return super.makeProperty(hash, name);
         }
 
@@ -7891,6 +8201,10 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("text")) {
           throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.text");
         }
+        else if (name.equals("language")) {
+          this.language = new Coding();
+          return this.language;
+        }
         else
           return super.addChild(name);
       }
@@ -7901,6 +8215,7 @@ public class ExplanationOfBenefit extends DomainResource {
         dst.number = number == null ? null : number.copy();
         dst.type = type == null ? null : type.copy();
         dst.text = text == null ? null : text.copy();
+        dst.language = language == null ? null : language.copy();
         return dst;
       }
 
@@ -7912,7 +8227,7 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         NoteComponent o = (NoteComponent) other;
         return compareDeep(number, o.number, true) && compareDeep(type, o.type, true) && compareDeep(text, o.text, true)
-          ;
+           && compareDeep(language, o.language, true);
       }
 
       @Override
@@ -7926,7 +8241,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(number, type, text);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(number, type, text, language
+          );
       }
 
   public String fhirType() {
@@ -7953,34 +8269,48 @@ public class ExplanationOfBenefit extends DomainResource {
         protected Coding subCategory;
 
         /**
+         * A short name or tag for the benefit, for example MED01, or DENT2.
+         */
+        @Child(name = "name", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Short name for the benefit", formalDefinition="A short name or tag for the benefit, for example MED01, or DENT2." )
+        protected StringType name;
+
+        /**
+         * A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.
+         */
+        @Child(name = "description", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Description of the benefit", formalDefinition="A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'." )
+        protected StringType description;
+
+        /**
          * Network designation.
          */
-        @Child(name = "network", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "network", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="In or out of network", formalDefinition="Network designation." )
         protected Coding network;
 
         /**
          * Unit designation: individual or family.
          */
-        @Child(name = "unit", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "unit", type = {Coding.class}, order=6, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Individual or family", formalDefinition="Unit designation: individual or family." )
         protected Coding unit;
 
         /**
          * The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.
          */
-        @Child(name = "term", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "term", type = {Coding.class}, order=7, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Annual or lifetime", formalDefinition="The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'." )
         protected Coding term;
 
         /**
          * Benefits Used to date.
          */
-        @Child(name = "financial", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "financial", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Benefit Summary", formalDefinition="Benefits Used to date." )
         protected List<BenefitComponent> financial;
 
-        private static final long serialVersionUID = 1708176773L;
+        private static final long serialVersionUID = -1090359286L;
 
     /**
      * Constructor
@@ -8042,6 +8372,104 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public BenefitBalanceComponent setSubCategory(Coding value) { 
           this.subCategory = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #name} (A short name or tag for the benefit, for example MED01, or DENT2.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create BenefitBalanceComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (A short name or tag for the benefit, for example MED01, or DENT2.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public BenefitBalanceComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return A short name or tag for the benefit, for example MED01, or DENT2.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value A short name or tag for the benefit, for example MED01, or DENT2.
+         */
+        public BenefitBalanceComponent setName(String value) { 
+          if (Utilities.noString(value))
+            this.name = null;
+          else {
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #description} (A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public StringType getDescriptionElement() { 
+          if (this.description == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create BenefitBalanceComponent.description");
+            else if (Configuration.doAutoCreate())
+              this.description = new StringType(); // bb
+          return this.description;
+        }
+
+        public boolean hasDescriptionElement() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        public boolean hasDescription() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        /**
+         * @param value {@link #description} (A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public BenefitBalanceComponent setDescriptionElement(StringType value) { 
+          this.description = value;
+          return this;
+        }
+
+        /**
+         * @return A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.
+         */
+        public String getDescription() { 
+          return this.description == null ? null : this.description.getValue();
+        }
+
+        /**
+         * @param value A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.
+         */
+        public BenefitBalanceComponent setDescription(String value) { 
+          if (Utilities.noString(value))
+            this.description = null;
+          else {
+            if (this.description == null)
+              this.description = new StringType();
+            this.description.setValue(value);
+          }
           return this;
         }
 
@@ -8174,6 +8602,8 @@ public class ExplanationOfBenefit extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("category", "Coding", "Dental, Vision, Medical, Pharmacy, Rehab etc.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("subCategory", "Coding", "Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.", 0, java.lang.Integer.MAX_VALUE, subCategory));
+          childrenList.add(new Property("name", "string", "A short name or tag for the benefit, for example MED01, or DENT2.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("description", "string", "A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("network", "Coding", "Network designation.", 0, java.lang.Integer.MAX_VALUE, network));
           childrenList.add(new Property("unit", "Coding", "Unit designation: individual or family.", 0, java.lang.Integer.MAX_VALUE, unit));
           childrenList.add(new Property("term", "Coding", "The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.", 0, java.lang.Integer.MAX_VALUE, term));
@@ -8185,6 +8615,8 @@ public class ExplanationOfBenefit extends DomainResource {
         switch (hash) {
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
         case 1365024606: /*subCategory*/ return this.subCategory == null ? new Base[0] : new Base[] {this.subCategory}; // Coding
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 1843485230: /*network*/ return this.network == null ? new Base[0] : new Base[] {this.network}; // Coding
         case 3594628: /*unit*/ return this.unit == null ? new Base[0] : new Base[] {this.unit}; // Coding
         case 3556460: /*term*/ return this.term == null ? new Base[0] : new Base[] {this.term}; // Coding
@@ -8202,6 +8634,12 @@ public class ExplanationOfBenefit extends DomainResource {
           break;
         case 1365024606: // subCategory
           this.subCategory = castToCoding(value); // Coding
+          break;
+        case 3373707: // name
+          this.name = castToString(value); // StringType
+          break;
+        case -1724546052: // description
+          this.description = castToString(value); // StringType
           break;
         case 1843485230: // network
           this.network = castToCoding(value); // Coding
@@ -8226,6 +8664,10 @@ public class ExplanationOfBenefit extends DomainResource {
           this.category = castToCoding(value); // Coding
         else if (name.equals("subCategory"))
           this.subCategory = castToCoding(value); // Coding
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
         else if (name.equals("network"))
           this.network = castToCoding(value); // Coding
         else if (name.equals("unit"))
@@ -8243,6 +8685,8 @@ public class ExplanationOfBenefit extends DomainResource {
         switch (hash) {
         case 50511102:  return getCategory(); // Coding
         case 1365024606:  return getSubCategory(); // Coding
+        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case 1843485230:  return getNetwork(); // Coding
         case 3594628:  return getUnit(); // Coding
         case 3556460:  return getTerm(); // Coding
@@ -8261,6 +8705,12 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("subCategory")) {
           this.subCategory = new Coding();
           return this.subCategory;
+        }
+        else if (name.equals("name")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.name");
+        }
+        else if (name.equals("description")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.description");
         }
         else if (name.equals("network")) {
           this.network = new Coding();
@@ -8286,6 +8736,8 @@ public class ExplanationOfBenefit extends DomainResource {
         copyValues(dst);
         dst.category = category == null ? null : category.copy();
         dst.subCategory = subCategory == null ? null : subCategory.copy();
+        dst.name = name == null ? null : name.copy();
+        dst.description = description == null ? null : description.copy();
         dst.network = network == null ? null : network.copy();
         dst.unit = unit == null ? null : unit.copy();
         dst.term = term == null ? null : term.copy();
@@ -8305,8 +8757,9 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         BenefitBalanceComponent o = (BenefitBalanceComponent) other;
         return compareDeep(category, o.category, true) && compareDeep(subCategory, o.subCategory, true)
-           && compareDeep(network, o.network, true) && compareDeep(unit, o.unit, true) && compareDeep(term, o.term, true)
-           && compareDeep(financial, o.financial, true);
+           && compareDeep(name, o.name, true) && compareDeep(description, o.description, true) && compareDeep(network, o.network, true)
+           && compareDeep(unit, o.unit, true) && compareDeep(term, o.term, true) && compareDeep(financial, o.financial, true)
+          ;
       }
 
       @Override
@@ -8316,12 +8769,12 @@ public class ExplanationOfBenefit extends DomainResource {
         if (!(other instanceof BenefitBalanceComponent))
           return false;
         BenefitBalanceComponent o = (BenefitBalanceComponent) other;
-        return true;
+        return compareValues(name, o.name, true) && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, subCategory, network
-          , unit, term, financial);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, subCategory, name
+          , description, network, unit, term, financial);
       }
 
   public String fhirType() {
@@ -8619,265 +9072,272 @@ public class ExplanationOfBenefit extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
+     * The insurer which is responsible for the explanation of benefit.
+     */
+    @Child(name = "author", type = {Identifier.class, Organization.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Insurer", formalDefinition="The insurer which is responsible for the explanation of benefit." )
+    protected Type author;
+
+    /**
      * The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.
      */
-    @Child(name = "claim", type = {Identifier.class, Claim.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "claim", type = {Identifier.class, Claim.class}, order=2, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Claim reference", formalDefinition="The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number." )
     protected Type claim;
 
     /**
      * The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.
      */
-    @Child(name = "claimResponse", type = {Identifier.class, ClaimResponse.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "claimResponse", type = {Identifier.class, ClaimResponse.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Claim response reference", formalDefinition="The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number." )
     protected Type claimResponse;
 
     /**
      * The category of claim.
      */
-    @Child(name = "type", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "type", type = {CodeType.class}, order=4, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="institutional | oral | pharmacy | professional | vision", formalDefinition="The category of claim." )
     protected Enumeration<ClaimType2> type;
 
     /**
      * A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType.
      */
-    @Child(name = "subType", type = {Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "subType", type = {Coding.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Finer grained claim type information", formalDefinition="A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType." )
     protected List<Coding> subType;
 
     /**
      * The version of the specification on which this instance relies.
      */
-    @Child(name = "ruleset", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "ruleset", type = {Coding.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Current specification followed", formalDefinition="The version of the specification on which this instance relies." )
     protected Coding ruleset;
 
     /**
      * The version of the specification from which the original instance was created.
      */
-    @Child(name = "originalRuleset", type = {Coding.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "originalRuleset", type = {Coding.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Original specification followed", formalDefinition="The version of the specification from which the original instance was created." )
     protected Coding originalRuleset;
 
     /**
      * The date when the EOB was created.
      */
-    @Child(name = "created", type = {DateTimeType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "created", type = {DateTimeType.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Creation date", formalDefinition="The date when the EOB was created." )
     protected DateTimeType created;
 
     /**
      * The billable period for which charges are being submitted.
      */
-    @Child(name = "billablePeriod", type = {Period.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "billablePeriod", type = {Period.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Period for charge submission", formalDefinition="The billable period for which charges are being submitted." )
     protected Period billablePeriod;
 
     /**
      * Processing outcome errror, partial or complete processing.
      */
-    @Child(name = "outcome", type = {Coding.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "outcome", type = {Coding.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="complete | error | partial", formalDefinition="Processing outcome errror, partial or complete processing." )
     protected Coding outcome;
 
     /**
      * A description of the status of the adjudication.
      */
-    @Child(name = "disposition", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "disposition", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Disposition Message", formalDefinition="A description of the status of the adjudication." )
     protected StringType disposition;
 
     /**
      * The provider which is responsible for the claim.
      */
-    @Child(name = "provider", type = {Identifier.class, Practitioner.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "provider", type = {Identifier.class, Practitioner.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Responsible provider for the claim", formalDefinition="The provider which is responsible for the claim." )
     protected Type provider;
 
     /**
      * The provider which is responsible for the claim.
      */
-    @Child(name = "organization", type = {Identifier.class, Organization.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "organization", type = {Identifier.class, Organization.class}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Responsible organization for the claim", formalDefinition="The provider which is responsible for the claim." )
     protected Type organization;
 
     /**
      * Facility where the services were provided.
      */
-    @Child(name = "facility", type = {Identifier.class, Location.class}, order=13, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "facility", type = {Identifier.class, Location.class}, order=14, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Servicing Facility", formalDefinition="Facility where the services were provided." )
     protected Type facility;
 
     /**
      * Other claims which are related to this claim such as prior claim versions or for related services.
      */
-    @Child(name = "related", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "related", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Related Claims which may be revelant to processing this claimn", formalDefinition="Other claims which are related to this claim such as prior claim versions or for related services." )
     protected List<RelatedClaimComponent> related;
 
     /**
      * Prescription to support the dispensing of Pharmacy or Vision products.
      */
-    @Child(name = "prescription", type = {Identifier.class, MedicationOrder.class, VisionPrescription.class}, order=15, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "prescription", type = {Identifier.class, MedicationOrder.class, VisionPrescription.class}, order=16, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Prescription", formalDefinition="Prescription to support the dispensing of Pharmacy or Vision products." )
     protected Type prescription;
 
     /**
      * Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.
      */
-    @Child(name = "originalPrescription", type = {Identifier.class, MedicationOrder.class}, order=16, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "originalPrescription", type = {Identifier.class, MedicationOrder.class}, order=17, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Original Prescription", formalDefinition="Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products." )
     protected Type originalPrescription;
 
     /**
      * The party to be reimbursed for the services.
      */
-    @Child(name = "payee", type = {}, order=17, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "payee", type = {}, order=18, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Payee", formalDefinition="The party to be reimbursed for the services." )
     protected PayeeComponent payee;
 
     /**
      * The referral resource which lists the date, practitioner, reason and other supporting information.
      */
-    @Child(name = "referral", type = {Identifier.class, ReferralRequest.class}, order=18, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "referral", type = {Identifier.class, ReferralRequest.class}, order=19, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Treatment Referral", formalDefinition="The referral resource which lists the date, practitioner, reason and other supporting information." )
     protected Type referral;
 
     /**
      * Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
      */
-    @Child(name = "information", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "information", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="", formalDefinition="Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required." )
     protected List<SpecialConditionComponent> information;
 
     /**
      * Ordered list of patient diagnosis for which care is sought.
      */
-    @Child(name = "diagnosis", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "diagnosis", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Diagnosis", formalDefinition="Ordered list of patient diagnosis for which care is sought." )
     protected List<DiagnosisComponent> diagnosis;
 
     /**
      * Ordered list of patient procedures performed to support the adjudication.
      */
-    @Child(name = "procedure", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "procedure", type = {}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Procedures performed", formalDefinition="Ordered list of patient procedures performed to support the adjudication." )
     protected List<ProcedureComponent> procedure;
 
     /**
      * Patient Resource.
      */
-    @Child(name = "patient", type = {Identifier.class, Patient.class}, order=22, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "patient", type = {Identifier.class, Patient.class}, order=23, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The subject of the Products and Services", formalDefinition="Patient Resource." )
     protected Type patient;
 
     /**
      * Precedence (primary, secondary, etc.).
      */
-    @Child(name = "precedence", type = {PositiveIntType.class}, order=23, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "precedence", type = {PositiveIntType.class}, order=24, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Precedence (primary, secondary, etc.)", formalDefinition="Precedence (primary, secondary, etc.)." )
     protected PositiveIntType precedence;
 
     /**
      * Financial instrument by which payment information for health care.
      */
-    @Child(name = "coverage", type = {}, order=24, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "coverage", type = {}, order=25, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Insurance or medical plan", formalDefinition="Financial instrument by which payment information for health care." )
     protected CoverageComponent coverage;
 
     /**
      * An accident which resulted in the need for healthcare services.
      */
-    @Child(name = "accident", type = {}, order=25, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "accident", type = {}, order=26, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="", formalDefinition="An accident which resulted in the need for healthcare services." )
     protected AccidentComponent accident;
 
     /**
      * The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).
      */
-    @Child(name = "employmentImpacted", type = {Period.class}, order=26, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "employmentImpacted", type = {Period.class}, order=27, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Period unable to work", formalDefinition="The start and optional end dates of when the patient was precluded from working due to the treatable condition(s)." )
     protected Period employmentImpacted;
 
     /**
      * The start and optional end dates of when the patient was confined to a treatment center.
      */
-    @Child(name = "hospitalization", type = {Period.class}, order=27, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "hospitalization", type = {Period.class}, order=28, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Period in hospital", formalDefinition="The start and optional end dates of when the patient was confined to a treatment center." )
     protected Period hospitalization;
 
     /**
      * First tier of goods and services.
      */
-    @Child(name = "item", type = {}, order=28, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "item", type = {}, order=29, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Goods and Services", formalDefinition="First tier of goods and services." )
     protected List<ItemComponent> item;
 
     /**
      * The first tier service adjudications for payor added services.
      */
-    @Child(name = "addItem", type = {}, order=29, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "addItem", type = {}, order=30, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Insurer added line items", formalDefinition="The first tier service adjudications for payor added services." )
     protected List<AddedItemComponent> addItem;
 
     /**
      * A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
      */
-    @Child(name = "missingTeeth", type = {}, order=30, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "missingTeeth", type = {}, order=31, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Only if type = oral", formalDefinition="A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons." )
     protected List<MissingTeethComponent> missingTeeth;
 
     /**
      * The total cost of the services reported.
      */
-    @Child(name = "totalCost", type = {Money.class}, order=31, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "totalCost", type = {Money.class}, order=32, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Total Cost of service from the Claim", formalDefinition="The total cost of the services reported." )
     protected Money totalCost;
 
     /**
      * The amount of deductable applied which was not allocated to any particular service line.
      */
-    @Child(name = "unallocDeductable", type = {Money.class}, order=32, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "unallocDeductable", type = {Money.class}, order=33, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Unallocated deductable", formalDefinition="The amount of deductable applied which was not allocated to any particular service line." )
     protected Money unallocDeductable;
 
     /**
      * Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductable).
      */
-    @Child(name = "totalBenefit", type = {Money.class}, order=33, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "totalBenefit", type = {Money.class}, order=34, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Total benefit payable for the Claim", formalDefinition="Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductable)." )
     protected Money totalBenefit;
 
     /**
      * Payment details for the claim if the claim has been paid.
      */
-    @Child(name = "payment", type = {}, order=34, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "payment", type = {}, order=35, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="", formalDefinition="Payment details for the claim if the claim has been paid." )
     protected PaymentComponent payment;
 
     /**
      * The form to be used for printing the content.
      */
-    @Child(name = "form", type = {Coding.class}, order=35, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "form", type = {Coding.class}, order=36, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Printed Form Identifier", formalDefinition="The form to be used for printing the content." )
     protected Coding form;
 
     /**
      * Note text.
      */
-    @Child(name = "note", type = {}, order=36, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "note", type = {}, order=37, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Processing notes", formalDefinition="Note text." )
     protected List<NoteComponent> note;
 
     /**
      * Balance by Benefit Category.
      */
-    @Child(name = "benefitBalance", type = {}, order=37, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "benefitBalance", type = {}, order=38, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Balance by Benefit Category", formalDefinition="Balance by Benefit Category." )
     protected List<BenefitBalanceComponent> benefitBalance;
 
-    private static final long serialVersionUID = 403801183L;
+    private static final long serialVersionUID = 1724040504L;
 
   /**
    * Constructor
@@ -8947,6 +9407,51 @@ public class ExplanationOfBenefit extends DomainResource {
         addIdentifier();
       }
       return getIdentifier().get(0);
+    }
+
+    /**
+     * @return {@link #author} (The insurer which is responsible for the explanation of benefit.)
+     */
+    public Type getAuthor() { 
+      return this.author;
+    }
+
+    /**
+     * @return {@link #author} (The insurer which is responsible for the explanation of benefit.)
+     */
+    public Identifier getAuthorIdentifier() throws FHIRException { 
+      if (!(this.author instanceof Identifier))
+        throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.author.getClass().getName()+" was encountered");
+      return (Identifier) this.author;
+    }
+
+    public boolean hasAuthorIdentifier() { 
+      return this.author instanceof Identifier;
+    }
+
+    /**
+     * @return {@link #author} (The insurer which is responsible for the explanation of benefit.)
+     */
+    public Reference getAuthorReference() throws FHIRException { 
+      if (!(this.author instanceof Reference))
+        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.author.getClass().getName()+" was encountered");
+      return (Reference) this.author;
+    }
+
+    public boolean hasAuthorReference() { 
+      return this.author instanceof Reference;
+    }
+
+    public boolean hasAuthor() { 
+      return this.author != null && !this.author.isEmpty();
+    }
+
+    /**
+     * @param value {@link #author} (The insurer which is responsible for the explanation of benefit.)
+     */
+    public ExplanationOfBenefit setAuthor(Type value) { 
+      this.author = value;
+      return this;
     }
 
     /**
@@ -10411,6 +10916,7 @@ public class ExplanationOfBenefit extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The EOB Business Identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("author[x]", "Identifier|Reference(Organization)", "The insurer which is responsible for the explanation of benefit.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("claim[x]", "Identifier|Reference(Claim)", "The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.", 0, java.lang.Integer.MAX_VALUE, claim));
         childrenList.add(new Property("claimResponse[x]", "Identifier|Reference(ClaimResponse)", "The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.", 0, java.lang.Integer.MAX_VALUE, claimResponse));
         childrenList.add(new Property("type", "code", "The category of claim.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -10454,6 +10960,7 @@ public class ExplanationOfBenefit extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1406328437: /*author*/ return this.author == null ? new Base[0] : new Base[] {this.author}; // Type
         case 94742588: /*claim*/ return this.claim == null ? new Base[0] : new Base[] {this.claim}; // Type
         case 689513629: /*claimResponse*/ return this.claimResponse == null ? new Base[0] : new Base[] {this.claimResponse}; // Type
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ClaimType2>
@@ -10501,6 +11008,9 @@ public class ExplanationOfBenefit extends DomainResource {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
+          break;
+        case -1406328437: // author
+          this.author = (Type) value; // Type
           break;
         case 94742588: // claim
           this.claim = (Type) value; // Type
@@ -10622,6 +11132,8 @@ public class ExplanationOfBenefit extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("author[x]"))
+          this.author = (Type) value; // Type
         else if (name.equals("claim[x]"))
           this.claim = (Type) value; // Type
         else if (name.equals("claimResponse[x]"))
@@ -10704,6 +11216,7 @@ public class ExplanationOfBenefit extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
+        case 1475597077:  return getAuthor(); // Type
         case 683016900:  return getClaim(); // Type
         case -1527963965:  return getClaimResponse(); // Type
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<ClaimType2>
@@ -10750,6 +11263,14 @@ public class ExplanationOfBenefit extends DomainResource {
       public Base addChild(String name) throws FHIRException {
         if (name.equals("identifier")) {
           return addIdentifier();
+        }
+        else if (name.equals("authorIdentifier")) {
+          this.author = new Identifier();
+          return this.author;
+        }
+        else if (name.equals("authorReference")) {
+          this.author = new Reference();
+          return this.author;
         }
         else if (name.equals("claimIdentifier")) {
           this.claim = new Identifier();
@@ -10938,6 +11459,7 @@ public class ExplanationOfBenefit extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
+        dst.author = author == null ? null : author.copy();
         dst.claim = claim == null ? null : claim.copy();
         dst.claimResponse = claimResponse == null ? null : claimResponse.copy();
         dst.type = type == null ? null : type.copy();
@@ -11029,21 +11551,21 @@ public class ExplanationOfBenefit extends DomainResource {
         if (!(other instanceof ExplanationOfBenefit))
           return false;
         ExplanationOfBenefit o = (ExplanationOfBenefit) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(claim, o.claim, true) && compareDeep(claimResponse, o.claimResponse, true)
-           && compareDeep(type, o.type, true) && compareDeep(subType, o.subType, true) && compareDeep(ruleset, o.ruleset, true)
-           && compareDeep(originalRuleset, o.originalRuleset, true) && compareDeep(created, o.created, true)
-           && compareDeep(billablePeriod, o.billablePeriod, true) && compareDeep(outcome, o.outcome, true)
-           && compareDeep(disposition, o.disposition, true) && compareDeep(provider, o.provider, true) && compareDeep(organization, o.organization, true)
-           && compareDeep(facility, o.facility, true) && compareDeep(related, o.related, true) && compareDeep(prescription, o.prescription, true)
-           && compareDeep(originalPrescription, o.originalPrescription, true) && compareDeep(payee, o.payee, true)
-           && compareDeep(referral, o.referral, true) && compareDeep(information, o.information, true) && compareDeep(diagnosis, o.diagnosis, true)
-           && compareDeep(procedure, o.procedure, true) && compareDeep(patient, o.patient, true) && compareDeep(precedence, o.precedence, true)
-           && compareDeep(coverage, o.coverage, true) && compareDeep(accident, o.accident, true) && compareDeep(employmentImpacted, o.employmentImpacted, true)
-           && compareDeep(hospitalization, o.hospitalization, true) && compareDeep(item, o.item, true) && compareDeep(addItem, o.addItem, true)
-           && compareDeep(missingTeeth, o.missingTeeth, true) && compareDeep(totalCost, o.totalCost, true)
-           && compareDeep(unallocDeductable, o.unallocDeductable, true) && compareDeep(totalBenefit, o.totalBenefit, true)
-           && compareDeep(payment, o.payment, true) && compareDeep(form, o.form, true) && compareDeep(note, o.note, true)
-           && compareDeep(benefitBalance, o.benefitBalance, true);
+        return compareDeep(identifier, o.identifier, true) && compareDeep(author, o.author, true) && compareDeep(claim, o.claim, true)
+           && compareDeep(claimResponse, o.claimResponse, true) && compareDeep(type, o.type, true) && compareDeep(subType, o.subType, true)
+           && compareDeep(ruleset, o.ruleset, true) && compareDeep(originalRuleset, o.originalRuleset, true)
+           && compareDeep(created, o.created, true) && compareDeep(billablePeriod, o.billablePeriod, true)
+           && compareDeep(outcome, o.outcome, true) && compareDeep(disposition, o.disposition, true) && compareDeep(provider, o.provider, true)
+           && compareDeep(organization, o.organization, true) && compareDeep(facility, o.facility, true) && compareDeep(related, o.related, true)
+           && compareDeep(prescription, o.prescription, true) && compareDeep(originalPrescription, o.originalPrescription, true)
+           && compareDeep(payee, o.payee, true) && compareDeep(referral, o.referral, true) && compareDeep(information, o.information, true)
+           && compareDeep(diagnosis, o.diagnosis, true) && compareDeep(procedure, o.procedure, true) && compareDeep(patient, o.patient, true)
+           && compareDeep(precedence, o.precedence, true) && compareDeep(coverage, o.coverage, true) && compareDeep(accident, o.accident, true)
+           && compareDeep(employmentImpacted, o.employmentImpacted, true) && compareDeep(hospitalization, o.hospitalization, true)
+           && compareDeep(item, o.item, true) && compareDeep(addItem, o.addItem, true) && compareDeep(missingTeeth, o.missingTeeth, true)
+           && compareDeep(totalCost, o.totalCost, true) && compareDeep(unallocDeductable, o.unallocDeductable, true)
+           && compareDeep(totalBenefit, o.totalBenefit, true) && compareDeep(payment, o.payment, true) && compareDeep(form, o.form, true)
+           && compareDeep(note, o.note, true) && compareDeep(benefitBalance, o.benefitBalance, true);
       }
 
       @Override
@@ -11058,12 +11580,13 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, claim, claimResponse
-          , type, subType, ruleset, originalRuleset, created, billablePeriod, outcome, disposition
-          , provider, organization, facility, related, prescription, originalPrescription
-          , payee, referral, information, diagnosis, procedure, patient, precedence, coverage
-          , accident, employmentImpacted, hospitalization, item, addItem, missingTeeth, totalCost
-          , unallocDeductable, totalBenefit, payment, form, note, benefitBalance);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, author, claim
+          , claimResponse, type, subType, ruleset, originalRuleset, created, billablePeriod
+          , outcome, disposition, provider, organization, facility, related, prescription
+          , originalPrescription, payee, referral, information, diagnosis, procedure, patient
+          , precedence, coverage, accident, employmentImpacted, hospitalization, item, addItem
+          , missingTeeth, totalCost, unallocDeductable, totalBenefit, payment, form, note
+          , benefitBalance);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Jun 18, 2016 07:14+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 21, 2016 12:34-0400 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -78,14 +78,14 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * The Insurer who is target  of the request.
      */
-    @Child(name = "target", type = {Organization.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Insurer", formalDefinition="The Insurer who is target  of the request." )
-    protected Reference target;
+    @Child(name = "insurer", type = {Organization.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Target", formalDefinition="The Insurer who is target  of the request." )
+    protected Reference insurer;
 
     /**
      * The actual object that is the target of the reference (The Insurer who is target  of the request.)
      */
-    protected Organization targetTarget;
+    protected Organization insurerTarget;
 
     /**
      * The practitioner who is responsible for the services rendered to the patient.
@@ -135,14 +135,7 @@ public class EnrollmentRequest extends DomainResource {
      */
     protected Coverage coverageTarget;
 
-    /**
-     * The relationship of the patient to the subscriber.
-     */
-    @Child(name = "relationship", type = {Coding.class}, order=9, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Patient relationship to subscriber", formalDefinition="The relationship of the patient to the subscriber." )
-    protected Coding relationship;
-
-    private static final long serialVersionUID = -1656505325L;
+    private static final long serialVersionUID = -78128433L;
 
   /**
    * Constructor
@@ -154,11 +147,10 @@ public class EnrollmentRequest extends DomainResource {
   /**
    * Constructor
    */
-    public EnrollmentRequest(Reference subject, Reference coverage, Coding relationship) {
+    public EnrollmentRequest(Reference subject, Reference coverage) {
       super();
       this.subject = subject;
       this.coverage = coverage;
-      this.relationship = relationship;
     }
 
     /**
@@ -312,46 +304,46 @@ public class EnrollmentRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #target} (The Insurer who is target  of the request.)
+     * @return {@link #insurer} (The Insurer who is target  of the request.)
      */
-    public Reference getTarget() { 
-      if (this.target == null)
+    public Reference getInsurer() { 
+      if (this.insurer == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EnrollmentRequest.target");
+          throw new Error("Attempt to auto-create EnrollmentRequest.insurer");
         else if (Configuration.doAutoCreate())
-          this.target = new Reference(); // cc
-      return this.target;
+          this.insurer = new Reference(); // cc
+      return this.insurer;
     }
 
-    public boolean hasTarget() { 
-      return this.target != null && !this.target.isEmpty();
+    public boolean hasInsurer() { 
+      return this.insurer != null && !this.insurer.isEmpty();
     }
 
     /**
-     * @param value {@link #target} (The Insurer who is target  of the request.)
+     * @param value {@link #insurer} (The Insurer who is target  of the request.)
      */
-    public EnrollmentRequest setTarget(Reference value) { 
-      this.target = value;
+    public EnrollmentRequest setInsurer(Reference value) { 
+      this.insurer = value;
       return this;
     }
 
     /**
-     * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Insurer who is target  of the request.)
+     * @return {@link #insurer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Insurer who is target  of the request.)
      */
-    public Organization getTargetTarget() { 
-      if (this.targetTarget == null)
+    public Organization getInsurerTarget() { 
+      if (this.insurerTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EnrollmentRequest.target");
+          throw new Error("Attempt to auto-create EnrollmentRequest.insurer");
         else if (Configuration.doAutoCreate())
-          this.targetTarget = new Organization(); // aa
-      return this.targetTarget;
+          this.insurerTarget = new Organization(); // aa
+      return this.insurerTarget;
     }
 
     /**
-     * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Insurer who is target  of the request.)
+     * @param value {@link #insurer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Insurer who is target  of the request.)
      */
-    public EnrollmentRequest setTargetTarget(Organization value) { 
-      this.targetTarget = value;
+    public EnrollmentRequest setInsurerTarget(Organization value) { 
+      this.insurerTarget = value;
       return this;
     }
 
@@ -531,42 +523,17 @@ public class EnrollmentRequest extends DomainResource {
       return this;
     }
 
-    /**
-     * @return {@link #relationship} (The relationship of the patient to the subscriber.)
-     */
-    public Coding getRelationship() { 
-      if (this.relationship == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EnrollmentRequest.relationship");
-        else if (Configuration.doAutoCreate())
-          this.relationship = new Coding(); // cc
-      return this.relationship;
-    }
-
-    public boolean hasRelationship() { 
-      return this.relationship != null && !this.relationship.isEmpty();
-    }
-
-    /**
-     * @param value {@link #relationship} (The relationship of the patient to the subscriber.)
-     */
-    public EnrollmentRequest setRelationship(Coding value) { 
-      this.relationship = value;
-      return this;
-    }
-
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The Response business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("ruleset", "Coding", "The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.", 0, java.lang.Integer.MAX_VALUE, ruleset));
         childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
         childrenList.add(new Property("created", "dateTime", "The date when this resource was created.", 0, java.lang.Integer.MAX_VALUE, created));
-        childrenList.add(new Property("target", "Reference(Organization)", "The Insurer who is target  of the request.", 0, java.lang.Integer.MAX_VALUE, target));
+        childrenList.add(new Property("insurer", "Reference(Organization)", "The Insurer who is target  of the request.", 0, java.lang.Integer.MAX_VALUE, insurer));
         childrenList.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("subject", "Reference(Patient)", "Patient Resource.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("coverage", "Reference(Coverage)", "Reference to the program or plan identification, underwriter or payor.", 0, java.lang.Integer.MAX_VALUE, coverage));
-        childrenList.add(new Property("relationship", "Coding", "The relationship of the patient to the subscriber.", 0, java.lang.Integer.MAX_VALUE, relationship));
       }
 
       @Override
@@ -576,12 +543,11 @@ public class EnrollmentRequest extends DomainResource {
         case 1548678118: /*ruleset*/ return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
         case 1089373397: /*originalRuleset*/ return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
         case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
-        case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // Reference
+        case 1957615864: /*insurer*/ return this.insurer == null ? new Base[0] : new Base[] {this.insurer}; // Reference
         case -987494927: /*provider*/ return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Reference
         case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case -351767064: /*coverage*/ return this.coverage == null ? new Base[0] : new Base[] {this.coverage}; // Reference
-        case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Coding
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -602,8 +568,8 @@ public class EnrollmentRequest extends DomainResource {
         case 1028554472: // created
           this.created = castToDateTime(value); // DateTimeType
           break;
-        case -880905839: // target
-          this.target = castToReference(value); // Reference
+        case 1957615864: // insurer
+          this.insurer = castToReference(value); // Reference
           break;
         case -987494927: // provider
           this.provider = castToReference(value); // Reference
@@ -616,9 +582,6 @@ public class EnrollmentRequest extends DomainResource {
           break;
         case -351767064: // coverage
           this.coverage = castToReference(value); // Reference
-          break;
-        case -261851592: // relationship
-          this.relationship = castToCoding(value); // Coding
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -635,8 +598,8 @@ public class EnrollmentRequest extends DomainResource {
           this.originalRuleset = castToCoding(value); // Coding
         else if (name.equals("created"))
           this.created = castToDateTime(value); // DateTimeType
-        else if (name.equals("target"))
-          this.target = castToReference(value); // Reference
+        else if (name.equals("insurer"))
+          this.insurer = castToReference(value); // Reference
         else if (name.equals("provider"))
           this.provider = castToReference(value); // Reference
         else if (name.equals("organization"))
@@ -645,8 +608,6 @@ public class EnrollmentRequest extends DomainResource {
           this.subject = castToReference(value); // Reference
         else if (name.equals("coverage"))
           this.coverage = castToReference(value); // Reference
-        else if (name.equals("relationship"))
-          this.relationship = castToCoding(value); // Coding
         else
           super.setProperty(name, value);
       }
@@ -658,12 +619,11 @@ public class EnrollmentRequest extends DomainResource {
         case 1548678118:  return getRuleset(); // Coding
         case 1089373397:  return getOriginalRuleset(); // Coding
         case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
-        case -880905839:  return getTarget(); // Reference
+        case 1957615864:  return getInsurer(); // Reference
         case -987494927:  return getProvider(); // Reference
         case 1178922291:  return getOrganization(); // Reference
         case -1867885268:  return getSubject(); // Reference
         case -351767064:  return getCoverage(); // Reference
-        case -261851592:  return getRelationship(); // Coding
         default: return super.makeProperty(hash, name);
         }
 
@@ -685,9 +645,9 @@ public class EnrollmentRequest extends DomainResource {
         else if (name.equals("created")) {
           throw new FHIRException("Cannot call addChild on a primitive type EnrollmentRequest.created");
         }
-        else if (name.equals("target")) {
-          this.target = new Reference();
-          return this.target;
+        else if (name.equals("insurer")) {
+          this.insurer = new Reference();
+          return this.insurer;
         }
         else if (name.equals("provider")) {
           this.provider = new Reference();
@@ -704,10 +664,6 @@ public class EnrollmentRequest extends DomainResource {
         else if (name.equals("coverage")) {
           this.coverage = new Reference();
           return this.coverage;
-        }
-        else if (name.equals("relationship")) {
-          this.relationship = new Coding();
-          return this.relationship;
         }
         else
           return super.addChild(name);
@@ -729,12 +685,11 @@ public class EnrollmentRequest extends DomainResource {
         dst.ruleset = ruleset == null ? null : ruleset.copy();
         dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
         dst.created = created == null ? null : created.copy();
-        dst.target = target == null ? null : target.copy();
+        dst.insurer = insurer == null ? null : insurer.copy();
         dst.provider = provider == null ? null : provider.copy();
         dst.organization = organization == null ? null : organization.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.coverage = coverage == null ? null : coverage.copy();
-        dst.relationship = relationship == null ? null : relationship.copy();
         return dst;
       }
 
@@ -750,9 +705,9 @@ public class EnrollmentRequest extends DomainResource {
           return false;
         EnrollmentRequest o = (EnrollmentRequest) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(originalRuleset, o.originalRuleset, true)
-           && compareDeep(created, o.created, true) && compareDeep(target, o.target, true) && compareDeep(provider, o.provider, true)
+           && compareDeep(created, o.created, true) && compareDeep(insurer, o.insurer, true) && compareDeep(provider, o.provider, true)
            && compareDeep(organization, o.organization, true) && compareDeep(subject, o.subject, true) && compareDeep(coverage, o.coverage, true)
-           && compareDeep(relationship, o.relationship, true);
+          ;
       }
 
       @Override
@@ -767,7 +722,7 @@ public class EnrollmentRequest extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, ruleset, originalRuleset
-          , created, target, provider, organization, subject, coverage, relationship);
+          , created, insurer, provider, organization, subject, coverage);
       }
 
   @Override
