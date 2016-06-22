@@ -115,6 +115,8 @@ signatures.html
 				<page title="identifier Registry" filename="identifier-registry.html"/>
 			</page>
 
+			<page title="Testing FHIR" filename="testing.html"/>
+
 			<page title="Comparison" filename="comparison.html">
 				<page title="v2 Messaging" filename="comparison-v2.html"/>
 				<page title="v3 Messaging" filename="comparison-v3.html"/>
