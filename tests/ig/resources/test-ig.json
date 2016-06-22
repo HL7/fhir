@@ -12,9 +12,9 @@
     "test-bundle"
   ],  
 	"resources": {
-		"StructureDefinition/test-ig-pr": {
-			"defns": "test.html",
-			"base": "test-logical.html"
+		"StructureDefinition/test-ig-sd": {
+			"defns": "profile-sd.html#definitions",
+			"base": "profile-sd.html"
 		},
 		"CodeSystem/test-ig-cs": {
 			"base": "codesystems.html#test-ig-cs"

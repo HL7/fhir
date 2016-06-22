@@ -49,14 +49,13 @@
     </resource>
 
     
-    <!-- Logical Models 
+    <!-- Profiles --> 
     <resource>
       <example value="false"/>
       <sourceReference>
-        <reference value="StructureDefinition/Colorectal"/>
+        <reference value="StructureDefinition/test-ig-sd"/>
       </sourceReference>
     </resource>
-    -->
     
   </package>
   <page>

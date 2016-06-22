@@ -35,6 +35,7 @@ import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.Constants;
+import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
@@ -604,8 +605,31 @@ public class Publisher {
     }
   }
 
-  private void generateSnapshots() throws DefinitionException, FHIRException {
+  private void generateSnapshots() throws Exception {
     ProfileUtilities utils = new ProfileUtilities(context, null, null);
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getResource() instanceof StructureDefinition) {
+          boolean changed = false;
+          StructureDefinition sd = (StructureDefinition) r.getResource();
+          String p = sd.getDifferential().getElement().get(0).getPath();
+          if (p.contains(".")) {
+            changed = true;
+            sd.getDifferential().getElement().add(0, new ElementDefinition().setPath(p.substring(0, p.indexOf("."))));
+          }
+          if (!sd.hasSnapshot()) {
+            StructureDefinition base = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
+            if (base != null) {
+              utils.generateSnapshot(base, sd, sd.getUrl(), sd.getName());
+              changed = true;
+            }
+          }
+          if (changed)
+            r.setElement(new ObjectConverter(context).convert(sd));
+        }
+      }
+    }
+
     for (StructureDefinition derived : context.allStructures()) {
       if (!derived.hasSnapshot()) {
         StructureDefinition base = context.fetchResource(StructureDefinition.class, derived.getBaseDefinition());
