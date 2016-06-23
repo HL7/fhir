@@ -7,7 +7,11 @@
     <div xmlns="http://www.w3.org/1999/xhtml">This example assumes a national health care scheme where patients, providers and organizations have known business identifiers.</div>
   </text>
   
-  <type value="oral"/>
+<!--  <type value="oral"/> -->
+  <type>
+    <system value="http://hl7.org/fhir/ex-claimtype"/>
+    <code value="oral"/>
+  </type>
   
   <identifier>
     <system value="http://happyvalley.com/claim"/>

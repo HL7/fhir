@@ -19,7 +19,11 @@
   <claimResponseReference>
     <reference value="ClaimResponse/R3500"/>
   </claimResponseReference> -->
-  <type value="oral"/>
+<!--  <type value="oral"/> -->
+  <type>
+    <system value="http://hl7.org/fhir/ex-claimtype"/>
+    <code value="oral"/>
+  </type>
   <created value="2014-08-16"/>
   <outcome>
     <system value="http://hl7.org/fhir/remittance-outcome" />

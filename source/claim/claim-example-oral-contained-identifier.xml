@@ -28,7 +28,11 @@
     </Patient>
   </contained>
   
-  <type value="oral"/>
+<!--  <type value="oral"/> -->
+  <type>
+    <system value="http://hl7.org/fhir/ex-claimtype"/>
+    <code value="oral"/>
+  </type>
   
   <identifier>
     <system value="http://happyvalley.com/claim"/>

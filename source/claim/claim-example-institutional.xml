@@ -7,8 +7,12 @@
     <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Claim</div>
   </text>
 
-  <type value="institutional"/>
-  
+<!--  <type value="institutional"/> -->
+  <type>
+    <system value="http://hl7.org/fhir/ex-claimtype"/>
+    <code value="institutional"/>
+  </type>
+ 
   <identifier>
     <system value="http://happyhospital.com/claim"/>
     <value value="9612345"/>
