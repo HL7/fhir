@@ -15,7 +15,7 @@ A referenced DICOM SOP instance could be:
 </p>
 <p>
 UID values follow the FHIR convention of expressing UIDs as URNs. For example, the DICOM Study Instance UID 
-of <em>1.2.250.1.59.40211.12345678.678910</em> is expressed as <em>“urn:oid:1.2.250.1.59.40211.12345678.678910”</em>. 
+of <code>1.2.250.1.59.40211.12345678.678910</code> is expressed as <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code>. 
 </p>
 <p>  
 ImagingManifest.study.baseLocation and ImagingManifest.study.series.baseLocation can each list multiple methods to retrieve 
@@ -49,9 +49,11 @@ of <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code>, study.series.u
 of <code>“urn:oid:1.2.250.1.59.40211.789001276.14556172.67789”</code>, and study.series.instance.uid value 
 of <code>“urn:oid:1.2.250.1.59.40211.2678810.87991027.899772.2”</code>:
 </p>
-<div class="note"><code>
+<pre>
+
 https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40211.12345678.678910&amp;seriesUID=1.2.250.1.59.40211.789001276.14556172.67789&amp;objectUID=1.2.250.1.59.40211.2678810.87991027.899772.2
-</code></div>
+
+</pre>
 
 <p>
 Additional query parameters can control other aspects of the rendering including rendered dimensions, quality (compression 
@@ -63,9 +65,11 @@ For example, provided the Accept header indicates a preference for image/jpeg, t
 parameters that cause a JPEG thumbnail (100 columns by 100 rows) of the left half of the image to be retrieved (additional 
 parameters emphasized): 
 </p>
-<div class="note"><code>
+<pre>
+
 https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40211.12345678.678910&amp;seriesUID=1.2.250.1.59.40211.789001276.14556172.67789&amp;objectUID=1.2.250.1.59.40211.2678810.87991027.899772.2&amp;rows=100&amp;columns=100&amp;region=0,0,0.5,1 
-</code></div>
+
+</pre>
 <p>
 For further details on DICOM WADO-URI capabilities including additional rendering parameters, 
 see <a ref="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
@@ -94,12 +98,13 @@ of <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code>, study.series.u
 of <code>“urn:oid:1.2.250.1.59.40211.789001276.14556172.67789”</code>, and study.series.instance.uid value 
 of <code>“urn:oid:1.2.250.1.59.40211.2678810.87991027.899772.2”</code>:
 </p>
-<div class="note"><code>
-https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/1.2.250.1.59.40211.2678810.87991027.899772.2
-</code></div>
+<pre>
 
+https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/1.2.250.1.59.40211.2678810.87991027.899772.2
+
+</pre>
 <p>
-Additional query parameters can control other aspects of the rendering including: the rendered dimensions, the 
+Query parameters on the "rendered" sub-resource can control other aspects of the rendering including: the rendered dimensions, the 
 quality (compression ratio), the region of interest to render, the brightness/contrast (window center/width) 
 adjustments, and whether to “burn” patient or study demographics into the rendered result. Specific frames 
 of a multi-frame instance may be retrieved using the frames sub-resource. 
@@ -108,12 +113,13 @@ of a multi-frame instance may be retrieved using the frames sub-resource.
 For example, provided the Accept header indicates a preference for image/jpeg, the example above can be 
 extended with parameters that cause a JPEG thumbnail (100 columns by 100 rows) of a region extending from 
 the top-left corner of the original image, across 1000 and down 3000 pixels, to be retrieved (additional 
-parameters emphasized):
+sub-resource and parameters emphasized):
 </p>
-<div class="note"><code>
-https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/1.2.250.1.59.40211.2678810.87991027.899772.2?viewport=100,100,0,0,1000,3000
-</code></div>
+<pre>
 
+https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/1.2.250.1.59.40211.2678810.87991027.899772.2/rendered?viewport=100,100,0,0,1000,3000
+
+</pre>
 <p>
 For further details on DICOM WADO-RS capabilities including additional rendering parameters, 
 see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
@@ -137,9 +143,11 @@ For example, given a baseLocation.url of <code>https://pacs.hospital.org/IHEInvo
 diagnostic quality viewer on the study with study.uid value 
 of <code>“urn:uri:1.2.250.1.59.40211.12345678.678910”</code>, the following URL would be constructed:
 </p>
-<div class="note"><code>
+<pre>
+
 https://pacs.hospital.org/IHEInvokeImageDisplay?requestType=STUDY&amp;studyUID=1.2.250.1.59.40211.12345678.678910&amp;diagnosticQuality=true
-</code></div>
+
+</pre>
 <p> 
 For further details on IHE Invoke Image Display capabilities including additional parameters, see 
 the <a href="http://www.ihe.net/Technical_Frameworks/#radiology">IHE Technical Frameworks</a>.
