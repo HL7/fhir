@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="valueset-nehta-crc-tumour-type"/>
+  <meta>
+    <lastUpdated value="2015-06-11T06:01:03.224+00:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml"><!-- Snipped for brevity --></div>
+  </text>
+    <!-- DMc ?? SR says to make into a NEHTA oid -->
+  <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
+  </extension>-->
+    
+    <url value="http://hl7.org/fhir/ValueSet/nehta-crc-tumour-type"/>  
+  <version value="20150618"/>
+  <name value="ColorectalCancerTumourType"/>
+  <publisher value="NEHTA"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="This code indicates the type of the colorectal tumour. A single selection value list from WHO Classification of Tumours. Pathology and Genetics of Tumours of the Digestive System (2010)."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International
+      Health Terminology Standards Development Organisation (IHTSDO), and distributed by
+   agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this
+   agreement"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2015-06-11T16:01:03+10:00"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+
+      <concept>
+        <code value="35917007"/>
+        <display value="Adenocarcinoma, no subtype"/>
+      </concept>
+      <!--<concept>
+          <code value="To follow"/>
+        <display value="Cribriform comedo-type adenocarcinoma"/>
+      </concept>-->
+        
+      <concept>
+        <code value="35917007"/>
+        <display value="Adenocarcinoma, no subtype"/>
+      </concept>
+        <concept>
+          <code value="32913002"/>
+          <display value="Medullary carcinoma"/>
+        </concept>
+        <concept>
+          <code value="450895005"/>
+          <display value="Micropapillary carcinoma"/>
+        </concept>
+        <concept>
+          <code value="72495009"/>
+          <display value="Mucinous adenocarcinoma"/>
+        </concept>
+        <concept>
+          <code value="450948005"/>
+          <display value="Serrated adenocarcinoma"/>
+        </concept>
+        <concept>
+          <code value="87737001"/>
+          <display value="Signet ring cell carcinoma"/>
+        </concept>
+        <concept>
+          <code value="59367005"/>
+          <display value="Adenosquamous carcinoma"/>
+        </concept>
+        <concept>
+          <code value="65692009"/>
+          <display value="Spindle cell carcinoma"/>
+        </concept>
+      <concept>
+        <code value="28899001"/>
+        <display value="Squamous cell carcinoma"/>
+      </concept>
+      <concept>
+        <code value="38549000"/>
+        <display value="Carcinoma, undifferentiated"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

@@ -42,26 +42,28 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
-        <code value="67101007"/>
+        <code value="67101007"/>  <!-- to be updated -->
         <display value="TX category"/>
       </concept>
       <concept>
-        <code value="58790005"/>
+        <code value="58790005"/>   <!-- to be updated -->
         <display value="T0 category"/>
       </concept>
       <concept>
-        <code value="67673008"/>
-        <display value="T2 category"/>
+        <code value="384983005"/>
+        <display value="pT2: Organ confined (prostate)"/>
       </concept>
       <concept>
-        <code value="261651009"/>
-        <display value="Tumour stage T2a"/>
+        <code value="384987006"/>
+        <display value="pT3: Extraprostatic extension (prostate)"/>
       </concept>
       <concept>
-        <code value="261652002"/>
-        <display value="Tumour stage T2b"/>
+        <code value="384990000"/>
+        <display value="pT4: Invasion of bladder AND/OR rectum (prostate)"/>
       </concept>
-      <concept>
+      
+      <!-- The following can be deleted when the new SCT codes become available. -->
+      <!--<concept>
         <code value="261653007"/>
         <display value="Tumour stage T2c"/>
       </concept>
@@ -84,7 +86,7 @@
       <concept>
         <code value="261660001"/>
         <display value="Tumour stage T4b"/>
-      </concept>
+      </concept>-->
     </include>
   </compose>
   <!--<codeSystem>

@@ -41,12 +41,12 @@
         <include>
             <system value="http://snomed.info/sct"/>
             <concept>
-                <code value="395529007"/>
-                <display value="Low grade (well to moderately differentiated)"/>
+                <code value="399415002"/>
+                <display value="Low grade histologic differentiation"/>
             </concept>
             <concept>
-                <code value="395530002"/>
-                <display value="High grade (poorly differentiated to undifferentiated)"/>
+                <code value="399611001"/>
+                <display value="High grade histologic differentiation"/>
             </concept>
             
         </include>

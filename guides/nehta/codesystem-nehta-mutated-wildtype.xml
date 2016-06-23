@@ -22,9 +22,9 @@
     <display value="Wild type"/>
     <definition value="The gene mutation type is wild type"/>
   </concept>
-  <concept>
+  <!--<concept>
     <code value="not_tested"/>
     <display value="Not tested"/>
     <definition value="The gene mutation was not tested"/>
-  </concept>
+  </concept>-->
 </CodeSystem>

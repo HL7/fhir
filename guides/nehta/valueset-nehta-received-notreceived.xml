@@ -39,9 +39,13 @@
         <code value="440622005"/>
         <display value="Specimen received"/>
       </concept>
+      <concept>
+        <code value="281266006"/>
+        <display value="No sample received"/>
+      </concept>
     </include>
-    <include>
+    <!--<include>
       <system value="http://hl7.org/fhir/nehta-received-notreceived"/>
-    </include>
+    </include>-->
   </compose>
 </ValueSet>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="valueset-nehta-prostate-rad-seminal-vesicles-micro"/>
+  <url value="http://hl7.org/fhir/nehta-prostate-rad-seminal-vesicles-micro"/>
+  <version value="20150618"/>
+  <name value="ProstateRadSeminalVesicleMicro"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2015-06-11T09:01:03+03:00"/>
+  <description value="This is the code has the options seminal vesicle involvement."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International       Health Terminology Standards Development Organisation (IHTSDO), and distributed by    agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this    agreement"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/nehta-prostate-rad-seminal-vesicles-micro"/>
+  <content value="complete"/>
+  <concept>
+    <code value="not_involved"/>
+    <display value="Not involved"/>
+    <definition value=""/>
+  </concept>
+  <concept>
+    <code value="involved_left"/>
+    <display value="Involved (left side)"/>
+    <definition value="Indicates whether the tumour was on the left side of the seminal vesicles"/>
+  </concept>
+  <concept>
+    <code value="involved_right"/>
+    <display value="Involved (right side)"/>
+    <definition value="Indicates whether the tumour was on the right side of the seminal vesicles"/>
+  </concept>
+  <concept>
+    <code value="involved_both"/>
+    <display value="Involved (both)"/>
+    <definition value="Indicates whether the tumour was on both sides of the seminal vesicles"/>
+  </concept>
+</CodeSystem>

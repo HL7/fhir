@@ -22,7 +22,7 @@
     <display value="Regional (local) recurrence"/>
     <definition value="The cancer is a regional (local) recurrence."/>
   </concept>
-  <concept>
+ <!-- <concept>
     <code value="distant_metastases"/>
     <display value="Distant metastases"/>
     <definition value="The cancer is a distant metastases."/>
@@ -31,5 +31,5 @@
     <code value="indeterminate"/>
     <display value="Indeterminate"/>
     <definition value="The cancer is indeterminate."/>
-  </concept>
+  </concept>-->
 </CodeSystem>

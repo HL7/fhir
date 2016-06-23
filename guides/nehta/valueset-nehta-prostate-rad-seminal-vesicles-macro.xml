@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="valueset-nehta-crc-tumour-stage-t"/>
+  <id value="valueset-nehta-prostate-rad-seminal-vesicles-macro"/>
   <meta>
     <lastUpdated value="2015-06-11T16:01:03.224+10:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
@@ -13,9 +13,9 @@
 <!-- <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
     </extension> -->
-  <url value="http://hl7.org/fhir/ValueSet/nehta-crc-tumour-stage-t"/>
+  <url value="http://hl7.org/fhir/ValueSet/nehta-prostate-rad-seminal-vesicles-macro"/>
   <version value="20150625"/>
-  <name value="CrcTumourStageT"/>
+  <name value="ProstateRadSeminalVesiclesMacro"/>
   <status value="draft"/>
   <experimental value="false"/>
   <publisher value="HL7 (FHIR Project)"/>
@@ -30,35 +30,31 @@
     </telecom>
   </contact>
   <date value="2015-06-11T16:01:03+10:00"/>
-  <description value="Lists the options for Colorectal cancer tumour stage T"/>
+  <description value="Options for presence (partially or completeley resected) or absence of seminal vesicles."/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International         Health Terminology Standards Development Organisation (IHTSDO), and distributed by         agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this         agreement"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
       
       <concept>
-        <code value="373200003"/>
-        <display value="pT1: Tumour invades submucosa (colon/rectum)"/>
+        <code value="2667000"/>
+        <display value="Absent"/>
       </concept>
       <concept>
-        <code value="395706002"/>
-        <display value="pT2: Tumour invades muscularis propria (colon/rectum)"/>
+        <code value="52101004"/>
+        <display value="Present"/>
+      </concept>
+      <!--<concept>
+        <code value="xxxxxxxx"/>
+        <display value="Present (completely resected)"/>
       </concept>
       <concept>
-        <code value="395707006"/>
-        <display value="pT3: Tumour invades through the muscularis propria into the subserosa or into non-peritonealized pericolic or perirectal tissues (colon/rectum)"/>
-      </concept>
-      <concept>
-        <code value="384612007"/>
-        <display value="pT4a: Tumour directly invades other organs or structures (colon/rectum)"/>
-      </concept>
-      <concept>
-        <code value="384613002"/>
-        <display value="pT4b: Tumour penetrates visceral peritoneum (colon/rectum)"/>
-      </concept>
+        <code value="xxxxxxxxx"/>
+        <display value="Present (partially resected)"/>
+      </concept>-->
     </include>
-    <include>
-      <system value="http://hl7.org/fhir/nehta-crc-tumour-stage-t"/>
-    </include>
+    <!--<include>
+      <system value="http://hl7.org/fhir/nehta-prostate-rad-seminal-vesicles"/>
+    </include>-->
   </compose>
 </ValueSet>

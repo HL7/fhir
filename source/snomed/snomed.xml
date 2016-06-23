@@ -1367,6 +1367,9 @@
     <display value="ECG waveform"/>
     <display value="ECG waveform (observable entity)"/>
   </concept>
+  <concept id="25173007" display="Recurrent tumour (finding)">
+    <display value="Recurrent tumour"/>
+  </concept>
   <concept id="252275004" display="Hematology test (procedure)">
     <display value="Haematology - general"/>
     <display value="Hematology - general"/>
@@ -1384,6 +1387,9 @@
     <display value="Insertion of electrode in heart"/>
     <display value="Implantation of cardiac electrode"/>
     <display value="Insertion of intracardiac pacemaker (procedure)"/>
+  </concept>
+  <concept id="254588001" display="Polyp of intestine (disorder)">
+    <display value="Polyp of intestine"/>
   </concept>
   <concept id="254626006" display="Adenocarcinoma of lung (disorder)">
     <display value="Adenocarcinoma of lung"/>
@@ -1518,6 +1524,9 @@
   <concept id="258157001" display="Rest (observable entity)">
     <display value="Rest (observable entity)"/>
     <display value="Rest"/>
+  </concept>
+  <concept id="258215001" display="Stage 1 (qualifier value)">
+    <display value="Stage 1"/>
   </concept>
   <concept id="258219007" display="Stage 2 (qualifier value)">
     <display value="Stage 2"/>
@@ -1799,6 +1808,33 @@
     <display value="Preliminary"/>
     <display value="Preliminary (qualifier value)"/>
   </concept>
+  <concept id="261613009" display="Stage 0 (qualifier value)">
+    <display value="Stage 0"/>
+  </concept>
+  <concept id="261614003" display="Stage 2A (qualifier value)">
+    <display value="Stage 2A"/>
+  </concept>
+  <concept id="261615002" display="Stage 2B (qualifier value)">
+    <display value="Stage 2B"/>
+  </concept>
+  <concept id="261637009" display="Stage 2C (qualifier value)">
+    <display value="Stage 2C"/>
+  </concept>
+  <concept id="261638004" display="Stage 3A (qualifier value)">
+    <display value="Stage 3A"/>
+  </concept>
+  <concept id="261639007" display="Stage 3B (qualifier value)">
+    <display value="Stage 3B"/>
+  </concept>
+  <concept id="261640009" display="Stage 3C (qualifier value)">
+    <display value="Stage 3C"/>
+  </concept>
+  <concept id="261642001" display="Stage 4A (qualifier value)">
+    <display value="Stage 4A"/>
+  </concept>
+  <concept id="261643006" display="Stage 4B (qualifier value)">
+    <display value="Stage 4B"/>
+  </concept>
   <concept id="261651009" display="Tumour stage T2a (finding)">
     <display value="Tumour stage T2a"/>
   </concept>
@@ -1851,6 +1887,9 @@
   </concept>
   <concept id="263796003" display="Lesser (qualifier value)">
     <display value="Lesser"/>
+  </concept>
+  <concept id="263922001" display="Unstable status (qualifier value)">
+    <display value="Unstable status"/>
   </concept>
   <concept id="264065008" display="Left anterior (qualifier value)">
     <display value="Left anterior"/>
@@ -2141,6 +2180,9 @@
     <display value="Pulmonary vascular structure"/>
     <display value="Pulmonary vascular structure (body structure)"/>
   </concept>
+  <concept id="281266006" display="No sample received (finding)">
+    <display value="No sample received"/>
+  </concept>
   <concept id="281657000" display="Travel vaccinations (procedure)">
     <display value="Travel vaccinations"/>
     <display value="Travel vaccinations (procedure)"/>
@@ -2166,6 +2208,9 @@
   <concept id="28647000" display="Meat (substance)">
     <display value="Meat"/>
     <display value="Meat (substance)"/>
+  </concept>
+  <concept id="28899001" display="Squamous cell carcinoma (morphologic abnormality)">
+    <display value="Squamous cell carcinoma"/>
   </concept>
   <concept id="289169006" display="Exercising to lose weight (regime/therapy)">
     <display value="Exercising to lose weight (regime/therapy)"/>
@@ -2423,6 +2468,15 @@
     <display value="Hyperlipidemia screening test"/>
     <display value="Hyperlipidemia screening test (procedure)"/>
   </concept>
+  <concept id="314592008" display="Low anterior resection of rectum">
+    <display value="Low anterior resection of rectum (procedure)"/>
+  </concept>
+  <concept id="314965007" display="Local recurrence of malignant tumour of colon (disorder)">
+    <display value="Local recurrence of malignant tumour of colon"/>
+  </concept>
+  <concept id="314966008" display="Local recurrence of malignant tumour of rectum (disorder)">
+    <display value="Local recurrence of malignant tumour of rectum"/>
+  </concept>
   <concept id="315619001" display="Family history of myocardial infarction in male relative of first degree, age known (situation)">
     <display value="Family history of myocardial infarction in male relative of first degree, age known (situation)"/>
     <display value="Family history of myocardial infarction in male relative of first degree, age known"/>
@@ -2594,6 +2648,9 @@
     <display value="Oesophagus"/>
     <display value="Esophageal structure (body structure)"/>
   </concept>
+  <concept id="32913002" display="Medullary carcinoma (morphologic abnormality)">
+    <display value="Medullary carcinoma"/>
+  </concept>
   <concept id="33022008" display="Hospital-based outpatient department (environment)">
     <display value="Hospital outpatients department"/>
     <display value="OPD - Outpatients department"/>
@@ -2742,6 +2799,9 @@
     <display value="Depressive illness"/>
     <display value="Mood disorder of depressed type"/>
   </concept>
+  <concept id="35917007" display="Adenocarcinoma, no subtype (morphologic abnormality)">
+    <display value="Adenocarcinoma, no subtype"/>
+  </concept>
   <concept id="359615001" display="Partial lobectomy of lung (procedure)">
     <display value="Partial lobectomy of lung"/>
     <display value="Partial lobectomy of lung (procedure)"/>
@@ -2882,6 +2942,9 @@
     <display value="Left forearm"/>
     <display value="Entire left forearm (body structure)"/>
   </concept>
+  <concept id="369642003" display="Prostate, apical surgical margin, involved by tumor (finding)">
+    <display value="Prostate, apical surgical margin, involved by tumor"/>
+  </concept>
   <concept id="369690005" display="Large intestine, proximal surgical margin, involved by tumor (finding)">
     <display value="Large intestine, proximal surgical margin, involved by tumor"/>
   </concept>
@@ -2894,6 +2957,30 @@
   <concept id="369708000" display="Large intestine, distal surgical margin not involved by tumor (finding)">
     <display value="Large intestine, distal surgical margin not involved by tumor"/>
   </concept>
+  <concept id="369731000" display="Perineural invasion by tumour present (finding)">
+    <display value="Perineural invasion by tumour present"/>
+  </concept>
+  <concept id="369733002" display="Venous (large vessel) intramural invasion by tumour present (finding)">
+    <display value="Venous (large vessel) intramural invasion by tumour present"/>
+  </concept>
+  <concept id="369734008" display="Venous (large vessel) extramural invasion by tumour present (finding)">
+    <display value="Venous (large vessel) extramural invasion by tumour present"/>
+  </concept>
+  <concept id="369770006" display="Gleason Pattern 1 (finding)">
+    <display value="Gleason Pattern 1"/>
+  </concept>
+  <concept id="369771005" display="Gleason Pattern 2 (finding)">
+    <display value="Gleason Pattern 2"/>
+  </concept>
+  <concept id="369772003" display="Gleason Pattern 3 (finding)">
+    <display value="Gleason Pattern 3"/>
+  </concept>
+  <concept id="369773008" display="Gleason Pattern 4 (finding)">
+    <display value="Gleason Pattern 4"/>
+  </concept>
+  <concept id="369774002" display="Gleason Pattern 5 (finding)">
+    <display value="Gleason Pattern 5"/>
+  </concept>
   <concept id="36989005" display="Mumps (disorder)">
     <display value="Mumps"/>
     <display value="Mumps, NOS"/>
@@ -2901,6 +2988,9 @@
     <display value="Infectious parotitis"/>
     <display value="Mumps without mention of complication"/>
     <display value="Mumps (disorder)"/>
+  </concept>
+  <concept id="369993005" display="N2: Metastasis in 4 or more lymph nodes (finding)">
+    <display value="N2: Metastasis in 4 or more lymph nodes"/>
   </concept>
   <concept id="370034007" display="M1a: non-regional lymph node metastasis (finding)">
     <display value="M1a: non-regional lymph node metastasis"/>
@@ -2910,6 +3000,9 @@
   </concept>
   <concept id="370045005" display="M1c: Other site(s) (finding)">
     <display value="M1c: Other site(s)"/>
+  </concept>
+  <concept id="370109009" display="Surgical margin involved by tumor (finding)">
+    <display value="Surgical margin involved by tumor"/>
   </concept>
   <concept id="370140002" display="Muscularis mucosae (body structure)">
     <display value="Muscularis mucosae"/>
@@ -2936,6 +3029,18 @@
   <concept id="372306004" display="Extraprostatic extension of tumor present (finding)">
     <display value="Extraprostatic extension of tumor present"/>
   </concept>
+  <concept id="372443003" display="Anal, proximal surgical margin not involved by tumor (finding)">
+    <display value="Anal, proximal surgical margin not involved by tumor"/>
+  </concept>
+  <concept id="372444009" display="Anal, proximal surgical margin involved by tumor (finding)">
+    <display value="Anal, proximal surgical margin involved by tumor"/>
+  </concept>
+  <concept id="372445005" display="Anal, distal surgical margin not involved by tumor (finding)">
+    <display value="Anal, distal surgical margin not involved by tumor"/>
+  </concept>
+  <concept id="372446006" display="Anal, distal surgical margin involved by tumor (finding)">
+    <display value="Anal, distal surgical margin involved by tumor"/>
+  </concept>
   <concept id="372687004" display="Amoxicillin (substance)">
     <display value="Amoxicillin (substance)"/>
     <display value="Amoxicillin"/>
@@ -2953,6 +3058,9 @@
   <concept id="373067005" display="No (qualifier value)">
     <display value="No (qualifier value)"/>
     <display value="No"/>
+  </concept>
+  <concept id="373121007" display="Test not done (qualifier value)">
+    <display value="Test not done"/>
   </concept>
   <concept id="373200003" display="pT1: Tumor invades submucosa (colon/rectum) (finding)">
     <display value="pT1: Tumor invades submucosa (colon/rectum)"/>
@@ -3028,11 +3136,26 @@
     <display value="Hypertension"/>
     <display value="Raised blood pressure (disorder)"/>
   </concept>
-  <concept id="384612007" display="pT4a: Tumour penetrates visceral peritoneum (colon/rectum) (finding)">
-    <display value="pT4a: Tumour penetrates visceral peritoneum (colon/rectum) (colon/rectum)"/>
+  <concept id="384612007" display="pT4a: Tumour directly invades other organs or structures (colon/rectum)  (finding)">
+    <display value="pT4a: Tumour directly invades other organs or structures (colon/rectum)"/>
   </concept>
-  <concept id="384613002" display="pT4b:  Tumour directly invades other organs or structures (colon/rectum) (finding)">
-    <display value="pT4b: Tumour directly invades other organs or structures (colon/rectum)"/>
+  <concept id="384613002" display="pT4b: Tumour penetrates visceral peritoneum (colon/rectum) (finding)">
+    <display value="pT4b: Tumour penetrates visceral peritoneum (colon/rectum)"/>
+  </concept>
+  <concept id="384983005" display="pT2: Organ confined (prostate) (finding)">
+    <display value="pT2: Organ confined (prostate)"/>
+  </concept>
+  <concept id="384987006" display="pT3: Extraprostatic extension (prostate) (finding)">
+    <display value="pT3: Extraprostatic extension (prostate)"/>
+  </concept>
+  <concept id="384990000" display="pT4: Invasion of bladder AND/OR rectum (prostate) (finding)">
+    <display value="pT4: Invasion of bladder AND/OR rectum (prostate)"/>
+  </concept>
+  <concept id="385001000" display="Perineural invasion by tumour not identified (finding)">
+    <display value="Perineural invasion by tumour not identified"/>
+  </concept>
+  <concept id="385017006" display="Extraprostatic extension of tumor indeterminate (finding)">
+    <display value="Extraprostatic extension of tumor indeterminate"/>
   </concept>
   <concept id="385024007" display="Oral suspension (qualifier value)">
     <display value="Oral suspension (product)"/>
@@ -3549,11 +3672,23 @@
   <concept id="395530002" display="High grade (poorly differentiated to undifferentiated) (finding)">
     <display value="High grade (poorly differentiated to undifferentiated)"/>
   </concept>
-  <concept id="395706002" display="pT1: Tumor invades submucosa (colon/rectum) (finding)">
-    <display value="pT1: Tumor invades submucosa (colon/rectum)"/>
+  <concept id="395706002" display="pT2: Tumour invades muscularis propria (colon/rectum) (finding)">
+    <display value="pT2: Tumour invades muscularis propria (colon/rectum) (colon/rectum)"/>
   </concept>
   <concept id="395707006" display="pT3: Tumor invades through the muscularis propria into the subserosa or into non-peritonealized pericolic or perirectal tissues (colon/rectum) (finding)">
     <display value="pT3: Tumor invades through the muscularis propria into the subserosa or into non-peritonealized pericolic or perirectal tissues (colon/rectum)"/>
+  </concept>
+  <concept id="395711000" display="pN1: Metastasis in 1 to 3 regional lymph nodes (colon/rectum)">
+    <display value="pN1: Metastasis in 1 to 3 regional lymph nodes (colon/rectum) (finding)"/>
+  </concept>
+  <concept id="395717001" display="Lymphatic (small vessel) invasion by tumour present (finding)">
+    <display value="Lymphatic (small vessel) invasion by tumour present"/>
+  </concept>
+  <concept id="395718006" display="Lymphatic (small vessel) intramural invasion by tumour present (finding)">
+    <display value="Lymphatic (small vessel) intramural invasion by tumour present"/>
+  </concept>
+  <concept id="395719003" display="Lymphatic (small vessel) extramural invasion by tumour present (finding)">
+    <display value="Lymphatic (small vessel) extramural invasion by tumour present"/>
   </concept>
   <concept id="39579001" display="Anaphylaxis (disorder)">
     <display value="Generalized anaphylaxis"/>
@@ -3581,10 +3716,22 @@
     <display value="Hydrocortisone"/>
     <display value="Cortisol"/>
   </concept>
+  <concept id="396528005" display="Surgical margin involvement by tumor indeterminate (finding)">
+    <display value="Surgical margin involvement by tumor indeterminate"/>
+  </concept>
   <concept id="397158004" display="Perianal region structure (body structure)">
     <display value="Perianal region structure (body structure)"/>
     <display value="Perianal region structure"/>
     <display value="Perianal region"/>
+  </concept>
+  <concept id="397213002" display="pM1a: Distant metastasis to non-regional lymph node(s) (prostate) (finding)">
+    <display value="pM1a: Distant metastasis to non-regional lymph node(s) (prostate)"/>
+  </concept>
+  <concept id="397214008" display="pM1b: Distant metastasis to bone(s) (prostate) (finding)">
+    <display value="pM1b: Distant metastasis to bone(s) (prostate)"/>
+  </concept>
+  <concept id="397215009" display="pM1c: Distant metastasis site other than bone or non-regional lymph node(s) (prostate) (finding)">
+    <display value="pM1c: Distant metastasis site other than bone or non-regional lymph node(s) (prostate)"/>
   </concept>
   <concept id="397394009" display="Bronchoalveolar lavage (procedure)">
     <display value="Bronchoalveolar lavage (procedure)"/>
@@ -3640,10 +3787,19 @@
     <display value="Integument"/>
     <display value="Skin structure (body structure)"/>
   </concept>
+  <concept id="399409002" display="Distant metastasis present (finding)">
+    <display value="Distant metastasis present"/>
+  </concept>
+  <concept id="399415002" display="Low grade histologic differentiation (finding)">
+    <display value="Low grade histologic differentiation"/>
+  </concept>
   <concept id="39953003" display="Tobacco (substance)">
     <display value="Tobacco (substance)"/>
     <display value="Tobacco - substance"/>
     <display value="Tobacco"/>
+  </concept>
+  <concept id="399611001" display="High grade histologic differentiation (finding)">
+    <display value="High grade histologic differentiation"/>
   </concept>
   <concept id="399713008" display="Specimen from uterine cervix obtained by cone biopsy (specimen)">
     <display value="Specimen from uterine cervix obtained by cone biopsy (specimen)"/>
@@ -3666,6 +3822,9 @@
     <display value="Lorazepam 2mg/mL injection solution 1mL vial (product)"/>
     <display value="Lorazepam 2mg/mL injection solution 1mL vial"/>
     <display value="Lorazepam 2mg/mL injection"/>
+  </concept>
+  <concept id="400988008" display="High anterior resection of rectum">
+    <display value="High anterior resection of rectum (procedure)"/>
   </concept>
   <concept id="40199007" display="Supine body position (finding)">
     <display value="Lying flat on back"/>
@@ -4265,6 +4424,12 @@
     <display value="Inhaler (product)"/>
     <display value="Inhaler"/>
     <display value="Inhaler (qualifier value)"/>
+  </concept>
+  <concept id="420366008" display="Extraprostatic extension of tumor present, focal (body structure)">
+    <display value="Extraprostatic extension of tumor present, focal"/>
+  </concept>
+  <concept id="420387003" display="Extraprostatic extension of tumor present, non-focal (finding)">
+    <display value="Extraprostatic extension of tumor present, non-focal"/>
   </concept>
   <concept id="420548004" display="Specimen from mass lesion (specimen)">
     <display value="Specimen from mass lesion (specimen)"/>
@@ -4922,6 +5087,9 @@
     <display value="Cardiopulmonary exercise test (procedure)"/>
     <display value="Cardiopulmonary exercise test"/>
   </concept>
+  <concept id="448474003" display="Low anterior resection of rectum and total excision of mesorectum">
+    <display value="Low anterior resection of rectum and total excision of mesorectum (procedure)"/>
+  </concept>
   <concept id="449868002" display="Smokes tobacco daily (finding)">
     <display value="Smokes tobacco daily"/>
     <display value="Smokes tobacco daily (finding)"/>
@@ -4933,6 +5101,12 @@
     <display value="Ultrasonography of abdomen"/>
     <display value="Ultrasonography of abdomen, NOS"/>
     <display value="Ultrasonography of abdomen (procedure)"/>
+  </concept>
+  <concept id="450895005" display="Micropapillary carcinoma (morphologic abnormality)">
+    <display value="Micropapillary carcinoma"/>
+  </concept>
+  <concept id="450948005" display="Serrated adenocarcinoma (morphologic abnormality)">
+    <display value="Serrated adenocarcinoma"/>
   </concept>
   <concept id="45410002" display="Acinar cell carcinoma (morphologic abnormality)">
     <display value="Acinar cell carcinoma"/>
@@ -5263,6 +5437,9 @@
     <display value="Cone biopsy of cervix, NOS"/>
     <display value="Conization of uterine cervix"/>
   </concept>
+  <concept id="55182004" display="Surgical margin uninvolved by tumor (finding)">
+    <display value="Surgical margin uninvolved by tumor"/>
+  </concept>
   <concept id="55235003" display="C-reactive protein measurement (procedure)">
     <display value="C-reactive protein level"/>
     <display value="CRP - C-reactive protein level"/>
@@ -5364,6 +5541,9 @@
   <concept id="58108001" display="Golden retriever (organism)">
     <display value="Golden retriever (organism)"/>
     <display value="Golden retriever"/>
+  </concept>
+  <concept id="58158008" display="Stable (qualifier value)">
+    <display value="Stable"/>
   </concept>
   <concept id="58482006" display="Hospital-based outpatient gastroenterology clinic (environment)">
     <display value="Hospital-based outpatient gastroenterology clinic (environment)"/>
@@ -5535,6 +5715,9 @@
     <display value="Third finger"/>
     <display value="Middle finger structure"/>
     <display value="Middle finger structure (body structure)"/>
+  </concept>
+  <concept id="65692009" display="Spindle cell carcinoma (morphologic abnormality)">
+    <display value="Spindle cell carcinoma"/>
   </concept>
   <concept id="66051006" display="Pyloric antrum structure (body structure)">
     <display value="Pyloric antrum"/>
@@ -6089,6 +6272,9 @@
     <display value="Bacterial infection"/>
     <display value="Bacterial disease"/>
     <display value="Bacterial infectious disease (disorder)"/>
+  </concept>
+  <concept id="87737001" display="Signet ring cell carcinoma (morphologic abnormality)">
+    <display value="Signet ring cell carcinoma"/>
   </concept>
   <concept id="884001" display="Initial (qualifier value)">
     <display value="Initial"/>

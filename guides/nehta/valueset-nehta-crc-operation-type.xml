@@ -56,6 +56,18 @@
         <display value="Anterior resection"/>
       </concept>
       <concept>
+        <code value="400988008"/>
+        <display value="High anterior resection"/>
+      </concept>
+      <concept>
+        <code value="314592008"/>
+        <display value="Low anterior resection"/>
+      </concept>
+      <concept>
+        <code value="448474003"/>
+        <display value="Ultralow anterior resection"/>
+      </concept>
+      <concept>
         <code value="265414003"/>
         <display value="Abdominoperineal resection"/>
       </concept>
@@ -63,10 +75,10 @@
         <code value="174059005"/>
         <display value="Proctocolectomy"/>
       </concept>
-      <concept>
-        <code value="307666008"/>
+      <!--<concept>
+        <code value="To follow"/>
         <display value="Total colectomy with ileorectal anastomosis"/>
-      </concept>
+      </concept>-->
       <concept>
         <code value="16564004"/>
         <display value="Hartmann’s procedure"/>

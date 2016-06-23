@@ -2,9 +2,9 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="valueset-nehta-perforation-type"/>
-  <url value="http://hl7.org/fhir/nehta-nature-of-perforation"/>
+  <url value="http://hl7.org/fhir/nehta-perforation-type"/>
   <version value="20150619"/>
-  <name value="NehtaNatureOfPerforation"/>
+  <name value="PerforationType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2015-06-11T09:01:03+03:00"/>

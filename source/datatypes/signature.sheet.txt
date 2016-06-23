@@ -20,7 +20,6 @@
   Definition = A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different Signature approaches have different utilities
   Requirements = There are a number of places where content must be signed in healthcare
   Comments = The elements of the Signature Resource are for ease of access of these elements. Foro digital signatures (Xml DigSig, JWT), the non-repudiation proof comes from the Signature  validation, which includes validation of the referenced objects (e.g. Resources) (a.k.a., Content) in the XML-Signature Detached form.
-  To Do = application/signature+xml
 
  -- Row 2 -----------------------------------
   Element = Signature.type
@@ -46,11 +45,21 @@
   Card. = 1..1
   Summary = y
   Type = uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
-  Short Label = Who signed the signature
-  Definition = A reference to an application-usable description of the person that signed the certificate (e.g. the signature used their private key)
+  Short Label = Who signed
+  Definition = A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key)
   Comments = This should agree with the information in the signature
 
  -- Row 5 -----------------------------------
+  Element = Signature.onBehalfOf[x]
+  Card. = 0..1
+  Summary = y
+  Type = uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
+  Short Label = The party represented
+  Definition = A reference to an application-usable description of the identity that is represented by the signature.
+  Requirements = used when the signature is on behalf of a non-signer.
+  Comments = The party that can\'t sign. For example a child.
+
+ -- Row 6 -----------------------------------
   Element = Signature.contentType
   Card. = 0..1
   Summary = y
@@ -59,7 +68,7 @@
   Short Label = The technical format of the signature
   Definition = A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jwt for JWT, and image/* for a graphical image of a signature, etc.
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Signature.blob
   Card. = 0..1
   Type = base64Binary

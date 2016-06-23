@@ -15,7 +15,7 @@
     </extension> -->
   <url value="http://hl7.org/fhir/ValueSet/nehta-perforation-type"/>
   <version value="20150619"/>
-  <name value="NehtaNatureOfPerforation"/>
+  <name value="PerforationType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <publisher value="HL7 (FHIR Project)"/>
@@ -33,7 +33,7 @@
   <description value="Indicates the options for indicating the type(s) of perforation."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/nehta-nature-of-perforation"/>
+      <system value="http://hl7.org/fhir/nehta-perforation-type"/>
     </include>
   </compose>
 </ValueSet>

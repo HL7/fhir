@@ -43,7 +43,7 @@
       <system value="http://snomed.info/sct"/>
       <concept>
         <code value="373200003"/>
-        <display value="Low grade (well to moderately differentiated)"/>
+        <display value="pT1: Tumour invades submucosa (colon/rectum)"/>
       </concept>
       <concept>
         <code value="395706002"/>
@@ -55,11 +55,11 @@
       </concept>
       <concept>
         <code value="384612007"/>
-        <display value="pT4a: Tumour penetrates visceral peritoneum (colon/rectum) (finding)"/>
+        <display value="pT4a: Tumour directly invades other organs or structures (colon/rectum)"/>
       </concept>
       <concept>
-        <code value="395706002"/>
-        <display value="pT4b: Tumour directly invades other organs or structures (colon/rectum) (finding)"/>
+        <code value="384613002"/>
+        <display value="pT4b: Tumour penetrates visceral peritoneum (colon/rectum)"/>
       </concept>
       
       

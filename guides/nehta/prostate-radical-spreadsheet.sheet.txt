@@ -4,13 +4,13 @@
  -- Row 1 -----------------------------------
   Binding Name = SeminalVesiclesMacro
   Binding = value set
-  Reference = valueset-nehta-present-absent-na
+  Reference = valueset-nehta-prostate-rad-seminal-vesicles-macro
   Definition = A code that idicates the presence (partially or completely resected) or absence of seminal vesicles
 
  -- Row 2 -----------------------------------
   Binding Name = LymphNodes
   Binding = value set
-  Reference = valueset-nehta-present-absent-na
+  Reference = valueset-nehta-present-absent
   Definition = A code that indicates if lymph nodes were present or absent
 
  -- Row 3 -----------------------------------
@@ -40,7 +40,7 @@
  -- Row 7 -----------------------------------
   Binding Name = TumourLocationOtherNodules
   Binding = value set
-  Reference = valueset-nehta-none-identified-present
+  Reference = valueset-nehta-present-absent
   Definition = A code from a single selection value list to indicate other nodules >10mm in diameter
 
  -- Row 8 -----------------------------------
@@ -56,78 +56,90 @@
   Definition = A code from a multi selection value list (select all that apply) to indicate other nodule locations by plane
 
  -- Row 10 -----------------------------------
-  Binding Name = ExtraprostaticExtension
+  Binding Name = GleesonGradePrimary
   Binding = value set
-  Reference = valueset-nehta-notidentified-present-indeterminate
-  Definition = A code from a single selection value list for the extraprostatic extension
+  Reference = valueset-nehta-gleeson-grade-primary
+  Definition = A code from a single selection value list for the Primary Gleeson Grade (numeric 1-5)
 
  -- Row 11 -----------------------------------
+  Binding Name = GleesonGradeSecondary
+  Binding = value set
+  Reference = valueset-nehta-gleeson-grade-secondary
+  Definition = A code from a single selection value list for the Secondary Gleeson Grade (numeric 1-5)
+
+ -- Row 12 -----------------------------------
+  Binding Name = GleesonGradeTertiary
+  Binding = value set
+  Reference = valueset-nehta-gleeson-grade-tertiary
+  Definition = A code from a single selection value list for the Tertiary Gleeson Grade (numeric 3-5)
+
+ -- Row 13 -----------------------------------
+  Binding Name = ExtraprostaticExtension
+  Binding = value set
+  Reference = valueset-nehta-prostate-rad-extraprostatic-extension
+  Definition = A code from a single selection value list for the extraprostatic extension
+
+ -- Row 14 -----------------------------------
   Binding Name = ExtraprostaticExtensionExtent
   Binding = value set
   Reference = valueset-nehta-focal-non-focal
   Definition = A code from a single selection value list for the extraprostatic extension extent
 
- -- Row 12 -----------------------------------
+ -- Row 15 -----------------------------------
   Binding Name = ExtraprostaticExtensionLocations
   Binding = value set
   Reference = valueset-nehta-prostate-rad-tumour-locations
   Definition = A code from a multi select value list (select all that apply) for the location(s) of EPE
 
- -- Row 13 -----------------------------------
+ -- Row 16 -----------------------------------
   Binding Name = MarginStatus
   Binding = value set
-  Reference = valueset-nehta-involved-notinvolved-indeterminate
+  Reference = valueset-nehta-margin-status
   Definition = A code from a single selection value to indicate the involvement of the margin status
 
- -- Row 14 -----------------------------------
+ -- Row 17 -----------------------------------
   Binding Name = MarginLocation
   Binding = value set
   Reference = valueset-nehta-prostate-rad-tumour-locations
   Definition = A code from a multi select value list (select all that apply) for location(s) on the invovled margins
 
- -- Row 15 -----------------------------------
+ -- Row 18 -----------------------------------
   Binding Name = MarginPositivity
   Binding = value set
   Reference = valueset-nehta-prostate-rad-margin-positivity
   Definition = A code from a multi select value list (select all that apply) for the type of margin positivity
 
- -- Row 16 -----------------------------------
+ -- Row 19 -----------------------------------
   Binding Name = SeminalVesiclesMicro
   Binding = value set
-  Reference = valueset-nehta-involved-notinvolved-na
+  Reference = valueset-nehta-prostate-rad-seminal-vesicles-micro
   Definition = A code from a single selection value to indicate the involvement of the seminal vesicles
 
- -- Row 17 -----------------------------------
-  Binding Name = SeminalVesiclesSide
-  Binding = value set
-  Reference = valueset-nehta-laterality
-  Definition = A code from a single selection value to indicate the side of the seminal vesicles
-
- -- Row 18 -----------------------------------
+ -- Row 20 -----------------------------------
   Binding Name = BladderNeck
   Binding = value set
-  Reference = valueset-nehta-involved-notinvolved-na
+  Reference = valueset-nehta-prostate-rad-bladder-neck
   Definition = A code from a single selection value to indicate the involvement of the bladder neck
 
- -- Row 19 -----------------------------------
+ -- Row 21 -----------------------------------
   Binding Name = LymphovascularInvasion
   Binding = value set
   Reference = valueset-nehta-notidentified-present-indeterminate
   Definition = A code from a single selection value to indicate the extent of lymphovascular invasion
 
- -- Row 20 -----------------------------------
+ -- Row 22 -----------------------------------
   Binding Name = TumourStageT
   Binding = value set
   Reference = valueset-nehta-prostate-rad-tumour-stage-t
   Definition = A code that records primary tumour stage T
 
- -- Row 21 -----------------------------------
+ -- Row 23 -----------------------------------
   Binding Name = TumourStageN
   Binding = value set
   Reference = valueset-nehta-prostate-rad-tumour-stage-n
   Definition = A code that records regional lymph nodes stage N
 
- -- Row 22 -----------------------------------
+ -- Row 24 -----------------------------------
   Binding Name = TumourStageM
   Binding = value set
   Reference = valueset-nehta-prostate-rad-tumour-stage-m
@@ -416,17 +428,24 @@
   CAP Code = 29023.1000043
 
  -- Row 22 -----------------------------------
-  Element = Prostate.macro.lymphNodes.siteAndNoLymphNodes
+  Element = Prostate.macro.lymphNodes.site
   Card. = 0..*
   Type = string
-  Short Label = Site(s) and numbers of lymph\nnodes
-  Definition = Site(s) and numbers of lymph\nnodes
+  Short Label = Site(s) of lymph\nnodes
+  Definition = Site(s) of lymph\nnodes
   Requirements = Note that the site and number of LNs for that site may need to be repeated for each site received.
   Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 29029.1000043
-  To Do = Ask GG how to represent this in a data type or just a string/text.
 
  -- Row 23 -----------------------------------
+  Element = Prostate.macro.lymphNodes.noLymphNodes
+  Card. = 0..*
+  Type = integer
+  Short Label = Numbers of lymph\nnodes
+  Definition = Numbers of lymph\nnodes from this site
+  Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+
+ -- Row 24 -----------------------------------
   Element = Prostate.macro.blockIdentificationKey
   Card. = 0..1
   Type = string
@@ -435,7 +454,7 @@
   Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 29031.1000043
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Prostate.macro.otherMacroComments
   Card. = 0..1
   Type = string
@@ -444,7 +463,7 @@
   Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 29032.1000043
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Prostate.micro
   Card. = 0..1
   Type = string
@@ -454,7 +473,7 @@
   Logical Mapping = micro := dr.result->Observation[code := %map-codes]
   CAP Code = 28869.1000043
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Prostate.micro.tumourType
   Card. = 1..*
   Inv. = 02,03
@@ -465,7 +484,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28870.1000043
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Prostate.micro.tumourType.other
   Card. = 0..*
   Type = string
@@ -474,7 +493,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = Field wasn\'t in protocol but should have been!!
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Prostate.micro.tumourType.acinarVariant
   Card. = 0..1
   Type = string
@@ -483,7 +502,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = ???
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Prostate.micro.tumourLocation
   Card. = 0..1
   Type = string
@@ -493,7 +512,7 @@
   Logical Mapping = micro := BodySite[code := $value]
   CAP Code = 28271.1000043
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Prostate.micro.tumourLocation.quadrant
   Card. = 0..1
   Inv. = 04
@@ -505,7 +524,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28272.1000043
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Prostate.micro.tumourLocation.plane
   Card. = 0..1
   Type = code
@@ -516,7 +535,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28469.1000043
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = Prostate.micro.tumourLocation.otherNodules
   Card. = 0..1
   Type = code
@@ -527,7 +546,7 @@
   Comments = If present, record the locations in quadrant and plane
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Prostate.micro.tumourLocation.otherNodules.quadrant
   Card. = 0..1
   Type = code
@@ -538,7 +557,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28487.1000043
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Prostate.micro.tumourLocation.otherNodules.plane
   Card. = 0..1
   Type = code
@@ -549,7 +568,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28497.1000043
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = Prostate.micro.intraglandularExtent
   Card. = 0..1
   Type = SimpleQuantity
@@ -559,7 +578,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28906.1000043
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = Prostate.micro.sizeDominantNodule
   Card. = 0..1
   Type = SimpleQuantity
@@ -569,7 +588,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28908.1000043
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = Prostate.micro.histologicalGrade
   Card. = 1..1
   Type = string
@@ -579,37 +598,40 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28880.1000043
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = Prostate.micro.histologicalGrade.primary
   Card. = 0..1
-  Type = SimpleQuantity
+  Type = code
+  Binding = GleesonGradePrimary
   Short Label = Primary Gleason grade
   Definition = Primary Gleason grade
   Requirements = Numeric: ___ (1-5)
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28503.1000043
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = Prostate.micro.histologicalGrade.secondary
   Card. = 0..1
   Type = SimpleQuantity
+  Binding = GleesonGradeSecondary
   Short Label = Secondary Gleason grade
   Definition = Secondary Gleason grade
   Requirements = Numeric: ___ (1-5)
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28504.1000043
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = Prostate.micro.histologicalGrade.tertiary
   Card. = 0..1
   Type = SimpleQuantity
+  Binding = GleesonGradeTertiary
   Short Label = Tertiary Gleason grade
   Definition = Tertiary Gleason grade
   Requirements = Numeric: ___ (3-5) or Not applicable
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28505.1000043
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = Prostate.micro.histologicalGrade.score
   Card. = 0..1
   Type = string
@@ -618,7 +640,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28903.1000043
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = Prostate.micro.extraprostaticExtension
   Card. = 1..1
   Inv. = 05
@@ -630,7 +652,7 @@
   Comments = If present, record S3.04 extent.\nIf present, consider recording\nG3.04
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = Prostate.micro.extraprostaticExtension.extent
   Card. = 1..1
   Type = code
@@ -642,7 +664,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28911.1000043
 
- -- Row 44 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = Prostate.micro.extraprostaticExtension.locations
   Card. = 0..*
   Inv. = 06
@@ -655,7 +677,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28566.1000043
 
- -- Row 45 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = Prostate.micro.extraprostaticExtension.locations.other
   Card. = 0..1
   Type = string
@@ -663,7 +685,7 @@
   Definition = Extraprostatic extension - other location
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
 
- -- Row 46 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = Prostate.micro.marginStatus
   Card. = 1..1
   Inv. = 07
@@ -675,7 +697,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28929.1000043
 
- -- Row 47 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = Prostate.micro.marginStatus.location
   Card. = 0..*
   Type = code
@@ -686,7 +708,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28936.1000043
 
- -- Row 48 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = Prostate.micro.marginStatus.location.other
   Card. = 0..1
   Type = string
@@ -694,7 +716,7 @@
   Definition = Margin status - other location
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
 
- -- Row 49 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = Prostate.micro.marginStatus.extent
   Card. = 0..1
   Type = SimpleQuantity
@@ -705,7 +727,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28511.1000043
 
- -- Row 50 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = Prostate.micro.marginStatus.score
   Card. = 0..1
   Type = SimpleQuantity
@@ -716,7 +738,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28516.1000043
 
- -- Row 51 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = Prostate.micro.marginStatus.positivity
   Card. = 0..*
   Type = code
@@ -728,7 +750,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28520.1000043
 
- -- Row 52 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = Prostate.micro.seminalVesicles
   Card. = 1..1
   Inv. = 08
@@ -740,17 +762,6 @@
   Comments = If involved, record side
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28920.1000043
-
- -- Row 53 -----------------------------------
-  Element = Prostate.micro.seminalVesicles.side
-  Card. = 0..1
-  Type = code
-  Binding = SeminalVesiclesSide
-  Short Label = Seminal vesicles - side
-  Definition = Seminal vesicles - side
-  Requirements = Single selection value list:
-  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
-  CAP Code = 28922.1000043
 
  -- Row 54 -----------------------------------
   Element = Prostate.micro.bladderNeck

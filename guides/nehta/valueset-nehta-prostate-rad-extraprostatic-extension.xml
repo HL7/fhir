@@ -2,7 +2,7 @@
 
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="valueset-nehta-prostate-rad-nodule-plane"/>
+  <id value="valueset-nehta-prostate-rad-extraprostatic-extension"/>
   <meta>
     <lastUpdated value="2015-06-11T06:01:03.224+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
@@ -16,9 +16,9 @@
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
   </extension>-->
     
-  <url value="http://hl7.org/fhir/ValueSet/nehta-prostate-rad-nodule-plane"/>  
+  <url value="http://hl7.org/fhir/ValueSet/nehta-prostate-rad-extraprostatic-extension"/>  
   <version value="20150618"/>
-  <name value="ProstateRadNodulePlane"/>
+  <name value="ExtraprostaticExtension"/>
   <publisher value="NEHTA"/>
   <contact>
     <telecom>
@@ -30,7 +30,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="This is the code indicates the nodule location by plane."/>
+  <description value="This is the code indicates the extraprostatic extension."/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International
       Health Terminology Standards Development Organisation (IHTSDO), and distributed by
    agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this
@@ -41,23 +41,20 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <concept>
-        <code value="68756004"/>
-        <display value="Apex of prostate"/>
-      </concept>
-      <concept>
-        <code value="255562008"/>
-        <display value="Mid"/>
-      </concept>
+      
       <!--<concept>
-        <code value="xxxxxxxxx"/>
-        <display value="Mid"/>
+        <code value="xxxxxxx"/>
+        <display value="Not identified"/>
       </concept>-->
       <concept>
-        <code value="36082003"/>
-        <display value="Base of prostate"/>
+        <code value="372306004"/>
+        <display value="Extraprostatic extension of tumor present"/>
       </concept>
-            
+      <concept>
+        <code value="385017006"/>
+        <display value="Extraprostatic extension of tumor indeterminate"/>
+      </concept>
+                  
     </include>
   </compose>
 </ValueSet>

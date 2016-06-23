@@ -42,20 +42,36 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
+        <code value="369691009"/>
+        <display value="Large intestine, distal surgical margin, involved by tumor (finding)"/>
+      </concept>
+      <concept>
+        <code value="372446006"/>
+        <display value="Anal, distal surgical margin involved by tumor (finding)"/>
+      </concept>
+      <concept>
+        <code value="369690005"/>
+        <display value="Large intestine, proximal surgical margin, involved by tumor (finding)"/>
+      </concept>
+      <concept>
+        <code value="372444009"/>
+        <display value="Anal, proximal surgical margin involved by tumor (finding)"/>
+      </concept>
+      <concept>
         <code value="369708000"/>
         <display value="Large intestine, distal surgical margin not involved by tumor (finding)"/>
+      </concept>
+      <concept>
+        <code value="372445005"/>
+        <display value="Anal, distal surgical margin not involved by tumor (finding)"/>
       </concept>
       <concept>
         <code value="369707005"/>
         <display value="Large intestine, proximal surgical margin not involved by tumor (finding)"/>
       </concept>
       <concept>
-        <code value="369691009"/>
-        <display value="Large intestine, distal surgical margin, involved by tumor (finding)"/>
-      </concept>
-      <concept>
-        <code value="369690005"/>
-        <display value="Large intestine, proximal surgical margin, involved by tumor (finding)"/>
+        <code value="372443003"/>
+        <display value="Anal, proximal surgical margin not involved by tumor (finding)"/>
       </concept>
     </include>
   </compose>

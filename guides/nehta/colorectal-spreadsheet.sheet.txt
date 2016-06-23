@@ -99,8 +99,8 @@
 
  -- Row 17 -----------------------------------
   Binding Name = TumourType
-  Binding = code list
-  Reference = #tumour-type
+  Binding = value set
+  Reference = valueset-nehta-crc-tumour-type
   Definition = A code from the WHO Calssification that indicates the tumour type
 
  -- Row 18 -----------------------------------
@@ -154,31 +154,31 @@
  -- Row 26 -----------------------------------
   Binding Name = IntramuralVeinInvasion
   Binding = value set
-  Reference = valueset-nehta-notidentified-present
+  Reference = valueset-nehta-intramural-vein-invasion
   Definition = A code that indicates intramural vein invasion
 
  -- Row 27 -----------------------------------
   Binding Name = ExtramuralVeinInvasion
   Binding = value set
-  Reference = valueset-nehta-notidentified-present
+  Reference = valueset-nehta-extramural-vein-invasion
   Definition = A code that indicates extramural vein invasion
 
  -- Row 28 -----------------------------------
   Binding Name = SmallVesselInvasion
   Binding = value set
-  Reference = valueset-nehta-notidentified-present-presentextensive
+  Reference = valueset-nehta-small-vessel-invasion
   Definition = A code that indicates small vessel invasion
 
  -- Row 29 -----------------------------------
   Binding Name = PerineuralInvasion
   Binding = value set
-  Reference = valueset-nehta-notidentified-present-presentextensive
+  Reference = valueset-nehta-perineural-invasion
   Definition = A code that indicates perineural invasion
 
  -- Row 30 -----------------------------------
   Binding Name = HistologicallyConfirmedDistantMetastases
   Binding = value set
-  Reference = valueset-nehta-present-absent-na
+  Reference = valueset-nehta-present-absent
   Definition = A code that indicates the presence or absence of histologically confirmed distant metastases
 
  -- Row 31 -----------------------------------
@@ -226,7 +226,7 @@
  -- Row 38 -----------------------------------
   Binding Name = Msi
   Binding = value set
-  Reference = valueset-nehta-unstable-stable
+  Reference = valueset-nehta-msi-options
   Definition = A code that indicates Microsatellite instability (MSI)
 
  -- Row 39 -----------------------------------
@@ -261,8 +261,8 @@
 
  -- Row 44 -----------------------------------
   Binding Name = TumourStageGrouping
-  Binding = code list
-  Reference = #tumour-stage-grouping
+  Binding = value set
+  Reference = valueset-nehta-crc-tumour-stage-grouping
   Definition = A code that records tumour stage grouping
 
  -- Row 45 -----------------------------------
@@ -276,70 +276,6 @@
   Binding = value set
   Reference = valueset-nehta-new-cancer-or-recurrence
   Definition = A code that records whether a new primary cancer or a recurrence
-
-=== Sheet tumour-type =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = epithelial-tumours
-  Display = Epithelial tumours |+
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = mesenchymal-tumours
-  Display = Mesenchymal tumours |+
-
-=== Sheet tumour-stage-grouping =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = 0
-  Display = 0 Tis N0 M0
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = i
-  Display = I T1 N0 M0\n  T2 N0 M0
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = iia
-  Display = IIA T3 N0 M0
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = iib
-  Display = IIB T4a N0 M0
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = iic
-  Display = IIC T4b N0 M0
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = iiia
-  Display = IIIA T1-T2 N1/N1c M0\n       T1       N2a        M0
-
- -- Row 7 -----------------------------------
-  Id = 7
-  Code = iiib
-  Display = IIIB T3-T4a N1/N1c M0\n       T2-T3   N2a        M0\n       T1-T2   N2b        M0
-
- -- Row 8 -----------------------------------
-  Id = 8
-  Code = iiic
-  Display = IIIC T4a       N2a      M0\n       T3-T4a N2b      M0\n       T4b       N1-N2 M0
-
- -- Row 9 -----------------------------------
-  Id = 9
-  Code = iva
-  Display = IVA Any T Any N M1a
-
- -- Row 10 -----------------------------------
-  Id = 10
-  Code = ivb
-  Display = IVB Any T Any N M1b
 
 === Sheet Invariants =====================================
 
@@ -563,8 +499,8 @@
   Short Label = Who ordered the test
   Definition = The practitioner that holds legal responsibility for ordering the investigation
   Logical Mapping = !req := dr.request->DiagnosticOrder; req[orderer := $value]
-  LOINC Code = 22027-7
   RIM Mapping = participation[typeCode=AUT].role
+  LOINC Code = 22027-7
   Snomed Code = 223366009
   To Do = Need to made cardinality [1..1] as the build initially gets errors with this setting.
 
@@ -626,7 +562,8 @@
   Requirements = If present, record the nature of perforation
   Logical Mapping = req.supportingInformation -> Observation[code := %map-codes; value[x] := $value]
   CAP Code = 28289.1000043
-  Snomed Code = 36191001
+  LOINC Code = LN-RCPA-00059
+  Snomed Code = 50257008
 
  -- Row 9 -----------------------------------
   Element = Colorectal.preAnalytic.natureOfPerforation
@@ -637,6 +574,8 @@
   Definition = The type of perforation
   Logical Mapping = req.supportingInformation -> Observation[code := %map-codes; value[x] := $value]
   CAP Code = 28296.1000043
+  LOINC Code = LN-RCPA-00060
+  Snomed Code = 36191001
   To Do = Query if need to:\nadd invariant =1 & add the xpath expression to the invariant tab
 
  -- Row 10 -----------------------------------
@@ -648,6 +587,8 @@
   Definition = Whether a clinical obstruction is present or absent.
   Logical Mapping = req.supportingInformation -> Observation[code := %map-codes; value[x] := $value]
   CAP Code = 28292.1000043
+  LOINC Code = LN-RCPA-00061
+  Snomed Code = 81060008
 
  -- Row 11 -----------------------------------
   Element = Colorectal.preAnalytic.tumourLocation
@@ -673,6 +614,7 @@
   Comments = Note\n: Synchronous tumours should be reported separately – this serves only to identify the presence of other synchronous tumours for which separate reports will be submitted.
   Logical Mapping = req.supportingInformation -> Observation[code := %map-codes; value[x] := $value]
   CAP Code = 28346.1000043
+  LOINC Code = LN-RCPA-00062
   To Do = ? If there needs to be an invariant due to this being conditional on Rectum being selected as site.
 
  -- Row 13 -----------------------------------
@@ -700,6 +642,7 @@
   Logical Mapping = too := req.supportingInformation -> Observation[code := %map-codes; value[x] := $value]
   CAP Code = 27919.1000043
   LOINC Code = 29306-8
+  Snomed Code = 387713003
   To Do = ? - add UNK to codeset
 
  -- Row 15 -----------------------------------
@@ -733,6 +676,8 @@
   Requirements = Single selection value list.\nIf yes, record type of course
   Logical Mapping = req.supportingInformation -> Observation[code := %map-codes; value[x] := $value]
   CAP Code = 28283.1000043
+  LOINC Code = LN-RCPA-00063
+  Snomed Code = 168523002
   To Do = ? add an invariant to accommodate the conditional statement \"if Yes …\"
 
  -- Row 18 -----------------------------------
@@ -753,6 +698,7 @@
   Definition = Surgeons opinion on the existence of local residual cancer postsurgery
   Logical Mapping = req.supportingInformation -> Observation[code := %map-codes; value[x] := $value]
   CAP Code = 28295.1000043
+  LOINC Code = 81169-5
   To Do = FYI - short label & definition did not like apostrophe s ie surgeon\'s
 
  -- Row 20 -----------------------------------
@@ -763,6 +709,7 @@
   Definition = Involvement of adjacent organs
   Logical Mapping = req.supportingInformation -> Observation[code := %map-codes; value[x] := $value]
   CAP Code = 28336.1000043
+  LOINC Code = LN-RCPA-00064
 
  -- Row 21 -----------------------------------
   Element = Colorectal.preAnalytic.newPrimaryOrRecurrence
@@ -776,6 +723,7 @@
   Comments = ? If need to make an invariant due to the conditional statement
   Logical Mapping = pno := req.supportingInformation -> Observation[code := %map-codes; value[x] := $value]
   CAP Code = 28337.1000043
+  LOINC Code = 21983-2
 
  -- Row 22 -----------------------------------
   Element = Colorectal.preAnalytic.RecurrenceDescription
@@ -784,6 +732,7 @@
   Short Label = Describe
   Definition = Description of regional (local) recurrence or distant metastases
   Logical Mapping = pno.component[code := %map-codes; value[x] := $value]
+  LOINC Code = LN-RCPA-00065
 
  -- Row 23 -----------------------------------
   Element = Colorectal.preAnalytic.pathologyAccessionNumber
@@ -793,6 +742,7 @@
   Definition = Pathology accession number
   Logical Mapping = dr[identifier := $value]
   CAP Code = 28300.1000043
+  LOINC Code = 57723-9
 
  -- Row 24 -----------------------------------
   Element = Colorectal.preAnalytic.otherRelevantDetails
@@ -802,6 +752,7 @@
   Definition = Other relevant details
   Logical Mapping = req.note[text := $value]
   CAP Code = 28301.1000043
+  LOINC Code = 55752-0
 
  -- Row 25 -----------------------------------
   Element = Colorectal.macro
@@ -824,7 +775,7 @@
   Comments = Query if measurements are in mm is international ie USA and query if this comment needs to be refined to AUS?\nDitto for subsequent metric measurements.
   Logical Mapping = sp1 := dr.specimen->Specimen; sp1.collection[quantity := $value]
   CAP Code = 28342.1000043
-  LOINC Code = 33723-8
+  LOINC Code = LN-RCPA-00066
   Snomed Code = 384606002
 
  -- Row 27 -----------------------------------
@@ -860,6 +811,7 @@
   Requirements = measurement in mm.
   Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28359.1000043
+  LOINC Code = 81175-2
 
  -- Row 30 -----------------------------------
   Element = Colorectal.macro.distNonperitonCircumMargin
@@ -870,6 +822,7 @@
   Requirements = measurement in mm.
   Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28358.1000043
+  LOINC Code = LN-RCPA-00067
 
  -- Row 31 -----------------------------------
   Element = Colorectal.macro.tumourPerforation
@@ -881,6 +834,7 @@
   Requirements = Single selection value list.
   Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 27963.1000043
+  LOINC Code = LN-RCPA-00068
 
  -- Row 32 -----------------------------------
   Element = Colorectal.macro.relToAntPeritonealReflection
@@ -892,6 +846,7 @@
   Requirements = Single selection value list.\nConditional on rectum being selected in Tumour Site
   Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28362.1000043
+  LOINC Code = LN-RCPA-00069
   To Do = ? Make an invariant on rectum in tumour site
 
  -- Row 33 -----------------------------------
@@ -918,6 +873,7 @@
   Requirements = Single selection value list.
   Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28369.1000043
+  LOINC Code = 66111-6
 
  -- Row 35 -----------------------------------
   Element = Colorectal.macro.lymphNodes
@@ -930,7 +886,7 @@
   Requirements = Conditional:\nIf received, record the number of nodes
   Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28372.1000043
-  LOINC Code = ??  \n44621-1
+  LOINC Code = 66112-4
   Snomed Code = 364108009
 
  -- Row 36 -----------------------------------
@@ -942,6 +898,8 @@
   Comments = The RCPA require the following be recorded:\n\"Numeric: ___ in cassette: ___\"\nQuery how to record this?
   Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28387.1000043
+  LOINC Code = 44621-1
+  Snomed Code = 444025001
 
  -- Row 37 -----------------------------------
   Element = Colorectal.macro.polyps
@@ -954,7 +912,8 @@
   Requirements = Conditional:\nIf present, provide a polyp summary.
   Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28376.1000043
-  LOINC Code = ?? 33745-1
+  LOINC Code = LN-RCPA-00070
+  Snomed Code = 41329004
 
  -- Row 38 -----------------------------------
   Element = Colorectal.macro.polypSummary
@@ -964,6 +923,7 @@
   Definition = The polyp summary should include the numbers, diameter range and gross appearance
   Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28379.1000043
+  LOINC Code = 33745-1
 
  -- Row 39 -----------------------------------
   Element = Colorectal.macro.otherMacroComments
@@ -973,6 +933,7 @@
   Definition = A descriptive or narrative field should be provided to record any macroscopic information that is not recorded in the above standards and guidelines, and that would normally form part of the macroscopic description.
   Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28380.1000043
+  LOINC Code = 22634-0
   Snomed Code = 395526000
 
  -- Row 40 -----------------------------------
@@ -983,6 +944,7 @@
   Definition = The nature and sites of all blocks must be recorded.
   Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28381.100004299999
+  LOINC Code = 81178-6
 
  -- Row 41 -----------------------------------
   Element = Colorectal.micro
@@ -1005,6 +967,7 @@
   Comments = How to represent this result group which has heading and components cf the bindings file is a flat file??
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 27974.1000043
+  LOINC Code = LN-RCPA-00071
   Snomed Code = 371441004
 
  -- Row 43 -----------------------------------
@@ -1017,6 +980,7 @@
   Requirements = Single selection value list.
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 27988.1000043
+  LOINC Code = 33732-9
   Snomed Code = 371469007
 
  -- Row 44 -----------------------------------
@@ -1029,7 +993,8 @@
   Requirements = Single selection value list.
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28534.1000043
-  LOINC Code = 33759-2
+  LOINC Code = LN-RCPA-00072
+  Snomed Code = 370052007
 
  -- Row 45 -----------------------------------
   Element = Colorectal.micro.proximalOrDistalResectionMargins
@@ -1042,6 +1007,7 @@
   Requirements = Single selection value list.\nIf involved is selected, record involved margin(s)\nIf not involved is selected, record microscopic clearance.
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28348.1000043
+  LOINC Code = LN-RCPA-00073
 
  -- Row 46 -----------------------------------
   Element = Colorectal.micro.involvedMargins
@@ -1053,6 +1019,7 @@
   Requirements = Multi select value list (select all that apply).\nThis is a conditional field.
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28351.1000043
+  LOINC Code = 44699-7
   Snomed Code = 423105004
 
  -- Row 47 -----------------------------------
@@ -1065,6 +1032,7 @@
   Comments = Query how to achieve this??
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28396.1000043
+  LOINC Code = LN-RCPA-00074
 
  -- Row 48 -----------------------------------
   Element = Colorectal.micro.nonperitonealisedCircumMargin
@@ -1077,6 +1045,7 @@
   Requirements = Single selection value list.\nConditional on rectum being selected in S2.02\nIf not involved is selected, record microscopic clearance.
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28354.1000043
+  LOINC Code = LN-RCPA-00075
 
  -- Row 49 -----------------------------------
   Element = Colorectal.micro.microClearanceRectum
@@ -1087,6 +1056,7 @@
   Requirements = Is conditional
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28400.1000043
+  LOINC Code = LN-RCPA-00076
 
  -- Row 50 -----------------------------------
   Element = Colorectal.micro.lymphNodeInvolvement
@@ -1099,20 +1069,45 @@
   Requirements = Single selection value list.\nConditional on nodes being received in G2.02. If G2.02 has been recorded as “not received” this standard is not required.\nIf present, record site(s) and number of lymph nodes
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28338.1000043
-  LOINC Code = ?? 21892-5
+  LOINC Code = 21892-5
 
  -- Row 51 -----------------------------------
   Element = Colorectal.micro.lymphNodesDetails
-  Card. = 0..*
-  Type = string
+  Card. = 0..1
   Short Label = Site(s) and numbers of lymph nodes
   Definition = If lymph node(s) received then the site(s) and numbers of lymph nodes must be recorded.
-  Requirements = Text: Site of lymph node\nAND\nNumeric: ____/_____\n(Number of positive nodes/ Total number of nodes from this site)\nSite is the LN drainage relevant to the site of tumour being reported.
-  Comments = Query if this field needs to be broken in to a number of fields??
-  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
-  CAP Code = 28403.1000043
 
  -- Row 52 -----------------------------------
+  Element = Colorectal.micro.lymphNodesDetails.site
+  Card. = 0..*
+  Type = string
+  Short Label = Site(s) of lymph nodes
+  Definition = The site(s) of the lymph nodes must be recorded
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28403.1000043
+  LOINC Code = 39111-0
+
+ -- Row 53 -----------------------------------
+  Element = Colorectal.micro.lymphNodesDetails.numPos
+  Card. = 0..*
+  Type = string
+  Short Label = Number of positive nodes
+  Definition = Number of positive nodes from this site
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28406.100004299999
+  LOINC Code = 21893-3
+
+ -- Row 54 -----------------------------------
+  Element = Colorectal.micro.lymphNodesDetails.numExamined
+  Card. = 0..*
+  Type = string
+  Short Label = Number of nodes examined
+  Definition = Total number of nodes from this site
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28437.100004299999
+  LOINC Code = 21894-1
+
+ -- Row 55 -----------------------------------
   Element = Colorectal.micro.extramuralTumourDeposits
   Card. = 0..1
   Type = code
@@ -1122,8 +1117,9 @@
   Requirements = Single selection value list.
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28392.1000043
+  LOINC Code = LN-RCPA-00077
 
- -- Row 53 -----------------------------------
+ -- Row 56 -----------------------------------
   Element = Colorectal.micro.apicalNodeInvolvement
   Card. = 0..1
   Type = code
@@ -1133,8 +1129,9 @@
   Requirements = Single selection value list.
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28407.1000043
+  LOINC Code = LN-RCPA-00078
 
- -- Row 54 -----------------------------------
+ -- Row 57 -----------------------------------
   Element = Colorectal.micro.venousSmallVesselInvasion
   Card. = 0..1
   Type = string
@@ -1143,9 +1140,10 @@
   Comments = This is just a header and is not a data field\n?? How to be entered in the resource
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28411.1000043
+  LOINC Code = 33761-8
   Snomed Code = 371512006
 
- -- Row 55 -----------------------------------
+ -- Row 58 -----------------------------------
   Element = Colorectal.micro.intramuralVeinInvasion
   Card. = 1..1
   Type = code
@@ -1155,8 +1153,9 @@
   Requirements = Single selection value list.
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28412.1000043
+  LOINC Code = LN-RCPA-00079
 
- -- Row 56 -----------------------------------
+ -- Row 59 -----------------------------------
   Element = Colorectal.micro.extramuralVeinInvasion
   Card. = 1..1
   Type = code
@@ -1166,8 +1165,9 @@
   Requirements = Single selection value list.
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28415.1000043
+  LOINC Code = LN-RCPA-00080
 
- -- Row 57 -----------------------------------
+ -- Row 60 -----------------------------------
   Element = Colorectal.micro.smallVesselInvasion
   Card. = 1..1
   Type = code
@@ -1177,9 +1177,10 @@
   Requirements = Single selection value list.
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28418.1000043
+  LOINC Code = 33739-4
   Snomed Code = 372264001
 
- -- Row 58 -----------------------------------
+ -- Row 61 -----------------------------------
   Element = Colorectal.micro.perineuralInvasion
   Card. = 1..1
   Type = code
@@ -1192,7 +1193,7 @@
   LOINC Code = 33741-0
   Snomed Code = 371513001
 
- -- Row 59 -----------------------------------
+ -- Row 62 -----------------------------------
   Element = Colorectal.micro.histoConfDistMetastases
   Card. = 1..1
   Inv. = 17
@@ -1203,9 +1204,10 @@
   Requirements = Single selection value list.\nIf present, record sites
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28236.1000043
+  LOINC Code = LN-RCPA-00081
   Snomed Code = 399608002
 
- -- Row 60 -----------------------------------
+ -- Row 63 -----------------------------------
   Element = Colorectal.micro.histoConfDistMetastasesSite
   Card. = 0..1
   Type = string
@@ -1217,7 +1219,7 @@
   LOINC Code = 21920-4
   Snomed Code = 385421009
 
- -- Row 61 -----------------------------------
+ -- Row 64 -----------------------------------
   Element = Colorectal.micro.relCoexistPathabnorm
   Card. = 1..*
   Inv. = 18,19,20,21
@@ -1228,9 +1230,10 @@
   Requirements = Multi select value list (select all that apply).\n?? How is this indicated??\nIf Polyps is selected provide details\nIf Ulcerative colitis or Crohn’s disease is selected record dysplasia\nIf other is selected, provide details in “other abnormality”
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28244.1000043
+  LOINC Code = 81317-0
   Snomed Code = 371498006
 
- -- Row 62 -----------------------------------
+ -- Row 65 -----------------------------------
   Element = Colorectal.micro.polypDetails
   Card. = 0..1
   Type = string
@@ -1238,8 +1241,9 @@
   Definition = The polyp details (type, number, polyposis syndrome criteria met etc) is to be recorded
   Requirements = Is conditional
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  LOINC Code = 33745-1
 
- -- Row 63 -----------------------------------
+ -- Row 66 -----------------------------------
   Element = Colorectal.micro.dysplasia
   Card. = 0..1
   Type = code
@@ -1250,7 +1254,7 @@
   Comments = Cannot have an apostrophe in a spreadsheet eg Crohn apostrophe s
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
 
- -- Row 64 -----------------------------------
+ -- Row 67 -----------------------------------
   Element = Colorectal.micro.otherAbnormality
   Card. = 0..1
   Type = string
@@ -1259,7 +1263,7 @@
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   LOINC Code = 44624-5
 
- -- Row 65 -----------------------------------
+ -- Row 68 -----------------------------------
   Element = Colorectal.micro.microResidualTumourStatus
   Card. = 1..1
   Type = string
@@ -1267,8 +1271,9 @@
   Definition = The microscopic residual tumour status (completeness of resection) is to be recorded
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28425.1000043
+  LOINC Code = LN-RCPA-00082
 
- -- Row 66 -----------------------------------
+ -- Row 69 -----------------------------------
   Element = Colorectal.micro.neoadjuvantTherapy
   Card. = 0..1
   Type = code
@@ -1277,8 +1282,9 @@
   Definition = The response to neoadjuvant therapy should be recorded
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28123.1000043
+  LOINC Code = LN-RCPA-00083
 
- -- Row 67 -----------------------------------
+ -- Row 70 -----------------------------------
   Element = Colorectal.micro.microComments
   Card. = 0..1
   Type = string
@@ -1286,9 +1292,10 @@
   Definition = Other Microscopic comments should be recorded
   Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28431.1000043
+  LOINC Code = 22635-7
   Snomed Code = 395527009
 
- -- Row 68 -----------------------------------
+ -- Row 71 -----------------------------------
   Element = Colorectal.ancillaryTests
   Card. = 0..1
   Type = string
@@ -1300,7 +1307,7 @@
   CAP Code = 28156.1000043
   LOINC Code = 70949-3
 
- -- Row 69 -----------------------------------
+ -- Row 72 -----------------------------------
   Element = Colorectal.ancillaryTests.mismatchRepairEnz
   Card. = 1..1
   Short Label = Mismatch repair enzymes
@@ -1308,7 +1315,7 @@
   Comments = This is just a sub-group/sub-section header and is not a result field
   CAP Code = 28433.1000043
 
- -- Row 70 -----------------------------------
+ -- Row 73 -----------------------------------
   Element = Colorectal.ancillaryTests.mlh1
   Card. = 0..1
   Type = code
@@ -1320,7 +1327,7 @@
   CAP Code = 28434.1000043
   LOINC Code = 50322-7
 
- -- Row 71 -----------------------------------
+ -- Row 74 -----------------------------------
   Element = Colorectal.ancillaryTests.pms2
   Card. = 0..1
   Type = code
@@ -1332,7 +1339,7 @@
   CAP Code = 28442.1000043
   LOINC Code = 50328-4
 
- -- Row 72 -----------------------------------
+ -- Row 75 -----------------------------------
   Element = Colorectal.ancillaryTests.msh2
   Card. = 0..1
   Type = code
@@ -1344,7 +1351,7 @@
   CAP Code = 28493.1000043
   LOINC Code = 50323-5
 
- -- Row 73 -----------------------------------
+ -- Row 76 -----------------------------------
   Element = Colorectal.ancillaryTests.msh6
   Card. = 0..1
   Type = code
@@ -1356,7 +1363,7 @@
   CAP Code = 28544.1000043
   LOINC Code = 50324-3
 
- -- Row 74 -----------------------------------
+ -- Row 77 -----------------------------------
   Element = Colorectal.ancillaryTests.comments
   Card. = 0..1
   Type = string
@@ -1366,7 +1373,7 @@
   CAP Code = 28436.1000043
   LOINC Code = 8262-8
 
- -- Row 75 -----------------------------------
+ -- Row 78 -----------------------------------
   Element = Colorectal.ancillaryTests.msi
   Card. = 0..1
   Inv. = 22,23
@@ -1375,7 +1382,7 @@
   Requirements = Single selection value list.\nIf unstable or stable, record laboratory performing test and report number
   Comments = This is just a group/section header and is not a result field
 
- -- Row 76 -----------------------------------
+ -- Row 79 -----------------------------------
   Element = Colorectal.ancillaryTests.msi.code
   Card. = 0..1
   Type = code
@@ -1384,10 +1391,10 @@
   Definition = Microsatellite instability (MSI) to be recorded
   Logical Mapping = ancillary.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28399.1000043
-  LOINC Code = email to Meagan
+  LOINC Code = 43368-0
   Snomed Code = 443412009
 
- -- Row 77 -----------------------------------
+ -- Row 80 -----------------------------------
   Element = Colorectal.ancillaryTests.msi.comments
   Card. = 0..1
   Type = string
@@ -1396,8 +1403,9 @@
   Requirements = Conditional
   Logical Mapping = ancillary.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28453.1000043
+  LOINC Code = 8265-1
 
- -- Row 78 -----------------------------------
+ -- Row 81 -----------------------------------
   Element = Colorectal.ancillaryTests.msi.labDetails
   Card. = 0..1
   Type = string
@@ -1406,8 +1414,9 @@
   Requirements = Conditional
   Logical Mapping = ancillary.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28447.1000043
+  LOINC Code = 30954-2
 
- -- Row 79 -----------------------------------
+ -- Row 82 -----------------------------------
   Element = Colorectal.ancillaryTests.braf
   Card. = 0..1
   Inv. = 24,25
@@ -1416,7 +1425,7 @@
   Requirements = Single selection value list.\nIf mutated or wild type, record laboratory performing test and report number
   Comments = This is just a group/section header and is not a result field
 
- -- Row 80 -----------------------------------
+ -- Row 83 -----------------------------------
   Element = Colorectal.ancillaryTests.braf.code
   Card. = 0..1
   Type = code
@@ -1427,7 +1436,7 @@
   CAP Code = 28454.1000043
   LOINC Code = 58483-9
 
- -- Row 81 -----------------------------------
+ -- Row 84 -----------------------------------
   Element = Colorectal.ancillaryTests.braf.comments
   Card. = 0..1
   Type = string
@@ -1437,7 +1446,7 @@
   CAP Code = 28460.1000043
   LOINC Code = 8264-4
 
- -- Row 82 -----------------------------------
+ -- Row 85 -----------------------------------
   Element = Colorectal.ancillaryTests.braf.labDetails
   Card. = 0..1
   Type = string
@@ -1445,8 +1454,9 @@
   Definition = BRAF (V600E mutation) laboratory performing test and report number can be recorded
   Logical Mapping = ancillary.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28459.1000043
+  LOINC Code = 30954-2
 
- -- Row 83 -----------------------------------
+ -- Row 86 -----------------------------------
   Element = Colorectal.ancillaryTests.kras
   Card. = 0..1
   Inv. = 26,27
@@ -1454,7 +1464,7 @@
   Definition = KRAS gene mutation (codons 12 and 13) testing
   Comments = This is just a group/section header and is not a result field
 
- -- Row 84 -----------------------------------
+ -- Row 87 -----------------------------------
   Element = Colorectal.ancillaryTests.kras.code
   Card. = 0..1
   Type = code
@@ -1465,7 +1475,7 @@
   CAP Code = 28461.1000043
   LOINC Code = 21703-4
 
- -- Row 85 -----------------------------------
+ -- Row 88 -----------------------------------
   Element = Colorectal.ancillaryTests.kras.comments
   Card. = 0..1
   Type = string
@@ -1475,7 +1485,7 @@
   CAP Code = 28465.1000043
   LOINC Code = 8266-9
 
- -- Row 86 -----------------------------------
+ -- Row 89 -----------------------------------
   Element = Colorectal.ancillaryTests.kras.labDetails
   Card. = 0..1
   Type = string
@@ -1483,8 +1493,9 @@
   Definition = KRAS gene mutation (codons 12 and 13) laboratory performing test and report number can be recorded
   Logical Mapping = ancillary.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28466.1000043
+  LOINC Code = 30954-2
 
- -- Row 87 -----------------------------------
+ -- Row 90 -----------------------------------
   Element = Colorectal.synthesisOverview
   Card. = 0..1
   Short Label = Synthesis and Overview
@@ -1494,7 +1505,7 @@
   CAP Code = 28253.1000043
   LOINC Code = 70949-3
 
- -- Row 88 -----------------------------------
+ -- Row 91 -----------------------------------
   Element = Colorectal.synthesisOverview.tumourStage
   Card. = 1..1
   Type = string
@@ -1503,9 +1514,10 @@
   Comments = This is just a sub-group/sub-section header and is not a result field
   Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28204.1000043
+  LOINC Code = 21902-2
   Snomed Code = 371508000
 
- -- Row 89 -----------------------------------
+ -- Row 92 -----------------------------------
   Element = Colorectal.synthesisOverview.tumourStageT
   Card. = 0..1
   Type = code
@@ -1518,7 +1530,7 @@
   LOINC Code = 21899-0
   Snomed Code = 78873005
 
- -- Row 90 -----------------------------------
+ -- Row 93 -----------------------------------
   Element = Colorectal.synthesisOverview.tumourStageN
   Card. = 0..1
   Type = code
@@ -1529,8 +1541,9 @@
   Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28220.1000043
   LOINC Code = 21900-6
+  Snomed Code = 277206009
 
- -- Row 91 -----------------------------------
+ -- Row 94 -----------------------------------
   Element = Colorectal.synthesisOverview.tumourStageM
   Card. = 0..1
   Type = code
@@ -1541,8 +1554,9 @@
   Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28552.1000043
   LOINC Code = 67211-3
+  Snomed Code = 277208005
 
- -- Row 92 -----------------------------------
+ -- Row 95 -----------------------------------
   Element = Colorectal.synthesisOverview.tumourStageGrouping
   Card. = 1..1
   Type = code
@@ -1553,9 +1567,11 @@
   Comments = Check the formatting of the result group
   Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28243.1000043
+  LOINC Code = 21902-2
+  Snomed Code = 399390009
   Committee Notes = 0 Tis N0 M0   |\nI T1 N0 M0   |\nT2 N0 M0   |\nIIA T3 N0 M0   |\nIIB T4a N0 M0   |\nIIC T4b N0 M0   |\nIIIA T1-T2 N1/N1c M0   |\nT1 N2a M0   |\nIIIB T3-T4a N1/N1c M0   |\nT2-T3 N2a M0   |\nT1-T2 N2b M0   |\nIIIC T4a N2a M0   |\nT3-T4a N2b M0   |\nT4b N1-N2 M0   |\nIVA Any T Any N M1a   |\nIVB Any T Any N M1b
 
- -- Row 93 -----------------------------------
+ -- Row 96 -----------------------------------
   Element = Colorectal.synthesisOverview.tumourStagingSystem
   Card. = 1..1
   Type = string
@@ -1563,10 +1579,10 @@
   Definition = Year and/or edition of staging system is to be recorded
   Requirements = Numeric: year\nAND/OR\nText: Edition eg 1st, 2nd etc
   Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
-  LOINC Code = ? 67203-0
+  LOINC Code = 67203-0
   Snomed Code = 443941007
 
- -- Row 94 -----------------------------------
+ -- Row 97 -----------------------------------
   Element = Colorectal.synthesisOverview.residualTumourStatus
   Card. = 1..1
   Type = string
@@ -1575,9 +1591,10 @@
   Definition = The residual tumour status must be recorded according to the AJCC Cancer Staging Manual (7th Edition)
   Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28317.1000043
+  LOINC Code = LN-RCPA-00084
   Snomed Code = 17964000
 
- -- Row 95 -----------------------------------
+ -- Row 98 -----------------------------------
   Element = Colorectal.synthesisOverview.diagnosticSummary
   Card. = 0..1
   Summary = Y
@@ -1587,9 +1604,9 @@
   Requirements = Include:\na. specimen type\nb. tumour site\nc. tumour type\nd. tumour stage\ne. completeness of excision
   Logical Mapping = dr[conclusion := $value]
   CAP Code = 28842.1000043
-  LOINC Code = 34574-4
+  LOINC Code = 22637-3
 
- -- Row 96 -----------------------------------
+ -- Row 99 -----------------------------------
   Element = Colorectal.synthesisOverview.newPrimaryOrRecurrence
   Card. = 0..1
   Type = code
@@ -1599,8 +1616,9 @@
   Requirements = Single selection value list.\nIf regional (local) recurrence or distant metastasis describe.
   Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28472.1000043
+  LOINC Code = 21983-2
 
- -- Row 97 -----------------------------------
+ -- Row 100 -----------------------------------
   Element = Colorectal.synthesisOverview.newDescription
   Card. = 0..1
   Type = string
@@ -1608,7 +1626,7 @@
   Definition = Description of regional (local) recurrence or distant metastases
   Requirements = Conditional
 
- -- Row 98 -----------------------------------
+ -- Row 101 -----------------------------------
   Element = Colorectal.synthesisOverview.overarchingComment
   Card. = 0..1
   Type = string

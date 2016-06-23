@@ -39,6 +39,14 @@
         <code value="45410002"/>
         <display value="Adenocarcinoma (Acinar, usual type)"/>
       </concept>
+<!--      <concept>
+        <code value="xxxxxx"/>
+        <display value="Adenocarcinoma (Acinar variant, foamy)"/>
+      </concept>
+      <concept>
+        <code value="xxxxxxx"/>
+        <display value="Adenocarcinoma (Acinar variant, pseudohyperplastic)"/>
+      </concept>-->
       <concept>
         <code value="59367005"/>
         <display value="Adenosquamous carcinoma"/>
@@ -49,7 +57,7 @@
       </concept>
       <concept>
         <code value="23109009"/>
-        <display value="Sarcomatoid carcinoma"/>
+        <display value="Pseudosarcomatous carcinoma"/>
       </concept>
       <concept>
         <code value="38549000"/>
@@ -57,7 +65,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/nehta--prostate-rad-tumour-type"/>
+      <system value="http://hl7.org/fhir/nehta-prostate-rad-tumour-type"/>
     </include>
   </compose>
 </ValueSet>

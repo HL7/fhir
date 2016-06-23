@@ -2,7 +2,7 @@
 
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="valueset-nehta-prostate-rad-tumour-stage-m"/>
+  <id value="valueset-nehta-gleeson-grade-primary"/>
   <meta>
     <lastUpdated value="2015-06-11T06:01:03.224+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
@@ -16,9 +16,9 @@
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
   </extension>-->
     
-  <url value="http://hl7.org/fhir/ValueSet/nehta-prostate-rad-tumour-stage-m"/>  
-  <version value="20151105"/>
-  <name value="ProstateRadTuourStageM"/>
+  <url value="http://hl7.org/fhir/ValueSet/nehta-gleeson-grade-primary"/>  
+  <version value="20150618"/>
+  <name value="GleesonGradePrimary"/>
   <publisher value="NEHTA"/>
   <contact>
     <telecom>
@@ -30,7 +30,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The options for radical prostatectomy tumour stage M."/>
+  <description value="This is the code indicates the primary Gleeson grade."/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International
       Health Terminology Standards Development Organisation (IHTSDO), and distributed by
    agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this
@@ -42,43 +42,26 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
-        <code value="385432009"/>
-        <display value="Not applicable"/>
+        <code value="369770006"/>
+        <display value="Gleason Pattern 1"/>
       </concept>
       <concept>
-        <code value="30893008"/>   <!-- to be updated -->
-        <display value="M0 category"/>
+        <code value="369771005"/>
+        <display value="Gleason Pattern 2"/>
       </concept>
       <concept>
-        <code value="55440008"/>   <!-- to be updated -->
-        <display value="M1 category"/>
+        <code value="369772003"/>
+        <display value="Gleason Pattern 3"/>
       </concept>
       <concept>
-        <code value="397213002"/>
-        <display value="pM1a: Distant metastasis to non-regional lymph node(s) (prostate)"/>
+        <code value="369773008"/>
+        <display value="Gleason Pattern 4"/>
       </concept>
       <concept>
-        <code value="397214008"/>
-        <display value="pM1b: Distant metastasis to bone(s) (prostate)"/>
+        <code value="369774002"/>
+        <display value="Gleason Pattern 5"/>
       </concept>
-      <concept>
-        <code value="397215009"/>
-        <display value="pM1c: Distant metastasis site other than bone or non-regional lymph node(s) (prostate)"/>
-      </concept>
-      
+            
     </include>
   </compose>
-  <!--<codeSystem>
- 
-    <system value="http://hl7.org/fhir/nehta-prostate-rad-tumour-stage-m"/>
-    <version value="20151105"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="not_identified"/>
-      <display value="Not identified"/>
-      <definition value="Indicates whether the value was not identified"/>
-    </concept>
-    
-        
-  </codeSystem>-->
 </ValueSet>

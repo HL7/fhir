@@ -2,7 +2,7 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="valueset-nehta-prostate-rad-tumour-type"/>
-  <url value="http://hl7.org/fhir/nehta--prostate-rad-tumour-type"/>
+  <url value="http://hl7.org/fhir/nehta-prostate-rad-tumour-type"/>
   <version value="20151104"/>
   <name value="ProstateRadTumourType"/>
   <status value="active"/>
@@ -14,9 +14,14 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/nehta-prostate-rad-tumour-type"/>
   <content value="complete"/>
   <concept>
-    <code value="acinar_variant"/>
-    <display value="Adenocarcinoma (Acinar variant eg, foamy, pseudohyperplastic)"/>
-    <definition value="Adenocarcinoma (Acinar variant eg, foamy, pseudohyperplastic)"/>
+    <code value="acinar_variant_foamy"/>
+    <display value="Adenocarcinoma (Acinar variant eg, foamy)"/>
+    <definition value="Adenocarcinoma (Acinar variant eg, foamy)"/>
+  </concept>
+  <concept>
+    <code value="acinar_variant_psuedohyperplastic"/>
+    <display value="Adenocarcinoma (Acinar variant eg, pseudohyperplastic)"/>
+    <definition value="Adenocarcinoma (Acinar variant eg, pseudohyperplastic)"/>
   </concept>
   <concept>
     <code value="prostatic_ductal_adenocarcinoma"/>

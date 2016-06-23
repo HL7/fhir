@@ -36,6 +36,10 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
+        <code value="369642003"/>
+        <display value="Prostate, apical surgical margin, involved by tumor"/>
+      </concept>
+      <concept>
         <code value="49370004"/>
         <display value="Lateral"/>
       </concept>
@@ -55,13 +59,10 @@
         <code value="64344009"/>
         <display value="Bladder neck"/>
       </concept>
-      <concept>
-        <code value="43674008"/>
-        <display value="Apical"/>
-      </concept>
+      
     </include>
-    <include>
+    <!--<include>
       <system value="http://hl7.org/fhir/nehta-prostate-rad-tumour-locations"/>
-    </include>
+    </include>-->
   </compose>
 </ValueSet>

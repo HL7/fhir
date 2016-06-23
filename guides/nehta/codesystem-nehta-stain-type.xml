@@ -12,11 +12,11 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/nehta-stain-type"/>
   <content value="complete"/>
-  <concept>
+  <!--<concept>
     <code value="not_tested"/>
     <display value="Not tested"/>
     <definition value="The mismathch repair enzyne was not tested"/>
-  </concept>
+  </concept>-->
   <concept>
     <code value="normal_staining"/>
     <display value="Normal Staining"/>

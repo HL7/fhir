@@ -42,25 +42,44 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
-        <code value="260413007"/>
-        <display value="None"/>
+        <code value="260386005"/>
+        <display value="Nil"/>
       </concept>
-      <concept>
-        <code value="441456002"/>  
-        <display value="Polyp"/>
-      </concept>
+      
       <concept>
         <code value="64766004"/>
         <display value="Ulcerative colitis"/>
       </concept>
+     <!-- <concept>   to be updated
+        <code value="to follow"/>
+        <display value="Ulcerative colitis with dysplasia"/>
+      </concept>
       <concept>
+        <code value="to follow"/>
+        <display value="Ulcerative colitis without dysplasia"/>
+      </concept>-->
+      
+      <concept> 
         <code value="34000006"/>
         <display value="Crohn's disease"/>
       </concept>
+     <!-- <concept>   to be updated
+        <code value="to follow"/>
+        <display value="Crohn's disease with dysplasia"/>
+      </concept>
       <concept>
+        <code value="to follow"/>
+        <display value="Crohn's disease without dysplasia"/>
+      </concept>-->
+      <concept>
+        <code value="254588001"/>  
+        <display value="Polyp of intestine"/>
+      </concept>
+      <!--<concept>  "Other not included in final terminology options
         <code value="74964007"/>
         <display value="Other"/>
-      </concept>
+      </concept>-->
+      
     </include>
   </compose>
 </ValueSet>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="valueset-nehta-cancer-primary-or-recurrence"/>
+  <id value="valueset-nehta-small-vessel-invasion"/>
   <meta>
     <lastUpdated value="2015-06-11T06:01:03.224+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
@@ -9,13 +9,13 @@
   <text>
     <status value="generated"/>
   </text>
-  <!--  DMc ?? SR says to make into a NEHTA oid  -->
-  <!-- <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+<!--  DMc ?? SR says to make into a NEHTA oid  -->
+<!-- <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
   </extension> -->
-  <url value="http://hl7.org/fhir/ValueSet/nehta-cancer-primary-or-recurrence"/>
-  <version value="20160614"/>
-  <name value="NehtaCancerPrimaryOrRecurrence"/>
+  <url value="http://hl7.org/fhir/ValueSet/nehta-small-vessel-invasion"/>
+  <version value="20150618"/>
+  <name value="SmallVesselInvasion"/>
   <status value="active"/>
   <experimental value="true"/>
   <publisher value="NEHTA"/>
@@ -30,35 +30,26 @@
     </telecom>
   </contact>
   <date value="2015-06-11T16:01:03+10:00"/>
-  <description value="Indicates whether a new primary cancer or a regional recurrence or distant metastases."/>
+  <description value="This is the code has the options of Not identified, present and present and extensive."/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International       Health Terminology Standards Development Organisation (IHTSDO), and distributed by    agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this    agreement"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <!--<concept>
-        <code value="To follow"/>
-        <display value="New Primary"/>
+      <!--<concept>  to be updated with code becomes available and then delete the include below.
+        <code value="to follow"/>
+        <display value="Not identified or equivalent"/>
       </concept>-->
       <concept>
-        <code value="314966008"/>
-        <display value="Local recurrence of malignant tumour of rectum"/>
+        <code value="395717001"/>
+        <display value="Lymphatic (small vessel) invasion by tumour present"/>
       </concept>
-      <concept>
-        <code value="314965007"/>
-        <display value="Local recurrence of malignant tumour of colon"/>
-      </concept>
-      <concept>
-        <code value="25173007"/>
-        <display value="Recurrent tumour"/>
-      </concept>
-      <concept>
-        <code value="399409002"/>
-        <display value="Distant metastasis present"/>
-      </concept>
-
+      <!--<concept>  to be updated 
+        <code value="to follow"/>
+        <display value="Present, extensive or more specific equivalent"/>
+      </concept>-->
     </include>
     <include>
-      <system value="http://hl7.org/fhir/nehta-cancer-primary-or-recurrence"/>
+      <system value="http://hl7.org/fhir/nehta-small-vessel-invasion"/>
     </include>
   </compose>
 </ValueSet>

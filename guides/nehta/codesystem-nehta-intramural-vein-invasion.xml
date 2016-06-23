@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="valueset-nehta-intramural-vein-invasion"/>
+  <url value="http://hl7.org/fhir/nehta-intramural-vein-invasion"/>
+  <version value="20150618"/>
+  <name value="IntramuralVeinInvasion"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2015-06-11T09:01:03+03:00"/>
+  <description value="This is the code has the options of Not identified or present."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International       Health Terminology Standards Development Organisation (IHTSDO), and distributed by    agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this    agreement"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/nehta-intramural-vein-invasion"/>
+  <content value="complete"/>
+  <concept>
+    <code value="not_identified"/>
+    <display value="Not identified"/>
+    <definition value="Indicates whether the value was not identified"/>
+  </concept>
+</CodeSystem>
