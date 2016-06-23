@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ex-claimtype"/>
+  <name value="Example Claim Type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Claim Type codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="institutional"/>
+    <display value="Institutional"/>
+    <definition value="Hospital, clinic and typically inpatient claims."/>
+  </concept>
+  <concept>
+    <code value="oral"/>
+    <display value="Oral"/>
+    <definition value="Dental, Denture and Hygiene claims."/>
+  </concept>
+  <concept>
+    <code value="pharmacy"/>
+    <display value="Pharmacy"/>
+    <definition value="Pharmacy claims for goods and services."/>
+  </concept>
+  <concept>
+    <code value="professional"/>
+    <display value="Professional"/>
+    <definition value="Typically outpatient claims from Physician, Psychological, Chiropractor, Physiotherapy, Speach Pathology, rehabilitative, consulting."/>
+  </concept>
+  <concept>
+    <code value="vision"/>
+    <display value="Vision"/>
+    <definition value="Vision claims for professional services and products such as glasses and contact lenses."/>
+  </concept>
+</CodeSystem>
