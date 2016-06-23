@@ -25,6 +25,11 @@
       <definition value="Any instructions, written or given verbally by a patient to a health care provider in anticipation of potential need for medical treatment"/>    
     </concept>	
     <concept>
+      <code value="smart-on-fhir"/>
+      <display value="SMART on FHIR Authorization"/>
+      <definition value="A record of a SMART on FHIR Authorization granted by a user"/>    
+    </concept>	
+    <concept>
       <code value="dnr"/>
       <display value="DNR (Do Not resuscitate)"/>
       <definition value="A legal document, signed by both the patient and their provider, stating a desire not to have CPR initiated in case of a cardiac event.  Note: This form was replaced in 2003 with the Physician Orders for Life-Sustaining Treatment [POLST]."/>    
