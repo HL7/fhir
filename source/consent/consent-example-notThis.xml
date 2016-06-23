@@ -41,7 +41,9 @@
 	   <!-- likely use url pointer to common text -->
 	</sourceAttachment>
 
-   
+  <!-- this is opt-out - e.g. everything approved unless otherwise stated -->
+  <policy value="http://hl7.org/fhir/ConsentPolicy/opt-out"/>
+
   <except>
      <type value="deny"/>
      <data>

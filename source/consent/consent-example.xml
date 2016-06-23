@@ -33,11 +33,13 @@
 	  <display value="Canada Infoway"/>
   </organization>
 
-  <policy value="http://goodhealth.org/consent/policy/opt-in"/>  
   <!-- the terms of the consent as signed by the patient in ink -->
   <sourceAttachment>
 	  <title value="The terms of the consent in lawyer speak."/>
 	  <!-- likely use url pointer to common text -->
 	</sourceAttachment>
-  
+
+  <!-- this is plain out opt-out with no exceptions -->
+  <policy value="http://goodhealth.org/consent/policy/opt-out"/>  
+
 </Consent>

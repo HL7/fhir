@@ -1,5 +1,29 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<h2>Policy</h2>
+
+<p>
+This speciifcation defines 2 magic values for consent policies:
+</p>
+<table class="grid">
+ <tr>
+  <td><b>URI</b></td>
+  <td><b>Description</b></td>
+ </tr>
+ <tr>
+  <td>http://hl7.org/fhir/ConsentPolicy/opt-in</td>
+  <td>The basic policy is to grant no authority. No actions are approved, unless they are explicitly detailed in the exceptions</td>
+ </tr>
+ <tr>
+  <td>http://hl7.org/fhir/ConsentPolicy/opt-out</td>
+  <td>The basic policy is to grant all authority. All actions are approved, unless they are explicitly detailed in the exceptions</td>
+ </tr>
+</table>
+
+<p>
+Other jurisdictions (e.g. HL7 Affiliates) may define their additional lists of consent policy URI values that represent consent policies established by law or regulation
+</p>
+
 <h2>General Model</h2>
 <p>
 The following is the general model of Privacy Consent Directives.
@@ -57,7 +81,7 @@ consent has been rejected, and consent approved.
 	  or "withdraw" consent for.
 	  </p>
 	  <ol>
-	    <li>Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.) --- NOT SUPPORTED</li>
+	    <li>Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)</li>
 		<li>Withhold or withdraw <a href="consent-example-notThis.html">consent for disclosure of a specific record</a> (e.g. Lab Order/Result) </li>
 		<li>Withhold or withdraw <a href="consent-example-notOrg.html">consent for disclosure to a specific provider organization</a> </li>
 		<li>Withhold or withdraw <a href="consent-example-notThem.html">consent for disclosure to a specific provider agent</a> (an individual within an organization) </li>

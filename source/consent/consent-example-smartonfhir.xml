@@ -1,0 +1,81 @@
+<!--
+  This example provides a basic template for recording 
+  the consent associated with a SMART on FHIR OAuth dance.
+
+  In SMART on FHIR, the user grants (consents) to a set 
+  of actions that the server can take when with regard to 
+  release of information to the application
+
+  This is not the main intended use of the Consent resource,
+  and there's no need for the consent resource as part of 
+  the SMART on FHIR Authorization process, or when using 
+  Heart UMA. Using a Consent resource to record and exchange
+  the users consent may be useful for recording and storing 
+  the consent and making it available to the user later,
+  or for exchanging the patient's consent between AS and RS,
+  or between systems in a multi-system virtual RS a very
+  common scenario) 
+
+  Note that which ever system builds this Content resource,
+  it needs access to information from both the AS and the 
+  RS.
+-->
+<Consent xmlns="http://hl7.org/fhir"> 
+  <id value="consent-example-smartonfhir"/>
+  <status value="active"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/consentcategorycodes"/>
+      <code value="smart-on-fhir"/>
+      <display value="SMART ON FHIR User Consent"/>
+    </coding>
+  </category>
+  <dateTime value="2016-06-23T17:02:33+10:00"/>
+  <period>
+    <start value="2016-06-23T17:02:33+10:00"/>
+    <end value="2016-06-23T17:32:33+10:00"/>
+  </period>
+  <!-- 
+   for a SMART on FHIR login, the user can consent for data sharing relating 
+   to any patient to which they have access, so there's no patient in this case 
+
+   if, on the other case, the user picks a single patient record, or there
+   is a single patient record in scope, then 
+  -->
+  <author>
+    <!-- this is the patient record that matches the user account.
+      note: it's not always a patient  
+    -->
+    <reference value="Patient/example"/>
+  </author>
+  <organization>
+    <!-- The organization running the Authentication server -->
+    <reference value="Organization/example"/>
+  </organization>
+
+  <!-- there's no source record for a Smart on FHIR consent -->
+
+  <!-- now the consent details itself start -->
+
+  <!-- smart on fhir is always the base opt-in policy -->
+  <policy value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
+
+  <!-- each scope that relates to FHIR resource access is represented as an exception -->
+  <except>  
+    <!-- this except corresponds to MedicationOrder/read -->
+    <type value="permit"/>
+    <!-- no actors here, or anything, just read/write and the resource type -->
+    <action> 
+      <coding>
+        <system value="http://hl7.org/fhir/consentaction"/>
+        <code value="read"/>
+      </coding>
+    </action>
+    <data>
+      <meaning value="profile"/>
+      <reference>
+        <reference value="http://hl7.org/fhir/StructureDefinition/MedicationOrder"/>
+      </reference>
+    </data>
+ </except>
+</Consent>

@@ -146,7 +146,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Label = Consent identifier for this record
+  Short Label = Identifier for this record (external references)
   Definition = Unique identifier for this copy of the Consent Statement
   Comments = This identifier is identifies this copy of the consent. Where this identifier is used elsewhere as the identifier for a consent (and not the master identifier) then the consent details are expected to be the same
   RIM Mapping = .id
@@ -204,7 +204,7 @@
 
  -- Row 7 -----------------------------------
   Element = Consent.patient
-  Card. = 1..1
+  Card. = 0..1
   Summary = Y
   Type = Reference(Patient)
   Short Label = Who the consent applies to
@@ -234,24 +234,15 @@
   w5 = who.witness
 
  -- Row 10 -----------------------------------
-  Element = Consent.policy
-  Card. = 0..1
-  Summary = Y
-  Type = uri
-  Short Label = Policy that this consents to
-  Definition = A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law
-  Comments = If the policy reference is not known, the resource cannot be processed. Where the reference is absent, there is no particular policy other than what is expressed directly in the consent resource
-
- -- Row 11 -----------------------------------
   Element = Consent.source[x]
   Card. = 0..1
   Summary = Y
-  Type = Attachment|Identifier|Reference(Consent | DocumentReference)
+  Type = Attachment|Identifier|Reference(Consent | DocumentReference | Contract | Questionnaire)
   Short Label = Source from which this consent is taken
   Definition = The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document
   Comments = The source can be contained inline (Attachment), referenced directly (Consent), referenced in a consent repository (DocumentReference), or simply by an identifier (Identifier), e.g. a CDA document id
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = !Consent.domain
   Card. = 0..*
   Aliases = jusrisdiction 
@@ -261,6 +252,15 @@
   Definition = Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources.
   Requirements = scope of governance jurisdiction
   Missing Meaning = no specific domain
+
+ -- Row 12 -----------------------------------
+  Element = Consent.policy
+  Card. = 1..1
+  Summary = Y
+  Type = uri
+  Short Label = Policy that this consents to
+  Definition = A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law
+  Comments = If the policy reference is not known, the resource cannot be processed. Where the reference is absent, there is no particular policy other than what is expressed directly in the consent resource
 
  -- Row 13 -----------------------------------
   Element = Consent.actor
@@ -566,5 +566,11 @@
   Identity = consent-example-pkb
   Description = Example of Patients Know Best Usage
   Filename = consent-example-pkb.xml
+
+ -- Row 11 -----------------------------------
+  Name = Smart on FHIR example
+  Identity = consent-example-smartonfhir
+  Description = Tamplate for recording a Smart on FHIR Authorization
+  Filename = consent-example-smartonfhir.xml
 
 === Sheet Examples =====================================

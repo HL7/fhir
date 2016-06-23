@@ -30,7 +30,10 @@
     <reference value="Organization/pkb"/>
 	  <display value="Patients Know Best"/>
   </organization>
-	    
+
+  <!-- nothing is approved unless the patient says it is -->	    
+  <policy value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
+
   <except>
     <!-- we permit -->
     <type value="permit"/>
