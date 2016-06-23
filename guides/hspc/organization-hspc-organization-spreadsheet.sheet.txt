@@ -27,7 +27,7 @@
  -- Row 1 -----------------------------------
   Element = Organization
   Profile Name = Organization
-  Type = {http://hl7.org/fhir/StructureDefinition/qicore-organization}
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-organization}
 
  -- Row 2 -----------------------------------
   Element = Organization.type

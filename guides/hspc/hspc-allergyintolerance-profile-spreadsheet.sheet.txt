@@ -62,7 +62,7 @@
  -- Row 1 -----------------------------------
   Element = AllergyIntolerance
   Profile Name = HSPC AllergyIntolerance
-  Type = Resource
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance}
 
  -- Row 2 -----------------------------------
   Element = AllergyIntolerance.recorder

@@ -13,7 +13,7 @@
  -- Row 1 -----------------------------------
   Element = DiagnosticOrder
   Profile Name = HSPC Radiology Order
-  Type = {http://hl7.org/fhir/StructureDefinition/qicore-diagnosticorder}
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-diagnosticorder}
   QDM Mapping = Patient Characteristic
 
  -- Row 2 -----------------------------------
@@ -29,53 +29,37 @@
   Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/hspc-genencounter}
 
  -- Row 5 -----------------------------------
-  Element = DiagnosticOrder.supportingInformation
-  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation}|Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition}|Reference(DocumentReference)
-
- -- Row 6 -----------------------------------
   Element = DiagnosticOrder.status
   Card. = 1..1
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = DiagnosticOrder.priority
   Card. = 1..1
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = DiagnosticOrder.event
   Card. = 1..*
 
- -- Row 9 -----------------------------------
-  Element = DiagnosticOrder.event.status
-  Card. = 1..1
-
- -- Row 10 -----------------------------------
-  Element = DiagnosticOrder.event.description
-  Card. = 0..0
-
- -- Row 11 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = DiagnosticOrder.event.actor
   Card. = 1..1
 
- -- Row 12 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = DiagnosticOrder.item
   Card. = 1..1
 
- -- Row 13 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = DiagnosticOrder.item.code
   Binding = RadLexCodes
 
- -- Row 14 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = DiagnosticOrder.item.specimen
   Card. = 0..0
 
- -- Row 15 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = DiagnosticOrder.item.bodySite
   Card. = 0..0
 
- -- Row 16 -----------------------------------
-  Element = DiagnosticOrder.item.status
-  Card. = 0..0
-
- -- Row 17 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = DiagnosticOrder.item.event
   Card. = 0..1

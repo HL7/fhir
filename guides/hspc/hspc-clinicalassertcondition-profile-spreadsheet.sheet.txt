@@ -48,7 +48,7 @@
  -- Row 1 -----------------------------------
   Element = Condition
   Profile Name = HSPC Clincal Assert Condition
-  Type = {http://hl7.org/fhir/StructureDefinition/qicore-condition}
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-condition}
 
  -- Row 2 -----------------------------------
   Element = Condition.asserter
@@ -64,7 +64,7 @@
   Binding = ClinicalAssertStatus
 
  -- Row 5 -----------------------------------
-  Element = Condition.onset[x]
+  Element = !Condition.onset[x]
   Type = dateTime|Age
 
  -- Row 6 -----------------------------------

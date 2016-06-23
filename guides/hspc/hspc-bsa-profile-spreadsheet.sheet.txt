@@ -20,7 +20,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Body Surface Area
-  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-resultobs}
 
  -- Row 2 -----------------------------------
   Element = Observation.code
@@ -43,7 +43,7 @@
   Value = <code value=\"m2\"/>
 
  -- Row 6 -----------------------------------
-  Element = Observation.interpretation
+  Element = !Observation.interpretation
   Binding = abnIntNumNom
 
  -- Row 7 -----------------------------------

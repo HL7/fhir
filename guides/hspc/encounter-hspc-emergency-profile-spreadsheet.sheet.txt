@@ -240,7 +240,7 @@
  -- Row 1 -----------------------------------
   Element = Encounter
   Profile Name = HSPC Emergency Encounter
-  Type = {http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-encounter}
   QDM Mapping = Patient Characteristic
 
  -- Row 2 -----------------------------------
@@ -257,7 +257,7 @@
 
  -- Row 4 -----------------------------------
   Element = Encounter.reason
-  Card. = 0..*
+  Card. = 0..1
   Binding = ActReason
 
  -- Row 5 -----------------------------------
@@ -288,91 +288,79 @@
   Binding = PatientArrivalStatus
 
  -- Row 9 -----------------------------------
+  Element = Encounter.location.location
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-servicedeliverylocation}
+
+ -- Row 10 -----------------------------------
   Element = Encounter.location
   Profile Name = ServiceDeliveryLocation
   Card. = 0..1
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Encounter.location.extension
   Profile Name = ServiceDeliveryLocationCondition
   Card. = 0..1
   Type = Extension{#ServiceDeliveryLocationCondition}
   Binding = ServiceDeliveryLocationCondition
 
- -- Row 11 -----------------------------------
-  Element = Encounter.location.address
-
  -- Row 12 -----------------------------------
-  Element = Encounter.location.address.extension
-  Profile Name = PrimaryIndicator
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsprimaryIndicator}
-  Binding = YesNo
+  Element = Encounter.location.location
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-servicedeliverylocation}
 
  -- Row 13 -----------------------------------
-  Element = Encounter.location.telecom
-
- -- Row 14 -----------------------------------
-  Element = Encounter.location.telecom.extension
-  Profile Name = PreferenceIndicator
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionspreferenceIndicator}
-  Binding = YesNo
-
- -- Row 15 -----------------------------------
   Element = Encounter.participant
 
- -- Row 16 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Encounter.participant.type
   Binding = ParticipationType
 
- -- Row 17 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Encounter.participant.extension
   Profile Name = ProviderService
   Card. = 0..1
   Type = Extension{#ProviderService}
   Binding = ProviderService
 
- -- Row 18 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Encounter.extension
   Profile Name = AmbulatoryStatus
   Card. = 0..1
   Type = Extension{#AmbulatoryStatus}
   Binding = AmbulatoryStatus
 
- -- Row 19 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Encounter.hospitalization
 
- -- Row 20 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Encounter.hospitalization.specialArrangement
   Binding = SpecialArrangement
 
- -- Row 21 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Encounter.hospitalization.specialCourtesy
   Binding = SpecialCourtesy
 
- -- Row 22 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Encounter.extension
   Profile Name = DischargeMedicationId
   Card. = 0..*
   Type = Extension{#DischargeMedicationId}
 
- -- Row 23 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Encounter.extension
   Profile Name = AdministrativeEncounterId
   Card. = 0..1
   Type = Extension{#AdministrativeEncounterId}
 
- -- Row 24 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Encounter.class
   Type = Coding
   Value = <code value=\"emergency\"/>
 
- -- Row 25 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Encounter.encounter-reasonCancelled
   Binding = ReasonCancelled
 
- -- Row 26 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Encounter.extension
   Profile Name = ChiefComplaintId
   Card. = 0..1

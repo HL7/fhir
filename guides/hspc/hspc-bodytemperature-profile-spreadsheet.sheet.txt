@@ -79,7 +79,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Body Temperature
-  Type = Resource
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-resultobs}
 
  -- Row 2 -----------------------------------
   Element = Observation.code
@@ -105,7 +105,7 @@
   Card. = 0..0
 
  -- Row 7 -----------------------------------
-  Element = Observation.interpretation
+  Element = !Observation.interpretation
   Binding = AbnormalInterpretation
 
  -- Row 8 -----------------------------------

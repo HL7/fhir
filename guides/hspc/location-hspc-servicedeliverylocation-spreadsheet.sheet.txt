@@ -53,7 +53,7 @@
  -- Row 1 -----------------------------------
   Element = Location
   Profile Name = HSPCServiceDeliveryLocation
-  Type = {http://hl7.org/fhir/StructureDefinition/qicore-location}
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-location}
 
  -- Row 2 -----------------------------------
   Element = Location.name

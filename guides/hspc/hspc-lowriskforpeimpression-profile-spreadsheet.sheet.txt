@@ -13,7 +13,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Low Risk for PE Impression Indicator
-  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-resultobs}
 
  -- Row 2 -----------------------------------
   Element = Observation.valueCodeableConcept

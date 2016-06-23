@@ -55,7 +55,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Systolic Blood Pressure
-  Type = Recource
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-resultobs}
 
  -- Row 2 -----------------------------------
   Element = Observation.code
@@ -84,7 +84,7 @@
   Binding = BloodPressureBodyPosition
 
  -- Row 7 -----------------------------------
-  Element = Observation.interpretation
+  Element = !Observation.interpretation
   Binding = InterpretationNumNom
 
  -- Row 8 -----------------------------------
@@ -92,50 +92,46 @@
   Card. = 0..0
 
  -- Row 9 -----------------------------------
-  Element = Observation.reliability
-  Card. = 0..0
-
- -- Row 10 -----------------------------------
   Element = Observation.bodySite
   Binding = BodyLocationPrecoord
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Observation.method
   Binding = BloodPressureMeasMethodDevice
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Observation.specimen
   Card. = 0..0
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Observation.referenceRange
   Card. = 0..0
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Observation.dataAbsentReason
   Card. = 0..0
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Observation.device
   Card. = 0..0
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Observation.performer
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Observation.extension
   Profile Name = AssociatedPrecondition
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsassociatedPrecondition}
   Binding = VitalSignAssociatedPrecondition
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Observation.modifierExtension
   Profile Name = FocalSubject
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsfocalSubject}
   Binding = FocalSubject
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Observation.extension
   Profile Name = DeltaFlag
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdeltaFlag}

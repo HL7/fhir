@@ -44,7 +44,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC CTPA Average Radiation Dose
-  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-resultobs}
 
  -- Row 2 -----------------------------------
   Element = Observation.valueQuantity
@@ -127,6 +127,10 @@
 
  -- Row 20 -----------------------------------
   Element = Observation.referenceRange
+  Card. = 0..0
+
+ -- Row 21 -----------------------------------
+  Element = Observation.component
   Card. = 0..0
 
 === Sheet Search =====================================

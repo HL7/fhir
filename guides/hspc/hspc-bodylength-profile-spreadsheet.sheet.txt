@@ -49,7 +49,7 @@
   Element = Observation
   Profile Name = HSPC Body Length
   Aliases = HSPC Body Length
-  Type = Resource
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-resultobs}
 
  -- Row 2 -----------------------------------
   Element = Observation.code
@@ -71,7 +71,7 @@
   Binding = heightUOM
 
  -- Row 6 -----------------------------------
-  Element = Observation.interpretation
+  Element = !Observation.interpretation
   Binding = abnIntNumNom
 
  -- Row 7 -----------------------------------

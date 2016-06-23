@@ -48,7 +48,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Body Weight
-  Type = Resource
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-resultobs}
 
  -- Row 2 -----------------------------------
   Element = Observation.code
@@ -69,7 +69,7 @@
   Binding = WeightUOM
 
  -- Row 6 -----------------------------------
-  Element = Observation.interpretation
+  Element = !Observation.interpretation
   Binding = Ordinal-Abnormal-Union
 
  -- Row 7 -----------------------------------
@@ -81,45 +81,41 @@
   Card. = 0..0
 
  -- Row 9 -----------------------------------
-  Element = !Observation.reliability
-  Card. = 0..0
-
- -- Row 10 -----------------------------------
   Element = Observation.bodySite
   Card. = 0..0
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Observation.method
   Binding = WeightMeasMethodDevice
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Observation.specimen
   Card. = 0..0
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Observation.performer
   Card. = 0..1
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Observation.device
   Card. = 0..0
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Observation.extension
   Profile Name = DeltaFlag
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdeltaFlag}
   Binding = DeltaFlag
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Observation.extension
   Profile Name = Data Origination Mode
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdataOriginationMode}
   Binding = dataOriginationModeVS
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Observation.extension
   Profile Name = AssociatedPrecondition
   Card. = 0..*

@@ -49,7 +49,7 @@
   Element = Observation
   Profile Name = HSPC Height
   Aliases = HSPC Body Length
-  Type = Resource
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-resultobs}
 
  -- Row 2 -----------------------------------
   Element = Observation.code

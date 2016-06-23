@@ -72,7 +72,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Heart Rate
-  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-resultobs}
 
  -- Row 2 -----------------------------------
   Element = Observation.code
@@ -95,7 +95,7 @@
   Value = <code value=\"{Beats}/min\"/>
 
  -- Row 6 -----------------------------------
-  Element = Observation.interpretation
+  Element = !Observation.interpretation
   Binding = InterpretationNumNom
 
  -- Row 7 -----------------------------------
@@ -103,7 +103,7 @@
   Card. = 0..0
 
  -- Row 8 -----------------------------------
-  Element = Observation.status
+  Element = !Observation.status
   Binding = ObservationStatusBasic
 
  -- Row 9 -----------------------------------
@@ -112,8 +112,9 @@
   Binding = BodyLocationPrecoord
 
  -- Row 10 -----------------------------------
-  Element = Observation.observation-bodyPosition
+  Element = Observation.extension
   Profile Name = HeartRateBodyPosition
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-bodyPosition}
   Binding = HeartRateBodyPosition
 
  -- Row 11 -----------------------------------

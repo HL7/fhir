@@ -148,7 +148,7 @@
  -- Row 1 -----------------------------------
   Element = Practitioner
   Profile Name = HSPCProviderPractitioner
-  Type = {http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-pract}
 
  -- Row 2 -----------------------------------
   Element = Practitioner.telecom

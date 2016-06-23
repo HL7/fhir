@@ -187,7 +187,7 @@
  -- Row 1 -----------------------------------
   Element = Patient
   Profile Name = hspc patient
-  Type = {http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-patient}
   QDM Mapping = Patient Characteristic
 
  -- Row 2 -----------------------------------

@@ -6,7 +6,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC On Room Air Assertion
-  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
+  Type = {http://hl7.org/fhir/StructureDefinition/daf-resultobs}
   QDM Mapping = Patient Characteristic
 
  -- Row 2 -----------------------------------
