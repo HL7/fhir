@@ -27,7 +27,7 @@
     <coding>
       <system value="http://hl7.org/fhir/consentcategorycodes"/>
       <code value="smart-on-fhir"/>
-      <display value="SMART ON FHIR User Consent"/>
+      <display value="SMART on FHIR Authorization"/>
     </coding>
   </category>
   <dateTime value="2016-06-23T17:02:33+10:00"/>
