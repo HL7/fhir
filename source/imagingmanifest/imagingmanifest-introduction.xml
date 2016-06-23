@@ -6,30 +6,38 @@
 <h2>Scope and Usage</h2>
 <p>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-This resource groups a set of imaging objects for some specified purpose, and provides references 
-to where the images are available using DICOM. 
-This resource is used to make available information concerning images etc. 
+This resource provides information on a selected set of imaging objects, along with information on how to 
+retrieve those instances (either in native DICOM format, or in a rendered format, such as JPEG), or launch an image viewer. 
+The ImagingManifest is used to make available information concerning images etc. 
 that are intended to be exchanged into other clinical contexts such as diagnostic reports, Care Plans, etc. 
+</p><p>
+ImagingManifest provides a FHIR transformation of a DICOM Key Object Selection file as profiled by the IHE’s 
+XDS-I profile. Although ImagingManifest can address certain uses outside XDS-I (such as launching a viewer), 
+it does not provide the full capabilities of a general DICOM Key Object Selection. 
+</p><p>
+More than one ImagingManifest may reference instances from a particular DICOM study (and <a href="imagingstudy.html">ImagingStudy</a>). 
+A particular ImagingManifest may reference instances from more than one DICOM study (and <a href="imagingstudy.html">ImagingStudy</a>). 
+An ImagingManifest may reference all instances, or only selected instances from a study.
 </p>
 </div>
 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-In distinction to ImagingStudy, this resource is a set of specifically selected objects, potentially from multiple studies on the same patient.  
-ImagingStudy is intended as the resource that identifies a single complete study in itself.
+In distinction to <a href="imagingstudy.html">ImagingStudy</a>, this resource is a set of specifically selected objects, potentially from multiple studies on the same patient.  
+<a href="imagingstudy.html">ImagingStudy</a> is intended as the resource that identifies a single complete study in itself.
 </p>
 </div>
 
 <div>
 <h2>Background and Context</h2>
 <p>
-This resource corresponds to the DICOM Key Object Selection (KOS) SOP Class, and may represent a FHIR access mechanism to the content of KOS SOP Instances. 
+This resource corresponds to a subset of the DICOM Key Object Selection (KOS) SOP Class, and provides a FHIR access to the content of KOS SOP Instances. 
 The content is closely based on the definitions of the equivalent DICOM constructs, and informed by usage patterns already established through DICOM implementation 
 practices, including IHE KIN, TCE, and XDS-I profiles.
 </p>
 <p>
-The DICOM access methods provide access using the rich controls of the DICOM access methodology indicated. A DICOM client may use these access methods to 
+The DICOM access methods provide access using the rich controls of the DICOM access methodology indicated. A DICOM capable client may use these access methods to 
 gain full access to the DICOM objects and header.
 </p>
 </div>
