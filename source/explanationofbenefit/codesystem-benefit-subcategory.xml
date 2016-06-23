@@ -7,46 +7,113 @@
   <experimental value="false"/>
   <description value="This value set includes a smattering of Benefit SubCategory codes."/>
   <copyright value="This is an example set."/>
+  <!-- See Health Care Services Type Codes • ASC X12 External Code Source 958 -->
+  <!-- http://www.wpc-edi.com/reference/codelists/healthcare/health-care-service-type-codes/ -->
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="oral-basic"/>
-    <display value="Dental: Basic Coverage"/>
-    <definition value="Dental Basic Coverage - exams, fillings, xrays, cleaning, minor procedures"/>
+    <code value="1"/>
+    <display value="Medical Care"/>
+    <definition value="Medical Care."/>
   </concept>
   <concept>
-    <code value="oral-major"/>
-    <display value="Dental: Major Coverage"/>
-    <definition value="Dental Major Coverage - crowns, bridge, major procedures"/>
+    <code value="2"/>
+    <display value="Surgical"/>
+    <definition value="Surgical."/>
   </concept>
   <concept>
-    <code value="oral-ortho"/>
-    <display value="Dental: Orthodontic Coverage"/>
-    <definition value="Dental Orthodontic Coverage - braces, adjustments, ortho exams, related procedures"/>
+    <code value="3"/>
+    <display value="Consultation"/>
+    <definition value="Consultation."/>
   </concept>
   <concept>
-    <code value="vision-exam"/>
-    <display value="Vision Exam"/>
-    <definition value="Vision Exam"/>
+    <code value="4"/>
+    <display value="Diagnostic XRay"/>
+    <definition value="Diagnostic XRay."/>
   </concept>
   <concept>
-    <code value="vision-glasses"/>
-    <display value="Vision Glasses"/>
-    <definition value="Frames and lenses"/>
+    <code value="5"/>
+    <display value="Diagnostic Lab"/>
+    <definition value="Diagnostic Lab."/>
   </concept>
   <concept>
-    <code value="vision-contacts"/>
-    <display value="Vision Contacts Coverage"/>
-    <definition value="Contact Lenses"/>
+    <code value="14"/>
+    <display value="Renal Supplies"/>
+    <definition value="Renal Supplies excluding Dialysis."/>
   </concept>
   <concept>
-    <code value="medical-primarycare"/>
-    <display value="Medical Primary Health Coverage"/>
-    <definition value="Medical Primary Health Coverage"/>
+    <code value="23"/>
+    <display value="Diagnostic Dental"/>
+    <definition value="Diagnostic Dental."/>
   </concept>
   <concept>
-    <code value="pharmacy-dispense"/>
-    <display value="Pharmacy Dispense Coverage"/>
-    <definition value="Pharmacy Dispense Coverage"/>
+    <code value="24"/>
+    <display value="Periodontics"/>
+    <definition value="Periodontics."/>
   </concept>
-</CodeSystem>
+  <concept>
+    <code value="25"/>
+    <display value="Restorative"/>
+    <definition value="Restorative."/>
+  </concept>
+  <concept>
+    <code value="26"/>
+    <display value="Endodontics"/>
+    <definition value="Endodontics."/>
+  </concept>
+  <concept>
+    <code value="27"/>
+    <display value="Maxillofacilial Prosthetics"/>
+    <definition value="Maxillofacilial Prosthetics."/>
+  </concept>
+   <concept>
+    <code value="28"/>
+    <display value="Adjunctive Dental Services"/>
+    <definition value="Adjunctive Dental Services."/>
+  </concept>
+ <concept>
+    <code value="35"/>
+    <display value="Dental Care"/>
+    <definition value="Dental Care."/>
+  </concept>
+  <concept>
+    <code value="36"/>
+    <display value="Dental Crowns"/>
+    <definition value="Dental Crowns."/>
+  </concept>
+  <concept>
+    <code value="37"/>
+    <display value="Dental Accident"/>
+    <definition value="Dental Accident."/>
+  </concept>
+  <concept>
+    <code value="55"/>
+    <display value="Major Medical"/>
+    <definition value="Major Medical."/>
+  </concept>
+  <concept>
+    <code value="56"/>
+    <display value="Medically Related Transportation"/>
+    <definition value="Medically Related Transportation."/>
+  </concept>
+  <concept>
+    <code value="61"/>
+    <display value="In-vitro Fertilization"/>
+    <definition value="In-vitro Fertilization."/>
+  </concept>
+  <concept>
+    <code value="62"/>
+    <display value="MRI Scan"/>
+    <definition value="MRI Scan."/>
+  </concept>
+  <concept>
+    <code value="63"/>
+    <display value="Donor Procedures"/>
+    <definition value="Donor Procedures such as organ harvest."/>
+  </concept>
+  <concept>
+    <code value="76"/>
+    <display value="Renal Dialysis"/>
+    <definition value="Renal dialysis."/>
+  </concept>
+  </CodeSystem>

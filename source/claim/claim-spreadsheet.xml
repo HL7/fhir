@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-06-21T10:37:20Z</LastSaved>
+  <LastSaved>2016-06-23T08:25:50Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowWidth>19170</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1393,9 +1393,9 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R147C26" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R150C26" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="27" ss:ExpandedRowCount="161" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="27" ss:ExpandedRowCount="164" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="189.75"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="77.25"/>
@@ -4807,11 +4807,46 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="34.5" ss:StyleID="s135">
+    <Cell ss:StyleID="s136"><Data ss:Type="String">Claim.item.category</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">Coding</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">BenefitSubCategory</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">Type of service or product</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Health Care Service Type Codes  to identify the classification of service or benefits.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s138"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s138"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s141"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.</Data></Cell>
+   </Row>
    <Row ss:Height="120">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
+    <Cell ss:StyleID="s137"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Coding</Data><NamedCell
@@ -5572,11 +5607,46 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="40.5" ss:StyleID="s135">
+    <Cell ss:StyleID="s136"><Data ss:Type="String">Claim.item.detail.category</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">Coding</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">BenefitSubCategory</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">Type of service or product</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Health Care Service Type Codes  to identify the classification of service or benefits.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s138"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s138"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s141"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.</Data></Cell>
+   </Row>
    <Row ss:Height="120">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.detail.service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
+    <Cell ss:StyleID="s137"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Coding</Data><NamedCell
@@ -5979,7 +6049,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">740;720</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">740;740</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6052,11 +6122,46 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.75" ss:StyleID="s135">
+    <Cell ss:StyleID="s136"><Data ss:Type="String">Claim.item.detail.subDetail.category</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">Coding</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">BenefitSubCategory</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">Type of service or product</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Health Care Service Type Codes  to identify the classification of service or benefits.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s138"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s138"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s141"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.</Data></Cell>
+   </Row>
    <Row ss:Height="45">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.detail.subDetail.service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
+    <Cell ss:StyleID="s137"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Coding</Data><NamedCell
@@ -6523,7 +6628,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">Supervision Practitioner</Data></Cell>
     <Cell><Data ss:Type="String">The practitioner who is supervising the work of the servicing provider(s).</Data></Cell>
    </Row>
-   <Row ss:Index="157">
+   <Row ss:Index="160">
     <Cell ss:StyleID="s146"><Data ss:Type="String">!Oral Health Specific</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
@@ -6676,12 +6781,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>120</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>134</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>16</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6697,14 +6803,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>136</ActiveRow>
+     <ActiveCol>23</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R147C26"
+  <AutoFilter x:Range="R1C1:R150C26"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -7515,7 +7621,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -9292,7 +9397,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="42" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="43" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s189" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s189" ss:Width="114.75"/>
    <Column ss:StyleID="s189" ss:AutoFitWidth="0" ss:Width="274.5"/>
@@ -9954,6 +10059,14 @@
     <Cell ss:StyleID="s195"><Data ss:Type="String">valueset-ex-diagnosistype</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">http://hl7.org/fhir/ex-diagnosistype</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s88"><Data ss:Type="String">BenefitSubCategory</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Benefit subcategories such as: oral-basic, major, glasses</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/benefit-subcategory</Data></Cell>
+    <Cell ss:StyleID="s195"/>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -9970,7 +10083,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>25</TopRowBottomPane>
+   <TopRowBottomPane>40</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -9987,7 +10100,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>35</ActiveRow>
+     <ActiveRow>42</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R43C1:R43C5</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
