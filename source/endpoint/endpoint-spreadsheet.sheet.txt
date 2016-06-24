@@ -102,7 +102,6 @@
   Type = ContactPoint
   Short Label = Contact details for source (e.g. troubleshooting)
   Definition = Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting
-  w5 = who.focus
 
  -- Row 7 -----------------------------------
   Element = Endpoint.connectionType
