@@ -11,6 +11,8 @@
     <value value="987654321"/>
   </identifier>
 
+  <status value="active"/>
+	
   <claimReference>
     <reference value="Claim/100150"/>
   </claimReference>

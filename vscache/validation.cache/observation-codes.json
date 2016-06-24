@@ -816,17 +816,6 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|35217-9|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Triglyceride [Mass or Moles/volume] in Serum or Plasma"
-      }
-    },
-    {
       "hash": "#|http://loinc.org|null|43161-9|Microorganism [#/volume] in Unspecified specimen by Viability count",
       "severity": null,
       "message": null,

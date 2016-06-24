@@ -18,6 +18,7 @@
     <value value="12355"/>
   </identifier>
  
+  <status value = "active"/>
   <created value="2015-03-16"/>
 
   <insurerReference>
