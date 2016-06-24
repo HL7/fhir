@@ -115,18 +115,20 @@ public class IgSpreadsheetParser {
       loadExtensions(f.getErrors());
       List<String> namedSheets = new ArrayList<String>();
 
-      if (metadata.containsKey("published.structure")) {
+      if (hasMetadata("published.structure")) {
         for (String n : metadata.get("published.structure")) {
           if (!Utilities.noString(n)) {
-            parseProfileSheet(n, namedSheets, f.getErrors());
+            parseProfileSheet(n, namedSheets, f.getErrors(), false);
           }
         }
-      }
 
-      int i = 0;
-      while (i < namedSheets.size()) {
-        parseProfileSheet(namedSheets.get(i), namedSheets, f.getErrors());
-        i++;
+        int i = 0;
+        while (i < namedSheets.size()) {
+          parseProfileSheet(namedSheets.get(i), namedSheets, f.getErrors(), false);
+          i++;
+        }
+      } else {
+        parseProfileSheet("Data Elements", namedSheets, f.getErrors(), true);
       }
       if (namedSheets.isEmpty() && xls.getSheets().containsKey("Search"))
         readSearchParams(xls.getSheets().get("Search"));
@@ -158,16 +160,15 @@ public class IgSpreadsheetParser {
     }
   }
 
-  private void parseProfileSheet(String n, List<String> namedSheets, List<ValidationMessage> issues) throws Exception {
+  
+  private void parseProfileSheet(String n, List<String> namedSheets, List<ValidationMessage> issues, boolean logical) throws Exception {
     StructureDefinition sd = new StructureDefinition();
-    sd.setId(n.toLowerCase());
-    sd.setUrl(base+"/StructureDefinition/"+sd.getId());
-    bundle.addEntry().setResource(sd).setFullUrl(sd.getUrl());
     
     Map<String, ElementDefinitionConstraintComponent> invariants = new HashMap<String, ElementDefinitionConstraintComponent>();
-    sheet = loadSheet(n+"-Inv");
+    String name = logical ? "Invariants" : n+"-Inv";
+    sheet = loadSheet(name);
     if (sheet != null)
-      invariants = readInvariants(sheet, n, n+"-Inv");
+      invariants = readInvariants(sheet, n, name);
     
     sheet = loadSheet(n);
     if (sheet == null)
@@ -182,10 +183,19 @@ public class IgSpreadsheetParser {
           }
         }
     }
-    sd.setBaseType(sd.getDifferential().getElementFirstRep().getPath());
-    sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+sd.getBaseType());
-    if (!context.getResourceNames().contains(sd.getBaseType()))
-      throw new Exception("Unknown Resource "+sd.getBaseType());
+    if (logical) {
+      sd.setKind(StructureDefinitionKind.LOGICAL);  
+      sd.setId(sd.getDifferential().getElement().get(0).getPath());
+    } else {
+      sd.setKind(StructureDefinitionKind.RESOURCE);  
+      sd.setId(n.toLowerCase());
+      sd.setBaseType(sd.getDifferential().getElementFirstRep().getPath());
+      sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+sd.getBaseType());
+      if (!context.getResourceNames().contains(sd.getBaseType()))
+        throw new Exception("Unknown Resource "+sd.getBaseType());
+    }
+    sd.setUrl(base+"/StructureDefinition/"+sd.getId());
+    bundle.addEntry().setResource(sd).setFullUrl(sd.getUrl());
     
     sheet = loadSheet(n + "-Extensions");
     if (sheet != null) {
@@ -213,7 +223,7 @@ public class IgSpreadsheetParser {
             throw new Exception("Profile "+sd.getId()+" Invariant "+inv.getId()+" ("+inv.getHuman()+") has no XPath statement");
           }
           if (Utilities.noString(inv.getExpression())) {
-            throw new Exception("Profile "+sd.getId()+" Invariant "+inv.getId()+" ("+inv.getHuman()+") has no XPath statement");
+            throw new Exception("Profile "+sd.getId()+" Invariant "+inv.getId()+" ("+inv.getHuman()+") has no Expression statement");
           }
           else if (inv.getXpath().contains("\""))
             throw new Exception("Profile "+sd.getId()+" Invariant "+inv.getId()+" ("+inv.getHuman()+") contains a \" character");
@@ -235,6 +245,8 @@ public class IgSpreadsheetParser {
 
     if (hasMetadata("status")) 
       sd.setStatus(ConformanceResourceStatus.fromCode(metadata("status")));
+    else
+      sd.setStatus(ConformanceResourceStatus.DRAFT);
 
   }
 
@@ -307,16 +319,18 @@ public class IgSpreadsheetParser {
 
   private void loadMetadata() throws Exception {
     sheet = loadSheet("Metadata");
-    for (int row = 0; row < sheet.rows.size(); row++) {
-      String n = sheet.getColumn(row, "Name");
-      String v = sheet.getColumn(row, "Value");
-      if (n != null && v != null) {
-        if (metadata.containsKey(n))
-          metadata.get(n).add(v);
-        else {
-          ArrayList<String> vl = new ArrayList<String>();
-          vl.add(v);
-          metadata.put(n, vl);
+    if (sheet != null) {
+      for (int row = 0; row < sheet.rows.size(); row++) {
+        String n = sheet.getColumn(row, "Name");
+        String v = sheet.getColumn(row, "Value");
+        if (n != null && v != null) {
+          if (metadata.containsKey(n))
+            metadata.get(n).add(v);
+          else {
+            ArrayList<String> vl = new ArrayList<String>();
+            vl.add(v);
+            metadata.put(n, vl);
+          }
         }
       }
     }
@@ -810,8 +824,7 @@ public class IgSpreadsheetParser {
   }
 
   private boolean hasMetadata(String name) {
-    String s = metadata(name);
-    return (s != null && !s.equals(""));
+    return metadata.containsKey(name) && metadata.get(name).size() > 0 && !Utilities.noString(metadata.get(name).get(0)); 
   }
 
   private String metadata(String name) {

@@ -11,7 +11,7 @@ group PQ2Quantity extends ANY2Element
 
 // PQ / Quantity rules --------------------------------------------------------------------
 
-pq.value: for src.value as val make tgt.value = val
+pq.value: for src.value : ST [0..1] as val make tgt.value : string = val
 pq.unit: for src.unit as u make tgt.unit = u, tgt.code = u, tgt.system = "http://unitsofmeasure.org"
 // ignore pq.translations
 

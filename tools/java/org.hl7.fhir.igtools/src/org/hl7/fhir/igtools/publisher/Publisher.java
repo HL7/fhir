@@ -44,6 +44,7 @@ import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
@@ -596,7 +597,11 @@ public class Publisher {
           if (!r.isValidated()) 
             validate(f, r);
           if (r.getResource() == null)
-            r.setResource(parse(f)); // we won't get to here if we're a bundle 
+            try {
+              r.setResource(parse(f)); // we won't get to here if we're a bundle
+            } catch (Exception e) {
+              throw new Exception("Error parsing "+f.getName()+": "+e.getMessage(), e);
+            }
           BaseConformance bc = (BaseConformance) r.getResource();
           igpkp.checkForPath(f, r, bc);
           context.seeResource(bc.getUrl(), bc);
@@ -617,7 +622,7 @@ public class Publisher {
             changed = true;
             sd.getDifferential().getElement().add(0, new ElementDefinition().setPath(p.substring(0, p.indexOf("."))));
           }
-          if (!sd.hasSnapshot()) {
+          if (!sd.hasSnapshot() && sd.getKind() != StructureDefinitionKind.LOGICAL) {
             StructureDefinition base = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
             if (base != null) {
               utils.generateSnapshot(base, sd, sd.getUrl(), sd.getName());
