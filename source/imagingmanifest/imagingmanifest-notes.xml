@@ -67,7 +67,7 @@ parameters emphasized):
 </p>
 <pre>
 
-https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40211.12345678.678910&amp;seriesUID=1.2.250.1.59.40211.789001276.14556172.67789&amp;objectUID=1.2.250.1.59.40211.2678810.87991027.899772.2&amp;rows=100&amp;columns=100&amp;region=0,0,0.5,1 
+https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40211.12345678.678910&amp;seriesUID=1.2.250.1.59.40211.789001276.14556172.67789&amp;objectUID=1.2.250.1.59.40211.2678810.87991027.899772.2&amp;<b>rows=100&amp;columns=100&amp;region=0,0,0.5,1 </b>
 
 </pre>
 <p>
@@ -117,7 +117,7 @@ sub-resource and parameters emphasized):
 </p>
 <pre>
 
-https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/1.2.250.1.59.40211.2678810.87991027.899772.2/rendered?viewport=100,100,0,0,1000,3000
+https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/1.2.250.1.59.40211.2678810.87991027.899772.2<b>/rendered?viewport=100,100,0,0,1000,3000</b>
 
 </pre>
 <p>

@@ -15,7 +15,7 @@
   Binding Name = dWebType
   Binding = code list
   Reference = #dWebType
-  Definition = The DICOM-aware imaging web service endpoint type
+  Definition = The type of the service endpoint
   Conformance = extensible
 
 === Sheet kos-title =====================================
@@ -27,123 +27,98 @@
 
  -- Row 2 -----------------------------------
   System = http://nema.org/dicom/dicm
-  Code = !113001
-  Definition = Rejected for Quality Reasons
-
- -- Row 3 -----------------------------------
-  System = http://nema.org/dicom/dicm
   Code = 113002
   Definition = For Referring Provider
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113003
   Definition = For Surgery
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113004
   Definition = For Teaching
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113005
   Definition = For Conference
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113006
   Definition = For Therapy
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113007
   Definition = For Patient
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113008
   Definition = For Peer Review
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113009
   Definition = For Research
 
- -- Row 11 -----------------------------------
-  System = http://nema.org/dicom/dicm
-  Code = !113010
-  Definition = Quality Issue
-
- -- Row 12 -----------------------------------
+ -- Row 10 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113013
   Definition = Best In Set
 
- -- Row 13 -----------------------------------
+ -- Row 11 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113018
   Definition = For Printing
 
- -- Row 14 -----------------------------------
+ -- Row 12 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113020
   Definition = For Report Attachment
 
- -- Row 15 -----------------------------------
+ -- Row 13 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113021
   Definition = For Litigation
 
- -- Row 16 -----------------------------------
+ -- Row 14 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113030
   Definition = Manifest
 
- -- Row 17 -----------------------------------
+ -- Row 15 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113031
   Definition = Signed Manifest
 
- -- Row 18 -----------------------------------
+ -- Row 16 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113032
   Definition = Complete Study Content
 
- -- Row 19 -----------------------------------
+ -- Row 17 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113033
   Definition = Signed Complete Study Content
 
- -- Row 20 -----------------------------------
+ -- Row 18 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113034
   Definition = Complete Acquisition Content
 
- -- Row 21 -----------------------------------
+ -- Row 19 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113035
   Definition = Signed Complete Acquisition Content
 
- -- Row 22 -----------------------------------
+ -- Row 20 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = 113036
   Definition = Group of Frames for Display
-
- -- Row 23 -----------------------------------
-  System = http://nema.org/dicom/dicm
-  Code = !113037
-  Definition = Rejected for Patient Safety Reasons
-
- -- Row 24 -----------------------------------
-  System = http://nema.org/dicom/dicm
-  Code = !113038
-  Definition = Incorrect Modality Worklist Entry
-
- -- Row 25 -----------------------------------
-  System = http://nema.org/dicom/dicm
-  Code = !113039
-  Definition = Data Retention Policy Expired
 
 === Sheet dWebType =====================================
 
@@ -168,7 +143,7 @@
 
  -- Row 1 -----------------------------------
   Element = ImagingManifest
-  Aliases = Manifest, XDS-I summary, Key Images, (in limited ue) Key Object Selection (KOS)
+  Aliases = Manifest, XDS-I summary, Key Images, (in limited use) Key Object Selection (KOS)
   UML = 0;0
   Type = DomainResource
   Short Label = Key Object Selection
@@ -288,7 +263,7 @@
   Card. = 0..*
   UML = 300;175
   Short Label = Study access service endpoint
-  Definition = Methods of accessing  (e.g., retrieve, view)
+  Definition = Methods of accessing  (e.g., retrieving, viewing) the study.
   Requirements = Access methods for viewing (e.g. IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type.
   To Do = likely change to Endpoint Resource reference
 
@@ -337,8 +312,7 @@
   UML = 300;300
   Short Label = Series access endpoint
   Definition = Methods of accessing (e.g. retrieving) the series
-  Requirements = access methods available using DICOM web protocols
-  Comments = Access method for applications that understand the DICOM web protocols for higher fidelity access.
+  Requirements = Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level.
   To Do = likely change to Endpoint Resource reference
 
  -- Row 17 -----------------------------------
@@ -347,14 +321,14 @@
   Type = Coding
   Binding = dWebType
   Short Label = WADO-RS | WADO-URI | IID
-  Definition = Access type for DICOM web
+  Definition = The service type for accessing (e.g., retrieving) the DICOM instances.
 
  -- Row 18 -----------------------------------
   Element = ImagingManifest.study.series.baseLocation.url
   Card. = 1..1
   Type = uri
-  Short Label = Series acces URL
-  Definition = The sservice URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.series.baseLocation.type.
+  Short Label = Series access URL
+  Definition = The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.series.baseLocation.type.
   Comments = This URL is to a service endpoint for the particular service indicated by ImagingManifest.study.series.baseLocation.type. Depending on the type of service, it is may be used to construct a URL to retrieve, or otherwise access, the series or the series’ instances. For example, this element may be a DICOMweb WADO-RS endpoint.
   DICOM Mapping = (0040,E023) WADO Retrieval Sequence > (0040,E010) Retrieve URI | \n(0040,E025) WADO-RS Retrieval Sequence > (0008,1190) Retrieve URI
 
@@ -394,3 +368,47 @@
   Comments = SOP instance UID identifies the instance
   DICOM Mapping = (0008,0018) - SOP Instance UID
   Committee Notes = Rationale for putting this in the core is based on input from Canada. Other persons on call are from single language countries. Committee felt uncomfortable with leaving any of the 3 optional attributes modeCode, proficiencyLevelCode, or preferenceInd up to extensions. Instead we said that isModifier is \"no\" on modeCode and preferenceInd.
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = uri
+  Description = UID of key DICOM object selection
+  Path = ImagingManifest.uid
+
+ -- Row 2 -----------------------------------
+  Name = title
+  Type = token
+  Description = Title of key DICOM object selection
+  Path = ImagingManifest.title
+
+ -- Row 3 -----------------------------------
+  Name = author
+  Type = reference
+  Description = Author of key DICOM object selection
+  Path = ImagingManifest.author
+
+ -- Row 4 -----------------------------------
+  Name = authoring-time
+  Type = date
+  Description = Time of key DICOM object selection authoring
+  Path = ImagingManifest.authoringTime
+
+ -- Row 5 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = Subject of key DICOM object selection
+  Path = ImagingManifest.patient
+
+ -- Row 6 -----------------------------------
+  Name = selected-study
+  Type = uri
+  Description = Study selected in key DICOM object selection
+  Path = ImagingManifest.study.uid
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================
