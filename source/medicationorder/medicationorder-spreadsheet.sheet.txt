@@ -389,8 +389,8 @@
   Card. = 0..1
   Type = positiveInt
   Short Label = Number of refills authorized
-  Definition = An integer indicating the number of additional times (aka refills or repeats) the patient can receive the prescribed medication.   Usage Notes: This integer does NOT include the original order dispense.   This means that if an order indicates dispense 30 tablets plus  \"3 repeats\", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.
-  Comments = If displaying \"number of authorized refills\", subtract 1 from this number.
+  Definition = An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does NOT include the original order dispense. This means that if an order indicates dispense 30 tablets plus \"3 repeats\", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.
+  Comments = If displaying \"number of authorized fills\", add 1 to this number.
   v2 Mapping = RXE-12-Number of Refills
   RIM Mapping = repeatNumber
 
