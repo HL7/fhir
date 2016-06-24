@@ -1,0 +1,83 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = RelatedResourceType
+  Binding = code list
+  Reference = #related-resource-type
+  Definition = The type of related resource for the module
+  Conformance = required
+
+=== Sheet related-resource-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = documentation
+  Display = Documentation
+  Definition = Additional documentation for the module. This would include additional instructions on usage as well additional information on clinical context or appropriateness
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = justification
+  Display = Justification
+  Definition = A summary of the justification for the artifact including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the module available to the consumer of interventions or results produced by the artifact
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = citation
+  Display = Citation
+  Definition = Bibliographic citation for papers, references, or other relevant material for the module. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this module
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = predecessor
+  Display = Predecessor
+  Definition = The previous version of the module
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = successor
+  Display = Successor
+  Definition = The next version of the module
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = derived-from
+  Display = Derived From
+  Definition = The module is derived from the resource. This is intended to capture the relationship when a particular module is based on the content of another module, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = RelatedResource
+  Type = Structure
+  Short Label = Related resources for the module
+  Definition = Related resources such as additional documentation, justification, or bibliographic references
+  Requirements = Modules must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
+  Comments = Each related resource is either an attachment, or a reference to another resource, but not both
+  Committee Notes = This data type was defined to support reuse of the pattern of contributor elements across multiple conformance and knowledge asset resources
+
+ -- Row 2 -----------------------------------
+  Element = RelatedResource.type
+  Card. = 1..1
+  Type = code
+  Binding = RelatedResourceType
+  Short Label = documentation | justification | citation | predecessor | successor | derived-from
+  Definition = The type of related resource
+
+ -- Row 3 -----------------------------------
+  Element = RelatedResource.document
+  Card. = 0..1
+  Type = Attachment
+  Short Label = The related document
+  Definition = The document being referenced, represented as an attachment. This is exclusive with the resource element
+
+ -- Row 4 -----------------------------------
+  Element = RelatedResource.resource
+  Card. = 0..1
+  Type = Reference(Any)
+  Short Label = The related resource
+  Definition = The related resource, such as a library, value set, profile, or other module
+  Comments = If the type is predecessor, this is a reference to the succeeding module. If the type is successor, this is a reference to the prior module

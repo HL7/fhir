@@ -1,0 +1,69 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ContributorType
+  Binding = code list
+  Reference = #contributor-type
+  Definition = The type of contributor
+  Conformance = required
+
+=== Sheet contributor-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = author
+  Display = Author
+  Definition = An author of the content of the module
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = editor
+  Display = Editor
+  Definition = An editor of the content of the module
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = reviewer
+  Display = Reviewer
+  Definition = A reviewer of the content of the module
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = endorser
+  Display = Endorser
+  Definition = An endorser of the content of the module
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Contributor
+  Type = Structure
+  Short Label = Contributor information
+  Definition = A contributor to the content of a knowledge asset, including authors, editors, reviewers, and endorsers
+  Requirements = Need to track contributor information in the same way across multiple resources
+  Committee Notes = This data type was defined to support reuse of the pattern of contributor elements across multiple conformance and knowledge asset resources
+
+ -- Row 2 -----------------------------------
+  Element = Contributor.type
+  Card. = 1..1
+  Type = code
+  Binding = ContributorType
+  Short Label = author | editor | reviewer | endorser
+  Definition = The type of contributor
+
+ -- Row 3 -----------------------------------
+  Element = Contributor.name
+  Card. = 1..1
+  Type = string
+  Short Label = Name of the contributor
+  Definition = The name of the individual or organization responsible for the contribution
+
+ -- Row 4 -----------------------------------
+  Element = Contributor.contact
+  Card. = 0..*
+  Type = ContactDetail
+  Short Label = Contact details of the contributor
+  Definition = Contact details to assist a user in finding and communicating with the contributor

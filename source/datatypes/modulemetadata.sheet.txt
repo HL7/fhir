@@ -341,26 +341,12 @@
  -- Row 16 -----------------------------------
   Element = ModuleMetadata.coverage
   Card. = 0..*
+  Type = UsageContext
   Short Label = Describes the context of use for this module
   Definition = Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable
   Requirements = Consumers of the module must be able to determine the intended applicability for the module. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed
 
  -- Row 17 -----------------------------------
-  Element = ModuleMetadata.coverage.focus
-  Card. = 1..1
-  Type = Coding
-  Binding = ModuleMetadataFocusType
-  Short Label = patient-gender | patient-age-group | clinical-focus | target-user | workflow-setting | workflow-task | clinical-venue | jurisdiction
-  Definition = Specifies the focus of the coverage attribute
-
- -- Row 18 -----------------------------------
-  Element = ModuleMetadata.coverage.value
-  Card. = 1..1
-  Type = CodeableConcept
-  Short Label = Value of the coverage attribute
-  Definition = Provides a value for the coverage attribute. Different values are appropriate in different focus areas, as specified in the description of values for focus
-
- -- Row 19 -----------------------------------
   Element = ModuleMetadata.topic
   Card. = 0..*
   Type = CodeableConcept
@@ -368,49 +354,15 @@
   Definition = Clinical topics related to the content of the module
   Requirements = Repositories must be able to determine how to categorize the module so that it can be found by topical searches
 
- -- Row 20 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = ModuleMetadata.contributor
   Card. = 0..*
+  Type = Contributor
   Short Label = A content contributor
   Definition = A contributor to the content of the module, including authors, editors, reviewers, and endorsers
   Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the knowledge module
 
- -- Row 21 -----------------------------------
-  Element = ModuleMetadata.contributor.type
-  Card. = 1..1
-  Type = code
-  Binding = ModuleMetadataContributorType
-  Short Label = author | editor | reviewer | endorser
-  Definition = The type of contributor
-
- -- Row 22 -----------------------------------
-  Element = ModuleMetadata.contributor.name
-  Card. = 1..1
-  Type = string
-  Short Label = Name of the contributor
-  Definition = The name of the individual or organization responsible for the contribution
-
- -- Row 23 -----------------------------------
-  Element = ModuleMetadata.contributor.contact
-  Card. = 0..*
-  Short Label = Contact details of the contributor
-  Definition = Contacts to assist a user in finding and communicating with the contributor
-
- -- Row 24 -----------------------------------
-  Element = ModuleMetadata.contributor.contact.name
-  Card. = 0..1
-  Type = string
-  Short Label = Name of an individual to contact
-  Definition = The name of an individual to contact regarding the contribution
-
- -- Row 25 -----------------------------------
-  Element = ModuleMetadata.contributor.contact.telecom
-  Card. = 0..*
-  Type = ContactPoint
-  Short Label = Contact details for an individual or contributor
-  Definition = Contact details for the individual (if a name was provided) or the contributor
-
- -- Row 26 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = ModuleMetadata.publisher
   Card. = 0..1
   Type = string
@@ -419,27 +371,14 @@
   Requirements = Consumers of the module must be able to determine where to obtain support in the use of this module, as well as where to direct questions and concerns about the content
   Comments = The publisher (or steward) of the module is the organization or individual primarily responsible for the maintenance and upkeep of the module. This is not necessarily the same organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the module
 
- -- Row 27 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = ModuleMetadata.contact
   Card. = 0..*
+  Type = ContactDetail
   Short Label = Contact details of the publisher
-  Definition = Contacts to assist a user in finding and communicating with the publisher
+  Definition = Contact details to assist a user in finding and communicating with the publisher
 
- -- Row 28 -----------------------------------
-  Element = ModuleMetadata.contact.name
-  Card. = 0..1
-  Type = string
-  Short Label = Name of an individual to contact
-  Definition = The name of an individual to contact regarding the module
-
- -- Row 29 -----------------------------------
-  Element = ModuleMetadata.contact.telecom
-  Card. = 0..*
-  Type = ContactPoint
-  Short Label = Contact details for an individual or publisher
-  Definition = Contact details for the individual (if a name was provided) or the publisher
-
- -- Row 30 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = ModuleMetadata.copyright
   Card. = 0..1
   Type = string
@@ -447,33 +386,11 @@
   Definition = A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module
   Requirements = Consumers of the module must be able to determine any legal restrictions on the use of the module and/or its content
 
- -- Row 31 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ModuleMetadata.relatedResource
   Card. = 0..*
+  Type = RelatedResource
   Short Label = Related resources for the module
   Definition = Related resources such as additional documentation, justification, or bibliographic references
   Requirements = Modules must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related resource is either an attachment, or a reference to another resource, but not both
-
- -- Row 32 -----------------------------------
-  Element = ModuleMetadata.relatedResource.type
-  Card. = 1..1
-  Type = code
-  Binding = ModuleMetadataResourceType
-  Short Label = documentation | justification | citation | predecessor | successor | derived-from
-  Definition = The type of related resource
-
- -- Row 33 -----------------------------------
-  Element = ModuleMetadata.relatedResource.document
-  Card. = 0..1
-  Type = Attachment
-  Short Label = The related document
-  Definition = The document being referenced, represented as an attachment. This is exclusive with the resource element
-
- -- Row 34 -----------------------------------
-  Element = ModuleMetadata.relatedResource.resource
-  Card. = 0..1
-  Type = Reference(Any)
-  Short Label = The related resource
-  Definition = The related resource, such as a library, value set, profile, or other module
-  Comments = If the type is predecessor, this is a reference to the succeeding module. If the type is successor, this is a reference to the prior module

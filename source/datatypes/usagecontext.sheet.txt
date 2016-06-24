@@ -1,0 +1,86 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = UsageContextFocus
+  Binding = code list
+  Reference = #usage-context-focus
+  Definition = Specifies clinical metadata that can be used to retrieve, index and/or categorize the knowledge artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care)
+  Conformance = required
+
+=== Sheet usage-context-focus =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = patient-gender
+  Display = Patient Gender
+  Definition = The gender of the patient. For this item type, use HL7 administrative gender codes (OID: 2.16.840.1.113883.1.11.1)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = patient-age-group
+  Display = Patient Age Group
+  Definition = A patient demographic category for which this artifact is applicable. Allows specification of age groups using coded values originating from the MeSH Code system (OID: 2.16.840.1.113883.6.177). More specifically, only codes from the AgeGroupObservationValue value set are valid for this field  [2.16.840.1.113883.11.75]
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = clinical-focus
+  Display = Clinical Focus
+  Definition = The clinical concept(s) addressed by the artifact.  For example, disease, diagnostic test interpretation, medication ordering. Please refer to the implementation guide on which code system and codes to use
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = target-user
+  Display = Target User
+  Definition = The user types to which an artifact is targeted.  For example, PCP, Patient, Cardiologist, Behavioral Professional, Oral Health Professional, Prescriber, etc... taken from the NUCC Health Care provider taxonomyCode system (OID: 2.16.840.1.113883.6.101)
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = workflow-setting
+  Display = Workflow Setting
+  Definition = The settings in which the artifact is intended for use.  For example, admission, pre-op, etc
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = workflow-task
+  Display = Workflow Task
+  Definition = The context for the clinical task(s) represented by this artifact. Can be any task context represented by the HL7 ActTaskCode value set (OID: 2.16.840.1.113883.1.11.19846). General categories include: order entry, patient documentation and patient information review
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = clinical-venue
+  Display = Clinical Venue
+  Definition = The venue in which an artifact could be used.  For example, Outpatient, Inpatient, Home, Nursing home. The code value may originate from either the HL7 ActEncounter (OID: 2.16.840.1.113883.1.11.13955) or NUCC non-individual provider codes OID: 2.16.840.1.113883.1.11.19465
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = jurisdiction
+  Display = Jurisdiction
+  Definition = The jurisdiction in which the artifact is intended to be used
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = UsageContext
+  Type = Structure
+  Short Label = Describes the context of use for a module
+  Definition = Specifies various attributes of the patient population for whom and/or environment of care in which a knowledge module is applicable
+  Requirements = Consumers of the module must be able to determine the intended applicability for the module. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed
+  Committee Notes = This data type was defined to support reuse of the pattern of contributor elements across multiple conformance and knowledge asset resources
+
+ -- Row 2 -----------------------------------
+  Element = UsageContext.focus
+  Card. = 1..1
+  Type = Coding
+  Binding = UsageContextFocus
+  Short Label = patient-gender | patient-age-group | clinical-focus | target-user | workflow-setting | workflow-task | clinical-venue | jurisdiction
+  Definition = Specifies the focus of the usage attribute
+
+ -- Row 3 -----------------------------------
+  Element = UsageContext.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Label = Value of the usage attribute
+  Definition = Provides a value for the usage attribute. Different values are appropriate in different focus areas, as specified in the description of values for focus

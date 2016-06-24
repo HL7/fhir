@@ -514,6 +514,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+extHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("mmheader"))
         src = s1+mmHeader(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("cdheader"))
+        src = s1+cdHeader(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("ctheader"))
+        src = s1+ctHeader(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("ucheader"))
+        src = s1+ucHeader(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("rrheader"))
+        src = s1+rrHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("drheader"))
         src = s1+drHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("adheader"))
@@ -2678,6 +2686,50 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();
   }
 
+  private String cdHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("Contact Detail", "contactdetail.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", "contactdetail-examples.html", mode==null || "examples".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "contactdetail-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Mappings", "contactdetail-mappings.html", mode==null || "mappings".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
+  private String ctHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("Contributor", "contributor.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", "contributor-examples.html", mode==null || "examples".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "contributor-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Mappings", "contributor-mappings.html", mode==null || "mappings".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
+  private String ucHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("UsageContext", "usagecontext.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", "usagecontext-examples.html", mode==null || "examples".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "usagecontext-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Mappings", "usagecontext-mappings.html", mode==null || "mappings".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
+  private String rrHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("RelatedResource", "relatedresource.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", "relatedresource-examples.html", mode==null || "examples".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "relatedresource-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Mappings", "related-mappings.html", mode==null || "mappings".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
   private String drHeader(String mode) {
     StringBuilder b = new StringBuilder();
     b.append("<ul class=\"nav nav-tabs\">");
@@ -3575,7 +3627,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           com[0].equals("formatsheader") || com[0].equals("resourcesheader") || com[0].equals("txheader") || com[1].equals("txheader0") ||
           com[0].equals("refheader") || com[0].equals("extrasheader") || com[0].equals("profilesheader") || com[0].equals("fmtheader") ||
           com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader") || com[0].equals("dictheader") ||
-          com[0].equals("adheader") || com[0].equals("pdheader") || com[0].equals("tdheader"))
+          com[0].equals("adheader") || com[0].equals("pdheader") || com[0].equals("tdheader") || com[0].equals("cdheader") ||
+          com[0].equals("ctheader") || com[0].equals("ucheader") || com[0].equals("rrheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))
         src = s1+resHeader(name, "Document", com.length > 1 ? com[1] : null)+s3;
@@ -3971,8 +4024,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           com[0].equals("drheader") ||com[0].equals("elheader") || com[0].equals("extheader") || com[0].equals("resourcesheader") ||
           com[0].equals("formatsheader") || com[0].equals("narrheader") || com[0].equals("refheader") ||  com[0].equals("extrasheader") || com[0].equals("profilesheader") ||
           com[0].equals("txheader") || com[0].equals("txheader0") || com[0].equals("fmtheader") || com[0].equals("igheader") ||
-          com[0].equals("cmpheader") || com[0].equals("atomheader") || com[0].equals("dictheader") ||
-          com[0].equals("adheader") || com[0].equals("pdheader") || com[0].equals("tdheader"))
+          com[0].equals("cmpheader") || com[0].equals("atomheader") || com[0].equals("dictheader") || com[0].equals("ctheader") ||
+          com[0].equals("adheader") || com[0].equals("pdheader") || com[0].equals("tdheader") || com[0].equals("cdheader") ||
+          com[0].equals("ucheader") || com[0].equals("rrheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))
         src = s1+s3;

@@ -69,6 +69,26 @@ signatures.html
 				<page title="ModuleMetadata Detailed Descriptions" filename="modulemetadata-definitions.html"/>
 				<page title="ModuleMetadata Mappings" filename="modulemetadata-mappings.html"/>
 			</page>
+			<page title="ContactDetail" filename="contactdetail.html">
+				<page title="ContactDetail Examples" filename="contactdetail-examples.html"/>
+				<page title="ContactDetail Detailed Descriptions" filename="contactdetail-definitions.html"/>
+				<page title="ContactDetail Mappings" filename="contactdetail-mappings.html"/>
+			</page>
+			<page title="Contributor" filename="contributor.html">
+				<page title="Contributor Examples" filename="contributor-examples.html"/>
+				<page title="Contributor Detailed Descriptions" filename="contributor-definitions.html"/>
+				<page title="Contributor Mappings" filename="contributor-mappings.html"/>
+			</page>
+			<page title="RelatedResource" filename="relatedresource.html">
+				<page title="RelatedResource Examples" filename="relatedresource-examples.html"/>
+				<page title="RelatedResource Detailed Descriptions" filename="relatedresource-definitions.html"/>
+				<page title="RelatedResource Mappings" filename="relatedresource-mappings.html"/>
+			</page>
+			<page title="UsageContext" filename="usagecontext.html">
+				<page title="UsageContext Examples" filename="usagecontext-examples.html"/>
+				<page title="UsageContext Detailed Descriptions" filename="usagecontext-definitions.html"/>
+				<page title="UsageContext Mappings" filename="usagecontext-mappings.html"/>
+			</page>
 			<page title="DataRequirement" filename="datarequirement.html">
 				<page title="DataRequirement Examples" filename="datarequirement-examples.html"/>
 				<page title="DataRequirement Detailed Descriptions" filename="datarequirement-definitions.html"/>

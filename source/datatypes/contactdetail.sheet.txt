@@ -1,0 +1,29 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ContactDetail
+  Type = Structure
+  Short Label = Contact information
+  Definition = Specifies contact information for a person or organization
+  Requirements = Need to track contact information in the same way across multiple resources
+  Committee Notes = This data type was defined to support reuse of the pattern of name/telecom elements defined for contact information across multiple conformance and knowledge asset resources
+
+ -- Row 2 -----------------------------------
+  Element = ContactDetail.name
+  Card. = 0..1
+  Type = string
+  Short Label = Name of an individual to contact
+  Definition = The name of an individual to contact
+  Comments = If there is no named individual, the telecom information is for the organization as a whole
+
+ -- Row 3 -----------------------------------
+  Element = ContactDetail.telecom
+  Card. = 0..*
+  Type = ContactPoint
+  Short Label = Contact details for individual or organization
+  Definition = The contact details for the individual (if a name was provided) or the organization
