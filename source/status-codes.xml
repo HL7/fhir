@@ -195,7 +195,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="82" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="84" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:Width="314.25"/>
@@ -920,6 +920,25 @@
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EligibilityRequest.status</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">cancelled</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Encounter.location.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -995,6 +1014,25 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">off</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s69"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EnrollmentRequest.status</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EpisodeOfCare.status</Data></Cell>
@@ -1860,7 +1898,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>31</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1877,7 +1915,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
+     <ActiveRow>38</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

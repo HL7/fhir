@@ -22,6 +22,42 @@
   Definition = The timeliness with which processing is required: STAT, normal, Deferred
   Conformance = example
 
+ -- Row 4 -----------------------------------
+  Binding Name = EligibilityRequestStatus
+  Binding = code list
+  Reference = #eligibilityrequest-status
+  Definition = A code specifying the state of the resource instance.
+  Conformance = required
+
+=== Sheet eligibilityrequest-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = active
+  Display = Active
+  Definition = The resource instance is currently in-force.
+  v3 = ActStatus.active
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = cancelled
+  Display = Cancelled
+  Definition = The resource instance is withdrawn, rescinded or reversed.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = draft
+  Display = Draft
+  Definition = A new resource instance the contents of which is not complete.
+  v3 = ActStatus.new
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = entered-in-error
+  Display = Entered In Error
+  Definition = The resource instance was entered in error.
+  v3 = ActStatus.nullified
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -44,6 +80,16 @@
   Definition = The Response business identifier
 
  -- Row 4 -----------------------------------
+  Element = EligibilityRequest.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = EligibilityRequestStatus
+  Short Label = active | cancelled | draft | entered-in-error
+  Definition = The status of the resource instance.
+
+ -- Row 5 -----------------------------------
   Element = EligibilityRequest.ruleset
   Card. = 0..1
   Type = Coding
@@ -51,7 +97,7 @@
   Short Label = Resource version
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = EligibilityRequest.originalRuleset
   Card. = 0..1
   Type = Coding
@@ -60,21 +106,21 @@
   Definition = The style (standard) and version of the original material which was converted into this resource.
   Requirements = Knowledge of the original version can inform the processing of this instance so that information which is processable by the originating system may be generated.
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = EligibilityRequest.created
   Card. = 0..1
   Type = dateTime
   Short Label = Creation date
   Definition = The date when this resource was created.
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = EligibilityRequest.insurer[x]
   Card. = 0..1
   Type = Identifier|Reference(Organization)
   Short Label = Target
   Definition = The Insurer who is target  of the request.
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = EligibilityRequest.provider[x]
   Card. = 0..1
   Type = Identifier|Reference(Practitioner)
@@ -82,14 +128,14 @@
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = EligibilityRequest.organization[x]
   Card. = 0..1
   Type = Identifier|Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = EligibilityRequest.priority
   Card. = 0..1
   Type = Coding
@@ -97,24 +143,24 @@
   Short Label = Desired processing priority
   Definition = Immediate (STAT), best effort (NORMAL), deferred (DEFER)
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = EligibilityRequest.enterer[x]
   Card. = 0..1
   Type = Identifier|Reference(Practitioner)
   Short Label = Author
   Definition = Person who created the invoice/claim/pre-determination or pre-authorization.
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = EligibilityRequest.facility[x]
   Card. = 0..1
   Type = Identifier|Reference(Location)
   Short Label = Servicing Facility
   Definition = Facility where the services were provided.
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = !Patient Information
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = EligibilityRequest.patient[x]
   Card. = 0..1
   Type = Identifier|Reference(Patient)
@@ -123,10 +169,10 @@
   Comments = 1..1
   CDAnet v4 Mapping = C06,C07,C08, C05, C04
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = !Insurance Information
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = EligibilityRequest.coverage[x]
   Card. = 0..1
   Type = Identifier|Reference(Coverage)
@@ -135,23 +181,12 @@
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
   Comments = 1..1
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = EligibilityRequest.businessArrangement
   Card. = 0..1
   Type = string
   Short Label = Business agreement
   Definition = The contract number of a business agreement which describes the terms and conditions.
-
- -- Row 18 -----------------------------------
-  Element = !EligibilityRequest.relationship
-  Card. = 0..1
-  Type = Coding
-  Binding = Relationship
-  Short Label = Patient relationship to subscriber
-  Definition = The relationship of the patient to the subscriber
-  Requirements = To determine relationship between the patient and the subscriber
-  Comments = 1..1
-  CDAnet v4 Mapping = C03
 
  -- Row 19 -----------------------------------
   Element = EligibilityRequest.serviced[x]

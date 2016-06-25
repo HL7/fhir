@@ -11,15 +11,17 @@
     <value value="EN22345"/>
   </identifier>
  
+  <status value="active"/>
+ 
   <created value="2014-08-16"/>
 
-  <organization>
+  <organizationReference>
     <reference value="Organization/1"/>
-  </organization>
+  </organizationReference>
 
-  <subject>
+  <subjectReference>
     <reference value="Patient/1"/>
-  </subject>
+  </subjectReference>
   
   <coverage>
      <reference value="Coverage/9876B1"/>
