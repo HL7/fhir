@@ -1,58 +1,16 @@
 {
-	"source": "daf.xml",
-  "tool" : {
-    "type" : "jekyll",
-    "source-wrapper-template" : "wrapper.html"
+  "tool" : "jekyll",
+  "paths" : {
+    "resources" : "resources",
+    "pages" : "pages",
+    "temp" : "temp",
+    "output" : "output",
+    "qa" : "qa",
+    "specification" : "c:\\work\\org.hl7.fhir\\build\\publish",
+    "instance-template" : "instance-template.html"
   },
-	"dependencies": {
-		"state": "not done yet"
-	},
 	"canonicalBase": "http://hl7.org/fhir/daf",  
-	"defaults": {
-		"_documentation": "this object contains the default publishing policy for different types. Anything not mentioned defaults to true",
-		"Any": {
-			"xml": true,
-			"json": true,
-			"ttl": true,
-			"xml-html": true,
-			"json-html": true,
-			"ttl-html": true
-		},
-    "CodeSystem": {
-			"summary": true,
-			"content": true,
-			"xref": true
-		},
-		"ValueSet": {
-			"summary": true,
-			"cld": true,
-			"xref": true,
-			"expansion": true
-		},
-		"ConceptMap": {
-			"summary": true,
-			"content": true,
-			"xref": true
-		},
-		"StructureDefinition": {
-			"shex": true,
-			"sch": true,
-			"json-schema": true,
-			"summary": true,
-			"header": true,
-			"diff": true,
-			"snapshot": true,
-			"template-xml": true,
-			"template-json": true,
-			"template-ttl": true,
-			"uml": true,
-			"tx": true,
-			"inv": true,
-			"dict": true,
-			"maps": true,
-			"xref": true
-		}
-	},
+	"source": "daf.xml",
   "spreadsheets" : [  
     "allergyintolerance-daf-profile-spreadsheet.xml",
     "condition-daf-profile-spreadsheet.xml",
