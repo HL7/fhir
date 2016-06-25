@@ -1,5 +1,6 @@
 package org.hl7.fhir.igtools.publisher;
 
+import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -18,6 +19,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
+import javax.swing.UIManager;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -511,11 +513,12 @@ public class Publisher {
 
   private boolean loadPages(FetchedFile dir) throws Exception {
     boolean changed = false;
-    if (!altMap.containsKey("page/"+dir.getName())) {
+    if (!altMap.containsKey("page/"+dir.getPath())) {
       changed = true;
-      altMap.put("page/"+dir.getName(), dir);
+      altMap.put("page/"+dir.getPath(), dir);
       dir.setNoProcess(true);
       changeList.add(dir);
+      System.out.println("add "+dir.getPath());
     }
     for (String link : dir.getFiles()) {
       FetchedFile f = fetcher.fetch(link);
@@ -528,11 +531,12 @@ public class Publisher {
   }
 
   private boolean loadPage(FetchedFile file) {
-    FetchedFile existing = altMap.get("page/"+file.getName());
+    FetchedFile existing = altMap.get("page/"+file.getPath());
     if (existing == null || existing.getTime() != file.getTime() || existing.getHash() != file.getHash()) {
       file.setNoProcess(true);
       changeList.add(file);
-      altMap.put("page/"+file.getName(), file);
+      System.out.println("add "+file.getPath());
+      altMap.put("page/"+file.getPath(), file);
       return true;
     } else {
       return false;
@@ -826,7 +830,7 @@ public class Publisher {
       return false;
     if (s.contains("Auto-regeneration:"))
       return false;
-    return false;
+    return true;
   }
 
   private void generateSummaryOutputs() throws IOException {
@@ -1163,6 +1167,9 @@ public class Publisher {
   }
 
   public static void main(String[] args) throws Exception {
+    if (hasParam(args, "-gui")) {
+      runGUI();
+    } else {
     System.out.println("FHIR Implementation Guide Publisher");
     Publisher self = new Publisher();
     self.configFile = getNamedParam(args, "-ig");
@@ -1198,9 +1205,22 @@ public class Publisher {
         System.out.println("Stack Dump (for debugging):");
         e.printStackTrace();
       }
+    }
   }
 
-
+  private static void runGUI() {
+    EventQueue.invokeLater(new Runnable() {
+      public void run() {
+        try {
+          UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+          GraphicalPublisher window = new GraphicalPublisher();
+          window.frmFhirImplementationGuide.setVisible(true);
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+    });
+  }
 
   private void setTxServer(String s) {
     if (!Utilities.noString(s))
