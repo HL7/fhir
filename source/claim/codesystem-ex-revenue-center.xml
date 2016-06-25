@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ex-revenue-center"/>
+  <name value="Example Revenue Center Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Revenue Center codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="0370"/>
+    <display value="Anaesthesia"/>
+    <definition value="Anaesthesia."/>
+  </concept>
+  <concept>
+    <code value="0420"/>
+    <display value="Physical Therapy"/>
+    <definition value="Physical Therapy."/>
+  </concept>
+  <concept>
+    <code value="0421"/>
+    <display value="Physical Therapy - "/>
+    <definition value="Physical Therapy - visit charge."/>
+  </concept>
+  <concept>
+    <code value="0440"/>
+    <display value="Speech-Language Pathology"/>
+    <definition value="Speech-Language Pathology."/>
+  </concept>
+  <concept>
+    <code value="0441"/>
+    <display value="Speech-Language Pathology - Visit"/>
+    <definition value="Speech-Language Pathology- visit charge"/>
+  </concept>
+  <concept>
+    <code value="0450"/>
+    <display value="Emergency Room"/>
+    <definition value="Emergency Room"/>
+  </concept>
+  <concept>
+    <code value="0451"/>
+    <display value="Emergency Room - EM/EMTALA"/>
+    <definition value="Emergency Room - EM/EMTALA"/>
+  </concept>
+  <concept>
+    <code value="0452"/>
+    <display value="Emergency Room - beyond EMTALA"/>
+    <definition value="Emergency Room - beyond EMTALA"/>
+  </concept>
+</CodeSystem>
