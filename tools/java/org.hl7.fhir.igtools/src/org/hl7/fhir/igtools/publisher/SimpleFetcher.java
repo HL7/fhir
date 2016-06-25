@@ -29,16 +29,24 @@ public class SimpleFetcher implements IFetchFile {
     ff.setPath(path);
     ff.setName(Utilities.fileTitle(path));
     ff.setTime(f.lastModified());
-    if (path.endsWith("json"))
-      ff.setContentType("application/json+fhir");
-    else if (path.endsWith("xml"))
-      ff.setContentType("application/xml+fhir");
-    
-    InputStream ss = new FileInputStream(f);
-    byte[] b = new byte[ss.available()];
-    ss.read(b, 0, ss.available());
-    ff.setSource(b);
-    ss.close();
+    if (f.isDirectory()) {
+      ff.setContentType("application/directory");
+      ff.setFolder(true);   
+      for (File fl : f.listFiles())
+        ff.getFiles().add(fl.getAbsolutePath());
+    } else {
+      ff.setFolder(false);   
+      if (path.endsWith("json"))
+        ff.setContentType("application/json+fhir");
+      else if (path.endsWith("xml"))
+        ff.setContentType("application/xml+fhir");
+
+      InputStream ss = new FileInputStream(f);
+      byte[] b = new byte[ss.available()];
+      ss.read(b, 0, ss.available());
+      ff.setSource(b);
+      ss.close();
+    }
     return ff;
   }
 

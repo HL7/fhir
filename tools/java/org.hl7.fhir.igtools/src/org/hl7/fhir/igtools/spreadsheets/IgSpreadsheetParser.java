@@ -104,7 +104,6 @@ public class IgSpreadsheetParser {
   public Bundle parse(FetchedFile f) throws Exception {
     try {
       name = f.getName();
-      System.out.println("Parse "+f.getName());
       bundle = new Bundle();
       bundle.setType(BundleType.COLLECTION);
       bundle.setId(name);

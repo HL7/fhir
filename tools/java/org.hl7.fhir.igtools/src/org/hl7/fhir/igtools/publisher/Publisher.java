@@ -1,10 +1,12 @@
 package org.hl7.fhir.igtools.publisher;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -122,19 +124,25 @@ public class Publisher {
 
   private static final String IG_NAME = "!ig!";
 
-  private String pathToSpec;
   private String configFile;
-  private String output;
-  private GenerationTool tool;
   private String txServer = "http://fhir3.healthintersections.com.au/open";
   private boolean watch;
 
+  private GenerationTool tool;
+  
+  private String resourcesDir;
+  private String pagesDir;
+  private String tempDir;
+  private String outputDir;
+  private String specPath;
+  private String qaDir;
+  private String instanceTemplate;
+  
+  private String rubyExe;
+  private String jekyllGem;
+
   private String igName;
 
-  private String contentDir;
-  private String includesDir;
-  private String dataDir;
-  private String validationDir;
 
   private IFetchFile fetcher = new SimpleFetcher();
   private SimpleWorkerContext context;
@@ -153,9 +161,11 @@ public class Publisher {
   private List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
   private JsonObject configuration;
   private Calendar execTime = Calendar.getInstance();
-  private JsonObject toolConfig;
+
+  private long globalStart;
 
   private void execute() throws Exception {
+    globalStart = System.nanoTime();
     initialize();
     log("Load Implementation Guide");
     load();
@@ -165,15 +175,15 @@ public class Publisher {
     loadConformance();
     log("Validating Resources");
     validate();
-    log("Generating Outputs in "+output);
+    log("Generating Outputs in "+outputDir);
     generate();
     long endTime = System.nanoTime();
     clean();
-    log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errors, fileList, Utilities.path(validationDir, "validation.html")));
+    log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errors, fileList, Utilities.path(qaDir, "validation.html")));
 
     if (watch) {
       first = false;
-      System.out.println("Watching for changes on a 5sec cycle");
+      log("Watching for changes on a 5sec cycle");
       while (watch) { // terminated externally
         Thread.sleep(5000);
         if (load()) {
@@ -185,7 +195,7 @@ public class Publisher {
           generate();
           clean();
           endTime = System.nanoTime();
-          log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errors, fileList, Utilities.path(validationDir, "validation.html")));
+          log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errors, fileList, Utilities.path(qaDir, "validation.html")));
         }
       }
     } else
@@ -279,6 +289,28 @@ public class Publisher {
       f.getDependencies().add(fi);
   }
 
+  private String str(JsonObject obj, String name) throws Exception {
+    if (!obj.has(name))
+      throw new Exception("Property "+name+" not found");
+    if (!(obj.get(name) instanceof JsonPrimitive))
+      throw new Exception("Property "+name+" not a primitive");
+    JsonPrimitive p = (JsonPrimitive) obj.get(name);
+    if (!p.isString())
+      throw new Exception("Property "+name+" not a string");
+    return p.getAsString();
+  }
+
+  private String str(JsonObject obj, String name, String defValue) throws Exception {
+    if (!obj.has(name))
+      return defValue;
+    if (!(obj.get(name) instanceof JsonPrimitive))
+      throw new Exception("Property "+name+" not a primitive");
+    JsonPrimitive p = (JsonPrimitive) obj.get(name);
+    if (!p.isString())
+      throw new Exception("Property "+name+" not a string");
+    return p.getAsString();
+  }
+
   private String presentDuration(long duration) {
     duration = duration / 1000000;
     String res = "";    // ;
@@ -306,72 +338,105 @@ public class Publisher {
     log("Load Configuration");
 
     configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
-    if (!configuration.has("tool") || !(configuration.get("tool") instanceof JsonObject))
-      throw new Exception("Error: configuration file must include a \"tool\" object");
-    toolConfig = configuration.getAsJsonObject("tool");
-    tool = readType();
+    if (!"jekyll".equals(str(configuration, "tool")))
+      throw new Exception("Error: configuration file must include a \"tool\" property with a value of 'jekyll'");
+    tool = GenerationTool.Jekyll;
+    if (!configuration.has("paths") || !(configuration.get("paths") instanceof JsonObject)) 
+      throw new Exception("Error: configuration file must include a \"paths\" object");
+    if (tool == GenerationTool.Jekyll)
+      findRubyExe();
+    JsonObject paths = configuration.getAsJsonObject("paths");
+    String root = Utilities.getDirectoryForFile(configFile);
+    resourcesDir = Utilities.path(root, str(paths, "resources", "resources"));
+    pagesDir =  Utilities.path(root, str(paths, "pages", "pages"));
+    tempDir = Utilities.path(root, str(paths, "temp", "temp"));
+    outputDir = Utilities.path(root, str(paths, "output", "output"));
+    qaDir = Utilities.path(root, str(paths, "qa"));
+    specPath = str(paths, "specification");
+    instanceTemplate = Utilities.path(root, str(paths, "instance-template"));
 
-    igName = Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("source").getAsString());
+    igName = Utilities.path(resourcesDir, configuration.get("source").getAsString());
 
     log("Publish "+igName);
 
-    log("Check destination");
-    File f = new File(output);
-    if (!f.exists())
-      Utilities.createDirectory(output);
-    else if (!f.isDirectory())
-      throw new Exception(String.format("Error: Output must be a folder (%s)", output));
-
-    contentDir = Utilities.path(output, "html");
-    includesDir = Utilities.path(contentDir, "_includes");
-    dataDir = Utilities.path(contentDir, "_data"); 
-    validationDir = Utilities.path(output, "generation");
-
-    Utilities.createDirectory(contentDir);
-    Utilities.createDirectory(includesDir);
-    Utilities.createDirectory(dataDir);
-    Utilities.createDirectory(validationDir);
-
+    log("Check folders");
+    checkDir(resourcesDir);
+    checkDir(pagesDir);
+    forceDir(tempDir);
+    forceDir(Utilities.path(tempDir, "_includes"));
+    forceDir(Utilities.path(tempDir, "data"));
+    forceDir(outputDir);
+    forceDir(qaDir);
+    checkFile(instanceTemplate);
+    
     log("Load Validation Pack");
     try {
       context = SimpleWorkerContext.fromClassPath("igpack.zip");
     } catch (NullPointerException npe) {
-      System.out.println("Unable to find igpack.zip in the jar");
+      log("Unable to find igpack.zip in the jar");
       context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\temp\\igpack.zip");
     }
     context.setAllowLoadingDuplicates(true);
     context.setExpandCodesLimit(1000);
     log("Connect to Terminology Server at "+txServer);
-    String home = Utilities.path(System.getProperty("user.home"), "fhircache");
-    Utilities.createDirectory(home);
-    context.initTS(home, txServer);
+    String vsCache = Utilities.path(System.getProperty("user.home"), "fhircache");
+    Utilities.createDirectory(vsCache);
+    context.initTS(vsCache, txServer);
     context.connectToTSServer(txServer);
     // ;
     validator = new InstanceValidator(context);
     validator.setAllowXsiLocation(true);
 
     loadSpecDetails(context.getBinaries().get("spec.internals"));
-    igpkp = new IGKnowledgeProvider(context, pathToSpec, configuration, errors);
+    igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors);
     igpkp.loadSpecPaths(specDetails.get("paths").getAsJsonObject());
     fetcher.setPkp(igpkp);
     for (String s : context.getBinaries().keySet())
       if (needFile(s)) {
-        checkMakeFile(context.getBinaries().get(s), Utilities.path(contentDir, s));    
-        checkMakeFile(context.getBinaries().get(s), Utilities.path(validationDir, s));
+        checkMakeFile(context.getBinaries().get(s), Utilities.path(qaDir, s));    
+        checkMakeFile(context.getBinaries().get(s), Utilities.path(tempDir, s));
       }
   }
 
+  private void findRubyExe() {
+    String[] paths = System.getenv("path").split(File.pathSeparator);
+    for (String s : paths) {
+      String[] files = new File(s).list();
+      if (files != null)
+        for (String file : files)
+          if (file.equals("ruby.exe")) {
+            rubyExe = Utilities.path(s, file);
+            jekyllGem = Utilities.path(s, "jekyll");
+            if (!(new File(jekyllGem).exists()))
+                throw new Error("Found Ruby, but unable to find Jekyll Gem");
+            return;
+          }
+    }
+    throw new Error("Unable to find Ruby Processor");  
+  }
 
-  private GenerationTool readType() throws Exception {
-    // TODO Auto-generated method stub
-    if (!toolConfig.has("type"))
-      throw new Exception("Error: configuration tool object must include a \"type\" property");
-    String t = toolConfig.get("type").getAsString();
-    if ("jekyll".equals(t))
-      return GenerationTool.Jekyll;
-    else
-      throw new Exception("Error: -tool parameter '"+tool+"' not recognised - must be \"jekyll\"");
+  private void checkDir(String dir) throws Exception {
+    File f = new File(dir);
+    if (!f.exists())
+      throw new Exception(String.format("Error: folder %s not found", dir));
+    else if (!f.isDirectory())
+      throw new Exception(String.format("Error: Output must be a folder (%s)", dir));
+  }
 
+  private void checkFile(String fn) throws Exception {
+    File f = new File(fn);
+    if (!f.exists())
+      throw new Exception(String.format("Error: folder %s not found", fn));
+    else if (f.isDirectory())
+      throw new Exception(String.format("Error: Output must be a file (%s)", fn));
+  }
+
+  private void forceDir(String dir) throws Exception {
+    File f = new File(dir);
+    if (!f.exists())
+      Utilities.createDirectory(dir);
+    else if (!f.isDirectory())
+      throw new Exception(String.format("Error: Output must be a folder (%s)", dir));
   }
 
   private void checkMakeFile(byte[] bs, String path) throws IOException {
@@ -402,9 +467,7 @@ public class Publisher {
   }
 
 
-
   private boolean load() throws Exception {
-
     fileList.clear();
     changeList.clear();
     bndIds.clear();
@@ -432,8 +495,48 @@ public class Publisher {
         }
       }     
     }
+    
+    // load static pages
+    needToBuild = loadPages() || needToBuild;
     execTime = Calendar.getInstance();
     return needToBuild;
+  }
+
+  private boolean loadPages() throws Exception {
+    FetchedFile dir = fetcher.fetch(pagesDir);
+    if (!dir.isFolder())
+      throw new Exception("page reference is not a folder");
+    return loadPages(dir);
+  }
+
+  private boolean loadPages(FetchedFile dir) throws Exception {
+    boolean changed = false;
+    if (!altMap.containsKey("page/"+dir.getName())) {
+      changed = true;
+      altMap.put("page/"+dir.getName(), dir);
+      dir.setNoProcess(true);
+      changeList.add(dir);
+    }
+    for (String link : dir.getFiles()) {
+      FetchedFile f = fetcher.fetch(link);
+      if (f.isFolder())
+        changed = loadPages(f) || changed;
+      else 
+        changed = loadPage(f) || changed;
+    }
+    return changed;
+  }
+
+  private boolean loadPage(FetchedFile file) {
+    FetchedFile existing = altMap.get("page/"+file.getName());
+    if (existing == null || existing.getTime() != file.getTime() || existing.getHash() != file.getHash()) {
+      file.setNoProcess(true);
+      changeList.add(file);
+      altMap.put("page/"+file.getName(), file);
+      return true;
+    } else {
+      return false;
+    }
   }
 
   private boolean loadBundles(boolean needToBuild, FetchedFile igf) throws Exception {
@@ -679,11 +782,56 @@ public class Publisher {
 
     if (!changeList.isEmpty())
       generateSummaryOutputs();
+    
+    runTool();
+  }
+
+  private boolean runTool() throws Exception {
+    switch (tool) {
+    case Jekyll: return runJekyll();
+    default:
+      throw new Exception("unimplemented tool");
+    }
+  }
+
+  private boolean runJekyll() throws IOException, InterruptedException {
+    // set up jekyll 
+    List<String> command = new ArrayList<String>();
+    command.add(rubyExe);
+    command.add(jekyllGem);
+    command.add("build");
+    command.add("--destination");
+    command.add(outputDir);
+    ProcessBuilder builder = new ProcessBuilder(command);
+    builder.directory(new File(tempDir));
+
+    // run and capture the output
+    final Process process = builder.start();
+    BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getInputStream()));
+    String s;
+    while ((s = stdError.readLine()) != null) {
+      if (passJekyllFilter(s))
+      System.out.println("Jekyll: "+s);
+    }
+    process.waitFor();
+        return true;
+  }
+
+  private boolean passJekyllFilter(String s) {
+    if (s.contains("Source:"))
+      return false;
+    if (s.contains("Destination:"))
+      return false;
+    if (s.contains("Incremental build:"))
+      return false;
+    if (s.contains("Auto-regeneration:"))
+      return false;
+    return false;
   }
 
   private void generateSummaryOutputs() throws IOException {
     JsonObject data = new JsonObject();
-    data.addProperty("path", pathToSpec);
+    data.addProperty("path", specPath);
     data.addProperty("canonical", igpkp.getCanonical());
     data.addProperty("errorCount", getErrorCount());
     data.addProperty("version", Constants.VERSION);
@@ -695,7 +843,7 @@ public class Publisher {
 
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(data);
-    TextFile.stringToFile(json, Utilities.path(dataDir, "fhir.json"));    
+    TextFile.stringToFile(json, Utilities.path(tempDir, "data", "fhir.json"));    
   }
 
   private Number getErrorCount() {
@@ -716,38 +864,49 @@ public class Publisher {
   }
 
   private void log(String s) {
-    System.out.println(s);
+    if (first)
+      System.out.println(Utilities.padRight(s, ' ', 80)+" ("+presentDuration(System.nanoTime()-globalStart)+"sec)");
+    else
+      System.out.println(s);
   }
 
   private void generateOutputs(FetchedFile f) throws Exception {
-    System.out.println(" * "+f.getName());
+    log(" * "+f.getName());
 
-    for (FetchedResource r : f.getResources()) {
-      saveDirectResourceOutputs(r);
+    if (f.isNoProcess()) {
+      String dst = tempDir + f.getPath().substring(pagesDir.length());
+      if (f.isFolder())
+        Utilities.createDirectory(dst);
+      else
+        checkMakeFile(f.getSource(), dst); 
+    } else {
+      for (FetchedResource r : f.getResources()) {
+        saveDirectResourceOutputs(r);
 
-      // now, start generating resource type specific stuff 
-      if (r.getResource() != null) { // we only do this for conformance resources we've already loaded
-        switch (r.getResource().getResourceType()) {
-        case CodeSystem:
-          generateOutputsCodeSystem(r, (CodeSystem) r.getResource());
-          break;
-        case ValueSet:
-          generateOutputsValueSet(r, (ValueSet) r.getResource());
-          break;
-        case ConceptMap:
-          generateOutputsConceptMap(r, (ConceptMap) r.getResource());
-          break;
+        // now, start generating resource type specific stuff 
+        if (r.getResource() != null) { // we only do this for conformance resources we've already loaded
+          switch (r.getResource().getResourceType()) {
+          case CodeSystem:
+            generateOutputsCodeSystem(r, (CodeSystem) r.getResource());
+            break;
+          case ValueSet:
+            generateOutputsValueSet(r, (ValueSet) r.getResource());
+            break;
+          case ConceptMap:
+            generateOutputsConceptMap(r, (ConceptMap) r.getResource());
+            break;
 
-        case DataElement:
-          break;
-        case StructureDefinition:
-          generateOutputsStructureDefinition(r, (StructureDefinition) r.getResource());
-          break;
-        case StructureMap:
-          break;
-        default:
-          // nothing to do...    
-        }      
+          case DataElement:
+            break;
+          case StructureDefinition:
+            generateOutputsStructureDefinition(r, (StructureDefinition) r.getResource());
+            break;
+          case StructureMap:
+            break;
+          default:
+            // nothing to do...    
+          }      
+        }
       }
     }
   }
@@ -790,17 +949,17 @@ public class Publisher {
    */
   private void saveDirectResourceOutputs(FetchedResource f) throws FileNotFoundException, Exception {
     if (wantGen(f, "xml")) {
-      new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
+      new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
         genWrapper(f, "xml");  
     }
     if (wantGen(f, "json")) {
-      new org.hl7.fhir.dstu3.elementmodel.JsonParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".json")), OutputStyle.PRETTY, "??");
+      new org.hl7.fhir.dstu3.elementmodel.JsonParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+".json")), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
         genWrapper(f, "json");  
     }
     if (wantGen(f, "ttl")) {
-      new org.hl7.fhir.dstu3.elementmodel.TurtleParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+".ttl")), OutputStyle.PRETTY, "??");
+      new org.hl7.fhir.dstu3.elementmodel.TurtleParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+".ttl")), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
         genWrapper(f, "ttl");  
     }
@@ -841,12 +1000,10 @@ public class Publisher {
   }
 
   private void genWrapper(FetchedResource f, String format) throws FileNotFoundException, IOException {
-    if (toolConfig.has("source-wrapper-template")) {
-      String template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), toolConfig.get("source-wrapper-template").getAsString()));
-      template = template.replace("{{[title]}}", f.getTitle());
-      template = template.replace("{{[name]}}", f.getId()+"-"+format+"-html");
-      TextFile.stringToFile(template, Utilities.path(contentDir, f.getElement().fhirType()+"-"+f.getId()+"."+format+".html"), false);
-    }    
+    String template = TextFile.fileToString(instanceTemplate);
+    template = template.replace("{{[title]}}", f.getTitle());
+    template = template.replace("{{[name]}}", f.getId()+"-"+format+"-html");
+    TextFile.stringToFile(template, Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+"."+format+".html"), false);
   }
 
   /**
@@ -860,7 +1017,7 @@ public class Publisher {
    * @throws EOperationOutcome 
    */
   private void generateOutputsCodeSystem(FetchedResource f, CodeSystem cs) throws IOException, EOperationOutcome, FHIRException {
-    CodeSystemRenderer csr = new CodeSystemRenderer(context, pathToSpec, cs, igpkp);
+    CodeSystemRenderer csr = new CodeSystemRenderer(context, specPath, cs, igpkp);
     if (wantGen(f, "summary")) 
       fragment(cs.getId()+"-cs-summary", csr.summary(wantGen(f, "xml"), wantGen(f, "json"), wantGen(f, "ttl")));
     if (wantGen(f, "content")) 
@@ -881,7 +1038,7 @@ public class Publisher {
    * @throws FHIRException 
    */
   private void generateOutputsValueSet(FetchedResource f, ValueSet vs) throws IOException, FHIRException {
-    ValueSetRenderer vsr = new ValueSetRenderer(context, pathToSpec, vs, igpkp);
+    ValueSetRenderer vsr = new ValueSetRenderer(context, specPath, vs, igpkp);
     if (wantGen(f, "summary")) 
       fragment(vs.getId()+"-vs-summary", vsr.summary(wantGen(f, "xml"), wantGen(f, "json"), wantGen(f, "ttl")));
     if (wantGen(f, "cld")) 
@@ -944,7 +1101,7 @@ public class Publisher {
     if (wantGen(f, "json-schema")) 
       fragmentError(sd.getId()+"-json-schema", "yet to be done: json schema as html");
 
-    StructureDefinitionRenderer sdr = new StructureDefinitionRenderer(context, pathToSpec+"/", sd, Utilities.path(contentDir), igpkp, specDetails.getAsJsonObject("maps"));
+    StructureDefinitionRenderer sdr = new StructureDefinitionRenderer(context, specPath+"/", sd, Utilities.path(tempDir), igpkp, specDetails.getAsJsonObject("maps"));
     if (wantGen(f, "summary")) 
       fragment(sd.getId()+"-sd-summary", sdr.summary());
     if (wantGen(f, "header")) 
@@ -985,11 +1142,11 @@ public class Publisher {
   }
 
   private void fragment(String name, String content) throws IOException {
-    File f = new File(Utilities.path(includesDir, name+".xhtml"));
+    File f = new File(Utilities.path(tempDir, "_includes", name+".xhtml"));
     String s = f.exists() ? TextFile.fileToString(f.getAbsolutePath()) : "";
     if (!s.equals(content)) { 
-      TextFile.stringToFile(content, Utilities.path(includesDir, name+".xhtml"), false);
-      TextFile.stringToFile(pageWrap(content, name), Utilities.path(validationDir, name+".html"), true);
+      TextFile.stringToFile(content, Utilities.path(tempDir, "_includes", name+".xhtml"), false);
+      TextFile.stringToFile(pageWrap(content, name), Utilities.path(qaDir, name+".html"), true);
     }
   }
 
@@ -1009,12 +1166,10 @@ public class Publisher {
     System.out.println("FHIR Implementation Guide Publisher");
     Publisher self = new Publisher();
     self.configFile = getNamedParam(args, "-ig");
-    self.output = getNamedParam(args, "-out");
-    self.pathToSpec = getNamedParam(args, "-spec");
     self.setTxServer(getNamedParam(args, "-tx"));
     self.watch = hasParam(args, "-watch");
 
-    if (self.configFile == null || self.pathToSpec == null) {
+    if (self.configFile == null) {
       System.out.println("");
       System.out.println("To use this publisher, run with the commands");
       System.out.println("");

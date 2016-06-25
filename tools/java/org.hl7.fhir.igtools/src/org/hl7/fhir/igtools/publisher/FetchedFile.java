@@ -25,6 +25,9 @@ public class FetchedFile {
   private List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
   private Bundle bundle;
   private List<String> valuesetsToLoad = new ArrayList<String>();
+  private boolean folder;
+  private List<String> files; // if it's a folder
+  private boolean noProcess;
   
   public String getPath() {
     return path;
@@ -97,6 +100,23 @@ public class FetchedFile {
   public List<String> getValuesetsToLoad() {
     return valuesetsToLoad;
   }
- 
+  public boolean isFolder() {
+    return folder;
+  }
+  public void setFolder(boolean folder) {
+    this.folder = folder;
+  }
+  public List<String> getFiles() {
+    if (files == null)
+      files = new ArrayList<String>();
+    return files;
+  }
+  public boolean isNoProcess() {
+    return noProcess;
+  }
+  public void setNoProcess(boolean noProcess) {
+    this.noProcess = noProcess;
+  }
+  
   
 }
