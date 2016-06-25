@@ -1,10 +1,16 @@
 {
-	"source": "test-ig.xml",
-  "tool" : {
-    "type" : "jekyll",
-    "source-wrapper-template" : "wrapper.html"
+  "tool" : "jekyll",
+  "paths" : {
+    "resources" : "resources",
+    "pages" : "pages",
+    "temp" : "temp",
+    "output" : "output",
+    "qa" : "qa",
+    "specification" : "c:\\work\\org.hl7.fhir\\build\\publish",
+    "instance-template" : "instance-template.html"
   },
 	"canonicalBase": "http://hl7.org/fhir/test",
+	"source": "test-ig.xml",
   "spreadsheets" : [
     "test-ig-spreadsheet.xml"
   ],
