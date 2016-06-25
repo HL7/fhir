@@ -60,6 +60,7 @@
   <contained>
     <Coverage>
       <id value="coverage-1"/>
+	  <status value="active"/>
       <issuerReference>
         <reference value="#organization-2"/>
       </issuerReference>
