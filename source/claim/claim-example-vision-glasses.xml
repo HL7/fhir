@@ -7,18 +7,18 @@
     <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Vision Claim for Glasses</div>
   </text>
 
-<!--  <type value="vision"/> -->
-  <type>
-    <system value="http://hl7.org/fhir/ex-claimtype"/>
-    <code value="vision"/>
-  </type>
-  
   <identifier>
     <system value="http://happysight.com/claim"/>
     <value value="6612346"/>
  </identifier>
  
   <status value = "active"/>
+
+  <type>
+    <system value="http://hl7.org/fhir/ex-claimtype"/>
+    <code value="vision"/>
+  </type>
+  
   <created value="2014-08-16"/>
 
  <insurerReference>
@@ -66,9 +66,9 @@
   
  <item>
    <sequence value="1"/>
-   <type>
+   <!--type>
      <code value="group"/>
-   </type>
+   </type-->
    <careTeam>
      <providerReference>
        <reference value="Practitioner/example"/>
@@ -91,9 +91,9 @@
    </net> 
    <detail>
      <sequence value="1"/>
-     <type>
+     <!--type>
        <code value="product"/>
-     </type>
+     </type-->
      <service>
        <system value="http://hl7.org/fhir/ex-visionservice"/>
        <code value="frame"/>
@@ -111,9 +111,9 @@
    </detail>
    <detail>
      <sequence value="2"/>
-     <type>
+     <!--type>
        <code value="product"/>
-     </type>
+     </type-->
      <service>
        <system value="http://hl7.org/fhir/ex-visionservice"/>
        <code value="lens"/>
@@ -134,9 +134,9 @@
    </detail>
    <detail>
      <sequence value="3"/>
-     <type>
+     <!--type>
        <code value="tax"/>
-     </type>
+     </type-->
      <service>
        <system value="http://hl7.org/fhir/ex-visionservice"/>
        <code value="fst"/>

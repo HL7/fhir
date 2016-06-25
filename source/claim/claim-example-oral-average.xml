@@ -7,18 +7,18 @@
     <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Oral Health Claim</div>
   </text>
 
-<!--  <type value="oral"/> -->
-  <type>
-    <system value="http://hl7.org/fhir/ex-claimtype"/>
-    <code value="oral"/>
-  </type>
-  
   <identifier>
     <system value="http://happyvalley.com/claim"/>
     <value value="12346"/>
   </identifier>
  
   <status value = "active"/>
+
+  <type>
+    <system value="http://hl7.org/fhir/ex-claimtype"/>
+    <code value="oral"/>
+  </type>
+  
   <created value="2014-08-16"/>
 
   <insurerReference>
@@ -62,9 +62,9 @@
   
  <item>
    <sequence value="1"/>
-   <type>
+   <!--type>
      <code value="service"/>
-   </type>
+   </type-->
    <careTeam>
      <providerReference>
        <reference value="Practitioner/example"/>
@@ -89,9 +89,9 @@
 
   <item>
    <sequence value="2"/>
-   <type>
+   <!--type>
      <code value="service"/>
-   </type>
+   </type-->
    <careTeam>
    <providerReference>
      <reference value="Practitioner/example"/>
@@ -124,9 +124,9 @@
 
   <item>
    <sequence value="3"/>
-   <type>
+   <!--type>
      <code value="group"/>
-   </type>
+   </type-->
    <careTeam>
    <providerReference>
      <reference value="Practitioner/example"/>
@@ -153,9 +153,9 @@
    </bodySite>
    <detail>
      <sequence value="1"/>
-     <type>
+     <!--type>
        <code value="service"/>
-     </type>
+     </type-->
      <service>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="27211"/>
@@ -173,9 +173,9 @@
    </detail>
    <detail>
      <sequence value="2"/>
-     <type>
+     <!--type>
        <code value="service"/>
-     </type>
+     </type-->
      <service>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="lab"/>

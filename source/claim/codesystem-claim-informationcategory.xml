@@ -15,19 +15,9 @@
     <definition value="Codes conveying additional situation and condition information."/>
   </concept>
   <concept>
-    <code value="business"/>
-    <display value="Business Arrangement"/>
-    <definition value="Insurance business arrangement identifier."/>
-  </concept>
-  <concept>
-    <code value="school"/>
-    <display value="Name of School"/>
-    <definition value="Name of School."/>
-  </concept>
-  <concept>
-    <code value="accident"/>
-    <display value="Accident Information"/>
-    <definition value="The type, date and place of an Accident."/>
+    <code value="discharge"/>
+    <display value="Discharge"/>
+    <definition value="Discharge status and discharge to locations."/>
   </concept>
   <concept>
     <code value="onset"/>
@@ -40,19 +30,9 @@
     <definition value="Nature and date of the related event eg. Last exam, service, Xray etc."/>
   </concept>
   <concept>
-    <code value="employment"/>
-    <display value="Employment"/>
-    <definition value="The start and optional end dates of when the patient was precluded from working due to the treatable condition(s)."/>
-  </concept>
-  <concept>
-    <code value="hospitalization"/>
-    <display value="Hospitalization"/>
-    <definition value="The start and optional end dates of when the patient was confined to a treatment center."/>
-  </concept>
-  <concept>
-    <code value="missingtooth"/>
-    <display value="Missing Tooth"/>
-    <definition value="Missing tooth with tooth code, reason and extraction date."/>
+    <code value="exceptions"/>
+    <display value="Exceptions"/>
+    <definition value="Insurance policy exceptions.."/>
   </concept>
   <concept>
     <code value="material"/>

@@ -7,18 +7,18 @@
     <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Claim</div>
   </text>
 
-<!--  <type value="institutional"/> -->
-  <type>
-    <system value="http://hl7.org/fhir/ex-claimtype"/>
-    <code value="institutional"/>
-  </type>
- 
   <identifier>
     <system value="http://happyhospital.com/claim"/>
     <value value="9612345"/>
  </identifier>
  
   <status value = "active"/>
+
+  <type>
+    <system value="http://hl7.org/fhir/ex-claimtype"/>
+    <code value="institutional"/>
+  </type>
+ 
   <created value="2014-08-16"/>
 
  <insurerReference>
@@ -72,9 +72,9 @@
   
  <item>
    <sequence value="1"/>
-   <type>
+   <!--type>
      <code value="service"/>
-   </type>
+   </type-->
    <careTeam>
      <providerReference>
        <reference value="Practitioner/example"/>

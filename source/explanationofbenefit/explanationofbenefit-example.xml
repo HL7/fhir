@@ -49,9 +49,9 @@
  
  <item>
    <sequence value="1"/>
-   <type>
+   <!--type>
      <code value="service"/>
-   </type>
+   </type-->
    <careTeam>
      <providerReference>
        <reference value="Practitioner/example"/>

@@ -7,18 +7,18 @@
     <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Pharmacy Claim</div>
   </text>
 
-<!--  <type value="pharmacy"/> -->
-  <type>
-    <system value="http://hl7.org/fhir/ex-claimtype"/>
-    <code value="pharmacy"/>
-  </type>
-  
   <identifier>
     <system value="http://happypharma.com/claim"/>
     <value value="7612345"/>
  </identifier>
  
   <status value = "active"/>
+
+  <type>
+    <system value="http://hl7.org/fhir/ex-claimtype"/>
+    <code value="pharmacy"/>
+  </type>
+  
   <created value="2014-08-16"/>
 
  <insurerReference>
@@ -62,9 +62,9 @@
   
  <item>
    <sequence value="1"/>
-   <type>
+   <!--type>
      <code value="service"/>
-   </type>
+   </type-->
    <careTeam>
      <providerReference>
        <reference value="Practitioner/example"/>
