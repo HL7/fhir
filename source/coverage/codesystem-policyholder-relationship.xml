@@ -19,37 +19,37 @@
   <!--   beneficiary is the policyholder's parent  -->
     <code value="child"/>
     <display value="Child"/>
-    <definition value="The Policyholder is a child of the Beneficiary"/>
+    <definition value="The Beneficiary is a child of the Policyholder"/>
   </concept>
   <concept>
   <!--   beneficiary is the policyholder's child  -->
     <code value="parent"/>
     <display value="Parent"/>
-    <definition value="The Policyholder is a parent of the Beneficiary"/>
+    <definition value="The Beneficiary is a parent of the Policyholder"/>
   </concept>
   <concept>
   <!--   beneficiary is the policyholder's spouse  -->
     <code value="spouse"/>
     <display value="Spouse"/>
-    <definition value="The Policyholder is a spouse or equivalent of the Beneficiary"/>
+    <definition value="The Beneficiary is a spouse or equivalent of the Policyholder"/>
   </concept>
   <concept>
   <!--   beneficiary is the policyholder's common law spouse  -->
     <code value="common"/>
     <display value="Common Law Spouse"/>
-    <definition value="The Policyholder is a common law spouse or equivalent of the Beneficiary"/>
+    <definition value="The Beneficiary is a common law spouse or equivalent of the Policyholder"/>
   </concept>
   <concept>
   <!--   beneficiary has an other relationship to the policyholder  -->
     <code value="other"/>
     <display value="Other"/>
-    <definition value="The Policyholder has some other relationship the Beneficiary"/>
+    <definition value="The Beneficiary has some other relationship the Policyholder"/>
   </concept>
     <concept>
   <!--   beneficiary is the policyholder  -->
     <code value="self"/>
     <display value="Self"/>
-    <definition value="The Policyholder is the Beneficiary"/>
+    <definition value="The Beneficiary is the Policyholder"/>
   </concept>
 
 </CodeSystem>
