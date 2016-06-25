@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>StructureDefinition: DAF-{{page.name}} - FHIR v1.4.0</title>
+
+  {% include header.html %}
+
+</head>
+<body>
+{% include navbar.html %}
+
+ <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+  <div class="container">  <!-- container -->
+   <ul class="breadcrumb">
+          <!-- daf-{{page.code}} / profile:{{page.name}}/{{page.code}}-daf/daf-{{page.code}} / U.S. Data Access Framework (DAF) {{page.name}} Profile -->
+        <li title="Data Access Framework"><a href="daf.html"><b>DAF</b></a></li>
+        <li><a href="{{page.code}}-daf.html"><b>{{page.title}}</b></a></li>
+        <li><b>{{page.title}} Details</b></li>
+
+   </ul>
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+  <!-- CONTENT CONTENT -->
+
+<div class="col-9">
+
+<ul class="nav nav-tabs"><li class="active"><a href="#">Content</a></li><li><a href="daf-{{page.code}}-definitions.html">Detailed Descriptions</a></li><li><a href="daf-{{page.code}}-mappings.html">Mappings</a></li><li><a href="daf-{{page.code}}.profile.xml.html">XML</a></li><li><a href="daf-{{page.code}}.profile.json.html">JSON</a></li></ul>
+
+<h3><span class="sectioncount">D.4.1<a name="D.4.1"> </a></span> StructureDefinition: DAF-{{page.tcode}} <a title="link to here" class="self-link" href="daf-{{page.code}}.html#D.4.1"><img src="target.png"/></a></h3>
+
+{%include daf-{{page.code}}-header.xhtml%}
+
+  <!-- no uri -->
+
+<a name="profile"> </a>
+<h4><span class="sectioncount">D.4.1.1</span>
+Formal Views of Profile Content
+ <a title="link to here" class="self-link" href="daf-{{page.code}}.html#profile"><img src="target.png"/></a></h4>
+
+<p>
+<a href="{{site.data.fhir.path}}/profiling.html#representation">Description of Profiles, Differentials, Snapshots, and how the XML and JSON presentations work</a>.
+</p>
+
+<div id="tabs">
+ <ul>
+  <li><a href="#tabs-summ">Text Summary</a></li>
+  <li><a href="#tabs-diff">Differential Table</a></li>
+  <li><a href="#tabs-snap">Snapshot Table</a></li>
+  <li><a href="#tabs-xml">XML Template</a></li>
+  <li><a href="#tabs-json">JSON Template</a></li>
+  <li><a href="#tabs-all">All</a></li>
+ </ul>
+
+ <div id="tabs-summ">
+  <div id="tbl-summ">
+   <p>This structure is derived from <a href="{{site.data.fhir.path}}/{{page.code}}.html">{{page.tcode}}</a>.</p>
+   <div id="tbl-diff-inner">
+     <a name="summary"> </a>
+
+     {%include daf-{{page.code}}-sd-summary.xhtml%}
+   </div>
+  </div>
+ </div>
+
+ <div id="tabs-diff">
+  <div id="tbl-diff">
+   <p>This structure is derived from <a href="{{site.data.fhir.path}}/{{page.code}}.html">{{page.tcode}}</a>.</p>
+   <div id="tbl-diff-inner">
+   {%include daf-{{page.code}}-diff.xhtml%}
+   </div>
+  </div>
+ </div>
+
+ <div id="tabs-snap">
+  <div id="tbl-snap">
+   <div id="tbl-snap-inner">
+   {%include daf-{{page.code}}-snapshot.xhtml%}
+   </div>
+  </div>
+ </div>
+
+ <div id="tabs-xml">
+  <div id="xml">
+   <div id="xml-inner">
+   {%include daf-{{page.code}}-template-xml.xhtml%}
+   </div>
+  </div>
+ </div>
+
+ <div id="tabs-json">
+  <div id="json">
+   <div id="json-inner">
+   {%include daf-{{page.code}}-template-json.xhtml%}
+   </div>
+  </div>
+ </div>
+
+ <div id="tabs-all">
+  <div id="tbl-summ">
+   <p>This structure is derived from <a href="{{site.data.fhir.path}}/{{page.code}}.html">{{page.tcode}}</a>.</p>
+   <div id="tbl-diff-inner">
+     <a name="summary"> </a>
+     {%include daf-{{page.code}}-sd-summary.xhtml%}
+   </div>
+  </div>
+
+ <div id="all-tbl-diff">
+   <p><b>Differential View</b></p>
+   <p>This structure is derived from <a href="{{site.data.fhir.path}}/{{page.code}}.html">{{page.tcode}}</a>.</p>
+   <div id="all-tbl-diff-inner">
+   {%include daf-{{page.code}}-diff.xhtml%}
+   </div>
+  </div>
+  <div id="all-tbl-snap">
+   <p><b>Snapshot View</b></p>
+   <div id="all-tbl-snap-inner">
+   {%include daf-{{page.code}}-snapshot.xhtml%}
+   </div>
+  </div>
+  <div id="all-xml">
+   <p><b>XML Template</b></p>
+   <div id="all-xml-inner">
+   {%include daf-{{page.code}}-template-xml.xhtml%}
+   </div>
+  </div>
+  <div id="all-json">
+   <p><b>JSON Template</b></p>
+   <div id="all-json-inner">
+   {%include daf-{{page.code}}-template-json.xhtml%}
+   </div>
+  </div>
+ </div>
+</div>
+
+<p>&nbsp;</p>
+<p>Other representations of profile: <a href="daf-{{page.code}}.sch">Schematron</a></p>
+
+<a name="tx"> </a>
+<h4><span class="sectioncount">D.4.1.2</span> Terminology Bindings <a title="link to here" class="self-link" href="daf-{{page.code}}.html#tx"><img src="target.png"/></a></h4>
+   {%include daf-{{page.code}}-tx.xhtml%}
+
+<h4><span class="sectioncount">D.4.1.3<a name="D.4.1.3"> </a></span> Constraints <a title="link to here" class="self-link" href="daf-{{page.code}}.html#D.4.1.3"><img src="target.png"/></a></h4>
+   {%include daf-{{page.code}}-inv.xhtml%}
+
+.
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+<script src="{{site.data.fhir.path}}/external/jquery/jquery.js"> </script>
+<script src="{{site.data.fhir.path}}/jquery-ui.min.js"> </script>
+<script>
+try {
+  var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+}
+catch(exception){
+}
+
+if (!currentTabIndex)
+  currentTabIndex = '0';
+
+$( '#tabs' ).tabs({
+         active: currentTabIndex,
+         activate: function( event, ui ) {
+             var active = $('.selector').tabs('option', 'active');
+             currentTabIndex = ui.newTab.index();
+             document.activeElement.blur();
+             try {
+               sessionStorage.setItem('fhir-resource-tab-index', currentTabIndex);
+             }
+             catch(exception){
+             }
+         }
+     });
+</script>
+
+{% include footer.html %}
+</body>
+</html>
