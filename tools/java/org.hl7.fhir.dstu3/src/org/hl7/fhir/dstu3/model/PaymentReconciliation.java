@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jun 21, 2016 12:34-0400 for FHIR v1.4.0
+// Generated on Mon, Jun 27, 2016 08:35+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -48,54 +48,176 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 @ResourceDef(name="PaymentReconciliation", profile="http://hl7.org/fhir/Profile/PaymentReconciliation")
 public class PaymentReconciliation extends DomainResource {
 
+    public enum PaymentReconciliationStatus {
+        /**
+         * The resource instance is currently in-force.
+         */
+        ACTIVE, 
+        /**
+         * The resource instance is withdrawn, rescinded or reversed.
+         */
+        CANCELLED, 
+        /**
+         * A new resource instance the contents of which is not complete.
+         */
+        DRAFT, 
+        /**
+         * The resource instance was entered in error.
+         */
+        ENTEREDINERROR, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static PaymentReconciliationStatus fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return ACTIVE;
+        if ("cancelled".equals(codeString))
+          return CANCELLED;
+        if ("draft".equals(codeString))
+          return DRAFT;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown PaymentReconciliationStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case ACTIVE: return "active";
+            case CANCELLED: return "cancelled";
+            case DRAFT: return "draft";
+            case ENTEREDINERROR: return "entered-in-error";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case ACTIVE: return "http://hl7.org/fhir/paymentreconciliation-status";
+            case CANCELLED: return "http://hl7.org/fhir/paymentreconciliation-status";
+            case DRAFT: return "http://hl7.org/fhir/paymentreconciliation-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/paymentreconciliation-status";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case ACTIVE: return "The resource instance is currently in-force.";
+            case CANCELLED: return "The resource instance is withdrawn, rescinded or reversed.";
+            case DRAFT: return "A new resource instance the contents of which is not complete.";
+            case ENTEREDINERROR: return "The resource instance was entered in error.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ACTIVE: return "Active";
+            case CANCELLED: return "Cancelled";
+            case DRAFT: return "Draft";
+            case ENTEREDINERROR: return "Entered In Error";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class PaymentReconciliationStatusEnumFactory implements EnumFactory<PaymentReconciliationStatus> {
+    public PaymentReconciliationStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return PaymentReconciliationStatus.ACTIVE;
+        if ("cancelled".equals(codeString))
+          return PaymentReconciliationStatus.CANCELLED;
+        if ("draft".equals(codeString))
+          return PaymentReconciliationStatus.DRAFT;
+        if ("entered-in-error".equals(codeString))
+          return PaymentReconciliationStatus.ENTEREDINERROR;
+        throw new IllegalArgumentException("Unknown PaymentReconciliationStatus code '"+codeString+"'");
+        }
+        public Enumeration<PaymentReconciliationStatus> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("active".equals(codeString))
+          return new Enumeration<PaymentReconciliationStatus>(this, PaymentReconciliationStatus.ACTIVE);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<PaymentReconciliationStatus>(this, PaymentReconciliationStatus.CANCELLED);
+        if ("draft".equals(codeString))
+          return new Enumeration<PaymentReconciliationStatus>(this, PaymentReconciliationStatus.DRAFT);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<PaymentReconciliationStatus>(this, PaymentReconciliationStatus.ENTEREDINERROR);
+        throw new FHIRException("Unknown PaymentReconciliationStatus code '"+codeString+"'");
+        }
+    public String toCode(PaymentReconciliationStatus code) {
+      if (code == PaymentReconciliationStatus.ACTIVE)
+        return "active";
+      if (code == PaymentReconciliationStatus.CANCELLED)
+        return "cancelled";
+      if (code == PaymentReconciliationStatus.DRAFT)
+        return "draft";
+      if (code == PaymentReconciliationStatus.ENTEREDINERROR)
+        return "entered-in-error";
+      return "?";
+      }
+    public String toSystem(PaymentReconciliationStatus code) {
+      return code.getSystem();
+      }
+    }
+
     @Block()
     public static class DetailsComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Code to indicate the nature of the payment, adjustment, funds advance, etc.
          */
-        @Child(name = "type", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "type", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Type code", formalDefinition="Code to indicate the nature of the payment, adjustment, funds advance, etc." )
         protected Coding type;
 
         /**
          * The claim or financial resource.
          */
-        @Child(name = "request", type = {Identifier.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "request", type = {Identifier.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Claim", formalDefinition="The claim or financial resource." )
         protected Type request;
 
         /**
          * The claim response resource.
          */
-        @Child(name = "responce", type = {Identifier.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "responce", type = {Identifier.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Claim Response", formalDefinition="The claim response resource." )
         protected Type responce;
 
         /**
          * The Organization which submitted the invoice or financial transaction.
          */
-        @Child(name = "submitter", type = {Identifier.class, Organization.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "submitter", type = {Identifier.class, Organization.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Submitter", formalDefinition="The Organization which submitted the invoice or financial transaction." )
         protected Type submitter;
 
         /**
          * The organization which is receiving the payment.
          */
-        @Child(name = "payee", type = {Identifier.class, Organization.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "payee", type = {Identifier.class, Organization.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Payee", formalDefinition="The organization which is receiving the payment." )
         protected Type payee;
 
         /**
          * The date of the invoice or financial resource.
          */
-        @Child(name = "date", type = {DateType.class}, order=6, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "date", type = {DateType.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Invoice date", formalDefinition="The date of the invoice or financial resource." )
         protected DateType date;
 
         /**
          * Amount paid for this detail.
          */
-        @Child(name = "amount", type = {Money.class}, order=7, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "amount", type = {Money.class}, order=7, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Detail amount", formalDefinition="Amount paid for this detail." )
         protected Money amount;
 
@@ -584,14 +706,14 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * The note purpose: Print/Display.
          */
-        @Child(name = "type", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "type", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="display | print | printoper", formalDefinition="The note purpose: Print/Display." )
         protected Coding type;
 
         /**
          * The note text.
          */
-        @Child(name = "text", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "text", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Notes text", formalDefinition="The note text." )
         protected StringType text;
 
@@ -782,109 +904,116 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * The Response business identifier.
      */
-    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Business Identifier", formalDefinition="The Response business identifier." )
     protected List<Identifier> identifier;
 
     /**
+     * The status of the resource instance.
+     */
+    @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="active | cancelled | draft | entered-in-error", formalDefinition="The status of the resource instance." )
+    protected Enumeration<PaymentReconciliationStatus> status;
+
+    /**
      * Original request resource reference.
      */
-    @Child(name = "request", type = {Identifier.class, ProcessRequest.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "request", type = {Identifier.class, ProcessRequest.class}, order=2, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Claim reference", formalDefinition="Original request resource reference." )
     protected Type request;
 
     /**
      * Transaction status: error, complete.
      */
-    @Child(name = "outcome", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "outcome", type = {CodeType.class}, order=3, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="complete | error | partial", formalDefinition="Transaction status: error, complete." )
     protected Enumeration<RemittanceOutcome> outcome;
 
     /**
      * A description of the status of the adjudication.
      */
-    @Child(name = "disposition", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "disposition", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Disposition Message", formalDefinition="A description of the status of the adjudication." )
     protected StringType disposition;
 
     /**
      * The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
      */
-    @Child(name = "ruleset", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "ruleset", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Resource version", formalDefinition="The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources." )
     protected Coding ruleset;
 
     /**
      * The style (standard) and version of the original material which was converted into this resource.
      */
-    @Child(name = "originalRuleset", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "originalRuleset", type = {Coding.class}, order=6, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
     protected Coding originalRuleset;
 
     /**
      * The date when the enclosed suite of services were performed or completed.
      */
-    @Child(name = "created", type = {DateTimeType.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "created", type = {DateTimeType.class}, order=7, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Creation date", formalDefinition="The date when the enclosed suite of services were performed or completed." )
     protected DateTimeType created;
 
     /**
      * The period of time for which payments have been gathered into this bulk payment for settlement.
      */
-    @Child(name = "period", type = {Period.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "period", type = {Period.class}, order=8, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Period covered", formalDefinition="The period of time for which payments have been gathered into this bulk payment for settlement." )
     protected Period period;
 
     /**
      * The Insurer who produced this adjudicated response.
      */
-    @Child(name = "organization", type = {Identifier.class, Organization.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "organization", type = {Identifier.class, Organization.class}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Insurer", formalDefinition="The Insurer who produced this adjudicated response." )
     protected Type organization;
 
     /**
      * The practitioner who is responsible for the services rendered to the patient.
      */
-    @Child(name = "requestProvider", type = {Identifier.class, Practitioner.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "requestProvider", type = {Identifier.class, Practitioner.class}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Responsible practitioner", formalDefinition="The practitioner who is responsible for the services rendered to the patient." )
     protected Type requestProvider;
 
     /**
      * The organization which is responsible for the services rendered to the patient.
      */
-    @Child(name = "requestOrganization", type = {Identifier.class, Organization.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "requestOrganization", type = {Identifier.class, Organization.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Responsible organization", formalDefinition="The organization which is responsible for the services rendered to the patient." )
     protected Type requestOrganization;
 
     /**
      * List of individual settlement amounts and the corresponding transaction.
      */
-    @Child(name = "detail", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "detail", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Details", formalDefinition="List of individual settlement amounts and the corresponding transaction." )
     protected List<DetailsComponent> detail;
 
     /**
      * The form to be used for printing the content.
      */
-    @Child(name = "form", type = {Coding.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "form", type = {Coding.class}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Printed Form Identifier", formalDefinition="The form to be used for printing the content." )
     protected Coding form;
 
     /**
      * Total payment amount.
      */
-    @Child(name = "total", type = {Money.class}, order=13, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "total", type = {Money.class}, order=14, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Total amount of Payment", formalDefinition="Total payment amount." )
     protected Money total;
 
     /**
      * Suite of notes.
      */
-    @Child(name = "note", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "note", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Note text", formalDefinition="Suite of notes." )
     protected List<NotesComponent> note;
 
-    private static final long serialVersionUID = -293306995L;
+    private static final long serialVersionUID = 1164496989L;
 
   /**
    * Constructor
@@ -896,8 +1025,9 @@ public class PaymentReconciliation extends DomainResource {
   /**
    * Constructor
    */
-    public PaymentReconciliation(Money total) {
+    public PaymentReconciliation(Enumeration<PaymentReconciliationStatus> status, Money total) {
       super();
+      this.status = status;
       this.total = total;
     }
 
@@ -952,6 +1082,51 @@ public class PaymentReconciliation extends DomainResource {
         addIdentifier();
       }
       return getIdentifier().get(0);
+    }
+
+    /**
+     * @return {@link #status} (The status of the resource instance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Enumeration<PaymentReconciliationStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create PaymentReconciliation.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<PaymentReconciliationStatus>(new PaymentReconciliationStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (The status of the resource instance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public PaymentReconciliation setStatusElement(Enumeration<PaymentReconciliationStatus> value) { 
+      this.status = value;
+      return this;
+    }
+
+    /**
+     * @return The status of the resource instance.
+     */
+    public PaymentReconciliationStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value The status of the resource instance.
+     */
+    public PaymentReconciliation setStatus(PaymentReconciliationStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<PaymentReconciliationStatus>(new PaymentReconciliationStatusEnumFactory());
+        this.status.setValue(value);
+      return this;
     }
 
     /**
@@ -1510,6 +1685,7 @@ public class PaymentReconciliation extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The Response business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("status", "code", "The status of the resource instance.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("request[x]", "Identifier|Reference(ProcessRequest)", "Original request resource reference.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("outcome", "code", "Transaction status: error, complete.", 0, java.lang.Integer.MAX_VALUE, outcome));
         childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, java.lang.Integer.MAX_VALUE, disposition));
@@ -1530,6 +1706,7 @@ public class PaymentReconciliation extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PaymentReconciliationStatus>
         case 1095692943: /*request*/ return this.request == null ? new Base[0] : new Base[] {this.request}; // Type
         case -1106507950: /*outcome*/ return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // Enumeration<RemittanceOutcome>
         case 583380919: /*disposition*/ return this.disposition == null ? new Base[0] : new Base[] {this.disposition}; // StringType
@@ -1554,6 +1731,9 @@ public class PaymentReconciliation extends DomainResource {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
+          break;
+        case -892481550: // status
+          this.status = new PaymentReconciliationStatusEnumFactory().fromType(value); // Enumeration<PaymentReconciliationStatus>
           break;
         case 1095692943: // request
           this.request = (Type) value; // Type
@@ -1606,6 +1786,8 @@ public class PaymentReconciliation extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("status"))
+          this.status = new PaymentReconciliationStatusEnumFactory().fromType(value); // Enumeration<PaymentReconciliationStatus>
         else if (name.equals("request[x]"))
           this.request = (Type) value; // Type
         else if (name.equals("outcome"))
@@ -1642,6 +1824,7 @@ public class PaymentReconciliation extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PaymentReconciliationStatus>
         case 37106577:  return getRequest(); // Type
         case -1106507950: throw new FHIRException("Cannot make property outcome as it is not a complex type"); // Enumeration<RemittanceOutcome>
         case 583380919: throw new FHIRException("Cannot make property disposition as it is not a complex type"); // StringType
@@ -1665,6 +1848,9 @@ public class PaymentReconciliation extends DomainResource {
       public Base addChild(String name) throws FHIRException {
         if (name.equals("identifier")) {
           return addIdentifier();
+        }
+        else if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type PaymentReconciliation.status");
         }
         else if (name.equals("requestIdentifier")) {
           this.request = new Identifier();
@@ -1750,6 +1936,7 @@ public class PaymentReconciliation extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
+        dst.status = status == null ? null : status.copy();
         dst.request = request == null ? null : request.copy();
         dst.outcome = outcome == null ? null : outcome.copy();
         dst.disposition = disposition == null ? null : disposition.copy();
@@ -1786,12 +1973,13 @@ public class PaymentReconciliation extends DomainResource {
         if (!(other instanceof PaymentReconciliation))
           return false;
         PaymentReconciliation o = (PaymentReconciliation) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(request, o.request, true) && compareDeep(outcome, o.outcome, true)
-           && compareDeep(disposition, o.disposition, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(originalRuleset, o.originalRuleset, true)
-           && compareDeep(created, o.created, true) && compareDeep(period, o.period, true) && compareDeep(organization, o.organization, true)
-           && compareDeep(requestProvider, o.requestProvider, true) && compareDeep(requestOrganization, o.requestOrganization, true)
-           && compareDeep(detail, o.detail, true) && compareDeep(form, o.form, true) && compareDeep(total, o.total, true)
-           && compareDeep(note, o.note, true);
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(request, o.request, true)
+           && compareDeep(outcome, o.outcome, true) && compareDeep(disposition, o.disposition, true) && compareDeep(ruleset, o.ruleset, true)
+           && compareDeep(originalRuleset, o.originalRuleset, true) && compareDeep(created, o.created, true)
+           && compareDeep(period, o.period, true) && compareDeep(organization, o.organization, true) && compareDeep(requestProvider, o.requestProvider, true)
+           && compareDeep(requestOrganization, o.requestOrganization, true) && compareDeep(detail, o.detail, true)
+           && compareDeep(form, o.form, true) && compareDeep(total, o.total, true) && compareDeep(note, o.note, true)
+          ;
       }
 
       @Override
@@ -1801,14 +1989,14 @@ public class PaymentReconciliation extends DomainResource {
         if (!(other instanceof PaymentReconciliation))
           return false;
         PaymentReconciliation o = (PaymentReconciliation) other;
-        return compareValues(outcome, o.outcome, true) && compareValues(disposition, o.disposition, true) && compareValues(created, o.created, true)
-          ;
+        return compareValues(status, o.status, true) && compareValues(outcome, o.outcome, true) && compareValues(disposition, o.disposition, true)
+           && compareValues(created, o.created, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, request, outcome
-          , disposition, ruleset, originalRuleset, created, period, organization, requestProvider
-          , requestOrganization, detail, form, total, note);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, request
+          , outcome, disposition, ruleset, originalRuleset, created, period, organization
+          , requestProvider, requestOrganization, detail, form, total, note);
       }
 
   @Override

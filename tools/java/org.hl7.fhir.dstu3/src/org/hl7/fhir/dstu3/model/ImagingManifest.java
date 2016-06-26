@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jun 21, 2016 12:34-0400 for FHIR v1.4.0
+// Generated on Mon, Jun 27, 2016 08:35+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -42,7 +42,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 /**
- * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
+ * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances may have been selected for a purpose, such as  conference, or consult.  Reflecting a range of sharing purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); both a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
  */
 @ResourceDef(name="ImagingManifest", profile="http://hl7.org/fhir/Profile/ImagingManifest")
 public class ImagingManifest extends DomainResource {
@@ -69,10 +69,10 @@ public class ImagingManifest extends DomainResource {
         protected ImagingStudy imagingStudyTarget;
 
         /**
-         * Methods of accessing using DICOM web technologies.
+         * Methods of accessing  (e.g., retrieving, viewing) the study.
          */
         @Child(name = "baseLocation", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Dicom web access", formalDefinition="Methods of accessing using DICOM web technologies." )
+        @Description(shortDefinition="Study access service endpoint", formalDefinition="Methods of accessing  (e.g., retrieving, viewing) the study." )
         protected List<StudyBaseLocationComponent> baseLocation;
 
         /**
@@ -189,7 +189,7 @@ public class ImagingManifest extends DomainResource {
         }
 
         /**
-         * @return {@link #baseLocation} (Methods of accessing using DICOM web technologies.)
+         * @return {@link #baseLocation} (Methods of accessing  (e.g., retrieving, viewing) the study.)
          */
         public List<StudyBaseLocationComponent> getBaseLocation() { 
           if (this.baseLocation == null)
@@ -298,7 +298,7 @@ public class ImagingManifest extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("uid", "oid", "Study instance UID of the SOP instances in the selection.", 0, java.lang.Integer.MAX_VALUE, uid));
           childrenList.add(new Property("imagingStudy", "Reference(ImagingStudy)", "Reference to the Imaging Study in FHIR form.", 0, java.lang.Integer.MAX_VALUE, imagingStudy));
-          childrenList.add(new Property("baseLocation", "", "Methods of accessing using DICOM web technologies.", 0, java.lang.Integer.MAX_VALUE, baseLocation));
+          childrenList.add(new Property("baseLocation", "", "Methods of accessing  (e.g., retrieving, viewing) the study.", 0, java.lang.Integer.MAX_VALUE, baseLocation));
           childrenList.add(new Property("series", "", "Series identity and locating information of the DICOM SOP instances in the selection.", 0, java.lang.Integer.MAX_VALUE, series));
         }
 
@@ -433,17 +433,17 @@ public class ImagingManifest extends DomainResource {
     @Block()
     public static class StudyBaseLocationComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Access type for DICOM web.
+         * The service type for accessing (e.g., retrieving, viewing) the DICOM instances.
          */
         @Child(name = "type", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="WADO-RS | WADO-URI | IID | WADO-WS", formalDefinition="Access type for DICOM web." )
+        @Description(shortDefinition="WADO-RS | WADO-URI | IID", formalDefinition="The service type for accessing (e.g., retrieving, viewing) the DICOM instances." )
         protected Coding type;
 
         /**
-         * The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.
+         * The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.baseLocation.type.
          */
         @Child(name = "url", type = {UriType.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Retrieve study URL", formalDefinition="The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol." )
+        @Description(shortDefinition="Study access URL", formalDefinition="The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.baseLocation.type." )
         protected UriType url;
 
         private static final long serialVersionUID = 1242620527L;
@@ -465,7 +465,7 @@ public class ImagingManifest extends DomainResource {
       }
 
         /**
-         * @return {@link #type} (Access type for DICOM web.)
+         * @return {@link #type} (The service type for accessing (e.g., retrieving, viewing) the DICOM instances.)
          */
         public Coding getType() { 
           if (this.type == null)
@@ -481,7 +481,7 @@ public class ImagingManifest extends DomainResource {
         }
 
         /**
-         * @param value {@link #type} (Access type for DICOM web.)
+         * @param value {@link #type} (The service type for accessing (e.g., retrieving, viewing) the DICOM instances.)
          */
         public StudyBaseLocationComponent setType(Coding value) { 
           this.type = value;
@@ -489,7 +489,7 @@ public class ImagingManifest extends DomainResource {
         }
 
         /**
-         * @return {@link #url} (The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @return {@link #url} (The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.baseLocation.type.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public UriType getUrlElement() { 
           if (this.url == null)
@@ -509,7 +509,7 @@ public class ImagingManifest extends DomainResource {
         }
 
         /**
-         * @param value {@link #url} (The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @param value {@link #url} (The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.baseLocation.type.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public StudyBaseLocationComponent setUrlElement(UriType value) { 
           this.url = value;
@@ -517,14 +517,14 @@ public class ImagingManifest extends DomainResource {
         }
 
         /**
-         * @return The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.
+         * @return The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.baseLocation.type.
          */
         public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
-         * @param value The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.
+         * @param value The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.baseLocation.type.
          */
         public StudyBaseLocationComponent setUrl(String value) { 
             if (this.url == null)
@@ -535,8 +535,8 @@ public class ImagingManifest extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("type", "Coding", "Access type for DICOM web.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("url", "uri", "The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.", 0, java.lang.Integer.MAX_VALUE, url));
+          childrenList.add(new Property("type", "Coding", "The service type for accessing (e.g., retrieving, viewing) the DICOM instances.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("url", "uri", "The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.baseLocation.type.", 0, java.lang.Integer.MAX_VALUE, url));
         }
 
       @Override
@@ -645,10 +645,10 @@ public class ImagingManifest extends DomainResource {
         protected OidType uid;
 
         /**
-         * Methods of accessing using DICOM web technologies.
+         * Methods of accessing (e.g. retrieving) the series.
          */
         @Child(name = "baseLocation", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Dicom web access", formalDefinition="Methods of accessing using DICOM web technologies." )
+        @Description(shortDefinition="Series access endpoint", formalDefinition="Methods of accessing (e.g. retrieving) the series." )
         protected List<SeriesBaseLocationComponent> baseLocation;
 
         /**
@@ -721,7 +721,7 @@ public class ImagingManifest extends DomainResource {
         }
 
         /**
-         * @return {@link #baseLocation} (Methods of accessing using DICOM web technologies.)
+         * @return {@link #baseLocation} (Methods of accessing (e.g. retrieving) the series.)
          */
         public List<SeriesBaseLocationComponent> getBaseLocation() { 
           if (this.baseLocation == null)
@@ -829,7 +829,7 @@ public class ImagingManifest extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("uid", "oid", "Series instance UID of the SOP instances in the selection.", 0, java.lang.Integer.MAX_VALUE, uid));
-          childrenList.add(new Property("baseLocation", "", "Methods of accessing using DICOM web technologies.", 0, java.lang.Integer.MAX_VALUE, baseLocation));
+          childrenList.add(new Property("baseLocation", "", "Methods of accessing (e.g. retrieving) the series.", 0, java.lang.Integer.MAX_VALUE, baseLocation));
           childrenList.add(new Property("instance", "", "Identity and locating information of the selected DICOM SOP instances.", 0, java.lang.Integer.MAX_VALUE, instance));
         }
 
@@ -952,17 +952,17 @@ public class ImagingManifest extends DomainResource {
     @Block()
     public static class SeriesBaseLocationComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Access type for DICOM web.
+         * The service type for accessing (e.g., retrieving) the DICOM instances.
          */
         @Child(name = "type", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="WADO-RS | WADO-URI | IID | WADO-WS", formalDefinition="Access type for DICOM web." )
+        @Description(shortDefinition="WADO-RS | WADO-URI | IID", formalDefinition="The service type for accessing (e.g., retrieving) the DICOM instances." )
         protected Coding type;
 
         /**
-         * The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.
+         * The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.series.baseLocation.type.
          */
         @Child(name = "url", type = {UriType.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Retrieve study URL", formalDefinition="The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol." )
+        @Description(shortDefinition="Series access URL", formalDefinition="The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.series.baseLocation.type." )
         protected UriType url;
 
         private static final long serialVersionUID = 1242620527L;
@@ -984,7 +984,7 @@ public class ImagingManifest extends DomainResource {
       }
 
         /**
-         * @return {@link #type} (Access type for DICOM web.)
+         * @return {@link #type} (The service type for accessing (e.g., retrieving) the DICOM instances.)
          */
         public Coding getType() { 
           if (this.type == null)
@@ -1000,7 +1000,7 @@ public class ImagingManifest extends DomainResource {
         }
 
         /**
-         * @param value {@link #type} (Access type for DICOM web.)
+         * @param value {@link #type} (The service type for accessing (e.g., retrieving) the DICOM instances.)
          */
         public SeriesBaseLocationComponent setType(Coding value) { 
           this.type = value;
@@ -1008,7 +1008,7 @@ public class ImagingManifest extends DomainResource {
         }
 
         /**
-         * @return {@link #url} (The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @return {@link #url} (The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.series.baseLocation.type.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public UriType getUrlElement() { 
           if (this.url == null)
@@ -1028,7 +1028,7 @@ public class ImagingManifest extends DomainResource {
         }
 
         /**
-         * @param value {@link #url} (The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @param value {@link #url} (The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.series.baseLocation.type.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public SeriesBaseLocationComponent setUrlElement(UriType value) { 
           this.url = value;
@@ -1036,14 +1036,14 @@ public class ImagingManifest extends DomainResource {
         }
 
         /**
-         * @return The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.
+         * @return The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.series.baseLocation.type.
          */
         public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
-         * @param value The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.
+         * @param value The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.series.baseLocation.type.
          */
         public SeriesBaseLocationComponent setUrl(String value) { 
             if (this.url == null)
@@ -1054,8 +1054,8 @@ public class ImagingManifest extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("type", "Coding", "Access type for DICOM web.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("url", "uri", "The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.", 0, java.lang.Integer.MAX_VALUE, url));
+          childrenList.add(new Property("type", "Coding", "The service type for accessing (e.g., retrieving) the DICOM instances.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("url", "uri", "The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.series.baseLocation.type.", 0, java.lang.Integer.MAX_VALUE, url));
         }
 
       @Override
@@ -1380,10 +1380,10 @@ public class ImagingManifest extends DomainResource {
   }
 
     /**
-     * Unique identifier of the DICOM Key Object Selection (KOS) representation.
+     * Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.
      */
-    @Child(name = "uid", type = {OidType.class}, order=0, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Instance UID", formalDefinition="Unique identifier of the DICOM Key Object Selection (KOS) representation." )
+    @Child(name = "uid", type = {OidType.class}, order=0, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="SOP Instance UID", formalDefinition="Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents." )
     protected OidType uid;
 
     /**
@@ -1402,7 +1402,7 @@ public class ImagingManifest extends DomainResource {
      * Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
      */
     @Child(name = "authoringTime", type = {DateTimeType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Time when the imaging object selection was created", formalDefinition="Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image)." )
+    @Description(shortDefinition="Time when the selection of instances was made", formalDefinition="Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image)." )
     protected DateTimeType authoringTime;
 
     /**
@@ -1450,15 +1450,14 @@ public class ImagingManifest extends DomainResource {
   /**
    * Constructor
    */
-    public ImagingManifest(OidType uid, Reference patient, CodeableConcept title) {
+    public ImagingManifest(Reference patient, CodeableConcept title) {
       super();
-      this.uid = uid;
       this.patient = patient;
       this.title = title;
     }
 
     /**
-     * @return {@link #uid} (Unique identifier of the DICOM Key Object Selection (KOS) representation.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
+     * @return {@link #uid} (Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
      */
     public OidType getUidElement() { 
       if (this.uid == null)
@@ -1478,7 +1477,7 @@ public class ImagingManifest extends DomainResource {
     }
 
     /**
-     * @param value {@link #uid} (Unique identifier of the DICOM Key Object Selection (KOS) representation.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
+     * @param value {@link #uid} (Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
      */
     public ImagingManifest setUidElement(OidType value) { 
       this.uid = value;
@@ -1486,19 +1485,23 @@ public class ImagingManifest extends DomainResource {
     }
 
     /**
-     * @return Unique identifier of the DICOM Key Object Selection (KOS) representation.
+     * @return Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.
      */
     public String getUid() { 
       return this.uid == null ? null : this.uid.getValue();
     }
 
     /**
-     * @param value Unique identifier of the DICOM Key Object Selection (KOS) representation.
+     * @param value Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.
      */
     public ImagingManifest setUid(String value) { 
+      if (Utilities.noString(value))
+        this.uid = null;
+      else {
         if (this.uid == null)
           this.uid = new OidType();
         this.uid.setValue(value);
+      }
       return this;
     }
 
@@ -1762,7 +1765,7 @@ public class ImagingManifest extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("uid", "oid", "Unique identifier of the DICOM Key Object Selection (KOS) representation.", 0, java.lang.Integer.MAX_VALUE, uid));
+        childrenList.add(new Property("uid", "oid", "Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.", 0, java.lang.Integer.MAX_VALUE, uid));
         childrenList.add(new Property("patient", "Reference(Patient)", "A patient resource reference which is the patient subject of all DICOM SOP Instances in this ImagingManifest.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("authoringTime", "dateTime", "Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).", 0, java.lang.Integer.MAX_VALUE, authoringTime));
         childrenList.add(new Property("author", "Reference(Practitioner|Device|Organization|Patient|RelatedPerson)", "Author of ImagingManifest. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.", 0, java.lang.Integer.MAX_VALUE, author));

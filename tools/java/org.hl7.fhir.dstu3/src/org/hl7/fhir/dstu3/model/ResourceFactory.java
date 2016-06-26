@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jun 21, 2016 12:34-0400 for FHIR v1.4.0
+// Generated on Mon, Jun 27, 2016 08:35+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
@@ -275,8 +275,12 @@ public class ResourceFactory extends Factory {
     public static Element createType(String name) throws FHIRException {
         if ("Meta".equals(name))
             return new Meta();
+        if ("RelatedResource".equals(name))
+            return new RelatedResource();
         if ("Address".equals(name))
             return new Address();
+        if ("Contributor".equals(name))
+            return new Contributor();
         if ("Attachment".equals(name))
             return new Attachment();
         if ("Count".equals(name))
@@ -327,6 +331,10 @@ public class ResourceFactory extends Factory {
             return new Annotation();
         if ("Extension".equals(name))
             return new Extension();
+        if ("ContactDetail".equals(name))
+            return new ContactDetail();
+        if ("UsageContext".equals(name))
+            return new UsageContext();
         if ("Signature".equals(name))
             return new Signature();
         if ("Timing".equals(name))
@@ -574,8 +582,12 @@ public class ResourceFactory extends Factory {
             return new Location();
         if ("Meta".equals(name))
             return new Meta();
+        if ("RelatedResource".equals(name))
+            return new RelatedResource();
         if ("Address".equals(name))
             return new Address();
+        if ("Contributor".equals(name))
+            return new Contributor();
         if ("Attachment".equals(name))
             return new Attachment();
         if ("Count".equals(name))
@@ -626,6 +638,10 @@ public class ResourceFactory extends Factory {
             return new Annotation();
         if ("Extension".equals(name))
             return new Extension();
+        if ("ContactDetail".equals(name))
+            return new ContactDetail();
+        if ("UsageContext".equals(name))
+            return new UsageContext();
         if ("Signature".equals(name))
             return new Signature();
         if ("Timing".equals(name))

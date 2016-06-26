@@ -6954,9 +6954,9 @@ public class VersionConvertor {
 		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
 		tgt.setCreated(src.getCreated());
 //		tgt.setTarget(convertReference(src.getTarget()));
-		tgt.setProvider(convertReference(src.getProvider()));
-		tgt.setOrganization(convertReference(src.getOrganization()));
-		tgt.setSubject(convertReference(src.getSubject()));
+//		tgt.setProvider(convertReference(src.getProvider()));
+//		tgt.setOrganization(convertReference(src.getOrganization()));
+//		tgt.setSubject(convertReference(src.getSubject()));
 		tgt.setCoverage(convertReference(src.getCoverage()));
 //		tgt.setRelationship(convertCoding(src.getRelationship()));
 		return tgt;
@@ -6988,15 +6988,15 @@ public class VersionConvertor {
 		copyDomainResource(src, tgt);
 		for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
 			tgt.addIdentifier(convertIdentifier(t));
-		tgt.setRequest(convertReference(src.getRequest()));
+//		  tgt.setRequest(convertReference(src.getRequestReference()));
 //		tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
 		tgt.setDisposition(src.getDisposition());
 		tgt.setRuleset(convertCoding(src.getRuleset()));
 		tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
 		tgt.setCreated(src.getCreated());
-		tgt.setOrganization(convertReference(src.getOrganization()));
-		tgt.setRequestProvider(convertReference(src.getRequestProvider()));
-		tgt.setRequestOrganization(convertReference(src.getRequestOrganization()));
+//      tgt.setOrganization(convertReference(src.getOrganizationReference()));
+//      tgt.setRequestProvider(convertReference(src.getRequestProviderReference()));
+//		tgt.setRequestOrganization(convertReference(src.getRequestOrganizationReference()));
 		return tgt;
 	}
 
@@ -12072,7 +12072,7 @@ public class VersionConvertor {
 			tgt.addIdentifier(convertIdentifier(t));
 		tgt.setPatient(convertReference(src.getPatient()));
 		tgt.setRelationship(convertCodeableConcept(src.getRelationship()));
-		tgt.setName(convertHumanName(src.getName()));
+		tgt.addName(convertHumanName(src.getName()));
 		for (org.hl7.fhir.dstu2.model.ContactPoint t : src.getTelecom())
 			tgt.addTelecom(convertContactPoint(t));
 		tgt.setGender(convertAdministrativeGender(src.getGender()));
@@ -12094,7 +12094,8 @@ public class VersionConvertor {
 			tgt.addIdentifier(convertIdentifier(t));
 		tgt.setPatient(convertReference(src.getPatient()));
 		tgt.setRelationship(convertCodeableConcept(src.getRelationship()));
-		tgt.setName(convertHumanName(src.getName()));
+		if (!src.getName().isEmpty())
+		tgt.setName(convertHumanName(src.getName().get(0)));
 		for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
 			tgt.addTelecom(convertContactPoint(t));
 		tgt.setGender(convertAdministrativeGender(src.getGender()));
