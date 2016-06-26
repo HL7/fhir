@@ -8,6 +8,42 @@
   Definition = The reason for the amount: payment, adjustment, advance.
   Conformance = example
 
+ -- Row 2 -----------------------------------
+  Binding Name = PaymentReconciliationStatus
+  Binding = code list
+  Reference = #paymentreconciliation-status
+  Definition = A code specifying the state of the resource instance.
+  Conformance = required
+
+=== Sheet paymentreconciliation-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = active
+  Display = Active
+  Definition = The resource instance is currently in-force.
+  v3 = ActStatus.active
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = cancelled
+  Display = Cancelled
+  Definition = The resource instance is withdrawn, rescinded or reversed.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = draft
+  Display = Draft
+  Definition = A new resource instance the contents of which is not complete.
+  v3 = ActStatus.new
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = entered-in-error
+  Display = Entered In Error
+  Definition = The resource instance was entered in error.
+  v3 = ActStatus.nullified
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -30,6 +66,17 @@
   Definition = The Response business identifier
 
  -- Row 4 -----------------------------------
+  Element = PaymentReconciliation.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = PaymentReconciliationStatus
+  Short Label = active | cancelled | draft | entered-in-error
+  Definition = The status of the resource instance.
+  To Do = The category of claim this is
+
+ -- Row 5 -----------------------------------
   Element = PaymentReconciliation.request[x]
   Card. = 0..1
   Type = Identifier|Reference(ProcessRequest)
@@ -37,7 +84,7 @@
   Definition = Original request resource reference
   CDAnet v4 Mapping = A02|G01
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = PaymentReconciliation.outcome
   Card. = 0..1
   Type = code
@@ -45,14 +92,14 @@
   Short Label = complete | error | partial
   Definition = Transaction status: error, complete
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = PaymentReconciliation.disposition
   Card. = 0..1
   Type = string
   Short Label = Disposition Message
   Definition = A description of the status of the adjudication.
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = PaymentReconciliation.ruleset
   Card. = 0..1
   Type = Coding
@@ -60,7 +107,7 @@
   Short Label = Resource version
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = PaymentReconciliation.originalRuleset
   Card. = 0..1
   Type = Coding
@@ -69,28 +116,28 @@
   Definition = The style (standard) and version of the original material which was converted into this resource.
   Requirements = Knowledge of the original version can inform the processing of this instance so that information which is processable by the originating system may be generated.
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = PaymentReconciliation.created
   Card. = 0..1
   Type = dateTime
   Short Label = Creation date
   Definition = The date when the enclosed suite of services were performed or completed
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = PaymentReconciliation.period
   Card. = 0..1
   Type = Period
   Short Label = Period covered
   Definition = The period of time for which payments have been gathered into this bulk payment for settlement.
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = PaymentReconciliation.organization[x]
   Card. = 0..1
   Type = Identifier|Reference(Organization)
   Short Label = Insurer
   Definition = The Insurer who produced this adjudicated response.
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = PaymentReconciliation.requestProvider[x]
   Card. = 0..1
   Type = Identifier|Reference(Practitioner)
@@ -98,17 +145,17 @@
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = PaymentReconciliation.requestOrganization[x]
   Card. = 0..1
   Type = Identifier|Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = !Response Information
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = PaymentReconciliation.detail
   Card. = 0..*
   UML = right
@@ -116,7 +163,7 @@
   Short Label = Details
   Definition = List of individual settlement amounts and the corresponding transaction.
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = PaymentReconciliation.detail.type
   Card. = 1..1
   Type = Coding
@@ -124,49 +171,49 @@
   Short Label = Type code
   Definition = Code to indicate the nature of the payment, adjustment, funds advance, etc.
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = PaymentReconciliation.detail.request[x]
   Card. = 0..1
   Type = Identifier|Reference(Any)
   Short Label = Claim
   Definition = The claim or financial resource.
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = PaymentReconciliation.detail.responce[x]
   Card. = 0..1
   Type = Identifier|Reference(Any)
   Short Label = Claim Response
   Definition = The claim response resource.
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = PaymentReconciliation.detail.submitter[x]
   Card. = 0..1
   Type = Identifier|Reference(Organization)
   Short Label = Submitter
   Definition = The Organization which submitted the invoice or financial transaction.
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = PaymentReconciliation.detail.payee[x]
   Card. = 0..1
   Type = Identifier|Reference(Organization)
   Short Label = Payee
   Definition = The organization which is receiving the payment.
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = PaymentReconciliation.detail.date
   Card. = 0..1
   Type = date
   Short Label = Invoice date
   Definition = The date of the invoice or financial resource.
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = PaymentReconciliation.detail.amount
   Card. = 0..1
   Type = Money
   Short Label = Detail amount
   Definition = Amount paid for this detail.
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = PaymentReconciliation.form
   Card. = 0..1
   Type = Coding
@@ -175,17 +222,17 @@
   Definition = The form to be used for printing the content.
   CDAnet v4 Mapping = G42
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = PaymentReconciliation.total
   Card. = 1..1
   Type = Money
   Short Label = Total amount of Payment
   Definition = Total payment amount.
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = !Errors
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = !PaymentReconciliation.error
   Card. = 0..*
   Type = Coding
@@ -193,10 +240,10 @@
   Short Label = Error code
   Definition = List of errors detected in the request.
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = !Notes
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = PaymentReconciliation.note
   Card. = 0..*
   UML = left
@@ -204,7 +251,7 @@
   Short Label = Note text
   Definition = Suite of notes
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = PaymentReconciliation.note.type
   Card. = 0..1
   Type = Coding
@@ -212,7 +259,7 @@
   Short Label = display | print | printoper
   Definition = The note purpose: Print/Display.
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = PaymentReconciliation.note.text
   Card. = 0..1
   Type = string

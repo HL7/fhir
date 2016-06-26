@@ -10,6 +10,8 @@
     <system value="http://www.BenefitsInc.com/fhir/enrollmentresponse"/>
     <value value="781234"/>
   </identifier>
+  
+  <status value="active"/>
 
   <requestReference>
 	<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>

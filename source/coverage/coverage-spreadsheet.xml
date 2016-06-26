@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-03-04T14:39:43Z</LastSaved>
+  <LastSaved>2016-06-26T07:36:49Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -17,84 +17,32 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
-   <Path>\Gforge\HL7\FHIR\trunk\build\source\explanationofbenefit\explanationofbenefit-spreadsheet.xml</Path>
-   <SheetName>Instructions</SheetName>
-   <SheetName>Data Elements</SheetName>
-   <SheetName>Invariants</SheetName>
-   <SheetName>Search</SheetName>
-   <SheetName>Operations</SheetName>
-   <SheetName>Events</SheetName>
-   <SheetName>Profiles</SheetName>
-   <SheetName>Examples</SheetName>
-   <SheetName>Removed Elements</SheetName>
-   <SheetName>claim-type-link2</SheetName>
-   <SheetName>Bindings</SheetName>
-   <SheetName>explanationofbenefit-status</SheetName>
-   <SheetName>resource-type-link</SheetName>
-   <SheetName>some-code-list</SheetName>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>0</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>1</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>2</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>3</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>4</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>5</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>6</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>7</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>8</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>9</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>10</SheetIndex>
-   </Xct>
+   <Path> </Path>
+   <SheetName> </SheetName>
+   <SheetName> </SheetName>
+   <SheetName> </SheetName>
+   <SheetName> </SheetName>
+   <SheetName> </SheetName>
+   <SheetName> </SheetName>
+   <SheetName> </SheetName>
+   <SheetName> </SheetName>
+   <SheetName> </SheetName>
+   <SheetName> </SheetName>
+   <SheetName> </SheetName>
+   <SheetName> </SheetName>
+   <SheetName> </SheetName>
+   <SheetName> </SheetName>
    <Xct>
     <Count>0</Count>
     <SheetIndex>11</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>12</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>13</SheetIndex>
    </Xct>
   </SupBook>
   <WindowHeight>5970</WindowHeight>
   <WindowWidth>19170</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>10</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4190,11 +4138,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4208,12 +4155,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7693,8 +7640,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R5C1:R5C5</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8291,6 +8239,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
