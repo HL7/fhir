@@ -10,6 +10,8 @@
     <system value="http://www.BenefitsInc.com/fhir/eligibilityresponse"/>
     <value value="881234"/>
   </identifier>
+  
+  <status value="active"/>
 
   <requestReference>
 	<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
@@ -26,7 +28,7 @@
   </organizationReference>
 
 <!--
-  <requestOrganizationReference>
+  <requestOrganizationReference> PK don't know why this gets rejected by tooling.
     <reference value="Organization/1"/>
   </requestOrganizationReference>
 --> 

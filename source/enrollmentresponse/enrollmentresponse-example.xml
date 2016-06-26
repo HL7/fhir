@@ -11,9 +11,11 @@
     <value value="781234"/>
   </identifier>
 
-  <request>
+  <status value="active"/>
+  
+  <requestReference>
 	<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
-  </request>
+  </requestReference>
   
   <outcome value="complete"/>
   
@@ -21,12 +23,12 @@
  
   <created value="2014-08-16"/>
 
-  <organization>
+  <organizationReference>
     <reference value="Organization/2"/>
-  </organization>
+  </organizationReference>
 
-  <requestOrganization>
+  <!--requestOrganizationReference> PK don't know why the tooling rejects this.
     <reference value="Organization/1"/>
-  </requestOrganization>
+  </requestOrganizationReference-->
  
 </EnrollmentResponse>
