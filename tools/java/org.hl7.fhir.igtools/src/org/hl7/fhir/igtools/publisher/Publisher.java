@@ -371,7 +371,7 @@ public class Publisher {
     forceDir(qaDir);
     checkFile(instanceTemplate);
     
-    log("Load Validation Pack");
+    log("Load Validation Pack (internal)");
     try {
       context = SimpleWorkerContext.fromClassPath("igpack.zip");
     } catch (NullPointerException npe) {
@@ -518,7 +518,6 @@ public class Publisher {
       altMap.put("page/"+dir.getPath(), dir);
       dir.setNoProcess(true);
       changeList.add(dir);
-      System.out.println("add "+dir.getPath());
     }
     for (String link : dir.getFiles()) {
       FetchedFile f = fetcher.fetch(link);
@@ -535,7 +534,6 @@ public class Publisher {
     if (existing == null || existing.getTime() != file.getTime() || existing.getHash() != file.getHash()) {
       file.setNoProcess(true);
       changeList.add(file);
-      System.out.println("add "+file.getPath());
       altMap.put("page/"+file.getPath(), file);
       return true;
     } else {
@@ -815,7 +813,7 @@ public class Publisher {
     String s;
     while ((s = stdError.readLine()) != null) {
       if (passJekyllFilter(s))
-      System.out.println("Jekyll: "+s);
+      log("Jekyll: "+s);
     }
     process.waitFor();
         return true;

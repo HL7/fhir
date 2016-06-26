@@ -77,17 +77,6 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|57698-3|Lipid panel with direct LDL - Serum or Plasma",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Lipid panel with direct LDL - Serum or Plasma"
-      }
-    },
-    {
       "hash": "#|http://loinc.org|null|58410-2|Complete blood count (hemogram) panel - Blood by Automated count",
       "severity": null,
       "message": null,

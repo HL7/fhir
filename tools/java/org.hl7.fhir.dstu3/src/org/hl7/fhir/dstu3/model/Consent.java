@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jun 21, 2016 12:34-0400 for FHIR v1.4.0
+// Generated on Mon, Jun 27, 2016 08:35+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -1451,7 +1451,7 @@ public class Consent extends DomainResource {
      * Unique identifier for this copy of the Consent Statement.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Consent identifier for this record", formalDefinition="Unique identifier for this copy of the Consent Statement." )
+    @Description(shortDefinition="Identifier for this record (external references)", formalDefinition="Unique identifier for this copy of the Consent Statement." )
     protected Identifier identifier;
 
     /**
@@ -1485,7 +1485,7 @@ public class Consent extends DomainResource {
     /**
      * The patient to whom this consent applies.
      */
-    @Child(name = "patient", type = {Patient.class}, order=5, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "patient", type = {Patient.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who the consent applies to", formalDefinition="The patient to whom this consent applies." )
     protected Reference patient;
 
@@ -1519,18 +1519,18 @@ public class Consent extends DomainResource {
     protected Organization organizationTarget;
 
     /**
-     * A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law.
-     */
-    @Child(name = "policy", type = {UriType.class}, order=8, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Policy that this consents to", formalDefinition="A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law." )
-    protected UriType policy;
-
-    /**
      * The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.
      */
-    @Child(name = "source", type = {Attachment.class, Identifier.class, Consent.class, DocumentReference.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "source", type = {Attachment.class, Identifier.class, Consent.class, DocumentReference.class, Contract.class, Questionnaire.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Source from which this consent is taken", formalDefinition="The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document." )
     protected Type source;
+
+    /**
+     * A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law.
+     */
+    @Child(name = "policy", type = {UriType.class}, order=9, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Policy that this consents to", formalDefinition="A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law." )
+    protected UriType policy;
 
     /**
      * Who or what is controlled by this Consent.
@@ -1574,7 +1574,7 @@ public class Consent extends DomainResource {
     @Description(shortDefinition="Consent Exception", formalDefinition="An exception to the base policy of this Consent." )
     protected List<ExceptComponent> except;
 
-    private static final long serialVersionUID = 2129415733L;
+    private static final long serialVersionUID = 1278875139L;
 
   /**
    * Constructor
@@ -1586,10 +1586,10 @@ public class Consent extends DomainResource {
   /**
    * Constructor
    */
-    public Consent(Enumeration<ConsentStatus> status, Reference patient) {
+    public Consent(Enumeration<ConsentStatus> status, UriType policy) {
       super();
       this.status = status;
-      this.patient = patient;
+      this.policy = policy;
     }
 
     /**
@@ -1915,55 +1915,6 @@ public class Consent extends DomainResource {
     }
 
     /**
-     * @return {@link #policy} (A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law.). This is the underlying object with id, value and extensions. The accessor "getPolicy" gives direct access to the value
-     */
-    public UriType getPolicyElement() { 
-      if (this.policy == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Consent.policy");
-        else if (Configuration.doAutoCreate())
-          this.policy = new UriType(); // bb
-      return this.policy;
-    }
-
-    public boolean hasPolicyElement() { 
-      return this.policy != null && !this.policy.isEmpty();
-    }
-
-    public boolean hasPolicy() { 
-      return this.policy != null && !this.policy.isEmpty();
-    }
-
-    /**
-     * @param value {@link #policy} (A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law.). This is the underlying object with id, value and extensions. The accessor "getPolicy" gives direct access to the value
-     */
-    public Consent setPolicyElement(UriType value) { 
-      this.policy = value;
-      return this;
-    }
-
-    /**
-     * @return A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law.
-     */
-    public String getPolicy() { 
-      return this.policy == null ? null : this.policy.getValue();
-    }
-
-    /**
-     * @param value A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law.
-     */
-    public Consent setPolicy(String value) { 
-      if (Utilities.noString(value))
-        this.policy = null;
-      else {
-        if (this.policy == null)
-          this.policy = new UriType();
-        this.policy.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #source} (The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.)
      */
     public Type getSource() { 
@@ -2018,6 +1969,51 @@ public class Consent extends DomainResource {
      */
     public Consent setSource(Type value) { 
       this.source = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #policy} (A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law.). This is the underlying object with id, value and extensions. The accessor "getPolicy" gives direct access to the value
+     */
+    public UriType getPolicyElement() { 
+      if (this.policy == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Consent.policy");
+        else if (Configuration.doAutoCreate())
+          this.policy = new UriType(); // bb
+      return this.policy;
+    }
+
+    public boolean hasPolicyElement() { 
+      return this.policy != null && !this.policy.isEmpty();
+    }
+
+    public boolean hasPolicy() { 
+      return this.policy != null && !this.policy.isEmpty();
+    }
+
+    /**
+     * @param value {@link #policy} (A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law.). This is the underlying object with id, value and extensions. The accessor "getPolicy" gives direct access to the value
+     */
+    public Consent setPolicyElement(UriType value) { 
+      this.policy = value;
+      return this;
+    }
+
+    /**
+     * @return A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law.
+     */
+    public String getPolicy() { 
+      return this.policy == null ? null : this.policy.getValue();
+    }
+
+    /**
+     * @param value A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law.
+     */
+    public Consent setPolicy(String value) { 
+        if (this.policy == null)
+          this.policy = new UriType();
+        this.policy.setValue(value);
       return this;
     }
 
@@ -2349,8 +2345,8 @@ public class Consent extends DomainResource {
         childrenList.add(new Property("patient", "Reference(Patient)", "The patient to whom this consent applies.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("author", "Reference(Organization|Patient|Practitioner|RelatedPerson)", "Who made the Consent statement - this is the persion who takes responsibility for the content, not the scribe who recorded it.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization that manages the consent, and the framework within which it is executed.", 0, java.lang.Integer.MAX_VALUE, organization));
+        childrenList.add(new Property("source[x]", "Attachment|Identifier|Reference(Consent|DocumentReference|Contract|Questionnaire)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("policy", "uri", "A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law.", 0, java.lang.Integer.MAX_VALUE, policy));
-        childrenList.add(new Property("source[x]", "Attachment|Identifier|Reference(Consent|DocumentReference)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("actor", "", "Who or what is controlled by this Consent.", 0, java.lang.Integer.MAX_VALUE, actor));
         childrenList.add(new Property("action", "CodeableConcept", "Actions controlled by this Consent.", 0, java.lang.Integer.MAX_VALUE, action));
         childrenList.add(new Property("securityLabel", "Coding", "A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels.", 0, java.lang.Integer.MAX_VALUE, securityLabel));
@@ -2370,8 +2366,8 @@ public class Consent extends DomainResource {
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         case -1406328437: /*author*/ return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
         case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
-        case -982670030: /*policy*/ return this.policy == null ? new Base[0] : new Base[] {this.policy}; // UriType
         case -896505829: /*source*/ return this.source == null ? new Base[0] : new Base[] {this.source}; // Type
+        case -982670030: /*policy*/ return this.policy == null ? new Base[0] : new Base[] {this.policy}; // UriType
         case 92645877: /*actor*/ return this.actor == null ? new Base[0] : this.actor.toArray(new Base[this.actor.size()]); // ConsentActorComponent
         case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // CodeableConcept
         case -722296940: /*securityLabel*/ return this.securityLabel == null ? new Base[0] : this.securityLabel.toArray(new Base[this.securityLabel.size()]); // Coding
@@ -2410,11 +2406,11 @@ public class Consent extends DomainResource {
         case 1178922291: // organization
           this.organization = castToReference(value); // Reference
           break;
-        case -982670030: // policy
-          this.policy = castToUri(value); // UriType
-          break;
         case -896505829: // source
           this.source = (Type) value; // Type
+          break;
+        case -982670030: // policy
+          this.policy = castToUri(value); // UriType
           break;
         case 92645877: // actor
           this.getActor().add((ConsentActorComponent) value); // ConsentActorComponent
@@ -2457,10 +2453,10 @@ public class Consent extends DomainResource {
           this.author = castToReference(value); // Reference
         else if (name.equals("organization"))
           this.organization = castToReference(value); // Reference
-        else if (name.equals("policy"))
-          this.policy = castToUri(value); // UriType
         else if (name.equals("source[x]"))
           this.source = (Type) value; // Type
+        else if (name.equals("policy"))
+          this.policy = castToUri(value); // UriType
         else if (name.equals("actor"))
           this.getActor().add((ConsentActorComponent) value);
         else if (name.equals("action"))
@@ -2488,8 +2484,8 @@ public class Consent extends DomainResource {
         case -791418107:  return getPatient(); // Reference
         case -1406328437:  return getAuthor(); // Reference
         case 1178922291:  return getOrganization(); // Reference
-        case -982670030: throw new FHIRException("Cannot make property policy as it is not a complex type"); // UriType
         case -1698413947:  return getSource(); // Type
+        case -982670030: throw new FHIRException("Cannot make property policy as it is not a complex type"); // UriType
         case 92645877:  return addActor(); // ConsentActorComponent
         case -1422950858:  return addAction(); // CodeableConcept
         case -722296940:  return addSecurityLabel(); // Coding
@@ -2532,9 +2528,6 @@ public class Consent extends DomainResource {
           this.organization = new Reference();
           return this.organization;
         }
-        else if (name.equals("policy")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Consent.policy");
-        }
         else if (name.equals("sourceAttachment")) {
           this.source = new Attachment();
           return this.source;
@@ -2546,6 +2539,9 @@ public class Consent extends DomainResource {
         else if (name.equals("sourceReference")) {
           this.source = new Reference();
           return this.source;
+        }
+        else if (name.equals("policy")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Consent.policy");
         }
         else if (name.equals("actor")) {
           return addActor();
@@ -2589,8 +2585,8 @@ public class Consent extends DomainResource {
         dst.patient = patient == null ? null : patient.copy();
         dst.author = author == null ? null : author.copy();
         dst.organization = organization == null ? null : organization.copy();
-        dst.policy = policy == null ? null : policy.copy();
         dst.source = source == null ? null : source.copy();
+        dst.policy = policy == null ? null : policy.copy();
         if (actor != null) {
           dst.actor = new ArrayList<ConsentActorComponent>();
           for (ConsentActorComponent i : actor)
@@ -2637,8 +2633,8 @@ public class Consent extends DomainResource {
         Consent o = (Consent) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(category, o.category, true)
            && compareDeep(dateTime, o.dateTime, true) && compareDeep(period, o.period, true) && compareDeep(patient, o.patient, true)
-           && compareDeep(author, o.author, true) && compareDeep(organization, o.organization, true) && compareDeep(policy, o.policy, true)
-           && compareDeep(source, o.source, true) && compareDeep(actor, o.actor, true) && compareDeep(action, o.action, true)
+           && compareDeep(author, o.author, true) && compareDeep(organization, o.organization, true) && compareDeep(source, o.source, true)
+           && compareDeep(policy, o.policy, true) && compareDeep(actor, o.actor, true) && compareDeep(action, o.action, true)
            && compareDeep(securityLabel, o.securityLabel, true) && compareDeep(purpose, o.purpose, true) && compareDeep(data, o.data, true)
            && compareDeep(except, o.except, true);
       }
@@ -2656,7 +2652,7 @@ public class Consent extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
-          , dateTime, period, patient, author, organization, policy, source, actor, action
+          , dateTime, period, patient, author, organization, source, policy, actor, action
           , securityLabel, purpose, data, except);
       }
 
@@ -2688,17 +2684,17 @@ public class Consent extends DomainResource {
  /**
    * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Consent identifier for this record</b><br>
+   * Description: <b>Identifier for this record (external references)</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Consent.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Consent.identifier", description="Consent identifier for this record", type="token" )
+  @SearchParamDefinition(name="identifier", path="Consent.identifier", description="Identifier for this record (external references)", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Consent identifier for this record</b><br>
+   * Description: <b>Identifier for this record (external references)</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Consent.identifier</b><br>
    * </p>

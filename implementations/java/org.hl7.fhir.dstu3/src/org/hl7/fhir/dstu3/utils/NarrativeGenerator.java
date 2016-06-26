@@ -83,6 +83,7 @@ import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
+import org.hl7.fhir.dstu3.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.ExtensionHelper;
 import org.hl7.fhir.dstu3.model.HumanName;
@@ -1986,6 +1987,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
                 td.addText(" ("+display+")");
             }
           }
+          if (!ccm.hasEquivalence())
+            tr.addTag("td").addText(ConceptMapEquivalence.EQUIVALENT.toString());
+          else
           tr.addTag("td").addText(ccm.getEquivalence().toString());
           td = tr.addTag("td");
           if (targets.get("code").size() == 1)

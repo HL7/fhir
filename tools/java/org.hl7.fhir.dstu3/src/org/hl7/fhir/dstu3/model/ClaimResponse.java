@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jun 21, 2016 12:34-0400 for FHIR v1.4.0
+// Generated on Mon, Jun 27, 2016 08:35+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -49,33 +49,155 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 @ResourceDef(name="ClaimResponse", profile="http://hl7.org/fhir/Profile/ClaimResponse")
 public class ClaimResponse extends DomainResource {
 
+    public enum ClaimResponseStatus {
+        /**
+         * The resource instance is currently in-force.
+         */
+        ACTIVE, 
+        /**
+         * The resource instance is withdrawn, rescinded or reversed.
+         */
+        CANCELLED, 
+        /**
+         * A new resource instance the contents of which is not complete.
+         */
+        DRAFT, 
+        /**
+         * The resource instance was entered in error.
+         */
+        ENTEREDINERROR, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ClaimResponseStatus fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return ACTIVE;
+        if ("cancelled".equals(codeString))
+          return CANCELLED;
+        if ("draft".equals(codeString))
+          return DRAFT;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ClaimResponseStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case ACTIVE: return "active";
+            case CANCELLED: return "cancelled";
+            case DRAFT: return "draft";
+            case ENTEREDINERROR: return "entered-in-error";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case ACTIVE: return "http://hl7.org/fhir/claimresponse-status";
+            case CANCELLED: return "http://hl7.org/fhir/claimresponse-status";
+            case DRAFT: return "http://hl7.org/fhir/claimresponse-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/claimresponse-status";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case ACTIVE: return "The resource instance is currently in-force.";
+            case CANCELLED: return "The resource instance is withdrawn, rescinded or reversed.";
+            case DRAFT: return "A new resource instance the contents of which is not complete.";
+            case ENTEREDINERROR: return "The resource instance was entered in error.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ACTIVE: return "Active";
+            case CANCELLED: return "Cancelled";
+            case DRAFT: return "Draft";
+            case ENTEREDINERROR: return "Entered In Error";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ClaimResponseStatusEnumFactory implements EnumFactory<ClaimResponseStatus> {
+    public ClaimResponseStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return ClaimResponseStatus.ACTIVE;
+        if ("cancelled".equals(codeString))
+          return ClaimResponseStatus.CANCELLED;
+        if ("draft".equals(codeString))
+          return ClaimResponseStatus.DRAFT;
+        if ("entered-in-error".equals(codeString))
+          return ClaimResponseStatus.ENTEREDINERROR;
+        throw new IllegalArgumentException("Unknown ClaimResponseStatus code '"+codeString+"'");
+        }
+        public Enumeration<ClaimResponseStatus> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("active".equals(codeString))
+          return new Enumeration<ClaimResponseStatus>(this, ClaimResponseStatus.ACTIVE);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<ClaimResponseStatus>(this, ClaimResponseStatus.CANCELLED);
+        if ("draft".equals(codeString))
+          return new Enumeration<ClaimResponseStatus>(this, ClaimResponseStatus.DRAFT);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<ClaimResponseStatus>(this, ClaimResponseStatus.ENTEREDINERROR);
+        throw new FHIRException("Unknown ClaimResponseStatus code '"+codeString+"'");
+        }
+    public String toCode(ClaimResponseStatus code) {
+      if (code == ClaimResponseStatus.ACTIVE)
+        return "active";
+      if (code == ClaimResponseStatus.CANCELLED)
+        return "cancelled";
+      if (code == ClaimResponseStatus.DRAFT)
+        return "draft";
+      if (code == ClaimResponseStatus.ENTEREDINERROR)
+        return "entered-in-error";
+      return "?";
+      }
+    public String toSystem(ClaimResponseStatus code) {
+      return code.getSystem();
+      }
+    }
+
     @Block()
     public static class ItemComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * A service line number.
          */
-        @Child(name = "sequenceLinkId", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "sequenceLinkId", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Service instance", formalDefinition="A service line number." )
         protected PositiveIntType sequenceLinkId;
 
         /**
          * A list of note references to the notes provided below.
          */
-        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
         protected List<PositiveIntType> noteNumber;
 
         /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "adjudication", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Adjudication details", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
         /**
          * The second tier service adjudications for submitted services.
          */
-        @Child(name = "detail", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "detail", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Detail line items", formalDefinition="The second tier service adjudications for submitted services." )
         protected List<ItemDetailComponent> detail;
 
@@ -453,28 +575,28 @@ public class ClaimResponse extends DomainResource {
         /**
          * Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
          */
-        @Child(name = "category", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "category", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Adjudication category such as co-pay, eligible, benefit, etc.", formalDefinition="Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc." )
         protected Coding category;
 
         /**
          * Adjudication reason such as limit reached.
          */
-        @Child(name = "reason", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "reason", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Adjudication reason", formalDefinition="Adjudication reason such as limit reached." )
         protected Coding reason;
 
         /**
          * Monetary amount associated with the code.
          */
-        @Child(name = "amount", type = {Money.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "amount", type = {Money.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Monetary amount", formalDefinition="Monetary amount associated with the code." )
         protected Money amount;
 
         /**
          * A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        @Child(name = "value", type = {DecimalType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "value", type = {DecimalType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Non-monetary value", formalDefinition="A non-monetary value for example a percentage. Mutually exclusive to the amount element above." )
         protected DecimalType value;
 
@@ -769,28 +891,28 @@ public class ClaimResponse extends DomainResource {
         /**
          * A service line number.
          */
-        @Child(name = "sequenceLinkId", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "sequenceLinkId", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Service instance", formalDefinition="A service line number." )
         protected PositiveIntType sequenceLinkId;
 
         /**
          * A list of note references to the notes provided below.
          */
-        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
         protected List<PositiveIntType> noteNumber;
 
         /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Detail adjudication", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
         /**
          * The third tier service adjudications for submitted services.
          */
-        @Child(name = "subDetail", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "subDetail", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Subdetail line items", formalDefinition="The third tier service adjudications for submitted services." )
         protected List<SubDetailComponent> subDetail;
 
@@ -1169,21 +1291,21 @@ public class ClaimResponse extends DomainResource {
         /**
          * A service line number.
          */
-        @Child(name = "sequenceLinkId", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "sequenceLinkId", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Service instance", formalDefinition="A service line number." )
         protected PositiveIntType sequenceLinkId;
 
         /**
          * A list of note references to the notes provided below.
          */
-        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
         protected List<PositiveIntType> noteNumber;
 
         /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Subdetail adjudication", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
@@ -1492,60 +1614,73 @@ public class ClaimResponse extends DomainResource {
         /**
          * List of input service items which this service line is intended to replace.
          */
-        @Child(name = "sequenceLinkId", type = {PositiveIntType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "sequenceLinkId", type = {PositiveIntType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Service instances", formalDefinition="List of input service items which this service line is intended to replace." )
         protected List<PositiveIntType> sequenceLinkId;
 
         /**
-         * A list of note references to the notes provided below.
+         * The type of reveneu or cost center providing the product and/or service.
          */
-        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
-        protected List<PositiveIntType> noteNumber;
+        @Child(name = "revenue", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Revenue or cost center code", formalDefinition="The type of reveneu or cost center providing the product and/or service." )
+        protected Coding revenue;
+
+        /**
+         * Health Care Service Type Codes  to identify the classification of service or benefits.
+         */
+        @Child(name = "category", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Type of service or product", formalDefinition="Health Care Service Type Codes  to identify the classification of service or benefits." )
+        protected Coding category;
 
         /**
          * A code to indicate the Professional Service or Product supplied.
          */
-        @Child(name = "service", type = {Coding.class}, order=3, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "service", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Group, Service or Product", formalDefinition="A code to indicate the Professional Service or Product supplied." )
         protected Coding service;
 
         /**
+         * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
+         */
+        @Child(name = "modifier", type = {Coding.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours." )
+        protected List<Coding> modifier;
+
+        /**
          * The fee charged for the professional service or product..
          */
-        @Child(name = "fee", type = {Money.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "fee", type = {Money.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Professional fee or Product charge", formalDefinition="The fee charged for the professional service or product.." )
         protected Money fee;
 
         /**
+         * A list of note references to the notes provided below.
+         */
+        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
+        protected List<PositiveIntType> noteNumber;
+
+        /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Added items adjudication", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
         /**
          * The second tier service adjudications for payor added services.
          */
-        @Child(name = "detail", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "detail", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Added items details", formalDefinition="The second tier service adjudications for payor added services." )
         protected List<AddedItemsDetailComponent> detail;
 
-        private static final long serialVersionUID = -2117133936L;
+        private static final long serialVersionUID = -1130048899L;
 
     /**
      * Constructor
      */
       public AddedItemComponent() {
         super();
-      }
-
-    /**
-     * Constructor
-     */
-      public AddedItemComponent(Coding service) {
-        super();
-        this.service = service;
       }
 
         /**
@@ -1610,6 +1745,155 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
+         * @return {@link #revenue} (The type of reveneu or cost center providing the product and/or service.)
+         */
+        public Coding getRevenue() { 
+          if (this.revenue == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AddedItemComponent.revenue");
+            else if (Configuration.doAutoCreate())
+              this.revenue = new Coding(); // cc
+          return this.revenue;
+        }
+
+        public boolean hasRevenue() { 
+          return this.revenue != null && !this.revenue.isEmpty();
+        }
+
+        /**
+         * @param value {@link #revenue} (The type of reveneu or cost center providing the product and/or service.)
+         */
+        public AddedItemComponent setRevenue(Coding value) { 
+          this.revenue = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #category} (Health Care Service Type Codes  to identify the classification of service or benefits.)
+         */
+        public Coding getCategory() { 
+          if (this.category == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AddedItemComponent.category");
+            else if (Configuration.doAutoCreate())
+              this.category = new Coding(); // cc
+          return this.category;
+        }
+
+        public boolean hasCategory() { 
+          return this.category != null && !this.category.isEmpty();
+        }
+
+        /**
+         * @param value {@link #category} (Health Care Service Type Codes  to identify the classification of service or benefits.)
+         */
+        public AddedItemComponent setCategory(Coding value) { 
+          this.category = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #service} (A code to indicate the Professional Service or Product supplied.)
+         */
+        public Coding getService() { 
+          if (this.service == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AddedItemComponent.service");
+            else if (Configuration.doAutoCreate())
+              this.service = new Coding(); // cc
+          return this.service;
+        }
+
+        public boolean hasService() { 
+          return this.service != null && !this.service.isEmpty();
+        }
+
+        /**
+         * @param value {@link #service} (A code to indicate the Professional Service or Product supplied.)
+         */
+        public AddedItemComponent setService(Coding value) { 
+          this.service = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.)
+         */
+        public List<Coding> getModifier() { 
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          return this.modifier;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AddedItemComponent setModifier(List<Coding> theModifier) { 
+          this.modifier = theModifier;
+          return this;
+        }
+
+        public boolean hasModifier() { 
+          if (this.modifier == null)
+            return false;
+          for (Coding item : this.modifier)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public Coding addModifier() { //3
+          Coding t = new Coding();
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          this.modifier.add(t);
+          return t;
+        }
+
+        public AddedItemComponent addModifier(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          this.modifier.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #modifier}, creating it if it does not already exist
+         */
+        public Coding getModifierFirstRep() { 
+          if (getModifier().isEmpty()) {
+            addModifier();
+          }
+          return getModifier().get(0);
+        }
+
+        /**
+         * @return {@link #fee} (The fee charged for the professional service or product..)
+         */
+        public Money getFee() { 
+          if (this.fee == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AddedItemComponent.fee");
+            else if (Configuration.doAutoCreate())
+              this.fee = new Money(); // cc
+          return this.fee;
+        }
+
+        public boolean hasFee() { 
+          return this.fee != null && !this.fee.isEmpty();
+        }
+
+        /**
+         * @param value {@link #fee} (The fee charged for the professional service or product..)
+         */
+        public AddedItemComponent setFee(Money value) { 
+          this.fee = value;
+          return this;
+        }
+
+        /**
          * @return {@link #noteNumber} (A list of note references to the notes provided below.)
          */
         public List<PositiveIntType> getNoteNumber() { 
@@ -1668,54 +1952,6 @@ public class ClaimResponse extends DomainResource {
             if (v.equals(value)) // positiveInt
               return true;
           return false;
-        }
-
-        /**
-         * @return {@link #service} (A code to indicate the Professional Service or Product supplied.)
-         */
-        public Coding getService() { 
-          if (this.service == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create AddedItemComponent.service");
-            else if (Configuration.doAutoCreate())
-              this.service = new Coding(); // cc
-          return this.service;
-        }
-
-        public boolean hasService() { 
-          return this.service != null && !this.service.isEmpty();
-        }
-
-        /**
-         * @param value {@link #service} (A code to indicate the Professional Service or Product supplied.)
-         */
-        public AddedItemComponent setService(Coding value) { 
-          this.service = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #fee} (The fee charged for the professional service or product..)
-         */
-        public Money getFee() { 
-          if (this.fee == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create AddedItemComponent.fee");
-            else if (Configuration.doAutoCreate())
-              this.fee = new Money(); // cc
-          return this.fee;
-        }
-
-        public boolean hasFee() { 
-          return this.fee != null && !this.fee.isEmpty();
-        }
-
-        /**
-         * @param value {@link #fee} (The fee charged for the professional service or product..)
-         */
-        public AddedItemComponent setFee(Money value) { 
-          this.fee = value;
-          return this;
         }
 
         /**
@@ -1827,9 +2063,12 @@ public class ClaimResponse extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequenceLinkId", "positiveInt", "List of input service items which this service line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
-          childrenList.add(new Property("noteNumber", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
+          childrenList.add(new Property("revenue", "Coding", "The type of reveneu or cost center providing the product and/or service.", 0, java.lang.Integer.MAX_VALUE, revenue));
+          childrenList.add(new Property("category", "Coding", "Health Care Service Type Codes  to identify the classification of service or benefits.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("service", "Coding", "A code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("modifier", "Coding", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.", 0, java.lang.Integer.MAX_VALUE, modifier));
           childrenList.add(new Property("fee", "Money", "The fee charged for the professional service or product..", 0, java.lang.Integer.MAX_VALUE, fee));
+          childrenList.add(new Property("noteNumber", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
           childrenList.add(new Property("adjudication", "@ClaimResponse.item.adjudication", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
           childrenList.add(new Property("detail", "", "The second tier service adjudications for payor added services.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
@@ -1838,9 +2077,12 @@ public class ClaimResponse extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1422298666: /*sequenceLinkId*/ return this.sequenceLinkId == null ? new Base[0] : this.sequenceLinkId.toArray(new Base[this.sequenceLinkId.size()]); // PositiveIntType
-        case -1110033957: /*noteNumber*/ return this.noteNumber == null ? new Base[0] : this.noteNumber.toArray(new Base[this.noteNumber.size()]); // PositiveIntType
+        case 1099842588: /*revenue*/ return this.revenue == null ? new Base[0] : new Base[] {this.revenue}; // Coding
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
+        case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // Coding
         case 101254: /*fee*/ return this.fee == null ? new Base[0] : new Base[] {this.fee}; // Money
+        case -1110033957: /*noteNumber*/ return this.noteNumber == null ? new Base[0] : this.noteNumber.toArray(new Base[this.noteNumber.size()]); // PositiveIntType
         case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // AdjudicationComponent
         case -1335224239: /*detail*/ return this.detail == null ? new Base[0] : this.detail.toArray(new Base[this.detail.size()]); // AddedItemsDetailComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -1854,14 +2096,23 @@ public class ClaimResponse extends DomainResource {
         case -1422298666: // sequenceLinkId
           this.getSequenceLinkId().add(castToPositiveInt(value)); // PositiveIntType
           break;
-        case -1110033957: // noteNumber
-          this.getNoteNumber().add(castToPositiveInt(value)); // PositiveIntType
+        case 1099842588: // revenue
+          this.revenue = castToCoding(value); // Coding
+          break;
+        case 50511102: // category
+          this.category = castToCoding(value); // Coding
           break;
         case 1984153269: // service
           this.service = castToCoding(value); // Coding
           break;
+        case -615513385: // modifier
+          this.getModifier().add(castToCoding(value)); // Coding
+          break;
         case 101254: // fee
           this.fee = castToMoney(value); // Money
+          break;
+        case -1110033957: // noteNumber
+          this.getNoteNumber().add(castToPositiveInt(value)); // PositiveIntType
           break;
         case -231349275: // adjudication
           this.getAdjudication().add((AdjudicationComponent) value); // AdjudicationComponent
@@ -1878,12 +2129,18 @@ public class ClaimResponse extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("sequenceLinkId"))
           this.getSequenceLinkId().add(castToPositiveInt(value));
-        else if (name.equals("noteNumber"))
-          this.getNoteNumber().add(castToPositiveInt(value));
+        else if (name.equals("revenue"))
+          this.revenue = castToCoding(value); // Coding
+        else if (name.equals("category"))
+          this.category = castToCoding(value); // Coding
         else if (name.equals("service"))
           this.service = castToCoding(value); // Coding
+        else if (name.equals("modifier"))
+          this.getModifier().add(castToCoding(value));
         else if (name.equals("fee"))
           this.fee = castToMoney(value); // Money
+        else if (name.equals("noteNumber"))
+          this.getNoteNumber().add(castToPositiveInt(value));
         else if (name.equals("adjudication"))
           this.getAdjudication().add((AdjudicationComponent) value);
         else if (name.equals("detail"))
@@ -1896,9 +2153,12 @@ public class ClaimResponse extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1422298666: throw new FHIRException("Cannot make property sequenceLinkId as it is not a complex type"); // PositiveIntType
-        case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
+        case 1099842588:  return getRevenue(); // Coding
+        case 50511102:  return getCategory(); // Coding
         case 1984153269:  return getService(); // Coding
+        case -615513385:  return addModifier(); // Coding
         case 101254:  return getFee(); // Money
+        case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
         case -231349275:  return addAdjudication(); // AdjudicationComponent
         case -1335224239:  return addDetail(); // AddedItemsDetailComponent
         default: return super.makeProperty(hash, name);
@@ -1911,16 +2171,27 @@ public class ClaimResponse extends DomainResource {
         if (name.equals("sequenceLinkId")) {
           throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.sequenceLinkId");
         }
-        else if (name.equals("noteNumber")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.noteNumber");
+        else if (name.equals("revenue")) {
+          this.revenue = new Coding();
+          return this.revenue;
+        }
+        else if (name.equals("category")) {
+          this.category = new Coding();
+          return this.category;
         }
         else if (name.equals("service")) {
           this.service = new Coding();
           return this.service;
         }
+        else if (name.equals("modifier")) {
+          return addModifier();
+        }
         else if (name.equals("fee")) {
           this.fee = new Money();
           return this.fee;
+        }
+        else if (name.equals("noteNumber")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.noteNumber");
         }
         else if (name.equals("adjudication")) {
           return addAdjudication();
@@ -1940,13 +2211,20 @@ public class ClaimResponse extends DomainResource {
           for (PositiveIntType i : sequenceLinkId)
             dst.sequenceLinkId.add(i.copy());
         };
+        dst.revenue = revenue == null ? null : revenue.copy();
+        dst.category = category == null ? null : category.copy();
+        dst.service = service == null ? null : service.copy();
+        if (modifier != null) {
+          dst.modifier = new ArrayList<Coding>();
+          for (Coding i : modifier)
+            dst.modifier.add(i.copy());
+        };
+        dst.fee = fee == null ? null : fee.copy();
         if (noteNumber != null) {
           dst.noteNumber = new ArrayList<PositiveIntType>();
           for (PositiveIntType i : noteNumber)
             dst.noteNumber.add(i.copy());
         };
-        dst.service = service == null ? null : service.copy();
-        dst.fee = fee == null ? null : fee.copy();
         if (adjudication != null) {
           dst.adjudication = new ArrayList<AdjudicationComponent>();
           for (AdjudicationComponent i : adjudication)
@@ -1967,8 +2245,9 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof AddedItemComponent))
           return false;
         AddedItemComponent o = (AddedItemComponent) other;
-        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(noteNumber, o.noteNumber, true)
-           && compareDeep(service, o.service, true) && compareDeep(fee, o.fee, true) && compareDeep(adjudication, o.adjudication, true)
+        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(revenue, o.revenue, true)
+           && compareDeep(category, o.category, true) && compareDeep(service, o.service, true) && compareDeep(modifier, o.modifier, true)
+           && compareDeep(fee, o.fee, true) && compareDeep(noteNumber, o.noteNumber, true) && compareDeep(adjudication, o.adjudication, true)
            && compareDeep(detail, o.detail, true);
       }
 
@@ -1984,8 +2263,8 @@ public class ClaimResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId, noteNumber
-          , service, fee, adjudication, detail);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId, revenue, category
+          , service, modifier, fee, noteNumber, adjudication, detail);
       }
 
   public String fhirType() {
@@ -1998,34 +2277,55 @@ public class ClaimResponse extends DomainResource {
     @Block()
     public static class AddedItemsDetailComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * A list of note references to the notes provided below.
+         * The type of reveneu or cost center providing the product and/or service.
          */
-        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
-        protected List<PositiveIntType> noteNumber;
+        @Child(name = "revenue", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Revenue or cost center code", formalDefinition="The type of reveneu or cost center providing the product and/or service." )
+        protected Coding revenue;
+
+        /**
+         * Health Care Service Type Codes  to identify the classification of service or benefits.
+         */
+        @Child(name = "category", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Type of service or product", formalDefinition="Health Care Service Type Codes  to identify the classification of service or benefits." )
+        protected Coding category;
 
         /**
          * A code to indicate the Professional Service or Product supplied.
          */
-        @Child(name = "service", type = {Coding.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "service", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Service or Product", formalDefinition="A code to indicate the Professional Service or Product supplied." )
         protected Coding service;
 
         /**
+         * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
+         */
+        @Child(name = "modifier", type = {Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours." )
+        protected List<Coding> modifier;
+
+        /**
          * The fee charged for the professional service or product..
          */
-        @Child(name = "fee", type = {Money.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "fee", type = {Money.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Professional fee or Product charge", formalDefinition="The fee charged for the professional service or product.." )
         protected Money fee;
 
         /**
+         * A list of note references to the notes provided below.
+         */
+        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
+        protected List<PositiveIntType> noteNumber;
+
+        /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Added items detail adjudication", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
-        private static final long serialVersionUID = 786096785L;
+        private static final long serialVersionUID = -1633143220L;
 
     /**
      * Constructor
@@ -2034,13 +2334,154 @@ public class ClaimResponse extends DomainResource {
         super();
       }
 
-    /**
-     * Constructor
-     */
-      public AddedItemsDetailComponent(Coding service) {
-        super();
-        this.service = service;
-      }
+        /**
+         * @return {@link #revenue} (The type of reveneu or cost center providing the product and/or service.)
+         */
+        public Coding getRevenue() { 
+          if (this.revenue == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AddedItemsDetailComponent.revenue");
+            else if (Configuration.doAutoCreate())
+              this.revenue = new Coding(); // cc
+          return this.revenue;
+        }
+
+        public boolean hasRevenue() { 
+          return this.revenue != null && !this.revenue.isEmpty();
+        }
+
+        /**
+         * @param value {@link #revenue} (The type of reveneu or cost center providing the product and/or service.)
+         */
+        public AddedItemsDetailComponent setRevenue(Coding value) { 
+          this.revenue = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #category} (Health Care Service Type Codes  to identify the classification of service or benefits.)
+         */
+        public Coding getCategory() { 
+          if (this.category == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AddedItemsDetailComponent.category");
+            else if (Configuration.doAutoCreate())
+              this.category = new Coding(); // cc
+          return this.category;
+        }
+
+        public boolean hasCategory() { 
+          return this.category != null && !this.category.isEmpty();
+        }
+
+        /**
+         * @param value {@link #category} (Health Care Service Type Codes  to identify the classification of service or benefits.)
+         */
+        public AddedItemsDetailComponent setCategory(Coding value) { 
+          this.category = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #service} (A code to indicate the Professional Service or Product supplied.)
+         */
+        public Coding getService() { 
+          if (this.service == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AddedItemsDetailComponent.service");
+            else if (Configuration.doAutoCreate())
+              this.service = new Coding(); // cc
+          return this.service;
+        }
+
+        public boolean hasService() { 
+          return this.service != null && !this.service.isEmpty();
+        }
+
+        /**
+         * @param value {@link #service} (A code to indicate the Professional Service or Product supplied.)
+         */
+        public AddedItemsDetailComponent setService(Coding value) { 
+          this.service = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.)
+         */
+        public List<Coding> getModifier() { 
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          return this.modifier;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AddedItemsDetailComponent setModifier(List<Coding> theModifier) { 
+          this.modifier = theModifier;
+          return this;
+        }
+
+        public boolean hasModifier() { 
+          if (this.modifier == null)
+            return false;
+          for (Coding item : this.modifier)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public Coding addModifier() { //3
+          Coding t = new Coding();
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          this.modifier.add(t);
+          return t;
+        }
+
+        public AddedItemsDetailComponent addModifier(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          this.modifier.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #modifier}, creating it if it does not already exist
+         */
+        public Coding getModifierFirstRep() { 
+          if (getModifier().isEmpty()) {
+            addModifier();
+          }
+          return getModifier().get(0);
+        }
+
+        /**
+         * @return {@link #fee} (The fee charged for the professional service or product..)
+         */
+        public Money getFee() { 
+          if (this.fee == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AddedItemsDetailComponent.fee");
+            else if (Configuration.doAutoCreate())
+              this.fee = new Money(); // cc
+          return this.fee;
+        }
+
+        public boolean hasFee() { 
+          return this.fee != null && !this.fee.isEmpty();
+        }
+
+        /**
+         * @param value {@link #fee} (The fee charged for the professional service or product..)
+         */
+        public AddedItemsDetailComponent setFee(Money value) { 
+          this.fee = value;
+          return this;
+        }
 
         /**
          * @return {@link #noteNumber} (A list of note references to the notes provided below.)
@@ -2104,54 +2545,6 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #service} (A code to indicate the Professional Service or Product supplied.)
-         */
-        public Coding getService() { 
-          if (this.service == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create AddedItemsDetailComponent.service");
-            else if (Configuration.doAutoCreate())
-              this.service = new Coding(); // cc
-          return this.service;
-        }
-
-        public boolean hasService() { 
-          return this.service != null && !this.service.isEmpty();
-        }
-
-        /**
-         * @param value {@link #service} (A code to indicate the Professional Service or Product supplied.)
-         */
-        public AddedItemsDetailComponent setService(Coding value) { 
-          this.service = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #fee} (The fee charged for the professional service or product..)
-         */
-        public Money getFee() { 
-          if (this.fee == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create AddedItemsDetailComponent.fee");
-            else if (Configuration.doAutoCreate())
-              this.fee = new Money(); // cc
-          return this.fee;
-        }
-
-        public boolean hasFee() { 
-          return this.fee != null && !this.fee.isEmpty();
-        }
-
-        /**
-         * @param value {@link #fee} (The fee charged for the professional service or product..)
-         */
-        public AddedItemsDetailComponent setFee(Money value) { 
-          this.fee = value;
-          return this;
-        }
-
-        /**
          * @return {@link #adjudication} (The adjudications results.)
          */
         public List<AdjudicationComponent> getAdjudication() { 
@@ -2206,18 +2599,24 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("noteNumber", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
+          childrenList.add(new Property("revenue", "Coding", "The type of reveneu or cost center providing the product and/or service.", 0, java.lang.Integer.MAX_VALUE, revenue));
+          childrenList.add(new Property("category", "Coding", "Health Care Service Type Codes  to identify the classification of service or benefits.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("service", "Coding", "A code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("modifier", "Coding", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.", 0, java.lang.Integer.MAX_VALUE, modifier));
           childrenList.add(new Property("fee", "Money", "The fee charged for the professional service or product..", 0, java.lang.Integer.MAX_VALUE, fee));
+          childrenList.add(new Property("noteNumber", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
           childrenList.add(new Property("adjudication", "@ClaimResponse.item.adjudication", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
         }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1110033957: /*noteNumber*/ return this.noteNumber == null ? new Base[0] : this.noteNumber.toArray(new Base[this.noteNumber.size()]); // PositiveIntType
+        case 1099842588: /*revenue*/ return this.revenue == null ? new Base[0] : new Base[] {this.revenue}; // Coding
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Coding
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // Coding
+        case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // Coding
         case 101254: /*fee*/ return this.fee == null ? new Base[0] : new Base[] {this.fee}; // Money
+        case -1110033957: /*noteNumber*/ return this.noteNumber == null ? new Base[0] : this.noteNumber.toArray(new Base[this.noteNumber.size()]); // PositiveIntType
         case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // AdjudicationComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -2227,14 +2626,23 @@ public class ClaimResponse extends DomainResource {
       @Override
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1110033957: // noteNumber
-          this.getNoteNumber().add(castToPositiveInt(value)); // PositiveIntType
+        case 1099842588: // revenue
+          this.revenue = castToCoding(value); // Coding
+          break;
+        case 50511102: // category
+          this.category = castToCoding(value); // Coding
           break;
         case 1984153269: // service
           this.service = castToCoding(value); // Coding
           break;
+        case -615513385: // modifier
+          this.getModifier().add(castToCoding(value)); // Coding
+          break;
         case 101254: // fee
           this.fee = castToMoney(value); // Money
+          break;
+        case -1110033957: // noteNumber
+          this.getNoteNumber().add(castToPositiveInt(value)); // PositiveIntType
           break;
         case -231349275: // adjudication
           this.getAdjudication().add((AdjudicationComponent) value); // AdjudicationComponent
@@ -2246,12 +2654,18 @@ public class ClaimResponse extends DomainResource {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("noteNumber"))
-          this.getNoteNumber().add(castToPositiveInt(value));
+        if (name.equals("revenue"))
+          this.revenue = castToCoding(value); // Coding
+        else if (name.equals("category"))
+          this.category = castToCoding(value); // Coding
         else if (name.equals("service"))
           this.service = castToCoding(value); // Coding
+        else if (name.equals("modifier"))
+          this.getModifier().add(castToCoding(value));
         else if (name.equals("fee"))
           this.fee = castToMoney(value); // Money
+        else if (name.equals("noteNumber"))
+          this.getNoteNumber().add(castToPositiveInt(value));
         else if (name.equals("adjudication"))
           this.getAdjudication().add((AdjudicationComponent) value);
         else
@@ -2261,9 +2675,12 @@ public class ClaimResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
+        case 1099842588:  return getRevenue(); // Coding
+        case 50511102:  return getCategory(); // Coding
         case 1984153269:  return getService(); // Coding
+        case -615513385:  return addModifier(); // Coding
         case 101254:  return getFee(); // Money
+        case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
         case -231349275:  return addAdjudication(); // AdjudicationComponent
         default: return super.makeProperty(hash, name);
         }
@@ -2272,16 +2689,27 @@ public class ClaimResponse extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("noteNumber")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.noteNumber");
+        if (name.equals("revenue")) {
+          this.revenue = new Coding();
+          return this.revenue;
+        }
+        else if (name.equals("category")) {
+          this.category = new Coding();
+          return this.category;
         }
         else if (name.equals("service")) {
           this.service = new Coding();
           return this.service;
         }
+        else if (name.equals("modifier")) {
+          return addModifier();
+        }
         else if (name.equals("fee")) {
           this.fee = new Money();
           return this.fee;
+        }
+        else if (name.equals("noteNumber")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.noteNumber");
         }
         else if (name.equals("adjudication")) {
           return addAdjudication();
@@ -2293,13 +2721,20 @@ public class ClaimResponse extends DomainResource {
       public AddedItemsDetailComponent copy() {
         AddedItemsDetailComponent dst = new AddedItemsDetailComponent();
         copyValues(dst);
+        dst.revenue = revenue == null ? null : revenue.copy();
+        dst.category = category == null ? null : category.copy();
+        dst.service = service == null ? null : service.copy();
+        if (modifier != null) {
+          dst.modifier = new ArrayList<Coding>();
+          for (Coding i : modifier)
+            dst.modifier.add(i.copy());
+        };
+        dst.fee = fee == null ? null : fee.copy();
         if (noteNumber != null) {
           dst.noteNumber = new ArrayList<PositiveIntType>();
           for (PositiveIntType i : noteNumber)
             dst.noteNumber.add(i.copy());
         };
-        dst.service = service == null ? null : service.copy();
-        dst.fee = fee == null ? null : fee.copy();
         if (adjudication != null) {
           dst.adjudication = new ArrayList<AdjudicationComponent>();
           for (AdjudicationComponent i : adjudication)
@@ -2315,7 +2750,8 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof AddedItemsDetailComponent))
           return false;
         AddedItemsDetailComponent o = (AddedItemsDetailComponent) other;
-        return compareDeep(noteNumber, o.noteNumber, true) && compareDeep(service, o.service, true) && compareDeep(fee, o.fee, true)
+        return compareDeep(revenue, o.revenue, true) && compareDeep(category, o.category, true) && compareDeep(service, o.service, true)
+           && compareDeep(modifier, o.modifier, true) && compareDeep(fee, o.fee, true) && compareDeep(noteNumber, o.noteNumber, true)
            && compareDeep(adjudication, o.adjudication, true);
       }
 
@@ -2330,8 +2766,8 @@ public class ClaimResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(noteNumber, service, fee
-          , adjudication);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(revenue, category, service
+          , modifier, fee, noteNumber, adjudication);
       }
 
   public String fhirType() {
@@ -2346,28 +2782,28 @@ public class ClaimResponse extends DomainResource {
         /**
          * The sequence number of the line item submitted which contains the error. This value is omitted when the error is elsewhere.
          */
-        @Child(name = "sequenceLinkId", type = {PositiveIntType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "sequenceLinkId", type = {PositiveIntType.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Item sequence number", formalDefinition="The sequence number of the line item submitted which contains the error. This value is omitted when the error is elsewhere." )
         protected PositiveIntType sequenceLinkId;
 
         /**
          * The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
          */
-        @Child(name = "detailSequenceLinkId", type = {PositiveIntType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "detailSequenceLinkId", type = {PositiveIntType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Detail sequence number", formalDefinition="The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition." )
         protected PositiveIntType detailSequenceLinkId;
 
         /**
          * The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
          */
-        @Child(name = "subdetailSequenceLinkId", type = {PositiveIntType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "subdetailSequenceLinkId", type = {PositiveIntType.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Subdetail sequence number", formalDefinition="The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition." )
         protected PositiveIntType subdetailSequenceLinkId;
 
         /**
          * An error code,from a specified code system, which details why the claim could not be adjudicated.
          */
-        @Child(name = "code", type = {Coding.class}, order=4, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "code", type = {Coding.class}, order=4, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Error code detailing processing issues", formalDefinition="An error code,from a specified code system, which details why the claim could not be adjudicated." )
         protected Coding code;
 
@@ -2682,42 +3118,42 @@ public class ClaimResponse extends DomainResource {
         /**
          * Whether this represents partial or complete payment of the claim.
          */
-        @Child(name = "type", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "type", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Partial or Complete", formalDefinition="Whether this represents partial or complete payment of the claim." )
         protected Coding type;
 
         /**
          * Adjustment to the payment of this transaction which is not related to adjudication of this transaction.
          */
-        @Child(name = "adjustment", type = {Money.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "adjustment", type = {Money.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Payment adjustment for non-Claim issues", formalDefinition="Adjustment to the payment of this transaction which is not related to adjudication of this transaction." )
         protected Money adjustment;
 
         /**
          * Reason for the payment adjustment.
          */
-        @Child(name = "adjustmentReason", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "adjustmentReason", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Reason for Payment adjustment", formalDefinition="Reason for the payment adjustment." )
         protected Coding adjustmentReason;
 
         /**
          * Estimated payment data.
          */
-        @Child(name = "date", type = {DateType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "date", type = {DateType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Expected data of Payment", formalDefinition="Estimated payment data." )
         protected DateType date;
 
         /**
          * Payable less any payment adjustment.
          */
-        @Child(name = "amount", type = {Money.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "amount", type = {Money.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Payment amount", formalDefinition="Payable less any payment adjustment." )
         protected Money amount;
 
         /**
          * Payment identifier.
          */
-        @Child(name = "identifier", type = {Identifier.class}, order=6, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "identifier", type = {Identifier.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Payment identifier", formalDefinition="Payment identifier." )
         protected Identifier identifier;
 
@@ -3061,28 +3497,28 @@ public class ClaimResponse extends DomainResource {
         /**
          * An integer associated with each note which may be referred to from each service line item.
          */
-        @Child(name = "number", type = {PositiveIntType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "number", type = {PositiveIntType.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Note Number for this note", formalDefinition="An integer associated with each note which may be referred to from each service line item." )
         protected PositiveIntType number;
 
         /**
          * The note purpose: Print/Display.
          */
-        @Child(name = "type", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "type", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="display | print | printoper", formalDefinition="The note purpose: Print/Display." )
         protected Coding type;
 
         /**
          * The note text.
          */
-        @Child(name = "text", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "text", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Note explanatory text", formalDefinition="The note text." )
         protected StringType text;
 
         /**
          * The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.
          */
-        @Child(name = "language", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "language", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Language", formalDefinition="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English." )
         protected Coding language;
 
@@ -3371,42 +3807,42 @@ public class ClaimResponse extends DomainResource {
         /**
          * A service line item.
          */
-        @Child(name = "sequence", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "sequence", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Service instance identifier", formalDefinition="A service line item." )
         protected PositiveIntType sequence;
 
         /**
          * The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
          */
-        @Child(name = "focal", type = {BooleanType.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "focal", type = {BooleanType.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Is the focal Coverage", formalDefinition="The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated." )
         protected BooleanType focal;
 
         /**
          * Reference to the program or plan identification, underwriter or payor.
          */
-        @Child(name = "coverage", type = {Identifier.class, Coverage.class}, order=3, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "coverage", type = {Identifier.class, Coverage.class}, order=3, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Insurance information", formalDefinition="Reference to the program or plan identification, underwriter or payor." )
         protected Type coverage;
 
         /**
          * The contract number of a business agreement which describes the terms and conditions.
          */
-        @Child(name = "businessArrangement", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "businessArrangement", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Business agreement", formalDefinition="The contract number of a business agreement which describes the terms and conditions." )
         protected StringType businessArrangement;
 
         /**
          * A list of references from the Insurer to which these services pertain.
          */
-        @Child(name = "preAuthRef", type = {StringType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "preAuthRef", type = {StringType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Pre-Authorization/Determination Reference", formalDefinition="A list of references from the Insurer to which these services pertain." )
         protected List<StringType> preAuthRef;
 
         /**
          * The Coverages adjudication details.
          */
-        @Child(name = "claimResponse", type = {ClaimResponse.class}, order=6, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "claimResponse", type = {ClaimResponse.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Adjudication results", formalDefinition="The Coverages adjudication details." )
         protected Reference claimResponse;
 
@@ -3889,164 +4325,179 @@ public class ClaimResponse extends DomainResource {
     /**
      * The Response business identifier.
      */
-    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Response  number", formalDefinition="The Response business identifier." )
     protected List<Identifier> identifier;
 
     /**
+     * The status of the resource instance.
+     */
+    @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="active | cancelled | draft | entered-in-error", formalDefinition="The status of the resource instance." )
+    protected Enumeration<ClaimResponseStatus> status;
+
+    /**
      * Original request resource referrence.
      */
-    @Child(name = "request", type = {Identifier.class, Claim.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "request", type = {Identifier.class, Claim.class}, order=2, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Id of resource triggering adjudication", formalDefinition="Original request resource referrence." )
     protected Type request;
 
     /**
      * The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
      */
-    @Child(name = "ruleset", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "ruleset", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Resource version", formalDefinition="The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources." )
     protected Coding ruleset;
 
     /**
      * The style (standard) and version of the original material which was converted into this resource.
      */
-    @Child(name = "originalRuleset", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "originalRuleset", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
     protected Coding originalRuleset;
 
     /**
      * The date when the enclosed suite of services were performed or completed.
      */
-    @Child(name = "created", type = {DateTimeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "created", type = {DateTimeType.class}, order=5, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Creation date", formalDefinition="The date when the enclosed suite of services were performed or completed." )
     protected DateTimeType created;
 
     /**
      * The Insurer who produced this adjudicated response.
      */
-    @Child(name = "organization", type = {Identifier.class, Organization.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "organization", type = {Identifier.class, Organization.class}, order=6, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Insurer", formalDefinition="The Insurer who produced this adjudicated response." )
     protected Type organization;
 
     /**
      * The practitioner who is responsible for the services rendered to the patient.
      */
-    @Child(name = "requestProvider", type = {Identifier.class, Practitioner.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "requestProvider", type = {Identifier.class, Practitioner.class}, order=7, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Responsible practitioner", formalDefinition="The practitioner who is responsible for the services rendered to the patient." )
     protected Type requestProvider;
 
     /**
      * The organization which is responsible for the services rendered to the patient.
      */
-    @Child(name = "requestOrganization", type = {Identifier.class, Organization.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "requestOrganization", type = {Identifier.class, Organization.class}, order=8, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Responsible organization", formalDefinition="The organization which is responsible for the services rendered to the patient." )
     protected Type requestOrganization;
 
     /**
      * Processing outcome errror, partial or complete processing.
      */
-    @Child(name = "outcome", type = {Coding.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "outcome", type = {Coding.class}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="complete | error | partial", formalDefinition="Processing outcome errror, partial or complete processing." )
     protected Coding outcome;
 
     /**
      * A description of the status of the adjudication.
      */
-    @Child(name = "disposition", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "disposition", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Disposition Message", formalDefinition="A description of the status of the adjudication." )
     protected StringType disposition;
 
     /**
      * Party to be reimbursed: Subscriber, provider, other.
      */
-    @Child(name = "payeeType", type = {Coding.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "payeeType", type = {Coding.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Party to be paid any benefits payable", formalDefinition="Party to be reimbursed: Subscriber, provider, other." )
     protected Coding payeeType;
 
     /**
      * The first tier service adjudications for submitted services.
      */
-    @Child(name = "item", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "item", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Line items", formalDefinition="The first tier service adjudications for submitted services." )
     protected List<ItemComponent> item;
 
     /**
      * The first tier service adjudications for payor added services.
      */
-    @Child(name = "addItem", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "addItem", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Insurer added line items", formalDefinition="The first tier service adjudications for payor added services." )
     protected List<AddedItemComponent> addItem;
 
     /**
      * Mutually exclusive with Services Provided (Item).
      */
-    @Child(name = "error", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "error", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Processing errors", formalDefinition="Mutually exclusive with Services Provided (Item)." )
     protected List<ErrorComponent> error;
 
     /**
      * The total cost of the services reported.
      */
-    @Child(name = "totalCost", type = {Money.class}, order=14, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "totalCost", type = {Money.class}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Total Cost of service from the Claim", formalDefinition="The total cost of the services reported." )
     protected Money totalCost;
 
     /**
      * The amount of deductible applied which was not allocated to any particular service line.
      */
-    @Child(name = "unallocDeductable", type = {Money.class}, order=15, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "unallocDeductable", type = {Money.class}, order=16, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Unallocated deductible", formalDefinition="The amount of deductible applied which was not allocated to any particular service line." )
     protected Money unallocDeductable;
 
     /**
      * Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductible).
      */
-    @Child(name = "totalBenefit", type = {Money.class}, order=16, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "totalBenefit", type = {Money.class}, order=17, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Total benefit payable for the Claim", formalDefinition="Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductible)." )
     protected Money totalBenefit;
 
     /**
      * Payment details for the claim if the claim has been paid.
      */
-    @Child(name = "payment", type = {}, order=17, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "payment", type = {}, order=18, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="", formalDefinition="Payment details for the claim if the claim has been paid." )
     protected PaymentComponent payment;
 
     /**
      * Status of funds reservation (For provider, for Patient, None).
      */
-    @Child(name = "reserved", type = {Coding.class}, order=18, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "reserved", type = {Coding.class}, order=19, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Funds reserved status", formalDefinition="Status of funds reservation (For provider, for Patient, None)." )
     protected Coding reserved;
 
     /**
      * The form to be used for printing the content.
      */
-    @Child(name = "form", type = {Coding.class}, order=19, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "form", type = {Coding.class}, order=20, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Printed Form Identifier", formalDefinition="The form to be used for printing the content." )
     protected Coding form;
 
     /**
      * Note text.
      */
-    @Child(name = "note", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "note", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Processing notes", formalDefinition="Note text." )
     protected List<NoteComponent> note;
 
     /**
      * Financial instrument by which payment information for health care.
      */
-    @Child(name = "coverage", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "coverage", type = {}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Insurance or medical plan", formalDefinition="Financial instrument by which payment information for health care." )
     protected List<CoverageComponent> coverage;
 
-    private static final long serialVersionUID = 421611386L;
+    private static final long serialVersionUID = -467293002L;
 
   /**
    * Constructor
    */
     public ClaimResponse() {
       super();
+    }
+
+  /**
+   * Constructor
+   */
+    public ClaimResponse(Enumeration<ClaimResponseStatus> status) {
+      super();
+      this.status = status;
     }
 
     /**
@@ -4100,6 +4551,51 @@ public class ClaimResponse extends DomainResource {
         addIdentifier();
       }
       return getIdentifier().get(0);
+    }
+
+    /**
+     * @return {@link #status} (The status of the resource instance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Enumeration<ClaimResponseStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ClaimResponse.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<ClaimResponseStatus>(new ClaimResponseStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (The status of the resource instance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public ClaimResponse setStatusElement(Enumeration<ClaimResponseStatus> value) { 
+      this.status = value;
+      return this;
+    }
+
+    /**
+     * @return The status of the resource instance.
+     */
+    public ClaimResponseStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value The status of the resource instance.
+     */
+    public ClaimResponse setStatus(ClaimResponseStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<ClaimResponseStatus>(new ClaimResponseStatusEnumFactory());
+        this.status.setValue(value);
+      return this;
     }
 
     /**
@@ -4888,6 +5384,7 @@ public class ClaimResponse extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The Response business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("status", "code", "The status of the resource instance.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("request[x]", "Identifier|Reference(Claim)", "Original request resource referrence.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("ruleset", "Coding", "The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.", 0, java.lang.Integer.MAX_VALUE, ruleset));
         childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
@@ -4915,6 +5412,7 @@ public class ClaimResponse extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ClaimResponseStatus>
         case 1095692943: /*request*/ return this.request == null ? new Base[0] : new Base[] {this.request}; // Type
         case 1548678118: /*ruleset*/ return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
         case 1089373397: /*originalRuleset*/ return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
@@ -4946,6 +5444,9 @@ public class ClaimResponse extends DomainResource {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
+          break;
+        case -892481550: // status
+          this.status = new ClaimResponseStatusEnumFactory().fromType(value); // Enumeration<ClaimResponseStatus>
           break;
         case 1095692943: // request
           this.request = (Type) value; // Type
@@ -5019,6 +5520,8 @@ public class ClaimResponse extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("status"))
+          this.status = new ClaimResponseStatusEnumFactory().fromType(value); // Enumeration<ClaimResponseStatus>
         else if (name.equals("request[x]"))
           this.request = (Type) value; // Type
         else if (name.equals("ruleset"))
@@ -5069,6 +5572,7 @@ public class ClaimResponse extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ClaimResponseStatus>
         case 37106577:  return getRequest(); // Type
         case 1548678118:  return getRuleset(); // Coding
         case 1089373397:  return getOriginalRuleset(); // Coding
@@ -5099,6 +5603,9 @@ public class ClaimResponse extends DomainResource {
       public Base addChild(String name) throws FHIRException {
         if (name.equals("identifier")) {
           return addIdentifier();
+        }
+        else if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.status");
         }
         else if (name.equals("requestIdentifier")) {
           this.request = new Identifier();
@@ -5210,6 +5717,7 @@ public class ClaimResponse extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
+        dst.status = status == null ? null : status.copy();
         dst.request = request == null ? null : request.copy();
         dst.ruleset = ruleset == null ? null : ruleset.copy();
         dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
@@ -5265,9 +5773,9 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof ClaimResponse))
           return false;
         ClaimResponse o = (ClaimResponse) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(request, o.request, true) && compareDeep(ruleset, o.ruleset, true)
-           && compareDeep(originalRuleset, o.originalRuleset, true) && compareDeep(created, o.created, true)
-           && compareDeep(organization, o.organization, true) && compareDeep(requestProvider, o.requestProvider, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(request, o.request, true)
+           && compareDeep(ruleset, o.ruleset, true) && compareDeep(originalRuleset, o.originalRuleset, true)
+           && compareDeep(created, o.created, true) && compareDeep(organization, o.organization, true) && compareDeep(requestProvider, o.requestProvider, true)
            && compareDeep(requestOrganization, o.requestOrganization, true) && compareDeep(outcome, o.outcome, true)
            && compareDeep(disposition, o.disposition, true) && compareDeep(payeeType, o.payeeType, true) && compareDeep(item, o.item, true)
            && compareDeep(addItem, o.addItem, true) && compareDeep(error, o.error, true) && compareDeep(totalCost, o.totalCost, true)
@@ -5283,14 +5791,15 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof ClaimResponse))
           return false;
         ClaimResponse o = (ClaimResponse) other;
-        return compareValues(created, o.created, true) && compareValues(disposition, o.disposition, true);
+        return compareValues(status, o.status, true) && compareValues(created, o.created, true) && compareValues(disposition, o.disposition, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, request, ruleset
-          , originalRuleset, created, organization, requestProvider, requestOrganization, outcome
-          , disposition, payeeType, item, addItem, error, totalCost, unallocDeductable, totalBenefit
-          , payment, reserved, form, note, coverage);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, request
+          , ruleset, originalRuleset, created, organization, requestProvider, requestOrganization
+          , outcome, disposition, payeeType, item, addItem, error, totalCost, unallocDeductable
+          , totalBenefit, payment, reserved, form, note, coverage);
       }
 
   @Override
