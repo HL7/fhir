@@ -1855,7 +1855,7 @@
  -- Row 191 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.financial.benefit[x]
   Card. = 0..1
-  Type = unsignedInt|Money
+  Type = unsignedInt|string|Money
   Short Label = Benefits allowed
   Definition = Benefits allowed.
 

@@ -66,12 +66,17 @@
     <display value="Maxillofacilial Prosthetics"/>
     <definition value="Maxillofacilial Prosthetics."/>
   </concept>
-   <concept>
+  <concept>
     <code value="28"/>
     <display value="Adjunctive Dental Services"/>
     <definition value="Adjunctive Dental Services."/>
   </concept>
- <concept>
+  <concept>
+    <code value="30"/>
+    <display value="Health Benefit Plan Coverage"/>
+    <definition value="Health Benefit Plan Coverage."/>
+  </concept>
+  <concept>
     <code value="35"/>
     <display value="Dental Care"/>
     <definition value="Dental Care."/>
@@ -85,6 +90,11 @@
     <code value="37"/>
     <display value="Dental Accident"/>
     <definition value="Dental Accident."/>
+  </concept>
+  <concept>
+    <code value="49"/>
+    <display value="Hospital Room and Board"/>
+    <definition value="Hospital Room and Board."/>
   </concept>
   <concept>
     <code value="55"/>
@@ -112,8 +122,33 @@
     <definition value="Donor Procedures such as organ harvest."/>
   </concept>
   <concept>
+    <code value="69"/>
+    <display value="Maternity"/>
+    <definition value="Maternity."/>
+  </concept>
+  <concept>
     <code value="76"/>
     <display value="Renal Dialysis"/>
     <definition value="Renal dialysis."/>
+  </concept>
+  <concept>
+    <code value="F1"/>
+    <display value="Medical Coverage"/>
+    <definition value="Medical Coverage."/>
+  </concept>
+  <concept>
+    <code value="F3"/>
+    <display value="Dental Coverage"/>
+    <definition value="Dental Coverage."/>
+  </concept>
+  <concept>
+    <code value="F3"/>
+    <display value="Hearing Coverage"/>
+    <definition value="Hearing Coverage."/>
+  </concept>
+  <concept>
+    <code value="F6"/>
+    <display value="Vision Coverage"/>
+    <definition value="Vision Coverage."/>
   </concept>
   </CodeSystem>

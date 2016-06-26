@@ -15,6 +15,11 @@
     <definition value="Annual, renewing on the anniversary"/>
   </concept>
   <concept>
+    <code value="day"/>
+    <display value="Day"/>
+    <definition value="Per day"/>
+  </concept>
+  <concept>
     <code value="lifetime"/>
     <display value="Lifetime"/>
     <definition value="For the total term, lifetime, of the policy or coverage"/>

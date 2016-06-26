@@ -196,11 +196,11 @@
  -- Row 16 -----------------------------------
   Element = EligibilityResponse.form
   Card. = 0..1
-  UML = G42
   Type = Coding
   Binding = Forms
   Short Label = Printed Form Identifier
   Definition = The form to be used for printing the content.
+  CDAnet v4 Mapping = G42
 
  -- Row 17 -----------------------------------
   Element = !Plan Balance Information
@@ -208,10 +208,10 @@
  -- Row 18 -----------------------------------
   Element = EligibilityResponse.benefitBalance
   Card. = 0..*
+  UML = 380;0
   Type = =Benefits
   Short Label = Benefits by Category
   Definition = Benefits and optionally current balances by Category
-  Display Hint = 600;600
 
  -- Row 19 -----------------------------------
   Element = EligibilityResponse.benefitBalance.category
@@ -270,10 +270,10 @@
  -- Row 26 -----------------------------------
   Element = EligibilityResponse.benefitBalance.financial
   Card. = 0..*
+  UML = 380;180
   Type = =Benefit
   Short Label = Benefit Summary
   Definition = Benefits Used to date
-  Display Hint = 600;750
 
  -- Row 27 -----------------------------------
   Element = EligibilityResponse.benefitBalance.financial.type
@@ -286,7 +286,7 @@
  -- Row 28 -----------------------------------
   Element = EligibilityResponse.benefitBalance.financial.benefit[x]
   Card. = 0..1
-  Type = unsignedInt|Money
+  Type = unsignedInt|string|Money
   Short Label = Benefits allowed
   Definition = Benefits allowed
 
@@ -304,7 +304,7 @@
  -- Row 31 -----------------------------------
   Element = EligibilityResponse.error
   Card. = 0..*
-  UML = 300;300
+  UML = 50;300
   Type = =Errors
   Short Label = Processing errors
   Definition = Mutually exclusive with Services Provided (Item).
@@ -400,5 +400,11 @@
   Identity = E2500
   Description = General Person Primary Coverage Example
   Filename = eligibilityresponse-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = General-Primary-B1
+  Identity = E2500
+  Description = General Person Primary Coverage  with Benefit Details
+  Filename = eligibilityresponse-example-benefits.xml
 
 === Sheet Examples =====================================
