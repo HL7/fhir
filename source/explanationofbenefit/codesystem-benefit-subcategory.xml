@@ -142,7 +142,7 @@
     <definition value="Dental Coverage."/>
   </concept>
   <concept>
-    <code value="F3"/>
+    <code value="F4"/>
     <display value="Hearing Coverage"/>
     <definition value="Hearing Coverage."/>
   </concept>
