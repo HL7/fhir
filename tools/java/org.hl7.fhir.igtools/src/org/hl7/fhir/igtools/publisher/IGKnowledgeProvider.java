@@ -306,5 +306,11 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     return canonical;
   }
 
+  public String getLinkFor(FetchedFile f, FetchedResource r) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+ 
 
 }

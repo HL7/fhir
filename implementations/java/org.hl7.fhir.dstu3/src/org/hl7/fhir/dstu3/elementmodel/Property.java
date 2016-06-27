@@ -50,6 +50,8 @@ public class Property {
 	}
 
 	public String getType(String elementName) {
+    if (!definition.getPath().contains("."))
+      return definition.getPath();
 		if (definition.getType().size() == 0)
 			return null;
 		else if (definition.getType().size() > 1) {
@@ -114,7 +116,7 @@ public class Property {
 	}
 
 	public boolean isList() {
-	  return !definition.getMax().equals("1");
+	  return !"1".equals(definition.getMax());
 	}
 
   public String getScopedPropertyName() {

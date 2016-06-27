@@ -1,4 +1,4 @@
-package org.hl7.fhir.igtools.publisher;
+package org.hl7.fhir.igtools.ui;
 
 import java.awt.EventQueue;
 

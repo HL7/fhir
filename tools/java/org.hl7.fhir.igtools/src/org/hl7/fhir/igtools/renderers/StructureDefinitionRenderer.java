@@ -40,6 +40,8 @@ import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.igtools.publisher.FetchedFile;
+import org.hl7.fhir.igtools.publisher.FetchedResource;
 import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -851,6 +853,24 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     b.append("<p>\r\n");
     b.append("This profile was published on "+sd.getDate().toString()+" as a "+sd.getStatus().toCode()+" by "+sd.getPublisher()+".\r\n");
     b.append("</p>\r\n");
+    return b.toString();
+  }
+
+  public String exampleList(List<FetchedFile> fileList) {
+    StringBuilder b = new StringBuilder();
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        for (String p : r.getProfiles()) {
+          if (sd.getUrl().equals(p)) {
+            String name = r.getTitle();
+            if (Utilities.noString(name))
+              name = "example";
+            String ref = igp.getLinkFor(f, r);
+            b.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a></li>\r\n");
+          }
+        }
+      }
+    }
     return b.toString();
   }
 

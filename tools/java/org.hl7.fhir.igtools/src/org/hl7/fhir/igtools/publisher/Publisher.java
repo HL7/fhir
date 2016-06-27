@@ -68,6 +68,7 @@ import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
 import org.hl7.fhir.igtools.renderers.ValidationPresenter;
 import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
 import org.hl7.fhir.igtools.spreadsheets.IgSpreadsheetParser;
+import org.hl7.fhir.igtools.ui.GraphicalPublisher;
 import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
 import org.hl7.fhir.rdf.RdfGenerator;
 import org.hl7.fhir.utilities.CSFile;
@@ -560,7 +561,9 @@ public class Publisher {
         FetchedResource r = f.addResource();
         r.setResource(b.getResource());
         r.setId(b.getResource().getId());
-        r.setElement(new ObjectConverter(context).convert(r.getResource()));          
+        r.setElement(new ObjectConverter(context).convert(r.getResource()));  
+        for (UriType p : b.getResource().getMeta().getProfile())
+          r.getProfiles().add(p.asStringValue());
         r.setTitle(r.getElement().getChildValue("name"));
         igpkp.findConfiguration(f, r);
       }
@@ -680,6 +683,12 @@ public class Publisher {
       }
       FetchedResource r = file.addResource();
       r.setElement(e).setId(e.getChildValue("id")).setTitle(e.getChildValue("name"));
+      Element m = e.getNamedChild("meta");
+      if (m != null) {
+        List<Element> profiles = m.getChildrenByName("profile");
+        for (Element p : profiles)
+          r.getProfiles().add(p.getValue());
+      }
       igpkp.findConfiguration(file, r);
     }
   }
@@ -731,7 +740,9 @@ public class Publisher {
           nr.setElement(e);
           nr.setId(e.getChildValue("id"));
           nr.setTitle("Generated Example");
+          nr.getProfiles().add(sd.getUrl());
           f.getResources().add(nr);
+          igpkp.findConfiguration(f, nr);
         }
       }
     }
@@ -857,6 +868,8 @@ public class Publisher {
   }
 
   private void generateSummaryOutputs() throws IOException {
+    generateResourceReferences();
+    
     JsonObject data = new JsonObject();
     data.addProperty("path", specPath);
     data.addProperty("canonical", igpkp.getCanonical());
@@ -871,6 +884,59 @@ public class Publisher {
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(data);
     TextFile.stringToFile(json, Utilities.path(tempDir, "data", "fhir.json"));    
+  }
+
+  private void generateResourceReferences() throws IOException {
+    for (ResourceType rt : ResourceType.values()) {
+      generateResourceReferences(rt);
+    }
+  }
+
+  private void generateResourceReferences(ResourceType rt) throws IOException {
+    StringBuilder list = new StringBuilder();
+    StringBuilder table = new StringBuilder();
+    boolean found = false;
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getElement().fhirType().equals(rt.toString())) {
+          found = true;
+          String name = r.getTitle();
+          if (Utilities.noString(name))
+            name = rt.toString();
+          String ref = igpkp.getLinkFor(f, r);
+          String desc = r.getTitle();
+          if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
+            name = ((BaseConformance) r.getResource()).getName();
+            desc = getDesc((BaseConformance) r.getResource(), desc);
+          }
+          list.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a>"+Utilities.escapeXml(desc)+"</li>/r/n");
+          table.append(" <tr><td><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a></td><td>"+Utilities.escapeXml(desc)+"</td></tr>\r\n");
+        }
+      }
+    }
+    if (found) {
+      fragment("list-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), list.toString());
+      fragment("table-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), table.toString());
+    }
+  }
+
+  private String getDesc(BaseConformance r, String desc) {
+    if (r instanceof CodeSystem) {
+      CodeSystem v = (CodeSystem) r;
+      if (v.hasDescription())
+        return v.getDescription();
+    }
+    if (r instanceof ValueSet) {
+      ValueSet v = (ValueSet) r;
+      if (v.hasDescription())
+        return v.getDescription();
+    }
+    if (r instanceof StructureDefinition) {
+      StructureDefinition v = (StructureDefinition) r;
+      if (v.hasDescription())
+        return v.getDescription();
+    }
+    return desc;
   }
 
   private Number getErrorCount() {
@@ -1155,6 +1221,9 @@ public class Publisher {
       fragment(sd.getId()+"-maps", sdr.mappings());
     if (wantGen(f, "xref")) 
       fragmentError(sd.getId()+"-sd-xref", "Yet to be done: xref");
+    
+    if (wantGen(f, "example-list")) 
+      fragment("example-list-"+sd.getId(), sdr.exampleList(fileList));
   }
 
   private XhtmlNode getXhtml(FetchedResource f) {
