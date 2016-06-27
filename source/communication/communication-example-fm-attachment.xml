@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Communication   xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/communication.xsd">
+  <id value="fm-attachment"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Attachment which is unsolicited</div>
+  </text>
+  
+  <!-- insert contents here -->
+   <contained>
+    <Organization>
+      <id value="provider"/>
+      <identifier>
+        <system value="http://www.jurisdiction.com/provideroffices"/>
+        <value value="3456"/>
+      </identifier>
+    </Organization>
+  </contained>
+
+  <contained>
+    <Organization>
+      <id value="payor"/>
+      <identifier>
+        <system value="http://www.jurisdiction.com/insurer"/>
+        <value value="123456"/>
+      </identifier>
+    </Organization>
+  </contained>
+
+  <!-- Example using Context Extensions
+  <extension url="http://hl7.org/fhir/StructureDefinition/attachment-context-provider">
+    <valueIdentifier>
+	  <system value="http://happyvalley.com/claim"/>
+      <value value="12345"/>
+	</valueIdentifier>
+  </extension>
+  
+  <extension url="http://hl7.org/fhir/StructureDefinition/attachment-context-payor">
+    <valueIdentifier>
+	  <system value="http://www.BenefitsInc.com/fhir/remittance"/>
+      <value value="R3500"/>
+	</valueIdentifier>
+  </extension>
+  -->
+  <!-- body of the resource -->
+  
+  <identifier>
+		<system value="http://www.providerco.com/communication"/>
+		<value value="12345"/>
+  </identifier>
+  
+   <category>
+      <coding>
+        <system value="http://acme.org/messagetypes"/>
+        <code value="SolicitedAttachment"/>
+      </coding>
+   </category>
+   <sender>
+     <reference value="#provider"/>
+   </sender>
+   <recipient>
+    <reference value="#payor"/>
+  </recipient>
+  <payload>
+    <contentAttachment>
+	  <contentType value="application/pdf" />
+	  <data value="SGVsbG8=" />
+	  <title value="accident notes 20100201.pdf" />
+	  <creation value="2010-02-01T11:50:23-05:00"/>
+    </contentAttachment>
+  </payload> 
+  <payload>
+    <contentAttachment>
+	  <contentType value="application/pdf" />
+	  <url value="http://happyvalley.com/docs/AB12345" />
+	  <size value="104274" />
+	  <hash value="SGVsbG8gdGhlcmU=" />
+	  <creation value="2010-02-01T10:57:34+01:00"/>
+    </contentAttachment>
+  </payload>
+  <status value="completed"/>
+  <sent value="2016-06-12T18:01:10-08:00"/>
+
+    <!-- Example using Context element defined as: context[x] 0..* Identifier | Resource(Any)
+    <contextIdentifier>
+	  <system value="http://happyvalley.com/claim"/>
+      <value value="12345"/>
+	</contextIdentifier>
+  
+    <contextIdentifier>
+	  <system value="http://www.BenefitsInc.com/fhir/remittance"/>
+      <value value="R3500"/>
+	</contextIdentifier>
+    -->
+</Communication>

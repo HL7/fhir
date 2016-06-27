@@ -310,4 +310,10 @@
   Description = An example of an alert message
   Filename = communicationrequest-example.xml
 
+ -- Row 2 -----------------------------------
+  Name = FM Solicit an Attachment
+  Identity = fm-solicit
+  Description = An example of a request for additional information
+  Filename = communicationrequest-example-fm-solicit-attachment.xml
+
 === Sheet Examples =====================================

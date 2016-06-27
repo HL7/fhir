@@ -260,4 +260,16 @@
   Description = An example of an alert message
   Filename = communication-example.xml
 
+ -- Row 2 -----------------------------------
+  Name = FM Solicited Attachment
+  Identity = fm-solicited
+  Description = An example of a response to a request for additional information
+  Filename = communication-example-fm-solicited-attachment.xml
+
+ -- Row 3 -----------------------------------
+  Name = FM Unsolicited Attachment
+  Identity = fm-attachment
+  Description = An example of an unsolicited attachment - provision of additional information
+  Filename = communication-example-fm-attachment.xml
+
 === Sheet Examples =====================================

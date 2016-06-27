@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CommunicationRequest   xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/communicationrequest.xsd">
+  <id value="fm-solicit"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Request for Accident Report</div>
+  </text>
+  
+  <!-- insert contents here -->
+  
+    <contained>
+    <Organization>
+      <id value="provider"/>
+      <identifier>
+        <system value="http://www.jurisdiction.com/provideroffices"/>
+        <value value="3456"/>
+      </identifier>
+    </Organization>
+  </contained>
+
+  <contained>
+    <Organization>
+      <id value="payor"/>
+      <identifier>
+        <system value="http://www.jurisdiction.com/insurer"/>
+        <value value="123456"/>
+      </identifier>
+    </Organization>
+  </contained>
+
+  <!-- body of the resource -->
+
+  <identifier>
+    <system value="http://www.jurisdiction.com/insurer/123456"/>
+    <value value="ABC123"/> <!-- this is the value to which the response will refer -->
+  </identifier>
+  
+  <category>
+     <coding>
+       <system value="http://acme.org/messagetypes"/>
+       <code value="SolicitedAttachmentRequest"/>
+     </coding>
+  </category>
+
+   <sender>
+     <reference value="#payor"/>
+   </sender>
+   <recipient>
+      <reference value="#provider"/>
+  </recipient>
+  
+  <payload>
+    <contentString value="Please provide the accident report and any associated pictures to support your Claim# DEF5647."/>
+  </payload>
+  
+  <status value="requested"/>
+  
+  <requestedOn value="2016-06-10T11:01:10-08:00"/>
+  
+</CommunicationRequest>
