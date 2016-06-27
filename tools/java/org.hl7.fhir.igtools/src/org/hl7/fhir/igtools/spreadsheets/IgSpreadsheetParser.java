@@ -52,6 +52,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.Reference;
+import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.SearchParameter;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
@@ -197,6 +198,8 @@ public class IgSpreadsheetParser {
     if (logical) {
       sd.setKind(StructureDefinitionKind.LOGICAL);  
       sd.setId(sd.getDifferential().getElement().get(0).getPath());
+      sd.setBaseType(sd.getDifferential().getElementFirstRep().getTypeFirstRep().getCode());
+      sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+sd.getBaseType());
     } else {
       sd.setKind(StructureDefinitionKind.RESOURCE);  
       sd.setId(n.toLowerCase());

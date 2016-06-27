@@ -634,6 +634,7 @@ public class Publisher {
     load("ConceptMap");
     load("StructureMap");
     generateSnapshots();
+    generateAdditionalExamples();
   }
 
   private boolean noteFile(ImplementationGuidePackageResourceComponent key, FetchedFile file) {
@@ -715,6 +716,27 @@ public class Publisher {
     }
   }
 
+  private void generateAdditionalExamples() throws Exception {
+    ProfileUtilities utils = new ProfileUtilities(context, null, null);
+    for (FetchedFile f : changeList) {
+      List<StructureDefinition> list = new ArrayList<StructureDefinition>();
+      for (FetchedResource r : f.getResources()) {
+        if (r.getResource() instanceof StructureDefinition) {
+          list.add((StructureDefinition) r.getResource());
+        }
+      }
+      for (StructureDefinition sd : list) {
+        for (Element e : utils.generateExamples(sd, false)) {
+          FetchedResource nr = new FetchedResource();
+          nr.setElement(e);
+          nr.setId(e.getChildValue("id"));
+          nr.setTitle("Generated Example");
+          f.getResources().add(nr);
+        }
+      }
+    }
+  }
+  
   private void generateSnapshots() throws Exception {
     ProfileUtilities utils = new ProfileUtilities(context, null, null);
     for (FetchedFile f : fileList) {
@@ -728,6 +750,14 @@ public class Publisher {
             sd.getDifferential().getElement().add(0, new ElementDefinition().setPath(p.substring(0, p.indexOf("."))));
           }
           if (!sd.hasSnapshot() && sd.getKind() != StructureDefinitionKind.LOGICAL) {
+            StructureDefinition base = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
+            if (base != null) {
+              utils.generateSnapshot(base, sd, sd.getUrl(), sd.getName());
+              changed = true;
+            }
+          }
+          if (!sd.hasSnapshot() && sd.getKind() == StructureDefinitionKind.LOGICAL) {
+//            sd.getSnapshot().getElement().addAll(sd.getDifferential().getElement());
             StructureDefinition base = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
             if (base != null) {
               utils.generateSnapshot(base, sd, sd.getUrl(), sd.getName());
@@ -1165,7 +1195,7 @@ public class Publisher {
   }
 
   public static void main(String[] args) throws Exception {
-    if (hasParam(args, "-gui")) {
+    if (hasParam(args, "-gui") || args.length == 0) {
       runGUI();
     } else {
     System.out.println("FHIR Implementation Guide Publisher");
@@ -1212,7 +1242,7 @@ public class Publisher {
         try {
           UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
           GraphicalPublisher window = new GraphicalPublisher();
-          window.frmFhirImplementationGuide.setVisible(true);
+          window.frame.setVisible(true);
         } catch (Exception e) {
           e.printStackTrace();
         }

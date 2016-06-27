@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
+import org.hl7.fhir.dstu3.elementmodel.Property;
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.formats.IParser;
@@ -20,6 +22,8 @@ import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.Element;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.Extension;
+import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
@@ -33,6 +37,7 @@ import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.ResourceFactory;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionDifferentialComponent;
@@ -1110,6 +1115,14 @@ public class ProfileUtilities {
       	for (ElementDefinitionConstraintComponent s : derived.getConstraint()) {
       	  base.getConstraint().add(s.copy());
       	}
+      }
+      
+      // finally, we copy any extensions from source to dest
+      for (Extension ex : base.getExtension()) {
+        StructureDefinition sd  = context.fetchResource(StructureDefinition.class, ex.getUrl());
+        if (sd == null || sd.getSnapshot() == null || sd.getSnapshot().getElementFirstRep().getMax().equals("1"))
+          ToolingExtensions.removeExtension(dest, ex.getUrl());
+        dest.addExtension(ex);
       }
     }
   }
@@ -2234,6 +2247,121 @@ public class ProfileUtilities {
 //  // TODO Auto-generated method stub
 //
 //}
+  
+  private interface ExampleValueAccessor {
+    Type getExampleValue(ElementDefinition ed);
+    String getId();
+  }
 
+  private class BaseExampleValueAccessor implements ExampleValueAccessor {
+    @Override
+    public Type getExampleValue(ElementDefinition ed) {
+      if (ed.hasFixed())
+        return ed.getFixed();
+      else
+        return ed.getExample();
+    }
+
+    @Override
+    public String getId() {
+      return "-genexample";
+    }
+  }
+  
+  private class ExtendedExampleValueAccessor implements ExampleValueAccessor {
+    private String index;
+
+    public ExtendedExampleValueAccessor(String index) {
+      this.index = index;
+    }
+    @Override
+    public Type getExampleValue(ElementDefinition ed) {
+      if (ed.hasFixed())
+        return ed.getFixed();
+      for (Extension ex : ed.getExtension()) {
+       String ndx = ToolingExtensions.readStringExtension(ex, "index");
+       Type value = ToolingExtensions.getExtension(ex, "exValue").getValue();
+       if (index.equals(ndx) && value != null)
+         return value;
+      }
+      return null;
+    }
+    @Override
+    public String getId() {
+      return "-genexample-"+index;
+    }
+  }
+  
+  public List<org.hl7.fhir.dstu3.elementmodel.Element> generateExamples(StructureDefinition sd, boolean evenWhenNoExamples) throws FHIRException {
+    List<org.hl7.fhir.dstu3.elementmodel.Element> examples = new ArrayList<org.hl7.fhir.dstu3.elementmodel.Element>();
+    if (sd.hasSnapshot()) {
+      if (evenWhenNoExamples || hasAnyExampleValues(sd)) 
+        examples.add(generateExample(sd, new BaseExampleValueAccessor()));
+      for (int i = 1; i <= 50; i++) {
+        if (hasAnyExampleValues(sd, Integer.toString(i))) 
+          examples.add(generateExample(sd, new ExtendedExampleValueAccessor(Integer.toString(i))));
+      }
+    }
+    return examples;
+  }
+
+  private org.hl7.fhir.dstu3.elementmodel.Element generateExample(StructureDefinition profile, ExampleValueAccessor accessor) throws FHIRException {
+    ElementDefinition ed = profile.getSnapshot().getElementFirstRep();
+    org.hl7.fhir.dstu3.elementmodel.Element r = new org.hl7.fhir.dstu3.elementmodel.Element(ed.getPath(), new Property(context, ed, profile));
+    List<ElementDefinition> children = getChildMap(profile, ed);
+    for (ElementDefinition child : children) {
+      if (child.getPath().endsWith(".id")) {
+        org.hl7.fhir.dstu3.elementmodel.Element id = new org.hl7.fhir.dstu3.elementmodel.Element("id", new Property(context, ed, profile));
+        id.setValue(profile.getId()+accessor.getId());
+        r.getChildren().add(id);
+      } else { 
+        org.hl7.fhir.dstu3.elementmodel.Element e = createExampleElement(profile, child, accessor);
+        if (e != null)
+          r.getChildren().add(e);
+      }
+    }
+    return r;
+  }
+
+  private org.hl7.fhir.dstu3.elementmodel.Element createExampleElement(StructureDefinition profile, ElementDefinition ed, ExampleValueAccessor accessor) throws FHIRException {
+    Type v = accessor.getExampleValue(ed);
+    if (v != null) {
+      return new ObjectConverter(context).convert(tail(ed.getPath()), v);
+    } else {
+      org.hl7.fhir.dstu3.elementmodel.Element res = new org.hl7.fhir.dstu3.elementmodel.Element(tail(ed.getPath()), new Property(context, ed, profile));
+      boolean hasValue = false;
+      List<ElementDefinition> children = getChildMap(profile, ed);
+      for (ElementDefinition child : children) {
+        org.hl7.fhir.dstu3.elementmodel.Element e = createExampleElement(profile, child, accessor);
+        if (e != null) {
+          hasValue = true;
+          res.getChildren().add(e);
+        }
+      }
+      if (hasValue)
+        return res;
+      else
+        return null;
+    }
+  }
+
+  private boolean hasAnyExampleValues(StructureDefinition sd, String index) {
+    for (ElementDefinition ed : sd.getSnapshot().getElement())
+      for (Extension ex : ed.getExtension()) {
+        String ndx = ToolingExtensions.readStringExtension(ex, "index");
+        Type value = ToolingExtensions.getExtension(ex, "exValue").getValue();
+        if (index.equals(ndx) && value != null)
+          return true;
+       }
+    return false;
+  }
+
+
+  private boolean hasAnyExampleValues(StructureDefinition sd) {
+    for (ElementDefinition ed : sd.getSnapshot().getElement())
+      if (ed.hasExample())
+        return true;
+    return false;
+  }
 
 }

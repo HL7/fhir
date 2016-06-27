@@ -20,7 +20,7 @@ import javax.swing.JToolBar;
 
 public class GraphicalPublisher {
 
-  public JFrame frmFhirImplementationGuide;
+  public IGPublisherFrame frame;
 
   /**
    * Launch the application.
@@ -30,7 +30,7 @@ public class GraphicalPublisher {
       public void run() {
         try {
           GraphicalPublisher window = new GraphicalPublisher();
-          window.frmFhirImplementationGuide.setVisible(true);
+          window.frame.setVisible(true);
         } catch (Exception e) {
           e.printStackTrace();
         }
@@ -49,23 +49,7 @@ public class GraphicalPublisher {
    * Initialize the contents of the frame.
    */
   private void initialize() {
-    frmFhirImplementationGuide = new JFrame();
-    frmFhirImplementationGuide.setTitle("FHIR Implementation Guide Publisher");
-    frmFhirImplementationGuide.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\work\\org.hl7.fhir\\build\\tools\\html\\assets\\ico\\favicon.png"));
-    frmFhirImplementationGuide.setBounds(100, 100, 785, 449);
-    frmFhirImplementationGuide.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frmFhirImplementationGuide.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-    
-    JToolBar toolBar = new JToolBar();
-    frmFhirImplementationGuide.getContentPane().add(toolBar);
-    
-    JButton button = new JButton("Execute");
-    button.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        JOptionPane.showMessageDialog(frmFhirImplementationGuide, "Eggs are not supposed to be green.");
-      }
-    });
-    toolBar.add(button);
+    frame = new IGPublisherFrame();
   }
 
 }
