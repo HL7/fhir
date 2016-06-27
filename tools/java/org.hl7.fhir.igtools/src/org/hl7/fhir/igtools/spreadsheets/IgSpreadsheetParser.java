@@ -198,6 +198,8 @@ public class IgSpreadsheetParser {
     if (logical) {
       sd.setKind(StructureDefinitionKind.LOGICAL);  
       sd.setId(sd.getDifferential().getElement().get(0).getPath());
+      if (!"Element".equals(sd.getDifferential().getElementFirstRep().getTypeFirstRep().getCode()))
+        throw new Exception("Logical Models must derive from Element");
       sd.setBaseType(sd.getDifferential().getElementFirstRep().getTypeFirstRep().getCode());
       sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+sd.getBaseType());
     } else {
@@ -532,7 +534,7 @@ public class IgSpreadsheetParser {
     if (types.size() == 1 && types.get(0).getName().startsWith("@"))  
       e.setContentReference("#"+types.get(0).getName().substring(1));
     else
-      e.getType().addAll(tp.convert(e.getPath(), types));
+      e.getType().addAll(tp.convert(context, e.getPath(), types));
     String regex = sheet.getColumn(row, "Regex");
     if (!Utilities.noString(regex) && e.hasType())
       ToolingExtensions.addStringExtension(e.getType().get(0), ToolingExtensions.EXT_REGEX, regex);
@@ -584,9 +586,36 @@ public class IgSpreadsheetParser {
         Extension ex = e.addExtension();
         ex.setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-example");
         ex.addExtension().setUrl("index").setValue(new StringType(Integer.toString(i)));
-        ex.addExtension().setUrl("exValue").setValue(new StringType(s));              
+        Type v = processStringToType(e.getTypeFirstRep().getCode(), s, e.getPath());
+        ex.addExtension().setUrl("exValue").setValue(v);              
       }
     }    
+  }
+
+  private Type processStringToType(String type, String s, String path) throws Exception {
+    if (s.equalsIgnoreCase("Not Stated") || s.equalsIgnoreCase("n/a") || s.equalsIgnoreCase("-"))
+      return null;
+    if (Utilities.noString(type))
+      return new StringType(s);
+    if (type.equals("Quantity")) {
+      int j = s.charAt(0) == '>' || s.charAt(0) == '<' ? 1 : 0;
+      int i = j;
+      while (i < s.length() && (Character.isDigit(s.charAt(i)) || s.charAt(i) == '.'))
+        i++;
+      if (i == j)
+        throw new Exception("Error parsing quantity value '"+s+"': must have the format [d][u] e.g. 50mm on "+path);
+      Quantity q = new Quantity();
+      q.setValue(new BigDecimal(s.substring(j, i)));
+      if (i < s.length()) {
+        q.setUnit(s.substring(i).trim());
+        q.setCode(s.substring(i).trim());
+        q.setSystem("http://unitsofmeasure.org");
+      }
+      if (j > 0)
+        q.setComparator(QuantityComparator.fromCode(s.substring(0, j)));
+      return q;
+    }
+    return new StringType(s);
   }
 
   private String processDefinition(String definition) {    
@@ -931,7 +960,7 @@ public class IgSpreadsheetParser {
         exv.setMaxLength(Integer.parseInt(s));
       TypeParser tp = new TypeParser();
       List<TypeRef> types = tp.parse(sheet.getColumn(row, "Type"), true, "??", context, false);
-      exv.getType().addAll(tp.convert(exv.getPath(), types));
+      exv.getType().addAll(tp.convert(context, exv.getPath(), types));
       exv.setExample(processValue(sheet, row, "Example", sheet.getColumn(row, "Example"), exv));
     }
   }

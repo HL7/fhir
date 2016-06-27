@@ -32,6 +32,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.ElementDefinition.AggregationMode;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.utils.BaseWorkerContext;
@@ -126,7 +127,7 @@ public class TypeParser {
 		return a;
 	}
 
-  public List<TypeRefComponent> convert(String path, List<TypeRef> types) throws Exception {
+  public List<TypeRefComponent> convert(IWorkerContext context, String path, List<TypeRef> types) throws Exception {
     List<TypeRefComponent> list = new ArrayList<TypeRefComponent>();
     for (TypeRef t : types) {
       // Expand any Resource(A|B|C) references
@@ -148,10 +149,19 @@ public class TypeParser {
         for (String n : wildcardTypes()) 
           list.add(new TypeRefComponent().setCode(n));
       } else {
-        TypeRefComponent tc = new TypeRefComponent().setCode(t.getName());
-        list.add(tc);
-        if (t.hasProfile())
-          tc.addProfile(t.getProfile());          
+        StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+t.getName());
+        if (sd == null)
+          throw new Exception("Unknown type "+t.getName());
+        if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
+          TypeRefComponent tc = new TypeRefComponent().setCode(sd.getBaseType());
+          list.add(tc);
+          tc.addProfile(sd.getUrl());
+        } else {
+          TypeRefComponent tc = new TypeRefComponent().setCode(t.getName());
+          list.add(tc);
+          if (t.hasProfile())
+            tc.addProfile(t.getProfile());
+        }
       }
     }    
     return list;

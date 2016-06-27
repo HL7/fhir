@@ -2326,7 +2326,7 @@ public class ProfileUtilities {
   private org.hl7.fhir.dstu3.elementmodel.Element createExampleElement(StructureDefinition profile, ElementDefinition ed, ExampleValueAccessor accessor) throws FHIRException {
     Type v = accessor.getExampleValue(ed);
     if (v != null) {
-      return new ObjectConverter(context).convert(tail(ed.getPath()), v);
+      return new ObjectConverter(context).convert(new Property(context, ed, profile), v);
     } else {
       org.hl7.fhir.dstu3.elementmodel.Element res = new org.hl7.fhir.dstu3.elementmodel.Element(tail(ed.getPath()), new Property(context, ed, profile));
       boolean hasValue = false;
@@ -2362,6 +2362,28 @@ public class ProfileUtilities {
       if (ed.hasExample())
         return true;
     return false;
+  }
+
+
+  public void populateLogicalSnapshot(StructureDefinition sd) throws FHIRException {
+    sd.getSnapshot().getElement().add(sd.getDifferential().getElementFirstRep().copy());
+    StructureDefinition base = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
+    if (base == null)
+      throw new FHIRException("Unable to find base definition for logical model: "+sd.getBaseDefinition());
+    copyElements(sd, base.getSnapshot().getElement());
+    copyElements(sd, sd.getDifferential().getElement());
+  }
+
+
+  private void copyElements(StructureDefinition sd, List<ElementDefinition> list) {
+    for (ElementDefinition ed : list) {
+      if (ed.getPath().contains(".")) {
+        ElementDefinition n = ed.copy();
+        n.setPath(sd.getSnapshot().getElementFirstRep().getPath()+"."+ed.getPath().substring(ed.getPath().indexOf(".")+1));
+        sd.getSnapshot().addElement(n);
+      }
+    }
+    
   }
 
 }

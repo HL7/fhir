@@ -757,12 +757,7 @@ public class Publisher {
             }
           }
           if (!sd.hasSnapshot() && sd.getKind() == StructureDefinitionKind.LOGICAL) {
-//            sd.getSnapshot().getElement().addAll(sd.getDifferential().getElement());
-            StructureDefinition base = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
-            if (base != null) {
-              utils.generateSnapshot(base, sd, sd.getUrl(), sd.getName());
-              changed = true;
-            }
+            utils.populateLogicalSnapshot(sd);
           }
           if (changed)
             r.setElement(new ObjectConverter(context).convert(sd));

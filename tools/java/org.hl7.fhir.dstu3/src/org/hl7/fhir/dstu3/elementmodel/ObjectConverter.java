@@ -37,18 +37,18 @@ public class ObjectConverter  {
     return new JsonParser(context).parse(bi);
   }
 
-  public Element convert(String name, Type type) throws FHIRException {
-    return convertElement(name, type);
+  public Element convert(Property property, Type type) throws FHIRException {
+    return convertElement(property, type);
   }
   
-  private Element convertElement(String name, Base base) throws FHIRException {
+  private Element convertElement(Property property, Base base) throws FHIRException {
     if (base == null)
       return null;
     String tn = base.fhirType();
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+tn);
     if (sd == null)
       throw new FHIRException("Unable to find definition for type "+tn);
-    Element res = new Element(name, new Property(context, sd.getSnapshot().getElementFirstRep(), sd));
+    Element res = new Element(property.getName(), property);
     if (sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE) 
       res.setValue(((PrimitiveType) base).asStringValue());
 
@@ -56,10 +56,10 @@ public class ObjectConverter  {
     for (ElementDefinition child : children) {
       String n = tail(child.getPath());
       if (sd.getKind() != StructureDefinitionKind.PRIMITIVETYPE || !"value".equals(n)) {
-        Base[] values = base.getProperty(-1, n, false);
+        Base[] values = base.getProperty(n.hashCode(), n, false);
         if (values != null)
           for (Base value : values) {
-            res.getChildren().add(convertElement(n, value));
+            res.getChildren().add(convertElement(new Property(context, child, sd), value));
           }
       }
     }
