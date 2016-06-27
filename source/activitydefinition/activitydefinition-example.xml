@@ -5,5 +5,6 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Referral definition</div>
   </text>
+  <status value="draft"/>
   <!--category value="referral"/-->
 </ActivityDefinition>

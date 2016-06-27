@@ -2,76 +2,83 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
+  Binding Name = PlanDefinitionStatus
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/module-metadata-status
+  Definition = The status of the PlanDefinition
+  Conformance = required
+
+ -- Row 2 -----------------------------------
   Binding Name = OrderSetParticipantType
   Binding = code list
   Reference = #order-set-participant
   Definition = The type of participant for an action in the orderset
   Conformance = required
 
- -- Row 2 -----------------------------------
+ -- Row 3 -----------------------------------
   Binding Name = OrderSetItemType
   Binding = code list
   Reference = #order-set-item-type
   Definition = The type of orderset item
   Conformance = extensible
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = OrderSetItemGroupingBehavior
   Binding = code list
   Reference = #grouping-behavior
   Definition = Defines organization behavior of a group
   Conformance = required
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = OrderSetItemSelectionBehavior
   Binding = code list
   Reference = #selection-behavior
   Definition = Defines selection behavior of a group
   Conformance = required
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = OrderSetItemRequiredBehavior
   Binding = code list
   Reference = #required-behavior
   Definition = Defines requiredness behavior for selecting an action or an action group
   Conformance = required
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Binding Name = OrderSetItemPrecheckBehavior
   Binding = code list
   Reference = #precheck-behavior
   Definition = Defines selection frequency behavior for an action or group
   Conformance = required
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Binding Name = OrderSetItemCardinalityBehavior
   Binding = code list
   Reference = #cardinality-behavior
   Definition = Defines behavior for an action or a group for how many times that item may be repeated
   Conformance = required
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Binding Name = PlanActionType
   Binding = code list
   Reference = #planaction-type
   Definition = The type of action to be performed
   Conformance = extensible
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Binding Name = PlanActionBehaviorType
   Binding = code list
   Reference = #planaction-behavior-type
   Definition = The type of behavior to be defined
   Conformance = extensible
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Binding Name = PlanActionRelationshipType
   Binding = code list
   Reference = #planaction-relationship-type
   Definition = Defines the types of relationships between actions
   Conformance = required
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Binding Name = PlanActionRelationshipAnchor
   Binding = code list
   Reference = #planaction-relationship-anchor
@@ -334,109 +341,272 @@
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
-  Element = PlanDefinition.moduleMetadata
+  Element = PlanDefinition.url
   Card. = 0..1
-  Type = ModuleMetadata
-  Short Label = The metadata for the plan definition
-  Definition = A reference to a ModuleMetadata resource containing metadata for the orderset
+  Summary = Y
+  Type = uri
+  Short Label = Logical URL to reference this module
+  Definition = An absolute URL that is used to identify this module when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this module definition is (or will be) published
+  Requirements = Allows the module to be referenced by a single globally unique identifier
+  w5 = id
 
  -- Row 3 -----------------------------------
+  Element = PlanDefinition.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Label = Logical identifier(s) for the module
+  Definition = A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact
+  Requirements = Allows external business identifiers to be easily associated with the module
+  w5 = id
+
+ -- Row 4 -----------------------------------
+  Element = PlanDefinition.version
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = The version of the module, if any
+  Definition = The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that the version is required for non-experimental published artifact
+  Requirements = Allows for versioning of the content of the module
+
+ -- Row 5 -----------------------------------
+  Element = PlanDefinition.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = A machine-friendly name for the module
+  Definition = A machine-friendly name for the module. This name should be usable as an identifier for the module by machine processing applications such as code generation
+  Requirements = Simplifies machine-processing tasks related to the module such as code-generation or logging
+  Comments = This identifier for the module should be unique within the intended scope of use, and should conform to the traditional syntactic definition of an identifier within most programming languages. regex: ([A-Za-z_][A-Za-z0-9_]*)
+
+ -- Row 6 -----------------------------------
+  Element = PlanDefinition.title
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = A user-friendly title for the module
+  Definition = A short, descriptive, user-friendly title for the module
+
+ -- Row 7 -----------------------------------
+  Element = PlanDefinition.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = PlanDefinitionStatus
+  Short Label = draft | active | inactive
+  Definition = The status of the module
+  Requirements = Enables tracking the life-cycle of the content of the module
+
+ -- Row 8 -----------------------------------
+  Element = PlanDefinition.experimental
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = boolean
+  Short Label = If for testing purposes, not real usage
+  Definition = Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments
+  Requirements = Enables experimental content to be developed following the same life-cycle as a production-level module would
+
+ -- Row 9 -----------------------------------
+  Element = PlanDefinition.description
+  Card. = 0..1
+  Type = string
+  Short Label = Natural language description of the module
+  Definition = A free text natural language description of the module from the consumer\'s perspective
+  Comments = This description can be used to capture details such as why the module was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
+
+ -- Row 10 -----------------------------------
+  Element = PlanDefinition.purpose
+  Card. = 0..1
+  Type = string
+  Short Label = Describes the purpose of the module
+  Definition = A brief description of the purpose of the module
+  Comments = This description should address the question of why this module was built, though not necessarily in as much detail as the justification, rationale, or clinical recommendation statement of a measure would. That information would typically be provided in the related resource element
+
+ -- Row 11 -----------------------------------
+  Element = PlanDefinition.usage
+  Card. = 0..1
+  Type = string
+  Short Label = Describes the clinical usage of the module
+  Definition = A detailed description of how the module is used from a clinical perspective
+
+ -- Row 12 -----------------------------------
+  Element = PlanDefinition.publicationDate
+  Card. = 0..1
+  Type = date
+  Short Label = Publication date for this version of the module
+  Definition = The date on which the module was published
+
+ -- Row 13 -----------------------------------
+  Element = PlanDefinition.lastReviewDate
+  Card. = 0..1
+  Type = date
+  Short Label = Last review date for the module
+  Definition = The date on which the module content was last reviewed
+
+ -- Row 14 -----------------------------------
+  Element = PlanDefinition.effectivePeriod
+  Card. = 0..1
+  Type = Period
+  Short Label = The effective date range for the module
+  Definition = The period during which the module content is effective
+  Comments = The effective period for a module determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015
+
+ -- Row 15 -----------------------------------
+  Element = PlanDefinition.coverage
+  Card. = 0..*
+  Type = UsageContext
+  Short Label = Describes the context of use for this module
+  Definition = Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable
+  Requirements = Consumers of the module must be able to determine the intended applicability for the module. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed
+
+ -- Row 16 -----------------------------------
+  Element = PlanDefinition.topic
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Descriptional topics for the module
+  Definition = Clinical topics related to the content of the module
+  Requirements = Repositories must be able to determine how to categorize the module so that it can be found by topical searches
+
+ -- Row 17 -----------------------------------
+  Element = PlanDefinition.contributor
+  Card. = 0..*
+  Type = Contributor
+  Short Label = A content contributor
+  Definition = A contributor to the content of the module, including authors, editors, reviewers, and endorsers
+  Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the knowledge module
+
+ -- Row 18 -----------------------------------
+  Element = PlanDefinition.publisher
+  Card. = 0..1
+  Type = string
+  Short Label = Name of the publisher (Organization or individual)
+  Definition = The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts
+  Requirements = Consumers of the module must be able to determine where to obtain support in the use of this module, as well as where to direct questions and concerns about the content
+  Comments = The publisher (or steward) of the module is the organization or individual primarily responsible for the maintenance and upkeep of the module. This is not necessarily the same organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the module
+
+ -- Row 19 -----------------------------------
+  Element = PlanDefinition.contact
+  Card. = 0..*
+  Type = ContactDetail
+  Short Label = Contact details of the publisher
+  Definition = Contact details to assist a user in finding and communicating with the publisher
+
+ -- Row 20 -----------------------------------
+  Element = PlanDefinition.copyright
+  Card. = 0..1
+  Type = string
+  Short Label = Use and/or publishing restrictions
+  Definition = A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module
+  Requirements = Consumers of the module must be able to determine any legal restrictions on the use of the module and/or its content
+
+ -- Row 21 -----------------------------------
+  Element = PlanDefinition.relatedResource
+  Card. = 0..*
+  Type = RelatedResource
+  Short Label = Related resources for the module
+  Definition = Related resources such as additional documentation, justification, or bibliographic references
+  Requirements = Modules must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
+  Comments = Each related resource is either an attachment, or a reference to another resource, but not both
+
+ -- Row 22 -----------------------------------
   Element = PlanDefinition.library
   Card. = 0..*
   Type = Reference(Library)
   Short Label = Logic used by the plan definition
   Definition = A reference to a Library resource containing any formal logic used by the orderset
 
- -- Row 4 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = PlanDefinition.actionDefinition
   Card. = 0..*
   Short Label = Action defined by the plan
   Definition = An action to be taken as part of the plan
 
- -- Row 5 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = PlanDefinition.actionDefinition.actionIdentifier
   Card. = 0..1
   Type = Identifier
   Short Label = Unique identifier
   Definition = A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique
 
- -- Row 6 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = PlanDefinition.actionDefinition.label
   Card. = 0..1
   Type = string
   Short Label = User-visible label for the action (e.g. 1. or A.)
   Definition = A user-visible label for the action
 
- -- Row 7 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = PlanDefinition.actionDefinition.title
   Card. = 0..1
   Type = string
   Short Label = User-visible title
   Definition = The title of the action displayed to a user
 
- -- Row 8 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = PlanDefinition.actionDefinition.description
   Card. = 0..1
   Type = string
   Short Label = Short description of the action
   Definition = A short description of the action used to provide a summary to display to the user
 
- -- Row 9 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = PlanDefinition.actionDefinition.textEquivalent
   Card. = 0..1
   Type = string
   Short Label = Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system
   Definition = A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically
 
- -- Row 10 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = PlanDefinition.actionDefinition.concept
   Card. = 0..*
   Type = CodeableConcept
   Short Label = The meaning of the action or its sub-actions
   Definition = The concept represented by this action or its sub-actions
 
- -- Row 11 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = PlanDefinition.actionDefinition.supportingEvidence
   Card. = 0..*
   Type = Attachment
   Short Label = Evidence that supports taking the action
   Definition = The evidence grade and the sources of evidence for this action
 
- -- Row 12 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = PlanDefinition.actionDefinition.documentation
   Card. = 0..*
   Type = Attachment
   Short Label = Supporting documentation for the intended performer of the action
   Definition = Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources
 
- -- Row 13 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = PlanDefinition.actionDefinition.triggerDefinition
   Card. = 0..1
   Type = TriggerDefinition
   Short Label = When the action should be triggered
   Definition = A description of when the action should be triggered
 
- -- Row 14 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = PlanDefinition.actionDefinition.condition
   Card. = 0..1
   Type = string
   Short Label = Whether or not the action is applicable
   Definition = An expression specifying whether or not the action is applicable in a given context
 
- -- Row 15 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = PlanDefinition.actionDefinition.relatedAction
   Card. = 0..1
   Short Label = Relationship to another action
   Definition = A relationship to another action such as \"before\" or \"30-60 minutes after start of\"
 
- -- Row 16 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = PlanDefinition.actionDefinition.relatedAction.actionIdentifier
   Card. = 1..1
   Type = Identifier
   Short Label = Identifier of the related action
   Definition = The unique identifier of the related action
 
- -- Row 17 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = PlanDefinition.actionDefinition.relatedAction.relationship
   Card. = 1..1
   Type = code
@@ -444,14 +614,14 @@
   Short Label = before | after
   Definition = The relationship of this action to the related action
 
- -- Row 18 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = PlanDefinition.actionDefinition.relatedAction.offset[x]
   Card. = 0..1
   Type = Duration|Range
   Short Label = Time offset for the relationship
   Definition = A duration or range of durations to apply to the relationship. For example, 30-60 minutes before
 
- -- Row 19 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = PlanDefinition.actionDefinition.relatedAction.anchor
   Card. = 0..1
   Type = code
@@ -459,7 +629,7 @@
   Short Label = start | end
   Definition = An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action
 
- -- Row 20 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = PlanDefinition.actionDefinition.type
   Card. = 0..1
   Type = code
@@ -467,13 +637,13 @@
   Short Label = create | update | remove | fire-event
   Definition = The type of action to perform (create, update, remove)
 
- -- Row 21 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = PlanDefinition.actionDefinition.behavior
   Card. = 0..*
   Short Label = Defines behaviors such as selection and grouping
   Definition = A behavior associated with the action. Behaviors define how the action is to be presented and/or executed within the receiving environment
 
- -- Row 22 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = PlanDefinition.actionDefinition.behavior.type
   Card. = 1..1
   Type = Coding
@@ -481,14 +651,14 @@
   Short Label = The type of behavior (grouping, precheck, selection, cardinality, etc)
   Definition = The type of the behavior to be described, such as grouping, visual, or selection behaviors
 
- -- Row 23 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = PlanDefinition.actionDefinition.behavior.value
   Card. = 1..1
   Type = Coding
   Short Label = Specific behavior (e.g. required, at-most-one, single, etc)
   Definition = The specific behavior. The code used here is determined by the type of behavior being described. For example, the grouping behavior uses the grouping-behavior-type valueset
 
- -- Row 24 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = PlanDefinition.actionDefinition.activityDefinition
   Card. = 0..1
   Type = Reference(ActivityDefinition)
@@ -496,27 +666,27 @@
   Definition = The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition)
   Comments = Note that the resource is optional, and if no resource is specified, a customization with a root (/) path can be used to define the entire resource dynamically
 
- -- Row 25 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = PlanDefinition.actionDefinition.customization
   Card. = 0..*
   Short Label = Dynamic aspects of the definition
   Definition = Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result
 
- -- Row 26 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = PlanDefinition.actionDefinition.customization.path
   Card. = 1..1
   Type = string
   Short Label = The path to the element to be set dynamically
   Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
 
- -- Row 27 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = PlanDefinition.actionDefinition.customization.expression
   Card. = 1..1
   Type = string
   Short Label = An expression that provides the dynamic value for the customization
   Definition = An expression specifying the value of the customized element
 
- -- Row 28 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = PlanDefinition.actionDefinition.actionDefinition
   Card. = 0..*
   Type = @PlanDefinition.actionDefinition
@@ -529,37 +699,37 @@
   Name = identifier
   Type = token
   Description = Logical identifier for the module (e.g. CMS-143)
-  Path = PlanDefinition.moduleMetadata.identifier
+  Path = PlanDefinition.identifier
 
  -- Row 2 -----------------------------------
   Name = topic
   Type = token
   Description = Topics associated with the module
-  Path = PlanDefinition.moduleMetadata.topic
+  Path = PlanDefinition.topic
 
  -- Row 3 -----------------------------------
   Name = title
   Type = string
   Description = Text search against the title
-  Path = PlanDefinition.moduleMetadata.title
+  Path = PlanDefinition.title
 
  -- Row 4 -----------------------------------
   Name = description
   Type = string
   Description = Text search against the description
-  Path = PlanDefinition.moduleMetadata.description
+  Path = PlanDefinition.description
 
  -- Row 5 -----------------------------------
   Name = version
   Type = string
   Description = Version of the module (e.g. 1.0.0)
-  Path = PlanDefinition.moduleMetadata.version
+  Path = PlanDefinition.version
 
  -- Row 6 -----------------------------------
   Name = status
   Type = token
   Description = Status of the module
-  Path = PlanDefinition.moduleMetadata.status
+  Path = PlanDefinition.status
 
  -- Row 7 -----------------------------------
   Name = !minScore
