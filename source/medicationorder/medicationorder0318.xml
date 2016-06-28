@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationorder.xsd" xmlns="http://hl7.org/fhir">
+  <id value="medrx0318"/>
+    <contained>
+        <Medication>
+            <id value="med0301"/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/sid/ndc"/>
+                    <code value="0069-2587-10"/>
+                    <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
+                </coding>
+            </code>
+        </Medication>
+    </contained>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="active"/>
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
+        <reference value="#med0301"/>
+    </medicationReference> 
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>            
+    </patient>
+    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+        <reference value="Encounter/f001"/>
+        <display value="encounter who leads to this prescription"/>
+    </encounter>
+    <dateWritten value="2015-01-15"/>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <reasonCode>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="11840006"/>
+            <display value="Traveller's Diarrhea (disorder)"/>
+        </coding>
+    </reasonCode>
+    <note>
+        <text value="culture expected back in 12 hours - may switch depending on results"/>
+    </note>
+    <dosageInstruction>
+        <text value="500mg IV q6h x 3 days" />
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="6"/>
+                <periodUnit value="h"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="25556000"/>
+                <display value="Intravenous"/>
+            </coding>
+        </route>
+        <method>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="420620005"/>
+                <display value="Push - dosing instruction imperative (qualifier value)"/>
+            </coding>
+        </method>
+        <doseQuantity>
+            <value value="500"/>
+            <unit value="mg"/>
+            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <code value="mg"/>
+        </doseQuantity>
+    </dosageInstruction>
+</MedicationOrder>

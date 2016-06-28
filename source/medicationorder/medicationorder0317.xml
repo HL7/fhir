@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationorder.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="medrx0317"/>
+    <contained>
+        <Medication>
+            <id value="med0303"/>
+            <code>
+                <coding>
+                    <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                    <code value="1594660"/>
+                    <display value="Alemtuzumab 10mg/ml (Lemtrada)"/>
+                </coding>
+            </code>
+        </Medication>
+    </contained>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="completed"/>
+    <medicationReference>
+        <reference value="#med0303"/>
+    </medicationReference>
+    <patient>
+        <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </patient>
+    <dateWritten value="2015-01-15"/>
+    <prescriber>
+        <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <reasonCode>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="92814006"/>
+            <display value="Chronic Lymphoid Leukemia (disorder)"/>
+        </coding>
+    </reasonCode>
+    <dosageInstruction>
+        <text value="Rapid daily-dose escalation, until tolerated, from 3 mg/d, and then 10 mg/d, to the recommended maintenance dose of 30 mg IV over 120 min, 3 times per wk on alternate days for up to 12 wk"/>
+        <additionalInstructions>
+            <text value="Rapidly increase dose until tolerated"></text>
+        </additionalInstructions>
+        <additionalInstructions>
+            <text value="Administer on alternate days"/>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <duration value="12"/>
+                <durationUnit value="wk"></durationUnit>
+                <frequency value="3"/>
+                <period value="1"/>
+                <periodUnit value="wk"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="47625008"/>
+                <display value="Intravenous route (qualifier value)"/>
+            </coding>
+        </route>
+        <method>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="422145002"/>
+                <display value="Inject - dosing instruction imperative (qualifier value)"/>
+            </coding>
+        </method>
+        <doseQuantity>
+            <value value="3"/>
+            <unit value="mg"/>
+            <system value="http://loinc.org"/>
+            <code value="mg"/>
+        </doseQuantity>
+    </dosageInstruction>
+    <dosageInstruction>
+        <text
+            value="Rapid daily-dose escalation, until tolerated, from 3 mg/d, and then 10 mg/d, to the recommended maintenance dose of 30 mg IV over 120 min, 3 times per wk on alternate days for up to 12 wk"/>
+        <additionalInstructions>
+            <text value="Rapidly increase dose until tolerated"></text>
+        </additionalInstructions>
+        <additionalInstructions>
+        <text value="Administer on alternate days"/>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <duration value="12"/>
+                <durationUnit value="wk"></durationUnit>
+                <frequency value="3"/>
+                <period value="1"/>
+                <periodUnit value="wk"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="47625008"/>
+                <display value="Intravenous route (qualifier value)"/>
+            </coding>
+        </route>
+        <method>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="422145002"/>
+                <display value="Inject - dosing instruction imperative (qualifier value)"/>
+            </coding>
+        </method>
+        <doseQuantity>
+            <value value="10"/>
+            <unit value="mg"/>
+            <system value="http://loinc.org"/>
+            <code value="mg"/>
+        </doseQuantity>
+    </dosageInstruction>  
+    <dosageInstruction>
+        <text
+            value="Rapid daily-dose escalation, until tolerated, from 3 mg/d, and then 10 mg/d, to the recommended maintenance dose of 30 mg IV over 120 min, 3 times per wk on alternate days for up to 12 wk"/>
+        <additionalInstructions>
+            <text value="Rapidly increase dose until tolerated"></text>
+        </additionalInstructions>
+        <additionalInstructions>
+        <text value="Administer on alternate days"/>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <duration value="12"/>
+                <durationUnit value="wk"></durationUnit>
+                <frequency value="3"/>
+                <period value="1"/>
+                <periodUnit value="wk"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="47625008"/>
+                <display value="Intravenous route (qualifier value)"/>
+            </coding>
+        </route>
+        <method>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="422145002"/>
+                <display value="Inject - dosing instruction imperative (qualifier value)"/>
+            </coding>
+        </method>
+        <doseQuantity>
+            <value value="30"/>
+            <unit value="mg"/>
+            <system value="http://loinc.org"/>
+            <code value="mg"/>
+        </doseQuantity>
+    </dosageInstruction>
+</MedicationOrder>

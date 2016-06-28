@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationorder.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="medrx0327"/>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="active"/>
+    <medicationCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="333919005"/>
+            <display value="Fentanyl 25micrograms/hour patch (product)"/>
+        </coding>
+    </medicationCodeableConcept>
+    <patient>
+        <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>   
+    </patient>
+    <dateWritten value="2015-01-15"/>
+    <prescriber>
+        <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <dosageInstruction>
+        <text value="apply one patch three times per week"/>
+        <timing>
+            <repeat>
+                <frequency value="3"/>
+                <period value="1"/>
+                <periodUnit value="wk"/>
+            </repeat>
+        </timing>
+        <doseQuantity>
+            <value value="1"/>
+            <unit value="patch"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+            <code value="patch"/>
+        </doseQuantity>
+    </dosageInstruction>
+    <dispenseRequest>
+        <validityPeriod>
+            <start value="2015-01-15"/>
+            <end value="2016-01-15"/>
+        </validityPeriod>
+        <quantity>
+            <value value="6"/>
+            <unit value="patch"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+            <code value="patch"/>
+        </quantity>
+        <expectedSupplyDuration>
+            <value value="14"></value>
+            <unit value="days"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="d"/> 
+        </expectedSupplyDuration>
+    </dispenseRequest>   
+</MedicationOrder>

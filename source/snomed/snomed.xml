@@ -147,6 +147,12 @@
     <display value="Thermocouple device"/>
     <display value="Thermocouple device (physical object)"/>
   </concept>
+  <concept id="11840006" display="Traveler&#39;s diarrhea">
+    <display value="Traveler&#39;s diarrhea"/>
+    <display value="Turista"/>
+    <display value="Traveler&#39;s diarrhoea"/>
+    <display value="Traveler&#39;s diarrhea (disorder)"/>
+  </concept>
   <concept id="119295008" display="Specimen obtained by aspiration (specimen)">
     <display value="Specimen obtained by aspiration"/>
     <display value="Aspirate"/>
@@ -987,6 +993,11 @@
     <display value="Flush"/>
     <display value="Blushing (function)"/>
   </concept>
+  <concept id="203082005" display="Fibromyalgia (disorder)">
+    <display value="Fibromyalgia (disorder)"/>
+    <display value="Fibromyalgia"/>
+    <display value="Fibromyalgia"/>
+  </concept>
   <concept id="20428008" display="Oxygen tent, device (physical object)">
     <display value="Oxygen tent, device"/>
     <display value="Oxygen tent"/>
@@ -1211,6 +1222,11 @@
     <display value="DIB - Difficulty in breathing"/>
     <display value="Difficulty beathing"/>
     <display value="Respiration difficult"/>
+  </concept>
+  <concept id="230456007" display="Status epilepticus (disorder)">
+    <display value="Status epilepticus (disorder)"/>
+    <display value="Status epilepticus"/>
+    <display value="Status epilepticus"/>
   </concept>
   <concept id="23109009" display="Pseudosarcomatous carcinoma (morphologic abnormality)">
     <display value="Sarcomatoid carcinoma"/>
@@ -1948,6 +1964,15 @@
     <display value="Oral route (qualifier value)"/>
     <display value="A digestive tract route that begins in the mouth."/>
   </concept>
+  <concept id="266599000" display="Dysmenorrhea">
+    <display value="Menorrhalgia"/>
+    <display value="Period pain"/>
+    <display value="Menstrual cramps"/>
+    <display value="Painful menstruation"/>
+    <display value="Dysmenorrhea"/>
+    <display value="Dysmenorrhoea"/>
+    <display value="Dysmenorrhea (disorder)"/>
+  </concept>
   <concept id="2667000" display="Absent (qualifier value)">
     <display value="Absent"/>
     <display value="Absence of"/>
@@ -2238,6 +2263,10 @@
     <display value="Toe, NOS"/>
     <display value="Hinddigit, NOS"/>
     <display value="Toe structure (body structure)"/>
+  </concept>
+  <concept id="297217002" display="Rib pain">
+    <display value="Rib pain"/>
+    <display value="Rib pain (finding)"/>
   </concept>
   <concept id="298225002" display="Lamina propria mucosae (body structure)">
     <display value="Lamina propria mucosae"/>
@@ -2650,6 +2679,12 @@
   </concept>
   <concept id="32913002" display="Medullary carcinoma (morphologic abnormality)">
     <display value="Medullary carcinoma"/>
+  </concept>
+  <concept id="32914008" display="Restless legs">
+    <display value="Ekbom syndrome"/>
+    <display value="Restless legs"/>
+    <display value="Restless legs syndrome"/>
+    <display value="Restless legs (disorder)"/>
   </concept>
   <concept id="33022008" display="Hospital-based outpatient department (environment)">
     <display value="Hospital outpatients department"/>
@@ -3088,6 +3123,14 @@
     <display value="Timolol maleate 0.5% solution"/>
     <display value="Timolol maleate 0.5% ophthalmic solution (product)"/>
     <display value="Timolol maleate 0.5% ophthalmic solution"/>
+  </concept>
+  <concept id="376988009" display="Levothyroxine sodium 75micrograms tablet (product)">
+    <display value="Levothyroxine sodium 75mcg tablet (product)"/>
+    <display value="Laevothyroxine sodium 75mcg tablet"/>
+    <display value="Levothyroxine sodium 75mcg tablet"/>
+    <display value="Levothyroxine sodium 75micrograms tablet (product)"/>
+    <display value="Levothyroxine sodium 75micrograms tablet"/>
+    <display value="Laevothyroxine sodium 75micrograms tablet"/>
   </concept>
   <concept id="37931006" display="Auscultation (procedure)">
     <display value="Auscultation - examination"/>
@@ -4074,6 +4117,12 @@
     <display value="No known history of drug allergy"/>
     <display value="No known medicine allergy"/>
   </concept>
+  <concept id="40930008" display="Hypothyroidism">
+    <display value="Hypothyroid"/>
+    <display value="Hypothyroidism"/>
+    <display value="Hypothyroidism, NOS"/>
+    <display value="Hypothyroidism (disorder)"/>
+  </concept>
   <concept id="409519008" display="Contained casualty setting (environment)">
     <display value="Contained casualty setting (environment)"/>
     <display value="Contained casualty setting"/>
@@ -4314,6 +4363,10 @@
     <display value="Pediatric infectious diseases"/>
     <display value="Paediatric infectious diseases"/>
   </concept>
+  <concept id="418914006" display="Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)">
+    <display value="Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)"/>
+    <display value="Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink"/>
+  </concept>
   <concept id="418960008" display="Otolaryngology (qualifier value)">
     <display value="Otolaryngology (qualifier value)"/>
     <display value="Otolaryngology"/>
@@ -4436,9 +4489,19 @@
     <display value="Specimen from mass"/>
     <display value="Specimen from mass lesion"/>
   </concept>
+  <concept id="420620005" display="Push - dosing instruction imperative (qualifier value)">
+    <display value="Push - dosing instruction imperative (qualifier value)"/>
+    <display value="Push"/>
+    <display value="Push - dosing instruction imperative"/>
+  </concept>
   <concept id="42108003" display="Congenital fusion of kidneys (disorder)">
     <display value="Congenital fusion of kidneys"/>
     <display value="Congenital fusion of kidneys (disorder)"/>
+  </concept>
+  <concept id="421521009" display="Swallow - dosing instruction imperative (qualifier value)">
+    <display value="Swallow - dosing instruction imperative (qualifier value)"/>
+    <display value="Swallow"/>
+    <display value="Swallow - dosing instruction imperative"/>
   </concept>
   <concept id="421606006" display="Aerosol spray (qualifier value)">
     <display value="Aerosol spray (product)"/>
@@ -4454,6 +4517,16 @@
   <concept id="421661004" display="Blood banking and transfusion medicine (specialty) (qualifier value)">
     <display value="Blood banking and transfusion medicine (specialty) (qualifier value)"/>
     <display value="Blood banking and transfusion medicine (specialty)"/>
+  </concept>
+  <concept id="421984009" display="Until finished - dosing instruction fragment (qualifier value)">
+    <display value="Until finished - dosing instruction fragment (qualifier value)"/>
+    <display value="Until finished"/>
+    <display value="Until finished - dosing instruction fragment"/>
+  </concept>
+  <concept id="422145002" display="Inject - dosing instruction imperative (qualifier value)">
+    <display value="Inject - dosing instruction imperative (qualifier value)"/>
+    <display value="Inject"/>
+    <display value="Inject - dosing instruction imperative"/>
   </concept>
   <concept id="422191005" display="Ophthalmic surgery (qualifier value)">
     <display value="Ophthalmic surgery (qualifier value)"/>
@@ -5583,6 +5656,15 @@
     <display value="Potassium measurement"/>
     <display value="Potassium measurement, NOS"/>
   </concept>
+  <concept id="59621000" display="Essential hypertension (disorder)">
+    <display value="Essential hypertension (disorder)"/>
+    <display value="Essential hypertension"/>
+    <display value="Essential hypertension, NOS"/>
+    <display value="Idiopathic hypertension"/>
+    <display value="Primary hypertension, NOS"/>
+    <display value="Systemic primary arterial hypertension"/>
+    <display value="Primary hypertension"/>
+  </concept>
   <concept id="59843005" display="Furuncle (morphologic abnormality)">
     <display value="Furuncle (morphologic abnormality)"/>
     <display value="Furuncle"/>
@@ -6202,6 +6284,25 @@
     <display value="Tiredness"/>
     <display value="Weariness"/>
   </concept>
+  <concept id="84757009" display="Epilepsy">
+    <display value="Epilepsy"/>
+    <display value="Epilepsy, NOS"/>
+    <display value="Epileptic disorder, NOS"/>
+    <display value="Epileptic convulsions, NOS"/>
+    <display value="Epileptic fits, NOS"/>
+    <display value="Epileptic fits"/>
+    <display value="Epileptic seizures"/>
+    <display value="Epileptic attack"/>
+    <display value="Epilectic attack, NOS"/>
+    <display value="Epileptic seizures, NOS"/>
+    <display value="Epileptic attack, NOS"/>
+    <display value="Epileptic disorder"/>
+    <display value="Epileptic convulsions"/>
+    <display value="Epileptic"/>
+    <display value="EP - Epilepsy"/>
+    <display value="Epilepsy (disorder)"/>
+    <display value="A disorder characterized by recurrent seizures"/>
+  </concept>
   <concept id="8517006" display="Ex-smoker (finding)">
     <display value="Ex-smoker (finding)"/>
     <display value="Former smoker"/>
@@ -6358,6 +6459,30 @@
     <display value="Hospital bed, device (physical object)"/>
     <display value="Hospital bed, device"/>
     <display value="Hospital bed"/>
+  </concept>
+  <concept id="92814006" display="Chronic lymphoid leukaemia, disease">
+    <display value="Chronic lymphoid leukaemia, disease"/>
+    <display value="CLL - Chronic lymphocytic leukaemia"/>
+    <display value="CLL - Chronic lymphocytic leukemia"/>
+    <display value="Chronic lymphoid leukemia"/>
+    <display value="Chronic lymphoid leukemia without mention of remission"/>
+    <display value="Chronic lymphoid leukaemia"/>
+    <display value="Chronic lymphoid leukemia, disease"/>
+    <display value="Chronic lymphoid leukemia, disease (disorder)"/>
+  </concept>
+  <concept id="92818009" display="Chronic myeloid leukemia">
+    <display value="CML - Chronic myeloid leukaemia"/>
+    <display value="CGL - Chronic granulocytic leukaemia"/>
+    <display value="CGL - Chronic granulocytic leukemia"/>
+    <display value="CML - Chronic myeloid leukemia"/>
+    <display value="Chronic myeloid leukemia"/>
+    <display value="Chronic myeloid leukemia without mention of remission"/>
+    <display value="Chronic myeloid leukaemia"/>
+    <display value="Chronic myeloid leukaemia, disease"/>
+    <display value="Chronic myeloid leukemia, disease"/>
+    <display value="Chronic myelocytic leukaemia"/>
+    <display value="Chronic myelocytic leukemia"/>
+    <display value="Chronic myeloid leukemia, disease (disorder)"/>
   </concept>
   <concept id="9454009" display="Structure of subclavian vein (body structure)">
     <display value="Subclavian vein"/>

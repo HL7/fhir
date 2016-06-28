@@ -29,6 +29,17 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|11840006|Traveller's Diarrhea (disorder)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Traveler's diarrhea"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|13645005|Chronic obstructive pulmonary disease",
       "severity": null,
       "message": null,
@@ -73,6 +84,28 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|230456007|Status epilepticus (disorder)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Status epilepticus (disorder)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|237840007|Disorder of Electrolytes (disorder)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Disorder of electrolytes"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|254637007|NSCLC - Non-small cell lung cancer",
       "severity": null,
       "message": null,
@@ -87,6 +120,28 @@
       "hash": "#|http://snomed.info/sct|null|28036006|High density lipoprotein cholesterol level",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|297217002|Rib Pain (finding)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Rib pain"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|30242009|Scarlet Fever (disorder)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Scarlet fever"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|315619001|Myocardial Infarction",
@@ -149,6 +204,17 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|385093006|Community acquired pneumonia (disorder)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Community acquired pneumonia (disorder)"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|386661006|Fever",
       "severity": null,
       "message": null,
@@ -193,6 +259,17 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|40930008|Hypothyroidism (disorder)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Hypothyroid"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|422504002|Ischemic stroke (disorder)",
       "severity": null,
       "message": null,
@@ -204,6 +281,17 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|44054006|Diabetes mellitus type 2 (disorder)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Type 2 diabetes mellitus"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|444780001|High glucose level in blood",
       "severity": null,
       "message": null,
@@ -212,6 +300,28 @@
         "code": null,
         "definition": null,
         "display": "Glucose in blood specimen above reference range (finding)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|473189005|On subcutaneous insulin for diabetes mellitus (finding)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "On subcutaneous insulin for diabetes mellitus"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|59621000|Essential hypertension (disorder)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Essential hypertension (disorder)"
       }
     },
     {
@@ -237,6 +347,17 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|84757009|Epilepsy (disorder)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Epilepsy"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|87628006|Bacterial infectious disease",
       "severity": null,
       "message": null,
@@ -245,6 +366,28 @@
         "code": null,
         "definition": null,
         "display": "Bacterial infectious disease"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|92814006|Chronic Lymphoid Leukemia (disorder)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Chronic lymphoid leukaemia, disease"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|92818009|Chronic myeloid Leukemia (disorder)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "CML - Chronic myeloid leukaemia"
       }
     }
   ]

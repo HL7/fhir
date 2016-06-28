@@ -70,6 +70,17 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://snomed.info/sct|null|421026006|Oral Tablet",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "421026006",
+        "definition": null,
+        "display": "Oral tablet"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|421637006|Lyophilized powder for injectable solution (qualifier value) ",
       "severity": "error",
       "message": "None of the codes are in the specified value set"

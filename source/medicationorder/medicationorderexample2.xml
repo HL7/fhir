@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example is an example of text only dosage instruction  -->
-<MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationorder.xsd" xmlns="http://hl7.org/fhir">
+<MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationorder.xsd" xmlns="http://hl7.org/fhir">
 	<id value="medrx002"/>
 	<identifier>
 		<use value="official"/>
@@ -10,18 +11,18 @@
 	<status value="active"/>
 	<medicationReference>
 		<!-- Linked to a RESOURCE Medication -->
-		<reference value="Medication/MedicationExample5"/>
+		<reference value="Medication/med0316"/>
 		<display value="prescribed medication"/>
 	</medicationReference>
 	<patient>
 		<!-- Linked to the resource patient who needs the medication -->
-		<reference value="Patient/f001"/>
-		<display value="Eve Everywoman"/>
+		<reference value="Patient/pat1"/>
+		<display value="Donald Duck"/>   
 	</patient>
 	<encounter>
 		<!-- Linked to a resource Encounter between patient and practitioner-->
-		<reference value="Encounter/f002"/>
-		<display value="encounter who leads to this prescription"/>
+		<reference value="Encounter/f001"/>
+		<display value="encounter that leads to this prescription"/>
 	</encounter>
 	<dateWritten value="2015-03-01"/>
 	<prescriber>
@@ -32,8 +33,8 @@
 	<reasonCode>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<code value="64859006"/>
-			<display value="Osteoporosis"/>
+			<code value="59621000"/>
+			<display value="Essential hypertension (disorder)"/>
 		</coding>
 	</reasonCode>
 	<dosageInstruction>

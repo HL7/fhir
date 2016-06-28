@@ -2,7 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/route-codes",
   "outcomes": [
     {
+      "hash": "#|http://snomed.info/sct|null|25556000|Intravenous",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|260548002|Oral",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|263887005|Subcutaneous (qualifier value)",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -18,7 +28,12 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|321667001|Respiratory tract",
+      "hash": "#|http://snomed.info/sct|null|26643006|Oral Route (qualifier value)",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|26643006|Oral route (qualifier value)",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -34,7 +49,7 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|386359008|Administration of drug or medicament via oral route",
+      "hash": "#|http://snomed.info/sct|null|359540000|Topical (qualifier value)",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -52,6 +67,28 @@
       "hash": "#|http://snomed.info/sct|null|47625008|Intravenous route",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|47625008|Intravenous route (qualifier value)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "47625008",
+        "definition": null,
+        "display": "Intravenous route (qualifier value)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|54485002|Ophthalmic route (qualifier value)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "54485002",
+        "definition": null,
+        "display": "Ophthalmic route (qualifier value)"
+      }
     }
   ]
 }

@@ -13,6 +13,28 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|6073002|Structure of ligament of left superior vena cava",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Ligament of left superior vena cava"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|72098002|Entire left upper arm (body structure)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Left arm"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|74262004|Oral cavity",
       "severity": null,
       "message": null,

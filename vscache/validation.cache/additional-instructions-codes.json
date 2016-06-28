@@ -11,6 +11,39 @@
         "definition": null,
         "display": "With or after food"
       }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|418637003|Do not take with any other paracetamol products (qualifier value)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "418637003",
+        "definition": null,
+        "display": "Do not take with any other paracetamol products (qualifier value)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|418914006|Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "418914006",
+        "definition": null,
+        "display": "Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|421984009|Until finished - dosing instruction fragment (qualifier value)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "421984009",
+        "definition": null,
+        "display": "Until finished - dosing instruction fragment (qualifier value)"
+      }
     }
   ]
 }

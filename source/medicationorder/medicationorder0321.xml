@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationorder.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="medrx0321"/>
+    <contained>
+        <Medication>
+            <id value="med0307"></id>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/sid/ndc"/>
+                    <code value="0169-7501-11"/>
+                    <display value="Novolog 100u/ml"/>
+                </coding>
+            </code>
+            <isBrand value="true"/>
+            <product>
+                <form>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="385219001"/>
+                        <display value="Injection solution (qualifier value)"/>
+                    </coding>
+                </form>
+                <ingredient>
+                    <itemCodeableConcept>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="325072002"/>
+                            <display value="Insulin Aspart (substance)"/>
+                        </coding>
+                    </itemCodeableConcept>
+                    <amount>
+                        <numerator>
+                            <value value="100"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="U"/>
+                        </numerator>
+                        <denominator>
+                            <value value="1"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="mL"/>
+                        </denominator>
+                    </amount>
+                </ingredient>
+                <batch>
+                    <lotNumber value="12345"/>
+                    <expirationDate value="2019-10-31"/>
+                </batch>
+            </product>
+            <package>
+                <container>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="415818006"/>
+                        <display value="Vial"/>
+                    </coding>
+                </container>
+                <content>
+                    <itemCodeableConcept>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="325072002"/>
+                            <display value="Insulin Aspart (substance)"/>
+                        </coding>
+                    </itemCodeableConcept>
+                    <amount>
+                        <value value="10"/>
+                        <system value="http://unitsofmeasure.org"/>
+                        <code value="mL"/>
+                    </amount>
+                </content>
+            </package>
+        </Medication>
+    </contained>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="active"/>
+   <medicationReference>
+       <reference value="#med0307"/>
+       <display value="Novolog 100u/ml"></display>
+   </medicationReference>
+    <patient>
+        <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </patient>
+    <dateWritten value="2015-01-15"/>
+    <prescriber>
+        <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <reasonCode>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="44054006"/>
+            <display value="Diabetes mellitus type 2 (disorder)"/>
+        </coding>
+    </reasonCode>
+    <note>
+        <text value="Check blood sugar levels before taking insulin"/>
+    </note>
+    <dosageInstruction>
+        <text value="inject 10 units subcut before breakfast"/>
+        <additionalInstructions>
+            <text value="Before Breakfast"/>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <doseQuantity>
+            <value value="10"/>
+            <unit value="U"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="U"/>
+        </doseQuantity>
+    </dosageInstruction>
+    <dosageInstruction>
+        <text value="15 units before lunch"/>
+        <additionalInstructions>
+            <text value="Before Lunch"/>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <doseQuantity>
+            <value value="15"/>
+            <unit value="U"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="U"/>
+        </doseQuantity>
+    </dosageInstruction>
+    <dosageInstruction>
+        <text value="20 units before dinner"/>
+        <additionalInstructions>
+            <text value="Before Dinner"/>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <doseQuantity>
+            <value value="20"/>
+            <unit value="U"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="U"/>
+        </doseQuantity>
+    </dosageInstruction>
+    <dispenseRequest>
+        <validityPeriod>
+            <start value="2015-01-15"/>
+            <end value="2016-01-15"/>
+        </validityPeriod>
+        <numberOfRepeatsAllowed value="3"></numberOfRepeatsAllowed>
+        <quantity>
+            <value value="10"/>
+            <unit value="ml"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="ml"/> 
+        </quantity>
+        <expectedSupplyDuration>
+            <value value="30"></value>
+            <unit value="days"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="d"/> 
+        </expectedSupplyDuration>
+    </dispenseRequest>   
+</MedicationOrder>

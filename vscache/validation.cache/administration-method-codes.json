@@ -15,6 +15,50 @@
       "hash": "#|http://snomed.info/sct|null|323493005|Injected floxacillin",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|420620005|Push - dosing instruction imperative (qualifier value)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "420620005",
+        "definition": null,
+        "display": "Push - dosing instruction imperative (qualifier value)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|421521009|Swallow - dosing instruction imperative (qualifier value)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "421521009",
+        "definition": null,
+        "display": "Swallow - dosing instruction imperative (qualifier value)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|421538008|Instill - dosing instruction imperative (qualifier value)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "421538008",
+        "definition": null,
+        "display": "Instill - dosing instruction imperative (qualifier value)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|422145002|Inject - dosing instruction imperative (qualifier value)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "422145002",
+        "definition": null,
+        "display": "Inject - dosing instruction imperative (qualifier value)"
+      }
     }
   ]
 }

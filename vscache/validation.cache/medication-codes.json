@@ -46,6 +46,17 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|322254008|Paracetamol 240mg suppository (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Paracetamol 240mg suppository (product)"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|324252006|Azithromycin 250mg capsule (product)",
       "severity": null,
       "message": null,
@@ -68,6 +79,17 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|333919005|Fentanyl 25micrograms/hour patch (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Fentanyl 25micrograms/hour patch (product)"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|373994007|Prednisone 5mg tablet (Product)",
       "severity": null,
       "message": null,
@@ -76,6 +98,17 @@
         "code": null,
         "definition": null,
         "display": "Prednisone 5mg tablet (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|376988009|Levothyroxine Sodium 75micrograms tablet (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Levothyroxine sodium 75mcg tablet (product)"
       }
     },
     {
@@ -123,6 +156,16 @@
       }
     },
     {
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|114194|Warfarin Sodium",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|1313112|Phenytoin 25mg/ml oral suspension",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
       "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|1594660|Alemtuzumab 10mg/ml (Lemtrada)",
       "severity": "error",
       "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
@@ -138,12 +181,32 @@
       "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
     },
     {
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|285018|Lantus 100 unit/ml injectable solution",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
       "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|308047|Alprazolam 0.25mg Oral Tablet",
       "severity": "error",
       "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
     },
     {
       "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|358793|Mometasone Furoate 0.05mg/Actuat",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|746763|Proventil HFA 90mcg/actuat metered dose inhaler, 200 actuat",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|856907|Vicodin 5/500 Oral Tablet",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
+    },
+    {
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|884308|Nystatin 100UNT/MG Topical Ointment",
       "severity": "error",
       "message": "The code provided is not  valid in the value set SNOMED CT Medication Codes"
     }

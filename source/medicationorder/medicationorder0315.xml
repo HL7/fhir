@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationorder.xsd" xmlns="http://hl7.org/fhir">
+  <id value="medrx0315"/>
+    <contained>
+        <Medication>
+            <id value="med0313"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="400621001"/>
+                    <display value="Lorazepam 2mg/ml injection solution 1ml vial (product)"/>
+                </coding>
+            </code>
+            <isBrand value="false"/>
+            <product>
+                <form>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="385219001"/>
+                        <display value="Injection solution (qualifier value)"/>
+                    </coding>
+                </form>
+                <ingredient>
+                    <itemCodeableConcept>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="387106007"/>
+                            <display value="Lorazepam (substance)"/>
+                        </coding>
+                    </itemCodeableConcept>
+                    <amount>
+                        <numerator>
+                            <value value="2"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="mg"/>
+                        </numerator>
+                        <denominator>
+                            <value value="1"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="mL"/>
+                        </denominator>
+                    </amount>
+                </ingredient>
+            </product>
+        </Medication>
+    </contained>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="active"/>
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
+        <reference value="#med0313"/>
+    </medicationReference> 
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>        
+    </patient>
+    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+        <reference value="Encounter/f001"/>
+        <display value="encounter who leads to this prescription"/>
+    </encounter>
+    <dateWritten value="2015-01-15"/>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <reasonCode>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="84757009"/>
+            <display value="Epilepsy (disorder)"/>
+        </coding>
+    </reasonCode>
+    <dosageInstruction>
+        <text value="0.05 - 0.1mg/kg IV over 2-5 minutes every 15 minutes as needed" />
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="15"/>
+                <periodUnit value="min"/>
+            </repeat>
+        </timing>
+        <asNeededBoolean value="true"/>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="25556000"/>
+                <display value="Intravenous"/>
+            </coding>
+        </route>
+        <method>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="420620005"/>
+                <display value="Push - dosing instruction imperative (qualifier value)"/>
+            </coding>
+        </method>
+        <doseRange>
+            <low>
+                <value value="0.05"/>
+                <unit value="mg/kg"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="mg/kg"/> 
+            </low>
+            <high>
+                <value value="0.1"/>
+                <unit value="mg/kg"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="mg/kg"/> 
+            </high>
+        </doseRange>
+        <rateRange>
+            <low>
+                <value value="2"/>
+                <unit value="min"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="min"/> 
+            </low>
+            <high>
+                <value value="5"/>
+                <unit value="min"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="min"/> 
+            </high>
+        </rateRange>
+    </dosageInstruction>
+</MedicationOrder>

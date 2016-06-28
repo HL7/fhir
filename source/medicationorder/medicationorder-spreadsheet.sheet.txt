@@ -552,105 +552,195 @@
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
-  Name = Fully
-  Identity = medrx001
-  Description = Fully populated example of a MedicationOrder
-  Filename = medicationorderexample1.xml
-
- -- Row 2 -----------------------------------
   Name = Text Dose
   Identity = medrx002
-  Description = Fully populated dose structure of a prescription in text
+  Description = Order for a medication that includes the dosage of a prescription in text
   Filename = medicationorderexample2.xml
 
+ -- Row 2 -----------------------------------
+  Name = Multiple dosage lines
+  Identity = medrx0302
+  Description = Active Order with link to encounter, reasonCode, note multiple dosage lines, dispenseRequest and substitution - Azithromycin
+  Filename = medicationorder0302.xml
+
  -- Row 3 -----------------------------------
-  Name = Injection
-  Identity = medrx009
-  Description = Example of a injection dose with a rate
-  Filename = medicationorderexample9.xml
+  Name = PRN dose
+  Identity = medrx0301
+  Description = Order with as needed (PRN) dosage with pre-condition - Oxycodone - active with reasonCode, note, dispenseRequest and substitution
+  Filename = medicationorder0301.xml
 
  -- Row 4 -----------------------------------
-  Name = Loading
-  Identity = medrx005
-  Description = Example of a loading dose
-  Filename = medicationorderexample5.xml
+  Name = Tapering dose
+  Identity = medrx0303
+  Description = Order for Tapering Dose - Prednisone - active with note and multiple DosageInstructions with boundsPeriod
+  Filename = medicationorder0303.xml
 
  -- Row 5 -----------------------------------
-  Name = Increasing
-  Identity = medrx003
-  Description = Example of a increasing dose
-  Filename = medicationorderexample3.xml
+  Name = Oral Drops
+  Identity = medrx0304
+  Description = Order for Oral Drops - Nystatin Suspension - completed - with Dispense Request
+  Filename = medicationorder0304.xml
 
  -- Row 6 -----------------------------------
-  Name = IV Push
-  Identity = medrx007
-  Description = Example of an IV Push
-  Filename = medicationorderexample7.xml
+  Name = Pre Condition
+  Identity = medrx0305
+  Description = Order with Dosage with a Pre-Condition - Alprazolam - dosageInstructions includes boundsPeriod with periodMax and asNeededCodeableConcept
+  Filename = medicationorder0305.xml
 
  -- Row 7 -----------------------------------
-  Name = Inhaler
-  Identity = medrx004
-  Description = Example of an inhaler
-  Filename = medicationorderexample4.xml
+  Name = Oral Chemo
+  Identity = medrx0306
+  Description = Oral Chemotherapy Order - Myleran - completed - with reasonCode
+  Filename = medicationorder0306.xml
 
  -- Row 8 -----------------------------------
-  Name = Oncology
-  Identity = medrx006
-  Description = Oncology example
-  Filename = medicationorderexample6.xml
+  Name = PRN dose
+  Identity = medrx0307
+  Description = Order with as needed (PRN) dosage - Percocet - completed with link to encounter, dispenseRequest and substitution
+  Filename = medicationorder0307.xml
 
  -- Row 9 -----------------------------------
-  Name = Injection
-  Identity = medrx008
-  Description = Injection
-  Filename = medicationorderexample8.xml
+  Name = PRN dose
+  Identity = medrx0308
+  Description = Order for as needed (PRN) dosage - Vicodin - completed with dosageInstruction with additionalInstruction (coded) and as needed with reason, dispenseRequest and substitution
+  Filename = medicationorder0308.xml
 
  -- Row 10 -----------------------------------
-  Name = COPD
-  Identity = f001
-  Description = Real-world prescription example
-  Filename = medicationorder-example-f001-combivent.xml
+  Name = Oral Chemo
+  Identity = medrx0309
+  Description = Oral Chemotherapy Order - Capecitabine - active medication with dosing by Body Surface Area (BSA) (mg/m2)
+  Filename = medicationorder0309.xml
 
  -- Row 11 -----------------------------------
-  Name = Salmeterol
-  Identity = f201
-  Description = Real-world prescription example
-  Filename = medicationorder-example-f201-salmeterol.xml
+  Name = OTC
+  Identity = medrx0310
+  Description = Order for Over the Counter Medication - Tylenol PM - with dosage range as needed with pre-condition for use
+  Filename = medicationorder0310.xml
 
  -- Row 12 -----------------------------------
-  Name = Flucloxacilline
-  Identity = f202
-  Description = Real-world prescription example
-  Filename = medicationorder-example-f202-flucloxacilline.xml
+  Name = Fully populated
+  Identity = medrx0311
+  Description = Fully populated example of a MedicationOrder - Chlorthalidone - active - with link to encounter, reasonReference, note, dispenseRequest, substitution and eventHistory
+  Filename = medicationorderexample1.xml
 
  -- Row 13 -----------------------------------
-  Name = Paracetamol
-  Identity = f203
-  Description = Real-world prescription example
-  Filename = medicationorder-example-f203-paracetamol.xml
+  Name = Liquid
+  Identity = medrx0312
+  Description = Liquid Medication - Phenytoin with link to prior prescription
+  Filename = medicationorder0312.xml
 
  -- Row 14 -----------------------------------
-  Name = Rosuvastin
-  Identity = f002
-  Description = Real-world prescription example
-  Filename = medicationorder-example-f002-crestor.xml
+  Name = Single Dosage line
+  Identity = medrx0313
+  Description = Order with a single dosage line - Azithromycin - completed - with link to prior prescription and reason code
+  Filename = medicationorder0313.xml
 
  -- Row 15 -----------------------------------
-  Name = Tolbutamide
-  Identity = f003
-  Description = Real-world prescription example
-  Filename = medicationorder-example-f003-tolbutamide.xml
+  Name = Multiple dosage lines
+  Identity = medrx0314
+  Description = Order - Levothyroxine - completed with reasonCode, dosageInstructions and dispenseRequest
+  Filename = medicationorder0314.xml
 
  -- Row 16 -----------------------------------
-  Name = Metoprolol
-  Identity = f004
-  Description = Real-world prescription example
-  Filename = medicationorder-example-f004-metoprolol.xml
+  Name = Injectable
+  Identity = medrx0315
+  Description = Order for an injectable medication - Lorazepam - active - with link to encounter, reasonCode and dosageInstruction
+  Filename = medicationorder0315.xml
 
  -- Row 17 -----------------------------------
-  Name = Enalapril
-  Identity = f005
-  Description = Real-world prescription example
-  Filename = medicationorder-example-f005-enalapril.xml
+  Name = Fully populated
+  Identity = medrx0316
+  Description = Order for Intravenous Chemotherapy (inpatient order) - Brentuximab Vedotin - completed
+  Filename = medicationorder0316.xml
+
+ -- Row 18 -----------------------------------
+  Name = IV Chemo
+  Identity = medrx0317
+  Description = Order for Intravenous Chemotherapy (inpatient order) - Alemtuzumab - completed with multiple dosageInstruction lines
+  Filename = medicationorder0317.xml
+
+ -- Row 19 -----------------------------------
+  Name = IV Antibiotic
+  Identity = medrx0318
+  Description = Order for Intravenous Antibiotic - Vancomycin - active - with link to encounter, reasonCode, and note
+  Filename = medicationorder0318.xml
+
+ -- Row 20 -----------------------------------
+  Name = IV with rate
+  Identity = medrx0319
+  Description = Order for Intravenous Antibiotic with a Dosage Rate - Piperacillin - completed with reason code
+  Filename = medicationorder0319.xml
+
+ -- Row 21 -----------------------------------
+  Name = SC Injection
+  Identity = medrx0320
+  Description = Order for Subcutaneous injection - Insulin - Lantus - completed, with reason code and dispense request
+  Filename = medicationorder0320.xml
+
+ -- Row 22 -----------------------------------
+  Name = SC Injection
+  Identity = medrx0321
+  Description = Order for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  DosageInstruction includes additionalInstructions as text
+  Filename = medicationorder0321.xml
+
+ -- Row 23 -----------------------------------
+  Name = IV admixture
+  Identity = medrx0322
+  Description = Order for Intravenous Admixture - Potassium Chloride in D5W - completed with reason code
+  Filename = medicationorder0322.xml
+
+ -- Row 24 -----------------------------------
+  Name = TPN
+  Identity = medrx0323
+  Description = Order for TPN Solution - completed
+  Filename = medicationorder0323.xml
+
+ -- Row 25 -----------------------------------
+  Name = Suppository
+  Identity = medrx0324
+  Description = Order using Medication Code for Rectal Suppository - Acetaminophen - completed with reasonCode, dispenseRequest and substitution
+  Filename = medicationorder0324.xml
+
+ -- Row 26 -----------------------------------
+  Name = Topical
+  Identity = medrx0325
+  Description = Order using Medication Code for Topical Ointment - Nystatin - on hold and with dispense request
+  Filename = medicationorder0325.xml
+
+ -- Row 27 -----------------------------------
+  Name = Inhaler
+  Identity = medrx0326
+  Description = Order using Medication Code for Inhaler - Proventil - on hold with dispenseRequest and substitution
+  Filename = medicationorder0326.xml
+
+ -- Row 28 -----------------------------------
+  Name = Patch
+  Identity = medrx0327
+  Description = Order using Medication Code for Patch - Fentanyl - active, with dispense request
+  Filename = medicationorder0327.xml
+
+ -- Row 29 -----------------------------------
+  Name = Spray
+  Identity = medrx0328
+  Description = Order referencing Medication Resource for Nasal Spray - Nasonex
+  Filename = medicationorder0328.xml
+
+ -- Row 30 -----------------------------------
+  Name = Compound
+  Identity = medrx0329
+  Description = Order referencing Medication Resource for Compounded Product - HC 1%, Salicylic Acid 5% in Glaxal Base - on hold with dispenseRequest
+  Filename = medicationorder0329.xml
+
+ -- Row 31 -----------------------------------
+  Name = Eye Drop
+  Identity = medrx0330
+  Description = Order referencing Medication Resource for Eye Drops - Timoptic - active - with link to encounter, dispenseRequest and substitution flag
+  Filename = medicationorder0330.xml
+
+ -- Row 32 -----------------------------------
+  Name = Warfarin
+  Identity = medrx0331
+  Description = Order for a Dosage that needs to be dispensed as different strength tablets - Warfarin - active
+  Filename = medicationorder0331.xml
 
 === Sheet Examples =====================================

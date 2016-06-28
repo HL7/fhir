@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../Desktop/FHIR%20Examples/schema/medicationorder.xsd"
+ xmlns="http://hl7.org/fhir">
+  <id value="medrx0312"/>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="active"/>
+    <medicationCodeableConcept>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+            <code value="1313112"/>
+            <display value="Phenytoin 25mg/ml oral suspension"/>
+        </coding>
+    </medicationCodeableConcept>
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>            
+    </patient>
+    <dateWritten value="2015-01-15"/>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <reasonCode>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="230456007"/>
+            <display value="Status epilepticus (disorder)"/>
+        </coding>
+    </reasonCode>
+    <note>
+        <text value="Patient should be counselled to ensure good dental hygiene"/>
+    </note>
+    <dosageInstruction>
+        <text value="100mg (4ml) three times daily" />
+        <timing>
+            <repeat>
+                <frequency value="3"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route (qualifier value)"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="100"/>
+            <unit value="mg"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mg"/>
+        </doseQuantity>
+    </dosageInstruction> 
+    <dispenseRequest>
+        <validityPeriod>
+            <start value="2015-01-15"/>
+            <end value="2016-01-15"/> 
+        </validityPeriod>
+        <numberOfRepeatsAllowed value="3"/>
+        <quantity>
+            <value value="360"/>
+            <unit value="mL"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mL"/> 
+        </quantity>
+        <expectedSupplyDuration>
+            <value value="30"/>
+            <unit value="days"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="d"/>
+        </expectedSupplyDuration>
+    </dispenseRequest>
+    <substitution>
+        <allowed value="true"/>
+        <reason>
+            <coding>
+                <system value="http://hl7.org/fhir/v3/ActReason"/>
+                <code value="CT"/>
+                <display value="Continuing therapy"/>
+            </coding>
+        </reason>
+    </substitution>
+    <priorPrescription>
+        <reference value="MedicationOrder/medrx0304"/>
+    </priorPrescription>
+</MedicationOrder>

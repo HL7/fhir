@@ -1,28 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../Desktop/FHIR%20Examples/schema/medicationorder.xsd"
- xmlns="http://hl7.org/fhir">
-    <id value="medrx0311"/>
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationorder.xsd" xmlns="http://hl7.org/fhir">
+    <id value="medrx0301"/>
     <contained>
       <Medication>
-          <id value="med0316"/>
+          <id value="med0310"/>
           <code>
               <coding>
                   <system value="http://snomed.info/sct"/>
-                  <code value="317935006"/>
-                  <display value="Chlorthalidone 50mg tablet (product)"/>
+                  <code value="430127000"/>
+                  <display value="Oral Form Oxycodone (product)"/>
               </coding>
           </code>
-          <isBrand value="false"/>
-          <product>
-              <form>
-                  <coding>
-                      <system value="http://snomed.info/sct"/>
-                      <code value="385055001"/>
-                      <display value="Tablet dose form (qualifier value)"/>
-                  </coding>
-              </form>
-          </product>
       </Medication>
   </contained>
     <identifier>
@@ -32,11 +21,11 @@
     </identifier>
     <status value="active"/>
     <medicationReference> <!-- Linked to a RESOURCE Medication -->
-           <reference value="#med0316"/>
+           <reference value="#med0310"/>
     </medicationReference> 
     <patient> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
-        <display value="Donald Duck"/>         
+        <display value="Donald Duck"/>           
     </patient>
     <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
         <reference value="Encounter/f001"/>
@@ -47,29 +36,40 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </prescriber>
-    <reasonReference>
-        <reference value="Condition/f201"></reference>
-        <display value="condition for prescribing this medication"></display>
-    </reasonReference>
+    <reasonCode>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="297217002"/>
+            <display value="Rib Pain (finding)"/>
+        </coding>
+    </reasonCode>
     <note>
-        <text value="Chlorthalidone increases urniation so take it in the morning"/>
+        <text value="Patient told to take with food"/>
     </note>
     <dosageInstruction>
-        <text value="One tablet daily" />
+        <text value="one to two tablets every 4-6 hours as needed for rib pain" />
         <additionalInstructions>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="311504000"/>
-                <display value="With or after food"/>
+                <code value="418914006"/>
+                <display value="Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)"/>
             </coding>
         </additionalInstructions>
         <timing>
             <repeat>
                 <frequency value="1"/>
-                <period value="1"/>
-                <periodUnit value="d"/>
+                <period value="4"/>
+                <periodMax value ="6"/>
+                <periodUnit value="h"/>
             </repeat>
         </timing>
+        <asNeededCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="297217002"/>
+                <display value="Rib Pain (finding)"/>
+            </coding>
+        </asNeededCodeableConcept>
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -84,12 +84,20 @@
                 <display value="Swallow - dosing instruction imperative (qualifier value)"/>
             </coding>
         </method>
-        <doseQuantity>
-            <value value="1"/>
-            <unit value="TAB"/>
-            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
-            <code value="TAB"/> 
-        </doseQuantity>
+       <doseRange>
+           <low>
+               <value value="1"/>
+               <unit value="TAB"/>
+               <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+               <code value="TAB"/> 
+           </low>
+           <high>
+               <value value="2"/>
+               <unit value="TAB"/>
+               <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+               <code value="TAB"/> 
+           </high>
+       </doseRange>
     </dosageInstruction>
     <dispenseRequest>
         <validityPeriod>
@@ -104,7 +112,7 @@
             <code value="TAB"/> 
         </quantity>
         <expectedSupplyDuration>
-            <value value="30"></value>
+            <value value="10"></value>
             <unit value="days"/>
             <system value="http://unitsofmeasure.org"/>
             <code value="d"/> 
@@ -115,17 +123,9 @@
         <reason>
             <coding>
                 <system value="http://hl7.org/fhir"/>
-                <code value="CT"/>
-                <display value="continuing therapy"/>             
+                <code value="FP"/>
+                <display value="formulary policy"/>             
             </coding>
         </reason>
     </substitution>
-    <eventHistory>
-        <status value="stopped"/>
-        <dateTime value="2016-04-01"/>
-        <actor>
-            <reference value="Practitioner/f007"/>
-            <display value="Patrick Pump"/>
-        </actor>
-    </eventHistory>
 </MedicationOrder>
