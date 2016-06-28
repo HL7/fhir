@@ -34,6 +34,6 @@
       <reference value="Patient/72"/>
     </whoReference>
     <contentType value=" application/signature+xml"/>
-    <blob value="blob-snipped"/>
+    <blob value="dGhpcyBibG9iIGlzIHNuaXBwZWQ="/>
   </signature>
 </Provenance>

@@ -19,7 +19,7 @@
   <contained>
     <ValueSet>
       <id value="vs"/>
-      <status value="actice"/>
+      <status value="active"/>
       <compose>  
         <include>
           <system value="http://loinc.org"/>
@@ -50,7 +50,7 @@
     <reference value="Patient/72"/> <!-- author is patient themselves, and they sign -->
   </author>
   <organization>
-    <reference value="Practitioner/example"/> 
+    <reference value="Organization/example"/> 
   </organization>
   <!-- no source for this one - it is the signed master -->
   <policy value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
