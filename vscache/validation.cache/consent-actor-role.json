@@ -2,6 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/consent-actor-role",
   "outcomes": [
     {
+      "hash": "#|http://hl7.org/fhir/v3/ParticipationType|null|AUT|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "AUT",
+        "definition": null,
+        "display": "author (originator)"
+      }
+    },
+    {
       "hash": "#|http://hl7.org/fhir/v3/ParticipationType|null|CST|null",
       "severity": null,
       "message": null,

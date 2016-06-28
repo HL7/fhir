@@ -275,11 +275,10 @@ public class IGPublisherFrame extends javax.swing.JFrame {
     cbxIGName.setEnabled(false);
     btnExecute.setLabel("Running");
     txtLog.setText("");
-//    Platform.runLater( () -> { // FX components need to be managed by JavaFX
-//      webView.getEngine().loadContent( "<html> Publication in Process!" );
-////      webView.getEngine().load( "http://www.stackoverflow.com/" );
-//      txtValidation.setScene( new Scene( webView ) );
-//   });
+    Platform.runLater( () -> { // FX components need to be managed by JavaFX
+      webView.getEngine().loadContent( "<html> Publication in Process!" );
+      txtValidation.setScene( new Scene( webView ) );
+   });
     task = new BackgroundPublisherTask();
     task.execute();
   }
