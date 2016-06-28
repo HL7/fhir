@@ -1,0 +1,39 @@
+<!-- 
+  This provenance example is paired with the 
+  consent signature example.   
+-->
+<Provenance xmlns="http://hl7.org/fhir"> 
+  <id value="consent-signature"/>
+  <target>
+    <reference value="Consent/consent-example-signature"/>
+  </target>
+ 
+  <!-- the provenance is recorded at the same time as 
+    the resource - batched together -->
+  <recorded value="2016-05-26T00:41:10-04:00"/>
+ 
+  <agent> 
+    <role>
+      <system value="http://hl7.org/fhir/provenance-participant-role"/>
+      <code value="author"/>
+    </role>
+    <actor>
+      <reference value="Patient/72"/>
+    </actor>
+  </agent>
+  <signature>
+    <type>
+      <coding>
+        <system value="urn:iso-astm:E1762-95:2013"/>
+        <code value="1.2.840.10065.1.12.1.1"/>
+        <display value="Author's Signature"/>
+      </coding>
+    </type>
+    <when value="2016-05-26T00:41:10-04:00"/>
+    <whoReference>
+      <reference value="Patient/72"/>
+    </whoReference>
+    <contentType value=" application/signature+xml"/>
+    <blob value="blob-snipped"/>
+  </signature>
+</Provenance>

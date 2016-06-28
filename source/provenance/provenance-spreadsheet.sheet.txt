@@ -406,4 +406,10 @@
   Description = Provenance holding a signature
   Filename = provenance-example-sig.xml
 
+ -- Row 3 -----------------------------------
+  Name = Consent Signature
+  Identity = consent-signature
+  Description = Provenance with signature for a Consent example
+  Filename = provenance-consent-signature.xml
+
 === Sheet Examples =====================================

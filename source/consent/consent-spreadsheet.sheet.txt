@@ -127,6 +127,12 @@
   Display = ValueSet
   Definition = The consent applies to any resource where the primary code is in the referenced value set
 
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = document
+  Display = Document
+  Definition = The document applies to any document with a type in the nominated value set
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -337,7 +343,7 @@
   Summary = Y
   Type = code
   Binding = ConsentDataMeaning
-  Short Label = instance | related | dependents | profile | valueset
+  Short Label = instance | related | dependents | profile | valueset | document
   Definition = How the resource reference is interpreted when testing consent restrictions
 
  -- Row 21 -----------------------------------
@@ -443,7 +449,7 @@
   Summary = Y
   Type = code
   Binding = ConsentDataMeaning
-  Short Label = instance | related | dependents | profile | valueset
+  Short Label = instance | related | dependents | profile | valueset | document
   Definition = How the resource reference is interpreted when testing consent restrictions
 
  -- Row 33 -----------------------------------
@@ -604,7 +610,13 @@
  -- Row 11 -----------------------------------
   Name = Smart on FHIR example
   Identity = consent-example-smartonfhir
-  Description = Tamplate for recording a Smart on FHIR Authorization
+  Description = Template for recording a Smart on FHIR Authorization
   Filename = consent-example-smartonfhir.xml
+
+ -- Row 12 -----------------------------------
+  Name = Consent with Signature
+  Identity = consent-example-signature
+  Description = Consent Example with a signature
+  Filename = consent-example-signature.xml
 
 === Sheet Examples =====================================
