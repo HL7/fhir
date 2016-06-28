@@ -133,7 +133,7 @@ public class Publisher implements IGLogger {
   private boolean watch;
 
   private GenerationTool tool;
-  
+
   private String resourcesDir;
   private String pagesDir;
   private String tempDir;
@@ -141,7 +141,7 @@ public class Publisher implements IGLogger {
   private String specPath;
   private String qaDir;
   private String instanceTemplate;
-  
+
   private String rubyExe;
   private String jekyllGem;
 
@@ -173,7 +173,7 @@ public class Publisher implements IGLogger {
   public void execute() throws Exception {
     globalStart = System.nanoTime();
     initialize();
-    log("Load Implementation Guide: "+Constants.VERSION+"-"+Constants.REVISION);
+    log("Load Implementation Guide");
     load();
 
     long startTime = System.nanoTime();
@@ -376,7 +376,7 @@ public class Publisher implements IGLogger {
     forceDir(outputDir);
     forceDir(qaDir);
     checkFile(instanceTemplate);
-    
+
     log("Load Validation Pack (internal)");
     try {
       context = SimpleWorkerContext.fromClassPath("igpack.zip");
@@ -384,6 +384,7 @@ public class Publisher implements IGLogger {
       log("Unable to find igpack.zip in the jar");
       context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\temp\\igpack.zip");
     }
+    log("Definitions "+context.getVersionRevision());
     context.setAllowLoadingDuplicates(true);
     context.setExpandCodesLimit(1000);
     log("Connect to Terminology Server at "+txServer);
@@ -407,11 +408,11 @@ public class Publisher implements IGLogger {
   }
 
   private String getCurentDirectory() {
-      String currentDirectory;
-      File file = new File(".");
-      currentDirectory = file.getAbsolutePath();
-      log("Use Current directory: "+currentDirectory);
-      return currentDirectory;
+    String currentDirectory;
+    File file = new File(".");
+    currentDirectory = file.getAbsolutePath();
+    log("Use Current directory: "+currentDirectory);
+    return currentDirectory;
   }
 
   private void findRubyExe() {
@@ -424,7 +425,7 @@ public class Publisher implements IGLogger {
             rubyExe = Utilities.path(s, file);
             jekyllGem = Utilities.path(s, "jekyll");
             if (!(new File(jekyllGem).exists()))
-                throw new Error("Found Ruby, but unable to find Jekyll Gem");
+              throw new Error("Found Ruby, but unable to find Jekyll Gem");
             log("Use Ruby at "+rubyExe);
             return;
           }
@@ -512,7 +513,7 @@ public class Publisher implements IGLogger {
         }
       }     
     }
-    
+
     // load static pages
     needToBuild = loadPages() || needToBuild;
     execTime = Calendar.getInstance();
@@ -626,8 +627,8 @@ public class Publisher implements IGLogger {
         String id = fv.getResources().get(0).getId();
         if (!tail(url).equals(id)) 
           throw new Exception("resource id/url mismatch: "+id+" vs "+url);
-//        if (!url.startsWith(igpkp.getCanonical())) 
-//          throw new Exception("base/ resource url mismatch: "+igpkp.getCanonical()+" vs "+url);
+        //        if (!url.startsWith(igpkp.getCanonical())) 
+        //          throw new Exception("base/ resource url mismatch: "+igpkp.getCanonical()+" vs "+url);
 
       }
       changed = changed || vrchanged;
@@ -761,7 +762,7 @@ public class Publisher implements IGLogger {
       }
     }
   }
-  
+
   private void generateSnapshots() throws Exception {
     ProfileUtilities utils = new ProfileUtilities(context, null, null);
     for (FetchedFile f : fileList) {
@@ -834,7 +835,7 @@ public class Publisher implements IGLogger {
 
     if (!changeList.isEmpty())
       generateSummaryOutputs();
-    
+
     runTool();
   }
 
@@ -863,10 +864,10 @@ public class Publisher implements IGLogger {
     String s;
     while ((s = stdError.readLine()) != null) {
       if (passJekyllFilter(s))
-      log("Jekyll: "+s);
+        log("Jekyll: "+s);
     }
     process.waitFor();
-        return true;
+    return true;
   }
 
   private boolean passJekyllFilter(String s) {
@@ -883,7 +884,7 @@ public class Publisher implements IGLogger {
 
   private void generateSummaryOutputs() throws IOException {
     generateResourceReferences();
-    
+
     JsonObject data = new JsonObject();
     data.addProperty("path", specPath);
     data.addProperty("canonical", igpkp.getCanonical());
@@ -1235,7 +1236,7 @@ public class Publisher implements IGLogger {
       fragment(sd.getId()+"-maps", sdr.mappings());
     if (wantGen(f, "xref")) 
       fragmentError(sd.getId()+"-sd-xref", "Yet to be done: xref");
-    
+
     if (wantGen(f, "example-list")) 
       fragment("example-list-"+sd.getId(), sdr.exampleList(fileList));
   }
@@ -1276,41 +1277,41 @@ public class Publisher implements IGLogger {
     if (hasParam(args, "-gui") || args.length == 0) {
       runGUI();
     } else {
-    System.out.println("FHIR Implementation Guide Publisher");
-    Publisher self = new Publisher();
-    self.setConfigFile(getNamedParam(args, "-ig"));
-    self.setTxServer(getNamedParam(args, "-tx"));
-    self.watch = hasParam(args, "-watch");
+      System.out.println("FHIR Implementation Guide Publisher ("+Constants.VERSION+"-"+Constants.REVISION+")");
+      Publisher self = new Publisher();
+      self.setConfigFile(getNamedParam(args, "-ig"));
+      self.setTxServer(getNamedParam(args, "-tx"));
+      self.watch = hasParam(args, "-watch");
 
-    if (self.configFile == null) {
-      System.out.println("");
-      System.out.println("To use this publisher, run with the commands");
-      System.out.println("");
-      System.out.println("-ig [source] -out [folder] -spec [path] -tx [url] -watch");
-      System.out.println("");
-      System.out.println("-ig: a path or a url where the implementation guide control file is found");
-      System.out.println("  see Wiki for Documentation");
-      System.out.println("-out: a local folder where the output from the IG publisher will be generated");
-      System.out.println("-spec: the location of the FHIR specification relative to the guide");
-      System.out.println("  (can be an absolute URL, or relative if the guide will be published with FHIR)");
-      System.out.println("-tx: (optional) Address to use for terminology server ");
-      System.out.println("  (default is http://fhir3.healthintersections.com.au)");
-      System.out.println("-watch (optional): if this is present, the publisher will not terminate;");
-      System.out.println("  instead, it will stay running, an watch for changes to the IG or its ");
-      System.out.println("  contents and re-run when it sees changes ");
-      System.out.println("");
-      System.out.println("The most important output from the publisher is validation.html");
-      System.out.println("");
-      System.out.println("For additional information, see http://wiki.hl7.org/index.php?title=Proposed_new_FHIR_IG_build_Process");
-    } else 
-      try {
-        self.execute();
-      } catch (Exception e) {
-        System.out.println("Publishing Implementation Guide Failed: "+e.getMessage());
+      if (self.configFile == null) {
         System.out.println("");
-        System.out.println("Stack Dump (for debugging):");
-        e.printStackTrace();
-      }
+        System.out.println("To use this publisher, run with the commands");
+        System.out.println("");
+        System.out.println("-ig [source] -out [folder] -spec [path] -tx [url] -watch");
+        System.out.println("");
+        System.out.println("-ig: a path or a url where the implementation guide control file is found");
+        System.out.println("  see Wiki for Documentation");
+        System.out.println("-out: a local folder where the output from the IG publisher will be generated");
+        System.out.println("-spec: the location of the FHIR specification relative to the guide");
+        System.out.println("  (can be an absolute URL, or relative if the guide will be published with FHIR)");
+        System.out.println("-tx: (optional) Address to use for terminology server ");
+        System.out.println("  (default is http://fhir3.healthintersections.com.au)");
+        System.out.println("-watch (optional): if this is present, the publisher will not terminate;");
+        System.out.println("  instead, it will stay running, an watch for changes to the IG or its ");
+        System.out.println("  contents and re-run when it sees changes ");
+        System.out.println("");
+        System.out.println("The most important output from the publisher is validation.html");
+        System.out.println("");
+        System.out.println("For additional information, see http://wiki.hl7.org/index.php?title=Proposed_new_FHIR_IG_build_Process");
+      } else 
+        try {
+          self.execute();
+        } catch (Exception e) {
+          System.out.println("Publishing Implementation Guide Failed: "+e.getMessage());
+          System.out.println("");
+          System.out.println("Stack Dump (for debugging):");
+          e.printStackTrace();
+        }
     }
   }
 
@@ -1359,7 +1360,7 @@ public class Publisher implements IGLogger {
 
   public void setLogger(IGLogger logger) {
     this.logger = logger;
-    
+
   }
 
   @Override
