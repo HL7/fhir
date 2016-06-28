@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Jun 28, 2016 09:04+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 28, 2016 21:54+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -5359,69 +5359,11 @@ public class XmlParser extends XmlParserBase {
         res.setSource(parseType("source", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("policy")) {
         res.setPolicyElement(parseUri(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("actor")) {
-        res.getActor().add(parseConsentConsentActorComponent(xpp, res));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("action")) {
-        res.getAction().add(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("securityLabel")) {
-        res.getSecurityLabel().add(parseCoding(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
-        res.getPurpose().add(parseCoding(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("data")) {
-        res.getData().add(parseConsentConsentDataComponent(xpp, res));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("recipient")) {
+        res.getRecipient().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("except")) {
         res.getExcept().add(parseConsentExceptComponent(xpp, res));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
-        return false;
-    return true;
-  }
-
-  protected Consent.ConsentActorComponent parseConsentConsentActorComponent(XmlPullParser xpp, Consent owner) throws XmlPullParserException, IOException, FHIRFormatError {
-    Consent.ConsentActorComponent res = new Consent.ConsentActorComponent();
-    parseBackboneAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-  if (!parseConsentConsentActorComponentContent(eventType, xpp, owner, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    parseElementClose(res);
-    return res;
-  }
-
-  protected boolean parseConsentConsentActorComponentContent(int eventType, XmlPullParser xpp, Consent owner, Consent.ConsentActorComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("role")) {
-        res.setRole(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reference")) {
-        res.setReference(parseReference(xpp));
-      } else if (!parseBackboneContent(eventType, xpp, res))
-        return false;
-    return true;
-  }
-
-  protected Consent.ConsentDataComponent parseConsentConsentDataComponent(XmlPullParser xpp, Consent owner) throws XmlPullParserException, IOException, FHIRFormatError {
-    Consent.ConsentDataComponent res = new Consent.ConsentDataComponent();
-    parseBackboneAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-  if (!parseConsentConsentDataComponentContent(eventType, xpp, owner, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    parseElementClose(res);
-    return res;
-  }
-
-  protected boolean parseConsentConsentDataComponentContent(int eventType, XmlPullParser xpp, Consent owner, Consent.ConsentDataComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("meaning")) {
-        res.setMeaningElement(parseEnumeration(xpp, Consent.ConsentDataMeaning.NULL, new Consent.ConsentDataMeaningEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reference")) {
-        res.setReference(parseReference(xpp));
-      } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
   }
@@ -5447,7 +5389,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("period")) {
         res.setPeriod(parsePeriod(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("actor")) {
-        res.getActor().add(parseConsentConsentActorComponent(xpp, owner));
+        res.getActor().add(parseConsentExceptActorComponent(xpp, owner));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("action")) {
         res.getAction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("securityLabel")) {
@@ -5455,7 +5397,57 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
         res.getPurpose().add(parseCoding(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("data")) {
-        res.getData().add(parseConsentConsentDataComponent(xpp, owner));
+        res.getData().add(parseConsentExceptDataComponent(xpp, owner));
+      } else if (!parseBackboneContent(eventType, xpp, res))
+        return false;
+    return true;
+  }
+
+  protected Consent.ExceptActorComponent parseConsentExceptActorComponent(XmlPullParser xpp, Consent owner) throws XmlPullParserException, IOException, FHIRFormatError {
+    Consent.ExceptActorComponent res = new Consent.ExceptActorComponent();
+    parseBackboneAttributes(xpp, res);
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+  if (!parseConsentExceptActorComponentContent(eventType, xpp, owner, res))
+        unknownContent(xpp);
+      eventType = nextNoWhitespace(xpp);
+    }
+    next(xpp);
+    parseElementClose(res);
+    return res;
+  }
+
+  protected boolean parseConsentExceptActorComponentContent(int eventType, XmlPullParser xpp, Consent owner, Consent.ExceptActorComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("role")) {
+        res.setRole(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reference")) {
+        res.setReference(parseReference(xpp));
+      } else if (!parseBackboneContent(eventType, xpp, res))
+        return false;
+    return true;
+  }
+
+  protected Consent.ExceptDataComponent parseConsentExceptDataComponent(XmlPullParser xpp, Consent owner) throws XmlPullParserException, IOException, FHIRFormatError {
+    Consent.ExceptDataComponent res = new Consent.ExceptDataComponent();
+    parseBackboneAttributes(xpp, res);
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+  if (!parseConsentExceptDataComponentContent(eventType, xpp, owner, res))
+        unknownContent(xpp);
+      eventType = nextNoWhitespace(xpp);
+    }
+    next(xpp);
+    parseElementClose(res);
+    return res;
+  }
+
+  protected boolean parseConsentExceptDataComponentContent(int eventType, XmlPullParser xpp, Consent owner, Consent.ExceptDataComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("meaning")) {
+        res.setMeaningElement(parseEnumeration(xpp, Consent.ConsentDataMeaning.NULL, new Consent.ConsentDataMeaningEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reference")) {
+        res.setReference(parseReference(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
@@ -23468,68 +23460,13 @@ public class XmlParser extends XmlParserBase {
       }      if (element.hasPolicyElement()) {
         composeUri("policy", element.getPolicyElement());
       }
-      if (element.hasActor()) { 
-        for (Consent.ConsentActorComponent e : element.getActor()) 
-          composeConsentConsentActorComponent("actor", e);
-      }
-      if (element.hasAction()) { 
-        for (CodeableConcept e : element.getAction()) 
-          composeCodeableConcept("action", e);
-      }
-      if (element.hasSecurityLabel()) { 
-        for (Coding e : element.getSecurityLabel()) 
-          composeCoding("securityLabel", e);
-      }
-      if (element.hasPurpose()) { 
-        for (Coding e : element.getPurpose()) 
-          composeCoding("purpose", e);
-      }
-      if (element.hasData()) { 
-        for (Consent.ConsentDataComponent e : element.getData()) 
-          composeConsentConsentDataComponent("data", e);
+      if (element.hasRecipient()) { 
+        for (Reference e : element.getRecipient()) 
+          composeReference("recipient", e);
       }
       if (element.hasExcept()) { 
         for (Consent.ExceptComponent e : element.getExcept()) 
           composeConsentExceptComponent("except", e);
-      }
-  }
-
-  protected void composeConsentConsentActorComponent(String name, Consent.ConsentActorComponent element) throws IOException {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.enter(FHIR_NS, name);
-      composeConsentConsentActorComponentElements(element);
-      composeElementClose(element);
-      xml.exit(FHIR_NS, name);
-    }
-  }
-
-  protected void composeConsentConsentActorComponentElements(Consent.ConsentActorComponent element) throws IOException {
-      composeBackboneElements(element);
-      if (element.hasRole()) {
-        composeCodeableConcept("role", element.getRole());
-      }
-      if (element.hasReference()) {
-        composeReference("reference", element.getReference());
-      }
-  }
-
-  protected void composeConsentConsentDataComponent(String name, Consent.ConsentDataComponent element) throws IOException {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.enter(FHIR_NS, name);
-      composeConsentConsentDataComponentElements(element);
-      composeElementClose(element);
-      xml.exit(FHIR_NS, name);
-    }
-  }
-
-  protected void composeConsentConsentDataComponentElements(Consent.ConsentDataComponent element) throws IOException {
-      composeBackboneElements(element);
-      if (element.hasMeaningElement())
-        composeEnumeration("meaning", element.getMeaningElement(), new Consent.ConsentDataMeaningEnumFactory());
-      if (element.hasReference()) {
-        composeReference("reference", element.getReference());
       }
   }
 
@@ -23551,8 +23488,8 @@ public class XmlParser extends XmlParserBase {
         composePeriod("period", element.getPeriod());
       }
       if (element.hasActor()) { 
-        for (Consent.ConsentActorComponent e : element.getActor()) 
-          composeConsentConsentActorComponent("actor", e);
+        for (Consent.ExceptActorComponent e : element.getActor()) 
+          composeConsentExceptActorComponent("actor", e);
       }
       if (element.hasAction()) { 
         for (CodeableConcept e : element.getAction()) 
@@ -23567,8 +23504,47 @@ public class XmlParser extends XmlParserBase {
           composeCoding("purpose", e);
       }
       if (element.hasData()) { 
-        for (Consent.ConsentDataComponent e : element.getData()) 
-          composeConsentConsentDataComponent("data", e);
+        for (Consent.ExceptDataComponent e : element.getData()) 
+          composeConsentExceptDataComponent("data", e);
+      }
+  }
+
+  protected void composeConsentExceptActorComponent(String name, Consent.ExceptActorComponent element) throws IOException {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.enter(FHIR_NS, name);
+      composeConsentExceptActorComponentElements(element);
+      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
+    }
+  }
+
+  protected void composeConsentExceptActorComponentElements(Consent.ExceptActorComponent element) throws IOException {
+      composeBackboneElements(element);
+      if (element.hasRole()) {
+        composeCodeableConcept("role", element.getRole());
+      }
+      if (element.hasReference()) {
+        composeReference("reference", element.getReference());
+      }
+  }
+
+  protected void composeConsentExceptDataComponent(String name, Consent.ExceptDataComponent element) throws IOException {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.enter(FHIR_NS, name);
+      composeConsentExceptDataComponentElements(element);
+      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
+    }
+  }
+
+  protected void composeConsentExceptDataComponentElements(Consent.ExceptDataComponent element) throws IOException {
+      composeBackboneElements(element);
+      if (element.hasMeaningElement())
+        composeEnumeration("meaning", element.getMeaningElement(), new Consent.ConsentDataMeaningEnumFactory());
+      if (element.hasReference()) {
+        composeReference("reference", element.getReference());
       }
   }
 

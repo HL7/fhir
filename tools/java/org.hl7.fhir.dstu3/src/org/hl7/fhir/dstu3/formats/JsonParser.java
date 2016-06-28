@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Jun 28, 2016 09:04+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 28, 2016 21:54+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -5609,34 +5609,10 @@ public class JsonParser extends JsonParserBase {
       res.setPolicyElement(parseUri(json.get("policy").getAsString()));
     if (json.has("_policy"))
       parseElementProperties(json.getAsJsonObject("_policy"), res.getPolicyElement());
-    if (json.has("actor")) {
-      JsonArray array = json.getAsJsonArray("actor");
+    if (json.has("recipient")) {
+      JsonArray array = json.getAsJsonArray("recipient");
       for (int i = 0; i < array.size(); i++) {
-        res.getActor().add(parseConsentConsentActorComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("action")) {
-      JsonArray array = json.getAsJsonArray("action");
-      for (int i = 0; i < array.size(); i++) {
-        res.getAction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("securityLabel")) {
-      JsonArray array = json.getAsJsonArray("securityLabel");
-      for (int i = 0; i < array.size(); i++) {
-        res.getSecurityLabel().add(parseCoding(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("purpose")) {
-      JsonArray array = json.getAsJsonArray("purpose");
-      for (int i = 0; i < array.size(); i++) {
-        res.getPurpose().add(parseCoding(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("data")) {
-      JsonArray array = json.getAsJsonArray("data");
-      for (int i = 0; i < array.size(); i++) {
-        res.getData().add(parseConsentConsentDataComponent(array.get(i).getAsJsonObject(), res));
+        res.getRecipient().add(parseReference(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("except")) {
@@ -5645,36 +5621,6 @@ public class JsonParser extends JsonParserBase {
         res.getExcept().add(parseConsentExceptComponent(array.get(i).getAsJsonObject(), res));
       }
     };
-  }
-
-  protected Consent.ConsentActorComponent parseConsentConsentActorComponent(JsonObject json, Consent owner) throws IOException, FHIRFormatError {
-    Consent.ConsentActorComponent res = new Consent.ConsentActorComponent();
-    parseConsentConsentActorComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseConsentConsentActorComponentProperties(JsonObject json, Consent owner, Consent.ConsentActorComponent res) throws IOException, FHIRFormatError {
-    parseBackboneProperties(json, res);
-    if (json.has("role"))
-      res.setRole(parseCodeableConcept(json.getAsJsonObject("role")));
-    if (json.has("reference"))
-      res.setReference(parseReference(json.getAsJsonObject("reference")));
-  }
-
-  protected Consent.ConsentDataComponent parseConsentConsentDataComponent(JsonObject json, Consent owner) throws IOException, FHIRFormatError {
-    Consent.ConsentDataComponent res = new Consent.ConsentDataComponent();
-    parseConsentConsentDataComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseConsentConsentDataComponentProperties(JsonObject json, Consent owner, Consent.ConsentDataComponent res) throws IOException, FHIRFormatError {
-    parseBackboneProperties(json, res);
-    if (json.has("meaning"))
-      res.setMeaningElement(parseEnumeration(json.get("meaning").getAsString(), Consent.ConsentDataMeaning.NULL, new Consent.ConsentDataMeaningEnumFactory()));
-    if (json.has("_meaning"))
-      parseElementProperties(json.getAsJsonObject("_meaning"), res.getMeaningElement());
-    if (json.has("reference"))
-      res.setReference(parseReference(json.getAsJsonObject("reference")));
   }
 
   protected Consent.ExceptComponent parseConsentExceptComponent(JsonObject json, Consent owner) throws IOException, FHIRFormatError {
@@ -5694,7 +5640,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("actor")) {
       JsonArray array = json.getAsJsonArray("actor");
       for (int i = 0; i < array.size(); i++) {
-        res.getActor().add(parseConsentConsentActorComponent(array.get(i).getAsJsonObject(), owner));
+        res.getActor().add(parseConsentExceptActorComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
     if (json.has("action")) {
@@ -5718,9 +5664,39 @@ public class JsonParser extends JsonParserBase {
     if (json.has("data")) {
       JsonArray array = json.getAsJsonArray("data");
       for (int i = 0; i < array.size(); i++) {
-        res.getData().add(parseConsentConsentDataComponent(array.get(i).getAsJsonObject(), owner));
+        res.getData().add(parseConsentExceptDataComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
+  }
+
+  protected Consent.ExceptActorComponent parseConsentExceptActorComponent(JsonObject json, Consent owner) throws IOException, FHIRFormatError {
+    Consent.ExceptActorComponent res = new Consent.ExceptActorComponent();
+    parseConsentExceptActorComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseConsentExceptActorComponentProperties(JsonObject json, Consent owner, Consent.ExceptActorComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("role"))
+      res.setRole(parseCodeableConcept(json.getAsJsonObject("role")));
+    if (json.has("reference"))
+      res.setReference(parseReference(json.getAsJsonObject("reference")));
+  }
+
+  protected Consent.ExceptDataComponent parseConsentExceptDataComponent(JsonObject json, Consent owner) throws IOException, FHIRFormatError {
+    Consent.ExceptDataComponent res = new Consent.ExceptDataComponent();
+    parseConsentExceptDataComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseConsentExceptDataComponentProperties(JsonObject json, Consent owner, Consent.ExceptDataComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("meaning"))
+      res.setMeaningElement(parseEnumeration(json.get("meaning").getAsString(), Consent.ConsentDataMeaning.NULL, new Consent.ConsentDataMeaningEnumFactory()));
+    if (json.has("_meaning"))
+      parseElementProperties(json.getAsJsonObject("_meaning"), res.getMeaningElement());
+    if (json.has("reference"))
+      res.setReference(parseReference(json.getAsJsonObject("reference")));
   }
 
   protected Contract parseContract(JsonObject json) throws IOException, FHIRFormatError {
@@ -24954,34 +24930,10 @@ public class JsonParser extends JsonParserBase {
         composeUriCore("policy", element.getPolicyElement(), false);
         composeUriExtras("policy", element.getPolicyElement(), false);
       }
-      if (element.hasActor()) {
-        openArray("actor");
-        for (Consent.ConsentActorComponent e : element.getActor()) 
-          composeConsentConsentActorComponent(null, e);
-        closeArray();
-      };
-      if (element.hasAction()) {
-        openArray("action");
-        for (CodeableConcept e : element.getAction()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasSecurityLabel()) {
-        openArray("securityLabel");
-        for (Coding e : element.getSecurityLabel()) 
-          composeCoding(null, e);
-        closeArray();
-      };
-      if (element.hasPurpose()) {
-        openArray("purpose");
-        for (Coding e : element.getPurpose()) 
-          composeCoding(null, e);
-        closeArray();
-      };
-      if (element.hasData()) {
-        openArray("data");
-        for (Consent.ConsentDataComponent e : element.getData()) 
-          composeConsentConsentDataComponent(null, e);
+      if (element.hasRecipient()) {
+        openArray("recipient");
+        for (Reference e : element.getRecipient()) 
+          composeReference(null, e);
         closeArray();
       };
       if (element.hasExcept()) {
@@ -24990,43 +24942,6 @@ public class JsonParser extends JsonParserBase {
           composeConsentExceptComponent(null, e);
         closeArray();
       };
-  }
-
-  protected void composeConsentConsentActorComponent(String name, Consent.ConsentActorComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeConsentConsentActorComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeConsentConsentActorComponentInner(Consent.ConsentActorComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasRole()) {
-        composeCodeableConcept("role", element.getRole());
-      }
-      if (element.hasReference()) {
-        composeReference("reference", element.getReference());
-      }
-  }
-
-  protected void composeConsentConsentDataComponent(String name, Consent.ConsentDataComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeConsentConsentDataComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeConsentConsentDataComponentInner(Consent.ConsentDataComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasMeaningElement()) {
-        composeEnumerationCore("meaning", element.getMeaningElement(), new Consent.ConsentDataMeaningEnumFactory(), false);
-        composeEnumerationExtras("meaning", element.getMeaningElement(), new Consent.ConsentDataMeaningEnumFactory(), false);
-      }
-      if (element.hasReference()) {
-        composeReference("reference", element.getReference());
-      }
   }
 
   protected void composeConsentExceptComponent(String name, Consent.ExceptComponent element) throws IOException {
@@ -25048,8 +24963,8 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasActor()) {
         openArray("actor");
-        for (Consent.ConsentActorComponent e : element.getActor()) 
-          composeConsentConsentActorComponent(null, e);
+        for (Consent.ExceptActorComponent e : element.getActor()) 
+          composeConsentExceptActorComponent(null, e);
         closeArray();
       };
       if (element.hasAction()) {
@@ -25072,10 +24987,47 @@ public class JsonParser extends JsonParserBase {
       };
       if (element.hasData()) {
         openArray("data");
-        for (Consent.ConsentDataComponent e : element.getData()) 
-          composeConsentConsentDataComponent(null, e);
+        for (Consent.ExceptDataComponent e : element.getData()) 
+          composeConsentExceptDataComponent(null, e);
         closeArray();
       };
+  }
+
+  protected void composeConsentExceptActorComponent(String name, Consent.ExceptActorComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeConsentExceptActorComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeConsentExceptActorComponentInner(Consent.ExceptActorComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasRole()) {
+        composeCodeableConcept("role", element.getRole());
+      }
+      if (element.hasReference()) {
+        composeReference("reference", element.getReference());
+      }
+  }
+
+  protected void composeConsentExceptDataComponent(String name, Consent.ExceptDataComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeConsentExceptDataComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeConsentExceptDataComponentInner(Consent.ExceptDataComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasMeaningElement()) {
+        composeEnumerationCore("meaning", element.getMeaningElement(), new Consent.ConsentDataMeaningEnumFactory(), false);
+        composeEnumerationExtras("meaning", element.getMeaningElement(), new Consent.ConsentDataMeaningEnumFactory(), false);
+      }
+      if (element.hasReference()) {
+        composeReference("reference", element.getReference());
+      }
   }
 
   protected void composeContract(String name, Contract element) throws IOException {

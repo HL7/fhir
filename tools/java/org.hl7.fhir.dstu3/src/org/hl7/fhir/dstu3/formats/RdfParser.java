@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Jun 28, 2016 09:04+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 28, 2016 21:54+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -3851,50 +3851,10 @@ public class RdfParser extends RdfParserBase {
       composeType(t, "Consent", "source", element.getSource(), -1);
     if (element.hasPolicyElement())
       composeUri(t, "Consent", "policy", element.getPolicyElement(), -1);
-    for (int i = 0; i < element.getActor().size(); i++)
-      composeConsentConsentActorComponent(t, "Consent", "actor", element.getActor().get(i), i);
-    for (int i = 0; i < element.getAction().size(); i++)
-      composeCodeableConcept(t, "Consent", "action", element.getAction().get(i), i);
-    for (int i = 0; i < element.getSecurityLabel().size(); i++)
-      composeCoding(t, "Consent", "securityLabel", element.getSecurityLabel().get(i), i);
-    for (int i = 0; i < element.getPurpose().size(); i++)
-      composeCoding(t, "Consent", "purpose", element.getPurpose().get(i), i);
-    for (int i = 0; i < element.getData().size(); i++)
-      composeConsentConsentDataComponent(t, "Consent", "data", element.getData().get(i), i);
+    for (int i = 0; i < element.getRecipient().size(); i++)
+      composeReference(t, "Consent", "recipient", element.getRecipient().get(i), i);
     for (int i = 0; i < element.getExcept().size(); i++)
       composeConsentExceptComponent(t, "Consent", "except", element.getExcept().get(i), i);
-  }
-
-  protected void composeConsentConsentActorComponent(Complex parent, String parentType, String name, Consent.ConsentActorComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "actor", name, element, index);
-    if (element.hasRole())
-      composeCodeableConcept(t, "Consent", "role", element.getRole(), -1);
-    if (element.hasReference())
-      composeReference(t, "Consent", "reference", element.getReference(), -1);
-  }
-
-  protected void composeConsentConsentDataComponent(Complex parent, String parentType, String name, Consent.ConsentDataComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "data", name, element, index);
-    if (element.hasMeaningElement())
-      composeEnum(t, "Consent", "meaning", element.getMeaningElement(), -1);
-    if (element.hasReference())
-      composeReference(t, "Consent", "reference", element.getReference(), -1);
   }
 
   protected void composeConsentExceptComponent(Complex parent, String parentType, String name, Consent.ExceptComponent element, int index) {
@@ -3912,7 +3872,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasPeriod())
       composePeriod(t, "Consent", "period", element.getPeriod(), -1);
     for (int i = 0; i < element.getActor().size(); i++)
-      composeConsentConsentActorComponent(t, "Consent", "actor", element.getActor().get(i), i);
+      composeConsentExceptActorComponent(t, "Consent", "actor", element.getActor().get(i), i);
     for (int i = 0; i < element.getAction().size(); i++)
       composeCodeableConcept(t, "Consent", "action", element.getAction().get(i), i);
     for (int i = 0; i < element.getSecurityLabel().size(); i++)
@@ -3920,7 +3880,39 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getPurpose().size(); i++)
       composeCoding(t, "Consent", "purpose", element.getPurpose().get(i), i);
     for (int i = 0; i < element.getData().size(); i++)
-      composeConsentConsentDataComponent(t, "Consent", "data", element.getData().get(i), i);
+      composeConsentExceptDataComponent(t, "Consent", "data", element.getData().get(i), i);
+  }
+
+  protected void composeConsentExceptActorComponent(Complex parent, String parentType, String name, Consent.ExceptActorComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "actor", name, element, index);
+    if (element.hasRole())
+      composeCodeableConcept(t, "Consent", "role", element.getRole(), -1);
+    if (element.hasReference())
+      composeReference(t, "Consent", "reference", element.getReference(), -1);
+  }
+
+  protected void composeConsentExceptDataComponent(Complex parent, String parentType, String name, Consent.ExceptDataComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "data", name, element, index);
+    if (element.hasMeaningElement())
+      composeEnum(t, "Consent", "meaning", element.getMeaningElement(), -1);
+    if (element.hasReference())
+      composeReference(t, "Consent", "reference", element.getReference(), -1);
   }
 
   protected void composeContract(Complex parent, String parentType, String name, Contract element, int index) {

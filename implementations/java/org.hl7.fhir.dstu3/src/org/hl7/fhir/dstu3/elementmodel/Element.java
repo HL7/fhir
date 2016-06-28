@@ -254,7 +254,7 @@ public class Element extends Base {
 		if (isPrimitive())
 		  return value;
 		else {
-			if (hasPrimitiveValue()) {
+			if (hasPrimitiveValue() && children != null) {
 				for (Element c : children) {
 					if (c.getName().equals("value"))
 						return c.primitiveValue();

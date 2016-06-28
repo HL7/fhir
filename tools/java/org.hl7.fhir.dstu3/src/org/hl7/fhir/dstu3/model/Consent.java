@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jun 28, 2016 09:04+1000 for FHIR v1.4.0
+// Generated on Tue, Jun 28, 2016 21:54+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -202,144 +202,6 @@ public class Consent extends DomainResource {
       }
     }
 
-    public enum ConsentDataMeaning {
-        /**
-         * The consent applies directly to the instance of the resource
-         */
-        INSTANCE, 
-        /**
-         * The consent applies directly to the instance of the resource, and instances it refers to
-         */
-        RELATED, 
-        /**
-         * The consent applies directly to the instance of the resource, and instances that refer to it
-         */
-        DEPENDENTS, 
-        /**
-         * The consent applies to any resources that conform to the profile referenced
-         */
-        PROFILE, 
-        /**
-         * The consent applies to any resource where the primary code is in the referenced value set
-         */
-        VALUESET, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static ConsentDataMeaning fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("instance".equals(codeString))
-          return INSTANCE;
-        if ("related".equals(codeString))
-          return RELATED;
-        if ("dependents".equals(codeString))
-          return DEPENDENTS;
-        if ("profile".equals(codeString))
-          return PROFILE;
-        if ("valueset".equals(codeString))
-          return VALUESET;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown ConsentDataMeaning code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case INSTANCE: return "instance";
-            case RELATED: return "related";
-            case DEPENDENTS: return "dependents";
-            case PROFILE: return "profile";
-            case VALUESET: return "valueset";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case INSTANCE: return "http://hl7.org/fhir/consent-data-meaning";
-            case RELATED: return "http://hl7.org/fhir/consent-data-meaning";
-            case DEPENDENTS: return "http://hl7.org/fhir/consent-data-meaning";
-            case PROFILE: return "http://hl7.org/fhir/consent-data-meaning";
-            case VALUESET: return "http://hl7.org/fhir/consent-data-meaning";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case INSTANCE: return "The consent applies directly to the instance of the resource";
-            case RELATED: return "The consent applies directly to the instance of the resource, and instances it refers to";
-            case DEPENDENTS: return "The consent applies directly to the instance of the resource, and instances that refer to it";
-            case PROFILE: return "The consent applies to any resources that conform to the profile referenced";
-            case VALUESET: return "The consent applies to any resource where the primary code is in the referenced value set";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case INSTANCE: return "Instance";
-            case RELATED: return "Related";
-            case DEPENDENTS: return "Dependents";
-            case PROFILE: return "Profile";
-            case VALUESET: return "ValueSet";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ConsentDataMeaningEnumFactory implements EnumFactory<ConsentDataMeaning> {
-    public ConsentDataMeaning fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("instance".equals(codeString))
-          return ConsentDataMeaning.INSTANCE;
-        if ("related".equals(codeString))
-          return ConsentDataMeaning.RELATED;
-        if ("dependents".equals(codeString))
-          return ConsentDataMeaning.DEPENDENTS;
-        if ("profile".equals(codeString))
-          return ConsentDataMeaning.PROFILE;
-        if ("valueset".equals(codeString))
-          return ConsentDataMeaning.VALUESET;
-        throw new IllegalArgumentException("Unknown ConsentDataMeaning code '"+codeString+"'");
-        }
-        public Enumeration<ConsentDataMeaning> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("instance".equals(codeString))
-          return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.INSTANCE);
-        if ("related".equals(codeString))
-          return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.RELATED);
-        if ("dependents".equals(codeString))
-          return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.DEPENDENTS);
-        if ("profile".equals(codeString))
-          return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.PROFILE);
-        if ("valueset".equals(codeString))
-          return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.VALUESET);
-        throw new FHIRException("Unknown ConsentDataMeaning code '"+codeString+"'");
-        }
-    public String toCode(ConsentDataMeaning code) {
-      if (code == ConsentDataMeaning.INSTANCE)
-        return "instance";
-      if (code == ConsentDataMeaning.RELATED)
-        return "related";
-      if (code == ConsentDataMeaning.DEPENDENTS)
-        return "dependents";
-      if (code == ConsentDataMeaning.PROFILE)
-        return "profile";
-      if (code == ConsentDataMeaning.VALUESET)
-        return "valueset";
-      return "?";
-      }
-    public String toSystem(ConsentDataMeaning code) {
-      return code.getSystem();
-      }
-    }
-
     public enum ConsentExceptType {
         /**
          * Consent is denied for actions meeting these rules
@@ -430,435 +292,159 @@ public class Consent extends DomainResource {
       }
     }
 
-    @Block()
-    public static class ConsentActorComponent extends BackboneElement implements IBaseBackboneElement {
+    public enum ConsentDataMeaning {
         /**
-         * How the individual is or was involved in the resources.
+         * The consent applies directly to the instance of the resource
          */
-        @Child(name = "role", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="How the individual is/was involved", formalDefinition="How the individual is or was involved in the resources." )
-        protected CodeableConcept role;
-
+        INSTANCE, 
         /**
-         * The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').
+         * The consent applies directly to the instance of the resource, and instances it refers to
          */
-        @Child(name = "reference", type = {Device.class, Group.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Resource for the actor (or group, by role)", formalDefinition="The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers')." )
-        protected Reference reference;
-
+        RELATED, 
         /**
-         * The actual object that is the target of the reference (The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').)
+         * The consent applies directly to the instance of the resource, and instances that refer to it
          */
-        protected Resource referenceTarget;
-
-        private static final long serialVersionUID = 1152919415L;
-
-    /**
-     * Constructor
-     */
-      public ConsentActorComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public ConsentActorComponent(CodeableConcept role, Reference reference) {
-        super();
-        this.role = role;
-        this.reference = reference;
-      }
-
+        DEPENDENTS, 
         /**
-         * @return {@link #role} (How the individual is or was involved in the resources.)
+         * The consent applies to any resources that conform to the profile referenced
          */
-        public CodeableConcept getRole() { 
-          if (this.role == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ConsentActorComponent.role");
-            else if (Configuration.doAutoCreate())
-              this.role = new CodeableConcept(); // cc
-          return this.role;
-        }
-
-        public boolean hasRole() { 
-          return this.role != null && !this.role.isEmpty();
-        }
-
+        PROFILE, 
         /**
-         * @param value {@link #role} (How the individual is or was involved in the resources.)
+         * The consent applies to any resource where the primary code is in the referenced value set
          */
-        public ConsentActorComponent setRole(CodeableConcept value) { 
-          this.role = value;
-          return this;
-        }
-
+        VALUESET, 
         /**
-         * @return {@link #reference} (The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').)
+         * The document applies to any document with a type in the nominated value set
          */
-        public Reference getReference() { 
-          if (this.reference == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ConsentActorComponent.reference");
-            else if (Configuration.doAutoCreate())
-              this.reference = new Reference(); // cc
-          return this.reference;
-        }
-
-        public boolean hasReference() { 
-          return this.reference != null && !this.reference.isEmpty();
-        }
-
+        DOCUMENT, 
         /**
-         * @param value {@link #reference} (The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').)
+         * added to help the parsers with the generic types
          */
-        public ConsentActorComponent setReference(Reference value) { 
-          this.reference = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #reference} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').)
-         */
-        public Resource getReferenceTarget() { 
-          return this.referenceTarget;
-        }
-
-        /**
-         * @param value {@link #reference} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').)
-         */
-        public ConsentActorComponent setReferenceTarget(Resource value) { 
-          this.referenceTarget = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("role", "CodeableConcept", "How the individual is or was involved in the resources.", 0, java.lang.Integer.MAX_VALUE, role));
-          childrenList.add(new Property("reference", "Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)", "The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').", 0, java.lang.Integer.MAX_VALUE, reference));
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
-        case -925155509: /*reference*/ return this.reference == null ? new Base[0] : new Base[] {this.reference}; // Reference
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 3506294: // role
-          this.role = castToCodeableConcept(value); // CodeableConcept
-          break;
-        case -925155509: // reference
-          this.reference = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("role"))
-          this.role = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("reference"))
-          this.reference = castToReference(value); // Reference
+        NULL;
+        public static ConsentDataMeaning fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("instance".equals(codeString))
+          return INSTANCE;
+        if ("related".equals(codeString))
+          return RELATED;
+        if ("dependents".equals(codeString))
+          return DEPENDENTS;
+        if ("profile".equals(codeString))
+          return PROFILE;
+        if ("valueset".equals(codeString))
+          return VALUESET;
+        if ("document".equals(codeString))
+          return DOCUMENT;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
         else
-          super.setProperty(name, value);
+          throw new FHIRException("Unknown ConsentDataMeaning code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case INSTANCE: return "instance";
+            case RELATED: return "related";
+            case DEPENDENTS: return "dependents";
+            case PROFILE: return "profile";
+            case VALUESET: return "valueset";
+            case DOCUMENT: return "document";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case INSTANCE: return "http://hl7.org/fhir/consent-data-meaning";
+            case RELATED: return "http://hl7.org/fhir/consent-data-meaning";
+            case DEPENDENTS: return "http://hl7.org/fhir/consent-data-meaning";
+            case PROFILE: return "http://hl7.org/fhir/consent-data-meaning";
+            case VALUESET: return "http://hl7.org/fhir/consent-data-meaning";
+            case DOCUMENT: return "http://hl7.org/fhir/consent-data-meaning";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case INSTANCE: return "The consent applies directly to the instance of the resource";
+            case RELATED: return "The consent applies directly to the instance of the resource, and instances it refers to";
+            case DEPENDENTS: return "The consent applies directly to the instance of the resource, and instances that refer to it";
+            case PROFILE: return "The consent applies to any resources that conform to the profile referenced";
+            case VALUESET: return "The consent applies to any resource where the primary code is in the referenced value set";
+            case DOCUMENT: return "The document applies to any document with a type in the nominated value set";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case INSTANCE: return "Instance";
+            case RELATED: return "Related";
+            case DEPENDENTS: return "Dependents";
+            case PROFILE: return "Profile";
+            case VALUESET: return "ValueSet";
+            case DOCUMENT: return "Document";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ConsentDataMeaningEnumFactory implements EnumFactory<ConsentDataMeaning> {
+    public ConsentDataMeaning fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("instance".equals(codeString))
+          return ConsentDataMeaning.INSTANCE;
+        if ("related".equals(codeString))
+          return ConsentDataMeaning.RELATED;
+        if ("dependents".equals(codeString))
+          return ConsentDataMeaning.DEPENDENTS;
+        if ("profile".equals(codeString))
+          return ConsentDataMeaning.PROFILE;
+        if ("valueset".equals(codeString))
+          return ConsentDataMeaning.VALUESET;
+        if ("document".equals(codeString))
+          return ConsentDataMeaning.DOCUMENT;
+        throw new IllegalArgumentException("Unknown ConsentDataMeaning code '"+codeString+"'");
+        }
+        public Enumeration<ConsentDataMeaning> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("instance".equals(codeString))
+          return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.INSTANCE);
+        if ("related".equals(codeString))
+          return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.RELATED);
+        if ("dependents".equals(codeString))
+          return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.DEPENDENTS);
+        if ("profile".equals(codeString))
+          return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.PROFILE);
+        if ("valueset".equals(codeString))
+          return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.VALUESET);
+        if ("document".equals(codeString))
+          return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.DOCUMENT);
+        throw new FHIRException("Unknown ConsentDataMeaning code '"+codeString+"'");
+        }
+    public String toCode(ConsentDataMeaning code) {
+      if (code == ConsentDataMeaning.INSTANCE)
+        return "instance";
+      if (code == ConsentDataMeaning.RELATED)
+        return "related";
+      if (code == ConsentDataMeaning.DEPENDENTS)
+        return "dependents";
+      if (code == ConsentDataMeaning.PROFILE)
+        return "profile";
+      if (code == ConsentDataMeaning.VALUESET)
+        return "valueset";
+      if (code == ConsentDataMeaning.DOCUMENT)
+        return "document";
+      return "?";
       }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3506294:  return getRole(); // CodeableConcept
-        case -925155509:  return getReference(); // Reference
-        default: return super.makeProperty(hash, name);
-        }
-
+    public String toSystem(ConsentDataMeaning code) {
+      return code.getSystem();
       }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("role")) {
-          this.role = new CodeableConcept();
-          return this.role;
-        }
-        else if (name.equals("reference")) {
-          this.reference = new Reference();
-          return this.reference;
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public ConsentActorComponent copy() {
-        ConsentActorComponent dst = new ConsentActorComponent();
-        copyValues(dst);
-        dst.role = role == null ? null : role.copy();
-        dst.reference = reference == null ? null : reference.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof ConsentActorComponent))
-          return false;
-        ConsentActorComponent o = (ConsentActorComponent) other;
-        return compareDeep(role, o.role, true) && compareDeep(reference, o.reference, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof ConsentActorComponent))
-          return false;
-        ConsentActorComponent o = (ConsentActorComponent) other;
-        return true;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, reference);
-      }
-
-  public String fhirType() {
-    return "Consent.actor";
-
-  }
-
-  }
-
-    @Block()
-    public static class ConsentDataComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * How the resource reference is interpreted when testing consent restrictions.
-         */
-        @Child(name = "meaning", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="instance | related | dependents | profile | valueset", formalDefinition="How the resource reference is interpreted when testing consent restrictions." )
-        protected Enumeration<ConsentDataMeaning> meaning;
-
-        /**
-         * A reference to a specific resource that defines which resources are covered by this consent.
-         */
-        @Child(name = "reference", type = {}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The actual data reference", formalDefinition="A reference to a specific resource that defines which resources are covered by this consent." )
-        protected Reference reference;
-
-        /**
-         * The actual object that is the target of the reference (A reference to a specific resource that defines which resources are covered by this consent.)
-         */
-        protected Resource referenceTarget;
-
-        private static final long serialVersionUID = -424898645L;
-
-    /**
-     * Constructor
-     */
-      public ConsentDataComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public ConsentDataComponent(Enumeration<ConsentDataMeaning> meaning, Reference reference) {
-        super();
-        this.meaning = meaning;
-        this.reference = reference;
-      }
-
-        /**
-         * @return {@link #meaning} (How the resource reference is interpreted when testing consent restrictions.). This is the underlying object with id, value and extensions. The accessor "getMeaning" gives direct access to the value
-         */
-        public Enumeration<ConsentDataMeaning> getMeaningElement() { 
-          if (this.meaning == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ConsentDataComponent.meaning");
-            else if (Configuration.doAutoCreate())
-              this.meaning = new Enumeration<ConsentDataMeaning>(new ConsentDataMeaningEnumFactory()); // bb
-          return this.meaning;
-        }
-
-        public boolean hasMeaningElement() { 
-          return this.meaning != null && !this.meaning.isEmpty();
-        }
-
-        public boolean hasMeaning() { 
-          return this.meaning != null && !this.meaning.isEmpty();
-        }
-
-        /**
-         * @param value {@link #meaning} (How the resource reference is interpreted when testing consent restrictions.). This is the underlying object with id, value and extensions. The accessor "getMeaning" gives direct access to the value
-         */
-        public ConsentDataComponent setMeaningElement(Enumeration<ConsentDataMeaning> value) { 
-          this.meaning = value;
-          return this;
-        }
-
-        /**
-         * @return How the resource reference is interpreted when testing consent restrictions.
-         */
-        public ConsentDataMeaning getMeaning() { 
-          return this.meaning == null ? null : this.meaning.getValue();
-        }
-
-        /**
-         * @param value How the resource reference is interpreted when testing consent restrictions.
-         */
-        public ConsentDataComponent setMeaning(ConsentDataMeaning value) { 
-            if (this.meaning == null)
-              this.meaning = new Enumeration<ConsentDataMeaning>(new ConsentDataMeaningEnumFactory());
-            this.meaning.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #reference} (A reference to a specific resource that defines which resources are covered by this consent.)
-         */
-        public Reference getReference() { 
-          if (this.reference == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ConsentDataComponent.reference");
-            else if (Configuration.doAutoCreate())
-              this.reference = new Reference(); // cc
-          return this.reference;
-        }
-
-        public boolean hasReference() { 
-          return this.reference != null && !this.reference.isEmpty();
-        }
-
-        /**
-         * @param value {@link #reference} (A reference to a specific resource that defines which resources are covered by this consent.)
-         */
-        public ConsentDataComponent setReference(Reference value) { 
-          this.reference = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #reference} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a specific resource that defines which resources are covered by this consent.)
-         */
-        public Resource getReferenceTarget() { 
-          return this.referenceTarget;
-        }
-
-        /**
-         * @param value {@link #reference} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a specific resource that defines which resources are covered by this consent.)
-         */
-        public ConsentDataComponent setReferenceTarget(Resource value) { 
-          this.referenceTarget = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("meaning", "code", "How the resource reference is interpreted when testing consent restrictions.", 0, java.lang.Integer.MAX_VALUE, meaning));
-          childrenList.add(new Property("reference", "Reference(Any)", "A reference to a specific resource that defines which resources are covered by this consent.", 0, java.lang.Integer.MAX_VALUE, reference));
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 938160637: /*meaning*/ return this.meaning == null ? new Base[0] : new Base[] {this.meaning}; // Enumeration<ConsentDataMeaning>
-        case -925155509: /*reference*/ return this.reference == null ? new Base[0] : new Base[] {this.reference}; // Reference
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 938160637: // meaning
-          this.meaning = new ConsentDataMeaningEnumFactory().fromType(value); // Enumeration<ConsentDataMeaning>
-          break;
-        case -925155509: // reference
-          this.reference = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("meaning"))
-          this.meaning = new ConsentDataMeaningEnumFactory().fromType(value); // Enumeration<ConsentDataMeaning>
-        else if (name.equals("reference"))
-          this.reference = castToReference(value); // Reference
-        else
-          super.setProperty(name, value);
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 938160637: throw new FHIRException("Cannot make property meaning as it is not a complex type"); // Enumeration<ConsentDataMeaning>
-        case -925155509:  return getReference(); // Reference
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("meaning")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Consent.meaning");
-        }
-        else if (name.equals("reference")) {
-          this.reference = new Reference();
-          return this.reference;
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public ConsentDataComponent copy() {
-        ConsentDataComponent dst = new ConsentDataComponent();
-        copyValues(dst);
-        dst.meaning = meaning == null ? null : meaning.copy();
-        dst.reference = reference == null ? null : reference.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof ConsentDataComponent))
-          return false;
-        ConsentDataComponent o = (ConsentDataComponent) other;
-        return compareDeep(meaning, o.meaning, true) && compareDeep(reference, o.reference, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof ConsentDataComponent))
-          return false;
-        ConsentDataComponent o = (ConsentDataComponent) other;
-        return compareValues(meaning, o.meaning, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(meaning, reference);
-      }
-
-  public String fhirType() {
-    return "Consent.data";
-
-  }
-
-  }
+    }
 
     @Block()
     public static class ExceptComponent extends BackboneElement implements IBaseBackboneElement {
@@ -879,9 +465,9 @@ public class Consent extends DomainResource {
         /**
          * Who or what is controlled by this Exception. Use group to identify a set of actors by some property they share (e.g. 'admitting officers').
          */
-        @Child(name = "actor", type = {ConsentActorComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "actor", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Who|what controlled by this exception (or group, by role)", formalDefinition="Who or what is controlled by this Exception. Use group to identify a set of actors by some property they share (e.g. 'admitting officers')." )
-        protected List<ConsentActorComponent> actor;
+        protected List<ExceptActorComponent> actor;
 
         /**
          * Actions controlled by this Exception.
@@ -907,11 +493,11 @@ public class Consent extends DomainResource {
         /**
          * The resources controlled by this exception, if specific resources are referenced.
          */
-        @Child(name = "data", type = {ConsentDataComponent.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "data", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Data controlled by this exception", formalDefinition="The resources controlled by this exception, if specific resources are referenced." )
-        protected List<ConsentDataComponent> data;
+        protected List<ExceptDataComponent> data;
 
-        private static final long serialVersionUID = -2052414867L;
+        private static final long serialVersionUID = 122920591L;
 
     /**
      * Constructor
@@ -1000,16 +586,16 @@ public class Consent extends DomainResource {
         /**
          * @return {@link #actor} (Who or what is controlled by this Exception. Use group to identify a set of actors by some property they share (e.g. 'admitting officers').)
          */
-        public List<ConsentActorComponent> getActor() { 
+        public List<ExceptActorComponent> getActor() { 
           if (this.actor == null)
-            this.actor = new ArrayList<ConsentActorComponent>();
+            this.actor = new ArrayList<ExceptActorComponent>();
           return this.actor;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ExceptComponent setActor(List<ConsentActorComponent> theActor) { 
+        public ExceptComponent setActor(List<ExceptActorComponent> theActor) { 
           this.actor = theActor;
           return this;
         }
@@ -1017,25 +603,25 @@ public class Consent extends DomainResource {
         public boolean hasActor() { 
           if (this.actor == null)
             return false;
-          for (ConsentActorComponent item : this.actor)
+          for (ExceptActorComponent item : this.actor)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public ConsentActorComponent addActor() { //3
-          ConsentActorComponent t = new ConsentActorComponent();
+        public ExceptActorComponent addActor() { //3
+          ExceptActorComponent t = new ExceptActorComponent();
           if (this.actor == null)
-            this.actor = new ArrayList<ConsentActorComponent>();
+            this.actor = new ArrayList<ExceptActorComponent>();
           this.actor.add(t);
           return t;
         }
 
-        public ExceptComponent addActor(ConsentActorComponent t) { //3
+        public ExceptComponent addActor(ExceptActorComponent t) { //3
           if (t == null)
             return this;
           if (this.actor == null)
-            this.actor = new ArrayList<ConsentActorComponent>();
+            this.actor = new ArrayList<ExceptActorComponent>();
           this.actor.add(t);
           return this;
         }
@@ -1043,7 +629,7 @@ public class Consent extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #actor}, creating it if it does not already exist
          */
-        public ConsentActorComponent getActorFirstRep() { 
+        public ExceptActorComponent getActorFirstRep() { 
           if (getActor().isEmpty()) {
             addActor();
           }
@@ -1212,16 +798,16 @@ public class Consent extends DomainResource {
         /**
          * @return {@link #data} (The resources controlled by this exception, if specific resources are referenced.)
          */
-        public List<ConsentDataComponent> getData() { 
+        public List<ExceptDataComponent> getData() { 
           if (this.data == null)
-            this.data = new ArrayList<ConsentDataComponent>();
+            this.data = new ArrayList<ExceptDataComponent>();
           return this.data;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ExceptComponent setData(List<ConsentDataComponent> theData) { 
+        public ExceptComponent setData(List<ExceptDataComponent> theData) { 
           this.data = theData;
           return this;
         }
@@ -1229,25 +815,25 @@ public class Consent extends DomainResource {
         public boolean hasData() { 
           if (this.data == null)
             return false;
-          for (ConsentDataComponent item : this.data)
+          for (ExceptDataComponent item : this.data)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public ConsentDataComponent addData() { //3
-          ConsentDataComponent t = new ConsentDataComponent();
+        public ExceptDataComponent addData() { //3
+          ExceptDataComponent t = new ExceptDataComponent();
           if (this.data == null)
-            this.data = new ArrayList<ConsentDataComponent>();
+            this.data = new ArrayList<ExceptDataComponent>();
           this.data.add(t);
           return t;
         }
 
-        public ExceptComponent addData(ConsentDataComponent t) { //3
+        public ExceptComponent addData(ExceptDataComponent t) { //3
           if (t == null)
             return this;
           if (this.data == null)
-            this.data = new ArrayList<ConsentDataComponent>();
+            this.data = new ArrayList<ExceptDataComponent>();
           this.data.add(t);
           return this;
         }
@@ -1255,7 +841,7 @@ public class Consent extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #data}, creating it if it does not already exist
          */
-        public ConsentDataComponent getDataFirstRep() { 
+        public ExceptDataComponent getDataFirstRep() { 
           if (getData().isEmpty()) {
             addData();
           }
@@ -1266,11 +852,11 @@ public class Consent extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "How the exception is statement is applied, as adding additional consent, ore removing.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("period", "Period", "Relevant time or time-period when this Consent Exception is applicable.", 0, java.lang.Integer.MAX_VALUE, period));
-          childrenList.add(new Property("actor", "@Consent.actor", "Who or what is controlled by this Exception. Use group to identify a set of actors by some property they share (e.g. 'admitting officers').", 0, java.lang.Integer.MAX_VALUE, actor));
+          childrenList.add(new Property("actor", "", "Who or what is controlled by this Exception. Use group to identify a set of actors by some property they share (e.g. 'admitting officers').", 0, java.lang.Integer.MAX_VALUE, actor));
           childrenList.add(new Property("action", "CodeableConcept", "Actions controlled by this Exception.", 0, java.lang.Integer.MAX_VALUE, action));
           childrenList.add(new Property("securityLabel", "Coding", "A set of security labels that define which resources are controlled by this exception. If more than one label is specified, all resources must have all the specified labels.", 0, java.lang.Integer.MAX_VALUE, securityLabel));
           childrenList.add(new Property("purpose", "Coding", "A set of security labels that define the context of which actions are controlled by this exception. If more than one label is specified, operations must have all the specified labels.", 0, java.lang.Integer.MAX_VALUE, purpose));
-          childrenList.add(new Property("data", "@Consent.data", "The resources controlled by this exception, if specific resources are referenced.", 0, java.lang.Integer.MAX_VALUE, data));
+          childrenList.add(new Property("data", "", "The resources controlled by this exception, if specific resources are referenced.", 0, java.lang.Integer.MAX_VALUE, data));
         }
 
       @Override
@@ -1278,11 +864,11 @@ public class Consent extends DomainResource {
         switch (hash) {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ConsentExceptType>
         case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : this.actor.toArray(new Base[this.actor.size()]); // ConsentActorComponent
+        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : this.actor.toArray(new Base[this.actor.size()]); // ExceptActorComponent
         case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // CodeableConcept
         case -722296940: /*securityLabel*/ return this.securityLabel == null ? new Base[0] : this.securityLabel.toArray(new Base[this.securityLabel.size()]); // Coding
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : this.purpose.toArray(new Base[this.purpose.size()]); // Coding
-        case 3076010: /*data*/ return this.data == null ? new Base[0] : this.data.toArray(new Base[this.data.size()]); // ConsentDataComponent
+        case 3076010: /*data*/ return this.data == null ? new Base[0] : this.data.toArray(new Base[this.data.size()]); // ExceptDataComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1298,7 +884,7 @@ public class Consent extends DomainResource {
           this.period = castToPeriod(value); // Period
           break;
         case 92645877: // actor
-          this.getActor().add((ConsentActorComponent) value); // ConsentActorComponent
+          this.getActor().add((ExceptActorComponent) value); // ExceptActorComponent
           break;
         case -1422950858: // action
           this.getAction().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1310,7 +896,7 @@ public class Consent extends DomainResource {
           this.getPurpose().add(castToCoding(value)); // Coding
           break;
         case 3076010: // data
-          this.getData().add((ConsentDataComponent) value); // ConsentDataComponent
+          this.getData().add((ExceptDataComponent) value); // ExceptDataComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -1324,7 +910,7 @@ public class Consent extends DomainResource {
         else if (name.equals("period"))
           this.period = castToPeriod(value); // Period
         else if (name.equals("actor"))
-          this.getActor().add((ConsentActorComponent) value);
+          this.getActor().add((ExceptActorComponent) value);
         else if (name.equals("action"))
           this.getAction().add(castToCodeableConcept(value));
         else if (name.equals("securityLabel"))
@@ -1332,7 +918,7 @@ public class Consent extends DomainResource {
         else if (name.equals("purpose"))
           this.getPurpose().add(castToCoding(value));
         else if (name.equals("data"))
-          this.getData().add((ConsentDataComponent) value);
+          this.getData().add((ExceptDataComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -1342,11 +928,11 @@ public class Consent extends DomainResource {
         switch (hash) {
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<ConsentExceptType>
         case -991726143:  return getPeriod(); // Period
-        case 92645877:  return addActor(); // ConsentActorComponent
+        case 92645877:  return addActor(); // ExceptActorComponent
         case -1422950858:  return addAction(); // CodeableConcept
         case -722296940:  return addSecurityLabel(); // Coding
         case -220463842:  return addPurpose(); // Coding
-        case 3076010:  return addData(); // ConsentDataComponent
+        case 3076010:  return addData(); // ExceptDataComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -1386,8 +972,8 @@ public class Consent extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.period = period == null ? null : period.copy();
         if (actor != null) {
-          dst.actor = new ArrayList<ConsentActorComponent>();
-          for (ConsentActorComponent i : actor)
+          dst.actor = new ArrayList<ExceptActorComponent>();
+          for (ExceptActorComponent i : actor)
             dst.actor.add(i.copy());
         };
         if (action != null) {
@@ -1406,8 +992,8 @@ public class Consent extends DomainResource {
             dst.purpose.add(i.copy());
         };
         if (data != null) {
-          dst.data = new ArrayList<ConsentDataComponent>();
-          for (ConsentDataComponent i : data)
+          dst.data = new ArrayList<ExceptDataComponent>();
+          for (ExceptDataComponent i : data)
             dst.data.add(i.copy());
         };
         return dst;
@@ -1442,6 +1028,436 @@ public class Consent extends DomainResource {
 
   public String fhirType() {
     return "Consent.except";
+
+  }
+
+  }
+
+    @Block()
+    public static class ExceptActorComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * How the individual is or was involved in the resourcescontent that is described in the exception.
+         */
+        @Child(name = "role", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="How the actor is/was involved", formalDefinition="How the individual is or was involved in the resourcescontent that is described in the exception." )
+        protected CodeableConcept role;
+
+        /**
+         * The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').
+         */
+        @Child(name = "reference", type = {Device.class, Group.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Resource for the actor (or group, by role)", formalDefinition="The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers')." )
+        protected Reference reference;
+
+        /**
+         * The actual object that is the target of the reference (The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').)
+         */
+        protected Resource referenceTarget;
+
+        private static final long serialVersionUID = 1152919415L;
+
+    /**
+     * Constructor
+     */
+      public ExceptActorComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public ExceptActorComponent(CodeableConcept role, Reference reference) {
+        super();
+        this.role = role;
+        this.reference = reference;
+      }
+
+        /**
+         * @return {@link #role} (How the individual is or was involved in the resourcescontent that is described in the exception.)
+         */
+        public CodeableConcept getRole() { 
+          if (this.role == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ExceptActorComponent.role");
+            else if (Configuration.doAutoCreate())
+              this.role = new CodeableConcept(); // cc
+          return this.role;
+        }
+
+        public boolean hasRole() { 
+          return this.role != null && !this.role.isEmpty();
+        }
+
+        /**
+         * @param value {@link #role} (How the individual is or was involved in the resourcescontent that is described in the exception.)
+         */
+        public ExceptActorComponent setRole(CodeableConcept value) { 
+          this.role = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #reference} (The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').)
+         */
+        public Reference getReference() { 
+          if (this.reference == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ExceptActorComponent.reference");
+            else if (Configuration.doAutoCreate())
+              this.reference = new Reference(); // cc
+          return this.reference;
+        }
+
+        public boolean hasReference() { 
+          return this.reference != null && !this.reference.isEmpty();
+        }
+
+        /**
+         * @param value {@link #reference} (The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').)
+         */
+        public ExceptActorComponent setReference(Reference value) { 
+          this.reference = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #reference} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').)
+         */
+        public Resource getReferenceTarget() { 
+          return this.referenceTarget;
+        }
+
+        /**
+         * @param value {@link #reference} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').)
+         */
+        public ExceptActorComponent setReferenceTarget(Resource value) { 
+          this.referenceTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("role", "CodeableConcept", "How the individual is or was involved in the resourcescontent that is described in the exception.", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("reference", "Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)", "The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').", 0, java.lang.Integer.MAX_VALUE, reference));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
+        case -925155509: /*reference*/ return this.reference == null ? new Base[0] : new Base[] {this.reference}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3506294: // role
+          this.role = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case -925155509: // reference
+          this.reference = castToReference(value); // Reference
+          break;
+        default: super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("role"))
+          this.role = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("reference"))
+          this.reference = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3506294:  return getRole(); // CodeableConcept
+        case -925155509:  return getReference(); // Reference
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("role")) {
+          this.role = new CodeableConcept();
+          return this.role;
+        }
+        else if (name.equals("reference")) {
+          this.reference = new Reference();
+          return this.reference;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public ExceptActorComponent copy() {
+        ExceptActorComponent dst = new ExceptActorComponent();
+        copyValues(dst);
+        dst.role = role == null ? null : role.copy();
+        dst.reference = reference == null ? null : reference.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ExceptActorComponent))
+          return false;
+        ExceptActorComponent o = (ExceptActorComponent) other;
+        return compareDeep(role, o.role, true) && compareDeep(reference, o.reference, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ExceptActorComponent))
+          return false;
+        ExceptActorComponent o = (ExceptActorComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, reference);
+      }
+
+  public String fhirType() {
+    return "Consent.except.actor";
+
+  }
+
+  }
+
+    @Block()
+    public static class ExceptDataComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * How the resource reference is interpreted when testing consent restrictions.
+         */
+        @Child(name = "meaning", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="instance | related | dependents | profile | valueset | document", formalDefinition="How the resource reference is interpreted when testing consent restrictions." )
+        protected Enumeration<ConsentDataMeaning> meaning;
+
+        /**
+         * A reference to a specific resource that defines which resources are covered by this consent.
+         */
+        @Child(name = "reference", type = {}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="The actual data reference", formalDefinition="A reference to a specific resource that defines which resources are covered by this consent." )
+        protected Reference reference;
+
+        /**
+         * The actual object that is the target of the reference (A reference to a specific resource that defines which resources are covered by this consent.)
+         */
+        protected Resource referenceTarget;
+
+        private static final long serialVersionUID = -424898645L;
+
+    /**
+     * Constructor
+     */
+      public ExceptDataComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public ExceptDataComponent(Enumeration<ConsentDataMeaning> meaning, Reference reference) {
+        super();
+        this.meaning = meaning;
+        this.reference = reference;
+      }
+
+        /**
+         * @return {@link #meaning} (How the resource reference is interpreted when testing consent restrictions.). This is the underlying object with id, value and extensions. The accessor "getMeaning" gives direct access to the value
+         */
+        public Enumeration<ConsentDataMeaning> getMeaningElement() { 
+          if (this.meaning == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ExceptDataComponent.meaning");
+            else if (Configuration.doAutoCreate())
+              this.meaning = new Enumeration<ConsentDataMeaning>(new ConsentDataMeaningEnumFactory()); // bb
+          return this.meaning;
+        }
+
+        public boolean hasMeaningElement() { 
+          return this.meaning != null && !this.meaning.isEmpty();
+        }
+
+        public boolean hasMeaning() { 
+          return this.meaning != null && !this.meaning.isEmpty();
+        }
+
+        /**
+         * @param value {@link #meaning} (How the resource reference is interpreted when testing consent restrictions.). This is the underlying object with id, value and extensions. The accessor "getMeaning" gives direct access to the value
+         */
+        public ExceptDataComponent setMeaningElement(Enumeration<ConsentDataMeaning> value) { 
+          this.meaning = value;
+          return this;
+        }
+
+        /**
+         * @return How the resource reference is interpreted when testing consent restrictions.
+         */
+        public ConsentDataMeaning getMeaning() { 
+          return this.meaning == null ? null : this.meaning.getValue();
+        }
+
+        /**
+         * @param value How the resource reference is interpreted when testing consent restrictions.
+         */
+        public ExceptDataComponent setMeaning(ConsentDataMeaning value) { 
+            if (this.meaning == null)
+              this.meaning = new Enumeration<ConsentDataMeaning>(new ConsentDataMeaningEnumFactory());
+            this.meaning.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #reference} (A reference to a specific resource that defines which resources are covered by this consent.)
+         */
+        public Reference getReference() { 
+          if (this.reference == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ExceptDataComponent.reference");
+            else if (Configuration.doAutoCreate())
+              this.reference = new Reference(); // cc
+          return this.reference;
+        }
+
+        public boolean hasReference() { 
+          return this.reference != null && !this.reference.isEmpty();
+        }
+
+        /**
+         * @param value {@link #reference} (A reference to a specific resource that defines which resources are covered by this consent.)
+         */
+        public ExceptDataComponent setReference(Reference value) { 
+          this.reference = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #reference} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a specific resource that defines which resources are covered by this consent.)
+         */
+        public Resource getReferenceTarget() { 
+          return this.referenceTarget;
+        }
+
+        /**
+         * @param value {@link #reference} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a specific resource that defines which resources are covered by this consent.)
+         */
+        public ExceptDataComponent setReferenceTarget(Resource value) { 
+          this.referenceTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("meaning", "code", "How the resource reference is interpreted when testing consent restrictions.", 0, java.lang.Integer.MAX_VALUE, meaning));
+          childrenList.add(new Property("reference", "Reference(Any)", "A reference to a specific resource that defines which resources are covered by this consent.", 0, java.lang.Integer.MAX_VALUE, reference));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 938160637: /*meaning*/ return this.meaning == null ? new Base[0] : new Base[] {this.meaning}; // Enumeration<ConsentDataMeaning>
+        case -925155509: /*reference*/ return this.reference == null ? new Base[0] : new Base[] {this.reference}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 938160637: // meaning
+          this.meaning = new ConsentDataMeaningEnumFactory().fromType(value); // Enumeration<ConsentDataMeaning>
+          break;
+        case -925155509: // reference
+          this.reference = castToReference(value); // Reference
+          break;
+        default: super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("meaning"))
+          this.meaning = new ConsentDataMeaningEnumFactory().fromType(value); // Enumeration<ConsentDataMeaning>
+        else if (name.equals("reference"))
+          this.reference = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 938160637: throw new FHIRException("Cannot make property meaning as it is not a complex type"); // Enumeration<ConsentDataMeaning>
+        case -925155509:  return getReference(); // Reference
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("meaning")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Consent.meaning");
+        }
+        else if (name.equals("reference")) {
+          this.reference = new Reference();
+          return this.reference;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public ExceptDataComponent copy() {
+        ExceptDataComponent dst = new ExceptDataComponent();
+        copyValues(dst);
+        dst.meaning = meaning == null ? null : meaning.copy();
+        dst.reference = reference == null ? null : reference.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ExceptDataComponent))
+          return false;
+        ExceptDataComponent o = (ExceptDataComponent) other;
+        return compareDeep(meaning, o.meaning, true) && compareDeep(reference, o.reference, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ExceptDataComponent))
+          return false;
+        ExceptDataComponent o = (ExceptDataComponent) other;
+        return compareValues(meaning, o.meaning, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(meaning, reference);
+      }
+
+  public String fhirType() {
+    return "Consent.except.data";
 
   }
 
@@ -1533,48 +1549,25 @@ public class Consent extends DomainResource {
     protected UriType policy;
 
     /**
-     * Who or what is controlled by this Consent.
+     * Who or what is this Consent statement is intended for - which entity is being targeted for the consent statement.
      */
-    @Child(name = "actor", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Who|what controlled by this concept (or group, by role)", formalDefinition="Who or what is controlled by this Consent." )
-    protected List<ConsentActorComponent> actor;
-
+    @Child(name = "recipient", type = {Device.class, Group.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Who|what the consent is in regard to", formalDefinition="Who or what is this Consent statement is intended for - which entity is being targeted for the consent statement." )
+    protected List<Reference> recipient;
     /**
-     * Actions controlled by this Consent.
+     * The actual objects that are the target of the reference (Who or what is this Consent statement is intended for - which entity is being targeted for the consent statement.)
      */
-    @Child(name = "action", type = {CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Actions controlled by this consent", formalDefinition="Actions controlled by this Consent." )
-    protected List<CodeableConcept> action;
+    protected List<Resource> recipientTarget;
 
-    /**
-     * A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels.
-     */
-    @Child(name = "securityLabel", type = {Coding.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Security Labels that define affected resources", formalDefinition="A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels." )
-    protected List<Coding> securityLabel;
-
-    /**
-     * A set of security labels that define the context of which actions are controlled by this consent. If more than one label is specified, operations must have all the specified labels.
-     */
-    @Child(name = "purpose", type = {Coding.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Security Labels for the operation/context", formalDefinition="A set of security labels that define the context of which actions are controlled by this consent. If more than one label is specified, operations must have all the specified labels." )
-    protected List<Coding> purpose;
-
-    /**
-     * The resources controlled by this consent.
-     */
-    @Child(name = "data", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Data controlled by this Consent", formalDefinition="The resources controlled by this consent." )
-    protected List<ConsentDataComponent> data;
 
     /**
      * An exception to the base policy of this Consent.
      */
-    @Child(name = "except", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "except", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Consent Exception", formalDefinition="An exception to the base policy of this Consent." )
     protected List<ExceptComponent> except;
 
-    private static final long serialVersionUID = 1278875139L;
+    private static final long serialVersionUID = 746554662L;
 
   /**
    * Constructor
@@ -2018,268 +2011,66 @@ public class Consent extends DomainResource {
     }
 
     /**
-     * @return {@link #actor} (Who or what is controlled by this Consent.)
+     * @return {@link #recipient} (Who or what is this Consent statement is intended for - which entity is being targeted for the consent statement.)
      */
-    public List<ConsentActorComponent> getActor() { 
-      if (this.actor == null)
-        this.actor = new ArrayList<ConsentActorComponent>();
-      return this.actor;
+    public List<Reference> getRecipient() { 
+      if (this.recipient == null)
+        this.recipient = new ArrayList<Reference>();
+      return this.recipient;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public Consent setActor(List<ConsentActorComponent> theActor) { 
-      this.actor = theActor;
+    public Consent setRecipient(List<Reference> theRecipient) { 
+      this.recipient = theRecipient;
       return this;
     }
 
-    public boolean hasActor() { 
-      if (this.actor == null)
+    public boolean hasRecipient() { 
+      if (this.recipient == null)
         return false;
-      for (ConsentActorComponent item : this.actor)
+      for (Reference item : this.recipient)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public ConsentActorComponent addActor() { //3
-      ConsentActorComponent t = new ConsentActorComponent();
-      if (this.actor == null)
-        this.actor = new ArrayList<ConsentActorComponent>();
-      this.actor.add(t);
+    public Reference addRecipient() { //3
+      Reference t = new Reference();
+      if (this.recipient == null)
+        this.recipient = new ArrayList<Reference>();
+      this.recipient.add(t);
       return t;
     }
 
-    public Consent addActor(ConsentActorComponent t) { //3
+    public Consent addRecipient(Reference t) { //3
       if (t == null)
         return this;
-      if (this.actor == null)
-        this.actor = new ArrayList<ConsentActorComponent>();
-      this.actor.add(t);
+      if (this.recipient == null)
+        this.recipient = new ArrayList<Reference>();
+      this.recipient.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #actor}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #recipient}, creating it if it does not already exist
      */
-    public ConsentActorComponent getActorFirstRep() { 
-      if (getActor().isEmpty()) {
-        addActor();
+    public Reference getRecipientFirstRep() { 
+      if (getRecipient().isEmpty()) {
+        addRecipient();
       }
-      return getActor().get(0);
+      return getRecipient().get(0);
     }
 
     /**
-     * @return {@link #action} (Actions controlled by this Consent.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
-    public List<CodeableConcept> getAction() { 
-      if (this.action == null)
-        this.action = new ArrayList<CodeableConcept>();
-      return this.action;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public Consent setAction(List<CodeableConcept> theAction) { 
-      this.action = theAction;
-      return this;
-    }
-
-    public boolean hasAction() { 
-      if (this.action == null)
-        return false;
-      for (CodeableConcept item : this.action)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    public CodeableConcept addAction() { //3
-      CodeableConcept t = new CodeableConcept();
-      if (this.action == null)
-        this.action = new ArrayList<CodeableConcept>();
-      this.action.add(t);
-      return t;
-    }
-
-    public Consent addAction(CodeableConcept t) { //3
-      if (t == null)
-        return this;
-      if (this.action == null)
-        this.action = new ArrayList<CodeableConcept>();
-      this.action.add(t);
-      return this;
-    }
-
-    /**
-     * @return The first repetition of repeating field {@link #action}, creating it if it does not already exist
-     */
-    public CodeableConcept getActionFirstRep() { 
-      if (getAction().isEmpty()) {
-        addAction();
-      }
-      return getAction().get(0);
-    }
-
-    /**
-     * @return {@link #securityLabel} (A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels.)
-     */
-    public List<Coding> getSecurityLabel() { 
-      if (this.securityLabel == null)
-        this.securityLabel = new ArrayList<Coding>();
-      return this.securityLabel;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public Consent setSecurityLabel(List<Coding> theSecurityLabel) { 
-      this.securityLabel = theSecurityLabel;
-      return this;
-    }
-
-    public boolean hasSecurityLabel() { 
-      if (this.securityLabel == null)
-        return false;
-      for (Coding item : this.securityLabel)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    public Coding addSecurityLabel() { //3
-      Coding t = new Coding();
-      if (this.securityLabel == null)
-        this.securityLabel = new ArrayList<Coding>();
-      this.securityLabel.add(t);
-      return t;
-    }
-
-    public Consent addSecurityLabel(Coding t) { //3
-      if (t == null)
-        return this;
-      if (this.securityLabel == null)
-        this.securityLabel = new ArrayList<Coding>();
-      this.securityLabel.add(t);
-      return this;
-    }
-
-    /**
-     * @return The first repetition of repeating field {@link #securityLabel}, creating it if it does not already exist
-     */
-    public Coding getSecurityLabelFirstRep() { 
-      if (getSecurityLabel().isEmpty()) {
-        addSecurityLabel();
-      }
-      return getSecurityLabel().get(0);
-    }
-
-    /**
-     * @return {@link #purpose} (A set of security labels that define the context of which actions are controlled by this consent. If more than one label is specified, operations must have all the specified labels.)
-     */
-    public List<Coding> getPurpose() { 
-      if (this.purpose == null)
-        this.purpose = new ArrayList<Coding>();
-      return this.purpose;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public Consent setPurpose(List<Coding> thePurpose) { 
-      this.purpose = thePurpose;
-      return this;
-    }
-
-    public boolean hasPurpose() { 
-      if (this.purpose == null)
-        return false;
-      for (Coding item : this.purpose)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    public Coding addPurpose() { //3
-      Coding t = new Coding();
-      if (this.purpose == null)
-        this.purpose = new ArrayList<Coding>();
-      this.purpose.add(t);
-      return t;
-    }
-
-    public Consent addPurpose(Coding t) { //3
-      if (t == null)
-        return this;
-      if (this.purpose == null)
-        this.purpose = new ArrayList<Coding>();
-      this.purpose.add(t);
-      return this;
-    }
-
-    /**
-     * @return The first repetition of repeating field {@link #purpose}, creating it if it does not already exist
-     */
-    public Coding getPurposeFirstRep() { 
-      if (getPurpose().isEmpty()) {
-        addPurpose();
-      }
-      return getPurpose().get(0);
-    }
-
-    /**
-     * @return {@link #data} (The resources controlled by this consent.)
-     */
-    public List<ConsentDataComponent> getData() { 
-      if (this.data == null)
-        this.data = new ArrayList<ConsentDataComponent>();
-      return this.data;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public Consent setData(List<ConsentDataComponent> theData) { 
-      this.data = theData;
-      return this;
-    }
-
-    public boolean hasData() { 
-      if (this.data == null)
-        return false;
-      for (ConsentDataComponent item : this.data)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    public ConsentDataComponent addData() { //3
-      ConsentDataComponent t = new ConsentDataComponent();
-      if (this.data == null)
-        this.data = new ArrayList<ConsentDataComponent>();
-      this.data.add(t);
-      return t;
-    }
-
-    public Consent addData(ConsentDataComponent t) { //3
-      if (t == null)
-        return this;
-      if (this.data == null)
-        this.data = new ArrayList<ConsentDataComponent>();
-      this.data.add(t);
-      return this;
-    }
-
-    /**
-     * @return The first repetition of repeating field {@link #data}, creating it if it does not already exist
-     */
-    public ConsentDataComponent getDataFirstRep() { 
-      if (getData().isEmpty()) {
-        addData();
-      }
-      return getData().get(0);
+    @Deprecated
+    public List<Resource> getRecipientTarget() { 
+      if (this.recipientTarget == null)
+        this.recipientTarget = new ArrayList<Resource>();
+      return this.recipientTarget;
     }
 
     /**
@@ -2347,11 +2138,7 @@ public class Consent extends DomainResource {
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization that manages the consent, and the framework within which it is executed.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("source[x]", "Attachment|Identifier|Reference(Consent|DocumentReference|Contract|Questionnaire)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("policy", "uri", "A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law.", 0, java.lang.Integer.MAX_VALUE, policy));
-        childrenList.add(new Property("actor", "", "Who or what is controlled by this Consent.", 0, java.lang.Integer.MAX_VALUE, actor));
-        childrenList.add(new Property("action", "CodeableConcept", "Actions controlled by this Consent.", 0, java.lang.Integer.MAX_VALUE, action));
-        childrenList.add(new Property("securityLabel", "Coding", "A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels.", 0, java.lang.Integer.MAX_VALUE, securityLabel));
-        childrenList.add(new Property("purpose", "Coding", "A set of security labels that define the context of which actions are controlled by this consent. If more than one label is specified, operations must have all the specified labels.", 0, java.lang.Integer.MAX_VALUE, purpose));
-        childrenList.add(new Property("data", "", "The resources controlled by this consent.", 0, java.lang.Integer.MAX_VALUE, data));
+        childrenList.add(new Property("recipient", "Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)", "Who or what is this Consent statement is intended for - which entity is being targeted for the consent statement.", 0, java.lang.Integer.MAX_VALUE, recipient));
         childrenList.add(new Property("except", "", "An exception to the base policy of this Consent.", 0, java.lang.Integer.MAX_VALUE, except));
       }
 
@@ -2368,11 +2155,7 @@ public class Consent extends DomainResource {
         case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
         case -896505829: /*source*/ return this.source == null ? new Base[0] : new Base[] {this.source}; // Type
         case -982670030: /*policy*/ return this.policy == null ? new Base[0] : new Base[] {this.policy}; // UriType
-        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : this.actor.toArray(new Base[this.actor.size()]); // ConsentActorComponent
-        case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // CodeableConcept
-        case -722296940: /*securityLabel*/ return this.securityLabel == null ? new Base[0] : this.securityLabel.toArray(new Base[this.securityLabel.size()]); // Coding
-        case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : this.purpose.toArray(new Base[this.purpose.size()]); // Coding
-        case 3076010: /*data*/ return this.data == null ? new Base[0] : this.data.toArray(new Base[this.data.size()]); // ConsentDataComponent
+        case 820081177: /*recipient*/ return this.recipient == null ? new Base[0] : this.recipient.toArray(new Base[this.recipient.size()]); // Reference
         case -1289550567: /*except*/ return this.except == null ? new Base[0] : this.except.toArray(new Base[this.except.size()]); // ExceptComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -2412,20 +2195,8 @@ public class Consent extends DomainResource {
         case -982670030: // policy
           this.policy = castToUri(value); // UriType
           break;
-        case 92645877: // actor
-          this.getActor().add((ConsentActorComponent) value); // ConsentActorComponent
-          break;
-        case -1422950858: // action
-          this.getAction().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
-        case -722296940: // securityLabel
-          this.getSecurityLabel().add(castToCoding(value)); // Coding
-          break;
-        case -220463842: // purpose
-          this.getPurpose().add(castToCoding(value)); // Coding
-          break;
-        case 3076010: // data
-          this.getData().add((ConsentDataComponent) value); // ConsentDataComponent
+        case 820081177: // recipient
+          this.getRecipient().add(castToReference(value)); // Reference
           break;
         case -1289550567: // except
           this.getExcept().add((ExceptComponent) value); // ExceptComponent
@@ -2457,16 +2228,8 @@ public class Consent extends DomainResource {
           this.source = (Type) value; // Type
         else if (name.equals("policy"))
           this.policy = castToUri(value); // UriType
-        else if (name.equals("actor"))
-          this.getActor().add((ConsentActorComponent) value);
-        else if (name.equals("action"))
-          this.getAction().add(castToCodeableConcept(value));
-        else if (name.equals("securityLabel"))
-          this.getSecurityLabel().add(castToCoding(value));
-        else if (name.equals("purpose"))
-          this.getPurpose().add(castToCoding(value));
-        else if (name.equals("data"))
-          this.getData().add((ConsentDataComponent) value);
+        else if (name.equals("recipient"))
+          this.getRecipient().add(castToReference(value));
         else if (name.equals("except"))
           this.getExcept().add((ExceptComponent) value);
         else
@@ -2486,11 +2249,7 @@ public class Consent extends DomainResource {
         case 1178922291:  return getOrganization(); // Reference
         case -1698413947:  return getSource(); // Type
         case -982670030: throw new FHIRException("Cannot make property policy as it is not a complex type"); // UriType
-        case 92645877:  return addActor(); // ConsentActorComponent
-        case -1422950858:  return addAction(); // CodeableConcept
-        case -722296940:  return addSecurityLabel(); // Coding
-        case -220463842:  return addPurpose(); // Coding
-        case 3076010:  return addData(); // ConsentDataComponent
+        case 820081177:  return addRecipient(); // Reference
         case -1289550567:  return addExcept(); // ExceptComponent
         default: return super.makeProperty(hash, name);
         }
@@ -2543,20 +2302,8 @@ public class Consent extends DomainResource {
         else if (name.equals("policy")) {
           throw new FHIRException("Cannot call addChild on a primitive type Consent.policy");
         }
-        else if (name.equals("actor")) {
-          return addActor();
-        }
-        else if (name.equals("action")) {
-          return addAction();
-        }
-        else if (name.equals("securityLabel")) {
-          return addSecurityLabel();
-        }
-        else if (name.equals("purpose")) {
-          return addPurpose();
-        }
-        else if (name.equals("data")) {
-          return addData();
+        else if (name.equals("recipient")) {
+          return addRecipient();
         }
         else if (name.equals("except")) {
           return addExcept();
@@ -2587,30 +2334,10 @@ public class Consent extends DomainResource {
         dst.organization = organization == null ? null : organization.copy();
         dst.source = source == null ? null : source.copy();
         dst.policy = policy == null ? null : policy.copy();
-        if (actor != null) {
-          dst.actor = new ArrayList<ConsentActorComponent>();
-          for (ConsentActorComponent i : actor)
-            dst.actor.add(i.copy());
-        };
-        if (action != null) {
-          dst.action = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : action)
-            dst.action.add(i.copy());
-        };
-        if (securityLabel != null) {
-          dst.securityLabel = new ArrayList<Coding>();
-          for (Coding i : securityLabel)
-            dst.securityLabel.add(i.copy());
-        };
-        if (purpose != null) {
-          dst.purpose = new ArrayList<Coding>();
-          for (Coding i : purpose)
-            dst.purpose.add(i.copy());
-        };
-        if (data != null) {
-          dst.data = new ArrayList<ConsentDataComponent>();
-          for (ConsentDataComponent i : data)
-            dst.data.add(i.copy());
+        if (recipient != null) {
+          dst.recipient = new ArrayList<Reference>();
+          for (Reference i : recipient)
+            dst.recipient.add(i.copy());
         };
         if (except != null) {
           dst.except = new ArrayList<ExceptComponent>();
@@ -2634,9 +2361,8 @@ public class Consent extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(category, o.category, true)
            && compareDeep(dateTime, o.dateTime, true) && compareDeep(period, o.period, true) && compareDeep(patient, o.patient, true)
            && compareDeep(author, o.author, true) && compareDeep(organization, o.organization, true) && compareDeep(source, o.source, true)
-           && compareDeep(policy, o.policy, true) && compareDeep(actor, o.actor, true) && compareDeep(action, o.action, true)
-           && compareDeep(securityLabel, o.securityLabel, true) && compareDeep(purpose, o.purpose, true) && compareDeep(data, o.data, true)
-           && compareDeep(except, o.except, true);
+           && compareDeep(policy, o.policy, true) && compareDeep(recipient, o.recipient, true) && compareDeep(except, o.except, true)
+          ;
       }
 
       @Override
@@ -2652,8 +2378,8 @@ public class Consent extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
-          , dateTime, period, patient, author, organization, source, policy, actor, action
-          , securityLabel, purpose, data, except);
+          , dateTime, period, patient, author, organization, source, policy, recipient
+          , except);
       }
 
   @Override
@@ -2724,19 +2450,19 @@ public class Consent extends DomainResource {
  /**
    * Search parameter: <b>data</b>
    * <p>
-   * Description: <b>The identity of the topic of the consent</b><br>
+   * Description: <b>The actual data reference</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Consent.data.reference, Consent.except.data.reference</b><br>
+   * Path: <b>Consent.except.data.reference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="data", path="Consent.data.reference | Consent.except.data.reference", description="The identity of the topic of the consent", type="reference" )
+  @SearchParamDefinition(name="data", path="Consent.except.data.reference", description="The actual data reference", type="reference" )
   public static final String SP_DATA = "data";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>data</b>
    * <p>
-   * Description: <b>The identity of the topic of the consent</b><br>
+   * Description: <b>The actual data reference</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Consent.data.reference, Consent.except.data.reference</b><br>
+   * Path: <b>Consent.except.data.reference</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DATA = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DATA);
@@ -2752,17 +2478,17 @@ public class Consent extends DomainResource {
    * <p>
    * Description: <b>Security Labels for the operation/context</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Consent.purpose, Consent.except.purpose</b><br>
+   * Path: <b>Consent.except.purpose</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="purpose", path="Consent.purpose | Consent.except.purpose", description="Security Labels for the operation/context", type="token" )
+  @SearchParamDefinition(name="purpose", path="Consent.except.purpose", description="Security Labels for the operation/context", type="token" )
   public static final String SP_PURPOSE = "purpose";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>purpose</b>
    * <p>
    * Description: <b>Security Labels for the operation/context</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Consent.purpose, Consent.except.purpose</b><br>
+   * Path: <b>Consent.except.purpose</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PURPOSE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PURPOSE);
@@ -2824,17 +2550,17 @@ public class Consent extends DomainResource {
    * <p>
    * Description: <b>Resource for the actor (or group, by role)</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Consent.actor.reference, Consent.except.actor.reference</b><br>
+   * Path: <b>Consent.except.actor.reference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="actor", path="Consent.actor.reference | Consent.except.actor.reference", description="Resource for the actor (or group, by role)", type="reference" )
+  @SearchParamDefinition(name="actor", path="Consent.except.actor.reference", description="Resource for the actor (or group, by role)", type="reference" )
   public static final String SP_ACTOR = "actor";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>actor</b>
    * <p>
    * Description: <b>Resource for the actor (or group, by role)</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Consent.actor.reference, Consent.except.actor.reference</b><br>
+   * Path: <b>Consent.except.actor.reference</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ACTOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ACTOR);
@@ -2850,17 +2576,17 @@ public class Consent extends DomainResource {
    * <p>
    * Description: <b>Security Labels that define affected resources</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Consent.securityLabel, Consent.except.securityLabel</b><br>
+   * Path: <b>Consent.except.securityLabel</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="security", path="Consent.securityLabel | Consent.except.securityLabel", description="Security Labels that define affected resources", type="token" )
+  @SearchParamDefinition(name="security", path="Consent.except.securityLabel", description="Security Labels that define affected resources", type="token" )
   public static final String SP_SECURITY = "security";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>security</b>
    * <p>
    * Description: <b>Security Labels that define affected resources</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Consent.securityLabel, Consent.except.securityLabel</b><br>
+   * Path: <b>Consent.except.securityLabel</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SECURITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SECURITY);
@@ -2918,21 +2644,47 @@ public class Consent extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("Consent:organization").toLocked();
 
  /**
-   * Search parameter: <b>action</b>
+   * Search parameter: <b>recipient</b>
    * <p>
-   * Description: <b>Actions controlled by this consent</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Consent.action, Consent.except.action</b><br>
+   * Description: <b>Who|what the consent is in regard to</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Consent.recipient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="action", path="Consent.action | Consent.except.action", description="Actions controlled by this consent", type="token" )
+  @SearchParamDefinition(name="recipient", path="Consent.recipient", description="Who|what the consent is in regard to", type="reference" )
+  public static final String SP_RECIPIENT = "recipient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>recipient</b>
+   * <p>
+   * Description: <b>Who|what the consent is in regard to</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Consent.recipient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RECIPIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RECIPIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Consent:recipient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_RECIPIENT = new ca.uhn.fhir.model.api.Include("Consent:recipient").toLocked();
+
+ /**
+   * Search parameter: <b>action</b>
+   * <p>
+   * Description: <b>Actions controlled by this exception</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Consent.except.action</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="action", path="Consent.except.action", description="Actions controlled by this exception", type="token" )
   public static final String SP_ACTION = "action";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>action</b>
    * <p>
-   * Description: <b>Actions controlled by this consent</b><br>
+   * Description: <b>Actions controlled by this exception</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Consent.action, Consent.except.action</b><br>
+   * Path: <b>Consent.except.action</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTION);
